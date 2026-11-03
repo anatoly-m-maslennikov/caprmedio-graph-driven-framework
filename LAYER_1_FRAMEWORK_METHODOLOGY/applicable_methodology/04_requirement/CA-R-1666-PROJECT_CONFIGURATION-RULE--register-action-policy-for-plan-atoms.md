@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type'
 version: 37
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1666-PROJECT_CONFIGURATION-RULE--register-action-policy-for-plan-atoms.md
   source_atom_id: CA-R-1666
   source_atom_revision: 37
-  source_sha256: 0081f97ce1fb8a01dc7b971fb5fe34029fd844cb4d2736c9f6d7f1d3b140c29c
+  source_sha256: 016c98962a09a2fd7b36b4e4c971e4d93472fa54e12c4d2a45c4d7e551c7618c
   original_relations_sha256: c3b23f4c34d6b85b9d514b3747fa951a7f916bb144b02ace9a5f12c72e8c9605
 ---
 ## Summary

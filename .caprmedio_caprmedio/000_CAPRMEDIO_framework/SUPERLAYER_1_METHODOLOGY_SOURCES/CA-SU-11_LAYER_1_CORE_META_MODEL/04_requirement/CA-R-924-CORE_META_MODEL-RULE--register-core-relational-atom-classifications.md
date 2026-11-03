@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Type
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Type
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
 version: 37
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

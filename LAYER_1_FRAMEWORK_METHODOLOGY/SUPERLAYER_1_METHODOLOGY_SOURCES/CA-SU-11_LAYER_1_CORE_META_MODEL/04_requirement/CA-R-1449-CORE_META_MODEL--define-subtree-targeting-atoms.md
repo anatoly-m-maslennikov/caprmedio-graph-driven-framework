@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
   passive:
-  - Atom
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

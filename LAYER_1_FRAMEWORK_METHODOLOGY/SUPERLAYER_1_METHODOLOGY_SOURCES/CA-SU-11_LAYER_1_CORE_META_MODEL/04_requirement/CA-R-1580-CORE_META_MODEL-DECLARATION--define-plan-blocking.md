@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CFEL <+ Relation//BLOCKS
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//BLOCKS
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - Projection
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done'
-  - Atom
-  - CFEL > Relation//DEPENDS_ON
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done'
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//DEPENDS_ON
 version: 26
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

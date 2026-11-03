@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 subjects:
-  active: Carrier/File
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File
 relations: {}
 version: 3
 updated_at: 2026-11-02 00:18:22 +0400
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2269-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-and-yaml-regions-in-a-file-carrier.md
   source_atom_id: CA-R-2269
   source_atom_revision: 3
-  source_sha256: 8dfef4da4e1ad82d2b8e32f6a9126d8ca37c4408dd3559ce049e0eedd5b9e800
+  source_sha256: 8b7022dcfc3e2fe06f555aa4db8002428c8717386d4d33121b6dd33b9a7acbee
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

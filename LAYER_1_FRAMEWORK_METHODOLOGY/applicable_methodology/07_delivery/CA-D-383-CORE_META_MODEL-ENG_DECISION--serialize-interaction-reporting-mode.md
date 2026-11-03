@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   passive:
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode
 version: 31
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-ENG_DECISION--serialize-interaction-reporting-mode.md
   source_atom_id: CA-D-383
   source_atom_revision: 31
-  source_sha256: 579d86a2d880c197656d732c0f36d52bb7381c4f6744a3c0faea787767ea06e5
+  source_sha256: 532e63244fbccfe4ade399ebb56eb2bb83e091b513bc05935dc9d218df0d9270
   original_relations_sha256: 53d74772fdb461981b4e76418975fdc02f46377b9dd610d7cd45dbfb728e82d4
 ---
 ## Summary

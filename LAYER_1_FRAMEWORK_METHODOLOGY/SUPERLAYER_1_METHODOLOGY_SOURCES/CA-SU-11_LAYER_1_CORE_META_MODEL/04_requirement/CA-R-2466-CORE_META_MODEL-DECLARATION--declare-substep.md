@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom/(.Role := Operations)/Substep
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Substep
 version: 4
 updated_at: 2026-11-02 17:54:42 +0400
 relations: {}

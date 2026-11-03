@@ -20,7 +20,7 @@ updated_at: 2026-10-27 19:59:46 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-140-PROJECT_CONFIGURATION-STEP--prepare-project-structure-maintenance-change.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-140-PROJECT_CONFIGURATION-STEP--prepare-project-structure-maintenance-change.md
   source_atom_id: CA-O-140
   source_atom_revision: 13
   source_sha256: 50abef856378a734dd4b8b51e501f57d9a146709bf183b0f3cd72f20d7e8e3d4

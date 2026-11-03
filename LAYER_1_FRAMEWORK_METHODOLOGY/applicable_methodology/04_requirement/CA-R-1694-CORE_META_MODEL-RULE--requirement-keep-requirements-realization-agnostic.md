@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Atom/(.Role := Requirement)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
   passive:
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Delivery)
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
 version: 41
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-RULE--requirement-keep-requirements-realization-agnostic.md
   source_atom_id: CA-R-1694
   source_atom_revision: 41
-  source_sha256: 3827aa7888151561d1a50deb49fdf9284a3a73f7548daffeb4298a94f00736ef
+  source_sha256: 046050052a8d13c16b6f00bd4335330c3185f38213b1957cbe0fe70b7bad6d96
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

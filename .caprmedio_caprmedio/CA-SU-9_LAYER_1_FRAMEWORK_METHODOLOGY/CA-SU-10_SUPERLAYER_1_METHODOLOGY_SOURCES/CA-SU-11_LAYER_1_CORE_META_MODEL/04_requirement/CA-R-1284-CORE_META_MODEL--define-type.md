@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - 'Entity/Object/Continuant/Projection/(.Type: Applicable Methodology)'
-  - Scope Unit
-  - Term//Type
-  - CFEL
-  - Entity/Property
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Applicable Methodology)'
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Term//Type
+  - CAPRMEDIO_MODEL <+ CFEL
+  - CAPRMEDIO_MODEL <+ Entity/Property
 version: 27
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}

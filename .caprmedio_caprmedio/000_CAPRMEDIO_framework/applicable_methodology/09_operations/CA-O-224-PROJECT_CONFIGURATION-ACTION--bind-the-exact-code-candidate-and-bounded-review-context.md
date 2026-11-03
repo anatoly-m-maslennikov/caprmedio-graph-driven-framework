@@ -21,7 +21,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-224-PROJECT_CONFIGURATION-ACTION--bind-the-exact-code-candidate-and-bounded-review-context.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-224-PROJECT_CONFIGURATION-ACTION--bind-the-exact-code-candidate-and-bounded-review-context.md
   source_atom_id: CA-O-224
   source_atom_revision: 13
   source_sha256: 0092aeae0759acc91cc7db85dd0d67eb4d981dafd05b0095d60dbfa920e41855

@@ -10,15 +10,15 @@ relations:
   - CA-R-1407
   - CA-R-007
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - Project
-  - Entity
-  - Entity/Object/Continuant/Term//Artifact
-  - Aspects <+ Engineering <+ Traceability
-  - Scope Unit
-  - Aspects <+ Engineering <+ Architecture <+ Component Structure
-  - Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-436

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
   passive:
-  - Entity
-  - Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL--connect-every-caprmedio-graph-through-the-general-artifact-graph.md
   source_atom_id: CA-R-1410
   source_atom_revision: 22
-  source_sha256: 391ba32d2b6d40374e039a22f89970fc58dccd89b77b0a2df93a9652a20799f3
+  source_sha256: 1ab4640b472e01db6f89316a9778eae2d08af1279121ebbe71c2716cf9c2b869
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

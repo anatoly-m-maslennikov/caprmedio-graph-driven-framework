@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1721-CORE_META_MODEL-RULE--allow-scope-sets-to-vary-by-structural-owner.md
   source_atom_id: CA-R-1721
   source_atom_revision: 32
-  source_sha256: dcb8c55738897aaf7a67590e45085263b3ac805cc0aafa9f68d84a483c780fba
+  source_sha256: 0aa73e69183790609a2928e1174e82f088b8133e744ec7507000118ca0785d88
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

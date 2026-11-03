@@ -7,12 +7,12 @@ tier: 1
 version: 3
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: Carrier/File/Markdown/Markdown Atom Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File/Markdown/Markdown Atom Carrier
   passive:
-  - Carrier/File/Markdown
-  - Atom
-  - Carrier/File.YAML Frontmatter
-  - Carrier/File.Main Content
+  - CAPRMEDIO <+ MODEL <+ Carrier/File/Markdown
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.YAML Frontmatter
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
 relations: {}
 role: Requirement
 form: Entity Definition

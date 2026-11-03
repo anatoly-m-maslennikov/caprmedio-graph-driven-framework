@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/History/Release.ID
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Release.ID
   passive:
-  - Entity/Object/Continuant/History/Release.ID
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Aspects <+ Engineering <+ Traceability
-  - Atom/(.Role := Operations)
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Atom/(.Role := Delivery)
-  - Atom/(.Role := Evaluation)
-  - Scope Unit
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Release.ID
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 38
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -24,10 +24,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1692-PROJECT_CONFIGURATION-RULE--requirement-freeze-a-version-only-at-release.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1692-PROJECT_CONFIGURATION-RULE--requirement-freeze-a-version-only-at-release.md
   source_atom_id: CA-R-1692
   source_atom_revision: 38
-  source_sha256: e6a1b217566a382a94b6f01694911e0e641f768e42b4fe03fb34959cfa53e406
+  source_sha256: d8e79e9177348861e6b682dab9b784e542b5d5c9987a6cd7f8e8c917da37a293
   original_relations_sha256: 9524423f93502e18e8ae3356212fbe4edc2c2d857c1cf4b20d69da517033d424
 ---
 ## Summary

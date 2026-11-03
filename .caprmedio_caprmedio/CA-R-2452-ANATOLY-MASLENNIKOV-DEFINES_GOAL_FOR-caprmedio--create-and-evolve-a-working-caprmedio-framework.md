@@ -2,10 +2,10 @@
 version: 4
 updated_at: 2026-11-02 18:35:20 +0400
 subjects:
-  active: Aspects <+ Product
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-2452

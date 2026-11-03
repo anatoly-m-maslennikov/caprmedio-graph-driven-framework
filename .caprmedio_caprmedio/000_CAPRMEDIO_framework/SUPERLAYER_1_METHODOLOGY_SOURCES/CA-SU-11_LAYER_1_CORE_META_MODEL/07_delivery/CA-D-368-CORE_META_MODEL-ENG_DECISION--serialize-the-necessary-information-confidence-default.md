@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold
   passive:
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 29
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

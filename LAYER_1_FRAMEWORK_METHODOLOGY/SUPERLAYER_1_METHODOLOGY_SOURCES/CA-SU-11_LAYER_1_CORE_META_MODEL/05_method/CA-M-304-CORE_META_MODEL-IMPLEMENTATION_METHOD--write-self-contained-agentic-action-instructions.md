@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind: Agentic'
-  - Entity/Object/Occurrent/Execution
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind: Agentic'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

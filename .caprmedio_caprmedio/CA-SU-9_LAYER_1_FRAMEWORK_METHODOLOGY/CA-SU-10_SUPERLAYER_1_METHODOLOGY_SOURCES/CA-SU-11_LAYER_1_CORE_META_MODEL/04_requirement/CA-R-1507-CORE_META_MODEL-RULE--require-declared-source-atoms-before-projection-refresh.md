@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - Atom
+  - CAPRMEDIO_MODEL <+ Atom
 version: 19
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

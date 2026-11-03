@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs
-  - Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 40
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

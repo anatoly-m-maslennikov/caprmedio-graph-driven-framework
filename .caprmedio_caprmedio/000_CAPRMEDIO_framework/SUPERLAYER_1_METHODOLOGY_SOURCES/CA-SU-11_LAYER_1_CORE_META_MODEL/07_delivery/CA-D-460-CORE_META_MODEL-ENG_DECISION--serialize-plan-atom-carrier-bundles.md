@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
   passive:
-  - Atom/(.Role := Plan)
-  - Carrier/File
-  - Carrier/Directory
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

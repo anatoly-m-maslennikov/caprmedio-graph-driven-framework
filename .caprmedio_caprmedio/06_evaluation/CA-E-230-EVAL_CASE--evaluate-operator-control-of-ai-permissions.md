@@ -7,13 +7,13 @@ relations:
   evaluation_for:
   - CA-R-846
 subjects:
-  active: Entity/Object/Continuant/Actor/AI Agent.Permissions
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  - Entity/Object/Continuant/Actor/AI Agent
-  - Carrier
-  - Aspects <+ Engineering <+ Verification <+ Dynamic Testing
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Dynamic Testing
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:

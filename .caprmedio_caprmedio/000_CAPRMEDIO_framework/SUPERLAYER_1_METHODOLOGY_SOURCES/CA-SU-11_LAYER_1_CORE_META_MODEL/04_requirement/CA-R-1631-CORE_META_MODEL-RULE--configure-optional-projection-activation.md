@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   passive:
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

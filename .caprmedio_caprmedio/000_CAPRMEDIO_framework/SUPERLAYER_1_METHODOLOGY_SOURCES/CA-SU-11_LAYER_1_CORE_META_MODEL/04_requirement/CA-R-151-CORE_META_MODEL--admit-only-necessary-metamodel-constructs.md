@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

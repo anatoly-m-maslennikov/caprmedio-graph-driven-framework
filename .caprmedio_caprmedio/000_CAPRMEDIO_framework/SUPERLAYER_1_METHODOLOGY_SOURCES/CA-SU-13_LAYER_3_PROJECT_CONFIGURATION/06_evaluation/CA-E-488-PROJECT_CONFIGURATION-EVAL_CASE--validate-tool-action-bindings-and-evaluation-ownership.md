@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Package
+  active: CAPRMEDIO <+ MODEL <+ Package
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - Entity/Object/Continuant/Selection//Methodology Sources
-  - Scope Unit
-  - Atom/(.Role := Operations)
-  - Atom/(.Role := Evaluation)
-  - Aspects <+ Engineering <+ Traceability
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

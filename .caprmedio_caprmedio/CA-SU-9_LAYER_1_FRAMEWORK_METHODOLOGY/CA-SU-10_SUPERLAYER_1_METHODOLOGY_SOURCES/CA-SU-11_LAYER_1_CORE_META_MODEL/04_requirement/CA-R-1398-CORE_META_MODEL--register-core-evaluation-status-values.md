@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation.Status'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation.Status'
   passive:
-  - Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

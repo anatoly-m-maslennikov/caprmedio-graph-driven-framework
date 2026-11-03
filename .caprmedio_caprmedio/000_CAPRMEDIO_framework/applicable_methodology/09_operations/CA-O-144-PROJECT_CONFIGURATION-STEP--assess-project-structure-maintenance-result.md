@@ -24,7 +24,7 @@ relations:
   - CA-R-1527
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-144-PROJECT_CONFIGURATION-STEP--assess-project-structure-maintenance-result.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-144-PROJECT_CONFIGURATION-STEP--assess-project-structure-maintenance-result.md
   source_atom_id: CA-O-144
   source_atom_revision: 14
   source_sha256: cdcde737a756e360611e0ab4f4485be808b7ef6add3439d6f130bd109e261d52

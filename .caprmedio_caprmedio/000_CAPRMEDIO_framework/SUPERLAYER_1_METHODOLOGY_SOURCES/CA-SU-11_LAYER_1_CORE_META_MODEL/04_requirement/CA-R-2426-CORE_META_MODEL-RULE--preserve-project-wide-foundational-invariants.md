@@ -5,11 +5,11 @@ relations:
   child_of:
   - CA-M-447
 subjects:
-  active: Project
+  active: CAPRMEDIO <+ MODEL <+ Project
   passive:
-  - Project
-  - Atom.Tier
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
 atom_id: CA-R-2426
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

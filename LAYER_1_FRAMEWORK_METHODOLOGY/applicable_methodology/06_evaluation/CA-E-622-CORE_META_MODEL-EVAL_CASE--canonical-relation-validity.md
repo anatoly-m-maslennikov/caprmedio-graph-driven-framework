@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
   passive:
-  - Atom
-  - Atom.Role
-  - Atom.Status
-  - Journal
-  - CFEL <+ Relation
-  - Entity
-  - Projection/(.Form:=Applicable Methodology)
-  - Projection
-  - Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Role
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 53
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -38,7 +38,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md
   source_atom_id: CA-E-622
   source_atom_revision: 53
-  source_sha256: 9d6f505d3e6d2234209e01f1c695e0c0da5fa11d95909fa46ab1eb3fdf097712
+  source_sha256: 49669eaea77fe21e85b91df4bb11e8661888280c0376daec3fedb3e48022afdd
   original_relations_sha256: 357e7479e6ae13967f90b616d81d1e027f95992fe72c504d878c5095c9e39d9f
 ---
 ## Summary

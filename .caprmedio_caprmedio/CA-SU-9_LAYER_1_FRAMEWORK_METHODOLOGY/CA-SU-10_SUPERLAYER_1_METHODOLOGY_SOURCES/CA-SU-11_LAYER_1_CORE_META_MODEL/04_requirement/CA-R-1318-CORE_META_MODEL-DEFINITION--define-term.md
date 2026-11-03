@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: Term
+  active: CAPRMEDIO_MODEL <+ Term
   passive:
-  - Project
-  - Entity
-  - Term.Name
-  - Term//Term
-  - Term//Empty
-  - Term//ID
-  - Term//Entity
-  - Entity/Property
-  - Term//Property
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term.Name
+  - CAPRMEDIO_MODEL <+ Term//Term
+  - CAPRMEDIO_MODEL <+ Term//Empty
+  - CAPRMEDIO_MODEL <+ Term//ID
+  - CAPRMEDIO_MODEL <+ Term//Entity
+  - CAPRMEDIO_MODEL <+ Entity/Property
+  - CAPRMEDIO_MODEL <+ Term//Property
 version: 32
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}

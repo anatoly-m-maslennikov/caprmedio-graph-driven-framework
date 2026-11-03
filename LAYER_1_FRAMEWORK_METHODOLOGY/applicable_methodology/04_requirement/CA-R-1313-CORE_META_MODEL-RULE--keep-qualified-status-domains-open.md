@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom.Status
+  active: CAPRMEDIO <+ MODEL <+ Atom.Status
   passive:
-  - Entity/Object/Continuant/Selection//Extension Sources
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-RULE--keep-qualified-status-domains-open.md
   source_atom_id: CA-R-1313
   source_atom_revision: 27
-  source_sha256: 200cf5d365e03dcb74600381a2c677e6ac745fc4c9cb984d7b63fd3a6a25e2a7
+  source_sha256: 25ed8cb5de651d454da4a1d5e4ec56e0b685a448a497976c7f83dcf9c9e82998
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

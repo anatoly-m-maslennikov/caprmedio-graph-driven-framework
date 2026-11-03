@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -14,10 +14,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1719-CORE_META_MODEL-RULE--preserve-bounded-meaning-across-structural-scales.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1719-CORE_META_MODEL-RULE--preserve-bounded-meaning-across-structural-scales.md
   source_atom_id: CA-R-1719
   source_atom_revision: 33
-  source_sha256: 10fa6f8e78a8518783bec58d096de2b03ec772e17d62dcb24e8798b843a3ad4b
+  source_sha256: dbae62183df2cc275dbec825c17c8914e84a501815f60fa9366e8b9b348bcfc1
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

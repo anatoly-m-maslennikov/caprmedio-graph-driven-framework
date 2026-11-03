@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection/(.Form:=Applicable Methodology)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
   passive:
-  - Projection/(.Form:=Applicable Methodology)
-  - Atom.Subjects
+  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
+  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
 version: 33
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-225-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--retrieve-applicable-methodology-mechanically.md
   source_atom_id: CA-M-225
   source_atom_revision: 33
-  source_sha256: 44cc6d46f48a5d06b8be5faceefe3c04962a6ad58d3c239465da744b63a9d677
+  source_sha256: c4750bb1ef918adb06b5e488d6f59fa7d9120b1cd8a733a5535b5667b72da0f5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

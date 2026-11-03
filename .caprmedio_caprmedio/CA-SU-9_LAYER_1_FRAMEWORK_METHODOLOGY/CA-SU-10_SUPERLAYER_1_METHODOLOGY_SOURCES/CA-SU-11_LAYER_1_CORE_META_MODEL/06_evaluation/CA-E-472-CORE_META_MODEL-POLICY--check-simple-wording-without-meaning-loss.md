@@ -5,20 +5,20 @@ relations:
   evaluation_for:
   - CA-M-294
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - Package
-  - Entity/Object/Continuant/Package/Eval Package
-  - Entity/Object/Continuant/Package/Runtime Package
-  - Entity/Object/Continuant/Package <+ Module
-  - Entity/Object/Continuant/Package <+ Module <+ Code Unit
-  - Scope Unit
-  - Entity
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
-  - Actor
-  - Atom.Content.Summary
-  - Term
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Eval Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Runtime Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 atom_id: CA-E-472
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan).Work Sequence Number
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number
   passive:
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

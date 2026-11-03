@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File.Main Content
   passive:
-  - Carrier
-  - Journal
-  - Event Record
-  - Atom.ID
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Atom.ID
 version: 26
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

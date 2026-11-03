@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
   passive:
-  - Term
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
-  - Atom.Content
-  - Atom
-  - CFEL <+ Relation
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Term
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -26,7 +26,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL--derive-governed-terms-views-from-selected-authority.md
   source_atom_id: CA-R-1454
   source_atom_revision: 32
-  source_sha256: 5fa3c5688f8187fd39937b1bb8c7d01690a7700ce06a188e4bb1533f4af0d8d6
+  source_sha256: 4d72bc6f83f9fa47d7a403dfc69f5e5933b2c1966e6afbbd6e561463cc9149d3
   original_relations_sha256: 8e132c01045800f67488d18acbb3aa8f36eb62c00d1c6ed57e3afc55b5abc32f
 ---
 ## Summary

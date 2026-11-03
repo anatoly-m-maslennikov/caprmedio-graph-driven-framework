@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Scope Unit.Path
-  - Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
-  - Entity/Object/Continuant/Structural Unit/Scope Unit.Children
-  - Scope Unit.Label
-  - Entity/Object/Continuant/Actor/Operator
-  - Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit.Path
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children
+  - CAPRMEDIO_MODEL <+ Scope Unit.Label
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 40
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

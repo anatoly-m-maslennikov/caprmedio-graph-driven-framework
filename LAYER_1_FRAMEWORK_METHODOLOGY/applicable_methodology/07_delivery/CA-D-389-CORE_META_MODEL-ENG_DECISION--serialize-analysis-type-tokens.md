@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory").Form
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory").Form
   passive:
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 27
 updated_at: 2026-11-02 19:33:47 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-389-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md
   source_atom_id: CA-D-389
   source_atom_revision: 27
-  source_sha256: fb68c90297c741b7d7678fad9644a063b3b197e81230126149e8e11395374d90
+  source_sha256: 5ae311e1763c70b2d35d1eada0a3c03ef27003d030e549eab0e076c65204e39e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

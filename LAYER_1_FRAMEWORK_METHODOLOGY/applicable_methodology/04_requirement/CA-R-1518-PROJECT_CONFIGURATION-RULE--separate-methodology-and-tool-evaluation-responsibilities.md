@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: Atom/(.Role := Evaluation)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
   passive:
-  - Entity/Object/Continuant/Selection//Methodology Sources
-  - Scope Unit
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - Package
-  - Atom/(.Role := Operations)
-  - Aspects <+ Engineering <+ Verification
-  - CFEL > Relation//evaluation_for
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - CAPRMEDIO <+ MODEL <+ Package
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//evaluation_for
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -28,7 +28,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.md
   source_atom_id: CA-R-1518
   source_atom_revision: 25
-  source_sha256: f65fe6cca4eaa36c19a9492503a7780c646a8b368c962de53663f89a100b1415
+  source_sha256: 7ff4a09eaeaa774b6ebcdd6017bb0df5b5006b2132e22a163764385d2b12778f
   original_relations_sha256: a160656a5227133f915358025dba2043d381de3a00738d92f5015d7253981f14
 ---
 ## Summary

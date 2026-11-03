@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - CFEL<+Operator//AllowedValue
-  - Term//Property
+  - CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue
+  - CAPRMEDIO <+ MODEL <+ Term//Property
 version: 28
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

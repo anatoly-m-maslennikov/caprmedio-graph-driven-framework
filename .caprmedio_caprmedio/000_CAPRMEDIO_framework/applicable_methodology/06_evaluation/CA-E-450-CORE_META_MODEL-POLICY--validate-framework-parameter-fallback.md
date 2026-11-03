@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution
   passive:
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Entity/Object/Continuant/Governing Objects/Governing Configuration
-  - Project
-  - Carrier
-  - Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -23,10 +23,10 @@ tier: 5
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md
   source_atom_id: CA-E-450
   source_atom_revision: 27
-  source_sha256: fdac3c7136885122fb0dd53ccd5774ab3c4864a20a8d6c5441fa812d4c9a4bf2
+  source_sha256: 8df5a2dca118556516581459c309f2bfb05119ae7fd22740b073c2f0824ba3a7
   original_relations_sha256: 65faded9bfe83c5b2b2d5e7359ce3fd2faf6195be2f2ede8ed1cbfde518b2f43
 ---
 ## Summary

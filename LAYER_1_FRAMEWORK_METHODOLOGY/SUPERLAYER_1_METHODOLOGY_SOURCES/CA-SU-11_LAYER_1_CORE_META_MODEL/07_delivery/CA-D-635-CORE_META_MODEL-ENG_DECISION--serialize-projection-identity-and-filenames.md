@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Projection
+  active: CAPRMEDIO <+ MODEL <+ Projection
   passive:
-  - Projection.ID
-  - Entity/Object/Continuant/Projection/Type
-  - Entity/Object/Continuant/Selection
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Projection.ID
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 16
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

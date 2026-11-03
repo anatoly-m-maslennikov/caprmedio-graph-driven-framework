@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
 version: 33
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -14,10 +14,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1642-PROJECT_CONFIGURATION-RULE--register-generated-data-stages.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1642-PROJECT_CONFIGURATION-RULE--register-generated-data-stages.md
   source_atom_id: CA-R-1642
   source_atom_revision: 33
-  source_sha256: b995fce2aeae8a929d5a603cca93e9af2db1f15ac94973141b18cb0ecff1ea8f
+  source_sha256: 4de0006388306b71a129c516d88837c29a74249b47b76bee17722de4aff711bf
   original_relations_sha256: f326d4ddaa9bdeea1aa820492e47e3b4c4bd09a8286a8f577571a43d47043668
 ---
 ## Summary

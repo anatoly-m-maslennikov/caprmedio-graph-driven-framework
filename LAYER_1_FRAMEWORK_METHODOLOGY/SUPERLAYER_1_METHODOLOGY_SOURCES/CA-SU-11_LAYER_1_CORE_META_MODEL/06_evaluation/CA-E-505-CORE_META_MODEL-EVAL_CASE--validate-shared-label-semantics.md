@@ -1,16 +1,14 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - Scope Unit.Label
-  - Scope Unit.order.ordered
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type:
-    Plan).Label'
-  - CFEL <+ Relation//BLOCKS
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type:
-    Plan)'
-  - Term//Property
-  - Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Label
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.ordered
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan).Label'
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//BLOCKS
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 22
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

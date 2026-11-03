@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
   passive:
-  - Atom/(.Role := Plan)
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

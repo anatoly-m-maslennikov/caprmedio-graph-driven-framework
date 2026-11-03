@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Actor
+  active: CAPRMEDIO <+ MODEL <+ Actor
   passive:
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ Entity
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

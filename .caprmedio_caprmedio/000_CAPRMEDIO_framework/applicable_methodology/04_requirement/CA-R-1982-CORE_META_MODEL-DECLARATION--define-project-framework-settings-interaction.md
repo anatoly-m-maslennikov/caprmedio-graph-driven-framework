@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Project.Settings.Interaction
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Interaction
 relations:
   child_of:
   - CA-R-1176
@@ -14,10 +14,10 @@ role: Requirement
 form: Declaration
 updated_at: 2026-11-02 08:06:47 +0400
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1982-CORE_META_MODEL-DECLARATION--define-project-framework-settings-interaction.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1982-CORE_META_MODEL-DECLARATION--define-project-framework-settings-interaction.md
   source_atom_id: CA-R-1982
   source_atom_revision: 15
-  source_sha256: 3b305c65aef7264316459a239842827003d44a81ef87866ad44c1ab81ef29c47
+  source_sha256: cb4b9612fef5d983b260bd2e53954dc852c49967fb4826530034e7a93edcb2ac
   original_relations_sha256: 9e3e53a370b31aee7f492cc3fbaba3b8b30f92b5773698d221265754db5d0402
 ---
 ## Summary

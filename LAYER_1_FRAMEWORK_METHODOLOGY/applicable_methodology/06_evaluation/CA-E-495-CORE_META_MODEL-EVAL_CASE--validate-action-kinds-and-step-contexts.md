@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - Entity/Object/Occurrent/Execution/Step Run
-  - Entity/Object/Continuant/Actor/Operator
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Step Run
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 19
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -26,7 +26,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-EVAL_CASE--validate-action-kinds-and-step-contexts.md
   source_atom_id: CA-E-495
   source_atom_revision: 19
-  source_sha256: c6cbb1e8f80c51efa16b4d38f267e0d286a6a50dbede346f9e32245172b6be4f
+  source_sha256: a343098e310dc00eeb2b73d03d9884c2aa134b66fccd78c428863f590269232d
   original_relations_sha256: 0e037e86c7c29169ac144d5338987d631ee62c6dcfc5849c80d229423350217f
 ---
 ## Summary

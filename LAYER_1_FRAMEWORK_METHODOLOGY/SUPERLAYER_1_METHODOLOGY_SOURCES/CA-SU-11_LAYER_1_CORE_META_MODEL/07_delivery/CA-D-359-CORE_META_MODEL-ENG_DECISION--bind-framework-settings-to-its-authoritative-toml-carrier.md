@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   passive:
-  - Carrier/File
-  - Carrier/File.Format
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.Format
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

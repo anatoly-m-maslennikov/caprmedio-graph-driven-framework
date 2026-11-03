@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom.Form
+  active: CAPRMEDIO <+ MODEL <+ Atom.Form
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2495-CORE_META_MODEL-DECLARATION--declare-atom-form.md
   source_atom_id: CA-R-2495
   source_atom_revision: 2
-  source_sha256: b03b4d7d1ad02162c5e6c95a7df8aa5d59b2ac35bc643b570a5e7afbdf71c000
+  source_sha256: 3794c79b8af887b5af799d7416d353c3e97eabcdaa5bc72b9c8f7316721127e3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

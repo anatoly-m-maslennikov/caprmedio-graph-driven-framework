@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Aspects <+ Engineering
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering
 version: 16
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1798-PROJECT_CONFIGURATION-RULE--preserve-development-backlog-reconciliation-history-after-release-record-acceptance.md
   source_atom_id: CA-R-1798
   source_atom_revision: 16
-  source_sha256: 6f4c820e52e3f98a17e15edc52fc4338d03ff4700f2f68444b2f782c22e2bbe9
+  source_sha256: 9cd183777724b6d80589e97bcf4355b2644ff0e76895f5389ae487613870fbd7
   original_relations_sha256: 6da6e9e2e72a9ce628eefef9aaece62f50d1f274270b6bdf901b54734f13f8ee
 ---
 ## Summary

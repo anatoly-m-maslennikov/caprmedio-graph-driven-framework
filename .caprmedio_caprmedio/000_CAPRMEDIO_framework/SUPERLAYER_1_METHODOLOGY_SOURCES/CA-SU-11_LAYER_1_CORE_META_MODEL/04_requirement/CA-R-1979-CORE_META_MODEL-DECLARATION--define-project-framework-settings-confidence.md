@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Project.Settings.Confidence
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Confidence
 relations:
   child_of:
   - CA-R-1176

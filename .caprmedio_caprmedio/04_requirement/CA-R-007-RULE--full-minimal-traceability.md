@@ -10,9 +10,9 @@ relations:
   - CA-M-447
   - CA-M-446
 subjects:
-  active: Aspects <+ Product
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   passive:
-  - Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio

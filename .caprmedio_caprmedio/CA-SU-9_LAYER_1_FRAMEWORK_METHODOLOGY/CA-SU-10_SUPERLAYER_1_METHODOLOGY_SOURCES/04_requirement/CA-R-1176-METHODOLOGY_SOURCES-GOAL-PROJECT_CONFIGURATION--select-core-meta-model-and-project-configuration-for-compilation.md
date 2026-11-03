@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Scope Unit//PROJECT_CONFIGURATION
+  active: CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   passive:
-  - Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

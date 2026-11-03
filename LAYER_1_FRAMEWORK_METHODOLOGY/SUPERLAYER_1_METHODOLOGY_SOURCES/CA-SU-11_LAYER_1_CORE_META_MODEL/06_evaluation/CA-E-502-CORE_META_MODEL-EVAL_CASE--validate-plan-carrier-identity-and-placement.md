@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Atom/(.Role := Plan)
-  - Carrier/File
-  - Carrier/Directory
-  - Atom.ID
-  - Atom.Content.Summary
-  - Atom/(.Role := Plan).Work Sequence Number
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

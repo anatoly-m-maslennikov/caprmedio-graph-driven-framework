@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - Entity
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Authoring
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring
   passive:
-  - Atom
-  - Atom.Content
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Actor
-  - Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
 version: 4
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

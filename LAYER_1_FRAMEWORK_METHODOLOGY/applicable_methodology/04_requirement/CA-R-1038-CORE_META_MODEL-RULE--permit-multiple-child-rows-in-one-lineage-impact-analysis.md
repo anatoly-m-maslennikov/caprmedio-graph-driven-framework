@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL-RULE--permit-multiple-child-rows-in-one-lineage-impact-analysis.md
   source_atom_id: CA-R-1038
   source_atom_revision: 28
-  source_sha256: 7038261cd4c671f01a2015dcbcfd2119d855aa4c7b72038cfe46b2e40e460d5b
+  source_sha256: 37418f57d12a2ef3a3cc3522bd2ae10dc6aec92035c4de72fdc89a52e98db281
   original_relations_sha256: 7ebdb9b425b2dd0260c108974f4577998b125ec90d8080910111b3b61e830967
 ---
 ## Summary

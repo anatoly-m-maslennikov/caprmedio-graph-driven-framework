@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Carrier/File.Filename
+  active: CAPRMEDIO_MODEL <+ Carrier/File.Filename
   passive:
-  - Atom.ID
-  - Atom
-  - Atom.Content.Summary
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Atom.Tier
-  - Atom.Label
+  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Label
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

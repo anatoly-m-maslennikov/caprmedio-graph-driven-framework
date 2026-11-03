@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File.Main Content
   passive:
-  - Carrier
-  - Journal
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Journal
 version: 40
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

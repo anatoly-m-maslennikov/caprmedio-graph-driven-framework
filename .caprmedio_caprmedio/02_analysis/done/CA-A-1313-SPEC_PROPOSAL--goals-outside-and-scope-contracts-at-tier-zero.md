@@ -5,7 +5,7 @@ tier: 3
 version: 9
 updated_at: 2026-11-02 19:17:40 +0400
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
 relations: {}
 form: Spec Proposal
 role: Analysis & Advisory

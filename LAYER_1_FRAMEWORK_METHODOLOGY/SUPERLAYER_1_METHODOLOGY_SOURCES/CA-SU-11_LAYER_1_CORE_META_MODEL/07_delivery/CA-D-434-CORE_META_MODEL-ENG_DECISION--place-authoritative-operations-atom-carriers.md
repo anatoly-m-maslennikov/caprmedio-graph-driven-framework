@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Atom/(.Role := Operations)
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

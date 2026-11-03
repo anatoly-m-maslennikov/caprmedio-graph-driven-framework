@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Carrier/File.Main Content
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
   passive:
-  - Atom.Content.Summary
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Content Role
-  - Atom.Content.Details
-  - Term//Property
-  - Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Content Role
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Details
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

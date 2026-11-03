@@ -4,12 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Term//Change Content Roles
+  active: CAPRMEDIO_MODEL <+ Term//Change Content Roles
   passive:
-  - Entity
-  - Term
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type:
-    Term Definition)'
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
 version: 4
 updated_at: 2026-11-02 15:49:28 +0400
 relations: {}

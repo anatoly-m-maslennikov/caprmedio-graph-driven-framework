@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
   passive:
-  - Atom.Content
-  - Aspects <+ Engineering <+ Data Handling <+ Data Validation
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

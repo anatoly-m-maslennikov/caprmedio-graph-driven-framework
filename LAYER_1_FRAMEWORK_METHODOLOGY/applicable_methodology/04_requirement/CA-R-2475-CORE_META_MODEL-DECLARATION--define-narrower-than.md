@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL <+ Relation//NARROWER_THAN
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//NARROWER_THAN
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md
   source_atom_id: CA-R-2475
   source_atom_revision: 4
-  source_sha256: 8359b368ade15da84c3788c60ccf0fad9d16f00a5d4804efcef59912d43acd52
+  source_sha256: a322ecf983e39b89c74286cf2400e7c49ebc047a380b859668eb8218059ed06b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

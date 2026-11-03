@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Identifier
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Identifier
   passive:
-  - Project.Settings
+  - CAPRMEDIO_MODEL <+ Project.Settings
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

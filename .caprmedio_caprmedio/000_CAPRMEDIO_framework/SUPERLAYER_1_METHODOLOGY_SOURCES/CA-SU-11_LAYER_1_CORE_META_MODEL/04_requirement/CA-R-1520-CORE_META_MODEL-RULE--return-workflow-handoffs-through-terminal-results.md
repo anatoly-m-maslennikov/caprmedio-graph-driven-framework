@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Entity/Object/Occurrent/Execution/Workflow Run
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - Atom
-  - Entity/Object/Continuant/Actor/Operator
-  - Journal
-  - Atom.Status
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

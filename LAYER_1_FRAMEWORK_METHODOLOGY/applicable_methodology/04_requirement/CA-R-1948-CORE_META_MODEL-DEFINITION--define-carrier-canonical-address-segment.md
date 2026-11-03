@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Carrier.Canonical Address.Segment
+  active: CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address.Segment
 relations:
   child_of:
   - CA-R-1174
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1948-CORE_META_MODEL-DEFINITION--define-carrier-canonical-address-segment.md
   source_atom_id: CA-R-1948
   source_atom_revision: 12
-  source_sha256: 7a0cdaf0449b8ed1f87b4764067fe856b712a74a27a36a68dd0827a2b7c07fec
+  source_sha256: afd386aa5a35c6ce245d346c6cefb912f31e8069df1e17019f1c1097dc0ea43b
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 ## Summary

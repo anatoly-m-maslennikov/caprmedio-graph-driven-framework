@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Entity/Property
+  active: CAPRMEDIO <+ MODEL <+ Entity/Property
   passive:
-  - Entity
-  - Term//Property
-  - CFEL
-  - CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ CFEL
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

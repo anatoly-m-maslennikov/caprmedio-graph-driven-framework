@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CFEL <+ Relation//structural_parent
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//structural_parent
   passive:
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 36
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

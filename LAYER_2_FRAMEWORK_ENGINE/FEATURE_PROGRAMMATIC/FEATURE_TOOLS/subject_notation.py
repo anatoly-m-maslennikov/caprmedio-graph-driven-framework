@@ -8,7 +8,7 @@ between profiles.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from types import MappingProxyType
 from typing import Mapping, Sequence
 import re
@@ -136,6 +136,36 @@ class ParsedSubject:
     span: Span
 
 
+def namespace_local_expression(
+    expression: Path | RelationChain,
+) -> Path | RelationChain | None:
+    """Return the local expression below an explicit CAPRMEDIO namespace."""
+
+    if not isinstance(expression, RelationChain) or len(expression.endpoints) < 2:
+        return None
+    root, namespace = expression.endpoints[:2]
+    if (isinstance(root.head, Name) and root.head.value in {"CAPRMEDIO_MODEL", "CAPRMEDIO_STRUCTURE"}
+            and not root.steps and expression.links[0].operator == "<+"
+            and expression.links[0].relation_type is None):
+        endpoints, links = expression.endpoints[1:], expression.links[1:]
+        return endpoints[0] if len(endpoints) == 1 else replace(expression, endpoints=endpoints, links=links)
+    if (
+        not isinstance(root.head, Name) or root.head.value != "CAPRMEDIO"
+        or root.steps
+        or not isinstance(namespace.head, Name) or namespace.head.value not in {"MODEL", "STRUCTURE"}
+        or namespace.steps
+        or any(link.operator != "<+" or link.relation_type is not None
+               for link in expression.links[:min(2, len(expression.links))])
+    ):
+        return None
+    if len(expression.endpoints) == 2:
+        return namespace
+    endpoints, links = expression.endpoints[2:], expression.links[2:]
+    if len(endpoints) == 1:
+        return endpoints[0]
+    return replace(expression, endpoints=endpoints, links=links)
+
+
 class SubjectNotationError(ValueError):
     """A bounded Subject-notation failure with a stable machine code."""
 
@@ -212,7 +242,7 @@ _PROFILES = MappingProxyType(
         ),
         "approved": SubjectProfile(
             name="approved",
-            separators=("//", "/", ".", ":", "+>", "<+", ">|", "|<", "<((", "(("),
+            separators=("//", "/", ".", ":", "+>", "<+", ">|", "|<", "<-->", "<((", "(("),
             bearer_separator=".",
             grammar_pins=_APPROVED_SOURCES,
         ),
@@ -417,7 +447,7 @@ def _looks_like_selector(value: str) -> bool:
 
 # Every reserved character is either syntax or explicitly escaped in a name.
 _RESERVED = frozenset('\\/.:@()[]{}+<>|*&?,="\'')
-_RELATION_OPERATORS = ("+>", "<+", ">|", "|<", "<((", "((")
+_RELATION_OPERATORS = ("+>", "<+", ">|", "|<", "<-->", "<((", "((")
 # ``:=`` keeps the authored qualification marker.  It has the same endpoint
 # shape as ``:`` in a Subject address, but callers can retain the distinction
 # between an allowed value and the condition used to select the address.

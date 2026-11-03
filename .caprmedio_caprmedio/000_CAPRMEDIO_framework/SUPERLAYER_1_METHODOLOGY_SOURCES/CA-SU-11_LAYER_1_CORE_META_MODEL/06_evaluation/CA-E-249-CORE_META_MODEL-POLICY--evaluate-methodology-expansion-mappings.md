@@ -8,14 +8,14 @@ relations:
   - CA-M-298
   - CA-R-1375
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
   passive:
-  - Scope Unit//CORE_META_MODEL
-  - Scope Unit
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity
-  - Atom.Tier
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
 atom_id: CA-E-249
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

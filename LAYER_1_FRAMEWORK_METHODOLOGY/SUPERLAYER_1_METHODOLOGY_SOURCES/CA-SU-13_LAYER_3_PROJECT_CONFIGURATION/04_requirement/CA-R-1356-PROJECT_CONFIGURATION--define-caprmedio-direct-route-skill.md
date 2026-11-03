@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Engineering
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

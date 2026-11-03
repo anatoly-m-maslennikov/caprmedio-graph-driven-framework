@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
   passive:
-  - Atom/(.Role := Plan)
-  - Entity/Object/Continuant/Actor/AI Agent
-  - Entity/Object/Continuant/Actor/Operator
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1589-CORE_META_MODEL--bound-executable-leaf-plans.md
   source_atom_id: CA-R-1589
   source_atom_revision: 24
-  source_sha256: 1c04d9760b43a5385dcc93a08771faf5eb37c784b8f594617a185416e1fa1c24
+  source_sha256: acfd33c06c20580a599aef289215b2b743f6863cf554af35d85c98e502912427
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 31
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

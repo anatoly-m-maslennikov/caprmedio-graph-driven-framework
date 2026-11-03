@@ -12,11 +12,36 @@ from subject_notation import (  # noqa: E402
     DeclaredReference, GrammarPin, InitialAtomSelector, Name, Path,
     Qualification, RelationChain, Span, SubjectNotationError, ValueLiteral,
     get_profile, parse_initial_atom_selector, parse_subject,
-    parse_subject_expression, profile_evidence, render_subject,
+    namespace_local_expression, parse_subject_expression, profile_evidence, render_subject,
 )
 
 
 class SubjectNotationTest(unittest.TestCase):
+    def test_inverse_binding_keeps_distinct_relation_endpoints(self) -> None:
+        source = 'Relation//NARROWER_THAN <--> Relation//BROADER_THAN'
+        expression = parse_subject_expression(source).expression
+        self.assertIsInstance(expression, RelationChain)
+        self.assertEqual('<-->', expression.links[0].operator)
+        self.assertEqual(['Relation//NARROWER_THAN', 'Relation//BROADER_THAN'],
+                         [render_subject(endpoint) for endpoint in expression.endpoints])
+        self.assertEqual(source, render_subject(expression))
+        self.assertIn('<-->', get_profile('approved').separators)
+
+    def test_namespace_local_expression_only_unwraps_explicit_namespace_chains(self) -> None:
+        model = parse_subject_expression('CAPRMEDIO <+ MODEL <+ Node/Atom').expression
+        component = parse_subject_expression('CAPRMEDIO <+ MODEL <+ CFEL <+ Format').expression
+        structure = parse_subject_expression('CAPRMEDIO <+ STRUCTURE').expression
+        self.assertEqual('Node/Atom', render_subject(namespace_local_expression(model)))
+        self.assertEqual('CFEL <+ Format', render_subject(namespace_local_expression(component)))
+        self.assertEqual('STRUCTURE', render_subject(namespace_local_expression(structure)))
+        self.assertEqual('Node/Atom', render_subject(namespace_local_expression(
+            parse_subject_expression('CAPRMEDIO_MODEL <+ Node/Atom').expression)))
+        self.assertEqual('Scope Unit//UNIT', render_subject(namespace_local_expression(
+            parse_subject_expression('CAPRMEDIO_STRUCTURE <+ Scope Unit//UNIT').expression)))
+        self.assertIsNone(namespace_local_expression(parse_subject_expression('CAPRMEDIO_MODEL +> Node').expression))
+        self.assertIsNone(namespace_local_expression(parse_subject_expression('MODEL').expression))
+        self.assertIsNone(namespace_local_expression(parse_subject_expression('Other <+ MODEL <+ Node').expression))
+
     def test_legacy_tuple_contract_and_pins_are_unchanged(self) -> None:
         self.assertEqual(parse_subject(' Atom.Content / Carrier : Delivery.Policy '),
                          [('Atom.Content', None), ('Carrier', '/'), ('Delivery.Policy', ':')])

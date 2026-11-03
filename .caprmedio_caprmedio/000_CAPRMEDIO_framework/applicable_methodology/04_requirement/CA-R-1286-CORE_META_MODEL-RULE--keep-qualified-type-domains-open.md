@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - Entity/Object/Continuant/Selection//Extension Sources
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1286-CORE_META_MODEL-RULE--keep-qualified-type-domains-open.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1286-CORE_META_MODEL-RULE--keep-qualified-type-domains-open.md
   source_atom_id: CA-R-1286
   source_atom_revision: 25
-  source_sha256: ffd1550f1b14b146d67a798d97ead19e5e29c379f08deabbb1f4b3df8c28c373
+  source_sha256: 273d1b79d75e210010e80b57fc4a274e7bd90e1452c775b4b6d41ede8f1755d1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

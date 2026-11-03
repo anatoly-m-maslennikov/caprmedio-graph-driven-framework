@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan).Work Sequence Number
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number
   passive:
-  - Atom/(.Role := Plan)
-  - Atom/(.Role := Plan).Work Sequence Number
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - CFEL > Relation
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
 version: 36
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,10 +21,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-RULE--separate-work-sequence-from-atom-identity.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-RULE--separate-work-sequence-from-atom-identity.md
   source_atom_id: CA-R-992
   source_atom_revision: 36
-  source_sha256: 8d7a91a5b8a47e4725c62e1cfc72bafe90443a85896a12f5572f9ced8a008459
+  source_sha256: 06b9cb409f0ef5b935b268d103137c8b32c4d2b7c67a4cfc7d139dd3a520b7b1
   original_relations_sha256: da1339ac6ab40f2e5666258f225098cfaceb0373e40d73382c0b51ba6b2c42b4
 ---
 ## Summary

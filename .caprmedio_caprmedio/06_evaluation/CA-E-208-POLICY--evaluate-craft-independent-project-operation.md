@@ -7,10 +7,10 @@ relations:
   evaluation_for:
   - CA-R-819
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:

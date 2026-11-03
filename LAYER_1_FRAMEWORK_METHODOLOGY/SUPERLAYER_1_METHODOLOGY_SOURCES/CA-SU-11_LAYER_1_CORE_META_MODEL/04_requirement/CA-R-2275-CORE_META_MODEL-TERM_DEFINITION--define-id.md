@@ -4,10 +4,10 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Entity/Object/Continuant/Term//ID
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//ID
   passive:
-  - Entity/Object/Continuant/Term
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Term Definition'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Term Definition'
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

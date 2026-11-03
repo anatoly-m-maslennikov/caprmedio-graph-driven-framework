@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection/(.Form:=Applicable Methodology)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
   passive:
-  - CFEL <+ Relation//GOVERNS
-  - CFEL <+ Relation//DEPENDS_ON
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
 version: 28
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

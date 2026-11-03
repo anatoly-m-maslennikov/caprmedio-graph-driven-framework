@@ -5,13 +5,13 @@ relations:
   child_of:
   - CA-R-1488@21
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan).Implementation Retry Limit'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan).Implementation Retry Limit'
   passive:
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit
-  - Entity/Object/Continuant/Actor/Operator
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Term//Property
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Term//Property
 atom_id: CA-R-1489
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom/(.Role:=Operations)/Action
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Action
   passive:
-  - Atom/(.Role := Operations)
-  - Entity/Object/Continuant/Governing Objects/Atom.Type
-  - Atom.Content
-  - Atom/(.Role:=Operations)/Action
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Type
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Action
 version: 27
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

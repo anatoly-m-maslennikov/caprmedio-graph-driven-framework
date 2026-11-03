@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
   passive:
-  - Atom.Content
-  - Aspects <+ Engineering <+ Data Handling <+ Parsing
-  - Entity
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Parsing
+  - CAPRMEDIO_MODEL <+ Entity
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

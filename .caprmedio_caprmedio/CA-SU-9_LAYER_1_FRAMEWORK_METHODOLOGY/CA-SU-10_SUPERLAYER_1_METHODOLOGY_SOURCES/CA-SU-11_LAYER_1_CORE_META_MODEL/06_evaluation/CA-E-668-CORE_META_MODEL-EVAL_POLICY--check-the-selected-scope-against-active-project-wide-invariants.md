@@ -10,11 +10,11 @@ relations:
   - CA-R-706
   - CA-R-2425
 subjects:
-  active: Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - Atom
-  - Project
-  - Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:

@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Selection//Methodology Sources
+  active: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
   passive:
-  - Entity/Object/Continuant/Selection//Methodology Sources
-  - Scope Unit//CORE_META_MODEL
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Entity/Object/Continuant/Selection//Extension Sources
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
 version: 35
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Selection
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - Atom/(.Role := Requirement)
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Evaluation)
-  - Atom/(.Role := Delivery)
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

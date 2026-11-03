@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom/(.Role := Concern).Priority
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern).Priority
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Atom/(.Role := Concern).Priority
-  - Atom/(.Role := Plan)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern).Priority
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

@@ -5,7 +5,7 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 1
 subjects:
-  active: Projection/(.Form := Canonical Signature)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Canonical Signature)
 relations: {}
 version: 5
 role: Requirement

@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Project.Settings.Framework Control-Root Locator
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Framework Control-Root Locator
 relations:
   child_of:
   - CA-R-1176
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1980-CORE_META_MODEL-DECLARATION--define-project-framework-settings-framework-control-root-locator.md
   source_atom_id: CA-R-1980
   source_atom_revision: 15
-  source_sha256: a833c24e1bf6d8a904206ff8f0101a093c99b5b39b2acb62c5e7bdfc4e2b3152
+  source_sha256: f0ade8c742563e7af5666c5df162acb9a4abd166da0a11b815011f8510372747
   original_relations_sha256: 9e3e53a370b31aee7f492cc3fbaba3b8b30f92b5773698d221265754db5d0402
 ---
 ## Summary

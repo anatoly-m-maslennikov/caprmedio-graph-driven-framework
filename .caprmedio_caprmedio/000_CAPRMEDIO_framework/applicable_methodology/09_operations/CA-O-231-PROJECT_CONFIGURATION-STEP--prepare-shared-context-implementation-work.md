@@ -21,7 +21,7 @@ updated_at: 2026-10-27 19:59:48 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-231-PROJECT_CONFIGURATION-STEP--prepare-shared-context-implementation-work.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-231-PROJECT_CONFIGURATION-STEP--prepare-shared-context-implementation-work.md
   source_atom_id: CA-O-231
   source_atom_revision: 9
   source_sha256: 970280821f1b96c906875944c023def77e2bde4ae48f9c992a324c6813a250d1

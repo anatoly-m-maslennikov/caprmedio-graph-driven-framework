@@ -24,7 +24,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-158-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-artifacts.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-158-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-artifacts.md
   source_atom_id: CA-O-158
   source_atom_revision: 17
   source_sha256: 2f6769717822611f6dac0408318edbe4cfac6faa7cfeac2916627aafc61b3c02

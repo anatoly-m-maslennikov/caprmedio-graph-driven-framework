@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Projection
+  active: CAPRMEDIO <+ MODEL <+ Projection
   passive:
-  - 'Entity/Object/Continuant/Projection/(.Type: Catalog)'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
-  - Term
-  - Project
-  - Atom.Content
-  - Entity
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Catalog)'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
 version: 43
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -24,7 +24,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms.md
   source_atom_id: CA-M-114
   source_atom_revision: 43
-  source_sha256: f50762e78519c99fe0e1489e71ad97b6283d4aad7e32e897ce5c61569b4e38e8
+  source_sha256: 3843c6f19ae5f59088af88a6dc495302111b326d2cd7f85bb16509d05ce0fc9e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

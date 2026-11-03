@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Projection
+  active: CAPRMEDIO <+ MODEL <+ Projection
   passive:
-  - Term//Artifact
-  - Entity
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,10 +16,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-RULE--distinguish-projected-representations-from-represented-entities.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-RULE--distinguish-projected-representations-from-represented-entities.md
   source_atom_id: CA-R-1609
   source_atom_revision: 22
-  source_sha256: 6000ae720bafce0dd4d12c7527ee2058fe688f8e73c4b95bc7ac0d66b5e9e650
+  source_sha256: 8e263ca9c8844c9abc35171e28f63bc28d82d81176587467af97ea0b96e52cbb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

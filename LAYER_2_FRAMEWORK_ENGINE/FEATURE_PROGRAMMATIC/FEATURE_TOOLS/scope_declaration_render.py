@@ -6,6 +6,7 @@ import json
 
 
 PROJECT = "PROJECT"
+_STRUCTURE_PREFIX = "CAPRMEDIO_STRUCTURE <+ "
 
 
 def _quoted(value: object) -> str:
@@ -32,7 +33,12 @@ def render_scope_declaration(
     status: str = "Active",
 ) -> str:
     """Render one declaration without reading files or resolving structure."""
-    subject = f"Project//{name}" if project else f"Scope Unit//{name}"
+    local_subject = f"Project//{name}" if project else f"Scope Unit//{name}"
+    subject = (
+        f"{_STRUCTURE_PREFIX}{local_subject}"
+        if project_name.casefold() == "caprmedio"
+        else local_subject
+    )
     header = (
         "---\n"
         f"atom_id: {_quoted(atom_id)}\n"
@@ -43,25 +49,26 @@ def render_scope_declaration(
         f"updated_at: {_quoted(updated_at)}\n"
         "subjects:\n"
         f"  active: {_quoted(subject)}\n"
+        "  passive: []\n"
         "relations: {}\n"
         "---\n"
     )
-    claims = [f"{subject}.Name == {_quoted(name)}"]
+    claims = [f"{local_subject}.Name == {_quoted(name)}"]
     if not project:
         if scope_id is not None:
-            claims.insert(0, f"{subject}.ID == {_quoted(scope_id)}")
+            claims.insert(0, f"{local_subject}.ID == {_quoted(scope_id)}")
         if label is not None:
-            claims.append(f"{subject}.Label == {_quoted(label)}")
-        claims.append(f"{subject}.order.ordered == {str(bool(ordered)).lower()}")
+            claims.append(f"{local_subject}.Label == {_quoted(label)}")
+        claims.append(f"{local_subject}.order.ordered == {str(bool(ordered)).lower()}")
         if ordered and _positive_int(order_number):
-            claims.append(f"{subject}.order.number == {order_number}")
+            claims.append(f"{local_subject}.order.number == {order_number}")
         if parent:
             parent_subject = (
                 f"Project//{project_name}"
                 if parent in {PROJECT, project_name}
                 else f"Scope Unit//{parent}"
             )
-            claims.append(f"{subject} ((IS_CONTAINED_BY)) {parent_subject}")
+            claims.append(f"{local_subject} ((IS_CONTAINED_BY)) {parent_subject}")
     return (
         header
         + f"## Summary\n\nDeclare {name}\n\n## Claim\n\n```CFEL\n"

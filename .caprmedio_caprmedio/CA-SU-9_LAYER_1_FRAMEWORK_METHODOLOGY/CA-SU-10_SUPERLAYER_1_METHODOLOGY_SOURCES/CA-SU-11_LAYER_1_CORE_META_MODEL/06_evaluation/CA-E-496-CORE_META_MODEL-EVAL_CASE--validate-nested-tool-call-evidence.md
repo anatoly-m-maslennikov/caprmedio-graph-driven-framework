@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File.Main Content
   passive:
-  - Carrier
-  - Journal
-  - Step Run
-  - Workflow Run
-  - Atom/(.Role := Operations)/Workflow
-  - Atom/(.Role := Operations)/Step
-  - Atom/(.Role := Operations)/Action
-  - Projection
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Step Run
+  - CAPRMEDIO_MODEL <+ Workflow Run
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Workflow
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Step
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Action
+  - CAPRMEDIO_MODEL <+ Projection
 version: 22
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

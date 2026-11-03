@@ -2,10 +2,10 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  active: Entity/Object/Continuant/Actor/Operator
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

@@ -6,11 +6,11 @@ relations:
   - CA-M-447
   - CA-R-1407
 subjects:
-  active: Project
+  active: CAPRMEDIO <+ MODEL <+ Project
   passive:
-  - Entity
-  - Aspects <+ Product
-  - Project
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Product
+  - CAPRMEDIO <+ MODEL <+ Project
 atom_id: CA-R-1776
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

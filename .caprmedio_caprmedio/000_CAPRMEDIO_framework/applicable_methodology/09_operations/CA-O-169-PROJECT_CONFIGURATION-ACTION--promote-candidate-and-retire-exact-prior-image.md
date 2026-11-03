@@ -22,7 +22,7 @@ updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-169-PROJECT_CONFIGURATION-ACTION--promote-candidate-and-retire-exact-prior-image.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-169-PROJECT_CONFIGURATION-ACTION--promote-candidate-and-retire-exact-prior-image.md
   source_atom_id: CA-O-169
   source_atom_revision: 23
   source_sha256: e89af1f75bc3701792e2a66c5fc9b89e6cd89eec36d38fc49e96b99a39ca331e

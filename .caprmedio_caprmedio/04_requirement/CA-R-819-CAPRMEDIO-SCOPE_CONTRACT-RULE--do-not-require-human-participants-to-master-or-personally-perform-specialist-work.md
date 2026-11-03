@@ -7,11 +7,11 @@ relations:
   child_of:
   - CA-R-2452
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Project
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 atom_id: CA-R-819
 status: Active
 current_scope_unit: caprmedio

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
   passive:
-  - Entity
-  - Projection
-  - Atom
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Atom
 version: 42
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-RULE--register-complete-relation-kind-metadata.md
   source_atom_id: CA-R-806
   source_atom_revision: 42
-  source_sha256: 24a8456cdd8ac4ece349a380eeec6d377db4a3644450c801f8c10477845930ee
+  source_sha256: 83b65a4ae7b063a7d6c2da639fc1f07dd4d1fd7f5109577faf2769c931c1fd5a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

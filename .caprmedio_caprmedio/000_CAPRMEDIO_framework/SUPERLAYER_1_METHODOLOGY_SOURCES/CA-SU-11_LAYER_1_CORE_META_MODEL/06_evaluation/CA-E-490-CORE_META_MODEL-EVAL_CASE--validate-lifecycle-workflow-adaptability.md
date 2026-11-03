@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
   passive:
-  - Entity
-  - Atom
-  - Atom.Role
-  - Scope Unit.order.ordered
-  - Atom.Status
-  - Scope Unit
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Role
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.ordered
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 24
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

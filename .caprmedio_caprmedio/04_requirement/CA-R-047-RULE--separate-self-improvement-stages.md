@@ -8,20 +8,20 @@ relations:
   child_of:
   - CA-R-1423
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Atom/(.Role := Operations)
-  - Atom/(.Role := "Analysis & Advisory")
-  - Atom/(.Role := Plan)
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Atom/(.Role := Delivery)
-  - Aspects <+ Product
-  - Atom/(.Role := Requirement)
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Evaluation)
-  - Project
-  - Journal
-  - Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory")
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio

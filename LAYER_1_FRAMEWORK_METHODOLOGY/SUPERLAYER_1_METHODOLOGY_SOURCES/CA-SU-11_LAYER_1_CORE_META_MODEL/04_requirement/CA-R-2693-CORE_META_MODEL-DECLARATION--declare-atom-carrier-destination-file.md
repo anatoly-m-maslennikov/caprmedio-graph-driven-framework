@@ -7,7 +7,7 @@ version: 1
 relations: {}
 tier: 3
 subjects:
-  active: Atom.Carrier Destination.File
+  active: CAPRMEDIO <+ MODEL <+ Atom.Carrier Destination.File
 role: Requirement
 form: Declaration
 updated_at: 2026-11-03 00:20:05 +0400

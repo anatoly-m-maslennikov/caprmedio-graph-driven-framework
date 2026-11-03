@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
   passive:
-  - Entity
-  - Projection/(.Form:=Applicable Methodology)
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 34
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1246-CORE_META_MODEL-RULE--keep-relation-vocabularies-graph-specific.md
   source_atom_id: CA-R-1246
   source_atom_revision: 34
-  source_sha256: 9f0dee5c02d0d04a5aca2a2e7c9d183aec0adcb3f18778279c67557b84468bac
+  source_sha256: dfaa089878352ad05014d6e1bae5f871bf52d03a30fef15a6b86a934e31e2343
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

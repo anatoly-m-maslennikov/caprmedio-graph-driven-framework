@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier.Canonical Address
+  active: CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
   passive:
-  - Entity
-  - Carrier/File.YAML Frontmatter
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.YAML Frontmatter
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

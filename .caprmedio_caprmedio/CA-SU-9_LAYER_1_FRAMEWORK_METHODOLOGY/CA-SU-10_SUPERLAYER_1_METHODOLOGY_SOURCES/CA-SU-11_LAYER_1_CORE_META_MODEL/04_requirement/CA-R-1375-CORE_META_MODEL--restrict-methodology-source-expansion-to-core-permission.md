@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Scope Unit//CORE_META_MODEL
-  - Entity/Object/Continuant/Selection//Extension Sources
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Atom.Content
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

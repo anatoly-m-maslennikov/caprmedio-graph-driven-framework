@@ -40,6 +40,7 @@ _RMED = frozenset({"Requirement", "Method", "Evaluation", "Delivery"})
 _LAYOUT_CLAIMS = {
     "41b58fe9fef47bbd787d612787611a59314965c0928b19c3cb9a8f21ded2f4c3": "legacy",
     "64f422cfcd6ea14a067c046caf3af786ae083d07d4e549d71d36fdc68f408bcc": "rmed_siblings",
+    "f1ae7821f1e70d211d27569a86f9c8eaac400ca2a894831461f8643d12514dc2": "claim_children",
 }
 _LEGACY_LAYOUT_SOURCES = frozenset({
     "0819f8433cde89484e21a200466504a9fdcad31b58958c777a761637fbb45ff1",
@@ -110,8 +111,8 @@ def role_sections(metadata: Record, check: Check) -> list[tuple[int, str]] | Non
     layout = body_layout(check)
     if layout is None:
         return None
-    if role in _RMED and layout == "rmed_siblings":
-        properties = [(2, name) for name in _RMED_PROPERTIES]
+    if role in _RMED and layout in {"rmed_siblings", "claim_children"}:
+        properties = [(2, name) for name in _RMED_PROPERTIES if layout != "claim_children" or name != "Claim scope"]
         if role == "Requirement" and metadata.get("type") == "Relation Definition":
             if not _relation_notation_contract(check):
                 return None
@@ -148,6 +149,28 @@ def _headings(body: str) -> list[tuple[int, str, int]]:
         if heading:
             headings.append((len(heading[1]), heading[2], index))
     return headings
+
+
+def _claim_model_headings(body: str, registered: list[tuple[int, str]]) -> list[tuple[int, str, int]]:
+    """Treat undeclared headings inside Prose Claim as Markdown, not properties."""
+    result = []
+    in_prose = False
+    in_claim = False
+    for row in _headings(body):
+        level, title, _ = row
+        if in_prose and (level, title) not in registered and not (
+            level == 3 and title in {"Formal Claim", "Prose Claim"}
+        ):
+            continue
+        if (level, title) in registered:
+            in_claim = (level, title) == (2, "Claim")
+            in_prose = False
+        elif in_claim and (level, title) == (3, "Prose Claim"):
+            in_prose = True
+        elif in_claim and (level, title) == (3, "Formal Claim"):
+            in_prose = False
+        result.append(row)
+    return result
 
 
 def _sections(body: str, check: Check, required: list[tuple[int, str]]) -> None:
@@ -282,11 +305,66 @@ def _rmed_sections(body: str, role: str, check: Check, registered: list[tuple[in
     _rmed_formal(body, headings, role, check)
 
 
+def _claim_children(body: str, check: Check, registered: list[tuple[int, str]]) -> None:
+    headings, lines = _claim_model_headings(body, registered), body.splitlines()
+    properties = [row for row in headings if row[0] <= 2]
+    model_indices = {row[2] for row in headings}
+    masked = "\n".join(line if index in model_indices or not re.match(r"^#{1,6} ", line)
+                       else " " + line for index, line in enumerate(lines))
+    _sections(masked, check, [(2, "Summary"), (2, "Claim")])
+    if properties and properties[0][:2] != (2, "Summary"):
+        check.fail("BODY_SECTION", "Summary", "Main Content must start with literal ## Summary.")
+    order = [name for _, name in registered]
+    positions = []
+    for _, title, start in properties:
+        if (2, title) not in registered:
+            check.fail("BODY_SECTION", title, "Unregistered body Property heading.")
+        else:
+            positions.append(order.index(title))
+        if title in {"Semantics", "Details"}:
+            end = next((row[2] for row in properties if row[2] > start), len(lines))
+            if not any(line.strip() for line in lines[start + 1:end]):
+                check.fail("BODY_SECTION", title, "Empty optional Properties must be omitted.")
+        if title == "Notation for subject":
+            end = next((row[2] for row in properties if row[2] > start), len(lines))
+            if not _formal_expression(lines[start + 1:end], allow_empty=True):
+                check.fail("BODY_SECTION", title, "Notation for subject must contain one complete fenced String value.")
+    if positions != sorted(set(positions)):
+        check.fail("BODY_SECTION", "body", "Body Properties must be unique and in registered order.")
+    for level, title, start in headings:
+        if (level, title) not in {(3, "Formal Claim"), (3, "Prose Claim")}:
+            continue
+        parent = next((row for row in reversed(properties) if row[2] < start), None)
+        if parent is None or parent[:2] != (2, "Claim"):
+            check.fail("BODY_SECTION", title, "Claim children must be inside Claim.")
+    for _, _, start in (row for row in properties if row[:2] == (2, "Claim")):
+        end = next((row[2] for row in properties if row[2] > start), len(lines))
+        children = [row for row in headings if start < row[2] < end and row[0] == 3]
+        if not 1 <= len(children) <= 2 or len({row[1] for row in children}) != len(children):
+            check.fail("BODY_SECTION", "Claim", "Claim requires one or two unique declared children.")
+        first = children[0][2] if children else end
+        if any(line.strip() for line in lines[start + 1:first]):
+            check.fail("BODY_SECTION", "Claim", "Claim has no direct value.")
+        for _, title, child_start in children:
+            child_end = next((row[2] for row in children if row[2] > child_start), end)
+            value = lines[child_start + 1:child_end]
+            if title not in {"Formal Claim", "Prose Claim"}:
+                check.fail("BODY_SECTION", title, "Unregistered Claim child.")
+            elif title == "Formal Claim" and (not _formal_expression(value) or not re.fullmatch(
+                r" {0,3}(?:`{3,}|~{3,})CFEL[ \t]*", "\n".join(value).strip().splitlines()[0]
+            )):
+                check.fail("BODY_SECTION", title, "Formal Claim must contain one fenced expression.")
+            elif title == "Prose Claim" and not any(line.strip() for line in value):
+                check.fail("BODY_SECTION", title, "Prose Claim must contain Markdown.")
+
+
 def _body(metadata: Record, body: str, check: Check) -> None:
     required = role_sections(metadata, check)
     if required is None:
         return
-    if required[0] == (2, "Summary"):
+    if required[0] == (2, "Summary") and body_layout(check) == "claim_children":
+        _claim_children(body, check, required)
+    elif required[0] == (2, "Summary"):
         _rmed_sections(body, str(metadata["content_role"]), check, required)
     elif is_graph_rule(metadata):
         from .graph_rule_body import validate_graph_rule_body

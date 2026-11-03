@@ -9,21 +9,21 @@ relations:
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Project
-  - Atom.Tier
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Entity/Object/Continuant/Actor/Operator
-  - Atom.Content
-  - Atom/(.Role := Evaluation)
-  - Atom
-  - Atom/(.Role := Plan)
-  - Atom/(.Role := Requirement)
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Delivery)
-  - Atom/(.Role := Operations)
-  - Actor
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Actor
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-667

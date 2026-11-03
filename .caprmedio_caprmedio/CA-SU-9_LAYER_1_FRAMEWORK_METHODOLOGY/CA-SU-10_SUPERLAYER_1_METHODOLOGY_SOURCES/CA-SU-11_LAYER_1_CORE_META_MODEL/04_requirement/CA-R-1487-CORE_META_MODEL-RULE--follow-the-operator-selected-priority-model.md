@@ -5,11 +5,11 @@ relations:
   child_of:
   - CA-R-815
 subjects:
-  active: Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  active: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Project
-  - Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
 atom_id: CA-R-1487
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

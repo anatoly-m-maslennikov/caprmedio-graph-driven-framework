@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
   passive:
-  - Atom/(.Role := Plan)
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
-  - Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-473-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md
   source_atom_id: CA-D-473
   source_atom_revision: 25
-  source_sha256: 6a2b180dddbb38ac48644f5d64d6950d8fd2e3ce26617126c745dbb7c8635ae7
+  source_sha256: 5ba7ca0b49c34f3c04b5a532ba61ce57656d3e1ca8cc16d0f7770d7b0f8b4c19
   original_relations_sha256: 0accbc26fe2e34a4d38cd81d11579f68b92b90359fd940fc42073d82b28a8919
 ---
 ## Summary

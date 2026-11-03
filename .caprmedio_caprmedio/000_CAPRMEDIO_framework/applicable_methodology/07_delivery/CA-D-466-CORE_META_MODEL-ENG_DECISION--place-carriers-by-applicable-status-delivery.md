@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Entity
-  - Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-466-CORE_META_MODEL-ENG_DECISION--place-carriers-by-applicable-status-delivery.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-466-CORE_META_MODEL-ENG_DECISION--place-carriers-by-applicable-status-delivery.md
   source_atom_id: CA-D-466
   source_atom_revision: 22
-  source_sha256: 49e60d5f64b361b59bf3074913d600414dcc20cf05f179ea5cf5c75f4d0c04d0
+  source_sha256: 8f6cded8346ae026df96023a5a3b3aa73ca6447350991bfb4c5e2bf49640e694
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

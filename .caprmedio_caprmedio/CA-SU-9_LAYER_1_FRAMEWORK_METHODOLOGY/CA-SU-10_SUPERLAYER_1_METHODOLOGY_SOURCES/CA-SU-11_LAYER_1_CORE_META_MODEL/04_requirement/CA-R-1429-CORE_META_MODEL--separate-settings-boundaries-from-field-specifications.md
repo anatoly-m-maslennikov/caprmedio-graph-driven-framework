@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Governing Configuration
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
   passive:
-  - Project.Settings
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Atom.Tier
-  - Scope Unit
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

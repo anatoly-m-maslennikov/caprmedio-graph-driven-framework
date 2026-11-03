@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - Atom
-  - Atom.Content
-  - Scope Unit
-  - Carrier
-  - Journal
-  - Projection
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Projection
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

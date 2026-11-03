@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom/(.Role := Requirement)/(.Form := Declaration)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)/(.Form := Declaration)
   passive:
-  - Atom
+  - CAPRMEDIO <+ MODEL <+ Atom
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

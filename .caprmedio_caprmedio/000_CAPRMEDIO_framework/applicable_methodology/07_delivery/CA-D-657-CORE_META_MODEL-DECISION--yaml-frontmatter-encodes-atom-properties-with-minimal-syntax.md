@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier/File.YAML Frontmatter
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.YAML Frontmatter
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Scope Unit
-  - Actor
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Actor
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,10 +16,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md
   source_atom_id: CA-D-657
   source_atom_revision: 2
-  source_sha256: 990e377beabb7016a2ee11ed4c0eafa261138d59d28aadedb9ac0729f7a33853
+  source_sha256: 02327c45b87afe621299f690b2428c9c45b6244d4911a46cee916addc06eff0c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

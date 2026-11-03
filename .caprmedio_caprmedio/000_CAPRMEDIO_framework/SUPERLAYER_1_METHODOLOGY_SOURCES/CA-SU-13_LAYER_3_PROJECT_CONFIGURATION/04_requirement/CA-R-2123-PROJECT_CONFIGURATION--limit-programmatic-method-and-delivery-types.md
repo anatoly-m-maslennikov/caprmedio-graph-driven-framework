@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
 relations: {}
 version: 9
 updated_at: 2026-11-02 00:18:22 +0400

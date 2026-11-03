@@ -4,9 +4,9 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory").Form
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory").Form
   passive:
-  - Atom/(.Role := "Analysis & Advisory")
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory")
 version: 16
 updated_at: 2026-11-02 19:33:47 +0400
 relations: {}

@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Project
+  active: CAPRMEDIO <+ MODEL <+ Project
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Entity/Object/Continuant/Actor/Operator
-  - Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Project
 version: 41
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL--let-operators-define-project-goals.md
   source_atom_id: CA-R-927
   source_atom_revision: 41
-  source_sha256: e67170935231c4aa0c7fc45f516733c3ac76ef66b3770493ad60fb0b4164e8a0
+  source_sha256: 1580d5f6f1e6ec3da147e3a04edea557f8155036d120eff8f7b18738770e34c8
   original_relations_sha256: dd57d219aa140ba8b8c8278982e1d4f4e92c8575d8f69e445395c034eaf3ac3e
 ---
 ## Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CFEL <+ Relation//depends_on
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//depends_on
   passive:
-  - CFEL <+ Relation
-  - Term//Artifact
-  - CFEL <+ Relation//required_by
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//required_by
 version: 32
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md
   source_atom_id: CA-R-1026
   source_atom_revision: 32
-  source_sha256: 0dda06efcb33cebb00f8b5bc5746b23bcee6bf0546d89fb289dd2ba266546963
+  source_sha256: 0bf456c661f73c353891d315b48231bf84da00049e350e92a0afb82e6ed15e70
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

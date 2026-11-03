@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Carrier/Directory
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
 version: 25
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-325-PROJECT_CONFIGURATION-ENG_DECISION--place-applicable-methodology-sources.md
   source_atom_id: CA-D-325
   source_atom_revision: 25
-  source_sha256: b9440c1c025f88f3be24e9af1c84877f44ef1d9b587ec7edd155039271e723aa
+  source_sha256: c4d6868ec374ed8e76fe4a306f04d44182108350abd9cb57275d660be3dc2f77
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

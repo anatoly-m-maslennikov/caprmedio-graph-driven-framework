@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: Node/Continuant
+  active: CAPRMEDIO_MODEL <+ Node/Continuant
   passive:
-  - Entity
-  - Projection
-  - Atom/(.Role := Evaluation)
-  - Term//Property
-  - Atom.Content
-  - Atom/(.Role := Requirement)
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Delivery)
-  - Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

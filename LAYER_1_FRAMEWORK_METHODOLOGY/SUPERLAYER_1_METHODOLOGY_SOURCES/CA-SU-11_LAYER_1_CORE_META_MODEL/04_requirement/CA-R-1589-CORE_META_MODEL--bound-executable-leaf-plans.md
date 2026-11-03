@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
   passive:
-  - Atom/(.Role := Plan)
-  - Entity/Object/Continuant/Actor/AI Agent
-  - Entity/Object/Continuant/Actor/Operator
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

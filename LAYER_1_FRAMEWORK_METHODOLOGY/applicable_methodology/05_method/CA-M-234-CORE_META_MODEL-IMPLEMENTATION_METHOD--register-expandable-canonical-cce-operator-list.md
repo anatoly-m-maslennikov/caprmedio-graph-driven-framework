@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Authoring <+ Controlled English
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   passive:
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 24
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL-IMPLEMENTATION_METHOD--register-expandable-canonical-cce-operator-list.md
   source_atom_id: CA-M-234
   source_atom_revision: 24
-  source_sha256: e96b5217e063c1049ca0efc4c8bb7ab8e8246fcf16ad6309f9d143f427e6b553
+  source_sha256: 3a2fbb2cc83db313de5402451a0459c2c1bcb87046d6ae534a84e73de20f59ff
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

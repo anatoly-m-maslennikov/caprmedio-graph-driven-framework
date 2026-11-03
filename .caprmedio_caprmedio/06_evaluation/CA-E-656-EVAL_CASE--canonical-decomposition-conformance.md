@@ -11,10 +11,10 @@ relations:
   child_of:
   - CA-R-642
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Project
-  - Atom/(.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Concern)
 cce_version: cce_1
 cce_form: evaluation
 current_scope_unit: caprmedio

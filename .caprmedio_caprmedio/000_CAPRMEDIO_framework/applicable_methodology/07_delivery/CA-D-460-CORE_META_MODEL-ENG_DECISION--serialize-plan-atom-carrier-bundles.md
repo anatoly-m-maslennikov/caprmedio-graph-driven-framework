@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
   passive:
-  - Atom/(.Role := Plan)
-  - Carrier/File
-  - Carrier/Directory
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,10 +16,10 @@ tier: 1
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-460-CORE_META_MODEL-ENG_DECISION--serialize-plan-atom-carrier-bundles.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-460-CORE_META_MODEL-ENG_DECISION--serialize-plan-atom-carrier-bundles.md
   source_atom_id: CA-D-460
   source_atom_revision: 25
-  source_sha256: 452ac0de8342ee9a87450c60424b0815105fdb1ccfdaa62cf230c12c653404e3
+  source_sha256: 51e94173d93697e404f2812c7ad7e15cbe0fcae2b090b6eb0608c747220f38c6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

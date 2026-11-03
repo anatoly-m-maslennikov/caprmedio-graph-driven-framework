@@ -7,12 +7,12 @@ tier: 7
 version: 4
 updated_at: 2026-11-02 19:46:47 +0400
 subjects:
-  active: Project.Settings.Prefix
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Prefix
   passive:
-  - Project.Settings
-  - Project
-  - Entity/Object/Continuant/Actor/Operator
-  - Atom
+  - CAPRMEDIO <+ MODEL <+ Project.Settings
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Atom
 relations:
   child_of:
   - CA-D-366

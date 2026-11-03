@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
-  - Scope Unit
-  - Project
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Atom
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

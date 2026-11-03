@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Project
-  - Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Carrier
-  - Carrier/Directory
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
 version: 29
 updated_at: 2026-11-02 15:49:28 +0400
 relations: {}

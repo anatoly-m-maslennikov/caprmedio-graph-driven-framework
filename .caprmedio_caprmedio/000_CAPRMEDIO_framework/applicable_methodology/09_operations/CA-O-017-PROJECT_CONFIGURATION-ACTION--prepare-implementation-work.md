@@ -31,7 +31,7 @@ relations:
   - CA-R-1592
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-017-PROJECT_CONFIGURATION-ACTION--prepare-implementation-work.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-017-PROJECT_CONFIGURATION-ACTION--prepare-implementation-work.md
   source_atom_id: CA-O-017
   source_atom_revision: 24
   source_sha256: 34305dc4ad48ab8f0d8c01197e94f3a0959064a7e8ca81495b44e1759fbb1089

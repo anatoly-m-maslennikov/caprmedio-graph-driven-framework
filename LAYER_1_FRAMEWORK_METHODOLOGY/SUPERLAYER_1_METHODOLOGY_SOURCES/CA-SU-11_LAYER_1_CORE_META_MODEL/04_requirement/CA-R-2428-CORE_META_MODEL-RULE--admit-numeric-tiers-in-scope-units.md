@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom.Tier
+  active: CAPRMEDIO <+ MODEL <+ Atom.Tier
   passive:
-  - Project
-  - Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
 relations:
   child_of:
   - CA-R-917

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
   passive:
-  - Term//Artifact
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Entity
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1501-CORE_META_MODEL-DEFINITION--define-artifact-currentness.md
   source_atom_id: CA-R-1501
   source_atom_revision: 21
-  source_sha256: 821bd568611fad1f0938ed17b3a2c149a0aba6b35a912621c002d37572e0b918
+  source_sha256: ef10755ee49b019cbb33f156fe73bb7827a005d60fb7ce14c13f63724c4d3d8f
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

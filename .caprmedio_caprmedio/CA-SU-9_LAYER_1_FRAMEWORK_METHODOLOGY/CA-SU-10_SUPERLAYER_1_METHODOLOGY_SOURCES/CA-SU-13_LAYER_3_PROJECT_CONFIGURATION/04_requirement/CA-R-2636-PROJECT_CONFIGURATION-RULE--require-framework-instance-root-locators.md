@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
 version: 1
 relations: {}
 tier: 3

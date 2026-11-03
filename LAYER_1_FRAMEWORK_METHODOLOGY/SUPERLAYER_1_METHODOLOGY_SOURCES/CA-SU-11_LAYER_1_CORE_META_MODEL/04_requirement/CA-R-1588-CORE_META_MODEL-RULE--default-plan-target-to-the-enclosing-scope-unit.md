@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Target Scope Unit'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Target Scope Unit'
   passive:
-  - Atom/(.Role := Plan)
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - Scope Unit
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

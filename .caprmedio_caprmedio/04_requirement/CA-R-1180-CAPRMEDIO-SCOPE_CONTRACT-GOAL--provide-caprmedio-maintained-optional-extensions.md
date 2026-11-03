@@ -2,7 +2,7 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: Aspects <+ Product
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 version: 29
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom.Content.Summary
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
   passive:
-  - Atom.Content
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

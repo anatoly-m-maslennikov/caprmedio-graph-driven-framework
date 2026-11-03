@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Term.Name
+  active: CAPRMEDIO <+ MODEL <+ Term.Name
   passive:
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ Entity
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-RULE--reserve-subject-expression-separators.md
   source_atom_id: CA-R-1324
   source_atom_revision: 27
-  source_sha256: 1d3f5b1b055a29ea6a719cbac760387bfe043126bd1ea36ed405060936899df0
+  source_sha256: 573c277c2ccbe80eff71a8bbe80742e4b87708d9586f4db2cd2e32300bb0e941
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

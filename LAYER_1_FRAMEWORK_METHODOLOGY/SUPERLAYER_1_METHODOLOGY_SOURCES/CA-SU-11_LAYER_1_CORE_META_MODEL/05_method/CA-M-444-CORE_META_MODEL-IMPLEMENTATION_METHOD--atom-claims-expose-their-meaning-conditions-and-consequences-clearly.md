@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - Term
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow) {1+}<+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Step)'
-  - Atom
-  - Actor
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
+  - CAPRMEDIO <+ MODEL <+ Term
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow) {1+}<+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Step)'
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
 version: 5
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

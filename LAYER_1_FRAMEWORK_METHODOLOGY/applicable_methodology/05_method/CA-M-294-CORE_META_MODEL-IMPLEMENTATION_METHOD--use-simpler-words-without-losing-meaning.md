@@ -11,12 +11,12 @@ relations:
   depends_on:
   - CA-R-1273
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - Actor
-  - Atom.Content.Summary
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Term
+  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Term
 atom_id: CA-M-294
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -28,7 +28,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-294-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-simpler-words-without-losing-meaning.md
   source_atom_id: CA-M-294
   source_atom_revision: 27
-  source_sha256: 408935a07e7fe3db445e6ecea43acd2200c79dd61e88a25d7776e456d6cd435a
+  source_sha256: dafbc14e1d9317598203c5428c25cb0408c47c9d3ad24149c1611801941aad0c
   original_relations_sha256: 6746b4a0115b5db0b9c42517faa8335a9996da63970cc352369cb14deac5244e
 ---
 ## Summary

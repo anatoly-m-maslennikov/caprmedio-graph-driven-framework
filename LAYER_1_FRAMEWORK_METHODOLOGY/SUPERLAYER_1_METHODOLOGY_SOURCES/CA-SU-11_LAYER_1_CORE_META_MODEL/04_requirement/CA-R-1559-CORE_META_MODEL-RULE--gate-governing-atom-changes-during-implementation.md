@@ -1,19 +1,19 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Actor/AI Agent
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Actor/AI Agent
-  - Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Autonomous Confidence Threshold'
-  - Atom
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - Atom/(.Role := Evaluation)
-  - Atom/(.Role := Requirement)
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Delivery)
-  - Project
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Project
+  - 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

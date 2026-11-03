@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - Scope Unit
-  - Entity/Object/Continuant/Selection
-  - Entity
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_MODEL <+ Entity
 relations:
   depends_on:
   - CA-R-2150@15

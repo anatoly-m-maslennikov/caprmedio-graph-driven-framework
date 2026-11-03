@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom.Status:Draft
+  active: CAPRMEDIO <+ MODEL <+ Atom.Status:Draft
   passive:
-  - Atom.ID
-  - Atom.Version
-  - Atom.Status:Draft
-  - Atom.Role
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Atom.Version
+  - CAPRMEDIO <+ MODEL <+ Atom.Status:Draft
+  - CAPRMEDIO <+ MODEL <+ Atom.Role
 version: 24
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

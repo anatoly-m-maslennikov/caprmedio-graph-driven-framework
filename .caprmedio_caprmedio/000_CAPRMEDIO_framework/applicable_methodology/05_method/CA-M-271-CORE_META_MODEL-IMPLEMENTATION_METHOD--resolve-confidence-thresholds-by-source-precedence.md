@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Term//Property
-  - Entity/Object/Continuant/Actor/AI Agent
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
 version: 29
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -20,10 +20,10 @@ tier: 3
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md
   source_atom_id: CA-M-271
   source_atom_revision: 29
-  source_sha256: 8f365c2803346143e92d76b4be3732bea149c3436ed574a23692ad708f10045c
+  source_sha256: ae7394d4de5c788a22006257f9a8b463932a7fc3dca2fb69f04004da10c656e0
   original_relations_sha256: 57a2d15d1c076f7de9a5434f2b010760681bcef356d85d254dae9d1bb3d233dd
 ---
 ## Summary

@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Architecture <+ Component Structure
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
   passive:
-  - Project
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Scope Unit//CORE_META_MODEL
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Atom/(.Role := Operations)
-  - Entity/Object/Continuant/Package/Project Implementation
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - Package
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - CAPRMEDIO <+ MODEL <+ Package
 version: 27
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -24,10 +24,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1514-PROJECT_CONFIGURATION-RULE--keep-implementation-specifications-independent-of-production-workflows.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1514-PROJECT_CONFIGURATION-RULE--keep-implementation-specifications-independent-of-production-workflows.md
   source_atom_id: CA-R-1514
   source_atom_revision: 27
-  source_sha256: 3323fe8a3da907064beaf12bd8df0716d529c49f5e03ff7e5385352976da895a
+  source_sha256: c493379e81e97dea158014bdf2393cdf827535c6e18a7a48bb0e440d7e2111f2
   original_relations_sha256: 445b79cc5d5c1583b960c0e86c52c0d7693990df1711ccc5f5c5e6aa3a0dd35e
 ---
 ## Summary

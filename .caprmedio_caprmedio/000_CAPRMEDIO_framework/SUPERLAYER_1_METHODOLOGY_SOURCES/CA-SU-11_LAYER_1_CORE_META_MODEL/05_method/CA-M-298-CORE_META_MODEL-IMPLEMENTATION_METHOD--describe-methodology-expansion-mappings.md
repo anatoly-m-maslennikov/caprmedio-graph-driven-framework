@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Authoring
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring
   passive:
-  - Scope Unit
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

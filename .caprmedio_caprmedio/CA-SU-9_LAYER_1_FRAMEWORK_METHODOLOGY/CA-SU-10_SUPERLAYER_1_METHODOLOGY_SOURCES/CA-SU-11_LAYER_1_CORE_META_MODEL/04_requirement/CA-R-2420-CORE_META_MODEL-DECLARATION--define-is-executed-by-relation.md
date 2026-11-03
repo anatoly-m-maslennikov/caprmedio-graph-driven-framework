@@ -4,13 +4,17 @@ current_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 subjects:
-  active: CFEL <+ Relation//IS_EXECUTED_BY
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTED_BY
 relations: {}
-version: 4
-updated_at: 2026-11-02 08:06:47 +0400
+version: 5
+updated_at: 2026-11-03 20:00:05 +0400
 claim_target_scope_unit: CORE_META_MODEL
 role: Requirement
 form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-2420-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 
@@ -18,22 +22,8 @@ Define IS_EXECUTED_BY Relation
 
 ## Claim
 
-IS_EXECUTED_BY is the declared derived inverse of EXECUTES; its full Runtime-to-Workflow Run meaning remains in CA-R-2255. No independently stored reverse fact is introduced.
+### Formal Claim
 
 ```CFEL
-((EXECUTES)) ((HAS_INVERSE)) ((IS_EXECUTED_BY));
-
-((IS_EXECUTED_BY)) >| Derivation == Derived;
-((IS_EXECUTED_BY)) ((IS_DERIVED_RELATION_OF)) ((EXECUTES));
-
-$workflow_run ((IS_EXECUTED_BY)) $runtime
+Relation//IS_EXECUTED_BY <((HAS_INVERSE)) Relation//EXECUTES
 ```
-
-## Semantics
-
-
-
-The Host is a Workflow Run and the Target is the actual Runtime that executes it.
-Forward `Host ((IS_EXECUTED_BY)) Target` and reverse `Target <((IS_EXECUTED_BY)) Host` are views of the same Relation fact.
-IS_EXECUTED_BY relates Workflow Run to Runtime. It is the derived inverse of EXECUTES; it does not add a separately authored fact.
-

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Traceability
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   passive:
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - CFEL > Relation
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 38
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

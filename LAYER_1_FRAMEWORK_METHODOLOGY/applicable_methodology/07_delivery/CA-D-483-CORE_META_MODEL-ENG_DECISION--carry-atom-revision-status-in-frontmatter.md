@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom.Status
+  active: CAPRMEDIO <+ MODEL <+ Atom.Status
   passive:
-  - Atom.Status
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Entity/Object/Continuant/Governing Objects/Atom/Type
-  - Carrier.Canonical Address
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Type
+  - CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md
   source_atom_id: CA-D-483
   source_atom_revision: 23
-  source_sha256: 2e8fe91f1ea6da6147d7df198589962327950e260e54db4b274ae1178b8d81c0
+  source_sha256: b7794852dbac539d589806ce98ff0a92029e4b173e92161ae4a5ced287659f56
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -2,9 +2,9 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
+  active: 'CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
   passive:
-  - Project
+  - CAPRMEDIO_MODEL <+ Project
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

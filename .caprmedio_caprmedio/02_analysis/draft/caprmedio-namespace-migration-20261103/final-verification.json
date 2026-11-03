@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "authorized_source_fields": [
+    "subjects.active",
+    "subjects.passive"
+  ],
+  "authoritative_atoms_updated": 1173,
+  "source_field_only_verification": "VERIFIED_APPLIED",
+  "subject_scalars_updated": 3671,
+  "other_source_fields_and_body": "BYTE_IDENTICAL",
+  "official_graphs_refreshed": 6,
+  "delivery_copies_refreshed": 4166,
+  "projection_output_hash_mismatches": [],
+  "applicable_methodology_selection_per_root": 1153,
+  "compiled_selection_changed": false,
+  "scope_declarations_readable": 44,
+  "selected_graph_frontier": 1132,
+  "contract_coverage": {
+    "candidate_sources": 1132,
+    "bound_sources": 802,
+    "declared_entity_targets": 139,
+    "declared_component_targets": 43,
+    "declared_relation_targets": 41,
+    "shared_sources": 579,
+    "fenced_claim_blocks": 237,
+    "cfel_blocks": 210,
+    "recognized_clauses": 365,
+    "unsupported_clauses": 199,
+    "coverage_gaps": 0,
+    "outside_model_scope_sources": 330,
+    "duplicate_declarations": 0,
+    "missing_relation_semantics": 0,
+    "instance_kind_gaps": 0,
+    "inheritance_diagnostics": 0
+  },
+  "unit_tests": {
+    "run": 76,
+    "failures": 0
+  },
+  "git_diff_check": "PASS",
+  "runtime_or_service_checks": "NOT_RUN",
+  "git_publication": "NOT_REQUESTED_FOR_THIS_CHANGE",
+  "evidence": {
+    "plan.json": "999761871278c0fbc1ef6a168615fecc53bdcd39a71e4d6ee5626c2a4efb9599",
+    "source-application-receipt.json": "5885804584c85e9a097a1cf0438119784a5a6b6e04983852666faf6f7e34033d",
+    "verification.json": "6b7515669bfb96e3d50e327226a368dc641515201012b5707334277adbd148aa",
+    "projection-application-receipt.json": "18df56052025f3de92ef474d6d013c9c2f3c2c04a5239a918b48eb08120de1e0",
+    "candidate-preview.json": "da97596fe1ad54aa8143923599a70ffe2309e6482f7e9298780df128ee67406d"
+  },
+  "preexisting_consumer_limit": {
+    "reader": "authoritative_status_models._source_snapshot",
+    "example": "CA-R-1947",
+    "before_and_after": "source-invalid: invalid status-model authority",
+    "cause": "Reader requires legacy content_role and subjects.governs; source already uses role and subjects.active",
+    "changed_in_this_task": false
+  }
+}

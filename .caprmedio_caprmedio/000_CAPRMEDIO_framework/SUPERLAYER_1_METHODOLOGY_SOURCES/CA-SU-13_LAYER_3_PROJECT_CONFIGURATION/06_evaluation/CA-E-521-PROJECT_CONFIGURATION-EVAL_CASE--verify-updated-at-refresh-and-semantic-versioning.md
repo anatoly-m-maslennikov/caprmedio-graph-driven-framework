@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Atom.Updated At
+  active: CAPRMEDIO <+ MODEL <+ Atom.Updated At
   passive:
-  - Atom/(.Role := Evaluation)
-  - Atom
-  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - Carrier
-  - Atom.Status
-  - Atom.Content.Summary
-  - Atom.ID
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Entity
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

@@ -5,13 +5,13 @@ relations:
   child_of:
   - CA-R-1488@21
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan).Implementation Retry Limit'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan).Implementation Retry Limit'
   passive:
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit
-  - Entity/Object/Continuant/Actor/Operator
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Term//Property
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Term//Property
 atom_id: CA-R-1489
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -20,10 +20,10 @@ tier: 4
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1489-CORE_META_MODEL-RULE--permit-implementation-retry-limit-defaults-and-overrides.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1489-CORE_META_MODEL-RULE--permit-implementation-retry-limit-defaults-and-overrides.md
   source_atom_id: CA-R-1489
   source_atom_revision: 25
-  source_sha256: 7341c2f2a44657f622930b177c85b6bc63b11be2d2d4873d45cd119de59aa883
+  source_sha256: ea5eae2d4e7f01a677deff37b1a7d04b80ba73a13d05a6240dc913c8018f5855
   original_relations_sha256: fb00d26782cf16ed70925bcf37271a24fb7ade9de38397c303a37b222a73f23d
 ---
 ## Summary

@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Project.Settings.Interaction.Reporting Mode
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Interaction.Reporting Mode
 version: 1
 relations: {}
 tier: 3

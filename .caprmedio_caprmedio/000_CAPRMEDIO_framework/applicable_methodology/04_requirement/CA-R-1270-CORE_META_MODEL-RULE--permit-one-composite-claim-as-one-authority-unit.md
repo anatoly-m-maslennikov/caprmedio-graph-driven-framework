@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -14,10 +14,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-RULE--permit-one-composite-claim-as-one-authority-unit.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-RULE--permit-one-composite-claim-as-one-authority-unit.md
   source_atom_id: CA-R-1270
   source_atom_revision: 24
-  source_sha256: 17bde1db335651d6c8b301751c2f84a9fc9c8eadf1edfb72d7ce370168681be0
+  source_sha256: 0cf6385dc14a4470ab8e74dbd9e2619244962898453fe5ac8222d6684c9e2bda
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

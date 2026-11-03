@@ -3,17 +3,17 @@ atom_id: CA-E-670
 form: Eval Policy
 status: Active
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 1
 relations: {}
 tier: 3
 updated_at: 2026-11-02 19:17:40 +0400
 role: Evaluation
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-670-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-670-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md
   source_atom_id: CA-E-670
   source_atom_revision: 1
-  source_sha256: cd4b2e21a48cb39f507fef786373accbf20b4d4b3db23d648facda28de4ed48a
+  source_sha256: e3c94fdfc7e0e75bacc9edfeb1dc1b223dd9501c4b41455bfcc241ed53bd252a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

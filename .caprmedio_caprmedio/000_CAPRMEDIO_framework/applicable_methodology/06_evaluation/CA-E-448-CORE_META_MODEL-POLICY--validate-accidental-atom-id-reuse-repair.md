@@ -1,18 +1,18 @@
 ---
 subjects:
-  active: Atom.ID
+  active: CAPRMEDIO <+ MODEL <+ Atom.ID
   passive:
-  - Atom.ID
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Atom
-  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - Carrier.Canonical Address
-  - Project
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - Journal
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO <+ MODEL <+ Journal
 version: 32
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -26,10 +26,10 @@ tier: 5
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-448-CORE_META_MODEL-POLICY--validate-accidental-atom-id-reuse-repair.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-448-CORE_META_MODEL-POLICY--validate-accidental-atom-id-reuse-repair.md
   source_atom_id: CA-E-448
   source_atom_revision: 32
-  source_sha256: 92cdac7d474993c83ec698f7b07958b855f60b75c95ed891489d92326e0665eb
+  source_sha256: 725af79a5647fe00572aa3b8a978099f398f8db6186972aa0efed13636cb298e
   original_relations_sha256: 7052f3ea7234947e3eed5cdb9e8de3c7b82427e31f0c1cb14ed06bd377cf52c3
 ---
 ## Summary

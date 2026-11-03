@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Actor
+  active: CAPRMEDIO_MODEL <+ Actor
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Actor/AI Agent
-  - Project
-  - Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  - Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
 version: 4
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

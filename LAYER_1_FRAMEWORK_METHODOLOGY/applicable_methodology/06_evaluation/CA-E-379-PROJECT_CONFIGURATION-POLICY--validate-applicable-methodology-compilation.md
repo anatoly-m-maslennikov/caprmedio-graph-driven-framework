@@ -1,17 +1,17 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
+  active: 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
   passive:
-  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
-  - Entity/Object/Continuant/Selection//Methodology Sources
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Entity/Object/Continuant/Selection//Extension Sources
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Scope Unit
-  - Atom
-  - Atom.Content
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/History/Journal > Event Record
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
 version: 46
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -34,7 +34,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md
   source_atom_id: CA-E-379
   source_atom_revision: 46
-  source_sha256: 4078eab132b5c92fd1e46a2a48ff590aaec40907e7127c1dbd6bc9bf7b5e367e
+  source_sha256: 517bd1c42fa49d359ca5b02d432989c9c2395e140157b715bb250cdfa3e51a42
   original_relations_sha256: b5a3d4252dc940366e1b2b97aa8dd390372d6fd6ec11c5ef0617edafab0e076b
 ---
 ## Summary

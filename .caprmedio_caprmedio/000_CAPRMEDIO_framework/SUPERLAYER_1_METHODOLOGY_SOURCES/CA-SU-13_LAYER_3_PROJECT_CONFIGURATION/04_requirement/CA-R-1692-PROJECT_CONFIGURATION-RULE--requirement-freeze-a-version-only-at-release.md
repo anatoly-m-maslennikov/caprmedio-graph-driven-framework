@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/History/Release.ID
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Release.ID
   passive:
-  - Entity/Object/Continuant/History/Release.ID
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Aspects <+ Engineering <+ Traceability
-  - Atom/(.Role := Operations)
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Atom/(.Role := Delivery)
-  - Atom/(.Role := Evaluation)
-  - Scope Unit
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Release.ID
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 38
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

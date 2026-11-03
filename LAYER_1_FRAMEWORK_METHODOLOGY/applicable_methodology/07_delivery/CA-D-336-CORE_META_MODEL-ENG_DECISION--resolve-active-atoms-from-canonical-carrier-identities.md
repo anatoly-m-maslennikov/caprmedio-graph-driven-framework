@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
   passive:
-  - Atom.ID
-  - Carrier.Canonical Address
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
 version: 30
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL-ENG_DECISION--resolve-active-atoms-from-canonical-carrier-identities.md
   source_atom_id: CA-D-336
   source_atom_revision: 30
-  source_sha256: cbb907fde5c830d9f6b7553b02f774ea6863b66477b775a2ed3099b213cbb920
+  source_sha256: 0aa69be6c8480818a70617952027b182d9b4c79e9f505282f176e28a91cfb84d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

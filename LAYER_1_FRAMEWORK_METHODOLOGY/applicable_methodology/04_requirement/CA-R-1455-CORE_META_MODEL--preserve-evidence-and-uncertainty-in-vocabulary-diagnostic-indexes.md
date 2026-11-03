@@ -1,18 +1,18 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Catalog)'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Catalog)'
   passive:
-  - Term
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Entity Definition)'
-  - Atom.Content
-  - Atom.Subjects
-  - Term//Artifact
-  - Scope Unit
-  - Actor
-  - Entity
-  - Projection
-  - CFEL <+ Relation
-  - 'Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
+  - CAPRMEDIO <+ MODEL <+ Term
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Entity Definition)'
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -32,7 +32,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md
   source_atom_id: CA-R-1455
   source_atom_revision: 27
-  source_sha256: 4f82894eaa2032af0f7e3df3fcdb343d1e8075e7caba8e07c02e56ca4c944e74
+  source_sha256: 8306e55f166bb49d6b76ae06b8460ad70396b271e4497df27063858e7eb4ac5b
   original_relations_sha256: 2984945151e45b08c6ca4b41431785d793749c638b74ee241a840c0ddd28478a
 ---
 ## Summary

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -15,10 +15,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-RULE--permit-terminal-implementation-methods.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-RULE--permit-terminal-implementation-methods.md
   source_atom_id: CA-R-1672
   source_atom_revision: 28
-  source_sha256: c9ac01345a13ec9136be8e7a0469f354a2329f695c7d22ec687b4550a930ab67
+  source_sha256: 743b467880915e2097815d4e1a435171fcca64ea6ae5b371eb8b50021c45b962
   original_relations_sha256: 104250d8f1edead7d78dc4e68ca75b90678ae2012d09695ad7885fdc6aa6267f
 ---
 ## Summary

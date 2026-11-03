@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Scope Unit//METHODOLOGY_SOURCES
-  - Scope Unit//CORE_META_MODEL
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//METHODOLOGY_SOURCES
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 31
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

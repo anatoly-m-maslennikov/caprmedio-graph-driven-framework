@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
   passive:
-  - Entity
-  - CFEL <+ Relation
-  - Atom
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 25
 updated_at: 2026-11-02 19:46:47 +0400
 relations:
@@ -19,10 +19,10 @@ tier: 4
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md
   source_atom_id: CA-M-385
   source_atom_revision: 25
-  source_sha256: bf9a53a69aade54774a4f13a84becb485e0f8ba55acb9620146d13a303cb96a5
+  source_sha256: 49430b8501ce05abaa1827510a00097f5e3abc99a90b472918694b09cbfb39f7
   original_relations_sha256: 7733f3e3021e6be18516933e27e8835adbc33729eb63b7a4e716166b11e30c93
 ---
 ## Summary

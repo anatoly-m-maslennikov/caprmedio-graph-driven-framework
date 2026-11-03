@@ -4,10 +4,10 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Projection/(.Form:=Realization Graph)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Realization Graph)
   passive:
-  - CFEL <+ Relation
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 21
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1620-PROJECT_CONFIGURATION-RULE--define-the-realization-graph-dependency-view.md
   source_atom_id: CA-R-1620
   source_atom_revision: 21
-  source_sha256: edeaf477d4612a0a7c6fd8374e5b7ccdc2c6dc9087f88ca83068999e4caf2938
+  source_sha256: 77e5baa12022665b682b2e77c453f31d6c2a6b20114b6693d6d861987e43c329
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

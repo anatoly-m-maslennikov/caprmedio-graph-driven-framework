@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - Projection
-  - Atom
-  - Atom.Content
-  - Entity
-  - Journal
-  - CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -24,10 +24,10 @@ tier: 3
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-466-CORE_META_MODEL-EVAL_CASE--validate-single-source-of-truth-in-secondary-graphs.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-466-CORE_META_MODEL-EVAL_CASE--validate-single-source-of-truth-in-secondary-graphs.md
   source_atom_id: CA-E-466
   source_atom_revision: 28
-  source_sha256: 8820fc71cf88eb7aaf928aa280301ff3baf6b92dd9e6e6deaf9043f19961ddd4
+  source_sha256: 9c85214ae66eacb3488df623db3d3cfd8759f1204cc73348aa2c05237a7051b7
   original_relations_sha256: 8db81e4f3cb2102db425222e58f0524bd60d360c9981ec917f8eb310b4cbb0d1
 ---
 ## Summary

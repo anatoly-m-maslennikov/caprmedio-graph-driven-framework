@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Package/Implementation
+  active: CAPRMEDIO_MODEL <+ Package/Implementation
 version: 9
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
   passive:
-  - CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -14,10 +14,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL--define-lineage-impact-analysis-content.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL--define-lineage-impact-analysis-content.md
   source_atom_id: CA-R-1037
   source_atom_revision: 26
-  source_sha256: 7f62fd266635cfc3a43170b1a953661b05f7d3aea89065c0556c8060c58b357e
+  source_sha256: 9c5bb608a8f39f078765dad54d6cf38a53158b00bc0179414663b1e1d53bd979
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -10,14 +10,14 @@ relations:
   - CA-O-022
   - CA-O-023
 subjects:
-  active: Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  active: CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Project
-  - Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
-  - Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  - Entity/Object/Continuant/Selection
-  - Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
 atom_id: CA-E-207
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL

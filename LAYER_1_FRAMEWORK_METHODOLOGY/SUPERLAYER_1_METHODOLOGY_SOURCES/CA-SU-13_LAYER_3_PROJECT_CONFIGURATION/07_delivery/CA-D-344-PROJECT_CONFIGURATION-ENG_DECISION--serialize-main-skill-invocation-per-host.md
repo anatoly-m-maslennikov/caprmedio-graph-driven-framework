@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Aspects <+ UX <+ Entry
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ UX <+ Entry
   passive:
-  - Aspects <+ UX <+ Entry
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ UX <+ Entry
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

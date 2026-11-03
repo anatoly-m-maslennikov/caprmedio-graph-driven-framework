@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: CFEL
+  active: CAPRMEDIO <+ MODEL <+ CFEL
   passive:
-  - Entity
-  - Term
-  - Term//Property
-  - Atom
-  - Package
-  - Entity/Object/Continuant/Package <+ Module
-  - Entity/Object/Continuant/Package <+ Module <+ Code Unit
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Package
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package <+ Module
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
 version: 35
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md
   source_atom_id: CA-R-1321
   source_atom_revision: 35
-  source_sha256: 4b4fb3a32ce1717e144d49601d330d8d1704ba8dfcd71e70bf4ecf9842f37224
+  source_sha256: fea9f35141d26ccb00bb4e41a1432159e33669e478f626c9b38eb2ba363159c8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

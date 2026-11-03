@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - Atom/(.Role := Plan)
-  - CFEL <+ Relation
-  - Atom.ID
-  - Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Subjects
 version: 24
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

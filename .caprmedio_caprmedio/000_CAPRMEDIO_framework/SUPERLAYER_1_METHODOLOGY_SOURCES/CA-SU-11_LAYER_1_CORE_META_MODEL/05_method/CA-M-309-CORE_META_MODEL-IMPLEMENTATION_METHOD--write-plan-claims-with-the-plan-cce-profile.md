@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content'
   passive:
-  - Atom/(.Role := Plan)
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

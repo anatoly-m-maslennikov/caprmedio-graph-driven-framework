@@ -17,7 +17,7 @@ status: Active
 atom_id: CA-R-621
 tier: 2
 subjects:
-  active: Carrier/File
+  active: CAPRMEDIO_MODEL <+ Carrier/File
 claim_target_scope_unit: caprmedio
 role: Requirement
 form: Rule

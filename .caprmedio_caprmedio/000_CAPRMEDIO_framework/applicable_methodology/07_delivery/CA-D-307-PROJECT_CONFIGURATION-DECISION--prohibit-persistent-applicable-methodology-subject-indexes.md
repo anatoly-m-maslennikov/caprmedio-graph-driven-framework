@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection/(.Form:=Applicable Methodology)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
   passive:
-  - CFEL <+ Relation//GOVERNS
-  - CFEL <+ Relation//DEPENDS_ON
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//GOVERNS
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON
 version: 28
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-307-PROJECT_CONFIGURATION-DECISION--prohibit-persistent-applicable-methodology-subject-indexes.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-307-PROJECT_CONFIGURATION-DECISION--prohibit-persistent-applicable-methodology-subject-indexes.md
   source_atom_id: CA-D-307
   source_atom_revision: 28
-  source_sha256: eca5383cfb2597ea7b2f3ff0b1799310ce226d860d5c40f9c3754588b7674742
+  source_sha256: ac757660f6eef8beddf44ced46ce2239293c3e7414e15d3658c320fb87fec67f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

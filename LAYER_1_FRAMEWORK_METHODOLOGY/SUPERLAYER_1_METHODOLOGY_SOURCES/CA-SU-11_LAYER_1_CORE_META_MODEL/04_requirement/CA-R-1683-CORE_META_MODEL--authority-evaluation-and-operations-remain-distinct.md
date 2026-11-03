@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - Entity/Object/Continuant/Selection
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Entity/Object/Continuant/History
-  - Entity/Object/Continuant/Package/Project Implementation
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - Actor
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
 version: 45
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

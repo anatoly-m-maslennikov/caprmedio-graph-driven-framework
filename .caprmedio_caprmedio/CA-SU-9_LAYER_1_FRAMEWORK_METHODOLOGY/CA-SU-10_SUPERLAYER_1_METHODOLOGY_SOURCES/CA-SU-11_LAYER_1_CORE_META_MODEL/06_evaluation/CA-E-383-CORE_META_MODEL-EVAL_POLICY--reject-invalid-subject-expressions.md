@@ -1,17 +1,17 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom.Status: Active'
-  - Entity/Object/Continuant/Actor/Operator
-  - Atom/(.Role := Method)
-  - Term
-  - Term//Property
-  - CFEL <+ Relation//IS_PROPERTY_OF
-  - CFEL<+Operator//AllowedValue
-  - Aspects <+ Engineering <+ Data Handling <+ Data Validation
-  - Atom.Content
-  - Scope Unit.Name
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Status: Active'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Scope Unit.Name
 version: 45
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

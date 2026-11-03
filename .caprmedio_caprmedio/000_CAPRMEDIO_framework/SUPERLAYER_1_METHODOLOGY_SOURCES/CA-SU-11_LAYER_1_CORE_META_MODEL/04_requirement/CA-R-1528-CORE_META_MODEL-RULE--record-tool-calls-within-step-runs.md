@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Entity/Object/Occurrent/Execution
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution
   passive:
-  - Entity/Object/Occurrent/Execution/Step Run
-  - Entity/Object/Occurrent/Execution/Workflow Run
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - Journal
-  - Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Step Run
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier/Directory
+  active: CAPRMEDIO_MODEL <+ Carrier/Directory
   passive:
-  - Term//Artifact
-  - Entity
-  - Atom
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

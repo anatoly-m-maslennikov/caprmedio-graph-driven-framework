@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Carrier.Canonical Address.Segment
+  active: CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address.Segment
 version: 29
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL-ENG_DECISION--require-portable-safe-carrier-addresses.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL-ENG_DECISION--require-portable-safe-carrier-addresses.md
   source_atom_id: CA-D-301
   source_atom_revision: 29
-  source_sha256: 6d296272f18f15786d9e7beef9c9cc6cdd07b63e5a8e552cf48adc2ebc81d6e9
+  source_sha256: 656d0311427c7586503dcea2e9a2be81ae33804e3e4783cb5c51629582bb9677
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

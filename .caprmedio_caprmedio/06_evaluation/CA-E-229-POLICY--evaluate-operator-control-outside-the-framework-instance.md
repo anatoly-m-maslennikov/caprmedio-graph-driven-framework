@@ -7,12 +7,12 @@ relations:
   evaluation_for:
   - CA-R-827
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Project
-  - Aspects <+ Product
-  - Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom.Content.Summary
+  active: CAPRMEDIO_MODEL <+ Atom.Content.Summary
   passive:
-  - Atom
-  - Atom.ID
-  - Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

@@ -1,0 +1,43 @@
+---
+atom_id: CA-R-2279
+current_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_DEFINED_BY
+relations: {}
+version: 5
+updated_at: 2026-11-03 20:00:05 +0400
+claim_target_scope_unit: CORE_META_MODEL
+role: Requirement
+form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-2279-CORE_META_MODEL-DECLARATION--define-derived-is-defined-by-relation.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+---
+## Summary
+
+Define Derived IS_DEFINED_BY Relation
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+Relation//IS_DEFINED_BY ((HAS_CLASSIFICATION)) Derivation == Derived;
+Relation//IS_DEFINED_BY ((IS_DERIVED_RELATION_OF)) Relation//GOVERNS;
+
+$definition_subject ((IS_DEFINED_BY)) Atom//
+```
+
+### Prose Claim
+
+IS_DEFINED_BY is the derived counterpart of the defining GOVERNS links qualified by the Entity Definition ownership rule. It reuses that main link and its qualification; it adds no independently stored reverse fact.
+
+The Host is the Subject of a defining Atom; the link is limited to GOVERNS facts satisfying the Entity Definition ownership rule.
+Forward `Host ((IS_DEFINED_BY)) Target` and reverse `Target <((IS_DEFINED_BY)) Host` are views of the same Relation fact.
+IS_DEFINED_BY relates Entity Definition subject to qualified defining Atom; not an unconditional inverse of GOVERNS.
+
+#### Details
+The main GOVERNS meaning is defined by CA-R-1199. CA-R-2278 qualifies which GOVERNS links define an Entity. The counterpart references those sources instead of repeating their meanings or constraints; the inverse is derived only from that qualified main link.

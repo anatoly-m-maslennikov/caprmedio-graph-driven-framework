@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Journal
+  active: CAPRMEDIO <+ MODEL <+ Journal
   passive:
-  - Scope Unit//CORE_META_MODEL
-  - Scope Unit
-  - 'Entity/Object/Continuant/Projection/Type: Artifact Change Log'
-  - 'Entity/Object/Continuant/Projection/Type: Process Log'
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log'
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

@@ -19,7 +19,7 @@ updated_at: 2026-10-27 19:59:45 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-102-PROJECT_CONFIGURATION-WORKFLOW--learn-methods-from-verified-implementation-issues.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-102-PROJECT_CONFIGURATION-WORKFLOW--learn-methods-from-verified-implementation-issues.md
   source_atom_id: CA-O-102
   source_atom_revision: 14
   source_sha256: 8267d6b7aed7cc35ec5839620166169bc502b9091a71bd8ef7cfad88c38a4be9

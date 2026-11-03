@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
   passive:
-  - CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
 version: 32
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-RULE--register-child-of-and-parent-of-relation-pair.md
   source_atom_id: CA-R-879
   source_atom_revision: 32
-  source_sha256: 8574bf6f0afd5b2caee910070bcaeb9862a03ecd79ae10aa8d81e1ff454923ce
+  source_sha256: 58cfa4d49e500c104d29046c6e8df07834c7aaf02cfd0e396346294baa4208f1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

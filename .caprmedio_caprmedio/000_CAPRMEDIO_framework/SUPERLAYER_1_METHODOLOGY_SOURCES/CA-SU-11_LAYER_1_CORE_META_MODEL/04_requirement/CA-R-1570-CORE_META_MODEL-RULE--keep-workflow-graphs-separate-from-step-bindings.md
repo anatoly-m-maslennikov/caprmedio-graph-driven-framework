@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
   passive:
-  - Atom/(.Role := Operations)/Step
-  - Atom/(.Role:=Operations)/Action
-  - Atom/(.Role:=Operations)/Workflow
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Step
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Action
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
 version: 26
 relations: {}
 atom_id: CA-R-1570

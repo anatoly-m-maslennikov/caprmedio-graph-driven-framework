@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs
-  - Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 40
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md
   source_atom_id: CA-R-1014
   source_atom_revision: 40
-  source_sha256: 11c3e4747e19d707b44891efa60644cdb402da894e04765e850a2a953d99b173
+  source_sha256: f07307ada317f796213a4e8312de6015d8b629c6b8f68f17f85e7c44349dd74d
   original_relations_sha256: 26aa04726746f899586a0393ece67890930c69f69ffcdcc6cc042d360740bb1b
 ---
 ## Summary

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom.Tier
+  active: CAPRMEDIO_MODEL <+ Atom.Tier
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Project
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

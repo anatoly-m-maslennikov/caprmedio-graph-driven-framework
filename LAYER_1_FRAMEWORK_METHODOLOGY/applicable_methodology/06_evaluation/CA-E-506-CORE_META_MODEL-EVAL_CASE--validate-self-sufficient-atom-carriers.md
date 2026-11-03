@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Carrier/File
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File
   passive:
-  - Atom
-  - Atom.Content
-  - Atom.Content.Summary
-  - Atom.Status
-  - CFEL > Relation
-  - Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -33,7 +33,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-EVAL_CASE--validate-self-sufficient-atom-carriers.md
   source_atom_id: CA-E-506
   source_atom_revision: 28
-  source_sha256: 60a12bff52e8f379bfbed24821e230fea11019101e42ae528c996d9ffdeafaa4
+  source_sha256: b8980b8003e52ef0575caa7f5a52a824cdb463c9622f39dd223e1a1a94f6c92c
   original_relations_sha256: b7937a6522e063dad89bd26e9d55b22b49fb5c546df59d24663e53414b5f1e77
 ---
 ## Summary

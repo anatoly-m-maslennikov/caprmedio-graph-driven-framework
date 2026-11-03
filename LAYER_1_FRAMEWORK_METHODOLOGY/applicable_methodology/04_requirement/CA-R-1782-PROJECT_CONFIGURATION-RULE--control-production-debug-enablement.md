@@ -4,9 +4,9 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Aspects <+ Engineering <+ Observability <+ Logging
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
   passive:
-  - Aspects <+ Engineering <+ Observability <+ Logging
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
 version: 15
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1782-PROJECT_CONFIGURATION-RULE--control-production-debug-enablement.md
   source_atom_id: CA-R-1782
   source_atom_revision: 15
-  source_sha256: 682ec522047c68df47b09902eaad58a89270cb21af8cdd51b0173b65e280a234
+  source_sha256: d1b5c09269560e7ddac59a1843fea251a45fe39b8f63e5ea2a22d4316a728bc2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

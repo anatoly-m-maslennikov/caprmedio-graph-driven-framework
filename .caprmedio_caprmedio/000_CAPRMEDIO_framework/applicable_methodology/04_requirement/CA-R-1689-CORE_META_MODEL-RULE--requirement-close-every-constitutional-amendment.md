@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -14,10 +14,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL-RULE--requirement-close-every-constitutional-amendment.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL-RULE--requirement-close-every-constitutional-amendment.md
   source_atom_id: CA-R-1689
   source_atom_revision: 33
-  source_sha256: a37bfa917ffdbd8b2f88691c9367ad8b3365e4ca38b8c253e39dcf50606a929c
+  source_sha256: 9be7399b091019b1785c8fa6b259993a5a58948220174352389a19b7cbbdbefd
   original_relations_sha256: 53d4f4b49d6a4e95a70e95367325e64165649a1d452fb3189cddd242b02b72b2
 ---
 ## Summary

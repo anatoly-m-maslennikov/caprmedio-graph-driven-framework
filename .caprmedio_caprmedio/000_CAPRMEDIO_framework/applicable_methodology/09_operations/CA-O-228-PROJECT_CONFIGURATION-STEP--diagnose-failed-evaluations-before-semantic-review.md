@@ -23,7 +23,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-228-PROJECT_CONFIGURATION-STEP--diagnose-failed-evaluations-before-semantic-review.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-228-PROJECT_CONFIGURATION-STEP--diagnose-failed-evaluations-before-semantic-review.md
   source_atom_id: CA-O-228
   source_atom_revision: 11
   source_sha256: c83cf8d42419c118986f68951a6d7f7c442e80ccc40c9861fd460f4a8e340188

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Scope Unit//CORE_META_MODEL
+  active: CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
 version: 37
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -15,10 +15,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-RULE--keep-the-core-meta-model-implementation-neutral.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-RULE--keep-the-core-meta-model-implementation-neutral.md
   source_atom_id: CA-R-1696
   source_atom_revision: 37
-  source_sha256: 50ac931518682d43aedc0ffadcbdc811320373656c9f8b032a70f26da322f6b7
+  source_sha256: e2085bc2596f1ac34b6dc0c27ede5e9f73bfd36d13f24f55bb381041a576ced4
   original_relations_sha256: daa221ee3824742de82fc1e74c79b2e49ba96d8d13faef8080c702793c699583
 ---
 ## Summary

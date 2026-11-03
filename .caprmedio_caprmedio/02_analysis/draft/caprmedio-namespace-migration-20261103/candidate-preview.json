@@ -1,0 +1,30 @@
+{
+  "status": "CANDIDATE_PREVIEW_PASS",
+  "source_count": 1132,
+  "scope_declarations": 44,
+  "contract_outcome": "complete",
+  "coverage": {
+    "candidate_sources": 1132,
+    "bound_sources": 802,
+    "declared_entity_targets": 139,
+    "declared_component_targets": 43,
+    "declared_relation_targets": 41,
+    "shared_sources": 579,
+    "fenced_claim_blocks": 237,
+    "cfel_blocks": 210,
+    "recognized_clauses": 365,
+    "unsupported_clauses": 199,
+    "coverage_gaps": 0,
+    "outside_model_scope_sources": 330,
+    "duplicate_declarations": 0,
+    "missing_relation_semantics": 0,
+    "instance_kind_gaps": 0,
+    "inheritance_diagnostics": 0
+  },
+  "coverage_gaps": [],
+  "conflicts": [],
+  "tree_nodes": 54,
+  "tree_diagnostics": [],
+  "namespace_edges": 457,
+  "enhanced_diagnostics": 118
+}

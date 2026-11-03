@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Journal
+  active: CAPRMEDIO <+ MODEL <+ Journal
   passive:
-  - Aspects <+ Engineering <+ Data Handling <+ Output Publication
-  - Projection
-  - Journal
-  - Carrier
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Output Publication
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 19
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -17,10 +17,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL-ENG_DECISION--deliver-runtime-journals-to-configured-sinks.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL-ENG_DECISION--deliver-runtime-journals-to-configured-sinks.md
   source_atom_id: CA-D-559
   source_atom_revision: 19
-  source_sha256: 0170d273140eda9bd48724e06b11ae42db2d7d725725c348cc29492c0c7123be
+  source_sha256: 032d86564de5791b605d5a68ebb1e59f3c9e12ef7504f403b33b53b2c449e3f1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

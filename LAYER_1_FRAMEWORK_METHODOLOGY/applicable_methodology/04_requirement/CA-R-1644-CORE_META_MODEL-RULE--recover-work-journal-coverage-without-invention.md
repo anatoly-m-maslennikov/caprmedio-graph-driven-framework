@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Journal
+  active: CAPRMEDIO <+ MODEL <+ Journal
   passive:
-  - Event Record
-  - Carrier
-  - History
-  - Actor
+  - CAPRMEDIO <+ MODEL <+ Event Record
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ History
+  - CAPRMEDIO <+ MODEL <+ Actor
 version: 37
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md
   source_atom_id: CA-R-1644
   source_atom_revision: 37
-  source_sha256: 726d46854187a5f88726617b10c8021d9f2d1967b6c4f0391859138b6f4f733e
+  source_sha256: 4ae3758dcd3042f93250d4c5be6075317e8445c076a736c122562aa853ee1581
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -4,10 +4,10 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
   passive:
-  - Atom.Content.Summary
-  - Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 20
 updated_at: 2026-11-02 19:33:47 +0400
 relations:
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md
   source_atom_id: CA-M-345
   source_atom_revision: 20
-  source_sha256: c9642014641c640079c26d022c9dae7f14f184101970ebaed522f4bc43450645
+  source_sha256: 03cde371f004ac3dc3d9c0e34aa637800dc5a3bbf0d23cec0f036a5573133e33
   original_relations_sha256: b70967c5352152ca9b72848a50e82082d932847305b9d8a76594bf66fcb60243
 ---
 ## Summary

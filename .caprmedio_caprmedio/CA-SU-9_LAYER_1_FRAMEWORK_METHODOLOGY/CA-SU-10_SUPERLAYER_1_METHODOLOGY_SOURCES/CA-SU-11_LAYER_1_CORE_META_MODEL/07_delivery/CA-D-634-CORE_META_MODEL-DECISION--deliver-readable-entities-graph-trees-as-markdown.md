@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Projection/(.Form:=Entities Graph)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Entities Graph)
   passive:
-  - Entity
-  - CFEL <+ Relation
-  - Atom
-  - Projection
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Projection
 version: 23
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

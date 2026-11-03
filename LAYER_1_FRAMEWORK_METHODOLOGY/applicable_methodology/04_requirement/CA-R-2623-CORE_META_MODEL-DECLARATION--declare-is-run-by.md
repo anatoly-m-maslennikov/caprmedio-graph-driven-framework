@@ -8,13 +8,13 @@ updated_at: 2026-11-02 17:54:42 +0400
 current_scope_unit: CORE_META_MODEL
 tier: 3
 subjects:
-  active: CFEL <+ Relation//IS_RUN_BY
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_RUN_BY
 relations: {}
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md
   source_atom_id: CA-R-2623
   source_atom_revision: 3
-  source_sha256: 935bc12a55e01b3b9be830b10f139e4907b2bab4195791521f78d2253f50427f
+  source_sha256: 60ecb82eb46e05d097853a3eb301c4a4276da87c15b019512a5d34a881626861
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 

@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Atom.Content.Claim
+  active: CAPRMEDIO_MODEL <+ Atom.Content.Claim
   passive:
-  - Entity/Object/Continuant/Selection
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Entity
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
 version: 41
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

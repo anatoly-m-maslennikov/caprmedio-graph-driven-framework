@@ -1,0 +1,29 @@
+---
+atom_id: CA-R-2555
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+subjects:
+  active: Package.structural_level
+version: 2
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare Package.structural_level
+
+## Claim
+
+```CFEL
+Package.structural_level{:1}: [int]{:1};
+Package.structural_level.*[]{:0};
+Package.structural_level >= 0;
+Package/Implementation//$implementation.structural_level = 0;
+IF (Package//$contained ((IS_CONTAINED_BY)) Package//$container)
+THEN ($contained.structural_level = $container.structural_level + 1)
+```

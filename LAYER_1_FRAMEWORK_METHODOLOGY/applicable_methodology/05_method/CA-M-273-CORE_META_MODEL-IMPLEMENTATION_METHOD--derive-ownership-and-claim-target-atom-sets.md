@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Selection
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - Entity/Object/Continuant/Selection
-  - Atom
-  - Scope Unit
-  - Carrier
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Atom.Status
-  - Carrier/Directory
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
 version: 38
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -24,7 +24,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-273-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-ownership-and-claim-target-atom-sets.md
   source_atom_id: CA-M-273
   source_atom_revision: 38
-  source_sha256: 573db5251f57ea76d911c810668b7030cde75bee54e741d00322d0fe18b258db
+  source_sha256: eedacfbbcc1af64cbe8ece070ffaab487e357ebc1c0607be40a94f068f3118e6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   passive:
-  - Aspects <+ UX <+ Entry
-  - Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ UX <+ Entry
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
 version: 24
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

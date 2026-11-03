@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Type
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Type
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Carrier
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

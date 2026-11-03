@@ -1,12 +1,11 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type:
-    Goal'
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Scope Unit
-  - Project
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Project
 version: 40
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -22,10 +21,10 @@ tier: 6
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-RULE--validate-goal-claim-scope.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-RULE--validate-goal-claim-scope.md
   source_atom_id: CA-R-947
   source_atom_revision: 40
-  source_sha256: 04460257e0abaf6eddc540228727b8bee2b6f7c3f40fb32b1c395522831dc816
+  source_sha256: 836297c36b26c85fe1efe5aa18fb8c8db39987ae18049d594752c1e6b879f0e0
   original_relations_sha256: 87c5d2564d549a62992e5e7c204533361943879345c214fc121400c321658e40
 ---
 ## Summary

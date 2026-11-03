@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Projection/(.Form:=Direct Relation Registry)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Direct Relation Registry)
   passive:
-  - CFEL <+ Relation
-  - Entity
-  - Projection/(.Form:=Applicable Methodology)
-  - Atom/(.Role := Requirement)
-  - Projection
-  - Package
-  - Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Package
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 43
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -28,7 +28,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-IMPLEMENTATION_METHOD--compile-the-direct-relation-registry.md
   source_atom_id: CA-M-120
   source_atom_revision: 43
-  source_sha256: 3ba6847a3e1faff5ac1eb81521ebc1d4b48814ad5af77626e458daa6b7324aaa
+  source_sha256: 4f19af2aeec483b14d1131ac70912ee1bf91630191697dc20fefcc2fe571206b
   original_relations_sha256: 68a2c39318c77d63e9da6b3745d4ed6a600564f503add663a28df99ecce4edd3
 ---
 ## Summary

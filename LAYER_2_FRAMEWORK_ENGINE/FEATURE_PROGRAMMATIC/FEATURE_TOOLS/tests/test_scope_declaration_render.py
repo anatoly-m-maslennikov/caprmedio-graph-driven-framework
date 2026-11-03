@@ -15,6 +15,25 @@ from scope_unit_declarations import read_scope_unit_declarations
 
 
 class ScopeDeclarationRenderTest(unittest.TestCase):
+    def test_renderer_namespaces_metadata_but_keeps_claims_local(self) -> None:
+        rendered = render_scope_declaration(
+            name="CHILD", project_name="caprmedio", atom_id="CA-R-1", updated_at="now",
+            scope_id="SU-1", parent="PROJECT",
+        )
+
+        self.assertIn('active: "CAPRMEDIO_STRUCTURE <+ Scope Unit//CHILD"', rendered)
+        self.assertIn("passive: []", rendered)
+        self.assertNotIn("CAPRMEDIO", rendered.split("## Claim", 1)[1])
+
+    def test_renderer_keeps_other_projects_on_bare_metadata_subjects(self) -> None:
+        rendered = render_scope_declaration(
+            name="CHILD", project_name="demo", atom_id="CA-R-1", updated_at="now",
+            scope_id="SU-1", parent="PROJECT",
+        )
+
+        self.assertIn('active: "Scope Unit//CHILD"', rendered)
+        self.assertNotIn("CAPRMEDIO", rendered)
+
     def test_renderer_uses_only_the_conditional_order_number(self) -> None:
         rendered = render_scope_declaration(
             name='CHILD"X', project_name="demo", atom_id="CA-R-1", updated_at="now",

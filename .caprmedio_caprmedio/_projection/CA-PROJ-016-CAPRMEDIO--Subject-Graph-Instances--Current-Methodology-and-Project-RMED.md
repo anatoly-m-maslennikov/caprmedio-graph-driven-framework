@@ -1137,28 +1137,14 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-03 01:11:33 +0400
+updated_at: 2026-11-03 13:47:06 +0400
 ---
 
 # Subject Graph Instances
 
-A Map of named Relation Types. Derived inverses cite the canonical direct Relation source.
+A Map of declared named Relation Types. CFEL constraints remain local to their source Atoms.
 
 ## Named Relations
 
 ```text
 ```
-
-## Inverse diagnostics
-
-- ((CONTAINS)): canonical direct Relation `((IS_CONTAINED_BY))` is not in this view
-- ((HAS_EXECUTION)): canonical direct Relation `((IS_EXECUTION_OF))` is not in this view
-- ((HAS_INSTANCE)): canonical direct Relation `((INSTANCE_OF))` is not in this view
-- ((HAS_NARROWER)): canonical direct Relation `((NARROWER_THAN))` is not in this view
-- ((HAS_PROPERTY)): canonical direct Relation `((IS_PROPERTY_OF))` is not in this view
-- ((IS_CARRIED_BY)): canonical direct Relation `((CARRIES))` is not in this view
-- ((IS_EVENT_AUTHOR_OF)): canonical direct Relation `((HAS_EVENT_AUTHOR))` is not in this view
-- ((IS_EXECUTED_BY)): canonical direct Relation `((EXECUTES))` is not in this view
-- ((IS_RECORDED_BY)): canonical direct Relation `((RECORDS))` is not in this view
-- ((IS_RUN_BY)): canonical direct Relation `((RUNS))` is not in this view
-- ((required_by)): canonical direct Relation `((depends_on))` is not in this view

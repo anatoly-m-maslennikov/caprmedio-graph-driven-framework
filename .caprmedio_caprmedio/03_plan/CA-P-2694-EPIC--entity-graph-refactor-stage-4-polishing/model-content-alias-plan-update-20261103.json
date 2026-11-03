@@ -1,0 +1,44 @@
+{
+  "status": "EPIC_UPDATED_DECISIONS_PENDING",
+  "epic": "CA-P-2694",
+  "previous_version": 44,
+  "new_version": 46,
+  "updated_at": "2026-11-03 17:30:20 +0400",
+  "current_path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "current_sha256": "374e8412a64d38743b493b8c41f43cc8c61842bf2ac880ab11cbf1c06ded4cb2",
+  "archived_path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@44-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "archived_sha256": "91ddd0aa127a4ba3d0ced8ed7e55b6d5c0ec3aca1f0ac12482b318e3daac9d03",
+  "predecessor_current_sha256": "2486f1ff01f20dd9cbbf0f4166e7dfca49c68e34de69d18e1c8fce7f430723dc",
+  "followup_path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-content-alias-followup-20261103.md",
+  "followup_sha256": "5a0d9a3b14ba5b779b0278d26e327b7e070fba19fe72f4fa4fb1153aa6e0b1c2",
+  "phase_order": [
+    "Declarations",
+    "Commit and push all to amm/dev",
+    "Mechanical migration in place",
+    "Check migration"
+  ],
+  "completed_prior_work_preserved": true,
+  "declarations_created": false,
+  "git_publication_performed": false,
+  "mechanical_migration_performed": false,
+  "pending_first_question": "Q2b: Claim child value formats; relation-domain separation is under discussion",
+  "decision_updates": [
+    {
+      "decision": "Header / Content",
+      "operator_input": "Header / Content; everything is metadata, header is better",
+      "previous_version": 45,
+      "new_version": 46,
+      "archived_path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@45-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "archived_sha256": "8512a2481acf74161fa1c0b4002fa33f7eeffb4a9d45224196ea8192aaa2d8d8",
+      "updated_at": "2026-11-03 17:30:20 +0400"
+    },
+    {
+      "decision": "Claim direct-value cardinality 0; child-name cardinality 1..2 drawn from Formal Claim/Prose Claim",
+      "operator_input": [
+        "claim.*[string, in (Formal Claim, Prose Claim]{:1..2}",
+        "claim: []{:0}"
+      ],
+      "recorded_at": "2026-11-03T17:37:45+04:00"
+    }
+  ]
+}

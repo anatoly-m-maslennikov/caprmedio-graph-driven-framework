@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Projection
+  active: CAPRMEDIO <+ MODEL <+ Projection
 version: 31
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1706-CORE_META_MODEL-RULE--requirement-provide-lineage-impact-projections.md
   source_atom_id: CA-R-1706
   source_atom_revision: 31
-  source_sha256: 51881ded280023edb0404c9dd77640046e5d858cf889dc73a0bbc5daf0b0228d
+  source_sha256: 7d5e88d52512069ef8fefd312145828570dd6d9cb41dbabc58a27d5cfe7d8fbb
   original_relations_sha256: ec206373bb2bfa199e89267d9f9e280ebe9b270bcd727dc38c82ef3f579a8f02
 ---
 ## Summary

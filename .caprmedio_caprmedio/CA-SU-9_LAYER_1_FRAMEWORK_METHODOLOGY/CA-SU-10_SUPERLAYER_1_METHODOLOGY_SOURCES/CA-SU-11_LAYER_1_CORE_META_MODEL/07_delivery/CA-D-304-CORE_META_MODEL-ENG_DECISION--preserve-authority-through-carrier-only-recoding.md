@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - Atom.ID
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - CFEL > Relation
+  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ CFEL > Relation
 version: 30
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Carrier/File.Main Content.CCE Operator
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content.CCE Operator
   passive:
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 27
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-280-CORE_META_MODEL-ENG_DECISION--serialize-cce-operators-in-bold.md
   source_atom_id: CA-D-280
   source_atom_revision: 27
-  source_sha256: 47a97f4ac00458ac43e146fb6cc65bf999da65faa8f00c8c5535a8cc05429a35
+  source_sha256: 49d002a0c19d0ad5140d3f8921f7d07ac9f6d2f63b5111fbf085dce99793a8cc
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

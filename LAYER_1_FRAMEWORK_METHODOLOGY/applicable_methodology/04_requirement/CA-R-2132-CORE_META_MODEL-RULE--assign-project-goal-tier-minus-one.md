@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom.Tier
+  active: CAPRMEDIO <+ MODEL <+ Atom.Tier
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
-  - Project
-  - Atom.Tier
-  - Entity/Object/Continuant/Actor/Operator
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 12
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2132-CORE_META_MODEL-RULE--assign-project-goal-tier-minus-one.md
   source_atom_id: CA-R-2132
   source_atom_revision: 12
-  source_sha256: a21b0b6bc3d01f5981713e2b234cf855e9e35f6a44e8c02936583b6394d6db5e
+  source_sha256: 3e569022592f6035913df186081fb2867087d31d8e8ea2b936fbce5473988386
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Atom.Role
+  active: CAPRMEDIO <+ MODEL <+ Atom.Role
   passive:
-  - Entity/Object/Continuant/Selection
-  - Atom.Role
-  - Atom.Content
-  - Atom/(.Role:=Operations)/Action
-  - Atom/(.Role:=Operations)/Workflow
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Atom.Role
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Action
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 14
 updated_at: 2026-11-02 17:54:42 +0400
 relations:

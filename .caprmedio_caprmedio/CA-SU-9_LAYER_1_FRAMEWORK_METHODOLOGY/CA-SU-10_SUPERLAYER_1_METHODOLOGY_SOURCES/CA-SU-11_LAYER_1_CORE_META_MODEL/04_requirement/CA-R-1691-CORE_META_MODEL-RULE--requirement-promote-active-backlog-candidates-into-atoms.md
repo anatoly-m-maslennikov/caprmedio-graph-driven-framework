@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

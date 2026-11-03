@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - CFEL <+ Relation
-  - Term
-  - Atom/(.Role := Method)
-  - Entity/Object/Continuant/Actor/Operator
-  - CFEL <+ Relation//GOVERNS
-  - CFEL <+ Relation//DEPENDS_ON
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//GOVERNS
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON
 version: 34
 updated_at: 2026-11-02 00:55:09 +0400
 relations: {}

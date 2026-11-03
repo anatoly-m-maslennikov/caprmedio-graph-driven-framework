@@ -9,10 +9,10 @@ relations:
   - CA-M-448
   - CA-M-263
 subjects:
-  active: Entity/Object/Continuant/Actor/Operator
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 cce_version: cce_1
 cce_form: obligation
 atom_id: CA-R-1057

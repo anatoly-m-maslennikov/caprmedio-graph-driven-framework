@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Node/Occurrent
+  active: CAPRMEDIO <+ MODEL <+ Node/Occurrent
   passive:
-  - Carrier
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - CFEL > Relation//CARRIES
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//CARRIES
 version: 3
 relations: {}
 tier: 1

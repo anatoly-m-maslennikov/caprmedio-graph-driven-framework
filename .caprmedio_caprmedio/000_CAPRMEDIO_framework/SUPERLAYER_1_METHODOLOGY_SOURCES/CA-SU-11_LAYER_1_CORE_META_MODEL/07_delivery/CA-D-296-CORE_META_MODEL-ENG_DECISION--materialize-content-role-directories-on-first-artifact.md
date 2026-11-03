@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Carrier.Canonical Address
+  active: CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Scope Unit
-  - Atom
-  - Carrier/Directory
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

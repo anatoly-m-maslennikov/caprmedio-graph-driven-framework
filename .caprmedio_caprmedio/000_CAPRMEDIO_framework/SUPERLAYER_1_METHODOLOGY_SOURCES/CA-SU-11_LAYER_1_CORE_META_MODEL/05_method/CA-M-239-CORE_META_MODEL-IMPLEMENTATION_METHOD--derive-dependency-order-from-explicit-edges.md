@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CFEL <+ Relation//depends_on
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//depends_on
   passive:
-  - CFEL <+ Relation//DEPENDS_ON
-  - CFEL <+ Relation
-  - Term//Artifact
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

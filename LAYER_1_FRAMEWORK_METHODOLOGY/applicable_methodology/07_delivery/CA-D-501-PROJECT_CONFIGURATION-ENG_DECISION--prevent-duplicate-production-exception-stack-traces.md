@@ -4,9 +4,9 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Aspects <+ Engineering <+ Observability <+ Logging
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
 version: 15
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-501-PROJECT_CONFIGURATION-ENG_DECISION--prevent-duplicate-production-exception-stack-traces.md
   source_atom_id: CA-D-501
   source_atom_revision: 15
-  source_sha256: e1b9805024673e3dd4b128258896d8bc999fd60afd55f8924a6230800ad80f7a
+  source_sha256: d2f616deecd4483036b020eed05a6be43f545b031761683c0c8d9edf77a44e93
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

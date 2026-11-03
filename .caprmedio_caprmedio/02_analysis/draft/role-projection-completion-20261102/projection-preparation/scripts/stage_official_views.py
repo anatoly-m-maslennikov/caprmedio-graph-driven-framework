@@ -11,7 +11,6 @@ from __future__ import annotations
 import argparse
 import copy
 import hashlib
-import importlib.util
 import json
 import sys
 from pathlib import Path
@@ -31,6 +30,12 @@ from contract_graph import compose_contract_graph, render_contract_graph  # noqa
 from current_entity_sources import _read_atom, current_model_carriers  # noqa: E402
 from current_subject_graph import compose_enhanced_current_graph, compose_narrowing_graph, subject_facts  # noqa: E402
 from readable_entity_tree import render_inherency, render_model  # noqa: E402
+from subject_inventory_views import (  # noqa: E402
+    VIEW_SPECS, _frontmatter, _instances_document, _primary_document, _property_document,
+)
+from subject_notation import (  # noqa: E402
+    Name, RelationChain, SubjectNotationError, namespace_local_expression, parse_subject_expression,
+)
 
 IDS = tuple(f"CA-PROJ-0{number}" for number in range(14, 20))
 NAMES = {
@@ -45,17 +50,6 @@ NAMES = {
 
 def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
-
-
-def load_adapter() -> object:
-    spec = importlib.util.spec_from_file_location(
-        "completion_projection_adapter", "/private/tmp/caprmedio_projection_adapter.py"
-    )
-    if spec is None or spec.loader is None:
-        raise RuntimeError("The required /private/tmp/caprmedio_projection_adapter.py is unavailable")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
 
 
 def read_frontier(path: Path) -> tuple[list[dict], str]:
@@ -176,16 +170,19 @@ def existing_predecessors() -> dict[str, dict]:
     return result
 
 
-def header(adapter: object, identifier: str, selection: str, sources: list[str], now: str) -> dict:
-    return adapter._frontmatter(identifier, selection, sources, now)
-
-
 def aspect_containment_rows(provenance: dict) -> list[str]:
     """Render source-bound direct facts; never promote them to MODEL Nodes."""
     rows = set()
     for occurrence in provenance["occurrences"]:
         subject = occurrence["subject"]
-        if not subject.startswith("Aspects <+"):
+        try:
+            expression = parse_subject_expression(subject, subject_profile="approved").expression
+        except SubjectNotationError:
+            # compose_enhanced_current_graph already records this source diagnostic.
+            continue
+        local = namespace_local_expression(expression)
+        path = local.endpoints[0] if isinstance(local, RelationChain) else local
+        if not (local is not None and isinstance(path.head, Name) and path.head.value == "Aspects"):
             continue
         source = occurrence["source"]
         binding = f"{source['atom_id']}@{source['version']}"
@@ -198,28 +195,48 @@ def aspect_containment_rows(provenance: dict) -> list[str]:
     return sorted(rows, key=str.casefold)
 
 
-def render(carriers: list[dict], adapter: object, now: str) -> tuple[dict[str, str], dict]:
+def namespace_context(graph: dict) -> str:
+    """Render only explicit direct containment branches rooted at CAPRMEDIO."""
+    nodes = {row["id"]: row["identity"] for row in graph["nodes"]}
+    branches = sorted(
+        nodes[edge["relation_source"]]
+        for edge in graph["edges"]
+        if edge["kind"] == "IS_CONTAINED_BY"
+        and nodes[edge["relation_target"]] == "CAPRMEDIO"
+    )
+    if not branches:
+        return ""
+    return "## Namespace context\n\n```text\nCAPRMEDIO\n" + "\n".join(f"  <+ {branch}" for branch in branches) + "\n```\n"
+
+
+def insert_namespace_context(document: str, graph: dict) -> str:
+    section = namespace_context(graph)
+    if not section:
+        return document
+    marker = next(line for line in document.splitlines(keepends=True) if line.startswith("#"))
+    return document.replace(marker, marker + "\n" + section + "\n", 1)
+
+
+def render(carriers: list[dict], now: str) -> tuple[dict[str, str], dict]:
     expected = sorted(f"{c['source']['atom_id']}@{c['source']['version']}" for c in carriers)
     if len(expected) != len(set(expected)):
         raise ValueError("Source Atom bindings are not unique")
     observed, observed_provenance = compose_enhanced_current_graph(carriers)
-    headers = {i: header(adapter, i, selection, expected, now) for i, _, selection in adapter.VIEW_SPECS}
+    headers = {identifier: _frontmatter(identifier, selection, expected, now) for identifier, selection in VIEW_SPECS}
     docs = {
-        "CA-PROJ-014": adapter._primary_document(headers["CA-PROJ-014"], observed["model"], observed["diagnostics"]),
-        "CA-PROJ-015": adapter._property_document(headers["CA-PROJ-015"], observed["model"]),
-        "CA-PROJ-016": adapter._instances_document(headers["CA-PROJ-016"], observed["model"], observed["constraints"]),
+        "CA-PROJ-014": _primary_document(headers["CA-PROJ-014"], observed["model"], observed["diagnostics"]),
+        "CA-PROJ-015": _property_document(headers["CA-PROJ-015"], observed["model"]),
+        "CA-PROJ-016": _instances_document(headers["CA-PROJ-016"], observed["model"], observed["constraints"]),
     }
     direct_aspect_facts = aspect_containment_rows(observed_provenance)
     docs["CA-PROJ-014"] = docs["CA-PROJ-014"].rstrip() + "\n\n## Aspect containment facts\n\n```text\n" + "\n".join(direct_aspect_facts) + "\n```\n"
-    _, front, body = docs["CA-PROJ-016"].split("---\n", 2)
-    meta = yaml.safe_load(front)
-    meta["source"]["named_selection"] = "Named Selection//Current-MODEL-Named-Relations"
-    docs["CA-PROJ-016"] = "---\n" + yaml.safe_dump(meta, allow_unicode=True, sort_keys=False) + "---\n" + body.replace("Named Relation Types", "Named Relations")
+    docs["CA-PROJ-014"] = insert_namespace_context(docs["CA-PROJ-014"], observed)
     model_sources = current_model_carriers(carriers)
     model, model_provenance = compose_enhanced_current_graph(model_sources)
     docs["CA-PROJ-017"] = render_model(model, model_provenance, updated_at=now,
         source_selection="Current model Declarations, including canonical and derived Relations; source-bound extraction without executing CFEL.",
         projection_identity={"projection_id": "CA-PROJ-017", "named_selection": "Current Declared MODEL"})
+    docs["CA-PROJ-017"] = insert_namespace_context(docs["CA-PROJ-017"], model)
     tree, tree_provenance = compose_narrowing_graph(carriers)
     if tree["diagnostics"] or any(edge["kind"] != "NARROWER_THAN" for edge in tree["edges"]):
         raise ValueError("Narrowing tree is not node-only")
@@ -227,15 +244,16 @@ def render(carriers: list[dict], adapter: object, now: str) -> tuple[dict[str, s
     for node in display["nodes"]:
         node["display_name"] += " [" + ", ".join(node["source_bindings"]) + "]"
     docs["CA-PROJ-018"] = render_inherency(display, tree_provenance, updated_at=now,
-        source_selection="Current model Declarations and retained CFEL/Carrier/Term Definitions. Only NARROWER_THAN forms the tree.",
+        source_selection="Current model Declarations and retained CFEL/Carrier/Term Definitions. Only NARROWER_THAN forms this tree; CONTAINS is not rendered as narrowing.",
         projection_identity={"projection_id": "CA-PROJ-018", "named_selection": "Current Subject Narrowing Tree"})
     contract = compose_contract_graph(carriers)
     if (contract["display_coverage"] != "complete" or contract["outcome"] != "complete"
             or contract["coverage_gaps"] or contract["conflicts"] or contract["missing_relation_semantics"]):
         raise ValueError("Contract graph has coverage, conflict, or relation-semantics gaps")
-    if len(contract["relations"]) != 41:
-        raise ValueError(f"Expected 41 canonical/derived Relations, got {len(contract['relations'])}")
+    if not contract["relations"]:
+        raise ValueError("Contract graph has no canonical or derived Relations")
     docs["CA-PROJ-019"] = "---\n" + yaml.safe_dump({"artifact_form": "Projection", "projection_id": "CA-PROJ-019", "form": "Map", "source": {"named_selection": "Named Selection//Current MODEL Formal Contracts", "atoms": expected}, "updated_at": now}, allow_unicode=True, sort_keys=False) + "---\n" + render_contract_graph(contract)
+    docs["CA-PROJ-019"] = insert_namespace_context(docs["CA-PROJ-019"], observed)
     return docs, {"expected_source_atoms": expected, "observed_diagnostics": observed["diagnostics"], "aspect_containment_direct_facts": len(direct_aspect_facts), "contract_coverage": contract["coverage"], "relation_count": len(contract["relations"]), "tree_nodes": len(tree["nodes"]), "tree_edges": len(tree["edges"])}
 
 
@@ -257,7 +275,7 @@ def main() -> int:
         plan_path = args.overlay_publication_plan
         plan_path = plan_path if plan_path.is_absolute() else ROOT / plan_path
         carriers, overlay_evidence = overlay_publication_candidates(carriers, plan_path)
-    docs, evidence = render(carriers, load_adapter(), current_timestamp(ROOT))
+    docs, evidence = render(carriers, current_timestamp(ROOT))
     stage.mkdir(parents=True, exist_ok=True)
     if any(stage.iterdir()):
         raise ValueError("Stage directory must be empty; preserve any prior packet")

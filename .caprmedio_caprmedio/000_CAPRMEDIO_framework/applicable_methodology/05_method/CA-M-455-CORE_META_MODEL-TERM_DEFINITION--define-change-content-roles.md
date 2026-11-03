@@ -4,12 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Term//Change Content Roles
+  active: CAPRMEDIO <+ MODEL <+ Term//Change Content Roles
   passive:
-  - Entity
-  - Term
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type:
-    Term Definition)'
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Term
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
 version: 4
 updated_at: 2026-11-02 15:49:28 +0400
 relations: {}
@@ -17,10 +16,10 @@ tier: 1
 role: Method
 form: Term Definition
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-455-CORE_META_MODEL-TERM_DEFINITION--define-change-content-roles.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-455-CORE_META_MODEL-TERM_DEFINITION--define-change-content-roles.md
   source_atom_id: CA-M-455
   source_atom_revision: 4
-  source_sha256: e6107e8daf1cea4c9516e9e0793993e4ac7e92e419016f4becd979f2f7544e71
+  source_sha256: 8105b55025673fcbc5e80f742e669b881e3a13c27c8e49a07c16ee45f8103d8e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

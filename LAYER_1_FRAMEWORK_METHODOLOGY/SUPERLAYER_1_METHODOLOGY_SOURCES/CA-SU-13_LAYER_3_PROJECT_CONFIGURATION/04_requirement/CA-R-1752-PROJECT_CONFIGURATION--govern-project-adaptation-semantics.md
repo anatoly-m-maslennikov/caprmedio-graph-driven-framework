@@ -1,7 +1,6 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type:
-    Workflow//Applicable Methodology Compilation'
+  active: 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

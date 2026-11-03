@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Atom/(.Role := Requirement)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
   passive:
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Delivery)
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
 version: 41
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

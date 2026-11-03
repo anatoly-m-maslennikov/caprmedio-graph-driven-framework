@@ -1,12 +1,11 @@
 ---
 subjects:
-  active: Term
+  active: CAPRMEDIO_MODEL <+ Term
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type:
-    Term Definition)'
-  - Project
-  - Term//Empty
-  - Term//ID
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Term//Empty
+  - CAPRMEDIO_MODEL <+ Term//ID
 version: 28
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}

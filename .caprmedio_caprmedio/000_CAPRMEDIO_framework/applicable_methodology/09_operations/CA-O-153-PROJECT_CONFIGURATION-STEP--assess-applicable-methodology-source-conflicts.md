@@ -23,7 +23,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-153-PROJECT_CONFIGURATION-STEP--assess-applicable-methodology-source-conflicts.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-153-PROJECT_CONFIGURATION-STEP--assess-applicable-methodology-source-conflicts.md
   source_atom_id: CA-O-153
   source_atom_revision: 15
   source_sha256: b454dfc81ea48955cc501d275ba3b4af61336679e64f177ab0ce0ffc6e90ff9a

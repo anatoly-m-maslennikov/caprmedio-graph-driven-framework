@@ -1,17 +1,17 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//RMEDO Conflict Resolution'
+  active: 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//RMEDO Conflict Resolution'
   passive:
-  - Atom
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - Atom.Tier
-  - Atom.Updated At
-  - 'Entity/Object/Continuant/Governing Objects/Atom.Tier.Label: Scope Contract'
-  - CFEL > Relation
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Atom.Updated At
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Tier.Label: Scope Contract'
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
 version: 4
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

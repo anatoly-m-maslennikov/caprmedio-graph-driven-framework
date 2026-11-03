@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection/(.Form:=Applicable Methodology)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
   passive:
-  - Projection/(.Form:=Applicable Methodology)
-  - Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
 version: 30
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

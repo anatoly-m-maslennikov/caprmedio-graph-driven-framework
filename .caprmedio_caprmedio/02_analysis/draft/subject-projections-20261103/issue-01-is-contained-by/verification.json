@@ -1,0 +1,41 @@
+{
+  "status": "APPLIED_VERIFIED",
+  "verified_at": "2026-11-03T17:08:42+04:00",
+  "issue": "SP-01",
+  "manual_source_application": true,
+  "native_workflow_run_started": false,
+  "journal_event_appended": false,
+  "checks": {
+    "model_source_after_hashes_match": 5,
+    "proposal_after_hash_matches": true,
+    "identity_version_timestamp_metadata_preserved": true,
+    "exact_renamed_property_paths": 3,
+    "inherited_plan_properties_verified": true,
+    "canonical_relation_binding": "Relation//IS_CONTAINED_BY",
+    "coverage_gaps": 0,
+    "duplicate_declarations": 0,
+    "inheritance_diagnostics": 0,
+    "published_views": 7,
+    "selected_source_hashes_verified": 1132,
+    "projection_hashes_match": true,
+    "staged_and_published_match": true,
+    "old_six_projections_unchanged": true,
+    "applicable_formal_blocks_verbatim": 107,
+    "lowercase_model_tokens_in_new_views": 0,
+    "carrier_mapping_D662_unchanged": true,
+    "operator_manual_override": true
+  },
+  "application_manifest": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/issue-01-is-contained-by/manifest.json",
+  "projection_manifest_sha256": "f59dd83e48cbae0af77627a73296b00473e717eb6550f9db424ec2adcf43e633",
+  "projection_frontier": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/issue-01-is-contained-by/current-source-frontier.json",
+  "projection_frontier_sha256": "74bf9d575343bc889a4d2c4e6d29e76a2f981b1f4213895dffaddfa9da088819",
+  "remaining_issue_groups": [
+    "SP-02",
+    "SP-03",
+    "SP-04",
+    "SP-05"
+  ],
+  "runtime_checked": false,
+  "instance_data_migrated": false,
+  "git_publication": "NOT_PERFORMED"
+}

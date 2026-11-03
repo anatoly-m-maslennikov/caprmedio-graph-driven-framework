@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory")/(.Form := Rationale)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := Rationale)
 version: 40
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection
+  active: CAPRMEDIO <+ MODEL <+ Projection
   passive:
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-RULE--journal-projection-rebuild-events.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-RULE--journal-projection-rebuild-events.md
   source_atom_id: CA-R-1649
   source_atom_revision: 33
-  source_sha256: 8e4de8bb20a005427cbcfc482c4b3d4aa6e438197081df0abb7730f5179769bd
+  source_sha256: 9114516b2f29af1511e15345d15807a8b323f7c61bfe03b7098abd8cf4fe6868
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -7,10 +7,10 @@ relations:
   method_for:
   - CA-R-815
 subjects:
-  active: Aspects <+ Product
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   passive:
-  - Project
-  - Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

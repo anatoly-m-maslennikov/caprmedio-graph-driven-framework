@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CFEL <+ Relation//structural_parent
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//structural_parent
   passive:
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 36
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -14,10 +14,10 @@ tier: 1
 role: Requirement
 form: Declaration
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-DECLARATION--register-structural-parent-relation.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-DECLARATION--register-structural-parent-relation.md
   source_atom_id: CA-R-1660
   source_atom_revision: 36
-  source_sha256: 9ee2853560543d6ec1dfb85eb989102d54269379738be0a4badd3e3c63f4d0b9
+  source_sha256: 10eff961e1475964a94353f4589ee0ac9cba4f2fea86655ee5a43170c351baef
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

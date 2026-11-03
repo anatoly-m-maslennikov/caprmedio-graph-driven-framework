@@ -9,12 +9,12 @@ relations:
   - CA-M-447
   - CA-M-006
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Scope Unit
-  - Project
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio

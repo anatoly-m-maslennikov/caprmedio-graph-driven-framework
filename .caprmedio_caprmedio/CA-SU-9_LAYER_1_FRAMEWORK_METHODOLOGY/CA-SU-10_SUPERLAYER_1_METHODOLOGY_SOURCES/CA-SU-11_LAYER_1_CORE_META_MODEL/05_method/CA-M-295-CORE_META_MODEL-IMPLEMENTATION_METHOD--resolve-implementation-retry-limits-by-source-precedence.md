@@ -7,14 +7,14 @@ relations:
   depends_on:
   - CA-M-279
 subjects:
-  active: Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit'
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Entity/Object/Continuant/Governing Objects/Governing Configuration
-  - Carrier/File
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - CAPRMEDIO_MODEL <+ Carrier/File
 atom_id: CA-M-295
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

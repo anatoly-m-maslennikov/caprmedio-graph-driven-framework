@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Aspects <+ Engineering <+ Data Handling <+ Serialization
-  - Projection
-  - Carrier.Format
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Serialization
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Carrier.Format
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-388-PROJECT_CONFIGURATION-ENG_DECISION--serialize-generated-data-stage-prefixes-and-formats.md
   source_atom_id: CA-D-388
   source_atom_revision: 23
-  source_sha256: c8b68c5895c894b27c5c2da5ea5e8244562b19d1e2a93334d65b6b2bfb049684
+  source_sha256: d31d32afd43e152d05d4533ca295f62d658669c4f3e31d3d65637c29091735f8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

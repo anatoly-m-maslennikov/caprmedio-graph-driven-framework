@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Role
   passive:
-  - Atom.Role
+  - CAPRMEDIO_MODEL <+ Atom.Role
 version: 35
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

@@ -4,11 +4,11 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Projection/(.Form:=Realization Graph)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Realization Graph)
   passive:
-  - Atom.Content
-  - Atom/(.Role := Evaluation)
-  - Aspects <+ Engineering <+ Verification
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Verification
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1612-PROJECT_CONFIGURATION-RULE--allow-pre-runtime-pass-only-with-sufficient-evidence.md
   source_atom_id: CA-R-1612
   source_atom_revision: 26
-  source_sha256: 7170fc2e82245f307ce60b59eefb83a8f39dd4c1e7a7233c558b1adf0da814f9
+  source_sha256: da9e1108ca7cdc743f76edffd6425fa1a646b760f3b20229337779a59233de62
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

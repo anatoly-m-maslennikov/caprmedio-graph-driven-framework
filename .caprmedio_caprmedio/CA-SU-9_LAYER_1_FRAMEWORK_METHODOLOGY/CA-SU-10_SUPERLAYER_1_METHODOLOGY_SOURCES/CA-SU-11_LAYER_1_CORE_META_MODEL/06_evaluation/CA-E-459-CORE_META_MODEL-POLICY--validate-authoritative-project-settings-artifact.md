@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
   passive:
-  - Project.Settings.Name
-  - Project.Settings.Prefix
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Scope Unit
+  - CAPRMEDIO_MODEL <+ Project.Settings.Name
+  - CAPRMEDIO_MODEL <+ Project.Settings.Prefix
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 39
 updated_at: 2026-11-02 19:46:47 +0400
 relations:

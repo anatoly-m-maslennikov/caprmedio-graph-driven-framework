@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Term
+  active: CAPRMEDIO <+ MODEL <+ Term
   passive:
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Scope Unit.Name
-  - Actor
-  - Carrier/File.Main Content.CCE Operator
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
+  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content.CCE Operator
 version: 33
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

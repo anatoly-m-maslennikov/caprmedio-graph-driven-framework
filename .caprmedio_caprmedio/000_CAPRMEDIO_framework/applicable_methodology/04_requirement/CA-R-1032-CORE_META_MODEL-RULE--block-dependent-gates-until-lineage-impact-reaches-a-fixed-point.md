@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-RULE--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-RULE--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md
   source_atom_id: CA-R-1032
   source_atom_revision: 28
-  source_sha256: 5825538bdf3b77ec967049d0b632fd1bfe9df4e4c6d0894fe6108ca647046d97
+  source_sha256: 4c8b6895377ddecec55be4960bb1d48a83b7c8e2a7a807d1b548922b347cd567
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

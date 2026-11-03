@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
   passive:
-  - Term
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
-  - Atom.Content
-  - Atom
-  - CFEL <+ Relation
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Term
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

@@ -1,0 +1,57 @@
+{
+  "schema": "root-subject-migration-census/v1",
+  "source": "plan.json records (1173) plus current CA-P-2694 and direct Draft files under matching canonical role/draft directories",
+  "excluded": "delivery, installed, projection, historical, staged, candidate and support packets",
+  "frontier_records": 1173,
+  "additional_current": [],
+  "additional_drafts": [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-RULE--source-rmed-subject-view-contracts-only-from-declarations.md",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-draft-CORE_META_MODEL-ENG_POLICY--derive-rmed-subject-maps-from-declarations.md",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-rmed-subject-map-declaration-provenance.md",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-draft-CORE_META_MODEL-ENG_DECISION--deliver-seven-rmed-subject-maps.md"
+  ],
+  "selected_files": 1177,
+  "files_by_lifecycle": {
+    "Current": 1173,
+    "Draft": 4
+  },
+  "occurrences": [
+    {
+      "lifecycle": "Current",
+      "key": "active",
+      "prefix": "MODEL",
+      "count": 997
+    },
+    {
+      "lifecycle": "Current",
+      "key": "active",
+      "prefix": "STRUCTURE",
+      "count": 176
+    },
+    {
+      "lifecycle": "Current",
+      "key": "passive",
+      "prefix": "MODEL",
+      "count": 2270
+    },
+    {
+      "lifecycle": "Current",
+      "key": "passive",
+      "prefix": "STRUCTURE",
+      "count": 228
+    },
+    {
+      "lifecycle": "Draft",
+      "key": "active",
+      "prefix": "MODEL",
+      "count": 4
+    },
+    {
+      "lifecycle": "Draft",
+      "key": "passive",
+      "prefix": "MODEL",
+      "count": 8
+    }
+  ],
+  "canonical_files_sha256": "34766014ef0d8bf5afba5612a919cbb5a1f6a8308a4ab1a9d4f03a2dd401c399"
+}

@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File.Main Content
   passive:
-  - Atom.Content.Summary
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Content Role
-  - Atom.Content.Details
-  - Term//Property
-  - Carrier/File
-version: 27
-updated_at: 2026-11-02 00:18:22 +0400
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Content.Details
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Carrier/File
+version: 29
+updated_at: 2026-11-03 20:00:05 +0400
 relations: {}
 atom_id: CA-D-479
 current_scope_unit: CORE_META_MODEL
@@ -18,21 +18,26 @@ status: Active
 tier: 3
 role: Delivery
 form: Policy
+carrier_destination:
+  file:
+    name: CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 ---
 ## Summary
 
 Use stable headings for Atom body Properties
 
-## Claim scope
-
-Structured Main Content of Markdown Atom carriers.
-
 ## Claim
 
-For RMED, carry one `## Summary` and one `## Claim` as sibling Properties, optionally preceded by `## Claim scope` before Claim and followed by `## Semantics` and `## Details` in that order. The Claim's direct Markdown value may consist of a fenced CFEL expression without prose. Do not create a `Formal claim` child, a separate Prose claim section, or a duplicate frontmatter Claim. Omit absent optional sections.
+### Prose Claim
 
-Map headings to Property paths with a code-fence-aware outline. A section ends at the next real heading of the same or higher level, or at the end of Main Content. Lower-level real headings nest under their parent; equal-level headings are siblings, and skipped levels create no empty Properties. Heading-like text in a fence is content. Direct value counts and dependent Property counts are independent. Retrieving a section subtree includes its selected heading and its descendants.
+Applicability: Structured Main Content of Markdown Atom carriers.
 
-Normalize real heading names to lowercase, replace spaces with underscores, and strip characters other than letters, numbers, underscore and hyphen. Reject an empty normalized key or duplicate normalized key under one parent. A flattened lookup is admissible only when unambiguous; canonical paths retain their parent chain.
+For ordinary RMED, carry one `## Summary` and one `## Claim` as sibling Properties, optionally followed by `## Semantics` and `## Details` in that order. Claim has no direct value and contains one or both `### Formal Claim` and `### Prose Claim`, with unique sibling names. Formal Claim contains a CFEL-labelled code fence; Prose Claim contains ordinary Markdown. Omit absent optional Properties. Do not duplicate Claim in frontmatter.
 
-Legacy layouts remain readable during migration. The existing C/A/P/O primary-content headings and their own Type-specific content rules remain applicable. A Draft may be incomplete but must satisfy the applicable complete contract before promotion.
+Map declared headings to their Property paths with a code-fence-aware outline. Only headings admitted as children by an applicable declaration are Properties. Other headings within a Markdown value, including unknown `##` headings within Prose Claim, remain part of that value and do not terminate it. A recognized Property section ends at the next recognized sibling or ancestor heading, or at the end of Main Content. Heading-like text in a fence is content. Direct value counts and dependent Property counts are independent. Retrieving a Property subtree includes its selected heading and its descendants.
+
+Normalize recognized Property heading names to lowercase, replace spaces with underscores, and strip characters other than letters, numbers, underscore and hyphen. Reject an empty normalized key or duplicate normalized key under one parent. A flattened lookup is admissible only when unambiguous; canonical paths retain their parent chain.
+
+Legacy layouts remain readable during migration. The existing C/A/P/O primary-content headings and their own Role-specific content rules remain applicable. A Draft may be incomplete but must satisfy the applicable complete contract before promotion.
+

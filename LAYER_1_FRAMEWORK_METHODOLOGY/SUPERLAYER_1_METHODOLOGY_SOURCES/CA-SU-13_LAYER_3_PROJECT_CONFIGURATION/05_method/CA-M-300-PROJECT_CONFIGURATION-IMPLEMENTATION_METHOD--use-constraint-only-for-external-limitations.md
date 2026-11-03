@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Constraint'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Constraint'
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type'
-  - Project
-  - Actor
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type'
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Actor
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

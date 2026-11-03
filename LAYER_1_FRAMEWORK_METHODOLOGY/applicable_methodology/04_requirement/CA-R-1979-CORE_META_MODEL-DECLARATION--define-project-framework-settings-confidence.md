@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Project.Settings.Confidence
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Confidence
 relations:
   child_of:
   - CA-R-1176
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1979-CORE_META_MODEL-DECLARATION--define-project-framework-settings-confidence.md
   source_atom_id: CA-R-1979
   source_atom_revision: 15
-  source_sha256: c313a57fa20538ad0cb6357fc1914f556ab84662ac65195353ad9909f91a2976
+  source_sha256: 68d8dbbc7be8bf332eeebb1900852cf172521d63e80d5e9592d6859fe3c28779
   original_relations_sha256: 9e3e53a370b31aee7f492cc3fbaba3b8b30f92b5773698d221265754db5d0402
 ---
 ## Summary

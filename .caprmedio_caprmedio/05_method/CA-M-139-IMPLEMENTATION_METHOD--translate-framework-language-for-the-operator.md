@@ -7,11 +7,11 @@ relations:
   method_for:
   - CA-R-1057
 subjects:
-  active: Entity/Object/Continuant/Actor/Operator
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Term
-  - Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

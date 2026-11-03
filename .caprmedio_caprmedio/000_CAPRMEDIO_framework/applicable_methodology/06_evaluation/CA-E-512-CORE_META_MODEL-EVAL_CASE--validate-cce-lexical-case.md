@@ -4,14 +4,14 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Term
+  active: CAPRMEDIO <+ MODEL <+ Term
   passive:
-  - Atom
-  - Atom.Content
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Atom/(.Role := Concern)
-  - Carrier/File.Main Content.CCE Operator
-  - Scope Unit.Name
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern)
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content.CCE Operator
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
 version: 27
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -23,10 +23,10 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-EVAL_CASE--validate-cce-lexical-case.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-EVAL_CASE--validate-cce-lexical-case.md
   source_atom_id: CA-E-512
   source_atom_revision: 27
-  source_sha256: acbead04514c835510909258fbd7a8d8b5d92bf699dd427b25b7b2ce6cfe1b11
+  source_sha256: c2c6e0d51254e7d984a41ac50df967ad6c6d21aa3079235552051ad2b4129c5a
   original_relations_sha256: 143f71e7ff7db540b42f007e3cf765db4eb060cd493e3ff603ec74d9d6184078
 ---
 ## Summary

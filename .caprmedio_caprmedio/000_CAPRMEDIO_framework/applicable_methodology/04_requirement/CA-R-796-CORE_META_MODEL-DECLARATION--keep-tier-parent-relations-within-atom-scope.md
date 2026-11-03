@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CFEL <+ Relation//child_of
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//child_of
   passive:
-  - Atom.Tier
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - Atom.Content.Claim Scope
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Claim Scope
 version: 43
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -19,10 +19,10 @@ tier: 1
 role: Requirement
 form: Declaration
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-DECLARATION--keep-tier-parent-relations-within-atom-scope.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-DECLARATION--keep-tier-parent-relations-within-atom-scope.md
   source_atom_id: CA-R-796
   source_atom_revision: 43
-  source_sha256: 77561267118402b4424af1eda0e68bd46968a73fa30328eb8d70163442ba9073
+  source_sha256: a0f21fd75cce43e50f07bee22413daa06a5c2313d52e0c3160153e845325cc91
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 ## Summary

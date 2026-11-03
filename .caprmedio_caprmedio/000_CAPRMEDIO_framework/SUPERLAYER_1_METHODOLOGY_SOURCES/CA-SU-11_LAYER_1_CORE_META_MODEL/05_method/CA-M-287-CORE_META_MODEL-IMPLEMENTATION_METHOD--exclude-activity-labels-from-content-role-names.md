@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom.Role
+  active: CAPRMEDIO <+ MODEL <+ Atom.Role
   passive:
-  - Atom.Role
-  - Actor
-  - Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Atom.Role
+  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
 version: 25
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

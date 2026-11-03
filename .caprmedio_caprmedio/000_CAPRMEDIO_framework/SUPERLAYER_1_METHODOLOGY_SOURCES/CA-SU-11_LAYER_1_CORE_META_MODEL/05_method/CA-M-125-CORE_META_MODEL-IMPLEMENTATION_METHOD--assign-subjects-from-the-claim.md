@@ -1,17 +1,17 @@
 ---
 subjects:
-  active: Atom.Subjects
+  active: CAPRMEDIO <+ MODEL <+ Atom.Subjects
   passive:
-  - Atom.Content
-  - Atom.Content.Summary
-  - Actor
-  - Entity
-  - Term
-  - Term//Term
-  - Atom/(.Role := Evaluation)
-  - CFEL <+ Relation//evaluation_for
-  - Term//Property
-  - Entity/Property
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ Term//Term
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//evaluation_for
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ Entity/Property
 version: 47
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

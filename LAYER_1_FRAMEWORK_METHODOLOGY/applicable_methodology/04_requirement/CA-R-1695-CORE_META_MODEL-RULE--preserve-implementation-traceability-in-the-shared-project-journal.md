@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Traceability
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   passive:
-  - Journal
-  - Scope Unit
-  - Atom
-  - Projection
-  - Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
 version: 38
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -25,7 +25,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-RULE--preserve-implementation-traceability-in-the-shared-project-journal.md
   source_atom_id: CA-R-1695
   source_atom_revision: 38
-  source_sha256: f07afbe30d4a6e67821eb694ad59fe78686a14168a5d6e0826ff25c05e78c5fc
+  source_sha256: 05ab11fb573195144cd16738cd1debd8fbf53d54c2d9362f0a8ba6ce7e77d388
   original_relations_sha256: 1a4372e2f3efbdcf7c6855f6a9824aa7fe3d74003fad45463d9884801ef19cb7
 ---
 ## Summary

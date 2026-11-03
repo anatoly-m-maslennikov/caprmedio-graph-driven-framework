@@ -1,0 +1,31 @@
+{
+  "packet": "subject-projections-20261103",
+  "status": "Draft",
+  "source_authority_requirements": [
+    "CA-R-2516@5: only Current Requirement/Form: Declaration is authority for cardinality, format, nested names, recursive structure, and full CFEL Formal Claim.",
+    "CA-R-2469@4: resolve one effective Current Declaration per selected node after model override resolution."
+  ],
+  "drafts": [
+    {
+      "atom_id": "CA-R-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-RULE--source-rmed-subject-view-contracts-only-from-declarations.md",
+      "sha256": "2e7d37300c58f914c947fbfce01ab82e842f157f2d172cc00d3af24730ec772c"
+    },
+    {
+      "atom_id": "CA-M-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-draft-CORE_META_MODEL-ENG_POLICY--derive-rmed-subject-maps-from-declarations.md",
+      "sha256": "50d147fa9c2a9fef58d6f2275366f2bf621156f0d1a99c5bea85704d4eabd710"
+    },
+    {
+      "atom_id": "CA-E-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-rmed-subject-map-declaration-provenance.md",
+      "sha256": "18d4b2c8df2a3ee7f6659070e75b270a38d5638a5dc43da06e5966fcc00d6098"
+    },
+    {
+      "atom_id": "CA-D-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-draft-CORE_META_MODEL-ENG_DECISION--deliver-seven-rmed-subject-maps.md",
+      "sha256": "8582889d91f4dc698c9db89505609477c13a8267f95234cf019f4480a21c2f53"
+    }
+  ],
+  "rationale": "Cardinality, format, and full formal claims come only from Requirement/Form: Declaration. The seven Maps keep defining-Atom coverage separate from contract authority and preserve source provenance."
+}

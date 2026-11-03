@@ -4,14 +4,14 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
   passive:
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Atom.Subjects
-  - Atom
-  - Entity/Object/Continuant/Actor/Operator
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -31,7 +31,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-EVAL_CASE--validate-target-scope-unit-and-textual-claim-scope.md
   source_atom_id: CA-E-511
   source_atom_revision: 23
-  source_sha256: 99ad58eb0c6a0ffff9083c9035a0aeca8d25b95171ae2cfcffba515b82c32d1b
+  source_sha256: 1715ca08c400545308c71c95f1e1593cae914e9ac0b9cb94cebbd27e20461550
   original_relations_sha256: dd9d6646994fdbdf715b10ff05436c5a9ccdf7f68fbb075dc0672ae0cec311cf
 ---
 ## Summary

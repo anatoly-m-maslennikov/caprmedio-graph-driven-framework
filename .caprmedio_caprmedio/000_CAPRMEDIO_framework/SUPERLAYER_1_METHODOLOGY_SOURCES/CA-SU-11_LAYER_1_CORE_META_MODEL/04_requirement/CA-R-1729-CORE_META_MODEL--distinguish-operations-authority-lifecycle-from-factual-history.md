@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom/(.Role := Operations)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

@@ -1,17 +1,17 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//RMEDO Conflict Resolution'
+  active: 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//RMEDO Conflict Resolution'
   passive:
-  - Atom
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - Atom.Tier
-  - Atom.Updated At
-  - 'Entity/Object/Continuant/Governing Objects/Atom.Tier.Label: Scope Contract'
-  - CFEL > Relation
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Atom.Updated At
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Tier.Label: Scope Contract'
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
 version: 4
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -28,10 +28,10 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-666-PROJECT_CONFIGURATION-EVAL_CASE--check-gap-free-rmedo-conflict-resolution.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-666-PROJECT_CONFIGURATION-EVAL_CASE--check-gap-free-rmedo-conflict-resolution.md
   source_atom_id: CA-E-666
   source_atom_revision: 4
-  source_sha256: d75ceedbe72a0ce98f3ab67fe98f1009ed42040ec52dbc818cc4f3923a3489e8
+  source_sha256: d4859110a218ac9d8add3ca3c0b61ccff7d78bd55d93fe5b8b2115bb03b280c6
   original_relations_sha256: 0cecd19a21d5691fcd7dd41da7255a71b2ca140c377c5f048aacd3758388e8eb
 ---
 ## Summary

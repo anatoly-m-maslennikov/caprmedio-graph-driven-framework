@@ -18,7 +18,7 @@ updated_at: 2026-10-27 19:59:48 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-198-PROJECT_CONFIGURATION-ACTION--finalize-the-actual-public-history-link.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-198-PROJECT_CONFIGURATION-ACTION--finalize-the-actual-public-history-link.md
   source_atom_id: CA-O-198
   source_atom_revision: 13
   source_sha256: 42118e5aba15c9303951d8f2450576c40c53d71d0996c89dcdedd00a2f3ba77f

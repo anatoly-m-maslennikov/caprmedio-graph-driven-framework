@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Subject Graph)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Subject Graph)'
   passive:
-  - 'Entity/Object/Continuant/Projection/(.Type: Atom Subjects Graph)'
-  - Atom.Subjects
-  - Entity
-  - Atom
-  - CFEL <+ Relation//GOVERNS
-  - CFEL <+ Relation//DEPENDS_ON
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Atom Subjects Graph)'
+  - CAPRMEDIO_MODEL <+ Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
 version: 34
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}

@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - CFEL > Relation//CONTAINS
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//CONTAINS
 version: 17
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

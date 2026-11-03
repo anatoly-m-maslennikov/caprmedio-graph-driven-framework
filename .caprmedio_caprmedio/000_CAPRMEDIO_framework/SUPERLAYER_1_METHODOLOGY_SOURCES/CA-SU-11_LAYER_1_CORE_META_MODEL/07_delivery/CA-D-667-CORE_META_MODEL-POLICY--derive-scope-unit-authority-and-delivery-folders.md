@@ -7,13 +7,13 @@ version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 tier: 1
 subjects:
-  active: Carrier/Directory.Name
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory.Name
   passive:
-  - Scope Unit.ID
-  - Scope Unit.Name
-  - Scope Unit.Label
-  - Scope Unit.order.ordered
-  - Scope Unit.order.number
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.ID
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Label
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.ordered
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.number
 relations: {}
 ---
 ## Summary

@@ -4,29 +4,32 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom/(.Role := Requirement)/(.Form := Declaration)
-version: 4
-updated_at: 2026-11-02 08:06:47 +0400
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
+version: 5
+updated_at: 2026-11-03 20:00:05 +0400
 relations: {}
 tier: 3
 role: Requirement
 form: Rule
+carrier_destination:
+  file:
+    name: CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
-
 ## Summary
 
 Declare Relation endpoints
 
 ## Claim
 
-Each named Relation, including each Derived Relation view, has exactly one Requirement / Declaration in the selected effective MODEL. Its Declaration states its meaning in Semantics, the allowed Host and Target, and its Direct or Derived Derivation classification. State the short notation when one exists and each source-backed counterpart Relation; otherwise use the full named Relation notation.
+### Prose Claim
 
-A Relation endpoint may be any declared model Entity or an instance of a declared model Entity, including Carrier and CFEL entities. Literal values are not Relation endpoints. Use the most specific admitted endpoint selectors and retain any further source-supported endpoint conditions in Semantics.
+Each graph Relation, direct or derived, has exactly one Requirement / Declaration in the selected effective MODEL. A direct Relation Declaration owns its shared meaning, allowed Host and Target signature, endpoint conditions, Direct classification and each declared inverse/counterpart binding. Each derived Relation retains its own Declaration. Infer its reversed endpoints, meaning, Derived classification and source binding from the direct Declaration; do not duplicate them on the derived side. Its Formal Claim contains the reverse written view of its counterpart binding and its own lexical alias when one exists. Relation-object endpoints use qualified addresses `Relation//NAME`; the middle `((HAS_INVERSE))` is the graph Relation operator. An endpoint reference does not execute that Relation as an operator.
 
-In a Relation Declaration endpoint signature, an untyped `$host` or `$target` ranges over declared model Entities and their instances in the selected effective MODEL. Other untyped variable names in that signature follow the same rule. These signature variables do not imply a Node root. A signature constrains which links are admissible; it does not create links or assert a link for every matching pair. An unresolved endpoint population cannot establish an empty or valid signature.
+A Relation endpoint is a declared model Entity or declared instance, including Carrier and CFEL descriptors. Literal values and operator glyphs are not graph endpoints. Untyped endpoint-signature variables range over this declared entity-or-instance universe and exclude literals. Typed selectors retain their declared populations and conditions. A signature constrains admissible links; it does not create links. An unresolved endpoint population is a diagnostic, not proof of an empty or valid signature. NARROWER_THAN is restricted to MODEL kinds; this rule introduces no further cross-layer endpoint restriction.
 
-A Derived Relation Declaration identifies the source Relation using `IS_DERIVED_RELATION_OF`. When the derived Relation is an inverse, also bind the canonical Relation to its inverse using `HAS_INVERSE`; the inverse swaps Host and Target and describes the same fact, not a second authored fact. A derived direction has its own Declaration; its use still requires its own applicable permission and cardinality. Neither an inverse binding nor a displayed reverse view grants permission or a cardinality.
+`alias(Relation//RELATION_NAME) == "token"` binds one declared Relation's exact name to one nonempty notation token. It is lexical metadata, not a graph Relation between a literal and a Node, and does not equate Relation identities. A Relation has at most one authored alias. No alias means full named notation. Resolve names exactly; case folding and undeclared name synonyms are not admitted. Reject unknown names, conflicting aliases and ambiguous token bindings in the selected effective MODEL. Directional reading follows the owning Declaration; an alias does not authorize a new direction.
 
-The bare `Host ((R)) Target` is the named forward view. `Target <((R)) Host` is the reverse written view of the same canonical fact. Counts remain attached to their written endpoints when the views are normalized to Host and Target. This notation does not create another Relation or authored fact.
+The direct Declaration records `Relation//DIRECT ((HAS_INVERSE)) Relation//DERIVED`, equivalently `Relation//DIRECT <--> Relation//DERIVED`. A no-alias derived Declaration records `Relation//DERIVED <((HAS_INVERSE)) Relation//DIRECT`, the reverse written view of that same binding fact. Each side names a distinct declared Relation. After normalizing written direction, the canonical Host is the direct source and the canonical Target is its derived inverse. Infer inverse links only from admitted direct facts by swapping endpoints. Reject a self-pair, multiple direct sources for one inverse, a derived canonical Host and conflicting counterpart bindings. A qualified counterpart retains the qualification at its direct source and is derived only from matching facts.
 
-When a Relation has an admitted short Subject notation, its Declaration states exactly one nonempty short-notation value using the Relation metadata binding. When no short notation is admitted, omit that value and use the full named Relation notation. The value is scalar; it does not create a separate Atom Content Property or nested Property. Equivalent directional written views do not constitute additional authored short-notation values.
+`Host ((R)) Target` is the named forward view. `Target <((R)) Host` is reverse writing of that same fact. Normalize endpoint counts with the written endpoints. Neither reverse writing nor an inverse binding grants permission, cardinality or a second authored fact. Each direction still needs its own applicable outgoing permission and bounds. Matching and counting use exact Host, Relation, Target and model/instance selectors.

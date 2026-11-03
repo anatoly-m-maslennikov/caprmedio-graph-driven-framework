@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Scope Unit//CORE_META_MODEL
+  active: CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL--admit-implementation-independent-core-rules.md
   source_atom_id: CA-R-1681
   source_atom_revision: 33
-  source_sha256: f077d865a83bbdccff0f5bacbfd8eb7a08f1425bd4456f9f29ee1b1b0fb93208
+  source_sha256: ec6697ef0adf3e63ec1351aa3467700a527dcfff5f3cc4f0171ff0f832698af3
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

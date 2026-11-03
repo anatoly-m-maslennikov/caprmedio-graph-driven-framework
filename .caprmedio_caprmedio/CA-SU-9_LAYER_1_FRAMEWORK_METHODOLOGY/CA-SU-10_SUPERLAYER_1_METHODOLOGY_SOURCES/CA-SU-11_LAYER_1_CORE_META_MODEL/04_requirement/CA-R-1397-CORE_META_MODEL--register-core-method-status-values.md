@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method.Status'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method.Status'
   passive:
-  - Atom/(.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

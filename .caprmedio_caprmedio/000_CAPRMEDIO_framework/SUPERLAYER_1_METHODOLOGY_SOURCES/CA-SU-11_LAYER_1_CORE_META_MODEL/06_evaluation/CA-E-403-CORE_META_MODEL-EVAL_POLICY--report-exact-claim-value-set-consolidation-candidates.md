@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs
-  - Term//Property
-  - CFEL<+Operator//AllowedValue
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue
 version: 36
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

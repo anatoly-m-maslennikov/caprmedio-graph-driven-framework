@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Term//Property
-  - Entity/Object/Continuant/Actor/AI Agent
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
 version: 29
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

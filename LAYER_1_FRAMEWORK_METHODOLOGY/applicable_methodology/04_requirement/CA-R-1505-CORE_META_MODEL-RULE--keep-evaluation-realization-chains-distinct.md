@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Atom/(.Role := Evaluation)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
   passive:
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Aspects <+ Engineering <+ Traceability
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Atom/(.Role := Evaluation)
-  - Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
 version: 27
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1505-CORE_META_MODEL-RULE--keep-evaluation-realization-chains-distinct.md
   source_atom_id: CA-R-1505
   source_atom_revision: 27
-  source_sha256: 37586facd340b4a622fc24a9b20f6cec595dd45bfdc62c159d42cb12cd8c9ea8
+  source_sha256: 8d3ea8c703f491a879109d7f2d2bc0f6a70301cc551d0dd6dc0897ae15d29e84
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
   passive:
-  - Atom/(.Role := Plan)
-  - CFEL <+ Relation
-  - Atom.ID
-  - Atom.Subjects
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
 version: 24
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -19,10 +19,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md
   source_atom_id: CA-D-471
   source_atom_revision: 24
-  source_sha256: 8282cf7ed8c0fde283e71e258e8fae23659b6530fcf2f76a36673e9df9b8c28a
+  source_sha256: 2fe7e38589dd83a192ddd08e0ab394d44edb2a8a90cf798bfd6370bd74a538ff
   original_relations_sha256: b9827eecea8416db112a5056a7c7def708d6483cae4e2b7f7bfaec9981959427
 ---
 ## Summary

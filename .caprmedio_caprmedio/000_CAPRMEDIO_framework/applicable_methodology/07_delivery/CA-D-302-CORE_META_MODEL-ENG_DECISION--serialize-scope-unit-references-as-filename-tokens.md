@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier/File.Filename.Scope Unit Token
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Filename.Scope Unit Token
   passive:
-  - Scope Unit.Name
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-ENG_DECISION--serialize-scope-unit-references-as-filename-tokens.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-ENG_DECISION--serialize-scope-unit-references-as-filename-tokens.md
   source_atom_id: CA-D-302
   source_atom_revision: 28
-  source_sha256: 355802634ee03ff705308e858505348efbf99927fdd6e3dc9345c1e603d0ba89
+  source_sha256: ed282a5ff49aaf8f36018fb937c8bb91111cb468d3b0248af541ed924999ec67
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

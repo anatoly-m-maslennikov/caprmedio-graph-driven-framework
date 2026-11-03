@@ -4,10 +4,10 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL <+ Relation//IS_EXECUTION_OF
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_EXECUTION_OF
   passive:
-  - Entity/Object/Occurrent/Execution/Workflow Run
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
 version: 7
 relations: {}
 tier: 1
@@ -15,10 +15,10 @@ updated_at: 2026-11-02 08:06:47 +0400
 role: Requirement
 form: Declaration
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md
   source_atom_id: CA-R-2245
   source_atom_revision: 7
-  source_sha256: d407b253ea312c8b107025de4fa32d29fab0498ec3bc8727174a6103c6a12ad5
+  source_sha256: add4f94cf9c6b9dc30330e3cca477bc548de1f73667f8bc1b44780cfeff9b374
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

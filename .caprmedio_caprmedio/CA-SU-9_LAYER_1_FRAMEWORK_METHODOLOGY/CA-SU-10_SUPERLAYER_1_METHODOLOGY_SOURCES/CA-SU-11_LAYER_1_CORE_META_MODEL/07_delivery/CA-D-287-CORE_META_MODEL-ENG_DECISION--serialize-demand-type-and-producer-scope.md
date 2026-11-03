@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Carrier/File.Filename
+  active: CAPRMEDIO_MODEL <+ Carrier/File.Filename
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit'
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit'
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

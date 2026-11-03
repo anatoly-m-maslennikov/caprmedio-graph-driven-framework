@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Carrier/Directory
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
   passive:
-  - Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

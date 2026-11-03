@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
   passive:
-  - Atom/(.Role := Plan)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
 version: 31
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -16,10 +16,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1711-PROJECT_CONFIGURATION-RULE--classify-development-backlog-as-epic.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1711-PROJECT_CONFIGURATION-RULE--classify-development-backlog-as-epic.md
   source_atom_id: CA-R-1711
   source_atom_revision: 31
-  source_sha256: 507eff9beaa01faaa1b9bba6249f2e3d6051cf89ca72564ce18feccd2d9d4c6e
+  source_sha256: 88e047456b796f9b789f835e45551cbc5bc470d03eb4b47785240b7ac4eb1fac
   original_relations_sha256: 31629d4c001efec68713297020fe099c1da3966e9c2bede0d39b87a2851050f3
 ---
 ## Summary

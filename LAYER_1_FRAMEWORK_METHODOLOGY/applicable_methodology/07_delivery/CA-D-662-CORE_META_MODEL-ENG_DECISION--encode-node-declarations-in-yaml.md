@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom/(.Role := Requirement)/(.Form := Declaration)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)/(.Form := Declaration)
   passive:
-  - Atom
+  - CAPRMEDIO <+ MODEL <+ Atom
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-662-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md
   source_atom_id: CA-D-662
   source_atom_revision: 4
-  source_sha256: deaea90c11a4875191cf4e401682a80e955f66891c156de9d65dc59a5bbb5c4f
+  source_sha256: 0e29cf5ad57023a20a1562557194bb6c700468f000f065d11da5f0bc362383bc
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

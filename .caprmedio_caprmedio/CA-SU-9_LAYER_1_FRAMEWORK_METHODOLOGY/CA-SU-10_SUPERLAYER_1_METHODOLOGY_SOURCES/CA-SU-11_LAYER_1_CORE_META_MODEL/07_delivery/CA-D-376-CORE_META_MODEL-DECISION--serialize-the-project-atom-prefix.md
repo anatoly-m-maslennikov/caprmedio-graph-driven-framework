@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Project.Settings.Prefix
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Prefix
   passive:
-  - Project.Settings
-  - Atom
-  - Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 28
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

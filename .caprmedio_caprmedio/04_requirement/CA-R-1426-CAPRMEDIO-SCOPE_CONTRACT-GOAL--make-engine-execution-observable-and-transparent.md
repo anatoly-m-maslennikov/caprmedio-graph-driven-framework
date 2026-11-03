@@ -2,9 +2,9 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: Aspects <+ Engineering <+ Observability
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability
   passive:
-  - Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

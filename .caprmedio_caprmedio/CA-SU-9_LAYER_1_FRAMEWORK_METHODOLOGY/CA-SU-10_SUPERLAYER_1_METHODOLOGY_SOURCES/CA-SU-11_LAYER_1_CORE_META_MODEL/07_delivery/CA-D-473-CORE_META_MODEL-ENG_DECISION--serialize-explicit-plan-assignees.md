@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
   passive:
-  - Atom/(.Role := Plan)
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
-  - Carrier/File
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
+  - CAPRMEDIO_MODEL <+ Carrier/File
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

@@ -1,18 +1,18 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - Atom.Content
-  - Atom.Content.Summary
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
-  - CFEL > Relation
-  - Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit'
-  - Scope Unit
-  - Carrier/File
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit'
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
 version: 32
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -26,10 +26,10 @@ tier: 2
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md
   source_atom_id: CA-M-306
   source_atom_revision: 32
-  source_sha256: 73f05324f43200bd269a254d1b51fefb99571d9e6d01691808187e66ea9100ff
+  source_sha256: 0a4bdc2e22600bd74eb12d02f92caa055fd4267697f0ba5995914e23fbf3ebee
   original_relations_sha256: 21b8448a6646f8fd0798650a427c7b91afc15bdc426943dd06bceecabbe3b997
 ---
 ## Summary

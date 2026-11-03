@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Scope Unit
-  - Project
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Project
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-394-CORE_META_MODEL-ENG_DECISION--bind-convenience-symlink-carriers-to-one-native-source.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-394-CORE_META_MODEL-ENG_DECISION--bind-convenience-symlink-carriers-to-one-native-source.md
   source_atom_id: CA-D-394
   source_atom_revision: 23
-  source_sha256: a353cc06b2b7e3cb635a59df749bface36720bf4521e11cd755622df08e39dc2
+  source_sha256: d03f1fcffe9da65af877941d957967a3529718ea8c081f8628e4fec084c0a777
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

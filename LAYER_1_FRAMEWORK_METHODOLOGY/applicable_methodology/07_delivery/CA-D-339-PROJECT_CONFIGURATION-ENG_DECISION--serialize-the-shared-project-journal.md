@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Carrier/File
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File
   passive:
-  - Aspects <+ Engineering <+ Data Handling <+ Serialization
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Project
-  - Journal
-  - Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Serialization
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
 version: 29
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-339-PROJECT_CONFIGURATION-ENG_DECISION--serialize-the-shared-project-journal.md
   source_atom_id: CA-D-339
   source_atom_revision: 29
-  source_sha256: 0de87e488104341e5bfb7420724d2b3f0eba1ee0c9af514e3b0c3c2483f76564
+  source_sha256: d639b59e1c27385bb16e5d23363581badb7b9107361fc022d65ad7ea60f13d72
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

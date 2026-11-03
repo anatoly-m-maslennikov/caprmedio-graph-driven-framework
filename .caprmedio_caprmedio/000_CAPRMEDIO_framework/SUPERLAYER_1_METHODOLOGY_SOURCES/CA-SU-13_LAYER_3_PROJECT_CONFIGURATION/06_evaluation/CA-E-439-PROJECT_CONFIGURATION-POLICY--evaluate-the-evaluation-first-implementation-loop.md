@@ -15,15 +15,15 @@ relations:
   - CA-O-021
   - CA-M-239
 subjects:
-  active: Entity/Object/Occurrent/Execution
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution
   passive:
-  - Atom/(.Role := Requirement)
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Evaluation)
-  - Atom/(.Role := Delivery)
-  - Aspects <+ Engineering <+ Verification
-  - Atom.ID
-  - Project
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Project
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-439

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection/(.Form := Applicable Methodology)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form := Applicable Methodology)
   passive:
-  - Atom
-  - CFEL > Relation//DERIVED_FROM
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//DERIVED_FROM
 version: 34
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

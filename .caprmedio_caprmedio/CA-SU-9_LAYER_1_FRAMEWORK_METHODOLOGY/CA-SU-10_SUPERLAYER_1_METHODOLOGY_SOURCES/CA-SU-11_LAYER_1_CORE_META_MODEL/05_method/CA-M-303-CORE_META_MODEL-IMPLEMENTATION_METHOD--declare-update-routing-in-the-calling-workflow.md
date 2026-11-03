@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Workflow
   passive:
-  - Actor
-  - Atom/(.Role:=Operations)/Action
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - Entity/Object/Occurrent/Execution/Workflow Run
-  - Atom
-  - Atom.Content.Summary
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Atom Update Identity'
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Action
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - 'CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Atom Update Identity'
 version: 26
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

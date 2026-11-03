@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Selection
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

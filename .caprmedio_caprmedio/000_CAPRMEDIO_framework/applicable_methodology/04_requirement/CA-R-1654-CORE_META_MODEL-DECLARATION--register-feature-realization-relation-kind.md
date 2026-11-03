@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CFEL <+ Relation//feature_realization
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//feature_realization
   passive:
-  - CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
 version: 37
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -16,10 +16,10 @@ tier: 3
 role: Requirement
 form: Declaration
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-DECLARATION--register-feature-realization-relation-kind.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-DECLARATION--register-feature-realization-relation-kind.md
   source_atom_id: CA-R-1654
   source_atom_revision: 37
-  source_sha256: 45785814b3b8a2784b1339a6319303a04779c05bb1c91afd7fdd40319d59c1bc
+  source_sha256: 545261555efb3e9d99b44d720b7dd1f9badc9ca4cace6932e4ab742af8fb3b59
   original_relations_sha256: e505aa9ff1d066a0f7732fbe0bcf2c3da1556ffff64b77a4c92730c9625e58ef
 ---
 ## Summary

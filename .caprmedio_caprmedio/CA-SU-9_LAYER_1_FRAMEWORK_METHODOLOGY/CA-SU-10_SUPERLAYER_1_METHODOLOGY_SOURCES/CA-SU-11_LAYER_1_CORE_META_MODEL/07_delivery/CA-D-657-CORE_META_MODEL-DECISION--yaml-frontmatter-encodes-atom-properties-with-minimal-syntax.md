@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier/File.YAML Frontmatter
+  active: CAPRMEDIO_MODEL <+ Carrier/File.YAML Frontmatter
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Scope Unit
-  - Actor
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Actor
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

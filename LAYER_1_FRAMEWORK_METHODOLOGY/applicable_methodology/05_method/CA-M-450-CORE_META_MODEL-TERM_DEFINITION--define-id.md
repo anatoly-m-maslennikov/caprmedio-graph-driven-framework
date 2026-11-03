@@ -4,11 +4,10 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Term//ID
+  active: CAPRMEDIO <+ MODEL <+ Term//ID
   passive:
-  - Term
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type:
-    Term Definition)'
+  - CAPRMEDIO <+ MODEL <+ Term
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
 version: 4
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -19,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-450-CORE_META_MODEL-TERM_DEFINITION--define-id.md
   source_atom_id: CA-M-450
   source_atom_revision: 4
-  source_sha256: 1ada3cb3f23a10abce683377b99f7d56caa09107ba7b328c863606d53c300b16
+  source_sha256: 7a4d720c61fb905a7503424b471ddeb68ceec39fd47865a7d10a9bb9da3878a4
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

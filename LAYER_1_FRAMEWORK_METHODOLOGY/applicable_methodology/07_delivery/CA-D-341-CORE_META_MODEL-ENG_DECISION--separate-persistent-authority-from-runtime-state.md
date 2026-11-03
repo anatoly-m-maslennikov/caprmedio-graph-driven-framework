@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Entity/Object/Continuant/History
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-ENG_DECISION--separate-persistent-authority-from-runtime-state.md
   source_atom_id: CA-D-341
   source_atom_revision: 29
-  source_sha256: 4443b3cbdcb5c231f0323e227d1ccb4f3d4ee308d4817894f6771c732f833b33
+  source_sha256: db983d21feda523e21ab79bf913efc2a255ab240fed4ecd809d8b0b16dbc6d69
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

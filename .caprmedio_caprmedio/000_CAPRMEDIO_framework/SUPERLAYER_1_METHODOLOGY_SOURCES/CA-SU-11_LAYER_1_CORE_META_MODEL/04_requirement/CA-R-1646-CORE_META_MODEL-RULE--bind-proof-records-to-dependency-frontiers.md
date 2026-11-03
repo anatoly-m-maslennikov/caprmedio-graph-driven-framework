@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Traceability
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   passive:
-  - Term//Artifact
-  - Projection
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 41
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

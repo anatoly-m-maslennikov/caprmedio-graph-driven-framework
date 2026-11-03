@@ -1,0 +1,1032 @@
+---
+artifact_form: Projection
+projection_id: CA-PROJ-017
+form: Map
+source:
+  named_selection: Named Selection//Current Declared MODEL
+  atoms:
+  - CA-R-1016@31
+  - CA-R-1017@30
+  - CA-R-1018@37
+  - CA-R-1019@29
+  - CA-R-1020@29
+  - CA-R-1021@29
+  - CA-R-1022@31
+  - CA-R-1026@32
+  - CA-R-1199@36
+  - CA-R-1200@39
+  - CA-R-1580@26
+  - CA-R-1639@37
+  - CA-R-1654@37
+  - CA-R-1660@36
+  - CA-R-1977@15
+  - CA-R-1978@15
+  - CA-R-1979@15
+  - CA-R-1980@15
+  - CA-R-1982@15
+  - CA-R-1993@19
+  - CA-R-2170@9
+  - CA-R-2245@7
+  - CA-R-2246@7
+  - CA-R-2255@8
+  - CA-R-2256@4
+  - CA-R-2279@4
+  - CA-R-2417@4
+  - CA-R-2418@4
+  - CA-R-2420@4
+  - CA-R-2421@4
+  - CA-R-2422@4
+  - CA-R-2462@2
+  - CA-R-2463@2
+  - CA-R-2464@4
+  - CA-R-2465@4
+  - CA-R-2466@4
+  - CA-R-2467@2
+  - CA-R-2473@4
+  - CA-R-2475@4
+  - CA-R-2476@4
+  - CA-R-2477@4
+  - CA-R-2478@4
+  - CA-R-2485@4
+  - CA-R-2488@2
+  - CA-R-2489@2
+  - CA-R-2490@2
+  - CA-R-2491@2
+  - CA-R-2492@2
+  - CA-R-2493@2
+  - CA-R-2494@2
+  - CA-R-2495@2
+  - CA-R-2496@2
+  - CA-R-2497@2
+  - CA-R-2498@2
+  - CA-R-2499@2
+  - CA-R-2500@2
+  - CA-R-2501@2
+  - CA-R-2502@2
+  - CA-R-2503@2
+  - CA-R-2504@2
+  - CA-R-2505@2
+  - CA-R-2506@2
+  - CA-R-2507@2
+  - CA-R-2508@2
+  - CA-R-2509@2
+  - CA-R-2511@2
+  - CA-R-2512@2
+  - CA-R-2513@2
+  - CA-R-2514@2
+  - CA-R-2515@2
+  - CA-R-2516@5
+  - CA-R-2518@2
+  - CA-R-2519@2
+  - CA-R-2520@2
+  - CA-R-2521@2
+  - CA-R-2523@2
+  - CA-R-2524@3
+  - CA-R-2525@2
+  - CA-R-2526@3
+  - CA-R-2527@2
+  - CA-R-2528@2
+  - CA-R-2530@2
+  - CA-R-2531@2
+  - CA-R-2532@8
+  - CA-R-2533@2
+  - CA-R-2534@2
+  - CA-R-2535@2
+  - CA-R-2536@2
+  - CA-R-2537@2
+  - CA-R-2538@2
+  - CA-R-2539@2
+  - CA-R-2540@2
+  - CA-R-2541@2
+  - CA-R-2542@2
+  - CA-R-2543@4
+  - CA-R-2544@2
+  - CA-R-2545@2
+  - CA-R-2546@2
+  - CA-R-2553@2
+  - CA-R-2554@2
+  - CA-R-2555@2
+  - CA-R-2557@4
+  - CA-R-2558@2
+  - CA-R-2559@2
+  - CA-R-2560@2
+  - CA-R-2564@2
+  - CA-R-2568@2
+  - CA-R-2569@2
+  - CA-R-2572@2
+  - CA-R-2573@2
+  - CA-R-2574@2
+  - CA-R-2575@2
+  - CA-R-2576@2
+  - CA-R-2577@2
+  - CA-R-2578@2
+  - CA-R-2579@2
+  - CA-R-2580@2
+  - CA-R-2581@2
+  - CA-R-2582@2
+  - CA-R-2583@4
+  - CA-R-2586@2
+  - CA-R-2587@2
+  - CA-R-2589@2
+  - CA-R-2590@2
+  - CA-R-2591@1
+  - CA-R-2592@1
+  - CA-R-2593@1
+  - CA-R-2594@1
+  - CA-R-2595@1
+  - CA-R-2596@1
+  - CA-R-2597@1
+  - CA-R-2598@1
+  - CA-R-2599@1
+  - CA-R-2600@1
+  - CA-R-2601@1
+  - CA-R-2602@1
+  - CA-R-2603@1
+  - CA-R-2604@1
+  - CA-R-2605@1
+  - CA-R-2606@1
+  - CA-R-2607@1
+  - CA-R-2608@1
+  - CA-R-2609@1
+  - CA-R-2610@1
+  - CA-R-2611@1
+  - CA-R-2612@1
+  - CA-R-2613@1
+  - CA-R-2614@1
+  - CA-R-2615@1
+  - CA-R-2616@1
+  - CA-R-2617@1
+  - CA-R-2618@1
+  - CA-R-2619@1
+  - CA-R-2620@1
+  - CA-R-2621@1
+  - CA-R-2622@1
+  - CA-R-2623@3
+  - CA-R-2624@1
+  - CA-R-2625@1
+  - CA-R-2626@1
+  - CA-R-2629@1
+  - CA-R-2630@1
+  - CA-R-2631@1
+  - CA-R-2632@2
+  - CA-R-2633@1
+  - CA-R-2634@1
+  - CA-R-2635@1
+  - CA-R-2637@1
+  - CA-R-2638@2
+  - CA-R-2685@1
+  - CA-R-2686@1
+  - CA-R-2692@1
+  - CA-R-2693@1
+  - CA-R-2694@1
+  - CA-R-2695@1
+  - CA-R-796@43
+updated_at: 2026-11-03 13:47:06 +0400
+---
+
+## Model graph
+
+## Namespace context
+
+```text
+CAPRMEDIO
+  <+ MODEL
+  <+ STRUCTURE
+```
+
+
+Source selection: Current model Declarations, including canonical and derived Relations; source-bound extraction without executing CFEL.
+
+Display selection: direct Declaration targets, selected Subject expressions, Relations, classifications and constraint records. Literal values, Formats and cardinalities remain constraints, not graph Nodes.
+
+This is a derived Projection, not independent model authority.
+
+## Primary Nodes
+
+- `Actor`
+- `Aspect`
+- `Atom`
+- `Atom/(.Role:="Analysis & Advisory")`
+- `Atom/(.Role:=Concern)`
+- `Atom/(.Role:=Delivery)`
+- `Atom/(.Role:=Evaluation)`
+- `Atom/(.Role:=Method)`
+- `Atom/(.Role:=Operations)`
+- `Atom/(.Role:=Operations)/Action`
+- `Atom/(.Role:=Operations)/Step`
+- `Atom/(.Role:=Operations)/Substep`
+- `Atom/(.Role:=Operations)/Workflow`
+- `Atom/(.Role:=Plan)`
+- `Atom/(.Role:=Requirement)`
+- `Atom/(.Role:=Requirement)/(.Form:=Declaration)`
+- `Event Record`
+- `Journal`
+- `MODEL`
+- `Named Selection`
+- `Node`
+- `Node/Continuant`
+- `Node/Occurrent`
+- `PROJECT STRUCTURE`
+- `Package`
+- `Package/Implementation`
+- `Project`
+- `Projection`
+- `Scope Unit`
+
+## Properties
+
+- `Actor.Name`
+- `Atom.Carrier Destination`
+- `Atom.Carrier Destination.File`
+- `Atom.Carrier Destination.File.Name`
+- `Atom.Carrier Destination.File.Path`
+- `Atom.Content`
+- `Atom.Content.Claim`
+- `Atom.Content.Claim Scope`
+- `Atom.Content.Details`
+- `Atom.Content.Semantics`
+- `Atom.Content.Summary`
+- `Atom.Form`
+- `Atom.ID`
+- `Atom.Label`
+- `Atom.Relations`
+- `Atom.Relations.contained_by`
+- `Atom.Relations.contained_by.atom`
+- `Atom.Relations.contained_by.scope_unit`
+- `Atom.Role`
+- `Atom.Status`
+- `Atom.Subjects`
+- `Atom.Subjects.Active`
+- `Atom.Subjects.Passive`
+- `Atom.Tier`
+- `Atom.Tier.Label`
+- `Atom.Updated At`
+- `Atom.Version`
+- `Atom/(.Role:=Concern).Priority`
+- `Atom/(.Role:=Operations)/Action.Execution Kind`
+- `Atom/(.Role:=Plan).AI Agent Confidence Threshold`
+- `Atom/(.Role:=Plan).Work Sequence Number`
+- `Event Record.ID`
+- `Event Record.Relations`
+- `Event Record.Relations.HAS_EVENT_AUTHOR`
+- `Event Record.action`
+- `Event Record.happened_at`
+- `Event Record.inserted_at`
+- `Event Record.object_input`
+- `Event Record.object_input.id`
+- `Event Record.object_input.updated_at`
+- `Event Record.object_input.version`
+- `Event Record.object_output`
+- `Event Record.object_output.id`
+- `Event Record.object_output.updated_at`
+- `Event Record.object_output.version`
+- `Package.structural_level`
+- `Project.Settings`
+- `Project.Settings.AI Agent Confidence Threshold`
+- `Project.Settings.Artifact Timestamp Timezone`
+- `Project.Settings.Authority Modes`
+- `Project.Settings.Authority Modes.Default Scope Unit Authority Mode`
+- `Project.Settings.Authority Modes.Project Authority Mode`
+- `Project.Settings.Code-Root Locators`
+- `Project.Settings.Confidence`
+- `Project.Settings.Confidence.Necessary Information Threshold`
+- `Project.Settings.Confidence.Semantic Resolution Threshold`
+- `Project.Settings.Framework Control-Root Locator`
+- `Project.Settings.Implementation Retry Limit`
+- `Project.Settings.Interaction`
+- `Project.Settings.Interaction.Reporting Mode`
+- `Project.Settings.Name`
+- `Project.Settings.Prefix`
+- `Project.Settings.RMED Review`
+- `Project.Settings.RMED Review.Context Headroom Fraction`
+- `Project.Settings.RMED Review.Max Atoms`
+- `Projection.Form`
+- `Projection.ID`
+- `Projection.Source`
+- `Projection.Source.Atoms`
+- `Projection.Source.Named Selection`
+- `Projection.Updated At`
+- `Scope Unit.ID`
+- `Scope Unit.Label`
+- `Scope Unit.Name`
+- `Scope Unit.Path`
+- `Scope Unit.Project Boundary Position`
+- `Scope Unit.order.number`
+- `Scope Unit.order.ordered`
+- `Scope Unit.structural_level`
+
+## Instances
+
+- `Node/Continuant//CAPRMEDIO Framework`
+
+## Relations
+
+- None supplied.
+
+## Classifications
+
+- None supplied.
+
+## Allowed literals
+
+- None supplied.
+
+## Selected Subject Expressions
+
+- `CAPRMEDIO <+ MODEL` — CA-R-2559
+- `CAPRMEDIO <+ MODEL <+ Actor` — CA-R-2542
+- `CAPRMEDIO <+ MODEL <+ Actor.Name` — CA-R-2544
+- `CAPRMEDIO <+ MODEL <+ Aspect` — CA-R-2543
+- `CAPRMEDIO <+ MODEL <+ Atom` — CA-R-1199
+- `CAPRMEDIO <+ MODEL <+ Atom` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ Atom` — CA-R-1580
+- `CAPRMEDIO <+ MODEL <+ Atom` — CA-R-2508
+- `CAPRMEDIO <+ MODEL <+ Atom.Carrier Destination` — CA-R-2692
+- `CAPRMEDIO <+ MODEL <+ Atom.Carrier Destination.File` — CA-R-2693
+- `CAPRMEDIO <+ MODEL <+ Atom.Carrier Destination.File.Name` — CA-R-2694
+- `CAPRMEDIO <+ MODEL <+ Atom.Carrier Destination.File.Path` — CA-R-2695
+- `CAPRMEDIO <+ MODEL <+ Atom.Content` — CA-R-1199
+- `CAPRMEDIO <+ MODEL <+ Atom.Content` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ Atom.Content` — CA-R-2498
+- `CAPRMEDIO <+ MODEL <+ Atom.Content.Claim` — CA-R-2500
+- `CAPRMEDIO <+ MODEL <+ Atom.Content.Claim Scope` — CA-R-796
+- `CAPRMEDIO <+ MODEL <+ Atom.Content.Claim Scope` — CA-R-2501
+- `CAPRMEDIO <+ MODEL <+ Atom.Content.Details` — CA-R-2503
+- `CAPRMEDIO <+ MODEL <+ Atom.Content.Semantics` — CA-R-2502
+- `CAPRMEDIO <+ MODEL <+ Atom.Content.Summary` — CA-R-2499
+- `CAPRMEDIO <+ MODEL <+ Atom.Form` — CA-R-2495
+- `CAPRMEDIO <+ MODEL <+ Atom.ID` — CA-R-2493
+- `CAPRMEDIO <+ MODEL <+ Atom.Label` — CA-R-2497
+- `CAPRMEDIO <+ MODEL <+ Atom.Relations` — CA-R-2507
+- `CAPRMEDIO <+ MODEL <+ Atom.Relations.contained_by` — CA-R-2490
+- `CAPRMEDIO <+ MODEL <+ Atom.Relations.contained_by.atom` — CA-R-2491
+- `CAPRMEDIO <+ MODEL <+ Atom.Relations.contained_by.scope_unit` — CA-R-2492
+- `CAPRMEDIO <+ MODEL <+ Atom.Role` — CA-R-2494
+- `CAPRMEDIO <+ MODEL <+ Atom.Status` — CA-R-2488
+- `CAPRMEDIO <+ MODEL <+ Atom.Subjects` — CA-R-2545
+- `CAPRMEDIO <+ MODEL <+ Atom.Subjects.Active` — CA-R-2546
+- `CAPRMEDIO <+ MODEL <+ Atom.Subjects.Passive` — CA-R-2506
+- `CAPRMEDIO <+ MODEL <+ Atom.Tier` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ Atom.Tier` — CA-R-796
+- `CAPRMEDIO <+ MODEL <+ Atom.Tier` — CA-R-2504
+- `CAPRMEDIO <+ MODEL <+ Atom.Tier.Label` — CA-R-2505
+- `CAPRMEDIO <+ MODEL <+ Atom.Updated At` — CA-R-2489
+- `CAPRMEDIO <+ MODEL <+ Atom.Version` — CA-R-2496
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")` — CA-R-2637
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern)` — CA-R-2509
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern).Priority` — CA-R-2518
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)` — CA-R-2515
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)` — CA-R-2514
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)` — CA-R-2513
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)` — CA-R-2463
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Action` — CA-R-2467
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Action.Execution Kind` — CA-R-2521
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Step` — CA-R-2465
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Substep` — CA-R-2466
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Workflow` — CA-R-2464
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)` — CA-R-2511
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).AI Agent Confidence Threshold` — CA-R-2519
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number` — CA-R-2520
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)` — CA-R-2512
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)/(.Form := Declaration)` — CA-R-2516
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Format/bool` — CA-R-2685
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Format/int` — CA-R-2686
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation` — CA-R-1026
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//BLOCKS` — CA-R-1580
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//CARRIES` — CA-R-1993
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//CONTAINS` — CA-R-2617
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DERIVED_FROM` — CA-R-1639
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//EXECUTES` — CA-R-2255
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//GOVERNS` — CA-R-1199
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_ACTIVE_SUBJECT` — CA-R-2618
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_CLASSIFICATION` — CA-R-2477
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_EVENT_AUTHOR` — CA-R-2583
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_EXECUTION` — CA-R-2417
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_INSTANCE` — CA-R-2619
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_INVERSE` — CA-R-2485
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_NARROWER` — CA-R-2620
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_PROPERTY` — CA-R-2621
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//INSTANCE_OF` — CA-R-2476
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_CARRIED_BY` — CA-R-2418
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY` — CA-R-2478
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_DEFINED_BY` — CA-R-2279
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_DERIVED_RELATION_OF` — CA-R-2170
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_EVENT_AUTHOR_OF` — CA-R-2622
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_EXECUTED_BY` — CA-R-2420
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_EXECUTION_OF` — CA-R-2245
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF` — CA-R-2473
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_RECORDED_BY` — CA-R-2421
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_RUN_BY` — CA-R-2623
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//NARROWER_THAN` — CA-R-2475
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//RECORDS` — CA-R-2246
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//RUNS` — CA-R-2638
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//child_of` — CA-R-796
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//concern_about` — CA-R-1022
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//delivery_for` — CA-R-1019
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//depends_on` — CA-R-1026
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//evaluation_for` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//evidence_for` — CA-R-1021
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//feature_realization` — CA-R-1654
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//implementation_of` — CA-R-1020
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//method_for` — CA-R-1017
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//rationale_for` — CA-R-1016
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//required_by` — CA-R-1026
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//required_by` — CA-R-2422
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//structural_parent` — CA-R-1660
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1016
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1017
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1019
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1020
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1021
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1022
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1199
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1654
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1993
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-2170
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation//DEPENDS_ON` — CA-R-1580
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator` — CA-R-2616
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Addition` — CA-R-2591
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue` — CA-R-2592
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Conclusion` — CA-R-2593
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Condition` — CA-R-2594
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//DeclaredReference` — CA-R-2595
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Delivery` — CA-R-2596
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//ExpressionSeparator` — CA-R-2597
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Fallback` — CA-R-2598
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//GreaterOrEqual` — CA-R-2599
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//GreaterThan` — CA-R-2600
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Grouping` — CA-R-2601
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//ImmediateWildcard` — CA-R-2602
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Inequality` — CA-R-2603
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Instance` — CA-R-2605
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//InstanceBinding` — CA-R-2604
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//LessOrEqual` — CA-R-2606
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//LessThan` — CA-R-2607
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Membership` — CA-R-2608
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//NamedRelationDirection` — CA-R-2609
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Narrowing` — CA-R-2610
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Property` — CA-R-2611
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//RecursiveWildcard` — CA-R-2612
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//RelationEndpointSignature` — CA-R-2613
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//SelectionExclusion` — CA-R-2614
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//SubjectValueSelection` — CA-R-2615
+- `CAPRMEDIO <+ MODEL <+ Carrier` — CA-R-1993
+- `CAPRMEDIO <+ MODEL <+ Entity` — CA-R-1199
+- `CAPRMEDIO <+ MODEL <+ Entity` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ Entity` — CA-R-1993
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit` — CA-R-796
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit` — CA-R-796
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow` — CA-R-2245
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done` — CA-R-1580
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan` — CA-R-1580
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-2246
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run` — CA-R-2245
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run` — CA-R-2246
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run` — CA-R-2255
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Runtime` — CA-R-2255
+- `CAPRMEDIO <+ MODEL <+ Event Record` — CA-R-2557
+- `CAPRMEDIO <+ MODEL <+ Event Record.ID` — CA-R-2558
+- `CAPRMEDIO <+ MODEL <+ Event Record.Relations` — CA-R-2581
+- `CAPRMEDIO <+ MODEL <+ Event Record.Relations.HAS_EVENT_AUTHOR` — CA-R-2582
+- `CAPRMEDIO <+ MODEL <+ Event Record.action` — CA-R-2580
+- `CAPRMEDIO <+ MODEL <+ Event Record.happened_at` — CA-R-2568
+- `CAPRMEDIO <+ MODEL <+ Event Record.inserted_at` — CA-R-2569
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_input` — CA-R-2572
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_input.id` — CA-R-2573
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_input.updated_at` — CA-R-2575
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_input.version` — CA-R-2574
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_output` — CA-R-2576
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_output.id` — CA-R-2577
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_output.updated_at` — CA-R-2579
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_output.version` — CA-R-2578
+- `CAPRMEDIO <+ MODEL <+ Journal` — CA-R-2536
+- `CAPRMEDIO <+ MODEL <+ Named Selection` — CA-R-2587
+- `CAPRMEDIO <+ MODEL <+ Node` — CA-R-2462
+- `CAPRMEDIO <+ MODEL <+ Node/Continuant` — CA-R-2589
+- `CAPRMEDIO <+ MODEL <+ Node/Occurrent` — CA-R-2590
+- `CAPRMEDIO <+ MODEL <+ PROJECT STRUCTURE` — CA-R-2560
+- `CAPRMEDIO <+ MODEL <+ Package` — CA-R-2525
+- `CAPRMEDIO <+ MODEL <+ Package.structural_level` — CA-R-2555
+- `CAPRMEDIO <+ MODEL <+ Package/Implementation` — CA-R-2553
+- `CAPRMEDIO <+ MODEL <+ Project` — CA-R-2524
+- `CAPRMEDIO <+ MODEL <+ Project.Settings` — CA-R-2532
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.AI Agent Confidence Threshold` — CA-R-2564
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Artifact Timestamp Timezone` — CA-R-1977
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Authority Modes.Default Scope Unit Authority Mode` — CA-R-2633
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Authority Modes.Project Authority Mode` — CA-R-2634
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Code-Root Locators` — CA-R-1978
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Confidence` — CA-R-1979
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Confidence.Necessary Information Threshold` — CA-R-2624
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Confidence.Semantic Resolution Threshold` — CA-R-2625
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Framework Control-Root Locator` — CA-R-1980
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Implementation Retry Limit` — CA-R-2635
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Interaction` — CA-R-1982
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Interaction.Reporting Mode` — CA-R-2626
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Name` — CA-R-2533
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Prefix` — CA-R-2534
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.RMED Review` — CA-R-2631
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.RMED Review.Context Headroom Fraction` — CA-R-2629
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.RMED Review.Max Atoms` — CA-R-2630
+- `CAPRMEDIO <+ MODEL <+ Projection` — CA-R-1580
+- `CAPRMEDIO <+ MODEL <+ Projection` — CA-R-2535
+- `CAPRMEDIO <+ MODEL <+ Projection.Form` — CA-R-2538
+- `CAPRMEDIO <+ MODEL <+ Projection.ID` — CA-R-2537
+- `CAPRMEDIO <+ MODEL <+ Projection.Source` — CA-R-2586
+- `CAPRMEDIO <+ MODEL <+ Projection.Source.Atoms` — CA-R-2540
+- `CAPRMEDIO <+ MODEL <+ Projection.Source.Named Selection` — CA-R-2541
+- `CAPRMEDIO <+ MODEL <+ Projection.Updated At` — CA-R-2539
+- `CAPRMEDIO <+ MODEL <+ Scope Unit` — CA-R-1660
+- `CAPRMEDIO <+ MODEL <+ Scope Unit` — CA-R-2523
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.ID` — CA-R-2526
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.Label` — CA-R-2528
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.Name` — CA-R-2527
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.Path` — CA-R-2530
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.Project Boundary Position` — CA-R-2531
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.order` — CA-R-2685
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.order` — CA-R-2686
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.order.number` — CA-R-2686
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.order.ordered` — CA-R-2686
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.order.ordered` — CA-R-2685
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.structural_level` — CA-R-2554
+- `CAPRMEDIO <+ MODEL <+ Term//Artifact` — CA-R-1026
+- `CAPRMEDIO <+ MODEL <+ Term//Artifact` — CA-R-1639
+- `CAPRMEDIO <+ STRUCTURE <+ Node/Continuant//CAPRMEDIO Framework` — CA-R-2256
+- `Project.Settings.Authority Modes` — CA-R-2632
+
+## Constraints
+
+- `allowed_literal`: `Atom.Status: Active` — CA-R-2488
+- `allowed_literal`: `Atom.Status: Archived` — CA-R-2488
+- `allowed_literal`: `Atom.Status: Draft` — CA-R-2488
+- `allowed_literal`: `Event Record.action: archive` — CA-R-2580
+- `allowed_literal`: `Event Record.action: create` — CA-R-2580
+- `allowed_literal`: `Event Record.action: update` — CA-R-2580
+- `allowed_literal`: `Projection.Form: Catalog` — CA-R-2538
+- `allowed_literal`: `Projection.Form: Hub` — CA-R-2538
+- `allowed_literal`: `Projection.Form: Map` — CA-R-2538
+- `classification_condition`: `((BLOCKS)) >| Derivation == Direct` — CA-R-1580
+- `classification_condition`: `((CARRIES)) >| Derivation == Direct` — CA-R-1993
+- `classification_condition`: `((CONTAINS)) >| Derivation == Derived` — CA-R-2617
+- `classification_condition`: `((DEPENDS_ON)) >| Derivation == Direct` — CA-R-1200
+- `classification_condition`: `((DERIVED_FROM)) >| Derivation == Direct` — CA-R-1639
+- `classification_condition`: `((EXECUTES)) >| Derivation == Direct` — CA-R-2255
+- `classification_condition`: `((GOVERNS)) >| Derivation == Direct` — CA-R-1199
+- `classification_condition`: `((HAS_ACTIVE_SUBJECT)) >| Derivation == Direct` — CA-R-2618
+- `classification_condition`: `((HAS_CLASSIFICATION)) >| Derivation == Direct` — CA-R-2477
+- `classification_condition`: `((HAS_EVENT_AUTHOR)) >| Derivation == Direct` — CA-R-2583
+- `classification_condition`: `((HAS_EXECUTION)) >| Derivation == Derived` — CA-R-2417
+- `classification_condition`: `((HAS_INSTANCE)) >| Derivation == Derived` — CA-R-2619
+- `classification_condition`: `((HAS_INVERSE)) >| Derivation == Direct` — CA-R-2485
+- `classification_condition`: `((HAS_NARROWER)) >| Derivation == Derived` — CA-R-2620
+- `classification_condition`: `((HAS_PROPERTY)) >| Derivation == Derived` — CA-R-2621
+- `classification_condition`: `((INSTANCE_OF)) >| Derivation == Direct` — CA-R-2476
+- `classification_condition`: `((IS_CARRIED_BY)) >| Derivation == Derived` — CA-R-2418
+- `classification_condition`: `((IS_CONTAINED_BY)) >| Derivation == Direct` — CA-R-2478
+- `classification_condition`: `((IS_DEFINED_BY)) >| Derivation == Derived` — CA-R-2279
+- `classification_condition`: `((IS_DERIVED_RELATION_OF)) >| Derivation == Direct` — CA-R-2170
+- `classification_condition`: `((IS_EVENT_AUTHOR_OF)) >| Derivation == Derived` — CA-R-2622
+- `classification_condition`: `((IS_EXECUTED_BY)) >| Derivation == Derived` — CA-R-2420
+- `classification_condition`: `((IS_EXECUTION_OF)) >| Derivation == Direct` — CA-R-2245
+- `classification_condition`: `((IS_PROPERTY_OF)) >| Derivation == Direct` — CA-R-2473
+- `classification_condition`: `((IS_RECORDED_BY)) >| Derivation == Derived` — CA-R-2421
+- `classification_condition`: `((IS_RUN_BY)) >| Derivation == Derived` — CA-R-2623
+- `classification_condition`: `((NARROWER_THAN)) >| Derivation == Direct` — CA-R-2475
+- `classification_condition`: `((RECORDS)) >| Derivation == Direct` — CA-R-2246
+- `classification_condition`: `((RUNS)) >| Derivation == Direct` — CA-R-2638
+- `classification_condition`: `((child_of)) >| Derivation == Direct` — CA-R-796
+- `classification_condition`: `((concern_about)) >| Derivation == Direct` — CA-R-1022
+- `classification_condition`: `((delivery_for)) >| Derivation == Direct` — CA-R-1019
+- `classification_condition`: `((depends_on)) >| Derivation == Direct` — CA-R-1026
+- `classification_condition`: `((evaluation_for)) >| Derivation == Direct` — CA-R-1018
+- `classification_condition`: `((evidence_for)) >| Derivation == Direct` — CA-R-1021
+- `classification_condition`: `((feature_realization)) >| Derivation == Direct` — CA-R-1654
+- `classification_condition`: `((implementation_of)) >| Derivation == Direct` — CA-R-1020
+- `classification_condition`: `((method_for)) >| Derivation == Direct` — CA-R-1017
+- `classification_condition`: `((rationale_for)) >| Derivation == Direct` — CA-R-1016
+- `classification_condition`: `((required_by)) >| Derivation == Derived` — CA-R-2422
+- `classification_condition`: `((structural_parent)) >| Derivation == Direct` — CA-R-1660
+- `classification_condition`: `Journal >| (Container == yes)` — CA-R-2536
+- `classification_condition`: `MODEL >| (Container == yes)` — CA-R-2559
+- `classification_condition`: `PROJECT STRUCTURE >| (Container == yes)` — CA-R-2560
+- `classification_condition`: `Package >| (Container == yes)` — CA-R-2525
+- `classification_condition`: `Project >| (Container == yes)` — CA-R-2524
+- `classification_condition`: `Scope Unit >| (Container == yes)` — CA-R-2523
+- `property_constraint`: `Actor.Name.*[]{:0}` — CA-R-2544
+- `property_constraint`: `Actor.Name{:0..1}: [string]{:1}` — CA-R-2544
+- `property_constraint`: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692
+- `property_constraint`: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693
+- `property_constraint`: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694
+- `property_constraint`: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694
+- `property_constraint`: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695
+- `property_constraint`: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695
+- `property_constraint`: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693
+- `property_constraint`: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692
+- `property_constraint`: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498
+- `property_constraint`: `Atom.Content.*[string]{:0+}` — CA-R-2498
+- `property_constraint`: `Atom.Content.Summary.*[]{:0}` — CA-R-2499
+- `property_constraint`: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499
+- `property_constraint`: `Atom.Content{:1}: []{:0}` — CA-R-2498
+- `property_constraint`: `Atom.Form.*[]{:0}` — CA-R-2495
+- `property_constraint`: `Atom.Form{:1}: [string]{:1}` — CA-R-2495
+- `property_constraint`: `Atom.ID.*[]{:0}` — CA-R-2493
+- `property_constraint`: `Atom.ID{:1}: [string]{:1}` — CA-R-2493
+- `property_constraint`: `Atom.Label.*[]{:0}` — CA-R-2497
+- `property_constraint`: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497
+- `property_constraint`: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507
+- `property_constraint`: `Atom.Relations.contained_by.*[in(atom,scope_unit)]{:1}` — CA-R-2490
+- `property_constraint`: `Atom.Relations.contained_by.atom.*[]{:0}` — CA-R-2491
+- `property_constraint`: `Atom.Relations.contained_by.atom{:0..1}: [atom id]{:1}` — CA-R-2491
+- `property_constraint`: `Atom.Relations.contained_by.scope_unit.*[]{:0}` — CA-R-2492
+- `property_constraint`: `Atom.Relations.contained_by.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492
+- `property_constraint`: `Atom.Relations.contained_by{:0..1}: []{:0}` — CA-R-2490
+- `property_constraint`: `Atom.Relations{:1}: []{:0}` — CA-R-2507
+- `property_constraint`: `Atom.Role.*[]{:0}` — CA-R-2494
+- `property_constraint`: `Atom.Role{:1}: [string]{:1}` — CA-R-2494
+- `property_constraint`: `Atom.Status.*[]{:0}` — CA-R-2488
+- `property_constraint`: `Atom.Status{:1}: [string]{:1}` — CA-R-2488
+- `property_constraint`: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545
+- `property_constraint`: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546
+- `property_constraint`: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546
+- `property_constraint`: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506
+- `property_constraint`: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506
+- `property_constraint`: `Atom.Subjects{:1}: []{:0}` — CA-R-2545
+- `property_constraint`: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504
+- `property_constraint`: `Atom.Tier.Label.*[]{:0}` — CA-R-2505
+- `property_constraint`: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505
+- `property_constraint`: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504
+- `property_constraint`: `Atom.Updated At.*[]{:0}` — CA-R-2489
+- `property_constraint`: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489
+- `property_constraint`: `Atom.Version.*[]{:0}` — CA-R-2496
+- `property_constraint`: `Atom.Version{:1}: [int]{:1}` — CA-R-2496
+- `property_constraint`: `Event Record.ID.*[]{:0}` — CA-R-2558
+- `property_constraint`: `Event Record.ID{:1}: [string]{:1}` — CA-R-2558
+- `property_constraint`: `Event Record.Relations.*[Relation//]{:0+}` — CA-R-2581
+- `property_constraint`: `Event Record.Relations.HAS_EVENT_AUTHOR.*[]{:0}` — CA-R-2582
+- `property_constraint`: `Event Record.Relations.HAS_EVENT_AUTHOR{:1}: [Actor//]{:1}` — CA-R-2582
+- `property_constraint`: `Event Record.Relations{:1}: []{:0}` — CA-R-2581
+- `property_constraint`: `Event Record.action.*[]{:0}` — CA-R-2580
+- `property_constraint`: `Event Record.action{:1}: [string]{:1}` — CA-R-2580
+- `property_constraint`: `Event Record.happened_at.*[]{:0}` — CA-R-2568
+- `property_constraint`: `Event Record.happened_at{:1}: [datetime]{:1}` — CA-R-2568
+- `property_constraint`: `Event Record.inserted_at.*[]{:0}` — CA-R-2569
+- `property_constraint`: `Event Record.inserted_at{:1}: [datetime]{:1}` — CA-R-2569
+- `property_constraint`: `Event Record.object_input.*[in(id,version,updated_at)]{:2..3}` — CA-R-2572
+- `property_constraint`: `Event Record.object_input.id.*[]{:0}` — CA-R-2573
+- `property_constraint`: `Event Record.object_input.id{:1}: [string]{:1}` — CA-R-2573
+- `property_constraint`: `Event Record.object_input.updated_at.*[]{:0}` — CA-R-2575
+- `property_constraint`: `Event Record.object_input.updated_at{:1}: [datetime]{:1}` — CA-R-2575
+- `property_constraint`: `Event Record.object_input.version.*[]{:0}` — CA-R-2574
+- `property_constraint`: `Event Record.object_input.version{:0..1}: [int]{:1}` — CA-R-2574
+- `property_constraint`: `Event Record.object_input{:0..1}: []{:0}` — CA-R-2572
+- `property_constraint`: `Event Record.object_output.*[in(id,version,updated_at)]{:2..3}` — CA-R-2576
+- `property_constraint`: `Event Record.object_output.id.*[]{:0}` — CA-R-2577
+- `property_constraint`: `Event Record.object_output.id{:1}: [string]{:1}` — CA-R-2577
+- `property_constraint`: `Event Record.object_output.updated_at.*[]{:0}` — CA-R-2579
+- `property_constraint`: `Event Record.object_output.updated_at{:1}: [datetime]{:1}` — CA-R-2579
+- `property_constraint`: `Event Record.object_output.version.*[]{:0}` — CA-R-2578
+- `property_constraint`: `Event Record.object_output.version{:0..1}: [int]{:1}` — CA-R-2578
+- `property_constraint`: `Event Record.object_output{:0..1}: []{:0}` — CA-R-2576
+- `property_constraint`: `Journal//{:1}` — CA-R-2536
+- `property_constraint`: `Node/Continuant//CAPRMEDIO Framework{:1}` — CA-R-2256
+- `property_constraint`: `Package.structural_level.*[]{:0}` — CA-R-2555
+- `property_constraint`: `Package.structural_level{:1}: [int]{:1}` — CA-R-2555
+- `property_constraint`: `Package/Implementation//{:1}` — CA-R-2553
+- `property_constraint`: `Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Implementation Retry Limit, RMED Review)]{:3..11}` — CA-R-2532
+- `property_constraint`: `Project.Settings.AI Agent Confidence Threshold.*[]{:0}` — CA-R-2564
+- `property_constraint`: `Project.Settings.AI Agent Confidence Threshold{:1}: [int]{:1}` — CA-R-2564
+- `property_constraint`: `Project.Settings.Artifact Timestamp Timezone.*[]{:0}` — CA-R-1977
+- `property_constraint`: `Project.Settings.Artifact Timestamp Timezone{:0..1}: [string]{:1}` — CA-R-1977
+- `property_constraint`: `Project.Settings.Authority Modes.*[in (Default Scope Unit Authority Mode, Project Authority Mode)]{:2}` — CA-R-2632
+- `property_constraint`: `Project.Settings.Authority Modes.Default Scope Unit Authority Mode.*[]{:0}` — CA-R-2633
+- `property_constraint`: `Project.Settings.Authority Modes.Default Scope Unit Authority Mode{:1}: [string]{:1}` — CA-R-2633
+- `property_constraint`: `Project.Settings.Authority Modes.Project Authority Mode.*[]{:0}` — CA-R-2634
+- `property_constraint`: `Project.Settings.Authority Modes.Project Authority Mode{:1}: [string]{:1}` — CA-R-2634
+- `property_constraint`: `Project.Settings.Authority Modes{:0..1}: []{:0}` — CA-R-2632
+- `property_constraint`: `Project.Settings.Code-Root Locators.*[]{:0}` — CA-R-1978
+- `property_constraint`: `Project.Settings.Code-Root Locators{:0..1}: [string]{:1+}` — CA-R-1978
+- `property_constraint`: `Project.Settings.Confidence.*[in (Necessary Information Threshold, Semantic Resolution Threshold)]{:0..2}` — CA-R-1979
+- `property_constraint`: `Project.Settings.Confidence.Necessary Information Threshold.*[]{:0}` — CA-R-2624
+- `property_constraint`: `Project.Settings.Confidence.Necessary Information Threshold{:0..1}: [int]{:1}` — CA-R-2624
+- `property_constraint`: `Project.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}` — CA-R-2625
+- `property_constraint`: `Project.Settings.Confidence.Semantic Resolution Threshold{:0..1}: [int]{:1}` — CA-R-2625
+- `property_constraint`: `Project.Settings.Confidence{:0..1}: []{:0}` — CA-R-1979
+- `property_constraint`: `Project.Settings.Framework Control-Root Locator.*[]{:0}` — CA-R-1980
+- `property_constraint`: `Project.Settings.Framework Control-Root Locator{:0..1}: [string]{:1}` — CA-R-1980
+- `property_constraint`: `Project.Settings.Implementation Retry Limit.*[]{:0}` — CA-R-2635
+- `property_constraint`: `Project.Settings.Implementation Retry Limit{:0..1}: [int]{:1}` — CA-R-2635
+- `property_constraint`: `Project.Settings.Interaction.*[in (Reporting Mode)]{:1}` — CA-R-1982
+- `property_constraint`: `Project.Settings.Interaction.Reporting Mode.*[]{:0}` — CA-R-2626
+- `property_constraint`: `Project.Settings.Interaction.Reporting Mode{:1}: [string]{:1}` — CA-R-2626
+- `property_constraint`: `Project.Settings.Interaction{:0..1}: []{:0}` — CA-R-1982
+- `property_constraint`: `Project.Settings.Name.*[]{:0}` — CA-R-2533
+- `property_constraint`: `Project.Settings.Name{:1}: [string]{:1}` — CA-R-2533
+- `property_constraint`: `Project.Settings.Prefix.*[]{:0}` — CA-R-2534
+- `property_constraint`: `Project.Settings.Prefix{:1}: [string]{:1}` — CA-R-2534
+- `property_constraint`: `Project.Settings.RMED Review.*[in (Context Headroom Fraction, Max Atoms)]{:0..2}` — CA-R-2631
+- `property_constraint`: `Project.Settings.RMED Review.Context Headroom Fraction.*[]{:0}` — CA-R-2629
+- `property_constraint`: `Project.Settings.RMED Review.Context Headroom Fraction{:0..1}: [float]{:1}` — CA-R-2629
+- `property_constraint`: `Project.Settings.RMED Review.Max Atoms.*[]{:0}` — CA-R-2630
+- `property_constraint`: `Project.Settings.RMED Review.Max Atoms{:0..1}: [int]{:1}` — CA-R-2630
+- `property_constraint`: `Project.Settings.RMED Review{:0..1}: []{:0}` — CA-R-2631
+- `property_constraint`: `Project.Settings{:1}: []{:0}` — CA-R-2532
+- `property_constraint`: `Project//.ID: []{:0}` — CA-R-2524
+- `property_constraint`: `Project//.order.number: []{:0}` — CA-R-2524
+- `property_constraint`: `Projection.Form.*[]{:0}` — CA-R-2538
+- `property_constraint`: `Projection.Form{:1}: [string]{:1}` — CA-R-2538
+- `property_constraint`: `Projection.ID.*[]{:0}` — CA-R-2537
+- `property_constraint`: `Projection.ID{:1}: [string]{:1}` — CA-R-2537
+- `property_constraint`: `Projection.Source.*[in (Named Selection, Atoms)]{:1..2}` — CA-R-2586
+- `property_constraint`: `Projection.Source.Atoms.*[]{:0}` — CA-R-2540
+- `property_constraint`: `Projection.Source.Atoms{:0..1}: [string]{:0+}` — CA-R-2540
+- `property_constraint`: `Projection.Source.Named Selection.*[]{:0}` — CA-R-2541
+- `property_constraint`: `Projection.Source.Named Selection{:1}: [Named Selection//]{:1}` — CA-R-2541
+- `property_constraint`: `Projection.Source{:1}: []{:0}` — CA-R-2586
+- `property_constraint`: `Projection.Updated At.*[]{:0}` — CA-R-2539
+- `property_constraint`: `Projection.Updated At{:1}: [datetime]{:1}` — CA-R-2539
+- `property_constraint`: `Scope Unit.ID.*[]{:0}` — CA-R-2526
+- `property_constraint`: `Scope Unit.ID{:0..1}: [string]{:1}` — CA-R-2526
+- `property_constraint`: `Scope Unit.Label.*[]{:0}` — CA-R-2528
+- `property_constraint`: `Scope Unit.Label{:0..1}: [string]{:1}` — CA-R-2528
+- `property_constraint`: `Scope Unit.Name.*[]{:0}` — CA-R-2527
+- `property_constraint`: `Scope Unit.Name{:1}: [string]{:1}` — CA-R-2527
+- `property_constraint`: `Scope Unit.Path.*[]{:0}` — CA-R-2530
+- `property_constraint`: `Scope Unit.Path{:1}: [string]{:1+}` — CA-R-2530
+- `property_constraint`: `Scope Unit.Project Boundary Position.*[]{:0}` — CA-R-2531
+- `property_constraint`: `Scope Unit.Project Boundary Position{:1}: [string]{:1}` — CA-R-2531
+- `property_constraint`: `Scope Unit.order.number.*[]{:0}` — CA-R-2686
+- `property_constraint`: `Scope Unit.order.ordered.*[]{:0}` — CA-R-2685
+- `property_constraint`: `Scope Unit.order.ordered: [bool]{:1}` — CA-R-2685
+- `property_constraint`: `Scope Unit.structural_level.*[]{:0}` — CA-R-2554
+- `property_constraint`: `Scope Unit.structural_level{:1}: [int]{:1}` — CA-R-2554
+- `property_constraint`: `Scope Unit/Project//{:1}` — CA-R-2524
+- `relation_cardinality`: `$bearer ((HAS_PROPERTY)) $property` — CA-R-2621
+- `relation_cardinality`: `$broader ((HAS_NARROWER)) $narrower` — CA-R-2620
+- `relation_cardinality`: `$child ((structural_parent)) $parent` — CA-R-1660
+- `relation_cardinality`: `$classified ((HAS_CLASSIFICATION)) $axis` — CA-R-2477
+- `relation_cardinality`: `$container ((CONTAINS)) $part` — CA-R-2617
+- `relation_cardinality`: `$definition_subject ((IS_DEFINED_BY)) Atom//` — CA-R-2279
+- `relation_cardinality`: `$dependent ((depends_on)) $prerequisite` — CA-R-1026
+- `relation_cardinality`: `$derived_content_version ((DERIVED_FROM)) $source_content_version` — CA-R-1639
+- `relation_cardinality`: `$evidence_carrier ((evidence_for)) Carrier//` — CA-R-1021
+- `relation_cardinality`: `$implementation_carrier ((implementation_of)) Atom//` — CA-R-1020
+- `relation_cardinality`: `$instance ((INSTANCE_OF)) $kind` — CA-R-2476
+- `relation_cardinality`: `$kind ((HAS_INSTANCE)) $instance` — CA-R-2619
+- `relation_cardinality`: `$narrower ((NARROWER_THAN)) $broader` — CA-R-2475
+- `relation_cardinality`: `$occurrence ((IS_RECORDED_BY)) Event Record//` — CA-R-2421
+- `relation_cardinality`: `$part ((IS_CONTAINED_BY)) $container` — CA-R-2478
+- `relation_cardinality`: `$prerequisite ((required_by)) $dependent` — CA-R-2422
+- `relation_cardinality`: `$property ((IS_PROPERTY_OF)) $bearer` — CA-R-2473
+- `relation_cardinality`: `$represented_entity ((IS_CARRIED_BY)) Carrier//` — CA-R-2418
+- `relation_cardinality`: `$runtime ((EXECUTES)) $workflow_run` — CA-R-2255
+- `relation_cardinality`: `$workflow_run ((IS_EXECUTED_BY)) $runtime` — CA-R-2420
+- `relation_cardinality`: `$workflow_run ((IS_EXECUTION_OF)) Workflow//` — CA-R-2245
+- `relation_cardinality`: `((CARRIES)) ((HAS_INVERSE)) ((IS_CARRIED_BY))` — CA-R-1993
+- `relation_cardinality`: `((CARRIES)) ((HAS_INVERSE)) ((IS_CARRIED_BY))` — CA-R-2418
+- `relation_cardinality`: `((CONTAINS)) ((IS_DERIVED_RELATION_OF)) ((IS_CONTAINED_BY))` — CA-R-2617
+- `relation_cardinality`: `((EXECUTES)) ((HAS_INVERSE)) ((IS_EXECUTED_BY))` — CA-R-2255
+- `relation_cardinality`: `((EXECUTES)) ((HAS_INVERSE)) ((IS_EXECUTED_BY))` — CA-R-2420
+- `relation_cardinality`: `((HAS_EVENT_AUTHOR)) ((HAS_INVERSE)) ((IS_EVENT_AUTHOR_OF))` — CA-R-2583
+- `relation_cardinality`: `((HAS_EVENT_AUTHOR)) ((HAS_INVERSE)) ((IS_EVENT_AUTHOR_OF))` — CA-R-2622
+- `relation_cardinality`: `((HAS_EXECUTION)) ((IS_DERIVED_RELATION_OF)) ((IS_EXECUTION_OF))` — CA-R-2417
+- `relation_cardinality`: `((HAS_INSTANCE)) ((IS_DERIVED_RELATION_OF)) ((INSTANCE_OF))` — CA-R-2619
+- `relation_cardinality`: `((HAS_NARROWER)) ((IS_DERIVED_RELATION_OF)) ((NARROWER_THAN))` — CA-R-2620
+- `relation_cardinality`: `((HAS_PROPERTY)) ((IS_DERIVED_RELATION_OF)) ((IS_PROPERTY_OF))` — CA-R-2621
+- `relation_cardinality`: `((INSTANCE_OF)) ((HAS_INVERSE)) ((HAS_INSTANCE))` — CA-R-2476
+- `relation_cardinality`: `((INSTANCE_OF)) ((HAS_INVERSE)) ((HAS_INSTANCE))` — CA-R-2619
+- `relation_cardinality`: `((IS_CARRIED_BY)) ((IS_DERIVED_RELATION_OF)) ((CARRIES))` — CA-R-2418
+- `relation_cardinality`: `((IS_CONTAINED_BY)) ((HAS_INVERSE)) ((CONTAINS))` — CA-R-2478
+- `relation_cardinality`: `((IS_CONTAINED_BY)) ((HAS_INVERSE)) ((CONTAINS))` — CA-R-2617
+- `relation_cardinality`: `((IS_DEFINED_BY)) ((IS_DERIVED_RELATION_OF)) ((GOVERNS))` — CA-R-2279
+- `relation_cardinality`: `((IS_EVENT_AUTHOR_OF)) ((IS_DERIVED_RELATION_OF)) ((HAS_EVENT_AUTHOR))` — CA-R-2622
+- `relation_cardinality`: `((IS_EXECUTED_BY)) ((IS_DERIVED_RELATION_OF)) ((EXECUTES))` — CA-R-2420
+- `relation_cardinality`: `((IS_EXECUTION_OF)) ((HAS_INVERSE)) ((HAS_EXECUTION))` — CA-R-2245
+- `relation_cardinality`: `((IS_EXECUTION_OF)) ((HAS_INVERSE)) ((HAS_EXECUTION))` — CA-R-2417
+- `relation_cardinality`: `((IS_PROPERTY_OF)) ((HAS_INVERSE)) ((HAS_PROPERTY))` — CA-R-2473
+- `relation_cardinality`: `((IS_PROPERTY_OF)) ((HAS_INVERSE)) ((HAS_PROPERTY))` — CA-R-2621
+- `relation_cardinality`: `((IS_RECORDED_BY)) ((IS_DERIVED_RELATION_OF)) ((RECORDS))` — CA-R-2421
+- `relation_cardinality`: `((IS_RUN_BY)) ((IS_DERIVED_RELATION_OF)) ((RUNS))` — CA-R-2623
+- `relation_cardinality`: `((NARROWER_THAN)) ((HAS_INVERSE)) ((HAS_NARROWER))` — CA-R-2475
+- `relation_cardinality`: `((NARROWER_THAN)) ((HAS_INVERSE)) ((HAS_NARROWER))` — CA-R-2620
+- `relation_cardinality`: `((RECORDS)) ((HAS_INVERSE)) ((IS_RECORDED_BY))` — CA-R-2246
+- `relation_cardinality`: `((RECORDS)) ((HAS_INVERSE)) ((IS_RECORDED_BY))` — CA-R-2421
+- `relation_cardinality`: `((RUNS)) ((HAS_INVERSE)) ((IS_RUN_BY))` — CA-R-2638
+- `relation_cardinality`: `((depends_on)) ((HAS_INVERSE)) ((required_by))` — CA-R-1026
+- `relation_cardinality`: `((depends_on)) ((HAS_INVERSE)) ((required_by))` — CA-R-2422
+- `relation_cardinality`: `((required_by)) ((IS_DERIVED_RELATION_OF)) ((depends_on))` — CA-R-2422
+- `relation_cardinality`: `(Node, Node.**) {:0+}((HAS_PROPERTY)) Node.**` — CA-R-2462
+- `relation_cardinality`: `(Node, Node.**) {:0..1}((IS_PROPERTY_OF))` — CA-R-2462
+- `relation_cardinality`: `(Node, Node.**) {:0}((*))` — CA-R-2462
+- `relation_cardinality`: `(Node//).** {:1}((IS_PROPERTY_OF)) (Node//, (Node//).**)` — CA-R-2462
+- `relation_cardinality`: `(Node//, (Node//).**) {:0+}((HAS_PROPERTY)) (Node//).**` — CA-R-2462
+- `relation_cardinality`: `(Node//, (Node//).**) {:0}((*))` — CA-R-2462
+- `relation_cardinality`: `@Operator//NamedRelationDirection == "((RELATION)) / <((RELATION))"` — CA-R-2609
+- `relation_cardinality`: `@Operator//RelationEndpointSignature == "$host ((RELATION)) $target"` — CA-R-2613
+- `relation_cardinality`: `Action// ((IS_RUN_BY)) (in (Step, Substep))//` — CA-R-2623
+- `relation_cardinality`: `Action//{:0+}((IS_RUN_BY)) (in (Step, Substep))//` — CA-R-2467
+- `relation_cardinality`: `Actor ((NARROWER_THAN)) @Continuant` — CA-R-2542
+- `relation_cardinality`: `Actor// ((IS_EVENT_AUTHOR_OF)) Event Record//` — CA-R-2622
+- `relation_cardinality`: `Aspect ((NARROWER_THAN)) @Node` — CA-R-2543
+- `relation_cardinality`: `Atom ((NARROWER_THAN)) @Continuant` — CA-R-2508
+- `relation_cardinality`: `Atom/(.Role: "Analysis & Advisory")/(.Form: Rationale)// ((rationale_for)) Atom//` — CA-R-1016
+- `relation_cardinality`: `Atom/(.Role: Concern)// ((concern_about)) $governed` — CA-R-1022
+- `relation_cardinality`: `Atom/(.Role: Delivery)// ((delivery_for)) Atom//` — CA-R-1019
+- `relation_cardinality`: `Atom/(.Role: Evaluation)// ((evaluation_for)) Atom//` — CA-R-1018
+- `relation_cardinality`: `Atom/(.Role: Method)// ((method_for)) Atom/(.Role: Requirement)//` — CA-R-1017
+- `relation_cardinality`: `Atom/(.Role: Requirement)/(.Form: Declaration)// ((HAS_ACTIVE_SUBJECT)) (Node, Node.**)` — CA-R-2618
+- `relation_cardinality`: `Atom// ((DEPENDS_ON)) $referenced_subject` — CA-R-1200
+- `relation_cardinality`: `Atom// ((GOVERNS)) $governed_subject` — CA-R-1199
+- `relation_cardinality`: `Atom// ((HAS_ACTIVE_SUBJECT)) $active_subject` — CA-R-2618
+- `relation_cardinality`: `Atom// ((child_of)) Atom//` — CA-R-796
+- `relation_cardinality`: `Carrier// ((CARRIES)) $represented_entity` — CA-R-1993
+- `relation_cardinality`: `Event Record ((NARROWER_THAN)) @Continuant` — CA-R-2557
+- `relation_cardinality`: `Event Record {:0}((IS_PROPERTY_OF))` — CA-R-2557
+- `relation_cardinality`: `Event Record// ((HAS_EVENT_AUTHOR)) Actor//` — CA-R-2583
+- `relation_cardinality`: `Event Record// ((RECORDS)) $occurrence` — CA-R-2246
+- `relation_cardinality`: `Event Record// {:1}((IS_CONTAINED_BY)) Journal//` — CA-R-2557
+- `relation_cardinality`: `Journal ((NARROWER_THAN)) @Continuant` — CA-R-2536
+- `relation_cardinality`: `Journal {:0}((IS_PROPERTY_OF))` — CA-R-2536
+- `relation_cardinality`: `Journal// {:0+}((CONTAINS)) Event Record//` — CA-R-2536
+- `relation_cardinality`: `MODEL ((NARROWER_THAN)) @Node` — CA-R-2559
+- `relation_cardinality`: `MODEL {:0}((IS_PROPERTY_OF))` — CA-R-2559
+- `relation_cardinality`: `Named Selection ((NARROWER_THAN)) @Continuant` — CA-R-2587
+- `relation_cardinality`: `Named Selection {:0}((IS_PROPERTY_OF))` — CA-R-2587
+- `relation_cardinality`: `Node {:0+}((HAS_INSTANCE)) Node//` — CA-R-2462
+- `relation_cardinality`: `Node {:0+}((HAS_NARROWER)) Node` — CA-R-2462
+- `relation_cardinality`: `Node {:0+}((NARROWER_THAN)) Node` — CA-R-2462
+- `relation_cardinality`: `Node {:0}((IS_PROPERTY_OF))` — CA-R-2462
+- `relation_cardinality`: `Node// {:0+}((INSTANCE_OF)) Node` — CA-R-2462
+- `relation_cardinality`: `PROJECT STRUCTURE ((NARROWER_THAN)) @Node` — CA-R-2560
+- `relation_cardinality`: `PROJECT STRUCTURE {:0}((IS_PROPERTY_OF))` — CA-R-2560
+- `relation_cardinality`: `Package ((NARROWER_THAN)) @Continuant` — CA-R-2525
+- `relation_cardinality`: `Package//{:0+}((CONTAINS)) Package//` — CA-R-2525
+- `relation_cardinality`: `Package//{:0..1}((IS_CONTAINED_BY)) Package//` — CA-R-2525
+- `relation_cardinality`: `Package/Implementation// {:0}((IS_CONTAINED_BY)) Package//` — CA-R-2553
+- `relation_cardinality`: `Plan// ((BLOCKS)) Plan//` — CA-R-1580
+- `relation_cardinality`: `Project ((NARROWER_THAN)) @Scope Unit` — CA-R-2524
+- `relation_cardinality`: `Project// {:0}((IS_CONTAINED_BY)) Scope Unit//` — CA-R-2524
+- `relation_cardinality`: `Projection ((NARROWER_THAN)) @Continuant` — CA-R-2535
+- `relation_cardinality`: `Projection {:0}((IS_PROPERTY_OF))` — CA-R-2535
+- `relation_cardinality`: `Relation// ((HAS_INVERSE)) Relation//` — CA-R-2485
+- `relation_cardinality`: `Relation// ((IS_DERIVED_RELATION_OF)) Relation//` — CA-R-2170
+- `relation_cardinality`: `Scope Unit ((NARROWER_THAN)) @Continuant` — CA-R-2523
+- `relation_cardinality`: `Scope Unit// ((feature_realization)) $realization_target` — CA-R-1654
+- `relation_cardinality`: `Scope Unit//{:0+}((CONTAINS)) Scope Unit//` — CA-R-2523
+- `relation_cardinality`: `Scope Unit//{:0..1}((IS_CONTAINED_BY)) Scope Unit//` — CA-R-2523
+- `relation_cardinality`: `Step// ((RUNS)) (in (Action, Workflow))//` — CA-R-2638
+- `relation_cardinality`: `Step//{:1}((IS_CONTAINED_BY)) Workflow//` — CA-R-2465
+- `relation_cardinality`: `Substep// ((RUNS)) Action//` — CA-R-2638
+- `relation_cardinality`: `Substep//{:1}((IS_CONTAINED_BY)) Step//` — CA-R-2466
+- `relation_cardinality`: `Substep//{:1}((RUNS)) Action//` — CA-R-2466
+- `relation_cardinality`: `Workflow// ((HAS_EXECUTION)) $workflow_run` — CA-R-2417
+- `relation_cardinality`: `Workflow// ((IS_RUN_BY)) Step//` — CA-R-2623
+- `relation_cardinality`: `Workflow//{:0+}((IS_RUN_BY)) Step//` — CA-R-2464
+- `relation_cardinality`: `Workflow//{:1+}((CONTAINS)) Step//` — CA-R-2464
+
+## Unsupported CFEL
+
+- `cfel-expression-unsupported`: `((CONTAINS)) == <+` — CA-R-2617
+- `cfel-expression-unsupported`: `((HAS_CLASSIFICATION)) == >|` — CA-R-2477
+- `cfel-expression-unsupported`: `((INSTANCE_OF)) == //` — CA-R-2476
+- `cfel-expression-unsupported`: `((IS_CONTAINED_BY)) == +>` — CA-R-2478
+- `cfel-expression-unsupported`: `((IS_PROPERTY_OF)) == .` — CA-R-2473
+- `cfel-expression-unsupported`: `((NARROWER_THAN)) == /` — CA-R-2475
+- `cfel-expression-unsupported`: `@Operator//Addition == "+"` — CA-R-2591
+- `cfel-expression-unsupported`: `@Operator//AllowedValue == ":"` — CA-R-2592
+- `cfel-expression-unsupported`: `@Operator//Conclusion == "=="` — CA-R-2593
+- `cfel-expression-unsupported`: `@Operator//Condition == "="` — CA-R-2594
+- `cfel-expression-unsupported`: `@Operator//DeclaredReference == "@"` — CA-R-2595
+- `cfel-expression-unsupported`: `@Operator//Delivery == ">>"` — CA-R-2596
+- `cfel-expression-unsupported`: `@Operator//ExpressionSeparator == ";"` — CA-R-2597
+- `cfel-expression-unsupported`: `@Operator//Fallback == "?="` — CA-R-2598
+- `cfel-expression-unsupported`: `@Operator//GreaterOrEqual == ">="` — CA-R-2599
+- `cfel-expression-unsupported`: `@Operator//GreaterThan == ">"` — CA-R-2600
+- `cfel-expression-unsupported`: `@Operator//Grouping == "()"` — CA-R-2601
+- `cfel-expression-unsupported`: `@Operator//ImmediateWildcard == "*"` — CA-R-2602
+- `cfel-expression-unsupported`: `@Operator//Inequality == "!="` — CA-R-2603
+- `cfel-expression-unsupported`: `@Operator//Instance == "//"` — CA-R-2605
+- `cfel-expression-unsupported`: `@Operator//InstanceBinding == "$"` — CA-R-2604
+- `cfel-expression-unsupported`: `@Operator//LessOrEqual == "<="` — CA-R-2606
+- `cfel-expression-unsupported`: `@Operator//LessThan == "<"` — CA-R-2607
+- `cfel-expression-unsupported`: `@Operator//Membership == "in / not in"` — CA-R-2608
+- `cfel-expression-unsupported`: `@Operator//Narrowing == "/"` — CA-R-2610
+- `cfel-expression-unsupported`: `@Operator//Property == "."` — CA-R-2611
+- `cfel-expression-unsupported`: `@Operator//RecursiveWildcard == "**"` — CA-R-2612
+- `cfel-expression-unsupported`: `@Operator//SelectionExclusion == "!()"` — CA-R-2614
+- `cfel-expression-unsupported`: `@Operator//SubjectValueSelection == ":="` — CA-R-2615
+- `cfel-expression-unsupported`: `Actor` — CA-R-2542
+- `cfel-expression-unsupported`: `Aspect` — CA-R-2543
+- `cfel-expression-unsupported`: `Atom` — CA-R-2508
+- `cfel-expression-unsupported`: `Atom.Label ?= Atom.Form` — CA-R-2497
+- `cfel-expression-unsupported`: `Atom.Tier >= -1` — CA-R-2504
+- `cfel-expression-unsupported`: `Atom.Version >= 1` — CA-R-2496
+- `cfel-expression-unsupported`: `Atom/(.Role in RMED).Content.Claim Scope.*[]{:0}` — CA-R-2501
+- `cfel-expression-unsupported`: `Atom/(.Role in RMED).Content.Claim Scope{:0..1}: [markdown]{:1}` — CA-R-2501
+- `cfel-expression-unsupported`: `Atom/(.Role in RMED).Content.Claim.*[]{:0}` — CA-R-2500
+- `cfel-expression-unsupported`: `Atom/(.Role in RMED).Content.Claim{:1}: [markdown]{:1}` — CA-R-2500
+- `cfel-expression-unsupported`: `Atom/(.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503
+- `cfel-expression-unsupported`: `Atom/(.Role in RMED).Content.Details{:0..1}: [markdown]{:1}` — CA-R-2503
+- `cfel-expression-unsupported`: `Atom/(.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502
+- `cfel-expression-unsupported`: `Atom/(.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1}` — CA-R-2502
+- `cfel-expression-unsupported`: `Atom/(.Role: "Analysis & Advisory")` — CA-R-2637
+- `cfel-expression-unsupported`: `Atom/(.Role: Concern)` — CA-R-2509
+- `cfel-expression-unsupported`: `Atom/(.Role: Concern).Priority.*[]{:0}` — CA-R-2518
+- `cfel-expression-unsupported`: `Atom/(.Role: Concern).Priority: High` — CA-R-2518
+- `cfel-expression-unsupported`: `Atom/(.Role: Concern).Priority: Low` — CA-R-2518
+- `cfel-expression-unsupported`: `Atom/(.Role: Concern).Priority: Medium` — CA-R-2518
+- `cfel-expression-unsupported`: `Atom/(.Role: Concern).Priority{:1}: [string]{:1}` — CA-R-2518
+- `cfel-expression-unsupported`: `Atom/(.Role: Delivery)` — CA-R-2515
+- `cfel-expression-unsupported`: `Atom/(.Role: Evaluation)` — CA-R-2514
+- `cfel-expression-unsupported`: `Atom/(.Role: Method)` — CA-R-2513
+- `cfel-expression-unsupported`: `Atom/(.Role: Operations)` — CA-R-2463
+- `cfel-expression-unsupported`: `Atom/(.Role: Operations)/Action` — CA-R-2467
+- `cfel-expression-unsupported`: `Atom/(.Role: Operations)/Action.Execution Kind.*[]{:0}` — CA-R-2521
+- `cfel-expression-unsupported`: `Atom/(.Role: Operations)/Action.Execution Kind: Agentic` — CA-R-2521
+- `cfel-expression-unsupported`: `Atom/(.Role: Operations)/Action.Execution Kind: Programmatic` — CA-R-2521
+- `cfel-expression-unsupported`: `Atom/(.Role: Operations)/Action.Execution Kind{:1}: [string]{:1}` — CA-R-2521
+- `cfel-expression-unsupported`: `Atom/(.Role: Operations)/Step` — CA-R-2465
+- `cfel-expression-unsupported`: `Atom/(.Role: Operations)/Substep` — CA-R-2466
+- `cfel-expression-unsupported`: `Atom/(.Role: Operations)/Workflow` — CA-R-2464
+- `cfel-expression-unsupported`: `Atom/(.Role: Plan)` — CA-R-2511
+- `cfel-expression-unsupported`: `Atom/(.Role: Plan).AI Agent Confidence Threshold
+  ?= LOOKUP(IS_CONTAINED_BY, Atom/(.Role: Plan).AI Agent Confidence Threshold)
+  ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold` — CA-R-2519
+- `cfel-expression-unsupported`: `Atom/(.Role: Plan).AI Agent Confidence Threshold.*[]{:0}` — CA-R-2519
+- `cfel-expression-unsupported`: `Atom/(.Role: Plan).AI Agent Confidence Threshold{:0..1}: [int]{:1}` — CA-R-2519
+- `cfel-expression-unsupported`: `Atom/(.Role: Plan).Work Sequence Number.*[]{:0}` — CA-R-2520
+- `cfel-expression-unsupported`: `Atom/(.Role: Plan).Work Sequence Number{:0..1}: [int]{:1}` — CA-R-2520
+- `cfel-expression-unsupported`: `Atom/(.Role: Requirement)` — CA-R-2512
+- `cfel-expression-unsupported`: `Atom//$atom.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=1}, .object_output.id = $atom.ID, .object_output.version = $atom.Version, (.action = create OR .action = update)).happened_at)` — CA-R-2489
+- `cfel-expression-unsupported`: `COUNT(Atom.Subjects.Passive: $) = COUNT(DISTINCT Atom.Subjects.Passive: $)` — CA-R-2506
+- `cfel-expression-unsupported`: `DETERMINES(
+  Atom//,
+  (.ID),
+  (.Content.Summary),
+  (Atom.Status >| Status Group = Current) OR (Atom.Status >| Status Group = Archived)
+)` — CA-R-2499
+- `cfel-expression-unsupported`: `DETERMINES(Projection//, (.Form, .Source.Named Selection), (.ID))` — CA-R-2537
+- `cfel-expression-unsupported`: `DETERMINES(Projection//, (.ID), (.Form, .Source.Named Selection))` — CA-R-2537
+- `cfel-expression-unsupported`: `FENCED_LABELS(Atom/(.Role in RMED).Content.Claim): [in (CFEL)]{:0..1}` — CA-R-2500
+- `cfel-expression-unsupported`: `IF ((Atom.Status >| Status Group = Current) OR (Atom.Status >| Status Group = Archived))
+THEN (IMMUTABLE(Atom.ID))` — CA-R-2493
+- `cfel-expression-unsupported`: `IF ((Atom.Tier.Label{=1}) AND (Atom.Tier = 0)) THEN (Atom.Tier.Label == Scope Contract)` — CA-R-2505
+- `cfel-expression-unsupported`: `IF ((Atom.Tier.Label{=1}) AND (Atom.Tier = 1)) THEN (Atom.Tier.Label == Core)` — CA-R-2505
+- `cfel-expression-unsupported`: `IF ((Atom.Tier.Label{=1}) AND (Atom.Tier = 2)) THEN (Atom.Tier.Label == General)` — CA-R-2505
+- `cfel-expression-unsupported`: `IF ((Atom.Tier.Label{=1}) AND (Atom.Tier = 3)) THEN (Atom.Tier.Label == Standard)` — CA-R-2505
+- `cfel-expression-unsupported`: `IF ((Atom.Tier.Label{=1}) AND (Atom.Tier = 4)) THEN (Atom.Tier.Label == Detail)` — CA-R-2505
+- `cfel-expression-unsupported`: `IF ((Atom/(.Role: Plan).Status = Active) AND (Atom/(.Role: Plan).Work Sequence Number{=1}))
+THEN (Atom/(.Role: Plan).Relations.contained_by{==1})` — CA-R-2511
+- `cfel-expression-unsupported`: `IF ((Node, Node.**) {=0}((IS_PROPERTY_OF)))
+THEN ((Node, Node.**) >| (Independence == Primary Node))` — CA-R-2462
+- `cfel-expression-unsupported`: `IF ((Node, Node.**) {=1}((IS_PROPERTY_OF)))
+THEN ((Node, Node.**) >| (Independence == Property))
+AND ((Node, Node.**) {==0}((HAS_NARROWER)))
+AND ((Node, Node.**) {==0}((HAS_INSTANCE)))` — CA-R-2462
+- `cfel-expression-unsupported`: `IF (Atom.Status >| Status Group = Current)
+THEN (Atom.Subjects.Active{==1})` — CA-R-2546
+- `cfel-expression-unsupported`: `IF (Atom/(.Role: Plan).Work Sequence Number{=1})
+THEN (Atom/(.Role: Plan).Work Sequence Number > 0)` — CA-R-2520
+- `cfel-expression-unsupported`: `IF (Package//$contained ((IS_CONTAINED_BY)) Package//$container)
+THEN ($contained.structural_level = $container.structural_level + 1)` — CA-R-2555
+- `cfel-expression-unsupported`: `IF (Package//$package not in (Package/Implementation//))
+THEN ($package {==1}((IS_CONTAINED_BY)) Package//)` — CA-R-2525
+- `cfel-expression-unsupported`: `IF (Scope Unit//$contained ((IS_CONTAINED_BY)) Scope Unit//$container)
+THEN ($contained.structural_level = $container.structural_level + 1)` — CA-R-2554
+- `cfel-expression-unsupported`: `IF (Scope Unit//$unit not in (Scope Unit/Project//))
+THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)` — CA-R-2523
+- `cfel-expression-unsupported`: `IF (Scope Unit//$unit not in (Scope Unit/Project//))
+THEN ($unit.ID{:1})` — CA-R-2526
+- `cfel-expression-unsupported`: `IF Step// {=0}((CONTAINS)) THEN Step// {:1}((RUNS)) (in (Action, Workflow))//` — CA-R-2465
+- `cfel-expression-unsupported`: `IF Step// {=0}((RUNS)) THEN Step// {:1+}((CONTAINS)) Substep//` — CA-R-2465
+- `cfel-expression-unsupported`: `IF Step// {>0}((RUNS)) THEN Step// {:0}((CONTAINS))` — CA-R-2465
+- `cfel-expression-unsupported`: `Node/Continuant` — CA-R-2589
+- `cfel-expression-unsupported`: `Node/Occurrent` — CA-R-2590
+- `cfel-expression-unsupported`: `Package.structural_level >= 0` — CA-R-2555
+- `cfel-expression-unsupported`: `Package/Implementation` — CA-R-2553
+- `cfel-expression-unsupported`: `Package/Implementation//$implementation.structural_level = 0` — CA-R-2555
+- `cfel-expression-unsupported`: `Project//.order.ordered == false` — CA-R-2524
+- `cfel-expression-unsupported`: `Projection//$projection.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=0}, .object_output.id = $projection.ID, (.action = create OR .action = update)).happened_at)` — CA-R-2539
+- `cfel-expression-unsupported`: `Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0}` — CA-R-2686
+- `cfel-expression-unsupported`: `Scope Unit.structural_level >= 0` — CA-R-2554
+- `cfel-expression-unsupported`: `Scope Unit/Project` — CA-R-2524
+- `cfel-expression-unsupported`: `Scope Unit/Project//$project.structural_level = 0` — CA-R-2554
+- `cfel-expression-unsupported`: `UNIQUE(
+  Atom/(.Role: Plan)//,
+  (.Relations.contained_by.atom, .Work Sequence Number),
+  (.Status = Active) AND (.Work Sequence Number{=1}) AND (.Relations.contained_by.atom{=1})
+)` — CA-R-2520
+- `cfel-expression-unsupported`: `UNIQUE(
+  Atom/(.Role: Plan)//,
+  (.Relations.contained_by.scope_unit, .Work Sequence Number),
+  (.Status = Active) AND (.Work Sequence Number{=1}) AND (.Relations.contained_by.scope_unit{=1})
+)` — CA-R-2520
+- `cfel-expression-unsupported`: `UNIQUE(Atom//, (.ID, .Version))` — CA-R-2508
+- `cfel-expression-unsupported`: `UNIQUE(Event Record//, (.ID))` — CA-R-2558

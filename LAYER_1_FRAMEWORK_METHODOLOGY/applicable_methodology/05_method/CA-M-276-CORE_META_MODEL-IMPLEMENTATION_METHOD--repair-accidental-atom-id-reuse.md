@@ -1,19 +1,19 @@
 ---
 subjects:
-  active: Atom.ID
+  active: CAPRMEDIO <+ MODEL <+ Atom.ID
   passive:
-  - Atom.ID
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Atom
-  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - Carrier.Canonical Address
-  - Project
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Actor/AI Agent
-  - Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - Journal
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO <+ MODEL <+ Journal
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -30,7 +30,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-IMPLEMENTATION_METHOD--repair-accidental-atom-id-reuse.md
   source_atom_id: CA-M-276
   source_atom_revision: 31
-  source_sha256: ceb469750af3f6b5f393c5884b6e39fd36001d1e6af0be06844923f3ca3ae2af
+  source_sha256: 0f39bfc102c76f8a92a2fd4a63b8cfd2f265785401ad1e354d265e25a1e2705a
   original_relations_sha256: e34eb399209772e69c9e83607058eeacd9f02b5fab47517d59060b76f37de2af
 ---
 ## Summary

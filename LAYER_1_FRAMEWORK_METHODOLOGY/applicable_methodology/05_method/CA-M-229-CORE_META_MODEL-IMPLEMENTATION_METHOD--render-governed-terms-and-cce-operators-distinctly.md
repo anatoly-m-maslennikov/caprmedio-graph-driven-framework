@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Term
+  active: CAPRMEDIO <+ MODEL <+ Term
   passive:
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Scope Unit.Name
-  - Actor
-  - Carrier/File.Main Content.CCE Operator
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
+  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content.CCE Operator
 version: 33
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL-IMPLEMENTATION_METHOD--render-governed-terms-and-cce-operators-distinctly.md
   source_atom_id: CA-M-229
   source_atom_revision: 33
-  source_sha256: 121eb9d9c8554ccfd55370a3af4e0ee8a3925a30b18c1ad73a1e2119797532f9
+  source_sha256: 099b86fd61287f86affc2ff72ee511ff9a52ed36b9ffc4954083d47903dfc98a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement.Content.Claim'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement.Content.Claim'
   passive:
-  - Atom/(.Role := Requirement)
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

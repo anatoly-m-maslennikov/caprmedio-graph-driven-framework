@@ -1,0 +1,81 @@
+{
+  "status": "DECLARATIONS_APPLIED_PRE_MIGRATION_CHECKPOINT",
+  "project_root": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework",
+  "epic": "CA-P-2694",
+  "epic_version": 48,
+  "branch": "amm/dev",
+  "manual_route_authorized": true,
+  "git_index_owner": "root",
+  "commit_push_authorized_all_changes": true,
+  "git_mutations_started": true,
+  "immediate_prefix_task": {
+    "id": "CA-P-2709",
+    "status": "Done@2",
+    "sources": 1178,
+    "values": 3685,
+    "proof": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/root-subject-migration-20261103/application-receipt.json",
+    "independent_verification": "PASS"
+  },
+  "next_order": [
+    "commit andpushallamm/dev",
+    "mechanicalmigrationinplace",
+    "checkandrebuildprojections"
+  ],
+  "latest_decisions": [
+    "Atom.Header YAML logical group;physicalYAMLflat",
+    "Atom.Content Markdown",
+    "Claimdirectvalue0;1..2uniqueFormalClaim/ProseClaimchildren",
+    "bothchildvaluesMarkdown;FormalCFELfence",
+    "ClaimScopecontentmovesProseClaim",
+    "headingsnotproperties;wildcardsconstrainonlydeclaredproperties",
+    "Relation//NAME objectendpoint;((NAME)) actualrelation;allowedcard{:x}prefix;validrightboundpreserved",
+    "@referencemarkerremoved;@NIDsunchanged",
+    "HAS_INVERSEalias<--> counterpartnotidentityequality",
+    "derivedinverseMinimalFormalClaimreversebindingplusalias;noemptyClaimexception",
+    "NARROWER_THANcanonicalnamespellingunchanged"
+  ],
+  "candidate_packets": {
+    "header": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/header/manifest.json",
+    "claim": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/claim/manifest.md",
+    "relations": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/relations/source-map.json"
+  },
+  "needed_root_work": [
+    "adoption-review thenapply",
+    "refreshcurrentD479binding",
+    "checkpointcommitpushbeforebulkmechanicalmigration",
+    "applymigrationwithnotationrepairs",
+    "checkandrebuildfaithfulprojections"
+  ],
+  "migration_input_map": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/integration/reference-map.json",
+  "migration_input_paths": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/integration/mechanical-source-files.before-adoption.txt",
+  "source_input_count": 1157,
+  "coordination_chat": "01a0263a-7510-7672-bce4-58830bc4d184",
+  "open_user_questions": [],
+  "prepared_output_count": 88,
+  "fresh_id_range": [
+    "CA-R-2696",
+    "CA-R-2722"
+  ],
+  "migration_implementation": "22tests,1157previewrecords,zeroheld;regenerateafteradoption",
+  "adopted_output_count": 87,
+  "archived_predecessors": 86,
+  "adoption_native_workflow": false,
+  "migration_source_count": 1158,
+  "current_layout_pin": {
+    "version": 29,
+    "sha256": "c792456553d706316eb23e9d885fcd570a0168e111dcf5adc428008851c00af3",
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+    "required": true,
+    "obligations": [
+      "body.sections",
+      "body.additional_properties"
+    ]
+  },
+  "checkpoint_state": "index staged; commit/push next",
+  "focused_checks": {
+    "migration": 26,
+    "claim_layout": 16,
+    "contract_graph": 20,
+    "status_models": 12
+  }
+}

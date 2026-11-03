@@ -23,7 +23,7 @@ relations:
   - CA-R-1527
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-094-PROJECT_CONFIGURATION-STEP--run-the-selected-implementation-checks.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-094-PROJECT_CONFIGURATION-STEP--run-the-selected-implementation-checks.md
   source_atom_id: CA-O-094
   source_atom_revision: 17
   source_sha256: d92e16ec14c94c4a416b64eee8374b6346916b7361a3dfeacf0b97bdb82139a6

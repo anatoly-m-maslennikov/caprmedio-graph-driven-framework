@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom.Tier
+  active: CAPRMEDIO <+ MODEL <+ Atom.Tier
   passive:
-  - Atom
-  - Atom.Tier
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 13
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -18,10 +18,10 @@ status: Active
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-651-CORE_META_MODEL-DECISION--serialize-numeric-tier-filename-tokens.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-651-CORE_META_MODEL-DECISION--serialize-numeric-tier-filename-tokens.md
   source_atom_id: CA-D-651
   source_atom_revision: 13
-  source_sha256: 0497acecf880045e683b9ab4026fa7b63bd56401105f21de79fab9d262585259
+  source_sha256: 48efa7b55876ff816c13f1fef78e32a8d262dacca6cd275470cc4ae9f2f8ad00
   original_relations_sha256: 41bd27c416906d68fc305780f667b40f52b995c33f0af578ab6363d6f7d922d9
 ---
 ## Summary

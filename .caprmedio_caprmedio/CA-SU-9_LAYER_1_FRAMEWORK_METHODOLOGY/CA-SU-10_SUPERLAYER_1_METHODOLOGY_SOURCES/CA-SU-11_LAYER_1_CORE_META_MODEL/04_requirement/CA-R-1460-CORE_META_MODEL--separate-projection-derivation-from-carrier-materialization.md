@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - Carrier
-  - Entity/Object/Continuant/Projection/Type
-  - Atom.Content
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

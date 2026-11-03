@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Journal
+  active: CAPRMEDIO_MODEL <+ Journal
   passive:
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Carrier
-  - Atom
-  - Project
-  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
-  - Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

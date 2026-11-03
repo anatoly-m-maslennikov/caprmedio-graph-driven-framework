@@ -20,7 +20,7 @@ updated_at: 2026-10-27 19:59:44 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-020-PROJECT_CONFIGURATION-ACTION--run-implementation-evaluations.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-020-PROJECT_CONFIGURATION-ACTION--run-implementation-evaluations.md
   source_atom_id: CA-O-020
   source_atom_revision: 18
   source_sha256: bf2087f5710e6bd663adeafc8ebaaa475158542a516883140ddd4cb0278954ab

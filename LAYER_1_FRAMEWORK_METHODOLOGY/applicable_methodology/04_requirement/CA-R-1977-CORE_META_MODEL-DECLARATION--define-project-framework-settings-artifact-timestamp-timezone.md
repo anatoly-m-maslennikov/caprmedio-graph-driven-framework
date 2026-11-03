@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Project.Settings.Artifact Timestamp Timezone
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Artifact Timestamp Timezone
 relations:
   child_of:
   - CA-R-1176
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1977-CORE_META_MODEL-DECLARATION--define-project-framework-settings-artifact-timestamp-timezone.md
   source_atom_id: CA-R-1977
   source_atom_revision: 15
-  source_sha256: f1d7e8fae9011a352e61f21bb01a2946b3268075cfdc32ec15f1ec1a34777b04
+  source_sha256: b18f37106f8e2f99d46f37fdfb4b3837f7c6a45bef893bf7867a1e674d254af5
   original_relations_sha256: 9e3e53a370b31aee7f492cc3fbaba3b8b30f92b5773698d221265754db5d0402
 ---
 ## Summary

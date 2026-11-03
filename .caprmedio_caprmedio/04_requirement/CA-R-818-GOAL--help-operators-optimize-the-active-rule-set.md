@@ -5,10 +5,10 @@ relations:
   child_of:
   - CA-R-815
 subjects:
-  active: Aspects <+ Product
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: obligation
 llm_session_ids:

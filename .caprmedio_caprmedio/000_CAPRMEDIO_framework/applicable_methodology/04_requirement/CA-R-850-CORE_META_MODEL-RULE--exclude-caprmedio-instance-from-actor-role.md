@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Project
+  active: CAPRMEDIO <+ MODEL <+ Project
   passive:
-  - Actor
+  - CAPRMEDIO <+ MODEL <+ Actor
 version: 30
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -16,10 +16,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-850-CORE_META_MODEL-RULE--exclude-caprmedio-instance-from-actor-role.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-850-CORE_META_MODEL-RULE--exclude-caprmedio-instance-from-actor-role.md
   source_atom_id: CA-R-850
   source_atom_revision: 30
-  source_sha256: 3ecc5a98eb898ffe3c557a6e055492e587e953ac99c2a427ea32aa32d2880270
+  source_sha256: 19a6fd005e6d15b3f60fdf6919038ac95828238358e65c1299a8859234798517
   original_relations_sha256: f69c5cae104f74e3bd6285bf3410d02e0bbd3290d13c09043a7cf645947cb60f
 ---
 ## Summary

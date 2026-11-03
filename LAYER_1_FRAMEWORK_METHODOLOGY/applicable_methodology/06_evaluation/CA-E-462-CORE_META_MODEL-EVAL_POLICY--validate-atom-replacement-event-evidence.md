@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Event Record
+  active: CAPRMEDIO <+ MODEL <+ Event Record
   passive:
-  - Atom.ID
-  - Atom.Version Number
-  - Carrier
-  - Atom/(.Role := Operations)
-  - Journal
-  - Atom
-  - Project
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Atom.Version Number
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 33
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -27,7 +27,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-EVAL_POLICY--validate-atom-replacement-event-evidence.md
   source_atom_id: CA-E-462
   source_atom_revision: 33
-  source_sha256: 4a99b9fc5ba50ce7a63f32b7b9de0a5bc4a5ed47ef63246a6282ff526ad25211
+  source_sha256: 0892ad727d4830de30a0a7d8cf795b93f6da39b2c5c3308b05d999687c6224ef
   original_relations_sha256: 80acf3d6005192a1209f2dc66b2cd8a4c44c2f3761556ba982dc7cd5b06bcdb6
 ---
 ## Summary

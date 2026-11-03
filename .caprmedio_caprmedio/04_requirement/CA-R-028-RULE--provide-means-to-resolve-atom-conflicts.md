@@ -8,10 +8,10 @@ relations:
   child_of:
   - CA-R-2157
 subjects:
-  active: Aspects <+ Product
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Atom
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio

@@ -1,7 +1,6 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type:
-    Workflow//Applicable Methodology Compilation'
+  active: 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -15,10 +14,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1752-PROJECT_CONFIGURATION--govern-project-adaptation-semantics.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1752-PROJECT_CONFIGURATION--govern-project-adaptation-semantics.md
   source_atom_id: CA-R-1752
   source_atom_revision: 32
-  source_sha256: ddff202d3eb85782f3161a643b1b3f8196cf598050fa67ac217f75384c8be599
+  source_sha256: fb4d468f8bf22b4d625b68fcfa464e352c91b07bd36e67b8f66d32ee4bf71abc
   original_relations_sha256: b3e881b2cfb2f67f6377b462caec43abd9bdad7a826c5b857997dbdff4dc7656
 ---
 ## Summary

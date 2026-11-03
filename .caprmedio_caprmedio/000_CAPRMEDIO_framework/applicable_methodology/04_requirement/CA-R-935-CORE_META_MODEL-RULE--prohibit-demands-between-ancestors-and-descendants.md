@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
   passive:
-  - Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
 version: 37
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -18,10 +18,10 @@ tier: 5
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-RULE--prohibit-demands-between-ancestors-and-descendants.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-RULE--prohibit-demands-between-ancestors-and-descendants.md
   source_atom_id: CA-R-935
   source_atom_revision: 37
-  source_sha256: 385e755c14c4ca4f03b44bbdeda691daf94bdd171a9076d1e18ead06ebf15f68
+  source_sha256: e6231cd7a27ff6edbad63c654a717def73d792202edb6ff7afeeda3056af94ac
   original_relations_sha256: c20ed3844d666cd523ff76d7355fb5c2277a21d8c1137804e80822202d14a70b
 ---
 ## Summary

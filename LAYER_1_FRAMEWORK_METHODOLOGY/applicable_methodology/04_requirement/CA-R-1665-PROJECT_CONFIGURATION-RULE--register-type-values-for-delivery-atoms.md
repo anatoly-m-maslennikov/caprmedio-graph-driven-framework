@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type'
 version: 35
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1665-PROJECT_CONFIGURATION-RULE--register-type-values-for-delivery-atoms.md
   source_atom_id: CA-R-1665
   source_atom_revision: 35
-  source_sha256: 877bd5fcaad5dec4f69d300826bd7d78d90bd6438354997c48e49fcc5a24b64c
+  source_sha256: 57cfd7a34cd96dbcd7b19884eba0c92e851233527cb4e2b38a099764443c114b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

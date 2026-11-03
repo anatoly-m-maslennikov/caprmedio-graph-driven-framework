@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
   passive:
-  - Term//Property
-  - Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

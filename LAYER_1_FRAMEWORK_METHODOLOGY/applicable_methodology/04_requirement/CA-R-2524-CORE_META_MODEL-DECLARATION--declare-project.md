@@ -2,7 +2,7 @@
 atom_id: CA-R-2524
 status: Active
 subjects:
-  active: Project
+  active: CAPRMEDIO <+ MODEL <+ Project
 version: 3
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}
@@ -13,7 +13,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md
   source_atom_id: CA-R-2524
   source_atom_revision: 3
-  source_sha256: 6d22eb73da40c41554121da9c72b36e42fc2c94f1a1e437ea8523f046fa2a3ca
+  source_sha256: fd8e3576645876c430d3394b84e617b70626d6549d264d65d327e4f78a31fa45
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Selection
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - Project
-  - CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

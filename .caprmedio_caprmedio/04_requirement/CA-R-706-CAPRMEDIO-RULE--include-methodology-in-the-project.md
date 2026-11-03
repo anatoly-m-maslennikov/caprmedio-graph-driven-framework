@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Project
-  - Scope Unit
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:

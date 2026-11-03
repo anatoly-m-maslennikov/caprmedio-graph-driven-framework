@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Entity
-  - CFEL > Relation//CARRIES
-  - Entity/Object/Continuant/History
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//CARRIES
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History
 relations:
   child_of:
   - CA-R-1174
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-636-CORE_META_MODEL-ENG_DECISION--bind-carriers-to-their-represented-current-or-historical-entities.md
   source_atom_id: CA-D-636
   source_atom_revision: 16
-  source_sha256: 36df6cb03554652c0ed955ae56f642bb2897f316bf91a4687b3c04bf3670bc29
+  source_sha256: a18353c773b2f197ea851f35ae615234232f6d6e51a2a08a5d4c89e69db85603
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 ## Summary

@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CFEL <+ Relation//DEPENDS_ON
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON
   passive:
-  - Entity
-  - Atom.Subjects
-  - Atom.Content
-  - Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
 version: 34
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

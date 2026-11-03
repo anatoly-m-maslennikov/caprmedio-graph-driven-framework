@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Architecture <+ Component Structure
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - Package
-  - Atom/(.Role := Operations)
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Atom/(.Role := Evaluation)
-  - Entity/Object/Continuant/Selection//Methodology Sources
-  - Atom.Content
-  - Atom/(.Role := Requirement)
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - CAPRMEDIO <+ MODEL <+ Package
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -24,10 +24,10 @@ tier: 3
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-487-PROJECT_CONFIGURATION-EVAL_CASE--validate-workflow-independent-implementation-specifications.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-487-PROJECT_CONFIGURATION-EVAL_CASE--validate-workflow-independent-implementation-specifications.md
   source_atom_id: CA-E-487
   source_atom_revision: 28
-  source_sha256: bcf6bbd480b05dcbb43c1901a67444022351e183f67cfd4570a89881ec4b1d9f
+  source_sha256: 4ef5d3071af5f4f8cf9adb3f681922f7c6796ced0548ad52acd3473a08e78fda
   original_relations_sha256: ad46b65bf1f2ebb680933375c6a0e610a4e11544805253277316d1e163e72787
 ---
 ## Summary

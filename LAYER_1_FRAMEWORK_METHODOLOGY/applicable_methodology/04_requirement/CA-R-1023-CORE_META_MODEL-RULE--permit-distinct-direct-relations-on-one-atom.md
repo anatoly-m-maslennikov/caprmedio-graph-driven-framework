@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-RULE--permit-distinct-direct-relations-on-one-atom.md
   source_atom_id: CA-R-1023
   source_atom_revision: 27
-  source_sha256: 7c6de54c7af99974f655191fcab5855adc41f60cb9bf4f4631e07cddc5b0b6eb
+  source_sha256: d475acb417f2bd09d44d256f3a89bd7ec4ea3460242d7575c40822ecb5cee447
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

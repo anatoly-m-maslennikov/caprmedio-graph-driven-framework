@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Data Handling
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1627-CORE_META_MODEL-RULE--requirement-exclude-secrets-from-caprmedio.md
   source_atom_id: CA-R-1627
   source_atom_revision: 31
-  source_sha256: 8c181fc86ef5ba277656e7905929e80c7b804c0211b6d629f26d32b81103808f
+  source_sha256: 503a0115f640e93bba580bb6fb2cf9ca4135bbd8691b1cabc9254f609420f2e7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Carrier/File.Filename
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Filename
   passive:
-  - Atom/(.Role := Plan)
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - Atom/(.Role := Plan).Work Sequence Number
-  - Atom.Content.Summary
-  - Atom.ID
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-469-CORE_META_MODEL-ENG_DECISION--serialize-plan-carrier-stems.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-469-CORE_META_MODEL-ENG_DECISION--serialize-plan-carrier-stems.md
   source_atom_id: CA-D-469
   source_atom_revision: 24
-  source_sha256: 25fac75b876e4c3feb1c26e61c97567daafd27ca2ef26aff6002c6b78f9eccb5
+  source_sha256: 1482b7f93f04dec40751ae8092da9d696393db89bf305025fd7c3484eff92d1a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Carrier/Directory
+  active: CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 25
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

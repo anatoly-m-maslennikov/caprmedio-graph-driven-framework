@@ -2,9 +2,9 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
+  active: 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
   passive:
-  - Project
+  - CAPRMEDIO <+ MODEL <+ Project
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-260-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--one-statement-one-source.md
   source_atom_id: CA-M-260
   source_atom_revision: 23
-  source_sha256: 9e14340ff5d98c1c027466a9793cb85bfa9700f3bd67abd520bc9215ff31158f
+  source_sha256: bb4b126a8e6336ba672ef649e272dfac99c35680e4ea3c03075fda7904e0d782
   original_relations_sha256: b89a25fc58f998c131ce54128d80bfe7e80b8e3bae5533fc6910372a7e874e93
 ---
 ## Summary

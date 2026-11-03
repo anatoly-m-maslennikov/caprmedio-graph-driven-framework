@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Journal
+  active: CAPRMEDIO_MODEL <+ Journal
   passive:
-  - Event Record
-  - Carrier
-  - History
-  - Actor
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ History
+  - CAPRMEDIO_MODEL <+ Actor
 version: 37
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

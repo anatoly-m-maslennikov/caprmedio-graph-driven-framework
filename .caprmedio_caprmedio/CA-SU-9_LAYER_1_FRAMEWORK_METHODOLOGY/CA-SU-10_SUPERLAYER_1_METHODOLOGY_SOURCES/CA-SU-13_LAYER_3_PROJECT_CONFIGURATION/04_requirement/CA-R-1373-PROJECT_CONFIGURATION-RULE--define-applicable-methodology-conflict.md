@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Projection/(.Form := Applicable Methodology)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Applicable Methodology)
   passive:
-  - Projection
+  - CAPRMEDIO_MODEL <+ Projection
 version: 29
 relations: {}
 atom_id: CA-R-1373

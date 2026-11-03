@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Carrier/File.YAML Frontmatter.Scalar
+  active: CAPRMEDIO_MODEL <+ Carrier/File.YAML Frontmatter.Scalar
   passive:
-  - Carrier/File.Main Content
+  - CAPRMEDIO_MODEL <+ Carrier/File.Main Content
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier/File
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File
   passive:
-  - 'Carrier/File.Format: Markdown'
-  - 'Carrier/File.Format: TOML'
-  - 'Carrier/File.Format: YAML'
+  - 'CAPRMEDIO <+ MODEL <+ Carrier/File.Format: Markdown'
+  - 'CAPRMEDIO <+ MODEL <+ Carrier/File.Format: TOML'
+  - 'CAPRMEDIO <+ MODEL <+ Carrier/File.Format: YAML'
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

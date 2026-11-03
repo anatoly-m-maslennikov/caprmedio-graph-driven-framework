@@ -9,7 +9,7 @@ updated_at: 2026-11-02 23:30:39 +0400
 tier: 4
 current_scope_unit: caprmedio
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
 relations:
   IS_CONTAINED_BY:
   - CA-P-2694

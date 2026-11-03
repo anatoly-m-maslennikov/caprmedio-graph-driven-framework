@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom/(.Role := Evaluation)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
   passive:
-  - Atom.Content
-  - Aspects <+ Engineering <+ Verification
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Verification
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

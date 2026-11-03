@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Projection/(.Form := Applicable Methodology)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form := Applicable Methodology)
   passive:
-  - Scope Unit
-  - Atom
-  - Projection
-  - 'Entity/Object/Continuant/Projection/Type: Reconciled Projection'
-  - Atom.Content
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
-  - Carrier
-  - Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Reconciled Projection'
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
 version: 40
 relations: {}
 atom_id: CA-R-1213
@@ -21,10 +21,10 @@ role: Requirement
 form: Rule
 updated_at: 2026-11-02 08:06:47 +0400
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1213-PROJECT_CONFIGURATION-RULE--define-applicable-methodology-as-a-compiled-projection.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1213-PROJECT_CONFIGURATION-RULE--define-applicable-methodology-as-a-compiled-projection.md
   source_atom_id: CA-R-1213
   source_atom_revision: 40
-  source_sha256: ea1a01762b1528f31b7b60db74609ae11bad4a6d35b5560b67e5dd44b722df0a
+  source_sha256: 83428a48c60e4945804581a15f6d78c2cf104b32aef243ac9e8f4642da98af8a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Atom/(.Role := Operations)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - Scope Unit
-  - Atom/(.Role := Operations)
-  - Scope Unit//CORE_META_MODEL
-  - Entity/Object/Continuant/Selection//Extension Sources
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Aspects <+ Engineering <+ Architecture <+ Component Structure
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

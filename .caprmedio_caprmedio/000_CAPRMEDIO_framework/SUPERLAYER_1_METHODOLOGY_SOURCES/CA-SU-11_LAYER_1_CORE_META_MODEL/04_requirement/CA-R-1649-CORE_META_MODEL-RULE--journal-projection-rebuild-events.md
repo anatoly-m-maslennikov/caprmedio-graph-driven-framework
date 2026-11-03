@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection
+  active: CAPRMEDIO <+ MODEL <+ Projection
   passive:
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

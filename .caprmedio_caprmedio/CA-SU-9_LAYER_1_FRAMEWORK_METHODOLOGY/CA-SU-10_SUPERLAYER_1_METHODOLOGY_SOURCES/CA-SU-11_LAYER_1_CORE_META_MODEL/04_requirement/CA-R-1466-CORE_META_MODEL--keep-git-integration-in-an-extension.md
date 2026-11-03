@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Architecture <+ Component Structure
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
   passive:
-  - Scope Unit//CORE_META_MODEL
-  - Journal
-  - Projection
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

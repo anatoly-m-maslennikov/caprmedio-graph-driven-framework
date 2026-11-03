@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - CFEL > Relation//GOVERNS
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//GOVERNS
+  - CAPRMEDIO <+ MODEL <+ Entity
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

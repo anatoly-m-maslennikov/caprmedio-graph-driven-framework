@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection/(.Form := Applicable Methodology)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form := Applicable Methodology)
   passive:
-  - Atom
-  - Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
 version: 32
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

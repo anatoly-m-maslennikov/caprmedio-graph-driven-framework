@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - CFEL <+ Relation
-  - Term
-  - Atom/(.Role := Method)
-  - Entity/Object/Continuant/Actor/Operator
-  - CFEL <+ Relation//GOVERNS
-  - CFEL <+ Relation//DEPENDS_ON
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//GOVERNS
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON
 version: 34
 updated_at: 2026-11-02 00:55:09 +0400
 relations: {}
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.md
   source_atom_id: CA-M-228
   source_atom_revision: 34
-  source_sha256: dd15e25612e54417fbc8b1d1f0f072ae73d4b015a7b908cd6febf2c822d2b4bd
+  source_sha256: f4cda304fad7ed1becc3a4df06976114505c81392b0761aec2c17341ae9d1505
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

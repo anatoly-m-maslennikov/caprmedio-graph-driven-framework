@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Delivery).Content.Claim'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Delivery).Content.Claim'
   passive:
-  - Atom/(.Role := Delivery)
-  - Carrier
-  - Atom.Subjects
-  - Term
-  - CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-delivery-claims-with-the-delivery-cce-profile.md
   source_atom_id: CA-M-313
   source_atom_revision: 26
-  source_sha256: 49d8549c0c1276dd9243211f44fc0d6020ce2a382d9ef80a4ac725097d93a94e
+  source_sha256: a457f86f7f9c9339d5a8e8a07e4e01216d24051efff0bcdbf6c8cb19ff710482
   original_relations_sha256: 1037ec3e9bee824bbe0013d533c233bc31238f593358d3400af78e5150b7d7f4
 ---
 ## Summary

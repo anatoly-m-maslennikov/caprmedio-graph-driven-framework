@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 subjects:
-  active: Carrier/File.Main Content
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
 relations: {}
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400

@@ -32,12 +32,12 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
     def declaration(
         self, name: str, atom_id: str, *, source: Path | None = None, scope_id: str | None = None,
         label: str | None = None, ordered: bool = False, order_number: int | None = None,
-        parent: str | None = None, project: bool = False,
+        parent: str | None = None, project: bool = False, project_name: str = "demo",
     ) -> Path:
         source = source or self.control / "04_requirement" / f"{atom_id}-{name}.md"
         source.parent.mkdir(parents=True, exist_ok=True)
         source.write_text(render_scope_declaration(
-            name=name, project_name="demo", atom_id=atom_id, updated_at="2026-11-02 00:00:00 +0000",
+            name=name, project_name=project_name, atom_id=atom_id, updated_at="2026-11-02 00:00:00 +0000",
             scope_id=scope_id, label=label, ordered=ordered, order_number=order_number,
             parent=parent, project=project,
         ), encoding="utf-8")
@@ -77,6 +77,67 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         self.assertEqual(rows["PARENT"]["delivery_path"], "LAYER_1_PARENT")
         self.assertEqual(rows["CHILD"]["authority_path"], ".caprmedio_demo/CA-SU-1_LAYER_1_PARENT/CA-SU-2_FEATURE_CHILD")
         self.assertEqual(rows["CHILD"]["delivery_path"], "LAYER_1_PARENT/FEATURE_CHILD")
+
+    def test_prefixed_active_subjects_roundtrip_while_claims_stay_local(self) -> None:
+        root_source = self.declaration(
+            "caprmedio", "CA-R-1", source=self.control / "CA-R-1-caprmedio.md",
+            project=True, project_name="caprmedio",
+        )
+        parent_source = self.declaration(
+            "PARENT", "CA-R-2", scope_id="CA-SU-1", label="LAYER", ordered=True,
+            order_number=1, parent=PROJECT, project_name="caprmedio",
+        )
+        child_source = self.declaration(
+            "CHILD", "CA-R-3", source=self.control / "CA-SU-1_LAYER_1_PARENT" / "04_requirement" / "child.md",
+            scope_id="CA-SU-2", label="FEATURE", parent="PARENT", project_name="caprmedio",
+        )
+
+        for source, local_subject in (
+            (root_source, "Project//caprmedio"),
+            (parent_source, "Scope Unit//PARENT"),
+            (child_source, "Scope Unit//CHILD"),
+        ):
+            text = source.read_text(encoding="utf-8")
+            self.assertIn(f'active: "CAPRMEDIO_STRUCTURE <+ {local_subject}"', text)
+            self.assertIn(local_subject, text.split("## Claim", 1)[1])
+            self.assertNotIn("CAPRMEDIO", text.split("## Claim", 1)[1])
+            parsed = parse_scope_unit_declaration(text.encode(), source)
+            self.assertEqual(parsed.name, local_subject.split("//", 1)[1])
+
+    def test_legacy_bare_active_subject_remains_compatible(self) -> None:
+        source = self.declaration(
+            "UNIT", "CA-R-2", scope_id="CA-SU-2", parent=PROJECT, project_name="caprmedio",
+        )
+        raw = source.read_text(encoding="utf-8").replace(
+            'CAPRMEDIO_STRUCTURE <+ Scope Unit//UNIT', "Scope Unit//UNIT",
+        )
+        source.write_text(raw, encoding="utf-8")
+
+        self.assertEqual(parse_scope_unit_declaration(source.read_bytes(), source).name, "UNIT")
+
+    def test_prefixed_active_subject_wrong_branch_refuses(self) -> None:
+        source = self.declaration(
+            "UNIT", "CA-R-2", scope_id="CA-SU-2", parent=PROJECT, project_name="caprmedio",
+        )
+        source.write_text(source.read_text(encoding="utf-8").replace(
+            "CAPRMEDIO_STRUCTURE <+ Scope Unit//UNIT",
+            "CAPRMEDIO_MODEL <+ Scope Unit//UNIT",
+        ), encoding="utf-8")
+
+        with self.assertRaisesRegex(ScopeDeclarationError, "namespace branch"):
+            parse_scope_unit_declaration(source.read_bytes(), source)
+
+    def test_prefixed_active_subject_invalid_namespace_chain_refuses(self) -> None:
+        source = self.declaration(
+            "UNIT", "CA-R-2", scope_id="CA-SU-2", parent=PROJECT, project_name="caprmedio",
+        )
+        source.write_text(source.read_text(encoding="utf-8").replace(
+            "CAPRMEDIO_STRUCTURE <+ Scope Unit//UNIT",
+            "CAPRMEDIO_STRUCTURE {1}<+ Scope Unit//UNIT",
+        ), encoding="utf-8")
+
+        with self.assertRaisesRegex(ScopeDeclarationError, "namespace chain"):
+            parse_scope_unit_declaration(source.read_bytes(), source)
 
     def test_project_selection_exposes_derived_structure_and_declaration_provenance(self) -> None:
         self.complete_tree()

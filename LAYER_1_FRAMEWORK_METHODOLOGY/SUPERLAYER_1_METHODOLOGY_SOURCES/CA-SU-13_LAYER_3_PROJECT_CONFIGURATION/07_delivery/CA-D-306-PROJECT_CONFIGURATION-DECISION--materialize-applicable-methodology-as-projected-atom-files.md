@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Projection/(.Form:=Applicable Methodology)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
   passive:
-  - Projection/(.Form:=Applicable Methodology.Member)
+  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology.Member)
 version: 30
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

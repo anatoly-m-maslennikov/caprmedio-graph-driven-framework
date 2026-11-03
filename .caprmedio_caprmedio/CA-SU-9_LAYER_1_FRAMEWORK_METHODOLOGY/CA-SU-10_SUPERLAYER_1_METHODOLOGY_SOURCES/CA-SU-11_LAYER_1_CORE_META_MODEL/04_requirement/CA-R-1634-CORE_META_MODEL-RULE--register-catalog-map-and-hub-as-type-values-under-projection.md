@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Projection.Form
+  active: CAPRMEDIO_MODEL <+ Projection.Form
   passive:
-  - Projection
-  - Projection.Form
-  - Projection/(.Form:=Catalog)
-  - 'Entity/Object/Continuant/Projection/Type: Map'
-  - 'Entity/Object/Continuant/Projection/Type: Hub'
-  - Atom.Content
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Projection.Form
+  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Map'
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Hub'
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 45
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

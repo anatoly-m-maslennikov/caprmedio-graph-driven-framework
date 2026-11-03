@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Carrier/Directory
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
 version: 22
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-321-PROJECT_CONFIGURATION-ENG_DECISION--place-disposable-temporary-state.md
   source_atom_id: CA-D-321
   source_atom_revision: 22
-  source_sha256: 2b4b8266912a390f7f275f339848f2227bd2b957fbc43b741556158e17b1a7d0
+  source_sha256: 9de47089a1e8c5fa1a438950f52e5358eaeedc169d9964e15db86a3595faea8d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

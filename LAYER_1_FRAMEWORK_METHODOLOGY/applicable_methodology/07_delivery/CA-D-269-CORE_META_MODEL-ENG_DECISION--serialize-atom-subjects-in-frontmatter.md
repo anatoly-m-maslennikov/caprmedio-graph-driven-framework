@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Atom.Subjects
+  active: CAPRMEDIO <+ MODEL <+ Atom.Subjects
   passive:
-  - Atom.Subjects
-  - CFEL > Relation//GOVERNS
-  - CFEL > Relation//DEPENDS_ON
-  - Entity
-  - CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//GOVERNS
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//DEPENDS_ON
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md
   source_atom_id: CA-D-269
   source_atom_revision: 28
-  source_sha256: 08a5675ca6bff74044490723b593a9390e4374501a154e84001f6bd54618344d
+  source_sha256: 633805f2dcb9bb95e958f2b70be2deecac9a9861da07594d5a4e95d9ddb13485
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

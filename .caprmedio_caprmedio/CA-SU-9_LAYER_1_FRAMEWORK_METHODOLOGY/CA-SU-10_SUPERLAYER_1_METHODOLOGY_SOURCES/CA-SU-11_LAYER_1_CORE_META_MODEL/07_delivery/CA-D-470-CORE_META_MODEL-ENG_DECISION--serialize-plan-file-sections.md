@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
   passive:
-  - Atom/(.Role := Plan)
-  - Atom.Content.Summary
-  - Atom.Content
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Details'
-  - Carrier/File
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Details'
+  - CAPRMEDIO_MODEL <+ Carrier/File
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

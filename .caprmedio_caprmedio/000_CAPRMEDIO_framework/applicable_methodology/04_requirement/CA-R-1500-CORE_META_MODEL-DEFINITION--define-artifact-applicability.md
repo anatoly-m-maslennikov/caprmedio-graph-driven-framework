@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
   passive:
-  - Term//Artifact
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Entity
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -17,10 +17,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1500-CORE_META_MODEL-DEFINITION--define-artifact-applicability.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1500-CORE_META_MODEL-DEFINITION--define-artifact-applicability.md
   source_atom_id: CA-R-1500
   source_atom_revision: 21
-  source_sha256: a44703847d10d380e2c2832fa07af3f9144ac0e192f09e1b08d741448ccb9e94
+  source_sha256: 583209f01ae8b6a100f254479b5c9381365d8f2d55dc08cb913d86bdb7da75dc
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

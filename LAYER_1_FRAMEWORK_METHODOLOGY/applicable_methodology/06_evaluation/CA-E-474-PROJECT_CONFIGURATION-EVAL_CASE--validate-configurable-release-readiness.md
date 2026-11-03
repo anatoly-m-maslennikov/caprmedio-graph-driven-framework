@@ -1,19 +1,19 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Release Readiness'
+  active: 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Release Readiness'
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - Scope Unit//PROJECT_CONFIGURATION
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Release Readiness'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
-  - Entity/Object/Continuant/Actor/Operator
-  - Projection
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Aspects <+ Engineering <+ Traceability
-  - Project
-  - Entity/Object/Continuant/History/Release.ID
-  - Atom/(.Role := Operations)
-  - Atom/(.Role := Evaluation)
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Release Readiness'
+  - 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Release.ID
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
 version: 27
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -34,7 +34,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-474-PROJECT_CONFIGURATION-EVAL_CASE--validate-configurable-release-readiness.md
   source_atom_id: CA-E-474
   source_atom_revision: 27
-  source_sha256: 8cd826cd979a66bf211615fcd9f95947795540a025fc21b5e424d6143df64c30
+  source_sha256: d04d1f6d111e15cdd4f9795abb066db415f82518718fc25385d8518b97a9cca2
   original_relations_sha256: 474cd0531e323968dc05f230d1a267f336a12a8d9140c140d3ccf9f98fa8ed3e
 ---
 ## Summary

@@ -11,9 +11,9 @@ relations:
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Scope Unit.order.number
+  - CAPRMEDIO_MODEL <+ Scope Unit.order.number
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-2691

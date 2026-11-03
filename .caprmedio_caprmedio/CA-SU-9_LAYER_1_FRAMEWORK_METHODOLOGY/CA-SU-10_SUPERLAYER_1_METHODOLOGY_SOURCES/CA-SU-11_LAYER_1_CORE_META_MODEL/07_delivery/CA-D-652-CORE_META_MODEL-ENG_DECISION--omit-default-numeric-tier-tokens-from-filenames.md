@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom.Tier
+  active: CAPRMEDIO_MODEL <+ Atom.Tier
   passive:
-  - Atom
-  - Atom.Tier
-  - Projection
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Projection
 version: 13
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

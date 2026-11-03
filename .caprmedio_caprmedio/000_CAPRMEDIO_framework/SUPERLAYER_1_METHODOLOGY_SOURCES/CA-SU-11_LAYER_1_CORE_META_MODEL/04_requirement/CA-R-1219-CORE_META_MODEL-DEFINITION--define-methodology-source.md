@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
   passive:
-  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
-  - Scope Unit
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

@@ -1,20 +1,20 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
   passive:
-  - Entity
-  - Atom.Content
-  - Atom.Subjects
-  - Atom
-  - CFEL <+ Relation
-  - CFEL <+ Relation//IS_PROPERTY_OF
-  - CFEL <+ Relation//HAS_PROPERTY
-  - CFEL<+Operator//AllowedValue
-  - Projection
-  - Term
-  - Scope Unit
-  - Journal
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_PROPERTY
+  - CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 39
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -34,7 +34,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL-RULE--derive-entities-views-from-selected-authority.md
   source_atom_id: CA-R-1456
   source_atom_revision: 39
-  source_sha256: 7223aaca9cb4acffc56ff055eb8b869954c1ffd9b6849d1feb0dd2a856c0471c
+  source_sha256: 4ad1f9d4bf59204db43111246a23ca3d56dab9aaaad9d043f71615af7e4ee83c
   original_relations_sha256: 34bdab1060ebf5d277b4263fd572a5686b173f936b95c4a1f57daeaf75e20641
 ---
 ## Summary

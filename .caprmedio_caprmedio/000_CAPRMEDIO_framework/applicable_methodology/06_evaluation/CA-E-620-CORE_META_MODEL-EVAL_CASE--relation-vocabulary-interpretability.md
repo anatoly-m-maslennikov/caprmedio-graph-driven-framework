@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
 version: 34
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 2
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-620-CORE_META_MODEL-EVAL_CASE--relation-vocabulary-interpretability.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-620-CORE_META_MODEL-EVAL_CASE--relation-vocabulary-interpretability.md
   source_atom_id: CA-E-620
   source_atom_revision: 34
-  source_sha256: e8ff440fef513741ba330060564834781d1c0fa39a7f33b75ab919bf0622d6f4
+  source_sha256: 164c5b2b32e4b88ca15481040f0e2025a20d2d6619ef0406a5ca1aa6ece21585
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

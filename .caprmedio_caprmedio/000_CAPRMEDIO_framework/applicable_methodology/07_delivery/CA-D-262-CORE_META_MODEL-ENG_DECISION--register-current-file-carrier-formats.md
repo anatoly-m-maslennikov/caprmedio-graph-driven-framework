@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier/File.Format
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Format
   passive:
-  - Scope Unit
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-ENG_DECISION--register-current-file-carrier-formats.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-ENG_DECISION--register-current-file-carrier-formats.md
   source_atom_id: CA-D-262
   source_atom_revision: 27
-  source_sha256: bc4c9dde6d42f2d00f7595eea304c7e9ed5012aa43f56deb584f7d365ffe3741
+  source_sha256: b8fc0daf012c65a637ec86ea36899f8e9cf33822abd1c1172305490136d51b04
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

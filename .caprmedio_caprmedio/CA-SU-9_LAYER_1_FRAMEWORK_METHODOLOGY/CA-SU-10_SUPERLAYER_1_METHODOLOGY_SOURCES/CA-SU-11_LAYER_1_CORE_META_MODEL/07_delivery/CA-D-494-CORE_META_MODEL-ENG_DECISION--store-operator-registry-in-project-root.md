@@ -6,11 +6,11 @@ status: Active
 version: 17
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry
   passive:
-  - Project
-  - Entity/Object/Continuant/Actor/Operator
-  - Journal
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Journal
 relations: {}
 tier: 3
 role: Delivery

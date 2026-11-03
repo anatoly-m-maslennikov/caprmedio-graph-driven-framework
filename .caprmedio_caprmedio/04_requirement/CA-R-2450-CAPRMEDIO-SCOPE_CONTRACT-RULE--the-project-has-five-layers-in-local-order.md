@@ -12,7 +12,7 @@ status: Active
 atom_id: CA-R-2450
 tier: 0
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
 claim_target_scope_unit: caprmedio
 role: Requirement
 form: Rule

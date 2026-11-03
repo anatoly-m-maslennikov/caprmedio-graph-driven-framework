@@ -1137,26 +1137,35 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-03 01:11:33 +0400
+updated_at: 2026-11-03 13:47:06 +0400
 ---
 # Formal Contract Graph
+
+## Namespace context
+
+```text
+CAPRMEDIO
+  <+ MODEL
+  <+ STRUCTURE
+```
+
 
 Bounded extraction only. CFEL blocks remain authoritative source text; this view does not execute CFEL.
 
 ## Coverage
 
 - candidate sources: 1132
-- bound sources: 803
+- bound sources: 802
 - declared entity targets: 139
 - declared component targets: 43
 - declared relation targets: 41
-- shared sources: 580
+- shared sources: 579
 - fenced claim blocks: 237
 - cfel blocks: 210
 - recognized clauses: 365
 - unsupported clauses: 199
 - coverage gaps: 0
-- outside model scope sources: 329
+- outside model scope sources: 330
 - duplicate declarations: 0
 - missing relation semantics: 0
 - instance kind gaps: 0
@@ -1277,7 +1286,7 @@ Node/Continuant//CAPRMEDIO Framework{:1}
     a Term **may** occur **in** allowed-value entity names **in** multiple qualified Property contexts **when** it retains the same approved meaning **and** governing authority admits the value separately **in** **every** such context; distinct modeled entities **must** have distinct complete canonical names, **and** admission **in** one context does **not** admit the value **in** another. Within these allowed-value contexts, this permits component reuse and does not make that one Term the complete canonical entity name of another Entity.
   - Details (source-bound):
     Reusable lexical Terms and complete canonical names have distinct responsibilities. Shared `Package`, `Unit`, or `ID` components and repeated terminal labels do not collide when complete qualified expressions differ. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names or case-folded aliases. Authored Subjects use their full admitted expressions. `Atom/(.Content Role: X)/(.Type: X)` is a possible qualified expression: its two `X` components reuse the registered Term `X` in separately qualified value contexts, and governing authority must admit `X` in each context. The expression does not make `X` the complete canonical name of an entity outside `Term`, create an entity, or transfer value admission. Governing authority establishes the qualification and entity identity; path spelling alone does not invent them.
-    
+
     Repeated references to one source-admitted entity retain its complete canonical name and do not grant another value-domain admission. Component reuse does not introduce another entity or alter the approved meaning owned by its dedicated Term Definition. Complete-name uniqueness does not prohibit reusable Terms or require globally unique terminal labels.
 
 ### `Operator//Conclusion` — instance
@@ -1656,7 +1665,7 @@ Atom ((NARROWER_THAN)) @Continuant
     Active Atom Carrier discovery from selected Project-owned Markdown source frontiers.
   - Remaining Claim prose:
     Active Atom Carrier discovery **must** resolve requested Atom IDs from the identities carried inside the selected Project-owned Markdown source frontier **and** select carried Status Active.
-    
+
     - validate the associated canonical addresses against those internal values under CA-D-480.
     - report zero **or** multiple Active matches **and** missing **or** conflicting identity **or** Status; do **not** repair discovery by silently preferring a filename **or** directory.
     - a non-Active containing Hub does **not** change the Status of a nested Atom.
@@ -1665,10 +1674,10 @@ Atom ((NARROWER_THAN)) @Continuant
     the serialization of Analysis & Advisory Form tokens in an Analysis & Advisory Atom File Carrier filename.
   - Remaining Claim prose:
     an Analysis & Advisory Atom File Carrier **must** serialize the following Form components within the Atom filename grammar governed by CA-D-283 **and** CA-D-284:
-    
+
     - Rationale: `RATIONALE`.
     - External Analysis Report: `EXTERNAL_ANALYSIS_REPORT`.
-    
+
     these mappings govern filename representation; they do **not** rename a Form, admit a new Form, **or** prescribe a YAML Form value.
   - Binding context:
     - property: `Atom.Role`
@@ -1678,7 +1687,7 @@ Atom ((NARROWER_THAN)) @Continuant
     Atom Revision Authoritative Carrier Bundles.
   - Remaining Claim prose:
     **every** Atom Revision **must** have **`=1`** authoritative Carrier Bundle on the Project filesystem containing **`=1`** Markdown File Carrier **and** **`>=0`** additional Carriers admitted by its applicable Delivery authority.
-    
+
     the Markdown file carries the Atom's own Properties under CA-D-478 **and** CA-D-479. additional Carriers represent that same Revision **without** replacing the mandatory file **or** independently redefining its Properties.
 - Shared RMED source (exact binding): `CA-D-478@31`
   - Claim Scope:
@@ -1688,11 +1697,11 @@ Atom ((NARROWER_THAN)) @Continuant
     Main Content sections for `content.*` properties. Each applicable Atom Property
     has one canonical internal location; its value is not duplicated between YAML
     and Markdown.
-    
+
     This reusable Policy governs Atom representation. It does not create a Carrier
     or a CARRIES fact for each property or section, and it does not change the
     owning direction of an Atom-to-Atom Relation.
-    
+
     Qualified classifications are carried as ordinary metadata properties. For example, `Atom/(.Role := Concern)` selects the Atom's `role` value, and a qualified Form selects its `form` value; neither creates a nested Role object. Use the property names and canonical value encodings registered by the applicable D policy, including CA-D-657, rather than inventing a new field from the display path.
   - Semantics:
     YAML and Markdown are carrier locations for different Atom properties, not
@@ -1707,7 +1716,7 @@ Atom ((NARROWER_THAN)) @Continuant
     Atom Properties represented by a filename, matching directory name, or placement.
   - Remaining Claim prose:
     **every** Atom Property represented by a filename, matching directory name, **or** placement **must** agree with its canonical internal value under the applicable Delivery encoding.
-    
+
     - compare resolved values using the registered encoding; a Summary Slug is checked against its Summary serialization, **not** against identical raw text.
     - a mismatch is invalid **and** **must** be reported; the address **must not** silently override the value carried inside the Atom.
     - agreement checking does **not** authorize rewriting the Atom **or** address. corrections require the applicable authorized change.
@@ -1716,20 +1725,20 @@ Atom ((NARROWER_THAN)) @Continuant
     defaulted Atom values and inherited external settings.
   - Remaining Claim prose:
     a writer **must** preserve the distinction between a defaulted Atom Property **and** an inherited external setting:
-    
+
     - a required Atom value selected by applying a default is still carried at its canonical internal location; equality **to** that default does **not** permit omitting the value.
     - an unselected optional override remains absent; do **not** copy an inherited effective setting into a locally selected override.
     - retain an explicit override even **when** it currently equals the inherited value, because later upstream changes **must not** change that selection.
 - Shared RMED source (exact binding): `CA-D-664@5`
   - Remaining Claim prose:
     The Carrier below is the Markdown file delivering this Atom.
-    
+
     Frontmatter starts at the beginning of the file:
-    
+
     1. An opening line containing `---`.
     2. YAML data.
     3. A closing line containing `---`.
-    
+
     Location is the directory path relative to the repository root.
   - Fenced Claim block:
 ```CFEL
@@ -1762,33 +1771,33 @@ Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
     independent resolution of Atom ownership, GOVERNS Subject, Claim Target Scope Unit, **and** textual applicability.
   - Remaining Claim prose:
     **Claim checked.**
-    
+
     **every** Atom resolves its ownership, **`=1`** GOVERNS Subject, **and** zero **or** one Claim Target Scope Unit independently of **any** applicability restrictions **in** its Main Content. Applicable Goal and Demand rules, including the Operator-owned Project Goal, retain their required target conditions.
   - Details (source-bound):
     ### Test case
-    
+
     create a Current-scope Atom with its own Scope Unit carried as the target; repeat with one GOVERNS target and with a narrower restriction **and** a composite restriction **in** its Claim scope section for RMED **or** the registered primary content for other roles. create a parent-owned Goal for a declared direct child, an external Project Goal with its Author's registered Operator name **and** an explicit Project target, **and** a permitted Demand. include a Plan **in** a Container Atom whose carried target is its owning Scope Unit.
-    
+
     **then** omit the GOVERNS Subject or a required target, provide two target values, supply a Container Atom **or** another non-Scope-Unit target, leave a reference unresolved, infer a different target merely from textual restrictions, change ownership from the target, make the referenced Scope Unit bearer-dependent, reorder Subject declarations, **or** use a forbidden Goal **or** Demand target.
-    
+
     ### Acceptance criteria
-    
+
     **every** valid fixture retains its ownership, resolves **`=1`** canonical GOVERNS Subject **and** zero **or** one Claim Target Scope Unit, **and** preserves its applicability restrictions **in** the body sections registered by CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections. a Current-scope target is selected from the owning Scope Unit during authoring **and** carried explicitly where applicable; an external Goal requires its explicit Project target. narrower **or** composite Claim Scope alone does **not** create a distinct Target Scope Unit. a different permitted target does **not** transfer ownership **or** create Scope Unit ancestry. Subject ordering **and** Container Atom nesting do **not** change these facts. **every** invalid fixture fails with the exact affected fact identified.
-    
+
     ### Failure disposition
-    
+
     report the invalid Atom **and** ownership, target, textual restriction, **or** Subject fact; do **not** repair unresolved references by guessing.
 - Shared RMED source (exact binding): `CA-E-425@30`
   - Claim Scope:
     Relational Atom classifications.
   - Remaining Claim prose:
     the Relational Atom classification Evaluation **must** enforce the qualified Types admitted by CA-R-924 **without** treating Plan Labels as Types.
-    
+
     - accept permitted relational Requirement/Goal, Requirement/Demand, **and** Plan/Plan cases with explicit non-default Claim targets.
     - accept a current-scope Plan with decomposition **or** blocking **without** classifying it as relational merely because those Relations exist.
     - change the Plan Label from Task **to** Objective **or** Epic; retain the same target-based classification.
     - reject an unregistered qualified Type, an invalid relational target, **or** a Label interpreted as Type authority.
-    
+
     report the exact Atom, qualified Type, **and** target condition.
 - Shared RMED source (exact binding): `CA-E-444@34`
   - Claim Scope:
@@ -1797,20 +1806,20 @@ Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
     the Evaluation **must** check selected authoritative Method Atoms of Type Term Definition for well-formedness **and** exactly-one defining authority, **then** check the authored sources **in** this order: entity names, Claim, Claim Scope, Semantics, Details, **and** other authored fields. It **must** compare Term occurrences with the meaning established by their explicit authoritative Term Definition **and** compare complete entity names with their source-backed canonical entities. Agreement between several Semantics sections **must not** substitute for a Term Definition. The results **must** distinguish well-formedness, source consistency **and** checked coverage, preserve source Atom, Revision **and** exact field occurrence for **every** finding, **and** leave insufficient identity, authority **or** coverage evidence unresolved rather than passed.
   - Details (source-bound):
     ### Source preparation and ordered stages
-    
+
     Before the authored-field stages, read the exact selected Method Atoms of Type Term Definition **and** the governing name/entity authority. A Term Definition is a Method Type for lexical meaning; Entity Definition remains a Requirement Type for entity structure; an Entity Definition **or** repeated descriptive wording alone does **not** own a reusable Term's meaning. Local well-formedness **and** cross-source defining-authority uniqueness are separate checks.
-    
+
     1. Entity names: check complete canonical name-to-entity **and** entity-to-complete-name binding against the explicitly evidenced entity population. Check full Entity expressions in admitted `/`, `//`, `.`, `:`, `+>`, `<+`, `>|` **and** `|<` constructs, calls `@(...)` to already declared Entities, **and** registered direct Relation tokens inside `((...))`. A token resolves through the Relation registry to one admitted Relation Type; its bare spelling is not the Relation Type entity's full canonical expression, which is compared separately. The reference marker refers to an already declared Entity **without** declaring another target; parsing **does not** infer target **or** Relation admission.
     2. Claim: compare its authored Term occurrences with the selected Term Definitions **and** its entity mentions with their complete canonical names.
     3. Claim Scope: perform the same checks on applicability text carried under `## Claim scope` **when** present **or** another admitted representation; do **not** invent another Property **or** heading.
     4. Semantics: check the field **when** present. Its explanations cannot redefine a Term **or** replace its explicit Term Definition. An absent optional field is recorded as absent, **not** invented.
     5. Details: check its authored occurrences **without** allowing explanatory examples to silently establish another meaning **or** name.
     6. Other authored fields: check remaining authored content, including Summary **and** applicable reference fields, **without** skipping them because earlier stages passed. Preserve literal source quotations **and** code identifiers under their governing boundaries; do **not** silently rename them.
-    
+
     Keep each stage's coverage visible. A later conflict remains a finding even **when** an earlier stage passed. A missing required field fails its applicable well-formedness check; the remaining accessible content can still be reviewed **without** claiming that the field exists.
-    
+
     ### Test cases
-    
+
     - provide one well-formed authoritative Term Definition **and** consistent authored uses; one source with a different Content Role **or** Method Type; a missing Term Definition; two active Term Definitions for the same Term with agreeing meanings; **and** two with conflicting meanings. distinguish the local Atom-shape result from the cross-source authority result.
     - place a contradictory Term use separately **in** entity names, Claim, Claim Scope, Semantics, Details **and** another authored field. Keep the other fields correct **so** each ordered stage is exercised. Include an error **in** a later field after earlier fields pass.
     - include ordinary vocabulary **without** evidence of Project-specific meaning; a dictionary-only restatement of ordinary meaning; sentence-initial capitalization; names, identifiers, paths **and** syntax tokens; **and** a case whose classification **or** source coverage is uncertain. Include a missing definition outside a filtered source selection. Neither capitalization **nor** absence from that filter establishes missing defining authority.
@@ -1824,30 +1833,30 @@ Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
     - check an explicit ID Term Definition whose meaning is a unique identifier used to find an entity instance, including Continuant **and** Occurrent instances. Apply uniqueness **only** within matching identifier prefixes. Use `CA-P-123`, `CA-P-123@1-draft` **and** `CA-P-123@3` as carried strings **without** inventing their version-identity relationships. If such relationships **or** a prefix equivalence are needed but undeclared, retain an unresolved condition.
     - include an exact source occurrence missing its Atom Revision, unsupported semantic certainty, an invented graph edge, **and** a faithful optional diagnostic that reports a source conflict. No graph **or** diagnostic is required to run these source checks.
     - select one Current Method Atom **and** record its source Atom, exact Revision **and** actual GOVERNS target as the direct Subject-target fixture. Verify that exact target against its governing admission **and** classification evidence separately from component-Term meaning. The Method Role, carrier name **or** folder spelling **must not** establish the target's category **or** an independent lexical definition. Include a Term's wording substituted for an actual Subject reference **and** a complete composite Subject Path classified as one Term.
-    
+
     ### Acceptance criteria and outcomes
-    
+
     A well-formed Term Definition with exactly one active authoritative owner supports the checked Term meaning. Duplicate active Term Definitions fail defining-authority uniqueness even **when** their Claims agree; conflicting meanings additionally fail source consistency. Agreement among Semantics sections, consistent use, spelling **or** capitalization alone does **not** establish a Term Definition. An evidence-backed Project-specific use with missing defining authority fails **only** with complete checked definition coverage for its declared authority boundary; incomplete **or** filtered coverage leaves that claim unresolved. Ordinary vocabulary is **not** failed merely because it lacks a Term Definition.
-    
+
     Consistent reuse of component Terms passes. Source evidence of two full names for one entity **or** one full name for distinct entities fails canonical naming; property, value, bearer **or** context qualification does **not** excuse reuse of the same complete name for distinct entities. Repeated references to one established entity are **not** collisions. A known entity with no complete canonical name fails missing naming **when** population **and** naming-source coverage are established. Unknown population, entity identity **or** required coverage remains unresolved. Do **not** fabricate a Term, name, Definition **or** entity distinction to obtain a pass.
-    
+
     `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module`, and `Entity/Object/Continuant/Package <+ Module <+ Code Unit` identify three entities. Operators, delimiters and selector syntax are not Terms. Under CA-R-1325, a complete composite Subject Expression is not one lexical Term; this does not prohibit an explicitly admitted qualified Entity expression. Outside the Term branch, only root `Entity` may be expressed by one Term alone. Parsing an arbitrary composite expression does not automatically establish a complete Entity expression or another Entity. The three-target chain introduces no fourth Entity or fourth complete expression. Naming checks must not reify component labels or shared words into new graph entities. The respective ID Properties distinguished by the contextual topic/code spellings `atom.id` and `projection.id` stay distinct and retain the explicitly defined ID meaning; these spellings do not substitute for full admitted Subject expressions. An Atom Content Role/Type expression requires independent source admission of both exact values. A Term occurrence is checked against its dedicated Term Definition, not inferred agreement of other fields.
-    
+
     A direct GOVERNS **or** DEPENDS_ON Subject Relation **must** resolve its canonical source-backed target; the Relation **and** its target remain distinct. Term wording cannot substitute for that exact reference. The selected Method fixture preserves its actual GOVERNS target **and** exact source Revision; target classification follows governing target authority, **not** the Method Role **or** carrier spelling. A source target's admission does **not** by itself establish a component Term's meaning authority; these checks retain their separate outcomes.
-    
+
     Every finding identifies source Atom, exact Revision, logical field, occurrence span **or** exact passage, governing Term Definition **and** relevant compared source. A missing required source **or** unperformed stage is a coverage gap, **not** a pass. Well-formedness, source consistency **and** coverage remain separate; the combined result cannot pass **if** a required check fails **or** remains unresolved. A faithful optional diagnostic **may** accurately report failed **or** unresolved source conditions, but its fidelity does **not** establish source validity. No independent generated vocabulary authority, extra lookup operation **or** special Projection is needed.
-    
+
     ### Failure disposition
-    
+
     retain the precise conflicting **or** missing source evidence **and** report the affected Term, canonical entity name, source Atom, Revision **and** authored field. distinguish a malformed Term Definition, duplicate defining authority, a conflicting use, missing naming **and** incomplete coverage. Do **not** rename sources, merge entities, invent a definition **or** treat a diagnostic's faithful output as a source pass.
 - Shared RMED source (exact binding): `CA-E-520@32`
   - Claim Scope:
     individual active RMED Atoms reviewed locally against their exact carried text **and** applicable local authoring rules.
   - Remaining Claim prose:
     an RMED Atom passes this local Evaluation **only** **when** **all** of these checks pass with source evidence:
-    
+
     Apply CA-R-2500 and CA-D-479 to every RMED Claim. Check its readable prose and any R-only nested Formal claim as one scoped contribution; Semantics and Details are optional supporting sections.
-    
+
     | Check | Passing condition |
     |---|---|
     | properties | frontmatter is valid; required local Properties are present, admitted, correctly typed, **and** consistent with the body; body Properties occupy their required sections; values are **not** inferred from filenames **or** folders |
@@ -1856,22 +1865,22 @@ Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
     | details | Details explain the scoped Claim **without** adding an independent obligation, permission, exception, **or** applicability change |
     | summary | Summary faithfully shortens the scoped Claim **without** changing its contribution **or** decisive boundary |
     | cce | the complete Markdown follows the supplied current CCE rules, including syntax, capitalization, structure, **and** understandability |
-    
+
     a failed check **must** identify its local source evidence, rule, **and** proposed correction. unresolved required local evidence **must** remain a coverage gap. a pass **must** include a concrete source observation **and** the rule it satisfies. mechanical evidence does **not** prove Claim meaning.
   - Details (source-bound):
     missing, duplicate, **or** misplaced headings fail Properties; they do **not** automatically block content checks. assess the complete readable text **and** cite actual passages that establish applicability, contribution, supporting detail, **and** Summary. this interpretation is review evidence, **not** a declaration that missing Property sections exist. keep the Carrier defect visible; do **not** invent headings **or** values from filenames **or** folders. **if** the content itself is absent **or** ambiguous, identify the precise unavailable evidence **or** unresolved meaning for the affected check. empty supporting content **may** satisfy Details; a missing Details heading fails Properties only where the applicable layout requires it. Absent optional Semantics or Details is not a defect.
-    
+
     this checklist has **`=3`** disjoint parts: CCE for `cce`, Properties for `properties`, **and** coherence for `scope`, `claim`, `details`, **and** `summary`. **every** part uses the same source binding **and** compact local rule pack.
-    
+
     the Claim check applies the supplied Operator-authority rule **to** the candidate's own text:
-    
+
     - a capability Requirement states what the Framework provides. its existence alone does **not** authorize execution.
     - direct Operator instruction **or** explicit prior authorization **may** cover a Workflow **or** automation. required behavior during that authorized execution remains binding.
     - report an authority violation **only** with evidence that the text forces execution independently of Operator authorization. `must`, an event condition, **or** omitted repeated approval wording alone is insufficient evidence.
     - an unresolved distinction is a coverage gap, **not** an assumed violation. identify unspecified operation targets from the local text **without** inventing a Projection **or** another target.
-    
+
     the profile is `atom_local`. Subject **and** relation fields are checked for local shape **only**. Entity-model correctness, Subject completeness **or** similarity, relation-target existence/status, cross-Atom conflicts, duplicate Claims, role reclassification, tier hierarchy, **and** general Tier 0 Scope Contract alignment are excluded. the explicit local execution-authority check above is included; it does **not** require a wider Scope Contract audit. excluded checks are **not** failures, passes, **or** coverage gaps of this profile.
-    
+
     the result is failed **if** **any** local check fails, **otherwise** blocked **if** **any** local check is unresolved, **otherwise** passed. findings **and** coverage gaps remain distinct even **when** present together. a passed result asserts local quality **only**, **not** complete methodology conformance.
 - Shared RMED source (exact binding): `CA-E-668@2`
   - Remaining Claim prose:
@@ -1916,20 +1925,20 @@ Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
     the classification of admitted Atom changes by semantic effect.
   - Remaining Claim prose:
     **before** changing an admitted Atom, CAPRMEDIO **must** assign **`=1`** change class using these boundaries, identity results, **and** required reviews:
-    
+
     | Change class | Boundary | Identity result | Required review |
     |---|---|---|---|
     | `carrier_only` | Representation, the Atom's own filename **or** local placement, encoding, **or** lossless Entity-name/reference renaming **without** changing governed meaning **or** the Atom's Summary value **or** Content Role | Keep the Atom ID; increment Version by exactly **`1`** | Verify lossless recoding |
     | `refinement` | Wording **or** criteria become clearer **or** stricter while content, applicability, **and** acceptance meaning remain equivalent **and** Summary **and** Content Role remain unchanged | Keep the Atom ID; increment Version by exactly **`1`** | Demonstrate equivalence |
     | `semantic_revision` | Meaning **or** applicability changes while Summary **and** Content Role remain unchanged | Keep the Atom ID; increment Version by exactly **`1`** | Declare the delta **and** complete lineage-impact review |
     | `replacement` | the Summary value changes under CA-R-1464 **or** Content Role changes | Create a new Atom ID; preserve the predecessor **and** successor identity binding under CA-R-807 | Review the replacement boundary **and** affected lineage |
-    
+
     For an existing Atom, only a Summary **or** Content Role change creates a new base Atom ID. Content Role changes always create a new Atom, even with unchanged Summary. Claim, other Content, Type, Status, applicability **or** other property changes alone retain the base ID when Summary **and** Content Role stay unchanged. Scope narrowing **or** expansion is a `semantic_revision`, **not** carrier-only. Adding a separately authored Atom gives that new Atom its own ID; it does not itself replace an existing Atom whose Summary **and** Content Role remain unchanged. Lossless serialization of the same Summary value is **not** a Summary change. the semantic change class is independent of storage transactions **or** version-control change sets; persistence preserves the admitted Atom, Carrier, **and** Journal authority.
-    
+
     **every** actual same-ID update **must** increment Version by exactly **`1`**, regardless of change class, **and** refresh Updated At under CA-R-1788. an exact no-op **must** retain Version **and** Updated At. When a predecessor is archived, its Archive Carrier **must** carry `status: Archived`, identify that predecessor as `<canonical-ID>@<old-version>`, and preserve its numeric Version, prior Updated At, and unrelated content. The Current successor retains the canonical ID, advances Version by exactly **`1`**, and receives the actual Project-time edit instant. Git history preserves the exact pre-archive Carrier bytes; the archive conversion does not require an exact-byte copy.
-    
+
     this classification concerns changes **to** the Atom's own bytes, metadata, direct ownership **or** local placement. moving an ancestor **only** changes a descendant's repository locator **when** that descendant's own bytes, metadata, direct owner **and** placement relative **to** that owner remain unchanged; this is **not** an Atom update **and** **must** retain that descendant's Version **and** Updated At. this boundary applies **to** **all** Atoms, including Plans nested under a moved Plan **and** Atoms whose owning Scope Unit moves. an actual change **to** the Atom itself, including its Status, filename, direct owner **or** local placement, still follows the classification **and** revision rules above. Exact pre-change bytes remain available through Git history.
-    
+
     Tools **may** propose a class but **must** fail closed **when** the distinction between refinement, semantic revision, **and** replacement is uncertain.
 - Shared RMED source (exact binding): `CA-R-1448@25`
   - Claim Scope:
@@ -1956,7 +1965,7 @@ Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
     Artifact governed meaning in a declared context.
   - Remaining Claim prose:
     The following interpretation is required when this governed concept is used:
-    
+
     Applicability **means** whether an Artifact's governed meaning applies **in** a particular declared context, including structural scope, selected capability, environment, version, **or** time boundary.
 - Shared RMED source (exact binding): `CA-R-1501@21`
   - Claim Scope:
@@ -1978,7 +1987,7 @@ Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
     Atom Revisions and their applicable Properties.
   - Remaining Claim prose:
     **every** Atom Revision **must** carry its applicable Properties within its own Markdown Carrier so that its own declared content can be read **without** reconstructing it from a filename **or** directory placement.
-    
+
     - the applicable model determines which Properties are required, optional, **or** inapplicable; self-sufficiency does **not** invent missing Properties **or** permit an invalid value.
     - a Relation **to** another Atom remains declared **only** on its registered owning endpoint; the other endpoint **and** inverse views are resolved from that declaration, **not** independently copied.
     - self-sufficiency does **not** require copying the referenced Atom, governing model, **or** inherited Settings authority into this Atom.
@@ -1987,13 +1996,13 @@ Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
     atomic admission strictness settings and one-step promotion eligibility.
   - Remaining Claim prose:
     the effective atomic admission strictness setting **must** be **in** (`medium`, `high`).
-    
+
     **at** medium strictness, CAPRMEDIO requires accepted authority, **`=1`** primary Claim, **`=1`** enabled Artifact Type, owning Scope, creation provenance, material relations, priority for Concern Atoms **only**, **and** sufficient precision **to** establish a stable Artifact identity **and** initial accepted Revision. optional non-authoritative context **may** remain explicitly unknown.
-    
+
     **at** high strictness, CAPRMEDIO stops **before** emission while **any** material authority, definition, boundary, classification, Scope, lineage, Conflict, **or** Evaluation question remains ambiguous. it asks focused questions **until** the Atom meets the same one-primary-Claim identity standard.
-    
+
     the two levels assess one-step promotion eligibility. promotion is proposed **only** **when** the Claim applies unchanged at the broader enabled Scope **and** always requires explicit Operator acceptance.
-    
+
     admission does **not** prohibit later same-ID Revisions. **every** later change passes the atomic change-class gate; changing the primary Claim identity requires a replacement.
 - Shared RMED source (exact binding): `CA-R-1633@43`
   - Claim Scope:
@@ -2021,16 +2030,16 @@ Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
     User Stories **and** intended Outcomes remain optional framing, while measured **or** reported outcomes remain factual observations rather than reusable Operations definitions.
   - Details (source-bound):
     User Stories **and** Outcomes are optional framing constructs rather than semantic routing axes **or** mandatory canonical artifact types.
-    
+
     a User Story **may** frame an actor, desired capability, **and** value around **`>=1`** Requirements. an intended Outcome **may** frame a measurable required state **or** assessment target. a measured **or** reported outcome is a factual observation carried **or** referenced by a Journal Record, distinct from a Requirement **or** reusable Operations definition.
-    
+
     independently enforceable Requirements, Methods, Evaluation criteria, **and** Delivery rules remain separate governed artifacts. framing **may** link them but **must not** replace their authority.
 - Shared RMED source (exact binding): `CA-R-1689@33`
   - Claim Scope:
     CORE_META_MODEL constitutional amendments.
   - Remaining Claim prose:
     **every** semantic change **to** CORE_META_MODEL follows one closed amendment sequence:
-    
+
     1. explore **without** changing governed truth;
     2. obtain explicit operator acceptance for one primary claim;
     3. map affected authority, layers, handoffs, Projections, Methods, Evaluation, Delivery, Implementations, **and** Operations;
@@ -2042,7 +2051,7 @@ Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
     9. verify the resulting authority **and** downstream fixed point.
   - Details (source-bound):
     a failed **or** ambiguous step leaves the amendment incomplete **and** cannot claim a new fixed point. the admitted Carrier **and** Journal history preserve **every** accepted authority Revision; lineage analysis records the disposition of **every** affected branch.
-    
+
     a CORE_META_MODEL amendment closes **only** **after** accepting the exact Atom revision, archiving **any** fully replaced predecessors, reviewing descendant impact, refreshing Projections required by the active gate, **and** verifying the resulting fixed point.
 - Shared RMED source (exact binding): `CA-R-1716@30`
   - Claim Scope:
@@ -2074,13 +2083,13 @@ Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
     Every complete Current Atom, with applicable Role and Form conditions.
   - Remaining Claim prose:
     For every complete Current Atom, require one Role, Form, ID, Status, Updated At, Version, Tier, effective Label and Summary, subject to their applicable individual Declarations. Version is a positive integer; Updated At is a datetime with timezone. The effective Label is the explicit Label when present and otherwise the Form name. Author is not an Atom Property.
-    
+
     Subjects is a grouping Property with no direct value. Its active Subject has one reference and its passive Subjects have zero or more references. Resolve the target Scope from the active Subject under the applicable model rules. Carrier compatibility fields do not override that resolution. Encode direct Node-instance Relation facts under Relations.
-    
+
     For RMED, require one Claim as its direct Markdown value. CFEL may provide that value without prose. Do not create a Formal Claim child. Apply the respective content rules for Concern, Analysis & Advisory, Plan and Operations, and preserve their established primary content headings.
-    
+
     A Draft may be incomplete but carries exactly one Atom ID; report missing required Properties and check the complete applicable Current contract before promotion. Each Property's own values and dependent Properties are counted independently.
-    
+
     Legacy carrier spellings remain readable during migration. This transition does not assert additional Atom Properties.
 - Shared RMED source (exact binding): `CA-R-2123@9`
   - Claim Scope:
@@ -2089,31 +2098,31 @@ Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
     Each Current Method Atom in this Scope must use Eng Policy or Eng Decision. Each Current Delivery Atom uses Policy or Decision under the general Delivery Type definitions.
   - Details (source-bound):
     Subjects and Content Roles remain independent. This rule restricts admitted Type values, not Subject branches or Tier numbers. Other Content Roles and specialized Types outside this Scope are not restricted by this rule.
-    
+
     Method Eng Policy ownership requires at least one actual declared child and automatic application to every child under genuine topic or environment conditions. A leaf may inherit a Policy but cannot locally own one. Eng Decision records a Scope-Unit-specific choice without automatic every-child inheritance.
-    
+
     Incomplete Drafts remain allowed. Apply this Type restriction before promotion to Current. During this Candidate #7 migration, classification-only Type corrections retain the base ID when Summary and Substance are unchanged.
-    
+
     The reusable definitions are CA-R-2119@8 and CA-R-2120@8 for Method, and CA-R-2267@2 and CA-R-2268@1 for Delivery. This source rule does not claim that their existing consumers have been migrated or that runtime validation implements it.
 - Shared RMED source (property_qualification binding): `CA-R-2468@2`
   - Remaining Claim prose:
     Declaration is a Requirement Form.
-    
+
     Its Claim uses:
-    
+
     - CFEL for expressible constraints.
     - Prose for the remaining constraints.
-    
+
     A Primary Node has brief Semantics. A Property has none.
-    
+
     A Property Declaration specifies:
-    
+
     1. Property occurrence, where constrained.
     2. Allowed value Format.
     3. Value cardinality.
     4. Dependent-name Format.
     5. Dependent-name cardinality.
-    
+
     An unchanged inherited Property keeps its original Declaration. An explicit local MODEL override selects its effective replacement.
   - Binding context:
     - property: `Atom.Role`
@@ -2211,7 +2220,7 @@ Atom/(.Role: "Analysis & Advisory")
     content-preserving migration of existing reports into FPF Analysis Report Carriers.
   - Remaining Claim prose:
     an FPF Analysis Report import **must** pass all of the following checks before the original Carrier is retired:
-    
+
     - the exact Form and filename token are admitted, the carried Atom ID is unique, and the declared Role, owning Scope Unit, tier, Status and Version metadata match the selected authority;
     - exactly one Summary and the ordered Question, Scope, Approach, Results and TLDR sections occur outside the quoted source content, with nonempty values;
     - removing only the quotation wrapper recovers every original source byte, including Unicode, line endings, nested headings, code fences and terminal-newline state; its SHA-256 and byte length match the frozen source;
@@ -2227,7 +2236,7 @@ Atom/(.Role: "Analysis & Advisory")
     authoring and content-preserving import of FPF Analysis Report Atoms.
   - Remaining Claim prose:
     **to** author an FPF Analysis Report, use the common Analysis & Advisory structure under CA-D-479 and retain the report's bounded question, scope, approach, results, provenance and evidence limits without treating its recommendations as accepted specification.
-    
+
     - carry `role: "Analysis & Advisory"` and `form: FPF Analysis Report`, the actual owning Scope Unit, applicable tier, Status and Version Properties. Summary describes the Question; TLDR summarizes the retained analytical record without replacing Results.
     - **when** importing an existing report, preserve its complete original UTF-8 text as quoted Markdown in Results. Quotation is a carrier wrapper, not an edit to the original text. Record its original path, SHA-256 and byte length in Approach so the original bytes can be recovered and checked.
     - identify the original inquiry from its explicit task or question where available; otherwise identify the bounded historical report without inventing a missing execution contract. Preserve all native findings, alternatives, citations, limitations and time-relative statements in the quoted record.
@@ -2256,7 +2265,7 @@ Atom/(.Role: "Analysis & Advisory")
     Rationale Atoms and their pre-existing specification subjects.
   - Remaining Claim prose:
     a Rationale is an Analysis & Advisory Atom created **only** **after** **every** specification Atom it explains already exists. the Rationale stores the directed relation **to** its subjects; specification Atoms contain **none** of (embedded Rationale, persisted Rationale backlink).
-    
+
     Rationale is explanatory rather than normative. Changing an obligation, boundary, Method, Evaluation condition, Delivery rule, **or** acceptance meaning requires a new applicable specification Atom rather than a Rationale.
   - Binding context:
     - property: `Atom.Form`
@@ -2273,7 +2282,7 @@ Atom/(.Role: "Analysis & Advisory")
     an FPF Analysis Report **means** a specialized Analysis Report whose bounded inquiry **or** interpretation product records an FPF analytical command, composition, **or** directly related analytical follow-up, retaining its findings **and** stated evidence limits as reporting content rather than adopting them as normative authority.
   - Details (source-bound):
     The common Analysis & Advisory body Properties remain Question, Scope, Approach, Results and TLDR under CA-D-479. The Analysis & Advisory lifecycle and applicable Status model remain governed by CA-R-1727@30 and CA-R-1875; this Form does not introduce another Status domain or transition rule. A Done report can retain unresolved questions and rejected candidates. Done does not mean that its proposals were adopted, its issues were closed, or a tested implementation succeeded.
-    
+
     Historical statements remain bound to their original report context. Missing invocation, source revision, author, or execution evidence remains missing; the conversion must not invent it.
   - Binding context:
     - property: `Atom.Form`
@@ -2429,9 +2438,9 @@ Atom/(.Role: Evaluation)
     Evaluation realization chains and their associated implementation, evidence, and operational contributions.
   - Remaining Claim prose:
     an Evaluation Atom's realization chains **must** remain distinct between deterministic test implementations **and** qualitative, probabilistic, statistical, rubric-based, **or** model-judged evaluation implementations.
-    
+
     **every** chain **must** keep these contributions distinguishable:
-    
+
     - its executable Implementation;
     - its configuration **or** rubric;
     - its factual execution result;
@@ -2447,7 +2456,7 @@ Atom/(.Role: Evaluation)
   - Details (source-bound):
     - methodology source Scope Units own Evaluations of Action **and** Workflow definitions, including valid Action references, Step inputs, typed transitions, **and** termination **or** bounded retry conditions. these Evaluations **may** directly check O authority under CA-R-1018; checks for Steps **and** Runs reuse CA-E-486 **when** applicable.
     - TOOLS **and** its Tool Scope Units own Evaluations of Tools: implementation behavior, interfaces, failures, **and** conformance **to** the Action implemented by the Tool. these Evaluations **must not** independently define the correctness rules of the referenced Action **or** Workflow.
-    
+
     checking whether a Tool realizes an Action correctly is distinct from checking whether that Action's definition is valid. a Tool test **may** use the methodology definition as its expected-behavior authority **without** taking ownership of definition validation.
 - Shared RMED source (exact binding): `CA-R-1741@30`
   - Claim Scope:
@@ -2674,13 +2683,13 @@ IF Step// {=0}((CONTAINS)) THEN Step// {:1}((RUNS)) (in (Action, Workflow))//
     Step selections and parameter bindings.
   - Remaining Claim prose:
     A Step **must** own the bindings for the Action or Workflow it RUNS.
-    
+
     Each bound value comes from one of:
-    
+
     - A previous Step output.
     - The input of the enclosing Workflow Run.
     - A fixed value declared by the Step.
-    
+
     A Step binding references the selected Action or Workflow contract. It does not copy or redefine that contract.
 
 ### `Atom/(.Role:=Operations)/Substep` — primary_node
@@ -2800,23 +2809,23 @@ Workflow//{:0+}((IS_RUN_BY)) Step//
     the Evaluation **must** check Workflow Steps **and** Runs.
   - Details (source-bound):
     ### Cases
-    
+
     - define **`=2`** distinct leaf Steps referencing the same Action with different input bindings; follow an admitted Conditional Step route whose result selects exactly one nested Step alternative.
     - execute a containing Step and its nested substeps: record a distinct Step Run for the containing Step and for each executed nested Step; the containing Step Run launches no Action, while each executed leaf Step Run executes its **`=1`** referenced Action through its **`=1`** corresponding Action Run.
     - revisit a Step under an accepted retry allowance within **`=1`** Workflow Run.
     - introduce a leaf Step with **`=0`** Action references, **`>1`** Action references, an unresolved Action, **or** an unresolved required input binding; or give a containing Step an own Action launch.
     - introduce an untyped edge, an edge whose endpoint is an Action rather than a Step, **or** a next-Step reference missing from that Workflow.
     - record a failed Step Run; separately reference a reusable Workflow definition **without** recording an execution.
-    
+
     ### Acceptance
-    
+
     - the valid shared Action retains **`=1`** definition; Step bindings remain distinct, and the containing Step does not duplicate Action behavior.
     - every executed Step, including a containing Step, has its own distinct Step Run; the containing Step Run groups actual nested Step Runs and launches no Action, while each leaf Step Run executes its **`=1`** referenced Action through its **`=1`** corresponding Action Run.
     - a Conditional Step selects exactly one declared nested Step alternative from its definition; no additional Branch, Fork, or Decision Atom is required.
     - **every** actual revisit creates a distinct Step Run within the same Workflow Run **without** resetting its retry allowance.
     - invalid Action cardinality, invalid containing-Step launch, unresolved inputs, invalid endpoints, **and** untyped transitions fail the check.
     - failed **or** absent execution evidence **must not** become successful completion, a new Workflow definition, **or** another historical source.
-    
+
     report the exact failing source, case, **and** condition; do **not** change source authority **to** make the check pass.
 - Shared RMED source (exact binding): `CA-E-489@23`
   - Claim Scope:
@@ -2825,7 +2834,7 @@ Workflow//{:0+}((IS_RUN_BY)) Step//
     the Evaluation **must** check whether a Workflow's declared execution **and** handoff behavior is well formed under CA-R-1519 **and** CA-R-1520, independently of current executor availability.
   - Details (source-bound):
     ### Cases and expected results
-    
+
     - complete input declarations, resolvable Action references, admitted transitions, explicit terminal outcomes, **and** declared capability requirements: pass this definition check **without** requiring a running executor.
     - a missing required input declaration, unresolved definition reference, missing continuation-selection rule, **or** absent applicable approval condition: reject the affected definition.
     - a well-formed definition whose selected executor lacks a declared capability, worker, **or** current permission: the definition remains valid; execution admission is blocked under CA-R-1519. do **not** report unavailable execution as malformed authority.
@@ -2833,7 +2842,7 @@ Workflow//{:0+}((IS_RUN_BY)) Step//
     - a terminal handoff declares the target Revision, complete continuation inputs, reason, check evidence, **and** performed-effect account: accept its declared continuation boundary.
     - a handoff definition resumes predecessor Steps, claims successor success **before** execution, bypasses approval, resets retries, **or** admits an unbounded continuation cycle: reject.
     - a cross-Workflow Step route offered as a Run handoff: reject; the two boundaries have different endpoints **and** responsibilities.
-    
+
     report the exact failing source **and** condition. definition validity **must not** be reported as permission, execution readiness, successful execution, **or** evidence that a Run occurred.
 - Shared RMED source (exact binding): `CA-E-490@24`
   - Claim Scope:
@@ -2846,7 +2855,7 @@ Workflow//{:0+}((IS_RUN_BY)) Step//
     - supply an applicable Scope Unit **or** Atom Collection model; admit its valid change **without** imposing an Atom lifecycle.
     - request an unknown value or a change **without** a defined model: reject **without** inventing a value **or** bypassing required Carrier behavior. For a non-Atom Entity model that defines transition conditions, reject its prohibited transition; do not apply that matrix as an Atom Status gate. Preserve ordinary schema, identity/collision, expected-source/currentness, permission and Carrier safeguards.
     - supply a model requiring an unsupported capability: require an explicit limitation rather than a false pass.
-    
+
     these cases validate the methodology definition; an executor requires separate Implementation checks.
 - Shared RMED source (exact binding): `CA-E-491@25`
   - Claim Scope:
@@ -2861,7 +2870,7 @@ Workflow//{:0+}((IS_RUN_BY)) Step//
     - leave the assessment unresolved: require the caller's declared evidence **or** escalation path rather than presumed approval.
     - omit the caller's continuation binding **or** performed-effect account needed for handoff: block continuation **without** making the assessment Action invent either value.
     - the ending update Run does **not** call, wait for, **or** claim completion of replacement; the executor receives the caller's complete terminal result.
-    
+
     check the declared graph with read-only Action fixtures. this Evaluation does **not** require execution of the replacement effect.
 - Shared RMED source (exact binding): `CA-E-500@28`
   - Claim Scope:
@@ -2885,20 +2894,20 @@ Workflow//{:0+}((IS_RUN_BY)) Step//
     Atom update routing for a calling Workflow.
   - Remaining Claim prose:
     **to** author an Atom update Workflow, declare its response **to** identity assessment **in** the Workflow graph rather than **in** the assessment Action **or** executor code.
-    
+
     - reference CA-O-067-CORE_META_MODEL-ACTION--assess-atom-update-identity for the assessment; bind the target Revision, proposed result, applicable authority, **and** evidence **to** that Step. the Action returns its assessment **without** selecting the caller's next Step **or** continuation Workflow.
     - map identity-preserving results **to** the caller's declared update path **and** remaining authorization **and** checks; the assessment alone does **not** perform the update.
     - map replacement-required results **to** a terminal handoff under CA-R-1520-CORE_META_MODEL-RULE--return-workflow-handoffs-through-terminal-results. keep the admitted replacement-continuation binding **in** the Workflow definition, **not** as an assessment Action input. the ending Run does **not** call **or** wait for replacement **or** persist an intermediate update merely **to** replace it.
     - map unresolved results **to** the caller's declared evidence-gathering **or** escalation path; an unresolved result **must not** be treated as approval.
     - include reassessment **when** the proposal changes **or** its evidence becomes stale **before** persistence. a changed Summary remains a replacement under CA-R-1464-CORE_META_MODEL-REQUIREMENT--keep-summary-fixed-for-atom-identity even **when** the request began as an update.
-    
+
     this Method constrains how an Author expresses the caller's graph. it is **not** another Workflow, executable routing service, **or** requirement **to** build the executor through a particular Workflow.
 - Shared RMED source (exact binding): `CA-M-305@22`
   - Claim Scope:
     Workflow schemes using Step references.
   - Remaining Claim prose:
     **to** write a Workflow scheme, express the graph through references **to** its Step Atoms:
-    
+
     - use **`=1`** unambiguous reference for **every** graph node; readable node labels **may** accompany those references.
     - state the entry, declared Step order and structural Relations, Conditional Step routing, **and** terminal outcomes against those nodes.
     - place Action references **and** parameter/input bindings **in** leaf Step Atoms rather than reproducing them **in** the scheme; a containing Step carries its nested substeps and no own Action launch.
@@ -2913,7 +2922,7 @@ Workflow//{:0+}((IS_RUN_BY)) Step//
     - preserve supplied inputs, returned results, **and** actual Run identities under CA-R-2465, CA-R-1510@18, **and** CA-R-1511@22.
     - admit work **only** within the applicable authorization, Operator-approval, retry, waiting, **and** recovery conditions. a missing capability **or** unresolved rule blocks the affected execution rather than granting permission. a well-formed definition remains valid **when** a selected executor lacks a required capability; definition validation **and** execution admission are distinct checks.
     - a Workflow **may** assume these declared capabilities; it **must not** require a particular executor product merely **to** define its behavior.
-    
+
     this conformance boundary does **not** select a server, programming language, storage technology, **or** a Workflow for building the executor itself.
 - Shared RMED source (exact binding): `CA-R-1521@32`
   - Claim Scope:
@@ -2940,12 +2949,12 @@ Workflow//{:0+}((IS_RUN_BY)) Step//
     a Workflow graph scheme.
   - Remaining Claim prose:
     A Workflow graph scheme **must** identify Step references, declared order, structural Relations, entry points, and terminal outcomes.
-    
+
     The graph references Step bindings and called definitions. Its declared graph determines control flow; folder nesting and file order **must not** replace it.
 - Shared RMED source (exact binding): `CA-R-2565@2`
   - Remaining Claim prose:
     When a Workflow archives an Atom:
-    
+
     1. Keep Atom.Version unchanged.
     2. Keep Atom.Updated At unchanged.
     3. Do not create a new Atom Version solely for archiving.
@@ -3000,7 +3009,7 @@ THEN (Atom/(.Role: Plan).Relations.contained_by{==1})`
     Plan Atom Carrier Bundles.
   - Remaining Claim prose:
     a Plan Atom Carrier Bundle **must** consist of **`=1`** Markdown File Carrier **and** **`<=1`** optional matching Directory Carrier using the same canonical stem under CA-D-469-CORE_META_MODEL-DELIVERY--serialize-plan-carrier-stems.
-    
+
     - the Markdown file carries the Plan's own Properties **and** follows CA-D-470-CORE_META_MODEL-DELIVERY--serialize-plan-file-sections, including its mandatory Definition of Done.
     - a matching directory organizes related Plan Carriers; it neither creates another Atom **nor** replaces the mandatory Markdown file.
     - the file **and** optional directory represent the same identity, Summary, Label, **and** Status, checked under CA-D-480-CORE_META_MODEL-DELIVERY--keep-atom-addresses-consistent-with-carried-properties.
@@ -3010,11 +3019,11 @@ THEN (Atom/(.Role: Plan).Relations.contained_by{==1})`
     Plan Markdown File Carriers and their body-section layout.
   - Remaining Claim prose:
     **every** Plan Markdown File Carrier **must** contain YAML Frontmatter followed by the Plan layout registered **in** CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties:
-    
+
     1. `# Summary` carries the Summary value.
     2. `## Objective` carries the intended work **or** outcome Claim, including its applicability restrictions.
     3. `## Details` carries supporting information **and** **`=1`** nested `### Definition of Done` section with the Plan's falsifying Condition Expression.
-    
+
     the Definition of Done is the Plan's existing Property, **not** a second completion Claim **or** an optional detail. carry its value **only** **in** that nested section. **any** other supporting Details **must** stay within the Objective. use CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties for section boundaries; do **not** duplicate these Properties **in** frontmatter **or** add a separate Scope section duplicating restrictions **in** the Objective. a Hub uses this same mandatory file, **not** an additional Objective Atom.
 - Shared RMED source (exact binding): `CA-E-504@22`
   - Claim Scope:
@@ -3029,14 +3038,14 @@ THEN (Atom/(.Role: Plan).Relations.contained_by{==1})`
     - accept a Done blocker; Backlog, Active, Canceled, **and** Archived **must not** satisfy its completion gate.
     - combine contained-Plan terminal prerequisites (Done **or** Canceled; mixed statuses allowed) with blocking for deadlock detection: **if** containing Plan `H` contains Plan `A` **and** `H BLOCKS A`, reject the unsatisfiable cycle even though the blocking graph alone is acyclic. `IS_CONTAINED_BY`/derived `CONTAINS` does **not** establish `BLOCKS` by itself.
     - distinguish readiness from forced execution: a deterministic display order does **not** prohibit concurrent independent work **or** grant execution authority.
-    
+
     report the failing endpoints **and**, for a cycle, its complete prerequisite chain.
 - Shared RMED source (exact binding): `CA-M-123@31`
   - Claim Scope:
     authoring one Definition of Done.
   - Remaining Claim prose:
     **to** write one Definition of Done, the Author **must** perform **all** of:
-    
+
     1. begin the falsification condition expression with: the Plan is **not** Done **if**.
     2. make **every** atomic condition observable **and** decidable.
     3. enclose **every** composite condition **and** **every** function argument **in** explicit parentheses.
@@ -3056,10 +3065,10 @@ THEN (Atom/(.Role: Plan).Relations.contained_by{==1})`
     Plan Atoms, their own work, and their direct Plan containment.
   - Remaining Claim prose:
     **every** Plan Atom **must** have **`>=1`** of:
-    
+
     - its own work content;
     - **`>0`** outgoing derived `CONTAINS` links **to** directly contained Plan Atoms.
-    
+
     both contributions **may** be present within the same Claim; a Summary alone **without** either contribution is insufficient.
 - Shared RMED source (exact binding): `CA-R-1589@24`
   - Claim Scope:
@@ -3081,9 +3090,9 @@ THEN (Atom/(.Role: Plan).Relations.contained_by{==1})`
     Development Backlog candidates selected into active work.
   - Remaining Claim prose:
     assigning a Development Backlog candidate **to** a current **or** future version does **not** establish governed truth. the candidate becomes active work **only** **when** the operator selects it **and** CAPRMEDIO creates **`=1`** bounded Task Atom for its action. execution **then** materializes the minimum Requirement, Method, Evaluation, Delivery, **or** future Operations Atoms needed **to** govern that work.
-    
+
     **`=1`** backlog line **may** produce multiple Atoms. multiple closely related backlog lines **may** produce **`=1`** Concern **or** RMED Atom **only** **when** they resolve **to** **`=1`** independently replaceable claim. Analysis & Advisory, Task, Implementation, **and** Operations use their separately governed atomicity models.
-    
+
     the backlog entry **may** link the resulting Atoms for navigation but remains a non-authoritative planning candidate **until** release finalization removes **or** reschedules it.
   - Details (source-bound):
     a Development Backlog candidate becomes active **only** through a bounded Task Atom; specification **or** other semantic authority arises **only** from the applicable CAPRMEDIO Atoms created **or** revised during execution.
@@ -3147,11 +3156,11 @@ Atom/(.Role: Requirement)
 - Shared RMED source (exact binding): `CA-E-434@24`
   - Remaining Claim prose:
     **when** an accepted Requirement is used **to** govern work **or** evaluate a result, its checkability Evaluation **must** return `pass` **if** the available evidence identifies **all** of the following:
-    
+
     - recoverable inputs for checking the Requirement;
     - a recoverable check procedure;
     - a recoverable interpretation that yields **=1** result **in** (`pass`, `fail`).
-    
+
     **if** **any** of these conditions is missing, the checkability Evaluation **must** return `fail`. satisfying them does **not** require a separate Evaluation Atom **unless** applicable authority requires that Atom for the particular case under CAPRMEDIO-META-REQU-124; an independently governed Evaluation Claim still follows the Atom boundary rules.
 - Shared RMED source (exact binding): `CA-R-024@29`
   - Remaining Claim prose:
@@ -3161,14 +3170,14 @@ Atom/(.Role: Requirement)
     Requirement claims and their internal realization.
   - Remaining Claim prose:
     **every** Requirement **must** state its required outcome, obligation, permission, prohibition, **or** accepted external boundary **without** prescribing internal code **or** code organization merely as a construction choice.
-    
+
     - an accepted external interface, protocol, data shape, **or** host obligation **may** be required **when** conformance **to** that boundary is itself the required outcome. this does **not** prescribe an **otherwise** interchangeable internal realization.
     - a programming language, library, algorithm, function, class, module, source-file organization, **or** another construction technique does **not** become a Requirement solely because it is normative; classify its primary contribution under CA-R-1531@20 **and** CA-R-2513.
     - packaging, release, deployment, distribution, installation, migration, upgrade, **and** rollback are topics, **not** Content Role selectors. classify a Carrier representation **or** placement under CA-R-2515, reusable Action **or** Workflow behavior under CA-R-2463, **and** treat an actual realization as native Implementation rather than an Atom Content Role. mentioning one of those topics does **not** turn a procedure into Delivery authority.
     - a candidate that combines this independently replaceable outcome with an independently replaceable construction, Carrier, **or** operational Claim requires separate Atoms under the one-Claim authority; a composite Claim is **not** split merely because it has multiple clauses.
   - Details (source-bound):
     Functional and non-functional Requirements both specify outcomes. A performance target can have an Engineering Subject. Subject and Content Role are independent; architecture remains Method even when mandatory. The methodology's own model definitions and Entity Definition constraints remain within Requirement authority.
-    
+
     CA-R-2512 owns the Requirement Content Role definition. this Atom constrains realization prescription **without** duplicating the definitions of the other Content Roles.
 - Shared RMED source (exact binding): `CA-R-1707@32`
   - Claim Scope:
@@ -3213,7 +3222,7 @@ Atom/(.Role: Requirement)
 - Declaration source: `CA-R-2516@5`
   - Remaining Claim prose:
     A Declaration states the applicable contract for its active Subject. Its Claim may contain several prose statements, CFEL formal expressions, or both when they form one coherent declaration about one topic.
-    
+
     Scope Unit Declaration is a Requirement Form using this template. It is not another Atom Role.
 - Shared RMED source (exact binding): `CA-D-662@4`
   - Remaining Claim prose:
@@ -3254,7 +3263,7 @@ Atom.Relations >> @Carrier//Markdown file.frontmatter.relations
     The proposed authored representation and formal paths of a Node Declaration.
   - Remaining Claim prose:
     The proposed Atom schema **must** distinguish Role from Form. The current Atom `content_role` field maps to the proposed `role` value, and the current `type` field maps to the proposed `form` value. A Declaration Atom has `role: Requirement` and `form: Declaration`; Declaration is a Form under the Requirement Role, not a new Role value. In Subject addresses, express that pair as `Atom/(.Role := Requirement)/(.Form := Declaration)`. Use `Form` for the form qualifier in place of a legacy nested `Role: X` or `Type: X` qualifier.
-    
+
     Role identifies the contribution. Form identifies its authoring form and does not override or duplicate Role.
 - Shared RMED source (exact binding): `CA-R-2482@2`
   - Claim Scope:
@@ -3268,15 +3277,15 @@ Atom.Relations >> @Carrier//Markdown file.frontmatter.relations
 - Shared RMED source (exact binding): `CA-R-2486@4`
   - Remaining Claim prose:
     Each named Relation, including each Derived Relation view, has exactly one Requirement / Declaration in the selected effective MODEL. Its Declaration states its meaning in Semantics, the allowed Host and Target, and its Direct or Derived Derivation classification. State the short notation when one exists and each source-backed counterpart Relation; otherwise use the full named Relation notation.
-    
+
     A Relation endpoint may be any declared model Entity or an instance of a declared model Entity, including Carrier and CFEL entities. Literal values are not Relation endpoints. Use the most specific admitted endpoint selectors and retain any further source-supported endpoint conditions in Semantics.
-    
+
     In a Relation Declaration endpoint signature, an untyped `$host` or `$target` ranges over declared model Entities and their instances in the selected effective MODEL. Other untyped variable names in that signature follow the same rule. These signature variables do not imply a Node root. A signature constrains which links are admissible; it does not create links or assert a link for every matching pair. An unresolved endpoint population cannot establish an empty or valid signature.
-    
+
     A Derived Relation Declaration identifies the source Relation using `IS_DERIVED_RELATION_OF`. When the derived Relation is an inverse, also bind the canonical Relation to its inverse using `HAS_INVERSE`; the inverse swaps Host and Target and describes the same fact, not a second authored fact. A derived direction has its own Declaration; its use still requires its own applicable permission and cardinality. Neither an inverse binding nor a displayed reverse view grants permission or a cardinality.
-    
+
     The bare `Host ((R)) Target` is the named forward view. `Target <((R)) Host` is the reverse written view of the same canonical fact. Counts remain attached to their written endpoints when the views are normalized to Host and Target. This notation does not create another Relation or authored fact.
-    
+
     When a Relation has an admitted short Subject notation, its Declaration states exactly one nonempty short-notation value using the Relation metadata binding. When no short notation is admitted, omit that value and use the full named Relation notation. The value is scalar; it does not create a separate Atom Content Property or nested Property. Equivalent directional written views do not constitute additional authored short-notation values.
 
 ### `Event Record` — primary_node
@@ -3306,25 +3315,25 @@ Event Record// {:1}((IS_CONTAINED_BY)) Journal//
     an Event Record offered as Atom replacement evidence **must** undergo an actual Evaluation against CA-R-807. Available evidence and Journal acceptance are **not** proof that the replacement is correct.
   - Details (source-bound):
     ### Checks
-    
+
     the Evaluation of that Event Record **must** run and report a passing, failed, or unresolved result. It **must**:
-    
+
     - report a failed replacement result **if** predecessor **or** successor identities are missing, unresolved, duplicate, self-referencing, **or** mismatched;
     - verify that **every** named successor was Active **before** the predecessor was archived, that the archived predecessor preserves its body, Summary, identity, numeric Version, and prior Updated At, with only archived Status changed on its Archive Carrier; verify retained exact prior Revision bytes, including the prior Version, Status **and** Updated At, and that **`=1`** authoritative Journal Event Record records that replacement;
     - distinguish selected Carrier representation evidence from proof of replacement correctness; and
     - treat repeated submission of the same Event Record as non-evidence of another authoritative record.
-    
+
     ### Failure disposition
-    
+
     an Event Record whose actual Evaluation reports failure **or** uncertainty **must not** be treated as a conforming replacement merely because the Journal preserves it under CA-R-1491. Its correction disposition **must** route a governed-source change through its authorized Workflow and **must not** rewrite accepted history.
-    
+
     this Evaluation **must not** require a Git Commit **or** a particular Journal serialization. Available evidence without the performed Evaluation and its reported result is **not** a passing result.
 - Shared RMED source (exact binding): `CA-R-2567@2`
   - Remaining Claim prose:
     Event Records with action create or update describe accepted, completed business creations or updates. No-op, failed, unaccepted, archive and Carrier-only events do not use these actions.
-    
+
     One accepted business update has one update Event Record.
-    
+
     - Its change delta contains only changed logical Properties.
     - Atom.Content and all its descendants are excluded from Event Records for now.
     - Each recorded change identifies the Property by its complete path and records its old and new value or absence.
@@ -3341,23 +3350,23 @@ Event Record// {:1}((IS_CONTAINED_BY)) Journal//
 - Shared RMED source (exact binding): `CA-R-2571@2`
   - Remaining Claim prose:
     An Event Record for Atom creation or update has object_output. An update record also has object_input; creation input is optional.
-    
+
     For each present Atom input or output, the Event Record captures:
-    
+
     - Atom.ID.
     - Atom.Version.
     - Atom.Updated At.
-    
+
     object_input contains the values before the change. object_output contains the values after it. Their IDs may differ. The captured values remain as recorded.
 - Shared RMED source (exact binding): `CA-R-2584@2`
   - Remaining Claim prose:
     An Event Record for Projection creation or update has object_output. An update record also has object_input; creation input is optional.
-    
+
     For each present Projection input or output, the Event Record captures:
-    
+
     - Projection.ID.
     - Projection.Updated At.
-    
+
     object_input contains the values before the change. object_output contains the values after it. Neither side contains a Version. The captured values remain as recorded.
 
 ### `Journal` — primary_node
@@ -3397,7 +3406,7 @@ Journal ((NARROWER_THAN)) @Continuant
     - Journal segments use this root **or** its subdirectories.
     - Artifact Change Log **and** Workflow Execution Log views **are** Projections, **not** separate authoritative Journals.
     - Runtime locks, receipts, **and** pending-recording state remain runtime state, **not** canonical Journal Carriers.
-    
+
     Technical and business runtime logs are Journals too, but their configured local database, remote database, or logging sink Carriers are not required to reside in this Directory Carrier. Journal classification does not impose one physical storage technology.
 - Shared RMED source (exact binding): `CA-D-559@19`
   - Claim Scope:
@@ -3411,7 +3420,7 @@ Journal ((NARROWER_THAN)) @Continuant
     Core Meta-Model rules concerning Journal recording, replacement evidence, and canonical log Projections.
   - Remaining Claim prose:
     the Evaluation **must** reject a Core Meta-Model rule that makes Journal recording, replacement evidence, **or** either canonical log Projection depend on Git installation, commit topology, hooks, **or** commit messages.
-    
+
     with no Git Extension selected, admitted Journal records **and** their Artifact Change Log **and** Process Log Projections **must** remain valid under their applicable authority. with the Git Extension selected, its commit references **may** add provenance but **must not** create a second authoritative event history. changing **or** removing secondary Git history **must not** destroy the recorded identity **and** evidence needed **to** rebuild the two logs. a missing **or** invalid authoritative Journal remains a failure **in** either case.
 - Shared RMED source (exact binding): `CA-E-476@23`
   - Claim Scope:
@@ -3420,16 +3429,16 @@ Journal ((NARROWER_THAN)) @Continuant
     report a failed Evaluation **if** the Journal loses recordable evidence because of Project defects, accepts corrupted **or** unauthorized writes, silently changes observations, **or** rewrites accepted history.
   - Details (source-bound):
     ### Cases
-    
+
     1. submit a correctly encoded event describing a conforming Project change.
     2. keep that event envelope valid while recording a legacy Atom ID, broken filename, invalid placement, malformed Atom Properties, unresolved Relation, **or** invalid lifecycle transition.
     3. change the live Project **after** capture while leaving the sealed historical observation intact.
     4. submit unreadable event data, missing required Event identity **or** fields, a digest mismatch, unauthorized append access, **or** an attempt **to** rewrite accepted history.
     5. resubmit the same Event identity **and** payload; **then** supply a conflicting payload under that identity.
     6. record an action whose separate conformance Evaluation failed **or** remained unresolved.
-    
+
     ### Acceptance
-    
+
     - cases 1, 2, 3, **and** 6 remain recordable **without** inventing identities, repairing observed values, **or** claiming a successful conformance verdict.
     - case 4 fails storage admission, preserves pending evidence safely, **and** leaves accepted history unchanged.
     - an identical retry creates no duplicate record. an identity collision with different payload fails **without** overwriting history.
@@ -3440,7 +3449,7 @@ Journal ((NARROWER_THAN)) @Continuant
     Plain append/read of observable Project events.
   - Remaining Claim prose:
     the Journal **must** preserve observable Project events independently of whether the recorded Project state conforms **to** Applicable Methodology.
-    
+
     - append **and** read supplied observations **without** a Journal validation layer, required historical chain, canonical receipt, digest check, deduplication, retry **or** recovery gate. prior records are **not** prerequisites for a new entry.
     - Atom-ID grammar, filenames, placement, Properties, Relations **and** lifecycle conformance belong **to** separate Evaluations **and** their Tools; none is a Journal append/read gate.
     - preserve supplied observed values **without** silently repairing them **or** inventing an earlier event, baseline, Actor, session, time **or** result. log entries do **not** prove Project conformance **or** correct execution.
@@ -3452,27 +3461,27 @@ Journal ((NARROWER_THAN)) @Continuant
     recovered observations retained by a Journal.
   - Remaining Claim prose:
     a Journal **may** retain an Event Record recovered from evidence **only** for facts established by **any** of:
-    
+
     - observed Carrier state;
     - preserved history;
     - Artifact movement;
     - native targets;
     - review records; **or**
     - bounded session state.
-    
+
     the Journal **must** preserve unresolved Actor, time, intent, scope, **or** outcome as explicit uncertainty rather than fabricated history.
 - Shared RMED source (exact binding): `CA-R-1684@29`
   - Claim Scope:
     factual execution Records, interpretive Analysis.
   - Remaining Claim prose:
     factual Journal Records carry what occurred, was measured, **or** was reported during execution **or** operation, with available provenance **and** context. their evidence **may** include logs, complaints, tickets, errors, execution outputs, measurements, delivery outcomes, **and** externally received operational reports.
-    
+
     a factual Record does **not** explain causes, justify a choice, synthesize implications, **or** prescribe Spec **or** Operations authority.
-    
+
     Analysis interprets Concerns, factual Records, Requirements, Methods, Evaluation, Delivery, Implementations, **or** Operations. it **may** compare alternatives, investigate causes, synthesize findings, explain implications, **and** provide rationale for a governed Claim.
-    
+
     **when** one Carrier mixes factual input with interpretation, the factual Record **and** interpretive Analysis remain separate governed contributions with explicit references.
-    
+
     factual execution Records **and** interpretive Analysis are **not** reusable Operations definitions.
 - Shared RMED source (exact binding): `CA-R-1712@28`
   - Claim Scope:
@@ -3484,7 +3493,7 @@ Journal ((NARROWER_THAN)) @Continuant
     CAPRMEDIO-governed provenance events in a Project.
   - Remaining Claim prose:
     **every** Project **must** use **`=1`** authoritative Work Journal for **all** CAPRMEDIO-governed provenance events, including Artifact changes, Workflow Runs, Step Runs, Action executions, **and** Implementation lifecycle events. append supplied actual observations to that Project Journal and read them as recorded. each explicit append is an append, including repeated data; no canonical-once, deduplication, prior-history, chain, validation, receipt, retry or recovery prerequisite applies.
-    
+
     Existing Journal entries remain unchanged and readable without migration or synthetic baselines. The Journal is a log of supplied observations, not permission or proof of source, lifecycle, Run or Git correctness; it does not promise historical replay or recovery. its logical event table does **not** require **`=1`** physical file **or** a database table; Carrier representation remains governed by Delivery authority.
   - Details (source-bound):
     Runtime technical and business Journals may preserve their own operational histories in configured local or remote sinks. They are not additional Project Work Journals. Preserve actually supplied references without inventing canonical bindings. Distinct operational observations remain distinct facts under CA-R-1470; the Project Journal imposes no cross-log reconciliation or recording gate.
@@ -3545,7 +3554,7 @@ Named Selection//Extension Sources
   - Details (source-bound):
     CA-R-1175 requires preservation of installed source versions as candidate inputs. CA-R-1228 governs the applicable Methodology subset, and CA-R-1724 separates installed availability from activation and version selection. This definition identifies their shared candidate population; it adds no activation procedure, new Scope Unit, or automatic conflict resolution.
   - Binding context:
-    - instance selector: `Named Selection//Extension Sources`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Named Selection//Extension Sources`
     - existence provenance: `bounded_named_contract_context`
 
 ### `Node` — primary_node
@@ -3596,7 +3605,7 @@ AND ((Node, Node.**) {==0}((HAS_INSTANCE)))`
     A migration packet passes only when its selected Node inventory, predecessor dispositions, governing sources and consumer changes are explicit and independently reviewed. Reject incomplete or contradictory coverage; a prepared Draft is not an adopted Declaration.
   - Details (source-bound):
     Check the proposed governing Drafts and exact selected source versions in the selected effective MODEL. Resolve explicit local overrides first. The following checklist states CAPRMEDIO's base rules; an explicit override changes the corresponding criterion in that MODEL:
-    
+
     - Declaration is Requirement/Form: Declaration, with the R prefix; Role and Form remain separate. Every declared member of (Node, Node/**, .**) has exactly one effective Current Declaration after MODEL override resolution and each such Declaration has one matching active Subject. Count only that Form, not all RMED addressing the Node. Drafts and archives do not add Current owners.
     - A Node Declaration states its normative constraints in its Claim, preferring admitted formal notation and using prose where existing notation cannot express a constraint without a single-use extension. The Node Claim explicitly forbids IS_PROPERTY_OF cycles, including self-loops; no dedicated acyclicity predicate is required. A repetitive prose Claim or Semantics is not mandatory. CFEL retains a Claim and may have Semantics. Unchanged inherited Properties reuse their original Declaration. Explicit local MODEL replacements are selected in that MODEL; the base remains unchanged. Effective inherited rules do not create new declaration responsibilities.
     - Each effective Relation whitelist resolves its inherited permissions, directions, endpoints and both cardinalities. Reject unlisted Relations, contradictory refinements, Property bearer cycles, multiple bearers, Property narrowing/instantiation and direct Primary Node values.
@@ -3605,15 +3614,15 @@ AND ((Node, Node.**) {==0}((HAS_INSTANCE)))`
     - Verify scalar-only, child-only and mixed Properties in YAML and Markdown, including one child with two values versus two child keys, skipped heading levels and fenced heading-like text. Undecided defaults or lossless retrieval policies block their affected acceptance cases.
     - Verify Role/Form and active/passive carrier migration and all actual schema, parser, graph-builder, SDK/workflow and fixture consumers together. Check ENGINE permissions against its effective declared Scope under the selected MODEL. A local MODEL does not automatically widen that Scope; an explicit override is evaluated normally. Target Scope does not expand authority.
     - Check that HAS_VALUE binds instance Property literals without declaring value Nodes; exact new Subject bindings and any incomplete whitelist before adopting affected rules. Establish replacement Declaration coverage and repair references before retiring the corresponding Node Definitions. Do not blanket-retire Terms, Carrier or CFEL.
-    
+
     Report Draft consistency, source adoption, parser conformance, graph reconstruction and runtime admission separately, with reproducible evidence. This Evaluation Draft neither performs those checks nor records a passing result.
-    
+
     ### Review phases
-    
+
     The current model review checks declarations, notation and constraints using examples. Review and migration of actual Workflow, Step, Substep and Action instances are deferred. Record model-review findings separately from later instance/implementation migration readiness; do not fail the bounded model review merely because deferred instance review has not run, or report migration readiness on the strength of model review alone.
-    
+
     ### CFEL v2 checks
-    
+
     - Separate expressions use semicolons.
     - Formal blocks in Claim use the CFEL label.
     - Claim has no separate Formal Claim heading.
@@ -3641,7 +3650,7 @@ AND ((Node, Node.**) {==0}((HAS_INSTANCE)))`
 - Shared RMED source (model_applicability_scope binding): `CA-R-2469@4`
   - Remaining Claim prose:
     Evaluate ownership within the selected effective MODEL. Each member selected by (Node, Node/**, .**), including the root and each Property, has exactly one effective Current authoritative Requirement/Form: Declaration addressing that Node.
-    
+
     Count inherited Current Declarations and explicit local replacements after MODEL override resolution. A replaced base Declaration remains available in its base MODEL and is not a second effective owner in the local MODEL. Drafts and archives are not Current owners. Other Atoms may address the same Node.
     The count uses only the effective Current Declaration-to-Node links in that MODEL. HAS_ACTIVE_SUBJECT is the canonical Relation obtained from the dedicated active Subject field; obtaining its value from that field does not make it a derived view of another Relation.
   - Fenced Claim block:
@@ -3651,31 +3660,31 @@ Atom/(.Role: Requirement)/(.Form: Declaration)// ((HAS_ACTIVE_SUBJECT)){:1} (Nod
   - Allowed Relations and other formal clauses:
     - `Atom/(.Role: Requirement)/(.Form: Declaration)//` — HAS_ACTIVE_SUBJECT → `(Node, Node/**, .**)`; Host=undefined; Target=1; written direction=forward
   - Binding context:
-    - applicability scope: `(Node, Node/**, .**)`
+    - applicability scope: `CAPRMEDIO <+ MODEL <+ (Node, Node/**, .**)`
 - Shared RMED source (model_applicability_scope binding): `CA-R-2470@2`
   - Remaining Claim prose:
     For Node1/Node2, Node2's instances receive Node1's applicable:
-    
+
     - Relation cardinalities.
     - Declared Properties.
     - Property Formats and value domains.
     - Direct-value and nested-Property cardinalities.
-    
+
     Applicable local Node constraints also apply. Inheritance does not copy actual values or Relation facts. Reuse an inherited Property's Declaration; an inherited lookup creates no new Property or bearer.
-    
+
     Each Node's effective Declaration resolves its complete Relation whitelist, including permissions, directions, endpoints and cardinalities. A Relation absent from that effective whitelist is forbidden. An unresolved whitelist does not grant permission.
   - Binding context:
-    - applicability scope: `(Node, Node/**, .**)`
+    - applicability scope: `CAPRMEDIO <+ MODEL <+ (Node, Node/**, .**)`
 - Shared RMED source (exact binding): `CA-R-2474@2`
   - Remaining Claim prose:
     HAS_VALUE binds a Property on an instance to its admitted literal value. For example, the version Property of Atom instance CA-P-123 has value 1. The Property declaration supplies its value format, admitted domain and cardinality; the literal 1 is not a separately declared graph Node and requires no Declaration Atom.
-    
+
     HAS_VALUE is a value binding rather than an ordinary Node-to-Node graph Relation. It must not create graph endpoints or independently authored inverse facts for literals. A Primary Node has no direct value. A Property on a Primary Node instance may hold direct values where its effective declaration permits them, including inherited Property declarations. Applying a declared Property to an instance does not instantiate that Property through HAS_INSTANCE or give its declaration another bearer.
 - Shared RMED source (classification_context binding): `CA-R-2484@2`
   - Remaining Claim prose:
     Container is a classification whose admitted value cases are yes and no:
     The yes case permits the Node to be the whole endpoint of CONTAINS, subject to its effective Relation whitelist and cardinalities. It does not by itself require a part. The no case forbids that endpoint role. Whether a part may belong to a whole is distinct from whether that part may itself have parts.
-    
+
     Use `Node// >| Container = yes` when selecting eligible whole instances. Container is not a required Boolean Property authored on every instance. This Draft does not assign an implicit default or require a classification annotation for every Node.
   - Fenced Claim block:
 ```CFEL
@@ -3706,7 +3715,7 @@ Node/Continuant
     an Artifact's Authority, Applicability, and Currentness Properties.
   - Remaining Claim prose:
     an Artifact's Authority, Applicability, **and** Currentness **must** remain distinct Properties under CA-R-1499, CA-R-1500, **and** CA-R-1501.
-    
+
     - an authoritative Artifact **may** be inapplicable **to** a given context.
     - an applicable historical Revision **may** no longer be current.
     - a current Projection **may** accurately report state **without** possessing semantic authority.
@@ -3733,7 +3742,7 @@ Node/Occurrent
     information about an Occurrent is retained, a Continuant record represents
     that information; the Carrier binds the Continuant record, not the Occurrent.
     An Event Record in a Journal is one such record.
-    
+
     This reusable Policy governs Occurrent representation. It creates no new
     Carrier, per-occurrence binding, Journal record, or relation type.
   - Semantics:
@@ -3763,46 +3772,6 @@ PROJECT STRUCTURE ((NARROWER_THAN)) @Node
     - `PROJECT STRUCTURE` — NARROWER_THAN → `@Node`; Host=undefined; Target=undefined; written direction=forward
   - Semantics:
     PROJECT STRUCTURE describes the actual structure of a Project, including its Scope Units, Aspects, and other declared components.
-- Shared RMED source (known_instance_context binding): `CA-R-2483@6`
-  - Remaining Claim prose:
-    CAPRMEDIO's PROJECT STRUCTURE has:
-    
-    - Scope Structure.
-    - Aspect instances, including Product.
-    - Other declared components.
-    Its Scope Structure retains the proposed ordered Units:
-    
-    1. META_MODEL.
-    2. ENGINE.
-    3. CORE EXTENSIONS.
-    4. DOCUMENTATION.
-    
-    Its Core Meta-Model Unit contains the Atoms defining MODEL//CAPRMEDIO, including the Declarations for MODEL and PROJECT STRUCTURE. The MODEL and its defining Scope Unit have separate identities.
-    
-    Each constrained Unit's formal Scope is declared outside that Unit. It states permitted active and passive Subjects, Relations, endpoints and cardinalities.
-    
-    CAPRMEDIO's PROJECT STRUCTURE records ENGINE's base formal Scope:
-    
-    - Implementation RMED uses ENGINE's declared implementation Subjects.
-    - Instance creation follows that Scope's permissions.
-    - ENGINE references metamodel Declarations only through passive Subjects.
-    - Active metamodel definitions use the declared model-defining Scope.
-    - A local MODEL changes ENGINE's Scope only through an explicit Scope-contract replacement.
-    
-    Declared Unit order governs this Scope Structure.
-  - Fenced Claim block:
-```CFEL
-Aspects <+ Product
-```
-  - Allowed Relations and other formal clauses:
-    - `Aspects` — <+ → `Product`; Host=undefined; Target=undefined; written direction=forward
-  - Details (source-bound):
-    The two root kinds are MODEL and PROJECT STRUCTURE. Their CAPRMEDIO instance roots are MODEL//CAPRMEDIO and PROJECT STRUCTURE//CAPRMEDIO. A consumer Project has its own PROJECT STRUCTURE instance root and may have a local MODEL instance root.
-    
-    This Draft does not move directories. Exact instance registration and mapping from existing Scope Units remain adoption work. The earlier PROJECT//CAPRMEDIO Framework wrapper is superseded by the separate typed roots. CAPRMEDIO's actual Unit names are not universal values.
-  - Binding context:
-    - instance selector: `PROJECT STRUCTURE//CAPRMEDIO`
-    - existence provenance: `bounded_named_contract_context`
 
 ### `Package` — primary_node
 
@@ -3835,14 +3804,14 @@ THEN ($package {==1}((IS_CONTAINED_BY)) Package//)`
     the Evaluation of a CAPRMEDIO Tool's methodology binding **must** check the canonical Action owner, binding cardinality, **and** division of Evaluation responsibility under CA-R-1515-PROJECT_CONFIGURATION-RULE--keep-canonical-actions-and-workflows-in-methodology, CA-R-1800-PROJECT_CONFIGURATION-RULE--bind-every-tool-to-one-methodology-action, CA-R-1517-PROJECT_CONFIGURATION-RULE--keep-tool-operational-authority-outside-its-own-subtree, **and** CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.
   - Details (source-bound):
     ### Cases and expected results
-    
+
     - the Tool implements **`=1`** resolvable applicable Action owned by a methodology source outside the Tool's subtree: pass the binding check.
     - the Tool has **`=0`** **or** **`>1`** implemented Action bindings, an unresolved definition, **or** a copied operational definition owned by the Tool: fail.
     - an implementation reference targets an O Atom owned by the Tool's Scope Unit **or** a descendant: fail. a methodology Evaluation checking its own O definition **must not** fail this Tool-only containment rule.
     - Tool Evaluations check the Tool's realization of its Action while methodology Evaluations check the operational definitions: pass the responsibility check.
     - a Tool Evaluation independently owns Action **or** Workflow definition-validity rules: fail for misplaced authority; invoking an existing methodology check does **not** transfer that authority.
     - a Workflow **contains** an unresolved Step Action **or** an unbounded retry loop: report the defect against the methodology definition through its methodology Evaluation, rather than silently repairing the Workflow inside the Tool's specification.
-    
+
     report binding conformance separately from actual Implementation results. valid ownership **and** references alone **must not** be reported as proof that the Tool works **or** that **all** indirect cycles are absent.
 - Shared RMED source (exact binding): `CA-R-1517@18`
   - Claim Scope:
@@ -3852,7 +3821,7 @@ THEN ($package {==1}((IS_CONTAINED_BY)) Package//)`
   - Details (source-bound):
     - the restriction concerns the owner of the operational definition, **not** the location of the Tool's code, prompts, **or** runtime results.
     - methodology Evaluations of their own Action **and** Workflow definitions under CA-R-1518 are **not** Tool implementation references **and** are **not** prohibited by this rule.
-    
+
     this restriction prevents self-reference through the Tool's own subtree; it does **not** establish that **all** indirect dependency cycles are absent.
 - Shared RMED source (exact binding): `CA-R-1800@19`
   - Claim Scope:
@@ -3863,7 +3832,7 @@ THEN ($package {==1}((IS_CONTAINED_BY)) Package//)`
     - the Tool's RMED identifies that Action as the behavior it realizes **and** specifies its implementation obligations **without** copying the canonical Action definition.
     - a Workflow Step binds its Action under CA-R-2465; the corresponding Tool realizes that Action rather than redefining the Workflow graph.
     - this cardinality constrains the Action implemented by the Tool. it does **not** count internal instructions, API calls, interactions, **or** retries.
-    
+
     the binding is **not** a requirement **to** use that Action **or** a particular Workflow **to** build the Tool.
 - Shared RMED source (exact binding): `CA-R-2174@6`
   - Remaining Claim prose:
@@ -3894,12 +3863,12 @@ Package/Implementation// {:0}((IS_CONTAINED_BY)) Package//
 - Shared RMED source (exact binding): `CA-E-438@29`
   - Remaining Claim prose:
     the implementation mode Evaluation **must** return `fail` **if**
-    
+
     - execution replaces the Operator-selected mode **without** authorization,
     - treats an evaluation-and-fix request as permission for a full rebuild,
     - exceeds Task permissions,
     - **or** exempts the selected mode from the governing RMED.
-    
+
     authorized rewriting **or** different source-code bytes **must not** by themselves cause failure **when** reconstruction equivalence under CA-M-262 is preserved.
 - Shared RMED source (exact binding): `CA-M-261@19`
   - Remaining Claim prose:
@@ -3911,7 +3880,7 @@ Package/Implementation// {:0}((IS_CONTAINED_BY)) Package//
 - Shared RMED source (exact binding): `CA-M-262@27`
   - Remaining Claim prose:
     **to** rebuild the Implementation, use the current RMED as sufficient authority for reproducing its required behavior **and** passing its applicable Evaluations **without** the previous Implementation **or** additional specification preparation; **if** the implementation language changes, **then** update the affected Method **and** Delivery authority **before** rebuilding against the resulting current RMED. a ready-made alternative Implementation is **not** required.
-    
+
     under unchanged governing RMED, reconstruct runtime behavior that produces the same output for the same complete runtime input, including relevant starting state, configuration, time, randomness, **and** external-service responses. preserve the applicable Method **and** Delivery constraints; identical source code **or** identical source-file bytes are **not** required. judge fresh reconstruction **and** repeated implementation by this runtime equivalence, **not** by a requirement **to** leave already-conforming code untouched. an authorized RMED change establishes a new comparison baseline **and** **must not** be reported as reconstruction against unchanged RMED.
 - Shared RMED source (exact binding): `CA-R-1873@20`
   - Claim Scope:
@@ -3925,7 +3894,7 @@ Package/Implementation// {:0}((IS_CONTAINED_BY)) Package//
     Implementation **means** the actual Code, Prompts, Documentation and Resources that realize RMED for a Project. Directly edited Implementation can be authoritative for what is actually implemented.
   - Semantics:
     Implementation is not a Projection merely because it realizes RMED. Its logical artifacts remain distinct from their Carriers and from the Runtime in which technical execution occurs.
-    
+
     A Projection is a non-authoritative output produced from a declared source selection through a Workflow: source of truth → Workflow → Projection. Changes to a Projection belong in its authoritative sources, followed by a rebuild through its Workflow. A generated view of Implementation is a Projection; that does not make its directly edited sources Projections.
   - Details (source-bound):
     CA-R-2535 defines Projection and its source-only editing boundary. CA-R-1568 permits a derived view to be delivered as an Implementation output without classifying Implementation as a whole as Projection.
@@ -4014,7 +3983,7 @@ Project//.ID: []{:0}
 - Shared RMED source (exact binding): `CA-M-296@21`
   - Remaining Claim prose:
     **to** preserve valuable information while developing caprmedio, keep that information recoverable from its proper Project Artifacts **without** depending on Agent memory **or** session continuity.
-    
+
     - do **not** use `MEMORY.md`, similar memory files, conversation summaries, **or** handoff notes as governing authority **or** as the sole preserved copy of valuable information.
     - preserve accepted decisions, findings, rationale, **and** necessary evidence **in** their appropriate Artifacts under Applicable Methodology. keep governing Atoms, analysis, **and** factual Journal records distinct; preserving a finding does **not** make it accepted authority.
     - secondary summaries **may** help locate sources, but **must not** substitute for reading the relevant current sources **before** relying on their contents **or** claiming that work is complete.
@@ -4029,7 +3998,7 @@ Project//.ID: []{:0}
 - Shared RMED source (exact binding): `CA-R-047@37`
   - Remaining Claim prose:
     a CAPRMEDIO self-improvement cycle **must** keep the following participating contributions distinct **and** traceably related:
-    
+
     - observations recorded **in** the Journal;
     - Analysis & Advisory;
     - Tasks;
@@ -4037,7 +4006,7 @@ Project//.ID: []{:0}
     - Implementation;
     - Delivery;
     - follow-up Evaluation.
-    
+
     reusable Operations definitions remain distinct from the Journal Records of their executions **and** observations under CAPRMEDIO-META-REQU-092.
 - Shared RMED source (exact binding): `CA-R-053@28`
   - Remaining Claim prose:
@@ -4082,14 +4051,14 @@ Project//caprmedio.Name == "caprmedio"
 ```
   - Unresolved CFEL: `Project//caprmedio.Name == "caprmedio"`
   - Binding context:
-    - instance selector: `Project//caprmedio`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Project//caprmedio`
     - instance kind: `Project`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2640', 'version': 1, 'path': '.caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md', 'sha256': 'bd2507933a0471d8fcfc1a1560cf7ecf1585603a1d16c253f8411cb904bbf27f'}`
+    - declaration source: `{'atom_id': 'CA-R-2640', 'version': 1, 'path': '.caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md', 'sha256': '5d75c250da90bc90d76bb38220ec23068c7630eab905516416496f8a8c06fa52'}`
 - Shared RMED source (exact binding): `CA-R-632@29`
   - Remaining Claim prose:
     **every** governed improvement cycle **in** caprmedio **must** declare **`=1`** primary target:
-    
+
     - the CAPRMEDIO Framework Instance operating within caprmedio; **or**
     - the CAPRMEDIO Framework being developed as the caprmedio Project's output.
 - Shared RMED source (exact binding): `CA-R-819@38`
@@ -4135,12 +4104,12 @@ Projection ((NARROWER_THAN)) @Continuant
     The source binding and representation of each Atom Carrier projected as an Applicable Methodology member.
   - Remaining Claim prose:
     Applicable Methodology **must** represent each projected Atom Carrier with a one-way source binding **to** its selected authoritative Atom Revision **without** creating another Atom identity:
-    
+
     - preserve the source Atom's authored Frontmatter **and** Main Content unchanged; the **only** compiler-added block is the source binding below.
     - store **`=1`** `projection.source_carrier_path` value **in** the projected Carrier's Frontmatter. resolve it relative **to** the projected Markdown file's directory **to** the original Atom Carrier **in** the selected Methodology Sources.
     - retain the source Atom ID **and** Version; together with the source binding, they identify the selected source Revision. verify source fidelity under CA-E-379 rather than assuming that an existing path proves currentness.
     - treat this block as Projection metadata, **not** an authored Atom Property **or** a new Atom-to-Atom Relation. do **not** copy it upstream **or** add inverse links **to** source Atoms.
-    
+
     **after** removing **only** the generated source-binding block, the projected Carrier bytes **must** equal the selected source Carrier bytes. missing, ambiguous, wrong-source, **or** stale bindings **must not** be accepted as current Applicable Methodology.
   - Binding context:
     - property: `Projection.Form`
@@ -4193,7 +4162,7 @@ Projection ((NARROWER_THAN)) @Continuant
   - Details (source-bound):
     This placement does not require generation, refresh, or consumer dependence. Carrier migration preserves the retained Projection bytes without conferring authority. Retirement after validated direct-consumer cutover follows CA-O-062.
   - Binding context:
-    - instance selector: `Projection//PROJECT_SCOPE_UNIT_GRAPH`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Projection//PROJECT_SCOPE_UNIT_GRAPH`
     - existence provenance: `bounded_named_contract_context`
 - Shared RMED source (known_instance_context binding): `CA-D-454@20`
   - Claim Scope:
@@ -4203,7 +4172,7 @@ Projection ((NARROWER_THAN)) @Continuant
   - Details (source-bound):
     this placement does **not** require generation, refresh, **or** consumer dependence. retirement **after** validated direct-consumer cutover follows CA-O-062.
   - Binding context:
-    - instance selector: `Projection//PROJECT_SCOPE_UNIT_GRAPH`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Projection//PROJECT_SCOPE_UNIT_GRAPH`
     - existence provenance: `bounded_named_contract_context`
 - Shared RMED source (property_qualification binding): `CA-D-634@23`
   - Claim Scope:
@@ -4212,31 +4181,31 @@ Projection ((NARROWER_THAN)) @Continuant
     Deliver the view as a UTF-8 Markdown file under the Project's declared Projection root. Include YAML frontmatter and tab-indented trees inside fenced text blocks.
   - Details (source-bound):
     Use these frontmatter fields:
-    
+
     - `artifact_form: Projection`
     - `projection_id`, `named_selection` and `source_of_truth`: under CA-D-635. Use its filename convention and retain the Projection ID under CA-R-1943.
     - `type: Entities Graph`
     - `updated_at`: actual latest completed rebuild time in Project time, with an explicit UTC offset, under CA-D-310.
     - `sources`: the complete deduplicated list of contributing Atom references in `CA-N-123@M` form, where N is the Content Role letter and M is the numeric Version. Sort the references alphabetically. This is the Projection's source list, not its Atom ID.
-    
+
     Declare the requested source selection and any narrower display selection in the document. When non-Atom sources also contribute, identify their exact source evidence separately; do not invent Atom IDs for them.
-    
+
     Inherency view body order:
-    
+
     1. `## Inherency tree`
        - `### Primary entities`: main tree without dependents.
        - One `### <qualified entity name>` section per primary entity with dependents, in first-appearance order from the main tree.
-    
+
     Use one literal tab per tree depth inside fenced `text` blocks. Use spaces, not tabs, for YAML indentation. Keep readable entity names, not YAML storage-key spellings. Preserve relation distinctions with the admitted compact notation or explicit relation labels; indentation alone must not erase edge meaning.
-    
+
     A source-derived tree remains a Projection, not a new source of truth. This format does not require changing unrelated graph exports.
-    
+
     ### Declaration-view delivery
-    
+
     The selected Relation Type declaration view uses the same Entities Graph Type, its own named selection and a stable Projection ID under CA-R-1943. Reuse CA-D-635's filename and YAML fields. Render named Relation Types with defining Atom IDs, their meanings and explicitly declared direction, inverse, derivation or transitivity. The defining Atom has Status; the Relation Type has no Status field. Do not turn actual endpoint tuples into Type declarations.
-    
+
     The model views contain primary entities, then one property section per primary entity with properties, including inherited properties marked `[inherited]`. Keep primary-kind definition references as Atom IDs rather than copied definition text. Source-declared containment and specialization retain their distinct operators; use spaces around the complete containment operator, for example `>{1+} Atom/Content Role: Operations/Type: Step`.
-    
+
     Report missing definitions, unresolved identities, unsupported source syntax and coverage limits explicitly. Do not create a separate Graph Rule instance catalogue or render retired frontmatter `claim.*` grammar. Constraints and simple formal expressions belong to the corresponding Entity Definitions. Keep source selection, complete contributing source versions and actual rebuild timestamp in every Projection.
   - Binding context:
     - property: `Projection.Form`
@@ -4246,19 +4215,19 @@ Projection ((NARROWER_THAN)) @Continuant
     Projection Markdown File Carriers.
   - Remaining Claim prose:
     Use this filename:
-    
+
     `<PROJECT_PREFIX>-PROJ-<ID>-<CURRENT_SCOPE_NAME>--<PROJECTION_TYPE>--<NAMED_SELECTION>.md`
-    
+
     Store the full Projection ID as `projection_id` in YAML frontmatter. The filename and frontmatter must identify the same Projection.
   - Details (source-bound):
     For this Project, the prefix is `CA`. For example:
-    
+
     `CA-PROJ-001-CORE_META_MODEL--Entities-Graph--Current-Atoms.md`
-    
+
     Its full Projection ID is `CA-PROJ-001`; `001` is the ID segment in the filename. Use the current Scope Unit name, not its label.
-    
+
     The YAML frontmatter carries:
-    
+
     - `artifact_form: Projection`
     - `projection_id`: the full Projection ID.
     - `type`: Projection Type.
@@ -4266,9 +4235,9 @@ Projection ((NARROWER_THAN)) @Continuant
     - `source_of_truth`: an unambiguous reference to the authoritative source set.
     - `updated_at`: the latest completed rebuild time under CA-D-310.
     - `sources`: contributing Atom references with Versions, such as `CA-R-123@3`. Identify contributing non-Atom sources separately; do not invent Atom IDs for them.
-    
+
     Keep the ID under CA-R-1943 when rebuilding or changing only the Scope Unit name or Carrier path. Filename changes do not by themselves create a new Projection.
-    
+
     Type-specific Delivery rules define the body and any additional source evidence. Store the Carrier under the applicable Projection root under CA-D-550.
 - Shared RMED source (exact binding): `CA-D-653@16`
   - Claim Scope:
@@ -4277,31 +4246,31 @@ Projection ((NARROWER_THAN)) @Continuant
     Deliver each selected Subject Graph as a UTF-8 Markdown Projection Carrier under the Project's declared Projection root. The Carrier reuses the existing Projection identity, filename, timestamp, and source-list format while rendering the content defined by its exact registered Projection Type. This Delivery is Tier 3 in CORE_META_MODEL and delivers the Tier 1 definition CA-R-2150@15 in that same Scope Unit.
   - Details (source-bound):
     The Carrier frontmatter must carry:
-    
+
     - artifact_form: Projection.
     - projection_id, named_selection, and source_of_truth under the existing Projection identity and filename policy. A different Projection Type or named source selection requires its own stable Projection ID; an Entities Graph ID is not reused for this Subject Graph.
     - type: the exact registered combined or focused Subject Graph Projection Type.
     - updated_at as the actual latest completed rebuild time with an explicit offset.
     - sources as the complete sorted, deduplicated list of contributing Current RMEDO Atom IDs with Versions in CA-N@M form. This YAML source list is the full provenance; the Markdown body does not repeat it as per-Atom link rows.
-    
+
     Declare the exact named source selection, including Scope Units, Roles and statuses. Current RMEDO is an available default, not a requirement to expand a narrower requested selection. Draft, Archived, derived Projection material and unselected scopes are excluded. Unresolved, malformed, inaccessible, or conflicting source claims remain visible as explicit limitations; none is silently converted into authority.
-    
+
     The combined Subject Graph Type has four main sections:
-    
+
     1. ## Primary subjects: one literal-tab hierarchy rooted at Subject, showing kinds and source-backed classification-axis topics with their namespace and branch context. Exclude named instances, dependent properties, allowed property values and their descendants. A value-qualified narrower kind such as `Atom/Content Role: Plan` remains a kind, not a named Atom instance. Within CAPRMEDIO, keep Graph/Node, Graph/Relation and Graph/Rule as sibling branches beneath Graph; show Node/Project Model and Node/Aspect, and keep Carrier outside Graph. Retain selected project-specific namespaces. Namespace and classification-axis segments are context or topics, not extra entity kinds. Keep the bare `Atom/Content Role` axis visible and distinguish its meaning from role-qualified narrower Atom kinds. Named Relation Type declarations belong in section 3, not the primary tree.
     2. ## Properties: one property detail section for every displayed primary with direct or inherited properties, following its first appearance in section 1. Keep source-backed classification-axis detail with that Subject; do not hide the bare `Atom/Content Role` Subject or collapse its identity into Atom. An axis does not acquire bearer Atom properties merely by occupying an intermediate path segment. Keep role-qualified narrower Atom kinds such as `Atom/Content Role: Plan` as separate sections where properties are present; those kinds inherit Atom properties. Show direct properties and additive source-backed inherited properties and allowed values. Mark inherited display entries as `[inherited]` only. Keep full source origins internally and retain all origins for equal-name entries; report conflicts without silently overriding a source. Preserve actual bearer Atom properties and role-specific descendants. Do not copy inherited properties into source Atoms.
     3. ## Instances: show only the selected named Relation Type declarations with their bare defining R IDs and source-backed names. Do not enumerate Workflow instances, actual endpoint tuples or a retired Graph Rule catalogue. Constraints remain in the corresponding model definitions.
-    
+
     4. ## Dependency-only subjects: list each exact canonical Subject path that occurs in subjects.depends_on and never explicitly in subjects.governs within this view's selected source Atoms. Use exact complete-string equality, including namespaces, without propagating ancestors or descendants. Show each path once with its sorted, deduplicated referring Atom IDs, sorting paths alphabetically. Keep the other sections intact; this report does not move or remove their targets or infer a missing-definition violation.
-    
+
     Use spaces, not tabs, for YAML frontmatter indentation and literal tabs for hierarchy depth inside fenced text blocks. Each tree line shows its local label and incoming operator, without a repeated full path or a space after the operator. Property-section headings use concise labels with enough branch context to distinguish equal local names, without repeating full canonical paths as display labels. The display uses `[inherited]` without exposing the full origin path; exact paths and origins remain in internal provenance/manifest. Section 4 retains the exact full paths required for its dependency-only report. Keep /, ., :, and // distinct. Render all present source-backed instances in section 3; do not limit it to Workflow instances if other kinds are present. Preserve source-declared order where present, otherwise sort alphabetically. No Terms Graph, construction tree, instance link graph or other main section is added.
-    
+
     The source Atoms remain authoritative for target and property identity. The view follows source of truth → Workflow → Projection: edit its authoritative sources, then rebuild it through its Workflow. The Markdown Projection is not edited directly. Directly edited Implementation is not classified as Projection merely because it realizes RMED. The Projection does not create a separate Revision entity, infer values from filenames or folders, change source authority, or require any Tool, MCP route, runtime namespace, or code-support gate.
-    
-    
+
+
     For the combined Subject Graph Type, render its complete four-section form. An explicitly requested bounded excerpt of that combined Type must be labeled `Bounded main-Subject view — not a complete Subject Graph` and must not satisfy a full-graph request. The separately registered focused Types instead use their own specified complete bodies; they are not bounded excerpts of the combined Type.
-    
-    
+
+
     Show defining Current Requirement Atoms by their bare CA-R IDs beside the Subjects they define. Do not copy definition or Claim text into the view, or add a Definitions table, file citation, hyperlink or inline Atom Version. The YAML sources list retains complete versioned provenance. A source is a defining reference only when it is a Current Requirement of Type Definition governing that Subject; do not label every governing Atom as its definition. A Subject without such a direct defining reference remains visible without an invented ID.
 - Shared RMED source (exact binding): `CA-D-665@2`
   - Fenced Claim block:
@@ -4314,17 +4283,17 @@ Projection// >> Carrier/Markdown_file//
     active and draft Atom Claims, their Summaries, and requested Translation and terminology Projections.
   - Remaining Claim prose:
     **every** active **or** draft Atom **contains** **`=1`** human-readable precise CCE Claim **and** a source-faithful Summary. requested Translation **and** terminology Projections preserve their source meaning; their absence **when** **not** requested is **not** an Atom defect.
-    
+
     ### Test case
-    
+
     create valid active **and** draft Atom Claims for **every** admitted Content Role. include fixtures with no requested Translation **or** terminology Projection **and** fixtures with requested Projections. derive a candidate Summary during Atom creation, **then** retain it for checks of subsequent Revisions under CA-E-463-CORE_META_MODEL-EVAL_CASE--validate-summary-identity-preservation. derive requested Translation **and** terminology Projections twice **without** regenerating the existing Atom's Summary. **then** introduce ambiguity, an unstated participant, two independent Claims, an added Projection meaning, an independent vocabulary entry, **and** a confidence result below the effective Confidence Threshold resolved according **to** CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.
-    
+
     ### Acceptance criteria
-    
+
     **every** valid fixture has **`=1`** precise interpretation, a source-faithful Summary, **and** reproducible Projections **when** requested. no fixture fails merely because an optional Projection was **not** requested. **every** invalid fixture fails. a confidence result below the effective Confidence Threshold leaves the Atom unchanged **and** requests Operator disposition. changing the applicable Operator input, Plan override, enclosing Hub override, **or** Framework Instance Settings default changes the checked threshold according **to** CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence **without** retaining a fixed percentage gate.
-    
+
     ### Failure disposition
-    
+
     record a Concern naming the affected Claim **or** Projection.
 - Shared RMED source (exact binding): `CA-M-114@43`
   - Claim Scope:
@@ -4343,10 +4312,10 @@ Projection// >> Carrier/Markdown_file//
     direct-relation registry compilation.
   - Remaining Claim prose:
     **to** compile the optional direct-relation registry Projection, the Generator **must** perform **all** of:
-    
+
     1. read each declared Relation Type from its governing R Claim(s). The Claim(s) must provide the canonical name and meaning; preserve any relevant inverse, derivation, or transitivity semantics when explicitly stated. report missing **or** conflicting defining Claims without inventing a name, meaning, direction, or derivation.
     2. Keep governing Entity Definition constraints separate from descriptive Relation Type metadata. Preserve their endpoint classes, contexts, counts and permissions in the model; a known Type does not require a separate Rule record.
-    
+
     3. derive inverse navigation from the defining Type authority **without** independently authoring an inverse Relation fact. distinguish an independently authored Relation fact from the governing derivation authority and input facts under CA-R-1437; do **not** invent a direct source declaration for a computed result.
     4. retain source traceability for the non-authoritative registry Projection. resolve cross-graph and authoritative-source endpoints against any applicable governing constraint contexts under CA-R-1472. cross-graph references **or** views **must not** admit a foreign Type natively **or** reclassify an external endpoint as a native node of the receiving graph.
   - Binding context:
@@ -4365,7 +4334,7 @@ Projection// >> Carrier/Markdown_file//
     derivation of an Atom's navigation values from its authoritative content.
   - Remaining Claim prose:
     **to** derive an Atom's navigation values, derive them from authoritative content rather than another navigation value:
-    
+
     - derive a new Atom's Summary from its finalized primary contribution within its applicability under CA-R-2499 **and** CA-M-442. for RMED, use Claim read within Scope, **not** Scope alone.
     - derive **every** requested Projection from its applicable complete source content, including relevant textual applicability restrictions, **not** from the Summary.
     - for an existing Atom identity, retain its Summary **and** check source faithfulness. a needed Summary change follows CA-R-1464 **and** **must not** be applied as a same-identity refresh.
@@ -4374,11 +4343,11 @@ Projection// >> Carrier/Markdown_file//
     Compilation of Applicable Methodology from selected Methodology Source Scope Units.
   - Remaining Claim prose:
     Member identifies a projected Atom member by its source identity and Version; these references identify the members without changing their content or making the Projection authoritative. Each projected member retains the exact source relation required by CA-R-1314.
-    
+
     the Applicable Methodology **must** be a non-authoritative Reconciled Projection compiled by direct, content-preserving derivation from current active Atom Revisions **in** selected Methodology Source Scope Units, preserving the selected source Atoms **and** their final selected Revisions unchanged. Applicable Methodology is **not** a Scope Unit **and** **must not** be the Claim Target Scope Unit of a Goal Atom.
-    
+
     direct **and** content-preserving describe this derivation, **not** a Carrier persistence strategy; its Reconciled Projection classification does **not** select such a strategy. trace metadata **may** be added **to** projected Carriers **only** as governed by applicable Delivery authority, **without** changing the source Atom Revision **or** its Claim authority.
-    
+
     Member carries zero or more string references.
   - Binding context:
     - property: `Projection.Form`
@@ -4427,9 +4396,9 @@ Projection// >> Carrier/Markdown_file//
     Graph of Graphs compositions and any generated overview Artifact.
   - Remaining Claim prose:
     The following interpretation is required when this governed concept is used:
-    
+
     a Graph of Graphs **means** a composition of CAPRMEDIO Graphs connected through graph-qualified typed references **or** shared source identities. secondary graphs **in** this composition remain Projections under CA-R-1471-CORE_META_MODEL-CORE-REQUIREMENT--keep-secondary-graphs-derived-from-source-authority, **and** their internal, cross-graph, **and** authoritative-source connections remain governed by CA-R-1472-CORE_META_MODEL-GENERAL-REQUIREMENT--admit-typed-secondary-graph-connections.
-    
+
     the composition does **not**, by itself, require another separately generated overview Artifact. **if** an overview is generated, its represented connections remain derived from the participating graphs **and** their sources **without** becoming another authority.
 - Shared RMED source (exact binding): `CA-R-1409@30`
   - Claim Scope:
@@ -4446,7 +4415,7 @@ Projection// >> Carrier/Markdown_file//
     Artifact Change Log and Process Log log Projection Types derived from the same Project Journal.
   - Remaining Claim prose:
     the Core Meta-Model **must** provide Artifact Change Log **and** Process Log as **`=2`** log Projection Types derived from the same Project Journal, under CA-R-1467@19-CORE_META_MODEL-DEFINITION--define-artifact-change-log-projection **and** CA-R-1468@20-CORE_META_MODEL-REQUIREMENT--define-process-log-projection. these Types organize recorded history **without** introducing independent Journals; additional Projection Types remain governed by the open Projection model.
-    
+
     **every** represented historical fact **must** remain traceable **to** its canonical source event record **and** Event identity. the same source event **may** appear **in** both views **without** becoming two authoritative records. a read-only execution requires no fictitious Artifact change; membership **and** execution associations **must** come from recorded source evidence rather than invented events **or** inferred success. a view **must** remain rebuildable from its declared Journal selection, disclose known incomplete **or** stale source coverage **without** claiming complete current history, **and** obtain corrections through the owning source authority rather than independent log edits.
 - Shared RMED source (exact binding): `CA-R-1493@21`
   - Claim Scope:
@@ -4458,7 +4427,7 @@ Projection// >> Carrier/Markdown_file//
     Projections.
   - Remaining Claim prose:
     a Projection **must** record dependency provenance **only** **when** its registered job requires that information; no Projection is required **to** persist a blanket source frontier.
-    
+
     this conditional recording obligation does **not** remove source traceability required by `CA-R-2535-CORE_META_MODEL-CORE-REQUIREMENT--define-projection-artifact-form` **or** a more specific admitted Projection specification.
 - Shared RMED source (exact binding): `CA-R-1507@19`
   - Claim Scope:
@@ -4470,14 +4439,14 @@ Projection// >> Carrier/Markdown_file//
     Atom Collections and decomposition views grouping CAPO or I content.
   - Remaining Claim prose:
     an Atom Collection **or** decomposition view grouping CAPO **or** I content **must** remain a derived grouping and **must not** acquire an Atom Tier or imply a Tier from its grouped Content Roles or Types. When a view displays a source Atom, it preserves that source Atom's numeric Tier; the grouping itself has no independent Tier.
-    
+
     nesting expresses composition, **not** Core **or** General authority; a Plan Directory Carrier remains a Carrier of its existing Atom under CA-D-460-CORE_META_MODEL-ENG_DECISION--serialize-plan-atom-carrier-bundles, **not** an independently tiered collection **or** second Atom.
 - Shared RMED source (exact binding): `CA-R-1568@26`
   - Claim Scope:
     non-authoritative view Projections delivered as Implementation outputs.
   - Remaining Claim prose:
     a view Projection **may** be delivered as an Implementation output of its governing RMED **without** becoming an Atom **or** another source of truth for the facts it represents.
-    
+
     - its output contribution is I; its Artifact kind remains Projection **and** its content remains derived from its declared sources.
   - Details (source-bound):
     This permission concerns a derived view delivered as an Implementation output, not Implementation as a whole. Directly edited native Implementation realizes RMED and can be a source of truth for what actually exists; it is not a Projection. A generated dependency graph or another derived view of Implementation remains a Projection: update its sources, then rebuild the view through its Workflow.
@@ -4491,7 +4460,7 @@ Projection// >> Carrier/Markdown_file//
     Representations inside a Projection and the Entities they represent.
   - Remaining Claim prose:
     a representation inside a Projection **must** remain distinct from the Entity it represents.
-    
+
     - depicting an existing Artifact **or** Scope Unit does **not** create another authoritative Artifact **or** Scope Unit.
     - a representation **may** identify a source Entity **or** a derived element admitted by the Projection specification; source identities **and** traceability remain governed by CA-R-2535.
     - this boundary introduces no separate Projection Element Term, lifecycle, **or** independently maintained authority.
@@ -4500,11 +4469,11 @@ Projection// >> Carrier/Markdown_file//
     Evaluations using a Realization Graph before runtime, for their declared input boundary.
   - Remaining Claim prose:
     an Evaluation using a Realization Graph **may** return `pass` **before** runtime **only** **when** sufficient evidence establishes the checked Claim for the declared input boundary.
-    
+
     - **if** the Claim requires complete coverage of particular Relation mechanisms, the evidence **must** establish that coverage; a completeness declaration alone is insufficient.
     - the evidence **must** establish the actual acceptance condition. complete provenance **or** graph coverage does **not** itself establish that condition.
     - a possible inferred Relation is **not** an observed occurrence. **when** required runtime evidence is unavailable **or** a material condition remains unresolved, the Evaluation **must not** return a pre-runtime `pass`.
-    
+
     this Claim constrains permission **to** report a result; the applicable E Atoms supply the checks. it does **not** require complete graph coverage for a Claim that needs **only** bounded evidence.
   - Binding context:
     - property: `Projection.Form`
@@ -4514,7 +4483,7 @@ Projection// >> Carrier/Markdown_file//
     Realization Graphs derived from a declared selection of existing Implementation sources and available evidence.
   - Remaining Claim prose:
     Realization Graph **means** a non-authoritative Projection of Entities **and** typed Relations derived from a declared selection of existing Implementation sources **and** available evidence, used **to** understand that Implementation **and** support reverse engineering into proposed RMED.
-    
+
     - the Projection **must** retain source traceability under CA-R-2535 **and** generation identity under CA-R-1493, using **only** the source kinds selected for the job; legacy Implementation need **not** have pre-existing RMED **or** Journal records.
     - missing evidence **and** uncertain interpretations **must** be reported. observed structure **or** behavior does **not** establish intended Requirements, a passed Evaluation, **or** completeness outside the checked selection.
     - the Artifact kind remains Projection, including **when** delivered as an Implementation output under CA-R-1568. views derive from its source-backed facts **without** creating another source of truth.
@@ -4565,9 +4534,9 @@ Projection// >> Carrier/Markdown_file//
     lineage-impact Projections for changed, replaced, or archived Atom revisions.
   - Remaining Claim prose:
     CAPRMEDIO provides a non-authoritative lineage-impact Projection whenever an upstream Atom revision is changed, replaced, **or** archived. the Projection derives the reachable descendant set **without** modifying **or** retargeting **any** persisted relation.
-    
+
     for **every** affected descendant, the Projection identifies the exact earlier revision **in** its lineage, the upstream event that triggered review, **and** the current disposition: review required, update the existing Atom, create a new Atom, archive the Atom, **or** confirmed compatible **without** change. unresolved descendants remain visible **until** disposition is recorded through governed history.
-    
+
     the Projection **may** group **and** prioritize work, but it **must not** change an Atom, break a historical link, **or** establish compatibility merely by listing it.
 - Shared RMED source (exact binding): `CA-R-1728@28`
   - Claim Scope:
@@ -4590,9 +4559,9 @@ Projection// >> Carrier/Markdown_file//
 - Shared RMED source (exact binding): `CA-R-2225@4`
   - Remaining Claim prose:
     Each focused Subject Graph Projection **must** state and use one declared selection. Scope Unit criteria select Current RMEDO source Atoms by their Local Scope Unit, with an explicit option to include descendants declared in Project Structure. Folder nesting does not determine the selected Scope Units. Subject-branch criteria select canonical target branches while retaining ancestor context and the source-backed properties needed for inheritance within the selected source set.
-    
+
     Multiple selected Scope Units form a union; multiple selected branches form a union. When both criteria are supplied, both restrictions apply. With neither restriction, use all Current RMEDO sources. The Projection Type determines its view, not which sources are selected.
-    
+
     For dependency-only results, compare exact Depends On and Governs paths inside the same selected source set. Do not silently consult sources outside that set to suppress entries. Namespace and Subject operator boundaries remain significant; a lexical prefix such as Atom must not also match AtomExtra.
   - Details (source-bound):
     The Projection records its Scope Unit and branch criteria, descendant option, named selection and source-of-truth identity. Its YAML sources list records the actual supporting source IDs and Versions. Branch views retain declared inherited-property context without claiming that omitted branches were rendered. Source and target filters do not create another entity or copy the selected members.
@@ -4638,12 +4607,12 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
 - Shared RMED source (exact binding): `CA-D-442@26`
   - Remaining Claim prose:
     Carry a Scope Unit Declaration as a Markdown Atom. Its frontmatter carries Role = Requirement, Form = Scope Unit Declaration and the specific Scope Unit as `subjects.active`. Its Claim carries the declared structural facts in CFEL.
-    
+
     The shared Scope Unit model supplies field formats and cardinalities. Project inherits its unordered state and absence of order.number and Scope Unit ID from the Project model. Folder names are derived by the shared Delivery Policy; they are not authored in a Declaration.
 - Shared RMED source (exact binding): `CA-D-666@1`
   - Remaining Claim prose:
     Carry a Scope Unit Declaration in a Markdown Atom file. The file is its Carrier; the Declaration is the governing source.
-    
+
     Frontmatter carries its Role, Form and active Subject. Claim carries its operative prose, CFEL expressions, or both. `project_structure.toml` is not a governing source.
 - Shared RMED source (exact binding): `CA-D-670@1`
   - Remaining Claim prose:
@@ -4664,7 +4633,7 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
     structural changes **and** no-change repeats, including create, rename, reparent, reorder, rebind, reconciliation, **and** declaration removal.
   - Remaining Claim prose:
     the Evaluation **must** fail a structural change **if** it:
-    
+
     - starts from stale declarations;
     - exceeds authorization;
     - bypasses the effective confidence gate;
@@ -4673,14 +4642,14 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
     - changes another Project;
     - silently overwrites concurrent changes; **or**
     - reports completion **after** partial failure.
-    
+
     test the following groups:
-    
+
     - create, rename, reparent, reorder, rebind, reconciliation **and** declaration removal against their exact before/after states;
     - rejection, invalid proposal, stale-state failure, injected apply failure **and** authorized recovery.
-    
+
     the following conditions also apply:
-    
+
     - a no-change repeat **must** preserve authority bytes **and** have no additional structural effects.
     - declaration removal **must not** delete a folder **unless** that exact deletion is authorized.
     - a missing structural Projection **must not** prevent an **otherwise** valid change.
@@ -4690,13 +4659,13 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
 - Shared RMED source (exact binding): `CA-E-670@1`
   - Remaining Claim prose:
     Identify Scope Unit Declaration Atoms by Role Requirement, Form Scope Unit Declaration and active Subject (`subjects.active`) naming the specific Scope Unit. Count exactly one matching Declaration for each Scope Unit; do not count other Requirements about that Scope Unit as Declarations.
-    
+
     Check the selected sources for one external Declaration per Scope Unit, its declared ID where applicable, Name, ordered state, optional Label, conditional order.number and direct containment. Check that Project is unordered and has neither Scope Unit ID nor order.number. Check that its Declaration is outside Project with external Operator ownership.
-    
+
     Check that folder names are derived by the shared naming Policy rather than copied into a Declaration. Ordered names include order.number; unordered names omit the order segment and separator.
-    
+
     Reject the selected Declaration set when:
-    
+
     - a Scope Unit ID or Name is duplicated or invalid;
     - a direct parent is missing, unresolved, self-referential or in another Project;
     - parentage has a cycle;
@@ -4704,16 +4673,16 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
     - ordering fields or Labels are invalid, ordered siblings share a number, or an Unordered unit has a number;
     - derived paths collide, escape the Project boundary or leave lookup ambiguous;
     - unsupported fields or expressions are used as structural declarations.
-    
+
     Label does not determine ordered state. Check a valid example and a falsifying example for each applicable condition.
 - Shared RMED source (exact binding): `CA-E-671@1`
   - Remaining Claim prose:
     Settings resolve inside their own Project without cross-Project fallback. Project Settings remain authoritative initialization inputs and Framework Instance Settings remain authoritative instance choices. A declared Scope Unit remains visible when its Carrier or active Goal is missing. An undeclared folder remains an observation. Scope Unit Declarations do not change Settings, and Settings do not replace a Declaration. No Projection edit changes Settings, Scope Unit Declarations, or source Atoms.
-    
+
     Every Framework Instance's Methodology Sources and Applicable Methodology output resolve beneath its own Project's `000_CAPRMEDIO_framework/` directory. Rebuilding one Project's Applicable Methodology does not read, replace, or modify another Project's sources, Settings, or compiled results. A missing selected Project instance is reported rather than resolved through another Project or the former repository-shared framework root. Nesting the framework directory does not change source Atom identity or make a Projection a second authoritative Atom.
   - Details (source-bound):
     ### Test case
-    
+
     Create two Projects in one repository, each with Project Settings and a `000_CAPRMEDIO_framework` directory. Resolve both Settings before creating Project Atoms or Implementation. Give the instances distinct Methodology Sources and Applicable Methodology results. Declare a Scope Unit with no active Goal and no directory; separately add an undeclared candidate directory. Include Draft and archived Goals as non-active evidence.
 - Shared RMED source (exact binding): `CA-E-672@1`
   - Remaining Claim prose:
@@ -4730,9 +4699,9 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
     - Keep Scope Contract Atoms inside the governed Scope Unit at tier 0. Use applicable RMEDO roles; do not impose a minimum count, exactly one Contract, or every role. A Scope Unit may have no local Contract Atoms.
   - Details (source-bound):
     A Declaration states the Scope Unit ID where applicable, Name, ordered state, optional Label, conditional order.number and direct containment. Do not add Navigation Number to Scope Unit Declarations. Keep the Project Declaration outside the Project, like the Project Goal, with external Operator ownership.
-    
+
     Authority and Delivery Folder names are derived. Only non-root Authority Folder names include the Scope Unit ID prefix. The Project Authority Folder is `.caprmedio_<project name>`, without an ID. Do not author derived paths in individual Scope Unit Declarations.
-    
+
     Use the declared direct parent, not physical nesting, to establish logical parentage. Do not author Structural Level or Structural Coordinate. Keep Label independent of ordered state. Distinguish a declared Scope Unit, its materialized Carriers and its Goal coverage.
 - Shared RMED source (exact binding): `CA-R-014@19`
   - Remaining Claim prose:
@@ -4749,20 +4718,20 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
   - Remaining Claim prose:
     PROJECT_CONFIGURATION **must** state Project-owned Customizations **and** composition decisions that select CORE_META_MODEL **and** PROJECT_CONFIGURATION for Applicable Methodology compilation.
   - Binding context:
-    - instance selector: `Scope Unit//PROJECT_CONFIGURATION`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2652', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md', 'sha256': 'b0857c3fcae819a52eedb9c41764a20c5664a37a964f5dfb166e3495e41f324e'}`
+    - declaration source: `{'atom_id': 'CA-R-2652', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md', 'sha256': '7ece5de589ae7c40d3b72a41d2de511670ce31cfa57d8719caa9777d4c3bd40c'}`
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-1207@31`
   - Claim Scope:
     Ownership of Project-specific expansion rules, constraints, defaults, current Extension activation, and selected Extension revisions.
   - Remaining Claim prose:
     the Project Configuration **must** own Project-specific expansion rules, constraints, **and** defaults **only** **where** the Core Meta-Model permits expansion; current Extension activation **and** selected Extension revisions **must** remain owned by the Framework Instance Settings Artifact, **not** duplicated **in** Project Configuration Atoms.
   - Binding context:
-    - instance selector: `Scope Unit//PROJECT_CONFIGURATION`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2652', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md', 'sha256': 'b0857c3fcae819a52eedb9c41764a20c5664a37a964f5dfb166e3495e41f324e'}`
+    - declaration source: `{'atom_id': 'CA-R-2652', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md', 'sha256': '7ece5de589ae7c40d3b72a41d2de511670ce31cfa57d8719caa9777d4c3bd40c'}`
 - Shared RMED source (exact binding): `CA-R-1217@25`
   - Claim Scope:
     Extensions within the Core Meta-Model's permitted expansion boundary.
@@ -4784,10 +4753,10 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
   - Remaining Claim prose:
     the CAPRMEDIO Project's methodology customizations **must** remain **in** PROJECT_CONFIGURATION **until** the Operator accepts a separately identified Extension package containing those customizations.
   - Binding context:
-    - instance selector: `Scope Unit//PROJECT_CONFIGURATION`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2652', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md', 'sha256': 'b0857c3fcae819a52eedb9c41764a20c5664a37a964f5dfb166e3495e41f324e'}`
+    - declaration source: `{'atom_id': 'CA-R-2652', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md', 'sha256': '7ece5de589ae7c40d3b72a41d2de511670ce31cfa57d8719caa9777d4c3bd40c'}`
 - Shared RMED source (exact binding): `CA-R-1264@26`
   - Claim Scope:
     the position of Scope Unit outside the Atom taxonomy.
@@ -4821,24 +4790,24 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
   - Remaining Claim prose:
     a reusable model rule belongs **in** CORE_META_MODEL **only** **when** it establishes reusable methodology authority **and** remains independent of implementation choices outside the Entity explicitly governed by its Claim. a Carrier format, mechanism, portability boundary, **or** external constraint **may** be named **when** that Entity itself is governed, but **must not** become a hidden prerequisite of unrelated Claims. project-specific implementation choices **must not** be imported as reusable methodology authority.
   - Binding context:
-    - instance selector: `Scope Unit//CORE_META_MODEL`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2650', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md', 'sha256': '091b1e1c0db5afe3043be3b5dd7efdb509c0a88fc5bef140fe7cb821546ab179'}`
+    - declaration source: `{'atom_id': 'CA-R-2650', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md', 'sha256': 'da99132d6ff1b34a28baf83035bf381534add58a0a5d8a3814e6d0cef7f8a4b7'}`
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-1696@37`
   - Claim Scope:
     CORE_META_MODEL authority and its reusable model invariants and expansion boundaries.
   - Remaining Claim prose:
     CORE_META_MODEL authority **must** define reusable model invariants **and** expansion boundaries **without** hidden dependence on a programming language, LLM provider **or** model, agent host, operating system, repository host, package manager, database, deployment platform, **or** other replaceable implementation mechanism.
-    
+
     mechanism-specific obligations belong **to** the Scope that owns the mechanism. Extensions **and** PROJECT_CONFIGURATION **may** expand the model for their bounded use **without** rewriting its governing Claims.
-    
+
     CORE_META_MODEL **may** name a mechanism **only** **when** the mechanism itself is the explicit Entity governed by the Claim, such as a Carrier format, portability boundary, **or** external constraint; this reference **must not** make that mechanism a hidden prerequisite of unrelated model Claims.
   - Binding context:
-    - instance selector: `Scope Unit//CORE_META_MODEL`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2650', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md', 'sha256': '091b1e1c0db5afe3043be3b5dd7efdb509c0a88fc5bef140fe7cb821546ab179'}`
+    - declaration source: `{'atom_id': 'CA-R-2650', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md', 'sha256': 'da99132d6ff1b34a28baf83035bf381534add58a0a5d8a3814e6d0cef7f8a4b7'}`
 - Shared RMED source (exact binding): `CA-R-1721@32`
   - Claim Scope:
     structural scope sets and their governing owners.
@@ -4861,7 +4830,7 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
     Scope Unit ancestry **and** Scope Unit Labels.
   - Remaining Claim prose:
     Scope Unit ancestry **must** follow declared Scope Unit parentage. CAPRMEDIO **must not** author or persist a Structural Level property; an optional derived depth or path rendering **must not** independently override that parentage under CA-R-1485.
-    
+
     the Operator **may** choose **any** suitable Scope Unit Label, including `Layer`, `Feature`, `group`, `supergroup`, **or** `sub-feature`, **without** changing the unit's ancestry, authority, precedence, **or** Relation semantics. Labels **and** readability fields do **not** replace the active authority for those distinctions.
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-1744@28`
   - Claim Scope:
@@ -4869,16 +4838,16 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//)`
   - Remaining Claim prose:
     an Operator-mandated Project-specific substrate **must** be governed by Project authority **or** PROJECT_CONFIGURATION **without** becoming an implicit prerequisite of the reusable CORE_META_MODEL.
   - Binding context:
-    - instance selector: `Scope Unit//CORE_META_MODEL`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2650', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md', 'sha256': '091b1e1c0db5afe3043be3b5dd7efdb509c0a88fc5bef140fe7cb821546ab179'}`
+    - declaration source: `{'atom_id': 'CA-R-2650', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md', 'sha256': 'da99132d6ff1b34a28baf83035bf381534add58a0a5d8a3814e6d0cef7f8a4b7'}`
 - Shared RMED source (exact binding): `CA-R-1748@37`
   - Claim Scope:
     Applicable inherited authority in descendant Scope Units and specializations within their permitted boundaries.
   - Remaining Claim prose:
     applicable inherited authority **must** remain effective **in** a descendant Scope Unit **unless** that authority explicitly permits a specialization **and** the specialization stays within the permitted boundary.
-    
+
     - the specialization **must not** change the parent meaning outside its declared descendant scope.
     - ancestor Core authority remains protected under CA-R-033; a child declaration **or** an override label does **not** grant permission **to** weaken it.
     - Extension **and** Project Configuration additions **must** also preserve Core Meta-Model authority at **every** numeric Tier under CA-R-1375-CORE_META_MODEL--restrict-methodology-source-expansion-to-core-permission. changing the descendant's numeric Tier **or** retaining unchanged Core Carrier bytes does **not** bypass that boundary. No Content-Role or Type-to-Tier restriction is introduced.
@@ -4911,10 +4880,10 @@ Scope Unit//FRAMEWORK_METHODOLOGY ((IS_CONTAINED_BY)) Project//caprmedio
   - Unresolved CFEL: `Scope Unit//FRAMEWORK_METHODOLOGY.order.ordered == true`
   - Unresolved CFEL: `Scope Unit//FRAMEWORK_METHODOLOGY.order.number == 1`
   - Binding context:
-    - instance selector: `Scope Unit//FRAMEWORK_METHODOLOGY`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//FRAMEWORK_METHODOLOGY`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2648', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md', 'sha256': '4f672882e06202e879ba76936b46bcf8dfb645b5fd152ce784e09c1f01b3a017'}`
+    - declaration source: `{'atom_id': 'CA-R-2648', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md', 'sha256': '7f95172a3786793699f6266d1399b7d358f13b3aa3623d27755c7d839c0c7d51'}`
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-2649@1`
   - Fenced Claim block:
 ```CFEL
@@ -4933,10 +4902,10 @@ Scope Unit//METHODOLOGY_SOURCES ((IS_CONTAINED_BY)) Scope Unit//FRAMEWORK_METHOD
   - Unresolved CFEL: `Scope Unit//METHODOLOGY_SOURCES.order.ordered == true`
   - Unresolved CFEL: `Scope Unit//METHODOLOGY_SOURCES.order.number == 1`
   - Binding context:
-    - instance selector: `Scope Unit//METHODOLOGY_SOURCES`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//METHODOLOGY_SOURCES`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2649', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement/CA-R-2649-FRAMEWORK_METHODOLOGY-DEFINES_SCOPE_FOR-METHODOLOGY_SOURCES--declare-methodology-sources.md', 'sha256': '72422c76d604b7ccb0267ffc6999c23a5f469160e8a4f194b0773eac7ac9fca2'}`
+    - declaration source: `{'atom_id': 'CA-R-2649', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement/CA-R-2649-FRAMEWORK_METHODOLOGY-DEFINES_SCOPE_FOR-METHODOLOGY_SOURCES--declare-methodology-sources.md', 'sha256': 'c253274be61acefe94a8db170683515eddaac2f8a72a36386a18fa0ff5626453'}`
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-2650@1`
   - Fenced Claim block:
 ```CFEL
@@ -4955,10 +4924,10 @@ Scope Unit//CORE_META_MODEL ((IS_CONTAINED_BY)) Scope Unit//METHODOLOGY_SOURCES
   - Unresolved CFEL: `Scope Unit//CORE_META_MODEL.order.ordered == true`
   - Unresolved CFEL: `Scope Unit//CORE_META_MODEL.order.number == 1`
   - Binding context:
-    - instance selector: `Scope Unit//CORE_META_MODEL`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2650', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md', 'sha256': '091b1e1c0db5afe3043be3b5dd7efdb509c0a88fc5bef140fe7cb821546ab179'}`
+    - declaration source: `{'atom_id': 'CA-R-2650', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md', 'sha256': 'da99132d6ff1b34a28baf83035bf381534add58a0a5d8a3814e6d0cef7f8a4b7'}`
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-2651@1`
   - Fenced Claim block:
 ```CFEL
@@ -4977,10 +4946,10 @@ Scope Unit//INSTALLED_EXTENSIONS ((IS_CONTAINED_BY)) Scope Unit//METHODOLOGY_SOU
   - Unresolved CFEL: `Scope Unit//INSTALLED_EXTENSIONS.order.ordered == true`
   - Unresolved CFEL: `Scope Unit//INSTALLED_EXTENSIONS.order.number == 2`
   - Binding context:
-    - instance selector: `Scope Unit//INSTALLED_EXTENSIONS`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//INSTALLED_EXTENSIONS`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2651', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md', 'sha256': 'e0a2f4692b8b007371366d452b7bded37717f1c0e1dc28fdc0dc41a258d066cc'}`
+    - declaration source: `{'atom_id': 'CA-R-2651', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2651-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-INSTALLED_EXTENSIONS--declare-installed-extensions.md', 'sha256': 'd1ee4385372ede238a49200aa55a2ddfeb99b05601f4a221e1dc73947c5a8e33'}`
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-2652@1`
   - Fenced Claim block:
 ```CFEL
@@ -4999,10 +4968,10 @@ Scope Unit//PROJECT_CONFIGURATION ((IS_CONTAINED_BY)) Scope Unit//METHODOLOGY_SO
   - Unresolved CFEL: `Scope Unit//PROJECT_CONFIGURATION.order.ordered == true`
   - Unresolved CFEL: `Scope Unit//PROJECT_CONFIGURATION.order.number == 3`
   - Binding context:
-    - instance selector: `Scope Unit//PROJECT_CONFIGURATION`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2652', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md', 'sha256': 'b0857c3fcae819a52eedb9c41764a20c5664a37a964f5dfb166e3495e41f324e'}`
+    - declaration source: `{'atom_id': 'CA-R-2652', 'version': 1, 'path': '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2652-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-PROJECT_CONFIGURATION--declare-project-configuration.md', 'sha256': '7ece5de589ae7c40d3b72a41d2de511670ce31cfa57d8719caa9777d4c3bd40c'}`
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-2653@1`
   - Fenced Claim block:
 ```CFEL
@@ -5021,10 +4990,10 @@ Scope Unit//FRAMEWORK_ENGINE ((IS_CONTAINED_BY)) Project//caprmedio
   - Unresolved CFEL: `Scope Unit//FRAMEWORK_ENGINE.order.ordered == true`
   - Unresolved CFEL: `Scope Unit//FRAMEWORK_ENGINE.order.number == 2`
   - Binding context:
-    - instance selector: `Scope Unit//FRAMEWORK_ENGINE`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//FRAMEWORK_ENGINE`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2653', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md', 'sha256': '9ec07201c669195718d3346f0f6d5a747a9a4e3a9ef86cc8a3687fa9d8587be0'}`
+    - declaration source: `{'atom_id': 'CA-R-2653', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md', 'sha256': '85f3d89c7d94350261f7b13376caaecb13decdfce6e60f984feb65c144d826ab'}`
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-2664@1`
   - Fenced Claim block:
 ```CFEL
@@ -5043,10 +5012,10 @@ Scope Unit//OPERATOR_DOCUMENTATION ((IS_CONTAINED_BY)) Project//caprmedio
   - Unresolved CFEL: `Scope Unit//OPERATOR_DOCUMENTATION.order.ordered == true`
   - Unresolved CFEL: `Scope Unit//OPERATOR_DOCUMENTATION.order.number == 3`
   - Binding context:
-    - instance selector: `Scope Unit//OPERATOR_DOCUMENTATION`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//OPERATOR_DOCUMENTATION`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2664', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md', 'sha256': '33f6c0ed2a26bfc9375e2ac3d19864b6b241a791b82c924a77dbf831ef2c5129'}`
+    - declaration source: `{'atom_id': 'CA-R-2664', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md', 'sha256': '4cc7b14d36c4251f3141190640280700acf77c8c295499f17eb36298ba4f2d21'}`
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-2665@1`
   - Fenced Claim block:
 ```CFEL
@@ -5065,10 +5034,10 @@ Scope Unit//CORE_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio
   - Unresolved CFEL: `Scope Unit//CORE_EXTENSIONS.order.ordered == true`
   - Unresolved CFEL: `Scope Unit//CORE_EXTENSIONS.order.number == 4`
   - Binding context:
-    - instance selector: `Scope Unit//CORE_EXTENSIONS`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_EXTENSIONS`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2665', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md', 'sha256': '2e9ffb45dcc4aed8166a5337691c02600b9b90b751fb6b34618d14d5f685e817'}`
+    - declaration source: `{'atom_id': 'CA-R-2665', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md', 'sha256': '68e9975aa9e8fe9b05ac5948403c6996ca272684abd1fc8576b0935f811f82e4'}`
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-2666@1`
   - Fenced Claim block:
 ```CFEL
@@ -5087,10 +5056,10 @@ Scope Unit//RELEASES ((IS_CONTAINED_BY)) Project//caprmedio
   - Unresolved CFEL: `Scope Unit//RELEASES.order.ordered == true`
   - Unresolved CFEL: `Scope Unit//RELEASES.order.number == 5`
   - Binding context:
-    - instance selector: `Scope Unit//RELEASES`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//RELEASES`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2666', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md', 'sha256': 'a35a477b97c718b802a2d486cbcd54825670807eb3d9f4dc01c9da7ac96a06a1'}`
+    - declaration source: `{'atom_id': 'CA-R-2666', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md', 'sha256': '70203080fd6970c539cd58b209f761469f6597cb39be8797eef71d2388630636'}`
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-2667@1`
   - Fenced Claim block:
 ```CFEL
@@ -5107,10 +5076,10 @@ Scope Unit//COMMUNITY_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio
   - Unresolved CFEL: `Scope Unit//COMMUNITY_EXTENSIONS.Label == "FEATURE"`
   - Unresolved CFEL: `Scope Unit//COMMUNITY_EXTENSIONS.order.ordered == false`
   - Binding context:
-    - instance selector: `Scope Unit//COMMUNITY_EXTENSIONS`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//COMMUNITY_EXTENSIONS`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2667', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md', 'sha256': 'b3502b58d9aabe2e5fe516f95b2c3694056cc70aaeb86f7a510d87e6c0fe9318'}`
+    - declaration source: `{'atom_id': 'CA-R-2667', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md', 'sha256': 'f28d873671e81e232f723803a6e7fcf2f72e94a0800fc2d45feb7192298fc500'}`
 - Shared RMED source (scope_unit_declaration_context binding): `CA-R-2668@1`
   - Fenced Claim block:
 ```CFEL
@@ -5127,18 +5096,18 @@ Scope Unit//FIELD ((IS_CONTAINED_BY)) Project//caprmedio
   - Unresolved CFEL: `Scope Unit//FIELD.Label == "FEATURE"`
   - Unresolved CFEL: `Scope Unit//FIELD.order.ordered == false`
   - Binding context:
-    - instance selector: `Scope Unit//FIELD`
+    - instance selector: `CAPRMEDIO <+ STRUCTURE <+ Scope Unit//FIELD`
     - instance kind: `Scope Unit`
     - existence provenance: `current_scope_unit_declaration`
-    - declaration source: `{'atom_id': 'CA-R-2668', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md', 'sha256': '0bca59d99ef03af9b87d701a4b902f043fedd26105f707f35a3dad5017c1b2a9'}`
+    - declaration source: `{'atom_id': 'CA-R-2668', 'version': 1, 'path': '.caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md', 'sha256': '612df14a090d586c04261cde5e0286ecefb19170b364e07f4c59e94fe2651877'}`
 - Shared RMED source (exact binding): `CA-R-2688@1`
   - Claim Scope:
     Each Scope Unit, including Project.
   - Remaining Claim prose:
     Every specific Scope Unit, including Project, has exactly one external Requirement Atom with Form `Scope Unit Declaration` and an active Subject naming that Scope Unit. The Declaration is the sole structural authority for its declared values.
-    
+
     The Declaration carries the Scope Unit Name, ordered state, optional Label, conditional order.number and direct containment. A non-root Scope Unit also has a stable ID. Project is unordered and has neither Scope Unit ID nor order.number. A non-root Scope Unit has one direct Parent; Project has none.
-    
+
     Authority and Delivery folder names are derived from the Declaration. `project_structure.toml` is not a governing source.
   - Details (source-bound):
     The Project Declaration is externally Operator-owned, like the Project Goal. The Operator is an Actor, not a Scope Unit.
@@ -5148,7 +5117,7 @@ Scope Unit//FIELD ((IS_CONTAINED_BY)) Project//caprmedio
 - Shared RMED source (exact binding): `CA-R-2691@1`
   - Remaining Claim prose:
     Scope Unit parentage and order among siblings are different. An ordered unit’s number is its position among ordered siblings with the same direct parent.
-    
+
     Dependency permission follows its relation-family rules. A filename number, nesting position or the assumption that every Scope Unit is a Layer does not create that permission.
 - Shared RMED source (exact binding): `CA-R-642@24`
   - Remaining Claim prose:
@@ -5276,7 +5245,7 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     applicability restrictions of Claims carried by Markdown Atom Carriers.
   - Remaining Claim prose:
     a Markdown Atom Carrier **must** carry the Claim's applicability **in** the registered body sections, **not** as a duplicate frontmatter value:
-    
+
     - for ordinary RMED layouts, carry applicability **in** Scope, followed by the qualified contribution **in** Claim **and** supporting information **in** Details, using the exact headings registered by CA-D-479.
     - carry formal content in a CFEL fence within the Claim under CA-D-479. The Claim may contain CFEL without prose. Do not create a Formal Claim child or an operative frontmatter Claim.
     - for other Content Roles, retain applicability **in** their registered primary content. this rule does **not** change their body-section layouts.
@@ -5291,33 +5260,33 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     an M/Term Definition **must** carry its Term spelling **and** authoritative meaning **in** its registered Claim section, **and** its applicable meaning boundary **in** Claim scope **when** required by the existing applicability authority. carry supporting distinctions **and** examples **in** Semantics **or** Details **when** applicable under the registered body layout. a review result **must** identify the selected Term Definition Atom **and** revision, checked source boundary **and** coverage, checked stage, affected Atom **and** revision, exact field occurrence **and** relevant context, assessed condition **and** result, **and** any conflict **or** uncertainty. distinct results for definition well-formedness, meaning ownership, occurrence consistency **and** coverage **must not** be collapsed **into** an unqualified pass. this evidence **must not** require a dictionary Projection, lookup index, new storage format **or** synthetic graph entity.
   - Details (source-bound):
     Term Definition is the dedicated Method Type for lexical meaning; Entity Definition remains a Requirement Type for entity structure. The Method Type requires its own admitted Type declaration; CA-R-2468's Requirement Type declaration does not establish it. CA-M-439 explains how to write its content; Evaluation authority determines how to check well-formedness and usage consistency. Ordinary existing source carriers and ordinary review output carry the necessary content and evidence. This Policy governs their representation; it does not execute an Evaluation, create a Workflow, dispatch a Run, or manufacture validation evidence.
-    
+
     ### Body and review representation
-    
+
     CA-D-479@25 supplies the current RMED body layout: sibling `## Summary` and `## Claim`, with optional `## Claim scope` before Claim and optional `## Semantics` and `## Details` afterward. CA-D-495 supplies applicability placement. This Policy does not introduce new mandatory headings, content fields, report carriers, file locations, schemas, generated dictionaries, or runtime publication.
-    
+
     The ordered usage-review stages identify logical fields: entity names, Claim, Claim scope, Semantics, Details, then remaining authored content. Carry the actual reviewed stage and boundary in the result. Where a logical field is absent or inapplicable, record that fact rather than invent content or silently claim full coverage. A later stage remains unreviewed until checked; an earlier pass is not an overall pass. Unknown or incomplete source coverage remains explicit uncertainty.
-    
+
     ### Naming and evidence boundaries
-    
+
     `atom.id` and `projection.id` are distinct complete qualified property names with the same reusable Term `ID` and the property operator `.`. The qualification belongs to the complete property reference; the shared component is not a full-name collision. This does not introduce case-folding, a parser rule, duplicate terminal labels as complete unqualified names, or a rule making every composite expression one entity name.
-    
+
     ID means a unique identifier used to find an entity instance, applying to Continuant and Occurrent instances with uniqueness within matching prefix namespaces. Source examples are `CA-P-123`, `CA-P-123@1-draft`, and `CA-P-123@3`. Preserve the full source identifier, including prefix and any suffix. Identifier spelling alone does not decide whether those examples denote one entity, separate revisions, or separate instances; existing lifecycle authority remains separately applicable.
-    
+
     Term meaning comes from the single applicable dedicated Term Definition, not inferred agreement among Entity Definitions or spelling alone. A source-supported lexical Term target, such as `Term//ID`, is distinct from the property entities addressed by `atom.id` and `projection.id`. Its defining Claim can introduce the lexical target under the existing defining-Atom authority; parsing alone does not create or admit it. A review may identify missing or conflicting authority without fabricating a definition or waiving admission rules. Reusable Terms such as `Package` and `Unit` do not automatically create similarly named Subject Graph entities.
-    
+
     Rejecting a mandatory dictionary for these checks does not retire CA-M-114 or existing optional Terms Graph or Catalog capabilities. Representation rules and authoring instructions alone are not proof of runtime behavior, completed review, corrected naming conflicts, or a naming migration. No parser change or automatic code identifier, path, or quoted external source rewrite is authorized by this Policy.
 - Shared RMED source (exact binding): `CA-E-384@42`
   - Claim Scope:
     the Claim boundary, applicability, supporting Details, **and** Summary of an Atom.
   - Remaining Claim prose:
     the Evaluation **must** reject an Atom **if** **any** applicable content-boundary condition fails:
-    
+
     - the Atom has **`!=1`** Claims, **`!=1`** resolved Claim Target Scope Units, an independently replaceable component inside **`=1`** Claim, ambiguous composite grouping, **or** a non-deterministic Scope Expression.
     - RMED Scope is missing its applicability description, merely repeats the carried current **or** target Scope Unit, introduces a second independently replaceable Claim, **or** conflicts with the Claim. applicability **must** be explicit **in** Scope rather than maintained independently **in** Claim **or** Details.
     - Details change, contradict, broaden, narrow, **or** add an independent contribution **to** the primary contribution within its applicability instead of expanding it under CA-R-2503-CORE_META_MODEL-DEFINITION--keep-details-within-the-primary-contribution.
     - Summary is **not** source-faithful **to** the finalized primary contribution under CA-R-2499-CORE_META_MODEL-CORE-REQUIREMENT--define-summary-as-an-atom-property **and** CA-R-1273-CORE_META_MODEL-CORE-REQUIREMENT--keep-summary-source-faithful, including its applicability restrictions. for RMED, use the Claim read within Scope; a Summary of Scope alone fails. a Summary sourced from Analysis Results **or** TLDR instead of Question fails this check.
-    
+
     evaluate restrictions **to** selected sibling Scope Units under CA-E-461-CORE_META_MODEL-POLICY--warn-about-selected-sibling-claim-boundaries separately from these rejection criteria.
 - Shared RMED source (exact binding): `CA-E-402@33`
   - Claim Scope:
@@ -5339,35 +5308,35 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     wording evaluated under CA-M-294 against explicit authoritative Term Definitions **and** source-backed complete canonical entity names.
   - Remaining Claim prose:
     wording evaluated under CA-M-294 fails **if** **any** of the following holds:
-    
+
     - a demonstrated simpler, more familiar alternative preserves the intended meaning, but unnecessary jargon **or** specialized wording is retained.
     - a simplification removes **or** changes a necessary participant, obligation, permission, quantity, condition, boundary, **or** logical distinction.
     - a simplification adds ambiguity, substitutes a synonymous full name for an entity's complete canonical entity name, changes a component Term's declared meaning, **or** substitutes a synonym for a canonical CCE Operator **or** reference.
     - a simplified Summary adds **to**, broadens, narrows, **or** contradicts its source Claim **or** Claim Scope.
   - Details (source-bound):
     necessary specialized wording **must not** fail merely because it is technical. shorter wording **must not** pass merely because it uses fewer words. uncertain meaning preservation remains unevaluated, **not** passed. Read the dedicated Method Atom of Type Term Definition for a Term before comparing a rewrite; an Entity Definition **or** agreement among Semantics sections does **not** substitute for that meaning authority. Check entity names, Claim, Claim Scope, Semantics, Details **and** other authored fields **in** that order, using actual carried fields **without** inventing optional sections. No dictionary, lookup service **or** generated Projection is required.
-    
+
     ### Term and entity-name preservation cases
-    
+
     compare the same complete canonical entity name before **and** after simplification; a different full name registered for the same entity; an unregistered synonymous full name; the same complete name silently rebound to another entity; **and** a rewrite whose entity binding cannot be determined. The unchanged correct name–entity binding passes this check **when** the remaining preservation checks pass. Both synonymous full names **and** a changed target fail. An indeterminate target remains unevaluated, **not** passed. Repeated mentions of one established complete-name binding do **not** create another entity.
-    
+
     reuse of component Term `Package` in `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package/Eval Package` **and** `Entity/Object/Continuant/Package/Runtime Package`, **and** component Term `Unit` in `Entity/Object/Continuant/Structural Unit/Scope Unit` **and** `Entity/Object/Continuant/Package <+ Module <+ Code Unit`, passes **when** the complete Entity expressions remain exact **and** the component meanings remain consistent. Such reuse is **not** a naming collision. Conflicting component meaning fails; uncertain meaning **or** segmentation remains unevaluated. Outside the Term branch, only the Subject root `Entity` may be expressed by one Term alone. A reusable component does not become another Entity or its complete expression merely by occurring in a name.
-    
+
     ### Canonical entity naming in prose
-    
+
     for `Entity/Object/Continuant/Package <+ Module <+ Code Unit`, verify that the three entities retain their complete canonical expressions `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module` **and** `Entity/Object/Continuant/Package <+ Module <+ Code Unit` **in** graph Subjects **and** **all** authored mentions. The name strings **must not** become additional graph nodes, **and** the chain **must not** become another entity. Replacing the same Module entity's name with `component` to vary prose fails, even outside a selector. A separately defined Component entity retains its own full name **and** **must not** be merged with Module. Apply the same check to entity names in admitted `/`, `//`, `.`, `:`, `+>`, `<+`, `>|` **and** `|<` constructs, calls `@(...)` to already declared Entities, **and** registered direct Relation tokens inside `((...))`. Check a token's registry resolution separately from the Relation Type entity's full canonical expression; its bare token is not that complete expression. An alternate token asserted to name the same Relation Type fails naming. The reference marker refers to an already declared Entity **without** declaring another target; syntax recognition alone grants no target **or** Relation admission. Operators, delimiters **and** selector syntax are **not** Terms. Under CA-R-1325, a complete composite Subject Expression is **not** one lexical Term; parsing alone **does not** establish a complete entity name **or** another entity. The contextual topic/code spellings `atom.id` **and** `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names. Authored Subjects use their full admitted expressions. The three-target chain introduces no fourth entity **or** fourth complete name. Repeated references to one entity remain one binding; property, value, bearer **or** context qualification does **not** permit the same complete canonical name to identify a different entity.
-    
+
     ### Explicit Term Definition and qualified property cases
-    
+
     use the explicit ID Term Definition for the ID Properties distinguished by the contextual topic/code spellings `atom.id` **and** `projection.id`; the respective Properties remain distinct while the meaning stays a unique identifier used to find an entity instance across Continuant **and** Occurrent instances. Do **not** demand `atom.atom_id` **or** `projection.projection_id`. The dot remains syntax; preserve literal code identifiers under the source boundary. Only compare identifier uniqueness within matching prefixes. `CA-P-123`, `CA-P-123@1-draft` **and** `CA-P-123@3` do **not** establish a version-identity rule **or** a case-folding rule by themselves. A contradictory ID use **in** a later authored field remains a failure even **when** earlier fields agree. Preserve source Atom, Revision **and** exact field occurrence; missing meaning authority **or** undeclared identity behavior stays unresolved, **not** passed.
-    
+
     Readability, meaning preservation, local well-formedness, source consistency **and** checked coverage remain separate outcomes. Exactly one active authoritative Term Definition owns each reusable Term's Project-specific meaning.
 - Shared RMED source (exact binding): `CA-M-237@33`
   - Claim Scope:
     Claim Value Set authoring.
   - Remaining Claim prose:
     **to** author one Claim Value Set, the Author **must**:
-    
+
     1. identify **`=1`** Property X within **`=1`** Claim;
     2. write its finite allowed-value set as `X: (A, B, C)`;
     3. include **`>=1`** unique canonical values **and** treat their order as non-authoritative;
@@ -5387,24 +5356,24 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     - resolve the named entities of Subject Graph expressions **and** the source-declared Relation Types named inside `((...))` **to** their full canonical names **and** preserve those names **in** **all** authored mentions, including entity names, Claims, Claim Scope, Semantics, Details, instructions, descriptions, **and** explanations. repeated references **to** one entity remain repeated uses of its full name. an `@` call payload introduces no entity **or** full-name alias. parsing a named relation does **not** supply its defining authority.
     - distinguish reusable component Terms from full canonical entity names. read each component Term's meaning directly from its explicit authoritative Method Atom of Type Term Definition **and** preserve that meaning across compositions; agreement among Entity Definitions **or** Semantics does **not** define the Term. its consistent reuse **in** different full names is **not** a naming collision. outside the Term branch, a complete entity name **must** use its full admitted expression **and** **must not** be just one registered Term; the Subject root `Entity` is the sole exception. do **not** replace a component **within** an established full canonical name for stylistic variation **or** invent a graph entity for that component alone. unknown **or** incomplete defining-source coverage remains unresolved, **not** evidence of a successful check.
     - keep syntax symbols, delimiters, **and** selector keywords distinct from entity names. preserve the separate entity names using the registered `/`, `//`, `.`, `:`, `+>`, `<+`, `>|`, **and** `|<` constructs, `@` calls to already declared Entities, logical grouping `()`, direct-value Format and count markers, the two independent Relation count positions, **and** a source-defined Relation Type name inside `((...))` under CA-R-1931 **and** CA-R-2244. the contextual topic/code spellings `atom.id` **and** `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names **or** case-folded aliases. authored Subjects use their full admitted expressions; the dot remains syntax. under CA-R-1325, an arbitrary complete composite expression does **not** automatically become another full canonical name, entity, **or** separate Term node.
-    
+
     for a Summary, simplify its wording while preserving its source faithfulness under CA-R-1273; this does **not** require restating the complete Claim.
-    
+
     This Method does not prohibit ordinary English alternatives outside canonical entity naming when the Claim permits them. A Term is a reusable lexical component; the complete canonical word or phrase, not each component Term, has the one-to-one entity binding. Direct source-based use requires no lookup table, generated dictionary, or semantic Projection. These authoring instructions do not establish that existing naming collisions or missing definitions have been repaired.
-    
+
     The naming domain covers every authoritative Subject Graph entity and every declared Relation Type entity, named or unnamed, without property, value, bearer, context, or instance exceptions. The domain includes Relation Types whose names occur inside named-relation expressions.
-    
+
     The schematic chain `Entity/Object/Continuant/Package <+ Module <+ Code Unit` connects three entities. Use each entity's complete source-admitted expression: `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module`, and `Entity/Object/Continuant/Package <+ Module <+ Code Unit`. Preserve those full expressions in authored references. Do not replace an admitted Module expression with “component” for simpler wording. A separately defined entity requires its own admitted expression and authoritative binding; do not infer one or treat the complete chain as a fourth entity or dictionary entry. No code identifier, path, or quoted external source text is renamed automatically.
-    
+
     The lexical forms `Package`, `Eval Package` and `Runtime Package` illustrate reuse of the Term `Package`; `Scope Unit` and `Code Unit` illustrate reuse of `Unit`. They are components of separately admitted full qualified entity expressions, not complete entity names outside the Term branch. Their consistent reuse does not make distinct full expressions synonyms or introduce another entity from a component alone.
-    
+
     The respective ID Properties distinguished by the contextual topic/code spellings `atom.id` and `projection.id` retain the explicitly defined ID meaning: unique identifier used to find an entity instance, across Continuant and Occurrent instances, with uniqueness bounded by matching identifier prefixes. These spellings do not substitute for full admitted Subject expressions. Do not infer lifecycle semantics solely from examples such as `CA-P-123`, `CA-P-123@1-draft`, or `CA-P-123@3`.
 - Shared RMED source (exact binding): `CA-M-308@25`
   - Claim Scope:
     effective CCE Role Profiles for Atom Claims.
   - Remaining Claim prose:
     **to** resolve one effective CCE Role Profile for one Atom Claim, the Author **must** perform **all** of:
-    
+
     1. resolve the Atom's Content Role **before** selecting a profile.
     2. **if** the Content Role is Plan, Requirement, Method, Evaluation, Delivery, **or** Operations, select the corresponding profile under CA-M-309 through CA-M-314.
     3. apply an admitted Type profile **and** content-slot profile **after** the role profile; treat each narrower profile as a restriction **or** declared subordinate use, **not** as permission **to** change the role's primary contribution.
@@ -5419,7 +5388,7 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     Atom Claims against effective CCE Role Profiles.
   - Remaining Claim prose:
     **to** validate one Atom Claim against its effective CCE Role Profile, the Validator **must** perform **all** of:
-    
+
     1. resolve the effective profile under CA-M-308 **without** inferring a different Content Role from the wording under review.
     2. identify the Claim's primary contribution, every subordinate content slot, **and** every registered CCE Operator occurrence.
     3. verify that the primary contribution matches the resolved role profile **and** that every narrower Type **or** content-slot contribution remains within its admitted boundary.
@@ -5435,21 +5404,21 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     Authoring the content of a Method Atom of Type Term Definition for a reusable lexical Term.
   - Remaining Claim prose:
     **to** write a Term Definition, the Author **must** identify **`=1`** reusable word **or** phrase as its Term **and** write an explicit Claim that establishes that Term's meaning. state the Term's applicable meaning directly; do **not** substitute an inventory of entity uses, agreement among Entity Definitions **or** Semantics, a generated dictionary, **or** an inferred common substring for the defining Claim.
-    
+
     write Claim Scope **to** state the definition's applicability **without** introducing an alternative meaning for the same Term **or** an exception **to** canonical full-name uniqueness. write Semantics **to** explain the declared meaning, necessary distinctions, **and** its consistent composition **when** clarification is needed; do **not** make Semantics the sole carrier of a missing defining Claim. write Details **to** record source support **and** explanatory examples **without** inventing a second authoritative meaning **or** an entity for a lexical component.
-    
+
     express permitted reuse with the same Term meaning across different full canonical entity names. distinguish the reusable Term from the complete name that identifies **`=1`** canonical entity. outside the Term branch, a Term **must not** alone constitute the complete entity name; the Subject root `Entity` is the sole exception. use the complete admitted expression for every other such entity. preserve exact complete canonical names **in** **all** authored references **to** their entities; repeated references do **not** create entities **or** naming collisions.
-    
+
     use the existing body headings **and** Method authoring conventions. write only the definition content **and** its source-backed explanations; this Method **must not** allocate an entity identity, admit a Relation Type by parsing, invent a part-of-speech schema, require a lookup table **or** Projection, **or** redefine identifier lifecycle semantics from example spelling.
   - Details (source-bound):
     Term Definition is the dedicated Method Type for lexical meaning and requires its own admitted Type declaration; CA-R-2468's Requirement Type declaration does not establish it. This Method explains how to write definition content; separate Evaluation authority determines how to check definition well-formedness and Term usage. Authoring instructions alone do not prove implementation, source admission, or successful validation.
-    
+
     The lexical forms `Package`, `Eval Package` and `Runtime Package` illustrate reuse of the Term `Package`; `Scope Unit` and `Code Unit` illustrate reuse of `Unit`. They are components of separately admitted full qualified entity expressions, not complete entity names outside the Term branch. Write each component Term's meaning explicitly in its authoritative Term Definition. A component alone does not introduce another entity.
-    
+
     The schematic chain `Entity/Object/Continuant/Package <+ Module <+ Code Unit` connects three entities. Preserve each entity's full source-admitted qualified expression in authored references; a short displayed component alone is not its complete name. Do not replace an admitted Module expression with “component” for stylistic variation. A separately defined entity requires its own full expression and source binding. The complete chain is a structured expression, not automatically another full name or entity.
-    
+
     For the identifier example, write the Term `ID`'s meaning as a unique identifier used to find an entity instance. It applies across Continuant and Occurrent instances; the uniqueness boundary uses matching identifier prefixes. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties using that same meaning. They are not alternative complete canonical Subject names or case-folded aliases; authored Subjects use their full admitted expressions. The dot remains syntax. `CA-P-123`, `CA-P-123@1-draft`, and `CA-P-123@3` are spelling examples, not proof of lifecycle semantics. No new case-normalization or alias mechanism is specified by this example.
-    
+
     Existing naming conflicts, missing definitions, unknown coverage, and actual validation outcomes are not resolved by authoring instructions. No automatic code identifier, path, or quoted external source rewrite is authorized.
 - Shared RMED source (exact binding): `CA-M-444@5`
   - Claim Scope:
@@ -5458,28 +5427,28 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     **to** make an Atom Claim easy **to** understand, the Author **must** express **and** organize its content so the intended reader can identify what is claimed, what it concerns, **and** how its conditions **and** consequences fit together **without** guessing unstated connections.
   - Details (source-bound):
     ### Meaning and context
-    
+
     - provide the context needed **to** interpret the Claim. reference existing governing definitions **and** authority rather than independently restating them.
     - mention another Atom **in** prose **only when** an appropriate typed relation connects the Atoms. keep necessary execution bindings explicit; remove redundant context rather than invent a relation merely **to** retain a citation.
     - render **every** prose Atom citation as the referenced Atom's complete filename **without** its `.md` extension **or** directory path, preserving **all** filename tokens **and** their exact spelling. direct machine references remain exact Atom IDs rather than citation labels, **and** the exact-revision reference rule continues **to** govern exact-revision metadata.
     - choose familiar wording under the simpler-wording Method **without** losing precision, necessary distinctions, **or** exact canonical Terms.
     - state conditions, alternatives, **and** relationships explicitly. preserve whether **all** conditions apply **or** **any** alternative suffices, including nested logical groups.
-    
+
     ### Structure
-    
+
     - use short, direct statements. a simple Claim **may** remain a short paragraph; do **not** compress several points, conditions, **or** steps into one dense sentence.
     - **when** several points share a subject **or** predicate, state that shared lead-in once **and** put the points **in** a list. preserve conjunctions, alternatives, conditions, **and** negation.
     - use bullets for unordered points, conditions, **or** alternatives.
     - use a numbered list for sequential steps **only** **when** the content establishes that sequence. numbering **must not** invent execution order **or** priority.
     - use a flow table for a Workflow with Conditional Step definitions. identify **every** Step, its leaf **`=1`** Action reference **or** Workflow call where permitted, **or** its containing substep structure, its parameter/input bindings **when** applicable, **and** the declared routing condition, selected next Step **or** terminal outcome under the Workflow definition.
-    
+
     ### Preservation
-    
+
     - preserve the complete Claim **and** its qualifications; easier wording **or** layout **must not** change its meaning.
     - retain the Atom boundary under the composite-Claim boundary rule. one Claim does **not** require one sentence; paragraphs, bullets, **and** table rows do **not** determine the number of independently governed Claims.
     - express authoritative content once rather than repeating the same Claim **in** prose **and** a list **or** table.
     - apply the Term **and** CCE Operator rendering Method under the Term and operator rendering Method throughout.
-    
+
     readable layout alone is insufficient **when** the Claim still requires the reader **to** reconstruct missing context **or** logical connections.
 - Shared RMED source (exact binding): `CA-R-1203@32`
   - Claim Scope:
@@ -5513,7 +5482,7 @@ Atom.Content.**[string]{:0+}: [markdown]{:1}
     Each Atom version **must** have exactly one Content portion.
   - Semantics:
     Content is the Markdown portion whose natural-language meaning generally needs interpretation. Metadata properties use YAML. A complete RMED Content portion has its Claim as a direct Markdown value. A fenced CFEL expression may provide that value without prose. Do not create a separate Formal Claim child. Tools can extract sections or parse the supported formal syntax without proving all prose meaning.
-    
+
     One Content portion is a structured group with zero direct scalar values and independently counted child properties. This introduces no generic Substance field. The retained Summary's word Revision means an Atom version, not a separate Revision entity.
 - Shared RMED source (exact binding): `CA-R-643@33`
   - Claim Scope:
@@ -5624,7 +5593,7 @@ DETERMINES(
     the Evaluation **must** reject a candidate Atom Revision **if** its Summary differs from the Summary established for that Atom identity, even **when** its Claim is unchanged. it **must** reject treating Summary as an independently identified, versioned, **or** timestamped Artifact; Summary belongs **to** its Atom under CA-R-2499.
   - Details (source-bound):
     ### Test cases
-    
+
     | Case | Expected result |
     |---|---|
     | new Atom with its initial source-faithful Summary | pass |
@@ -5635,7 +5604,7 @@ DETERMINES(
     | new Atom ID for the changed Summary, with preserved predecessor **and** replacement evidence | pass **if** the replacement checks under CA-E-462 pass |
     | independently versioned Summary **or** independent Summary Updated At | fail |
     | lossless Carrier serialization of the same Summary value | pass **if** the applicable Delivery checks pass |
-    
+
     passing this Evaluation does **not** establish the validity of unrelated Claim, Carrier, **or** replacement-history constraints.
 - Shared RMED source (exact binding): `CA-M-459@2`
   - Remaining Claim prose:
@@ -5698,7 +5667,7 @@ THEN (IMMUTABLE(Atom.ID))`
     Current Atom sources, Archived Atom versions and Draft Atom sources.
   - Remaining Claim prose:
     For each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with `status: Archived` and its prior Updated At retained; Git history preserves exact pre-archive bytes.
-    
+
     - for a Current or Archived Atom version, carry the canonical Atom ID as the top-level String `atom_id` **and** Version Number as `version`; their pair identifies one Atom version **without** another `identifier` field. A Draft carries only the explicit marker allowed by the Claim and CA-D-378.
     - a Draft Carrier **must** carry `atom_id` using only the Draft marker forms admitted by CA-D-378. These forms do not change the Current Atom ID uniqueness rule.
     - when an identified Atom is changed to Draft, its Draft Carrier carries the corresponding Draft marker admitted by CA-D-378; the marker and filename remain governed by CA-D-378 and CA-D-650. Do **not** create a second concurrent Draft Carrier for that Status edit.
@@ -5706,9 +5675,9 @@ THEN (IMMUTABLE(Atom.ID))`
     - a Draft carrying `<canonical-ID>@<proposed-version>-draft` for an existing Atom proposes an update to that same canonical Atom at the marker's proposed Version. For an actual update, that Version must be the current canonical Version plus one under the existing version-advance rule; archive the current canonical predecessor with its old numeric Version, Updated At and unrelated content, and update that Atom, subject to exact-current, identity/collision, Summary/replacement, Type/Status, schema and permission rules. An exact no-op retains the existing Version/time and creates no predecessor archive. This same-canonical rule does not determine promotion behavior for the role-only new-Atom marker.
   - Details (source-bound):
     ### Draft Atom Identity
-    
+
     Draft Atom ID is mandatory. Its marker form is as stated in the Claim and CA-D-378.
-    
+
     New-Atom Drafts and ordinary lifecycle Draft demotion/update/identification carry the marker admitted by CA-D-378; their filenames follow CA-D-650. A Draft marker does not change the existing Current Atom uniqueness rule. For a Draft marked `<canonical-ID>@<proposed-version>-draft`, promotion proposes an update to the same canonical Atom at the proposed Version, subject to the ordinary currentness, schema, identity/collision, permission, Summary/replacement and change-class rules. Draft identity continuity does not require a retained-history entry, lineage/head/origin chain or consuming successor under CA-D-568/CA-D-570.
 - Shared RMED source (exact binding): `CA-D-508@19`
   - Claim Scope:
@@ -5720,37 +5689,37 @@ THEN (IMMUTABLE(Atom.ID))`
     identity continuity when a Draft Atom is created, updated or admitted to a non-Draft Status.
   - Remaining Claim prose:
     Draft identity continuity **must** follow the exact admitted target and the applicable identity rules; retained Draft history **must not** be a prerequisite for Create, Update, promotion, another admitted Status change or their success.
-    
+
     - do **not** require, reconstruct, register, resolve or validate a `revision_lineage.history_entry_ref`, unique Draft head, origin chain, direct retained-history parent, pending head reservation or consuming successor before an otherwise admitted effect. A manually authored Draft is not refused merely because those records are absent, incomplete, malformed or unavailable.
     - Draft `atom_id` presence and marker form follow CA-D-378 and CA-D-446; Draft filename identity-segment serialization follows CA-D-650. Do **not** restore a former assigned Identity from an archive, lineage/origin metadata, Journal, prior tool demotion or another historical record. Preserve real historical identities without releasing them for reuse. Ordinary Content Role, Summary/replacement, identity/collision, expected-target/currentness, permission and Carrier/schema checks remain applicable; absence of retained Draft history is not itself an identity conflict.
     - When a Current Atom revision is updated, preserve the predecessor's old numeric Version, Updated At and unrelated content while archiving it with `status: Archived` and the version-qualified identity; exact pre-archive bytes remain in Git history. Do **not** fabricate a Create event, origin, earlier Draft admission, head, parent or successor to make the current operation admissible. A Summary change still follows the admitted replacement rule.
     - Journal existence, completeness, continuity, baseline, prior entry or receipt **must not** gate these effects or their success. Attempt to append supplied actual observations independently; report an actual append failure as a diagnostic without invalidating a completed mutation or replaying its effects.
   - Details (source-bound):
     Existing retained-history records remain actual history, not an admission capability or a required identity registry. Their absence does not require retrospective Operator reauthoring or a manual-Draft exception. The source-pinned Subjects-only proposal below remains a derived edit of its explicitly bound canonical target.
-    
+
     ### Subjects-only edit-draft exception
-    
+
     CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It carries `atom_id: <canonical-ID>@<proposed-version>-draft`, `status: Draft`, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and archives the predecessor with its prior numeric Version and Updated At under CA-D-565 before the N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts carry a marker under CA-D-378/CA-D-446; marker and filename rules are governed by CA-D-650. Canonical ID grammar and the normal source, schema, identity/collision, permission and actual-history safeguards are unchanged.
 - Shared RMED source (exact binding): `CA-E-448@32`
   - Claim Scope:
     Atom ID collision repairs.
   - Remaining Claim prose:
     the Evaluation **must** reject completion of an Atom ID collision repair under CA-M-276-CORE_META_MODEL-IMPLEMENTATION_METHOD--repair-accidental-atom-id-reuse **if** **any** of:
-    
+
     - the original owner was selected **without** sufficient recorded assignment evidence **or** the required Operator decision, **or** its valid Atom ID changed.
     - a later accidental reuse retains the colliding ID, receives a previously used number, **or** receives an ID outside its Project prefix **and** Content Role sequence.
     - an affected Claim, Content Role, Atom Scope, Claim Target Scope Unit, **or** textual Claim Scope changes beyond the approved identity-reference correction, a distinct Claim is lost **or** merged, **or** an unrelated identity changes.
     - a prior Revision **or** historical Record is rewritten, history becomes unreachable, **or** the Work Journal lacks the exact mapping between the historical Carrier **and** its corrected identity.
     - an affected current reference resolves ambiguously, remains unresolved, **or** resolves **to** a different intended Claim; an uncertain reference is rebound **without** the required Operator decision.
     - legitimate same-Atom Revisions **or** derived copies are renumbered as accidental reuse, **or** lookup **or** compilation silently selects an identity winner.
-    
+
     the Evaluation **must** distinguish a paused collision awaiting an Operator decision from a completed repair. its checks **must** cover the verified-original-owner case, reversed Carrier discovery order, an unknown original owner, an ambiguous incoming reference, **and** legitimate same-Atom Revisions **or** derived copies.
 - Shared RMED source (exact binding): `CA-M-276@31`
   - Claim Scope:
     repair of accidental reuse of assigned Project Atom IDs.
   - Remaining Claim prose:
     **to** repair accidental reuse of an assigned Project Atom ID, an AI Agent **must** perform **all** of:
-    
+
     1. identify the distinct source Atoms by exact Carrier address, Revision, **and** recorded history. distinguish accidental reuse from legitimate Revisions of the same Atom **and** derived copies of its Carrier.
     2. establish the original valid owner from recorded assignment history. **if** the original owner cannot be established at the effective Confidence Threshold, request an Operator decision for that collision **before** changing its identities **or** references. filename order, discovery order, current filesystem timestamps, **or** the highest Version **must not** select the owner.
     3. preserve the original owner's Atom ID. give **every** later accidental reuse the next unreused Project-wide number for its own Content Role under CA-D-450-CORE_META_MODEL-DELIVERY--number-project-owned-atoms-within-each-content-role, using the encoding under CA-D-378-CORE_META_MODEL-DELIVERY--serialize-assigned-atom-identities. this corrects invalid reuse **and** does **not** authorize changing a valid owner's immutable identity.
@@ -5787,23 +5756,23 @@ Atom.Relations.*[Relation//]{:0+}
 - Shared RMED source (exact binding): `CA-R-030@27`
   - Remaining Claim prose:
     a scope **in** strict authority mode **must** maintain a complete, conflict-free active PRMEDO authority topology with these constraints:
-    
+
     - **every** local Tier 0 Atom **and** Core has **`>=1`** permitted active child **unless** the applicable Type authority registers its Type as terminal;
     - the normative-authority subgraph is acyclic under CA-R-833;
     - **every** edge follows the tier **and** structural-direction rules applicable **to** its graph kind **and** Relation Kind; **and**
     - an Active RMED Atom's direct relation **to** an RMED Atom requires an Active target under CAPRMEDIO-GOV-REQU-767. other endpoint classes retain the Status constraints of their own governing Relation authority.
-    
+
     the authority-subgraph acyclicity constraint does **not** impose acyclicity on **every** other graph, including Workflow control flow.
 - Shared RMED source (exact binding): `CA-R-037@28`
   - Remaining Claim prose:
     **in** strict authority mode, **every** active tier-classified PRMEDO Atom **must** have **`>=1`** permitted active parent **unless** the applicable Type authority registers its Type as orphan-permitted.
-    
+
     a permitted parent is:
-    
+
     - the active Project Goal Atom for a Project-owned Tier 0 Atom;
     - an applicable lower-global-tier Atom **in** the same structural scope, or a Tier 0 Requirement for a same-Scope Tier 0 Method, Evaluation, Delivery, or Operations Atom when the applicable typed relation admits it; **or**
     - an Atom permitted by the global tier topology **in** an ancestor structural scope.
-    
+
     this parent-coverage condition is necessary but insufficient for authority-topology completeness **and** cannot establish Project Scope Contract completeness.
 - Shared RMED source (exact binding): `CA-R-038@17`
   - Remaining Claim prose:
@@ -5813,7 +5782,7 @@ Atom.Relations.*[Relation//]{:0+}
     an accepted upstream change in the ordered layer graph.
   - Remaining Claim prose:
     the change propagates **only** forward through the ordered layer graph. it:
-    
+
     1. identifies affected downstream Projections, Methods, Evaluation criteria, Delivery rules, Implementations, **and** Operations consumers;
     2. marks **every** affected downstream artifact potentially stale **without** mutating historical atoms;
     3. routes required reconciliation **to** the artifact's owning layer; **and**
@@ -5825,9 +5794,9 @@ Atom.Relations.*[Relation//]{:0+}
     Stored governing Requirement, Method, Evaluation and Delivery relation occurrences selected under CA-R-2148@10, and any independently admitted Operations-source relation within the narrow Tier 0 exception.
   - Remaining Claim prose:
     Each stored governing RMED relation must target an Atom in the same ordering Scope Unit at a strictly lower numeric Tier or satisfy the narrow Tier 0 exception below, an Atom in a strict ancestor ordering Scope Unit, or the Core Meta-model prerequisite of Project Configuration explicitly declared by CA-R-1218@31. The prerequisite exception is one-way and non-transitive. Other descendant and sibling targets are forbidden. Unresolved membership, endpoint, Tier or Scope evidence does not pass. A verified Project Goal uses its Target Project for this ordering check; its owner remains the Operator.
-    
+
     As a narrow exception, within the same Local Scope Unit, a Tier `0` Method, Evaluation, Delivery or Operations source may target a Tier `0` Requirement only through a stored typed governing relation already admitted for those endpoints by its defining declaration. Equal Tier `0` does not otherwise pass: it does not admit Requirement-to-Requirement, Requirement-to-M/E/D/O, or M/E/D/O-to-M/E/D/O links. This exception creates no Relation Kind or Operations relation admission and does not establish an automatic conflict winner.
-    
+
     These constraints apply to the source-declared Selection “Stored Governing RMED Relation Occurrences”, not to arbitrary context or history links. There is no automatic conflict winner based on Tier, timestamp or these ordering rules.
   - Semantics:
     A verified Project Goal uses its Target Project, while its owner remains the Operator Actor; ordinary endpoints use their Local Scope Unit. Apart from the explicitly stated equal-Tier-0 exception, the numeric comparison and strict-ancestor rule are unchanged. The exact Project Configuration → Core Meta-Model prerequisite alternative is the logical-role declaration in CA-R-1218@31; it does not authorize the reverse, another source-role pair, a transitive edge, or a relation from a containing Project or Methodology Sources Scope Unit.
@@ -5884,12 +5853,12 @@ Atom.Role.*[]{:0}
     classification of an Atom by its Content Role.
   - Remaining Claim prose:
     the classification Evaluation **must** fail **if** an Atom's Content Role does **not** match its actual contribution under the Specification **and** Change definitions.
-    
+
     - use the evaluated Atom's declared Content Role, complete Main Content, **and** applicable Specification **and** Change definitions as the input evidence.
     - compare the declared Content Role with the contribution expressed **in** that Main Content, using the following classification table.
     - report unresolved **when** required evidence is unavailable, unresolved, **or** contradictory; **otherwise**, report pass **if** the declared Content Role matches the observed contribution **and** fail **if** it does **not**.
     - identify the evaluated Atom **and** report the declared Content Role, relevant content excerpt, applicable definition, **and** comparison result.
-    
+
     | Claim contribution | Expected classification |
     |---|---|
     | a model definition, required property, permission, **or** Actor participation/authorization policy governing a Concern, Analysis & Advisory, Task, Action, **or** Workflow | Requirement |
@@ -5898,26 +5867,26 @@ Atom.Role.*[]{:0}
     | a Carrier's fields, format, **or** placement | Delivery |
     | a particular unresolved issue, analytical finding, **or** intended Task | the matching Concern, Analysis & Advisory, **or** Plan role |
     | a particular reusable Action behavior, Workflow graph, **or** Step invocation binding | Operations |
-    
-    
+
+
     reusing the specified content's role as the specification's role **must** fail this check. a long-lived Concern **or** reusable Workflow **must not** fail merely because its lifetime is long.
 - Shared RMED source (exact binding): `CA-E-661@4`
   - Claim Scope:
     a Tier 0 Atom’s Content Role classification.
   - Remaining Claim prose:
     a Tier 0 Atom’s Content Role classification **must** fail this Evaluation **if** its complete Claim's primary contribution does **not** match the applicable Content Role definition.
-    
+
     Numeric Tier `0` is a local Scope Unit foundation and its readable Tier Label is Scope Contract; that label alone does not change an Atom’s Content Role or Type. Its complete primary contribution must satisfy its own Content Role definition. Operations retains its existing Action, Workflow and Step Types where applicable. This Evaluation introduces no Content-Role or Type-to-Tier restriction and does not require all Content Roles in a unit.
   - Details (source-bound):
     ### role distinctions
-    
+
     - Operations covers specific reusable Action behavior, Workflow graph, **or** Step invocation binding, **not** a Claim merely mentioning an Actor **or** Operation.
     - Requirement covers model definitions, required properties, outcomes, obligations, permissions, prohibitions, **or** externally observable boundaries according **to** its primary model contribution.
     - Delivery covers what a Carrier stores **and** how it represents **or** places that content.
     - Method covers an authorship, construction, **or** Implementation choice **or** convention, **not** the authoritative operational Action **or** Workflow definition.
     - Evaluation covers a falsifiable check, acceptance criterion, **or** disposition rule. its checked authority follows CA-R-1018 **and** is **not** limited **to** RMED Spec.
     - intended Task **or** Objective content belongs **to** Plan, **not** Operations merely because its intended work involves an Actor.
-    
+
     the semantic test uses the complete Claim **and** does **not** require a literal wording template. the active Content Role definitions remain the authority for these distinctions; this Evaluation does **not** create a second classification system.
 - Shared RMED source (exact binding): `CA-M-287@25`
   - Claim Scope:
@@ -5929,13 +5898,13 @@ Atom.Role.*[]{:0}
     CCE Role Profiles.
   - Remaining Claim prose:
     a CCE Role Profile **means** one restriction of shared CCE that identifies the permitted primary Claim contribution, permitted CCE Operator uses, permitted subordinate content slots, **and** prohibited primary contributions for one Content Role **or** one narrower Type **or** content slot.
-    
+
     the current role-specific profiles apply **only** **to** Plan, Requirement, Method, Evaluation, Delivery, **and** Operations Atoms.
-    
+
     Concern **and** Analysis & Advisory Claims remain subject **to** shared CCE **without** an additional CCE Role Profile. this absence does **not** exempt them from shared CCE **or** authorize normative authority outside their Content Role meanings.
-    
+
     no CCE Role Profile is currently registered for Implementation because the current source set contains no Implementation Atoms. an absent Implementation profile **must not** be replaced by another role's profile **or** treated as role-profile conformance.
-    
+
     a narrower Type **or** content-slot profile **may** restrict its parent role profile **and** define permitted subordinate operator use, but it **must not** change the primary contribution of the Content Role.
 - Shared RMED source (exact binding): `CA-R-1283@32`
   - Claim Scope:
@@ -5952,16 +5921,16 @@ Atom.Role.*[]{:0}
     transitions through the CAPRMEDIO loop across Content Roles.
   - Remaining Claim prose:
     **every** transition through Concern, Analysis & Advisory, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Operations produces **or** updates the meaning owned by the receiving Content Role **without** converting the source meaning into that role **or** implying completion of a later role.
-    
+
     **in** particular:
-    
+
     - Analysis & Advisory owns findings, alternatives, explanation, **and** rationale;
     - Plan states intended work **without** realizing it; decomposition relates independent Plan Atoms **without** merging their Claims;
     - Requirement establishes model definitions, required properties, outcomes, **or** boundaries **without** selecting their Method;
     - Method provides authorship, construction, **and** Implementation conventions, Evaluation checks correctness, **and** Delivery specifies Carrier contents **and** boundaries;
     - Implementation materially realizes accepted Spec Claims **and** **may** contain procedural code, but does **not** prove Evaluation **or** operational success; **and**
     - Operations owns specific reusable Action behavior, Workflow graph, **and** Step invocation binding; Actor participation **and** authorization remain Requirement rules. actual executions **and** their Journal Records carrying execution evidence **and** state changes are distinct from those definitions **and** from RMED Spec.
-    
+
     Relations carry meaning between roles while **every** related Artifact retains its own identity, authority, lifecycle, **and** owning role.
 - Shared RMED source (exact binding): `CA-R-1704@35`
   - Claim Scope:
@@ -5973,16 +5942,16 @@ Atom.Role.*[]{:0}
     independently governed meanings.
   - Remaining Claim prose:
     independently governed meanings **must** remain distinct even **when** ordinary language, one Carrier, one workflow, **or** one Implementation change presents them together:
-    
+
     - an Entity is **not** its description **or** Carrier;
     - a Requirement is **not** its Method;
     - a Method is **not** its Implementation;
     - an Evaluation criterion is **not** its execution result;
     - provenance is **not** evidence; **and**
     - an observed fact is **not** authority for the desired state.
-    
+
     **if** wording could resolve **to** multiple governed meanings, **then** the intended meaning **and** its owning Type **must** be resolved **before** the Claim is admitted. this is an admission condition, **not** a definition of the recovery Action **or** Workflow.
-    
+
     co-location, readable presentation, automation, **or** a Relation between meanings **must not** merge their identities **or** transfer their semantic force.
 - Shared RMED source (exact binding): `CA-R-1734@29`
   - Claim Scope:
@@ -6018,11 +5987,11 @@ Atom.Status: Archived
     the Status property carried by an Atom Revision.
   - Remaining Claim prose:
     **every** Atom Revision **must** carry **`=1`** explicit `status` value **in** its own Markdown frontmatter.
-    
+
     - the value **must** belong **to** the applicable Content Role **and** Type Status model.
     - placement **must** agree under CA-D-466 **and** its specific Delivery rules; it is **not** a second Status source.
     - another Revision **or** a containing Hub **must not** override this Revision's carried Status.
-    
+
     - encode `status` as **=1** nonempty YAML string using the exact value admitted by the selected Status model. do **not** accept a list, null, **or** another Revision's value as this Revision's Status.
 - Shared RMED source (allowed_value_condition binding): `CA-D-565@20`
   - Claim Scope:
@@ -6038,15 +6007,15 @@ Atom.Status: Archived
     the recorded lineage metadata of a Project-owned Draft Atom Carrier, when it already exists.
   - Remaining Claim prose:
     A Draft Atom **must not** require `revision_lineage`, a retained Draft-history entry or a trusted Draft head for Create, Update, promotion, another admitted Status change or their success. Every Draft Carrier carries the mandatory Draft `atom_id` marker under CA-D-378/CA-D-446; its filename follows CA-D-650.
-    
+
     Existing `revision_lineage: {history_entry_ref: {history_revision, path}}` metadata and the actual retained records it references may remain as recorded historical data. Their presence, absence, encoding, resolvability, origin, parent chain, head/leaf status or consuming-successor state **must not** become a mutation or completion gate. Do **not** require a caller or writer to register, reconstruct, repair, reserve, append or consume such a record to admit the current operation.
-    
+
     When a Current Atom changes, archive its predecessor with the old numeric Version and Updated At, an Archived status and a version-qualified identity under CA-D-446/CA-D-565; the Current successor follows the normal Version and timestamp rules. Do **not** fabricate history or reinterpret an observed value as evidence of an event that was not observed. Preserve the exact admitted target, ordinary Summary/replacement rules, applicable schema, collision/currentness checks and permissions. No new identity registry, history writer, recovery framework or Journal protocol is introduced.
   - Details (source-bound):
     CA-D-568 binds identity continuity without a retained-history prerequisite. Journal existence, completeness, baseline, chain, prior entry or receipt does not grant permission or gate mutation success. An actual append attempt reports its own I/O result independently and never replays the performed effect.
-    
+
     ### Subjects-only edit-draft exception
-    
+
     CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It carries `atom_id: <canonical-ID>@<proposed-version>-draft`, `status: Draft`, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and archives the old predecessor identity/version under the ordinary archive rules before the N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts carry a marker under CA-D-378/CA-D-446; filename rules are governed by CA-D-650. Canonical ID grammar and the normal source, schema, identity/collision, permission and actual-history safeguards are unchanged.
   - Binding context:
     - condition: `Atom.Status:Draft`
@@ -6086,7 +6055,7 @@ Atom.Status: Archived
     RMED Claims reconstructed from existing Implementation or its Projections.
   - Remaining Claim prose:
     RMED Claims reconstructed from existing Implementation **or** its Projections **must** remain proposed Draft Claims **until** accepted through the applicable Atom acceptance authority.
-    
+
     - extraction **or** inference alone does **not** establish Active authority.
     - the accepted RMED, **not** the legacy Implementation **or** its Projection, governs subsequent refactoring **and** Evaluation of the result.
 - Shared RMED source (exact binding): `CA-R-1947@13`
@@ -6113,9 +6082,9 @@ Atom.Subjects.*[in(Active,Passive)]{:0..2}
     New or migrated Markdown Atom carriers.
   - Remaining Claim prose:
     For Markdown Atom carriers, encode `subjects` as a mapping with one scalar nonempty Entity path under `active` and zero or more unique nonempty Entity paths as a YAML sequence under `passive`. An omitted `passive` means zero. The grouping mapping has no direct value; its child values are counted separately. A Draft may be incomplete before promotion.
-    
+
     Preserve the decoded Entity paths exactly under the applicable notation and resolve targets under the applicable Subject rules. A defining Atom may introduce its target and path together. Do not add an intermediate reference object or a repeated target-type field. YAML quotes are not part of the decoded expression; preserve escapes and reference boundaries. Each YAML key occurs once within its own mapping. Preserve formal cardinality annotations and decoded Entity escapes exactly; do not serialize notation as extra YAML fields.
-    
+
     The canonical keys are `active` and `passive`. Existing `governs` and `depends_on` remain readable during carrier migration. Mixed old and new aliases with unequal values are invalid. Equal aliases can be read during transition, without asserting additional Subjects.
   - Details (source-bound):
     Reference migration preserves target identity and follows the governing Entity rules. Subject paths are distinct from formal Relation expressions in the body Claim.
@@ -6126,45 +6095,45 @@ Atom.Subjects.*[in(Active,Passive)]{:0..2}
     **every** valid Atom has zero **or** one GOVERNS Subject Target matching its Claim **and** DEPENDS_ON for **every** other Subject Target independently mentioned **in** its complete Markdown Main Content; an Atom citation label is **not** a Subject Target mention **or** Subject target, and the distinct target set **`=`** that mention inventory **without** an intermediate Subject object.
   - Details (source-bound):
     ### Test case
-    
+
     create valid flat Carrier fixtures with zero **or** one scalar GOVERNS target and **`>=0`** distinct scalar DEPENDS_ON targets, Entity targets including an Action Atom **and** a Workflow Atom, a qualified Subject Path, and a definition Claim. reuse the same Entity target, including an Action **or** Workflow Atom, from different Atoms: those Atoms have distinct Subject Relations **to** the same target **without** duplicating its definition **or** identity. distinguish a reusable Action **or** Workflow definition from a particular execution **and** its Journal Records.
-    
+
     a Method Content Role Atom may GOVERNS a Domain, Engineering or Graph Subject and DEPENDS_ON a Subject in another branch; its Content Role does not select the Subject branch. reject a separate `Method` Subject root or admitting a method topic from its Scope Unit, folder, language name or Carrier path.
-    
+
     introduce **in** the source Subjects encoding multiple GOVERNS targets, an unresolved **or** ambiguous target, a nested Subject/Entity **or** Subject/Reference wrapper, a repeated source target-kind field, a stored copy of a target definition, a duplicate dependency, a missing mentioned Subject Target, an invalid qualified path, a Term's spelling used **without** its canonical target, and a separate Entity identity invented for an existing Action **or** Workflow Atom. a definition whose GOVERNS reference identifies the wrong target or omits its defined terminal Term **must** fail. add `Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Demand)` as **`=1`** complete target path. Its qualified Atom segment reuses **`=5`** Term references: `Atom`, `Content Role`, `Requirement`, `Type`, and `Demand`; the Entity-rooted prefix remains part of the complete expression. its source Atom has **`=1`** GOVERNS Subject Relation **to** that target, **not** one Subject per lexical component. reject confusing the Relation with its target or treating the referencing Atom as defining **all** referenced Terms.
-    
+
     add conformance-check Evaluation fixtures whose direct GOVERNS Subject Relations identify the checked targets and whose `evaluation_for` relations separately identify the checked authority under `CA-R-1018-CORE_META_MODEL--register-evaluation-targets`. reject a generic Evaluation label or check execution substituted for the checked target and a missing or invalid `evaluation_for` target. reject treating an Atom's Subject DEPENDS_ON reference or dependency-list position as Workflow execution order; preserve the separately governed Plan `BLOCKS` completion gate.
-    
+
     accept an unmigrated legacy temporal Carrier only under `CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter`'s migration-limited compatibility and confirm that its decoded direct references preserve the same targets and relation meanings. do **not** require temporal nesting on a migrated flat Carrier. a Projection **may** derive a target's kind from canonical authority **when** its own Spec calls for it; reject independent classification authority or a requirement **to** repeat that kind **in** source Subjects metadata. reject independent reauthoring of either a referenced definition or a projected relation fact.
-    
+
     an Action or Workflow Atom is a valid Entity target under its existing Atom identity. reject excluding it merely because it has Type Action or Workflow. being an Atom and an Entity is **not** duplicate identity.
-    
+
     include a Property borne by a Primary Entity and a Property borne by a Property, retaining **`=1`** immediate bearer **in** either case. reference the narrowest exact Entity for both GOVERNS and DEPENDS_ON; a broader bearer is invalid **when** the Claim actually concerns its qualified Property. entry or exit criteria use this same target rule. do **not** invent a separate criterion Entity **without** governing authority.
-    
+
     give two Atoms the same Subject target but different owning Scope Units and different permitted explicit Claim Target Scope Units. preserve their independent ownership and targeting; reject deriving either Scope Unit from the Subject Path. preserve RMED applicability **in** its registered Scope body section, read together with Claim and Details, **not** a duplicate frontmatter scope field. this check does **not** remove the Governed Subject contribution **to** contextual Atom Scope under `CA-R-1014-CORE_META_MODEL-RULE--resolve-atom-scope-contextually`.
-    
+
     include Subject Targets mentioned **only** **in** Summary, Scope, Details, a nested heading, a table, or an example. missing **any** such target fails coverage. include a valid citation-only label rendered under `CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly` as the referenced Atom's complete filename **without** its `.md` extension or directory path, for example `CA-R-366-CORE_META_MODEL-REQUIREMENT--reference-exact-atom-revisions-by-version-and-time`; it requires no Subject target for the cited Atom or any Subject Target named only inside that label. **in** a companion fixture, place the same citation label **in** a sentence that independently uses a Subject Target: require the direct Subject target while still excluding the citation label itself. reject an unrelated extra target and a GOVERNS target repeated **in** DEPENDS_ON. an independently mentioned bearer requires its own reference; a bearer occurring only as an implicit qualified-path prefix does **not**. retain an unresolved mention as blocked evidence rather than silently removing it.
-    
+
     include `Term` used **in** its own definition and `Evaluation` used **in** an Evaluation Atom. recognize these as Terms under `CA-R-1318-CORE_META_MODEL-CORE--define-term` and `CA-R-2514-CORE_META_MODEL-CORE--define-evaluation-content-role`; resolve the referenced Subject Target from its definition and usage context. reject omitting a mentioned Subject Target solely because the wording is self-referential, inventing a separate Entity from the Term's spelling, or adding a duplicate DEPENDS_ON target for a target already referenced by GOVERNS. keep unresolved Subject Target meaning blocked; recognizing a Term alone does **not** prove an exact Subject target.
-    
+
     ### Acceptance criteria
-    
+
     **every** valid fixture passes. **every** invalid fixture fails with the affected Atom, direct Relation Kind, Subject Path, canonical Subject Target, representation, or cardinality rule. the Atom Subjects Graph reproduces exactly the selected direct references **without** another authoritative relation fact or Subject identity.
-    
+
     ### Failure disposition
-    
+
     record a Concern naming **every** affected Atom and direct Subject reference.
 - Shared RMED source (exact binding): `CA-M-125@47`
   - Claim Scope:
     Subject assignment for an Atom from its Claim **and** complete Markdown Main Content.
   - Remaining Claim prose:
     **to** assign an Atom's Subjects, the Author **must** perform **all** of:
-    
+
     1. read the entire Markdown Main Content, including Summary, Scope, Claim, Details, other registered sections, nested headings, tables, examples, **and** reference labels. build an inventory of canonical Subject Target mentions with exact locations **and** full resolved paths. treat an Atom citation label rendered under `CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly` as the referenced Atom's complete filename **without** its `.md` extension **or** directory path. under `CA-R-1280-CORE_META_MODEL-RULE--reference-every-prerequisite-subject-through-depends-on`, the label is readable reference evidence, **not** a Subject Target mention **or** Subject target, including **when** it occurs **in** the same sentence as Subject Target language; inventory a Subject Target **only** **when** surrounding prose independently uses it.
-    
+
        recognize an evidenced reusable Term through its authoritative Method Atom of Type Term Definition, including the lexical Term `Term` at `Term//Term`. `Evaluation` remains a Term **when** used inside an Evaluation Atom. use structural definitions, such as `CA-R-1318-CORE_META_MODEL-DEFINITION--define-term` for the Term kind and `CA-R-2514-CORE_META_MODEL-DEFINITION--define-evaluation-content-role` for the Evaluation Content Role, together with the usage context to resolve the referenced Entity target; those structural definitions do **not** replace the lexical meaning owner. self-reference alone does **not** remove a mentioned Subject Target from the inventory **or** establish a new Subject Target; a Term's spelling alone does **not** establish its Subject target. a source-admitted instance name after `//`, a selector literal, **or** syntax is **not** automatically a reusable Term. retain unresolved meaning as an explicit gap rather than treating it as ordinary wording.
     2. select the **`=1`** canonical Subject Target that the Claim governs **and** reference its narrowest exact Subject Path directly through GOVERNS.
-    
+
        - for a Claim about entry **or** exit criteria of a Property, apply this same narrowest-target rule rather than substituting its wider bearer.
        - **when** the Atom has Content Role Evaluation **and** its Claim defines a conformance check, select the canonical target whose conformance is checked; do **not** select a generic Evaluation label **or** the execution of the check merely from its Content Role. bind the checked authority separately with `evaluation_for` under `CA-R-1018-CORE_META_MODEL--register-evaluation-targets`.
     3. connect **every** other Subject Target **in** the mention inventory through DEPENDS_ON using its narrowest exact full Subject Path. include mentions outside Claim; do **not** repeat GOVERNS **or** add unmentioned Subject Targets. unresolved mentions block completion rather than disappearing from the inventory.
@@ -6210,11 +6179,11 @@ Atom.Subjects.*[in(Active,Passive)]{:0..2}
     A direct GOVERNS or DEPENDS_ON target in Atom.Subjects must be the topic addressed by a canonical Entity-rooted Subject expression and may identify a kind, axis, property, allowed value, or named instance.
   - Details (source-bound):
     Subject says what an Atom concerns. Content Role says what its content does. They are independent by definition. An Atom of any RMED Role can govern a topic in any declared Subject branch. A topic about how work is performed does not require a separate Method root.
-    
+
     Entity is the canonical expression root. Its four sibling branches are Object, Aspect, Graph Syntax and Carrier under CA-R-2462. Object specializes into Continuant and Occurrent. A source path retains the declared operators and full qualification; a short display label is not another identity or alias.
-    
+
     The Subject does not repeat or assign the Atom's Local Scope Unit, folder or Carrier. Topic meanings come from source use and Semantics; the Terms Graph derives definitions from those cases rather than creating another authority layer.
-    
+
     Within the shared Atom branch, `Atom/Content Role` names the classification axis. `Atom/Content Role: Requirement` names a narrower Atom kind that inherits Atom properties. Naming the axis does not create a Content Role entity or assign a role value to an Atom instance.
 - Shared RMED source (exact binding): `CA-R-2100@8`
   - Claim Scope:
@@ -6276,7 +6245,7 @@ Atom.Tier >= -1
     Atom filename grammar that represents an Atom's numeric Tier.
   - Remaining Claim prose:
     an Atom filename **must** serialize the Atom's internally carried numeric Tier only through the currently registered filename grammar. For numeric Tier `0`, the Tier segment **must** be the literal `SCOPE_CONTRACT`, exactly once. This token represents `tier: 0`; it does not set the Atom's Type or separate Label property and does not require a second frontmatter flag. Other numeric Tiers keep their registered filename encodings. Numeric Tier tokens are representations only; a higher integer Tier requires an explicitly registered token rule and **must not** be guessed from a retired Local Tier or Global Tier label. Filename interpretation **must** preserve the Atom identity, owner, target, Scope, and sequence grammar, and a filename alone **must not** become the source of the numeric Tier.
-    
+
     The external Project Goal grammar **must** be recognized before applying any ordinary filename default. No Content Role or Type-to-Tier restriction is introduced by this delivery rule.
 - Shared RMED source (exact binding): `CA-D-652@13`
   - Claim Scope:
@@ -6288,7 +6257,7 @@ Atom.Tier >= -1
     Current RMEDO source Atoms and their permitted Current Atom targets.
   - Remaining Claim prose:
     this Evaluation **must** cover one coherent numeric graph-ordering case:
-    
+
     - ordinary Project-owned and non-Project Scope Unit-owned Atoms carry integer Tier **>=0**; a verified Project Goal carries exactly Tier **-1**;
     - a verified Operator-owned Project Goal retains its Actor owner and uses its Target Project only as ordering context; a same-Project root Atom at Tier 0 may target that Tier -1 Goal, and a descendant-Scope Atom may target it through strict ancestry; unverified Goals or Goals of another Project do not pass;
     - the integer Tier is independent of Content Role, Type, semantic abstraction, Claim Scope breadth, filename, structural depth, and any named category;
@@ -6298,20 +6267,20 @@ Atom.Tier >= -1
     - equal Tier 0 is rejected for R-to-R, R-to-M/E/D/O and M/E/D/O-to-M/E/D/O, and for any relation or endpoints not admitted by its defining declaration; ancestor and declared prerequisite alternatives remain unchanged;
     - valid existing integers are preserved, and a source integer may be raised when required by the same-Scope ordering and admitted owner range;
     - unknown relation membership or endpoints, missing Tier/scope/parentage, unresolved logical-role identity, unresolved Project correspondence, an unresolved CA-R-1218@31 prerequisite declaration, derived inverse views, and cycles are unresolved failures, not silent passes.
-    
+
     No Content-Role or Type-to-Tier restriction is introduced by this case.
 - Shared RMED source (exact binding): `CA-M-438@17`
   - Claim Scope:
     Current RMEDO Atoms and the stored governing relation occurrences that constrain their integer Tier.
   - Remaining Claim prose:
     to derive one Current R/M/E/D Atom's integer Tier, the Author **must**:
-    
+
     1. resolve the complete Atom Claim and actual owner. For an ordinary endpoint resolve its Local Scope Unit; for a verified Operator-owned Project Goal resolve its Target Project as the ordering context under CA-R-2149, without changing its Actor owner. Resolve declared ancestry for these contexts;
     2. select only stored governing RMED relation occurrences under CA-R-2148@10. The source endpoint **must** be a Current R/M/E/D Atom, and the target endpoint **may** be any Current Atom permitted by that relation's endpoint definition;
     3. preserve a valid existing integer Tier. Ordinary Scope Unit-owned Atoms use Tier **>=0**, and a verified Project Goal uses exactly Tier **-1**;
     4. for each selected same-Scope occurrence, require the target Tier to be strictly lower than the source Tier, except that an admitted typed governing relation from a same-Scope Tier 0 Method, Evaluation, Delivery, or Operations Atom to a Tier 0 Requirement is allowed; for a target in a strict ancestor Scope Unit, accept the occurrence without comparing Tiers; for a source and target that resolve within the same Project to the Project Configuration source role and its Core Meta-Model prerequisite role declared by CA-R-1218@31, accept the occurrence without comparing Tiers;
     5. treat every other descendant or sibling target, unknown relation membership or endpoints, missing Tier/scope/parentage, unresolved logical-role identity, unresolved Project correspondence, an unresolved CA-R-1218@31 prerequisite declaration, derived inverse views, and cycles as unresolved failures rather than silently passing them. Where the approved ordering requires it and the owner range permits it, raise the source integer Tier until the same-Scope constraint holds.
-    
+
     Tier is a graph-ordering level only. It does not classify semantic abstraction, importance, Claim Scope breadth, Content Role, Type, Source ownership, filename, structural depth, or any named tier category.
 - Shared RMED source (exact binding): `CA-R-025@16`
   - Remaining Claim prose:
@@ -6331,14 +6300,14 @@ Atom.Tier >= -1
     Atom other than a Project Goal Atom.
   - Remaining Claim prose:
     **every** non-Project-Goal Atom **must** carry exactly one integer Tier. An ordinary Atom owned by a Scope Unit uses an integer Tier **>=0**. Project Goal is the separate explicit Tier `-1` case under CA-R-2132.
-    
+
     This rule defines owner-relative ranges, not a finite set of values. Higher integers remain admissible and may be assigned or raised when required by the approved governing-relation ordering. No Content-Role or Type-to-Tier restriction is imposed.
 - Shared RMED source (exact binding): `CA-R-2131@10`
   - Claim Scope:
     ordinary Atoms owned by non-Project Scope Units.
   - Remaining Claim prose:
     a non-Project Scope Unit **must** admit an integer Tier **>=0** for every ordinary Atom it owns. Higher integer Tiers remain admissible without an upper bound and may be assigned or raised when required by the approved governing-relation ordering.
-    
+
     This range rule imposes no Content-Role or Type-to-Tier restriction.
 - Shared RMED source (exact binding): `CA-R-2132@12`
   - Claim Scope:
@@ -6357,7 +6326,7 @@ Atom.Tier >= -1
     ordinary Atoms owned by Scope Units in the Project.
   - Remaining Claim prose:
     a Scope Unit in the Project **must** admit an integer Tier **>=0** for every ordinary Atom it owns. The explicit Project Goal case carries Tier `-1` under CA-R-2132. Higher integer Tiers remain admissible without an upper bound and may be assigned or raised when required by the approved governing-relation ordering.
-    
+
     This range rule imposes no Content-Role or Type-to-Tier restriction.
 
 ### `Atom.Tier.Label` — property
@@ -6402,18 +6371,18 @@ Atom//$atom.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.
     the Evaluation **must** accept **only** an actual same-ID edit that refreshes `updated_at` **and** increments Version by exactly **`1`**, regardless of semantic change class. an exact no-op retains Version **and** Updated At; required predecessor history retains its exact prior bytes.
   - Details (source-bound):
     ### Test case
-    
+
     - apply a formatting-only edit, a lossless Entity-name edit, **and** an equivalent refinement; verify an actual refreshed timestamp **and** Version incremented by exactly **`1`** for **every** edit.
     - apply a semantic revision; verify an actual refreshed timestamp **and** the next Version.
     - archive a current predecessor; verify `status: Archived`, the predecessor's unchanged Version and Updated At, **and** preservation of body, Summary, identity, **and** **all** other metadata. the resulting Archive Carrier uses the predecessor's version-qualified identity; archival alone does not increment Version or refresh Updated At. verify that its prior Revision is retained as exact bytes, including its prior Version, Status **and** Updated At.
     - apply an exact no-op; verify unchanged bytes, Version **and** Updated At.
-    
+
     ### Acceptance criteria
-    
+
     - reject an actual accepted edit whose `updated_at` does **not** identify its actual Project-time edit instant **or** whose Version increment is other than exactly **`1`**.
     - reject a no-op that changes Version **or** Updated At.
     - reject retained predecessor history whose bytes, Version, Status **or** Updated At differ from its exact prior Revision.
-    
+
     the checked rules are `CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter`, `CA-R-1432-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-admitted-atom-changes-by-semantic-effect`, `CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes`, and `CA-O-051-PROJECT_CONFIGURATION-ACTION--persist-atom-replacement-through-ordered-carrier-transitions`. CA-R-1433 is retained only as retired historical evidence, not a current Version exception.
 - Shared RMED source (exact binding): `CA-R-1416@26`
   - Claim Scope:
@@ -6427,7 +6396,7 @@ Atom//$atom.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.
     **every** actual accepted edit **to** an Atom Carrier **must** refresh that Current Atom's `updated_at` **to** the actual Project-time edit instant, including a formatting, lossless serialization, Entity-name, admitted Current Status, direct-owner, **or** current-Atom local-placement edit. an exact no-op **must** retain Updated At. When a real update publishes a successor and archives its predecessor, the Archive Carrier **must** retain the predecessor's prior Updated At, numeric Version, and unrelated content while carrying the Archived status and version-qualified identity; Git history preserves the exact pre-archive bytes. Standalone archival is not an edit to the Current Atom's content: it only materializes the Archived representation with its version-qualified identity, filename and location, so it does not create a successor or refresh Updated At.
   - Details (source-bound):
     an ancestor-only move that changes an Atom's repository locator **without** changing its own bytes, metadata, direct owner **or** placement relative **to** that owner is **not** an edit **to** that Atom. retain its Updated At **and** Version under CA-R-1432. this applies **to** **every** Atom, regardless of Content Role; it does **not** exempt an actual Status, filename, ownership **or** local-placement change. Git history retains exact pre-archive bytes.
-    
+
     changing a Current Atom's Status **and** publishing a Current successor is an actual update governed by CA-R-1432: archive the old-version identity with unchanged numeric Version and Updated At, while the Current successor receives its incremented Version and actual edit time. A standalone transition of the Current representation to Archived follows the exception above. timestamp encoding follows `CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter`.
 
 ### `Atom.Version` — property
@@ -6473,7 +6442,7 @@ Atom/(.Role: Concern).Priority: Low
 - Shared RMED source (exact binding): `CA-E-623@30`
   - Claim Scope:
     the following effective-priority selection conditions:
-    
+
     1. accept stored priority **only** on Concern Atoms **and** reject it on **every** non-Concern Content Role Atom.
     2. accept **only** stored `high`, `medium`, **or** `low`.
     3. reject stored `highest`, `critical`, **and** `deferred`.
@@ -6486,29 +6455,29 @@ Atom/(.Role: Concern).Priority: Low
     conflict selection follows the admissible Operator-selected priority model **without** an implicit ancestry bonus **and** never chooses through a tie, incomparable scope, uncertainty, **or** ineligible external obligation.
   - Details (source-bound):
     ### Acceptance criteria
-    
+
     **every** comparison conforms **to** the selected priority model **without** an implicit ancestry bonus **and** never guesses through a non-unique **or** ineligible result. authority-tier precedence remains separate **and** unchanged.
-    
+
     ### Failure disposition
-    
+
     stop automatic selection, ask the Operator, **and** record a Concern for **any** incorrect priority **or** unauthorized winner.
 - Shared RMED source (exact binding): `CA-R-1629@39`
   - Claim Scope:
     priority-conflict selection for Concern Atoms.
   - Remaining Claim prose:
     a Concern Atom has **`=1`** Priority value: High, Medium, **or** Low.
-    
+
     direct comparison of Concern Atoms **must** follow the admissible Operator-selected priority model governed by CA-R-1487:
-    
+
     - use the selected model, its effective parameters, **and** its active criteria.
     - Scope Unit ancestry **must not** add an implicit Priority increment.
     - **if** the model **or** its application does **not** justify a selection, leave the conflict unresolved **and** ask the Operator.
-    
+
     the Framework Instance Settings Artifact exposes **`=2`** selection modes:
-    
+
     - `ask_always`, the default, explains the conflict **and** asks the operator; **and**
     - `auto_by_effective_priority`, which **may** select **only** one uniquely eligible winner.
-    
+
     the selection mode **must** ask the Operator **if** ties, incomparable structure, uncertainty, **or** multiple winners occur. mutually unsatisfiable external obligations stop for Operator **or** external resolution. PRMEDO Tier precedence, deterministic replacement, explicit scoped override, stale-view routing, **and** Implementation drift follow their own semantics rather than this selection mode.
 
 ### `Atom/(.Role:=Operations)/Action.Execution Kind` — property
@@ -6547,7 +6516,7 @@ Atom/(.Role: Plan).AI Agent Confidence Threshold
     explicit Plan Autonomous Confidence Threshold overrides in Plan Atom Markdown File Carriers.
   - Remaining Claim prose:
     an explicit Plan Autonomous Confidence Threshold override **must** use the top-level integer frontmatter field `autonomous_confidence_threshold` **in** that Plan Atom's own mandatory Markdown File Carrier.
-    
+
     - a Hub uses that same file, **not** a separately identified Objective **or** Epic settings file.
     - omit an unselected override **without** copying its inherited value; the mandatory file requirement does **not** turn inheritance into a local selection.
     - retain an explicit override even **when** it equals the inherited value.
@@ -6562,7 +6531,7 @@ Atom/(.Role: Plan).AI Agent Confidence Threshold
     autonomous continuation of Plan work.
   - Remaining Claim prose:
     autonomous continuation of Plan work **must** satisfy its effective Autonomous Confidence Threshold:
-    
+
     - resolve the value under CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.
     - **if** confidence **in** correct execution is below it, request Operator disposition **before** continuing.
     - **otherwise**, continue **only** within existing authority; meeting the threshold does **not** grant additional authority.
@@ -6893,18 +6862,18 @@ Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Tim
     - **if** present, `project_mcp` **must** be a table containing **only** required `http_port` **and** optional `tool_blacklist`. the selected Project's fixed MCP HTTP port remains governed by CA-D-594. `project_mcp.http_port` **must** be an exact TOML integer, **not** a boolean, **in** `1..65535`. absence of `project_mcp` is permitted for ordinary Settings Read; MCP launch **or** reuse still requires its configured port under CA-D-594.
     - **if** present, `project_mcp.tool_blacklist` **must** be a TOML array of nonempty strings naming exact MCP tools whose exposure is disabled for this Project. preserve exact values **and** order without trimming, normalization, deduplication, wildcard matching **or** implicit names. an empty array is permitted; absence **and** an empty array **must** remain distinct when reading **and** serializing, while both mean no blocked tools. a listed tool **must** be absent from discovery **and** refused on invocation before its handler runs; retain its implementation **and** binding for later reuse. this setting controls MCP exposure only **and** does not remove host invocation **or** grant execution authority. no release-specific default is part of this schema.
     - validation **must** cover the complete document **and** reject missing required keys, unknown keys **or** sections at **any** level, wrong TOML value types, duplicate TOML keys, unsupported markers, **or** values violating the requirements above. no legacy compatibility section, open extension field, coercion, default, fallback, automatic case conversion, repair, **or** migration is admitted. rejection **must not** authorize changing **or** deleting the existing Carrier.
-    
+
     ### Current source provenance
-    
+
     Current source: `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md`, CA-D-366@27, SHA-256 `d73dc39767cf56a414f98ea098b2130ec0029cc0287500c8d4fa0e5347d6e4c3`.
-    
+
     The superseded prefix authority remains historical provenance only: `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL-ENG_DECISION--serialize-the-project-atom-prefix.md`, CA-D-376@25, SHA-256 `3b04a0bd6dfce9eec731a550edcdd86c6fdba8560255477bd4810f3c254bd614`. The pending Project Prefix Decision is a Draft dependency, not Current admission.
 - Shared RMED source (exact binding): `CA-E-006@40`
   - Remaining Claim prose:
     Framework Instance Settings and Project Settings accept exactly their registered values, resolve deterministically, and fail closed on invalid or unknown selections. Scope Unit Declarations own current Scope Unit structure without duplicating Settings selections or requiring a structural Projection.
-    
+
     ### Applicable conditions
-    
+
     1. Resolve the exact current Framework Instance Settings, Project Settings, and Default Settings Artifacts.
     2. Accept only enabled catalog Artifact Types, Atom Content Roles and qualified Types, and Governance Origins.
     3. Accept only `medium` or `high` Artifact creation strictness.
@@ -6912,20 +6881,20 @@ Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Tim
     5. Validate initialization inputs against Project Settings field authority and Project Authority Modes against Framework Instance Settings field authority. Do not hard-code this Project's selected values in the Evaluation.
     6. Reject unknown keys when the governing schema marks their table closed.
     7. Confirm a second parse produces identical effective Settings and consumes the same selected Declaration bytes and Settings revisions. Deleting a legacy structural Projection does not change those results.
-    
+
     ### Acceptance criteria
-    
+
     Every valid selection resolves deterministically and every invalid selection fails closed with the exact key and allowed values.
-    
+
     ### Failure disposition
-    
+
     Record a Concern naming the accepted invalid value, rejected valid value, or non-deterministic result, then stop settings-schema readiness.
 - Shared RMED source (exact binding): `CA-E-459@39`
   - Claim Scope:
     authoritative Project Settings Artifacts.
   - Remaining Claim prose:
     the Evaluation **must** reject Project Settings **if**
-    
+
     - it is treated as an Atom **or** Projection,
     - has an Atom ID **or** Atom Content Role,
     - is **not** available independently of Project Atoms **and** Implementation,
@@ -6940,15 +6909,15 @@ Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Tim
     - **or**, for history-binding evaluation under CA-D-365, lacks an exact current Revision, SHA-256 Digest, **and** admitted Work Journal receipt.
   - Details (source-bound):
     ordinary Settings Read **must** validate the complete actual Carrier **and** return immutable values with the exact selected Project, physical Carrier path, raw SHA-256 Digest, **and** declared schema marker. it **must not** query the Work Journal **or** determine logical Revision **or** currentness; Journal history is **not** an admission condition for ordinary Read. history-binding evaluation **and** recovered baseline registration under CA-D-365 remain separate operations. neither Read **nor** its refusal authorizes Carrier **or** Journal writes, compatibility fallback, **or** migration.
-    
+
     for recovered baseline registration, the Evaluation **must** check the exact selected Project, Carrier path, lineage-derived logical Revision, **and** Digest binding required by CA-D-365. verify that registration leaves Settings bytes unchanged **and** records the actual observation time **and** evidence-backed observer Run **or** session. reject an absent **or** ambiguous binding, a stale Carrier Digest, a path-based Revision reset **or** guessed allocation, **or** a fabricated Settings write, past mutation, author, **or** history. an admitted baseline receipt **must not** replace any Settings schema **or** ownership check above **or** authorize another operation.
-    
+
     ### Project Prefix Decision binding
-    
+
     The replacement Prefix Decision is Current `CA-D-658@2`: [Serialize Project Prefix](../../07_delivery/CA-D-658-CORE_META_MODEL-DECISION--serialize-project-prefix.md). Its observed source SHA-256 is `443848e786be67f06f28a1a753d8e345a794135dad82c09fd09795648537e438`. This Evaluation's `evaluation_for` Relation binds that actual allocated Decision; the historical predecessor is not restored as authority.
-    
+
     ### Current source pin
-    
+
     Proposed N+1 successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md`, CA-E-459@36, SHA-256 `0a24497bc8492d7b155f4067ee75c77389decdcbf4cfb13e66eb68acef4de631`. Current bytes remain unchanged; this Draft performs no promotion, evaluation execution, or Journal change.
 - Shared RMED source (exact binding): `CA-E-621@37`
   - Claim Scope:
@@ -6957,11 +6926,11 @@ Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Tim
     An Operator unfamiliar with the repository can configure Framework behavior, including default and Project Authority Modes, through Framework Instance Settings and Project initialization inputs through Project Settings using the owning Settings Artifacts and their in-file documentation. Scope Unit Declarations are the separate owner of Scope Unit structure. No structural Projection is required to make these choices.
   - Details (source-bound):
     ### Acceptance criteria
-    
+
     Every intended change is made through its owning Settings Artifact or Scope Unit Declaration, and at least 90% of classifications distinguish Project choices from methodology definitions.
-    
+
     ### Failure disposition
-    
+
     Record a Concern for every misleading or missing Settings instruction and stop settings-usability readiness until it is corrected.
 - Shared RMED source (exact binding): `CA-R-1052@41`
   - Claim Scope:
@@ -7206,9 +7175,9 @@ Project.Settings.Name.*[]{:0}
     the Project Settings TOML Carrier **must** encode the Operator-selected Project Name as its exact nonempty lowercase TOML string value **in** `project.name`, **before** the first Project Atom **or** Implementation is created.
   - Details (source-bound):
     validation **must** preserve the selected value exactly; it **must not** trim **or** convert its case. the complete supported field signature is governed by CA-D-366.
-    
+
     ### Current source provenance
-    
+
     Current source: `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL-ENG_DECISION--serialize-project-initialization-identity.md`, CA-D-375@27, SHA-256 `d86d451d292b2af19c799152c03940cf96f3693edad8f90fbca028d47f55303f`.
 
 ### `Project.Settings.Prefix` — property
@@ -7236,9 +7205,9 @@ Project.Settings.Prefix.*[]{:0}
     the Project Settings TOML Carrier **must** encode the Operator-selected Project Prefix as its exact nonempty uppercase TOML string value under CA-D-378 **in** `artifacts.identity.project_prefix` **before** the first Project Atom is created.
   - Details (source-bound):
     validation **must** preserve the selected prefix exactly; it **must not** trim **or** automatically uppercase it. The complete supported field signature is governed by the pending [Project Settings Content Decision](CA-D-366@28-draft-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md). This Decision preserves the existing storage contract and first-Atom timing; uses of the Prefix are outside this logical-property correction.
-    
+
     ### Current source provenance
-    
+
     Replacement candidate for the historical Current source: `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL-ENG_DECISION--serialize-the-project-atom-prefix.md`, CA-D-376@25, SHA-256 `3b04a0bd6dfce9eec731a550edcdd86c6fdba8560255477bd4810f3c254bd614`. This role-only Draft allocates no canonical Delivery identity and does not rename CA-D-376.
 
 ### `Project.Settings.RMED Review` — property
@@ -7304,7 +7273,7 @@ Projection.Form: Hub
     fixed lowercase prefixes for listed Artifact Type values.
   - Remaining Claim prose:
     the following fixed lowercase prefixes **must** be registered **only** for the listed Type values under Artifact; Atom identities use class short names instead.
-    
+
     | Artifact form | Type | Prefix |
     |---|---|---|
     | `projection` | `catalog` | `catl` |
@@ -7316,7 +7285,7 @@ Projection.Form: Hub
     Projection Type values and derived terminology lists or vocabulary diagnostic indexes.
   - Remaining Claim prose:
     Catalog, Map, **and** Hub **must** be distinct Type values under Projection with no authority over linked Artifact Claims.
-    
+
     a derived terminology list **or** vocabulary diagnostic index **must** use Catalog as its Projection Type; its purpose **and** selected population do **not** admit another Type.
 
 ### `Projection.ID` — property
@@ -7541,14 +7510,14 @@ Scope Unit.Path.*[]{:0}
     Structural Paths derived from active Scope Unit identities and their declared Structural Parent Relations.
   - Remaining Claim prose:
     **every** Structural Path **must** be derived from active Scope Unit identities **and** their declared Structural Parent Relations.
-    
+
     a retained representation for readability **must** remain derived **and** consistent with those authoritative inputs under CA-R-1485. it **must not** independently establish **or** change structural ancestry. permitted storage follows the applicable Delivery authority; this rule does **not** admit another authored Project Structure field.
 - Shared RMED source (exact binding): `CA-R-1688@39`
   - Claim Scope:
     Scope paths in the current project.
   - Remaining Claim prose:
     Scope path is a project-relative address containing **`>=0`** operator-labeled structural scopes ordered from broader parent **to** narrower child.
-    
+
     the current project is ambient. Scope **may** govern ownership, applicability, **and** inheritance, but it never changes stable Artifact identity, Artifact form, Content Role, **or** Governance locus.
 - Shared RMED source (exact binding): `CA-R-2689@1`
   - Remaining Claim prose:
@@ -7585,7 +7554,7 @@ Scope Unit.order.number.*[]{:0}
   - Unresolved CFEL: `Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0}`
   - Semantics:
     `order.ordered` is the Boolean value on the same Scope Unit. `1+` admits integer values of at least 1; `{:1}` requires one value. When order.ordered is false, order.number has no value.
-    
+
     The number is the position among ordered siblings with the same direct parent. Displayed positions do not establish parentage, ownership or Atom authority.
 
 ### `Scope Unit.order.ordered` — property
@@ -7632,9 +7601,9 @@ THEN ($contained.structural_level = $container.structural_level + 1)`
     Graph and Carrier: Graph contains Nodes and Relations; CFEL addresses and
     constrains them. CFEL syntax neither creates a Node, Relation, Property,
     Carrier fact, Workflow step, nor evaluator result.
-    
+
     CFEL uses these graph-address forms:
-    
+
     - `X/Y` selects a narrower Primary Node; `X//Name` selects an existing
       instance of a Primary Node.
     - `X.p` addresses Property p borne by X. In a Subject only,
@@ -7645,7 +7614,7 @@ THEN ($contained.structural_level = $container.structural_level + 1)`
       of one classification fact. `@X` references an already declared target.
     - Parentheses group one expression. `;` separates complete expressions;
       a line break has no conjunction or disjunction meaning.
-    
+
     In Formal Claims, `X: Y` admits Y as an allowed value of X regardless of X's
     kind or preceding path; it is not assignment. `=` and `!=` test conditions,
     and `==` states a required or derived conclusion. `in` and `not in` are the
@@ -7663,7 +7632,7 @@ THEN ($contained.structural_level = $container.structural_level + 1)`
     values; a name selector is not a value selector. A `p.**` count aggregates
     selected distinct descendant Property identities below p within each selected
     bearer, independently of direct values and other bearers.
-    
+
     The following named constructs are admitted only with the semantics in their
     own CFEL Rules: `IF`/`THEN`, `UNIQUE`, `DETERMINES`, `COUNT`, `MAX`,
     `LOOKUP`, `FENCED_LABELS`, and `?=`. `>>` is delivery notation with the
@@ -7673,16 +7642,16 @@ THEN ($contained.structural_level = $container.structural_level + 1)`
     an operator is not a binary Node Relation. A Requirement/Declaration describes
     a canonical or derived Relation direction; it does not authorize a second
     stored inverse fact.
-    
+
     The reusable metadata family `@Operator//Name == "notation literal"` binds a
     declared operator descriptor to its token or bounded construct spelling. Its
     quoted right side is metadata, not an executed CFEL expression, value assignment,
     state creation, or a new model entity.
-    
+
     Every Relation Declaration supplies Semantics. Relation Declarations use the
     existing `==`, `>|`, and named-Relation tokens for short-notation,
     Direct/Derived, and counterpart metadata.
-    
+
     A graph Relation connects declared model entities or declared instances,
     including Carrier and CFEL; it is not limited to `Node/**`. A literal remains a
     Property or allowed value, not a graph endpoint. A non-graph CFEL operator is
@@ -7695,7 +7664,7 @@ THEN ($contained.structural_level = $container.structural_level + 1)`
     signature: its untyped variables range over that declared entity-or-instance
     universe and exclude literals. It declares neither a Relation fact nor instance
     data. Known endpoint kinds remain typed selectors. This binding applies within Relation Declarations.
-    
+
     Concrete directional alternatives describe the same canonical Relation fact:
     `Step ((IS_CONTAINED_BY)) Workflow` and
     `Workflow <((IS_CONTAINED_BY)) Step`. The bare forward form
@@ -7704,13 +7673,13 @@ THEN ($contained.structural_level = $container.structural_level + 1)`
     slots. This syntax does not grant an inverse Relation permission. The Relation Declaration states the Host, Target and counterpart direction. `HAS_INVERSE` remains distinct from the confirmed
     canonical-Relation-versus-derived-view policy; this Definition does not
     introduce a placeholder Relation, metadata Node, or evaluator.
-    
+
     In RMED Claims, all formal content is a fenced block labelled `CFEL`. CFEL
     body syntax and Markdown-fence-label parsing are separate concerns. This Definition
     describes the admitted language contract; it does not claim a complete parser
     or evaluator. An unimplemented construct remains an adoption and conformance
     gap, not evidence that the construct has different semantics.
-    
+
     This Definition does not convert a Format, Bool value, or any other value
     into an instance selected by `//`. Such an instance selection requires the
     existing source binding that declares it. No value-format-to-instance rewrite
@@ -7728,7 +7697,7 @@ p.*[name format]{:immediate name count}: [value format]{:value count}
   - Unresolved CFEL: `p.*[name format]{:immediate name count}: [value format]{:value count}`
   - Details (source-bound):
     Non-executable Relation-metadata illustration:
-    
+
     ```text
     ((REL)) == <declared short notation>
     ((REL)) >| <Direct or Derived classification>
@@ -7748,9 +7717,9 @@ p.*[name format]{:immediate name count}: [value format]{:value count}
     A canonical Subject path identifying a governed or dependency target.
   - Remaining Claim prose:
     The following interpretation is required when this governed concept is used:
-    
+
     A Subject Path is a full canonical expression identifying one thing or topic addressed by GOVERNS or DEPENDS_ON. Entity is the canonical expression root under CA-R-2462; this Definition does not enumerate a closed root-branch set. A source path retains the declared operators and full qualification; a short display label is not another identity or alias.
-    
+
     The target is selected by the meaning addressed, not by the Atom's Local Scope Unit, Content Role, folder or Carrier. The path names a target; it is not itself the Subject Relation. A defining Atom may introduce that target, so format checks do not require prior target existence.
   - Semantics:
     A path may address classification without declaring an Entity kind. `Atom.Content Role` addresses the relative Property, while `Atom/(.Content Role: Plan)` identifies a qualified Atom inheriting applicable Atom features and constraints. Neither form invents an intermediate Entity kind. The root and operators follow the adopted Entity syntax under CA-R-1931; no Project-name namespace layer is introduced.
@@ -7759,21 +7728,21 @@ p.*[name format]{:immediate name count}: [value format]{:value count}
     Subject Expressions formed from entity names, reusable Term components, and registered relation syntax.
   - Remaining Claim prose:
     The following interpretation is required when this governed concept is used:
-    
+
     a Subject Expression **means** a reference **to** **`=1`** canonical Subject Target formed from entity names, registered relation syntax, **and** an optional registered Atom-owner selector. The case-significant lexical component `Atom` occurs **in** the full canonical Entity expression `Entity/Object/Continuant/Governing Objects/Atom`; lowercase `atom(...)` is a distinct case-significant selector keyword, **not** an alias **or** spelling of `Atom` **and not** another Entity kind. Only an approved-profile expression **may** begin with `atom(content_role="<exact Content Role>")` **or** `atom(content_role="<exact Content Role>",type="<exact Atom Type>")`; `type` has no standalone form. Selector literals are non-empty, double-quoted exact literals with no escaping, evaluation, wildcard, alias, or case folding. The reserved selector form is initial `atom(...)`; this does not reserve an ordinary noninitial Name `atom`.
-    
+
     Outside the Term branch, an Entity reference **must** use its exact complete canonical expression with every source-established qualifier; a bare Term is not that expression. The sole one-Term exception is the Subject root `Entity`. Ordinary lexical components **may** reuse Terms with consistent approved meanings; an instance's name is **not** automatically a lexical Term. Inside `((...))`, a registered direct Relation token resolves to **`=1`** admitted Relation Type under the named-Relation notation. Its bare spelling is not that Relation Type entity's complete canonical expression; naming comparison uses the full qualified expression separately. The selector keyword, keys, punctuation, **and** literals remain syntax, **not** entities **or** additional canonical names merely because they occur **in** an expression. A qualified Atom expression such as `Atom/(.Content Role: <exact Content Role>)/(.Type: <exact Atom Type>)` is available only when both exact values have independent source admission; its segments do not become admitted merely by appearing in selector syntax.
-    
+
     `/`, `//`, `.`, `:`, `+>`, `<+`, `>|`, `|<`, `@`, parentheses, the named-relation form `Source ((RELATION_TYPE)) Target`, **and** cardinality follow CA-R-1931 **and** CA-R-2487. `//` is one separator token between a kind **and** a named instance; its right operand is the instance's name, **not** an Atom ID. `@` calls an already declared Entity; it is **not** an Atom-version selector or kind-only reference. Parentheses provide logical grouping. `Part +> Whole` and `Whole <+ Part` are containment, not inheritance or sequence. `X >| Y` and `Y |< X` express the same HAS_CLASSIFICATION fact with Entity Y used as an applicable Classification axis, not membership or a new Entity kind. Relation counts use `Source {:forward}((RELATION)){:reverse} Target`; direct values use `Property{:occurrence}: [format]{:value count}`. Operators, calls, grouping, relation delimiters, Formats, **and** cardinality are **not** Terms.
-    
+
     The complete expression **must** resolve **to** **`=1`** canonical Subject Target that already exists **or** is explicitly introduced by applicable defining authority under CA-R-1194 **and** CA-R-1931. Syntax alone neither creates **nor** admits a target **or** native EntityGraph fact. Selector syntax neither enumerates Atom rows **nor** admits an Entity endpoint. The expression identifies the target, **not** the Atom's Subject Relation **to** it. An arbitrary composite expression is **not** one Term **or** automatically one entity name; an admitted qualified property name **may** identify **`=1`** entity.
   - Details (source-bound):
     Subjects do not carry Atom or Artifact IDs, whether bare, version-qualified, or embedded in an ID selector. Use typed Relations for links to those Atoms or Artifacts. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties, not particular identifier values. They are not alternative complete canonical Subject names or case-folded aliases; an authored Subject uses its full admitted expression. Their shared terminal label and reusable `ID` meaning do not collide. Dot remains an operator; these contextual spellings are not renamed to `atom.atom_id` or another invented spelling. Named-instance Subjects use names, not IDs. Source/provenance metadata outside Subjects is not prohibited.
-    
+
     `//` selects a named instance of a primary kind, not an instance of a dependent property. A following `.` can select that instance's property, including `Selection//Projection and Journal Authority Sources.updated_at`. Source-established kind or bearer qualification participates in the complete canonical name. Distinct modeled entities require distinct complete qualified names, while repeated references retain the same identity and name. Local instance labels may coincide across different kinds when their complete qualified names differ. Local names remain unique per entity kind within the project's Current source view across owning Scope Units under CA-R-2476. This grammar adds neither case folding nor a name registry. When `//` is mandatory remains deferred.
-    
+
     `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module`, and `Entity/Object/Continuant/Package <+ Module <+ Code Unit` identify three connected entities. The chain is not one Term or a fourth entity. `Package`, `Module`, and `Code Unit` are their reusable lexical components, not their complete Entity expressions. Likewise, `Package` and `Unit` are reusable Terms whose occurrence does not itself introduce an entity or Relation. The rule applies to exact full expressions in authored prose as well as Subjects. Literal source quotations and code identifiers remain distinguishable and are not automatically renamed. Arbitrary instance names and identifiers outside this modeled-entity naming role are not automatically lexical definitions.
-    
+
     Entity is the canonical expression root under CA-R-1194. The registered operators retain their meanings and native-fact admission boundaries. No new alias, parser, resolver grammar, formula, or unadopted syntax is introduced by this definition.
 - Shared RMED source (exact binding): `CA-R-1931@18`
   - Claim Scope:
@@ -7785,26 +7754,26 @@ p.*[name format]{:immediate name count}: [value format]{:value count}
     `Y`, irrespective of X's kind or path. `@` calls an already declared Entity;
     it is not limited to kinds and declares no target. Parentheses provide logical
     grouping.
-    
+
     `Part +> Whole` and `Whole <+ Part` are opposite writings of the same
     containment fact. Its direct fact is Part IS_CONTAINED_BY Whole, and CONTAINS
     is derived. `X >| Y` and `Y |< X` are opposite writings of the same
     HAS_CLASSIFICATION fact, with Entity Y used as an applicable Classification
     axis rather than belonging to a separate Classification Entity kind. This Rule does not
     invent an inverse canonical Relation Type for HAS_CLASSIFICATION.
-    
+
     `X/(.Y: Z)` denotes a narrower kind of X qualified by its own Property Y
     and value Z. The leading dot inside parentheses is relative to X: `.Y`
     addresses `X.Y`. The qualified X inherits X's applicable features and
     constraints. The Property is the qualification condition; it does not become
     a narrower kind of its bearer. This form replaces the proposed classification
     Property category and the earlier bare `X/Y: Z` qualification spelling.
-    
+
     `Source ((RELATION_TYPE)) Target` expresses a defined named Relation. Persist
     the direct fact once and show its declared derived inverse only as a derived
     view. Entity syntax neither creates target identities nor admits native facts
     without defining authority. A defining Atom may introduce its governed Entity.
-    
+
     Cardinality uses `{n}`, `{n+}`, and `{n..m}`. Direct Property values retain
     their post-Property notation, for example `X.Y[format]{n}`. A Relation has two
     independent directional slots: `Source {forward-count}RELATION{reverse-count}
@@ -7821,7 +7790,7 @@ p.*[name format]{:immediate name count}: [value format]{:value count}
     direct-value Format and cardinality.
     Advanced functions, formulas, interpolation, and bracketed conditions are out
     of scope.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -7840,7 +7809,7 @@ Source ((RELATION_TYPE)) Target
     an instance of a kind; `.` addresses a dependent Property; and `:` declares
     an allowed value rather than assigning one. A reference marker calls an
     already declared Entity and creates neither an alias nor a duplicate.
-    
+
     `X.Y` addresses Property Y, and `X.Y: Z` expresses its allowed value.
     `X/(.Y: Z)` instead identifies qualified X entities. For example,
     `Atom/(.Type: Method)` means an Atom with the stated Type qualification, not
@@ -7849,7 +7818,7 @@ Source ((RELATION_TYPE)) Target
     `Atom/(.Content Role: Method)`. Every qualification still requires its own
     admitted Property and allowed value. Existing Carrier keys and encodings
     remain governed separately by Delivery; the notation adds no nested object.
-    
+
     Status Group classifies Atom Statuses through
     `Atom.Status >| Status Group`. The following `<+` expressions describe each
     group's Status parts. In this
@@ -7863,25 +7832,25 @@ Source ((RELATION_TYPE)) Target
     belongs to Workflow; Step and Sub-step are distinct. Scope Unit has structural
     parts expressed as `Scope Unit <+ @(Scope Unit)`, `Scope Unit <+ @(Atom)`, and
     `Scope Unit <+ @(Projection)`.
-    
+
     Backslash escapes the next literal name character. Single/double quotes are
     carrier serialization, not Entity delimiters. One globally unique primary
     kind name and one canonical declaration path are required; migration does not
     retain aliases. Term-path reconciliation remains subject to C605.
-    
+
     These Operator-approved notation changes are Draft proposals. The grammar,
     authoring and evaluation consumers need coordinated reconciliation before
     adoption; no Current operator or executable parser is changed here.
 - Shared RMED source (exact binding): `CA-R-2471@4`
   - Remaining Claim prose:
     In Subject addresses and Formal Claims, `X/Y` selects a narrower declared kind and `X//Name` an instance of a declared kind. A Property cannot narrow or instantiate. `X.p` addresses a Property borne by X; an unchanged inherited Property is resolved to its existing declaration rather than redeclared or given another bearer. In Subject addresses, `X/(.p := V)` admits V as a Property value and selects the whole Primary Node X where p equals V. The case does not exclude other allowed values from X.p. `(Node, Node.**)` selects Node and its recursive dependent Properties; it is not a narrowing assertion. Shared Node rules are declared once and inherited by applicable narrower Nodes.
-    
+
     `Part +> Whole` and `Whole <+ Part` are opposite written views of one composition fact, not narrowing. `X >| Axis` and `Axis |< X` are opposite views of one classification fact. `:` marks an allowed value. `=` tests a condition; `==` sets a value. Parentheses group expressions; `in (a, b)` expresses membership. `@X` refers to the existing target without copying or reparenting it.
-    
+
     For `Source {:n}((RELATION)) Target`, the cardinality constrains the allowed number of Relation instances at the written left-hand Source. Constrain a counterpart endpoint in its own applicable Declaration; a reverse written view does not grant permission or a cardinality. `{:n}` states an allowed cardinality. The same notation can constrain Properties, instances and Relations. Repeated references in a rule, including its conditions and conclusions, bind the same selected member. An omitted cardinality annotation leaves that cardinality undefined; it is not an implicit zero or permission.
-    
+
     `(Node, Node.**)` selects model Entities in the Node branch; it does not limit other declared Entities. `(Node//, (Node//).**)` is the instance-layer selector. `Node//` selects Node instances including instances of narrower kinds. `(Node//).**` selects recursive Property occurrences of a Node instance; it does not independently instantiate a Property kind. The two layers have separate permissions. Repeated instance matches count once by identity.
-    
+
     Subjects remain addresses and do not contain complete Formal Claims. In Subjects, `:=` combines allowed value and condition, including `Atom.Status := Draft` and `Atom/(.Role := Method)`; it does not write an instance value. Formal Claims retain separate `:` and `=` meanings. The withdrawn `..` form is not adopted; `::` has no assigned meaning here.
 - Shared RMED source (exact binding): `CA-R-2472@8`
   - Remaining Claim prose:
@@ -7894,18 +7863,18 @@ Source ((RELATION_TYPE)) Target
       constrains each selected immediate dependent Property's direct values.
     - The name count and value count are different counts. Separate complete
       expressions use `;`.
-    
+
     Property selectors compose from left to right:
     - `p.*.*` selects Properties exactly two levels below p.
     - `p.*.**` selects Properties two or more levels below p.
-    
+
     Names are unique within one bearer. `x.y.z` differs from `x.z`. Resolve local
     declarations first and inherited declarations next. If neither declares
     dependents for p, the effective immediate-child constraint is `p.*[]{:0}`:
     undeclared dependent entities are forbidden. An explicit applicable child-name
     selector, including an explicit wildcard selector, is the stated exception;
     it permits only the names and counts that it declares.
-    
+
     Missing occurrence, direct-value, Format, and non-default count annotations
     remain unspecified. For `p.**`, the recursive count aggregates the selected
     distinct descendant Property identities below p within each selected bearer.
@@ -7953,17 +7922,17 @@ Source ((RELATION_TYPE)) Target
 - Shared RMED source (exact binding): `CA-R-2550@2`
   - Remaining Claim prose:
     - `p ?= e1 ?= e2` is one ordered fallback chain. Use p when authored; otherwise use the first available valid expression from left to right. An authored invalid value is an error, not absence. Omission is Property absence, not null, an empty string, zero or false.
-    
+
     - Expressions may be literals, same-bearer Property paths, explicit bound Property reads, or `LOOKUP(R, q)`. An explicit foreign-bearer read must resolve one target in the declared evaluation context; zero or multiple targets are errors.
-    
+
     - `LOOKUP(R, q)` starts from p’s bearer, follows one existing outgoing R link at each step, and returns the nearest compatible authored q value. The starting bearer is excluded. A known end with no applicable authored value returns absence, allowing the next fallback.
-    
+
     - Resolve q by full Property declaration identity and applicability in the effective MODEL. Skip a bearer only when q is inapplicable or its authored occurrence is absent. Do not match unrelated Properties by bare name or invent a slot on an inapplicable kind.
-    
+
     - An invalid present value, unresolved applicability or graph facts, multiple outgoing targets, or a revisited bearer is an error. Follow only the relation direction named by R.
-    
+
     - Lookup is lazy: stop at the first valid available value. Later branches are not evaluated. Missing final values and evaluated fallback-expression cycles are errors. More than one applicable fallback chain is an error. Independent Declaration constraints still apply.
-    
+
     - Resolve the effective value without writing a Carrier or adding an authored occurrence. It must satisfy p’s declared value Format and cardinality. A fallback cannot satisfy a required authored occurrence. Property-declaration inheritance is unchanged; recursive instance-value lookup occurs only through explicit LOOKUP.
   - Fenced Claim block:
 ```CFEL
@@ -7978,14 +7947,14 @@ p ?= expression
 - Shared RMED source (exact binding): `CA-R-2551@2`
   - Remaining Claim prose:
     `UNIQUE(selector, (.p, .q))` requires unique tuples of the selected Properties across the selected logical instances in the explicit Project evaluation context. An optional third argument, `condition`, restricts the population: `UNIQUE(selector, (.p, .q), condition)`.
-    
+
     - Use each selected instance's state in one explicit Project snapshot. Do not expand earlier lifecycle states as DETERMINES does. Without a condition, evaluate the complete selected population regardless of Status Group or containment, including selected Drafts and Archived instances. An incomplete or unresolved population is an error. A known empty population satisfies uniqueness.
     - Evaluate a condition on each candidate instance before resolving tuple Properties. Relative Properties bind to that same instance. False excludes it; unresolved, invalid or ambiguous conditions are errors. Use the existing Boolean grouping and AND/OR syntax.
     - For each selected instance, bind every tuple Property to that same instance. Each must have exactly one valid scalar value; missing, invalid or multiple values fail the constraint.
     - Two distinct selected logical instances must not have equal value tuples. Repeated references or Carrier representations of the same logical instance do not create additional instances. Do not infer that two instances are one merely because their key tuples match.
     - Compare scalar values in their declared Format without implicit normalization or coercion. A declared reference compares by its resolved target identity; an absent or ambiguous binding is an error, with no raw Carrier-locator fallback. Tuple components need not be individually unique.
     - Optional Properties require an explicitly resolved subset whose members carry the required values; do not silently skip missing rows.
-    
+
     `UNIQUE` is a declarative condition. It does not allocate, renumber or write values.
 - Shared RMED source (exact binding): `CA-R-2552@2`
   - Remaining Claim prose:
@@ -8003,23 +7972,23 @@ p ?= expression
     ```CFEL
     Kind//$x
     ```
-    
+
     This binds one existing selected instance.
 - Shared RMED source (exact binding): `CA-R-2561@2`
   - Remaining Claim prose:
     `IMMUTABLE(p)` requires the same valid scalar Property value for one logical bearer from the first point when the surrounding scope selects that Property onward.
-    
+
     - At first applicability, bind the one existing valid scalar value. Existing occurrence, Format and value-cardinality constraints still apply. Guard an optional Property before applying `IMMUTABLE`.
     - Bind later versions to the same logical bearer using supplied lineage, not by matching the mutable Property value. A new Version or Carrier representation does not create a new bearer for this check.
     - If an IF guard activates `IMMUTABLE`, the constraint remains active for that bearer after the first true condition, including when later versions no longer satisfy the guard.
     - Use the first applicable value, not the latest observed value. Missing or invalid required values, unresolved bearer lineage, or incomplete history needed to establish the first applicable value are errors; none proves immutability.
     - After activation, every later version of that bearer must still provide exactly one valid scalar value matching the bound value. A later false guard or removal of an optional Property does not suspend the constraint. Compare using the declared scalar Format, without implicit normalization or coercion.
-    
+
     `IMMUTABLE` is a declarative invariant. It does not write, allocate or lock a value, or perform a Workflow step.
 - Shared RMED source (exact binding): `CA-R-2562@2`
   - Remaining Claim prose:
     `DETERMINES(selector, (.key, ...), (.dependent, ...))` requires equal ordered key tuples to have equal ordered dependent tuples. An optional fourth argument, `condition`, restricts the state population: `DETERMINES(selector, (.key, ...), (.dependent, ...), condition)`.
-    
+
     - Use one explicit Project evaluation context. Resolve the complete relevant state history selected by Kind, including versions and rebuild states, rather than only the latest Current snapshot.
     - The context supplies the historical population, Property-value resolution and declared reference-identity bindings. These are evaluation inputs, not new Artifact fields.
     - Evaluate an optional condition separately on each candidate historical state before resolving tuple Properties. Relative or selected-Kind Property references in that condition bind to that same state. A false condition excludes the state. An unresolved, invalid or ambiguous condition is an error. Without a condition, use all selected states. Do not select by only the latest state and then include its excluded historical states.
@@ -8027,12 +7996,12 @@ p ?= expression
     - Compare tuple positions in order. Compare scalar values using their declared Format without implicit normalization or coercion. A declared reference compares by its resolved target identity. Missing or ambiguous reference bindings are errors; raw text or Carrier locators are not fallback identities.
     - For every pair of selected states, equal keys require equal dependents. Repeated keys with equal dependents are allowed. Different keys may have equal dependents.
     - An unresolved or incomplete required history is an error. A known complete empty selection satisfies the constraint.
-    
+
     `DETERMINES` does not assert key uniqueness, merge instances, allocate IDs, freeze inputs, assign values or execute a Workflow.
 - Shared RMED source (exact binding): `CA-R-2563@2`
   - Remaining Claim prose:
     `FENCED_LABELS(p)` selects one label per fenced code-block occurrence in one scalar Markdown value.
-    
+
     - Evaluate p separately for each matching bearer. Do not pool values across Atoms.
     - Use the complete recursive Markdown block parse. Exclude indented code blocks.
     - Preserve duplicate labels as separate occurrences. An unlabelled fence contributes an empty label.
@@ -8040,12 +8009,12 @@ p ?= expression
     - The finite literal Format `[in (CFEL)]` matches only CFEL. An empty selection satisfies the Format condition but must still satisfy the count.
     - Bind parsed labels through the governing Markdown Format and the existing CFEL-labelled-fence rule. No whole-info-string, token or case-normalization policy is added here.
     - Missing or multiple Markdown values, incomplete parsing and unresolved or ambiguous label bindings are evaluation errors. Never replace them with an empty selection.
-    
+
     Selection reads Markdown value structure, not Graph Nodes or dependent Properties. CFEL body syntax is validated separately.
 - Shared RMED source (exact binding): `CA-R-2566@2`
   - Remaining Claim prose:
     `Kind//(c1, ...).p` selects p from matching instances of Kind and its narrower kinds in one explicit current-Project instance snapshot.
-    
+
     - Relative filter paths bind the same candidate instance. Outer variables retain their enclosing bindings; an unbound or ambiguous variable is an error.
     - Every filter condition must hold. Commas inside filter parentheses mean AND. Outside them, selector commas retain their existing union meaning. Existing AND, OR and grouping remain available. Filter conditions and AND groups evaluate left-to-right with short-circuiting: a later field read is evaluated only after its earlier guard holds.
     - A missing, invalid or unresolved evaluated filter is an error, not false. Short-circuiting excludes only an unevaluated later condition; it never turns an evaluated invalid value into a skipped record. Reference comparisons use resolved target identity, not raw identifiers or Carrier data.
@@ -8053,7 +8022,7 @@ p ?= expression
     - `MAX(selection)` returns the greatest selected scalar under its Format-defined ordering. Numeric and datetime values are orderable. Compare datetimes as instants, not lexical strings.
     - Empty, incomplete, incompatible or non-orderable selections are errors.
     - Equal greatest values return that scalar value. MAX does not select a record row.
-    
+
     Both operations are read-only. They create no record, Property, Relation, value or lifecycle transition.
 - Shared RMED source (exact binding): `CA-R-2585@2`
   - Remaining Claim prose:
@@ -8084,19 +8053,19 @@ p ?= expression
   - Unresolved CFEL: `CFEL fence is outside Claim; its contents were not interpreted.`
   - Details (source-bound):
     Model-entity default:
-    
+
     ```CFEL
     (Node, Node.**) {:0}((*))
     ```
-    
+
     Instance default:
-    
+
     ```CFEL
     (Node//, (Node//).**) {:0}((*))
     ```
-    
+
     Instance exception:
-    
+
     ```CFEL
     Journal// {:0+}((CONTAINS)) Event Record//
     ```
@@ -8128,7 +8097,7 @@ CFEL <+ Cardinality
     conclusion; none is an allowed bound. A direct parent-value count excludes
     nested child keys and every descendant value, including every value held by
     nested children.
-    
+
     Property occurrence, value and dependent-name counts are separate:
     `p{:0}` forbids authored occurrences of p; it does not forbid independently
     declared children. `p.*[]{:0}` states that p has no declared immediate
@@ -8138,7 +8107,7 @@ CFEL <+ Cardinality
     name count aggregates selected distinct descendant Property identities under p
     within each selected bearer; it does not count direct values or another
     bearer's descendants.
-    
+
     `Source {:forward}((RELATION)){:reverse} Target` has independent directional
     counts. The first constrains outgoing Relation instances per selected Source;
     the second constrains reverse links per selected Target. Reversing the written
@@ -8163,7 +8132,7 @@ p.*[name format]{:name count}: [value format]{:value count}
     Carrier representations of Continuants.
   - Remaining Claim prose:
     A Carrier **means** a storage representation of a Continuant, distinct from what it represents. A Carrier can represent a record of an Occurrent, **not** the Occurrent itself.
-    
+
     ### Formal claim
     For implementation_of, the direct owner is the governed Implementation Carrier and each tuple targets the specification Atom it implements. For evidence_for, the direct owner is the evidence Carrier and each tuple targets the Evaluation or Implementation Carrier it supports. These are endpoint permissions, not extra fields on reusable Relation Types or additional storage facts for their derived inverses.
   - Fenced Claim block:
@@ -8182,9 +8151,9 @@ Carrier.Format[string]{1}
     admitted materialized representation Carriers.
   - Remaining Claim prose:
     **every** admitted materialized representation Carrier **must** have a recoverable binding **to** its exact canonical source Revision **and** **`=1`** deterministic regeneration **or** reconciliation rule.
-    
+
     the binding **may** be recovered through the selected authoritative source frontier **and** governing derivation authority; it does **not** require source metadata **to** be embedded **in** **every** resulting Carrier. an applicable Carrier specification determines whether **and** how **any** explicit binding is serialized.
-    
+
     for Applicable Methodology projected Atom Carriers, CA-D-305 requires an explicit one-way binding **to** the original source Atom Carrier while preserving its authored content, identity, **and** Revision. that specific binding **must not** create duplicate source authority **or** impose a blanket persisted source frontier on other Projections contrary **to** CA-R-1494.
 - Shared RMED source (exact binding): `CA-D-311@27`
   - Claim Scope:
@@ -8208,7 +8177,7 @@ Carrier.Format[string]{1}
     administrative Content Role directory placement at the CAPRMEDIO Project root **and** **in** **every** descendant Scope Unit, including `CORE_META_MODEL`, `INSTALLED_EXTENSIONS`, **and** `PROJECT_CONFIGURATION`.
   - Remaining Claim prose:
     **every** Scope Unit **in** the CAPRMEDIO Project **must** use the same administrative Content Role directory mapping directly under its own authority directory for current-scope placement:
-    
+
     - Concern: `01_concern/`;
     - Analysis & Advisory: `02_analysis/`;
     - Plan: `03_plan/`;
@@ -8218,11 +8187,11 @@ Carrier.Format[string]{1}
     - Delivery: `07_delivery/`;
     - Implementation: `08_implementation/`;
     - Operations: `09_operations/`.
-    
+
     materialize these directories under `CA-D-296-CORE_META_MODEL-DELIVERY--materialize-content-role-directories-on-first-artifact`. preserve specific Carrier placement rules **and** apply Status placement under `CA-D-466-CORE_META_MODEL-DELIVERY--place-carriers-by-applicable-status-delivery`.
   - Details (source-bound):
     the Project Scope Unit uses `.caprmedio_caprmedio/` as its authority directory. **every** descendant uses its own declared authority directory **and** reuses this mapping rather than independently defining it.
-    
+
     these administrative directories provide placement; they do **not** become Structural Entities **or** Directory Carriers under `CA-D-451-CORE_META_MODEL-DELIVERY--classify-folders-by-their-carrier-responsibility`.
 - Shared RMED source (exact binding): `CA-D-341@29`
   - Claim Scope:
@@ -8256,7 +8225,7 @@ Carrier.Format[string]{1}
     structured production log records.
   - Remaining Claim prose:
     **every** structured production log record **must** include, **where** applicable:
-    
+
     - UTC timestamp, severity, **and** a stable event name;
     - component, environment, **and** deployed version;
     - run, request, job, workflow, session, correlation, **or** trace identity;
@@ -8333,7 +8302,7 @@ Carrier.Format[string]{1}
     Plan Carrier identity **and** placement.
   - Remaining Claim prose:
     the Plan Carrier Evaluation **must** reject Carrier facts that create duplicate identity **or** contradict the shared Plan model.
-    
+
     - accept a mandatory Markdown file **with** **or** **without** a matching optional Hub directory under `CA-D-460-CORE_META_MODEL-CORE-DELIVERY--serialize-plan-atom-carrier-bundles`; reject a directory **without** that file.
     - count a matching pair once; reject two IDs, divergent stems, conflicting Status, a separate Epic identity, **or** an Objective file that claims **to** be another Atom for the same Hub.
     - require DoD **in** **every** supplied Plan file, even **when** it carries contained child Plans **or** explicit overrides.
@@ -8344,14 +8313,14 @@ Carrier.Format[string]{1}
     - leave referenced Plans outside the tree **and** older archived Revision bytes, Version **and** Status unchanged; reject older Revisions as cascade targets. Allow retained-history subtrees and non-Atom assets to accompany the matching Directory Carrier byte-for-byte unchanged, without inferring Status effects. No independent migration of noncanonical legacy `archive/` trees is implied.
     - accept root Backlog Plans **in** `03_plan/001_backlog`; reject `031_backlog` as the canonical new encoding **and** reject a `version-<VERSION>` directory substituted for a Version-labeled Plan identity.
     - retain one identity **when** contained work is added, removed, **or** reordered; a changed Summary follows Atom replacement authority rather than independent filename editing.
-    
+
     report the invalid Carrier Bundle, source fact, **and** violated Delivery rule.
 - Shared RMED source (exact binding): `CA-E-513@23`
   - Claim Scope:
     the Atom Carrier Validation Workflow definition.
   - Remaining Claim prose:
     the Atom Carrier Validation definition check **must** reject a graph **or** binding that cannot preserve its declared read-only assessment boundary.
-    
+
     - require **=1** entry **and** **=1** Step node, a resolvable Step reference, **=1** Action per Step, explicit compatible input bindings, **and** admitted Workflow-scoped transitions.
     - require reachable terminal outcomes for incomplete, invalid, valid, **and** execution-error cases as defined by the referenced Action; **none** of the outcomes **may** be silently mapped **to** valid.
     - verify that this graph is acyclic, contains no implicit retry **or** repair, **and** does **not** duplicate Action behavior inside its Step bindings **or** graph.
@@ -8362,21 +8331,21 @@ Carrier.Format[string]{1}
     an Operator's placement **and** retention classifications for Atoms, Journal Records, resumable checkpoints, generated caches, **and** disposable workspaces. the available boundaries are the applicable Project authority root, Framework control root, Runtime State, **and** host temporary root.
   - Remaining Claim prose:
     the Evaluation **must** assess storage-boundary interpretability using the following evidence **and** result conditions.
-    
+
     ### Inputs
-    
+
     use the Operator's classifications, retention explanations, **and** the governing evidence that establishes the expected classification for **every** submitted case.
-    
+
     ### Expected answers
-    
+
     | Case | Expected classification |
     | --- | --- |
     | Workflow **and** Implementation events | the shared Project Work Journal through its D-defined Project-wide Carrier |
     | multiple segments **in** the selected Journal Carrier | Carriers of the same Journal, **not** additional Journals |
     | Artifact Change Log **and** Process Log | non-authoritative Projections of that Journal, **not** separate historical sources |
-    
+
     ### Result
-    
+
     - return `fail` **if** the evidence establishes **any** of these conditions:
       - **`<90`**% of classifications are correct.
       - a classification treats Runtime State **or** scratch as canonical truth.
@@ -8391,19 +8360,19 @@ Carrier.Format[string]{1}
     an Artifact-change view **and** a Workflow-execution view derived from the same declared Journal selection.
   - Remaining Claim prose:
     the Evaluation **must** assess Journal-view integrity using the following fixtures **and** result conditions.
-    
+
     ### Inputs
-    
+
     use **`=1`** admitted Artifact-change event associated with an execution **and** **`=1`** admitted read-only execution event, their source records, the declared Journal selection, **and** the derived views.
-    
+
     ### Expected behavior
-    
+
     - the Artifact-change event **may** appear **in** the two views with the same canonical Event identity.
     - the read-only execution **must not** require a fabricated Artifact-change event.
     - rebuilding a view from the same declared Journal selection **must** preserve its source event references **and** represented historical facts.
-    
+
     ### Result
-    
+
     - return `fail` **if** a fixture contradicts the expected behavior **or** does **any** of the following:
       - independently writes history into a view.
       - creates a second authoritative record merely **to** serve the other view.
@@ -8420,28 +8389,28 @@ Carrier.Format[string]{1}
     the ordered generated-data pipeline stages.
   - Remaining Claim prose:
     the following ordered generated-data pipeline stages **must** be registered, referenced by their Carrier prefixes governed by CA-D-388-PROJECT_CONFIGURATION-ENG_DECISION--serialize-generated-data-stage-prefixes-and-formats:
-    
+
     | Stage reference | Stage meaning |
     | --- | --- |
     | `src` | canonical Journal input; authority comes from the Journal, **not** the prefix. |
     | `stg` | deterministic, lossless Projection of a bounded `src` frontier. |
     | `mrt` | consumer-ready semantic Projection, including Requirement groupings by scope **and** tier **or** Mermaid relation maps. |
     | `biz` | aggregated CAPRMEDIO artifact **and** implementation metrics, including point-in-time snapshots **and** historical trends. |
-    
+
     dependencies **must** move forward through `src → stg → mrt → biz`; a stage **may** depend on **any** earlier registered stage but **must not** depend on a later stage.
 - Shared RMED source (exact binding): `CA-R-644@25`
   - Remaining Claim prose:
     CAPRMEDIO **may** admit a materialized representation **only** **when** an explicit Requirement establishes that the representation is necessary **to** preserve a required outcome **or** a material governed distinction under CA-M-005.
-    
+
     possible justifications include:
-    
+
     - an external contract;
     - portability;
     - performance;
     - availability;
     - an audit snapshot; **or**
     - independently usable publication.
-    
+
     these examples do **not** close the set of justifications; another justification still requires the explicit Requirement **and** demonstrated necessity.
 
 ### `Carrier.Canonical Address` — declared component
@@ -8453,7 +8422,7 @@ Carrier.Format[string]{1}
     A Carrier's Canonical Address **means** its designated locator under the applicable addressing rules. It is **not** the Carrier's ID.
   - Details (source-bound):
     CA-D-267 refers to registered canonical Carrier addresses; CA-D-301 governs address segments. The Operator distinguishes Carrier ID from filename/path. CA-D-267's non-Atom property-derivation policy is not made universal here.
-    
+
     Active CA-R-2515 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.
 - Shared RMED source (exact binding): `CA-D-267@27`
   - Claim Scope:
@@ -8475,7 +8444,7 @@ Carrier.Format[string]{1}
     Carriers whose canonical address format has component segments.
   - Remaining Claim prose:
     A Canonical Address Segment **means** one component of a Carrier's Canonical Address under its applicable address format.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -8483,7 +8452,7 @@ Carrier.Canonical Address.Segment[string]{1}
 ```
   - Details (source-bound):
     CA-D-301 governs project-owned address segments; CA-D-352 treats status subdirectories as placement components. Filesystem separators and portable-name restrictions are not imposed on every database address by this definition.
-    
+
     Active CA-R-2515 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.
 - Shared RMED source (exact binding): `CA-D-289@24`
   - Claim Scope:
@@ -8500,7 +8469,7 @@ Carrier.Canonical Address.Segment[string]{1}
     Project-owned Carrier address segments.
   - Remaining Claim prose:
     **every** Project-owned Carrier address segment
-    
+
     - **must** use **only** portable automation-safe ASCII letters, digits, underscores, hyphens, **and** dots, with `@` admitted **only** **in** the `@<version>` Archive suffix immediately **before** the file extension, as specified by CA-D-289,
     - **must not** contain whitespace, control characters, path separators, shell metacharacters, empty **or** reserved segments, **or** unsafe leading **or** trailing characters,
     - **and** **must** remain sibling-unique under ASCII case folding.
@@ -8517,7 +8486,7 @@ Carrier.Canonical Address.Segment[string]{1}
     Carriers with an applicable representation format.
   - Remaining Claim prose:
     A Carrier's Format **means** the rules for encoding and interpreting its represented content. The registered File Carrier values include Markdown, TOML, YAML and JSON under CA-D-262; representation details remain governed by Delivery.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -8536,7 +8505,7 @@ Carrier/File.Format: JSON
     Identifiers of individual Carriers.
   - Remaining Claim prose:
     A Carrier ID identifies one Carrier. Its filename and path are **not** its ID.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -8544,7 +8513,7 @@ Carrier.ID[string]{1}
 ```
   - Details (source-bound):
     The Operator explicitly distinguished Carrier ID from filename and path. CA-D-507 separates Entity identity from Carrier format but does not define Carrier ID. This draft introduces no ID syntax, allocator or registry.
-    
+
     Active CA-R-2515 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.
 - Shared RMED source (exact binding): `CA-R-1981@16`
   - Claim Scope:
@@ -8620,7 +8589,7 @@ Carrier.ID[string]{1}
     filesystem folders that carry or place Project artifacts.
   - Remaining Claim prose:
     a filesystem folder **must** be classified as a Directory Carrier **only** **when** it carries a Structural Entity under CA-D-263.
-    
+
     - a folder's visibility **in** a graph **or** its containment of files does **not** itself establish that binding.
     - administrative Content Role directories **and** Status subdirectories provide Carrier placement, **not** separate Structural Entities **or** Directory Carriers. Status placement remains governed by CA-D-295 **and** CA-D-352.
 - Shared RMED source (exact binding): `CA-D-464@25`
@@ -8647,7 +8616,7 @@ Carrier.ID[string]{1}
     Directory Carrier names within their parent directories.
   - Remaining Claim prose:
     A Directory Carrier's Name **means** the name of its directory within its parent directory, excluding the parent path.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -8655,23 +8624,23 @@ Directory.Name[string]{1}
 ```
   - Details (source-bound):
     CA-D-297 and CA-D-299 constrain authority and Delivery directory names. CA-D-445 permits explicit native layouts. The directory name is not universally identical to the carried Scope Unit's Name.
-    
+
     Active CA-R-2515 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.
 - Shared RMED source (exact binding): `CA-D-667@1`
   - Remaining Claim prose:
     The Project Authority Folder is `.caprmedio_<project name>`, without a Scope Unit ID.
-    
+
     For a non-root Scope Unit, derive the folder names from its ID, Label, order.number and Name:
-    
+
     | Scope Unit | Authority Folder name | Delivery Folder name |
     | --- | --- | --- |
     | Ordered | `<id>_<label>_<order>_<name>` | `<label>_<order>_<name>` |
     | Unordered | `<id>_<label>_<name>` | `<label>_<name>` |
-    
+
     `<id>` is the stable Scope Unit ID. `<order>` is `order.number`. For an Unordered unit, omit the order segment and its separator. When Label is absent, omit its segment and separator.
-    
+
     Place each non-root folder under its respective parent's folder. Do not maintain the derived folder paths as independent values in Scope Unit Declarations.
-    
+
     Derived paths are readability and placement values, not another structural source. Conflicting derivations remain unresolved and are reported; do not automatically choose a new Name, parent, number or binding. Do not author Structural Level or Structural Coordinate.
 
 ### `Carrier/Directory.Numeric Prefix` — declared component
@@ -8681,7 +8650,7 @@ Directory.Name[string]{1}
     Directory Carrier names whose applicable naming convention uses a numeric prefix.
   - Remaining Claim prose:
     A Directory Carrier's Numeric Prefix **means** the leading numeric part of its Name when the applicable naming convention uses one.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -8689,7 +8658,7 @@ Directory.Numeric Prefix[int]{0..1}
 ```
   - Details (source-bound):
     CA-D-445 allows explicit native bindings. CA-D-651 governs any registered Atom numeric-Tier filename token grammar; this definition does not require a prefix for every directory or admit a Structural Level component.
-    
+
     Active CA-R-2515 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.
 
 ### `Carrier/Directory.Path` — declared component
@@ -8699,7 +8668,7 @@ Directory.Numeric Prefix[int]{0..1}
     Directory Carrier filesystem locators.
   - Remaining Claim prose:
     A Directory Carrier's Path **means** the locator of its directory within a filesystem, absolute or relative to a stated base. It does **not** define Scope Unit parentage or Carrier identity.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -8707,7 +8676,7 @@ Directory.Path[string]{1}
 ```
   - Details (source-bound):
     CA-D-445 separates physical layout from declared hierarchy; CA-R-1660 says physical containment must not silently replace logical parentage. The Operator distinguishes Carrier ID from path.
-    
+
     Active CA-R-2515 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.
 
 ### `Carrier/Docker Image` — declared component
@@ -8765,18 +8734,18 @@ Directory.Path[string]{1}
     secret values and local environment injection Carriers.
   - Remaining Claim prose:
     secret values **must** be stored **only** **in**:
-    
+
     - gitignored `.env` File Carriers; **or**
     - a dedicated secret vault.
   - Details (source-bound):
     ### File placement
-    
+
     - a repository-local `.env` File Carrier **must** remain outside **every** applicable Project authority Carrier root.
     - **every** real `.env` variant **must** be gitignored, untracked, **and** excluded from durable **or** shared Git history **and** CAPRMEDIO discovery. a Git ignore rule does **not** remove a previously tracked secret from history.
     - a tracked `.env.example` **may** contain variable names **and** unmistakable dummy placeholders **only**.
-    
+
     ### Runtime injection
-    
+
     secret values **may** reach authorized runtime consumers through host injection from a permitted secret store; the injected value is **not** a separate persisted source.
 - Shared RMED source (exact binding): `CA-E-457@34`
   - Claim Scope:
@@ -8785,12 +8754,12 @@ Directory.Path[string]{1}
     the Evaluation **must** reject an Atom Revision **if** it has other than **`=1`** authoritative Markdown Atom Carrier on the Project filesystem, its authoritative Carrier does **not** contain YAML Frontmatter followed by the Content-Role-specific structured Main Content under CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties, **or** a TOML, YAML, JSON, database, **or** projected copy is treated as authoritative for that Atom Revision.
   - Details (source-bound):
     the body-structure checks include:
-    
+
     - exact heading spelling, cardinality, **and** order for the selected Content Role; a universal Claim heading is **not** a substitute for Question, Concern, Objective, **or** Operation.
     - RMED requires Scope, Claim, **and** Details **in** that order; the earlier Claim **and** Details layout alone fails. Scope **and** Claim **must** be separately addressable; an empty Details section remains admitted under CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.
     - missing **or** duplicate required sections, unregistered peer sections, ambiguous section boundaries, **and** heading-like fenced examples.
     - the nested Plan Definition of Done under CA-D-470-CORE_META_MODEL-DELIVERY--serialize-plan-file-sections; its absence **or** a second carried copy fails validation.
-    
+
     these are Carrier checks. semantic agreement between the primary contribution, its applicability, Details, **and** Summary requires the content Evaluation, **not** heading recognition alone.
 - Shared RMED source (exact binding): `CA-E-506@28`
   - Claim Scope:
@@ -8799,7 +8768,7 @@ Directory.Path[string]{1}
     the Evaluation **must** accept **only** Atom Carriers that preserve self-sufficiency, **`=1`** internal value source, **and** consistent outward representations.
   - Details (source-bound):
     ### Test case
-    
+
     - construct a valid Atom with its required Properties inside its Markdown Carrier, using the applicable registered fields **and** body sections. include a required defaulted value, an optional absent Property, **and** an inapplicable Property that is correctly absent.
     - extract Summary **and** the Content-Role-specific primary contribution under CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties **without** reading the filename **or** containing directories. include fenced code containing example headings; those examples **must not** create Property boundaries.
     - for RMED, include **`=1`** Scope, **`=1`** Claim, **and** **`=1`** Details section **in** that order. extract Scope **and** Claim independently; an empty Details section is valid **when** no required nested Property applies. include narrower **and** composite applicability **without** changing the carried target Scope Unit.
@@ -8809,18 +8778,18 @@ Directory.Path[string]{1}
     - include an unselected inherited confidence setting **and** a selected override currently equal **to** inheritance; change the upstream setting **and** check that **only** the inherited selection follows it.
     - include invalid RMED fixtures with missing Scope, duplicated Scope, Scope **after** Claim, a Scope section used instead of Claim, **or** a second applicability copy **in** frontmatter.
     - create invalid fixtures by removing a required internal value, supplying that value **only** through an address, duplicating it **in** frontmatter **and** body, repeating a heading **or** YAML key, renaming a required heading, introducing an ambiguous boundary, conflicting with the address, omitting a Plan's file **or** DoD, **or** storing an inverse Atom Relation independently.
-    
+
     ### Acceptance criteria
-    
+
     - **every** valid fixture yields the expected Property values **and** Relations.
     - **every** invalid fixture fails with the exact Property, location, Relation, **or** address conflict identified.
     - address **and** inverse checks **must not** silently rewrite the source **or** treat derived representations as separate authority.
 - Shared RMED source (exact binding): `CA-R-2269@3`
   - Remaining Claim prose:
     For a Markdown File Carrier, Main Content is its Markdown body and YAML Frontmatter is its optional structured metadata region. Main Content can contain Paragraphs and CCE Operator occurrences; these are content parts, not additional Files. A Frontmatter Scalar is one direct primitive value within a declared metadata field. These logical regions are not separate Carriers.
-    
+
     The Filename may contain zero or more Scope Unit Tokens. Each serialized Scope Unit reference uses one token under CA-D-302; this does not require all File names to carry such a token.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -8844,7 +8813,7 @@ Carrier/File.Filename.Scope Unit Token[string]{0+}
     File Carriers whose filename uses an extension.
   - Remaining Claim prose:
     A File Carrier's Extension **means** the filename suffix used to indicate its format. The extension does **not** establish the carried Entity's identity.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -8852,7 +8821,7 @@ File.Extension[string]{0..1}
 ```
   - Details (source-bound):
     CA-D-283 uses an extension segment; CA-D-284 constrains its case; CA-D-507 explicitly separates changes of extension from Entity identity. This draft does not require every file to have an extension.
-    
+
     Active CA-R-2515 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.
 
 ### `Carrier/File.Filename` — declared component
@@ -8862,7 +8831,7 @@ File.Extension[string]{0..1}
     File Carrier names within their containing directories.
   - Remaining Claim prose:
     A File Carrier's Filename **means** the name of its file within its containing directory, including any extension. It does **not** include the directory path.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -8870,7 +8839,7 @@ File.Filename[string]{1}
 ```
   - Details (source-bound):
     CA-D-283 specifies filenames; CA-D-284 distinguishes filename tokens, Summary Slug and extension. Their concrete serialization patterns remain Delivery rules.
-    
+
     Active CA-R-2515 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.
 - Shared RMED source (exact binding): `CA-D-283@32`
   - Claim Scope:
@@ -8879,7 +8848,7 @@ File.Filename[string]{1}
     **every** identified Project-owned Markdown Atom filename other than a Plan filename governed by CA-D-469 **must** match `<ATOM_ID>[-<CURRENT_SCOPE>][-<TIER>][-<LABEL>][-<TARGET_SCOPE>]--<SUMMARY_SLUG>.<EXT>`. When present, the `LABEL` segment uses the Atom's effective Label: its explicit Label when present, otherwise its Type name under CA-R-2497. Normalize that token under CA-D-284; an explicit Label replaces the Type name there and does not change the Atom's Type. **every** same-identity Atom Version **must** preserve its exact assigned Atom-ID segment **in** its Carrier filename **and** serialize its retained Summary under CA-D-282. A Draft filename uses the Draft marker as its Atom-ID segment as specified by CA-D-650. An Archived predecessor uses `<canonical-ID>@<old-version>` exactly once in that segment under CA-D-289; do not append a duplicate version suffix. Existing legacy archive filenames are not normalized automatically. a replacement filename **must** contain the successor Atom ID **and** the successor's Summary Slug; a Summary Slug **must not** be edited independently of its source Summary.
   - Details (source-bound):
     The `TIER` segment follows CA-D-651. It is mandatory for numeric Tier `0` and carries the registered `SCOPE_CONTRACT` token; for other Tiers its presence and numeric encoding follow the applicable filename grammar. Omitting an optional token does not omit, default or change the mandatory stored Tier. `SCOPE_CONTRACT` is the Tier representation, not the Atom's Type or effective Label. Do not restore `PRINCIPLE` or another unregistered legacy Tier token. A legacy filename remains nonconformant until its affected Carrier and references have an explicit migration disposition; old names are not grandfathered by this rule.
-    
+
     This generic Project-owned Carrier rule does not replace the dedicated filename rules for an Operator-owned Project Goal. It does not invent a default numeric Tier or revive the retired named/default-Tier rules.
 - Shared RMED source (exact binding): `CA-D-284@25`
   - Claim Scope:
@@ -8901,7 +8870,7 @@ File.Filename[string]{1}
     identified Plan Carrier stems.
   - Remaining Claim prose:
     **every** identified Plan Carrier stem **must** use `[<WORK_SEQUENCE_NUMBER>-]<ATOM_ID>[-<LABEL>]--<SUMMARY_SLUG>`, with `.md` **only** on its File Carrier.
-    
+
     - the optional Label is a navigation token, **not** an Atom Type token; normalize it under CA-D-284.
     - render the Summary under CA-D-282.
     - **by default**, direct Plans decomposing the same Hub use unique leading Work Sequence Numbers **before** their Atom IDs, under CA-D-381 **and** CA-R-997.
@@ -8918,7 +8887,7 @@ File.Filename[string]{1}
     Project-owned Draft Atom filename identity segments.
   - Remaining Claim prose:
     A Draft Atom proposing a revision of an existing Atom **must** carry `atom_id: <canonical-ID>@<proposed-version>-draft`, where `<proposed-version>` is the proposed numeric Atom Version. Its filename **must** carry that exact marker once as the Atom-ID segment before the filename's mutable components under CA-D-283. Do **not** append another `@<version>` suffix to the basename. The Draft marker identifies the proposed revision; it does not replace or advance the Current Atom source before an admitted update.
-    
+
     New-Atom Draft markers continue to use the role-only form governed by CA-D-378; this rule does not add a version number to a new Atom's marker or change other filename components.
   - Details (source-bound):
     For an existing Atom, the proposed version follows the applicable revision rule, including the current-version-plus-one rule for an actual update. The owning role's `draft/` placement and remaining filename components continue to follow their applicable Delivery rules. Existing legacy Draft filenames are not normalized automatically.
@@ -8930,7 +8899,7 @@ File.Filename[string]{1}
     Scope Unit references serialized in a File Carrier filename.
   - Remaining Claim prose:
     A File Carrier Filename Scope Unit Token is one stable uppercase token for a referenced Scope Unit. A filename may contain zero or more tokens; each serialized Scope Unit reference uses one token selected by Project Configuration.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -8951,7 +8920,7 @@ Carrier/File.Filename.Scope Unit Token[string]{0+}
     Formats applicable to File Carriers.
   - Remaining Claim prose:
     A File Carrier's Format is the rules for encoding and interpreting its represented content. Core Meta-Model permits registered Markdown, TOML, YAML and JSON formats; Extensions and Project Configuration may register additional Carrier Formats.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -8972,7 +8941,7 @@ Carrier/File.Format[string]{1}
     Main Content of a Markdown File Carrier.
   - Remaining Claim prose:
     A Markdown File Carrier Main Content means the content after its YAML Frontmatter and is its Markdown body. It is optional, may contain Paragraph and CCE Operator occurrences as content parts, and is not a separate File.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -8990,7 +8959,7 @@ Carrier/File.Main Content[string]{0..1}
     serialization **and** reading of supplied Work Journal Event representations.
   - Remaining Claim prose:
     the Main Content of a Journal Carrier **must** preserve the properties actually supplied as observations through safe encoding; reading **must** return stored representations as recorded.
-    
+
     - preserve supplied identities, Types, action Kinds, Authors, times, session provenance, Scope, identifiers, filenames, paths **and** other values **when** present. do **not** invent missing values **or** rewrite them **to** satisfy current naming **or** classification rules.
     - an Atom ID **or** other observed property is payload data, **not** a Project-conformance judgment, permission **or** proof of correct execution.
     - do **not** impose required-field, event-identity, schema, digest, prior-history, chain, receipt, deduplication, retry **or** recovery admission **to** append/read.
@@ -9005,7 +8974,7 @@ Carrier/File.Main Content[string]{0..1}
     actual Atom replacement references supplied to the Main Content of a Journal Carrier.
   - Remaining Claim prose:
     the Main Content of a Journal Carrier **must** preserve the actually supplied predecessor **and** successor Atom references of a replacement observation, including `predecessor_atom_id` **and** `successor_atom_ids` **when** supplied.
-    
+
     - preserve reference values **and** array order as data through safe encoding. array order does **not** establish priority **or** execution order.
     - do **not** look up an earlier Journal Event Record, require a predecessor chain, compute a digest, validate the replacement **or** fabricate a baseline **to** append these observations.
     - absence of replacement references does **not** establish whether the action was a replacement. do **not** infer missing identities, successors **or** historical facts.
@@ -9016,11 +8985,11 @@ Carrier/File.Main Content[string]{0..1}
     Structured Main Content of Markdown Atom carriers.
   - Remaining Claim prose:
     For RMED, carry one `## Summary` and one `## Claim` as sibling Properties, optionally preceded by `## Claim scope` before Claim and followed by `## Semantics` and `## Details` in that order. The Claim's direct Markdown value may consist of a fenced CFEL expression without prose. Do not create a `Formal claim` child, a separate Prose claim section, or a duplicate frontmatter Claim. Omit absent optional sections.
-    
+
     Map headings to Property paths with a code-fence-aware outline. A section ends at the next real heading of the same or higher level, or at the end of Main Content. Lower-level real headings nest under their parent; equal-level headings are siblings, and skipped levels create no empty Properties. Heading-like text in a fence is content. Direct value counts and dependent Property counts are independent. Retrieving a section subtree includes its selected heading and its descendants.
-    
+
     Normalize real heading names to lowercase, replace spaces with underscores, and strip characters other than letters, numbers, underscore and hyphen. Reject an empty normalized key or duplicate normalized key under one parent. A flattened lookup is admissible only when unambiguous; canonical paths retain their parent chain.
-    
+
     Legacy layouts remain readable during migration. The existing C/A/P/O primary-content headings and their own Type-specific content rules remain applicable. A Draft may be incomplete but must satisfy the applicable complete contract before promotion.
 - Shared RMED source (exact binding): `CA-E-465@26`
   - Claim Scope:
@@ -9034,21 +9003,21 @@ Carrier/File.Main Content[string]{0..1}
     the Main Content of a Journal Carrier that encodes Tool-call evidence within a Step Run **must** undergo an actual Evaluation under CA-R-1528. Available wire evidence alone is **not** a passing result.
   - Details (source-bound):
     the Evaluation of that Main Content **must** run and report a passing, failed, or unresolved result. It **must**:
-    
+
     - check whether several Tool calls by an Agentic Action inside a leaf Step Run carry their actual parent Step Run, Tool identities, inputs **or** admitted protected references, results **or** errors, **and** distinguishing call evidence; report failure when required wire evidence is absent;
     - check whether repeated attempts with the same Tool **and** inputs retain distinct attempt identities without claiming a second effect when its outcome is unknown; report unresolved when the supplied evidence cannot distinguish the effect;
     - check whether a failed Tool call or unconfirmed effect is recorded as that outcome rather than successful completion; report failure for a contradicted success claim;
     - check whether a rebuilt nested trace derives from the canonical Journal without another source of execution history; report failure when another source is claimed;
     - reject an inference that a Tool call automatically creates a Workflow Step, a Conditional Step route, **or** a new Action definition; and
     - check whether secret input uses a governed protected representation rather than plaintext duplication; report failure when plaintext is present.
-    
+
     the Evaluation **must not** edit supplied wire evidence. Missing wire evidence **or** an unperformed Evaluation is **not** a passing result.
 - Shared RMED source (exact binding): `CA-R-1643@40`
   - Claim Scope:
     legacy Work Journal execution-observation category labels in serialized Journal Carrier Main Content.
   - Remaining Claim prose:
     the Main Content of a serialized Journal Carrier **must** preserve a supplied legacy Work Journal execution-observation category label as one of (Started, Progressed, Completed, Failed, Interrupted, Abandoned, Recovered).
-    
+
     this is a Carrier representation constraint. It does **not** create a logical Event Record Property, prescribe an Event Record business Action, or make these legacy observation labels model-level action values.
 
 ### `Carrier/File.Main Content.CCE Operator` — declared component
@@ -9058,7 +9027,7 @@ Carrier/File.Main Content[string]{0..1}
     CCE Operator occurrences within Markdown File Carrier Main Content.
   - Remaining Claim prose:
     A Main Content CCE Operator is a textual occurrence of a CCE Operator in a Markdown File Carrier Main Content; its serialized spelling and rendering follow the canonical Delivery rule.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -9079,7 +9048,7 @@ Carrier/File.Main Content.CCE Operator[string]{0+}
     Prose paragraphs within Markdown File Carrier Main Content.
   - Remaining Claim prose:
     A Main Content Paragraph is one prose paragraph in a Markdown File Carrier Main Content; zero or more may occur. Delivery serializes each paragraph on one unwrapped source line with one blank line between adjacent paragraphs.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -9100,7 +9069,7 @@ Carrier/File.Main Content.Paragraph[string]{0+}
     File Carrier filesystem locators.
   - Remaining Claim prose:
     A File Carrier's Path **means** the locator of its file within a filesystem, absolute or relative to a stated base. It is a locator, **not** the Carrier's ID.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -9108,7 +9077,7 @@ File.Path[string]{1}
 ```
   - Details (source-bound):
     The Operator distinguishes Carrier ID from path. CA-D-445 requires unambiguous bindings inside authorized path boundaries. Path is the filesystem representation of the locator, not a second independently maintained identity.
-    
+
     Active CA-R-2515 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.
 
 ### `Carrier/File.YAML Frontmatter` — declared component
@@ -9118,7 +9087,7 @@ File.Path[string]{1}
     Optional structured metadata region of a Markdown File Carrier.
   - Remaining Claim prose:
     A Markdown File Carrier YAML Frontmatter is its optional structured metadata region. It has no direct scalar value and is a logical region, not a separate Carrier; its encoding uses economical YAML syntax and keeps uncontrolled prose in Main Content.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -9131,30 +9100,30 @@ Carrier/File.YAML Frontmatter{0}
     YAML frontmatter of Markdown Atom carriers.
   - Remaining Claim prose:
     Encode each key once and use a YAML sequence for multiple values. Use a nonempty string for each required string; null and collections do not satisfy a scalar requirement. Integers exclude booleans.
-    
+
     For Markdown Atom carriers:
-    
+
     - Encode Role and Form as `role` and `form`, each exactly one nonempty string from the applicable domain.
     - Encode identity, Version, Status, Updated At and Tier as `atom_id`, `version`, `status`, `updated_at` and `tier`. Apply their respective Property rules. An optional Label uses `label`; do not duplicate Summary or Claim in frontmatter.
     - Encode Subjects under `subjects` using the Subjects serialization rule. Encode direct Node-instance Relation facts under `relations`; use each Relation's own representation and do not author inverse facts separately.
     - Do not encode an Atom Author. Event authorship is governed by the Event Record model.
     - Derive Target Scope Unit from the active Subject using the applicable model authority. During carrier migration, `current_scope_unit` and `claim_target_scope_unit`, if present, are legacy compatibility data; they do not establish Atom Properties or override the resolved Scope. Their retention, removal and consistency validation require the selected migration's explicit disposition. Do not infer a target from the carrier directory or use either field as an unverified fallback.
     - Place a complete RMED Claim in its `## Claim` section. Its direct Markdown value may contain CFEL and need not contain prose; do not create a `Formal claim` child.
-    
+
     Legacy `content_role`, `type`, `subjects.governs` and `subjects.depends_on` remain readable during migration. Conflicting old and new names for the same Property are invalid in any carrier; equal pairs are readable during transition and do not create duplicate logical values. Compatibility does not make the old names canonical in the migrated model.
   - Details (source-bound):
     The remaining applicable Status, Version, identity, Tier, Label, Summary, conditional-field, Projection, Draft identity and reference constraints remain governed by their own sources. A generated Projection is not an authored source. A new field requires its own applicable authority. Summary and Claim remain body Properties, not frontmatter copies.
-    
+
     ### Conditional fields and expansion
-    
+
     - A Plan's explicit `assignee` uses **<=1** String identifying an admitted Actor under the Plan Assignee encoding. `autonomous_confidence_threshold` **and** `implementation_retry_limit` use their integer encodings under the Plan confidence override and retry limit encodings. inherited values remain omitted unless explicitly selected; self-sufficiency does **not** copy them.
     - `priority` follows the applicable Concern Priority authority for Concern Atoms **only**. additional Plan, Operations, proof, **or** other Type-specific fields require their applicable Delivery declarations; their occurrence **in** old Carriers does **not** admit them.
     - The generated `projection` block is admitted **only** **in** a projected representation under the projection source-binding encoding, with **only** its defined `source_carrier_path` String. It is **not** an authored source Atom Property.
     - A new field **or** nested key requires applicable authority that settles its canonical location, value type, cardinality, admission condition, **and** permitted values **or** reference resolution. unadmitted fields are invalid; an admitted Property with an unsettled encoding is a schema gap, **not** permission **to** guess **or** report full conformance.
     - Apply explicitly governed migration exceptions **only** within their declared boundary. legacy presence alone is **not** an exception; retired fields under the canonical Property location rules remain rejected.
-    
+
     ### Subjects-only edit-draft exception
-    
+
     The explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry `atom_id: <canonical-ID>@<proposed-version>-draft` (preferred) or the compatible `atom_id: <canonical-ID>@draft`, `status: Draft`, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts carry exactly one Atom ID; marker and filename rules remain governed by the Draft ID marker and Draft filename marker rules. Canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.
 
 ### `Carrier/File.YAML Frontmatter.Scalar` — declared component
@@ -9164,7 +9133,7 @@ Carrier/File.YAML Frontmatter{0}
     Direct primitive values within declared YAML Frontmatter metadata fields.
   - Remaining Claim prose:
     A YAML Frontmatter Scalar is one direct primitive value within a declared metadata field of a File Carrier YAML Frontmatter; zero or more may occur. Registered YAML-safe controlled strings are serialized as plain scalars.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -9185,7 +9154,7 @@ Carrier/File.YAML Frontmatter.Scalar[scalar]{0+}
     Markdown File Carriers and their File-Carrier Format.
   - Remaining Claim prose:
     A Markdown File Carrier **means** a File Carrier whose Format is Markdown.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -9197,7 +9166,7 @@ Carrier/File/Markdown
     Term hierarchy. Names in the path may reuse lexical Terms. The existing File Carrier definition
     supplies inherited File-Carrier structure, while the registered Markdown
     Format supplies Markdown encoding and interpretation rules.
-    
+
     YAML Frontmatter is optional for a Markdown File Carrier under the existing
     File-region Rule. This definition therefore does not require YAML Frontmatter
     for every Markdown file. It does not define a filename, extension, identifier,
@@ -9207,14 +9176,14 @@ Carrier/File/Markdown
     canonical Requirement identity. It does not automatically introduce a lexical
     Term or a Method Term Definition. The more specific Markdown Atom Carrier kind
     is a separate target with separate defining authority.
-    
+
     ### Source pins
-    
+
     - [Current CA-R-1957@10 — File Carrier](../CA-R-1957-CORE_META_MODEL-DEFINITION--define-entity-carrier-file-carrier.md), SHA-256 `3bac462c2628e3a5fa9f4d96da41610078c2c99a6f676c782ed425c2b10802f8`.
     - [Current CA-R-2346@1 — File Format](../CA-R-2346-CORE_META_MODEL-ENTITY_DEFINITION--define-file-format.md), SHA-256 `0c06778e097a1e61c4f1adfaa74150113c2433fb8ed00d2e046ae206981308b0`.
     - [Current CA-R-2269@2 — File regions](../CA-R-2269-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-and-yaml-regions-in-a-file-carrier.md), SHA-256 `66af3fb6f016f013f4cdeefe945fa4dfcddd9a203c43c5a9febcf5c1b0d1e2f8`.
     - [Current CA-D-262@26 — registered File Carrier Formats](../../07_delivery/CA-D-262-CORE_META_MODEL-ENG_DECISION--register-current-file-carrier-formats.md), SHA-256 `a37ec12e408004abf4861a123755aa8f0b332bb0579868907824ba4a025d898d`.
-    
+
     These sources remain Current and unchanged. This Draft performs no promotion,
     retirement, implementation, or runtime change.
 - Shared RMED source (exact binding): `CA-D-663@2`
@@ -9226,14 +9195,14 @@ Carrier/File/Markdown
     - Preserve the actual heading tree.
   - Details (source-bound):
     Both examples expose content.1.2.3 with direct value 4:
-    
+
     ```markdown
     # 1
     ## 2
     ### 3
     4
     ```
-    
+
     ```markdown
     ## 1
     ### 2
@@ -9241,13 +9210,13 @@ Carrier/File/Markdown
     #### 3
     4
     ```
-    
+
     In the second example, content.1.2 has its direct content 5 and a child section 3 containing 4. Retrieving the parent section returns its descendant subtree as well. Value cardinality counts direct content, not the children's values. Property declarations independently permit or forbid direct values and children; no special double-dot Property notation is introduced.
-    
+
     Normalize each heading name to lowercase, replace spaces with underscores, and remove characters other than letters, numbers, underscore and hyphen. Reject an empty normalized key or two equal normalized keys under the same parent; never merge or overwrite their content. Equal keys under different parents retain distinct paths. A failed mapping leaves the original Markdown intact and reports the conflict; it does not prevent retaining or reading the source as Markdown.
-    
+
     Retrieving a section returns its selected heading and the entire descendant subtree through the next real heading of the same or higher level. In the second example, retrieving `content.1.2` returns `### 2`, its direct content `5`, and the child heading `#### 3` with content `4`. The selected heading and child content do not add to the direct-value count.
-    
+
     Parsing arbitrary Markdown does not establish Atom Form conformance or graph authority.
 
 ### `Carrier/File/Markdown/Markdown Atom Carrier` — declared component
@@ -9258,7 +9227,7 @@ Carrier/File/Markdown
   - Remaining Claim prose:
     A Markdown Atom Carrier **means** a Markdown File Carrier that represents an
     Atom.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -9271,7 +9240,7 @@ Carrier/File/Markdown/Markdown Atom Carrier
     the existing Delivery policy requires YAML Frontmatter followed by Main
     Content. Existing Delivery policies govern the representation of an Atom's
     Role, Type, Status, and other applicable properties.
-    
+
     The YAML Frontmatter and Main Content are existing logical regions of the File
     Carrier, not new per-section Carriers. This definition does not restate their
     field definitions, create identifiers or extensions, or define lifecycle
@@ -9282,18 +9251,18 @@ Carrier/File/Markdown/Markdown Atom Carrier
     canonical Requirement identity. It does not automatically introduce a lexical
     Term or a Method Term Definition. The inherited File and Markdown kinds remain
     separately governed; this Draft does not duplicate their structure.
-    
+
     ### Pending parent Definition
-    
+
     - [Markdown File Carrier](CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-file-carrier.md). This parent Definition is pending, not Current authority.
-    
+
     ### Source pins
-    
+
     - [Current CA-R-1957@10 — File Carrier](../CA-R-1957-CORE_META_MODEL-DEFINITION--define-entity-carrier-file-carrier.md), SHA-256 `3bac462c2628e3a5fa9f4d96da41610078c2c99a6f676c782ed425c2b10802f8`.
     - [Current CA-R-2269@2 — File regions](../CA-R-2269-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-and-yaml-regions-in-a-file-carrier.md), SHA-256 `66af3fb6f016f013f4cdeefe945fa4dfcddd9a203c43c5a9febcf5c1b0d1e2f8`.
     - [Current CA-D-356@21 — Markdown Atom Carrier structure](../../07_delivery/CA-D-356-CORE_META_MODEL-ENG_DECISION--structure-markdown-atom-carriers.md), SHA-256 `2ab6eef7fbae8cb02c168838b6a377e5b92f6a9547d9504c5e5620304d6fde37`.
     - [Current CA-D-478@29 — Atom-property locations](../../07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md), SHA-256 `7ad522f00eb7af8995c0f97519b74dfd89c90b00defbac0bc20bc2e041c23ec3`.
-    
+
     These sources remain Current and unchanged. This Draft performs no promotion,
     retirement, implementation, or runtime change.
 
@@ -9324,7 +9293,7 @@ Carrier/File/Markdown/Markdown Atom Carrier
 - Declaration source: `CA-R-2203@6`
   - Remaining Claim prose:
     A Git Repository **means** a Carrier of versioned content and Git references.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -9560,14 +9529,14 @@ Relation.Meaning.*[]{:0}
     **every** authored direct semantic relation **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns its declared direction as a nonempty unordered collection of unique canonical target references; target position **must not** add, remove, **or** alter a direct relation **or** dependency. source-file target order is nonsemantic; validation **must not** require canonical sorting **or** order normalization. each Relation Kind's direction, endpoint validity **and** other declared semantics remain applicable.
   - Details (source-bound):
     Serialize only the Relation Kind's declared direct direction, never a second declaration for its derived inverse. For containment, the child carries IS_CONTAINED_BY with the parent reference; CONTAINS is a derived parent view and is not serialized on the parent. A change confined to the child does not request a parent-carrier write or a new parent Version. The relation's spelling does not determine which direction is direct.
-    
+
     This policy governs authored relation declarations. When canonical Carrier nesting already supplies a containment fact under CA-D-264, do not add a second independent declaration for the same fact; CA-D-266 governs that derived view. This source contract does not itself register a new runtime relation key.
 - Shared RMED source (exact binding): `CA-D-471@24`
   - Claim Scope:
     explicit `A BLOCKS B` facts, including their storage on Plan `A` under `relations.blocks` for Plan `B`.
   - Remaining Claim prose:
     **every** explicit `A BLOCKS B` fact **must** be stored once on Plan `A` under `relations.blocks`, as a unique canonical Atom ID for Plan `B`; an omitted list encodes **`=0`** outgoing blocking Relations.
-    
+
     - do **not** store a separate inverse list.
     - do **not** encode Plan scheduling with `relations.depends_on` **or** `subjects.depends_on`.
     - store Plan containment separately on the child under `IS_CONTAINED_BY`, with `CONTAINS` derived; do **not** derive blocking from containment **or** directory order.
@@ -9581,11 +9550,11 @@ Relation.Meaning.*[]{:0}
     the registered relation vocabulary lets an independent assessor select the governed relation for representative artifact pairs **without** inventing another kind.
   - Details (source-bound):
     ### Acceptance criteria
-    
+
     **`>=90`**% of classifications match the governed relation **and** no pair produces a repeated conceptual ambiguity.
-    
+
     ### Failure disposition
-    
+
     record a Concern for **every** ambiguous pair **and** stop relation-vocabulary readiness **until** the owning relation-authority Claim **or** its presentation is corrected.
 - Shared RMED source (exact binding): `CA-E-622@53`
   - Claim Scope:
@@ -9606,7 +9575,7 @@ Relation.Meaning.*[]{:0}
     - reject instance-specific redefinitions of a project-shared Relation Type or of a governing constraint's admission semantics.
     - accept a source-traceable reference **or** derived graph view of a Relation fact; reject another independently maintained source declaration of the same fact **or** admission of a foreign Relation Type as native through that view.
     - when a non-authoritative registry Projection is compiled, require it to preserve defining source traceability, canonical name, meaning and any declared direction/inverse/derivation/transitivity **without** inventing Type metadata or copying Entity Definition constraints into it.
-    
+
     - accept an admitted native Relation between nodes **in** the same secondary graph.
     - accept an admitted typed reference **to** another secondary graph **or** its node while preserving endpoint identity **and** graph context.
     - accept an admitted typed reference **to** a source Atom **without** making that Atom a native Term **or** other wrongly classified node.
@@ -9617,11 +9586,11 @@ Relation.Meaning.*[]{:0}
     **every** known Relation Type accepts valid examples under its defining Claim; any applicable Entity Definition constraint supplies additional source/target, cardinality, lifecycle, or other constraints. reject unknown Types and violations of explicit applicable constraints, while retaining missing or conflicting constraint evidence as unresolved without choosing default allow or default deny.
   - Details (source-bound):
     ### Acceptance criteria
-    
+
     **all** valid fixtures pass **and** **every** invalid fixture fails with the exact Relation Type, governing constraint context, metadata conflict, source declaration, endpoint, lifecycle restriction, **or** declaration Carrier identified.
-    
+
     ### Failure disposition
-    
+
     record a Concern naming the affected Relation Type **and** violated authority **and** stop relation-schema readiness.
 - Shared RMED source (exact binding): `CA-R-1023@27`
   - Claim Scope:
@@ -9695,9 +9664,9 @@ Relation.Meaning.*[]{:0}
     Relation Types, their shared Project identities, and any applicable Entity Definition constraints in CAPRMEDIO Graphs.
   - Remaining Claim prose:
     Relation Type names are shared across CAPRMEDIO Graphs and unique within the Project. A Relation Type is not owned by a graph kind. Existing Entity Definition constraints, where applicable, supply graph-specific endpoint classes, endpoint graph contexts, cardinality, permissions, and prohibitions for that shared Type. They do not create graph-owned Type copies or impose a new per-Type/per-graph admission registry; this contract chooses neither default allow nor default deny.
-    
+
     instances of the same graph kind governed by the same Applicable Methodology **must** reuse the same defining Relation Type authority and any applicable Entity Definition constraints. Matching names identify the shared Type; they do not create interchangeable copies or erase graph-specific constraints.
-    
+
     where an Entity Definition constraint applies, it determines graph-specific endpoint constraints, **not** a requirement that all endpoints occupy the same graph. admitted cross-graph endpoints and source references under CA-R-1472 retain their endpoint identity and source traceability. another graph **may** represent a source-traceable reference **or** view of the Relation **without** creating a graph-specific Type copy.
 - Shared RMED source (exact binding): `CA-R-1410@22`
   - Claim Scope:
@@ -9709,14 +9678,14 @@ Relation.Meaning.*[]{:0}
     authoritative source declarations for Relation facts.
   - Remaining Claim prose:
     **every** independently authored Relation fact **must** have **`=1`** authoritative source declaration under Single Source of Truth. its representation **in** multiple CAPRMEDIO Graph views remains a reference **or** derived Projection of that declaration **without** creating another independently maintained source.
-    
+
     a Relation derived under admitted derivation authority **must** remain traceable **to** that authority **and** its authoritative input facts, including through upstream Projections. it does **not** require a fabricated direct source declaration for the derived result. this distinction **must not** weaken a Relation Kind's requirement for an explicit source fact **or** permit unsupported inference.
 - Shared RMED source (exact binding): `CA-R-1472@28`
   - Claim Scope:
     connections represented by a secondary CAPRMEDIO Graph.
   - Remaining Claim prose:
     a secondary CAPRMEDIO Graph **may** represent typed Relations between its own nodes, **to** another secondary graph **or** its nodes, **and** **to** source Atoms **or** other admitted authoritative sources.
-    
+
     **every** connection **must** identify **`=1`** shared project-unique Relation Type under its defining authority, with its declared direction preserved, **and** must conform to any applicable governing Entity Definition endpoint-class, endpoint-graph-context, **and** cardinality constraints. a graph-qualified reference **or** context may qualify that connection without creating graph-owned Type identity. crossing a graph boundary **must not** create a graph-specific Type identity, import a foreign Relation Type as native, **or** make a referenced external endpoint a native node of the receiving graph. a cross-graph reference preserves the referenced endpoint identity **and** source traceability **without** copying its source fact into independent authority. these permissions do **not** create a Relation Type definition **or** authorize inference beyond the defining authority and applicable Rules.
 - Shared RMED source (exact binding): `CA-R-1632@35`
   - Claim Scope:
@@ -9745,7 +9714,7 @@ Relation.Meaning.*[]{:0}
     **every** CAPRMEDIO traceability assertion **must** identify the exact governed claim revision on which a receiving artifact, implementation target, evaluation use, delivery action, operational observation, **or** other governed result relies.
   - Details (source-bound):
     the trace **must** preserve the source identity **and** accepted Revision, the receiving identity **or** stable target locator, the typed relation between them, the bounded scope **and** use, **and** the provenance needed **to** replay that relation. a relation **to** an artifact ID **without** its relied-upon revision is insufficient **after** the Atom has more than one accepted Revision.
-    
+
     Traceability records relationships; it does **not** transfer authority **or** prove correctness, execution, delivery, **or** currentness. secondary storage history **may** preserve Carrier evidence, while governed Journals preserve semantic relationships independently of that secondary history.
 - Shared RMED source (exact binding): `CA-R-1699@37`
   - Claim Scope:
@@ -9822,9 +9791,9 @@ Relation.Meaning.*[]{:0}
     Project-specific vocabulary used as reusable lexical components of complete or qualified entity names and authored content, including the word `Term` itself.
   - Remaining Claim prose:
     A Term is a direct specialization of Entity at `Term`. A Term has one Name, the word or phrase used for its meaning. Its named instances initially form a flat set, using `Term//<Name>` without additional Term groups. This declares the vocabulary kind and its existing Name property; it does not implement the deferred Terms Graph.
-    
+
     **every** instance of `Term` **must** represent a reusable word **or** phrase component of complete **or** qualified entity expressions **and** authored content whose approved Project-specific meaning remains consistent across **all** its uses.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -9833,32 +9802,32 @@ Term.Name[string]{1}
 ```
   - Details (source-bound):
     This Requirement Atom of Type Entity Definition defines the kind at `Term` and its Name property. Its Claim states membership and structural constraints; the separate proposed Method Term Definition owns the word Term's lexical meaning at `Term//Term`. That Method Draft explicitly introduces the lexical instance. This structural Requirement does not supply its dedicated Method ownership or prove its admission under CA-R-1319. Using the word Term in its own definition does not require another lexical instance or an infinite chain of definition layers.
-    
+
     The lexical forms `Package`, `Eval Package` and `Runtime Package` illustrate reuse of the Term `Package`; `Scope Unit` and `Code Unit` illustrate reuse of the Term `Unit`. These lexical forms are not asserted to be complete canonical entity names outside the Term branch. An Entity outside the Term branch uses its complete source-admitted expression as its canonical name. Its complete name cannot be just one registered Term; the sole exception is `Entity`, because it is the Subject root. Reusable Terms occur as components within qualified expressions. Reusing `Package` inside `Eval Package` does not itself reference the separately named `Package` entity or establish a Relation. Lexical composition does not introduce another entity or require a separate `Unit` instance.
-    
+
     The earlier schematic example `Package > Module > Code Unit` connects three entities; its short displayed labels do not by themselves establish their full canonical names. Authored references use the complete source-admitted expressions for those entities. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names or case-folded aliases. Authored Subjects use their full admitted expressions. These spellings reuse the Term `ID`; their shared terminal label is not a collision. The dot remains an operator. Neither spelling is replaced with `atom.atom_id` or another invented spelling. Arbitrary composite expressions are not one Term under CA-R-1325 or automatically one entity name. Literal source quotations and code identifiers are distinguished from authored entity mentions and are not automatically renamed.
-    
+
     A Governed Term has exactly one dedicated active Method Atom of Type Term Definition as its authoritative meaning owner under the proposed successor of CA-R-1319 and the new Method-qualified Type declaration. The lexical Term target is distinct from an entity whose complete name uses it. A defining Atom may explicitly introduce its lexical target under CA-R-1194 and CA-R-1931; a parser or word occurrence does not introduce it. The confirmed placement supplies direct lexical targets such as `Term//Empty` and `Term//ID`; these examples do not generate their lexical definitions or establish those instances without the respective defining Claims. No dictionary Projection, extractor, lookup, Term groups, or Terms Graph implementation is required.
-    
+
     The only Entity outside the Term branch whose complete canonical name is also a registered Term is `Entity`, because it is the Subject root. The R / Entity Definition governs `Entity`; the M / Term Definition governs `Term//Entity`. Their matching word does not merge the two targets. Root status in another hierarchy does not extend this sole Subject-root exception.
-    
+
     Use the full expression when identifying or comparing entities. `Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: X)/(.Type: X)` is a possible qualified expression: the repeated X components retain the same Term meaning while their complete qualifications differ. Each value still requires admission in its own context; the example does not introduce X or new value admissions. Likewise, `Entity/Property` is a qualified entity expression, while Property is the lexical Term at `Term//Property`. This distinction does not withdraw either pending definition or require a new Term Definition for every complete entity expression.
-    
+
     ### Draft source pin
-    
+
     The Operator explicitly confirmed direct `Term` placement, an initially flat set, and Content Role Method for Term Definitions; this latest decision supersedes the earlier Requirement-role lexical ownership and Object/Continuant placement. This is a proposed semantic revision of Current CA-R-1318@29. Its Requirement Content Role, Summary and Entity Definition Type are retained; the Name cardinality remains exactly one at the new root.
-    
+
     Source path: `/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md`. Source SHA-256: `02063cdcc24fa8ccc40ad6008958c821ccbf3608229a80f454a5d81a441e928d`. Source-fingerprint snapshot: `/tmp/cce-term-root-migration-20261029/current-before.json`; snapshot SHA-256: `23c1414c96d6e57cdc9f1bf50569de396ef130a7231b765cd8b4511bcb573ad5`. This Draft changes no Current source, allocates no identity and performs no promotion.
 - Shared RMED source (exact binding): `CA-E-512@27`
   - Claim Scope:
     CCE Claims evaluated for lexical case and Markdown operator representation.
   - Remaining Claim prose:
     **Claim checked.**
-    
+
     **every** CCE Claim satisfies the lexical-case Method CA-M-229-CORE_META_MODEL-IMPLEMENTATION_METHOD--render-governed-terms-and-cce-operators-distinctly **and** the Markdown operator representation specified by CA-D-280-CORE_META_MODEL-ENG_DECISION--serialize-cce-operators-in-bold.
   - Details (source-bound):
     ### Test case
-    
+
     - identify the tested CCE version, applicable CCE Operator Registry under CA-M-234-CORE_META_MODEL-IMPLEMENTATION_METHOD--register-expandable-canonical-cce-operator-list, **and** exact Revisions of the checked authority. record the fixtures **and** their expected results.
     - create valid fixtures with ordinary English words at sentence **and** list-item starts. include ordinary words that are **not** named Terms.
     - create valid fixtures beginning with a Governed Term, a General Term, an exact Scope Unit Name, **and** an exact registered reference. preserve the case required for the token rather than changing it because of its sentence **or** list position.
@@ -9877,22 +9846,22 @@ Term.Name[string]{1}
       - capitalize a General Term.
       - alter an exact Scope Unit Name.
       - alter an exact registered reference.
-    
+
     ### Acceptance criteria
-    
+
     - **every** valid fixture retains **`=1`** precise interpretation **and** passes the lexical-case **and** representation checks.
     - **every** invalid fixture fails the affected check. the result identifies the incorrect token occurrence, actual representation, expected token class **and** representation, **and** checked authority.
     - fixture expectations come from the checked authority; this Evaluation **must not** introduce another operator spelling **or** formatting rule.
-    
+
     ### Failure disposition
-    
+
     record a Concern naming the affected CCE Claim **and** incorrect token. checking **must not** rewrite the source Claim.
 - Shared RMED source (exact binding): `CA-M-229@33`
   - Claim Scope:
     CAPRMEDIO content lexical-case rendering.
   - Remaining Claim prose:
     **to** render CAPRMEDIO content, the Author **must** apply the following lexical-case rules:
-    
+
     - start **every** Governed Term with a capital letter.
     - start **every** General Term with a lowercase letter.
     - preserve the lowercase spelling of **every** ordinary English word at the start of a sentence **or** list item **unless** an active rule requires an exact-case token.
@@ -9905,20 +9874,20 @@ Term.Name[string]{1}
     Empty **means** an omitted input, null, **or** the empty string `""`. This Claim explicitly introduces the lexical Term instance named Empty at `Term//Empty`.
   - Semantics:
     `undefined` denotes an omitted input value only; it does not add another supplied value to the admitted set. The literal string `"undefined"` is not Empty. A supplied null value and a supplied empty string `""` are Empty.
-    
+
     Whitespace-only strings, `0`, `false`, `[]`, and `{}` are not Empty. Do not trim, coerce, or apply a general truthiness test to extend this exact set. This definition does not establish programming-language-specific `None` semantics.
   - Details (source-bound):
     This Draft records the Operator-confirmed meaning and the initially flat lexical target under `Term`. The separate proposed Term branch and Method Type Term Definition declaration must be reconciled before adoption. It creates no Term groups, domain ID properties, Workflow definition, execution, or runtime implementation.
-    
+
     The role-only Draft marker allocates no canonical Method identity. Adoption requires the applicable source, Type, identity, naming, and lifecycle checks; this Draft supplies no evidence that those effects occurred. No dictionary Projection, extractor, or lookup service is required.
-    
+
     ### Pending governing declarations
-    
+
     - [Entity root with the Term branch](../../04_requirement/draft/CA-R-1248@24-draft-CORE_META_MODEL-DEFINITION--define-entity.md).
     - [Term kind and inherited structure](../../04_requirement/draft/CA-R-1318@30-draft-CORE_META_MODEL-DEFINITION--define-term.md).
     - [Method Type Term Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-method-type-term-definition.md).
     - [Dedicated Method meaning owner](../../04_requirement/draft/CA-R-1319@26-draft-CORE_META_MODEL--define-governed-term.md).
-    
+
     These links identify pending Draft dependencies, not Current admission.
   - Binding context:
     - lexical selector: `Term//Empty`
@@ -9929,24 +9898,24 @@ Term.Name[string]{1}
     ID **means** a unique identifier used **to** find **`=1`** entity instance, whether Continuant **or** Occurrent, whose uniqueness is bounded **to** its matching prefix namespace. This Claim explicitly introduces the lexical Term instance named ID at `Term//ID`.
   - Details (source-bound):
     The Operator supplied this meaning and accepted `CA-P-123`, `CA-P-123@1-draft`, and `CA-P-123@3` as examples. The examples do not define lifecycle identity, version equivalence, Draft/Current/Archived transitions, or a rule for changing an existing identifier. Existing identifier and lifecycle authority retains those responsibilities. Matching local or numeric parts under different prefixes do not by themselves establish a collision; a collision within the matching prefix namespace does not satisfy the meaning.
-    
+
     `ID` retains its approved meaning across its uses. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names or case-folded aliases. Authored Subjects use their full admitted expressions. Their shared terminal label need not be globally unique. Dot remains qualification syntax rather than a Term. These literal spellings are not changed to `atom.atom_id` or similar invented spellings, and existing code identifiers are not renamed.
-    
+
     This Draft proposes a Method Term Definition as the dedicated authoritative meaning owner of the lexical Term ID, preserving the approved meaning from the exact Current source `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2275-CORE_META_MODEL-TERM_DEFINITION--define-id.md`, Requirement CA-R-2275 Version 1, SHA-256 `e07b52086e0205f0400c6f01db7a8d2bff52b0dbc94fbf68d785283400ae6402`. E evaluates well-formedness and conflicts. No dictionary Projection, extractor, or lookup service is required.
-    
+
     The proposed lexical target follows the Operator-confirmed initially flat placement at `Term//ID`; the separate Term branch and Method Type Term Definition declaration remain Draft dependencies. The target is explicitly introduced by the defining Claim rather than inferred from the letters in property names. The definition introduces no property, domain instance, prefix namespace, Relation, or other entity merely by naming it. It does not implement the deferred Terms Graph or waive the applicable defining-target binding rules; C605's separate Term-placement reconciliation remains applicable.
-    
+
     Adoption requires a new canonical Method identity because the Content Role changes from Requirement to Method; the role-only `CA-M-draft` marker allocates no number and does not transfer CA-R-2275's identity. The replacement plan retires only the exact pinned Core Requirement source after this Method replacement and its governing declarations have been validated and adopted. Until that replacement is completed, this Draft does not retire, archive, overwrite, or supersede any Current source by itself. No ID-only lookup is sufficient to select the predecessor.
-    
+
     ### Pending governing declarations
-    
+
     - [Entity root with the Term branch](../../04_requirement/draft/CA-R-1248@24-draft-CORE_META_MODEL-DEFINITION--define-entity.md).
     - [Term kind and inherited structure](../../04_requirement/draft/CA-R-1318@30-draft-CORE_META_MODEL-DEFINITION--define-term.md).
     - [Method Type Term Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-method-type-term-definition.md).
     - [Dedicated Method meaning owner](../../04_requirement/draft/CA-R-1319@26-draft-CORE_META_MODEL--define-governed-term.md).
-    
+
     These links identify pending Draft dependencies, not Current admission.
-    
+
     The former Current collision was explicitly repaired under CA-M-276: the original ID Term Definition retains `CA-R-2275` and its exact pinned bytes; the later Settings definition now carries `CA-R-2423@1`. Journal event `0e1853d5-f441-4bc7-9460-bd4db67a0c3c` preserves the correction mapping and preimage. The original number remains reserved. Generated views containing the old Settings provenance still require regeneration; that remaining derived-output work does not change this exact predecessor pin.
   - Binding context:
     - lexical selector: `Term//ID`
@@ -9957,22 +9926,22 @@ Term.Name[string]{1}
     Entity **means** the common category for every primary graph node and every dependent property in the framework, as structurally defined by CA-R-2462. This Claim explicitly introduces the lexical Term instance named Entity at `Term//Entity`.
   - Semantics:
     The modeled Entity at Subject `Entity` is defined by an R / Entity Definition. The lexical instance `Term//Entity` is defined by this M / Term Definition. Entity is the sole exception outside the Term branch whose complete canonical name is also one registered Term, because it is the Subject root. Other entities outside that branch require their complete source-admitted expressions; a component Term alone is not their complete canonical name. The exception does not merge the modeled Entity and the lexical Term instance.
-    
+
     The Term Entity is reusable in a name such as `Entity/Property` and in model statements. That lexical composition does not by itself establish specialization, containment, bearer dependence, or another entity identity. The applicable structural Definitions and Relations establish those facts.
   - Details (source-bound):
     The Operator explicitly confirmed Entity as the sole Subject-root exception with both its structural Entity Definition and its reusable Term Definition. This does not require a new Term Definition for every Entity Definition or every complete entity name. Other complete entity expressions may reuse existing Terms as components. The distinction concerns definition targets; it introduces no general exemption from parentage or naming constraints for roots.
-    
+
     The lexical meaning remains consistent with the structural Entity authority. Current source: `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DEFINITION--define-entity.md`, CA-R-1248@23, SHA-256 `ace51485e016e84415c0a96cdf1ee23abcb57dfea5882f653aac26ea4fe8b152`. The pending successor preserves that category while extending the explicit root structure. This Method does not replace the structural Requirement, copy its whole specification, or establish a second Entity-kind definition.
-    
+
     This role-only Draft allocates no canonical Method identity and performs no promotion. The Term branch, specialized Method Type and ownership convention remain pending Draft dependencies.
-    
+
     ### Pending governing declarations
-    
+
     - [Entity structure](../../04_requirement/draft/CA-R-1248@24-draft-CORE_META_MODEL-DEFINITION--define-entity.md).
     - [Term kind and naming distinction](../../04_requirement/draft/CA-R-1318@30-draft-CORE_META_MODEL-DEFINITION--define-term.md).
     - [Method Type Term Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-method-type-term-definition.md).
     - [Dedicated Method meaning owner](../../04_requirement/draft/CA-R-1319@26-draft-CORE_META_MODEL--define-governed-term.md).
-    
+
     These links identify pending Draft dependencies, not Current admission.
   - Binding context:
     - lexical selector: `Term//Entity`
@@ -9989,17 +9958,17 @@ Term.Name[string]{1}
     This Method governs the lexical word `Term`. The R / Entity Definition at
     `Term` governs the Term kind and its inherited structure. The matching
     word does not merge those distinct targets.
-    
+
     Self-reference does not require an infinite sequence of lexical instances such
     as `Term Term`, `Term Term Term`, or further repetitions. This one explicit
     Method Atom of Type Term Definition governs `Term//Term`; using the word `Term` in this
     Claim or elsewhere does not introduce another instance.
-    
+
     An Entity outside `Term` uses its full source-admitted expression as its
     complete canonical name. It cannot use one registered Term alone as that name,
     except for the Subject root `Entity`. The target of this Method is within the
     Term branch, so it is not an additional exception.
-    
+
     `Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: X)/(.Type: X)` is a qualified expression that reuses the Term
     `X` in separately qualified value contexts. Each context still requires its
     own governing admission; repeated components neither introduce `X` nor
@@ -10009,14 +9978,14 @@ Term.Name[string]{1}
     promotion, runtime change, Terms Graph implementation, dictionary extraction,
     or inferred Term creation. A lexical occurrence, parser result, or entity-name
     component is not a replacement for this explicit governing Claim.
-    
+
     ### Pending governing declarations
-    
+
     - [Entity root with the Term branch](../../04_requirement/draft/CA-R-1248@24-draft-CORE_META_MODEL-DEFINITION--define-entity.md).
     - [Term kind and inherited structure](../../04_requirement/draft/CA-R-1318@30-draft-CORE_META_MODEL-DEFINITION--define-term.md).
     - [Method Type Term Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-method-type-term-definition.md).
     - [Dedicated Method meaning owner](../../04_requirement/draft/CA-R-1319@26-draft-CORE_META_MODEL--define-governed-term.md).
-    
+
     These links identify pending Draft dependencies, not Current admission.
   - Binding context:
     - lexical selector: `Term//Term`
@@ -10034,7 +10003,7 @@ Term.Name[string]{1}
     itself. `Property ((IS_PROPERTY_OF)) Bearer` states the direct Relation, and
     `Bearer.Property` is its bearer-to-Property dot display. HAS_PROPERTY is the
     strict derived inverse, not an independently stored reverse fact.
-    
+
     A bearer may itself be a Property, so a qualified expression such as
     `bearer.property.status` remains permitted. This lexical meaning adds no generic lifecycle or update rule. The structural
     Property Definition governs the approved acyclicity constraint on
@@ -10047,22 +10016,22 @@ Term.Name[string]{1}
     owns only the reusable lexical meaning. It introduces no separate Term group,
     Terms Graph, projection, parser rule, runtime behavior, or Current-source
     change.
-    
+
     The role-only Draft marker allocates no canonical Method identity. Adoption
     requires the pending Entity root and Term governance declarations, the
     structural Property definition, the Relation Definitions, and normal
     identity/lifecycle checks. This Draft supplies no evidence that those effects
     occurred.
-    
+
     ### Pending governing declarations
-    
+
     - [Term kind and inherited structure](../../04_requirement/draft/CA-R-1318@30-draft-CORE_META_MODEL-DEFINITION--define-term.md).
     - [Property kind](../../04_requirement/draft/CA-R-1193@23-draft-CORE_META_MODEL-DEFINITION--define-property.md).
     - [IS_PROPERTY_OF Relation](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-is-property-of.md).
     - [HAS_PROPERTY Relation](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-has-property.md).
     - [Method Type Term Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-method-type-term-definition.md).
     - [Dedicated Method meaning owner](../../04_requirement/draft/CA-R-1319@26-draft-CORE_META_MODEL--define-governed-term.md).
-    
+
     These links identify pending Draft dependencies, not Current admission.
   - Binding context:
     - lexical selector: `Term//Property`
@@ -10080,7 +10049,7 @@ Term.Name[string]{1}
     identity when referred to as an Artifact, including where more than one
     Carrier represents it. Artifact does not declare another Entity kind,
     classification axis, Property, or second identity.
-    
+
     Entity admission remains governed by the pending Entity Definition; Carrier
     binding remains governed by CARRIES. This lexical Definition adds neither
     admission policy nor Carrier-binding policy.
@@ -10088,25 +10057,25 @@ Term.Name[string]{1}
     The Operator states that Artifact is a Term for Entity instances represented
     in Carriers. This supersedes the proposed new Artifact classification. The
     role-only marker allocates no canonical Method identity.
-    
+
     Current R1994@14 is historical evidence for this Draft package and is planned
     for future Retirement after its Entity constraints move to the Entity
     Definition. It remains Current until coordinated retirement; in the proposed owner
     structure it will not own the lexical Artifact meaning.
-    
+
     ### Pending governing declarations
-    
+
     - [Term kind](../../04_requirement/draft/CA-R-1318@30-draft-CORE_META_MODEL-DEFINITION--define-term.md).
     - [Method Type Term Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-method-type-term-definition.md).
     - [Governed Term meaning ownership](../../04_requirement/draft/CA-R-1319@26-draft-CORE_META_MODEL--define-governed-term.md).
     - [Pending Entity Definition](../../04_requirement/draft/CA-R-1248@24-draft-CORE_META_MODEL-DEFINITION--define-entity.md).
     - [Current CARRIES Relation](../../04_requirement/CA-R-1993-CORE_META_MODEL-DEFINITION--define-carries.md).
-    
+
     CARRIES is Current; the linked Term, Method-Type and Entity successors are
     pending. These links do not establish adoption of this Draft.
-    
+
     ### Current source evidence
-    
+
     Exact historical source: `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1994-CORE_META_MODEL--define-entity-node.md`, Version 14, SHA-256 `41b8b0ef51a71969db07cec2008a19e3c6372e90ae9cc66727de31287d722ce8`. It is evidence for the planned consolidation and future Retirement, not the ongoing owner of this lexical meaning.
   - Binding context:
     - lexical selector: `Term//Artifact`
@@ -10129,17 +10098,17 @@ Term.Name[string]{1}
     a Governed Term **means** a reusable Term whose approved Project-specific meaning is owned by **`=1`** active Method Atom of Type Term Definition.
   - Details (source-bound):
     The Operator's latest confirmed decision places Terms directly under `Term`, initially flat, and assigns their authoritative lexical definitions to Content Role Method with Type Term Definition. This supersedes the earlier Requirement-role meaning-owner choice. This governing Rule remains a Requirement Atom; the structural Term-kind definition remains R/Entity Definition. Neither is retyped into a lexical Method.
-    
+
     Entity Definition Atoms, authored Semantics or Details, consistent use, and derived views do not become a second lexical meaning owner. Duplicate active Term Definition Methods are an authority conflict even when their wording agrees. A legacy Requirement Term Definition cannot remain a second active meaning owner after its admitted role replacement.
-    
+
     Reusable `Package`, `Unit`, and `ID` do not become unique complete entity names merely by being Terms. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names or case-folded aliases. Authored Subjects use their full admitted expressions. `ID` keeps its approved meaning across those uses. No dictionary Projection, extractor, lookup, entity renaming, or parser inference is required.
-    
+
     CA-R-1279's canonical GOVERNS obligation remains applicable. A defining Claim may explicitly introduce its lexical Term target using Current authority under CA-R-1194 and CA-R-1931; lexical composition alone does not create one. The flat target family is `Term//<Name>`, including the approved target names `Term//Empty` and `Term//ID`. Those examples do not themselves define every Term. Optional terminology consumers must follow the Method-qualified meaning-owner selection without becoming prerequisites of Term meaning or implementing the deferred Terms Graph.
-    
+
     ### Draft source pin
-    
+
     This is a proposed semantic revision of Current CA-R-1319@25, preserving its Summary, Requirement Content Role and Rule Type. Source path: `/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md`. Source SHA-256: `831b4543ceced91376af9e3c494a5f37e8dd1d2d9766b14810ec6f6194b49f78`.
-    
+
     Source-fingerprint snapshot: `/tmp/cce-term-root-migration-20261029/current-before.json`; snapshot SHA-256: `23c1414c96d6e57cdc9f1bf50569de396ef130a7231b765cd8b4511bcb573ad5`. This Draft changes no Current source, assigns no new numeric identity and performs no promotion. Role replacements and retirement of the obsolete Requirement-qualified Type declaration require a coordinated reviewed transition; they are not executed here.
 - Shared RMED source (exact binding): `CA-R-1320@26`
   - Claim Scope:
@@ -10164,7 +10133,7 @@ Term.Name[string]{1}
 - Declaration source: `CA-R-2415@3`
   - Remaining Claim prose:
     Term.Name means the required word or phrase used as the Term's meaning.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -10273,9 +10242,9 @@ $container ((CONTAINS)) $part;
   - Unresolved CFEL: `((CONTAINS)) == <+`
   - Semantics:
     The Host is the immediate Container of the Target and must have the classification `Container = yes`.
-    
+
     Forward `Host ((CONTAINS)) Target` and reverse `Target <((CONTAINS)) Host` are views of the same Relation fact.
-    
+
     CONTAINS relates Container to immediate contained Entity or instance. It is the derived inverse of IS_CONTAINED_BY; it does not add a separately authored fact.
 - Host / Target contracts:
   - `$container` — CONTAINS → `$part`; Host=undefined; Target=undefined; written direction=forward
@@ -10450,8 +10419,8 @@ $classified ((HAS_CLASSIFICATION)) $axis;
   - Unresolved CFEL: `((HAS_CLASSIFICATION)) == >|`
   - Semantics:
     The Target is an applicable classification axis; the classified Entity may be a Relation or another declared Entity.
-    
-    
+
+
     Forward `Host ((HAS_CLASSIFICATION)) Target` and reverse `Target <((HAS_CLASSIFICATION)) Host` are views of the same Relation fact.
     HAS_CLASSIFICATION relates declared Entity or instance to applicable classification axis.
 - Host / Target contracts:
@@ -10536,8 +10505,8 @@ $kind ((HAS_INSTANCE)) $instance;
     - `((HAS_INSTANCE))` — IS_DERIVED_RELATION_OF → `((INSTANCE_OF))`; Host=undefined; Target=undefined; written direction=forward
   - Semantics:
     The Target is an instance of the Host declared kind; a Property kind is not independently instantiated.
-    
-    
+
+
     Forward `Host ((HAS_INSTANCE)) Target` and reverse `Target <((HAS_INSTANCE)) Host` are views of the same Relation fact.
     HAS_INSTANCE relates declared kind to instance of that kind. It is the derived inverse of INSTANCE_OF; it does not add a separately authored fact.
 - Host / Target contracts:
@@ -10589,8 +10558,8 @@ $broader ((HAS_NARROWER)) $narrower;
     - `((HAS_NARROWER))` — IS_DERIVED_RELATION_OF → `((NARROWER_THAN))`; Host=undefined; Target=undefined; written direction=forward
   - Semantics:
     The endpoints are declared kinds supporting narrowing; a Property does not narrow.
-    
-    
+
+
     Forward `Host ((HAS_NARROWER)) Target` and reverse `Target <((HAS_NARROWER)) Host` are views of the same Relation fact.
     HAS_NARROWER relates broader declared kind to narrower declared kind. It is the derived inverse of NARROWER_THAN; it does not add a separately authored fact.
 - Host / Target contracts:
@@ -10620,8 +10589,8 @@ $bearer ((HAS_PROPERTY)) $property;
     - `((HAS_PROPERTY))` — IS_DERIVED_RELATION_OF → `((IS_PROPERTY_OF))`; Host=undefined; Target=undefined; written direction=forward
   - Semantics:
     The Target is a Property borne directly by the Host.
-    
-    
+
+
     Forward `Host ((HAS_PROPERTY)) Target` and reverse `Target <((HAS_PROPERTY)) Host` are views of the same Relation fact.
     HAS_PROPERTY relates Node or Property to dependent Property. It is the derived inverse of IS_PROPERTY_OF; it does not add a separately authored fact.
 - Host / Target contracts:
@@ -10649,9 +10618,9 @@ $instance ((INSTANCE_OF)) $kind;
   - Unresolved CFEL: `((INSTANCE_OF)) == //`
   - Semantics:
     The Host is an instance of the Target declared kind; a Property kind is not independently instantiated.
-    
-    
-    
+
+
+
     Forward `Host ((INSTANCE_OF)) Target` and reverse `Target <((INSTANCE_OF)) Host` are views of the same Relation fact.
     In `X//Y`, Y INSTANCE_OF X; traversal runs from kind to instance.
     INSTANCE_OF relates instance of a declared kind to declared kind.
@@ -10714,8 +10683,8 @@ $part ((IS_CONTAINED_BY)) $container;
   - Unresolved CFEL: `((IS_CONTAINED_BY)) == +>`
   - Semantics:
     The Target is the immediate Container of the Host and must have the classification `Container = yes`; containment does not imply narrowing or inheritance.
-    
-    
+
+
     Forward `Host ((IS_CONTAINED_BY)) Target` and reverse `Target <((IS_CONTAINED_BY)) Host` are views of the same Relation fact.
     IS_CONTAINED_BY relates contained declared Entity or instance to immediate Container.
 - Host / Target contracts:
@@ -10868,7 +10837,7 @@ $workflow_run ((IS_EXECUTION_OF)) Workflow//
     The Host is an actual Workflow Run and the Target is the reusable Workflow executed.
     Forward `Host ((IS_EXECUTION_OF)) Target` and reverse `Target <((IS_EXECUTION_OF)) Host` are views of the same Relation fact.
     Workflow Run ((IS_EXECUTION_OF)) Workflow
-    
+
     The reusable definition is not the execution itself. Workflow Run's binding to
     one Workflow belongs in the Workflow Run Entity Definition, not in every use
     of this Relation Type.
@@ -10901,9 +10870,9 @@ $property ((IS_PROPERTY_OF)) $bearer;
   - Unresolved CFEL: `((IS_PROPERTY_OF)) == .`
   - Semantics:
     A Property has exactly one immediate bearer; the bearer may be any applicable declared model Entity or instance.
-    
-    
-    
+
+
+
     Forward `Host ((IS_PROPERTY_OF)) Target` and reverse `Target <((IS_PROPERTY_OF)) Host` are views of the same Relation fact.
     In `X.Y`, Y IS_PROPERTY_OF X; traversal runs from bearer to Property.
     IS_PROPERTY_OF relates Property to immediate bearer.
@@ -10914,9 +10883,9 @@ $property ((IS_PROPERTY_OF)) $bearer;
     a Primary Entity referenced by a Subject **must** have **`=0`** outgoing IS_PROPERTY_OF Relations.
   - Details (source-bound):
     This successor preserves the existing Primary Entity constraint and immutable Summary. It changes the Relation reference to the approved canonical IS_PROPERTY_OF name; it does not remove Primary Entity semantics or create a new primary-kind branch. Zero outgoing Relations here does not prohibit being the target bearer of incoming Property Relations.
-    
+
     ### Current source pin and pending adoption
-    
+
     Proposed N+1 successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL--give-primary-entity-occurrences-no-bearer.md`, Version 20, SHA-256 `58b6e1292608a312620fa9fed36f88bdf2b67790309053056cf6a6e5fafc2879`. Current bytes remain unchanged. The new Relation names depend on the pending IS_PROPERTY_OF / HAS_PROPERTY Relation Definition Drafts; this source does not admit them through a renamed token alone. This preparation performs no runtime change, generated-view refresh or promotion.
 - Host / Target contracts:
   - `$property` — IS_PROPERTY_OF → `$bearer`; Host=undefined; Target=undefined; written direction=forward
@@ -11001,9 +10970,9 @@ $narrower ((NARROWER_THAN)) $broader;
   - Unresolved CFEL: `((NARROWER_THAN)) == /`
   - Semantics:
     The endpoints are declared kinds supporting narrowing; a Property does not narrow. The narrower kind inherits applicable constraints.
-    
-    
-    
+
+
+
     Forward `Host ((NARROWER_THAN)) Target` and reverse `Target <((NARROWER_THAN)) Host` are views of the same Relation fact.
     In `X/Y`, Y NARROWER_THAN X; traversal runs from broader to narrower.
     NARROWER_THAN relates narrower declared kind to broader declared kind.
@@ -11048,7 +11017,7 @@ Event Record// ((RECORDS)) $occurrence
     The Target is the actual Event or execution described by the Event Record.
     Forward `Host ((RECORDS)) Target` and reverse `Target <((RECORDS)) Host` are views of the same Relation fact.
     Event Record ((RECORDS)) Workflow Run
-    
+
     A Workflow Run is one recorded occurrence kind, not the only one. The Event
     Record persists independently of that Occurrent. This Definition imposes no
     record-count constraint.
@@ -11199,12 +11168,12 @@ $dependent ((depends_on)) $prerequisite
     non-Plan Artifact dependency order derivation from explicit edges.
   - Remaining Claim prose:
     **to** derive one non-Plan Artifact dependency order, the resolver **must**:
-    
+
     1. construct one directed graph from direct `relations.depends_on` edges from **every** dependent Artifact **to** **every** prerequisite Artifact;
     2. derive its `required_by` inverse view **without** authoring inverse edges;
     3. calculate one deterministic prerequisite-first topological order with canonical identity **only** as a tie-breaker; **and**
     4. reject a cycle.
-    
+
     the resolver **must not** use target-list position, Local Order, **or** `relations.derived_from` as a dependency edge.
   - Details (source-bound):
     Plan readiness follows `BLOCKS` under CA-R-1580: **all** blockers **must** be Done, **and** independent ready Plans **may** execute concurrently subject **to** their permissions; navigation order **must not** add blocking.
@@ -11436,11 +11405,11 @@ $child ((structural_parent)) $parent
     external Project Goal filenames.
   - Remaining Claim prose:
     **every** external Project Goal filename **must** begin with the unqualified canonical Atom ID prefix `<CANONICAL_ATOM_ID>-` for a Current Project Goal or the once-qualified canonical Atom ID prefix `<CANONICAL_ATOM_ID>@<VERSION>-` for an Archived Project Goal, followed by `<OPERATOR_NAMES>-DEFINES_GOAL_FOR-<PROJECT_SCOPE>--<SUMMARY_SLUG>.<EXT>`.
-    
+
     The `<OPERATOR_NAMES>` filename token **must** identify the registered Operator; `<PROJECT_SCOPE>` **must** preserve the exact registered Project Settings Name. The canonical current ID or once-qualified archived ID is the identity prefix; no additional Project Prefix, Content Role letter or unrelated number may be inserted into the preserved segment.
-    
+
     ### Current source pin
-    
+
     Proposed N+1 successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-292-CORE_META_MODEL-ENG_DECISION--serialize-external-project-goal-filenames.md`, CA-D-292@32, SHA-256 `244cc4f2eca9145cf1e314263f31c9e1cc3d4031a0059f1204d5de1f098c00ed`. Current bytes remain unchanged; this Draft performs no promotion or filename migration.
 - `CA-D-329@27`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-D-329@27`
@@ -11454,7 +11423,7 @@ $child ((structural_parent)) $parent
     references to Current and historical external Project Goal Atoms.
   - Remaining Claim prose:
     **every** Reference **to** a Current external Project Goal Atom **must** use its canonical Current Atom ID, not its current Carrier filename stem.
-    
+
     A Reference **to** an Archived external Project Goal Atom **must** use its canonical Atom ID qualified once with its unchanged numeric Version when historical identity is required. A Current Project Goal reference **must not** omit the canonical ID or fall back to a filename stem; this Delivery creates no ID-less Current exception.
 - `CA-D-344@23`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-D-344@23`
@@ -11558,9 +11527,9 @@ $child ((structural_parent)) $parent
     Project identity in Project Scope Unit Graph Projections.
   - Remaining Claim prose:
     the Project Scope Unit Graph Projections **must** expose Project identity from the Project Settings Artifact with `project.name` as the canonical name **and** `project.obsolete_names` as the registered prior names **without** becoming authority for (Project Settings Name **or** Obsolete Project Name).
-    
+
     ### Current source pin
-    
+
     Proposed N+1 successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-392-CORE_META_MODEL-ENG_DECISION--register-obsolete-project-names.md`, CA-D-392@24, SHA-256 `384bfda590d882b143ab76b14854621d123a24026f7d90710da83ea50a3f79ca`. Current bytes remain unchanged; this Draft preserves the `project.obsolete_names` encoding and performs no projection refresh.
 - `CA-D-393@23`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-D-393@23`
@@ -11586,12 +11555,12 @@ $child ((structural_parent)) $parent
     the serialization of Concern Type tokens in a Concern Atom File Carrier filename.
   - Remaining Claim prose:
     a Concern Atom File Carrier **must** serialize the following Type components within the Atom filename grammar governed by CA-D-283 **and** CA-D-284:
-    
+
     - Question: `QUESTION`.
     - Problem: `PROBLEM`.
     - Risk: `RISK`.
     - Opportunity: `OPPORTUNITY`.
-    
+
     these mappings govern filename representation; they do **not** rename a Type, admit a new Type, **or** prescribe a YAML Type value.
 - `CA-D-402@27`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-D-402@27`
@@ -11599,16 +11568,16 @@ $child ((structural_parent)) $parent
     the serialization of Delivery Type tokens in a Delivery Atom File Carrier filename.
   - Remaining Claim prose:
     a Delivery Atom File Carrier **must** serialize the following Type components within the Atom filename grammar governed by CA-D-283-CORE_META_MODEL-ENG_DECISION--serialize-project-owned-markdown-atom-filenames **and** CA-D-284-CORE_META_MODEL-ENG_DECISION--serialize-filename-token-case:
-    
+
     - Eng Policy: `ENG_POLICY`.
     - Eng Decision: `ENG_DECISION`.
     - Release Definition: `RELEASE_DEFINITION`.
     - Environment Definition: `ENVIRONMENT_DEFINITION`.
-    
+
     these mappings govern filename representation; they do **not** rename a Type, admit a new Type, **or** prescribe a YAML Type value.
   - Details (source-bound):
     The YAML `form` field carries the Atom Form under CA-D-657; a filename Type token is only its carrier encoding, not a second Type or a Label. An explicit `label` field is the effective Label when present; when absent, the effective Label is derived from the Atom Type name under CA-R-2497. Do not infer Type from a filename token or from that derived Label.
-    
+
     Release Definition and Environment Definition remain outside PROGRAMMATIC and its declared descendants under CA-R-1665; CA-R-2123 governs the Method and Delivery Type restriction in that scope.
 - `CA-D-404@28`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-D-404@28`
@@ -11618,7 +11587,7 @@ $child ((structural_parent)) $parent
     a Method Atom File Carrier **must** serialize its effective Label within the Atom filename grammar governed by CA-D-283 and CA-D-284, using the explicit Label when present and the Type name when Label is absent. The effective Label is normalized as an uppercase structured token; an unlabeled Eng Policy, Eng Decision, External Implementation Method and Method Binding therefore use `ENG_POLICY`, `ENG_DECISION`, `EXTERNAL_IMPLEMENTATION_METHOD` and `METHOD_BINDING`.
   - Details (source-bound):
     These examples govern filename representation; they do **not** rename a Type, admit a new Type, **or** prescribe a YAML Type value. The YAML `form` field carries the Atom Form under CA-D-657; the filename token is the effective-Label carrier encoding. An explicit `label` field takes precedence; when it is absent, CA-R-2497 supplies the Type name as the effective Label. Do not infer the Atom Type from a filename token; derive the filename token from the effective Label.
-    
+
     Within PROGRAMMATIC and its declared descendants, Current Method and Delivery Atoms use only Eng Policy or Eng Decision under CA-R-2123; legacy Implementation Method and Implementation Decision names are not additional admitted values there. Existing specialized values remain governed by their own definitions outside that scope.
 - `CA-D-407@25`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-D-407@25`
@@ -11638,13 +11607,13 @@ $child ((structural_parent)) $parent
     explicitly selected Implementation Retry Limits.
   - Remaining Claim prose:
     an explicitly selected Implementation Retry Limit **must** use the integer field assigned **to** its owning source Carrier:
-    
+
     - Framework Instance Settings TOML: `implementation.retry_limit`.
     - Default Settings TOML: the same field under CA-D-408-CORE_META_MODEL-DELIVERY--reuse-framework-parameter-fields-in-default-settings.
     - a Plan Atom's own File Carrier frontmatter: `implementation_retry_limit`, including a Hub's mandatory Markdown File Carrier.
   - Details (source-bound):
     ### inheritance and ownership
-    
+
     - allowed values follow CA-R-1488@21-CORE_META_MODEL-DEFINITION--define-implementation-retry-limit; the default value is owned **only** by Default Settings.
     - omitted instance values resolve under CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings; omitted Plan fields inherit under CA-M-295-CORE_META_MODEL-METHOD--resolve-implementation-retry-limits-by-source-precedence@7 **without** copied values. preserve explicit **=0**.
     - a Hub override belongs **to** that same Plan identity, **not** a separate Objective **or** settings file; do **not** use `epic_overrides`.
@@ -11655,7 +11624,7 @@ $child ((structural_parent)) $parent
     Operations Atom File Carriers and their Type filename tokens.
   - Remaining Claim prose:
     an Operations Atom File Carrier **must** serialize its Type using this filename-token mapping:
-    
+
     | Operations Atom Type | Filename token |
     |---|---|
     | Action | `ACTION` |
@@ -11667,16 +11636,16 @@ $child ((structural_parent)) $parent
     Plan Carrier Bundle placement by carried Status.
   - Remaining Claim prose:
     **every** Plan Carrier Bundle **must** represent its carried Status **in** the following locations:
-    
+
     - Draft: **in** the owning Scope Unit's shared `03_plan/draft` area.
     - Active: directly **in** its local container.
     - Backlog: **in** its `001_backlog` subdirectory.
     - Done: **in** its `done` subdirectory.
     - Canceled: **in** its `canceled` subdirectory.
     - Archived: **in** the owning Scope Unit's shared `03_plan/archived` area.
-    
+
     For a contained Current Plan, the local container for its current-Status placement is the matching Directory Carrier of its declared immediate containing Plan. Draft and Archived areas are shared across the owning Scope Unit, rather than replicated under each Plan container. This rule does **not** decide terminal-Status placement for a Plan without an `IS_CONTAINED_BY` connection. reserved Status directories are **not** Plan nodes. validate folder nesting against the child's direct `IS_CONTAINED_BY` declaration; placement does **not** declare containment.
-    
+
     read Status from the Plan's own Markdown file under CA-D-483 **and** check its local placement; a parent **or** folder name **must not** supply a descendant's Status at read time. **every** admitted parent Status change requires the containment cascade under CA-R-1521: separate single-Atom Actions write the Status prescribed by CA-R-1521 to each selected latest descendant under its own model, without an optional descendant mode. For a containing Plan Atom whose requested Status is Done **or** Canceled, preserve every selected latest contained Plan already Done **or** Canceled and request Canceled for every other selected latest contained Plan. After the cascade, every selected latest contained Plan must be Done **or** Canceled; mixed terminal statuses are allowed, and no contained Plan is forced to match the parent's requested Status merely because the parent is Done **or** Canceled. For other admitted parent Statuses, preserve the applicable cascade. Archive selects all contained latest Atoms; references outside the Carrier tree **and** older archived Revisions are excluded. retain Current descendants inside the parent Carrier tree. Archived Plan Markdown Carriers are placed flat in the owning Scope Unit's shared `03_plan/archived` area, not inside an archived parent's directory.
   - Details (source-bound):
     - for a contained Plan, apply its current-Status placement relative to its immediate containing Plan's Directory Carrier; for example, a Done child is in `<parent-directory>/done/<child>.md`, using its canonical matching stem. This does **not** specify the parent's own root-level terminal-Status location.
@@ -11699,11 +11668,11 @@ $child ((structural_parent)) $parent
     the frontmatter representation of an Atom's resolved Claim Target Scope Unit.
   - Remaining Claim prose:
     a Markdown Atom Carrier **must** carry its resolved Claim Target Scope Unit **in** frontmatter, including a Current-scope Atom whose target is its own Scope Unit.
-    
+
     - choose the current Scope Unit as the default during authoring, **not** by relying on the file's later location.
     - a carried target equal **to** the current Scope Unit does **not** make the Atom Relational. a different target still requires the applicable Relational Atom admission.
     - Claim Scope restrictions use the body sections under CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections; the RMED Scope section does **not** replace **or** duplicate `claim_target_scope_unit`.
-    
+
     - encode this Property as the top-level nonempty YAML string `claim_target_scope_unit`, resolving **to** **=1** registered Scope Unit. null, lists, **and** a duplicated `claim_scope` field are **not** this encoding.
     - an external Requirement of Type Project Goal carries its Operator Actor owner using the existing Author fallback under CA-D-657-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter **in** `current_scope_unit`, **and** the Project **in** `claim_target_scope_unit`. This is the explicit Actor-owner exception, not a Project-owned Atom with incidental Actor provenance. Do **not** register the Operator as a Scope Unit **or** infer either value from the filename.
 - `CA-D-494@17`: Selected source is outside the declared model scope.
@@ -11712,7 +11681,7 @@ $child ((structural_parent)) $parent
     the authoritative Operator registry of a Project.
   - Remaining Claim prose:
     the authoritative Operator registry **must** use **`=1`** `operators_registry.toml` file **in** the Project authority root, alongside Project Settings.
-    
+
     - the root has **`=1`** key, `operators`, containing **`>=1`** `[[operators]]` table.
     - **every** table has **`=1`** `name` **and** **`=1`** `role`, both nonempty strings. names are unique. a table may also carry **<=1** `journal_author`, an explicitly registered Journal account name using the Journal's Author format. provided Journal account names are unique; **other** additional keys **or** duplicate identities make the registry invalid.
     - Author membership compares the carried `author` string with registered `name` values exactly, **without** aliases, case folding, trimming, **or** inference from filenames. `role` describes the Operator; it does **not** replace the name **or** independently grant execution permission.
@@ -11725,18 +11694,18 @@ $child ((structural_parent)) $parent
     temporary evidence Carriers of a local RMED Atom review Run.
   - Remaining Claim prose:
     the Run **must** store its temporary evidence under **`=1`** caller-admitted directory using this layout:
-    
+
     - `progress.json`: the original selection, per-Atom path **and** identity, current Step, state, report path, assigned worker, applicable context setting, **and** any blocked **or** unfinished work. a short handoff records the current Atom, completed edits, **and** next work **in** this file.
     - `reports/<ordinal>.json`: **`=1`** report per selected Carrier, using its fixed four-digit ordinal. retain the check result **and** later applied corrections **in** this same file.
-    
+
     **every** report **must** contain the source path, carried Atom ID **and** Version, source observation, **all** **`=6`** local check outcomes, concise evidence, confirmed findings, unresolved coverage, applied corrections, **and** current state. a confirmed finding includes its location, source passage, applicable rule, **and** proposed fix. record the original checked source digest once so the fixer can notice concurrent changes.
   - Details (source-bound):
     shared checking rules **may** be stored once; reviewers receive their relevant actual contents. an existing mechanical report **may** be linked as supporting evidence. separate raw-part files, proposal reports, admission receipts, checkpoint files, **and** closure certificates are **not** required by this Workflow.
-    
+
     states are `pending`, `checked_clean`, `needs_fix`, `fixed_not_rechecked`, **or** `blocked`. `fixed_not_rechecked` records applied corrections **after** **all** initial checks conclude **and** findings are corrected **or** rejected with reasons, **without** claiming a post-fix pass. missing identity, unfinished checks, **or** unresolved findings retain `blocked`, including **when** safe partial corrections were applied.
-    
+
     progress records `reported_result`, `check_complete`, **and** `complete` separately from the derived current `state`. Run totals distinguish reports received, complete initial checks, **and** completed Atoms. preserve original reports **and** their gaps as evidence; reporting **or** editing an Atom does **not** complete unperformed checks. excluded checks are **not** marked as passed.
-    
+
     preserve earlier reports **and** completed work. a workflow-packaging **or** context-budget change alone does **not** invalidate a review of unchanged content under unchanged checking criteria. changed Atom content **or** a changed applicable criterion makes its earlier check historical; this Workflow does **not** automatically recheck it.
 - `CA-D-497@18`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-D-497@18`
@@ -11744,12 +11713,12 @@ $child ((structural_parent)) $parent
     the `rmed_review` parameter group **in** Framework Instance Settings **and** Default Settings.
   - Remaining Claim prose:
     RMED review batch limits **must** use these TOML parameters:
-    
+
     | Parameter | Encoding |
     |---|---|
     | `rmed_review.context_headroom_fraction` | finite TOML number strictly between zero **and** one; fraction of each worker's effective context capacity reserved rather than planned for use |
     | `rmed_review.max_atoms` | optional positive integer; an explicit cap on selected Atoms, with no default **when** omitted |
-    
+
     resolve **every** parameter independently from explicit Operator Run input, **then** Framework Instance Settings, **then** Default Settings. report the selected value **and** source; do **not** silently coerce invalid values **or** store the same default **in** prompt text as independent authority.
   - Details (source-bound):
     effective context capacity **and** already-used context are caller-supplied runtime evidence for each worker, **not** reusable default settings. the progress list records their available source under CA-D-496; estimated usage remains labelled as an estimate. the handoff threshold is the effective capacity multiplied by `1 - context_headroom_fraction`. the former `rmed_review.target_minutes` parameter is retired; ETA is informational, **not** an admission limit. settings **must not** raise a worker's actual context capacity. an individually oversized Atom remains explicit deferred work requiring a smaller complete context slice **or** an admitted higher-capacity worker.
@@ -11781,16 +11750,16 @@ $child ((structural_parent)) $parent
     this Evaluation checks priority resolution **and** alternative selection for an affected Scope **and** Project stage under CA-R-1487, CA-M-297, CA-O-022, **and** CA-O-023.
   - Remaining Claim prose:
     the evaluated behavior passes **if** **all** applicable conditions hold **and** are supported by the evaluated evidence:
-    
+
     - the effective model **and** parameters correspond **to** applicable Operator input; unresolved input is reported **without** activating an invented model **or** preference.
     - **every** selected alternative satisfies active authority **and** non-negotiable constraints.
     - selection follows the Operator-selected model **without** substituting another algorithm.
     - for comparison by priority order, the first deciding criterion governs relative preference; later criteria do **not** reverse it **or** bypass an unresolved earlier comparison.
     - a tie **or** incomparable result is **not** converted into an automatic winner **without** authority from the selected model.
     - unresolved input **or** comparison is returned **to** the Operator with its known inputs, alternatives **when** available, constraints, evidence, **and** exact unresolved point.
-    
+
     ### Falsification
-    
+
     the evaluated behavior fails **if** **any** applicable acceptance condition is false. missing evidence for an applicable condition leaves that condition unevaluated, **not** passed.
 - `CA-E-209@25`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-209@25`
@@ -11810,17 +11779,17 @@ $child ((structural_parent)) $parent
     Demand Atoms and their Consumer-owned Producer-result constraints.
   - Remaining Claim prose:
     a Demand is owned by its Consumer **and** constrains **only** one Producer result authorized by the Consumer's accepted Goal.
-    
+
     ### Test case
-    
+
     create valid Demand Atoms with Consumer **and** Producer Scope Unit references **in** permitted branches **and** with a later ordered sibling as Consumer **and** an earlier ordered sibling as Producer. **then** remove the Goal-authorized need for the Producer result, change ownership, target an ancestor, direct child, deeper descendant, **or** later ordered sibling, use equal Producer **and** Consumer Local Order, target two results, constrain Producer authority outside the selected result, fully define Producer Scope, **and** add a separate Demand-direction relation Kind.
-    
+
     ### Acceptance criteria
-    
+
     **only** fixtures with Consumer ownership, a permitted direction, one exact Goal-authorized need for the Producer result, one exact Implementation result, **and** no additional direction relation pass.
-    
+
     ### Failure disposition
-    
+
     record a Concern naming the invalid Demand fact.
 - `CA-E-379@46`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-379@46`
@@ -11828,7 +11797,7 @@ $child ((structural_parent)) $parent
     Applicable Methodology Compilation.
   - Remaining Claim prose:
     the Applicable Methodology Compilation Validation **must not** pass **if** **any** of:
-    
+
     - CORE_META_MODEL, PROJECT_CONFIGURATION, **or** an applicable installed Extension Source under CA-R-1228 is omitted; an unselected **or** inactive Extension revision contributes.
     - an eligible current active source Atom under CA-R-1315 is omitted, **or** an ineligible Atom Revision contributes.
     - compilation requires a hard-coded Extension name **or** particular Project-specific Project Configuration contents, rejects a conforming source merely because its contents are new, **or** requires an empty INSTALLED_EXTENSIONS Carrier **when** no Extension is applicable.
@@ -11839,16 +11808,16 @@ $child ((structural_parent)) $parent
     - the conflict report omits a Core expansion-boundary violation, duplicate Atom identity, unresolved replacement, incompatible retained Candidate, **or** unresolved priority; source Atoms are silently discarded **to** hide a conflict.
     - a conflict is resolved **without** an unambiguous actual Operator approval recorded **in** the Journal under CA-O-007 **and** bound **to** the exact proposal, conflict, **and** source-frontier digest; an approval is stale, partial, missing, ambiguous, **or** mismatched; a prohibited Extension **or** Project Configuration override is accepted as conforming.
     - source order **or** LLM inference resolves a conflict, projected Claims are directly corrected, **or** the same resolved source frontier produces different Applicable Methodology membership.
-    
+
     the Evaluation **must** cover an empty Extension contribution, a newly installed conforming Extension with a previously unknown name, changed conforming Project Configuration contents, **and** an expansion that violates Core authority. conforming input changes **must not** require edits **to** generic Core compilation rules merely **to** recognize their names **or** contents.
-    
+
     check the decision **and** correction boundary:
-    
+
     - a valid actual approval recorded **in** the Journal **must not** require a separate approval Atom **in** Project Configuration.
     - a copied approval Claim, an inferred decision, **or** a Journal record **without** evidence of the actual applicable Operator decision **must not** qualify as approval.
     - approved source corrections **must** run through CA-O-008, preserve current rules **and** selections **in** their owning source Atoms **or** settings, **and** record actual outcomes **in** the Journal.
     - rejection, requested revision, missing decisions, failed corrections, **and** partial effects **must** remain distinguishable; **none** **may** be reported as a successfully approved **and** completed correction.
-    
+
     check source-binding fixtures with nested output directories, missing targets, a target for a different Atom, a stale source Revision, tampered body content, **and** a valid current source. **only** the valid source-faithful case **may** pass the source-binding check; historical output **may** remain preserved **without** being reported as current.
 - `CA-E-382@49`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-382@49`
@@ -11856,46 +11825,46 @@ $child ((structural_parent)) $parent
     Terms Graph validity **and** Terms Graph Projections **when** that native graph Evaluation is separately selected. This graph-specific Evaluation is optional **and** is **not** a prerequisite for directly checking Term Definitions **and** authored occurrences under CA-E-444.
   - Remaining Claim prose:
     The selected native Terms Graph Evaluation **must** preserve the following graph-validity, source-authority **and** Projection-fidelity boundaries.
-    
+
     ### Graph validity
-    
+
     the Evaluation **must** reject a Terms Graph **if** **any** of:
-    
+
     - a native node is **not** a Term under its governing explicit authoritative Method Atom of Type Term Definition.
     - source evidence binds two distinct complete canonical entity names to the same entity **or** one complete canonical entity name to two distinct entities, including synonymous full names registered in different qualified contexts.
     - a native Relation Type has no defining source Claim under CA-R-1246, **or** an external reference violates its selected governing Entity Definition endpoint classes **or** graph contexts.
     - a NARROWER_THAN Relation lacks an explicit authoritative source declaration **or** its governing Term definitions do **not** establish the implication under CA-R-2475. absence of Entity instances does **not** establish this implication.
     - the NARROWER_THAN hierarchy **contains** a directed cycle, including a self-loop.
     - a Root Term classification differs from the **`=0`** direct NARROWER_THAN-parent criterion under CA-R-1347.
-    
+
     the Evaluation **must** accept an acyclic hierarchy with multiple direct parents **or** an isolated Root Term **when** the remaining applicable authority is satisfied. A Relation Type's applicable Entity Definition constraints, when selected, **must not** change Root Term classification **when** the Terms Graph hierarchy is unchanged. the checks **must** distinguish an unknown Type from missing or unresolved governing constraint evidence without inventing a default or treating the known Type as unregistered.
-    
+
     for a governed-only view under CA-R-1454, the Evaluation **must** reject graph validity **if** a displayed native Term node lacks **`=1`** active dedicated Term Definition under CA-R-1319. missing **or** conflicting definitions **and** uncertain Relation or constraint evidence **must** be reported with their affected source references **without** inventing a definition **or** an edge.
-    
+
     filtering out a parent **must not** establish **or** change canonical Root Term classification. **if** the available source evidence is insufficient **to** establish the CA-R-1347 criterion, the classification **must** remain unresolved **without** silently importing source nodes **or** edges from outside the requested selection.
-    
+
     the same NARROWER_THAN implication check applies **when** the Terms name Actions **or** Workflows. those operational Atoms already are Entities; the Evaluation **must not** require **or** create separate Entity identities for them **or** infer a Terms Graph edge merely from their classification. an empty set of observed instances does **not** prove a hierarchy Relation; acceptance requires the governing Term definitions **and** explicit Relation authority.
-    
+
     ### Projection fidelity and source traceability
-    
+
     an admitted source-Atom **or** cross-graph reference under CA-R-1472 **must not** fail **only** because its external endpoint is **not** a Term; that endpoint is **not** a native Terms Graph node. reject a view that imports that endpoint as a Term, erases its graph context, uses an unregistered Relation Type, **or** lets the external reference alter NARROWER_THAN hierarchy **or** Root Term classification.
-    
+
     for a governed-only view under CA-R-1454, the Evaluation **must** reject the view **if** an eligible Term **or** Relation required by CA-R-1454 is omitted, an ineligible node **or** edge is displayed, a displayed native Term node's Term Definition Atom **or** a displayed internal edge's source declaration is outside the requested source selection, a displayed native Term node **or** internal edge lacks exact source Claim **and** Artifact Revision traceability, **or** an internal Term Relation edge is inferred **only** from spelling, capitalization, shared Subject use, **or** compatible endpoints.
-    
+
     the Evaluation **must** reject a graph **or** governed-only view **if** its rendered content is treated as independent vocabulary authority, an upstream Projection substitutes for exact defining **or** Relation-source authority, a Projection chain loses its upstream identity **or** ultimate source traceability, **or** an arbitrary filter is treated as another admitted Projection Type. a source-faithful view derived through an upstream Terms Graph Projection **must** pass these Projection-specific checks **when** the applicable fidelity, selection **and** source-traceability requirements are satisfied; graph validity is assessed separately.
-    
+
     ### Optional source-bound naming checks
-    
+
     the Evaluation **must** check complete canonical entity name-to-entity **and** entity-to-complete-name uniqueness using exact source-backed identity evidence. Repeated references to one established full-name binding are **not** duplicate entities. A valid one-to-one complete-name mapping satisfies only the naming check; the existing hierarchy, authority **and** reference checks still apply. Unknown identity, incomplete required entity-population **or** naming-source coverage, **or** ambiguous target binding **must** remain unresolved, **not** be accepted through spelling, graph position **or** qualification alone. The view **must** preserve **and** expose conflicting bindings with their source Claims **and** Revisions; silently merging entities **or** accepting alternate full names as synonyms fails fidelity. A faithful display of a naming collision **may** pass fidelity while the source graph fails naming validity. A known entity with zero complete canonical entity names under complete evidenced coverage fails missing naming; absence of a required active Definition is a separate defining-authority failure. The Evaluation **must not** invent an entity distinction, equivalence, full name **or** Term to produce a pass.
-    
+
     component Terms are reusable words **or** phrases whose meaning is owned by an explicit dedicated Method Atom of Type Term Definition, **not** inferred from agreement between Semantics sections. They are not complete Entity expressions outside the Term branch, except for the root `Entity`. Consistent use of the Term `Package` in `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package/Eval Package`, and `Entity/Object/Continuant/Package/Runtime Package`, and of the Term `Unit` in `Entity/Object/Continuant/Structural Unit/Scope Unit` and `Entity/Object/Continuant/Package <+ Module <+ Code Unit`, passes the component-meaning check. A different complete expression identifies each separately defined entity. Conflicting component meanings fail; unknown component meaning **or** segmentation remains unresolved. No Unit entity **or** synthetic Term node is created merely by splitting an entity's name.
-    
+
     the complete-name check covers **every** named canonical Subject-graph entity: full expressions in admitted `/`, `//`, `.`, `:`, `+>`, `<+`, `>|` **and** `|<` constructs, calls `@(...)` to already declared Entities, plus registered direct Relation tokens inside `((...))`. The reference marker refers to an already declared Entity **without** declaring another target; parsing alone admits no target or Relation. A registered Relation token resolves to one admitted Relation Type under the registered notation, but its bare spelling is not that entity's complete canonical expression; complete-name comparison uses the full qualified expression separately. `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module`, and `Entity/Object/Continuant/Package <+ Module <+ Code Unit` connect three entities with three full expressions; a component label, the operators, or the chain must not be introduced as another entity node. Operators, delimiters **and** selector syntax are not Terms. Under CA-R-1325, a complete composite Subject Expression is not one lexical Term; parsing arbitrary composite syntax does not automatically establish a complete entity expression or another entity. An Atom expression with independently admitted Content Role and Type values remains valid only with its full admitted canonical prefix. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names. Authored Subjects use their full admitted expressions. The three-target chain introduces no fourth entity or fourth complete expression. Check **all** authored mentions against those full-expression bindings: `component` used as a stylistic substitute for the same Module fails naming, while a separately defined Component entity remains distinct. Repeated references to the same entity are not collisions; distinct property, value or bearer-qualified entities using the same complete expression are collisions despite their context. A Relation token must not become an admitted Relation without its governing authority and endpoint permissions. Preserve existing separation of source naming, native Terms Graph membership and Projection fidelity.
-    
+
     ### Result boundary
-    
+
     the Evaluation **must** distinguish Projection fidelity from graph validity **and** keep the two outcomes visible, including **any** unresolved source conditions **and** checked-coverage limits. a graph that faithfully represents a source conflict **may** pass fidelity while failing an applicable graph-validity condition **or** leaving that condition unresolved. a composite acceptance result **must not** pass **if** an applicable check fails **or** remains unresolved; faithful reproduction alone does **not** establish a valid source model.
-    
+
     connectivity **and** cycle checks apply **only** as required by the governing graph authority; the NARROWER_THAN cycle prohibition **and** the admitted isolated Root Term cases above remain distinct. passing graph-structure checks does **not** establish Project-specific meaning **or** consistency of source use **without** the required governing definitions **and** source context.
   - Details (source-bound):
     The contextual topic/code spellings `atom.id` **and** `projection.id` distinguish their respective ID Properties using the explicitly defined ID meaning; the dot remains syntax. They are not alternative complete canonical Subject names; an authored Subject uses its full admitted expression. Apply ID uniqueness **only** within matching prefixes; `CA-P-123`, `CA-P-123@1-draft` **and** `CA-P-123@3` introduce no version-identity **or** case-folding rules. Source consistency, well-formedness, checked coverage **and** optional Projection fidelity remain separate.
@@ -11905,17 +11874,17 @@ $child ((structural_parent)) $parent
     Entity Expressions evaluated for invalid component handling.
   - Remaining Claim prose:
     Under A1296, count an omitted property as zero values, a scalar null as one value, and an empty string as one value. Check the parsed value against the declared Format and applicable prose conditions separately. Do not pass a required string merely because a null satisfies the count; do not reject an empty string solely because it is empty unless the applicable rules require substantive/nonempty content.
-    
+
     For the Entity format check under CA-A-1285, check string-valued content and the admitted notation. Do not fail that format check solely because a defining Atom introduces a new governed entity. Target authority and explicit existing-kind reference resolution are separate semantic checks, not consequences of the string Format.
-    
+
     Under CA-A-1283, admit subjects{0} with one governs reference and zero or more dependencies; reject a direct subjects scalar without rejecting its declared children. Require direct prose for claim{1} even when formal_claim{0..1} is present. For property[string]{2}, require two string values under one key; repeated sibling YAML keys do not satisfy cardinality. Do not treat a sequence as one list-formatted value or count child keys as direct parent values.
-    
+
     Accept Package/Project Implementation as the parentless root Package and each Module only when it belongs to exactly one Package; reject the superseded root-under-Implementation and independent-Module cases.
-    
+
     For cardinality under CA-A-1280, accept `{0}`, `{1}`, `{3}`, `{0+}`, `{1+}`, `{2+}`, `{0..1}` and `{2..5}` with their declared counts. Reject negative or fractional bounds, an empty `{}`, a missing range bound such as `{2..}`, repeated plus signs such as `{1++}`, and an inverted range such as `{5..2}`. A Step count of zero fails `Step {1}+>{1+} Workflow`; zero Substeps is admitted by `Sub-step {1}+>{0+} Step`. A containment count must not be read as inheritance or as changing the exactly-one immediate-whole rule.
-    
+
     the Evaluation **must** reject an Entity Expression **if**
-    
+
     - `/` does **not** express the approved broader-to-narrower Entity Path profile,
     - `//` does **not** occur exactly between an Entity kind component and a following named instance component, or the entire path fails to resolve to exactly one canonical Entity Target that already exists or is explicitly introduced by applicable defining authority under CA-R-1194 and CA-R-1321,
     - `.` does **not** encode **`=1`** valid bearer edge from the following Property occurrence **to** the immediately preceding bearer occurrence,
@@ -11939,77 +11908,77 @@ $child ((structural_parent)) $parent
     - an `@` call is used without resolving to its intended already declared Entity,
     - a complete composite Entity Expression is classified as one Term,
     - **or** a registered CCE Operator is redefined as a Governed Term **or** Scope Unit Name.
-    
+
     For example, in `Kind//Instance Name`, the RHS identifies the named instance and is not automatically a Term; require the complete path to resolve to exactly one canonical target that already exists or is explicitly introduced by applicable defining authority. This does not relax the already-declared target requirement for `@`. Recognizing `//` alone does not establish or admit an INSTANCE_OF graph fact. Do not reject or accept the name by an Atom-ID pattern; its source/name authority and exact-target resolution govern.
   - Details (source-bound):
     ### Term-component cases
-    
+
     `Entity/Object/Continuant/Governing Objects/Atom.Status: Active` **must** pass the component check **only when** its named lexical components **and** exact qualified target are admitted. `/`, `.`, **and** `:` contribute no Term nodes. `atom(content_role="Plan").Status` **and** `atom(content_role="Plan",type="Plan").Status` **must** pass only in the approved profile when their selector syntax is exact; lowercase `atom` is **not** a Term, **and** its syntax validation neither enumerates a concrete Atom row nor admits a target Entity. `atom(atom_id="CA-O-135").Status`, `atom(type="Plan").Status`, a mixed `atom_id`/`content_role` selector, a selector after a Entity separator, **and** every selector in legacy **must** fail. an unresolved ordinary named component **must** fail the source-reference check; the diagnostic **must** preserve the unresolved reference **without** supplying an invented definition. a complete composite path **must not** be admitted as **`=1`** Term merely because it resolves **to** **`=1`** Entity Target.
-    
+
     Use an admitted Method Atom whose actual GOVERNS target is `Entity/Object/Continuant/Governing Objects/Atom.Content`; retain the fixture's source Atom and exact Revision. Check that complete target against its governing authority separately from component-Term meaning. The Method Content Role does not create a Method Subject root or determine the target's category. A Scope Unit, folder, or Carrier spelling cannot substitute for the target binding.
-    
+
     The schematic expression `Atom/(.Type: Method)` denotes an Atom qualified by its own Type Property value; the result is narrower than Atom and inherits applicable Atom features and constraints. `.Type` is relative to Atom, not a primary Entity or a Property subtype of Atom. `Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)` is the concrete canonical example because Method is already a Content Role; its notation alone does not admit Method as a Type. Neither form creates an intermediate Entity kind, a named instance, or membership through IS_CLASSIFIED_BY. Reject the superseded bare `X/Y: Z` spelling in this proposal while preserving unchanged Current sources and runtime.
-    
+
     ### Relation-cardinality cases
-    
+
     Accept `Step {1}+>{1+} Workflow` and `Workflow {1+}<+{1} Step` as equivalent: every Step has exactly one outgoing containment link to a Workflow and every Workflow has one or more reverse Step links. Accept a one-sided slot as specified while its absent counterpart remains unspecified. Accept `Property {1}((IS_PROPERTY_OF)) Bearer` only as one outgoing IS_PROPERTY_OF link per Property; a postfix-only Relation count constrains the reverse count per Bearer. Reject treating a Relation slot as a direct-value count, relation arity, or a count of endpoint nodes. Direct values remain separately counted by `Property[format]{count}`.
-    
+
     ### Classification and containment cases
-    
+
     Accept the following only when `>|` denotes HAS_CLASSIFICATION, `+>` and `<+` are opposite writings of the same containment fact, and `*` ranges only over admitted Atom Status values:
-    
+
     Require the retained direct fact Part IS_CONTAINED_BY Whole; CONTAINS is its
     derived inverse. `Part +> Whole` and `Whole <+ Part` express that same fact.
-    
+
     ```text
     Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Draft <+ Draft
     Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Archived <+ Archived
     Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current <+ * not in (Draft, Archived)
     ```
-    
+
     Reject reading `>|` or `|<` as membership, swapping containment direction, using containment as inheritance, using `*` for arbitrary values, reversing Current's exclusion of Draft and Archived, treating a relative Property qualification as a primary Entity or Property subtype, or inferring Type admission from `Atom/(.Type: Method)`. These are proposed Draft semantic checks, not evidence that an executable parser or evaluator has changed.
-    
+
     ### Membership and inheritance cases
-    
+
     `Entity/Object/Continuant/Actor/Operator` retains source-backed applicable Actor properties. A shortened, deduplicated or filtered view must not manufacture or strengthen a source constraint. These are proposed semantic checks, not evidence that an executable evaluator has been changed. Exact alternate-path identity, literal-name handling and containment constraints await the decisions recorded in CA-A-1236.
-    
+
     ### Containment alternatives
-    
+
     In the complete declared containment structure, each branch is an allowed option. `X <+ Y` requires a contained Y instance to belong to exactly one immediate whole instance of the permitted kind. Alternative container branches are choices, not simultaneous ownership obligations. An independent declaration can permit an uncontained instance; an @ call does not grant that permission. Part-to-whole cardinality is one; the number of Y parts per X remains separately constrained. CA-A-1253 records this latest cardinality decision. Every Module belongs to exactly one Package; Package/Project Implementation is the parentless root Package, and nested Packages belong to another Package.
-    
+
     In the governing declaration structure, an independent kind declaration outside structural containment permits that kind without that structural parent. An `@(...)` call to an already declared Entity does not make another independent declaration. Every Module belongs to exactly one Package; Step belongs to Workflow. A standalone source file is a Module of the root Package, not an independently declared Module. A derived display preserves these source meanings even when its selection omits a declaration or reference. This resolves Q02 in CA-A-1236; repeated display labels alone carry no new permission.
     Reject an interpretation that requires every alternative container branch simultaneously merely because several branches are declared. This is a proposed semantic evaluation rule; no executable evaluator is changed.
-    
+
     ### Existing-target reference marker
-    
+
     Evaluate `@` as a call to an already declared Entity alongside its selected operator. Reject an interpretation that creates another target or changes inheritance merely because `@` is present. Literal operator characters inside names use the separately defined backslash escape rule; an escaped literal @ is not a reference modifier.
-    
+
     ### Literal-character escaping
-    
+
     A slash in `CI\/CD` and a period in `Release 0\.4` are literal name characters, not graph edges. A matched `\\` represents one literal backslash. Reject a final unpaired backslash. Do not treat single or double quotes inside the decoded Entity expression as grouping or name-quoting syntax. YAML outer string quoting is checked at the carrier layer, not as an Entity operator. This is a proposed evaluation rule; no executable parser has changed.
-    
+
     ### Reference boundary
-    
+
     Require an `@` call to resolve to an already declared Entity. Parentheses group the intended expression; they do not add another Entity. Reject unresolved targets and unmatched grouping parentheses. A following `.ID` outside a grouping close belongs to the called Entity, not to the grouping text. Preserve the operator's endpoint requirements: `/@(...)` references a narrower kind, not its dependent Property. These are Draft semantic checks, not implemented parser behavior.
-    
+
     ### Canonical path changes
-    
+
     For the Current view, require references to resolve to the one intended current canonical declaration through its unique primary-kind name or its current canonical path. Do not silently accept a retired path as an alias or guess identity from its leaf name. A completed rename or move must leave its in-scope Current ordinary Entity paths and affected full-path references migrated; name-based references change only when the primary-kind name changes; retained history is not reclassified as an alias. These are proposed evaluation rules, not evidence of a completed source migration or parser change.
-    
+
     ### Confirmed independent and contained kinds
-    
+
     In the proposed governing structure, reject a Module without exactly one Package and reject an independent Step without a Workflow. A repeated reference to Step does not create an independent Step kind. Distinguish Scope Unit structural parts from organizational membership: its child Scope Units, Atoms and Projections use `<+`. This evaluates the declared semantics, not label presence in a filtered display.
-    
+
     ### Unique primary-kind names
-    
+
     Reject multiple distinct primary-kind declarations with the same canonical name across the effective Entity model. Repeated references to one kind are not duplicate declarations; property names and allowed values remain qualified by their bearers and may repeat. Resolve `@(Module)` to its one uniquely named kind. Reject ambiguous names instead of selecting a branch or merging targets. A branch move alone must not invalidate an unchanged unique-name reference. This is a Draft evaluation contract; no parser or project migration has been run.
-    
+
     ### General named-relation notation
-    
+
     For a formal Claim or model edge using `Source ((RELATION_TYPE)) Target`, check the matching unescaped delimiters, exact declared Relation Type, endpoint resolution and applicable Entity Definition constraints. Keep the statement distinct from a canonical governing node selector. Unknown type names and unmatched delimiters fail admission rather than becoming new types. A named opposite view uses its defined derived inverse name; the selected short reverse spellings retain their separately governed meanings. No separately authored inverse fact is introduced. Existing short-operator, reference, escape and identity checks remain applicable. CA-A-1240 records the syntax decision; this Draft does not implement a parser or evaluator.
-    
+
     ### Exactly-one containment cases
-    
+
     Reject a contained part instance with no permitted whole or with more than one immediate whole. Accept Package/Project Implementation as the parentless root Package and a nested Package under another Package. Reject a Module without exactly one Package. Do not infer the number of Modules per Package from the one-parent rule. These are evaluation cases for Draft methodology, not runtime tests.
 - `CA-E-387@27`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-387@27`
@@ -12017,11 +11986,11 @@ $child ((structural_parent)) $parent
     Type assignments on Entity occurrences.
   - Remaining Claim prose:
     the Evaluation **must** reject a Type assignment **if** **any** of the following holds:
-    
+
     - an Entity occurrence that bears Type has **`!=1`** direct Type values.
     - the selected value is **not** allowed by its most-specific applicable qualified Type Subject.
     - qualified Type Subjects create **`>1`** Type Property slots for the occurrence.
-    
+
     absence of a Type value **in** an Entity occurrence that does **not** bear Type is **not** a cardinality failure under this Evaluation.
 - `CA-E-405@31`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-405@31`
@@ -12029,7 +11998,7 @@ $child ((structural_parent)) $parent
     Canonical Signature derivations evaluated against the restricted CCE boundary.
   - Remaining Claim prose:
     the Evaluation **must** reject a Canonical Signature derivation **if** any of the following is true:
-    
+
     - it rewrites one source Claim.
     - it treats one Canonical Signature as authority.
     - it accepts mixed **and** **or** groups.
@@ -12043,7 +12012,7 @@ $child ((structural_parent)) $parent
     Canonical Scope Signature derivations.
   - Remaining Claim prose:
     the Evaluation **must** reject a Canonical Scope Signature derivation **if** **any** of the following holds:
-    
+
     - it rewrites one source Carrier.
     - it treats one Signature as authority **or** Claim equivalence.
     - it accepts mixed **and** **or** groups, **without**, **where**, **all**, **any** other CCE Operator, function, Entity-kind selector, descendant **or** dynamic selector, unresolved identity, changing source frontier, **or** unparseable prose.
@@ -12052,7 +12021,7 @@ $child ((structural_parent)) $parent
 - Selected evidence outside model scope: `CA-E-435@26`
   - Remaining Claim prose:
     the reconstruction readiness Evaluation **must** return `fail` **if** rebuilding required behavior **or** evaluating the rebuilt result needs authority recovered from the previous Implementation **or** specification work **before** reconstruction; **if** a language change is selected, **then** evaluate readiness against the current RMED **after** its affected Method **and** Delivery updates. absence of a prebuilt alternative **must not** by itself cause failure.
-    
+
     the Evaluation **must not** report runtime equivalence **if** equal complete runtime inputs under unchanged RMED produce different outputs, relevant starting state **or** configuration **or** time **or** randomness **or** external-service responses are omitted from the comparison, applicable Method **or** Delivery constraints are violated, **or** an authorized RMED change is hidden inside the unchanged baseline. source-code differences alone **must not** cause failure. a fixed task order **or** readiness review **without** runtime evidence **must not** be reported as proof of equivalent reconstruction.
 - `CA-E-437@27`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-437@27`
@@ -12062,21 +12031,21 @@ $child ((structural_parent)) $parent
 - Selected evidence outside model scope: `CA-E-439@29`
   - Remaining Claim prose:
     within the caprmedio Project, the implementation-loop Evaluation **must** return `fail` **if**
-    
+
     - unchanged mode, RMED, **and** complete execution inputs yield different applicable tasks **or** ordering,
     - a consumer runs **before** its prerequisite,
     - Atom ID overrides a prerequisite,
     - a cycle is admitted,
     - feasible Evaluation-preparation precedence is omitted **or** left implicit,
     - **or** an absolute E-first barrier prevents preparation of an Evaluation prerequisite.
-    
+
     it **must** also return `fail` **if**
-    
+
     - applicable Methods **or** Delivery boundaries are omitted from Evaluation **or** Requirement implementation,
     - Atom ID resolves a Method conflict,
     - preparation of an Evaluation is reported as its execution,
     - **or** completion is reported with **any** applicable Evaluation failed, blocked, **or** unevaluated.
-    
+
     repeated evaluate-fix execution **and** runtime loops alone **must not** be rejected as prerequisite cycles.
 - `CA-E-440@36`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-440@36`
@@ -12090,7 +12059,7 @@ $child ((structural_parent)) $parent
     the retry-policy Evaluation.
   - Remaining Claim prose:
     the retry-policy Evaluation **must** return `fail` **if** **any** of the following occurs:
-    
+
     - the initial failed Evaluation consumes a retry.
     - an automatic retry exceeds the effective Implementation Retry Limit resolved under CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence **and** enforced by CA-O-024-PROJECT_CONFIGURATION-ACTION--control-implementation-retries.
     - starting a permitted fix-and-evaluate round is **not** counted once, **or** checking its permission again consumes another retry.
@@ -12098,24 +12067,24 @@ $child ((structural_parent)) $parent
     - the last permitted retry fails **without** pausing **and** reporting remaining failures **to** the Operator.
     - retrying bypasses a confidence gate, governing-Atom approval rule, **or** additional Operator constraint.
     - successful completion under CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior still triggers another automatic repair retry.
-    
+
     earlier escalation required by governing authority **must not** be rejected merely because retries remain.
 - `CA-E-442@26`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-442@26`
   - Remaining Claim prose:
     the refactoring-verification Evaluation **must** return `fail` **if**
-    
+
     - the target Implementation changes **before** applicable verification is prepared **and** the existing Implementation baseline is recorded,
     - baseline inputs are incomplete **or** uncontrolled,
     - an existing defect becomes expected correctness **without** governing authority,
     - the candidate is **not** checked against the governing RMED **and** baseline,
     - **or** required release gates are bypassed.
-    
+
     **when** canary testing applies, it **must** return `fail` **if**
-    
+
     - criteria were **not** prepared **before** refactoring
     - **or** the canary is reported as executed **without** running the candidate during an authorized controlled rollout.
-    
+
     absence of an inapplicable testing technique **or** of an old-Implementation baseline for a fresh reconstruction **must not** by itself cause failure. baseline observations **must not** replace RMED as authority.
 - `CA-E-443@34`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-443@34`
@@ -12123,7 +12092,7 @@ $child ((structural_parent)) $parent
     the confidence-threshold Evaluation.
   - Remaining Claim prose:
     the confidence-threshold Evaluation **must** preserve CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence precedence **and** CA-R-1591-CORE_META_MODEL-RULE--apply-autonomous-confidence-thresholds-to-plan-execution authorization gates.
-    
+
     - supply distinct valid values through Operator input, a Plan, nested Hubs, **and** Framework Instance Settings; omit sources successively **and** confirm nearest explicit source selection.
     - scope direct input **to** one execution; retain the unrelated execution's setting.
     - omit the inner Hub's optional confidence override while retaining its mandatory file **and** a retry override: inherit confidence **without** copying it. reject a missing mandatory file.
@@ -12132,7 +12101,7 @@ $child ((structural_parent)) $parent
     - preserve an explicit override equal **to** the inherited value **after** the upstream source changes; an omitted override follows that change.
     - accept permitted integer values including **`=0`**, **`=87`**, **`=99`**, **and** **`=100`**; reject out-of-range, non-integer, missing effective, **or** ambiguous values.
     - confidence below the effective value requests Operator disposition; equal **or** greater confidence grants no additional authority.
-    
+
     report the selected source, context, expected value, **and** failed condition **without** mutating source values.
 - `CA-E-449@44`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-449@44`
@@ -12140,7 +12109,7 @@ $child ((structural_parent)) $parent
     Entities Graphs **and** selected views, including source selection, display selection, **and** governing source constraints.
   - Remaining Claim prose:
     the Evaluation **must** reject an Entities Graph **if** **any** of:
-    
+
     - a node is **not** an Entity under its governing authority, **or** a separate Entity identity is invented for an existing Action **or** Workflow Atom.
     - a selected view includes a node **or** source Relation that fails its declared source selection **or** fails its declared display selection, omits an eligible node **or** source Relation under CA-R-1456-CORE_META_MODEL-GENERAL-REQUIREMENT--derive-entities-views-from-selected-authority, **or** silently imports outside authority **to** complete the view.
     - a displayed node **or** edge lacks its exact governing source Claim **or** Artifact Revision for Entity **or** Relation admission, **or** a represented observed structural **or** recorded historical fact lacks its appropriate Scope Unit **or** Journal source under CA-R-2535-CORE_META_MODEL-CORE-REQUIREMENT--define-projection-artifact-form; derived inverse navigation lacks traceability **to** the original source Relation.
@@ -12154,30 +12123,30 @@ $child ((structural_parent)) $parent
     - admission **in** one target Entity context is used **to** justify admission **in** another context **without** its applicable authority.
     - allowed-value admission is treated as assigning a value **to** a particular occurrence **or** determining direct-value cardinality.
     - HAS_PROPERTY is independently authored as another primitive Relation Type instead of being derived from IS_PROPERTY_OF under the pending [HAS_PROPERTY Relation Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-has-property.md).
-    
+
     the Evaluation **must not** reject the reuse of one Term as an allowed-value name **in** multiple qualified target Entity contexts **when** the value is separately admitted **in** **every** such context. the checks **must** cover valid **and** invalid bearer endpoints, applicable bearer cardinalities, independent value admission across target Entity contexts, derived inverse navigation, **and** a Relation Type used under another governing constraint context.
-    
+
     native endpoint **and** cardinality checks use the cited governing source facts; a filtered view does **not** establish absence of a bearer, change a qualified identity, **or** alter allowed-value admission. **if** selected evidence cannot establish an applicable source constraint, the Evaluation **must** retain the source-backed limitation as unresolved **without** inventing an edge **or** silently enlarging selection. a truthful limited view does **not** prove that the unexamined source model passes its checks.
-    
+
     the checks **must** also cover exact selected-source node **and** edge provenance, eligible omissions **and** outside-selection additions, repeated appearances of one identity, distinct qualified occurrences sharing a reusable Term, multiple governing Atoms for one Entity, Action **and** Workflow Atoms admitted under their existing Atom identities **when** selected, rejection of duplicate identities **and** type-only exclusion, a legitimate shared value admitted independently **in** two target Entity contexts, **and** explicit hierarchy filtering **without** a universal-tree assumption.
-    
+
     the Evaluation **must** reject a graph **or** filtered view **if**
-    
+
     - its rendered content is treated as independent model authority,
     - a graph specification is used **to** grant source authority **to** its derived contents,
     - an upstream Projection substitutes for the appropriate source facts,
     - an observed Carrier **or** Journal occurrence is used **to** admit an Entity identity, define a Term, **or** admit a Relation Type **without** the required governing source Claims,
     - a Projection chain loses upstream identity **or** ultimate source traceability,
     - **or** an arbitrary display filter is treated as another admitted Projection Type.
-    
+
     a source-faithful view derived through an upstream Entities Graph Projection **must** pass these Projection-specific checks **when** the remaining applicable source, display-selection **and** graph constraints pass.
   - Details (source-bound):
     ### Allowed-value target cases
-    
+
     Include a source-admitted allowed-value expression whose target is not a Property, alongside the Property cases. Its target kind alone must not cause rejection. Each value still requires authority in its own qualified target Entity context; neither case assigns a value to an occurrence or determines direct-value cardinality.
-    
+
     ### Property bearer-cycle checks
-    
+
     With the remaining applicable constraints satisfied, accept a Property borne
     by a primary Entity and an acyclic nested Property chain. Reject a Property
     borne by itself, two Properties borne by each other, and a longer directed
@@ -12185,17 +12154,17 @@ $child ((structural_parent)) $parent
     a cycle by itself. This constraint does not reject cycles made only from
     value references or other Relation Types. Missing source facts remain an
     unresolved limitation; they do not prove either a cycle or acyclicity.
-    
+
     ### Pending relation authorities
-    
+
     The operative IS_PROPERTY_OF and HAS_PROPERTY checks depend on the pending [IS_PROPERTY_OF Relation Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-is-property-of.md), [HAS_PROPERTY Relation Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-has-property.md), and [Property kind and Formal Constraint](../../04_requirement/draft/CA-R-1193@23-draft-CORE_META_MODEL-DEFINITION--define-property.md). These Draft links are pending dependencies, not Current admission.
-    
+
     CA-R-1260@34-CORE_META_MODEL-DEFINITION--define-is-borne-by and CA-R-1243@27-CORE_META_MODEL-RULE--derive-bears-as-the-inverse-of-is-borne-by remain historical provenance for the superseded names only; neither authorizes IS_PROPERTY_OF or HAS_PROPERTY.
-    
+
     ### Readable tree-view acceptance
-    
+
     For the readable view specified by CA-R-1456 and delivered under CA-D-634, check that:
-    
+
     - the output is a Markdown file with YAML frontmatter identifying Projection form, Entities Graph Type, completed rebuild time and every contributing source Atom as ID plus Version;
     - the Inherency view uses its selected NARROWER_THAN and IS_PROPERTY_OF Relations and source-backed allowed-value qualifications as value annotations, not graph Relations;
     - the main Inherency tree excludes Properties; each primary entity with Properties has exactly one detail section, in first-appearance order, including qualified properties and their allowed values;
@@ -12203,13 +12172,13 @@ $child ((structural_parent)) $parent
     - declared sibling order is preserved; unordered siblings are alphabetical with deterministic ties; tree indentation uses literal tabs in fenced text blocks, while YAML uses spaces;
     - repeated generation from the same sources produces the same tree body and source list; updated_at records the actual completed rebuild;
     - missing source facts and cycles are reported without invented facts or endless expansion.
-    
+
     These checks exercise the generator with controlled inputs. They do not add an unrelated whole-project Atom-validation gate.
-    
+
     ### Structural and declaration-view acceptance
-    
+
     Use controlled runtime inputs to check the full structural view and the separately selected middle-level declaration view under CA-R-1456 and CA-D-634:
-    
+
     - The full structural view preserves eligible source-backed primary entities, properties, allowed values and structural Relations. Unmapped or unsupported material remains visible as unresolved coverage, not falsely admitted or silently removed to force a target tree.
     - The declaration view includes selected named Relation Type definitions, not actual Atom-to-Atom links, Workflow instances or a separate Graph Rule catalogue. Model constraints remain in their Entity Definitions.
     - A Relation Type keeps its project-unique canonical name, meaning and exact source provenance, plus any declared direct/inverse/derivation/transitivity semantics. Repeated references do not duplicate its identity; shared names resolve to one defining Claim. Missing, ambiguous or conflicting Type definitions remain unresolved, without an invented value or winner. Any applicable governing constraint admission, endpoint permissions and cardinality are not copied into descriptive Type metadata.
@@ -12217,9 +12186,9 @@ $child ((structural_parent)) $parent
     - An empty Rule catalogue passes when the selected inputs contain no concrete formal Rule declarations. This neither requires live Rule creation nor proves completeness beyond the declared selection.
     - Core and Project source boundaries remain separate. Source selection, display selection and ultimate source evidence stay explicit, including on partial results.
     - Rebuilding the same Type, named selection and source of truth keeps its Projection ID and deterministic body/source list. A genuinely different selection keeps a distinct Projection identity under CA-R-1943. Check actual rebuild time, Markdown/YAML fields, alphabetical ordering where no order is declared, literal tabs in text trees and spaces in YAML.
-    
+
     These are generator tests with controlled inputs, not a whole-project Atom-health gate. They add no rule evaluator, source admission policy or construction/CONTAINS implementation.
-    
+
     Construction/CONTAINS projection is deferred to the adjacent `draft/` RMED. It is not required by this active readable-view specification.
 - `CA-E-450@27`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-450@27`
@@ -12227,7 +12196,7 @@ $child ((structural_parent)) $parent
     Framework parameter resolution across explicit parameters, Framework Instance Settings, **and** Default Settings.
   - Remaining Claim prose:
     the Evaluation **must** reject framework parameter resolution **if** **any** of the following falsifying conditions holds:
-    
+
     - a valid explicit parameter loses **to** a Default Settings value;
     - a missing parameter fails **to** inherit its available valid default, including **when** another parameter **in** the same section is explicit;
     - a valid explicit `false`, `0`, **or** empty value is mistaken for an absent parameter;
@@ -12237,7 +12206,7 @@ $child ((structural_parent)) $parent
     - resolution reads another Project's instance selections **or** writes inherited values back as explicit selections;
     - unchanged input values resolve differently on a repeated read;
     - Default Settings uses an unregistered Carrier location **or** a parameter representation that differs from its registered Framework Instance Settings representation.
-    
+
     use the registered parameter constraints for the cases; **when** the current parameter catalog lacks a Boolean, zero-valued, **or** empty-valued example, use isolated test-fixture parameters **without** adding them **to** authoritative Settings.
 - `CA-E-458@35`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-458@35`
@@ -12245,7 +12214,7 @@ $child ((structural_parent)) $parent
     Framework Instance Settings.
   - Remaining Claim prose:
     the Evaluation **must** reject Framework Instance Settings **if**
-    
+
     - it is treated as an Atom **or** Projection,
     - has an Atom ID **or** Atom Content Role,
     - resolves outside the current Project's registered instance directory,
@@ -12262,13 +12231,13 @@ $child ((structural_parent)) $parent
     the four ownership **and** targeting selections for a Scope Unit, including the `spec` alias.
   - Remaining Claim prose:
     **Claim checked.**
-    
+
     ownership **and** Claim targeting produce their respective direct **and** recursive Atom sets, **and** the alias `spec` selects **only** Active RMED Subtree-targeting Atoms.
   - Details (source-bound):
     ### Test case
-    
+
     construct Scope Unit `A`, its child Scope Unit `A_CHILD`, a sibling Scope Unit `B`, **and** nested Atom Collections inside `A`. the fixture Scope Units are Unordered. use the following distinct source Atoms; a Current-scope Atom explicitly carries its current Scope Unit as target. `d`, `e`, **and** `f` have Content Role Requirement **and** Type Demand under CA-R-932@37-CORE_META_MODEL-DEFINITION--define-demand-atom, with their applicable Demand conditions satisfied. the remaining rows are valid Current-scope Atoms with admitted non-relational Types; their resolved targets are carried internally under CA-D-482-CORE_META_MODEL-DELIVERY--carry-the-resolved-claim-target-scope-unit; equality **to** ownership does **not** make them Relational.
-    
+
     | Atom | Current Scope Unit | Placement | Claim Target Scope Unit | Content Role | Status |
     |---|---|---|---|---|---|
     | `a` | `A` | directly under `A` | `A` | Requirement | Active |
@@ -12280,13 +12249,13 @@ $child ((structural_parent)) $parent
     | `g` | `A` | Draft placement | `A` | Requirement | Draft |
     | `h` | `A` | directly under `A` | `A` | Plan | Active |
     | `i` | `A` | Archived placement | `A` | Delivery | Archived |
-    
+
     derive **all** four sets for `A` **and** the alias `spec`. repeat **after** moving `a` into a nested Atom Collection under `A` **and** changing **only** numeric Tiers; repeat with narrower **and** explicitly grouped composite Claim Scope restrictions **in** the Scope section for RMED, **or** the registered primary content for other roles, while retaining the carried targets; repeat with `b` assigned **every** RMED Content Role while retaining its other properties. **then** omit `B` from the claimed-complete source frontier, treat a Hub Plan as a Scope Unit, replace targeting with ownership, copy a selected Atom as new authority, omit a carried target, infer a different target from Claim text, use an unresolved structural target **or** cyclic ancestry, **or** register `spec` as a separate Entity.
-    
+
     ### Acceptance criteria
-    
+
     the results **must** be:
-    
+
     | Selection | Members |
     |---|---|
     | Owned Atoms | `a, b, f, g, h, i` |
@@ -12294,11 +12263,11 @@ $child ((structural_parent)) $parent
     | Subtree-owned Atoms | `a, b, c, f, g, h, i` |
     | Subtree-targeting Atoms | `a, b, c, d, e, g, h, i` |
     | `spec` alias | `a, b, c, d, e` |
-    
+
     collection nesting, textual applicability restrictions, **and** numeric-Tier-only changes **must not** alter those results. `spec` **must not** create a separate Entity, independently maintained Atom set, **or** source of authority. incoming `d` **and** `e` retain ownership under `B`; outgoing `f` remains owned by `A` **without** entering its Targeting Atoms **or** `spec`. incomplete source coverage, missing **or** unresolved carried targets, targets inferred from Claim text, cyclic ancestry, ownership/target substitution, **and** duplicate authority fail explicitly.
-    
+
     ### Failure disposition
-    
+
     report the source Revision, selected Scope Unit, expected set, **and** exact missing, extra, duplicated, **or** unresolved member; do **not** silently return a complete result **or** rewrite source ownership.
 - `CA-E-466@28`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-466@28`
@@ -12306,9 +12275,9 @@ $child ((structural_parent)) $parent
     source authority **in** secondary graph representations.
   - Remaining Claim prose:
     the Evaluation **must** distinguish authoritative source facts from their secondary graph representations **and** reject a Projection that acquires independent authority for a represented fact.
-    
+
     ### Test cases
-    
+
     | Case | Expected result |
     |---|---|
     | **`=1`** source Claim represented **in** multiple graphs | pass **if** **all** representations retain the same source identity **and** applicable Revision |
@@ -12319,7 +12288,7 @@ $child ((structural_parent)) $parent
     | a source Atom reached through another Projection | pass **if** ultimate source traceability is retained |
     | a Journal event **or** structural fact represented **in** a graph | pass **if** its existing source authority remains intact; do **not** fabricate an Atom Claim as historical **or** observed evidence |
     | a projected fact corrected independently while its source **and** governing derivation remain unchanged | fail |
-    
+
     passing this source-authority Evaluation does **not** establish graph-specific Relation validity, completeness, **or** the truth of a recorded outcome; those remain subject **to** their applicable Evaluations.
 - `CA-E-473@26`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-473@26`
@@ -12329,7 +12298,7 @@ $child ((structural_parent)) $parent
     **every** case **must** preserve the selected source, effective limit, inherited-versus-explicit distinction, **and** CA-O-024 accounting **without** changing source values **or** granting additional authority.
   - Details (source-bound):
     ### test cases
-    
+
     1. provide distinct valid limits through direct Operator input, a Plan, nested Hubs, Framework Instance Settings, **and** Default Settings. successively omit higher-precedence values; check CA-M-295's precedence **and** nearest-Hub selection.
     2. provide direct Operator input for one execution context **and** compare an unrelated execution. confirm that the input does **not** change the unrelated limit.
     3. supply **`=0`** as an explicit higher-precedence value. confirm that it prevents retries **without** falling through **to** a nonzero lower-precedence value.
@@ -12337,17 +12306,17 @@ $child ((structural_parent)) $parent
     5. omit Plan **and** Hub overrides, **then** change their inherited source. compare with an explicit override that previously equalled the inherited value; **only** the inheriting case follows the source change.
     6. resolve the limit from the actual Default Settings Carrier **without** hard-coding its value **in** this Evaluation. confirm that the initial failed Evaluation consumes **`=0`** retries; **every** started fix-and-evaluate round consumes **`=1`** retry; repeated permission checks consume no additional retries; exhaustion prevents another retry **and** escalates.
     7. change the failure set **or** revisit an Action. confirm that the consumed count is retained. an unmet confidence, approval, **or** permission gate **must** stop the retry even **when** allowance remains.
-    
-    
+
+
     ### Hub Carrier cases
-    
+
     - store explicit Hub limits **only** **in** the matching File Carrier of that same Plan under CA-D-447; a supplied file requires DoD.
     - omit an inner Hub file **or** retry field while retaining a confidence field: inherit retry limits from the nearest outer explicit source.
     - reject unrelated files, historical Revisions, duplicate Bundle identities, separate Objective overrides, **and** invalid reached sources **without** silent fallback.
     - resolution **must not** create another Atom, settings file, **or** copied inherited override.
-    
+
     ### failure disposition
-    
+
     stop the affected autonomous retry **and** report the failed condition **to** the Operator.
 - `CA-E-474@27`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-474@27`
@@ -12355,9 +12324,9 @@ $child ((structural_parent)) $parent
     configurable release readiness.
   - Remaining Claim prose:
     Configurable release readiness is validated by the following cases.
-    
+
     **Cases.**
-    
+
     1. use a Project with no selected release-readiness Workflow; execute its admitted implementation mode under CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior.
     2. select CA-O-025 for a candidate with complete passing current evidence **and** required approvals; contrast it with failed, blocked, missing, **or** stale required checks.
     3. provide one required stale Projection **and** one enabled but unrequired Projection. repeat with already-current required output, a source conflict, failed refresh, **and** a changed source Revision.
@@ -12374,7 +12343,7 @@ $child ((structural_parent)) $parent
   - Details (source-bound):
     - the evaluated input is the active normative-authority subgraph selected under its registered direct Relation types. unresolved selection **or** typing **must not** be reported as a conforming hierarchy.
     - retain the distinction between declared direct authority edges **and** inverse-derived views under CA-R-808 **and** CA-R-879. an inverse view **must not** become another independently declared edge **in** the cycle check.
-    
+
     this representation-independent criterion does **not** select a graph-construction implementation **or** a concrete test specimen.
 - `CA-E-483@21`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-483@21`
@@ -12407,7 +12376,7 @@ $child ((structural_parent)) $parent
     - supply missing compatibility evidence, revoked permission, **or** stale target inputs: keep the affected execution blocked even **if** definition binding is complete.
     - revise a definition during an in-flight Action: retain the actual binding **and** outcome, follow the admitted interruption policy, **and** require revalidation **before** further dispatch.
     - rewrite completed Step bindings, replay completed effects automatically, reset retries, **or** treat a recorded historical binding as continuing permission: reject.
-    
+
     these checks establish whether the binding evidence satisfies the model. a recorded assertion alone does **not** prove that an executor performed the required checks.
 - `CA-E-495@19`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-495@19`
@@ -12423,7 +12392,7 @@ $child ((structural_parent)) $parent
     - missing **or** unavailable required context: block execution admission; do **not** silently select a substitute **or** classify a well-formed definition as malformed merely because a worker is unavailable.
     - a Tool call appears inside an Agentic leaf Step Run: retain **`=1`** declared Action **and** its **`=1`** Action Run for that Step rather than inferring another Step from the call.
     - choosing Isolated grants additional permission, suppresses required Operator input, **or** permits concurrent mutations automatically: reject.
-    
+
     use definition fixtures **and** invocation evidence. these checks do **not** claim that an executor Implementation has been tested.
 - `CA-E-497@20`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-497@20`
@@ -12438,7 +12407,7 @@ $child ((structural_parent)) $parent
     - deliver the same pending invocation again: preserve its identity **and** actual effects; repeated delivery **must not** imply a new Run **or** authorization **to** replay effects.
     - provide a prompt that contradicts its bound definition **or** expands permission: reject the instruction even **if** it is self-contained.
     - a Step result returns **or** a Workflow hands off: the executor owns the declared routing; a returned prompt alone is **not** Step completion **or** successor completion.
-    
+
     check exact supplied evidence, **not** a claim that the session will remember how **to** proceed.
 - `CA-E-501@30`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-501@30`
@@ -12448,7 +12417,7 @@ $child ((structural_parent)) $parent
     the Plan authoring Evaluation **must** reject **any** Plan that violates the common model.
   - Details (source-bound):
     ### cases
-    
+
     - accept a standalone file-backed Plan, a file-backed Hub with contained work **and** an optional directory, **and** a Plan with both own work **and** contained children. reject a folder-only Plan.
     - reject a Summary-only Plan with no own work **and** no contained Plan; do **not** treat an empty containment set as completion.
     - require **`=1`** intended work **or** outcome Claim **in** Objective **and** **=1** effective Author; require **`=1`** effective Assignee for own work, but **not** for a Plan with no own work and contained children.
@@ -12458,7 +12427,7 @@ $child ((structural_parent)) $parent
     - change **only** the Label among Version, Objective, Epic, Task, **and** Subtask: authoring admission **and** completion **must** remain unchanged. reject treating those Labels as authoring Subtypes.
     - select the owning Scope Unit as the default Claim Target Scope Unit during authoring regardless of Plan containment, **and** require the resolved value inside the Atom; preserve a permitted different target **and** narrower Claim restrictions. reject an ancestor target **or** **any** Hub substituted as a Scope Unit target.
     - accept inherited confidence values **without** copied overrides; reject an unresolved effective value **before** autonomous execution.
-    
+
     report the exact Plan identity **and** failed rule; a Label **must not** waive the failure.
 - `CA-E-505@22`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-505@22`
@@ -12468,14 +12437,14 @@ $child ((structural_parent)) $parent
     the Label Evaluation **must** reject a qualified use of Label that changes the shared meaning under CA-R-2497.
   - Details (source-bound):
     ### cases
-    
+
     - change **only** a Scope Unit Label among Layer, Feature, **and** Superlayer; retain its identity, declared Type, parentage, Local Order, authority, **and** Relation semantics.
     - change **only** a Plan Label among Version, Objective, Epic, Task, **and** Subtask; retain its identity, Type, authoring Subtype, completion conditions, decomposition, **and** blocking.
     - resolve `Entity/Object/Continuant/Structural Unit/Scope Unit.Label` **and** `Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan).Label` as distinct bearer-qualified Properties using **`=1`** shared Label definition, **not** incompatible meanings of the same Term.
     - reject inferring an authoring Subtype, required workflow, Status, **or** execution dependency from Label spelling alone.
     - accept a Label value that matches a Type **or** Subtype name **only** as a navigation value; any classification still requires its separately governed source.
     - retain bearer-specific cardinality, defaults, **and** Carrier encoding under their own authority; the shared definition **must not** require a Label on **every** Entity **or** create a new field **in** existing Carriers.
-    
+
     report the bearer, Label value, **and** wrongly inferred fact **without** silently changing the source Entity.
 - `CA-E-511@23`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-511@23`
@@ -12483,19 +12452,19 @@ $child ((structural_parent)) $parent
     the distinction between an Atom's Claim Target Scope Unit **and** its textual applicability.
   - Remaining Claim prose:
     **Claim checked.**
-    
+
     **every** Atom resolves **`=1`** GOVERNS Subject and zero **or** one Claim Target Scope Unit; applicable Goal and Demand rules, including the Operator-owned Project Goal, retain their required target conditions. Claim Scope remains applicability restrictions **in** the body sections registered by CA-D-495, including Claim scope for RMED, **not** another structural target **or** frontmatter Property.
   - Details (source-bound):
     ### Test case
-    
+
     create a Current-scope Atom with its own Scope Unit explicitly carried as target **and** a Claim restricted **to** Python files; repeat with a composite restriction. for RMED, carry those restrictions **in** Claim scope **and** the qualified contribution **in** Claim. create a permitted Demand with a different explicit target, a parent-owned Goal for its direct child, an external Project Goal with its Author's registered Operator name **and** an explicit Project target, **and** a Plan inside nested Container Atoms. **then** omit the internally required target even **when** filename **or** placement identifies its owner, provide two targets, use a Container Atom as a target, leave the target unresolved, duplicate textual applicability **in** frontmatter, **or** infer a target **or** ownership change from the textual restriction alone.
-    
+
     ### Acceptance criteria
-    
+
     valid Atoms resolve **to** **`=1`** GOVERNS Subject and zero **or** one Claim Target Scope Unit. authoring defaults select **and** carry the current Scope Unit as target **where** applicable; reading does **not** repair a required omitted target from placement; external Project Goals retain their explicit Project target. narrower **or** composite applicability alone leaves a Current-scope Atom Current-scope. a different permitted target yields an Atom with a distinct Target Scope Unit **without** transferring ownership **or** changing Scope Unit ancestry. Container Atom nesting does **not** create another target. **every** invalid fixture fails with the exact missing, unresolved, duplicate, misclassified, **or** independently duplicated fact identified.
-    
+
     ### Failure disposition
-    
+
     report the affected Atom **and** target, ownership, **or** textual-applicability distinction; preserve the source **until** an authorized correction is selected.
 - `CA-E-624@38`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-624@38`
@@ -12509,7 +12478,7 @@ $child ((structural_parent)) $parent
     shared-context test-first implementation and Method-learning Workflow checks.
   - Remaining Claim prose:
     the shared-context implementation **and** Method-learning Workflow check **must** reject any definition **or** Run that conflates their separate completion conditions **or** bypasses their evidence gates.
-    
+
     - exercise selected R/M/D obligations with missing substantive E coverage, an unrelated green linter, and stale optional Method/review projections; reject false coverage. Require current direct source rows, justified inapplicability or current predicates, selected checks, and evidence for each applicable obligation.
     - exercise preliminary_clear with pending checks: it must not complete or pass the candidate. Require final tests and final read-only review on the same candidate and bindings. Inject a review finding, repair, changed test definition, or changed authority; affected earlier evidence must become stale and the required review/check phases must rerun through existing finite diagnosis/retry control.
     - exercise terminal completion followed by an explicitly requested separate release handoff. Reject a cross-Workflow Step route, implicit release execution, missing release admission, and acceptance from definition-only checks. Standalone CA-O-229 remains Isolated.
@@ -12530,11 +12499,11 @@ $child ((structural_parent)) $parent
     Artifacts and their applicable qualified Status model.
   - Remaining Claim prose:
     the Evaluation **must** reject an Artifact **if** **any** applicable condition holds:
-    
+
     - **when** an explicitly defined Status model applies, its Status domain is resolved outside its complete qualified Type **or** Atom Content Role **and** Type path, its current Status cardinality **`!=1`**, its current Status is **not** an allowed value of that domain, a prior transition coexists as current Status metadata, **or** a second disposition axis duplicates Status.
-    
+
     **when** no explicitly defined Status model applies, absence of a Status is **not** a rejection.
-    
+
     the Evaluation **must not** substitute Active **or** Inactive for a missing, invalid, **or** ambiguous Status. an Artifact outside the applicable qualified Status model **must not** fail merely because it has no Status.
 - `CA-E-659@3`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-659@3`
@@ -12544,24 +12513,24 @@ $child ((structural_parent)) $parent
     a Term Definition passes well-formedness **only** **when** it is explicitly classified as a Method Atom of Type Term Definition, identifies **`=1`** reusable word **or** phrase as its Term, carries **`=1`** independently replaceable Claim that establishes that Term's meaning within its stated Scope, **and** satisfies the applicable metadata, Subject-binding **and** body-layout rules. An Entity Definition, recurring descriptive wording **or** agreement among Semantics sections **must not** substitute for this dedicated Method Type. Missing **or** unresolved required evidence **must** remain visible **and** **must not** pass; local well-formedness alone **does not** establish unique defining authority **or** consistency of other authored sources.
   - Details (source-bound):
     ### Test cases
-    
+
     1. Provide a Term Definition with admitted metadata **and** Subject binding, one explicit Term **and** meaning, one coherent Scope, one Claim **and** applicable supporting sections. Include a word Term **and** a phrase Term; no special dictionary schema **or** generated view is required.
     2. Provide an ordinary Entity Definition with similar wording; two Terms with independently replaceable meanings **in** one candidate; a missing meaning Claim; contradictory Scope **and** Details; wrong Content Role or Method Type; a Requirement Atom classified as Term Definition; absent required metadata; **and** unresolved lexical Subject binding. A saved incomplete Draft is **not** automatically well-formed **or** ready for promotion.
     3. Provide two locally well-formed active Term Definitions for the same Term, first with agreeing Claims **and** **then** with conflicting Claims. Local shape is assessed independently; CA-E-444 records duplicate defining authority **and** any source inconsistency. Ordinary vocabulary **without** established Project-specific Term use needs no dedicated Term Definition merely to satisfy this Evaluation.
     4. Use an explicit `ID` Term Definition governing `Term//ID`, whose Claim introduces that lexical Term instance under the admitted defining-Atom target rules: a unique identifier used to find an entity instance, including Continuant **and** Occurrent instances, with uniqueness limited to matching prefixes. Test a conflicting definition **and** a Claim that extends uniqueness across unmatched prefixes. The examples `CA-P-123`, `CA-P-123@1-draft` **and** `CA-P-123@3` **must not** be used to invent version identity, prefix equivalence **or** case-folding rules.
-    
+
     ### Acceptance criteria
-    
+
     The complete valid fixture passes its local shape **and** meaning-Claim checks. Each malformed fixture fails its evidenced local rule; an undeclared **or** unresolved lexical Subject binding remains a reported gap, **not** a fabricated selector **or** exemption. A different Content Role **or** Method Type **must not** pass as Term Definition merely because its prose describes a word. A well-formed Term Definition's meaning Claim is the source for the subsequent review of entity names, Claim, Claim Scope, Semantics, Details **and** other authored fields **in** that order under CA-E-444.
-    
+
     Every finding identifies the exact source Atom, Revision, logical field **and** occurrence **or** exact passage, plus the governing rule. Distinguish local well-formedness, cross-source defining-authority uniqueness, authored-use consistency **and** checked coverage. Agreement on meaning does **not** excuse duplicate active authority. Insufficient source selection **or** unresolved meaning remains unresolved; a complete combined result **must not** pass **when** a required check fails **or** remains unresolved. No dictionary, lookup service, synthetic Term node **or** Projection is created **or** required.
-    
+
     ### Failure disposition
-    
+
     Preserve the malformed **or** unresolved source evidence **and** identify the precise correction **or** missing decision. Do **not** change the source Type, create a definition, infer a lexical Subject target, repair another source, **or** promote a Draft as a side effect of this Evaluation.
-    
+
     ### Governing Type and lexical binding
-    
+
     Term Definition requires an admitted Type declaration in the Method Type domain. CA-R-2468's Requirement Type declaration does not establish that Method Type. Under the applicable target-admission rules, an explicit defining Claim **may** introduce its governed lexical Term instance; the `ID` fixture uses `Term//ID`. This lexical Term target is distinct from the Property entities referred to by the contextual topic/code spellings `atom.id` **and** `projection.id`. Parsing **or** spelling alone **does not** admit the target. Missing **or** uncertain binding remains a negative fixture requiring evidence, **not** an exemption. The Evaluation itself creates no targets **or** definitions.
 - `CA-E-666@4`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-E-666@4`
@@ -12582,14 +12551,14 @@ $child ((structural_parent)) $parent
     | **all** Claims of an obsolete Atom are explicitly withdrawn by governing authority | preserve the archive **and** withdrawal evidence; do **not** invent a replacement Claim **or** successor |
     | active Atoms expressing applicable Project-wide foundational commitments conflict, the effective confidence threshold is unmet, **or** mutation is outside delegation | ask the Operator; no autonomous resolution **or** mutation |
     | a source changes **after** assessment, a correction is partial, **or** required rechecking is absent | no completion; report actual effects **and** reassess **only** within accepted retry bounds |
-    
+
     The check **must**:
-    
+
     - Use exact source Revisions; **and**
     - compare the affected authority **before** **and** **after** correction.
-    
+
     An archival event alone is **not** evidence that **any** of the following passed:
-    
+
     - coverage;
     - alignment;
     - authorization; **or**
@@ -12622,7 +12591,7 @@ $child ((structural_parent)) $parent
 - Selected evidence outside model scope: `CA-M-105@27`
   - Remaining Claim prose:
     **to** represent a kind of information **in** the Project, use **`=1`** canonical Entity, including a Property, for that kind **in** the same context:
-    
+
     1. reuse its existing canonical definition instead of introducing another Entity **or** Property for the same information.
     2. treat mappings, explanations, **and** realizations as representations of that definition rather than additional canonical definitions.
     3. **if** choosing between competing canonical definitions requires an unresolved decision, **then** stop the affected mapping **or** adaptation **and** return the alternatives **and** their evidence **to** the Operator.
@@ -12632,7 +12601,7 @@ $child ((structural_parent)) $parent
     Claim authoring **in** CAPRMEDIO Controlled English **and** canonical naming **in** authored CAPRMEDIO content.
   - Remaining Claim prose:
     **to** write one Claim **in** CAPRMEDIO Controlled English, the Author **must** satisfy **all** of the following:
-    
+
     - use the controlled English subset of the identified CCE version.
     - name **every** necessary participant **and** relation explicitly.
     - state **every** necessary modality, quantity, condition, **and** boundary explicitly.
@@ -12647,13 +12616,13 @@ $child ((structural_parent)) $parent
     - make the content understandable under CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly **and** render Terms **and** CCE Operators under CA-M-229-CORE_META_MODEL-IMPLEMENTATION_METHOD--render-governed-terms-and-cce-operators-distinctly.
   - Details (source-bound):
     Every in-scope entity has exactly one full canonical expression formed from reusable Terms and admitted syntax, and every such expression identifies exactly one entity. Outside the Term branch, a complete entity name cannot be just one registered Term; Entity is the sole exception because it is the Subject root. Direct use of Entity Definitions and explicit Term Definitions requires no lookup table, generated dictionary, or semantic Projection. These authoring instructions do not establish implementation or naming-migration evidence.
-    
+
     The naming domain covers every authoritative Subject Graph entity and every declared Relation Type entity, named or unnamed. It is not restricted to primary kinds: property, value, bearer, context, and instance entities receive no naming exception. Full canonical names, not reusable component Terms, map one-to-one to entities. The graph connects entities; a component Term does not require another graph entity or a synthetic Term node. Existing collisions are not resolved merely by applying this authoring Method.
-    
+
     The lexical forms `Package`, `Eval Package` and `Runtime Package` illustrate reuse of the Term `Package`; `Scope Unit` and `Code Unit` illustrate reuse of the Term `Unit`. These forms are components of separately admitted full qualified expressions, not assertions of complete entity names outside the Term branch. Their reuse preserves the same component meanings and introduces no separately admitted entity from a component alone.
-    
+
     The schematic chain `Entity/Object/Continuant/Package <+ Module <+ Code Unit` connects three entities. For a specific authored entity reference, use its complete source-admitted qualified expression rather than one displayed component label. Do not substitute the word “component” as a stylistic alias for an admitted Module expression. A distinct entity requires its own admitted expression; different wording alone supplies neither identity nor synonym authority. The complete chain is a structured expression, not another entity or dictionary entry. No code identifier, path, or quoted external source text is renamed automatically.
-    
+
     The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties using the explicitly defined ID meaning: a unique identifier used to find an entity instance. These spellings do not substitute for full admitted Subject expressions. This meaning applies across Continuant and Occurrent instances, with uniqueness bounded by matching identifier prefixes. The distinct spellings `CA-P-123`, `CA-P-123@1-draft`, and `CA-P-123@3` do not by themselves establish lifecycle state or other semantics. Their meaning comes from explicit defining authority.
 - `CA-M-121@28`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-M-121@28`
@@ -12661,7 +12630,7 @@ $child ((structural_parent)) $parent
     evaluation of a Scope Expression.
   - Remaining Claim prose:
     **to** evaluate one Scope Expression, the Resolver **must** perform **all** of:
-    
+
     1. resolve **every** exact Atom ID **or** other atomic identity **to** **`=1`** Governed Entity.
     2. interpret **all** `<ENTITY_KIND>` as **every** Governed Entity of that kind within Atom Scope.
     3. interpret **or** as set union.
@@ -12676,7 +12645,7 @@ $child ((structural_parent)) $parent
     evaluation of CCE Condition Expressions.
   - Remaining Claim prose:
     **to** evaluate one CCE condition expression, the Resolver **must** perform **all** of:
-    
+
     1. evaluate the innermost parenthesized function **before** its containing function.
     2. evaluate **`=`** **and** **`!=`** as exact equality **and** inequality between one governed property **and** one canonical value.
     3. evaluate **`<`**, **`<=`**, **`>`**, **and** **`>=`** **only** for properties with one governed comparison order.
@@ -12704,7 +12673,7 @@ $child ((structural_parent)) $parent
     provenance validation of recorded changes in the governed selection.
   - Remaining Claim prose:
     provenance validation inspects **every** recorded change **in** the governed selection. a change contributes an Implementation Relation, implementation coverage, **or** semantic traceability edge **only** **when** it changes **`>=1`** non-generated governed source.
-    
+
     an update **only** **to** generated Projections remains an auditable refresh. it retains its required Journal provenance but cannot become an implementation input **to** the semantic graph that produced the generated Carrier. a mixed change participates **only** through its substantive non-generated governed source changes.
 - `CA-M-138@29`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-M-138@29`
@@ -12720,19 +12689,19 @@ $child ((structural_parent)) $parent
     authoring one Entity Expression.
   - Remaining Claim prose:
     Under A1296, follow YAML value interpretation and count null and empty strings as direct values. State any necessary restrictions through the value Format and applicable prose conditions rather than treating them as omitted properties or inventing a universal empty-value policy.
-    
+
     Use prose for cases that do not justify new formal machinery. Keep Tier integer-valued and express its numeric bounds and owner-specific conditions in prose for this review under A1297.
-    
+
     Use string for an Entity value and apply the admitted Entity notation. Do not add a special ref Format or a prior-existence requirement to this basic format check. A defining Atom can introduce its governed entity and path together under CA-A-1285; the path alone supplies no defining authority.
-    
+
     Under CA-A-1283, write a count for each addressed property’s direct values only. Use an explicit {0} on grouping paths such as subjects, while giving their children independent counts. A Claim may carry its formal content directly in a CFEL fence without prose or a separate Formal Claim child. Do not count nested keys as parent values.
-    
+
     Use `{n}` for an exact count, `{n+}` for an unbounded lower limit and `{n..m}` for an inclusive bounded range under CA-A-1280. Use non-negative integer bounds with n <= m; prefer `{0}`, `{0+}`, `{1+}` and `{0..1}` for the common cases. Direct values use `Property[format]{count}`. Relations use two independent slots: `Source {forward-count}RELATION{reverse-count} Target`. For example, `Step {1}+>{1+} Workflow` and `Workflow {1+}<+{1} Step` are equivalent; the first count constrains outgoing links per Source and the second reverse links per Target. Missing slots remain unspecified, and neither slot changes the exactly-one-immediate-whole rule.
-    
+
     **to** write an Entity Expression, start with either a canonical Entity Target reference **or** the exact approved initial lowercase `atom(...)` selector under CA-R-1321, **and** apply `/` in broader-to-narrower order, `//` from an Entity kind to its following named instance, `.` in bearer-to-dependent order, `:` from any X to its allowed value Y, `Part +> Whole` or `Whole <+ Part` for containment, **and** `X >| Y` or `Y |< X` for classification-axis applicability, where Y is the Entity serving as X's Classification. Resolve ordinary named components **other than** the RHS instance name after `//` as Term references under CA-R-1321. The RHS is the instance's name under its separately governed naming/source authority, not an Atom ID and not automatically a Term; the whole qualified path must resolve to exactly one canonical Entity Target that already exists or is explicitly introduced by applicable defining authority under CA-R-1194 and CA-R-1321. In `atom(content_role="Plan").Status`, `Status` is the dependent Property borne by the selected Atom; `Plan` remains the Content Role allowed value qualifying that Atom, **not** Status's bearer **or** Status's allowed value. `.` retains the mechanical native fact Property IS_PROPERTY_OF Bearer; `/` admits no native Entity relation; and `:` does not assign a value. `//` denotes the separate kind/instance Entity connection but syntax alone does not assert or admit an INSTANCE_OF fact, which requires its own Core definition. A defining Atom may introduce the target and path it governs; `@` calls an already declared Entity and `//` names an instance under its applicable source authority. Syntax alone neither creates nor admits a target. The resulting qualified path identifies its canonical target **without** copying it; connecting the Atom **to** that target through GOVERNS **or** DEPENDS_ON creates the Entity Relation, **not** another target Entity.
-    
+
     Use `X/(.Y: Z)` for a Property qualification in this proposal. It identifies an `X` qualified by its own Property `Y` and admitted value `Z`; the qualified `X` is narrower than `X` and inherits applicable `X` features and constraints. `.Y` is neither a primary Entity nor a Property subtype of `X`. The older bare `X/Y: Z` qualification spelling is superseded in this proposal; Current sources and runtime remain unchanged. Method is already a Content Role, so use `Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)` as the concrete canonical example; that syntax alone does not admit Method as a Type. Under [CA-D-478](../../07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md), the qualified Atom Property maps to its existing metadata property such as `content_role` or `type`, without a nested classification object.
-    
+
     `+>` and `<+` are opposite notation writings of the same containment fact, represented by direct IS_CONTAINED_BY and derived CONTAINS; neither denotes inheritance. Use `>|` and `|<` for the HAS_CLASSIFICATION axis, not membership through IS_CLASSIFIED_BY. The Classification endpoint is an Entity serving that role, not a new Classification kind; IS_CLASSIFIED_BY is a separate membership Relation, not the inverse of HAS_CLASSIFICATION. For Status classification, write:
     Here `*` ranges only over admitted Atom Status values, and Current excludes Draft and Archived within that set. This is proposed Draft authoring guidance, not a parser or runtime claim.
   - Fenced Claim block:
@@ -12743,29 +12712,29 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
 ```
   - Details (source-bound):
     For actual specialization use `Entity/Object/Continuant/Actor/Operator`. Treat `//` as a single separator token. Structural containment through `+>` or `<+` does not transfer properties. Preserve qualified Atom kinds such as `Atom/(.Content Role: Plan)` rather than treating the relative Property qualification as an intermediate axis or inheriting entity kind. Alternative target resolution, literal delimiters and containment constraints remain pending in CA-A-1236; this Draft does not choose them.
-    
+
     ### Existing-target reference marker
-    
+
     Use `@` to call an already declared Entity instead of declaring it at that schema position. Preserve the base relation meaning and resolve the intended canonical target. Do not create a new target or infer independent existence merely from the reference marker.
-    
+
     ### Literal-character escaping
-    
+
     Use backslash escaping for literal operator characters in names, such as `Engineering/CI\/CD` or `Workflow//Release 0\.4` in abbreviated explanatory paths. Use `\\` for a literal backslash. Do not add a second Entity-name quoting syntax; YAML string quoting is carrier syntax. Preserve the escape through serialization, and do not use a final unmatched backslash.
-    
+
     ### Reference boundary
-    
+
     Use `@` for an already declared Entity. Parentheses group the intended expression before any outer continuation. For example, the explanatory `Entity/Object/Continuant/@(Scope Unit).ID` calls Scope Unit first, then addresses its ID property. Full ordinary Entity spelling remains in sources; an @ call does not declare another Entity.
-    
+
     ### Canonical path changes
-    
+
     When a kind's canonical declaration path changes, migrate affected Current ordinary Entity paths and full-path references; @ references using an unchanged unique primary-kind name remain valid. A primary-kind rename requires migrating its name-based references as well. Keep no old-path aliases or alias registry for now. Preserve the distinction between Current reference maintenance and unchanged archived historical evidence; this Draft does not perform a migration.
-    
+
     ### Unique primary-kind names
-    
+
     Distinct primary-kind declarations have unique names across the effective Entity model, not only the selected projection. Repeated references to the same kind do not declare duplicates. Properties may reuse names under different bearers. `@(Module)` is therefore an admitted existing-kind reference. A branch move preserves name-based references when the primary-kind name is unchanged; a rename requires their migration. Keep no aliases. This naming rule does not automatically rename conflicting Current kinds or waive the full structure of ordinary Entity paths.
-    
+
     ### General named-relation notation
-    
+
     When a formal Claim or model view needs a Relation without a short operator, write `Source ((RELATION_TYPE)) Target`. Resolve the exact declared type and its source/target constraints; keep its declared direction. For the opposite navigation use its defined derived inverse type in the same syntax. Do not invent a backward operator, register a type by writing its name, duplicate the stored inverse, or place the whole statement in subjects.governs when that field identifies a node. CA-R-1931's successor Draft owns this syntax; CA-A-1240 records its acceptance for this Draft package.
 - `CA-M-230@25`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-M-230@25`
@@ -12781,51 +12750,51 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     **to** derive an Atom Subjects Graph, the Generator **must** reproduce **every** selected Entity as a direct GOVERNS **or** DEPENDS_ON graph link from its source Atom **to** its target with its exact canonical Entity Target, Entity Path, **and** Relation Kind **without** adding authority, requiring a duplicate target-kind field **in** the Atom's Subjects, **or** creating a separately identified Entity object. a Projection **may** derive a target's kind from its canonical authority **when** the Projection's own Spec calls for that classification; it **must not** independently reauthor that kind **or** require it as duplicated source Subjects metadata. The Subject graph composes selected Entity-root targets according to the governing Entity Definition in CA-R-2462, including the proposed Term and Property branches. Render Package/Project Implementation as the parentless root Package, every Module as belonging to exactly one Package, and nested Packages as belonging to another Package. An unmigrated temporal Carrier admitted temporarily by CA-D-269 retains its source classification as migration evidence **without** changing the direct reference **or** requiring that classification **in** the canonical flat representation.
   - Details (source-bound):
     For the readable Entity Graph hierarchy under CA-R-2150@15:
-    
+
     1. Compose the selected Current source Entity paths mechanically. Preserve source spelling and provenance; do not invent Subjects from filenames, module names or Scope Unit names.
     2. Render primary kinds first. Omit INSTANCE_OF paths and all their descendants from this first section. Properties and admitted allowed-value branches appear in the second section, under their actual target Entity, not the first tree. An allowed-value target need not be a Property.
     3. In primary-tree order, render each selected Entity with direct or inherited Properties and source-backed allowed values. Follow broader-to-narrower kind ancestry only for this inheritance; structural containment (`+>` or `<+`) and Depends On do not imply it. Show inherited origins explicitly. Combine source-backed allowed-value additions without removing inherited values. Preserve equal-name origins and report conflicts rather than choosing an override.
     4. Render the selected named Relation Type instances separately from the primary-kind and property views. Use their governing R/Relation Definition sources; do not enumerate actual endpoint tuples or a retired Graph Rule catalogue. Constraints remain in their governing Entity Definitions.
-    
+
     5. Use tabs for tree depth and local labels without repeated full paths. Preserve declared sibling order, otherwise use alphabetical order. Keep source limitations visible and retain the complete Current Atom ID/Version provenance.
-    
+
     Render specialization with `/`, named instances with `//`, Properties with `.`, allowed values of any target Entity with `:`, and structural containment as `Part +> Whole` or `Whole <+ Part`. Render classification-axis applicability with `>|` or `|<`; its endpoint is an Entity serving the Classification role, not a separate Classification kind, and IS_CLASSIFIED_BY membership remains a different Relation. These are distinct meanings, not interchangeable indentation edges. Shortened labels and repeated occurrences preserve canonical target identity and source-backed constraints. Do not infer a changed containment requirement solely because filtering hides a standalone label. Exact optional/mandatory display and alternative-path rules remain pending in CA-A-1236.
-    
+
     ### Containment alternatives
-    
+
     In the complete declared containment structure, each branch is an allowed option. `X <+ Y` requires a contained Y instance to belong to exactly one immediate whole instance of the permitted kind. Alternative container branches are choices, not simultaneous ownership obligations. An independent declaration can permit an uncontained instance; an existing-kind reference does not grant that permission. Part-to-whole cardinality is one; the number of Y parts per X remains separately constrained. CA-A-1253 records this latest cardinality decision. Every Module belongs to exactly one Package; Package/Project Implementation is the parentless root Package, and nested Packages belong to another Package.
-    
+
     In the governing declaration structure, an independent kind declaration outside structural containment permits that kind without that structural parent. An existing-kind reference `@(...)` does not make another independent declaration. Every Module belongs to exactly one Package; Step belongs to Workflow. A standalone source file is a Module of the root Package, not an independently declared Module. A derived display preserves these source meanings even when its selection omits a declaration or reference. This resolves Q02 in CA-A-1236; repeated display labels alone carry no new permission.
     Render these alternatives from their governing source meaning, not from the number of repeated labels in a selected view.
-    
+
     ### Existing-target reference marker
-    
+
     Render the `@` call to an already declared Entity separately from the base edge meaning, including when it follows `/` or `<+`. Preserve the referenced target's canonical identity and its defining-source provenance rather than duplicating its definition. Do not remove or add containment requirements from the marker alone.
-    
+
     ### Reference boundary
-    
+
     Use `@` to call an already declared Entity. Parentheses provide logical grouping and delimit the intended expression before any outer continuation. A unique primary-kind name or its current canonical path remains an admitted payload for a reference to that kind. For example, the explanatory `Entity/Object/Continuant/@(Scope Unit).ID` calls Scope Unit first, then addresses its ID Property. Full ordinary Entity spelling remains in sources; a call does not declare another Entity or introduce a full-name alias.
-    
+
     ### Canonical path changes
-    
+
     When a kind's canonical declaration path changes, migrate affected Current ordinary Entity paths and full-path references; @ references using an unchanged unique primary-kind name remain valid. A primary-kind rename requires migrating its name-based references as well. Keep no old-path aliases or alias registry for now. Preserve the distinction between Current reference maintenance and unchanged archived historical evidence; this Draft does not perform a migration.
-    
+
     ### Confirmed independent and contained kinds
-    
+
     Require Module containment by Package and Step containment by Workflow. A source file directly under the implementation root belongs to its root Package. Keep Step and Substep distinct. Scope Unit <+@(Scope Unit), <+@(Atom) and <+@(Projection) are structural part links. These are abbreviated displays; the current full-reference spelling rule remains in force pending Q07.
-    
+
     ### Unique primary-kind names
-    
+
     Distinct primary-kind declarations have unique names across the effective Entity model, not only the selected projection. Repeated references to the same kind do not declare duplicates. Properties may reuse names under different bearers. `@(Module)` is therefore an admitted existing-kind reference. A branch move preserves name-based references when the primary-kind name is unchanged; a rename requires their migration. Keep no aliases. This naming rule does not automatically rename conflicting Current kinds or waive the full structure of ordinary Entity paths.
-    
+
     ### General named-relation notation
-    
+
     Render an admitted cross-link without a short operator as `Source ((RELATION_TYPE)) Target`. Use the source-declared type, direction and endpoints. A requested opposite view uses the declared derived inverse name, without persisting a duplicate inverse fact or multiplying counts. An unsupported type stays unresolved; do not fabricate its definition or infer extra inheritance from a generic named edge. The readable notation does not create a native relation from an illustrative example. See CA-A-1240.
-    
+
     The Property Relation view uses direct IS_PROPERTY_OF from Property to immediate bearer, and derived HAS_PROPERTY in the opposite display direction. It does not persist a second reverse fact or multiply the number of actual Relations. The direct Relation is binary. In `Source {forward-count}RELATION{reverse-count} Target`, the count before the Relation token constrains links per written Source and the count after it constrains reverse links per written Target; reversing the written direction swaps these positions. An omitted side remains unspecified. `Property {1}((IS_PROPERTY_OF)) Bearer` constrains exactly one outgoing bearer link per Property and leaves the reverse count unspecified. These counts concern Relation instances, not arity or direct Property values; direct values retain `Property[format]{count}`.
-    
+
     ### Current source pin and pending adoption
-    
+
     Proposed N+1 successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md`, Version 31, SHA-256 `a91f896c0bd3f79a90ace9abc800a691e603847095b48638eaccdc9e0cae743e`. Current bytes remain unchanged. The new Relation names depend on the pending IS_PROPERTY_OF / HAS_PROPERTY Relation Definition Drafts; this source does not admit them through a renamed token alone. This preparation performs no runtime change, generated-view refresh or promotion.
 - `CA-M-233@31`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-M-233@31`
@@ -12842,7 +12811,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     the canonical CCE Operator Registry.
   - Remaining Claim prose:
     the current canonical CCE Operator Registry **must** contain this expandable set:
-    
+
     1. statement form: **to**, **means**.
     2. modality: **must**, **must not**, **may**.
     3. condition: **if**, **then**, **when**, **otherwise**.
@@ -12866,7 +12835,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     noncanonical CCE Operator Expressions.
   - Remaining Claim prose:
     **to** normalize one noncanonical CCE Operator Expression, the Author **must** apply **all** applicable rewrites:
-    
+
     - `each` **to** **every**.
     - `equals` **to** **`=`**.
     - `does not equal` **to** **`!=`**.
@@ -12901,12 +12870,12 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
 - Selected evidence outside model scope: `CA-M-270@29`
   - Remaining Claim prose:
     **to** refactor existing Implementation, prepare the applicable verification **before** changing the target Implementation:
-    
+
     1. derive regression checks, end-to-end checks, acceptance gates, **and** canary criteria from the applicable Evaluations; select techniques by applicability rather than requiring **every** technique for **every** change. apply the governing Methods within Delivery boundaries while implementing these checks.
     2. evaluate the existing Implementation using controlled complete inputs **and** record its outputs **and** existing failures as baseline evidence. expected correctness remains governed by RMED; an existing defect **must not** become a Requirement merely because it appears **in** the baseline.
     3. evaluate the refactored candidate against current RMED **and** the recorded baseline under CA-M-262, using the implementation loop **and** retry policy. preserve the applicable checks across the comparison **unless** an authorized RMED change establishes a new baseline under CA-R-1559.
     4. apply the required release gates **before** full rollout. **when** canary testing applies, prepare its criteria **before** refactoring **and** execute it on the candidate **after** that Implementation exists during the authorized controlled rollout.
-    
+
     this existing-Implementation baseline is comparison evidence, **not** missing specification recovered from old code, **and** is **not** a prerequisite for a fresh reconstruction with no existing Implementation.
 - `CA-M-271@29`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-M-271@29`
@@ -12914,14 +12883,14 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     resolution of a Confidence Threshold.
   - Remaining Claim prose:
     **to** resolve an effective Confidence Threshold, select the first applicable explicit source **in** this precedence:
-    
+
     1. direct Operator input for the current decision context.
     2. an explicit value on the current Plan.
     3. the nearest Hub with an explicit value, walking `IS_CONTAINED_BY` from nearest **to** farthest; read its own current Plan File Carrier under `CA-D-472-CORE_META_MODEL-DELIVERY--serialize-explicit-plan-confidence-overrides`, **not** a separate Objective targeting a folder.
     4. the Framework Instance Settings default.
-    
+
     ### resolution constraints
-    
+
     - an omitted optional override preserves inheritance; another explicit field does **not** stop lookup for the omitted field. a missing mandatory Plan file is invalid, **not** an inherited-setting selection.
     - use current Plan Revisions, **not** historical Carrier copies **or** unrelated nearby files; a Label is **not** an override source.
     - **if** a reached source is invalid **or** ambiguous, **or** no source supplies a value, request Operator disposition **before** the affected autonomous action; do **not** invent a value **or** silently fall through past invalid authority.
@@ -12934,7 +12903,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     selection of Owned Atoms, Targeting Atoms, Subtree-owned Atoms, **and** Subtree-targeting Atoms for a Scope Unit.
   - Remaining Claim prose:
     **to** derive the four Atom sets for a selected Scope Unit, the resolver **must** perform **all** of:
-    
+
     1. establish the complete authoritative source frontier, including Atoms outside the selected subtree that can target a Scope Unit inside it; scanning **only** locally stored Atoms is insufficient for Targeting Atoms **or** Subtree-targeting Atoms.
     2. read **every** candidate Atom's carried current Scope Unit **and** check it against its nearest containing Scope Unit, passing through Atom Collections **and** Plan Hub Carriers **without** treating their nesting as additional Scope Unit ownership. preserve the carried external-Atom Author fallback under CA-D-657-CORE_META_MODEL-ENG_DECISION--use-economical-yaml-frontmatter **when** no containing Scope Unit exists; do **not** invent a Scope Unit owner.
     3. resolve **every** candidate's Claim Target Scope Unit independently of ownership. read the internally carried target; absence of a required value is invalid, **not** permission **to** infer it from placement; apply CA-R-1588-CORE_META_MODEL-RULE--default-plan-target-to-the-enclosing-scope-unit for Plans within Plan containment. an unresolved required target remains unresolved. a reference **to** another Scope Unit **must not** transfer ownership, **and** the target **must** resolve **to** a Scope Unit, **not** a Hub Atom **or** another non-Scope-Unit object. Claim Scope restrictions remain **in** the body sections registered by CA-D-495, including Scope for RMED, **and** do **not** create extra targets.
@@ -12965,14 +12934,14 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     an effective Implementation Retry Limit resolved from direct Operator input, a Plan, the nearest Hub, Framework Instance Settings, **or** Default Settings.
   - Remaining Claim prose:
     **to** resolve an effective Implementation Retry Limit, select the first applicable explicit source **in** this precedence:
-    
+
     1. direct Operator input for the current execution context.
     2. the current Plan's explicit Implementation Retry Limit.
     3. the nearest Hub with an explicit limit, walking `IS_CONTAINED_BY` from nearest **to** farthest **and** reading its own current Plan File Carrier under CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.
     4. Framework Instance Settings, resolving an omitted instance parameter through Default Settings under CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings.
-    
+
     ### resolution constraints
-    
+
     - an omitted optional retry override preserves inheritance; another explicit field does **not** stop this lookup. a missing mandatory Plan file is invalid, **not** an inherited-setting selection.
     - determine presence, **not** truthiness: **`=0`** is an explicit limit.
     - an invalid **or** ambiguous reached source requires Operator disposition **without** silent fallback; an absent effective value stops the affected retry decision.
@@ -12986,13 +12955,13 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     priority-order comparison of admissible alternatives.
   - Remaining Claim prose:
     **when** the Operator selects comparison by priority order, the comparison of admissible alternatives **must** use the resolved order of active, applicable criteria as follows:
-    
+
     - an earlier criterion takes precedence over a later criterion.
     - for alternatives tied on **all** earlier criteria, the first criterion that distinguishes them determines their relative preference.
     - later criteria **must not** override a preference established by an earlier criterion.
     - alternatives tied on **all** applicable criteria remain tied.
     - an incomplete criterion order **or** an incomparable result at the current deciding criterion leaves the comparison unresolved; a later criterion **must not** bypass that gap.
-    
+
     this Method defines the comparison technique, **not** priority activation, alternative-selection execution, **or** escalation.
 - `CA-M-298@26`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-M-298@26`
@@ -13000,13 +12969,13 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     Methodology Source expansion mappings.
   - Remaining Claim prose:
     **to** describe a Methodology Source expansion mapping, use **`=1`** explicit mapping description that identifies:
-    
+
     - the source element **and** its provenance;
     - the exact canonical target;
     - the mapping rule;
     - the intended scope of application;
     - the applicable Core Meta-Model distinctions at **any** Local Tier.
-    
+
     apply this same mapping convention **to** Extension **and** Project Configuration sources regardless of provenance. the convention supports CA-R-1375-CORE_META_MODEL-CORE-REQUIREMENT--restrict-methodology-source-expansion-to-core-permission's expansion boundary; it does **not** admit activation **or** reliance. CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings owns that admission Action **and** re-evaluation following material changes.
 - `CA-M-300@18`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-M-300@18`
@@ -13020,7 +12989,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     derived instructions that present an Agentic Action for execution.
   - Remaining Claim prose:
     **to** present an Agentic Action for execution, organize its derived instruction around the declared responsibility rather than assumed session memory.
-    
+
     - state the requested outcome, relevant context, exact targets, inputs, available evidence, **and** governing references.
     - distinguish already performed effects from proposed changes, **and** existing permissions from decisions still needed.
     - state the expected result **and** how **to** report uncertainty, failures, partial effects, **or** a request for Operator input. do **not** treat a suggested correction as permission **to** apply it.
@@ -13033,7 +13002,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     Plan Atoms.
   - Remaining Claim prose:
     **to** author a Plan Atom, apply the common Plan authoring rules independently of Label:
-    
+
     1. resolve **`=1`** effective Author.
     2. state **`=1`** intended work **or** outcome **in** Objective, supported by own work, directly contained Plans, **or** both under CA-R-1575.
     3. resolve its Claim Target Scope Unit under CA-R-1588; keep narrower **or** composite work restrictions **in** Objective, **and** do **not** target an ancestor Scope Unit.
@@ -13050,7 +13019,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     Plan Claims written with the Plan CCE Role Profile.
   - Remaining Claim prose:
     **to** write a Plan Claim with the Plan CCE Role Profile, the Author **must** perform **all** of:
-    
+
     1. state the Plan's primary contribution as intended work, an intended outcome, **or** their governed composition under CA-M-306-CORE_META_MODEL-GENERAL-METHOD--author-plan-atoms.
     2. **if** the Plan has own work, identify the action, its object, intended result, Assignee, **and** applicable boundary explicitly. modality, condition, temporal, quantification, logical, restriction, predicate, **and** comparison Operators **may** qualify that intended work.
     3. **if** the Plan is supported **only** by decomposition, state its intended outcome **without** inventing own work.
@@ -13065,7 +13034,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     Requirement Claims with the Requirement CCE Role Profile.
   - Remaining Claim prose:
     **to** write a Requirement Claim with the Requirement CCE Role Profile, the Author **must** perform **all** of:
-    
+
     1. state the primary contribution as one Entity model **or** required result by its meaning **and** value under CA-R-2512. express required properties **and** observable boundaries within that model **or** result; an obligation, permission, **or** prohibition alone does **not** select Requirement.
     2. use **must**, **must not**, **may**, **only**, quantification, predicates, comparisons, **and** explicit conditions as applicable **to** state what is required, permitted, prohibited, **or** bounded.
     3. use **means** **only** **when** the Claim defines the governed Requirement subject rather than merely describing it.
@@ -13079,7 +13048,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     Method Claims with the Method CCE Role Profile.
   - Remaining Claim prose:
     **to** write a Method Claim with the Method CCE Role Profile, the Author **must** perform **all** of:
-    
+
     1. state the primary contribution as one reusable authorship, construction, **or** Implementation choice **or** convention for satisfying accepted Spec authority under CA-R-2513.
     2. use **to** for the governed method purpose. identify the applicable inputs, construction **or** selection choices, dependencies, produced result, **and** unresolved-choice handling necessary for reuse. include a performer, order, repetition, **or** stopping condition **only when** the convention requires it; do **not** invent an operational Action **or** Workflow **to** fill a Method template.
     3. use condition, temporal, quantification, logical, restriction, predicate, **and** comparison Operators **only** with explicit scope over the affected method content.
@@ -13095,7 +13064,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     Evaluation Claims with the Evaluation CCE Role Profile.
   - Remaining Claim prose:
     **to** write an Evaluation Claim with the Evaluation CCE Role Profile, the Author **must** perform **all** of:
-    
+
     1. state the primary contribution as one falsifiable check, acceptance criterion, **or** disposition rule against identified checked authority **and** Scope.
     2. state recoverable inputs, the evaluated subject, observable evidence, **and** the condition that yields each result necessary for reproducibility under CA-M-264-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-evaluations-with-reproducible-falsification.
     3. use condition, temporal, quantification, logical, restriction, predicate, **and** comparison Operators with explicit scope over the checked evidence **and** result.
@@ -13113,7 +13082,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     authoring Delivery Substance with the applicable Delivery CCE Role Profile.
   - Remaining Claim prose:
     a Delivery Substance **must** use the applicable Delivery CCE Role Profile with these authoring conventions:
-    
+
     1. name the governed Entity or Carrier and state its representation, storage or placement constraint directly.
     2. include format, content, address, placement or lifecycle conditions **when** they are relevant to that contribution.
     3. choose CCE Operators to express the applicable modality, conditions, quantities and comparisons.
@@ -13127,7 +13096,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     Operations Claims written with their admitted Operations Type-specific CCE Profiles.
   - Remaining Claim prose:
     **to** write an Operations Claim, the Author **must** first resolve its admitted Operations Type **and** **then** apply **`=1`** primary Type profile:
-    
+
     1. for Action, use **means** to define the named reusable operational behavior. state its required inputs, preconditions, operational contribution, returned results, observable effects, **and** failure results. modality, condition, temporal, quantification, logical, restriction, predicate, **and** comparison Operators **may** constrain that behavior.
     2. for Workflow, use **means** to define the reusable graph through Step references, entry, typed transitions, result conditions, **and** terminal outcomes. use condition, temporal, logical, restriction, predicate, **and** comparison Operators **only** with explicit transition scope under CA-M-305-CORE_META_MODEL-METHOD--write-workflow-schemes-using-step-references.
     3. for Step, define the invocation binding of **`=1`** referenced Action with its parameters **and** inputs. do **not** copy the Action behavior **or** define another Workflow.
@@ -13146,21 +13115,21 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     4. In that order, render one detail section for each selected Entity with Properties or admitted allowed values. Traverse bearer to Property and display each target Entity's allowed values as annotations, retaining qualifications and Relation distinctions. An allowed-value target need not be a Property; display its values under that actual Entity without inventing a Property, Classification kind, graph Node or Relation. Direct Property-value Format/cardinality remains separate from Relation counts. Reuse inherited facts only where source rules admit inheritance; do not author new source facts.
     5. Use source-declared sibling order where available; otherwise sort alphabetically by display name, breaking equal-name ties by qualified identity. Use the same ordering for roots. Track the current traversal path so a cycle is reported once at that placement rather than expanded forever; shared nodes on different paths are not cycles.
     6. Serialize through CA-D-634. Report unavailable source facts without guessing. The source list and tree body depend only on the selected source data and declared rules; updated_at is the completed rebuild time.
-    
+
     ### Named declaration view
-    
+
     Select named Relation Types declared by the selected governing R/Relation Definition Atoms. Keep their canonical names, defining Atom IDs/Versions, meaning and explicitly declared direction, inverse, derivation or transitivity. Equal canonical names identify the shared Type; report incompatible meanings without choosing a winner. Do not enumerate actual endpoint tuples from Atom relations as Type declarations.
-    
+
     Constraints are part of the relevant Entity Definitions, not separate Graph Rule instances or YAML-only Claims. They remain in the structural/property view. Use admitted compact notation and explicit relation labels, including structural containment; inherited properties cross specialization only, not containment. Use source-declared order, otherwise alphabetical order, and serialize through CA-D-634. Do not evaluate expressions, infer missing links or edit sources while rendering.
-    
+
     ### Outcome
-    
+
     A reader can see what kinds exist, their Properties and allowed values, without mixing these meanings.
-    
+
     Preserve declared containment alongside specialization in the model tree; their different operators retain their different meanings.
-    
+
     ### Current source pin and pending adoption
-    
+
     Proposed N+1 successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md`, Version 20, SHA-256 `86690d15dde34b2d48d66002bfdf70e5eb4f11133d0590ac20d0911691ce3236`. Current bytes remain unchanged. The new Relation names depend on the pending IS_PROPERTY_OF / HAS_PROPERTY Relation Definition Drafts; this source does not admit them through a renamed token alone. This preparation performs no runtime change, generated-view refresh or promotion.
 - `CA-M-442@5`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-M-442@5`
@@ -13168,7 +13137,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     authoring an Atom's prose CCE primary contribution, its applicability, **and** its derived Summary. The same Claim may contain readable prose and an optional R-only nested Formal claim under the Claim definition.
   - Remaining Claim prose:
     **to** author one CCE Claim **and** its derived Summary, an Author **must** use these authoring constraints:
-    
+
     - express **`=1`** coherent contribution whose full meaning is covered by one precise Summary using the applicable CCE Content Role profile. carry it under the primary contribution heading registered for the Content Role rather than imposing the literal heading Claim on **every** role.
     - resolve **`=1`** Claim Target Scope Unit independently of ownership. select the current Scope Unit as the authoring default **or** an explicitly permitted different target; carry the resolved value under the target Scope Unit carrier definition. express applicability under the applicability carrier definition. for RMED, describe what the Claim applies **to**, including applicable conditions **and** exclusions, **in** Scope; do **not** merely repeat the carried current **or** target Scope Unit; those restrictions alone do **not** make the Atom Relational.
     - keep Details within the primary contribution. for RMED, read the Claim within its Scope; Details **must not** change either. **if** supporting content reveals an incomplete **or** inaccurate contribution **or** applicability, revise the affected Scope **or** primary contribution explicitly **and** recheck agreement; do **not** hide the change **in** Details.
@@ -13181,7 +13150,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     authoring the boundary of **`=1`** coherent prose CCE Atom contribution. The same Claim may contain readable prose and an optional R-only nested Formal claim under the Claim definition.
   - Remaining Claim prose:
     **to** author an Atom, the Author **must** perform **all** of:
-    
+
     1. identify one statement whose complete effect **must** be accepted, replaced, **and** retired together.
     2. check that one precise Summary covers the full contribution's meaning, **not** merely its theme. split distinct contributions when they require separate governance, including when that single Summary cannot cover them faithfully; do **not** create an Atom for **every** characteristic, qualification, list item **or** supporting nuance.
     3. resolve **`=1`** Claim Target Scope Unit independently of ownership. select the current Scope Unit **as** the default during authoring **or** select an explicitly permitted different target; carry the resolved value under the target Scope Unit carrier definition. express applicability **in** the registered body sections under the applicability carrier definition; for RMED, use Scope **and** write the Claim within that applicability; those restrictions alone do **not** make the Atom Relational.
@@ -13193,11 +13162,11 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     Model names in authored Methodology Sources, including their applicable child Scope Units.
   - Remaining Claim prose:
     **when** writing model concepts in Subjects, Formal claims **or** authored model text, the Author **must** use their governed readable model names. For example, name the applicable model concepts:
-    
+
     - Content Role;
     - Local Scope Unit; **and**
     - Updated At.
-    
+
     **when** explaining an encoding, show the exact technical spelling as a Carrier key **or** serialization example. Preserve each canonical model name **and** do **not** invent aliases through stylistic changes.
   - Semantics:
     Readable model language includes technical Subjects. Technical key spelling belongs to the file-adapter Method; Carrier fields and encodings remain governed by Delivery authority. The choice of presentation does not change the identified concept or its permitted values.
@@ -13221,7 +13190,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
 - Selected evidence outside model scope: `CA-R-035@36`
   - Remaining Claim prose:
     an AI Agent's assessment of necessary Project information **must** use progressive context acquisition: read **every** active Project-owned Tier 0 Atom **before** using indexes, Relations, **and** Subjects **to** identify applicable Atoms; read **and** check the full Claims of those Atoms; expand inspection **when** dependencies, conflicts, missing evidence, **or** uncertainty require it. indexes, Relations, **and** Subjects support discovery **and** **must not** substitute for checking the applicable Claims. shared ancestry, descendancy, **or** structural scope alone **must not** require loading **every** Atom's full content.
-    
+
     the information is necessary **when** its omission would leave the AI Agent below the effective Confidence Threshold resolved under CA-M-271. the confidence **and** threshold remain operational heuristics, **not** comparable probabilities across configurations.
 - `CA-R-1014@40`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1014@40`
@@ -13330,18 +13299,18 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     Qualification is part of the complete property name used for collision checks.
     A repeated display or reference of one entity remains the same entity, and
     parsing a name does not introduce another graph entity.
-    
+
     `Entity/Property` is the Entity kind governed by this Rule.
     `Term//Property` is its reusable lexical Term; the Term is not the
     Entity kind or an occurrence. The direct IS_PROPERTY_OF Relation runs from the
     Property occurrence to its bearer. The separate bearer-cardinality Rule owns
     the exactly-one constraint; this Rule owns only the complete-path identity.
-    
+
     The inherited Summary and filename identify the predecessor Draft only. They
     are historical lineage metadata, not an admitted lexical alias, entity kind,
     or Relation token. This Draft introduces neither a new Selection name nor a
     rename of a Current carrier.
-    
+
     The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names or case-folded aliases. Authored Subjects use their full admitted expressions. `ID` is reusable and the terminal label need not be globally unique. Shared `Unit` components remain permitted in `Scope Unit` and `Code Unit`. This preserves complete-path identity without imposing disjoint lexical components or a new global ordinal position.
 - `CA-R-1251@24`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1251@24`
@@ -13355,7 +13324,7 @@ Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current 
     Property occurrences borne by every Entity.
   - Remaining Claim prose:
     **every** Entity **may** bear **`>=0`** Property occurrences.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -13390,7 +13359,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     qualified by the Type Property and its admitted value Z. The Type Property
     and a Property addressed directly by `X.Y` share the same Property meaning;
     classification use does not introduce another Property category.
-    
+
     The applicable allowed-value set is finite at an Applicable Methodology
     Revision and expandable through governed Methodology Sources. Admission and
     requiredness remain scoped to the qualified Property context.
@@ -13401,7 +13370,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     qualified X inherits X's applicable features and constraints. Y does not
     become a narrower kind of X, and no intermediate X/Y kind is declared. Neither form assigns a
     value to an existing instance merely by appearing in an expression.
-    
+
     Atom Form is represented by the YAML `form` key; Atom Role is represented by `role`. Legacy `type` and `content_role` are readable only under the transition rules in CA-D-657. These encodings do not create separate Property kinds.
     For example, `Atom/(.Content Role: Method)` concerns Atoms classified by Content
     Role Method; Method is not used as a Type value in this example.
@@ -13410,7 +13379,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     that Type is not a Property. Both addressed and classification uses are
     Properties. The selected relative Property qualification preserves that
     Property meaning without another Property category or qualification operator.
-    
+
     The reviewed CA-D-478@29 says qualified classifications are ordinary
     metadata Properties and maps them to `content_role` and `type`. CA-D-657@1
     governs the YAML Frontmatter field encodings, with each field also subject
@@ -13421,9 +13390,9 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Property kind, intermediate classification object, Carrier per field or
     YAML-versus-frontmatter ontology is created. Generic grouping/continuation
     syntax and parser effects are not established by this interpretation.
-    
+
     ### Current source pin
-    
+
     Proposed successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md`, Version 23, SHA-256 `ed846912a5858e8103dfb5189cf574379488dcfde81d52521fafe48a4c7d0622`. This interpretation changes no Current carrier, allocates no identity and performs no promotion.
 - `CA-R-1285@25`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1285@25`
@@ -13503,7 +13472,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     parenthesized restricted Boolean expression occurrences **in** Atom Claims.
   - Remaining Claim prose:
     Where a Canonical Signature is interpreted for a parenthesized restricted Boolean expression occurrence in one Atom Claim, the interpretation **must** produce **`=1`** derived non-authoritative comparison value, subject to the following constraints:
-    
+
     - the grammar is:
       - `group ::= (operand **and** operand [**and** operand ...]) | (operand **or** operand [**or** operand ...])`;
       - `operand ::= atomic predicate | nested group with the same Boolean Operator`;
@@ -13587,7 +13556,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - the settings foundations for Project Settings, Framework Instance Settings, **and** Default Settings **must** define their purpose, content, **and** authority boundaries;
     - an independently governable shared settings specification **must** preserve those foundations **without** selecting a concrete representation;
     - **every** concrete section, field, **or** Carrier syntax specification **must** be specified explicitly.
-    
+
     a setting **must not** require a shared settings specification **unless** a distinct shared specification requires independent authority.
 - `CA-R-1439@23`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1439@23`
@@ -13601,7 +13570,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     mandatory information reported by **every** interaction reporting mode.
   - Remaining Claim prose:
     **every** interaction reporting mode **must** report the following mandatory information:
-    
+
     - blockers **and** failed operations;
     - ambiguity that requires Operator input;
     - permission **or** approval requests;
@@ -13619,7 +13588,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     the ownership of Atoms by Scope Units.
   - Remaining Claim prose:
     Owned Atoms **means** the set of **all** Atoms whose internally carried current Scope Unit **`=`** the selected Scope Unit.
-    
+
     - a grouping Carrier, Plan decomposition, **or** physical placement does **not** replace that ownership value.
     - a missing, invalid, **or** ambiguous ownership value leaves membership unresolved; do **not** derive it from the filename **or** containing folders.
     - evaluate placement consistency separately **without** changing the selected Atom's declared ownership.
@@ -13629,9 +13598,9 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     governed-only Terms Graph views for a requested source selection.
   - Remaining Claim prose:
     for a requested source selection, a governed-only view of the Terms Graph **must** include **only** the Governed Terms admitted under CA-R-1319-CORE_META_MODEL--define-governed-term **and** CA-M-114-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms from Term Definition Atoms **in** that selection **and** the Relations explicitly declared by source Atoms **in** that selection whose endpoints are included **and** whose Relation Type is identified by its defining source Claim **and** that, where applicable, conforms to the governing Entity Definition constraints; it **must** include **every** such Term **and** Relation. **every** displayed node **and** edge **must** retain traceability **to** its exact source Claim **and** Artifact Revision. this selection reuses the Terms Graph under CA-R-1335@31-CORE_META_MODEL-DEFINITION--define-terms-graph **and** the source Relation authority under CA-R-1437-CORE_META_MODEL--keep-one-source-for-each-relation-fact **without** introducing another graph kind **or** independent vocabulary authority.
-    
+
     the view **may** be derived from an upstream Terms Graph Projection **when** the upstream selection **and** source evidence support the requested view. its upstream Projection identity **and** Revision **must** remain traceable **to** the exact Term Definition Atoms **and** source Relation declarations required by this Claim. the upstream Projection **must not** acquire defining authority **or** establish complete source coverage from an incomplete selection. distinct graph **and** separately identified filtered-view Projection instances retain their own identities while reusing the Terms Graph Type **and** the shared Relation Type definitions; a governed-only filter alone does **not** create another Type or alter its identity.
-    
+
     these node **and** internal-Relation selection rules do **not** require importing the endpoints of separately admitted external references as native graph members. **if** the view includes cross-graph **or** source references under CA-R-1472-CORE_META_MODEL--admit-typed-secondary-graph-connections, it **must** keep them distinguishable from its native node **and** internal-Relation selection **and** preserve their endpoint identity and classes, shared Relation Type identity, any graph-qualified reference **or** context, **and** source traceability. such references **must not** silently enlarge the selected native graph **or** bypass an explicit source-declaration requirement for its internal Relations.
   - Details (source-bound):
     The dedicated lexical meaning owner is a Method Atom of Type Term Definition under CA-R-1319 and the admitted Method Type declaration. This adjusts only the selected lexical authority filter and its exact-source trace. Entity Definition constraints and source Relation authority retain their existing roles. These conditions govern a requested optional view; they require no dictionary Projection, extractor, lookup, or Terms Graph implementation and do not make a derived view a prerequisite of lexical meaning.
@@ -13641,9 +13610,9 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Catalogs used as vocabulary diagnostic indexes.
   - Remaining Claim prose:
     a Catalog used as a vocabulary diagnostic index **must** distinguish ordinary English use under CA-R-1320 from evidence of unresolved Project-specific use, with **every** entry bound **to** its exact source occurrence, surrounding Claim **or** reference context, **and** Artifact Revision. the index **must** declare the source selection **and** checked definition coverage that bound its judgments. capitalization, consistent use, occurrence **in** GOVERNS **or** DEPENDS_ON, **or** the appearance of a Scope Unit name, Actor name, identifier, path, **or** syntax token alone **must not** establish Project-specific Term status **or** a missing definition.
-    
+
     an unresolved Project-specific candidate **must** retain the source evidence that indicates Project-specific use **without** treating a suspected meaning as established authority. missing defining authority **must** be distinguished from conflicting defining authority **or** conflicting Project-specific uses. a missing-authority judgment requires complete checked definition coverage for its declared applicable source authority boundary; absence from an incomplete **or** filtered selection alone **must not** establish that judgment. **if** the evidence cannot settle ordinary versus Project-specific use, defining authority, **or** definition coverage, the affected case **must** remain explicitly uncertain with its source occurrence **and** the reason for uncertainty available for review. spelling alone **must not** transfer one occurrence's classification **to** another.
-    
+
     these indexes **must** remain non-authoritative Projections of the cited source evidence; they **must not** supply missing definitions, require **every** word **to** acquire a Project-specific definition, promise mechanical certainty about meaning, **or** introduce another Terms Graph **or** invented Relation edges. **any** graph representation additionally requires independently admitted Relation Kind **and** source Relation authority; index membership alone establishes neither.
 - `CA-R-1456@39`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1456@39`
@@ -13651,43 +13620,43 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Entities Graph views for a requested source selection.
   - Remaining Claim prose:
     a derived Entities Graph view **must** declare its requested source selection **and** **any** narrower display selection, including a hierarchy view. it **must** include **all** **and** **only** Entity identities admitted under CA-R-2462-CORE_META_MODEL-DEFINITION--define-entity by the selected source Claims that satisfy the declared display selection, **and** Relations explicitly declared by selected source Atoms whose endpoints are included, whose Relation Type has a defining source Claim, with any applicable Entity Definition constraints preserved, **and** that satisfy the declared display selection. a narrower view **must not** silently enlarge the source selection **or** be represented as the full combined graph. A declaration-only display selection excludes link instances. The presence of endpoints does not override that filter or require importing actual Relation tuples into the declaration view.
-    
+
     **every** displayed node **and** edge **must** retain its existing canonical identity **and** traceability **to** its exact governing source Claim **and** Artifact Revision for Entity **or** Relation admission; **any** represented observed structural **or** recorded historical facts additionally retain their appropriate Scope Unit **or** Journal sources under CA-R-2535-CORE_META_MODEL-CORE-REQUIREMENT--define-projection-artifact-form. Property occurrences retain their complete bearer-qualified Subject Paths under CA-R-1247-CORE_META_MODEL-CORE-REQUIREMENT--identify-dependent-entity-occurrences-by-complete-subject-path; reuse of a Term, appearance **in** multiple views, **or** multiple governing Atoms for one Entity **must not** duplicate **or** merge source identities. source Relation facts retain their Type identity, direction, qualified endpoints, **and** source declaration; derived HAS_PROPERTY navigation retains traceability **to** its original IS_PROPERTY_OF fact under the pending [HAS_PROPERTY Relation Definition](CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-has-property.md) **without** becoming another primitive Relation fact.
-    
+
     this selection reuses the Entities Graph under CA-R-1438@25-CORE_META_MODEL--define-entities-graph **without** another graph kind **or** independent model authority. a hierarchy display **must not** impose a tree constraint on the full graph, discard legitimate sharing, **or** introduce a global ordinal-position rule. display filtering **must not** change source bearer cardinalities, qualified identities, **or** allowed-value admission; IS_PROPERTY_OF **and** allowed-value qualifications retain their distinct governing authority.
-    
+
     the view **may** be derived from an upstream Entities Graph Projection **when** the upstream selection **and** source evidence support the requested view. the view **must** retain the upstream Projection identity **and** Revision together with traceability **to** the ultimate authoritative sources; the upstream Projection **must not** replace source authority **or** establish source completeness beyond its evidenced coverage. an observed Carrier **or** Journal occurrence alone **must not** admit an Entity identity, define a Term, **or** admit a Relation Type **without** the required governing source Claims. distinct graph **and** separately identified filtered-view Projection instances retain their own identities while reusing the Entities Graph Type and project-shared Relation Type definitions; any graph-specific admission or constraints remain governed by selected Entity Definition constraints where present; a display filter alone does **not** admit another Type or create a graph-specific Type copy.
-    
+
     these node **and** internal-Relation selection rules do **not** require importing the endpoints of separately admitted external references as native graph members. **if** the view includes cross-graph **or** source references under CA-R-1472-CORE_META_MODEL--admit-typed-secondary-graph-connections, it **must** keep them distinguishable from its native node **and** internal-Relation selection **and** preserve their endpoint identity, Relation Type identity, any applicable governing constraint context and its established endpoint classes, **and** source traceability. such references **must not** silently enlarge the selected native graph **or** bypass an explicit source-declaration requirement for its internal Relations.
   - Details (source-bound):
     ### Pending relation authorities
-    
+
     The operative IS_PROPERTY_OF and HAS_PROPERTY view rules depend on the pending [IS_PROPERTY_OF Relation Definition](CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-is-property-of.md), [HAS_PROPERTY Relation Definition](CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-has-property.md), and [Property kind and Formal Constraint](CA-R-1193@23-draft-CORE_META_MODEL-DEFINITION--define-property.md). These Draft links are pending dependencies, not Current admission.
-    
+
     CA-R-1260@34-CORE_META_MODEL-DEFINITION--define-is-borne-by and CA-R-1243@27-CORE_META_MODEL-RULE--derive-bears-as-the-inverse-of-is-borne-by remain historical provenance for the superseded names only; neither authorizes IS_PROPERTY_OF or HAS_PROPERTY.
-    
+
     ### Readable tree view
-    
+
     The full structural Entities Graph view **must** present the Inherency tree:
-    
+
     **Inherency tree:** use NARROWER_THAN, INSTANCE_OF and IS_PROPERTY_OF Relations, and show source-backed allowed-value qualifications as value annotations rather than graph Relations. Show a selected explicitly named instance under its kind using `//`, retaining the instance's existing identity; INSTANCE_OF is directed from instance to kind and is distinct from narrower-kind classification. The name is not automatically a Term. First show the primary-entity tree without Properties. Then show one detail tree for each primary entity with one or more Properties, including its Properties and further Properties. Show every source-backed allowed value as an annotation beneath the Entity to which its qualification applies, including a non-Property target; preserve that target's identity, do not reclassify it as a Property, and do not create a graph Node or Relation for the literal value. Detail sections follow the primary entities' first-appearance order in the main tree.
-    
+
     An entity with multiple broader parents **must** appear under every applicable parent, with the same identity at every placement. Its Property detail section appears once at its first-appearance position. The view **must** preserve relation meaning and any declared cardinality; repeated display does not create another entity.
-    
+
     The Inherency view **must** be generated programmatically. Use declared sibling order when available; otherwise use alphabetical order. Keep shared identities, dependent qualification and the declared source selection. This is a readable view of the graph, not a replacement for the source model or a claim that the entire graph is a tree.
-    
+
     ### Structural and middle-level declaration views
-    
+
     The full structural view shows the selected model's primary entities, dependent properties, allowed values and admitted structural Relations. It is not a catalogue of every actual Atom, Actor, Execution or other project instance. A named instance explicitly selected by a source Subject may appear under its kind; do not enumerate unselected instances or turn instance names into new kinds. Keep Core Meta-model and Project Configuration source selections separate. Report unsupported or unmapped source material as unresolved coverage, not as admitted facts or proof that it does not exist.
-    
+
     The declaration view is a separately identified filtered view of the same Entities Graph Type. It selects the middle level: named Relation Types with their declared descriptive metadata, with their existing defining authority. It does not select actual source-type-target links instantiating those Types. Do not use an Atom's frontmatter relations map as this declaration catalogue.
-    
+
     Identify a Relation Type by its project-unique canonical name and defining source Claim. Retain its meaning and any explicitly declared direct direction, inverse, derivation, or transitivity semantics. Any selected governing constraint admission, endpoint permissions, endpoint graph contexts, cardinality and other constraints remain in those Entity Definitions under CA-R-1246 and CA-R-806; this definition introduces no new per-Type Rule or default. Do not invent missing metadata, treat a bare Subject as an already resolved qualified alias, or create graph-specific copies of an equal Type name.
-    
+
     Constraints belong to the governing Entity Definitions. The selected Relation Type declaration view contains named Type definitions, not a separate Graph Rule instance catalogue or actual endpoint tuples.
-    
+
     Both views retain exact governing source Claim and Revision evidence. Missing or ambiguous identity, metadata, schema or coverage stays visible as a limitation. Neither view admits new source facts, changes source Relation identity/storage, evaluates rules or claims unsupported semantic completeness.
-    
+
     Preserve declared containment in the model tree using `Part +> Whole` or `Whole <+ Part` and `@` references to already declared Entities, without propagating Properties through containment. Preserve each independent pre-token Source count and post-token Target reverse count; an omitted count stays unspecified.
 - `CA-R-1466@23`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1466@23`
@@ -13701,7 +13670,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     the authority of independently maintained facts.
   - Remaining Claim prose:
     Single Source of Truth **means** **`=1`** canonical authoritative source for **every** independently maintained fact **in** the same applicable context. another representation of that fact references **or** derives from its source **without** becoming an independently maintained authority.
-    
+
     source authority is assigned per fact under the governing model: Atoms carry governing Claims **and** their declared source Relations; Project Structure owns declared Scope Unit facts; Structural Entity Carriers supply materialization observations; Journals preserve recorded historical facts. native Implementation Carriers **may** be authoritative for their actual realized content, structure, dependencies, **and** behavior. other admitted sources retain their declared authority. this does **not** require **all** facts **to** reside **in** **`=1`** Atom, file, **or** Artifact. a derived result **may** use multiple authoritative input facts **without** creating another authoritative source for those input facts.
   - Details (source-bound):
     Implementation actual-state authority does not establish governing intent, acceptance, or compliance. RMED remains authority for the required result, method, evaluation, and delivery. A dependency graph or another view generated from native I remains a non-authoritative Projection of those actual-state sources.
@@ -13711,7 +13680,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     secondary CAPRMEDIO Graphs.
   - Remaining Claim prose:
     secondary CAPRMEDIO Graphs **must** be Projections derived from their selected authoritative sources **or** source-traceable upstream Projections. their nodes **and** Relations **must** preserve source identities **and** traceability **to** the governing derivation authority **and** source facts.
-    
+
     storing, composing, filtering, **or** rebuilding a secondary graph **must not** make its contents another source of authority. a represented source fact is corrected **at** its authoritative source; an incorrect derivation is corrected under its governing methodology. neither case is resolved by independently editing the projected fact **or** fabricating source history.
 - `CA-R-1487@21`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1487@21`
@@ -13719,7 +13688,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     priority-model selection by the CAPRMEDIO Framework Instance for an affected Scope and Project stage.
   - Remaining Claim prose:
     the CAPRMEDIO Framework Instance **must** support the admissible priority model established by the Operator for the affected Scope **and** Project stage. **every** resulting alternative selection **must** satisfy **all** of the following:
-    
+
     - respect applicable authority **and** non-negotiable constraints.
     - conform **to** that model, its effective parameters, **and** its active criteria **without** substituting another comparison algorithm.
     - remain unresolved **if** the selected model **or** its application does **not** justify a selection.
@@ -13731,7 +13700,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     effective Implementation Retry Limit selection for a Plan or Framework Instance Settings.
   - Remaining Claim prose:
     an Implementation Retry Limit **must** take its effective value from applicable direct Operator input, an explicit Property on the current Plan, the nearest enclosing Hub Plan with an explicit Property, **or** Framework Instance Settings.
-    
+
     - a Plan **may** have **<=1** explicit Implementation Retry Limit override, regardless of Label.
     - an omitted override **must** preserve inheritance **without** copying the inherited value into that Plan.
     - a retry decision **must** have **=1** valid effective limit; missing **or** ambiguous authority requires Operator disposition **before** another retry.
@@ -13747,7 +13716,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     coverage between Evaluation Atoms and their implementation realizations.
   - Remaining Claim prose:
     coverage between Evaluation Atoms **and** their realizations **may** be many-to-many **only** with explicit attribution:
-    
+
     - **`=1`** Evaluation Atom **may** be realized by multiple distinct implementations.
     - **`=1`** implementation **may** realize multiple Evaluation Atoms **only** **when** its result remains attributable **to** **every** covered Claim.
   - Details (source-bound):
@@ -13777,7 +13746,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - ordinary implementation RMED **must not** leave required behavior specified **only** **in** an O Atom **or** require an O Atom as its production procedure.
     - the permitted authority references are the Tool realization binding under CA-R-1800-PROJECT_CONFIGURATION-RULE--bind-every-tool-to-one-methodology-action **and** CA-R-1517-PROJECT_CONFIGURATION-RULE--keep-tool-operational-authority-outside-its-own-subtree, **and** methodology checks of Action **and** Workflow definitions under CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities. neither exception makes the Workflow used **to** build the Implementation part of its specification.
     - a generic executor **may** consume applicable O definitions as runtime inputs under CA-R-1519-CORE_META_MODEL-RULE--require-conforming-workflow-execution. its RMED **must** fully specify how it interprets those inputs; the selected Workflow is **not** its production procedure **or** an independently copied part of its Spec.
-    
+
     these are CAPRMEDIO Project Configuration boundaries, **not** a change **to** the reusable Core Meta-Model Content Roles.
 - `CA-R-1520@22`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1520@22`
@@ -13787,18 +13756,18 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     **when** a Workflow declares a handoff **to** another Workflow, its Run **must** end with a terminal result sufficient for the executor **to** evaluate **and** start the continuation separately.
   - Details (source-bound):
     ### Handoff result
-    
+
     - identify the completed Run, the reason for handoff, **and** the continuation Workflow **or** the methodology rule that selects it.
     - provide the target identities **and** observed Revisions, required inputs **and** parameters, proposed changes, completed checks **and** their applicability, **and** a complete account of effects already performed, **if** **any**.
     - distinguish a requested continuation from an authorized, started, **or** completed continuation. an incomplete result **must not** trigger guessed execution.
-    
+
     ### Run boundary
-    
+
     - the ending Run does **not** call the continuation Workflow, wait for it, **or** resume its own normal Steps afterward.
     - the executor retains the original request **and** the association between predecessor **and** successor Runs; it rechecks applicable authority **and** input freshness **before** starting the successor.
     - ending the predecessor **must not** report the requested work as complete **when** a required continuation is still pending, blocked, **or** failed.
     - the handoff outcome does **not** itself add a Status value. a chain of handoffs **must not** bypass approval, refresh an exhausted retry allowance, **or** create an unbounded loop.
-    
+
     the handoff is a result between distinct Runs, **not** a Step route between different Workflows.
 - `CA-R-1525@24`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1525@24`
@@ -13843,7 +13812,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - Method establishes how those outcomes are achieved, including architecture, coding policies, engineering decisions, construction and authorship conventions.
     - Evaluation establishes correctness checks.
     - Delivery establishes Carrier contents, representation, **and** placement.
-    
+
     The methodology's own model and specification content are also within this specification domain; RMED is not limited to native Implementation. Subject and Content Role are independent: any RMED Role can govern a Domain, Engineering or global Graph Subject.
 - `CA-R-1552@22`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1552@22`
@@ -13857,11 +13826,11 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     AI Agent participation in Scripted Migrations.
   - Remaining Claim prose:
     an AI Agent that performs a Scripted Migration **must** satisfy **all** of these participation conditions:
-    
+
     - bind the migration **to** an exact governed Target Set;
     - fail **when** an expected target is absent;
     - produce a reviewable change set.
-    
+
     these conditions constrain the AI Agent's participation; they do **not** define the migration's Steps **or** Workflow control flow **or** grant additional mutation authority.
 - `CA-R-1555@23`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1555@23`
@@ -13869,12 +13838,12 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     identified AI Agents considering clarification omission under applicable configured confidence requirements.
   - Remaining Claim prose:
     an identified AI Agent **may** omit clarification **only** **when** confidence **in** **every** following item meets its applicable configured requirement:
-    
+
     - intent;
     - scope;
     - route;
     - entry criteria.
-    
+
     confidence **must not** create delegated authority **or** bypass per-action Operator approval **when** active authority requires it.
 - `CA-R-1556@26`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1556@26`
@@ -13882,7 +13851,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     AI Agent creation of Spec Atoms and optional Analysis Reports before specification.
   - Remaining Claim prose:
     an identified AI Agent **may** create Spec Atoms directly from sufficiently clear Operator input **when** active Operator authority permits the required actions.
-    
+
     an Analysis Report **may** precede **and** inform Spec **when** investigation **or** synthesis is useful. it is **not** a mandatory Carrier **or** gate for **every** Spec Claim.
 - `CA-R-1557@21`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1557@21`
@@ -13896,7 +13865,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     exploratory Operator input and its promotion from Exploration Mode.
   - Remaining Claim prose:
     an AI Agent **must** handle exploratory Operator input **in** Exploration Mode under the following participation policy:
-    
+
     - Exploration Mode permits brainstorming, discussion, research, analysis, comparison, terminology work, **and** structural modeling **without** creating **or** changing governed Artifacts.
     - input is exploratory **when** it primarily asks for information, explanation, comparison, critique, alternatives, **or** a recommendation, **or** introduces an idea, explores it, **or** asks for feedback on it.
     - an explicit Operator request **to** create **or** change governed state takes precedence over question-shaped wording.
@@ -13908,7 +13877,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     changes to governing RMED Atoms during implementation.
   - Remaining Claim prose:
     authorization **to** change a governing RMED Atom during implementation **must** satisfy the following Actor policy:
-    
+
     - resolve the Atom's effective Author **before** the proposed change, its governing permissions, the effective Plan Autonomous Confidence Threshold under CA-R-1591, **and** **all** additional Operator rules.
     - obtain Operator approval **before** changing an Operator-authored Atom.
     - request Operator disposition **before** changing an AI-authored Atom **when** confidence is below the threshold **or** an additional rule requires approval.
@@ -13984,11 +13953,11 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Reverse-engineering results, including observed Implementation facts and proposed decisions about the intended refactored result.
   - Remaining Claim prose:
     reverse-engineering results **must** distinguish observed Implementation facts from proposed decisions about the intended refactored result.
-    
+
     - behavior **or** constraints proposed for preservation **must** be identified as proposed decisions.
     - behavior **or** constraints proposed for change **must** be identified as proposed decisions.
     - unresolved behavior, missing evidence, **and** uncertain interpretations **must** remain explicit.
-    
+
     an observed behavior **or** defect **must not** become a Requirement merely because it exists **in** the legacy Implementation. supporting evidence **must** remain recoverable **without** a proposed disposition **or** uncertainty being presented as an observed fact.
 - `CA-R-1627@31`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1627@31`
@@ -13996,23 +13965,23 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     secret values and their use across CAPRMEDIO surfaces.
   - Remaining Claim prose:
     secret values **must** remain **in** the permitted secret storage defined by CA-D-452. secrets include passwords, API keys, access **or** refresh tokens, session cookies, private keys, signing **or** encryption keys, authentication certificates, one-time **or** recovery codes, **and** connection strings **or** URLs containing credentials.
-    
+
     ### authorized use
-    
+
     - Tools **may** receive secrets from that storage, including through host injection, **and** use them for Operator-authorized authentication.
     - credential use **must** remain within the authorized transport **and** resource boundary. permission **to** authenticate does **not** authorize disclosure elsewhere.
-    
+
     ### excluded surfaces
-    
+
     - secret values **must not** appear **in** Atoms, Project Settings, Framework Instance Settings, generated Artifacts, runtime traces, logs, prompts, checkpoints, Evaluation inputs **and** results, Test fixtures **and** snapshots, evidence, support bundles, issues, pull requests, commits, **or** release records.
     - secret values **must** be redacted **before** data enters those surfaces. encoding **or** encrypting a secret does **not** permit its inclusion outside the permitted secret storage.
-    
+
     ### personal identifiers
-    
+
     email addresses, usernames, **and** account identifiers are identifiers rather than authenticators. they **may** appear **in** CAPRMEDIO **when** necessary **and** authorized, but **must** be minimized **and** treated as potentially personal data. CAPRMEDIO does **not** become the runtime owner merely because a human-readable Artifact names it.
-    
+
     ### exposure response
-    
+
     **if** a secret reaches an unauthorized durable **or** shared surface, stop propagation, revoke **or** rotate it immediately, **then** clean affected Carriers **and** record the incident **without** reproducing the value. deleting a current file is **not** sufficient remediation for a value already present **in** durable history **or** another replica.
 - `CA-R-1628@41`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1628@41`
@@ -14032,9 +14001,9 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     production-relevant components and governed scopes.
   - Remaining Claim prose:
     **every** production-relevant component **or** governed scope **must** define a Production Evaluation Checklist **before** it can pass a production-readiness gate. the checklist states how operators will know that the realized system remains healthy, correct, supportable, **and** within its accepted operating boundaries during real work.
-    
+
     **every** operational condition **or** invariant is owned by one `evaluation_control` Atom. the control identifies:
-    
+
     - the Requirement, Demand For, Constraint, Method, **or** other governed claim being assured;
     - the production signal **and** authoritative data source;
     - the healthy condition, expected range, threshold, **or** failure predicate;
@@ -14045,16 +14014,16 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     - the diagnostic context required **to** investigate the condition;
     - the required factual execution record **and** evidence-retention boundary; **and**
     - known blind spots, sampling limits, unavailable signals, **and** other evaluation limitations.
-    
+
     a Production Evaluation Checklist is a Catalog Projection over the applicable `evaluation_control` Atoms. it organizes **and** navigates those controls **without** absorbing, paraphrasing, **or** replacing their Claims. the Catalog Projection does **not** acquire the Content Role of its source Atoms.
-    
+
     **every** control distinguishes its governed meaning from its realization **and** results:
-    
+
     - the Evaluation Control defines the production evaluation condition;
     - monitors, dashboards, alerts, health checks, **and** operational automation are Implementation;
     - recorded metrics, logs, traces, alerts, incidents, **and** check outcomes are factual execution records, **not** reusable Operations definitions; **and**
     - a Concern Atom of Type `problem` records a material discrepancy requiring disposition.
-    
+
     a Production Evaluation Checklist presents the applicable controls for real production operation **without** becoming their authority. it is **not** a QA Case, **and** passing pre-release Test **or** Evaluation implementations does **not** by itself satisfy the production-evaluation obligation.
   - Details (source-bound):
     pre-release QA demonstrates behavior under bounded conditions, while production evaluation **must** detect degradation, incorrect state, **and** supportability failures during actual operation. atomic controls preserve independent lifecycle **and** replacement, while the checklist provides a navigable scope view **without** conflating definitions, implementations, **and** observations.
@@ -14082,7 +14051,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Governance Origin for the self-hosted caprmedio Project and its distributed CAPRMEDIO sources.
   - Remaining Claim prose:
     Governance Origin for the self-hosted caprmedio Project **and** its distributed CAPRMEDIO sources follows the ownership distinction **in** CA-R-1709@38-CORE_META_MODEL-DEFINITION--define-two-governance-origins:
-    
+
     - within the caprmedio Project, its Project-owned Methodology authority, framework authority, **and** other Project-owned Artifacts have internal Governance Origin.
     - a distributed CAPRMEDIO framework source has external Governance Origin relative **to** a consuming Project. that Project's own adaptation authority has internal Governance Origin; creating it does **not** transfer ownership of the external source **or** change that source's origin.
     - graph Relations, version-control authorship, filesystem ownership, **and** byte identity do **not** replace the governing ownership distinction.
@@ -14092,7 +14061,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     governed proof records, their applicable inputs, and all selected Workflows, release policies, and version-control mechanisms.
   - Remaining Claim prose:
     **every** governed proof record **must** bind its observation **to** the exact applicable inputs under which it was produced.
-    
+
     - the binding includes the relevant Artifact **and** Implementation Revisions, configuration, evaluators, environments, **and** material inputs; CA-D-329 governs its representation.
     - reliance on that observation for a current candidate requires a matching input binding **and** satisfaction of its additional governing invalidation conditions.
     - a changed material input makes the affected proof stale for that candidate **until** the required checks run against the changed inputs. a missing **or** unresolved binding is unknown, **not** current.
@@ -14122,12 +14091,12 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Artifact classifications resolved from Applicable Methodology and Project Configuration with structural context from authoritative Project Structure.
   - Remaining Claim prose:
     CAPRMEDIO **must** resolve **every** Artifact's applicable classification from Applicable Methodology **and** Project Configuration, with structural context from authoritative Project Structure:
-    
+
     - resolve Artifact Type under the applicable Type authority.
     - resolve Content Role **only** for an Atom; do **not** require a Journal **or** Projection **to** have an Atom Content Role.
     - resolve a semantic route **only** **where** the applicable authority defines that classification.
     - classify an unknown, disabled, stale, multiply mapped, **or** ambiguous value as an unresolved **or** failed classification, **not** as an accepted one.
-    
+
     a derived Scope Unit Graph **must not** replace Project Structure as structural authority. reporting a classification failure does **not** itself impose a universal mutation **or** execution prohibition; the applicable Authority Mode **and** admission rules govern that consequence.
 - `CA-R-1658@32`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1658@32`
@@ -14195,9 +14164,9 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     provenance and Evidence for governed claims and Implementations.
   - Remaining Claim prose:
     provenance establishes the origin, carrier identity, revision, sequence, **and** transformation history of a governed claim **or** Implementation. it does **not** by itself establish that the claim is correct, accepted, current, applicable, **or** sufficiently assured.
-    
+
     complete governed provenance remains owned under CA-R-1720. a storage-history record, Author identity, session identifier, signature, hash, **or** intact Carrier proves **only** the bounded historical fact it records. **none** of those facts becomes evidence for the carrier's semantic claim **without** a separate, explicit claim-bound Evidence relation.
-    
+
     Evidence used for reliance **must** identify the claim it supports, the relevant carrier **or** Journal Record, the producing **or** interpreting work **or** Method **when** material, **and** the applicable scope **and** time boundary. Verification remains a separate Evaluation conclusion. a claim, its carrier, **and** the work that created it **must not** silently evidence themselves.
 - `CA-R-1690@33`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1690@33`
@@ -14205,12 +14174,12 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     identified external obligations.
   - Remaining Claim prose:
     an Operator-accepted DDL, file schema, API, protocol, host format, supported-platform interface, CI interface, dependency boundary, **or** comparable external obligation is represented by its primary semantic contribution **and** external Governance Origin.
-    
+
     - Content Role follows the Claim's primary contribution under CA-R-1531@20, independently of Governance Origin under CA-R-1701. an external origin does **not** by itself assign Requirement **or** **any** other Content Role.
     - an obligation imposed by an identified external source retains external Governance Origin **and** pins the applicable source version **or** digest. its graph connections use typed Relations whose Carrier encoding is governed by CA-D-268; these Relations do **not** create another Governance Origin.
     - Implementation **must** conform **to** the exact accepted obligation Revision it consumes **and** **must not** rewrite that obligation. a changed external source creates a new accepted Revision **when** the same obligation remains identifiable. a different obligation requires a new Atom **and** explicit predecessor **and** successor Atom IDs **in** the predecessor's archival Journal event, **not** a formal replacement Relation.
     - existing Implementations remain bound **to** their consumed Revisions **until** lineage-impact review determines their disposition.
-    
+
     Requirement authority defines the external boundary **and** admitted Type values. Delivery authority governs Carrier names, identities, **and** Catalog representations. this separation does **not** reclassify those Carrier specifications as Requirements because their source is external.
 - `CA-R-1692@38`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-1692@38`
@@ -14218,7 +14187,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     target Versions and their selected authorized release events.
   - Remaining Claim prose:
     a target Version **must** remain mutable **until** its selected authorized release event succeeds **and** the shared Journal records that outcome for the exact released candidate.
-    
+
     - the release record is a factual Journal Record under CA-R-1712, **not** an Operations Atom.
     - its exact manifest binds the released governing Atom Revisions, Implementation **and** Delivery Revisions, applicable Evaluations **and** evidence, **and** release identifier.
     - the selected release policy defines the event boundary. applicable Delivery authority defines the manifest **and** Journal representation; a selected Extension owns mechanism-specific references.
@@ -14231,13 +14200,13 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     structural Scope Units that realize RMED Atoms.
   - Remaining Claim prose:
     **every** structural Scope Unit that realizes RMED Atoms **must** record its Implementation Bindings **in** the shared Project Work Journal. its admitted Records establish, replace, correct, **or** remove Implementation Bindings **and** bind exact Requirement, Method, Evaluation, **and** Delivery Atom Revisions **to** the native implementation targets that declare their realization.
-    
+
     the Journal is canonical for the declared implementation relationship. native source, configuration, executable evaluation mechanisms, packages, **and** delivery automation remain canonical for the operative realization itself. Operations evidence **and** Verification remain the authorities for what occurred **and** whether the realization is sufficiently assured. recording an implementation relationship never proves correctness **or** successful operation.
-    
+
     an Implementation Binding **must** survive transformations **or** migration of secondary storage history. the binding therefore identifies **every** source Atom by stable artifact identity plus revision digest **and** **every** native implementation target by a stable locator plus content digest. secondary storage records, review records, Authors, sessions, **and** signatures remain useful provenance but are **not** the sole semantic identity of the binding.
-    
+
     corrections, replacements, target removal, **and** changed implementation coverage append new records; accepted Journal records are never edited, reordered, **or** deleted. the effective implementation frontier is derived from the complete ordered record sequence.
-    
+
     Implementation-role Projections are regenerated from the Journal **and** its declared current source **and** target frontier. they **may** present implementation coverage, mappings, missing realization, **and** potentially stale bindings, but they remain rebuildable **and** non-authoritative over the Journal, normative Atoms, native implementation, **or** evaluation conclusions.
   - Details (source-bound):
     **every** implementing Scope Unit **must** preserve storage-independent traceability from exact normative Atom Revisions **to** native implementation targets **in** the shared Project Work Journal **and** derive Implementation Projections from that Journal.
@@ -14267,9 +14236,9 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Implementation Overview Projections.
   - Remaining Claim prose:
     an Implementation Overview is a non-authoritative Projection of what the current normative Atom frontier, native project targets, available provenance, **and** **any** registered implementation lineage sources show as implemented. its Implementation Bindings derive from the shared Project Journal under CA-R-1695; the current view does **not** replace the historical implementation event records retained **in** that Journal. the Atom Content Role axis does **not** apply **to** this Projection.
-    
+
     it **may** report realization coverage, source-to-target bindings, relevant commits, **and** unresolved implementation gaps. it is regenerated mechanically **or** rebuilt through governed reasoning from its declared source frontier. it is never an Atom **and** cannot replace the Journal, normative Atoms, native implementation, Operations evidence, **or** Verification.
-    
+
     the presence of this Projection does **not** require an internal Implementation Atom. storage, retention, **and** whether the Projection is committed **or** generated at runtime remain governed separately.
   - Details (source-bound):
     CAPRMEDIO represents the current view of project realization through an Implementation Overview Projection rather than an Implementation Atom.
@@ -14399,7 +14368,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     production-relevant components **and** their Logging Policies.
   - Remaining Claim prose:
     **every** production-relevant component **must** define a Logging Policy. that policy:
-    
+
     - governs required log coverage, structure, severity, safety, **and** retention **before** failures occur;
     - supports its Evaluation Controls;
     - is referenced by the Catalog Projection over its applicable Evaluation Control Atoms; **and**
@@ -14412,7 +14381,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Logging Policies for production-relevant components.
   - Remaining Claim prose:
     a Logging Policy **must** use these four operational levels:
-    
+
     | Level | Required meaning |
     |---|---|
     | `ERROR` | an operation failed, correctness **or** availability **may** be affected, **or** explicit retry **or** intervention is required |
@@ -14483,7 +14452,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     an executor dispatching **or** resuming an Agentic Step.
   - Remaining Claim prose:
     the executor **must** provide a self-contained Invocation sufficient for the receiving context **to** perform the admitted Action **without** remembering the Workflow procedure from earlier conversation.
-    
+
     - identify the Workflow Run **and** Step Run, exact admitted definition bindings, bound inputs **or** accessible references, relevant prior results **and** actual effects, applicable permissions, **and** required output.
     - provide the instruction derived from the Action **and** its Step binding, including how **to** return the result **or** request missing input. the instruction is a derived presentation of governing authority, **not** another independently maintained procedure.
     - an Integrated Invocation returns this context **and** instruction through the session interface; an Isolated Invocation supplies it **to** the separate context. no particular transport is required by this core rule.
@@ -14517,7 +14486,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Development Backlog candidates **after** a Release Record is accepted.
   - Remaining Claim prose:
     CAPRMEDIO **must** reconcile the Development Backlog against its exact released manifest as follows:
-    
+
     - remove a candidate whose promoted Atoms were fully delivered **in** that release.
     - **every** candidate that is unfinished, partially delivered, excluded, **or** newly deferred **must** remain unscheduled **or** move **to** another target version.
     - a candidate **must not** be removed as shipped **unless** the released manifest accounts for its promoted Atoms.
@@ -14575,7 +14544,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     An Entity used as a Subject-graph node must identify a thing or topic addressed by the graph; its description and Carrier remain separate.
   - Semantics:
     Subjects intentionally include actual things, descriptions and abstract topics. This mix does not make them one uniform kind of entity. A description can itself be a separate Subject; it is not the thing described.
-    
+
     Artifact is a Term for a Node instance delivered into one or more Carrier instances. Carrying a record of an occurrence does not carry the actual occurrence. Artifact does not name another Node kind or branch. A Carrier remains distinct from what it represents.
   - Details (source-bound):
     Graph Node categories are open. Continuant, Occurrent and Aspect are admitted category examples, not an exhaustive enumeration. A topic does not need to be forced into a temporal category.
@@ -14589,7 +14558,7 @@ Entity {0+}((HAS_PROPERTY)){1} Property
     Property is the proposed kind `Entity/Property`, grounded in bearer dependence through IS_PROPERTY_OF. Its lexical Term is separately defined at `Term//Property`. Classifying an occurrence in that kind does not invent a bearer edge or treat a missing edge as proof of independence. The Property occurrence has identity qualified by its immediate bearer; the Property definition supplies its value Format and direct-value cardinality. The bearer-Relation count is distinct from the number of values a Property allows.
   - Details (source-bound):
     This is a Current-pinned N+1 successor of CA-R-2003@13 at `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md`, SHA-256 `6a3eca859d913fb3800693219f3587bd35dc957f2509433e38606d2a1f8a730d`. It preserves the exactly-one immediate-bearer requirement and the existing declared-occurrence Selection criteria. The inherited Summary and source pin remain historical Current lineage; the proposed Selection-name mapping below is explicit and introduces no alias. The older @11 Draft is marked superseded preparation and is not overwritten or selected as the predecessor. No Current source is changed, no numeric identity is allocated, and no new Primary Entity branch is proposed.
-    
+
     This Draft records the governed Selection-name mapping from `Entity/Object/Continuant/Selection//Dependent Entity Occurrences` to `Entity/Object/Continuant/Selection//Property Occurrences`. The renamed Selection continues to select every source-declared Property occurrence independently of whether its IS_PROPERTY_OF connection exists. It includes missing-edge cases and neither infers dependence from edges nor creates a bearer connection. The old name remains only in this source-mapping evidence, not as an admitted alias. A named Selection names criteria under Current CA-R-1966@12; this mapping creates no new Object, independent member copies or identity rules. The immutable Atom Summary, filename and identity are unchanged. This is a proposed source mapping, not Current adoption.
 - `CA-R-2157@10`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-2157@10`
@@ -14603,9 +14572,9 @@ Entity {0+}((HAS_PROPERTY)){1} Property
 - Selected evidence outside model scope: `CA-R-2271@3`
   - Remaining Claim prose:
     Framework Settings may explicitly override the necessary-information and semantic-resolution confidence defaults as integer percentages. Their effective defaults remain Operator-configurable under CA-R-1652 and CA-R-380; absence of an explicit value preserves the governed default resolution.
-    
+
     Tool Selections groups the selected active/background capabilities and their per-capability settings. Extension Selections groups enabled or disabled installed Extensions, selected Versions where applicable, and retained per-Extension settings. These are structured groups with no direct scalar value; retaining settings does not enable a disabled Extension. Their internal declarations remain governed by applicable D authority, not a new generic schema.
-    
+
     ### Formal claim
   - Fenced Claim block:
 ```text
@@ -14624,11 +14593,11 @@ Project.Framework Settings.Extension Selections{0}
     ID **means** a unique identifier used **to** find **`=1`** entity instance, whether Continuant **or** Occurrent, whose uniqueness is bounded **to** its matching prefix namespace. This Claim explicitly introduces the lexical Term instance named ID at `Entity/Object/Continuant/Term//ID`.
   - Details (source-bound):
     The Operator supplied this meaning and accepted `CA-P-123`, `CA-P-123@1-draft`, and `CA-P-123@3` as examples. The examples do not define lifecycle identity, version equivalence, Draft/Current/Archived transitions, or a rule for changing an existing identifier. Existing identifier and lifecycle authority retains those responsibilities. Matching local or numeric parts under different prefixes do not by themselves establish a collision; a collision within the matching prefix namespace does not satisfy the meaning.
-    
+
     `ID` is reusable in the accepted distinct complete qualified property names `atom.id` and `projection.id`. Their shared terminal label need not be globally unique. Dot remains qualification syntax rather than a Term. The accepted complete names are not changed to `atom.atom_id` or similar invented spellings, and existing code identifiers are not renamed.
-    
+
     This Term Definition is the dedicated authoritative meaning owner of the lexical Term ID under CA-R-1319 and CA-R-2468. M describes authoring and E evaluates well-formedness and conflicts. No dictionary Projection, extractor, or lookup service is required.
-    
+
     The lexical target is introduced by this defining Claim under CA-R-1194@29, CA-R-1931@15, and CA-R-2002@15, using the Current Term kind from CA-R-1318@28. It is not asserted to preexist this definition or inferred from the letters in property names. The definition introduces no property, domain instance, prefix namespace, Relation, or other entity merely by naming it. It neither waives CA-R-1279 nor implements the deferred Terms Graph; C605's separate Term-placement reconciliation remains applicable.
 - `CA-R-2276@6`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-2276@6`
@@ -14638,23 +14607,23 @@ Project.Framework Settings.Extension Selections{0}
     **every** entity represented **in** the Subject Graph **and** **every** declared Relation Type entity **must** have **`=1`** complete canonical name formed from reusable Terms **and** any applicable registered qualification syntax **and** used exactly **in** **every** authored occurrence that mentions it. **every** such complete name **must** identify **`=1`** entity, distinct complete names **must not** identify the same entity, **and** the same complete name **must not** identify distinct entities. Outside `Term`, the complete canonical name **must** be the full admitted expression, **not** a single registered Term; the Subject root `Entity` is the sole exception.
   - Details (source-bound):
     The Operator first requested no synonyms, then distinguished entities from their reusable lexical Terms and confirmed that complete canonical names map one-to-one to entities. `Package` is reusable across the lexical forms `Package`, `Eval Package`, and `Runtime Package`; `Unit` is reusable across `Scope Unit` and `Code Unit`. These are lexical forms and components, not assertions of complete canonical entity names outside `Term`. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties and reuse the Term `ID`; they are not alternative complete canonical Subject names or case-folded aliases. This latest distinction replaces the earlier Term/entity bijection. Shared components and terminal labels do not collide when the complete qualified expressions differ.
-    
+
     The naming domain includes all graph entities, including property, allowed-value, and named-instance entities and entities lacking a complete canonical name. A missing name fails the exactly-one condition. There is no bearer, scope, value-domain, or context exception for a distinct complete qualified name. A Relation token inside `((...))` resolves through the current direct Relation registry to exactly one admitted Relation Type under the registered named-Relation notation. The token is not an assertion that its bare spelling is that entity's complete canonical name; complete-entity-name comparison uses the full qualified expression. Writing a token does not admit an undefined Relation Type.
-    
+
     `Package <+ Module <+ Code Unit` connects three entities. Its labels are not assertions of the complete canonical names of entities outside `Term`; an authored reference to one specific entity uses that entity's full qualified expression admitted by its defining authority. The complete chain is not one Term or one entity name. Component reuse does not introduce a second entity named by each component or a separate `Unit` node.
-    
+
     Qualification belongs to the full admitted expression used for entity-name collision checks. The contextual spellings `atom.id` and `projection.id` remain unchanged; they are not renamed to `atom.atom_id` or other invented spellings. The dot remains an operator. `Atom/(.Content Role: X)/(.Type: X)` is a possible qualified expression: it reuses the registered Term `X` in separately qualified value contexts, and governing authority must admit `X` separately in each context. This does not make `X` the complete canonical name of an entity outside `Term` or transfer admission between contexts. Likewise, identical local instance labels under distinct source-established kind qualification do not imply identical complete names. An arbitrary composite expression is not automatically one entity name or one Term. This rule does not register grammar: operators, reference markers, cardinality, and relation notation retain the meanings adopted under CA-R-1931 and CA-R-2487.
-    
+
     Canonical identity is established by governing authority rather than spelling, path position, context, or display placement. Repeated references use the same complete canonical name and do not create duplicate entities. Literal source quotations and code identifiers are distinguishable from authored entity mentions and are not automatically renamed. Arbitrary instance names and IDs outside this modeled-entity naming role do not automatically become lexical definitions.
-    
+
     The dedicated Term Definition Method Atom owns a Governed Term's approved meaning. No dictionary Projection, extractor, lookup service, synthetic entity inference, or Terms Graph implementation is required. The accepted ID examples add no lifecycle identity semantics.
 - `CA-R-2278@2`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-2278@2`
   - Remaining Claim prose:
     Each logical model Entity has exactly one canonical defining Requirement of Type Entity Definition. Its governed Subject identifies the defined entity. Relation Definition qualifies through the accepted specialized template without a subtype hierarchy. Additional scoped Requirements may constrain an Entity but are not additional Entity Definitions. This applies to Objects, Aspects, Graph Syntax, Carriers and their dependent properties; a Scope Unit does not change the Entity's identity or defining meaning.
-    
+
     A missing canonical Definition or multiple qualifying Definitions fails this requirement. Derived IS_DEFINED_BY identifies that one Definition. Do not create new entities for every characteristic or nuance merely to multiply Atoms; preserve one coherent Claim and report weak fits of the dedicated-Definition trial. Equivalent property headings denote one logical Entity.
-    
+
     For / specialization, the narrower Definition inherits the broader Definition and states only its differences. For // instantiation, the instance follows its kind Definition and states only instance-specific facts. Reuse the applicable base structure, properties and constraints instead of copying them. Containment > adds no inheritance. A Method Atom is an Atom with Content Role Method, not a repeated definition of Atom.
   - Details (source-bound):
     The Operator confirmed all 133 shared/formal starting cases and later clarified that Aspects also retain one canonical Definition. Scoped additional Rs remain allowed. The exact-one invariant concerns definitions of model entities, not one new R for every runtime instance. Derived counterpart templates reference the main direction briefly instead of copying its full meaning.
@@ -14666,11 +14635,49 @@ Project.Framework Settings.Extension Selections{0}
 - Selected evidence outside model scope: `CA-R-2452@4`
   - Remaining Claim prose:
     The caprmedio Project **must** create **and** evolve a working CAPRMEDIO Framework. Given enough resources, that Framework **must** let **any** Operator use AI Agents **to** do **all** of the following for **any** feasible Project:
-    
+
     - create the Project;
     - deliver the Project;
     - run the Project; **and**
     - maintain the Project.
+- `CA-R-2483@6`: Selected source is outside the declared model scope.
+- Selected evidence outside model scope: `CA-R-2483@6`
+  - Remaining Claim prose:
+    CAPRMEDIO's PROJECT STRUCTURE has:
+
+    - Scope Structure.
+    - Aspect instances, including Product.
+    - Other declared components.
+    Its Scope Structure retains the proposed ordered Units:
+
+    1. META_MODEL.
+    2. ENGINE.
+    3. CORE EXTENSIONS.
+    4. DOCUMENTATION.
+
+    Its Core Meta-Model Unit contains the Atoms defining MODEL//CAPRMEDIO, including the Declarations for MODEL and PROJECT STRUCTURE. The MODEL and its defining Scope Unit have separate identities.
+
+    Each constrained Unit's formal Scope is declared outside that Unit. It states permitted active and passive Subjects, Relations, endpoints and cardinalities.
+
+    CAPRMEDIO's PROJECT STRUCTURE records ENGINE's base formal Scope:
+
+    - Implementation RMED uses ENGINE's declared implementation Subjects.
+    - Instance creation follows that Scope's permissions.
+    - ENGINE references metamodel Declarations only through passive Subjects.
+    - Active metamodel definitions use the declared model-defining Scope.
+    - A local MODEL changes ENGINE's Scope only through an explicit Scope-contract replacement.
+
+    Declared Unit order governs this Scope Structure.
+  - Fenced Claim block:
+```CFEL
+Aspects <+ Product
+```
+  - Allowed Relations and other formal clauses:
+    - `Aspects` — <+ → `Product`; Host=undefined; Target=undefined; written direction=forward
+  - Details (source-bound):
+    The two root kinds are MODEL and PROJECT STRUCTURE. Their CAPRMEDIO instance roots are MODEL//CAPRMEDIO and PROJECT STRUCTURE//CAPRMEDIO. A consumer Project has its own PROJECT STRUCTURE instance root and may have a local MODEL instance root.
+
+    This Draft does not move directories. Exact instance registration and mapping from existing Scope Units remain adoption work. The earlier PROJECT//CAPRMEDIO Framework wrapper is superseded by the separate typed roots. CAPRMEDIO's actual Unit names are not universal values.
 - `CA-R-380@44`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-380@44`
   - Claim Scope:
@@ -14721,7 +14728,7 @@ Project.Framework Settings.Extension Selections{0}
 - Selected evidence outside model scope: `CA-R-832@35`
   - Remaining Claim prose:
     the CAPRMEDIO Framework Instance **must** provide configuration capabilities **to** select, combine, parameterize, **or** disable available optional canonical **and** Extension capabilities **only** within declared configuration boundaries **and** **without** redefining governed meanings.
-    
+
     current Extension activation **and** selected Extension revisions use their authoritative Framework Instance Settings under CA-R-1207; this capability does **not** make Project Configuration Atoms a second owner of those selections.
 - `CA-R-833@29`: Selected source is outside the declared model scope.
 - Selected evidence outside model scope: `CA-R-833@29`

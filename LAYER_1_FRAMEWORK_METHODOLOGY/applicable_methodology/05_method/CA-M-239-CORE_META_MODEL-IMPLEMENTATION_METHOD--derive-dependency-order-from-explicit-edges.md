@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CFEL <+ Relation//depends_on
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//depends_on
   passive:
-  - CFEL <+ Relation//DEPENDS_ON
-  - CFEL <+ Relation
-  - Term//Artifact
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-dependency-order-from-explicit-edges.md
   source_atom_id: CA-M-239
   source_atom_revision: 25
-  source_sha256: 3f744d170b21b9aa589c91d235a8cb08ac1b336673f5ac140ee7d00127d515ba
+  source_sha256: 2f8ecb0b406dffcd04bfe3c3503abad28c9f3729a67611b206119bacfc50d413
   original_relations_sha256: 85c1b9412646ac53fdf3c60e22c880cb205339611c160bb327d3f477942c6f6e
 ---
 ## Summary

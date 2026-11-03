@@ -3,9 +3,9 @@ version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
 subjects:
-  active: Aspects <+ Engineering <+ Verification
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
   passive:
-  - Project
+  - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: permission
 llm_session_ids:

@@ -1,17 +1,17 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom.Status: Active'
-  - Entity/Object/Continuant/Actor/Operator
-  - Atom/(.Role := Method)
-  - Term
-  - Term//Property
-  - CFEL <+ Relation//IS_PROPERTY_OF
-  - CFEL<+Operator//AllowedValue
-  - Aspects <+ Engineering <+ Data Handling <+ Data Validation
-  - Atom.Content
-  - Scope Unit.Name
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Status: Active'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
 version: 45
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -36,7 +36,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md
   source_atom_id: CA-E-383
   source_atom_revision: 45
-  source_sha256: fbcd43e5c50874e048a44b97114a33038a1c4b92938f3c91a5f6b841ee4416d1
+  source_sha256: 9de9277383e23a0fa59dd1f2226fafb50dc1ecde381868df8f762241875fb68c
   original_relations_sha256: e964838ad77fcc9f2c5e1f13c715d2971a5afa5c978ceda21f93cec4578ce090
 ---
 ## Summary

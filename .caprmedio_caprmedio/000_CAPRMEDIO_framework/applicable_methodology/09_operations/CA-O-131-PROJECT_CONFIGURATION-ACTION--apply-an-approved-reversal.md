@@ -28,7 +28,7 @@ relations:
   - CA-D-340
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-131-PROJECT_CONFIGURATION-ACTION--apply-an-approved-reversal.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-131-PROJECT_CONFIGURATION-ACTION--apply-an-approved-reversal.md
   source_atom_id: CA-O-131
   source_atom_revision: 17
   source_sha256: 9a7ce104a802c7e7a721d51ba5b969cf39bb86f5c93d0d4b88b1461dd66933b5

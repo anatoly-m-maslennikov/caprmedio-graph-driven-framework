@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   passive:
-  - Scope Unit//INSTALLED_EXTENSIONS
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//INSTALLED_EXTENSIONS
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1206-CORE_META_MODEL-RULE--separate-extension-installation-from-activation.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1206-CORE_META_MODEL-RULE--separate-extension-installation-from-activation.md
   source_atom_id: CA-R-1206
   source_atom_revision: 28
-  source_sha256: 627bbe6e2e948e06b005e4b4a047cfb6d85b7ca73f3a331c263a6200123bb825
+  source_sha256: 0fce4dbf4e5195ef371b983e3bc572cda63697f758604b6b1bb39e78bb2c138a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

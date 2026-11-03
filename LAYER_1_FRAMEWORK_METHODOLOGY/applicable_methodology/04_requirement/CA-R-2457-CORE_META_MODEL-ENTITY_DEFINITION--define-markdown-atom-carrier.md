@@ -7,12 +7,12 @@ tier: 1
 version: 3
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: Carrier/File/Markdown/Markdown Atom Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File/Markdown/Markdown Atom Carrier
   passive:
-  - Carrier/File/Markdown
-  - Atom
-  - Carrier/File.YAML Frontmatter
-  - Carrier/File.Main Content
+  - CAPRMEDIO <+ MODEL <+ Carrier/File/Markdown
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.YAML Frontmatter
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
 relations: {}
 role: Requirement
 form: Entity Definition
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2457-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-atom-carrier.md
   source_atom_id: CA-R-2457
   source_atom_revision: 3
-  source_sha256: 9f4448f56e9e17c3233f54246717aac25937f0c4c7d019f57997c15d9e3030d4
+  source_sha256: 0a36ec7621ec2d6ff15b7c85aa21b4aa1271a16f5b665dd3df3620d5d1734942
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

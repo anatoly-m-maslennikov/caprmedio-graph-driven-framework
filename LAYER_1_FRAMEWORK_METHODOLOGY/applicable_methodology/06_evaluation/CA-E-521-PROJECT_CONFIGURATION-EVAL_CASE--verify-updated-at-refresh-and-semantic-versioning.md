@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Atom.Updated At
+  active: CAPRMEDIO <+ MODEL <+ Atom.Updated At
   passive:
-  - Atom/(.Role := Evaluation)
-  - Atom
-  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - Carrier
-  - Atom.Status
-  - Atom.Content.Summary
-  - Atom.ID
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Entity
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -29,7 +29,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-521-PROJECT_CONFIGURATION-EVAL_CASE--verify-updated-at-refresh-and-semantic-versioning.md
   source_atom_id: CA-E-521
   source_atom_revision: 22
-  source_sha256: e7a0428876f74b34fac644f8799ac651fd4ec5745869268a825668d883b296a9
+  source_sha256: c497bcc424bf451aab271e9d121200081e63076d5938d6b8fa3e179c267ee642
   original_relations_sha256: c623ba9a228b435f122f3a3bbfe731c3c55aa738665beb67f9045b3edfca684f
 ---
 ## Summary

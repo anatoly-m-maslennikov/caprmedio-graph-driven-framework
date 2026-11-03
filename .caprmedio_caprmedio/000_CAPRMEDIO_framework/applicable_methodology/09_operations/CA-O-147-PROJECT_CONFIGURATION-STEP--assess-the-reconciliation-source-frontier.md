@@ -20,7 +20,7 @@ updated_at: 2026-10-27 19:59:47 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-010-PROJECT_CONFIGURATION-WORKFLOW--reconcile-sources/CA-O-147-PROJECT_CONFIGURATION-STEP--assess-the-reconciliation-source-frontier.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-010-PROJECT_CONFIGURATION-WORKFLOW--reconcile-sources/CA-O-147-PROJECT_CONFIGURATION-STEP--assess-the-reconciliation-source-frontier.md
   source_atom_id: CA-O-147
   source_atom_revision: 14
   source_sha256: c76813234e5835c62295e1e166378aa449438c3b75643080fc3eadf7e387a466

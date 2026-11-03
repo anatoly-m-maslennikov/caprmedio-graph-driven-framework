@@ -1,20 +1,20 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
   passive:
-  - Entity
-  - Atom.Content
-  - Atom.Subjects
-  - Atom
-  - CFEL <+ Relation
-  - CFEL <+ Relation//IS_PROPERTY_OF
-  - CFEL <+ Relation//HAS_PROPERTY
-  - CFEL<+Operator//AllowedValue
-  - Projection
-  - Term
-  - Scope Unit
-  - Journal
-  - Carrier
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_PROPERTY
+  - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 39
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

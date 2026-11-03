@@ -3,7 +3,7 @@ atom_id: CA-C-619
 current_scope_unit: caprmedio
 status: Resolved
 subjects:
-  active: Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
 version: 3
 relations: {}
 tier: 3

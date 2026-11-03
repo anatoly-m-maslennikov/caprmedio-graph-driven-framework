@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom.Content.Semantics
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content.Semantics
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

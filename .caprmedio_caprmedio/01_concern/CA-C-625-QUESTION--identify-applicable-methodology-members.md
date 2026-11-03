@@ -3,7 +3,7 @@ atom_id: CA-C-625
 current_scope_unit: caprmedio
 status: Resolved
 subjects:
-  active: Projection/(.Form := Applicable Methodology)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Applicable Methodology)
 version: 3
 relations: {}
 tier: 3

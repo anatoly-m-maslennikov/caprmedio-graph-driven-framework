@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom.Content.Summary
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
   passive:
-  - Atom.Content
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1274-CORE_META_MODEL-RULE--prohibit-authority-derivation-from-summary.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1274-CORE_META_MODEL-RULE--prohibit-authority-derivation-from-summary.md
   source_atom_id: CA-R-1274
   source_atom_revision: 29
-  source_sha256: 2bcca5b13b5a060f285f7ec4661f0b4a081136ee6d7349cd72b38bb9a5d2988b
+  source_sha256: 29ece7075d54647a0249ff4a2deeb8f2ab7167170f7f7e798a5f2de67fd76397
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

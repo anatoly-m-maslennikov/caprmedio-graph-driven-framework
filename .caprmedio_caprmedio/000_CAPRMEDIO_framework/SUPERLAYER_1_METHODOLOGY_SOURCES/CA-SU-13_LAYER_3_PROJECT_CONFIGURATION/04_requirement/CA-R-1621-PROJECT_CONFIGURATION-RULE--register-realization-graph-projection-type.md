@@ -4,12 +4,12 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Projection/(.Form:=Realization Graph)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Realization Graph)
   passive:
-  - Projection/(.Form:=Realization Graph)
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Projection
-  - Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Realization Graph)
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
 version: 19
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

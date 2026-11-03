@@ -4,10 +4,10 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom/(.Role := Operations)/Step
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Step
   passive:
-  - Atom/(.Role := Operations)/Action
-  - Atom/(.Role := Operations)/Workflow
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Workflow
 version: 2
 relations: {}
 tier: 3

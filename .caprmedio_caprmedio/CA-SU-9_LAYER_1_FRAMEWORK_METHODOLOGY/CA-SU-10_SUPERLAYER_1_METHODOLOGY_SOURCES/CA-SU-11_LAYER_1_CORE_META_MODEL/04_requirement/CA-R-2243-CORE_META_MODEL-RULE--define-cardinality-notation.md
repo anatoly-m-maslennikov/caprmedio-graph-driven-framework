@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL <+ Cardinality
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Cardinality
   passive:
-  - CFEL
+  - CAPRMEDIO_MODEL <+ CFEL
 version: 11
 relations: {}
 tier: 1

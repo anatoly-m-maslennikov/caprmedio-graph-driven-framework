@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CFEL <+ Relation//NARROWER_THAN
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//NARROWER_THAN
   passive:
-  - 'Entity/Object/Continuant/Projection/Type: Terms Graph'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Terms Graph'
 version: 29
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

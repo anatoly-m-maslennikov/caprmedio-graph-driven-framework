@@ -2,15 +2,15 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Project
-  - Entity/Object/Continuant/Term//Artifact
-  - Atom
-  - Journal
-  - Projection
-  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
-  - Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Projection
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 llm_session_ids:

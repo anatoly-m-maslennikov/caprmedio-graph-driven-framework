@@ -1,19 +1,19 @@
 ---
 subjects:
-  active: Atom.ID
+  active: CAPRMEDIO_MODEL <+ Atom.ID
   passive:
-  - Atom.ID
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Atom
-  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - Carrier.Canonical Address
-  - Project
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Actor/AI Agent
-  - Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - Journal
+  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO_MODEL <+ Carrier.Canonical Address
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO_MODEL <+ Journal
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

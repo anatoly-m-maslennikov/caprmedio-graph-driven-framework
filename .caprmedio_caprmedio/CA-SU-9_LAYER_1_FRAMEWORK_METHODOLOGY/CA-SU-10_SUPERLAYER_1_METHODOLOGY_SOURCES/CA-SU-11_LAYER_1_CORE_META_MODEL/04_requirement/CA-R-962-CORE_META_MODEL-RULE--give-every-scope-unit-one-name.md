@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Scope Unit.Name
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Name
   passive:
-  - Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

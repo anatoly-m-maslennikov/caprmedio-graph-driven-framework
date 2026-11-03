@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom/(.Role := Evaluation)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
   passive:
-  - Atom.Content
-  - Aspects <+ Engineering <+ Verification
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Verification
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1503-CORE_META_MODEL-RULE--keep-evaluation-atoms-mechanism-neutral.md
   source_atom_id: CA-R-1503
   source_atom_revision: 23
-  source_sha256: 423779709d2c043c8ab59cf5cb650bc9f1abcb06b56c058772111bf8f96370ee
+  source_sha256: b1c3d6c7887d4231503037a64a1a4bf26bf1169804ec042d9d5a33caa419a0ff
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

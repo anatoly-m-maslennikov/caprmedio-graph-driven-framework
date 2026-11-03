@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Traceability
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 34
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1687-CORE_META_MODEL-RULE--requirement-keep-provenance-separate-from-evidence.md
   source_atom_id: CA-R-1687
   source_atom_revision: 34
-  source_sha256: 09c2f9f1005192b3d431c0684dd58cf378473dc3167af5564849f0a6506e901e
+  source_sha256: e3b5d0c36e819d48fd4be98700214e4ceb071a5a6225d773bc9a76209ffeb61e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

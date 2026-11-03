@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 subjects:
-  active: CFEL <+ Relation//required_by
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//required_by
 relations: {}
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400

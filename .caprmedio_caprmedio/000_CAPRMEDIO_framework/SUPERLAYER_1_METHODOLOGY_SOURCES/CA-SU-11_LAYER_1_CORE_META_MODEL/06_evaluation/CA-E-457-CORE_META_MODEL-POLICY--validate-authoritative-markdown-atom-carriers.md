@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier/File
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File
   passive:
-  - Atom
-  - Carrier/File
-  - Project
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Project
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
   passive:
-  - Atom.Content
-  - Scope Unit
-  - Atom.Content.Claim Scope
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Content.Claim Scope
 version: 44
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

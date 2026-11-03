@@ -2,13 +2,12 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
   passive:
-  - Project
-  - Scope Unit
-  - Atom
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type:
-    Goal'
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

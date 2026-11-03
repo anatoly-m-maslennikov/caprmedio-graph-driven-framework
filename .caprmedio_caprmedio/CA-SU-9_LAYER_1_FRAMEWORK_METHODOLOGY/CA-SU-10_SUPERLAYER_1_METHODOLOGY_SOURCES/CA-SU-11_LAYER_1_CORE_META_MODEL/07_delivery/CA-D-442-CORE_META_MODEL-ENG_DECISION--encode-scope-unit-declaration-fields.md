@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Carrier
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 26
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}

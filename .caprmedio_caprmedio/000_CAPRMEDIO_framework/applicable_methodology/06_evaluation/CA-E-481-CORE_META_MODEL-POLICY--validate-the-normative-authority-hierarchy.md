@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Selection
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - Project
-  - CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -19,10 +19,10 @@ tier: 2
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-481-CORE_META_MODEL-POLICY--validate-the-normative-authority-hierarchy.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-481-CORE_META_MODEL-POLICY--validate-the-normative-authority-hierarchy.md
   source_atom_id: CA-E-481
   source_atom_revision: 22
-  source_sha256: 8cc62852c19962825f51aecb4ca0fb38bcc001481ebfe2467910868cb7033676
+  source_sha256: 39c5a4b20aa926e6da42669fde2f29d4e18049c3bda0c0fbf0da751bd33e7b9d
   original_relations_sha256: be79cc6e03c2c93b1ca7941d6b2dc8bfbffc174d340a258e50efb1ec789ee673
 ---
 ## Summary

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CFEL <+ Relation//IS_PROPERTY_OF
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
   passive:
-  - CFEL <+ Relation
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Entity
 version: 23
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}

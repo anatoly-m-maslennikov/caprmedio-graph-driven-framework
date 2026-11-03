@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Entity/Object/Continuant/Selection
-  - Term//Artifact
-  - Atom
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Atom
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

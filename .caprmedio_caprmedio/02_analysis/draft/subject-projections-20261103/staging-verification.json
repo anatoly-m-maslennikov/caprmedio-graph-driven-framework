@@ -1,0 +1,31 @@
+{
+  "status": "STAGING_VERIFIED",
+  "verified_at": "2026-11-03T17:08:42+04:00",
+  "sources": 1132,
+  "declaration_sources": 176,
+  "unique_applicable_formal_blocks": 107,
+  "rendered_unique_formal_blocks": 107,
+  "all_formal_blocks_verbatim": true,
+  "old_six_unchanged": true,
+  "views": 7,
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/issue-01-is-contained-by/current-source-frontier.json",
+  "manifest_sha256": "f59dd83e48cbae0af77627a73296b00473e717eb6550f9db424ec2adcf43e633",
+  "audit_counts": {
+    "passive_only_subjects": {
+      "subject_occurrences": 3652,
+      "parsed_subjects": 472,
+      "unresolved_subjects": 12,
+      "unresolved_occurrences": 115,
+      "active_subjects": 387,
+      "passive_only_subjects": 96
+    },
+    "subjects_without_declaration_coverage": {
+      "known_missing": 112,
+      "unresolved": 112
+    },
+    "entity_definition_summary": {
+      "entities": 331,
+      "entities_with_any_missing": 105
+    }
+  }
+}

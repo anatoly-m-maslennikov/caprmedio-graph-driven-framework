@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -14,10 +14,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-405-PROJECT_CONFIGURATION-ENG_DECISION--exclude-completed-work-from-the-development-backlog-carrier.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-405-PROJECT_CONFIGURATION-ENG_DECISION--exclude-completed-work-from-the-development-backlog-carrier.md
   source_atom_id: CA-D-405
   source_atom_revision: 21
-  source_sha256: d4d00b1c2a4a9cfe3fd01501026a75d0785fc1450e69a8747f0365474f231f63
+  source_sha256: 895f46df999cec24f35d0a7dda96495310c8d1a013b762aea6ac8814a29622eb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

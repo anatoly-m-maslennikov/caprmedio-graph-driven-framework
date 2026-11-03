@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Scope Unit.Name
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Name
   passive:
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -14,10 +14,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1297-CORE_META_MODEL-RULE--prohibit-cce-operator-scope-unit-names.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1297-CORE_META_MODEL-RULE--prohibit-cce-operator-scope-unit-names.md
   source_atom_id: CA-R-1297
   source_atom_revision: 28
-  source_sha256: 11a280f896f938f268b71ff6e332862e9e3692aa59ddd0369781b7fc507e5387
+  source_sha256: 18e5830b064d8b927ec13583e06474979f10bb9ea8cb48e4fc6d731901058f6d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

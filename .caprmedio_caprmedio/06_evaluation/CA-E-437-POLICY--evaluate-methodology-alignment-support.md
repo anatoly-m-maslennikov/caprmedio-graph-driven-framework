@@ -9,14 +9,14 @@ relations:
   evaluation_for:
   - CA-R-1424
 subjects:
-  active: Aspects <+ Product
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   passive:
-  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
-  - Entity/Object/Continuant/Actor/Operator
-  - Package
-  - Entity/Object/Continuant/Term//Artifact
-  - Atom/(.Role := Evaluation)
-  - Entity/Object/Continuant/Selection
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-437

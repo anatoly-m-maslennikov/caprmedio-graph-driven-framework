@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom
+  active: CAPRMEDIO_MODEL <+ Atom
 version: 5
 relations: {}
 tier: 3

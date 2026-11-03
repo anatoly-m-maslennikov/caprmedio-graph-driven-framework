@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Carrier/File
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - Aspects <+ Engineering <+ Data Handling <+ Serialization
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Project
-  - Journal
-  - Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Serialization
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
 version: 29
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

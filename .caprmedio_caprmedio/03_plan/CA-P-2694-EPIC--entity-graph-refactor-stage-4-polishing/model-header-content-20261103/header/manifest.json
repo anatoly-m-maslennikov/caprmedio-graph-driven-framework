@@ -1,0 +1,252 @@
+{
+  "status": "candidate; not applied",
+  "sources": [
+    {
+      "source_id": "CA-R-2488",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2488-CORE_META_MODEL-DECLARATION--declare-atom-status.md",
+      "source_sha256": "38472bf5fd0ddad482ab716c7185685a7ab701c8fa66696edb2639cb4084b553",
+      "candidate": "CA-R-2488-CORE_META_MODEL-DECLARATION--declare-atom-status@3-draft.md",
+      "old_path": "Atom.Status",
+      "new_path": "Atom.Header.Status",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "c8213bb43aba9a6bc69f65939b74fed63bb47c5e7b38b29cf5374937f1a8a994"
+    },
+    {
+      "source_id": "CA-R-2489",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2489-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md",
+      "source_sha256": "9ba95c7d9a61eaa8eace1e896dc75ff69c9e88f5cde19dd99fefcd93b5e07a6f",
+      "candidate": "CA-R-2489-CORE_META_MODEL-DECLARATION--declare-atom-updated-at@3-draft.md",
+      "old_path": "Atom.Updated At",
+      "new_path": "Atom.Header.Updated At",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "6c53600f3107612029f7b65f760b553c88ebdcb1ee9a07e278a723bfaf7eca63"
+    },
+    {
+      "source_id": "CA-R-2490",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2490-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md",
+      "source_sha256": "5b3ed19dcecc6adb5f09fb638f14e102d5476dbb04f10f5b731db6c29d4c074e",
+      "candidate": "CA-R-2490-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by@3-draft.md",
+      "old_path": "Atom.Relations.IS_CONTAINED_BY",
+      "new_path": "Atom.Header.Relations.IS_CONTAINED_BY",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "7a640920bd24f84ff46f68ae166d6316d17535032616e4d1d3be523f7b7adb20"
+    },
+    {
+      "source_id": "CA-R-2491",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2491-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md",
+      "source_sha256": "b6849ad2df577e896422935c3e0c4fb0d247dd63022dfebe943dfea9bc6ddde7",
+      "candidate": "CA-R-2491-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom@3-draft.md",
+      "old_path": "Atom.Relations.IS_CONTAINED_BY.atom",
+      "new_path": "Atom.Header.Relations.IS_CONTAINED_BY.atom",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "1b3b8aeeb3e542cb229d5e2451694ae2617dcb7148fd62b9277c4198b5735ac9"
+    },
+    {
+      "source_id": "CA-R-2492",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2492-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md",
+      "source_sha256": "475d1e9ec319386e795aa778289aa39241496f67030bd3708850551fc30b61b9",
+      "candidate": "CA-R-2492-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit@3-draft.md",
+      "old_path": "Atom.Relations.IS_CONTAINED_BY.scope_unit",
+      "new_path": "Atom.Header.Relations.IS_CONTAINED_BY.scope_unit",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "580b23e4a2cd58ad1f9360b86231e19449b57a352a56c06fb9a62631103b4d39"
+    },
+    {
+      "source_id": "CA-R-2493",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2493-CORE_META_MODEL-DECLARATION--declare-atom-id.md",
+      "source_sha256": "11386002300041ff210956be19f2cbad4ec38f7242f09febbfb014973b6978b8",
+      "candidate": "CA-R-2493-CORE_META_MODEL-DECLARATION--declare-atom-id@3-draft.md",
+      "old_path": "Atom.ID",
+      "new_path": "Atom.Header.ID",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "7db926de170eb7a48cd369e6ab3065abbefcf8d0c96fa8e89e66b9c1277a81be"
+    },
+    {
+      "source_id": "CA-R-2494",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2494-CORE_META_MODEL-DECLARATION--declare-atom-role.md",
+      "source_sha256": "f58290b2d99a945a7a134938ce7b9a459c659026587323f0bacfb029d154be19",
+      "candidate": "CA-R-2494-CORE_META_MODEL-DECLARATION--declare-atom-role@3-draft.md",
+      "old_path": "Atom.Role",
+      "new_path": "Atom.Header.Role",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "8549d99d6912939c95d2b7dabc6c4d57549ead14e95197299b49b3c95fcf09a3"
+    },
+    {
+      "source_id": "CA-R-2495",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2495-CORE_META_MODEL-DECLARATION--declare-atom-form.md",
+      "source_sha256": "b0eb2b42f3a43ab6d233cbca11b8524deb7bb9642df0e2c98b8f782f9c71d7fd",
+      "candidate": "CA-R-2495-CORE_META_MODEL-DECLARATION--declare-atom-form@3-draft.md",
+      "old_path": "Atom.Form",
+      "new_path": "Atom.Header.Form",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "75cf96421d9d8f32dbabfd38ec93cc181027a107b58b58bfb646c5ca9386d961"
+    },
+    {
+      "source_id": "CA-R-2496",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2496-CORE_META_MODEL-DECLARATION--declare-atom-version.md",
+      "source_sha256": "06736c88358227e8ff046f909dafb6b4e2cae49850269c3fa69ba37b6132f757",
+      "candidate": "CA-R-2496-CORE_META_MODEL-DECLARATION--declare-atom-version@3-draft.md",
+      "old_path": "Atom.Version",
+      "new_path": "Atom.Header.Version",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "ac1eeec455d02a500a098b73029c8e3b069835e9b3cc4d9a184243fa62a1fc7b"
+    },
+    {
+      "source_id": "CA-R-2497",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2497-CORE_META_MODEL-DECLARATION--declare-atom-label.md",
+      "source_sha256": "64b9e2fc1cd0bb3b8dd31693399fe716faae6c78b758c6e043859604bb74b495",
+      "candidate": "CA-R-2497-CORE_META_MODEL-DECLARATION--declare-atom-label@3-draft.md",
+      "old_path": "Atom.Label",
+      "new_path": "Atom.Header.Label",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "9a30ae2e0dd515a317071624825e91ec8ede72c0239a7cb4dd4d4f2e360eab4d"
+    },
+    {
+      "source_id": "CA-R-2504",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2504-CORE_META_MODEL-DECLARATION--declare-atom-tier.md",
+      "source_sha256": "81c557e173bac08a96386b4a9772d80e9fd4887e75ded68cbd264385477c1367",
+      "candidate": "CA-R-2504-CORE_META_MODEL-DECLARATION--declare-atom-tier@3-draft.md",
+      "old_path": "Atom.Tier",
+      "new_path": "Atom.Header.Tier",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "aa4ecdaa4551cc371d7a60353241a1c70caca82fdd451b603f9a233dbfbb3272"
+    },
+    {
+      "source_id": "CA-R-2505",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2505-CORE_META_MODEL-DECLARATION--declare-atom-tier-label.md",
+      "source_sha256": "4a6ec2e9db535321899f54ad685f9e852e74b3019310f6c22f04cbc760548af8",
+      "candidate": "CA-R-2505-CORE_META_MODEL-DECLARATION--declare-atom-tier-label@3-draft.md",
+      "old_path": "Atom.Tier.Label",
+      "new_path": "Atom.Header.Tier.Label",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "ef4c113aedf635d2335a76d62d5068494c83a25ca63eada4de9a1164dcf46a34"
+    },
+    {
+      "source_id": "CA-R-2506",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2506-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive.md",
+      "source_sha256": "cce6c7f625825c2e4dec32c88af33c931f307e81463419136f96759df196b88d",
+      "candidate": "CA-R-2506-CORE_META_MODEL-DECLARATION--declare-atom-subjects-passive@3-draft.md",
+      "old_path": "Atom.Subjects.Passive",
+      "new_path": "Atom.Header.Subjects.Passive",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "cd42880727017ece0442dcff7afda13db929d6312799833e17ea65ec9bf02b50"
+    },
+    {
+      "source_id": "CA-R-2507",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2507-CORE_META_MODEL-DECLARATION--declare-atom-relations.md",
+      "source_sha256": "c95ca396aac7899ea6f20509ca8f64d1c2fe2f1422da826921d9b802f1e3e6a8",
+      "candidate": "CA-R-2507-CORE_META_MODEL-DECLARATION--declare-atom-relations@3-draft.md",
+      "old_path": "Atom.Relations",
+      "new_path": "Atom.Header.Relations",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "08d81dbfb179b5ffb82b457af89107f08c586e314b70aa8a1c46220f76fa2146"
+    },
+    {
+      "source_id": "CA-R-2518",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2518-CORE_META_MODEL-DECLARATION--declare-concern-priority.md",
+      "source_sha256": "01f72d5838c9a687f9f68fd83aba6f4ff180a26b56108083325966196b5ac525",
+      "candidate": "CA-R-2518-CORE_META_MODEL-DECLARATION--declare-concern-priority@3-draft.md",
+      "old_path": "Atom/(.Role := Concern).Priority",
+      "new_path": "Atom/(.Header.Role := Concern).Header.Priority",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "018981fe8a3268a167a48141983e0cffce5b3621efa9056bc1059f95f71967a3"
+    },
+    {
+      "source_id": "CA-R-2519",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2519-CORE_META_MODEL-DECLARATION--declare-plan-ai-agent-confidence-threshold.md",
+      "source_sha256": "5fc6051b07d239471e37e74227b8ac8009b1ec432b9451e4d6412b131e0b41d5",
+      "candidate": "CA-R-2519-CORE_META_MODEL-DECLARATION--declare-plan-ai-agent-confidence-threshold@3-draft.md",
+      "old_path": "Atom/(.Role := Plan).AI Agent Confidence Threshold",
+      "new_path": "Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "52e55e7b944cf60995b80350a91a4d3c4b222cfcb4625879bf5b898dfa826cca"
+    },
+    {
+      "source_id": "CA-R-2520",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2520-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md",
+      "source_sha256": "3520fc67f91bc41af713402584d4b5e8289d186720e45797426a8cae3f2ddbce",
+      "candidate": "CA-R-2520-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number@3-draft.md",
+      "old_path": "Atom/(.Role := Plan).Work Sequence Number",
+      "new_path": "Atom/(.Header.Role := Plan).Header.Work Sequence Number",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "58e3232a755ade7cef0900240f1cd99c8f0f9231096c09b646c2b1e6fb8084db"
+    },
+    {
+      "source_id": "CA-R-2545",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2545-CORE_META_MODEL-DECLARATION--declare-atom-subjects.md",
+      "source_sha256": "c58e2c493552cf6d33670e612ffdaaf3a4f400b69e79eb38ca3079e7ff8916a8",
+      "candidate": "CA-R-2545-CORE_META_MODEL-DECLARATION--declare-atom-subjects@3-draft.md",
+      "old_path": "Atom.Subjects",
+      "new_path": "Atom.Header.Subjects",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "80cd0e8dd5abb67c87f37b488af8f135af1934db39822a3ead3e6b4574375070"
+    },
+    {
+      "source_id": "CA-R-2546",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2546-CORE_META_MODEL-DECLARATION--declare-atom-subjects-active.md",
+      "source_sha256": "24abbc74f6464f318b08a8850ca4fa46630c2821194392adbb4ac81275b6c699",
+      "candidate": "CA-R-2546-CORE_META_MODEL-DECLARATION--declare-atom-subjects-active@3-draft.md",
+      "old_path": "Atom.Subjects.Active",
+      "new_path": "Atom.Header.Subjects.Active",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "8d5502e814a6eb9ef41131fbbea692a33adb8c9ecabd41d41b67389661f36b63"
+    },
+    {
+      "source_id": "CA-R-2692",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2692-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination.md",
+      "source_sha256": "2596f0e5ecc167591837594e955ea1eb4011642e2dc8ddb29f2726051349c77a",
+      "candidate": "CA-R-2692-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination@2-draft.md",
+      "old_path": "Atom.Carrier Destination",
+      "new_path": "Atom.Header.Carrier Destination",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "029c7a6fc57021cf7b165f5b6b4817b2d750bc21213cc11792741f9700ac66c4"
+    },
+    {
+      "source_id": "CA-R-2693",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2693-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file.md",
+      "source_sha256": "e5ac33aad7a63866362500451e457612187d9106293d2443109fc2321ecc5ca2",
+      "candidate": "CA-R-2693-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file@2-draft.md",
+      "old_path": "Atom.Carrier Destination.File",
+      "new_path": "Atom.Header.Carrier Destination.File",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "934cde9640ce6ddc0545ea083259907f6dd08711fec9ea182e693f4d589730b4"
+    },
+    {
+      "source_id": "CA-R-2694",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2694-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name.md",
+      "source_sha256": "3e935fd80d4263f542fa7d1b156c3d96ea9dbd89e62badb06766c1ca1b001bd7",
+      "candidate": "CA-R-2694-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-name@2-draft.md",
+      "old_path": "Atom.Carrier Destination.File.Name",
+      "new_path": "Atom.Header.Carrier Destination.File.Name",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "95683df84c2fb7061ccf87c6bfbbe00428b10455365e068b21df950923723d74"
+    },
+    {
+      "source_id": "CA-R-2695",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2695-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path.md",
+      "source_sha256": "2add98f45ea245847ebfbfe727f8a5c274aad7bbc0616a17aa107bf81e4cb41a",
+      "candidate": "CA-R-2695-CORE_META_MODEL-DECLARATION--declare-atom-carrier-destination-file-path@2-draft.md",
+      "old_path": "Atom.Carrier Destination.File.Path",
+      "new_path": "Atom.Header.Carrier Destination.File.Path",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "74381a8620d7030d14792473897e37f032919d707512ca935d0b44b69473160e"
+    },
+    {
+      "source_id": "CA-R-2508",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "source_sha256": "721939245dcc9a41e7150346d932ecf2153eef85b8a133b4717ea6fa03f55e95",
+      "candidate": "CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@3-draft.md",
+      "old_path": "Atom",
+      "new_path": "Atom",
+      "identity_mapping": "pending allocation where Summary changes",
+      "candidate_sha256": "faee331754755e4e757a09005daa79f7f06640481fc09842ca724187665ca5bf"
+    }
+  ],
+  "new_candidate": "CA-R-draft.md",
+  "open_choices": [
+    "New Header ID marker is a staging placeholder and requires allocation at promotion.",
+    "Header is required for all Atoms, including Drafts; child cardinalities remain unchanged.",
+    "Draft metadata preserves source version and timestamp as source context; promotion must use actual version and timestamp."
+  ],
+  "new_candidate_sha256": "cb6f64322c7b4875e1a14a5f9e370ed628b318e24bb780304f10a0d584b98462"
+}

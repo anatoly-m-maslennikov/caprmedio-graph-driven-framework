@@ -21,7 +21,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-161-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-journal-events/CA-O-163-PROJECT_CONFIGURATION-STEP--query-the-stable-journal-event-snapshot.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-161-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-journal-events/CA-O-163-PROJECT_CONFIGURATION-STEP--query-the-stable-journal-event-snapshot.md
   source_atom_id: CA-O-163
   source_atom_revision: 15
   source_sha256: 1fb73cbef0547aa1de1c8239134b206d40dd177710d7f9f4566e951187a78757

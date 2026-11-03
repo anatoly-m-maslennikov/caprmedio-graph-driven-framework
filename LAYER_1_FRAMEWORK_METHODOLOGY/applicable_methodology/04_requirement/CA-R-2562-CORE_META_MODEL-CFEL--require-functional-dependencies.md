@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL
+  active: CAPRMEDIO <+ MODEL <+ CFEL
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2562-CORE_META_MODEL-CFEL--require-functional-dependencies.md
   source_atom_id: CA-R-2562
   source_atom_revision: 2
-  source_sha256: 63bd1a30f2dcc03a22864b518841d24a9f5a039c68f60100fce4ef0a775ad93f
+  source_sha256: 2354eaad958d66a651fe7beba62f06c4f3c6e2b7c0065544f155b99ca7841649
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

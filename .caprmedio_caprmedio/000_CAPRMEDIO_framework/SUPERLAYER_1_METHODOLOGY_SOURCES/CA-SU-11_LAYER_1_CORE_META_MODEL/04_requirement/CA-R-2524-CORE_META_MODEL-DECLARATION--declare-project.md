@@ -2,7 +2,7 @@
 atom_id: CA-R-2524
 status: Active
 subjects:
-  active: Project
+  active: CAPRMEDIO <+ MODEL <+ Project
 version: 3
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}

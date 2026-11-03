@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
 version: 31
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-RULE--reject-authored-inverse-relations.md
   source_atom_id: CA-R-1040
   source_atom_revision: 31
-  source_sha256: df4107ad8edbb57ce26f128eda5996991a26c87e76106841d4f78b7d75ea98c5
+  source_sha256: 19cc5339d1e5c80a17a17fa38b259b8ec8fb5596f3dd0aefc2d0fbc1319270e3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - Actor
-  - Term//Property
-  - Entity
-  - CFEL<+Operator//AllowedValue
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
 version: 33
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

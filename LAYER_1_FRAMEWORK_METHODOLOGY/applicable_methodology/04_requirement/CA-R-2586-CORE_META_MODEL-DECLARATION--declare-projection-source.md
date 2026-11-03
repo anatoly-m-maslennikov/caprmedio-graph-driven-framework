@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Projection.Source
+  active: CAPRMEDIO <+ MODEL <+ Projection.Source
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2586-CORE_META_MODEL-DECLARATION--declare-projection-source.md
   source_atom_id: CA-R-2586
   source_atom_revision: 2
-  source_sha256: fd5cddfa09ccfc7ee0e9097b1923e8869cfefbdbfcf6496b59d4c5998610cb54
+  source_sha256: 15f57ba56397f14bf765eb64354f193208aeef65db191021f52af5c0290fcd2f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

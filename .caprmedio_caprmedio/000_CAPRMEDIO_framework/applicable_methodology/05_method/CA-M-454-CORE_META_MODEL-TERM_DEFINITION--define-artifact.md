@@ -4,13 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Term//Artifact
+  active: CAPRMEDIO <+ MODEL <+ Term//Artifact
   passive:
-  - Term
-  - Entity
-  - Carrier
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type:
-    Term Definition)'
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
 version: 4
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -18,10 +17,10 @@ tier: 1
 role: Method
 form: Term Definition
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md
   source_atom_id: CA-M-454
   source_atom_revision: 4
-  source_sha256: ee2d18bfbdf00a060a354ce77bd6c09538def0eebb118d2eda9ace849b50540b
+  source_sha256: 2dc1a6986e45636ab50d316fea99bc5f47dbd1e01c709dce6bda678825c39a6b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier/File
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File
   passive:
-  - 'Carrier/File.Format: Markdown'
-  - 'Carrier/File.Format: TOML'
-  - 'Carrier/File.Format: YAML'
+  - 'CAPRMEDIO <+ MODEL <+ Carrier/File.Format: Markdown'
+  - 'CAPRMEDIO <+ MODEL <+ Carrier/File.Format: TOML'
+  - 'CAPRMEDIO <+ MODEL <+ Carrier/File.Format: YAML'
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL-ENG_DECISION--preserve-github-file-preview-compatibility.md
   source_atom_id: CA-D-330
   source_atom_revision: 27
-  source_sha256: 766357bb1ee265cf3272ea4a66491b797bebc7295c8a28b3e300dae534aa69e3
+  source_sha256: 1dd9d7f8d73c3600cfb3f7885c677b33c382ebb20d9a0105ac3f725c7be538b8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

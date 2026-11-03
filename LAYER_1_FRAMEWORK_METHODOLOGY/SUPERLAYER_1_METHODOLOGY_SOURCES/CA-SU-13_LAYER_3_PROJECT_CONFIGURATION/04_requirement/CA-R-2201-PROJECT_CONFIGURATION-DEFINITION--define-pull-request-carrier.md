@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Carrier/Pull Request
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Pull Request
 version: 5
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

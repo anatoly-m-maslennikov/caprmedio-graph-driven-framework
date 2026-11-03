@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
 relations: {}
 version: 3
 updated_at: 2026-11-02 00:18:22 +0400
@@ -12,10 +12,10 @@ claim_target_scope_unit: CORE_META_MODEL
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md
   source_atom_id: CA-R-2271
   source_atom_revision: 3
-  source_sha256: dec3d29bb19989770ae936dfc2cfa431d0b304b20bcc6e6e578cc82e96728957
+  source_sha256: 2e29ec4833af86d4395e34c9e56131decec0bcc01b7b82fd51e80cd2c7d02e52
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

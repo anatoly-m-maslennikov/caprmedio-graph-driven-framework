@@ -3,9 +3,9 @@ atom_id: CA-D-666
 form: Policy
 status: Active
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Carrier
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 1
 relations: {}
 tier: 3

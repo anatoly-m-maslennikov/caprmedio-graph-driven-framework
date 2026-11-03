@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
-  - Atom/(.Role := Plan)
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-ENG_DECISION--place-plan-carriers-by-status.md
   source_atom_id: CA-D-461
   source_atom_revision: 29
-  source_sha256: 92176c74215e4a23f83b40819bb39be372efd819d88cf2881a137ac56862a68e
+  source_sha256: 1ed5d13a0d6904ee27feba9be0c9898d57da7196cf799631f2a1238999a19607
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

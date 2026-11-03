@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Selection
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - Atom
-  - Scope Unit
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1447-CORE_META_MODEL--define-owned-atoms.md
   source_atom_id: CA-R-1447
   source_atom_revision: 25
-  source_sha256: 35d8d896a0f0a4a0adcebd85d288ae808220fb2496f0ffbff52d792a9ce8e289
+  source_sha256: 25a03c26d3216dcf145ad8e4d34a59ef213e6cdd2734cbf10c2b0727f133d436
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

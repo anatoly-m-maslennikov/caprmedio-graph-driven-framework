@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan).Work Sequence Number
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number
   passive:
-  - Atom/(.Role := Plan)
-  - Atom/(.Role := Plan).Work Sequence Number
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - CFEL > Relation
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
 version: 36
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

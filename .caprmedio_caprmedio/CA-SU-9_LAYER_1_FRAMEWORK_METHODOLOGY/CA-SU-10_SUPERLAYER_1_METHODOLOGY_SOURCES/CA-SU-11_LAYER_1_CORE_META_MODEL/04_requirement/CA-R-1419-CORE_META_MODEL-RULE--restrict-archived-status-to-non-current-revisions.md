@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom.Status:Archived
+  active: CAPRMEDIO_MODEL <+ Atom.Status:Archived
   passive:
-  - Atom.Status
-  - Atom.Version
+  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Atom.Version
 version: 23
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

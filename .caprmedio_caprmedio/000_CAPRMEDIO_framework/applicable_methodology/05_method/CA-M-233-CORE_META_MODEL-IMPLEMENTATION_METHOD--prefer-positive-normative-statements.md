@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Authoring
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring
   passive:
-  - Atom
-  - Atom.Content
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -16,10 +16,10 @@ tier: 3
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-233-CORE_META_MODEL-IMPLEMENTATION_METHOD--prefer-positive-normative-statements.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-233-CORE_META_MODEL-IMPLEMENTATION_METHOD--prefer-positive-normative-statements.md
   source_atom_id: CA-M-233
   source_atom_revision: 31
-  source_sha256: c01107bb66643f542c95744e4d2570056f6dfd2c5bc22859808dc1820007e78f
+  source_sha256: 212b0fee2a3fa132ba59d9c0a370da10597674205057eb94fc03a4fa9f3f593c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

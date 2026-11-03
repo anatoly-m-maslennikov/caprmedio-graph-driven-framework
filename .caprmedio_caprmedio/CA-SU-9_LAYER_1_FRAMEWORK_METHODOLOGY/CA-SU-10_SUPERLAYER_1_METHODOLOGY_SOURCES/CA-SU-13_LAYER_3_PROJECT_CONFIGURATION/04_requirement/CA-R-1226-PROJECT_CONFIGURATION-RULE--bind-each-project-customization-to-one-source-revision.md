@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Governing Configuration
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
   passive:
-  - Scope Unit
-  - Entity/Object/Continuant/Selection//Extension Sources
-  - Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

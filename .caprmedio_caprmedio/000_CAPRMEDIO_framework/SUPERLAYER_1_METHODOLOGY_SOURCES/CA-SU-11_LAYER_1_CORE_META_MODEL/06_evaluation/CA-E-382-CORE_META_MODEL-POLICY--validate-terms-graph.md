@@ -1,24 +1,24 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
   passive:
-  - Package
-  - Entity/Object/Continuant/Package/Eval Package
-  - Entity/Object/Continuant/Package/Runtime Package
-  - Entity/Object/Continuant/Package <+ Module
-  - Entity/Object/Continuant/Package <+ Module <+ Code Unit
-  - Scope Unit
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
-  - Term
-  - CFEL <+ Relation//NARROWER_THAN
-  - CFEL <+ Relation
-  - Projection
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Entity Definition)'
-  - Atom.Content
-  - Entity
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
-  - Atom
+  - CAPRMEDIO <+ MODEL <+ Package
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Eval Package
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Runtime Package
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package <+ Module
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//NARROWER_THAN
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Entity Definition)'
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
+  - CAPRMEDIO <+ MODEL <+ Atom
 version: 49
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

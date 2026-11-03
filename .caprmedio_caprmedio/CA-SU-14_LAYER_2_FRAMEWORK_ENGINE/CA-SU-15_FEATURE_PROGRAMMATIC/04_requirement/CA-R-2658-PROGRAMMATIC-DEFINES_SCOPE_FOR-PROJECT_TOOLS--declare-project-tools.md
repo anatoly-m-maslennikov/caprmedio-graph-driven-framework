@@ -7,7 +7,7 @@ version: 3
 updated_at: 2026-11-02 19:51:36 +0400
 tier: 3
 subjects:
-  active: Scope Unit//PROJECT_TOOLS
+  active: CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_TOOLS
 relations: {}
 ---
 ## Summary

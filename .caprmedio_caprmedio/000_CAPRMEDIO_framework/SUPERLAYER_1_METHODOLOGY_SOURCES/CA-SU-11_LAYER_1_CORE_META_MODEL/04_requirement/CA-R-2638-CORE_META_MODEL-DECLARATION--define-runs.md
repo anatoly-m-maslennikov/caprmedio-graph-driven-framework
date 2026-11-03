@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL <+ Relation//RUNS
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//RUNS
 version: 2
 updated_at: 2026-11-02 17:54:42 +0400
 relations: {}

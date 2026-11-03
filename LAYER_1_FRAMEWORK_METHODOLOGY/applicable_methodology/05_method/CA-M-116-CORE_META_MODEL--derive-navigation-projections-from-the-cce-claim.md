@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection
+  active: CAPRMEDIO <+ MODEL <+ Projection
   passive:
-  - Atom.Content
-  - Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
 version: 31
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL--derive-navigation-projections-from-the-cce-claim.md
   source_atom_id: CA-M-116
   source_atom_revision: 31
-  source_sha256: 94a5fdaf0db145166c78f957093814a32a614729301d77a0effb8fc116130b10
+  source_sha256: 974eacf52fff301159835f6e3c52755e69dea5650aa450d2157acfc1ed856a99
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

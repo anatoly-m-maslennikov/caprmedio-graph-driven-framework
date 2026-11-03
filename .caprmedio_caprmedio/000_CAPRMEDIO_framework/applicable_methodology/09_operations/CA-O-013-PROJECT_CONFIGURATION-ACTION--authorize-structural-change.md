@@ -19,7 +19,7 @@ author: Anatoly Maslennikov
 type: Action
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-013-PROJECT_CONFIGURATION-ACTION--authorize-structural-change.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-013-PROJECT_CONFIGURATION-ACTION--authorize-structural-change.md
   source_atom_id: CA-O-013
   source_atom_revision: 16
   source_sha256: e9df07420584864b7285a199ef8e4befb6663534487c67de8b1c8ec2a14e42ee

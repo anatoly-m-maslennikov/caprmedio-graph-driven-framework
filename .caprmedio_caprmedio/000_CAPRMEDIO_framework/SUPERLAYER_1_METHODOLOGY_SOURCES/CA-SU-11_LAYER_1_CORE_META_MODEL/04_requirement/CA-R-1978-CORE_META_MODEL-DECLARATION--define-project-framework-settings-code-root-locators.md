@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Project.Settings.Code-Root Locators
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Code-Root Locators
 relations:
   child_of:
   - CA-R-1176

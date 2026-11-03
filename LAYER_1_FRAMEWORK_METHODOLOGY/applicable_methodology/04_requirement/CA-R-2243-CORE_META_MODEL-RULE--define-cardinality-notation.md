@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL <+ Cardinality
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Cardinality
   passive:
-  - CFEL
+  - CAPRMEDIO <+ MODEL <+ CFEL
 version: 11
 relations: {}
 tier: 1
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md
   source_atom_id: CA-R-2243
   source_atom_revision: 11
-  source_sha256: 38d09e510df268054fb70d3089353f584a95829cffb6bab1f00a91393b636f67
+  source_sha256: b7a322529911e357cd1c148f11d4c75c934f4294db7d4adedb7d870df751fbc5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 

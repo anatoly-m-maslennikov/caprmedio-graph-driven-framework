@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Project.Settings
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings
 relations:
   child_of:
   - CA-R-1176
@@ -14,10 +14,10 @@ role: Requirement
 form: Rule
 updated_at: 2026-11-02 08:06:47 +0400
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1983-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-parameter-resolution.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1983-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-parameter-resolution.md
   source_atom_id: CA-R-1983
   source_atom_revision: 15
-  source_sha256: 4e5ea75c1551dec37b5af9a3cbe2e3c07f40f4498237ce1fd9c27bbaa6575253
+  source_sha256: e803d64a1285b4a0dc75c75c0dca05bb6515bb99d575b721b2d0df5355a455c5
   original_relations_sha256: 9e3e53a370b31aee7f492cc3fbaba3b8b30f92b5773698d221265754db5d0402
 ---
 ## Summary

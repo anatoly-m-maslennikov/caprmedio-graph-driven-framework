@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Governing Configuration
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1640-PROJECT_CONFIGURATION-RULE--register-one-canonical-routing-tree.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1640-PROJECT_CONFIGURATION-RULE--register-one-canonical-routing-tree.md
   source_atom_id: CA-R-1640
   source_atom_revision: 32
-  source_sha256: 7cdd2011a0f3bde61396b399067b950f5a598ca71e94dc380e01d9371c2da231
+  source_sha256: 2aaec7e605e5ca6ef45b4bfc02fccc376bd57b2b8d39e46b331fab61865a5b6a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

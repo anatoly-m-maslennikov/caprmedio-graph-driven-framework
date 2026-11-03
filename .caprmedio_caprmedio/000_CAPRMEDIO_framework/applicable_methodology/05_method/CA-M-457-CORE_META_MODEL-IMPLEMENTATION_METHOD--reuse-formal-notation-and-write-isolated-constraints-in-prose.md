@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL
+  active: CAPRMEDIO <+ MODEL <+ CFEL
 version: 2
 relations: {}
 tier: 3
@@ -12,10 +12,10 @@ updated_at: 2026-11-02 00:18:22 +0400
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-457-CORE_META_MODEL-IMPLEMENTATION_METHOD--reuse-formal-notation-and-write-isolated-constraints-in-prose.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-457-CORE_META_MODEL-IMPLEMENTATION_METHOD--reuse-formal-notation-and-write-isolated-constraints-in-prose.md
   source_atom_id: CA-M-457
   source_atom_revision: 2
-  source_sha256: d7d7ce07c28c839b1f29d17c68b37ef860cc51d755f4368c9d01f4a087943f18
+  source_sha256: e26b53e61e3a71bf7400396530056140f7e2eff2252a5d772f951c36cc5db59e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

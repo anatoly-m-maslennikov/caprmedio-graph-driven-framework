@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Scope Unit.Project Boundary Position
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Project Boundary Position
   passive:
-  - Project
-  - Scope Unit
-  - Scope Unit.order.number
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit.order.number
 version: 29
 updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:

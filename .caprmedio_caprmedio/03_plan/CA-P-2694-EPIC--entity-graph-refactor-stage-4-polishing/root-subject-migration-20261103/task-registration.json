@@ -1,0 +1,9 @@
+{
+  "status": "NEXT_TASK_REGISTERED",
+  "atom_id": "CA-P-2709",
+  "task_path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/13-CA-P-2709-TASK--simplify-model-and-structure-subject-roots.md",
+  "epic_version": 47,
+  "registered_at": "2026-11-03 18:01:24 +0400",
+  "identity_guard": "atom_identity_lock + atom_id_has_preserved_history_evidence",
+  "task_sha256": "0e7107da7f74763d4ed8932557d4cc1ecf3c2fa89f7b436a173c2e598f4aee4a"
+}

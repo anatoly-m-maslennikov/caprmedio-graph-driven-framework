@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Projection.Updated At
+  active: CAPRMEDIO_MODEL <+ Projection.Updated At
   passive:
-  - Projection
+  - CAPRMEDIO_MODEL <+ Projection
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

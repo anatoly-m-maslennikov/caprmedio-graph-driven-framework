@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Verification
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Verification
 version: 42
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -16,10 +16,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1635-PROJECT_CONFIGURATION-RULE--require-production-evaluation-checklists.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1635-PROJECT_CONFIGURATION-RULE--require-production-evaluation-checklists.md
   source_atom_id: CA-R-1635
   source_atom_revision: 42
-  source_sha256: a2c0f888bb70a4786f389b9f89bc78d16615fce63f8d28b5ef413cffead02b7d
+  source_sha256: ad5ea57ccfe63c0eb38840cb6b092a5d70937db8402198e7fe67bf8beba098e4
   original_relations_sha256: 6c50a8bd5dcb74eec5e6c55456dfc8dbae9842ad53ff8b9e24e70a74798e8908
 ---
 ## Summary

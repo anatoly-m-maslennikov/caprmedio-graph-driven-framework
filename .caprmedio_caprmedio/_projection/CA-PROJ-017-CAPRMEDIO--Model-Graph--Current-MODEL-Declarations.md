@@ -181,10 +181,19 @@ source:
   - CA-R-2694@1
   - CA-R-2695@1
   - CA-R-796@43
-updated_at: 2026-11-03 01:11:33 +0400
+updated_at: 2026-11-03 13:47:06 +0400
 ---
 
 ## Model graph
+
+## Namespace context
+
+```text
+CAPRMEDIO
+  <+ MODEL
+  <+ STRUCTURE
+```
+
 
 Source selection: Current model Declarations, including canonical and derived Relations; source-bound extraction without executing CFEL.
 
@@ -324,234 +333,234 @@ This is a derived Projection, not independent model authority.
 
 ## Selected Subject Expressions
 
-- `Actor` — CA-R-2542
-- `Actor.Name` — CA-R-2544
-- `Aspect` — CA-R-2543
-- `Atom` — CA-R-1199
-- `Atom` — CA-R-1200
-- `Atom` — CA-R-1580
-- `Atom` — CA-R-2508
-- `Atom.Carrier Destination` — CA-R-2692
-- `Atom.Carrier Destination.File` — CA-R-2693
-- `Atom.Carrier Destination.File.Name` — CA-R-2694
-- `Atom.Carrier Destination.File.Path` — CA-R-2695
-- `Atom.Content` — CA-R-1199
-- `Atom.Content` — CA-R-1200
-- `Atom.Content` — CA-R-2498
-- `Atom.Content.Claim` — CA-R-2500
-- `Atom.Content.Claim Scope` — CA-R-796
-- `Atom.Content.Claim Scope` — CA-R-2501
-- `Atom.Content.Details` — CA-R-2503
-- `Atom.Content.Semantics` — CA-R-2502
-- `Atom.Content.Summary` — CA-R-2499
-- `Atom.Form` — CA-R-2495
-- `Atom.ID` — CA-R-2493
-- `Atom.Label` — CA-R-2497
-- `Atom.Relations` — CA-R-2507
-- `Atom.Relations.contained_by` — CA-R-2490
-- `Atom.Relations.contained_by.atom` — CA-R-2491
-- `Atom.Relations.contained_by.scope_unit` — CA-R-2492
-- `Atom.Role` — CA-R-2494
-- `Atom.Status` — CA-R-2488
-- `Atom.Subjects` — CA-R-2545
-- `Atom.Subjects.Active` — CA-R-2546
-- `Atom.Subjects.Passive` — CA-R-2506
-- `Atom.Tier` — CA-R-1018
-- `Atom.Tier` — CA-R-796
-- `Atom.Tier` — CA-R-2504
-- `Atom.Tier.Label` — CA-R-2505
-- `Atom.Updated At` — CA-R-2489
-- `Atom.Version` — CA-R-2496
-- `Atom/(.Role := "Analysis & Advisory")` — CA-R-2637
-- `Atom/(.Role := Concern)` — CA-R-2509
-- `Atom/(.Role := Concern).Priority` — CA-R-2518
-- `Atom/(.Role := Delivery)` — CA-R-1018
-- `Atom/(.Role := Delivery)` — CA-R-2515
-- `Atom/(.Role := Evaluation)` — CA-R-1018
-- `Atom/(.Role := Evaluation)` — CA-R-2514
-- `Atom/(.Role := Method)` — CA-R-1018
-- `Atom/(.Role := Method)` — CA-R-2513
-- `Atom/(.Role := Operations)` — CA-R-1018
-- `Atom/(.Role := Operations)` — CA-R-2463
-- `Atom/(.Role := Operations)/Action` — CA-R-2467
-- `Atom/(.Role := Operations)/Action.Execution Kind` — CA-R-2521
-- `Atom/(.Role := Operations)/Step` — CA-R-2465
-- `Atom/(.Role := Operations)/Substep` — CA-R-2466
-- `Atom/(.Role := Operations)/Workflow` — CA-R-2464
-- `Atom/(.Role := Plan)` — CA-R-2511
-- `Atom/(.Role := Plan).AI Agent Confidence Threshold` — CA-R-2519
-- `Atom/(.Role := Plan).Work Sequence Number` — CA-R-2520
-- `Atom/(.Role := Requirement)` — CA-R-1018
-- `Atom/(.Role := Requirement)` — CA-R-2512
-- `Atom/(.Role := Requirement)/(.Form := Declaration)` — CA-R-2516
-- `CFEL <+ Format/bool` — CA-R-2685
-- `CFEL <+ Format/int` — CA-R-2686
-- `CFEL <+ Relation` — CA-R-1026
-- `CFEL <+ Relation//BLOCKS` — CA-R-1580
-- `CFEL <+ Relation//CARRIES` — CA-R-1993
-- `CFEL <+ Relation//CONTAINS` — CA-R-2617
-- `CFEL <+ Relation//DEPENDS_ON` — CA-R-1200
-- `CFEL <+ Relation//DERIVED_FROM` — CA-R-1639
-- `CFEL <+ Relation//EXECUTES` — CA-R-2255
-- `CFEL <+ Relation//GOVERNS` — CA-R-1199
-- `CFEL <+ Relation//HAS_ACTIVE_SUBJECT` — CA-R-2618
-- `CFEL <+ Relation//HAS_CLASSIFICATION` — CA-R-2477
-- `CFEL <+ Relation//HAS_EVENT_AUTHOR` — CA-R-2583
-- `CFEL <+ Relation//HAS_EXECUTION` — CA-R-2417
-- `CFEL <+ Relation//HAS_INSTANCE` — CA-R-2619
-- `CFEL <+ Relation//HAS_INVERSE` — CA-R-2485
-- `CFEL <+ Relation//HAS_NARROWER` — CA-R-2620
-- `CFEL <+ Relation//HAS_PROPERTY` — CA-R-2621
-- `CFEL <+ Relation//INSTANCE_OF` — CA-R-2476
-- `CFEL <+ Relation//IS_CARRIED_BY` — CA-R-2418
-- `CFEL <+ Relation//IS_CONTAINED_BY` — CA-R-2478
-- `CFEL <+ Relation//IS_DEFINED_BY` — CA-R-2279
-- `CFEL <+ Relation//IS_DERIVED_RELATION_OF` — CA-R-2170
-- `CFEL <+ Relation//IS_EVENT_AUTHOR_OF` — CA-R-2622
-- `CFEL <+ Relation//IS_EXECUTED_BY` — CA-R-2420
-- `CFEL <+ Relation//IS_EXECUTION_OF` — CA-R-2245
-- `CFEL <+ Relation//IS_PROPERTY_OF` — CA-R-2473
-- `CFEL <+ Relation//IS_RECORDED_BY` — CA-R-2421
-- `CFEL <+ Relation//IS_RUN_BY` — CA-R-2623
-- `CFEL <+ Relation//NARROWER_THAN` — CA-R-2475
-- `CFEL <+ Relation//RECORDS` — CA-R-2246
-- `CFEL <+ Relation//RUNS` — CA-R-2638
-- `CFEL <+ Relation//child_of` — CA-R-796
-- `CFEL <+ Relation//concern_about` — CA-R-1022
-- `CFEL <+ Relation//delivery_for` — CA-R-1019
-- `CFEL <+ Relation//depends_on` — CA-R-1026
-- `CFEL <+ Relation//evaluation_for` — CA-R-1018
-- `CFEL <+ Relation//evidence_for` — CA-R-1021
-- `CFEL <+ Relation//feature_realization` — CA-R-1654
-- `CFEL <+ Relation//implementation_of` — CA-R-1020
-- `CFEL <+ Relation//method_for` — CA-R-1017
-- `CFEL <+ Relation//rationale_for` — CA-R-1016
-- `CFEL <+ Relation//required_by` — CA-R-1026
-- `CFEL <+ Relation//required_by` — CA-R-2422
-- `CFEL <+ Relation//structural_parent` — CA-R-1660
-- `CFEL > Relation` — CA-R-1016
-- `CFEL > Relation` — CA-R-1017
-- `CFEL > Relation` — CA-R-1019
-- `CFEL > Relation` — CA-R-1020
-- `CFEL > Relation` — CA-R-1021
-- `CFEL > Relation` — CA-R-1022
-- `CFEL > Relation` — CA-R-1199
-- `CFEL > Relation` — CA-R-1200
-- `CFEL > Relation` — CA-R-1654
-- `CFEL > Relation` — CA-R-1993
-- `CFEL > Relation` — CA-R-2170
-- `CFEL > Relation//DEPENDS_ON` — CA-R-1580
-- `CFEL<+Operator` — CA-R-2616
-- `CFEL<+Operator//Addition` — CA-R-2591
-- `CFEL<+Operator//AllowedValue` — CA-R-2592
-- `CFEL<+Operator//Conclusion` — CA-R-2593
-- `CFEL<+Operator//Condition` — CA-R-2594
-- `CFEL<+Operator//DeclaredReference` — CA-R-2595
-- `CFEL<+Operator//Delivery` — CA-R-2596
-- `CFEL<+Operator//ExpressionSeparator` — CA-R-2597
-- `CFEL<+Operator//Fallback` — CA-R-2598
-- `CFEL<+Operator//GreaterOrEqual` — CA-R-2599
-- `CFEL<+Operator//GreaterThan` — CA-R-2600
-- `CFEL<+Operator//Grouping` — CA-R-2601
-- `CFEL<+Operator//ImmediateWildcard` — CA-R-2602
-- `CFEL<+Operator//Inequality` — CA-R-2603
-- `CFEL<+Operator//Instance` — CA-R-2605
-- `CFEL<+Operator//InstanceBinding` — CA-R-2604
-- `CFEL<+Operator//LessOrEqual` — CA-R-2606
-- `CFEL<+Operator//LessThan` — CA-R-2607
-- `CFEL<+Operator//Membership` — CA-R-2608
-- `CFEL<+Operator//NamedRelationDirection` — CA-R-2609
-- `CFEL<+Operator//Narrowing` — CA-R-2610
-- `CFEL<+Operator//Property` — CA-R-2611
-- `CFEL<+Operator//RecursiveWildcard` — CA-R-2612
-- `CFEL<+Operator//RelationEndpointSignature` — CA-R-2613
-- `CFEL<+Operator//SelectionExclusion` — CA-R-2614
-- `CFEL<+Operator//SubjectValueSelection` — CA-R-2615
-- `Carrier` — CA-R-1993
-- `Entity` — CA-R-1199
-- `Entity` — CA-R-1200
-- `Entity` — CA-R-1993
-- `Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit` — CA-R-796
-- `Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit` — CA-R-796
-- `Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow` — CA-R-1200
-- `Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow` — CA-R-2245
-- `Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done` — CA-R-1580
-- `Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan` — CA-R-1200
-- `Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan` — CA-R-1580
-- `Entity/Object/Continuant/History/Journal > Event Record` — CA-R-2246
-- `Entity/Object/Occurrent/Execution/Workflow Run` — CA-R-2245
-- `Entity/Object/Occurrent/Execution/Workflow Run` — CA-R-2246
-- `Entity/Object/Occurrent/Execution/Workflow Run` — CA-R-2255
-- `Entity/Object/Occurrent/Runtime` — CA-R-2255
-- `Event Record` — CA-R-2557
-- `Event Record.ID` — CA-R-2558
-- `Event Record.Relations` — CA-R-2581
-- `Event Record.Relations.HAS_EVENT_AUTHOR` — CA-R-2582
-- `Event Record.action` — CA-R-2580
-- `Event Record.happened_at` — CA-R-2568
-- `Event Record.inserted_at` — CA-R-2569
-- `Event Record.object_input` — CA-R-2572
-- `Event Record.object_input.id` — CA-R-2573
-- `Event Record.object_input.updated_at` — CA-R-2575
-- `Event Record.object_input.version` — CA-R-2574
-- `Event Record.object_output` — CA-R-2576
-- `Event Record.object_output.id` — CA-R-2577
-- `Event Record.object_output.updated_at` — CA-R-2579
-- `Event Record.object_output.version` — CA-R-2578
-- `Journal` — CA-R-2536
-- `MODEL` — CA-R-2559
-- `Named Selection` — CA-R-2587
-- `Node` — CA-R-2462
-- `Node/Continuant` — CA-R-2589
-- `Node/Continuant//CAPRMEDIO Framework` — CA-R-2256
-- `Node/Occurrent` — CA-R-2590
-- `PROJECT STRUCTURE` — CA-R-2560
-- `Package` — CA-R-2525
-- `Package.structural_level` — CA-R-2555
-- `Package/Implementation` — CA-R-2553
-- `Project` — CA-R-2524
-- `Project.Settings` — CA-R-2532
-- `Project.Settings.AI Agent Confidence Threshold` — CA-R-2564
-- `Project.Settings.Artifact Timestamp Timezone` — CA-R-1977
+- `CAPRMEDIO <+ MODEL` — CA-R-2559
+- `CAPRMEDIO <+ MODEL <+ Actor` — CA-R-2542
+- `CAPRMEDIO <+ MODEL <+ Actor.Name` — CA-R-2544
+- `CAPRMEDIO <+ MODEL <+ Aspect` — CA-R-2543
+- `CAPRMEDIO <+ MODEL <+ Atom` — CA-R-1199
+- `CAPRMEDIO <+ MODEL <+ Atom` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ Atom` — CA-R-1580
+- `CAPRMEDIO <+ MODEL <+ Atom` — CA-R-2508
+- `CAPRMEDIO <+ MODEL <+ Atom.Carrier Destination` — CA-R-2692
+- `CAPRMEDIO <+ MODEL <+ Atom.Carrier Destination.File` — CA-R-2693
+- `CAPRMEDIO <+ MODEL <+ Atom.Carrier Destination.File.Name` — CA-R-2694
+- `CAPRMEDIO <+ MODEL <+ Atom.Carrier Destination.File.Path` — CA-R-2695
+- `CAPRMEDIO <+ MODEL <+ Atom.Content` — CA-R-1199
+- `CAPRMEDIO <+ MODEL <+ Atom.Content` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ Atom.Content` — CA-R-2498
+- `CAPRMEDIO <+ MODEL <+ Atom.Content.Claim` — CA-R-2500
+- `CAPRMEDIO <+ MODEL <+ Atom.Content.Claim Scope` — CA-R-796
+- `CAPRMEDIO <+ MODEL <+ Atom.Content.Claim Scope` — CA-R-2501
+- `CAPRMEDIO <+ MODEL <+ Atom.Content.Details` — CA-R-2503
+- `CAPRMEDIO <+ MODEL <+ Atom.Content.Semantics` — CA-R-2502
+- `CAPRMEDIO <+ MODEL <+ Atom.Content.Summary` — CA-R-2499
+- `CAPRMEDIO <+ MODEL <+ Atom.Form` — CA-R-2495
+- `CAPRMEDIO <+ MODEL <+ Atom.ID` — CA-R-2493
+- `CAPRMEDIO <+ MODEL <+ Atom.Label` — CA-R-2497
+- `CAPRMEDIO <+ MODEL <+ Atom.Relations` — CA-R-2507
+- `CAPRMEDIO <+ MODEL <+ Atom.Relations.contained_by` — CA-R-2490
+- `CAPRMEDIO <+ MODEL <+ Atom.Relations.contained_by.atom` — CA-R-2491
+- `CAPRMEDIO <+ MODEL <+ Atom.Relations.contained_by.scope_unit` — CA-R-2492
+- `CAPRMEDIO <+ MODEL <+ Atom.Role` — CA-R-2494
+- `CAPRMEDIO <+ MODEL <+ Atom.Status` — CA-R-2488
+- `CAPRMEDIO <+ MODEL <+ Atom.Subjects` — CA-R-2545
+- `CAPRMEDIO <+ MODEL <+ Atom.Subjects.Active` — CA-R-2546
+- `CAPRMEDIO <+ MODEL <+ Atom.Subjects.Passive` — CA-R-2506
+- `CAPRMEDIO <+ MODEL <+ Atom.Tier` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ Atom.Tier` — CA-R-796
+- `CAPRMEDIO <+ MODEL <+ Atom.Tier` — CA-R-2504
+- `CAPRMEDIO <+ MODEL <+ Atom.Tier.Label` — CA-R-2505
+- `CAPRMEDIO <+ MODEL <+ Atom.Updated At` — CA-R-2489
+- `CAPRMEDIO <+ MODEL <+ Atom.Version` — CA-R-2496
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")` — CA-R-2637
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern)` — CA-R-2509
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern).Priority` — CA-R-2518
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)` — CA-R-2515
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)` — CA-R-2514
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)` — CA-R-2513
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)` — CA-R-2463
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Action` — CA-R-2467
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Action.Execution Kind` — CA-R-2521
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Step` — CA-R-2465
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Substep` — CA-R-2466
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Workflow` — CA-R-2464
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)` — CA-R-2511
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).AI Agent Confidence Threshold` — CA-R-2519
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number` — CA-R-2520
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)` — CA-R-2512
+- `CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)/(.Form := Declaration)` — CA-R-2516
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Format/bool` — CA-R-2685
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Format/int` — CA-R-2686
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation` — CA-R-1026
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//BLOCKS` — CA-R-1580
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//CARRIES` — CA-R-1993
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//CONTAINS` — CA-R-2617
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DERIVED_FROM` — CA-R-1639
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//EXECUTES` — CA-R-2255
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//GOVERNS` — CA-R-1199
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_ACTIVE_SUBJECT` — CA-R-2618
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_CLASSIFICATION` — CA-R-2477
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_EVENT_AUTHOR` — CA-R-2583
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_EXECUTION` — CA-R-2417
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_INSTANCE` — CA-R-2619
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_INVERSE` — CA-R-2485
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_NARROWER` — CA-R-2620
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_PROPERTY` — CA-R-2621
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//INSTANCE_OF` — CA-R-2476
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_CARRIED_BY` — CA-R-2418
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY` — CA-R-2478
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_DEFINED_BY` — CA-R-2279
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_DERIVED_RELATION_OF` — CA-R-2170
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_EVENT_AUTHOR_OF` — CA-R-2622
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_EXECUTED_BY` — CA-R-2420
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_EXECUTION_OF` — CA-R-2245
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF` — CA-R-2473
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_RECORDED_BY` — CA-R-2421
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_RUN_BY` — CA-R-2623
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//NARROWER_THAN` — CA-R-2475
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//RECORDS` — CA-R-2246
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//RUNS` — CA-R-2638
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//child_of` — CA-R-796
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//concern_about` — CA-R-1022
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//delivery_for` — CA-R-1019
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//depends_on` — CA-R-1026
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//evaluation_for` — CA-R-1018
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//evidence_for` — CA-R-1021
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//feature_realization` — CA-R-1654
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//implementation_of` — CA-R-1020
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//method_for` — CA-R-1017
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//rationale_for` — CA-R-1016
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//required_by` — CA-R-1026
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//required_by` — CA-R-2422
+- `CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//structural_parent` — CA-R-1660
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1016
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1017
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1019
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1020
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1021
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1022
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1199
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1654
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-1993
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation` — CA-R-2170
+- `CAPRMEDIO <+ MODEL <+ CFEL > Relation//DEPENDS_ON` — CA-R-1580
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator` — CA-R-2616
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Addition` — CA-R-2591
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue` — CA-R-2592
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Conclusion` — CA-R-2593
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Condition` — CA-R-2594
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//DeclaredReference` — CA-R-2595
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Delivery` — CA-R-2596
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//ExpressionSeparator` — CA-R-2597
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Fallback` — CA-R-2598
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//GreaterOrEqual` — CA-R-2599
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//GreaterThan` — CA-R-2600
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Grouping` — CA-R-2601
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//ImmediateWildcard` — CA-R-2602
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Inequality` — CA-R-2603
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Instance` — CA-R-2605
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//InstanceBinding` — CA-R-2604
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//LessOrEqual` — CA-R-2606
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//LessThan` — CA-R-2607
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Membership` — CA-R-2608
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//NamedRelationDirection` — CA-R-2609
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Narrowing` — CA-R-2610
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Property` — CA-R-2611
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//RecursiveWildcard` — CA-R-2612
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//RelationEndpointSignature` — CA-R-2613
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//SelectionExclusion` — CA-R-2614
+- `CAPRMEDIO <+ MODEL <+ CFEL<+Operator//SubjectValueSelection` — CA-R-2615
+- `CAPRMEDIO <+ MODEL <+ Carrier` — CA-R-1993
+- `CAPRMEDIO <+ MODEL <+ Entity` — CA-R-1199
+- `CAPRMEDIO <+ MODEL <+ Entity` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ Entity` — CA-R-1993
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit` — CA-R-796
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit` — CA-R-796
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow` — CA-R-2245
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done` — CA-R-1580
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan` — CA-R-1200
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan` — CA-R-1580
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-2246
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run` — CA-R-2245
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run` — CA-R-2246
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run` — CA-R-2255
+- `CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Runtime` — CA-R-2255
+- `CAPRMEDIO <+ MODEL <+ Event Record` — CA-R-2557
+- `CAPRMEDIO <+ MODEL <+ Event Record.ID` — CA-R-2558
+- `CAPRMEDIO <+ MODEL <+ Event Record.Relations` — CA-R-2581
+- `CAPRMEDIO <+ MODEL <+ Event Record.Relations.HAS_EVENT_AUTHOR` — CA-R-2582
+- `CAPRMEDIO <+ MODEL <+ Event Record.action` — CA-R-2580
+- `CAPRMEDIO <+ MODEL <+ Event Record.happened_at` — CA-R-2568
+- `CAPRMEDIO <+ MODEL <+ Event Record.inserted_at` — CA-R-2569
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_input` — CA-R-2572
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_input.id` — CA-R-2573
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_input.updated_at` — CA-R-2575
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_input.version` — CA-R-2574
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_output` — CA-R-2576
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_output.id` — CA-R-2577
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_output.updated_at` — CA-R-2579
+- `CAPRMEDIO <+ MODEL <+ Event Record.object_output.version` — CA-R-2578
+- `CAPRMEDIO <+ MODEL <+ Journal` — CA-R-2536
+- `CAPRMEDIO <+ MODEL <+ Named Selection` — CA-R-2587
+- `CAPRMEDIO <+ MODEL <+ Node` — CA-R-2462
+- `CAPRMEDIO <+ MODEL <+ Node/Continuant` — CA-R-2589
+- `CAPRMEDIO <+ MODEL <+ Node/Occurrent` — CA-R-2590
+- `CAPRMEDIO <+ MODEL <+ PROJECT STRUCTURE` — CA-R-2560
+- `CAPRMEDIO <+ MODEL <+ Package` — CA-R-2525
+- `CAPRMEDIO <+ MODEL <+ Package.structural_level` — CA-R-2555
+- `CAPRMEDIO <+ MODEL <+ Package/Implementation` — CA-R-2553
+- `CAPRMEDIO <+ MODEL <+ Project` — CA-R-2524
+- `CAPRMEDIO <+ MODEL <+ Project.Settings` — CA-R-2532
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.AI Agent Confidence Threshold` — CA-R-2564
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Artifact Timestamp Timezone` — CA-R-1977
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Authority Modes.Default Scope Unit Authority Mode` — CA-R-2633
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Authority Modes.Project Authority Mode` — CA-R-2634
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Code-Root Locators` — CA-R-1978
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Confidence` — CA-R-1979
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Confidence.Necessary Information Threshold` — CA-R-2624
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Confidence.Semantic Resolution Threshold` — CA-R-2625
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Framework Control-Root Locator` — CA-R-1980
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Implementation Retry Limit` — CA-R-2635
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Interaction` — CA-R-1982
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Interaction.Reporting Mode` — CA-R-2626
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Name` — CA-R-2533
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.Prefix` — CA-R-2534
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.RMED Review` — CA-R-2631
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.RMED Review.Context Headroom Fraction` — CA-R-2629
+- `CAPRMEDIO <+ MODEL <+ Project.Settings.RMED Review.Max Atoms` — CA-R-2630
+- `CAPRMEDIO <+ MODEL <+ Projection` — CA-R-1580
+- `CAPRMEDIO <+ MODEL <+ Projection` — CA-R-2535
+- `CAPRMEDIO <+ MODEL <+ Projection.Form` — CA-R-2538
+- `CAPRMEDIO <+ MODEL <+ Projection.ID` — CA-R-2537
+- `CAPRMEDIO <+ MODEL <+ Projection.Source` — CA-R-2586
+- `CAPRMEDIO <+ MODEL <+ Projection.Source.Atoms` — CA-R-2540
+- `CAPRMEDIO <+ MODEL <+ Projection.Source.Named Selection` — CA-R-2541
+- `CAPRMEDIO <+ MODEL <+ Projection.Updated At` — CA-R-2539
+- `CAPRMEDIO <+ MODEL <+ Scope Unit` — CA-R-1660
+- `CAPRMEDIO <+ MODEL <+ Scope Unit` — CA-R-2523
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.ID` — CA-R-2526
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.Label` — CA-R-2528
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.Name` — CA-R-2527
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.Path` — CA-R-2530
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.Project Boundary Position` — CA-R-2531
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.order` — CA-R-2685
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.order` — CA-R-2686
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.order.number` — CA-R-2686
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.order.ordered` — CA-R-2686
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.order.ordered` — CA-R-2685
+- `CAPRMEDIO <+ MODEL <+ Scope Unit.structural_level` — CA-R-2554
+- `CAPRMEDIO <+ MODEL <+ Term//Artifact` — CA-R-1026
+- `CAPRMEDIO <+ MODEL <+ Term//Artifact` — CA-R-1639
+- `CAPRMEDIO <+ STRUCTURE <+ Node/Continuant//CAPRMEDIO Framework` — CA-R-2256
 - `Project.Settings.Authority Modes` — CA-R-2632
-- `Project.Settings.Authority Modes.Default Scope Unit Authority Mode` — CA-R-2633
-- `Project.Settings.Authority Modes.Project Authority Mode` — CA-R-2634
-- `Project.Settings.Code-Root Locators` — CA-R-1978
-- `Project.Settings.Confidence` — CA-R-1979
-- `Project.Settings.Confidence.Necessary Information Threshold` — CA-R-2624
-- `Project.Settings.Confidence.Semantic Resolution Threshold` — CA-R-2625
-- `Project.Settings.Framework Control-Root Locator` — CA-R-1980
-- `Project.Settings.Implementation Retry Limit` — CA-R-2635
-- `Project.Settings.Interaction` — CA-R-1982
-- `Project.Settings.Interaction.Reporting Mode` — CA-R-2626
-- `Project.Settings.Name` — CA-R-2533
-- `Project.Settings.Prefix` — CA-R-2534
-- `Project.Settings.RMED Review` — CA-R-2631
-- `Project.Settings.RMED Review.Context Headroom Fraction` — CA-R-2629
-- `Project.Settings.RMED Review.Max Atoms` — CA-R-2630
-- `Projection` — CA-R-1580
-- `Projection` — CA-R-2535
-- `Projection.Form` — CA-R-2538
-- `Projection.ID` — CA-R-2537
-- `Projection.Source` — CA-R-2586
-- `Projection.Source.Atoms` — CA-R-2540
-- `Projection.Source.Named Selection` — CA-R-2541
-- `Projection.Updated At` — CA-R-2539
-- `Scope Unit` — CA-R-1660
-- `Scope Unit` — CA-R-2523
-- `Scope Unit.ID` — CA-R-2526
-- `Scope Unit.Label` — CA-R-2528
-- `Scope Unit.Name` — CA-R-2527
-- `Scope Unit.Path` — CA-R-2530
-- `Scope Unit.Project Boundary Position` — CA-R-2531
-- `Scope Unit.order` — CA-R-2685
-- `Scope Unit.order` — CA-R-2686
-- `Scope Unit.order.number` — CA-R-2686
-- `Scope Unit.order.ordered` — CA-R-2686
-- `Scope Unit.order.ordered` — CA-R-2685
-- `Scope Unit.structural_level` — CA-R-2554
-- `Term//Artifact` — CA-R-1026
-- `Term//Artifact` — CA-R-1639
 
 ## Constraints
 

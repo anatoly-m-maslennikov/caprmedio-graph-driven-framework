@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Governing Configuration
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
   passive:
-  - Aspects <+ UX <+ Entry
-  - Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ UX <+ Entry
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 33
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

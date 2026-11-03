@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
   passive:
-  - Scope Unit//METHODOLOGY_SOURCES
-  - Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//METHODOLOGY_SOURCES
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1217-CORE_META_MODEL-DEFINITION--define-extension.md
   source_atom_id: CA-R-1217
   source_atom_revision: 25
-  source_sha256: 24193b770c5bf4ea85af998c4b23eccf98faba90ae675299349efdb335b5ee9d
+  source_sha256: 7cc3d864cc2705a2cce8a5b23f142ab3b4407256b5995a6809b7bbbd1cdf73b1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

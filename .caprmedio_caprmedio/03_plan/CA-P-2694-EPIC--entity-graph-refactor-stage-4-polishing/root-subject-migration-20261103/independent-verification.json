@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "files": 1178,
+  "live_equals_candidate_and_receipt_hashes": 1178,
+  "reconstructed_before_sha256_matches": 1178,
+  "unchanged_other_bytes_and_body_proved_by_reconstruction": 1178,
+  "remaining_old_subject_values": 0,
+  "reconstructed_values_by_old_prefix": {
+    "CAPRMEDIO <+ MODEL": 3280,
+    "CAPRMEDIO <+ STRUCTURE": 405
+  },
+  "excluded_paths_in_plan": 0,
+  "application_plan_sha256_matches_receipt": true,
+  "CA-D-662_body": "covered by full before-hash reconstruction of its selected source file",
+  "bounded_exclusions": "No installed, projection, archive, candidate, proposed or staged path appears in application plan. No independent pre-operation hashes for excluded files were provided; their byte equality cannot be established from the receipt alone.",
+  "errors": []
+}

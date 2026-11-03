@@ -6,12 +6,12 @@ status: Active
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: Entity/Object/Occurrent/Execution/Workflow Run
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   passive:
-  - Atom
-  - Atom/(.Role := Evaluation)
-  - Carrier/File
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Projection
 relations: {}
 tier: 3
 role: Delivery
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-496-PROJECT_CONFIGURATION-ENG_DECISION--store-one-review-report-per-source-atom.md
   source_atom_id: CA-D-496
   source_atom_revision: 24
-  source_sha256: c73c62d993818f3455d0a5ebe22f3c29b92c156841b8d54e52da034b78bc0382
+  source_sha256: f639392dc258e3f9be90d884630c52ee8852c8e94d5928c1abcda5fff55e38fc
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

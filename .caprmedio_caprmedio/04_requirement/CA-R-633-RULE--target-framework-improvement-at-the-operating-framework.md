@@ -8,9 +8,9 @@ relations:
   child_of:
   - CA-R-632
 subjects:
-  active: Aspects <+ Product
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   passive:
-  - Project
+  - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio

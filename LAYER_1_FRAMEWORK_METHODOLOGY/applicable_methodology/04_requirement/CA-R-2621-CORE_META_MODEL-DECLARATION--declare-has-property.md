@@ -8,13 +8,13 @@ updated_at: 2026-11-02 08:06:47 +0400
 current_scope_unit: CORE_META_MODEL
 tier: 3
 subjects:
-  active: CFEL <+ Relation//HAS_PROPERTY
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_PROPERTY
 relations: {}
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2621-CORE_META_MODEL-DECLARATION--declare-has-property.md
   source_atom_id: CA-R-2621
   source_atom_revision: 1
-  source_sha256: 2fd941fb1f8db9108c68ad281cfca4db1c13986124a2837f3289eea62dfa9983
+  source_sha256: c59bd36ff4ca5a1558a25b13735fd56e1178bb9993f88da655cdc75de365a9e1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 

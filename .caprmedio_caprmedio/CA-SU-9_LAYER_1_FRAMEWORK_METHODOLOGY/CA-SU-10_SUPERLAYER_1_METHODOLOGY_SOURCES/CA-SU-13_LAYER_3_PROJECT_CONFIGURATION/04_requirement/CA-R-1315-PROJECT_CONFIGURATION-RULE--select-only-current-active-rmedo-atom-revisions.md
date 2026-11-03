@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Selection//Methodology Sources
+  active: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Atom.Status
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom.Status
 version: 31
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

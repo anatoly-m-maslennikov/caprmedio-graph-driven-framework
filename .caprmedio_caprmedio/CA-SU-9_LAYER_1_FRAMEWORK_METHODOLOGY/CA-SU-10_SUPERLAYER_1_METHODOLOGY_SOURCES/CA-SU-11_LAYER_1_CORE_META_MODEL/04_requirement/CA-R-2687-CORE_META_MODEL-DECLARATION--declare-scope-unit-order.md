@@ -7,9 +7,9 @@ version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 tier: 3
 subjects:
-  active: Scope Unit.order
+  active: CAPRMEDIO_MODEL <+ Scope Unit.order
   passive:
-  - Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
 relations: {}
 ---
 ## Summary

@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Carrier/File.Main Content
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
   passive:
-  - Carrier
-  - Journal
-  - Event Record
-  - Atom
-  - Project
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Event Record
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 33
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-DECISION--serialize-work-journal-event-properties.md
   source_atom_id: CA-D-340
   source_atom_revision: 33
-  source_sha256: 1e56b8315497858aa0decc3f958f7edd06fbfdb2f4a925a0406963b5036730c4
+  source_sha256: d8690fb20bf0e62b11d889179dec26029ef2a485d9b156359e00c48f8355dcd5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

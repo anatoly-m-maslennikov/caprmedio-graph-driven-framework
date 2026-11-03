@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
   passive:
-  - Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
-  - Atom.Tier
-  - Scope Unit
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 34
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

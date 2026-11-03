@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Aspects <+ Engineering <+ Traceability
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   passive:
-  - Atom/(.Role := "Analysis & Advisory")
-  - Atom.Content
-  - Atom/(.Role := Evaluation)
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1611-CORE_META_MODEL-RULE--separate-legacy-observations-from-refactoring-decisions.md
   source_atom_id: CA-R-1611
   source_atom_revision: 28
-  source_sha256: 91629bb4e5aa4bee815b29a60eb691d17c777f8cf7255be36e1fc4aa17d4af65
+  source_sha256: bb64cd266650c5b4c28b2ea987e2e10c7ea375552cdcf1040a212ef0100d4069
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

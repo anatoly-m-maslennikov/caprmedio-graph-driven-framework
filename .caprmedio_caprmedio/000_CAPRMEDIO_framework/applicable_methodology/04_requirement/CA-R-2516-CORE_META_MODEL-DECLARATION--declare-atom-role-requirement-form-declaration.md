@@ -3,17 +3,17 @@ atom_id: CA-R-2516
 status: Active
 tier: 3
 subjects:
-  active: Atom/(.Role := Requirement)/(.Form := Declaration)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)/(.Form := Declaration)
 version: 5
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}
 form: Declaration
 role: Requirement
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2516-CORE_META_MODEL-DECLARATION--declare-atom-role-requirement-form-declaration.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2516-CORE_META_MODEL-DECLARATION--declare-atom-role-requirement-form-declaration.md
   source_atom_id: CA-R-2516
   source_atom_revision: 5
-  source_sha256: bdc6bd23f5626afbcfef405b1fb5e0abd9195eef236e8300f0b45da0b48ef448
+  source_sha256: f46d6fca6faf09762c471f417ea4e257a2ee299315d0d74e890352458879cfd9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

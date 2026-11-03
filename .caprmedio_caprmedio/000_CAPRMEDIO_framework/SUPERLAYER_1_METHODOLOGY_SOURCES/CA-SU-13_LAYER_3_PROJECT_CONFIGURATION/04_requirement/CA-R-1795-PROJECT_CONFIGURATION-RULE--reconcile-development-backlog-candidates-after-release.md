@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Aspects <+ Engineering
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering
 version: 15
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

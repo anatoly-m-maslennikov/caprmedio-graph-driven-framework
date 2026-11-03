@@ -9,7 +9,7 @@ current_scope_unit: CORE_META_MODEL
 tier: 3
 priority: medium
 subjects:
-  active: CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
 relations: {}
 ---
 ## Summary

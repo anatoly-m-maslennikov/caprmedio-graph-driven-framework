@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Scope Unit.Name
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Name
   passive:
-  - Scope Unit
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 20
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-299-CORE_META_MODEL-IMPLEMENTATION_METHOD--distinguish-scope-unit-names-from-ordinary-english.md
   source_atom_id: CA-M-299
   source_atom_revision: 20
-  source_sha256: 7d64df4167f6aff1425dbe3be703ae4839e5f866e5c0a53924bef7e35ba76d32
+  source_sha256: 9b562e9c7086adca30640c01cca24e75f23338df5c2f68266fbde31f62a9a6fe
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

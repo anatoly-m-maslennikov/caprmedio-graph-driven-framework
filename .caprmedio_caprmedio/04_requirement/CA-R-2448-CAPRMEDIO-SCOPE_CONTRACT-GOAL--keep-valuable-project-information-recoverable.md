@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Project
-  - Aspects <+ Product
-  - Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
 version: 5
 updated_at: 2026-11-02 18:35:20 +0400
 llm_session_ids:

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom/(.Role := Evaluation)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CFEL > Relation//evaluation_for
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//evaluation_for
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 2
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-265-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-evaluation-groups-from-checked-authority.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-265-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-evaluation-groups-from-checked-authority.md
   source_atom_id: CA-M-265
   source_atom_revision: 26
-  source_sha256: ceb899bf2eea89bc04b098cec53333157a3c8642f23d608c118d8b5b99ed1eb4
+  source_sha256: 38fe5fb401846e0b709ea4e30c2224796db12f8fcaa9117d35ebdfa6c512c808
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

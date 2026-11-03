@@ -22,7 +22,7 @@ updated_at: 2026-10-27 19:59:46 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-128-PROJECT_CONFIGURATION-ACTION--apply-authorized-atom-lifecycle-changes.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-128-PROJECT_CONFIGURATION-ACTION--apply-authorized-atom-lifecycle-changes.md
   source_atom_id: CA-O-128
   source_atom_revision: 23
   source_sha256: b58b76203df7611a94abe7a31b84954be1297d019213b2bf210cf17435f16620

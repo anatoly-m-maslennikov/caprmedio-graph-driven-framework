@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection/(.Form:=Canonical Scope Signature)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Canonical Scope Signature)
   passive:
-  - Projection/(.Form:=Canonical Scope Signature)
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Canonical Scope Signature)
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 29
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -17,10 +17,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL-DECISION--deliver-canonical-scope-signatures-as-external-report-projections.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL-DECISION--deliver-canonical-scope-signatures-as-external-report-projections.md
   source_atom_id: CA-D-347
   source_atom_revision: 29
-  source_sha256: 3448b06404fbe146e0646f603aa29684697d7c4cd59ce59c5505707a653a02e5
+  source_sha256: 82072124417d1ad2bcad48fd8a2f6f1549e663a1363af6c944a941ca2f44b885
   original_relations_sha256: 05d305e1056e99459d521dea634c2a5bc7d31356258feae4f6c9491320e90591
 ---
 ## Summary

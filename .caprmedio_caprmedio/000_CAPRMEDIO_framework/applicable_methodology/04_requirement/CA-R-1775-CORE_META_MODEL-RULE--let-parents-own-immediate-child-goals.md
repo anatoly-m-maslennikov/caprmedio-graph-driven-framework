@@ -5,11 +5,11 @@ relations:
   child_of:
   - CA-M-447
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
   passive:
-  - Scope Unit
-  - Atom
-  - Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
 atom_id: CA-R-1775
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -18,10 +18,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1775-CORE_META_MODEL-RULE--let-parents-own-immediate-child-goals.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1775-CORE_META_MODEL-RULE--let-parents-own-immediate-child-goals.md
   source_atom_id: CA-R-1775
   source_atom_revision: 33
-  source_sha256: 512b02e579388b84c7a84f16bde7f8f3d8514772de138dc28c107884bccb5a54
+  source_sha256: 5b13af28f60978a20ce494b7b5a31d8554958927047770bcdf969d9cb4237c18
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

@@ -2,11 +2,11 @@
 atom_id: CA-R-2686
 status: Active
 subjects:
-  active: Scope Unit.order.number
+  active: CAPRMEDIO_MODEL <+ Scope Unit.order.number
   passive:
-  - Scope Unit.order
-  - Scope Unit.order.ordered
-  - CFEL <+ Format/int
+  - CAPRMEDIO_MODEL <+ Scope Unit.order
+  - CAPRMEDIO_MODEL <+ Scope Unit.order.ordered
+  - CAPRMEDIO_MODEL <+ CFEL <+ Format/int
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}

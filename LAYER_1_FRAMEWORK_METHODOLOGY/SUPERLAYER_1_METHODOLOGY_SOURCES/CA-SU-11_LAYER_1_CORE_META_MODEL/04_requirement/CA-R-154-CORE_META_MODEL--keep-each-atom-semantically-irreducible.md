@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
   passive:
-  - Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

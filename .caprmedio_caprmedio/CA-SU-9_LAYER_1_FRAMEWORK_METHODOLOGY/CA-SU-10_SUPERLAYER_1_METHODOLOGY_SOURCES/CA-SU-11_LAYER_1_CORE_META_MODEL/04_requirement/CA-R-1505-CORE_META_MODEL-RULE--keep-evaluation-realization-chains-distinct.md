@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Atom/(.Role := Evaluation)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
   passive:
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Aspects <+ Engineering <+ Traceability
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Atom/(.Role := Evaluation)
-  - Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
 version: 27
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

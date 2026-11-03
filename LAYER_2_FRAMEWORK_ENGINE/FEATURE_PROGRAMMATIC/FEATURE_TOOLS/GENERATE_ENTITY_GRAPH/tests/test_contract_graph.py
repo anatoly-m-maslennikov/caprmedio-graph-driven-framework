@@ -9,6 +9,7 @@ TOOL = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(TOOL.parent), str(TOOL)]
 
 from contract_graph import compose_contract_graph, render_contract_graph  # noqa: E402
+from cfel_claim_constraints import extract_claim_constraints  # noqa: E402
 
 
 def carrier(atom_id, active, body, *, role="Requirement", form="Declaration"):
@@ -27,6 +28,133 @@ def body(*claim_lines, semantics=None):
 
 
 class ContractGraphTests(unittest.TestCase):
+    def test_minimal_inverse_uses_corroborated_direct_meaning_and_reversed_endpoint_view(self):
+        direct = carrier("CA-R-1", "CFEL <+ Relation//DIRECT", body(
+            "### Formal Claim", "```CFEL", "$left ((DIRECT)) $right;",
+            "Relation//DIRECT ((HAS_INVERSE)) Relation//INVERSE;",
+            "Relation//DIRECT ((HAS_CLASSIFICATION)) Derivation == Direct", "```",
+            "### Prose Claim", "Direct meaning."))
+        inverse = carrier("CA-R-2", "CFEL <+ Relation//INVERSE", body(
+            "### Formal Claim", "```CFEL", "Relation//INVERSE <((HAS_INVERSE)) Relation//DIRECT", "```"))
+        graph = compose_contract_graph([direct, inverse])
+        row = next(row for row in graph["relations"] if row["target"] == "INVERSE")
+        self.assertEqual("Derived", row["derived_view"]["classification"])
+        self.assertEqual("Direct meaning.", row["derived_view"]["meaning"])
+        self.assertEqual([{"host": "$right", "target": "$left"}], row["derived_view"]["endpoints"])
+        self.assertEqual([], row["host_target"])
+        self.assertEqual(0, graph["coverage"]["missing_relation_semantics"])
+        self.assertIn("not new permissions", render_contract_graph(graph))
+
+        missing = compose_contract_graph([inverse])
+        self.assertEqual(1, missing["coverage"]["missing_relation_semantics"])
+        self.assertNotIn("derived_view", missing["relations"][0])
+        conflicting = carrier("CA-R-3", "CFEL <+ Relation//OTHER", body(
+            "### Formal Claim", "```CFEL", "Relation//OTHER ((HAS_INVERSE)) Relation//INVERSE;",
+            "Relation//OTHER ((HAS_CLASSIFICATION)) Derivation == Direct", "```",
+            "### Prose Claim", "Other meaning."))
+        ambiguous = compose_contract_graph([direct, inverse, conflicting])
+        inverse_row = next(row for row in ambiguous["relations"] if row["target"] == "INVERSE")
+        self.assertNotIn("derived_view", inverse_row)
+
+    def test_relation_bounds_and_quoted_counterpart_alias_remain_distinct(self):
+        clauses, diagnostics = extract_claim_constraints(carrier("CA-R-1", "Node", body(
+            "```CFEL", 'alias(HAS_INVERSE) == "<-->";',
+            "Node{:1}((REL)){:2}Node;", "Node:{:1}((REL)){:2}Node;", "```")))
+        alias = next(row for row in clauses if row["kind"] == "relation_alias")
+        relation = next(row for row in clauses if row["kind"] == "relation_cardinality")
+        self.assertEqual("<-->", alias["glyph"])
+        self.assertEqual({"minimum": 2, "maximum": 2}, relation["target_cardinality"])
+        self.assertEqual(1, len(diagnostics))
+
+    def test_explicit_namespace_header_qualifications_bind_declared_properties(self):
+        graph = compose_contract_graph([
+            carrier("CA-R-1", "CAPRMEDIO_MODEL <+ Atom", body("Atom.")),
+            carrier("CA-R-2", "CAPRMEDIO_MODEL <+ Atom.Header", body("Header.")),
+            carrier("CA-R-3", "CAPRMEDIO_MODEL <+ Atom.Header.Role", body("Role.")),
+            carrier("CA-R-4", "CAPRMEDIO_MODEL <+ Atom.Header.Form", body("Form.")),
+            carrier("CA-R-5", "CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Requirement)", body("Role rule."), form="Rule"),
+            carrier("CA-R-6", "CAPRMEDIO_MODEL <+ Atom/(.Header.Form:=Declaration)", body("Form rule."), form="Rule"),
+            carrier("CA-R-7", "CAPRMEDIO_MODEL <+ (Node, Node/**, .**)", body("Scope."), form="Rule"),
+            carrier("CA-R-8", "CAPRMEDIO_MODEL <+ Node", body("Node.")),
+            carrier("CA-R-9", "CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Requirement)/(.Header.Form:=Declaration)", body("Combined rule."), form="Rule"),
+        ])
+        rows = {row["target"]: row for row in graph["entities"]}
+        self.assertEqual({"Atom", "Atom.Header", "Atom.Header.Role", "Atom.Header.Form", "Node"}, set(rows))
+        self.assertEqual({"Atom.Header.Role", "Atom.Header.Form"},
+                         {row["binding_context"]["property"] for row in rows["Atom"]["shared"] if "property" in row["binding_context"]})
+        combined = next(row for row in rows["Atom"]["shared"] if row["source"]["atom_id"] == "CA-R-9")
+        self.assertEqual(["Atom.Header.Role", "Atom.Header.Form"], combined["binding_context"]["properties"])
+        self.assertEqual("model_applicability_scope", rows["Node"]["shared"][0]["binding"])
+
+    def test_named_claim_children_keep_prose_markdown_and_only_extract_formal_cfel(self):
+        graph = compose_contract_graph([
+            carrier("CA-R-1", "Atom", """## Claim
+
+### Formal Claim
+
+```CFEL
+Atom.Header: [YAML]{:1};
+```
+
+### Prose Claim
+
+#### Context
+
+Prose with an example:
+
+```CFEL
+Atom.Example: [wrong]{:1};
+```
+"""),
+        ])
+        entry = graph["entities"][0]["own"][0]
+        self.assertEqual(["Atom.Header"], [row["property_selector"] for row in entry["clauses"]])
+        self.assertIn("#### Context", entry["prose"])
+        self.assertIn("Atom.Example", entry["prose"])
+        self.assertEqual(1, len(entry["cfel_blocks"]))
+
+    def test_prose_only_claim_does_not_interpret_cfel_examples(self):
+        graph = compose_contract_graph([
+            carrier("CA-R-1", "Atom", """## Claim
+
+### Prose Claim
+
+```CFEL
+Atom.Example: [wrong]{:1};
+```
+"""),
+        ])
+        entry = graph["entities"][0]["own"][0]
+        self.assertEqual([], entry["clauses"])
+        self.assertEqual([], entry["cfel_blocks"])
+        self.assertEqual([], entry["diagnostics"])
+        self.assertIn("Atom.Example", entry["prose"])
+
+    def test_prose_claim_keeps_unrecognized_headings_at_any_level(self):
+        graph = compose_contract_graph([carrier("CA-R-1", "Atom", """## Claim
+### Prose Claim
+Opening.
+### Sibling Title
+Sibling text.
+## Dependent Selection
+More text.
+```CFEL
+Atom.Example: [wrong]{:1};
+```
+## Expression Lists
+Last text.
+## Details
+Actual root detail.
+""")])
+        entry = graph["entities"][0]["own"][0]
+        self.assertIn("### Sibling Title\nSibling text.", entry["prose"])
+        self.assertIn("## Dependent Selection\nMore text.", entry["prose"])
+        self.assertIn("Atom.Example", entry["prose"])
+        self.assertIn("## Expression Lists\nLast text.", entry["prose"])
+        self.assertNotIn("Actual root detail", entry["prose"])
+        self.assertEqual([], entry["diagnostics"])
+        self.assertEqual([], entry["clauses"])
+
     def test_attaches_exact_shared_rmed_evidence_and_links_transitive_properties_without_copies(self):
         graph = compose_contract_graph([
             carrier("CA-R-1", "Node", body("Node declaration.")),
@@ -119,7 +247,7 @@ class ContractGraphTests(unittest.TestCase):
             carrier("CA-R-2", "Project", body("Project kind declaration.")),
             carrier("CA-R-9", "Projection", body("Projection kind declaration.")),
             carrier("CA-R-10", "Named Selection", body("Selection kind declaration.")),
-            carrier("CA-R-11", "PROJECT STRUCTURE", body("Structure kind declaration.")),
+            carrier("CA-R-11", "CAPRMEDIO <+ MODEL <+ PROJECT STRUCTURE", body("Structure kind declaration.")),
             carrier("CA-R-3", "Scope Unit//CORE_META_MODEL", body("Core scope declaration."),
                     form="Scope Unit Declaration"),
             carrier("CA-R-4", "Project//caprmedio", body("Project declaration."),
@@ -134,9 +262,11 @@ class ContractGraphTests(unittest.TestCase):
                     form="Rule"),
             carrier("CA-R-13", "Named Selection//ExtensionSources", body("Selection context."),
                     form="Rule"),
-            carrier("CA-R-14", "PROJECT STRUCTURE//CAPRMEDIO", body("Structure context."),
+            carrier("CA-R-14", "CAPRMEDIO <+ STRUCTURE", body("Structure context."),
                     form="Rule"),
             carrier("CA-R-15", "Named Selection//Unknown", body("Unknown selection context."),
+                    form="Rule"),
+            carrier("CA-R-16", "PROJECT STRUCTURE//CAPRMEDIO", body("Historical structure context."),
                     form="Rule"),
         ])
 
@@ -173,12 +303,62 @@ class ContractGraphTests(unittest.TestCase):
         self.assertNotIn("Scope Unit//CORE_META_MODEL", entities)
         self.assertNotIn("Actor//ANATOLY", entities)
         self.assertEqual(2, graph["coverage"]["coverage_gaps"])
-        self.assertEqual(1, graph["coverage"]["outside_model_scope_sources"])
+        self.assertEqual(2, graph["coverage"]["outside_model_scope_sources"])
         self.assertEqual(
             {"CA-R-7", "CA-R-15"},
             {row["source"]["atom_id"] for row in graph["coverage_gaps"]},
         )
-        self.assertEqual("CA-R-8", graph["outside_model_scope"][0]["source"]["atom_id"])
+        self.assertEqual(
+            {"CA-R-8", "CA-R-14"},
+            {row["source"]["atom_id"] for row in graph["outside_model_scope"]},
+        )
+
+    def test_binds_prefixed_namespaces_to_local_targets_without_losing_subject_provenance(self):
+        graph = compose_contract_graph([
+            carrier("CA-R-1", "CAPRMEDIO <+ MODEL <+ Node", body("Node declaration.")),
+            carrier("CA-R-2", "CAPRMEDIO <+ MODEL <+ Node.Status", body("Status declaration.")),
+            carrier("CA-R-3", "CAPRMEDIO <+ MODEL <+ Node//Example", body("Example declaration.")),
+            carrier("CA-R-4", "CAPRMEDIO <+ MODEL <+ CFEL <+ Format", body("Format declaration.")),
+            carrier("CA-R-5", "CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//depends_on",
+                    body("Relation declaration."), form="Relation Definition"),
+            carrier("CA-R-6", "CAPRMEDIO <+ STRUCTURE <+ Project", body("Project declaration.")),
+            carrier("CA-R-7", "CAPRMEDIO <+ STRUCTURE <+ Project//caprmedio",
+                    body("Project declaration context."), form="Scope Unit Declaration"),
+            carrier("CA-R-8", "CAPRMEDIO <+ MODEL <+ Node", body("Node rule."), form="Rule"),
+            carrier("CA-R-9", "CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//depends_on",
+                    body("Relation rule."), form="Rule"),
+            carrier("CA-R-10", "CAPRMEDIO <+ STRUCTURE <+ Project//caprmedio",
+                    body("Project rule."), form="Rule"),
+            carrier("CA-R-11", "CAPRMEDIO <+ MODEL <+ Projection", body("Projection declaration.")),
+            carrier("CA-R-12", "CAPRMEDIO <+ MODEL <+ Named Selection", body("Selection declaration.")),
+            carrier("CA-R-13", "CAPRMEDIO <+ MODEL <+ (Node, Node/**, .**)", body("Node scope."), form="Rule"),
+            carrier("CA-R-14", "CAPRMEDIO <+ MODEL <+ (Node, Node/**, .**)", body("Node scope."), form="Rule"),
+            carrier("CA-R-15", "CAPRMEDIO <+ STRUCTURE <+ Projection//PROJECT_SCOPE_UNIT_GRAPH",
+                    body("Projection context."), form="Rule"),
+            carrier("CA-R-16", "CAPRMEDIO <+ STRUCTURE <+ Projection//PROJECT_SCOPE_UNIT_GRAPH",
+                    body("Projection context."), form="Rule"),
+            carrier("CA-R-17", "CAPRMEDIO <+ STRUCTURE <+ Named Selection//Extension Sources",
+                    body("Selection context."), form="Rule"),
+        ])
+
+        entities = {row["target"]: row for row in graph["entities"]}
+        components = {row["target"]: row for row in graph["components"]}
+        relations = {row["target"]: row for row in graph["relations"]}
+        self.assertEqual("exact", entities["Node"]["shared"][0]["binding"])
+        self.assertEqual("CAPRMEDIO <+ MODEL <+ Node", entities["Node"]["shared"][0]["subject"])
+        self.assertEqual("property", entities["Node.Status"]["kind"])
+        self.assertEqual("instance", entities["Node//Example"]["kind"])
+        self.assertEqual("component", components["Format"]["kind"])
+        self.assertEqual("Project", entities["Project"]["shared"][0]["target"])
+        self.assertEqual("scope_unit_declaration_context", entities["Project"]["shared"][0]["binding"])
+        self.assertEqual("depends_on", relations["depends_on"]["target"])
+        self.assertEqual("CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//depends_on",
+                         relations["depends_on"]["shared"][0]["subject"])
+        self.assertEqual(3, len(entities["Node"]["shared"]))
+        self.assertEqual(2, len(entities["Projection"]["shared"]))
+        self.assertEqual("known_instance_context", entities["Projection"]["shared"][0]["binding"])
+        self.assertEqual("known_instance_context", entities["Named Selection"]["shared"][0]["binding"])
+        self.assertEqual(0, graph["coverage"]["coverage_gaps"])
 
     def test_claim_scope_and_details_are_source_bound_context_before_claim(self):
         graph = compose_contract_graph([
@@ -236,7 +416,34 @@ Carrier-specific constraint.
         self.assertEqual(0, graph["coverage"]["missing_relation_semantics"])
         rendered = render_contract_graph(graph)
         self.assertIn("does not certify an undeclared inverse Relation", rendered)
+        self.assertIn("Derivation interpretation gap", rendered)
         self.assertNotIn("((is_depended_on)) — declared Relation", rendered)
+
+    def test_typed_relation_alias_and_inverse_are_source_bound_in_either_direction(self):
+        def read(binding):
+            return compose_contract_graph([
+                carrier("CA-R-1", "CFEL <+ Relation//NARROWER_THAN", body(
+                    "### Formal Claim", "```CFEL",
+                    'alias(Relation//NARROWER_THAN) == "/";',
+                    binding,
+                    "Node ((NARROWER_THAN)) Node;", "```")),
+            ])["relations"][0]
+
+        forward = read("Relation//NARROWER_THAN ((HAS_INVERSE)) Relation//BROADER_THAN;")
+        reverse = read("Relation//BROADER_THAN <((HAS_INVERSE)) Relation//NARROWER_THAN;")
+        glyph = read("Relation//NARROWER_THAN <--> Relation//BROADER_THAN;")
+        self.assertEqual(["BROADER_THAN"], [row["name"] for row in forward["inverses"]])
+        self.assertEqual(forward["inverses"], reverse["inverses"])
+        self.assertEqual(forward["inverses"], glyph["inverses"])
+        self.assertEqual(["/"], [row["value"] for row in forward["metadata"]])
+        self.assertEqual(["Node"], [row["source_selector"] for row in forward["host_target"]])
+        self.assertEqual(1, len(forward["host_target"]))
+
+        graph = compose_contract_graph([carrier("CA-R-2", "CFEL <+ Relation//CONTAINS", body(
+            "### Formal Claim", "```CFEL", 'alias(Relation//CONTAINS) == "<+";', "```"))])
+        self.assertEqual([], graph["entities"])
+        self.assertEqual([], graph["relations"][0]["host_target"])
+        self.assertEqual("<+", graph["relations"][0]["metadata"][0]["value"])
 
     def test_preserves_unlabelled_claim_blocks_and_reports_unbound_source(self):
         graph = compose_contract_graph([
@@ -250,6 +457,16 @@ Carrier-specific constraint.
         rendered = render_contract_graph(graph)
         self.assertIn("Unbound source evidence", rendered)
         self.assertIn("```\nNode/Missing", rendered)
+
+    def test_renders_blank_outside_scope_prose_lines_without_trailing_whitespace(self):
+        graph = compose_contract_graph([
+            carrier("CA-R-1", "Node", body("Node declaration.")),
+            carrier("CA-R-2", "Unknown", body("First outside line.", "", "Second outside line."), form="Rule"),
+        ])
+
+        rendered = render_contract_graph(graph)
+        self.assertIn("    First outside line.\n\n    Second outside line.", rendered)
+        self.assertFalse(any(line.endswith(" ") for line in rendered.splitlines()))
 
     def test_declared_derived_relation_keeps_its_own_metadata(self):
         graph = compose_contract_graph([

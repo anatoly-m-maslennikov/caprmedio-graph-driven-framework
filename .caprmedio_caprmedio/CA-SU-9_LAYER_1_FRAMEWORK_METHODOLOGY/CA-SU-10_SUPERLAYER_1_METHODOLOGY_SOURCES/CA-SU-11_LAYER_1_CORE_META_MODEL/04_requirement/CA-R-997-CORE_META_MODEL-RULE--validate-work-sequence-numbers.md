@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan).Work Sequence Number
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Plan).Work Sequence Number
   passive:
-  - Atom/(.Role := Plan)
-  - Atom/(.Role := Plan).Work Sequence Number
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan).Work Sequence Number
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

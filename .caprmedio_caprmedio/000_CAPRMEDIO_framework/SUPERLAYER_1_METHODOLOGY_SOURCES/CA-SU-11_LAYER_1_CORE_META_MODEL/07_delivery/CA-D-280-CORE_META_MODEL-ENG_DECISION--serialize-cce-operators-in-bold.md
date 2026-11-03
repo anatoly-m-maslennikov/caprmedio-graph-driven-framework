@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Carrier/File.Main Content.CCE Operator
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content.CCE Operator
   passive:
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 27
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

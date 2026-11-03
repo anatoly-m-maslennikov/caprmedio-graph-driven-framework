@@ -8,9 +8,9 @@ relations:
   child_of:
   - CA-R-1423
 subjects:
-  active: Atom/(.Role := Concern)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Concern)
   passive:
-  - Atom
+  - CAPRMEDIO_MODEL <+ Atom
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio

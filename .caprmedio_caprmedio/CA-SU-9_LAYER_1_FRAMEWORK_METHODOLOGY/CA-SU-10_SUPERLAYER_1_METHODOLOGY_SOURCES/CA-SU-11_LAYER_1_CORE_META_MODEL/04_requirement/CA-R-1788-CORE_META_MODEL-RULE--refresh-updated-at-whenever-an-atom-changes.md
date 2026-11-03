@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom.Updated At
+  active: CAPRMEDIO_MODEL <+ Atom.Updated At
   passive:
-  - Atom
-  - Atom.Status
-  - Carrier
-  - Carrier.Canonical Address
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Carrier.Canonical Address
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
 claim_target_scope_unit: CORE_META_MODEL

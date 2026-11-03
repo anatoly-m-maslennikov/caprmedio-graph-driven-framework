@@ -1,0 +1,123 @@
+{
+  "status": "proposed semantic replacements; not promoted",
+  "base": "migration preview candidate pinned separately from canonical source; apply as replacement only if both pins match",
+  "records": [
+    {
+      "source_id": "CA-E-382",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md",
+      "source_sha256": "9a03e806dc33c5ca6edc9892f87601f5b88537a188a86e6819ebc78a6b624382",
+      "preview_sha256": "d024dd46d23c27e62ecc09530edd5387bd6c6e99753093c55a0fd6ec0e5724e0",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md",
+      "candidate_sha256": "cdee51d9936635290dd88315798f9c957464cb3db2bbf1f106c02f41801ca22b",
+      "rationale": "Replace retired reference-marker guidance and examples with bare qualified references; preserve identity, Summary and applicable endpoint/cardinality semantics."
+    },
+    {
+      "source_id": "CA-E-383",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "source_sha256": "d1b414fdf915f1976aab0a5b0ff5ca433810b988d137a874843499422d479ee8",
+      "preview_sha256": "d9fcab37d542d04d56e0f562280fb7769d67cd6e8d00e05f3fca873166116ca5",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "candidate_sha256": "8ecb0ff2a6fa65958a18e85f2f24b3982b0e4e573d4eeb27bbf05c09d01b56c5",
+      "rationale": "Replace retired reference-marker guidance and examples with bare qualified references; preserve identity, Summary and applicable endpoint/cardinality semantics."
+    },
+    {
+      "source_id": "CA-E-444",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "source_sha256": "820d4bb1cf64fbc06d445b2d241d5d4fb2d22e3e1826db17c36c114779355b4a",
+      "preview_sha256": "0f4f87c3d837b25f2859090b6a47199e7fc0ea52663807f98d734f7992e9283b",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "candidate_sha256": "b140eff17c7de28ff677be3ef04927676aa2fc50437abbdf8a76892fbd88656d",
+      "rationale": "Replace retired reference-marker guidance and examples with bare qualified references; preserve identity, Summary and applicable endpoint/cardinality semantics."
+    },
+    {
+      "source_id": "CA-E-472",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-472-CORE_META_MODEL-POLICY--check-simple-wording-without-meaning-loss.md",
+      "source_sha256": "b218cc13a5802e2f6d10f4f431d0b519e92ae63a8264caf875debab8026300b7",
+      "preview_sha256": "4817fa26b743e03bb7129211c1c933d48c849a1b0a1439b594a7d95d02178e10",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-E-472-CORE_META_MODEL-POLICY--check-simple-wording-without-meaning-loss.md",
+      "candidate_sha256": "2ba30ce926cc6f3700fc717ca26a821ea4292fb844a2d70a4c7df3ffda68a6e5",
+      "rationale": "Replace retired reference-marker guidance and examples with bare qualified references; preserve identity, Summary and applicable endpoint/cardinality semantics."
+    },
+    {
+      "source_id": "CA-M-113",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-claims-in-caprmedio-controlled-english.md",
+      "source_sha256": "97d91ee5a49944a758489bf086031be7ed911b1c481faef24b2012d6a2c60e0d",
+      "preview_sha256": "1805ae16394e768a6d284bf5c14ed20cdb5ae6fa38cbfb754ff43b231725a3f4",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-M-113-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-claims-in-caprmedio-controlled-english.md",
+      "candidate_sha256": "ff7e78240900d22c49ece88a40ed92213f258b5b1f687607d12c99e2ef9413b3",
+      "rationale": "Replace retired reference-marker guidance and examples with bare qualified references; preserve identity, Summary and applicable endpoint/cardinality semantics."
+    },
+    {
+      "source_id": "CA-M-232",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md",
+      "source_sha256": "671ef32b94e99ca18053606a965ebac2a67f27e7ad1c50c031e737cae004beb6",
+      "preview_sha256": "85bba1c280ebceb66ee114a264b63f9060ffb738085d27bbed5ed343f7eabcfb",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md",
+      "candidate_sha256": "9f84da9fa587c9d41b91fbc4754afa3b470a3e8eb398bd0207399a34ad1f90af",
+      "rationale": "Replace retired reference-marker guidance and examples with bare qualified references; preserve identity, Summary and applicable endpoint/cardinality semantics."
+    },
+    {
+      "source_id": "CA-M-294",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-294-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-simpler-words-without-losing-meaning.md",
+      "source_sha256": "791eef914c52a074665dd5944ca45cead80a31f09b2b698d9a31aa9767c3ebc8",
+      "preview_sha256": "07ffb08af78d8f0fdcdb6abd46602552f61546033ec62b16236fcf20d88b164c",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-M-294-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-simpler-words-without-losing-meaning.md",
+      "candidate_sha256": "e382d6c60182c818801870fd57297a1a55514be844eeb78e5656386bfc84a909",
+      "rationale": "Replace retired reference-marker guidance and examples with bare qualified references; preserve identity, Summary and applicable endpoint/cardinality semantics."
+    },
+    {
+      "source_id": "CA-R-1321",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+      "source_sha256": "1cb1cdd525d6c0bee9d7ac6d4b32ff7462055986b133663dff6f97fcda6fd26e",
+      "preview_sha256": "c047861e95c9af93c024efd8912feee7fdb287a21e0754f2918daa9263cd47f4",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+      "candidate_sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698",
+      "rationale": "Replace retired reference-marker guidance and examples with bare qualified references; preserve identity, Summary and applicable endpoint/cardinality semantics."
+    },
+    {
+      "source_id": "CA-R-1324",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-RULE--reserve-subject-expression-separators.md",
+      "source_sha256": "f131926c294e95676a995a08ddcdb6fcb123dcc5be7e937544093fa9ab6eb843",
+      "preview_sha256": "9a1b7f1994a959853f20a99d28481534e0882f72aea80d07e5d438df5a1fdc4b",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-R-1324-CORE_META_MODEL-RULE--reserve-subject-expression-separators.md",
+      "candidate_sha256": "8aa49a033b156ccccb60b64e56cde574ab2e734a311f0990335088b7a078c698",
+      "rationale": "Replace retired reference-marker guidance and examples with bare qualified references; preserve identity, Summary and applicable endpoint/cardinality semantics."
+    },
+    {
+      "source_id": "CA-R-1456",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL-RULE--derive-entities-views-from-selected-authority.md",
+      "source_sha256": "13df0d338dee92df78701ace80a710562b6aa1e1860013f936624c43f4074c98",
+      "preview_sha256": "9b71b02f211b228221a4cfd7e8930028e5f87d2b17b63a1e23ce857a4026e94d",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-R-1456-CORE_META_MODEL-RULE--derive-entities-views-from-selected-authority.md",
+      "candidate_sha256": "3d803bf5beae93141a965c02a859affdd334b3f69bdca71a7c92b82515651c4b",
+      "rationale": "Replace retired reference-marker guidance and examples with bare qualified references; preserve identity, Summary and applicable endpoint/cardinality semantics."
+    },
+    {
+      "source_id": "CA-R-1931",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "source_sha256": "e4c5f0f7048d485480dde4c7a14768ed9dfe87025c1eef06df5d975b3213ddb3",
+      "preview_sha256": "6cdb265356e75bcef6086b7eeb92609205fa60094573b6815b0a525b05310b36",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "candidate_sha256": "fdabb66f9c33c3d6997d0e0d7f6480b258eb753c685ca2b2c3989e07acccf3c3",
+      "rationale": "Replace retired reference-marker guidance and examples with bare qualified references; preserve identity, Summary and applicable endpoint/cardinality semantics."
+    },
+    {
+      "source_id": "CA-R-2548",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2548-CORE_META_MODEL-RULE--deliver-objects-to-carriers.md",
+      "source_sha256": "6a40151d42b7f156698db3e63eb07629736f04ceaae9b8eb4ef8f1633534e306",
+      "preview_sha256": "62ad7bca9fb157474defa7e5abe56945f6f15e8c897b39d04c9e518a392472cd",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-R-2548-CORE_META_MODEL-RULE--deliver-objects-to-carriers.md",
+      "candidate_sha256": "94bb4b46dcf8fbfbae71cc68113c62dc8a857feafdefcf818ff57c1fb76523c6",
+      "rationale": "Replace retired reference-marker guidance and examples with bare qualified references; preserve identity, Summary and applicable endpoint/cardinality semantics."
+    },
+    {
+      "source_id": "CA-R-2552",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2552-CORE_META_MODEL-CFEL--bind-instance-variables.md",
+      "source_sha256": "1dc6d36950725c7fe9cd5aaed5e266ddb8c3d11cb902adee93ac4f41c61e0b89",
+      "preview_sha256": "0d4314c9026a9dd1574f6d6d089e50b0f0680d2ea05efb33bece9d3f3a1b684a",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/notation-prose/CA-R-2552-CORE_META_MODEL-CFEL--bind-instance-variables.md",
+      "candidate_sha256": "0952d42dd5eb31cb4f2afcacf169f4067dff4d33bc1479c544fe7e8f354839eb",
+      "rationale": "Replace retired reference-marker guidance with a bare qualified reference; preserve identity, Summary and binding semantics."
+    }
+  ]
+}

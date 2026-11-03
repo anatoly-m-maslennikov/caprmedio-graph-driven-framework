@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - Carrier/File
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
 version: 25
 updated_at: 2026-11-02 00:55:09 +0400
 relations: {}
@@ -17,10 +17,10 @@ tier: 1
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-ENG_DECISION--carry-applicability-in-the-registered-body-sections.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-ENG_DECISION--carry-applicability-in-the-registered-body-sections.md
   source_atom_id: CA-D-495
   source_atom_revision: 25
-  source_sha256: 96fd508962c9ee5e8788a6096cf212ad534ab674b15fbcff3f3acde643a3df73
+  source_sha256: b543fa5fa2e8b9b02f1c8f29e9060e80a350e0ad9beb262c8c5488bb62520157
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

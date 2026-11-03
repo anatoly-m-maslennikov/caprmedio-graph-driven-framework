@@ -4,10 +4,10 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
   passive:
-  - Atom/(.Role := "Analysis & Advisory")
-  - Atom/(.Role := "Analysis & Advisory")/(.Form := Analysis Report)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := Analysis Report)
 version: 20
 relations:
   depends_on:

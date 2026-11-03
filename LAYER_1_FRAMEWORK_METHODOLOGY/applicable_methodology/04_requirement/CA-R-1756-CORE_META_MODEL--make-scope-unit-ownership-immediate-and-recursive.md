@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit.Children
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children
 version: 36
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL--make-scope-unit-ownership-immediate-and-recursive.md
   source_atom_id: CA-R-1756
   source_atom_revision: 36
-  source_sha256: 6b0b0c49a27fb995a60038f5ae0094db9a0a144de142b96462855f8380c344c5
+  source_sha256: a0765ad2067c7efec5b50e7bd10f7e3c81dab05375ecdf59efe10c3846727ce3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

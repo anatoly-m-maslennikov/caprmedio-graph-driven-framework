@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit.Children
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children
 version: 30
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1771-CORE_META_MODEL-RULE--permit-mixed-child-composition.md
   source_atom_id: CA-R-1771
   source_atom_revision: 30
-  source_sha256: 3412a34780e2229d0850dd49cc036289a32f2825b925fdb39c93cd2d9eb93e0e
+  source_sha256: 1f28d7c182f154a74714008a3118a6806445217fc4bd8c3dbdfb05f41b7670ce
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

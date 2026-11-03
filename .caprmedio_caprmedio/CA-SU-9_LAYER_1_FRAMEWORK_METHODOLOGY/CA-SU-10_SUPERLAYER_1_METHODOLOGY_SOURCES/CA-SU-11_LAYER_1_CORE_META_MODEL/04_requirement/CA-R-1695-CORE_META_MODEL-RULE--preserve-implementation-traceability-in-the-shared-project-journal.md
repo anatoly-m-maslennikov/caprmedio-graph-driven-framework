@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Traceability
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   passive:
-  - Journal
-  - Scope Unit
-  - Atom
-  - Projection
-  - Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
 version: 38
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

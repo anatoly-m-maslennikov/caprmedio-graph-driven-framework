@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Aspects <+ Engineering <+ Observability <+ Logging
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -14,10 +14,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-396-PROJECT_CONFIGURATION-ENG_DECISION--serialize-structured-production-log-records.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-396-PROJECT_CONFIGURATION-ENG_DECISION--serialize-structured-production-log-records.md
   source_atom_id: CA-D-396
   source_atom_revision: 23
-  source_sha256: 903df75bf8514dbff83afb87446e2db535891cf6061684524de9c68fbc550c79
+  source_sha256: 1304ea36560634fc5baeb600cf286203b60ad1248cd22ca2f3351aeefbf22930
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

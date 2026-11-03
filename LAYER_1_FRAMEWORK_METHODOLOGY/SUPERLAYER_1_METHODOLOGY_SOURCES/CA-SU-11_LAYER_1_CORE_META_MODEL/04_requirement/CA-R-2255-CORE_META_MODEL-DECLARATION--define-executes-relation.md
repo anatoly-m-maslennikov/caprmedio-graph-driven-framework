@@ -4,10 +4,10 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL <+ Relation//EXECUTES
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//EXECUTES
   passive:
-  - Entity/Object/Occurrent/Runtime
-  - Entity/Object/Occurrent/Execution/Workflow Run
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Runtime
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
 version: 8
 relations: {}
 tier: 1

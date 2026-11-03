@@ -19,7 +19,7 @@ author: Anatoly Maslennikov
 type: Action
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-077-PROJECT_CONFIGURATION-ACTION--reconcile-atom-properties-and-addresses-together.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-077-PROJECT_CONFIGURATION-ACTION--reconcile-atom-properties-and-addresses-together.md
   source_atom_id: CA-O-077
   source_atom_revision: 19
   source_sha256: b9bbb6a72cfac8a9697cd1874a34b705e1c642a4326c5d2dc4d068fd2ab6a471

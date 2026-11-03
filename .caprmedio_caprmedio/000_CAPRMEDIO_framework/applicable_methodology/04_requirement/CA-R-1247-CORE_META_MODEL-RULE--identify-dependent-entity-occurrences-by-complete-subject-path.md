@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Entity/Property
+  active: CAPRMEDIO <+ MODEL <+ Entity/Property
   passive:
-  - Entity
-  - Term//Property
-  - CFEL
-  - CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ CFEL
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,10 +17,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1247-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1247-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md
   source_atom_id: CA-R-1247
   source_atom_revision: 24
-  source_sha256: 3bee450cc56727e43c625b1a022e67a85dc5d7290f365a690139993010d59dcd
+  source_sha256: 73dd58fc709d3c6c5f62b34f995060b3968cae334ab24dee39f7530600c0e296
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

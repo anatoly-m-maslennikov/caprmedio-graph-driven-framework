@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
   passive:
-  - Carrier/File
-  - Carrier/File.YAML Frontmatter
-  - Carrier/File.Main Content
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.YAML Frontmatter
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
 version: 31
 relations:
   delivery_for:
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md
   source_atom_id: CA-D-478
   source_atom_revision: 31
-  source_sha256: 5bb3c2c3d0e70aa492ff729dc87e75b8ea0f614c91c755fcf8350ee3cba536a6
+  source_sha256: 181f993a26d7ab00bdcac7796da77bafc55f29d3748101e56eabe7d4553ee264
   original_relations_sha256: 843a624c507db49061abd0d25f3f76731df9f6dbfc291965068ed519395a75ca
 ---
 ## Summary

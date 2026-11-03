@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Carrier/File.Main Content.Paragraph
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content.Paragraph
 version: 25
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

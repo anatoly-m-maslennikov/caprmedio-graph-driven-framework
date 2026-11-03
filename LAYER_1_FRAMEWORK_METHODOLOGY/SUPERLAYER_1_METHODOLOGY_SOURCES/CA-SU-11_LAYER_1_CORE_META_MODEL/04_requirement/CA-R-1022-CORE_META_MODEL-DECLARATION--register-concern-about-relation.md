@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CFEL <+ Relation//concern_about
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//concern_about
   passive:
-  - CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
 version: 31
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

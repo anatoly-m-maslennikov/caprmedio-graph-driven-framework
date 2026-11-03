@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
 version: 31
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1679-CORE_META_MODEL--requirement-bound-effect-guarantees.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1679-CORE_META_MODEL--requirement-bound-effect-guarantees.md
   source_atom_id: CA-R-1679
   source_atom_revision: 31
-  source_sha256: f8b92ddc2c73dedbcd9ec7ef976e8f5dc3c40557be537f9b08acfac76c37e19b
+  source_sha256: f209d6c5cb763d17973f01834de5da35dd34436a96ca1c5871a6cadf0d587e54
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

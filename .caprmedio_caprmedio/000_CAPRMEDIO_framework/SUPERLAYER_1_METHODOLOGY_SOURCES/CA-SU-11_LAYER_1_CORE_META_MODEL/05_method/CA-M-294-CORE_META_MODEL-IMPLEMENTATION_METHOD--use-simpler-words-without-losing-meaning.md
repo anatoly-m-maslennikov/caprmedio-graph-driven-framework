@@ -11,12 +11,12 @@ relations:
   depends_on:
   - CA-R-1273
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - Actor
-  - Atom.Content.Summary
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Term
+  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Term
 atom_id: CA-M-294
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

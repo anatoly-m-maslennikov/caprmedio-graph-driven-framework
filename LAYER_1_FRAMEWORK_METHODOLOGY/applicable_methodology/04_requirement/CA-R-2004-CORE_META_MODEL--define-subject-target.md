@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom.Subjects
+  active: CAPRMEDIO <+ MODEL <+ Atom.Subjects
   passive:
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ Entity
 atom_id: CA-R-2004
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2004-CORE_META_MODEL--define-subject-target.md
   source_atom_id: CA-R-2004
   source_atom_revision: 14
-  source_sha256: a620b17fca837072d1d8e991c96e244b9783158e2d9f4aedaf98e39198d0d535
+  source_sha256: d70fe94e2a5c7a21405ac41290bda0355a4194a0eae735f4f74fce63af87bb12
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

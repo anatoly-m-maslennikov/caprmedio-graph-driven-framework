@@ -6,20 +6,20 @@ status: Active
 version: 32
 updated_at: 2026-11-02 18:35:20 +0400
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
   passive:
-  - Atom.Subjects
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - Atom.Content.Details
-  - Atom.Content.Summary
-  - Entity/Object/Continuant/Governing Objects/Atom.Content Role
-  - Term//Property
-  - Entity
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Product
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
+  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Details
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Content Role
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Product
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
 relations:
   evaluation_for:
   - CA-D-269
@@ -41,7 +41,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVAL-POLICY--check-rmed-atom-coherence.md
   source_atom_id: CA-E-520
   source_atom_revision: 32
-  source_sha256: 7020020947ef074e07ec5e23ff789f49036e4de86fb58b444d94fda1e17952eb
+  source_sha256: a8bc3f6f29c5f5dd49752e8045929d0dd75ee3e972fa3c77cc4f1575b5f670e2
   original_relations_sha256: 216745b2d9615d7395b419d7b8e1843d9163e6bafeaaf74fdf1adfb6a455cf32
 ---
 ## Summary

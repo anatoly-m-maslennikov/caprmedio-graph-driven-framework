@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method.Content.Claim'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method.Content.Claim'
   passive:
-  - Atom/(.Role := Method)
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-311-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-method-claims-with-the-method-cce-profile.md
   source_atom_id: CA-M-311
   source_atom_revision: 25
-  source_sha256: ce8653af5ed900a8c4afe27f7fea16e2304591c768fd5a2d994c2040f64eeb1b
+  source_sha256: f5277b1eb768706c0071e277e84430a9f04b50b25cb29ea81140b4629bd2ef20
   original_relations_sha256: 47b06870f90f386d56ae6b28c085ecca8c85c303431390d57d18a6a22f61c0d2
 ---
 ## Summary

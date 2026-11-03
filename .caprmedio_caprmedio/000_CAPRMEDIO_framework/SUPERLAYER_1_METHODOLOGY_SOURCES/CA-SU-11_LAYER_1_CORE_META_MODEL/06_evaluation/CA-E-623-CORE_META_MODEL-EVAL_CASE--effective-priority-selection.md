@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom/(.Role := Concern).Priority
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern).Priority
 version: 30
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

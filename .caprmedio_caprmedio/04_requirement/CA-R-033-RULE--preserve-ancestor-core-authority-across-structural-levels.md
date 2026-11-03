@@ -14,7 +14,7 @@ status: Active
 atom_id: CA-R-033
 tier: 5
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
 role: Requirement
 form: Rule
 ---

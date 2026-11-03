@@ -4,17 +4,17 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Entity/Object/Continuant/Selection
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - Carrier
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Atom.Status
-  - Entity/Object/Continuant/Selection
-  - Scope Unit
-  - Atom
-  - Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

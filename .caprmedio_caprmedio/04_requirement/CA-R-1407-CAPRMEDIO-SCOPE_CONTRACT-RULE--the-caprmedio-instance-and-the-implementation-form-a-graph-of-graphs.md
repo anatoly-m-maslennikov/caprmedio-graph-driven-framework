@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: Aspects <+ Engineering
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering
   passive:
-  - Project
-  - Aspects <+ Engineering <+ Architecture <+ Component Structure
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Entity
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Entity
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

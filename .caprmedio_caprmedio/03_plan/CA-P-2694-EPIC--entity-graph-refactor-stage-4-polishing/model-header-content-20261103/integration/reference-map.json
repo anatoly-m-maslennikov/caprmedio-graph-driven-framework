@@ -1,0 +1,176 @@
+{
+  "status": "PREPARED_IDS_SOURCE_AND_PAYLOAD_REVIEW_PENDING",
+  "full_property_paths": [
+    {
+      "old": "Atom.Status",
+      "new": "Atom.Header.Status"
+    },
+    {
+      "old": "Atom.Updated At",
+      "new": "Atom.Header.Updated At"
+    },
+    {
+      "old": "Atom.Relations.IS_CONTAINED_BY",
+      "new": "Atom.Header.Relations.IS_CONTAINED_BY"
+    },
+    {
+      "old": "Atom.Relations.IS_CONTAINED_BY.atom",
+      "new": "Atom.Header.Relations.IS_CONTAINED_BY.atom"
+    },
+    {
+      "old": "Atom.Relations.IS_CONTAINED_BY.scope_unit",
+      "new": "Atom.Header.Relations.IS_CONTAINED_BY.scope_unit"
+    },
+    {
+      "old": "Atom.ID",
+      "new": "Atom.Header.ID"
+    },
+    {
+      "old": "Atom.Role",
+      "new": "Atom.Header.Role"
+    },
+    {
+      "old": "Atom.Form",
+      "new": "Atom.Header.Form"
+    },
+    {
+      "old": "Atom.Version",
+      "new": "Atom.Header.Version"
+    },
+    {
+      "old": "Atom.Label",
+      "new": "Atom.Header.Label"
+    },
+    {
+      "old": "Atom.Tier",
+      "new": "Atom.Header.Tier"
+    },
+    {
+      "old": "Atom.Tier.Label",
+      "new": "Atom.Header.Tier.Label"
+    },
+    {
+      "old": "Atom.Subjects.Passive",
+      "new": "Atom.Header.Subjects.Passive"
+    },
+    {
+      "old": "Atom.Relations",
+      "new": "Atom.Header.Relations"
+    },
+    {
+      "old": "Atom/(.Role := Concern).Priority",
+      "new": "Atom/(.Header.Role := Concern).Header.Priority"
+    },
+    {
+      "old": "Atom/(.Role := Plan).AI Agent Confidence Threshold",
+      "new": "Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold"
+    },
+    {
+      "old": "Atom/(.Role := Plan).Work Sequence Number",
+      "new": "Atom/(.Header.Role := Plan).Header.Work Sequence Number"
+    },
+    {
+      "old": "Atom.Subjects",
+      "new": "Atom.Header.Subjects"
+    },
+    {
+      "old": "Atom.Subjects.Active",
+      "new": "Atom.Header.Subjects.Active"
+    },
+    {
+      "old": "Atom.Carrier Destination",
+      "new": "Atom.Header.Carrier Destination"
+    },
+    {
+      "old": "Atom.Carrier Destination.File",
+      "new": "Atom.Header.Carrier Destination.File"
+    },
+    {
+      "old": "Atom.Carrier Destination.File.Name",
+      "new": "Atom.Header.Carrier Destination.File.Name"
+    },
+    {
+      "old": "Atom.Carrier Destination.File.Path",
+      "new": "Atom.Header.Carrier Destination.File.Path"
+    },
+    {
+      "old": "Atom.Type",
+      "new": "Atom.Header.Form"
+    },
+    {
+      "old": "Atom.Content Role",
+      "new": "Atom.Header.Role"
+    },
+    {
+      "old": "Atom.Version Number",
+      "new": "Atom.Header.Version"
+    }
+  ],
+  "atom_header_fields": [
+    "AI Agent Confidence Threshold",
+    "Carrier Destination",
+    "Form",
+    "ID",
+    "Label",
+    "Priority",
+    "Relations",
+    "Role",
+    "Status",
+    "Subjects",
+    "Tier",
+    "Updated At",
+    "Version",
+    "Work Sequence Number"
+  ],
+  "role_condition_fields": {
+    "Role": "Header.Role",
+    "Form": "Header.Form",
+    "Type": "Header.Form",
+    "Content Role": "Header.Role"
+  },
+  "root_property_headings": [
+    "Summary",
+    "Claim",
+    "Semantics",
+    "Details"
+  ],
+  "claim_child_headings": [
+    "Formal Claim",
+    "Prose Claim"
+  ],
+  "removed_heading": "Claim Scope",
+  "removed_heading_destination": "Prose Claim",
+  "counterpart_relation": "HAS_INVERSE",
+  "subject_counterpart_notation": "<-->",
+  "reference_operator": "removed; @Nversiontags/emails/quotedliteralsretained",
+  "new_roots": [
+    "CAPRMEDIO_MODEL",
+    "CAPRMEDIO_STRUCTURE"
+  ],
+  "base_atom_id_replacements": {
+    "CA-R-2488": "CA-R-2696",
+    "CA-R-2489": "CA-R-2697",
+    "CA-R-2490": "CA-R-2698",
+    "CA-R-2491": "CA-R-2699",
+    "CA-R-2492": "CA-R-2700",
+    "CA-R-2493": "CA-R-2701",
+    "CA-R-2494": "CA-R-2702",
+    "CA-R-2495": "CA-R-2703",
+    "CA-R-2496": "CA-R-2704",
+    "CA-R-2497": "CA-R-2705",
+    "CA-R-2504": "CA-R-2706",
+    "CA-R-2505": "CA-R-2707",
+    "CA-R-2506": "CA-R-2708",
+    "CA-R-2507": "CA-R-2709",
+    "CA-R-2518": "CA-R-2710",
+    "CA-R-2519": "CA-R-2711",
+    "CA-R-2520": "CA-R-2712",
+    "CA-R-2545": "CA-R-2713",
+    "CA-R-2546": "CA-R-2714",
+    "CA-R-2692": "CA-R-2715",
+    "CA-R-2693": "CA-R-2716",
+    "CA-R-2694": "CA-R-2717",
+    "CA-R-2695": "CA-R-2718"
+  },
+  "atom_id_replacements": {}
+}

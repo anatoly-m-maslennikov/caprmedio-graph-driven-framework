@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Aspects <+ Engineering <+ Observability <+ Logging
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
 version: 14
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1783-PROJECT_CONFIGURATION-RULE--require-production-logging-lifecycle-settings.md
   source_atom_id: CA-R-1783
   source_atom_revision: 14
-  source_sha256: b3bae16f4dfc44ad9a0e5195ce34d5c9dafa6eae37fd758f7080454682106799
+  source_sha256: 330ba829ba836b743f1232d617f5deba80d90b83ba93b3c09bf1d72c9c1653c8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

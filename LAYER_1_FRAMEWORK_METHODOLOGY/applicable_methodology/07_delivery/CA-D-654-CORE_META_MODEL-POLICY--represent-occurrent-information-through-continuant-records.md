@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Node/Occurrent
+  active: CAPRMEDIO <+ MODEL <+ Node/Occurrent
   passive:
-  - Carrier
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - CFEL > Relation//CARRIES
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//CARRIES
 version: 3
 relations: {}
 tier: 1
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-654-CORE_META_MODEL-POLICY--represent-occurrent-information-through-continuant-records.md
   source_atom_id: CA-D-654
   source_atom_revision: 3
-  source_sha256: 000f3fd8213b88f0d54ad877492c6d235a7b31a88ec55f0e2b7ad3ae19a962ba
+  source_sha256: 806b9143fff18465c8340f46ea75c74da75012949925434270e2ad7391175c9d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

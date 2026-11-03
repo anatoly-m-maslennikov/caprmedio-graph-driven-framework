@@ -4,14 +4,14 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Term
+  active: CAPRMEDIO <+ MODEL <+ Term
   passive:
-  - Atom
-  - Atom.Content
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Atom/(.Role := Concern)
-  - Carrier/File.Main Content.CCE Operator
-  - Scope Unit.Name
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern)
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content.CCE Operator
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
 version: 27
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

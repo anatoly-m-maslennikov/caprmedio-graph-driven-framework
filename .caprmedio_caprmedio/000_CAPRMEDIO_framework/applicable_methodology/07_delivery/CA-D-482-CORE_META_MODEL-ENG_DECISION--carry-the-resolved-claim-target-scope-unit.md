@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
-  - Scope Unit
-  - Project
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Atom
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-482-CORE_META_MODEL-ENG_DECISION--carry-the-resolved-claim-target-scope-unit.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-482-CORE_META_MODEL-ENG_DECISION--carry-the-resolved-claim-target-scope-unit.md
   source_atom_id: CA-D-482
   source_atom_revision: 27
-  source_sha256: b21a3f41564c2c642472643316766d163e565cbf4a0a1335d835c13efb6e246e
+  source_sha256: e476feb905bb596d92cf0cf5700bd65aacbfaa4a0c24abfd45f19fd570858f04
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

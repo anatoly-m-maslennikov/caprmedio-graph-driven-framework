@@ -7,9 +7,9 @@ relations:
   child_of:
   - CA-R-2452
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Project
+  - CAPRMEDIO_MODEL <+ Project
 atom_id: CA-M-447
 status: Active
 current_scope_unit: caprmedio

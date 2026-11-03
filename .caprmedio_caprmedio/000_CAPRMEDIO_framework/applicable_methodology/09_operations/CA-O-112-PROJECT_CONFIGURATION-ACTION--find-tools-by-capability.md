@@ -20,7 +20,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-112-PROJECT_CONFIGURATION-ACTION--find-tools-by-capability.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-112-PROJECT_CONFIGURATION-ACTION--find-tools-by-capability.md
   source_atom_id: CA-O-112
   source_atom_revision: 11
   source_sha256: 6f1126f83becc02e24350371ebe87068e5a8d751335d660bee1851cb68434341

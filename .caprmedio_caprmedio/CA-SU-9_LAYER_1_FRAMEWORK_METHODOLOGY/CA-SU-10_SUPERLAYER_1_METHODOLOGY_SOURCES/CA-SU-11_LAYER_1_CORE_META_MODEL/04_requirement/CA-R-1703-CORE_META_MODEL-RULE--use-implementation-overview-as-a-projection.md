@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Implementation Overview)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Implementation Overview)'
   passive:
-  - Projection
-  - Atom
-  - Term//Artifact
-  - Aspects <+ Engineering <+ Traceability
-  - Journal
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Atom/(.Role := Evaluation)
-  - Entity/Object/Continuant/Governing Objects/Atom.Content Role
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Content Role
 version: 40
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

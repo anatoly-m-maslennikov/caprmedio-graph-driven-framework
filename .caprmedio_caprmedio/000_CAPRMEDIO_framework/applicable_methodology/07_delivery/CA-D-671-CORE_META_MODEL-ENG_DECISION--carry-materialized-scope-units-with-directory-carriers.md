@@ -12,7 +12,7 @@ tier: 3
 role: Delivery
 form: Eng Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-671-CORE_META_MODEL-ENG_DECISION--carry-materialized-scope-units-with-directory-carriers.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-671-CORE_META_MODEL-ENG_DECISION--carry-materialized-scope-units-with-directory-carriers.md
   source_atom_id: CA-D-671
   source_atom_revision: 1
   source_sha256: 2e6fd842be10279b31175075f2b9f0c33056bd4b5463871e4481df81eee542c6

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Governance Origin
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Governance Origin
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md
   source_atom_id: CA-R-1690
   source_atom_revision: 33
-  source_sha256: 52973ac281c46be51b3ab623fd0bf3211bbd4051cd540da2bf532935fdacf284
+  source_sha256: 8c8fb54a6d49a075293631c215c1170494c15db13001e94b03f7aa234816f152
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

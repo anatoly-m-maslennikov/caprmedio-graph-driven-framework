@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: Aspects <+ Engineering <+ Verification
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
   passive:
-  - Project
-  - Atom.Content
-  - Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
 version: 35
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

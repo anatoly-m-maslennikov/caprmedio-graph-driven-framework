@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom/(.Role := Evaluation)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CFEL > Relation//evaluation_for
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ CFEL > Relation//evaluation_for
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

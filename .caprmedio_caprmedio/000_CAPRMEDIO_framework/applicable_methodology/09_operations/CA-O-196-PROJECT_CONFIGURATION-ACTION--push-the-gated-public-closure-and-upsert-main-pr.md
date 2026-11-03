@@ -18,7 +18,7 @@ updated_at: 2026-10-27 19:59:47 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-196-PROJECT_CONFIGURATION-ACTION--push-the-gated-public-closure-and-upsert-main-pr.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-196-PROJECT_CONFIGURATION-ACTION--push-the-gated-public-closure-and-upsert-main-pr.md
   source_atom_id: CA-O-196
   source_atom_revision: 10
   source_sha256: ea56b904bbd17c02a716bd71139f1dd70ccdfa3d5f10be325ef1746147ee4dbb

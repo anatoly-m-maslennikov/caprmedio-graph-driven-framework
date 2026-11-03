@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - Atom
-  - Atom/(.Role := Evaluation)
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - Atom.Content.Summary
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 42
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

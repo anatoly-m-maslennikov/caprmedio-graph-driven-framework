@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
   passive:
-  - Atom/(.Role := Plan)
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done'
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done'
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

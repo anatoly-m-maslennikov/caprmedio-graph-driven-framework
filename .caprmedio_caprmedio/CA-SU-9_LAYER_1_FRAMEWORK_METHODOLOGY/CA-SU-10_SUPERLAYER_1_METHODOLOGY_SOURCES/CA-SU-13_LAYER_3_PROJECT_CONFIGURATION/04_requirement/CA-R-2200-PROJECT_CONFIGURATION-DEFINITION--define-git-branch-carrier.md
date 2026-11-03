@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Carrier/Git Branch
+  active: CAPRMEDIO_MODEL <+ Carrier/Git Branch
 version: 5
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

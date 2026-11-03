@@ -7,11 +7,11 @@ relations:
   method_for:
   - CA-R-1487
 subjects:
-  active: Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
+  active: CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
-  - Atom/(.Role := Method)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
 atom_id: CA-M-297
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-297-CORE_META_MODEL-IMPLEMENTATION_METHOD--compare-by-priority-order.md
   source_atom_id: CA-M-297
   source_atom_revision: 21
-  source_sha256: 24e908898ebba13cc56fb901b53e2c28ae29394aac9a8b6ba169bd2a33780841
+  source_sha256: 13693784f0c99875a5682b1c459d4ac80c7b88d40e1f9dbe166f1a7c3ed332cf
   original_relations_sha256: ae04acb88297daa974bd08169ba33dbc88019ff0c09b2e9daea0eccf21fc1cb8
 ---
 ## Summary

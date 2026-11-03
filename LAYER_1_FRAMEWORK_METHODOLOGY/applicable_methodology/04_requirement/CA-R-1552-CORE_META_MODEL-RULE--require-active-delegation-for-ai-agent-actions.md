@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Actor/AI Agent
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   passive:
-  - Entity/Object/Continuant/Actor/AI Agent
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Actor/AI Agent.Permissions
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-RULE--require-active-delegation-for-ai-agent-actions.md
   source_atom_id: CA-R-1552
   source_atom_revision: 22
-  source_sha256: 7241142bcb151a830acfc1ae5392f4e59dd7f7368e98993c879ba5daef8dd09a
+  source_sha256: 8336016a3a37f574986ed27ecf019ef5eb26d11e79399d7ad0b2f3c35b00c057
   original_relations_sha256: 0846560adec6e797c5d882986f62e94d5629228d50d23e6fc9dd80a0ea12d72a
 ---
 ## Summary

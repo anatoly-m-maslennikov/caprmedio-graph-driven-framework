@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
   passive:
-  - Atom/(.Role := Requirement)/(.Form := Scope Unit Declaration)
-  - Project
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)/(.Form := Scope Unit Declaration)
+  - CAPRMEDIO <+ MODEL <+ Project
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}
@@ -16,7 +16,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md
   source_atom_id: CA-R-2688
   source_atom_revision: 1
-  source_sha256: 29265232fef257d51cb7465bdf92a476df61bf8897187495108db7e900799eec
+  source_sha256: a254b5f34793c9a2d9bd759da0e2908713e9fadfe0fb9133d6f39f41df72a34c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

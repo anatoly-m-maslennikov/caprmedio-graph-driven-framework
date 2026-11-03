@@ -4,10 +4,10 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Status'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Status'
   passive:
-  - Atom/(.Role := Concern)
-  - Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern)
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

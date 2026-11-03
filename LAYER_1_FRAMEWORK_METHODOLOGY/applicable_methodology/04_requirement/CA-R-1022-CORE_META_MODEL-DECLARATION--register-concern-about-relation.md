@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CFEL <+ Relation//concern_about
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//concern_about
   passive:
-  - CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
 version: 31
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-DECLARATION--register-concern-about-relation.md
   source_atom_id: CA-R-1022
   source_atom_revision: 31
-  source_sha256: 91776738838113b70054c5a69cb3d9764b4a4b694d24c53684efe6616a123890
+  source_sha256: 3884e4a7d4c75cb343eb60f1857b66b73abd57c2df39bcc26758dd29f0c3ee81
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

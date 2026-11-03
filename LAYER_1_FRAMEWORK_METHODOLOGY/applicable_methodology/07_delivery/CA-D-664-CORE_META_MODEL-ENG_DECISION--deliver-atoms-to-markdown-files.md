@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
 version: 5
 relations: {}
 tier: 3
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md
   source_atom_id: CA-D-664
   source_atom_revision: 5
-  source_sha256: 4f4837b4cf678e28db99550d032a7fe2a01911a3046012252a61056ce4aa1358
+  source_sha256: 5a0a6794387f31c218d3faeaeb1f806cbbacda84e0ff44178cfa5c3322706be7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

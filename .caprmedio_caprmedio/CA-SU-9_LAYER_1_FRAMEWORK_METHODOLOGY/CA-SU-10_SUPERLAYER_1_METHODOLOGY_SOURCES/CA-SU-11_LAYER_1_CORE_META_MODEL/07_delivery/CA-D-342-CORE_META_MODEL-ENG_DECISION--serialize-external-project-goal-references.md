@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
   passive:
-  - Carrier/File.Filename
+  - CAPRMEDIO_MODEL <+ Carrier/File.Filename
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

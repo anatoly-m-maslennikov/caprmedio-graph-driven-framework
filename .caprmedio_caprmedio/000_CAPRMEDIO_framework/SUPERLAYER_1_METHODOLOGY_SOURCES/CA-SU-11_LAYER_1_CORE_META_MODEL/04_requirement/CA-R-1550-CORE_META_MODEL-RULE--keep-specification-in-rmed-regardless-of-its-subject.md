@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Atom.Role
+  active: CAPRMEDIO <+ MODEL <+ Atom.Role
   passive:
-  - Atom.Content
-  - Entity/Object/Continuant/Selection
-  - Atom.Role
-  - Package/Implementation
-  - Atom.Subjects
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Atom.Role
+  - CAPRMEDIO <+ MODEL <+ Package/Implementation
+  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
 version: 28
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

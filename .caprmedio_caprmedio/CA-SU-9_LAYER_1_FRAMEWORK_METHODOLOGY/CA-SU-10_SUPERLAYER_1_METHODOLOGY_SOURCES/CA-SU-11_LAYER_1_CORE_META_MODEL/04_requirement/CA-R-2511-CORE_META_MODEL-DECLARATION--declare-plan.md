@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
 version: 2
 relations: {}
 tier: 3
@@ -21,7 +21,7 @@ Declare Atom/(.Role := Plan)
 ```CFEL
 Atom/(.Role: Plan);
 IF ((Atom/(.Role: Plan).Status = Active) AND (Atom/(.Role: Plan).Work Sequence Number{=1}))
-THEN (Atom/(.Role: Plan).Relations.contained_by{==1})
+THEN (Atom/(.Role: Plan).Relations.IS_CONTAINED_BY{==1})
 ```
 
 ## Semantics

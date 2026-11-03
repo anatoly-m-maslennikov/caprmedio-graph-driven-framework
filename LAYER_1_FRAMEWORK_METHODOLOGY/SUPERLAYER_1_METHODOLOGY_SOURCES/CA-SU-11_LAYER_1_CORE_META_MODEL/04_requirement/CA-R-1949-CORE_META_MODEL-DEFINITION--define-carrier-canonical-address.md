@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Carrier.Canonical Address
+  active: CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
 relations:
   child_of:
   - CA-R-1174

@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Project.Settings
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings
   passive:
-  - Project
-  - Project.Settings.Name
-  - Project.Settings.Prefix
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Project.Settings.Name
+  - CAPRMEDIO <+ MODEL <+ Project.Settings.Prefix
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 30
 updated_at: 2026-11-02 19:46:47 +0400
 relations:
@@ -20,10 +20,10 @@ tier: 6
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md
   source_atom_id: CA-D-366
   source_atom_revision: 30
-  source_sha256: 292cb42aa0940f3d2ac3fcb3afbe22dd8d7da0bc1973d6e6c5d7ebdfe4991beb
+  source_sha256: 716da35bde69ed179540312ebb7651992ab9d2bc78bfec9e1f0dc3cf14d2193e
   original_relations_sha256: 3fcf822d878922d4be67c2267faaa6398d32fdd7466a688a1586dcff08ebfc0d
 ---
 ## Summary

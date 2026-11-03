@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier/File.Format
+  active: CAPRMEDIO_MODEL <+ Carrier/File.Format
   passive:
-  - Scope Unit
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

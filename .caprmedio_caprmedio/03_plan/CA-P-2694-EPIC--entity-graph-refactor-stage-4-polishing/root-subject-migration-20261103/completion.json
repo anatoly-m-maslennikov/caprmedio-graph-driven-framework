@@ -1,0 +1,13 @@
+{
+  "status": "DONE",
+  "task_id": "CA-P-2709",
+  "task_version": 2,
+  "completed_at": "2026-11-03 18:44:41 +0400",
+  "task_path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/13-CA-P-2709-TASK--simplify-model-and-structure-subject-roots.md",
+  "task_sha256": "b3bde00ef8895978f4f5dfca44de2cdd6b82ff7cd8e15ab9049a02fef7bd226c",
+  "epic_version": 48,
+  "epic_sha256": "49071b964ba57be5f45c5c7671228e0d317719a48fdabf8cb1c106f9094d2f49",
+  "application_receipt": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/root-subject-migration-20261103/application-receipt.json",
+  "independent_verification": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/root-subject-migration-20261103/independent-verification.json",
+  "scope_note": "Plan completion bookkeeping follows and is separate from byte-preserving Subject migration."
+}

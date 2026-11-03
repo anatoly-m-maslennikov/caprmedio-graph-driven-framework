@@ -8,13 +8,13 @@ relations:
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - Project
-  - Scope Unit
-  - CFEL <+ Relation
-  - Atom.Content
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand'
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand'
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-881

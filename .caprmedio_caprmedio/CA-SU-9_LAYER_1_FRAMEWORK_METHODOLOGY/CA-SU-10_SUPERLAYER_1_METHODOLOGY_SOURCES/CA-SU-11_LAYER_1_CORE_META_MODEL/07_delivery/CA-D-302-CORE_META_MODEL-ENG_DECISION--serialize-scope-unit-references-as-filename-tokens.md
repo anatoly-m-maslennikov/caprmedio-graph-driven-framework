@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier/File.Filename.Scope Unit Token
+  active: CAPRMEDIO_MODEL <+ Carrier/File.Filename.Scope Unit Token
   passive:
-  - Scope Unit.Name
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_MODEL <+ Scope Unit.Name
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

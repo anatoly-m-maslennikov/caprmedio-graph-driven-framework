@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Type
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Type
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-393-CORE_META_MODEL-ENG_DECISION--derive-default-external-type-names.md
   source_atom_id: CA-D-393
   source_atom_revision: 23
-  source_sha256: 968c139dd2d4d475af0c2e24ba09bf4db1a270c96c935ed84186c5d2d790e0bb
+  source_sha256: a41256b49739dd0d1ebbdbd2fa2dba17ed1c8cfe0ca4be26a6f3f5a8aa2e10b4
   original_relations_sha256: b4bfcaf0f728812dfb598f500841b6f79cbc5173222acf7ef2ca5e3d51354bd1
 ---
 ## Summary

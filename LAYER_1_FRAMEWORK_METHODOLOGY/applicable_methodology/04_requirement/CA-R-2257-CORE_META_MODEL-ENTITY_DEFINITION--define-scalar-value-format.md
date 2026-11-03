@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL <+ Format/scalar
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Format/scalar
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2257-CORE_META_MODEL-ENTITY_DEFINITION--define-scalar-value-format.md
   source_atom_id: CA-R-2257
   source_atom_revision: 4
-  source_sha256: ea11e55d7242b65048d3780300b0ee8209c839f6db97186a27779c7afc1f41a0
+  source_sha256: 232102f2d7eb8688495aab45dce825fcb4e1985ce455b57478f8a6709fa3ef1f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -4,14 +4,14 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL
+  active: CAPRMEDIO <+ MODEL <+ CFEL
   passive:
-  - Term//Property
-  - Entity/Property
-  - CFEL <+ Relation//IS_PROPERTY_OF
-  - CFEL <+ Relation//HAS_CLASSIFICATION
-  - Entity
-  - Entity/Object/Continuant/Package <+ Module <+ Code Unit
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ Entity/Property
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_CLASSIFICATION
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
 version: 18
 relations: {}
 tier: 3
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md
   source_atom_id: CA-R-1931
   source_atom_revision: 18
-  source_sha256: 49a94caca1629e030f95b803dcb1e3cbaa2c4ce0e67bf0fee35b31102587f9f2
+  source_sha256: a1e1dbc8d1059572895c06df664f1d881ab7d24c7a2de9bee344b0dfc357b9ed
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

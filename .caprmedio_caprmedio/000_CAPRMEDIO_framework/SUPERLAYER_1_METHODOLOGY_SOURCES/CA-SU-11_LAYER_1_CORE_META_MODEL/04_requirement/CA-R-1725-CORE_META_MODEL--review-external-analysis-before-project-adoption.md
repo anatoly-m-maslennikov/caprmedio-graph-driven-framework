@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory")
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

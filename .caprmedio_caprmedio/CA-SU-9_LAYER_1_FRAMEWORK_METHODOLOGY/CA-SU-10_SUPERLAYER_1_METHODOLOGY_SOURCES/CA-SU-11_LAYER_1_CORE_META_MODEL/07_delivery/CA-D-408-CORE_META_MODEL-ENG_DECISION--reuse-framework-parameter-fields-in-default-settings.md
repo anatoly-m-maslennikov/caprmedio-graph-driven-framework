@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Governing Configuration
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
   passive:
-  - Entity/Object/Continuant/Governing Objects/Governing Configuration
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Carrier
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

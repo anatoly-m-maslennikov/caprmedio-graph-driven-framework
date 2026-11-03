@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
 relations: {}
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2278-CORE_META_MODEL-RULE--require-exactly-one-defining-requirement-per-model-entity.md
   source_atom_id: CA-R-2278
   source_atom_revision: 2
-  source_sha256: 3b55c5e9b48746788f85ca0eea0a27fa650a04f0dec35186540b945dd8b6df08
+  source_sha256: b1b5644f86df72c2ca7910ab16fd5a31a790a993e63dd6d5efc4dd67a8149b5c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

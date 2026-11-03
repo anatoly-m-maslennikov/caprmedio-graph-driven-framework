@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Carrier/File.Filename
+  active: CAPRMEDIO_MODEL <+ Carrier/File.Filename
   passive:
-  - Atom/(.Role := Plan)
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - Atom/(.Role := Plan).Work Sequence Number
-  - Atom.Content.Summary
-  - Atom.ID
-  - Carrier
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan).Work Sequence Number
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

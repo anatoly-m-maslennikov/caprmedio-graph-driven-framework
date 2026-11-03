@@ -9,10 +9,10 @@ relations:
   - CA-E-001
   - CA-R-1423
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Aspects <+ Product
-  - Project
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio

@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Package/Implementation
+  active: CAPRMEDIO <+ MODEL <+ Package/Implementation
   passive:
-  - Projection
-  - Journal
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 20
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md
   source_atom_id: CA-R-1873
   source_atom_revision: 20
-  source_sha256: 8c0584f66f84bd2c7751dfc2c39255b780852c830d2a88ef2e8e2f96add631e8
+  source_sha256: 8058341259be870bc733dd91a30cd1e2d839814ee38d2071acfb4e17bfe8a33f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
-  - Atom.Content
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 31
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

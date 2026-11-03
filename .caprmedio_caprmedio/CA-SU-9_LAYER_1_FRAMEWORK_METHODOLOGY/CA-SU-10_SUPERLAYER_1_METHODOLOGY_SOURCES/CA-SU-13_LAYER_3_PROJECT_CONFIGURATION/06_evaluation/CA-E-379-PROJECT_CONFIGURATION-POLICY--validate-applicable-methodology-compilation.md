@@ -1,17 +1,17 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
+  active: 'CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
   passive:
-  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
-  - Entity/Object/Continuant/Selection//Methodology Sources
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Entity/Object/Continuant/Selection//Extension Sources
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Scope Unit
-  - Atom
-  - Atom.Content
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/History/Journal > Event Record
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
 version: 46
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

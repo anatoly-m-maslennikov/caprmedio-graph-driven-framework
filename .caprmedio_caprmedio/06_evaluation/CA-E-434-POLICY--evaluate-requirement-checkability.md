@@ -7,11 +7,11 @@ relations:
   child_of:
   - CA-E-001
 subjects:
-  active: Atom/(.Role := Requirement)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
   passive:
-  - Atom/(.Role := Requirement)
-  - Atom/(.Role := Evaluation)
-  - Atom
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-434

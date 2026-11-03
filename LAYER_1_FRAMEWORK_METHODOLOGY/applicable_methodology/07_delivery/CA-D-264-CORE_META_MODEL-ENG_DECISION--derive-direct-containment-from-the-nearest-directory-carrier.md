@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier/Directory
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
   passive:
-  - CFEL > Relation
-  - Carrier/Directory
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md
   source_atom_id: CA-D-264
   source_atom_revision: 29
-  source_sha256: 306a589f4d0c7de4ca2dfa8963c7596317db798acffb8b135692cffce5f8e3d2
+  source_sha256: f2f43c816e8ad2ecb659c8ba140d2c553369c562ac4b710e9137d06c6b4c2faa
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

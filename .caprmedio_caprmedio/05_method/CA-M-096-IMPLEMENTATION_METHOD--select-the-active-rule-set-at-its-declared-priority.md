@@ -7,10 +7,10 @@ relations:
   method_for:
   - CA-R-818
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Project
-  - Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

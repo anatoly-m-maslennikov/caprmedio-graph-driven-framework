@@ -5,10 +5,10 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
 tier: 3
-version: 44
-updated_at: 2026-11-02 23:30:39 +0400
+version: 48
+updated_at: 2026-11-03 18:44:41 +0400
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL
 relations: {}
 role: Plan
 form: Plan
@@ -20,7 +20,7 @@ Entity graph refactor stage 4 — polishing
 
 ## Objective
 
-Adopt formal Scope Unit Declarations as the sole structural source and retire project_structure.toml completely.
+Complete declaration-based Scope Unit authority and the latest MODEL/CFEL content, alias and counterpart changes.
 
 ## Details
 
@@ -33,8 +33,24 @@ Adopt formal Scope Unit Declarations as the sole structural source and retire pr
 - Keep existing Scope Unit workflow definitions unchanged. Remove their TOML-specific implementation and executable bindings; do not build replacement Scope Unit tools in this Epic.
 - Preserve existing business operations through admitted Atom lifecycle behavior. Do not invent new APIs, approval systems, locks or business rules.
 
+## New MODEL follow-up — 2026-11-03
+
+The latest Operator decisions add an explicit YAML/Markdown grouping, an empty Claim container with Formal Claim and Prose Claim children, removal of Claim Scope, symbolic aliases, minimal declared relation counterparts, and declaration-based heading interpretation. `Node.**` covers all Properties of Node and its branch.
+
+Completed next task: [CA-P-2709 — simplify MODEL and STRUCTURE Subject roots](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/13-CA-P-2709-TASK--simplify-model-and-structure-subject-roots.md). Apply `CAPRMEDIO <+ MODEL` → `CAPRMEDIO_MODEL` and `CAPRMEDIO <+ STRUCTURE` → `CAPRMEDIO_STRUCTURE` in `subjects.active` and `subjects.passive` only, with a simple in-place script. Verified 1,178 source files and 3,685 Subject values, with every other source byte preserved. The four follow-up stages below now continue.
+
+Execute in this order:
+
+1. Update/create the Declarations and reconcile the affected authoring/layout rules.
+2. Commit and push everything at that checkpoint to `amm/dev`.
+3. Apply the agreed mechanical migration in place and align its required consumers/projections.
+4. Check the migration against the frozen source frontier and adopted Declarations.
+
+The [follow-up plan and pending choices](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-content-alias-followup-20261103.md) define scope, owners and acceptance checks. Ask unresolved choices one at a time. The group names are now `Atom.Header` and `Atom.Content`. Remaining Claim/alias grammar choices are tracked in the follow-up; the new Git checkpoint and migration have not started. Prior completed Tasks remain Done, and P2707 retains its existing verification scope.
+
 ## Current tasks
 
+- [CA-P-2709](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/13-CA-P-2709-TASK--simplify-model-and-structure-subject-roots.md) — Done; Subject-root migration independently verified.
 - [CA-P-2704](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/09-CA-P-2704-TASK--remove-obsolete-scope-authority-mode-overrides.md) — Done.
 - [CA-P-2705](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/10-CA-P-2705-TASK--adopt-formal-scope-unit-declarations.md) — Done.
 - [CA-P-2706](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/11-CA-P-2706-TASK--retire-project-structure-toml-entirely.md) — Done.
@@ -42,7 +58,7 @@ Adopt formal Scope Unit Declarations as the sole structural source and retire pr
 
 ## Definition of Done
 
-Current Declarations and shared model are coherent and history is preserved. The live project_structure.toml file is absent. Production execution no longer requires or writes it. Retired bindings are not exposed. Affected runtime/script tests pass, including required integration checks for release. Remaining source or implementation gaps are explicit rather than hidden by legacy fallback.
+Current Declarations and shared model are coherent and history is preserved. The new MODEL follow-up has completed its declaration, remote checkpoint, in-place migration and migration-check stages; unresolved choices and migration defects are closed. The live project_structure.toml file is absent. Production execution no longer requires or writes it. Retired bindings are not exposed. Affected runtime/script tests pass, including required integration checks for release. Remaining source or implementation gaps are explicit rather than hidden by legacy fallback.
 
 ## Previous completed stage
 
@@ -50,4 +66,4 @@ The earlier CFEL/model migration remains completed history. Its eight completed 
 
 ## Verification checkpoint
 
-Declaration adoption, physical moves and TOML/code retirement are complete. P2706 is Done. P2707 remains Active for the explicitly recorded Engine verification blockers; the Epic remains Active. No release, live MCP replacement or Git operation was performed by this cutover check.
+The earlier Scope Unit cutover is complete through P2706. P2707 remains Active for its recorded Engine verification blockers. The new Subject-root task P2709 is Done. Header/Claim/alias Declaration preparation and review are in progress; the Epic remains Active independently. No new release, live MCP replacement, commit or push is claimed by this plan update.

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Authoring
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring
   passive:
-  - Atom.Content
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
 version: 5
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

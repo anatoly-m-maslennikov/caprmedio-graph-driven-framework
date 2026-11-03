@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom/(.Role := Concern).Priority
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern).Priority
   passive:
-  - Atom/(.Role := Concern)
-  - Scope Unit
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern)
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 39
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,10 +17,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-RULE--effective-priority-conflict-selection.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-RULE--effective-priority-conflict-selection.md
   source_atom_id: CA-R-1629
   source_atom_revision: 39
-  source_sha256: 53ba3c2590e1a958df1cad64e78565779bb10e4b8881013bc58508b06bbbb6b1
+  source_sha256: 236657f79d4740ae5b53a840f91496c6fbad3cebed901f5b7158387b73dcd856
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

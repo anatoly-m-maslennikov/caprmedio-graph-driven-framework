@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Data Handling <+ Source Selection
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Source Selection
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
+  - 'CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

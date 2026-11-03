@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
   passive:
-  - Atom
+  - CAPRMEDIO <+ MODEL <+ Atom
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1264-CORE_META_MODEL-RULE--keep-scope-unit-outside-the-atom-taxonomy.md
   source_atom_id: CA-R-1264
   source_atom_revision: 26
-  source_sha256: e51e55579df59fac342f0a7f23c9a7e21c05213a2e85ad72928f5d9c5f088259
+  source_sha256: 8d0717abc46265733dd67767d0d52b7e4370e6b84cfa029bd0b4435ae0880894
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

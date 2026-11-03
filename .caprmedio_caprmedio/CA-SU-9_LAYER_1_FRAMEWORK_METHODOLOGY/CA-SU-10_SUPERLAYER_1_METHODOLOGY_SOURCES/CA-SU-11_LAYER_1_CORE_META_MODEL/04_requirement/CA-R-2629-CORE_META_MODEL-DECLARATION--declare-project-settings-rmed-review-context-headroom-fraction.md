@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Project.Settings.RMED Review.Context Headroom Fraction
+  active: CAPRMEDIO_MODEL <+ Project.Settings.RMED Review.Context Headroom Fraction
 version: 1
 relations: {}
 tier: 3

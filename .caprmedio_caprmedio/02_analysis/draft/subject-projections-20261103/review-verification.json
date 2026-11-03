@@ -1,0 +1,50 @@
+{
+  "reviewed_at": "2026-11-03T17:08:42+04:00",
+  "status": "MODEL_REVIEW_ISSUE_01_RESOLVED",
+  "scope": "MODEL entities, relations, classifications, inheritance and declared Property contracts",
+  "excluded": [
+    "concrete Atom instances and their Property values",
+    "carrier serialization",
+    "project STRUCTURE instances",
+    "bulk instance metadata migration",
+    "runtime conformance"
+  ],
+  "supersedes_review_report_sha256": "d832a6c10fd8069f0b1e3f43470f3016666f09ffeca86b6e26513b6ca8230d87",
+  "review_report": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/review-issues.md",
+  "review_report_sha256": "e2ff5135bc03949207a554b79dcbba911b4d1dffd865c2c9cf58466b6c352666",
+  "evidence_selection_sources": 1132,
+  "selected_exact_declarations": 176,
+  "selection_counts_are_model_only": false,
+  "frontier_sha256": "74bf9d575343bc889a4d2c4e6d29e76a2f981b1f4213895dffaddfa9da088819",
+  "generation_manifest_sha256": "f59dd83e48cbae0af77627a73296b00473e717eb6550f9db424ec2adcf43e633",
+  "source_hash_mismatches": [],
+  "projection_hash_mismatches": [],
+  "model_issue_groups": [
+    "SP-02",
+    "SP-03"
+  ],
+  "model_projection_issue_groups": [
+    "SP-04",
+    "SP-05"
+  ],
+  "withdrawn_prior_issue_groups": [
+    "SP-06"
+  ],
+  "outside_selection_evidence": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2687-CORE_META_MODEL-DECLARATION--declare-scope-unit-order.md",
+      "sha256": "526f1b55855dfa2714113a3b3587593f4747bba72e1b1949b60ac4f42b1b3456"
+    }
+  ],
+  "source_or_implementation_changes": {
+    "model_sources": 5,
+    "proposal_references": 3,
+    "implementation": false
+  },
+  "instance_or_runtime_checked": false,
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/issue-01-is-contained-by/current-source-frontier.json",
+  "resolved_issue_groups": [
+    "SP-01"
+  ],
+  "issue_01_verification": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/issue-01-is-contained-by/verification.json"
+}

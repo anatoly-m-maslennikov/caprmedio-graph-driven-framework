@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CFEL <+ Relation//GOVERNS
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//GOVERNS
   passive:
-  - CFEL > Relation
-  - Atom
-  - Entity
-  - Atom.Content
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 36
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -19,10 +19,10 @@ tier: 2
 role: Requirement
 form: Declaration
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md
   source_atom_id: CA-R-1199
   source_atom_revision: 36
-  source_sha256: 39891fe12eb4701b6638e2705d34a5c98460ad44762c110e9fc04f9bd04bd7cb
+  source_sha256: 9e3d9efe97649c9df25e6544a20f95bf67df23773ae2e5ebc9bf08ebb1732604
   original_relations_sha256: 716ef4f4c69122347b79d3f5b5752b137772edf3b9edf48f251d5d752fc50a4d
 ---
 ## Summary

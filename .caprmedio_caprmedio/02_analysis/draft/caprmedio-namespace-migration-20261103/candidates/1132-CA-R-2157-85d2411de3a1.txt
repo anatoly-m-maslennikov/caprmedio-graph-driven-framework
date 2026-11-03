@@ -1,0 +1,26 @@
+---
+atom_id: CA-R-2157
+current_scope_unit: caprmedio
+status: Active
+tier: 3
+subjects:
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  passive:
+  - CAPRMEDIO <+ MODEL <+ Project
+version: 10
+updated_at: 2026-11-02 00:18:22 +0400
+relations:
+  child_of:
+  - CA-R-2452
+cce_version: cce_1
+cce_form: permission
+role: Requirement
+form: Rule
+---
+## Summary
+
+The Operator holds authority
+
+## Claim
+
+the Operator holds original authority over the Project **and** its CAPRMEDIO Framework Instance **and** **may** perform **or** authorize governed actions within that authority.

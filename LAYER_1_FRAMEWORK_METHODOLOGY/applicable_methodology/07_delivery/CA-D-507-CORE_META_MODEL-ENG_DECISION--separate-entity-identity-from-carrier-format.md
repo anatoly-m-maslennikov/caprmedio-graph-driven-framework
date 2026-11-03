@@ -6,11 +6,11 @@ status: Active
 version: 16
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - Entity
-  - Carrier.Format
-  - Carrier/File.Extension
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Carrier.Format
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.Extension
 relations: {}
 tier: 1
 role: Delivery
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-ENG_DECISION--separate-entity-identity-from-carrier-format.md
   source_atom_id: CA-D-507
   source_atom_revision: 16
-  source_sha256: 5a4daaac78287616531ed3064a7ca3da2a873ee77e2032c9552ce84ea0a96295
+  source_sha256: 5721d00579652af3f5a3dc471cf563b87f54bbc915cf4878b6c1eeda3accb373
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

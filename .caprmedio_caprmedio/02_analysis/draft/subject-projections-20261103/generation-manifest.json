@@ -1,0 +1,113 @@
+{
+  "status": "PUBLISHED",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/issue-01-is-contained-by/current-source-frontier.json",
+  "frontier_sha256": "74bf9d575343bc889a4d2c4e6d29e76a2f981b1f4213895dffaddfa9da088819",
+  "selected_sources": 1132,
+  "declaration_coverage": {
+    "candidate_sources": 176,
+    "bound_sources": 176,
+    "declared_entity_targets": 134,
+    "declared_component_targets": 1,
+    "declared_relation_targets": 41,
+    "shared_sources": 0,
+    "fenced_claim_blocks": 174,
+    "cfel_blocks": 174,
+    "recognized_clauses": 326,
+    "unsupported_clauses": 109,
+    "coverage_gaps": 0,
+    "outside_model_scope_sources": 0,
+    "duplicate_declarations": 0,
+    "missing_relation_semantics": 0,
+    "instance_kind_gaps": 0,
+    "inheritance_diagnostics": 0,
+    "tree_entities": 54,
+    "detail_declaration_sources": 176,
+    "entities_without_exact_declaration": 24
+  },
+  "audit_counts": {
+    "passive_only_subjects": {
+      "subject_occurrences": 3652,
+      "parsed_subjects": 472,
+      "unresolved_subjects": 12,
+      "unresolved_occurrences": 115,
+      "active_subjects": 387,
+      "passive_only_subjects": 96
+    },
+    "subjects_without_declaration_coverage": {
+      "known_missing": 112,
+      "unresolved": 112
+    },
+    "entity_definition_summary": {
+      "entities": 331,
+      "entities_with_any_missing": 105
+    }
+  },
+  "prior_projections": {
+    "CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md": "7b633286a280d6523550b1e5852b0c89b051f15504387044db143a08baea776e",
+    "CA-PROJ-016-CAPRMEDIO--Subject-Graph-Instances--Current-Methodology-and-Project-RMED.md": "c9136b4e64968dc4f7de9fcfac79b3c43a53bf200b7cb653fd864c649706eb82",
+    "CA-PROJ-017-CAPRMEDIO--Model-Graph--Current-MODEL-Declarations.md": "0516a7cd82504be138c27591182a167cfa2a50c45b617bdcd4cf3dc9a62b9d2d",
+    "CA-PROJ-015-CAPRMEDIO--Subject-Graph-Properties--Current-Methodology-and-Project-RMED.md": "4b31d30a33b4e3c2effbf46389fb55ff9e05472433c26d0e2159df2d0727da7d",
+    "CA-PROJ-018-CAPRMEDIO--Entities-Graph--Current-Subject-Narrowing-Tree.md": "4a8a96098001dbffb3e991e7547c3d70cce3d77181809dc2936d8f65fef10efa",
+    "CA-PROJ-019-CAPRMEDIO--MODEL-Formal-Contracts.md": "1a393a3ef65685a7fa0a24b373fecb18ae3cf3acf388c70e6cce9c8d1037d6e2"
+  },
+  "projections": [
+    {
+      "projection_id": "CA-PROJ-020",
+      "name": "Primary Entities Tree",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-020-CAPRMEDIO--Map--Primary-Entities-Tree.md",
+      "staged": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/staged/CA-PROJ-020-CAPRMEDIO--Map--Primary-Entities-Tree.md",
+      "sha256": "15290d30a68d17294676aa16682df215eabc8a055e587bd4c16a3d5b28cdf8c4"
+    },
+    {
+      "projection_id": "CA-PROJ-021",
+      "name": "Primary Entities with Direct Properties",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-021-CAPRMEDIO--Map--Primary-Entities-with-Direct-Properties.md",
+      "staged": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/staged/CA-PROJ-021-CAPRMEDIO--Map--Primary-Entities-with-Direct-Properties.md",
+      "sha256": "197f582feeb68c3ce447ceecce2359d7c07f89c63262d493ab3b6a47d612a8ad"
+    },
+    {
+      "projection_id": "CA-PROJ-022",
+      "name": "Primary Entities with Inherited Property Contracts",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-022-CAPRMEDIO--Map--Primary-Entities-with-Inherited-Property-Contracts.md",
+      "staged": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/staged/CA-PROJ-022-CAPRMEDIO--Map--Primary-Entities-with-Inherited-Property-Contracts.md",
+      "sha256": "fac1fed419ba061803acca0e72e569078e082005bd4e52e49222eb0b147f303f"
+    },
+    {
+      "projection_id": "CA-PROJ-023",
+      "name": "Primary Entities with Inherited Formal Claims",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-023-CAPRMEDIO--Map--Primary-Entities-with-Inherited-Formal-Claims.md",
+      "staged": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/staged/CA-PROJ-023-CAPRMEDIO--Map--Primary-Entities-with-Inherited-Formal-Claims.md",
+      "sha256": "c5eb29faf27fcc53a379e60357d18d50c1a152e602540564f614957f7f55118d"
+    },
+    {
+      "projection_id": "CA-PROJ-024",
+      "name": "Passive Only Subjects",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-024-CAPRMEDIO--Map--Passive-Only-Subjects.md",
+      "staged": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/staged/CA-PROJ-024-CAPRMEDIO--Map--Passive-Only-Subjects.md",
+      "sha256": "55c4ebdafd030a5c1863537659a9c5cd40920b37aeccf327fa49b871ca3480d3"
+    },
+    {
+      "projection_id": "CA-PROJ-025",
+      "name": "Subjects without Requirement Declarations",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-025-CAPRMEDIO--Map--Subjects-without-Requirement-Declarations.md",
+      "staged": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/staged/CA-PROJ-025-CAPRMEDIO--Map--Subjects-without-Requirement-Declarations.md",
+      "sha256": "3828890e3728844bb961f2107bf7c6a7a6c171bfa506e8d0650361cd0c2ab3ed"
+    },
+    {
+      "projection_id": "CA-PROJ-026",
+      "name": "Entity Definition and Active Subject Coverage",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-026-CAPRMEDIO--Map--Entity-Definition-and-Active-Subject-Coverage.md",
+      "staged": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/staged/CA-PROJ-026-CAPRMEDIO--Map--Entity-Definition-and-Active-Subject-Coverage.md",
+      "sha256": "c37fe422008a5b20b95da95e51092066b4db64704607ca80a0232694e897cbfb"
+    }
+  ],
+  "predecessors": {
+    ".caprmedio_caprmedio/_projection/CA-PROJ-020-CAPRMEDIO--Map--Primary-Entities-Tree.md": "65b43f4b8826a158abd7e8631018d0109b83fe79525294c993b430210b9ddeaf",
+    ".caprmedio_caprmedio/_projection/CA-PROJ-021-CAPRMEDIO--Map--Primary-Entities-with-Direct-Properties.md": "05911baeeb1a267473900508e91b4272a0de9d961f72e8f1e55cc771c886b06b",
+    ".caprmedio_caprmedio/_projection/CA-PROJ-022-CAPRMEDIO--Map--Primary-Entities-with-Inherited-Property-Contracts.md": "5493ee2b151c10197037bcfc05a915efb6ba7b01482d44500e476c6ebd38e2cc",
+    ".caprmedio_caprmedio/_projection/CA-PROJ-023-CAPRMEDIO--Map--Primary-Entities-with-Inherited-Formal-Claims.md": "22c782d7d7dc0e576a6000dacbbafd107b592e5313eaf4945d60ab8513f6cdcf",
+    ".caprmedio_caprmedio/_projection/CA-PROJ-024-CAPRMEDIO--Map--Passive-Only-Subjects.md": "b365adf748cbb462cf2e14553b01e21f5376bd5775a6e6054489df74c3afab69",
+    ".caprmedio_caprmedio/_projection/CA-PROJ-025-CAPRMEDIO--Map--Subjects-without-Requirement-Declarations.md": "f39a2ac7f75174e7b673cf792e7f72b5d2294a22988664a19ad908b0abbca2d9",
+    ".caprmedio_caprmedio/_projection/CA-PROJ-026-CAPRMEDIO--Map--Entity-Definition-and-Active-Subject-Coverage.md": "07c92627fee7025ada8d41ca71ed6ff418f189ded1ec25f8e02ad84dbee2edeb"
+  }
+}

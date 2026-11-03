@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Project.Settings.Authority Modes.Project Authority Mode
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes.Project Authority Mode
 version: 1
 relations: {}
 tier: 3

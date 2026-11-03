@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

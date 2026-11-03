@@ -10,14 +10,14 @@ relations:
   - CA-O-022
   - CA-O-023
 subjects:
-  active: Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  active: CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Project
-  - Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
-  - Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  - Entity/Object/Continuant/Selection
-  - Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
 atom_id: CA-E-207
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
@@ -26,10 +26,10 @@ tier: 5
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-207-PROJECT_CONFIGURATION-POLICY--evaluate-priority-governed-alternative-selection.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-207-PROJECT_CONFIGURATION-POLICY--evaluate-priority-governed-alternative-selection.md
   source_atom_id: CA-E-207
   source_atom_revision: 36
-  source_sha256: 03469253156f3daebd4d04ccf54cd7cdead612a35a45848e9a5049cfe0eaedde
+  source_sha256: 2ec8bc4d8c59509186d09a7ad9b0f3eb32aa10b95184f9808f31c189637b6717
   original_relations_sha256: 138571c13f61515d1b51d847f0f383e37a505e5b98594d4320901c31466eecd0
 ---
 ## Summary

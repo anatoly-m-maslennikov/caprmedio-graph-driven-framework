@@ -127,9 +127,9 @@ The 139 registered Atoms are Current. The inventory includes 30 Primary Node and
 | `CA-R-2487@2` | Requirement / Entity Definition | [Define CFEL](../../04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md) |
 | `CA-R-2488@2` | Requirement / Declaration | [Declare Atom.Status](../../04_requirement/CA-R-2488-CORE_META_MODEL-DECLARATION--declare-atom-status.md) |
 | `CA-R-2489@2` | Requirement / Declaration | [Declare Atom.Updated At](../../04_requirement/CA-R-2489-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md) |
-| `CA-R-2490@2` | Requirement / Declaration | [Declare Atom.Relations.contained_by](../../04_requirement/CA-R-2490-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md) |
-| `CA-R-2491@2` | Requirement / Declaration | [Declare Atom.Relations.contained_by.atom](../../04_requirement/CA-R-2491-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md) |
-| `CA-R-2492@2` | Requirement / Declaration | [Declare Atom.Relations.contained_by.scope_unit](../../04_requirement/CA-R-2492-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md) |
+| `CA-R-2490@2` | Requirement / Declaration | [Declare Atom.Relations.IS_CONTAINED_BY](../../04_requirement/CA-R-2490-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md) |
+| `CA-R-2491@2` | Requirement / Declaration | [Declare Atom.Relations.IS_CONTAINED_BY.atom](../../04_requirement/CA-R-2491-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md) |
+| `CA-R-2492@2` | Requirement / Declaration | [Declare Atom.Relations.IS_CONTAINED_BY.scope_unit](../../04_requirement/CA-R-2492-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md) |
 | `CA-R-2493@2` | Requirement / Declaration | [Declare Atom.ID](../../04_requirement/CA-R-2493-CORE_META_MODEL-DECLARATION--declare-atom-id.md) |
 | `CA-R-2494@2` | Requirement / Declaration | [Declare Atom.Role](../../04_requirement/CA-R-2494-CORE_META_MODEL-DECLARATION--declare-atom-role.md) |
 | `CA-R-2495@2` | Requirement / Declaration | [Declare Atom.Form](../../04_requirement/CA-R-2495-CORE_META_MODEL-DECLARATION--declare-atom-form.md) |

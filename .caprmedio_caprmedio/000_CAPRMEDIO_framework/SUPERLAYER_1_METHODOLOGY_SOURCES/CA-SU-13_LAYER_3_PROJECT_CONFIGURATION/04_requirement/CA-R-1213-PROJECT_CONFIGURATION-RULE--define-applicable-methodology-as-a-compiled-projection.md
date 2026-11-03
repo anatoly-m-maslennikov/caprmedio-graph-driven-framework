@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Projection/(.Form := Applicable Methodology)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form := Applicable Methodology)
   passive:
-  - Scope Unit
-  - Atom
-  - Projection
-  - 'Entity/Object/Continuant/Projection/Type: Reconciled Projection'
-  - Atom.Content
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
-  - Carrier
-  - Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Reconciled Projection'
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
 version: 40
 relations: {}
 atom_id: CA-R-1213

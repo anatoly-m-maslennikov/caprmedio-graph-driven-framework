@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
   passive:
-  - Atom/(.Role := Plan)
-  - Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

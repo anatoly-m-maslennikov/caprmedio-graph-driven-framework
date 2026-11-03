@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Aspects <+ Product
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Product
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
 version: 33
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

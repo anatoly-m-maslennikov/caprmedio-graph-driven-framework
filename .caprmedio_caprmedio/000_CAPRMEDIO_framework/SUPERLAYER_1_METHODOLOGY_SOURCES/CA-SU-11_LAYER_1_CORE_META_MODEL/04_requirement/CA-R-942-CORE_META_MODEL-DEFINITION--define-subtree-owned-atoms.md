@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Selection
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - Entity/Object/Continuant/Selection
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

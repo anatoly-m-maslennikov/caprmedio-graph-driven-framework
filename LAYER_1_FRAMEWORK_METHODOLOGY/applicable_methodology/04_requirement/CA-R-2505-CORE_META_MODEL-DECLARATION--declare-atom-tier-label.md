@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom.Tier.Label
+  active: CAPRMEDIO <+ MODEL <+ Atom.Tier.Label
 version: 2
 relations: {}
 tier: 3
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2505-CORE_META_MODEL-DECLARATION--declare-atom-tier-label.md
   source_atom_id: CA-R-2505
   source_atom_revision: 2
-  source_sha256: 6dd972c82b3092bb7c6ead194e0cc6a4b51b6dbd54cd62883daf8535e1f29d5a
+  source_sha256: 8d47c85725d9922b89f794a300a3cdca66afcd99424dff056399405f56b4796a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

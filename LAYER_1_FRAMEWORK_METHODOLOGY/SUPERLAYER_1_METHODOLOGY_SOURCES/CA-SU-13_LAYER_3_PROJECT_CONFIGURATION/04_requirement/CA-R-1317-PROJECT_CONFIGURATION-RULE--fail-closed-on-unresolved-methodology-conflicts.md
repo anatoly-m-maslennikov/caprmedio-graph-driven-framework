@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Projection/(.Form:=Applicable Methodology)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
   passive:
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Scope Unit
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 31
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

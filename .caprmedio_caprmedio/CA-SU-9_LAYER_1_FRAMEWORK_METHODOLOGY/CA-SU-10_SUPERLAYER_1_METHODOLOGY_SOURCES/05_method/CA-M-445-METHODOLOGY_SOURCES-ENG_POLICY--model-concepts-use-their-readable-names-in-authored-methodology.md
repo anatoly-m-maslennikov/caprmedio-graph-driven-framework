@@ -7,12 +7,12 @@ tier: 3
 version: 4
 updated_at: 2026-11-02 18:35:20 +0400
 subjects:
-  active: Aspects <+ Text Writing Style
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Text Writing Style
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Atom.Updated At
-  - Carrier
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Updated At
+  - CAPRMEDIO_MODEL <+ Carrier
 relations: {}
 role: Method
 form: Eng Policy

@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - Term//Property
-  - CFEL<+Operator//AllowedValue
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue
 version: 30
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1359-CORE_META_MODEL-RULE--define-claim-value-set.md
   source_atom_id: CA-R-1359
   source_atom_revision: 30
-  source_sha256: 69d28eeabff9dea272b3060cbe7b77d09f3bd4851e86aabf3a3e9ef02e5bf15c
+  source_sha256: 4135daa16bfe913d0bd74372a1b90dde6fcf536579c57b0dc9a8ad57a720fc69
   original_relations_sha256: 0fa3c79fd31c027d4114f94dde8bf00fa821694f342a125a29903cd019455764
 ---
 ## Summary

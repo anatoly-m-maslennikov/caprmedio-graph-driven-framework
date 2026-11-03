@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation.Content.Claim'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation.Content.Claim'
   passive:
-  - Atom/(.Role := Evaluation)
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
 version: 24
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -20,10 +20,10 @@ tier: 6
 role: Method
 form: Eng Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-312-CORE_META_MODEL-ENG_DECISION--write-evaluation-claims-with-the-evaluation-cce-profile.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-312-CORE_META_MODEL-ENG_DECISION--write-evaluation-claims-with-the-evaluation-cce-profile.md
   source_atom_id: CA-M-312
   source_atom_revision: 24
-  source_sha256: 5ec963702668796df114a3ed5eeaa9071bc25424c252f5517776c046b0def592
+  source_sha256: e280b237795b5ed73c9bc6280531ba8918753c5b9cf64819a1112424764e5820
   original_relations_sha256: 6847aea819e74b6cfadff0dcb15833b9e403b09229fe445c6c3c564304447634
 ---
 ## Summary

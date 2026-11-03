@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode: silent'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode: silent'
   passive:
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction
-  - Entity/Object/Continuant/Term//Artifact
-  - Aspects <+ Engineering <+ Architecture <+ Communication
-  - Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Communication
+  - CAPRMEDIO_MODEL <+ Project
 version: 33
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

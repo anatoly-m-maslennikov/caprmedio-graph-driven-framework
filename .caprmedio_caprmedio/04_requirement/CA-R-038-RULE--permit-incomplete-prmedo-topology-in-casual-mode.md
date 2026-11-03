@@ -14,7 +14,7 @@ status: Active
 atom_id: CA-R-038
 tier: 2
 subjects:
-  active: Atom.Relations
+  active: CAPRMEDIO_MODEL <+ Atom.Relations
 role: Requirement
 form: Rule
 ---

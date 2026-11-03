@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - Atom
-  - Atom/(.Role := Evaluation)
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - Atom.Content.Summary
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 42
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -29,7 +29,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-384-CORE_META_MODEL-POLICY--validate-composite-claims-and-derived-summaries.md
   source_atom_id: CA-E-384
   source_atom_revision: 42
-  source_sha256: 39edd2116da347a1f0f5bcc0c425c4e711921f0b497a68c39d73bfdff7ae635d
+  source_sha256: e3626328a0d2157b641d5dde2793ae07bdbc39876991bad7f10f0c199a918ad0
   original_relations_sha256: 683edb070640fcebfd5b6aafbc8687ede3548fd2b5d1cd90dcd386920c548780
 ---
 ## Summary

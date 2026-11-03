@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom.Status:Archived
+  active: CAPRMEDIO <+ MODEL <+ Atom.Status:Archived
   passive:
-  - Atom.Status
-  - Atom.Status:Archived
-  - Carrier.Canonical Address
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Atom.Status:Archived
+  - CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
 version: 20
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

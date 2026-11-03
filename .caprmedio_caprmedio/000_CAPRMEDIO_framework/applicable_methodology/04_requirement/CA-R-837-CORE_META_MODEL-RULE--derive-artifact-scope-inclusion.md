@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 36
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-837-CORE_META_MODEL-RULE--derive-artifact-scope-inclusion.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-837-CORE_META_MODEL-RULE--derive-artifact-scope-inclusion.md
   source_atom_id: CA-R-837
   source_atom_revision: 36
-  source_sha256: 9ec74300a2c15d98c54519954be6476c10a297081deab5eee2fae78a350c39ec
+  source_sha256: 37cdbc96952ebd5b01bf6464f89db258bca320b4277175ea6de0782a78358412
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

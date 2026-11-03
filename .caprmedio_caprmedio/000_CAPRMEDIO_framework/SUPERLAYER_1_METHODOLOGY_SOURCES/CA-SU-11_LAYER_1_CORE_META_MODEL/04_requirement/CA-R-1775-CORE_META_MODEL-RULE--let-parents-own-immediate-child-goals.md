@@ -5,11 +5,11 @@ relations:
   child_of:
   - CA-M-447
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
   passive:
-  - Scope Unit
-  - Atom
-  - Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
 atom_id: CA-R-1775
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

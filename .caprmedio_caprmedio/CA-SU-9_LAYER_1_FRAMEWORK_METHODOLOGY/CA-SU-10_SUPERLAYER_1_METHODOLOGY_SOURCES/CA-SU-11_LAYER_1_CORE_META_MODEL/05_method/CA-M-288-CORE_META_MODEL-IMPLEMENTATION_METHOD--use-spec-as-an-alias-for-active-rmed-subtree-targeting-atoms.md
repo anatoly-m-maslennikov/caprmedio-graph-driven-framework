@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Atom.Status
-  - Actor
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Actor
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

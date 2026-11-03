@@ -20,7 +20,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-118-PROJECT_CONFIGURATION-ACTION--review-base-revise-result-coverage.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-118-PROJECT_CONFIGURATION-ACTION--review-base-revise-result-coverage.md
   source_atom_id: CA-O-118
   source_atom_revision: 13
   source_sha256: d21eb00252353ba482fb741e69b0cf55429d63821f6819e15eec66392b35bb90

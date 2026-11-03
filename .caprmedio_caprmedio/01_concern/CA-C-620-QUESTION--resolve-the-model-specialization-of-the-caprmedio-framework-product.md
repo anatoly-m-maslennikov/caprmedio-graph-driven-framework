@@ -3,9 +3,9 @@ atom_id: CA-C-620
 current_scope_unit: caprmedio
 status: Resolved
 subjects:
-  active: PROJECT STRUCTURE//CAPRMEDIO
+  active: CAPRMEDIO_STRUCTURE
   passive:
-  - Aspect
+  - CAPRMEDIO_MODEL <+ Aspect
 version: 7
 relations: {}
 tier: 3

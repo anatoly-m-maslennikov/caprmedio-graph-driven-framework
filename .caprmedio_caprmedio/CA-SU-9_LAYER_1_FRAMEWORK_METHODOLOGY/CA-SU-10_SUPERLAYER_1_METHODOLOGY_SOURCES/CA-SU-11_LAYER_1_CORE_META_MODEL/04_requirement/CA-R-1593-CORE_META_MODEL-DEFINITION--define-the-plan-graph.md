@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - Projection
-  - CFEL > Relation
-  - Carrier
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

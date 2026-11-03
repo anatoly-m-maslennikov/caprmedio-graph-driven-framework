@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Entity
-  - Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

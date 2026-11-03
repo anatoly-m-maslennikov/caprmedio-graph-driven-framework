@@ -1,11 +1,10 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type:
-    Project Goal)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Project Goal)'
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Project.Settings.Name
-  - Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project.Settings.Name
+  - CAPRMEDIO_MODEL <+ Project
 version: 35
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}

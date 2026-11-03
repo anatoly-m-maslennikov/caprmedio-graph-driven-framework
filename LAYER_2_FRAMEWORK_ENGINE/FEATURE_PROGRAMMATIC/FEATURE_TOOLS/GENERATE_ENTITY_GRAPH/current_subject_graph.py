@@ -9,6 +9,16 @@ from dataclasses import replace
 import subject_notation as notation
 from carrier_aliases import carrier_read_view
 
+def namespace_local_expression(expression: notation.Path | notation.RelationChain | None) -> notation.Path | notation.RelationChain | None:
+    local = notation.namespace_local_expression(expression) if expression is not None else None
+    if local is not None:
+        expression = local
+    if isinstance(expression, notation.Path) and isinstance(expression.head, (notation.Path, notation.RelationChain)):
+        head = namespace_local_expression(expression.head) or expression.head
+        if isinstance(head, notation.Path) and head.value_format is None and head.value_cardinality is None:
+            return replace(expression, head=head.head, steps=(*head.steps, *expression.steps))
+    return local
+
 Record = dict[str, Any]
 _KINDS = {
     "//": "INSTANCE_OF",
@@ -17,6 +27,7 @@ _KINDS = {
     ":": "IS_ALLOWED_VALUE_OF",
     ":=": "IS_ALLOWED_VALUE_OF",
 }
+_NAMESPACE_ROOTS = {"CAPRMEDIO_MODEL", "CAPRMEDIO_STRUCTURE"}
 
 
 def _identifier(prefix: str, value: object) -> str:
@@ -89,6 +100,10 @@ class _SubjectFacts:
         raise ValueError("Unsupported Subject path operand")
 
     def path(self, value: notation.Path) -> str:
+        if isinstance(value.head, notation.RelationChain):
+            local = namespace_local_expression(value.head)
+            if isinstance(local, notation.Path):
+                value = replace(value, head=local)
         while (isinstance(value.head, notation.Path) and value.head.value_format is None
                and value.head.value_cardinality is None):
             value = replace(value, head=value.head.head, steps=(*value.head.steps, *value.steps))
@@ -111,6 +126,8 @@ class _SubjectFacts:
             kind = "IS_CONTAINED_BY"
         elif link.operator in {">|", "|<"}:
             kind = "HAS_CLASSIFICATION"
+        elif link.operator == "<-->":
+            kind = "HAS_INVERSE"
         elif link.relation_type is not None:
             kind = link.relation_type.value
         else:
@@ -259,7 +276,10 @@ def _is_relation_definition(carrier: Record) -> bool:
 def _target_kind(expression: notation.Path | notation.RelationChain) -> str | None:
     """Classify one declared Path; qualifiers remain part of that declaration."""
 
+    expression = namespace_local_expression(expression) or expression
     if not isinstance(expression, notation.Path) or not isinstance(expression.head, notation.Name):
+        return None
+    if expression.head.value in _NAMESPACE_ROOTS and not expression.steps:
         return None
     if any(
         step.operator in {":", ":="} or isinstance(step.operand, notation.DeclaredReference)
@@ -363,6 +383,10 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
         except notation.SubjectNotationError as error:
             diagnostics.append(f"{source_name(carrier)}: unsupported Subject `{subject}`: {error}.")
             return False
+        local_expression = namespace_local_expression(expression)
+        if local_expression is not None:
+            expression = local_expression
+            subject = notation.render_subject(expression)
         if not isinstance(expression, notation.Path):
             first = expression.endpoints[0].head
             if (not retained_relation_root or not isinstance(first, notation.Name)
@@ -378,6 +402,8 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
             for fact in facts:
                 if fact["kind"] == "NARROWER_THAN":
                     pending.append((fact["source"], fact["target"], source_name(carrier), fact["target"] in references))
+            return True
+        if isinstance(expression.head, notation.Name) and expression.head.value in _NAMESPACE_ROOTS and not expression.steps:
             return True
         if _target_kind(expression) in {"property", "instance"}:
             return True
@@ -411,6 +437,7 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
                 expression = notation.parse_subject_expression(subject, subject_profile="approved").expression
             except notation.SubjectNotationError:
                 expression = None
+            expression = namespace_local_expression(expression) or expression
             if isinstance(expression, notation.RelationChain) and add_cfel_component_endpoint(carrier, expression):
                 owners.append(carrier)
                 continue
@@ -418,6 +445,7 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
                 owners.append(carrier)
                 try:
                     expression = notation.parse_subject_expression(subject, subject_profile="approved").expression
+                    expression = namespace_local_expression(expression) or expression
                     if isinstance(expression, notation.Path) and _target_kind(expression) == "primary_node":
                         declaration_targets.append((carrier, notation.render_subject(expression)))
                 except notation.SubjectNotationError:
@@ -430,6 +458,7 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
         except notation.SubjectNotationError as error:
             diagnostics.append(f"{source_name(carrier)}: retained Entity Definition `{subject}` is unsupported: {error}.")
             continue
+        expression = namespace_local_expression(expression) or expression
         if isinstance(expression, notation.RelationChain):
             if add_cfel_component_endpoint(carrier, expression):
                 owners.append(carrier)
@@ -527,6 +556,7 @@ def _relation_definition_target(
 ) -> tuple[str, str] | None:
     """Find the one direct Relation endpoint declared by a Relation Definition."""
 
+    expression = namespace_local_expression(expression) or expression
     paths = expression.endpoints if isinstance(expression, notation.RelationChain) else (expression,)
     candidates = [path for path in paths if _target_kind(path) == "relation"]
     if len(candidates) != 1:
@@ -600,6 +630,11 @@ def _enhanced_categories(
                 continue
             target, kind = admitted
         elif _is_declaration(carrier):
+            local_expression = namespace_local_expression(expression)
+            if local_expression is not None:
+                expression = local_expression
+            elif isinstance(expression, notation.RelationChain):
+                continue
             kind = _target_kind(expression)
             if kind is None:
                 # A Relation chain is not one Node declaration target.

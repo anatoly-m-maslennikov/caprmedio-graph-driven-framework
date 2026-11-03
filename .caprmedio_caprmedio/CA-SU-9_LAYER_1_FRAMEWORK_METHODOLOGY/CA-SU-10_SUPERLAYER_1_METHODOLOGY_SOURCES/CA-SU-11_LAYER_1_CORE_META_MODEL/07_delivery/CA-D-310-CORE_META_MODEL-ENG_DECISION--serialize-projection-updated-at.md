@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Projection.Updated At
+  active: CAPRMEDIO_MODEL <+ Projection.Updated At
 version: 26
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

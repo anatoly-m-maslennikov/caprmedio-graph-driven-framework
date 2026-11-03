@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom.Content.Summary
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
   passive:
-  - Atom
-  - Atom.ID
-  - Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-463-CORE_META_MODEL-EVAL_CASE--validate-summary-identity-preservation.md
   source_atom_id: CA-E-463
   source_atom_revision: 23
-  source_sha256: b8d7e64620bbae325a35722615adae68eced41dadcf287e0a54c2f7c6f01e3b6
+  source_sha256: 9fda3579155b9dd49d947c329a887ee9c7c3dc8be9a21724fb79d6bb6dcdee92
   original_relations_sha256: 810dc2051be3ce6bc035323b9af494373476f872a3b764c46205617aae342f98
 ---
 ## Summary

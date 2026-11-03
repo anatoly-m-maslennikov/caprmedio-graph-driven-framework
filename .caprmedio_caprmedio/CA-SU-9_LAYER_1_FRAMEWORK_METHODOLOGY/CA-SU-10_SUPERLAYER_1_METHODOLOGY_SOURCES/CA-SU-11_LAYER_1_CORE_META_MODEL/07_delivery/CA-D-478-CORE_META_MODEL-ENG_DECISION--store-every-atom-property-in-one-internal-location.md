@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - Carrier/File
-  - Carrier/File.YAML Frontmatter
-  - Carrier/File.Main Content
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Carrier/File.YAML Frontmatter
+  - CAPRMEDIO_MODEL <+ Carrier/File.Main Content
 version: 31
 relations:
   delivery_for:

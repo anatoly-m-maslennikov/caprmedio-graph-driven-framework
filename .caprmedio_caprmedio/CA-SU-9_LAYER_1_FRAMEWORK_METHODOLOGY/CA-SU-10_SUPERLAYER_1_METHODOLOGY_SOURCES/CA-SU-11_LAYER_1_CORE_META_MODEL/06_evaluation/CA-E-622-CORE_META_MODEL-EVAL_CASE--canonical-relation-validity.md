@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - Atom
-  - Atom.Role
-  - Atom.Status
-  - Journal
-  - CFEL <+ Relation
-  - Entity
-  - Projection/(.Form:=Applicable Methodology)
-  - Projection
-  - Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Role
+  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 53
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

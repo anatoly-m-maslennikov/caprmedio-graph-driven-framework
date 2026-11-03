@@ -21,7 +21,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-111-PROJECT_CONFIGURATION-ACTION--fix-confirmed-local-rmed-atom-issues.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-111-PROJECT_CONFIGURATION-ACTION--fix-confirmed-local-rmed-atom-issues.md
   source_atom_id: CA-O-111
   source_atom_revision: 20
   source_sha256: f371cd1ac349346165573396f6ec3781b64e23ceae0fd96b3c19472573da7282

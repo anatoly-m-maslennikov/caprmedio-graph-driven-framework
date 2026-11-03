@@ -4,20 +4,34 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL
-version: 8
-updated_at: 2026-11-02 17:54:42 +0400
+  active: CAPRMEDIO_MODEL <+ CFEL
+version: 9
+updated_at: 2026-11-03 20:00:05 +0400
 relations: {}
 tier: 3
 role: Requirement
 form: Entity Definition
+carrier_destination:
+  file:
+    name: CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
-
 ## Summary
 
 Define CFEL
 
 ## Claim
+
+### Formal Claim
+
+```CFEL
+p{:occurrence}: [value format]{:value count};
+p.*[name format]{:immediate name count};
+p.**[name format]{:recursive name count};
+p.*[name format]{:immediate name count}: [value format]{:value count}
+```
+
+### Prose Claim
 
 CFEL (CAPRMEDIO Formal Expression Language) is the formal notation for
 Subject addresses and fenced Formal Claims. CFEL is a model component beside
@@ -34,7 +48,7 @@ CFEL uses these graph-address forms:
   `:=` is not a Formal-Claim value assignment.
 - `Part +> Whole` and `Whole <+ Part` are opposite written views of one
   containment fact. `X >| Axis` and `Axis |< X` are opposite written views
-  of one classification fact. `@X` references an already declared target.
+  of one classification fact. A bare qualified address references its declared entity or instance. No `@` reference operator is required; `@N` identity/version tags retain their separate meaning.
 - Parentheses group one expression. `;` separates complete expressions;
   a line break has no conjunction or disjunction meaning.
 
@@ -45,13 +59,6 @@ admitted membership tests. Numeric comparison and addition use the separately
 defined `>`, `>=`, `<`, `<=` and `+`; they are distinct from Relation
 operators. Property occurrence, direct-value, immediate-name
 and recursive-name counts are distinct:
-
-```CFEL
-p{:occurrence}: [value format]{:value count};
-p.*[name format]{:immediate name count};
-p.**[name format]{:recursive name count};
-p.*[name format]{:immediate name count}: [value format]{:value count}
-```
 
 `{:n}`, `{:n+}` and `{:n..m}` state allowed cardinality bounds on their
 qualified selection; `{=n}` tests a count condition, `{>n}` tests whether the
@@ -74,21 +81,19 @@ an operator is not a binary Node Relation. A Requirement/Declaration describes
 a canonical or derived Relation direction; it does not authorize a second
 stored inverse fact.
 
-The reusable metadata family `@Operator//Name == "notation literal"` binds a
+The reusable metadata family `Operator//Name == "notation literal"` binds a
 declared operator descriptor to its token or bounded construct spelling. Its
 quoted right side is metadata, not an executed CFEL expression, value assignment,
 state creation, or a new model entity.
 
-Every Relation Declaration supplies Semantics. Relation Declarations use the
-existing `==`, `>|`, and named-Relation tokens for short-notation,
-Direct/Derived, and counterpart metadata.
+A direct Relation Declaration owns shared meaning and endpoints. A derived Declaration retains the reverse counterpart binding and its own alias, when present. `alias(Relation//NAME) == "token"` binds exact Relation names to lexical notation. `Relation//DIRECT <--> Relation//DERIVED` binds distinct inverse Relations in the direct Declaration. It never equates their identities. These metadata forms do not create literal-to-Node graph links.
 
 A graph Relation connects declared model entities or declared instances,
 including Carrier and CFEL; it is not limited to `Node/**`. A literal remains a
 Property or allowed value, not a graph endpoint. A non-graph CFEL operator is
 not itself a graph Relation, but its declared operator descriptor is a model
 entity that may be a graph endpoint; an operator glyph or literal operand does
-not create another model entity. Each Relation Declaration supplies Semantics and a
+not create another model entity. Each direct Relation Declaration supplies shared meaning and a
 formal Host/Target signature with typed selectors whose universe is known, or
 with declared variables bound to that universe. Within a Relation Declaration
 Formal Claim only, `$host ((RELATION)) $target` is the reusable generic
@@ -115,14 +120,3 @@ This Definition does not convert a Format, Bool value, or any other value
 into an instance selected by `//`. Such an instance selection requires the
 existing source binding that declares it. No value-format-to-instance rewrite
 is implied by the CFEL overview.
-
-## Details
-
-Non-executable Relation-metadata illustration:
-
-```text
-((REL)) == <declared short notation>
-((REL)) >| <Direct or Derived classification>
-((REL)) ((counterpart Relation)) ((COUNTERPART))
-```
-

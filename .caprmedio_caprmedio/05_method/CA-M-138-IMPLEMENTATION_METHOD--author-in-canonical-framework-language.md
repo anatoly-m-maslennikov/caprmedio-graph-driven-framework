@@ -5,11 +5,11 @@ relations:
   child_of:
   - CA-M-006
 subjects:
-  active: Aspects <+ Engineering <+ Authoring
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
   passive:
-  - Entity/Object/Continuant/Term//Artifact
-  - Entity/Object/Continuant/Term
-  - Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

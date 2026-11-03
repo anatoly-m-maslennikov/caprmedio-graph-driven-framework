@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Subject Graph)'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Subject Graph)'
   passive:
-  - 'Entity/Object/Continuant/Projection/(.Type: Atom Subjects Graph)'
-  - Atom.Subjects
-  - Entity
-  - Atom
-  - CFEL <+ Relation//GOVERNS
-  - CFEL <+ Relation//DEPENDS_ON
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Atom Subjects Graph)'
+  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//GOVERNS
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON
 version: 34
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -19,10 +19,10 @@ tier: 1
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md
   source_atom_id: CA-M-232
   source_atom_revision: 34
-  source_sha256: e555a32f9a7a11853ea704c28520e4a4eb4baaa924fb7d13f033bf59a1ccf15d
+  source_sha256: 18d960b4e7a1cdd7fd6f73d808d0b8407381e62a7e098aa3ddfb979d0cc51d0d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier/File
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - Carrier/File
-  - Entity/Object/Continuant/Term
-  - CFEL > Relation//NARROWER_THAN
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
+  - CAPRMEDIO_MODEL <+ CFEL > Relation//NARROWER_THAN
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Event Record
+  active: CAPRMEDIO <+ MODEL <+ Event Record
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2567-CORE_META_MODEL-RULE--record-business-property-changes-in-one-update-event.md
   source_atom_id: CA-R-2567
   source_atom_revision: 2
-  source_sha256: 7c8a829cf700489c1a6378cb204a05235df2fe71575802b43ecfee6835b0c0f2
+  source_sha256: c9590bc7a224ec7866a86ea6fac993cf776dc2a2489fa8b4dae6d9dbe9ac41d9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -5,13 +5,13 @@ relations:
   child_of:
   - CA-M-005
 subjects:
-  active: Project
+  active: CAPRMEDIO <+ MODEL <+ Project
   passive:
-  - Project
-  - Atom/(.Role := Requirement)
-  - Entity/Object/Continuant/Package/Project Implementation
-  - Atom
-  - Aspects <+ Product
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Product
 atom_id: CA-R-1772
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

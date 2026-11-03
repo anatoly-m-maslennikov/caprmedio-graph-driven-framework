@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Journal
+  active: CAPRMEDIO_MODEL <+ Journal
   passive:
-  - Aspects <+ Engineering <+ Data Handling <+ Output Publication
-  - Projection
-  - Journal
-  - Carrier
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Output Publication
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 19
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

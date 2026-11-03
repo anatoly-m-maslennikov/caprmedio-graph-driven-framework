@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Atom
-  - Entity/Object/Continuant/History
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL-ENG_DECISION--exclude-atom-metadata-from-framework-instance-settings.md
   source_atom_id: CA-D-377
   source_atom_revision: 26
-  source_sha256: c7f1a78836bd3e3b07e11682648a8dbcf1d392478839a60b875066fd6bef664e
+  source_sha256: 6edd9e93fbf68e376cb885317bcdd0dd1b7bfe5dd3a20fa111f5b5406420466e
   original_relations_sha256: c126554c6620d4d2e8da667cb2f65c2c9e2c5a0c53b0a9e77a8b3a2112416a03
 ---
 ## Summary

@@ -15,6 +15,7 @@ from yaml.events import AliasEvent, MappingEndEvent, MappingStartEvent, Sequence
 from yaml.nodes import MappingNode
 
 from carrier_aliases import carrier_read_view
+import subject_notation as notation
 
 
 PROJECT = "PROJECT"
@@ -30,6 +31,7 @@ _CONTAINMENT = re.compile(
 )
 _ROOT_NAME = re.compile(rf"Project//(?P<name>{_SUBJECT})\.Name\s*==\s*(?P<value>.+)\Z")
 _CLAIM = re.compile(r"(?ms)^## Claim\s*\n+```CFEL\n(?P<cfel>.*?)\n```\s*\Z")
+_NAMESPACE_BRANCH = "STRUCTURE"
 
 
 class ScopeDeclarationError(ValueError):
@@ -128,7 +130,32 @@ def _metadata(value: Mapping[str, Any], path: Path) -> tuple[str, int, str]:
     active = subjects.get("active") if isinstance(subjects, Mapping) else None
     if not isinstance(active, str):
         raise ScopeDeclarationError(f"{path}: declaration requires one active Subject")
-    return atom_id, version, active
+    return atom_id, version, _local_subject(active, path)
+
+
+def _local_subject(active: str, path: Path) -> str:
+    """Unwrap one exact structural namespace while retaining legacy bare Subjects."""
+    try:
+        expression = notation.parse_subject_expression(active, subject_profile="approved").expression
+    except notation.SubjectNotationError:
+        return active
+    local = notation.namespace_local_expression(expression)
+    if local is None:
+        return active
+    if not isinstance(expression, notation.RelationChain):
+        return active
+    root = expression.endpoints[0]
+    new_root = isinstance(root.head, notation.Name) and root.head.value.startswith("CAPRMEDIO_")
+    namespace = root if new_root else expression.endpoints[1]
+    expected = "CAPRMEDIO_STRUCTURE" if new_root else _NAMESPACE_BRANCH
+    if not isinstance(namespace.head, notation.Name) or namespace.head.value != expected:
+        raise ScopeDeclarationError(f"{path}: declaration active Subject uses an invalid namespace branch")
+    if any(
+        link.forward_cardinality is not None or link.reverse_cardinality is not None
+        for link in expression.links[:1 if new_root else 2]
+    ):
+        raise ScopeDeclarationError(f"{path}: declaration active Subject uses an invalid namespace chain")
+    return notation.render_subject(local)
 
 
 def _cfel(body: str, path: Path) -> list[str]:

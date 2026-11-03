@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom.Tier
+  active: CAPRMEDIO <+ MODEL <+ Atom.Tier
   passive:
-  - Atom
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
-  - Project
-  - Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
 version: 10
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

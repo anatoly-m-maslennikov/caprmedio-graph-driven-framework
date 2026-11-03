@@ -6,12 +6,12 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Carrier/File.Filename
+  active: CAPRMEDIO_MODEL <+ Carrier/File.Filename
   passive:
-  - Atom
-  - Project
-  - Scope Unit
-  - Scope Unit.Name
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit.Name
 relations:
   depends_on:
   - CA-D-284

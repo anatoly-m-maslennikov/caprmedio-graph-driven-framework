@@ -7,11 +7,11 @@ relations:
   method_for:
   - CA-R-1487
 subjects:
-  active: Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
+  active: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
-  - Atom/(.Role := Method)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
 atom_id: CA-M-297
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

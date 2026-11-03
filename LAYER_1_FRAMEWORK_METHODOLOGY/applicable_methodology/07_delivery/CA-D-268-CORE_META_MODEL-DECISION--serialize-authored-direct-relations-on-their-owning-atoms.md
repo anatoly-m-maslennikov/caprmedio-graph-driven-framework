@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
   passive:
-  - CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
 version: 30
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md
   source_atom_id: CA-D-268
   source_atom_revision: 30
-  source_sha256: 1eb9360f6e7eabd90f86743d21151fd11b585800dcbd06583f425938e93cbdbf
+  source_sha256: b7825b67a0517a2e727e70fe70ba608f12e16df886c2cd34c79833f6e55302f1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Projection
+  active: CAPRMEDIO <+ MODEL <+ Projection
   passive:
-  - Carrier
-  - Entity/Object/Continuant/Projection/Type
-  - Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,10 +16,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1460-CORE_META_MODEL--separate-projection-derivation-from-carrier-materialization.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1460-CORE_META_MODEL--separate-projection-derivation-from-carrier-materialization.md
   source_atom_id: CA-R-1460
   source_atom_revision: 22
-  source_sha256: 6158cc4948558ac91e9ff1a7b70140e7afc962c57332133f2e96716027d96588
+  source_sha256: 030ac462edf32077c1e7f275f9ff840c58f00181d2fd758bb984aa4aed20b617
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - Node/Continuant
+  - CAPRMEDIO_MODEL <+ Node/Continuant
 relations: {}
 version: 15
 updated_at: 2026-11-02 00:18:22 +0400

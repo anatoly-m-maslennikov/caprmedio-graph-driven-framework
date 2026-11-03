@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier/File
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File
   passive:
-  - Atom
-  - Carrier/File
-  - Project
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Project
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,10 +21,10 @@ tier: 4
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-457-CORE_META_MODEL-POLICY--validate-authoritative-markdown-atom-carriers.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-457-CORE_META_MODEL-POLICY--validate-authoritative-markdown-atom-carriers.md
   source_atom_id: CA-E-457
   source_atom_revision: 34
-  source_sha256: 0e7d272fc3314244be75f3cfcf4f7622c65777271c6aedee9d4e568f65be04e2
+  source_sha256: 3c30717afa9a9e0d709a849cfbc297b4e3a1a9cdc9f094b828c3044db2eef3b1
   original_relations_sha256: 3010e1fb6eceadf25e7534e0f721b09bbdf95653f79b6bee243373f24408a11d
 ---
 ## Summary

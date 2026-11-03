@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Engineering
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1356-PROJECT_CONFIGURATION--define-caprmedio-direct-route-skill.md
   source_atom_id: CA-R-1356
   source_atom_revision: 26
-  source_sha256: 49c2bb9ef771e34b709d5a3e592f07036c0bb1541078dd1e10a8877657bf34c8
+  source_sha256: 4c25d8d24d6e2ca7aaf9ded66bd3ce4bd5e458640b6b8e450f36e37363b13598
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -6,12 +6,12 @@ status: Active
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: Entity/Object/Occurrent/Execution/Workflow Run
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   passive:
-  - Atom
-  - Atom/(.Role := Evaluation)
-  - Carrier/File
-  - Projection
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Projection
 relations: {}
 tier: 3
 role: Delivery

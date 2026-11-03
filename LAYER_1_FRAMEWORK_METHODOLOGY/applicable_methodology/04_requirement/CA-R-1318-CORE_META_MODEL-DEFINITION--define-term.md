@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: Term
+  active: CAPRMEDIO <+ MODEL <+ Term
   passive:
-  - Project
-  - Entity
-  - Term.Name
-  - Term//Term
-  - Term//Empty
-  - Term//ID
-  - Term//Entity
-  - Entity/Property
-  - Term//Property
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Term.Name
+  - CAPRMEDIO <+ MODEL <+ Term//Term
+  - CAPRMEDIO <+ MODEL <+ Term//Empty
+  - CAPRMEDIO <+ MODEL <+ Term//ID
+  - CAPRMEDIO <+ MODEL <+ Term//Entity
+  - CAPRMEDIO <+ MODEL <+ Entity/Property
+  - CAPRMEDIO <+ MODEL <+ Term//Property
 version: 32
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -25,7 +25,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md
   source_atom_id: CA-R-1318
   source_atom_revision: 32
-  source_sha256: ad081fe5fe65884ca973cb3876718ad5d29884e8c7133fc644dafc84df9f04b6
+  source_sha256: 2e59b0d4f0e4240f3f3016cd5806748a2ef2eaeec27569b65b363d0731842cef
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

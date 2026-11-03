@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
   passive:
-  - Atom/(.Role:=Operations)/Workflow
-  - Atom/(.Role := Operations)/Step
-  - Atom/(.Role:=Operations)/Action
-  - Carrier/Directory
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Step
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Action
+  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
 version: 28
 updated_at: 2026-11-02 17:54:42 +0400
 relations:

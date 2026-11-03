@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Projection/(.Form:=Scope Unit Graph)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Scope Unit Graph)
   passive:
-  - Scope Unit
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Atom
-  - Journal
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Journal
 version: 41
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL-RULE--bind-every-project-scope-unit-graph-value-to-exact-sources.md
   source_atom_id: CA-R-1740
   source_atom_revision: 41
-  source_sha256: 05c3cd37c22777608da36dae0a64ea079167b56f015b7fb061a06dd50258cde7
+  source_sha256: 916715fc9f7a1c20c0f87d8b4abfa0a5d2a53ed5575f8fdcd06ea7868bb32859
   original_relations_sha256: e892fff95c7b88c75c6e5c328b69d7239f899c984648a1b875c6a4c3aadcb888
 ---
 ## Summary

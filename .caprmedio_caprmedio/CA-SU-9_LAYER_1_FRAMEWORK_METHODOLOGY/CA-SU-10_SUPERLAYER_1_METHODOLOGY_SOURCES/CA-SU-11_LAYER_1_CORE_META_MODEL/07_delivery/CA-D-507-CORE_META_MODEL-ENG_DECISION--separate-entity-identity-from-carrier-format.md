@@ -6,11 +6,11 @@ status: Active
 version: 16
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - Entity
-  - Carrier.Format
-  - Carrier/File.Extension
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Carrier.Format
+  - CAPRMEDIO_MODEL <+ Carrier/File.Extension
 relations: {}
 tier: 1
 role: Delivery

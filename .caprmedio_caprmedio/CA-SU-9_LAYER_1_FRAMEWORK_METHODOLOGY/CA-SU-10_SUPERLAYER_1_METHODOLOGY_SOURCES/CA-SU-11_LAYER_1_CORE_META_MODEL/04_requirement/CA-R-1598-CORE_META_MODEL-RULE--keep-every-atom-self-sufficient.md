@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - Atom
-  - Atom.Content
-  - Carrier/File
-  - CFEL > Relation
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ CFEL > Relation
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Entity/Property
+  active: CAPRMEDIO <+ MODEL <+ Entity/Property
   passive:
-  - Term//Property
-  - CFEL <+ Relation//IS_PROPERTY_OF
-  - Entity/Object/Continuant/Selection//Property Occurrences
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Property Occurrences
 relations: {}
 version: 16
 updated_at: 2026-11-02 19:46:47 +0400

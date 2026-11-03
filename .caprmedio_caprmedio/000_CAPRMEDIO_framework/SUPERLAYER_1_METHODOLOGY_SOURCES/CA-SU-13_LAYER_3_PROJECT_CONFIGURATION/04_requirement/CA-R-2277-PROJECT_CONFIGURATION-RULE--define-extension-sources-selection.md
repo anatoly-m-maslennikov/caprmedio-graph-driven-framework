@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 1
 subjects:
-  active: Named Selection//Extension Sources
+  active: CAPRMEDIO <+ STRUCTURE <+ Named Selection//Extension Sources
 relations: {}
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400

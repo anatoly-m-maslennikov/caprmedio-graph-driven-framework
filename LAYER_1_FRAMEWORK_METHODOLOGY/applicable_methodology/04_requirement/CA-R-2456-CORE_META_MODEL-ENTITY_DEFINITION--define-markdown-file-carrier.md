@@ -7,10 +7,10 @@ tier: 1
 version: 3
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: Carrier/File/Markdown
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File/Markdown
   passive:
-  - Carrier/File
-  - Carrier/File.Format
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.Format
 relations: {}
 role: Requirement
 form: Entity Definition
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2456-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-file-carrier.md
   source_atom_id: CA-R-2456
   source_atom_revision: 3
-  source_sha256: 39c7f24479313c86511ad50827f803ac5b7aa458ced6c6145885db99b636fab0
+  source_sha256: 5d5260984e4a69c057b568839cf9bdbc8934ee60020d64c50ffebc3c83651439
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

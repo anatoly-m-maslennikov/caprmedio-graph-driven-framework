@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Enabled Relations.Contains'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Enabled Relations.Contains'
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom.Enabled Relations.Contains
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Enabled Relations.Contains
 relations:
   child_of:
   - CA-R-2478
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1990-CORE_META_MODEL-RULE--enable-containment-for-plan-atoms.md
   source_atom_id: CA-R-1990
   source_atom_revision: 12
-  source_sha256: 655304c05a0ea7db552300589422805d0fc3db7f74e00a80d846736c032aba0f
+  source_sha256: 73bce4ae3883eb1ae24b553205cd279a3991cd4099798e9dfa8ec4f94bc26853
   original_relations_sha256: 4fde62f0627e52833e954bbd64d451c404b9f9d66585c52603ef12fa5886adfa
 ---
 ## Summary

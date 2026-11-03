@@ -4,7 +4,7 @@ current_scope_unit: caprmedio
 status: Active
 tier: 1
 subjects:
-  active: Node/Continuant//CAPRMEDIO Framework
+  active: CAPRMEDIO_STRUCTURE <+ Node/Continuant//CAPRMEDIO Framework
 relations: {}
 version: 4
 role: Requirement

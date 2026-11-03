@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Entity/Object/Continuant/History
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

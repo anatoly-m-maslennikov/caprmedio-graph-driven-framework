@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Carrier/File.Filename
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Filename
   passive:
-  - Atom.ID
-  - Atom
-  - Atom.Content.Summary
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Atom.Tier
-  - Atom.Label
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Atom.Label
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md
   source_atom_id: CA-D-283
   source_atom_revision: 32
-  source_sha256: 4fb2543a51a184b13ebe3a5e6cbae7b275fc574067f4681dea2a951f311d97cb
+  source_sha256: 168c2f89364d745fbb6eb431be271fbd8914e13a2175508d3fe7c1059c875756
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

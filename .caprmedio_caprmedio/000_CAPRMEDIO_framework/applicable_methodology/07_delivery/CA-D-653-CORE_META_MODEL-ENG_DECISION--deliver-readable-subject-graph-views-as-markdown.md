@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Projection
+  active: CAPRMEDIO <+ MODEL <+ Projection
   passive:
-  - Projection
-  - Entity/Object/Continuant/Projection/Type
-  - Entity/Object/Continuant/Selection
-  - Atom
-  - Atom.ID
-  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 16
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -27,10 +27,10 @@ status: Active
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-653-CORE_META_MODEL-ENG_DECISION--deliver-readable-subject-graph-views-as-markdown.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-653-CORE_META_MODEL-ENG_DECISION--deliver-readable-subject-graph-views-as-markdown.md
   source_atom_id: CA-D-653
   source_atom_revision: 16
-  source_sha256: af56ac70d0a186f45a2a2bf8bf5fd2e83fe6dfe8c1ace11712c0c9988d55a27c
+  source_sha256: 117cb073f3f79147d724d4529622b95bad0fd414a6da3220bfd023b3500579f5
   original_relations_sha256: a84fd6d90b5c78a0ecf46e9fb5ce5529824abc141929b0b3145795fb5e727ae4
 ---
 ## Summary

@@ -21,7 +21,7 @@ relations:
   - CA-D-517
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-117-PROJECT_CONFIGURATION-ACTION--wait-for-execution-updates.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-117-PROJECT_CONFIGURATION-ACTION--wait-for-execution-updates.md
   source_atom_id: CA-O-117
   source_atom_revision: 12
   source_sha256: 13d73ea964237d9de982627357626527930f95f1892fcc5c2f22bb7a53f43706

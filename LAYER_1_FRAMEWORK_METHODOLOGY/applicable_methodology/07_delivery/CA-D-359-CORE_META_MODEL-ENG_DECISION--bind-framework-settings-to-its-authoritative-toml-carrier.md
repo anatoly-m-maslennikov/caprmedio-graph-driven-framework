@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   passive:
-  - Carrier/File
-  - Carrier/File.Format
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Carrier/File.Format
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL-ENG_DECISION--bind-framework-settings-to-its-authoritative-toml-carrier.md
   source_atom_id: CA-D-359
   source_atom_revision: 28
-  source_sha256: 13643a256ca19eff0c54f3817e5a3711b9ecd65dc477bca0801b3c000d561796
+  source_sha256: d53c79d02c825886abd3cb9ab6cd1d3186dde9a0af214a0e0d32492f3bfc8856
   original_relations_sha256: 548de335dd35782717651df33fa6bc32b2fe029d2515df86f0a3bb59ab940171
 ---
 ## Summary

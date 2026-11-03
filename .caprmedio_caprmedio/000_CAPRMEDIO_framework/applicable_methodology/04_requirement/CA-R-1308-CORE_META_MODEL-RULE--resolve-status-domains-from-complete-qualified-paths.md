@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom.Status
+  active: CAPRMEDIO <+ MODEL <+ Atom.Status
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Entity
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1308-CORE_META_MODEL-RULE--resolve-status-domains-from-complete-qualified-paths.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1308-CORE_META_MODEL-RULE--resolve-status-domains-from-complete-qualified-paths.md
   source_atom_id: CA-R-1308
   source_atom_revision: 27
-  source_sha256: 25ddfeaaacd2caca771b89521402217a23666fe1469652984d0899f8af8891be
+  source_sha256: ee77402c1665ec8736506c0e0c612c1a83b4570ad9bb0c20aaa36e78dc9c4607
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

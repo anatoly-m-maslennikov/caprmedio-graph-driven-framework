@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Project.Settings
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings
   passive:
-  - Scope Unit
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - 'Entity/Object/Continuant/Projection/Type: Scope Unit Graph'
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Scope Unit Graph'
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 41
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-RULE--separate-project-settings-from-the-project-scope-unit-graph.md
   source_atom_id: CA-R-1052
   source_atom_revision: 41
-  source_sha256: 34b7535ce1b1c303109985ea0b298a403ed141f53f8a58059cefd7e764aed0cd
+  source_sha256: 28b42bde3d01ab6774b20d235463a61f8d8317c960944d3820cb5a6eca4cb870
   original_relations_sha256: e4bb1ac5beed6873fcce262f203647bc69192db2e911302404b2324a7319e165
 ---
 ## Summary

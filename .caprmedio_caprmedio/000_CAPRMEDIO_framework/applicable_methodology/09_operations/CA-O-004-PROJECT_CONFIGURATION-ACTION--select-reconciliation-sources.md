@@ -18,7 +18,7 @@ author: Anatoly Maslennikov
 type: Action
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-004-PROJECT_CONFIGURATION-ACTION--select-reconciliation-sources.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-004-PROJECT_CONFIGURATION-ACTION--select-reconciliation-sources.md
   source_atom_id: CA-O-004
   source_atom_revision: 18
   source_sha256: e847dc7fab0d4aa0ca4b22f7af9a3701c25b1465a72bb5c32bcdf3a9a4bac9cb

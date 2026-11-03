@@ -1,0 +1,57 @@
+{
+  "schema": "caprmedio-namespace-migration-report/v1",
+  "status": "PREPARED_NO_SOURCE_APPLY",
+  "frontier": {
+    "fixed_frontier": ".caprmedio_caprmedio/02_analysis/draft/role-projection-completion-20261102/current-source-frontier.json",
+    "fixed_frontier_sha256": "51168bb75c6e49bb7ff32bfd027c2d93ab62ff8598dcb14f036e9265ef8da2d1",
+    "fixed_frontier_source_count": 1132,
+    "canonical_current_inventory": "/private/tmp/caprmedio-namespace-inventory.json",
+    "canonical_current_inventory_sha256": "081803bfdb13b550f0139a49d9aeb23e4718c6755b3c15e4987f8b9ae984ef46",
+    "canonical_current_inventory_total_rows": 5077,
+    "planned_source_count": 1173,
+    "included_statuses": {
+      "Active": 1157,
+      "Backlog": 1,
+      "Canceled": 2,
+      "Done": 4,
+      "Resolved": 9
+    },
+    "excluded": [
+      "Draft",
+      "archive/history/evidence/test/runtime/projected copies",
+      "duplicate atom_id rows",
+      "installedcopies",
+      "sourceapply"
+    ]
+  },
+  "source_rows": 1173,
+  "subject_scalar_count": 3671,
+  "changed_subject_count": 3671,
+  "transform_counts": {
+    "subjects_by_rule": {
+      "bare_model_kind": 1,
+      "default_model_prefix": 3040,
+      "model_named_definition": 225,
+      "root_recode": 3,
+      "structure_named_instance": 402
+    },
+    "subjects_by_placement": {
+      "MODEL": 3267,
+      "STRUCTURE": 404
+    },
+    "source_rows": 1173
+  },
+  "files_lacking_subject_keys_count": 455,
+  "files_lacking_subject_keys_plan_field": "plan.records[].subjects_missing",
+  "uncertain_placements": [],
+  "errors": [],
+  "acceptance": {
+    "all_sources_pinned": true,
+    "all_metadata_unchanged": true,
+    "all_candidates_idempotent": true,
+    "all_current_source_bytes_unchanged": true,
+    "candidate_and_before_artifacts_are_txt": true,
+    "no_md_draft_carriers": true
+  },
+  "plan": ".caprmedio_caprmedio/02_analysis/draft/caprmedio-namespace-migration-20261103/plan.json"
+}

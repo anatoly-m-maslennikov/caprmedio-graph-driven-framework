@@ -15,13 +15,13 @@ relations:
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: Project.Settings
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings
   passive:
-  - Project
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Entity/Object/Continuant/Term//Artifact
-  - Atom
-  - Aspects <+ Engineering <+ Data Handling <+ Source Selection
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Source Selection
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 atom_id: CA-R-622
@@ -30,10 +30,10 @@ claim_target_scope_unit: caprmedio
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-622-PROJECT_CONFIGURATION-RULE--keep-selected-settings-in-their-authoritative-settings-artifact.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-622-PROJECT_CONFIGURATION-RULE--keep-selected-settings-in-their-authoritative-settings-artifact.md
   source_atom_id: CA-R-622
   source_atom_revision: 34
-  source_sha256: 7b24d42f529a6608f264aaa3dcb14836f83ec65090166294d45302f1037fd2ae
+  source_sha256: 4ec207740df960abeba56fe5d867c8c341423ea5ffeb6bc5db21a7c285f5396b
   original_relations_sha256: e871e62bb800dd80294c2ca2aee838cc2530615370df370a5d32fd9d770b0002
 ---
 ## Summary

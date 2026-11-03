@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Data Handling <+ Data Validation
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
   passive:
-  - Entity/Object/Occurrent/Runtime/Session
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime/Session
 version: 34
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

@@ -4,14 +4,14 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Projection/(.Form := Realization Graph)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Realization Graph)
   passive:
-  - Aspects <+ Engineering <+ Traceability
-  - Entity
-  - 'Entity/Object/Continuant/Projection/Type: Realization Graph'
-  - Journal
-  - Projection
-  - CFEL > Relation
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Entity
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Realization Graph'
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ CFEL > Relation
 version: 25
 relations:
   depends_on:

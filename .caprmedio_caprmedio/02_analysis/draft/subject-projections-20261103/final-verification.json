@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-11-03T17:08:42+04:00",
+  "publication": "PUBLISHED",
+  "views": 7,
+  "selected_sources": 1132,
+  "existing_six_unchanged": true,
+  "declaration_contract_authority": "Current Requirement / Declaration only",
+  "formal_blocks_verbatim": 107,
+  "implementation_tests_this_change": "NOT_RERUN: no implementation changes; model parsing and generated outputs checked directly",
+  "prior_implementation_validation": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/issue-01-is-contained-by/final-verification.before.json",
+    "sha256": "3cbc6af970816058d044239020b9e5e78ea150baf634c460f6a9ed8ded0373b0"
+  },
+  "audit_counts": {
+    "passive_only_subjects": {
+      "subject_occurrences": 3652,
+      "parsed_subjects": 472,
+      "unresolved_subjects": 12,
+      "unresolved_occurrences": 115,
+      "active_subjects": 387,
+      "passive_only_subjects": 96
+    },
+    "subjects_without_declaration_coverage": {
+      "known_missing": 112,
+      "unresolved": 112
+    },
+    "entity_definition_summary": {
+      "entities": 331,
+      "entities_with_any_missing": 105
+    }
+  },
+  "rmed_drafts": 4,
+  "rmed_promotion": "NOT_PERFORMED",
+  "governed_draft_admission": "Not claimed: prior candidate discovery LIMIT_REACHED",
+  "git_publication": "NOT_PERFORMED",
+  "manifest_sha256": "f59dd83e48cbae0af77627a73296b00473e717eb6550f9db424ec2adcf43e633",
+  "issue_01_application": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/issue-01-is-contained-by/verification.json"
+}

@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CFEL <+ Relation//DEPENDS_ON
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON
   passive:
-  - CFEL > Relation
-  - Atom
-  - Entity
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - Atom.Content
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
 version: 39
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -21,10 +21,10 @@ tier: 2
 role: Requirement
 form: Declaration
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md
   source_atom_id: CA-R-1200
   source_atom_revision: 39
-  source_sha256: 3e424854f475d34b6c508f52073b8ac3de93d7071333320ac4708670e9c0df3d
+  source_sha256: 947df6df409e74eef63038de0d5d982f4c78a537795e876f24fc6563e66847b7
   original_relations_sha256: 716ef4f4c69122347b79d3f5b5752b137772edf3b9edf48f251d5d752fc50a4d
 ---
 ## Summary

@@ -8,13 +8,13 @@ updated_at: 2026-11-02 08:06:47 +0400
 current_scope_unit: CORE_META_MODEL
 tier: 3
 subjects:
-  active: CFEL <+ Relation//CONTAINS
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//CONTAINS
 relations: {}
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md
   source_atom_id: CA-R-2617
   source_atom_revision: 1
-  source_sha256: 3ac431d10c20f8397044095db2c2eb7c8f9b820f23f5a1afb63943738b2a6359
+  source_sha256: 0200e72c654e701c21b0ca82e2cb8f02867a434703df641a483b7ce285fe4fc8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 

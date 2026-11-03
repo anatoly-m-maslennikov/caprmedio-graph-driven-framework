@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: Node/Continuant
+  active: CAPRMEDIO <+ MODEL <+ Node/Continuant
   passive:
-  - Entity
-  - Projection
-  - Atom/(.Role := Evaluation)
-  - Term//Property
-  - Atom.Content
-  - Atom/(.Role := Requirement)
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Delivery)
-  - Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -27,7 +27,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1502-CORE_META_MODEL--keep-authority-applicability-and-currentness-distinct.md
   source_atom_id: CA-R-1502
   source_atom_revision: 25
-  source_sha256: e57b93b1f7033f4e29631c599f7bc7ceaf24e890cf1712aba8866e6b845bb9df
+  source_sha256: 71d4dabc63790d9be0f67f929ddc49a30156af1f7a27c2ba0b1e1ffa1b90b882
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

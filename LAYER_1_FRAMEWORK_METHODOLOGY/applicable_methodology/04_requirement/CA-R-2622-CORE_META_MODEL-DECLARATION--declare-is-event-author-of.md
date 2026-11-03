@@ -8,13 +8,13 @@ updated_at: 2026-11-02 08:06:47 +0400
 current_scope_unit: CORE_META_MODEL
 tier: 3
 subjects:
-  active: CFEL <+ Relation//IS_EVENT_AUTHOR_OF
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_EVENT_AUTHOR_OF
 relations: {}
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2622-CORE_META_MODEL-DECLARATION--declare-is-event-author-of.md
   source_atom_id: CA-R-2622
   source_atom_revision: 1
-  source_sha256: bbf9884d546c3e457558ccfe0a2e7d7ed19285b0bd50c1a9a31b6abcd3c40c26
+  source_sha256: 389cedfc1a76a8cd624f1f53aa3ac940be73103c9c1d33972dc30e4b23523eae
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 

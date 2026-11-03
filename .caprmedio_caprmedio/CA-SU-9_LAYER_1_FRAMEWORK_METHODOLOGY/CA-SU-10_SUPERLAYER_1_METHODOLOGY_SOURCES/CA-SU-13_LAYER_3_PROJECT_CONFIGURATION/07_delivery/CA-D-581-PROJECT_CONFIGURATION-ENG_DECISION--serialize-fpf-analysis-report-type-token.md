@@ -4,10 +4,10 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
   passive:
-  - Carrier/File.Filename
-  - Carrier
+  - CAPRMEDIO_MODEL <+ Carrier/File.Filename
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 17
 updated_at: 2026-11-02 19:33:47 +0400
 relations:

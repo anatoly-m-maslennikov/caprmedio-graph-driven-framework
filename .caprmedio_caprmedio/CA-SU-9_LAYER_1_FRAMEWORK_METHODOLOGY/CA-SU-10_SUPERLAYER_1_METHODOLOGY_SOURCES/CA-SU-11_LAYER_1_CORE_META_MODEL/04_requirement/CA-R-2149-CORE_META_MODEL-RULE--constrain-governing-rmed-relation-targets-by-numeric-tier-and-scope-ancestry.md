@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom.Relations
+  active: CAPRMEDIO_MODEL <+ Atom.Relations
   passive:
-  - Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
-  - Atom.Tier
-  - Scope Unit
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
+  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Scope Unit
 relations: {}
 atom_id: CA-R-2149
 current_scope_unit: CORE_META_MODEL

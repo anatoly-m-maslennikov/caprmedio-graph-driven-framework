@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Projection/(.Form:=Canonical Signature)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Canonical Signature)
   passive:
-  - Aspects <+ Engineering <+ Data Handling <+ Output Publication
-  - Carrier
-  - Atom.ID
-  - Atom
-  - Atom.Content
-  - Carrier/File
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Output Publication
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 36
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

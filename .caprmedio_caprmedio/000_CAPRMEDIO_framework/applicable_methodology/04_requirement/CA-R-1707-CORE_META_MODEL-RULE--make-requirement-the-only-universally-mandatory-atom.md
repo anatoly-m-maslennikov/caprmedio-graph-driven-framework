@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom/(.Role := Requirement)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -15,10 +15,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1707-CORE_META_MODEL-RULE--make-requirement-the-only-universally-mandatory-atom.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1707-CORE_META_MODEL-RULE--make-requirement-the-only-universally-mandatory-atom.md
   source_atom_id: CA-R-1707
   source_atom_revision: 32
-  source_sha256: 61c64155fd371559105ef025332de98fb6f9ca5549d8482be3da30b936229703
+  source_sha256: 8f931aacdc4f5f78e1ff1de34d66f70562d1f9b1dfa97dc2425757e276a81ba4
   original_relations_sha256: 7abd2dfa5db7ad1101d3aca4381dc51b89a2c75a0dae60ce8e07ba003a65f49b
 ---
 ## Summary

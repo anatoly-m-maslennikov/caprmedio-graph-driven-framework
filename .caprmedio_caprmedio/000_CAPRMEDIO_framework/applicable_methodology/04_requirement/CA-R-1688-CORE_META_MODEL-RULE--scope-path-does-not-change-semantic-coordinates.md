@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Scope Unit.Path
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Path
 version: 39
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -15,10 +15,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1688-CORE_META_MODEL-RULE--scope-path-does-not-change-semantic-coordinates.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1688-CORE_META_MODEL-RULE--scope-path-does-not-change-semantic-coordinates.md
   source_atom_id: CA-R-1688
   source_atom_revision: 39
-  source_sha256: d1b8b3b74565f5934fa857f473265eabfb9d21f15a29ef38766ee8bfcfb84d7e
+  source_sha256: 4b718ab4f308187ac9a9086d376fd757327a2244cae5c2598fff14d1c7574954
   original_relations_sha256: b8dcfd73d6f0c11b7eaf8d81fb734512e58f3895c78965eff1dcb2306ef36af2
 ---
 ## Summary

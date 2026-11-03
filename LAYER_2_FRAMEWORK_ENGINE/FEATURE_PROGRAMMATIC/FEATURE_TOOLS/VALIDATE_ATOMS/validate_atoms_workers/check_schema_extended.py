@@ -21,7 +21,7 @@ import subject_notation as notation
 from .authority import Record, _verified, _domain
 from .check_fields import encoding_authority
 from .parsing import CarrierError, parse_carrier
-from .check_sections import _headings, _sections, body_layout, role_sections, plan_definition
+from .check_sections import _claim_model_headings, _headings, _sections, body_layout, role_sections, plan_definition
 from .check_support import Check, _integer, _string
 
 
@@ -363,8 +363,10 @@ def _single_location(metadata: Record, body: str, check: Check) -> None:
     layout = body_layout(check)
     if layout is None:
         return
-    if layout == "rmed_siblings" and metadata.get("content_role") in ("Requirement", "Method", "Evaluation", "Delivery"):
+    if layout in {"rmed_siblings", "claim_children"} and metadata.get("content_role") in ("Requirement", "Method", "Evaluation", "Delivery"):
         body_fields.update({"claim_scope": "Claim scope", "semantics": "Semantics", "formal_claim": "Formal claim"})
+        if layout == "claim_children":
+            body_fields["prose_claim"] = "Prose Claim"
         if metadata.get("content_role") == "Requirement" and metadata.get("type") == "Relation Definition":
             registered = role_sections(metadata, check)
             if registered is None:
@@ -399,16 +401,21 @@ def _additional_properties(metadata: Record, body: str, check: Check) -> None:
     if layout is None:
         return
     expected = set(layout)
-    if layout[0] == (2, "Summary") and metadata.get("content_role") == "Requirement":
+    claim_children = layout[0] == (2, "Summary") and body_layout(check) == "claim_children"
+    if claim_children:
+        expected.update({(3, "Formal Claim"), (3, "Prose Claim")})
+    elif layout[0] == (2, "Summary") and metadata.get("content_role") == "Requirement":
         expected.add((3, "Formal claim"))
     plan = metadata.get("content_role") == "Plan" and metadata.get("type") == "Plan"
     if plan:
         if _source(check, "CA-D-470", "body") is None:
             return
         expected.add((3, "Definition of Done"))
-    headings = _headings(body)
+    headings = _claim_model_headings(body, layout) if claim_children else _headings(body)
     names = {title for _, title in expected}
     for level, title, _ in headings:
+        if claim_children and level > 3:
+            continue
         if title in names and (level, title) not in expected:
             check.fail(
                 "BODY_SECTION",

@@ -2,9 +2,9 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Project
+  - CAPRMEDIO_MODEL <+ Project
 version: 3
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

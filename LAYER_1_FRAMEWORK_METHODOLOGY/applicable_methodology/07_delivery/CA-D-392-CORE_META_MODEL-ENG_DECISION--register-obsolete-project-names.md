@@ -1,11 +1,10 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Scope Unit Graph)'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Scope Unit Graph)'
   passive:
-  - Project.Settings
-  - Project.Settings.Name
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete
-    Names
+  - CAPRMEDIO <+ MODEL <+ Project.Settings
+  - CAPRMEDIO <+ MODEL <+ Project.Settings.Name
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete Names
 version: 27
 updated_at: 2026-11-02 19:46:47 +0400
 relations:
@@ -22,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-392-CORE_META_MODEL-ENG_DECISION--register-obsolete-project-names.md
   source_atom_id: CA-D-392
   source_atom_revision: 27
-  source_sha256: 7b11e4635fd20048e772a64948b518d3707bed354bd62119b9fbb11ed4a1034a
+  source_sha256: 6bb2173b7744877fa9d5c88d8fbe39239ba9c1985e8cf2ce9fec6f6fb6ce4b47
   original_relations_sha256: 4da88bfd568e331e611b88e2266c8ebada80b327e0c6157174dcddd4c33bfb0b
 ---
 ## Summary

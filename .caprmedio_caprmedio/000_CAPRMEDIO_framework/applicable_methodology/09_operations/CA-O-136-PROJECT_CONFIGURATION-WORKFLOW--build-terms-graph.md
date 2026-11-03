@@ -18,7 +18,7 @@ updated_at: 2026-10-27 19:59:46 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-136-PROJECT_CONFIGURATION-WORKFLOW--build-terms-graph.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-136-PROJECT_CONFIGURATION-WORKFLOW--build-terms-graph.md
   source_atom_id: CA-O-136
   source_atom_revision: 15
   source_sha256: 035d11ccf6274dcfee1b363e49f30d5fecff9ee58b9596ca1dc8f9b00ad7fce8

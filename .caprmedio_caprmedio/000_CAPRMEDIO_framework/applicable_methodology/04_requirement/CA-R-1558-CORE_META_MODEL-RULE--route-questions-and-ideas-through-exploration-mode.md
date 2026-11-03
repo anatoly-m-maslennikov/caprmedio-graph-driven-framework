@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Actor/AI Agent
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Actor/AI Agent.Permissions
-  - Term//Artifact
-  - Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,10 +17,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-RULE--route-questions-and-ideas-through-exploration-mode.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-RULE--route-questions-and-ideas-through-exploration-mode.md
   source_atom_id: CA-R-1558
   source_atom_revision: 23
-  source_sha256: 3e6f4b0155262e6c82f8808fd631dbffea7d8eedb59d08682adf0fcbd97a367d
+  source_sha256: 1e7c0a05520fef638d346f27e5f624033e363d58fea878cc7facd8d271a0e867
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

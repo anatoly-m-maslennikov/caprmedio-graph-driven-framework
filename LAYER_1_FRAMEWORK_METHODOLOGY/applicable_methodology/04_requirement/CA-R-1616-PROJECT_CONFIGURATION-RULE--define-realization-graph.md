@@ -4,14 +4,14 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Projection/(.Form := Realization Graph)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form := Realization Graph)
   passive:
-  - Aspects <+ Engineering <+ Traceability
-  - Entity
-  - 'Entity/Object/Continuant/Projection/Type: Realization Graph'
-  - Journal
-  - Projection
-  - CFEL > Relation
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Realization Graph'
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
 version: 25
 relations:
   depends_on:
@@ -26,7 +26,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1616-PROJECT_CONFIGURATION-RULE--define-realization-graph.md
   source_atom_id: CA-R-1616
   source_atom_revision: 25
-  source_sha256: f2ffcd1d42758728090eac322219ed6a5353c7f1a007bb0a7aae6b1fc016a14c
+  source_sha256: 71929ca1f8c241156c23435b84c8cb039b56b8c34ecfa61badce96b937fb8180
   original_relations_sha256: 36b983a251288c7a82a8b58fc531b8512945c90ac25c124f675a82cc4c0b0732
 ---
 ## Summary

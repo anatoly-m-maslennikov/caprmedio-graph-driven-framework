@@ -5,9 +5,9 @@ relations:
   child_of:
   - CA-R-2426
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Project
+  - CAPRMEDIO_MODEL <+ Project
 atom_id: CA-R-2427
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

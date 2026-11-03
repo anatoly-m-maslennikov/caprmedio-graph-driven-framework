@@ -8,9 +8,9 @@ relations:
   child_of:
   - CA-M-447
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Project
+  - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio

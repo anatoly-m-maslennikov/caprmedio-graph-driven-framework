@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Atom.Tier
+  active: CAPRMEDIO <+ MODEL <+ Atom.Tier
   passive:
-  - Atom
-  - Atom.Tier
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Scope Unit
-  - Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
-  - Atom.Status
-  - Entity/Object/Continuant/Selection
-  - Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
 version: 12
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -32,7 +32,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-654-CORE_META_MODEL-EVAL-CASE--validate-integer-tier-ordering-and-scope-constraints.md
   source_atom_id: CA-E-654
   source_atom_revision: 12
-  source_sha256: 10c5c020ecd5764cd0b2d32e51a273676a30914b3dc2b9edeef23915ed8adb08
+  source_sha256: 414fd2bd9ef018909c7248d3baba3e2a1399834cb32460fd9644de400cfcba0c
   original_relations_sha256: cfc7c7c95b32798497ccaa9c41dcc5cf855544729985d898f13ff6ec70ae595f
 ---
 ## Summary

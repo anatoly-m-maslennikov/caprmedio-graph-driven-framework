@@ -1,27 +1,27 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - Package
-  - Entity/Object/Continuant/Package/Eval Package
-  - Entity/Object/Continuant/Package/Runtime Package
-  - Entity/Object/Continuant/Package <+ Module
-  - Entity/Object/Continuant/Package <+ Module <+ Code Unit
-  - Term//Entity
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
-  - Atom.Subjects
-  - Term
-  - Project
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Entity Definition)'
-  - Atom.Content
-  - Entity
-  - 'Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
-  - Atom/(.Role := Concern)
-  - Term//Artifact
-  - Scope Unit
-  - Actor
-  - Projection
-  - CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Eval Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Runtime Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
+  - CAPRMEDIO_MODEL <+ Term//Entity
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Project
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Entity Definition)'
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Entity
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

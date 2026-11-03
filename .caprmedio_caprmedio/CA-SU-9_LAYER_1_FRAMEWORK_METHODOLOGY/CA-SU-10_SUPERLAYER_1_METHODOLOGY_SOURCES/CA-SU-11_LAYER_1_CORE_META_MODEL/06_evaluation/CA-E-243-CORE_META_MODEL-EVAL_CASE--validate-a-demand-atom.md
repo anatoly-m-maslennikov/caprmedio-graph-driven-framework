@@ -1,9 +1,8 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type:
-    Demand'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand'
   passive:
-  - Scope Unit.order.number
+  - CAPRMEDIO_MODEL <+ Scope Unit.order.number
 version: 39
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

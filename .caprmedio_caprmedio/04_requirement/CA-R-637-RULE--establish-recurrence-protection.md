@@ -14,7 +14,7 @@ status: Active
 atom_id: CA-R-637
 tier: 2
 subjects:
-  active: Aspects <+ Engineering <+ Verification
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
 role: Requirement
 form: Rule
 ---

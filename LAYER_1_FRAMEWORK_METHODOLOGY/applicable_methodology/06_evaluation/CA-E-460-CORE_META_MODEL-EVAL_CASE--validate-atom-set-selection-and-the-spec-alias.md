@@ -4,17 +4,17 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Entity/Object/Continuant/Selection
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - Carrier
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Atom.Status
-  - Entity/Object/Continuant/Selection
-  - Scope Unit
-  - Atom
-  - Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -37,7 +37,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-460-CORE_META_MODEL-EVAL_CASE--validate-atom-set-selection-and-the-spec-alias.md
   source_atom_id: CA-E-460
   source_atom_revision: 34
-  source_sha256: fb8b161d58bd9cbd1301598309adf32ad7c078b45d62f42c8a7a6ccad472c422
+  source_sha256: 94be91fdb404931a450a545f85d5239e406d5d0ec8ce363bcb76b81e4253a976
   original_relations_sha256: ef7cc83254ec979ab24ff736fec8bb404824d145a6c3b640ff97cfe82e730c87
 ---
 ## Summary

@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 subjects:
-  active: CFEL <+ Relation//HAS_EXECUTION
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_EXECUTION
 relations: {}
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400
@@ -12,10 +12,10 @@ claim_target_scope_unit: CORE_META_MODEL
 role: Requirement
 form: Declaration
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md
   source_atom_id: CA-R-2417
   source_atom_revision: 4
-  source_sha256: 244b56b6d029bdd0776cc185fa582db31188711c2d9a27160451e298438e8cbe
+  source_sha256: 6667d5290f94ac3a8935ec5d8c482441428a646621722aff8cb61894df9e912f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

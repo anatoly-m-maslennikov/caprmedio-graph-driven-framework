@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Project.Settings.RMED Review.Max Atoms
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings.RMED Review.Max Atoms
 version: 1
 relations: {}
 tier: 3

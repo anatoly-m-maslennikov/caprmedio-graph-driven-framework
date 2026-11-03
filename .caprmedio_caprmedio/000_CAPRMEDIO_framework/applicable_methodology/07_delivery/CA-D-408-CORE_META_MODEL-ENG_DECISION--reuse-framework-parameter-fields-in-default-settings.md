@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Governing Configuration
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
   passive:
-  - Entity/Object/Continuant/Governing Objects/Governing Configuration
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -18,10 +18,10 @@ tier: 4
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL-ENG_DECISION--reuse-framework-parameter-fields-in-default-settings.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL-ENG_DECISION--reuse-framework-parameter-fields-in-default-settings.md
   source_atom_id: CA-D-408
   source_atom_revision: 24
-  source_sha256: 7e14f5903a67b697b85545192d0a24636ff156665faa0c468b8fe203978e4aff
+  source_sha256: fa7a9fea513f7b749a5654662adbf7c120f9e5ecec8fbbd083ee15ecc964b3f7
   original_relations_sha256: 44e957705cab6ac31a8a6a7150c7b1eae1027df256679e7abcbc511b4699562c
 ---
 ## Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier/Directory
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
   passive:
-  - Term//Artifact
-  - Entity
-  - Atom
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Atom
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,10 +16,10 @@ tier: 1
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-464-CORE_META_MODEL-ENG_DECISION--represent-one-governed-object-with-each-directory-carrier.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-464-CORE_META_MODEL-ENG_DECISION--represent-one-governed-object-with-each-directory-carrier.md
   source_atom_id: CA-D-464
   source_atom_revision: 25
-  source_sha256: 504ec25c97e4a12df7482b8f3fd285ecf295feb628f5e6be1d152449b48a33ba
+  source_sha256: a20f8825f9f2b6b1b466ce4efa20b7e4ec5a81e81c79a1eb3364f64a311df371
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

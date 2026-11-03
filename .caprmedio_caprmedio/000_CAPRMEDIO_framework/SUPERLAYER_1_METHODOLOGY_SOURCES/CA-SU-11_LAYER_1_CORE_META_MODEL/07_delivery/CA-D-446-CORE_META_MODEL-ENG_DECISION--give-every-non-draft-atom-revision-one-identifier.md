@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom.ID
+  active: CAPRMEDIO <+ MODEL <+ Atom.ID
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - 'Entity/Object/Continuant/Governing Objects/Atom.Status: Draft'
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Status: Draft'
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

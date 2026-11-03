@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
   passive:
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -19,10 +19,10 @@ tier: 6
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-definitions-of-done.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-definitions-of-done.md
   source_atom_id: CA-M-123
   source_atom_revision: 31
-  source_sha256: 74da456fa227d6bc141b7cc7fa65786965e3118586e4e4f8214cce84d4807e5e
+  source_sha256: 1012bdcb05dc047f1af24e4e374c881a95f31478660b8488013b9a431493672a
   original_relations_sha256: f4e336e4d641a310c7347debd28bda8e85f49bc1e4112b1b7f49fd05272a6d97
 ---
 ## Summary

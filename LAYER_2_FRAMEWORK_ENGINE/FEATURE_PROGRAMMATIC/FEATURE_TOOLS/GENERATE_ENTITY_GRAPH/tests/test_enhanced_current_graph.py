@@ -16,7 +16,7 @@ from cfel_claim_constraints import extract_claim_constraints, preview_constraint
 from current_entity_sources import (  # noqa: E402
     build_current_model_graph,
 )
-from current_subject_graph import compose_current_graph, compose_enhanced_current_graph  # noqa: E402
+from current_subject_graph import compose_current_graph, compose_enhanced_current_graph, subject_facts  # noqa: E402
 from generate_entity_graph import AtomCarrier, EntityGraphError, discover_atoms, parse_subject_relations  # noqa: E402
 from readable_entity_tree import render_model  # noqa: E402
 import subject_notation  # noqa: E402
@@ -317,6 +317,54 @@ Workflow {:2}<((IS_CONTAINED_BY)){:1} Step;
             ["Atom/(.Role := Concern)", "Atom/(.Role := Requirement)/(.Form := Rule)"],
             [row["expression"] for row in graph["model"]["selected_subject_expressions"]],
         )
+
+    def test_namespace_prefixes_add_containment_without_changing_local_targets(self) -> None:
+        graph, _ = compose_enhanced_current_graph([
+            carrier("CA-R-1001", {"active": "CAPRMEDIO <+ MODEL <+ Node", "passive": []}, declaration=True),
+            carrier("CA-R-1002", {"active": "CAPRMEDIO <+ MODEL <+ Node.Property", "passive": []}, declaration=True),
+            carrier("CA-R-1003", {"active": "CAPRMEDIO <+ MODEL <+ Workflow//Daily", "passive": []}, declaration=True),
+            carrier("CA-R-1004", {"active": "CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//RUN", "passive": []}, declaration=True, form="Relation Definition"),
+        ])
+
+        self.assertEqual({"Node"}, {
+            row["identity"] for row in graph["model"]["primary_nodes"]
+        })
+        self.assertEqual(["Node.Property"], [row["identity"] for row in graph["model"]["properties"]])
+        self.assertEqual(["Workflow//Daily"], [row["identity"] for row in graph["model"]["instances"]])
+        self.assertEqual(["Relation//RUN"], [row["identity"] for row in graph["model"]["relations"]])
+        nodes = {row["id"]: row["identity"] for row in graph["nodes"]}
+        containment = {
+            (nodes[row["relation_source"]], nodes[row["relation_target"]])
+            for row in graph["edges"] if row["kind"] == "IS_CONTAINED_BY"
+        }
+        self.assertIn(("MODEL", "CAPRMEDIO"), containment)
+
+    def test_inverse_glyph_projects_distinct_relation_endpoints(self) -> None:
+        nodes, facts, _ = subject_facts("Relation//NARROWER_THAN <--> Relation//BROADER_THAN")
+        self.assertTrue({"Relation//NARROWER_THAN", "Relation//BROADER_THAN"} <=
+                        {row["identity"] for row in nodes})
+        inverse = [row for row in facts if row["kind"] == "HAS_INVERSE"]
+        self.assertEqual(1, len(inverse))
+        self.assertEqual(("Relation//NARROWER_THAN", "Relation//BROADER_THAN"),
+                         (inverse[0]["source"], inverse[0]["target"]))
+
+    def test_bare_legacy_namespace_subjects_remain_literal_without_containment(self) -> None:
+        for subject in ("MODEL", "PROJECT STRUCTURE"):
+            nodes, facts, target = subject_facts(subject)
+            self.assertEqual([subject], [row["identity"] for row in nodes])
+            self.assertEqual([], facts)
+            self.assertEqual(subject, target)
+
+    def test_explicit_roots_are_not_model_nodes_and_grouped_selectors_project(self) -> None:
+        graph, _ = compose_enhanced_current_graph([
+            carrier("CA-R-1001", {"active": "CAPRMEDIO_MODEL", "passive": []}, declaration=True),
+            carrier("CA-R-1002", {"active": "CAPRMEDIO_STRUCTURE", "passive": []}, declaration=True),
+            carrier("CA-R-1003", {"active": "CAPRMEDIO_MODEL <+ (Atom/(.Header.Role := Method))", "passive": []}, declaration=True),
+            carrier("CA-R-1004", {"active": "(CAPRMEDIO_MODEL <+ Atom)/(.Header.Form := Rule)", "passive": []}, declaration=True),
+        ])
+        self.assertEqual({"Atom/(.Header.Role:=Method)", "Atom/(.Header.Form:=Rule)"},
+                         {row["identity"] for row in graph["model"]["primary_nodes"]})
+        self.assertEqual([], graph["diagnostics"])
 
     def test_post_cutover_role_form_frontier_keeps_catalogue_and_constraints_separate(self) -> None:
         temporary_root = Path.cwd() / ".caprmedio_tmp/tests/test_enhanced_current_graph"

@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs
-  - Term//Property
-  - CFEL<+Operator//AllowedValue
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue
 version: 36
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-EVAL_POLICY--report-exact-claim-value-set-consolidation-candidates.md
   source_atom_id: CA-E-403
   source_atom_revision: 36
-  source_sha256: 47bd6991430051998b8cd5a54dfe48a30cd9a5ddf114f6f12449813d1111de60
+  source_sha256: 46e4355f59846e9cb82f98f55685ca06a605effb0f8413769b21b2976e7925e8
   original_relations_sha256: 6a00f7d16b948b6efc2ff0323845b40414b33702cc1c8739c485b5ff952c5cf4
 ---
 ## Summary

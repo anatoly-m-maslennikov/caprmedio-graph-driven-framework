@@ -2,9 +2,9 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Aspects <+ Product
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 version: 5
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

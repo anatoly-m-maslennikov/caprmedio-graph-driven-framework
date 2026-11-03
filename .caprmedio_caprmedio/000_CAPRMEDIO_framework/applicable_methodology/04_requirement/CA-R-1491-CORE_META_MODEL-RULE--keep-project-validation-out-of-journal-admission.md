@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Journal
+  active: CAPRMEDIO <+ MODEL <+ Journal
   passive:
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - Carrier
-  - Atom
-  - Project
-  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
-  - Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Project
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,10 +21,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md
   source_atom_id: CA-R-1491
   source_atom_revision: 29
-  source_sha256: b8a3b5cf96971ae59f6c19877c75241cf82ecd2004bd985c9b6310d4b95cc6a2
+  source_sha256: aecc37297700040c4e2ef638fdf57d3e4f64dd34f9284bf1d75171b2e72db18e
   original_relations_sha256: 1c8dbdb6ec99acae043d53724c2c907d16b11cbb375710999addae41b4be44c8
 ---
 ## Summary

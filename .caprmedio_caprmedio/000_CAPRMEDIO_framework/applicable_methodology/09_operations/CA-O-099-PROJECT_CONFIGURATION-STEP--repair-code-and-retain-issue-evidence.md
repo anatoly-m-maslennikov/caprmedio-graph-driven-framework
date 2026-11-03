@@ -21,7 +21,7 @@ updated_at: 2026-10-27 19:59:45 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-099-PROJECT_CONFIGURATION-STEP--repair-code-and-retain-issue-evidence.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-099-PROJECT_CONFIGURATION-STEP--repair-code-and-retain-issue-evidence.md
   source_atom_id: CA-O-099
   source_atom_revision: 17
   source_sha256: 7ab4581287d273aeb9f789606a74ecca9d42a66687503bbb7f5787b334eb9cf8

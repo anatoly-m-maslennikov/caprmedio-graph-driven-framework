@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CFEL <+ Relation//child_of
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//child_of
   passive:
-  - Atom.Tier
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - Atom.Content.Claim Scope
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Claim Scope
 version: 43
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

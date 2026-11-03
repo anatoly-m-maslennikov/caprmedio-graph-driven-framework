@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier/File
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File
   passive:
-  - Project
-  - Carrier/Directory
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
 version: 19
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

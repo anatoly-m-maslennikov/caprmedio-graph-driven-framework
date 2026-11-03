@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - Atom/(.Role:=Operations)/Action
-  - Entity/Object/Occurrent/Execution/Workflow Run
-  - Entity/Object/Occurrent/Execution/Step Run
-  - Entity/Object/Continuant/History/Journal > Event Record
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Action
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Step Run
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
 version: 23
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -26,7 +26,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-486-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md
   source_atom_id: CA-E-486
   source_atom_revision: 23
-  source_sha256: 6eea192d37a315b282a508c00b9da3fb52a1258753f60d1aae071f824c7c897d
+  source_sha256: 49b441ca8d8421c4d7958e30e2e36d1d97552844f51f726a59b064b29454bc36
   original_relations_sha256: 35f4dc30c7d948fb1607a0437162ba4140b734d343edc1c138735e4c22a60db7
 ---
 ## Summary

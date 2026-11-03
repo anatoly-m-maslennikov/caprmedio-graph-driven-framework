@@ -1,0 +1,31 @@
+---
+subjects:
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  passive:
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Carrier
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
+relations:
+  child_of:
+  - CA-D-407
+atom_id: CA-D-408
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 4
+role: Delivery
+form: Decision
+---
+## Summary
+
+Reuse framework parameter fields in Default Settings
+
+## Claim scope
+
+parameter values in the Default Settings TOML Carrier.
+
+## Claim
+
+**every** parameter value **in** the Default Settings TOML Carrier **must** use the same registered section, field path, value type, **and** allowed domain as the corresponding explicit Framework Instance Settings parameter, **without** introducing a separate defaults-field schema.

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - Term//Artifact
-  - CFEL <+ Relation//NARROWER_THAN
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
 version: 35
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

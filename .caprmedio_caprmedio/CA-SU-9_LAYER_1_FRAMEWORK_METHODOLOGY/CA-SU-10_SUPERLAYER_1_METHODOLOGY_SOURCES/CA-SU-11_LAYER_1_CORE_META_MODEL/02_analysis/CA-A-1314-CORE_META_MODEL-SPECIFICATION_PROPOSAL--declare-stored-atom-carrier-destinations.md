@@ -7,7 +7,7 @@ version: 1
 relations: {}
 tier: 3
 subjects:
-  active: Atom.Carrier Destination
+  active: CAPRMEDIO_MODEL <+ Atom.Carrier Destination
 role: Analysis & Advisory
 form: Specification Proposal
 updated_at: 2026-11-03 00:20:05 +0400

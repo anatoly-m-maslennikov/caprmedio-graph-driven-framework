@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection//PROJECT_SCOPE_UNIT_GRAPH
+  active: CAPRMEDIO_STRUCTURE <+ Projection//PROJECT_SCOPE_UNIT_GRAPH
   passive:
-  - Scope Unit
-  - Carrier
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 20
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

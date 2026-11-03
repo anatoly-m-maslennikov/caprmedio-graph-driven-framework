@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom.Status
+  active: CAPRMEDIO <+ MODEL <+ Atom.Status
 relations:
   child_of:
   - CA-R-1174
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL--define-atom-status-allowed-values.md
   source_atom_id: CA-R-1947
   source_atom_revision: 13
-  source_sha256: a27fe66a1d5655063cb91020c1ffcc703c721eeb814422a43509b96c5a8f1e1b
+  source_sha256: 31dbb2ada9e3cc0325b1b747415fa308d0b5177289ca2b7cd717f67b7fdaf643
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 ## Summary

@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Projection/(.Form:=Entities Graph)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Entities Graph)
   passive:
-  - Entity
-  - CFEL <+ Relation
-  - Atom
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 23
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -22,10 +22,10 @@ tier: 5
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-634-CORE_META_MODEL-DECISION--deliver-readable-entities-graph-trees-as-markdown.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-634-CORE_META_MODEL-DECISION--deliver-readable-entities-graph-trees-as-markdown.md
   source_atom_id: CA-D-634
   source_atom_revision: 23
-  source_sha256: 836e3d3d916de6a07deca9a22d160412bf05abe461634236a7445f0eb0f089fd
+  source_sha256: 9d139f68bf5db4bd263a355fc75288fb5697a580916b4d0c9ea0d5faf673ea39
   original_relations_sha256: 280d3ccecebd0c897a18a284c4b0e0cab14ddeb006061ad92c1292258a736dcd
 ---
 ## Summary

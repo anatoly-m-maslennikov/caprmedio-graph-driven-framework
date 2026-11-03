@@ -4,11 +4,11 @@ current_scope_unit: caprmedio
 status: Active
 tier: 3
 subjects:
-  active: Actor
+  active: CAPRMEDIO_MODEL <+ Actor
   passive:
-  - Actor
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
 version: 10
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

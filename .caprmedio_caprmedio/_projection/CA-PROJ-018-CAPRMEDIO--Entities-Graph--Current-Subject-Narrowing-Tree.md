@@ -228,12 +228,12 @@ source:
   - CA-R-2694@1
   - CA-R-2695@1
   - CA-R-796@43
-updated_at: 2026-11-03 01:11:33 +0400
+updated_at: 2026-11-03 13:47:06 +0400
 ---
 
 ## Inherency tree
 
-Source selection: Current model Declarations and retained CFEL/Carrier/Term Definitions. Only NARROWER_THAN forms the tree.
+Source selection: Current model Declarations and retained CFEL/Carrier/Term Definitions. Only NARROWER_THAN forms this tree; CONTAINS is not rendered as narrowing.
 
 Display selection: supplied graph nodes and Inherency relations; dependent entities appear in detail sections.
 

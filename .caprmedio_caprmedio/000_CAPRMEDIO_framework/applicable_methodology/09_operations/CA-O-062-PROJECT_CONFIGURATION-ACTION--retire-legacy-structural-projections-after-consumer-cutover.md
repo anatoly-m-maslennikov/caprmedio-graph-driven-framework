@@ -23,7 +23,7 @@ author: Anatoly Maslennikov
 type: Action
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-062-PROJECT_CONFIGURATION-ACTION--retire-legacy-structural-projections-after-consumer-cutover.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-062-PROJECT_CONFIGURATION-ACTION--retire-legacy-structural-projections-after-consumer-cutover.md
   source_atom_id: CA-O-062
   source_atom_revision: 14
   source_sha256: 7b99b7f95b9a0b614b40cf7e92154fb846ec10bf4c31792eeef8cb6961067b74

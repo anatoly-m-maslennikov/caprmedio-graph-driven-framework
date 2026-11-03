@@ -32,7 +32,7 @@ author: Anatoly Maslennikov
 type: Workflow
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-025-PROJECT_CONFIGURATION-WORKFLOW--check-release-readiness-when-selected.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-025-PROJECT_CONFIGURATION-WORKFLOW--check-release-readiness-when-selected.md
   source_atom_id: CA-O-025
   source_atom_revision: 20
   source_sha256: 60fcb0c371c8663f07187e7817dce33d3660090ef6d9e5f87fe6076cf6893a23

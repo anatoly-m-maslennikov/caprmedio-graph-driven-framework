@@ -4,10 +4,10 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
   passive:
-  - Atom/(.Role := "Analysis & Advisory")
-  - Atom/(.Role := "Analysis & Advisory")/(.Form := Analysis Report)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := Analysis Report)
 version: 20
 relations:
   depends_on:
@@ -19,10 +19,10 @@ role: Requirement
 form: Rule
 updated_at: 2026-11-02 19:33:47 +0400
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md
   source_atom_id: CA-R-1889
   source_atom_revision: 20
-  source_sha256: 52b7b8cf0089eea1ed769fff29512d50219e8d36d4940202f939c0b1b7c028df
+  source_sha256: 24e8f0d8607f8b53debb96b3114c62b60ddd41b207347b019e02dc08d4838315
   original_relations_sha256: 3435f8757c90dd20c1ec967f027979b866b3148b4ae7ae12df23a154ee1990fd
 ---
 ## Summary

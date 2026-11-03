@@ -6,20 +6,20 @@ status: Active
 version: 17
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry
   passive:
-  - Project
-  - Entity/Object/Continuant/Actor/Operator
-  - Journal
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Journal
 relations: {}
 tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-494-CORE_META_MODEL-ENG_DECISION--store-operator-registry-in-project-root.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-494-CORE_META_MODEL-ENG_DECISION--store-operator-registry-in-project-root.md
   source_atom_id: CA-D-494
   source_atom_revision: 17
-  source_sha256: 1402807030859a8dd0fde4e33f8efa3255fed324653ce87dd47c20db1aff0be8
+  source_sha256: ee110137512ec3010103d4a153bb0a462b860305e3bc49da46e44c3899312502
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom/(.Role := Method)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
 version: 35
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL--distinguish-implementation-methods-from-implementation-decisions.md
   source_atom_id: CA-R-1767
   source_atom_revision: 35
-  source_sha256: 2f1d60a5f42f753ecc15494ec8cc2565248cb78e03e73202ed16fc9ff9c32256
+  source_sha256: 1faff80db1cdbf768a41b5657e25516c27ff89f02daf8054b22d224a2b44b92a
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

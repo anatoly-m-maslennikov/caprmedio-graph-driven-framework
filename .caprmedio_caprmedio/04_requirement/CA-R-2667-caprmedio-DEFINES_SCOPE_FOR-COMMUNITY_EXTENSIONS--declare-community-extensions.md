@@ -7,7 +7,7 @@ version: 1
 updated_at: 2026-11-02 19:07:49 +0400
 tier: 3
 subjects:
-  active: Scope Unit//COMMUNITY_EXTENSIONS
+  active: CAPRMEDIO_STRUCTURE <+ Scope Unit//COMMUNITY_EXTENSIONS
 relations: {}
 ---
 ## Summary

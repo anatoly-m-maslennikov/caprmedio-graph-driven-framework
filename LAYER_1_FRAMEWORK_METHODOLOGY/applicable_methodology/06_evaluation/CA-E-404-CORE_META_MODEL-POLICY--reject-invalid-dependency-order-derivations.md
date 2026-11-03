@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CFEL <+ Relation//depends_on
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//depends_on
   passive:
-  - Term//Artifact
-  - CFEL <+ Relation//DEPENDS_ON
-  - CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -25,7 +25,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-POLICY--reject-invalid-dependency-order-derivations.md
   source_atom_id: CA-E-404
   source_atom_revision: 27
-  source_sha256: c5ebc64f0dc198421ff94c316defd610f562aa429fb64798bc9d92ba690da6a7
+  source_sha256: fafb95e76b91dc63a023fb49994a7387ce0835b49c22c8881f313e954f718c0d
   original_relations_sha256: 44f0551ce813b22e053e5e81c99f3b7917efa6de275ea5d8b2f4fd34965ff846
 ---
 ## Summary

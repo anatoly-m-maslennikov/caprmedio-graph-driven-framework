@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier/Directory
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
   passive:
-  - Entity
-  - Carrier
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-451-CORE_META_MODEL-ENG_DECISION--classify-folders-by-their-carrier-responsibility.md
   source_atom_id: CA-D-451
   source_atom_revision: 21
-  source_sha256: a0718542d594b55073de80556cf938d6e7e16dd768f6532512ed1a20b3938049
+  source_sha256: a35933d28e2f61b6090a0787f017217886e1b538a69248e85fcb0b3e7df06772
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

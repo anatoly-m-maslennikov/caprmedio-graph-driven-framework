@@ -2,10 +2,10 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: Entity/Object/Continuant/History/Release
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release
   passive:
-  - Aspects <+ Product
-  - Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 30
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

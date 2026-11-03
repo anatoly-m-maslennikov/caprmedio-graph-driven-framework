@@ -6,11 +6,11 @@ llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
 subjects:
-  active: Atom/(.Role := Requirement)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
   passive:
-  - Atom/(.Role := Concern)
-  - Aspects <+ Product
-  - Atom
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Concern)
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Atom
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio

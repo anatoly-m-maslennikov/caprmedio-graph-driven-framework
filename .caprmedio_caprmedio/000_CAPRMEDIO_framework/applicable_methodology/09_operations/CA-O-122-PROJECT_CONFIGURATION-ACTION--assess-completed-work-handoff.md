@@ -26,7 +26,7 @@ relations:
   - CA-R-1580
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-122-PROJECT_CONFIGURATION-ACTION--assess-completed-work-handoff.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-122-PROJECT_CONFIGURATION-ACTION--assess-completed-work-handoff.md
   source_atom_id: CA-O-122
   source_atom_revision: 16
   source_sha256: 5a70ef81979e4326b4c74e7ebca520bf2c980c6d3694bc0bad07b225ea613226

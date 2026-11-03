@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CFEL <+ Relation//GOVERNS
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
   passive:
-  - Atom.Content.Semantics
-  - Entity
-  - Term
-  - Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Content.Semantics
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

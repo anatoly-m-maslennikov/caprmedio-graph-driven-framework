@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier/Directory
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
   passive:
-  - CFEL > Relation
-  - Carrier/Directory
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

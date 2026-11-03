@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Carrier/Directory.Path
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory.Path
 relations:
   child_of:
   - CA-R-1174
@@ -14,10 +14,10 @@ tier: 3
 role: Requirement
 form: Entity Definition
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1954-CORE_META_MODEL-DEFINITION--define-directory-carrier-path.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1954-CORE_META_MODEL-DEFINITION--define-directory-carrier-path.md
   source_atom_id: CA-R-1954
   source_atom_revision: 12
-  source_sha256: e2790fada5f0a766de28957fa18492c04b4ec29002c5aa4c16efbcbad5b55f3c
+  source_sha256: fd39775a7d05ecb3d134120798660c4f73625daaa9482bac038e31d0e418f6cf
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 ## Summary

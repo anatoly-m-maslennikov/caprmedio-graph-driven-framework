@@ -11,7 +11,7 @@ status: Active
 current_scope_unit: caprmedio
 tier: 2
 subjects:
-  active: Aspects <+ Product
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 role: Requirement
 form: Boundary
 ---

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - Entity/Object/Continuant/Selection
-  - Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

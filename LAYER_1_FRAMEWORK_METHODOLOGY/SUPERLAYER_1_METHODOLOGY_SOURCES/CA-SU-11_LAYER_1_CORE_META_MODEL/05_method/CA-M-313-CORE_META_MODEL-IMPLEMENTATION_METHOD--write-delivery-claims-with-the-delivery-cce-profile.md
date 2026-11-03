@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Delivery).Content.Claim'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Delivery).Content.Claim'
   passive:
-  - Atom/(.Role := Delivery)
-  - Carrier
-  - Atom.Subjects
-  - Term
-  - CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

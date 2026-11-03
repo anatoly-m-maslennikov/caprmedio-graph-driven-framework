@@ -13,7 +13,7 @@ tier: 6
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-672-CORE_META_MODEL-EVAL_POLICY--distinguish-scope-unit-declarations-from-observations.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-672-CORE_META_MODEL-EVAL_POLICY--distinguish-scope-unit-declarations-from-observations.md
   source_atom_id: CA-E-672
   source_atom_revision: 1
   source_sha256: b3b80b6486b3053fb2f1ddc9468e27a234b0ad26137855cc7ff75c35b0e8105f

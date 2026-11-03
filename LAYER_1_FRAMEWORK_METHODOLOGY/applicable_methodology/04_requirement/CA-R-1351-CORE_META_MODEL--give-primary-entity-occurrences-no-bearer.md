@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CFEL <+ Relation//IS_PROPERTY_OF
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
   passive:
-  - CFEL <+ Relation
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Entity
 version: 23
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL--give-primary-entity-occurrences-no-bearer.md
   source_atom_id: CA-R-1351
   source_atom_revision: 23
-  source_sha256: 71a2c9ab3f705880c4c48714fb5289f6803ed4911b5f3605b0e5d961658a6c18
+  source_sha256: 134fcf2f0419cb870e308f13fbf26e887cb88dd198efdd1988dfad07e5e8e723
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

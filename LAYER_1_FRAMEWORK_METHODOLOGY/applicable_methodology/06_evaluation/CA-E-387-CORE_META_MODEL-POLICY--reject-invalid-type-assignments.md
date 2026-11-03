@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ Entity
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-387-CORE_META_MODEL-POLICY--reject-invalid-type-assignments.md
   source_atom_id: CA-E-387
   source_atom_revision: 27
-  source_sha256: 86e1b0a0f9de1b564bd1c67d83b89455fa588b4f1052d214a26a8e16e7b2836b
+  source_sha256: c50b7d4a1fba21ed947d7886f6247190a63c7969e9a1658497f696734dfdc064
   original_relations_sha256: 957da0285972aed757b9d4f108d4be4aefeefc7f5f7a2ed7ac90dc6bae3aa9ed
 ---
 ## Summary

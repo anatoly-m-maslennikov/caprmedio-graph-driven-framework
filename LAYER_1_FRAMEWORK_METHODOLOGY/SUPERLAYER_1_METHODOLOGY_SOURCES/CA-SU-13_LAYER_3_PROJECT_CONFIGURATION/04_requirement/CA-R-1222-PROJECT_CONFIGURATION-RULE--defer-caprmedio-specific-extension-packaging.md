@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Scope Unit//PROJECT_CONFIGURATION
+  active: CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   passive:
-  - Scope Unit
-  - Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

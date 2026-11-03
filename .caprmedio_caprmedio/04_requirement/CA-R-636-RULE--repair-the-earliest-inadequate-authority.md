@@ -14,7 +14,7 @@ status: Active
 atom_id: CA-R-636
 tier: 2
 subjects:
-  active: Atom
+  active: CAPRMEDIO_MODEL <+ Atom
 role: Requirement
 form: Rule
 ---

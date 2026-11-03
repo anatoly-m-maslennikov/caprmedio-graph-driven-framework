@@ -1,0 +1,24 @@
+---
+atom_id: CA-C-626
+current_scope_unit: caprmedio
+status: Resolved
+subjects:
+  active: Project.Settings
+version: 3
+relations: {}
+tier: 3
+role: Concern
+form: Question
+updated_at: 2026-11-02 17:02:39 +0400
+---
+## Summary
+
+Resolve the scope of framework root locator requirements
+
+## Question
+
+Are code-root and control-root locators mandatory for every Project?
+
+## Resolution
+
+The Operator confirmed that both locators remain optional in the generic Project MODEL. Applicable installation rules require them where needed.

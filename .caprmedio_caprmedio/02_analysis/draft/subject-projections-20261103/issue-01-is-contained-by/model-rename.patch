@@ -1,0 +1,123 @@
+--- a/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2490-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md
++++ b/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2490-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md
+@@ -4,7 +4,7 @@
+ claim_target_scope_unit: CORE_META_MODEL
+ status: Active
+ subjects:
+-  active: CAPRMEDIO <+ MODEL <+ Atom.Relations.contained_by
++  active: CAPRMEDIO <+ MODEL <+ Atom.Relations.IS_CONTAINED_BY
+ version: 2
+ updated_at: 2026-11-02 00:18:22 +0400
+ relations: {}
+@@ -14,11 +14,11 @@
+ ---
+ ## Summary
+ 
+-Declare Atom.Relations.contained_by
++Declare Atom.Relations.IS_CONTAINED_BY
+ 
+ ## Claim
+ 
+ ```CFEL
+-Atom.Relations.contained_by{:0..1}: []{:0};
+-Atom.Relations.contained_by.*[in(atom,scope_unit)]{:1}
++Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
++Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
+ ```
+--- a/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2491-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md
++++ b/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2491-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md
+@@ -4,7 +4,7 @@
+ claim_target_scope_unit: CORE_META_MODEL
+ status: Active
+ subjects:
+-  active: CAPRMEDIO <+ MODEL <+ Atom.Relations.contained_by.atom
++  active: CAPRMEDIO <+ MODEL <+ Atom.Relations.IS_CONTAINED_BY.atom
+ version: 2
+ updated_at: 2026-11-02 00:18:22 +0400
+ relations: {}
+@@ -14,11 +14,11 @@
+ ---
+ ## Summary
+ 
+-Declare Atom.Relations.contained_by.atom
++Declare Atom.Relations.IS_CONTAINED_BY.atom
+ 
+ ## Claim
+ 
+ ```CFEL
+-Atom.Relations.contained_by.atom{:0..1}: [atom id]{:1};
+-Atom.Relations.contained_by.atom.*[]{:0}
++Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
++Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}
+ ```
+--- a/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2492-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md
++++ b/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2492-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md
+@@ -4,7 +4,7 @@
+ claim_target_scope_unit: CORE_META_MODEL
+ status: Active
+ subjects:
+-  active: CAPRMEDIO <+ MODEL <+ Atom.Relations.contained_by.scope_unit
++  active: CAPRMEDIO <+ MODEL <+ Atom.Relations.IS_CONTAINED_BY.scope_unit
+ version: 2
+ updated_at: 2026-11-02 00:18:22 +0400
+ relations: {}
+@@ -14,11 +14,11 @@
+ ---
+ ## Summary
+ 
+-Declare Atom.Relations.contained_by.scope_unit
++Declare Atom.Relations.IS_CONTAINED_BY.scope_unit
+ 
+ ## Claim
+ 
+ ```CFEL
+-Atom.Relations.contained_by.scope_unit{:0..1}: [scope unit]{:1};
+-Atom.Relations.contained_by.scope_unit.*[]{:0}
++Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
++Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
+ ```
+--- a/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md
++++ b/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md
+@@ -21,7 +21,7 @@
+ ```CFEL
+ Atom/(.Role: Plan);
+ IF ((Atom/(.Role: Plan).Status = Active) AND (Atom/(.Role: Plan).Work Sequence Number{=1}))
+-THEN (Atom/(.Role: Plan).Relations.contained_by{==1})
++THEN (Atom/(.Role: Plan).Relations.IS_CONTAINED_BY{==1})
+ ```
+ 
+ ## Semantics
+--- a/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2520-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md
++++ b/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2520-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md
+@@ -25,12 +25,12 @@
+ THEN (Atom/(.Role: Plan).Work Sequence Number > 0);
+ UNIQUE(
+   Atom/(.Role: Plan)//,
+-  (.Relations.contained_by.atom, .Work Sequence Number),
+-  (.Status = Active) AND (.Work Sequence Number{=1}) AND (.Relations.contained_by.atom{=1})
++  (.Relations.IS_CONTAINED_BY.atom, .Work Sequence Number),
++  (.Status = Active) AND (.Work Sequence Number{=1}) AND (.Relations.IS_CONTAINED_BY.atom{=1})
+ );
+ UNIQUE(
+   Atom/(.Role: Plan)//,
+-  (.Relations.contained_by.scope_unit, .Work Sequence Number),
+-  (.Status = Active) AND (.Work Sequence Number{=1}) AND (.Relations.contained_by.scope_unit{=1})
++  (.Relations.IS_CONTAINED_BY.scope_unit, .Work Sequence Number),
++  (.Status = Active) AND (.Work Sequence Number{=1}) AND (.Relations.IS_CONTAINED_BY.scope_unit{=1})
+ )
+ ```
+--- a/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md
++++ b/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md
+@@ -127,9 +127,9 @@
+ | `CA-R-2487@2` | Requirement / Entity Definition | [Define CFEL](../../04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md) |
+ | `CA-R-2488@2` | Requirement / Declaration | [Declare Atom.Status](../../04_requirement/CA-R-2488-CORE_META_MODEL-DECLARATION--declare-atom-status.md) |
+ | `CA-R-2489@2` | Requirement / Declaration | [Declare Atom.Updated At](../../04_requirement/CA-R-2489-CORE_META_MODEL-DECLARATION--declare-atom-updated-at.md) |
+-| `CA-R-2490@2` | Requirement / Declaration | [Declare Atom.Relations.contained_by](../../04_requirement/CA-R-2490-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md) |
+-| `CA-R-2491@2` | Requirement / Declaration | [Declare Atom.Relations.contained_by.atom](../../04_requirement/CA-R-2491-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md) |
+-| `CA-R-2492@2` | Requirement / Declaration | [Declare Atom.Relations.contained_by.scope_unit](../../04_requirement/CA-R-2492-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md) |
++| `CA-R-2490@2` | Requirement / Declaration | [Declare Atom.Relations.IS_CONTAINED_BY](../../04_requirement/CA-R-2490-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md) |
++| `CA-R-2491@2` | Requirement / Declaration | [Declare Atom.Relations.IS_CONTAINED_BY.atom](../../04_requirement/CA-R-2491-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md) |
++| `CA-R-2492@2` | Requirement / Declaration | [Declare Atom.Relations.IS_CONTAINED_BY.scope_unit](../../04_requirement/CA-R-2492-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md) |
+ | `CA-R-2493@2` | Requirement / Declaration | [Declare Atom.ID](../../04_requirement/CA-R-2493-CORE_META_MODEL-DECLARATION--declare-atom-id.md) |
+ | `CA-R-2494@2` | Requirement / Declaration | [Declare Atom.Role](../../04_requirement/CA-R-2494-CORE_META_MODEL-DECLARATION--declare-atom-role.md) |
+ | `CA-R-2495@2` | Requirement / Declaration | [Declare Atom.Form](../../04_requirement/CA-R-2495-CORE_META_MODEL-DECLARATION--declare-atom-form.md) |

@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Projection
+  active: CAPRMEDIO <+ MODEL <+ Projection
   passive:
-  - Projection.ID
-  - Entity/Object/Continuant/Projection/Type
-  - Entity/Object/Continuant/Selection
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Projection.ID
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 16
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -24,7 +24,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames.md
   source_atom_id: CA-D-635
   source_atom_revision: 16
-  source_sha256: c8256ecb4753712c8e98572fff2c5a976aa2758ea229b569eea40543b864555e
+  source_sha256: 8588971aea5b6be5112e6488beb7ae9aef1f5d8c383ac9ccdf7efd3da485a3bf
   original_relations_sha256: d43f4bf4aabcc9f4b50a5498062a151d8142ac5fb8e67e0e2cde8894a4b819fd
 ---
 ## Summary

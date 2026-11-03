@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Type
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Type
 version: 33
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

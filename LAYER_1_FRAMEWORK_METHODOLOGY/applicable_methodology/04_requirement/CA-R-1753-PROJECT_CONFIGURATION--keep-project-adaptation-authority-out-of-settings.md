@@ -1,7 +1,6 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type:
-    Workflow//Applicable Methodology Compilation'
+  active: 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
 version: 31
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1753-PROJECT_CONFIGURATION--keep-project-adaptation-authority-out-of-settings.md
   source_atom_id: CA-R-1753
   source_atom_revision: 31
-  source_sha256: f825937c24ec906c61a7816d5761c40f214940883525af018a29a4f1d3a074fa
+  source_sha256: 16f2e1171890040d5bf949a474b8769a0b083492b41fdbfc1ed4191432b22c93
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

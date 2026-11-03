@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Atom.Tier
+  active: CAPRMEDIO <+ MODEL <+ Atom.Tier
   passive:
-  - Atom
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Scope Unit
-  - Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
-  - Entity/Object/Continuant/Selection
-  - Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
 version: 17
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -30,7 +30,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-438-CORE_META_MODEL-ENG-DECISION--derive-current-rmed-atom-ordering-tier.md
   source_atom_id: CA-M-438
   source_atom_revision: 17
-  source_sha256: 8f3e51220c38a11e43c993cf4eac9d5f8d3be24dd33149e0acadc80942649ff5
+  source_sha256: fb895336dc7c1cd428bfb31b281fa32abecc8f522e491a5b05faf55468ecdffd
   original_relations_sha256: e76d674c484fc0b163789e59b39f8d0b49243fdbfca8d0f05957a06924aaa76b
 ---
 ## Summary

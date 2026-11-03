@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom.Tier
+  active: CAPRMEDIO <+ MODEL <+ Atom.Tier
   passive:
-  - Atom
-  - Atom.Tier
-  - Projection
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Projection
 version: 13
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -24,7 +24,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-652-CORE_META_MODEL-ENG_DECISION--omit-default-numeric-tier-tokens-from-filenames.md
   source_atom_id: CA-D-652
   source_atom_revision: 13
-  source_sha256: 7d490bc3586d09c331b3943545b64a2541804bf55347127abd1d3d600649fc8a
+  source_sha256: 78fb080d9a8afbb9a38135583cce5c8abd0abadb1280842d50dd850f0777cb0d
   original_relations_sha256: 61d5d9b3b6559fc0663226667f6ffe52e28f3fc7ab432e1a8dbd1b1c3bdf782d
 ---
 ## Summary

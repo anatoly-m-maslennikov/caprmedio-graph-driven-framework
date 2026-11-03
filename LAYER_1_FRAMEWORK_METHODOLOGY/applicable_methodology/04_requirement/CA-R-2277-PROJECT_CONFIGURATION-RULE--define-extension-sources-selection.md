@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 1
 subjects:
-  active: Named Selection//Extension Sources
+  active: CAPRMEDIO <+ STRUCTURE <+ Named Selection//Extension Sources
 relations: {}
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400
@@ -14,7 +14,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-2277-PROJECT_CONFIGURATION-RULE--define-extension-sources-selection.md
   source_atom_id: CA-R-2277
   source_atom_revision: 4
-  source_sha256: 1f00d9c67edc789f3a7996e67afd7504489a0af734ce401aa014875a3d4f27c8
+  source_sha256: c396f6f2ca4a1e03ef0ad32f5da4ffb60b81c3beede99a380e283dccc3480ebd
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Project.Settings.Confidence.Semantic Resolution Threshold
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Confidence.Semantic Resolution Threshold
 version: 1
 relations: {}
 tier: 3
@@ -12,10 +12,10 @@ role: Requirement
 form: Declaration
 updated_at: 2026-11-02 08:06:47 +0400
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2625-CORE_META_MODEL-DECLARATION--define-semantic-resolution-threshold.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2625-CORE_META_MODEL-DECLARATION--define-semantic-resolution-threshold.md
   source_atom_id: CA-R-2625
   source_atom_revision: 1
-  source_sha256: fb62051b2eec76d5d4724b13a9a1b22f4be460c6887465080c654c281111fec2
+  source_sha256: 53792d380d3397af8b39dabd2d526325705a124c14fa0056ae87f0f2a3c7f7a1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 

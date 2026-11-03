@@ -4,11 +4,11 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Aspects <+ Engineering <+ Observability <+ Logging
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
   passive:
-  - Carrier
-  - Atom/(.Role := Evaluation)
-  - 'Entity/Object/Continuant/Projection/Type: Catalog'
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Catalog'
 version: 17
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

@@ -4,9 +4,9 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Aspects <+ Engineering <+ Observability <+ Logging
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
   passive:
-  - Aspects <+ Engineering <+ Observability <+ Logging
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
 version: 15
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

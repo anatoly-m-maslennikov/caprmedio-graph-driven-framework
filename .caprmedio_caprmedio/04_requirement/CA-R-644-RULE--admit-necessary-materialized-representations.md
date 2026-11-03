@@ -8,10 +8,10 @@ relations:
   child_of:
   - CA-M-446
 subjects:
-  active: Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - Atom/(.Role := Requirement)
-  - Project
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: permission
 current_scope_unit: caprmedio

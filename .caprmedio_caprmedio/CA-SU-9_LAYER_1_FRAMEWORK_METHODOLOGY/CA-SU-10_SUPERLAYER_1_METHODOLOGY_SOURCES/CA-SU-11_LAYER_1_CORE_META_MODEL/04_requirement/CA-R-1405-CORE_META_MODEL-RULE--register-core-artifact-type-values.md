@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - Term//Artifact
-  - Entity/Object/Continuant/Governing Objects/Governing Configuration
-  - Entity/Object/Continuant/Projection.Type
-  - CFEL<+Operator//AllowedValue
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection.Type
+  - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
 version: 29
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

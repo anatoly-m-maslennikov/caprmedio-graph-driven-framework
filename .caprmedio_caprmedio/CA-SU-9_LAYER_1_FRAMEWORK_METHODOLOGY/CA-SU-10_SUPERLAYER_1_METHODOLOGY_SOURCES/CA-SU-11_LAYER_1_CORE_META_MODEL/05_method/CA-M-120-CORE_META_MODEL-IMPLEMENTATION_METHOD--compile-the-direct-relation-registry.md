@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Projection/(.Form:=Direct Relation Registry)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Direct Relation Registry)
   passive:
-  - CFEL <+ Relation
-  - Entity
-  - Projection/(.Form:=Applicable Methodology)
-  - Atom/(.Role := Requirement)
-  - Projection
-  - Package
-  - Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Package
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 43
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

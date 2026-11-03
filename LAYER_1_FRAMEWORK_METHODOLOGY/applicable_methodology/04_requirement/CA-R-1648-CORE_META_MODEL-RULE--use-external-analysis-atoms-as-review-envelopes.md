@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory")
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
 version: 33
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1648-CORE_META_MODEL-RULE--use-external-analysis-atoms-as-review-envelopes.md
   source_atom_id: CA-R-1648
   source_atom_revision: 33
-  source_sha256: 31e04af6c659de1023d4da4f716d2b422d002bd30878b30e51ad1b020d7425a5
+  source_sha256: 5caa4c8011ae04d6831797df38c504386006a0b7e03d2dac01e21fe4fe04df11
   original_relations_sha256: 283945f34348b7aa7ef1af4a929db6aa2a06c96c9020511b235df82b91bc29ff
 ---
 ## Summary

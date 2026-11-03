@@ -4,10 +4,10 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom/(.Role := Operations)/Step
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Step
   passive:
-  - Atom/(.Role := Operations)/Action
-  - Atom/(.Role := Operations)/Workflow
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Action
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Workflow
 version: 2
 relations: {}
 tier: 3
@@ -15,10 +15,10 @@ role: Requirement
 form: Rule
 updated_at: 2026-11-02 17:54:42 +0400
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md
   source_atom_id: CA-R-2639
   source_atom_revision: 2
-  source_sha256: 25f7a43c3165232eb1d243c8077ad2ce18710345247db817af0024b5bfb7cf7c
+  source_sha256: 552c71c1a15b5a11b1eaf89879c88ef4a3b37d64c41c6f4aa39b8e0289d70064
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 

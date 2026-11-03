@@ -100,3 +100,26 @@ class NarrowingGraphTests(unittest.TestCase):
         self.assertFalse(any("Format" in row and "undeclared endpoint" in row for row in graph["diagnostics"]))
         self.assertFalse(any("Operator//not-a-primary-component" in row for row in graph["diagnostics"]))
         self.assertFalse(any("Relation//RUN" in row for row in graph["diagnostics"]))
+
+    def test_namespace_prefix_admits_only_the_local_narrowing_tree(self):
+        graph, _ = compose_narrowing_graph([
+            carrier("CA-R-1", "CAPRMEDIO <+ MODEL <+ Node"),
+            carrier("CA-R-2", "CAPRMEDIO <+ MODEL <+ Node/Atom"),
+            carrier("CA-R-3", "CAPRMEDIO <+ MODEL <+ CFEL <+ Format"),
+            carrier("CA-R-4", "CAPRMEDIO <+ MODEL <+ CFEL <+ Format/bool"),
+        ])
+
+        names = {row["id"]: row["identity"] for row in graph["nodes"]}
+        edges = {(names[row["relation_source"]], names[row["relation_target"]]) for row in graph["edges"]}
+        self.assertTrue({"Node", "Node/Atom", "Format", "Format/bool"} <= set(names.values()))
+        self.assertIn(("Node/Atom", "Node"), edges)
+        self.assertIn(("Format/bool", "Format"), edges)
+        self.assertFalse(any("CAPRMEDIO" in edge for edge in edges))
+
+    def test_explicit_namespace_roots_do_not_create_primary_nodes(self):
+        graph, _ = compose_narrowing_graph([
+            carrier("CA-R-1", "CAPRMEDIO_MODEL"),
+            carrier("CA-R-2", "CAPRMEDIO_STRUCTURE"),
+            carrier("CA-R-3", "CAPRMEDIO_MODEL <+ Node"),
+        ])
+        self.assertEqual({"Node"}, {row["identity"] for row in graph["nodes"]})

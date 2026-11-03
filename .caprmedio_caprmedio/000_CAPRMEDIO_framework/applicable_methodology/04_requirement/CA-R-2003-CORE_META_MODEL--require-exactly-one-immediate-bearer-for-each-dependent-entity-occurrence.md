@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Entity/Property
+  active: CAPRMEDIO <+ MODEL <+ Entity/Property
   passive:
-  - Term//Property
-  - CFEL <+ Relation//IS_PROPERTY_OF
-  - Entity/Object/Continuant/Selection//Property Occurrences
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Property Occurrences
 relations: {}
 version: 16
 updated_at: 2026-11-02 19:46:47 +0400
@@ -16,10 +16,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md
   source_atom_id: CA-R-2003
   source_atom_revision: 16
-  source_sha256: 2ece01736e32ae281d213f9babed79af2ccee3be5b4d74347d7303babb513fdf
+  source_sha256: bcb6655e8f9d9cf063ed6d28f58efce65a1c187cca20809de6be9b61275fc3a3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

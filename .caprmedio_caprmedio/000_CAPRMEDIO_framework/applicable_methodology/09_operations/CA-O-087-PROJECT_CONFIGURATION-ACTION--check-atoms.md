@@ -34,7 +34,7 @@ relations:
   - CA-E-379
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-087-PROJECT_CONFIGURATION-ACTION--check-atoms.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-087-PROJECT_CONFIGURATION-ACTION--check-atoms.md
   source_atom_id: CA-O-087
   source_atom_revision: 26
   source_sha256: 9d95ccf6979357cbd6c4d11b80c09099970f0359abc9f77efb060fe08112727e

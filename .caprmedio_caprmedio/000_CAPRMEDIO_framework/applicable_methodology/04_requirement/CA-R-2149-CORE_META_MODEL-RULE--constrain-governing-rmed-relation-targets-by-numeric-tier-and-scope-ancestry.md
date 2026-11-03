@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom.Relations
+  active: CAPRMEDIO <+ MODEL <+ Atom.Relations
   passive:
-  - Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
-  - Atom.Tier
-  - Scope Unit
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 relations: {}
 atom_id: CA-R-2149
 current_scope_unit: CORE_META_MODEL
@@ -16,10 +16,10 @@ updated_at: 2026-11-02 00:18:22 +0400
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2149-CORE_META_MODEL-RULE--constrain-governing-rmed-relation-targets-by-numeric-tier-and-scope-ancestry.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2149-CORE_META_MODEL-RULE--constrain-governing-rmed-relation-targets-by-numeric-tier-and-scope-ancestry.md
   source_atom_id: CA-R-2149
   source_atom_revision: 14
-  source_sha256: 468c1de1eb5bc9294ed91c780018d3a828f89044a1a7ce7d1b024c6f2b535476
+  source_sha256: 12ccbe0d6964ffb37c86bf824283e553efc516a96e1afd2cb1ea65762cd37dda
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

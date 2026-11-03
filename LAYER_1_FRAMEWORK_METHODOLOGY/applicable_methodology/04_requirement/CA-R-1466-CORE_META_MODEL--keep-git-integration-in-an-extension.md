@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Architecture <+ Component Structure
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
   passive:
-  - Scope Unit//CORE_META_MODEL
-  - Journal
-  - Projection
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1466-CORE_META_MODEL--keep-git-integration-in-an-extension.md
   source_atom_id: CA-R-1466
   source_atom_revision: 23
-  source_sha256: 7f89d28a5f610db8098137db39faddac96d2209101a77184e1a98761ab02f0f1
+  source_sha256: 3bddfa4f1ae7787d4a92ae3871047ca1cbc42e65fa679e51d8e56c12eff0017d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

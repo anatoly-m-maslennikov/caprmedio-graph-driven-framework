@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Scope Unit.Name
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Name
   passive:
-  - Project
+  - CAPRMEDIO <+ MODEL <+ Project
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -17,10 +17,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-RULE--make-scope-unit-names-unique-within-the-project.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-RULE--make-scope-unit-names-unique-within-the-project.md
   source_atom_id: CA-R-970
   source_atom_revision: 32
-  source_sha256: 33e04254926fb295346892933001ae28020d1c502efebe20f762725e0853f0dc
+  source_sha256: 110b54040ae78dba321431b53fe0f7ec62cf65e12ec8449f709c2eb1af6b0eaf
   original_relations_sha256: c5193d6b1c99d4cfba8810badf56db3e951f2c78165ab73076ccc36aaed57c4d
 ---
 ## Summary

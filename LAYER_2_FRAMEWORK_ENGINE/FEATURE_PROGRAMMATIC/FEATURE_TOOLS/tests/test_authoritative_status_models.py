@@ -231,6 +231,29 @@ class AuthoritativeStatusModelsTest(unittest.TestCase):
             self._resolve("Requirement", "Active")
         self.assertEqual(rejected.exception.code, "source-invalid")
 
+    def test_current_header_aliases_and_inherited_status_pins(self) -> None:
+        base = self.sources / "CA-R-1947.md"
+        base.write_text(
+            '---\natom_id: CA-R-1947\nrole: Requirement\nstatus: Active\nversion: 13\n'
+            'subjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Status\n---\n'
+            'Atom.Header.Status **must** admit (Draft, Active, Archived).\n', encoding="utf-8"
+        )
+        source = self.sources / "CA-R-1875.md"
+        source.write_text(
+            '---\natom_id: CA-R-1875\nrole: Requirement\nstatus: Active\nversion: 22\n'
+            "subjects:\n  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := \"Analysis & Advisory\").Header.Status'\n---\n"
+            'the Core Analysis & Advisory Status model **must** inherit the allowed values of '
+            'Atom.Header.Status and add Done.\n', encoding="utf-8"
+        )
+        atom = {"role": "Analysis & Advisory", "form": "Analysis Report"}
+        model = resolve_status_model(self.root, atom, "Done")
+        self.assertEqual(model["statuses"], ["Draft", "Active", "Archived", "Done"])
+        self.assertEqual([pin["sha256"] for pin in model["model_sources"]],
+                         [hashlib.sha256(path.read_bytes()).hexdigest() for path in (base, source)])
+        source.write_text(source.read_text() + "\n", encoding="utf-8")
+        with self.assertRaisesRegex(StatusModelError, "differs"):
+            resolve_status_model(self.root, atom, "Done", supplied_model=model)
+
     def test_multiple_status_domain_claims_in_one_source_are_ambiguous(self) -> None:
         source = self.sources / "CA-R-9803--multiple-domains.md"
         source.write_text(

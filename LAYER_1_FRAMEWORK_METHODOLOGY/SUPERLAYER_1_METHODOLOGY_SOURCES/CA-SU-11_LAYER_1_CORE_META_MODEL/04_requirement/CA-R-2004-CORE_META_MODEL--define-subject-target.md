@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom.Subjects
+  active: CAPRMEDIO <+ MODEL <+ Atom.Subjects
   passive:
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ Entity
 atom_id: CA-R-2004
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

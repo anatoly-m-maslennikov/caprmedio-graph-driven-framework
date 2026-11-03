@@ -18,7 +18,7 @@ updated_at: 2026-10-27 19:59:47 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-145-PROJECT_CONFIGURATION-STEP--assess-update-identity-for-atom-lifecycle.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-145-PROJECT_CONFIGURATION-STEP--assess-update-identity-for-atom-lifecycle.md
   source_atom_id: CA-O-145
   source_atom_revision: 14
   source_sha256: 2f3be292386554fcb6e3cc6af04707b1d004c355921cbc7ae0928ea52948f1f7

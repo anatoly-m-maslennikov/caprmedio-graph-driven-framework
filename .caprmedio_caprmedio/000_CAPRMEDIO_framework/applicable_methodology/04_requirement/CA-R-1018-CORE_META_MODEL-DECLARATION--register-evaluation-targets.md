@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CFEL <+ Relation//evaluation_for
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//evaluation_for
   passive:
-  - Atom/(.Role := Evaluation)
-  - Atom/(.Role := Requirement)
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Delivery)
-  - Atom/(.Role := Operations)
-  - Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
 version: 37
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,10 +19,10 @@ tier: 1
 role: Requirement
 form: Declaration
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-DECLARATION--register-evaluation-targets.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-DECLARATION--register-evaluation-targets.md
   source_atom_id: CA-R-1018
   source_atom_revision: 37
-  source_sha256: e149a60703d871cbdf1f4ca6004b4994e67cb86b8578b90ea2d403e03a3b4009
+  source_sha256: e381a9d2a27c6ab86232c9dd100bbaaf88630f233fba73c11dfbc23afcbac5ca
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

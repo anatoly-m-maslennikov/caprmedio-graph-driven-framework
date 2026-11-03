@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CFEL <+ Relation//evaluation_for
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//evaluation_for
   passive:
-  - Atom/(.Role := Evaluation)
-  - Atom/(.Role := Requirement)
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Delivery)
-  - Atom/(.Role := Operations)
-  - Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
 version: 37
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

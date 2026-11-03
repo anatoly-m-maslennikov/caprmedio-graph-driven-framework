@@ -26,7 +26,7 @@ updated_at: 2026-10-27 19:59:44 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-021-PROJECT_CONFIGURATION-ACTION--repair-nonconforming-implementation.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-021-PROJECT_CONFIGURATION-ACTION--repair-nonconforming-implementation.md
   source_atom_id: CA-O-021
   source_atom_revision: 25
   source_sha256: 22004d99230cc1ec897996f0b8b49827d43200698224eb42e1be5a1c07d5f5ca

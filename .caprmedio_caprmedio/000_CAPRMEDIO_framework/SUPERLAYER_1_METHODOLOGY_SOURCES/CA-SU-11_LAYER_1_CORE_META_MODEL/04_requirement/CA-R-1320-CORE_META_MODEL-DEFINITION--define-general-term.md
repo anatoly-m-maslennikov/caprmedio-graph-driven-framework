@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Term
+  active: CAPRMEDIO <+ MODEL <+ Term
   passive:
-  - Project
+  - CAPRMEDIO <+ MODEL <+ Project
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

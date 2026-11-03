@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Catalog)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Catalog)'
   passive:
-  - Entity
-  - Term
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

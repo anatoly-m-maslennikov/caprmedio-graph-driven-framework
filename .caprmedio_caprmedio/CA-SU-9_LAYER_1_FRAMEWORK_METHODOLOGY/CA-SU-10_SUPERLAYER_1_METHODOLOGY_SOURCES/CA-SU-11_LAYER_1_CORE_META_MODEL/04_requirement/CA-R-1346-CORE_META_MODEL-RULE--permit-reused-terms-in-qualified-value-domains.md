@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CFEL<+Operator//AllowedValue
+  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
   passive:
-  - Term
-  - Term//Property
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Term//Property
 version: 28
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

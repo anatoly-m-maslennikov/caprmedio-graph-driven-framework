@@ -8,10 +8,10 @@ relations:
   child_of:
   - CA-R-1423
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Project
-  - Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio

@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - Entity
+  - CAPRMEDIO_MODEL <+ Entity
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

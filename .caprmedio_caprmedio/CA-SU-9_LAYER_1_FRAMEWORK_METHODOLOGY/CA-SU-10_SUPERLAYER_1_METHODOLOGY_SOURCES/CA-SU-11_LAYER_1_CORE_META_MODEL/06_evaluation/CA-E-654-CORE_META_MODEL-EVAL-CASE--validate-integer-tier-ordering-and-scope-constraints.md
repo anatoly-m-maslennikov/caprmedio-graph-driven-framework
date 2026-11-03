@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Atom.Tier
+  active: CAPRMEDIO_MODEL <+ Atom.Tier
   passive:
-  - Atom
-  - Atom.Tier
-  - Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - Scope Unit
-  - Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
-  - Atom.Status
-  - Entity/Object/Continuant/Selection
-  - Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
+  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
 version: 12
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

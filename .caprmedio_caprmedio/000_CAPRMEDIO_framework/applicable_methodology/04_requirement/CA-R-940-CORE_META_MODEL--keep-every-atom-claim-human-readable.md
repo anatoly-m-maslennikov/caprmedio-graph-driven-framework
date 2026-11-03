@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -16,10 +16,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL--keep-every-atom-claim-human-readable.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL--keep-every-atom-claim-human-readable.md
   source_atom_id: CA-R-940
   source_atom_revision: 33
-  source_sha256: fd821165df15109232d83af646a0f5cdc8bdd03606ba91ad33f821329aab3e0e
+  source_sha256: 5b19bc4bc8e39798af939ceb2cf3dfeee0f6c6fe830ffce8ff63b1af6c3c1f8f
   original_relations_sha256: 7d43ce9d2b05a49959ad5ed2f3146bfc7d86fbb84ab03a1c36f7042098dc0a67
 ---
 ## Summary

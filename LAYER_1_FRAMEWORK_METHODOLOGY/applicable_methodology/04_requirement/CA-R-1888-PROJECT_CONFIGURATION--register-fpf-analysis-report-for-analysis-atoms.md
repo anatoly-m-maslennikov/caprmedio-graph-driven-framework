@@ -4,9 +4,9 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory").Form
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory").Form
   passive:
-  - Atom/(.Role := "Analysis & Advisory")
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
 version: 16
 updated_at: 2026-11-02 19:33:47 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1888-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md
   source_atom_id: CA-R-1888
   source_atom_revision: 16
-  source_sha256: 406f672170fd189a0bd00bd507f674df34b260fee408a83cf087366303168462
+  source_sha256: 213c220b1729430e17c05231cfcf03bfa33bd5b5c3a8f79851f53b9209ba68de
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

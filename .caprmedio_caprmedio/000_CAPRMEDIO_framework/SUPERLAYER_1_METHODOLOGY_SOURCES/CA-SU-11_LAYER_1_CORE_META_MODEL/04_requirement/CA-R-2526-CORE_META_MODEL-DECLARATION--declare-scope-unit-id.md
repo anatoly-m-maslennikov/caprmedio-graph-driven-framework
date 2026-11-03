@@ -2,7 +2,7 @@
 atom_id: CA-R-2526
 status: Active
 subjects:
-  active: Scope Unit.ID
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit.ID
 version: 3
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}

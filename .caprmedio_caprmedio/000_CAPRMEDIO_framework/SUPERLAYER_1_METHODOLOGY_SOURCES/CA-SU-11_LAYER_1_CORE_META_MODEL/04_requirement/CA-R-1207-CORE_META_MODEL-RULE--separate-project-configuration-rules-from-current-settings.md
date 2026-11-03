@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Scope Unit//PROJECT_CONFIGURATION
+  active: CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   passive:
-  - Project
-  - Entity/Object/Continuant/Selection//Extension Sources
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
 version: 31
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

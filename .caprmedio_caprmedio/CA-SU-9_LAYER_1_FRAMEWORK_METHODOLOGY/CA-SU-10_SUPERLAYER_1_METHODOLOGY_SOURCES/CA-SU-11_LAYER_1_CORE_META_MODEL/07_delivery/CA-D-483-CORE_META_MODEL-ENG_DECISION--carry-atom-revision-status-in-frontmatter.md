@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom.Status
+  active: CAPRMEDIO_MODEL <+ Atom.Status
   passive:
-  - Atom.Status
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Entity/Object/Continuant/Governing Objects/Atom/Type
-  - Carrier.Canonical Address
+  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Type
+  - CAPRMEDIO_MODEL <+ Carrier.Canonical Address
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

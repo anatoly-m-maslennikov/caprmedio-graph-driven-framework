@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: Carrier/File.Main Content
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
   passive:
-  - Atom.Content.Summary
-  - Atom.Content
-  - Entity/Object/Continuant/Governing Objects/Atom.Content Role
-  - Atom.Content.Details
-  - Term//Property
-  - Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Content Role
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Details
+  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,10 @@ tier: 3
 role: Delivery
 form: Policy
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md
   source_atom_id: CA-D-479
   source_atom_revision: 27
-  source_sha256: cbe0bbdf8f48dd1584afa45cedba7cfb31fc22e3e10204c92b841e575bbc361d
+  source_sha256: 83c781939d44f0263101159c083b187c88f3535c526dfff1533b560fdfd7ea29
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

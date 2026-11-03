@@ -17,15 +17,15 @@ status: Active
 atom_id: CA-R-621
 tier: 2
 subjects:
-  active: Carrier/File
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File
 claim_target_scope_unit: caprmedio
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-621-PROJECT_CONFIGURATION-RULE--use-settings-locations-defined-by-the-core-meta-model.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-621-PROJECT_CONFIGURATION-RULE--use-settings-locations-defined-by-the-core-meta-model.md
   source_atom_id: CA-R-621
   source_atom_revision: 17
-  source_sha256: 0dd7388a9bf89b2f0cda2224337b508a56db98fc454a5991e0140fb007aec220
+  source_sha256: 3ec13e80635ea66b1355cbdd24f494ee510678be7888c2ab9690e28ade0e039f
   original_relations_sha256: b8cbb30ffabe4fcbb8a02dc0d203a78072d64c00f7f4b788e477136b73ff28f7
 ---
 ## Summary

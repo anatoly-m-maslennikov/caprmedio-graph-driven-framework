@@ -1,18 +1,18 @@
 ---
 subjects:
-  active: Journal
+  active: CAPRMEDIO_MODEL <+ Journal
   passive:
-  - Entity/Object/Occurrent/Execution/Step Run
-  - Entity/Object/Occurrent/Execution/Workflow Run
-  - Project
-  - Term//Artifact
-  - Entity/Object/Continuant/Package/Project Implementation
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
-  - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
-  - Entity/Object/Continuant/History/Journal <+ Event Record
-  - Projection
-  - Carrier
-  - Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
 version: 38
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

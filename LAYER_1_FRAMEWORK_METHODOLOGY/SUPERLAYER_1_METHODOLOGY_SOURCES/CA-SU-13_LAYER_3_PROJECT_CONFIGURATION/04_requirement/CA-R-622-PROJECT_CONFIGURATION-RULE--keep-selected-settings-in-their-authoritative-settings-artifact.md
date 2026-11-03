@@ -15,13 +15,13 @@ relations:
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: Project.Settings
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings
   passive:
-  - Project
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Entity/Object/Continuant/Term//Artifact
-  - Atom
-  - Aspects <+ Engineering <+ Data Handling <+ Source Selection
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Source Selection
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 atom_id: CA-R-622

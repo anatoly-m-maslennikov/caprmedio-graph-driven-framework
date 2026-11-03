@@ -2,11 +2,11 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Entity/Object/Continuant/Term
-  - Atom.Content
-  - Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
 version: 31
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

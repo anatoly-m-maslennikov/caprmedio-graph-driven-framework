@@ -7,19 +7,19 @@ version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 tier: 1
 subjects:
-  active: Carrier/Directory.Name
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory.Name
   passive:
-  - Scope Unit.ID
-  - Scope Unit.Name
-  - Scope Unit.Label
-  - Scope Unit.order.ordered
-  - Scope Unit.order.number
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.ID
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Label
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.ordered
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.number
 relations: {}
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-667-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-667-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md
   source_atom_id: CA-D-667
   source_atom_revision: 1
-  source_sha256: 2d1f64d76d65185bb0c5bbb7ade742a4837155ee8140193dd942cba7553e83ec
+  source_sha256: c9a4109bf686586a54cd1058570be4078268f1ea365428d44c996b81437076c9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

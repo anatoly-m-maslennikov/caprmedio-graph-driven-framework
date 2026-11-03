@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CFEL <+ Relation//GOVERNS
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//GOVERNS
   passive:
-  - Atom.Content.Semantics
-  - Entity
-  - Term
-  - Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Semantics
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,10 +17,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1279-CORE_META_MODEL-RULE--govern-every-defined-term.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1279-CORE_META_MODEL-RULE--govern-every-defined-term.md
   source_atom_id: CA-R-1279
   source_atom_revision: 32
-  source_sha256: d138a55d90bb223d443bb8a4556c1242ea64e2e52f93ec60dcd9caa7e5c9c329
+  source_sha256: b85fa2568cf34a9b1df454f61e229b0b873a234aa4eaf7faa74d1cf6ba54d250
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -8,14 +8,14 @@ relations:
   child_of:
   - CA-M-448
 subjects:
-  active: Aspects <+ Product
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   passive:
-  - Atom
-  - Atom.Content
-  - Entity/Object/Continuant/Actor/AI Agent
-  - CFEL > Relation
-  - Entity
-  - Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio

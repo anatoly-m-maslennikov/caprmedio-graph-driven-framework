@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type'
   passive:
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 27
 updated_at: 2026-11-02 00:55:09 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-402-CORE_META_MODEL-ENG_DECISION--serialize-delivery-type-tokens.md
   source_atom_id: CA-D-402
   source_atom_revision: 27
-  source_sha256: 7ae92efaa0554a86511e79a4c1f34a3a6cf0c3b8fb4ae5a6487b62e2d412431f
+  source_sha256: fe044acb8d0a710ea73c58913bf63de8f7a113c9d5f070bd16521d40c8b2cae1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

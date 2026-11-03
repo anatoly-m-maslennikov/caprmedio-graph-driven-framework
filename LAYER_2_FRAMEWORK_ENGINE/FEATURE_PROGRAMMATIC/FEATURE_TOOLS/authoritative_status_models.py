@@ -19,10 +19,10 @@ _SOURCE_TAIL = Path(
     "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
 )
 _VALUES = re.compile(r"(?:(?:the\s+)?Core\s+allowed values of|Core)\s+(?:`?Atom/Content Role:\s*)?([^/`\n]+?)(?:/Status|\s+Status)(?:\s+values)?`?\s*\*\*must\*\* be exactly\s*\(([^)]*)\)", re.I)
-_BASE_VALUES = re.compile(r"(?<![\w.])Atom\.Status\s+\*\*must\*\* admit\s*\(([^)]*)\)")
+_BASE_VALUES = re.compile(r"(?<![\w.])Atom\.(?:Header\.)?Status\s+\*\*must\*\* admit\s*\(([^)]*)\)")
 _INHERITED_VALUES = re.compile(
     r"\bCore\s+([^/`\n]+?)\s+Status model\s+\*\*must\*\* inherit the allowed values of "
-    r"Atom\.Status and add\s+(?:\(([^)]*)\)|([A-Za-z][A-Za-z ]*)\.)"
+    r"Atom\.(?:Header\.)?Status and add\s+(?:\(([^)]*)\)|([A-Za-z][A-Za-z ]*)\.)"
 )
 _ROLE = re.compile(r"Atom/Content Role:\s*([^/.`\n]+)")
 _TYPE = re.compile(
@@ -123,7 +123,10 @@ def _source_snapshot(path: Path, root: Path, raw: bytes | None = None) -> dict[s
         duplicate_atom_id = len(re.findall(r"(?m)^atom_id\s*:", frontmatter)) > 1
         detail = "duplicate atom_id" if duplicate_atom_id else "malformed YAML"
         raise StatusModelError("source-invalid", f"invalid status-model authority ({detail}): {path}") from error
-    atom_id, definition_role = meta.get("atom_id"), meta.get("content_role")
+    atom_id = meta.get("atom_id")
+    definition_role = meta.get("role", meta.get("content_role"))
+    if "role" in meta and "content_role" in meta and meta["role"] != meta["content_role"]:
+        raise StatusModelError("source-invalid", f"conflicting authority role aliases: {path}")
     status, version = meta.get("status"), meta.get("version")
     subjects = meta.get("subjects")
     if (not isinstance(atom_id, str) or not atom_id
@@ -132,15 +135,17 @@ def _source_snapshot(path: Path, root: Path, raw: bytes | None = None) -> dict[s
             or isinstance(version, bool)
             or not isinstance(version, int) or version <= 0
             or not isinstance(subjects, Mapping)
-            or not isinstance(subjects.get("governs"), str)):
+            or not isinstance(subjects.get("active", subjects.get("governs")), str)
+            or ("active" in subjects and "governs" in subjects and subjects["active"] != subjects["governs"])):
         raise StatusModelError("source-invalid", f"invalid status-model authority: {path}")
     declared_role = None if mode == "base" else match.group(1).strip()
-    governed = subjects["governs"].strip()
+    governed = subjects.get("active", subjects.get("governs")).strip()
     role_match = _ROLE.search(governed)
     if mode == "base":
-        qualified = governed == "Atom.Status" or governed.endswith("/Atom.Status")
+        qualified = re.search(r"(?:^|[/+]\s*)Atom\.(?:Header\.)?Status$", governed) is not None
     else:
-        qualified = role_match is not None and role_match.group(1).strip() == declared_role
+        qualified = (role_match is not None and role_match.group(1).strip() == declared_role)
+        qualified |= re.search(r'Atom/\(\.(?:Header\.)?Role := "' + re.escape(declared_role) + r'"\)(?:/\(\.(?:Header\.)?Form := "[^"\n]+"\))?\.(?:Header\.)?Status$', governed) is not None
     if not qualified:
         raise StatusModelError("source-invalid", f"status-model authority does not govern its declared role: {path}")
     raw_values = match.group(1) if mode == "base" else match.group(2)
@@ -150,6 +155,8 @@ def _source_snapshot(path: Path, root: Path, raw: bytes | None = None) -> dict[s
     if not values or any(not item for item in values) or len(values) != len(set(values)):
         raise StatusModelError("source-invalid", f"invalid status domain in {path}")
     type_match = _TYPE.search(governed)
+    if type_match is None:
+        type_match = re.search(r'\(\.(?:Header\.)?Form := "([^"\n]+)"\)', governed)
     return {
         "role": declared_role,
         "mode": mode,
@@ -292,7 +299,8 @@ def resolve_status_model(root: str | Path, atom: object, requested_status: str,
                          _index: StatusModelIndex | None = None) -> dict[str, Any]:
     """Resolve one current Role/Type domain; supplied input may only match it."""
     project = Path(root).resolve()
-    role, atom_type = _atom_value(atom, "content_role"), _atom_value(atom, "type")
+    role = _atom_value(atom, "role") or _atom_value(atom, "content_role")
+    atom_type = _atom_value(atom, "form") or _atom_value(atom, "type")
     if not role:
         raise StatusModelError("target-invalid", "target lacks carried content_role")
     if not isinstance(requested_status, str) or not requested_status:

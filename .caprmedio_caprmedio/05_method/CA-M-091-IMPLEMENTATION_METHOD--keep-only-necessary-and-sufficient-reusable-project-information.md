@@ -6,9 +6,9 @@ relations:
   - CA-M-448
   - CA-M-005
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Project
+  - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
   passive:
-  - Atom.Content
-  - Aspects <+ Engineering <+ Data Handling <+ Data Transformation
-  - Aspects <+ Engineering <+ Data Handling <+ Parsing
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Parsing
 version: 30
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md
   source_atom_id: CA-M-240
   source_atom_revision: 30
-  source_sha256: a670065d8bfdccaecd7086c9dea76ad3bf9903b1bbce5fd6c7fcfd5984c1a29a
+  source_sha256: bdb76d719020c5573a2a8f731a476b1c511444d3f329268ca806c66e98b491ea
   original_relations_sha256: 41eea2b549fddac86f9ca945ab8fd8e81217096be0d79454a214399a75af697d
 ---
 ## Summary

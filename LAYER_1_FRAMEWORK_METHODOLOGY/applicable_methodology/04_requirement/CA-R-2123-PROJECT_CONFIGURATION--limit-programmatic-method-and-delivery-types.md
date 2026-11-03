@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
 relations: {}
 version: 9
 updated_at: 2026-11-02 00:18:22 +0400
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-2123-PROJECT_CONFIGURATION--limit-programmatic-method-and-delivery-types.md
   source_atom_id: CA-R-2123
   source_atom_revision: 9
-  source_sha256: 2d0ffbc8ce1bed5638d75c7847b0f252dc8651c7a642dbed7d4f603306c41eb8
+  source_sha256: 8ce46a2130dc1ee825c29a5b1f34f47b87f3300327de15a8a0b50c55951921b6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

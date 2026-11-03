@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - Actor
+  - CAPRMEDIO_MODEL <+ Actor
 version: 30
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

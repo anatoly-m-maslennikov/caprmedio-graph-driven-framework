@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 35
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL--validate-structural-coordinates-against-authority.md
   source_atom_id: CA-R-1677
   source_atom_revision: 35
-  source_sha256: 7bf536de276922d96bc59bbe482685caf86b7ae5249b2551fdd57e0f03ccf076
+  source_sha256: 2f9d6c8490a673898b49727675fc88c3066fe03c1f7ef73aec593ba6a1a21219
   original_relations_sha256: 92a2affc05b9b368a70473844e6223acb40eda3bbe21912e26fe5697ff16f8a0
 ---
 ## Summary

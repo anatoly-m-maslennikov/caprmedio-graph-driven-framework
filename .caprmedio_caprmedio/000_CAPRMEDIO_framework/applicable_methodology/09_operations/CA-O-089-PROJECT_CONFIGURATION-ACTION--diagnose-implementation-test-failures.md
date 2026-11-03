@@ -22,7 +22,7 @@ updated_at: 2026-10-27 19:59:45 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-089-PROJECT_CONFIGURATION-ACTION--diagnose-implementation-test-failures.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-089-PROJECT_CONFIGURATION-ACTION--diagnose-implementation-test-failures.md
   source_atom_id: CA-O-089
   source_atom_revision: 17
   source_sha256: 6f397413cb037bbdee23972fdb7a57803ca9bd632b3e74d33b9fed864265b8b3

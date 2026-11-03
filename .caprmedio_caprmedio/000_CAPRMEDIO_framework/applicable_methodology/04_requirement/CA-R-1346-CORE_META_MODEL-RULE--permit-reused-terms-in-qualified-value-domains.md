@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CFEL<+Operator//AllowedValue
+  active: CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue
   passive:
-  - Term
-  - Term//Property
+  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO <+ MODEL <+ Term//Property
 version: 28
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md
   source_atom_id: CA-R-1346
   source_atom_revision: 28
-  source_sha256: 319c25e41160887d646d66179fd4181dbf29a6a88b588e4bda81c476f07a4b05
+  source_sha256: 55692f401ac03971316c1917703f9a656981d509c75e75e363c01552715aefe9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

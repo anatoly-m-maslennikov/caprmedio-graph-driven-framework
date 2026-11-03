@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: Event Record
+  active: CAPRMEDIO_MODEL <+ Event Record
   passive:
-  - Atom.ID
-  - Atom.Version Number
-  - Carrier
-  - Atom/(.Role := Operations)
-  - Journal
-  - Atom
-  - Project
-  - Projection
+  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Version Number
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Projection
 version: 33
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

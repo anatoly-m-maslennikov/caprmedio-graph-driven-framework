@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Authoring <+ Controlled English
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   passive:
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Aspects <+ Engineering <+ Data Handling <+ Parsing
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Parsing
 version: 30
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -17,10 +17,10 @@ tier: 5
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-IMPLEMENTATION_METHOD--evaluate-condition-expressions.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-IMPLEMENTATION_METHOD--evaluate-condition-expressions.md
   source_atom_id: CA-M-122
   source_atom_revision: 30
-  source_sha256: 4512d0019a557bb46bffc6c7ed59a9e3173fb860334a792fa6db97e485e287d5
+  source_sha256: ef1e30422e023ff41c4f5a97083a7958b27345f532f518a6b06dedb5c57712c5
   original_relations_sha256: 5f066d0d540764c9ad10d23356476187cf16ff2f1371455cc960087fa7d5e467
 ---
 ## Summary

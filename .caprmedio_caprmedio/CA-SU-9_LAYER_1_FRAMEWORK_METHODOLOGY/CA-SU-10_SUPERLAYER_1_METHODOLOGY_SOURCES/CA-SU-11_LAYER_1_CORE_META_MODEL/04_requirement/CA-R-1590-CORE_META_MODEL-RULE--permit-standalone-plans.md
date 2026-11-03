@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
   passive:
-  - Atom.Content
-  - Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

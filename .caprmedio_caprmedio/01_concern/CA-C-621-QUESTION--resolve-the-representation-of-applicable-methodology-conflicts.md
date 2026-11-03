@@ -3,7 +3,7 @@ atom_id: CA-C-621
 current_scope_unit: caprmedio
 status: Canceled
 subjects:
-  active: Projection/(.Form := Applicable Methodology)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Applicable Methodology)
 version: 3
 relations: {}
 tier: 3

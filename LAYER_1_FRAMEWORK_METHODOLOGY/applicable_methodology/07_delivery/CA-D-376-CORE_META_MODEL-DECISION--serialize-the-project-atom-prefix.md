@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Project.Settings.Prefix
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Prefix
   passive:
-  - Project.Settings
-  - Atom
-  - Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Project.Settings
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 28
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL-DECISION--serialize-the-project-atom-prefix.md
   source_atom_id: CA-D-376
   source_atom_revision: 28
-  source_sha256: bbeee86536136ec0be17dbc739b98488193a26fe86a2910ea9e307c10a359bd5
+  source_sha256: 949b415b00ebffd9c7ec6ccab7bb409dc62d5aebe247fe8ce816b93170ed70bd
   original_relations_sha256: 2a948e2a8ca98f226a4515239fa376af18890f07ccdd2ef7a0521257d70b6a6a
 ---
 ## Summary

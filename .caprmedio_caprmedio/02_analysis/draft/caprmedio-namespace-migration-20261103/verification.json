@@ -1,0 +1,24 @@
+{
+  "schema": "caprmedio-namespace-migration-verification/v1",
+  "status": "VERIFIED_APPLIED",
+  "receipt_status": "APPLIED",
+  "receipt_happened_at": "2026-11-03T13:41:17.792082+04:00",
+  "plan_sha256": "999761871278c0fbc1ef6a168615fecc53bdcd39a71e4d6ee5626c2a4efb9599",
+  "source_count": 1173,
+  "subject_scalar_count": 3671,
+  "changed_subject_count": 3671,
+  "prefix_counts": {
+    "MODEL": 3267,
+    "STRUCTURE": 404
+  },
+  "current_hash_equals_candidate": true,
+  "sealed_before_hashes_match_receipt": true,
+  "body_unchanged": true,
+  "non_active_passive_bytes_unchanged": true,
+  "ids_versions_updated_at_status_summary_unchanged": true,
+  "non_target_subject_keys_unchanged": true,
+  "full_prefixes_correct": true,
+  "prefix_transform_idempotent": true,
+  "scope_unit_declarations_parsed": 44,
+  "failures": []
+}

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

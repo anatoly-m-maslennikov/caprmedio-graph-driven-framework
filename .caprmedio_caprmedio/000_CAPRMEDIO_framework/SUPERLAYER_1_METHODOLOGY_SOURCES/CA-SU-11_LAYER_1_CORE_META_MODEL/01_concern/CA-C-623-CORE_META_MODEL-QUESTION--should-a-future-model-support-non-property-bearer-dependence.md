@@ -9,9 +9,9 @@ current_scope_unit: CORE_META_MODEL
 tier: 3
 priority: medium
 subjects:
-  active: CFEL <+ Relation//IS_PROPERTY_OF
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
   passive:
-  - CFEL <+ Relation//HAS_PROPERTY
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_PROPERTY
 relations: {}
 ---
 

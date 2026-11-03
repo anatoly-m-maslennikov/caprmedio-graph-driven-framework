@@ -1,11 +1,10 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type:
-    Project Goal)'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Project Goal)'
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Project.Settings.Name
-  - Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Project.Settings.Name
+  - CAPRMEDIO <+ MODEL <+ Project
 version: 35
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -17,10 +16,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-292-CORE_META_MODEL-ENG_DECISION--serialize-external-project-goal-filenames.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-292-CORE_META_MODEL-ENG_DECISION--serialize-external-project-goal-filenames.md
   source_atom_id: CA-D-292
   source_atom_revision: 35
-  source_sha256: 41a39759bfb37aeca5b5fb4e56e1cbef8f9c4a34220ccf3fa17dc3959a136cc9
+  source_sha256: 00f439d3174744b53452ca7b32aa8b341205691963b66e60de7919e51e270456
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

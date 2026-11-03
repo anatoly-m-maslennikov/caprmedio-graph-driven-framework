@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Node >| Container
+  active: CAPRMEDIO <+ MODEL <+ Node >| Container
 version: 2
 relations: {}
 tier: 3
@@ -12,10 +12,10 @@ updated_at: 2026-11-02 00:18:22 +0400
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2484-CORE_META_MODEL-RULE--admit-container-classification.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2484-CORE_META_MODEL-RULE--admit-container-classification.md
   source_atom_id: CA-R-2484
   source_atom_revision: 2
-  source_sha256: fc754d33010d242abb4515e736da660ed5e3de92ab21db15f8b0d45cc4233098
+  source_sha256: 6072c421bfa8f40d978f1aa729ac79f7897260407e3cc25661b05ee198b603b8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

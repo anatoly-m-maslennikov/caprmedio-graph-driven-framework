@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CFEL
+  active: CAPRMEDIO <+ MODEL <+ CFEL
   passive:
-  - Entity
-  - CFEL <+ Relation
-  - Term
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Term
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

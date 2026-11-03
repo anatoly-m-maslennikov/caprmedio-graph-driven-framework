@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Project.Settings
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings
   passive:
-  - Entity/Object/Continuant/History
-  - Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL-ENG_DECISION--bind-project-settings-revisions-to-journal-receipts.md
   source_atom_id: CA-D-365
   source_atom_revision: 26
-  source_sha256: 25264be5f98fd740204b91e2f0d18f4ca5266c9c981541656b13d71ca9a64d2b
+  source_sha256: 92ef8039f3903f7d394c078c5ba72daba404d5613eaeff89af91a652432a9afb
   original_relations_sha256: 3fcf822d878922d4be67c2267faaa6398d32fdd7466a688a1586dcff08ebfc0d
 ---
 ## Summary

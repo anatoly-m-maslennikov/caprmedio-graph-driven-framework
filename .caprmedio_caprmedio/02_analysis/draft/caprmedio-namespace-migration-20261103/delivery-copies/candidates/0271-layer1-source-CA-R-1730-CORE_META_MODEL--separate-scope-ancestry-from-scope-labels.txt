@@ -1,0 +1,36 @@
+---
+subjects:
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  passive:
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Path
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Label
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+version: 40
+updated_at: 2026-11-02 19:44:26 +0400
+relations:
+  child_of:
+  - CA-R-1776
+atom_id: CA-R-1730
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 2
+role: Requirement
+form: Rule
+---
+## Summary
+
+Separate scope ancestry from scope labels
+
+## Claim scope
+
+Scope Unit ancestry **and** Scope Unit Labels.
+
+## Claim
+
+Scope Unit ancestry **must** follow declared Scope Unit parentage. CAPRMEDIO **must not** author or persist a Structural Level property; an optional derived depth or path rendering **must not** independently override that parentage under CA-R-1485.
+
+the Operator **may** choose **any** suitable Scope Unit Label, including `Layer`, `Feature`, `group`, `supergroup`, **or** `sub-feature`, **without** changing the unit's ancestry, authority, precedence, **or** Relation semantics. Labels **and** readability fields do **not** replace the active authority for those distinctions.

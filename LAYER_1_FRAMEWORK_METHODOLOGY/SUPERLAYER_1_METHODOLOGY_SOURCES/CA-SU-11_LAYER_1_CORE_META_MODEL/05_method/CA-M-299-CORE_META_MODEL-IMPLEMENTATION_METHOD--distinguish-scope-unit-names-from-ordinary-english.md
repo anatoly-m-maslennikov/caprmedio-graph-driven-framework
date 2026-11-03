@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Scope Unit.Name
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Name
   passive:
-  - Scope Unit
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 20
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

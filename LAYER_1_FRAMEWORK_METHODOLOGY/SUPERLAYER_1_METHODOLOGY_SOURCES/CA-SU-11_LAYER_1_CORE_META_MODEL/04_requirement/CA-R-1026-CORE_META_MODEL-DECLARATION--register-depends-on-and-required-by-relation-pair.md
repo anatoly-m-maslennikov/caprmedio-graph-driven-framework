@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CFEL <+ Relation//depends_on
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//depends_on
   passive:
-  - CFEL <+ Relation
-  - Term//Artifact
-  - CFEL <+ Relation//required_by
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//required_by
 version: 32
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

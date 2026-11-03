@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Scope Unit//INSTALLED_EXTENSIONS
-  - Term//Artifact
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//INSTALLED_EXTENSIONS
+  - CAPRMEDIO_MODEL <+ Term//Artifact
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

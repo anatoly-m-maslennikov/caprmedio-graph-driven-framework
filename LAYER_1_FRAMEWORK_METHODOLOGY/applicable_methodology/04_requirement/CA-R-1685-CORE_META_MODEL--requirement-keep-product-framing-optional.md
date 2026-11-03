@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
 version: 29
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1685-CORE_META_MODEL--requirement-keep-product-framing-optional.md
   source_atom_id: CA-R-1685
   source_atom_revision: 29
-  source_sha256: c21cd99234c982123ecaf68a1a314c591d5b199b6fa15b5efc5dc5acf34f6dca
+  source_sha256: 568e4da7349fe21f6abf1b5caebe1b0367c91daf90ff8021ae579b16149d88dc
   original_relations_sha256: fc2ad1fc55a2c9bd63342f94105e555c5fdbc118c4d5bd544cd3237af537a789
 ---
 ## Summary

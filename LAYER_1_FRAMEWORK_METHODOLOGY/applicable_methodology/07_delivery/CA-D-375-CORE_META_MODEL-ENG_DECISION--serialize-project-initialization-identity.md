@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Project.Settings.Name
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Name
   passive:
-  - Project.Settings
-  - Project
-  - Entity/Object/Continuant/Actor/Operator
-  - Atom
+  - CAPRMEDIO <+ MODEL <+ Project.Settings
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Atom
 version: 30
 updated_at: 2026-11-02 19:46:47 +0400
 relations:
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL-ENG_DECISION--serialize-project-initialization-identity.md
   source_atom_id: CA-D-375
   source_atom_revision: 30
-  source_sha256: 00b2412c5dedf3827459a8a98ba6ce902e7d310a56326044d6c86e62091293b5
+  source_sha256: 283f86f4859e9ac53d1bb74535f1bd78072f4f37f1ef205d58c9124259de518a
   original_relations_sha256: 2a948e2a8ca98f226a4515239fa376af18890f07ccdd2ef7a0521257d70b6a6a
 ---
 ## Summary

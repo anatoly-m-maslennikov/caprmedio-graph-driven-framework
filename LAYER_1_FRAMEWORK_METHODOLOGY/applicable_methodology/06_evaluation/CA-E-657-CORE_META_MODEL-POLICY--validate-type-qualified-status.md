@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - Entity
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
 version: 8
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,7 +19,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-657-CORE_META_MODEL-POLICY--validate-type-qualified-status.md
   source_atom_id: CA-E-657
   source_atom_revision: 8
-  source_sha256: 4578fdeb1ebd4518bd7c21a1eb3ccf603354ee9da6ef53c039c1e7f0c711f989
+  source_sha256: e97eab3ef56b854be1b50fb824a1329c4770619549fedf06ed604ad7231f8a11
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

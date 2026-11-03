@@ -10,7 +10,7 @@ tier: 3
 role: Requirement
 form: Declaration
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2632-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2632-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes.md
   source_atom_id: CA-R-2632
   source_atom_revision: 2
   source_sha256: e2a99af37c0876bcf3f6bcf707b90ef7b65091c79516ff63be571475030570c1

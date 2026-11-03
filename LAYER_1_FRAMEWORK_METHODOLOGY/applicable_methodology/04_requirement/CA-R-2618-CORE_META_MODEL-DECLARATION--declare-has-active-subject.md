@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL <+ Relation//HAS_ACTIVE_SUBJECT
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_ACTIVE_SUBJECT
 version: 1
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md
   source_atom_id: CA-R-2618
   source_atom_revision: 1
-  source_sha256: e7a39d02d9b7d866e79624602754c192095bdb923ee95f19e4870bd032c3c902
+  source_sha256: a23cf27671ff02ce6dc053a147a6484090f638ddc359b5b7820e1065c4ee1466
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

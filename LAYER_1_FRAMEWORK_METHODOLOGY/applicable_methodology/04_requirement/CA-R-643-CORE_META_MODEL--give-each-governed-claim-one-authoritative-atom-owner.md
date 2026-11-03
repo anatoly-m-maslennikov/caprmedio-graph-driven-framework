@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom.Content
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content
   passive:
-  - Atom
+  - CAPRMEDIO <+ MODEL <+ Atom
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-643-CORE_META_MODEL--give-each-governed-claim-one-authoritative-atom-owner.md
   source_atom_id: CA-R-643
   source_atom_revision: 33
-  source_sha256: 199b5b7a912ca4e0738195a310560b92dc57c7d470f135cd851072b1829a9b08
+  source_sha256: a9efc69819cac79c369c63be852b8a2c0eaa37b28759ebe4c62919713b8cebad
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

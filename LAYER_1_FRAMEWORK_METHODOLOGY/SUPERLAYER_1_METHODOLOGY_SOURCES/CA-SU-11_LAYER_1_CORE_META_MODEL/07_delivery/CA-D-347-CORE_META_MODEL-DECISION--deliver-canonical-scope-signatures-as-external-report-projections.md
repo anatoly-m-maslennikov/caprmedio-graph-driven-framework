@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection/(.Form:=Canonical Scope Signature)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Canonical Scope Signature)
   passive:
-  - Projection/(.Form:=Canonical Scope Signature)
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Canonical Scope Signature)
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 29
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

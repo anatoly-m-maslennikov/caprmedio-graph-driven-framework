@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CFEL <+ Relation//method_for
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//method_for
   passive:
-  - CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
 version: 30
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-DECLARATION--register-method-for-relation.md
   source_atom_id: CA-R-1017
   source_atom_revision: 30
-  source_sha256: f9aab390dbfde2c8c738b97417e88104219481cb776bf7e6d3cd393509a580d5
+  source_sha256: dce1fa546926b164b8bb2cf83ef0a83c407c49ceee0a9815518d3ea65f3a8aa6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

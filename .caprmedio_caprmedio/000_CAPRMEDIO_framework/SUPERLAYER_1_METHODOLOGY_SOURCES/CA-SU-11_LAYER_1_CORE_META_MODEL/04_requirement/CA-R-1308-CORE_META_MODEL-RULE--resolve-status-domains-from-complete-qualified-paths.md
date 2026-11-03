@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Atom.Status
+  active: CAPRMEDIO <+ MODEL <+ Atom.Status
   passive:
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - Entity
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Entity
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Project.Settings.Authority Modes.Default Scope Unit Authority Mode
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Authority Modes.Default Scope Unit Authority Mode
 version: 1
 relations: {}
 tier: 3
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2633-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes-default-scope-unit-authority-mode.md
   source_atom_id: CA-R-2633
   source_atom_revision: 1
-  source_sha256: 6e57818e39a37f24eeeba3ff4c1a45fa70b1db699ee2f0495c7230f3c0ff14cd
+  source_sha256: ce4e537668b26d71c8d42c67e1dd056acc26e9afb502714782619d41c40b5a8a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 

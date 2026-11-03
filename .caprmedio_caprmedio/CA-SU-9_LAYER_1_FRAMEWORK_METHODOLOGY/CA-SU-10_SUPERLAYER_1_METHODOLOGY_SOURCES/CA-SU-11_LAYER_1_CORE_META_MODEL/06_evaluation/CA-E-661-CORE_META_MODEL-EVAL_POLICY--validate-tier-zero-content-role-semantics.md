@@ -1,22 +1,22 @@
 ---
 subjects:
-  active: Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Role
   passive:
-  - Atom.Content
-  - Atom.Tier
-  - Atom/(.Role := Plan)
-  - Atom/(.Role := Requirement)
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Evaluation)
-  - Atom/(.Role := Delivery)
-  - Atom/(.Role := Operations)
-  - Package/Implementation
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - Actor
-  - Atom/(.Role:=Operations)/Action
-  - Atom/(.Role:=Operations)/Workflow
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - Carrier
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Workflow
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

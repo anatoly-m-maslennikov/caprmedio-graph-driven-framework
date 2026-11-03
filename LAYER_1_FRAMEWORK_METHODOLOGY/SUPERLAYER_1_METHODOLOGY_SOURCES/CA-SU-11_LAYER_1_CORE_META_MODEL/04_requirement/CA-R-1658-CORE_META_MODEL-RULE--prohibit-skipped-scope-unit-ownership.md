@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

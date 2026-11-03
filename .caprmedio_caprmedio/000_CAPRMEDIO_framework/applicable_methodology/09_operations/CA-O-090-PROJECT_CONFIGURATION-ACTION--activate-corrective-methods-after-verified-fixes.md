@@ -27,7 +27,7 @@ relations:
   - CA-R-1559
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-090-PROJECT_CONFIGURATION-ACTION--activate-corrective-methods-after-verified-fixes.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-090-PROJECT_CONFIGURATION-ACTION--activate-corrective-methods-after-verified-fixes.md
   source_atom_id: CA-O-090
   source_atom_revision: 21
   source_sha256: 829037fbb48463db7c468989527648eae06587b55f4f4edf131ebcea27e2ded4

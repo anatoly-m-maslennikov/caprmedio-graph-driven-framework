@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Selection//Methodology Sources
+  active: CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
   passive:
-  - Entity/Object/Continuant/Selection//Methodology Sources
-  - Scope Unit//CORE_META_MODEL
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Entity/Object/Continuant/Selection//Extension Sources
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
 version: 35
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1228-PROJECT_CONFIGURATION-RULE--include-all-applicable-methodology-sources.md
   source_atom_id: CA-R-1228
   source_atom_revision: 35
-  source_sha256: 5eec0f712ada25d7d7ff02ecb1cbe9ec73515132a179a3feface4e606c195a66
+  source_sha256: f645821f0c68b9cf05b7daf5715c11bc9a70fdec09e79f2539d9aa80d39f2650
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,17 +1,15 @@
 ---
 subjects:
-  active: Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Role
   passive:
-  - Atom.Role
-  - Package/Implementation
-  - Atom/(.Role:=Operations)/Action
-  - Atom/(.Role:=Operations)/Workflow
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type:
-    Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type:
-    Step'
-  - Actor
-  - Entity/Object/Continuant/History/Journal > Event Record
-  - CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom.Role
+  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Workflow
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 49
 updated_at: 2026-11-02 15:49:28 +0400
 relations:

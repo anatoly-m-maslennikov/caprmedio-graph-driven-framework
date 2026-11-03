@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Governance Origin
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Governance Origin
   passive:
-  - Project
-  - Entity/Object/Continuant/Term//Artifact
-  - Aspects <+ Product
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Product
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 39
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1645-PROJECT_CONFIGURATION-RULE--define-self-hosted-governance-origins.md
   source_atom_id: CA-R-1645
   source_atom_revision: 39
-  source_sha256: 19e6b57a53203273ae1f13beb3f6068dc41f828eb68a48457f4e24dabf94c87b
+  source_sha256: 1916163e7268ed521d88aba0adc305b59d0284db1eb1762f5d3ac5c93acb4e68
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

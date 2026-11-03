@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Node
+  active: CAPRMEDIO <+ MODEL <+ Node
 version: 4
 updated_at: 2026-11-02 17:54:42 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md
   source_atom_id: CA-E-669
   source_atom_revision: 4
-  source_sha256: 4a0bdd258453f0b2bd72abadf9872a4cbf351656254c24a3e8ed03a212e7b93e
+  source_sha256: d65f4d89bdd34e62e44d1033594b9339a4d9d3d275b7d70f6deaac77b5651b8d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL <+ Relation//IS_CONTAINED_BY
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md
   source_atom_id: CA-R-2478
   source_atom_revision: 4
-  source_sha256: 339e23481cdadae59b549e2f26a05742ee66e96a9977f50b7b2ff33bea06530b
+  source_sha256: 37ce1f44e54bdbf91c675646cbd0073c0adb10882e2570cefceea03aae49606b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

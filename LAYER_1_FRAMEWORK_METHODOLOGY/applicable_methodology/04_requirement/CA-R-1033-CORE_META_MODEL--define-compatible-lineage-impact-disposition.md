@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
   passive:
-  - CFEL > Relation
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL--define-compatible-lineage-impact-disposition.md
   source_atom_id: CA-R-1033
   source_atom_revision: 28
-  source_sha256: b16803116fa317b96ae1d0957d06d75c830a4d2b4c5103a4105bbbfe609ca81c
+  source_sha256: e40f0b4ae2b51ae018921a81c1fdc669759454df319ab594f3827e0b5c8b4588
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

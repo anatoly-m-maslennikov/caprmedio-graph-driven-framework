@@ -2,13 +2,12 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
   passive:
-  - Project
-  - Scope Unit
-  - Atom
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type:
-    Goal'
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -29,7 +28,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-445-PROJECT_CONFIGURATION-EVAL-CASE--validate-methodology-membership-in-the-project.md
   source_atom_id: CA-E-445
   source_atom_revision: 28
-  source_sha256: 4c2301beaf3eb4d15f830136bde38111aa3e0f3b4a8249101031054334d2fe47
+  source_sha256: 7fa6147044481c975baabe69fd94173e8ee61f27c5907343f4d7435f60d1d354
   original_relations_sha256: b44b20e012b4a11fdeca3e65c5d30f54989f67003fcb6939e46e32716dfd3cfb
 ---
 ## Summary

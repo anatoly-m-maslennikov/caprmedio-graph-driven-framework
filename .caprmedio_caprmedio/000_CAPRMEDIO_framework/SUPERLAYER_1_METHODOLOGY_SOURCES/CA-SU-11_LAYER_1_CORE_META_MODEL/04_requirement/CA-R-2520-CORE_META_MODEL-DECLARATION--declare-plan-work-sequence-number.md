@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom/(.Role := Plan).Work Sequence Number
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number
 version: 2
 relations: {}
 tier: 3

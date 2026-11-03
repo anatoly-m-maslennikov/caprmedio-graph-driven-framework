@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Data Handling
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

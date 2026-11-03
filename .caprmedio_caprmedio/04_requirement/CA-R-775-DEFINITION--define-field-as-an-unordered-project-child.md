@@ -13,7 +13,7 @@ status: Active
 atom_id: CA-R-775
 tier: 2
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
 claim_target_scope_unit: caprmedio
 role: Requirement
 form: Rule

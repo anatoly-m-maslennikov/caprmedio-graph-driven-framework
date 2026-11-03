@@ -20,7 +20,7 @@ relations:
   - CA-R-1850
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-162-PROJECT_CONFIGURATION-ACTION--query-journal-events.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-162-PROJECT_CONFIGURATION-ACTION--query-journal-events.md
   source_atom_id: CA-O-162
   source_atom_revision: 14
   source_sha256: 15e5963c915f2f4350e243bdfa11d6d5e636f1c5e4b0b9231065629d386ec7ad

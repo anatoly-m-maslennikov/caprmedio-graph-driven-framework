@@ -1,9 +1,8 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type:
-    Demand'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand'
   passive:
-  - Scope Unit.order.number
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.number
 version: 39
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -26,7 +25,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-243-CORE_META_MODEL-EVAL_CASE--validate-a-demand-atom.md
   source_atom_id: CA-E-243
   source_atom_revision: 39
-  source_sha256: 468e6776045e4015628f928ce406467c25d3a626bb867cb94c62506046fe58f9
+  source_sha256: 133d13896d7882aedcc7bed01bed4b7d477896512b582b3dc905d8d9c106be27
   original_relations_sha256: 815de8c826a60a1221779cd6cf15000fe9db13138a370fabc2cca19fa9055478
 ---
 ## Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation.Content.Claim'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation.Content.Claim'
   passive:
-  - Atom/(.Role := Evaluation)
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
 version: 24
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

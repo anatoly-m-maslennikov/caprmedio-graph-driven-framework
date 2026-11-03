@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/History
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

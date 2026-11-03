@@ -1,0 +1,29 @@
+{
+  "status": "STAGING_VERIFIED",
+  "sources": 1132,
+  "declaration_sources": 176,
+  "unique_applicable_formal_blocks": 107,
+  "rendered_unique_formal_blocks": 107,
+  "all_formal_blocks_verbatim": true,
+  "rmed_drafts": 4,
+  "old_six_unchanged": true,
+  "views": 7,
+  "audit_counts": {
+    "passive_only_subjects": {
+      "subject_occurrences": 3652,
+      "parsed_subjects": 472,
+      "unresolved_subjects": 12,
+      "unresolved_occurrences": 115,
+      "active_subjects": 387,
+      "passive_only_subjects": 96
+    },
+    "subjects_without_declaration_coverage": {
+      "known_missing": 112,
+      "unresolved": 112
+    },
+    "entity_definition_summary": {
+      "entities": 331,
+      "entities_with_any_missing": 105
+    }
+  }
+}

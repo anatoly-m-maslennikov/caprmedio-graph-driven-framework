@@ -1,0 +1,25 @@
+---
+atom_id: CA-R-2662
+role: Requirement
+form: Scope Unit Declaration
+status: Active
+version: 1
+updated_at: 2026-11-02 19:07:49 +0400
+tier: 3
+subjects:
+  active: CAPRMEDIO <+ STRUCTURE <+ Scope Unit//SKILLS
+relations: {}
+---
+## Summary
+
+Declare SKILLS
+
+## Claim
+
+```CFEL
+Scope Unit//SKILLS.ID == "CA-SU-23";
+Scope Unit//SKILLS.Name == "SKILLS";
+Scope Unit//SKILLS.Label == "FEATURE";
+Scope Unit//SKILLS.order.ordered == false;
+Scope Unit//SKILLS ((IS_CONTAINED_BY)) Scope Unit//AGENTIC
+```

@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Project.Settings
+  active: CAPRMEDIO <+ MODEL <+ Project.Settings
   passive:
-  - Project.Settings.Name
-  - Project.Settings.Prefix
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Project.Settings.Name
+  - CAPRMEDIO <+ MODEL <+ Project.Settings.Prefix
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 39
 updated_at: 2026-11-02 19:46:47 +0400
 relations:
@@ -32,7 +32,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md
   source_atom_id: CA-E-459
   source_atom_revision: 39
-  source_sha256: 58a0dc891fb4a9b37e4852cbcb4a41a254f6055189953956af87943f18c486ac
+  source_sha256: 15d608b801a2f0504aa015829cc475b99dd0e37a2298e993a68b1430f9cab9d6
   original_relations_sha256: 9b8ec930086c35ecbfae2762e780b35b7dbf5b87136c5e657b568946762e7cd7
 ---
 ## Summary

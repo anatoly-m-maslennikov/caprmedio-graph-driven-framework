@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Actor/AI Agent.Permissions
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

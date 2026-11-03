@@ -23,7 +23,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-229-PROJECT_CONFIGURATION-STEP--perform-the-read-only-semantic-code-review.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-229-PROJECT_CONFIGURATION-STEP--perform-the-read-only-semantic-code-review.md
   source_atom_id: CA-O-229
   source_atom_revision: 14
   source_sha256: b39f13c761b84def0fd5a0a343465fc627c7abd7c61b21587e5280aa350d13c7

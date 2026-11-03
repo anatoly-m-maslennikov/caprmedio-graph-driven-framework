@@ -6,12 +6,12 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Carrier/File.Filename
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Filename
   passive:
-  - Atom
-  - Project
-  - Scope Unit
-  - Scope Unit.Name
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
 relations:
   depends_on:
   - CA-D-284
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-498-PROJECT_CONFIGURATION-ENG_DECISION--use-full-scope-unit-names-in-filenames.md
   source_atom_id: CA-D-498
   source_atom_revision: 13
-  source_sha256: 5ff33ccaee3fefc483663818bcb9b17879114b67308bd6a3a4fdd7b572e8a473
+  source_sha256: ea5bc1e2229e6f1253e5555e402ac064bc1c1249de75aff0914010e0ce779a6a
   original_relations_sha256: d990781b372f65b5de75cf683d3150a3fb54d4608a2f2f688cab00d4f2b9bb85
 ---
 ## Summary

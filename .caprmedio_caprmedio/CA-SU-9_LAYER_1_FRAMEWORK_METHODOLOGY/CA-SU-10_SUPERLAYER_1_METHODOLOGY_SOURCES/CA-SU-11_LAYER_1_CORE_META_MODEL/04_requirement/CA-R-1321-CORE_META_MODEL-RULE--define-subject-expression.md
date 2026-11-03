@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
   passive:
-  - Entity
-  - Term
-  - Term//Property
-  - Atom
-  - Package
-  - Entity/Object/Continuant/Package <+ Module
-  - Entity/Object/Continuant/Package <+ Module <+ Code Unit
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
 version: 35
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}

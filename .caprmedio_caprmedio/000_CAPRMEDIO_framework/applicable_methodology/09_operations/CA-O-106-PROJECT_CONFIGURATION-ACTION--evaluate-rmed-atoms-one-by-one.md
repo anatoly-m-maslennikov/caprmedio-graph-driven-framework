@@ -18,7 +18,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-106-PROJECT_CONFIGURATION-ACTION--evaluate-rmed-atoms-one-by-one.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-106-PROJECT_CONFIGURATION-ACTION--evaluate-rmed-atoms-one-by-one.md
   source_atom_id: CA-O-106
   source_atom_revision: 19
   source_sha256: d0bfd9f5672348d6f9fd3e9f31a6e4679a8fc37c804e613ce20e80b591ad6cfb

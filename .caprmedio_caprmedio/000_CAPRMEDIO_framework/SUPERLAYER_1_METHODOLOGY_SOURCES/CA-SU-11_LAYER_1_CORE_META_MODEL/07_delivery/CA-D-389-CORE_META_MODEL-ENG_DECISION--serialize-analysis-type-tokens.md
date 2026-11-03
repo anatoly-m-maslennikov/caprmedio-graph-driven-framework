@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory").Form
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory").Form
   passive:
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 27
 updated_at: 2026-11-02 19:33:47 +0400
 relations: {}

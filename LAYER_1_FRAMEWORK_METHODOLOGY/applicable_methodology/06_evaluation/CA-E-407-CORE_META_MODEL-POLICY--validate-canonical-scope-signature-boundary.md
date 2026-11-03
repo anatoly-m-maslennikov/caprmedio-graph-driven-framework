@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
   passive:
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - 'Entity/Object/Continuant/Projection/Type: Canonical Scope Signature'
-  - Carrier/File
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Canonical Scope Signature'
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
 version: 30
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-407-CORE_META_MODEL-POLICY--validate-canonical-scope-signature-boundary.md
   source_atom_id: CA-E-407
   source_atom_revision: 30
-  source_sha256: 119c374f8509b52187daa3a2885b2ddf352d89bd68349f82455073b61d30abe0
+  source_sha256: da71d93fb04f4039f381b97ebcd248a717f31cd24b291f6ede7b0b00ef9be3e5
   original_relations_sha256: f67267d21eee2d6d0e9a34f7ed789a9d381444ce717666ef4ca06dbd9f78c50e
 ---
 ## Summary

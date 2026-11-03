@@ -22,7 +22,7 @@ relations:
   - CA-O-159
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-160-PROJECT_CONFIGURATION-STEP--run-the-artifact-query-and-fetch.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-160-PROJECT_CONFIGURATION-STEP--run-the-artifact-query-and-fetch.md
   source_atom_id: CA-O-160
   source_atom_revision: 8
   source_sha256: 6c7f46f655cfdd502dda5d8b20e9ef4af42230e74cedea06078a16f7947c165c

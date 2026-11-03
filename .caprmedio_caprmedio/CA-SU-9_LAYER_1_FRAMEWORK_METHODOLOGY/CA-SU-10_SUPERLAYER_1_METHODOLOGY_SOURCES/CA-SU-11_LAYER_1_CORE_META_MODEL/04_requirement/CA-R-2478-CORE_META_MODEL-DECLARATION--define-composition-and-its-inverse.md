@@ -4,13 +4,17 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CFEL <+ Relation//IS_CONTAINED_BY
-version: 4
-updated_at: 2026-11-02 08:06:47 +0400
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY
+version: 5
+updated_at: 2026-11-03 20:00:05 +0400
 relations: {}
 tier: 3
 role: Requirement
 form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 
@@ -18,22 +22,15 @@ Define composition and its inverse
 
 ## Claim
 
-IS_CONTAINED_BY relates a contained declared Entity or instance to its immediate Container. Containment does not imply narrowing or inheritance.
+### Formal Claim
 
 ```CFEL
 $part ((IS_CONTAINED_BY)) $container;
-((IS_CONTAINED_BY)) ((HAS_INVERSE)) ((CONTAINS));
-
-((IS_CONTAINED_BY)) == +>;
-
-((IS_CONTAINED_BY)) >| Derivation == Direct
+Relation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;
+alias(Relation//IS_CONTAINED_BY) == "+>";
+Relation//IS_CONTAINED_BY ((HAS_CLASSIFICATION)) Derivation == Direct
 ```
 
-## Semantics
+### Prose Claim
 
-The Target is the immediate Container of the Host and must have the classification `Container = yes`; containment does not imply narrowing or inheritance.
-
-
-Forward `Host ((IS_CONTAINED_BY)) Target` and reverse `Target <((IS_CONTAINED_BY)) Host` are views of the same Relation fact.
-IS_CONTAINED_BY relates contained declared Entity or instance to immediate Container.
-
+IS_CONTAINED_BY relates a contained declared Entity or instance to its immediate Container. The Target has classification `Container = yes`. Containment does not imply narrowing or inheritance. CONTAINS is its derived inverse: its Host and Target are the direct Target and Host, respectively. Store the direct fact once.

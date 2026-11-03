@@ -4,16 +4,16 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Carrier/Directory
+  active: CAPRMEDIO_MODEL <+ Carrier/Directory
   passive:
-  - Project
-  - Projection
-  - Carrier
-  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
-  - Journal
-  - Atom
-  - Scope Unit
-  - Project.Settings
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Carrier
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Project.Settings
 version: 20
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

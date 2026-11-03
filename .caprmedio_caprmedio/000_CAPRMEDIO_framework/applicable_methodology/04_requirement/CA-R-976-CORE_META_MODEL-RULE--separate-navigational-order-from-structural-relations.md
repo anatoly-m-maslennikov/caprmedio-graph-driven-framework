@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CFEL <+ Relation
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
   passive:
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 31
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -14,10 +14,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-RULE--separate-navigational-order-from-structural-relations.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-RULE--separate-navigational-order-from-structural-relations.md
   source_atom_id: CA-R-976
   source_atom_revision: 31
-  source_sha256: 30fa0daeb16edfe78a88a6d457af794f5a01ebb3ca82cba22607f7db4b64cfd3
+  source_sha256: 520e232a5da1b6fc88be0edd43bf6641c448c887b1ea2832236513a8e3100376
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

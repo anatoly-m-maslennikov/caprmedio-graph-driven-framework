@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
   passive:
-  - Atom
+  - CAPRMEDIO_MODEL <+ Atom
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

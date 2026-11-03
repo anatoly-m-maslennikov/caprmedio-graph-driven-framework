@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Aspect
+  active: CAPRMEDIO <+ MODEL <+ Aspect
 version: 4
 updated_at: 2026-11-02 18:21:51 +0400
 relations: {}

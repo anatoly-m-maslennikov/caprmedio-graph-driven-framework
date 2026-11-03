@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Aspects <+ Engineering
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering
 version: 15
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -15,10 +15,10 @@ tier: 4
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1795-PROJECT_CONFIGURATION-RULE--reconcile-development-backlog-candidates-after-release.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1795-PROJECT_CONFIGURATION-RULE--reconcile-development-backlog-candidates-after-release.md
   source_atom_id: CA-R-1795
   source_atom_revision: 15
-  source_sha256: 912e1c2fd349df130a8071372b7d268e17916f7b5f95b3af2a087c5edeb64096
+  source_sha256: 11d9c81c0a9b877275cda07ca7a0c517f33850a2a82b66b086512ba6b612cc4f
   original_relations_sha256: 6da6e9e2e72a9ce628eefef9aaece62f50d1f274270b6bdf901b54734f13f8ee
 ---
 ## Summary

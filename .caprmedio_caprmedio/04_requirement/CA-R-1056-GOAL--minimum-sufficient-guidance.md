@@ -8,10 +8,10 @@ relations:
   child_of:
   - CA-M-005
 subjects:
-  active: Aspects <+ Product
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: obligation
 atom_id: CA-R-1056

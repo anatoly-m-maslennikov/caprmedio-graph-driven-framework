@@ -4,13 +4,13 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory").Status
+  active: CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory").Status
   passive:
-  - Atom/(.Role := "Analysis & Advisory")
-  - Atom/(.Role := "Analysis & Advisory").Form
-  - Atom.Status
-  - Entity/Object/Continuant/Selection//Extension Sources
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory")
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory").Form
+  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 22
 updated_at: 2026-11-02 19:33:47 +0400
 relations: {}

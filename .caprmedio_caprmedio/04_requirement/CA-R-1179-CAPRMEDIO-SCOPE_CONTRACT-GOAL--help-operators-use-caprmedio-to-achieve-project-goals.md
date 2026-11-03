@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: obligation
 subjects:
-  active: Aspects <+ Documentation Aspect
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Documentation Aspect
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Product
-  - Project
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  - CAPRMEDIO_MODEL <+ Project
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
 version: 30
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

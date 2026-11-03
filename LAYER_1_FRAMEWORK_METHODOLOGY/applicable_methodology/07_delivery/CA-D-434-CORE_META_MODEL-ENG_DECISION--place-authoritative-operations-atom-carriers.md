@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Atom/(.Role := Operations)
-  - Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-434-CORE_META_MODEL-ENG_DECISION--place-authoritative-operations-atom-carriers.md
   source_atom_id: CA-D-434
   source_atom_revision: 25
-  source_sha256: 4b90764e0167bbdb73dccd52bed10b63baa5c29370a2b27ba83dac11cd8db19a
+  source_sha256: 8e50009da3bb4b1727bdacc9447bda684dd1ca45ef527011f5549a19adc70d8b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

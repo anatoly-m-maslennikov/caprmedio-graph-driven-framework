@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom.Updated At
+  active: CAPRMEDIO <+ MODEL <+ Atom.Updated At
   passive:
-  - Atom
-  - Atom.Status
-  - Carrier
-  - Carrier.Canonical Address
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
 claim_target_scope_unit: CORE_META_MODEL
@@ -19,10 +19,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md
   source_atom_id: CA-R-1788
   source_atom_revision: 18
-  source_sha256: 53d9046982e251605d3ee331c7dacf13829194f3b3caae9b9f62739611954a72
+  source_sha256: f8870a511f7000375b40f549379b68d799c244dc56971301989e3d408ef54fbf
   original_relations_sha256: f928d2096b701aa0e7852bc6d06e4620a81315e585b6a1074e66973879d77cf5
 ---
 ## Summary

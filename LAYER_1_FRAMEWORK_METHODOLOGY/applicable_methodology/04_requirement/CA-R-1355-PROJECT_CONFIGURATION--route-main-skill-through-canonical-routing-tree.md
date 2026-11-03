@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Aspects <+ UX <+ Discovery and Navigation
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ UX <+ Discovery and Navigation
   passive:
-  - Aspects <+ UX <+ Entry
-  - Aspects <+ Engineering
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ UX <+ Entry
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering
 version: 24
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1355-PROJECT_CONFIGURATION--route-main-skill-through-canonical-routing-tree.md
   source_atom_id: CA-R-1355
   source_atom_revision: 24
-  source_sha256: 329314f08618ed05461644a4b7aba43f1dda7e0809170edfcaf516e8ff7c3bd1
+  source_sha256: 73283f3ccf82b19e377d81bb11e318353ad7a040f30614765c8fb322c599243b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

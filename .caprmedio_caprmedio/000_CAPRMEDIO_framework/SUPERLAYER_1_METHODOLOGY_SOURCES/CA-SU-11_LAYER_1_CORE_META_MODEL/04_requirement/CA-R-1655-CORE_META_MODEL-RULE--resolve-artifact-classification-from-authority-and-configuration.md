@@ -1,19 +1,18 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - Term//Artifact
-  - Atom
-  - Entity/Object/Continuant/Governing Objects/Atom.Content Role
-  - Entity/Object/Continuant/Projection.Type
-  - 'Entity/Object/Continuant/Projection/(.Type: Applicable Methodology)'
-  - Scope Unit//PROJECT_CONFIGURATION
-  - Scope Unit
-  - 'Entity/Object/Continuant/Projection/(.Type: Scope Unit Graph)'
-  - Journal
-  - Projection
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority
-    Modes
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Content Role
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection.Type
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Applicable Methodology)'
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Scope Unit Graph)'
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes
 version: 45
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

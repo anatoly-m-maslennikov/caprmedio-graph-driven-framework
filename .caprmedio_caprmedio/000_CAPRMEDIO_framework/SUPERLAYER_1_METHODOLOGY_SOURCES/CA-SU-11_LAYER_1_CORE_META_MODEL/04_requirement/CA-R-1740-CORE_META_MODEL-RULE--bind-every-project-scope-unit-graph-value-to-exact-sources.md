@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Projection/(.Form:=Scope Unit Graph)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Scope Unit Graph)
   passive:
-  - Scope Unit
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - Atom
-  - Journal
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Journal
 version: 41
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Journal
+  active: CAPRMEDIO <+ MODEL <+ Journal
   passive:
-  - Scope Unit//CORE_META_MODEL
-  - Scope Unit
-  - 'Entity/Object/Continuant/Projection/Type: Artifact Change Log'
-  - 'Entity/Object/Continuant/Projection/Type: Process Log'
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log'
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -23,10 +23,10 @@ tier: 4
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-POLICY--validate-journal-independence-from-git.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-POLICY--validate-journal-independence-from-git.md
   source_atom_id: CA-E-464
   source_atom_revision: 24
-  source_sha256: a4ad4d2cb4d357093910d75f65e3ce9464d9fec5b39112b3c3cae578f39debda
+  source_sha256: 0e0f32648541b8eddccdc953bc6c291de0d76f0c45a4af9ff892090773837713
   original_relations_sha256: 9df3c2ead8f13c90ef6760757de1f2b5279c95b90ff24ea559bbfb7ab2082444
 ---
 ## Summary

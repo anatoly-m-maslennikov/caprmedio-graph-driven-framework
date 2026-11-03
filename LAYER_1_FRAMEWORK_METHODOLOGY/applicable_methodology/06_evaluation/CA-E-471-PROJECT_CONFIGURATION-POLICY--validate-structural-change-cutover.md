@@ -1,16 +1,15 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
   passive:
-  - Scope Unit
-  - Carrier
-  - Entity/Object/Continuant/Actor/Operator
-  - Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type:
-    Goal'
-  - Project
-  - Projection
-  - Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -30,7 +29,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-471-PROJECT_CONFIGURATION-POLICY--validate-structural-change-cutover.md
   source_atom_id: CA-E-471
   source_atom_revision: 28
-  source_sha256: d7c04dc408cd491b0ac31e5db9de5fbcf60a827df4f7d8db208ff574ed737fa8
+  source_sha256: 884fb38e721dfdbf87a3c2e54f06886d766e1ab3719fd8b2b818c3bd46a77590
   original_relations_sha256: 962f30ce52da49629429dc0c407210d6b9455d5e453471c4cfec3f524c018581
 ---
 ## Summary

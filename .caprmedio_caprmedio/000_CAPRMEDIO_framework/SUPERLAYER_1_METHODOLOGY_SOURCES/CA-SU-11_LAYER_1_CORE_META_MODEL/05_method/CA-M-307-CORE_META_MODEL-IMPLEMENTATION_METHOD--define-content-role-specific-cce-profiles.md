@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom.Role
+  active: CAPRMEDIO <+ MODEL <+ Atom.Role
   passive:
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - Atom.Content
-  - Atom.Role
-  - Entity/Object/Continuant/Governing Objects/Atom.Type
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Atom.Role
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Type
 version: 29
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

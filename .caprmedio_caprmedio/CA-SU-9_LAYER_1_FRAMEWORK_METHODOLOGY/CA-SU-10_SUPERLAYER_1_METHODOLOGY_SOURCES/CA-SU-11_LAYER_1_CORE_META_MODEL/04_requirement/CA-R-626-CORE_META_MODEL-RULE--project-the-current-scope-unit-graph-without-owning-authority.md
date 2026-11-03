@@ -1,12 +1,11 @@
 ---
 subjects:
-  active: Projection/(.Form:=Scope Unit Graph)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Scope Unit Graph)
   passive:
-  - Scope Unit
-  - Projection
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type:
-    Goal'
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Projection
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
 version: 43
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

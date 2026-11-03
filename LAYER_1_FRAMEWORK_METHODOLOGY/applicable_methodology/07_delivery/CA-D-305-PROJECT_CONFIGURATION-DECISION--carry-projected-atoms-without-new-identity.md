@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection/(.Form := Applicable Methodology)
+  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form := Applicable Methodology)
   passive:
-  - Atom
-  - Carrier/File
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
 version: 32
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -18,7 +18,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-305-PROJECT_CONFIGURATION-DECISION--carry-projected-atoms-without-new-identity.md
   source_atom_id: CA-D-305
   source_atom_revision: 32
-  source_sha256: 7ece429cbacc66c7686af59044fdd046616191e0a1086c8d6bf951abcaea28e8
+  source_sha256: 6cb5c5748a2a2b42cbddc32db2cc514ee26cbc096a84a97fd913eacb318d9ca2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

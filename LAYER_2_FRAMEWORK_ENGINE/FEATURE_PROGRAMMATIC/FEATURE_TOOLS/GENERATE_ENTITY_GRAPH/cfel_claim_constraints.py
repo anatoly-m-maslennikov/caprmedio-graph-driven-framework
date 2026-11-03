@@ -50,6 +50,8 @@ _REVERSE_GROUPED_CLASSIFICATION = re.compile(
     r"^\(\s*(?P<axis>.+?)\s*(?P<operator>==|=)\s*(?P<value>.+?)\s*\)\s*\|<\s*(?P<subject>.+)$"
 )
 _ALLOWED_LITERAL = re.compile(r"^(?P<property>.+?)\s*:\s*(?P<literal>[^\[\]{}]+)$")
+_RELATION_ALIAS = re.compile(r'^alias\(\s*(?:Relation//)?(?P<name>[A-Za-z][A-Za-z0-9_]*)\s*\)\s*==\s*"(?P<glyph>[^"\r\n]+)"$')
+_COUNTERPART = re.compile(r'^(?P<source>Relation//[A-Za-z][A-Za-z0-9_]*)\s*<-->\s*(?P<target>Relation//[A-Za-z][A-Za-z0-9_]*)$')
 _CONTROL = re.compile(r"\b(?:IF|THEN|AND|OR)\b")
 _HEADING = re.compile(r"^(?P<hashes>#{1,6})[ \t]+(?P<name>[^\n#][^\n]*?)[ \t]*$", re.M)
 
@@ -132,6 +134,31 @@ def _claim_ranges(body: str) -> list[tuple[int, int]]:
     return _section_ranges(body, "claim")
 
 
+def _claim_parts(body: str) -> tuple[list[tuple[int, int]], list[tuple[int, int]]] | None:
+    """Find named direct Claim children, leaving legacy Claims readable."""
+    formal, prose = [], []
+    headings = []
+    fenced = [(a, c if c is not None else len(body)) for a, _, c, _ in _fences(body)]
+    offset = 0
+    for line in body.splitlines(keepends=True):
+        match = _HEADING.match(line) if not any(a <= offset < c for a, c in fenced) else None
+        if match:
+            headings.append((offset, offset + len(line), len(match.group("hashes")), match.group("name").strip().casefold()))
+        offset += len(line)
+    for index, (_, _, level, name) in enumerate(headings):
+        if name != "claim":
+            continue
+        end_index = next((i for i in range(index + 1, len(headings))
+                          if headings[i][2] == level and headings[i][3] in {"summary", "claim", "semantics", "details"}), len(headings))
+        children = [row for row in headings[index + 1:end_index]
+                    if row[2] == level + 1 and row[3] in {"formal claim", "prose claim"}]
+        end = headings[end_index][0] if end_index < len(headings) else len(body)
+        for position, (_, start, _, child_name) in enumerate(children):
+            child_end = children[position + 1][0] if position + 1 < len(children) else end
+            (formal if child_name == "formal claim" else prose).append((start, child_end))
+    return (formal, prose) if formal or prose else None
+
+
 def section_text(carrier: Mapping[str, Any], name: str) -> str:
     """Return exact named-section text; this does not interpret its Markdown."""
 
@@ -175,9 +202,12 @@ def _expressions(body: str) -> tuple[list[str], list[Record]]:
 
     values: list[str] = []
     diagnostics: list[Record] = []
-    claim_ranges = _claim_ranges(body)
+    parts = _claim_parts(body)
+    claim_ranges = parts[0] if parts is not None else _claim_ranges(body)
     for opening, content_start, closing, label in _fences(body):
         if label.casefold() != "cfel":
+            continue
+        if parts is not None and any(start <= opening < end for start, end in parts[1]):
             continue
         in_claim = any(start <= opening < end for start, end in claim_ranges)
         if closing is None:
@@ -207,7 +237,8 @@ def claim_cfel_blocks(carrier: Mapping[str, Any]) -> list[Record]:
     source, body = carrier.get("source"), carrier.get("body")
     if not isinstance(source, Mapping) or not isinstance(body, str):
         return []
-    ranges = _claim_ranges(body)
+    parts = _claim_parts(body)
+    ranges = parts[0] if parts is not None else _claim_ranges(body)
     return [
         {"source": dict(source), "block": body[content_start:closing]}
         for opening, content_start, closing, label in _fences(body)
@@ -241,6 +272,9 @@ def claim_prose(carrier: Mapping[str, Any]) -> str:
     body = carrier.get("body")
     if not isinstance(body, str):
         return ""
+    parts = _claim_parts(body)
+    if parts is not None:
+        return "\n".join(body[start:end].strip() for start, end in parts[1] if body[start:end].strip())
     pieces = []
     for start, end in _claim_ranges(body):
         removed = []
@@ -260,6 +294,12 @@ def claim_prose(carrier: Mapping[str, Any]) -> str:
     return "\n".join(piece.strip() for piece in pieces if piece.strip())
 
 
+def has_prose_claim(carrier: Mapping[str, Any]) -> bool:
+    body = carrier.get("body")
+    parts = _claim_parts(body) if isinstance(body, str) else None
+    return parts is not None and bool(parts[1])
+
+
 def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record], list[Record]]:
     """Return recognized constraints and explicit unsupported CFEL diagnostics."""
 
@@ -270,6 +310,16 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
     expressions, diagnostics = _expressions(body)
     records: list[Record] = []
     for expression in expressions:
+        alias = _RELATION_ALIAS.fullmatch(expression)
+        if alias is not None:
+            records.append(_record(source, expression, "relation_alias", relation=alias.group("name"), glyph=alias.group("glyph")))
+            continue
+        counterpart = _COUNTERPART.fullmatch(expression)
+        if counterpart is not None:
+            records.append(_record(source, expression, "relation_cardinality", source_selector=counterpart.group("source"),
+                                   relation="HAS_INVERSE", relation_notation="<-->", target_selector=counterpart.group("target"),
+                                   source_cardinality=None, target_cardinality=None, written_direction="forward"))
+            continue
         if _CONTROL.search(expression):
             diagnostics.append({
                 "code": "cfel-expression-unsupported",
@@ -279,7 +329,8 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
             })
             continue
         relation = _RELATION.fullmatch(expression)
-        if relation is not None:
+        if relation is not None and not (relation.group("source").rstrip().endswith(":")
+                                         or relation.group("target").lstrip().startswith(":")):
             reverse_named = relation.group("reverse_relation") is not None
             written_source = relation.group("source").strip()
             written_target = relation.group("target").strip()

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Governance Origin
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Governance Origin
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

@@ -20,7 +20,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-108-PROJECT_CONFIGURATION-STEP--select-the-rmed-review-batch/CA-O-119-PROJECT_CONFIGURATION-STEP--gate-gather-result-coverage.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-108-PROJECT_CONFIGURATION-STEP--select-the-rmed-review-batch/CA-O-119-PROJECT_CONFIGURATION-STEP--gate-gather-result-coverage.md
   source_atom_id: CA-O-119
   source_atom_revision: 13
   source_sha256: f3d74c7e7920dfcff2a7ff846c7b8248f486e90a34399176a1591eecb3279e1e

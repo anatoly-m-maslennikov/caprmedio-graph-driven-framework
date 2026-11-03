@@ -10,16 +10,16 @@ relations:
   - CA-M-266
   - CA-M-262
 subjects:
-  active: Package/Implementation
+  active: CAPRMEDIO_MODEL <+ Package/Implementation
   passive:
-  - Entity/Object/Continuant/Actor/Operator
-  - Atom/(.Role := Plan)
-  - Package/Implementation
-  - Atom/(.Role := Evaluation)
-  - Atom/(.Role := Requirement)
-  - Atom/(.Role := Method)
-  - Atom/(.Role := Delivery)
-  - Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Project
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-438

@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: Projection
+  active: CAPRMEDIO <+ MODEL <+ Projection
   passive:
-  - Term//Artifact
-  - Entity
-  - Scope Unit
-  - Carrier
-  - CFEL <+ Relation
-  - Atom
-  - Journal
+  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Journal
 version: 30
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL--define-general-artifact-graph.md
   source_atom_id: CA-R-1409
   source_atom_revision: 30
-  source_sha256: ba4ff02ffb2b330670bb1f4c59668c0654b46dca787e8960ccb80bec1daf4a0e
+  source_sha256: 8f7b129b30de60d271e3b41031f7e2a1b278b3098ef5358c54c20e524f0993d1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

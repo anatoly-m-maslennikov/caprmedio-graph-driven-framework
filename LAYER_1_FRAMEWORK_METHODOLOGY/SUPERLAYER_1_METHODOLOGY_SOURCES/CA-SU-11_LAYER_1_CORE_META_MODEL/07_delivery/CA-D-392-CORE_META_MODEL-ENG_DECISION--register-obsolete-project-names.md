@@ -1,11 +1,10 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Projection/(.Type: Scope Unit Graph)'
+  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Scope Unit Graph)'
   passive:
-  - Project.Settings
-  - Project.Settings.Name
-  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete
-    Names
+  - CAPRMEDIO <+ MODEL <+ Project.Settings
+  - CAPRMEDIO <+ MODEL <+ Project.Settings.Name
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete Names
 version: 27
 updated_at: 2026-11-02 19:46:47 +0400
 relations:

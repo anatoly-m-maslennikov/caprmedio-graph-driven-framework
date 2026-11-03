@@ -7,7 +7,7 @@ version: 1
 updated_at: 2026-11-02 19:07:49 +0400
 tier: 3
 subjects:
-  active: Project//caprmedio
+  active: CAPRMEDIO_STRUCTURE <+ Project//caprmedio
 relations: {}
 current_scope_unit: Anatoly Maslennikov
 ---

@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Atom/(.Role := Evaluation)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
   passive:
-  - Atom/(.Role := Evaluation)
-  - Atom/(.Role := Method)
-  - Atom.Content.Claim Scope
-  - Atom.Tier
-  - CFEL > Relation//evaluation_for
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Claim Scope
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//evaluation_for
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

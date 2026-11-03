@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom.Content.Summary
+  active: CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
   passive:
-  - Atom.Content.Summary
+  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-282-CORE_META_MODEL-ENG_DECISION--serialize-filename-summary-slug-from-summary.md
   source_atom_id: CA-D-282
   source_atom_revision: 26
-  source_sha256: 368347d88ed473b38097922c31696685b1d61c35ce16bcbc708cfd22f935de7f
+  source_sha256: 35951cab316bf1c5213d9ee740ea697a6bee519d829634a0fd02cdaa932af406
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

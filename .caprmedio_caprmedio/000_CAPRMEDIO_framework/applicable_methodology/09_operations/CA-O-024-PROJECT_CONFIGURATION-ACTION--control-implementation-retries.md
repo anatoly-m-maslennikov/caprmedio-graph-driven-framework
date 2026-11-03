@@ -28,7 +28,7 @@ relations:
   - CA-M-295
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-024-PROJECT_CONFIGURATION-ACTION--control-implementation-retries.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-024-PROJECT_CONFIGURATION-ACTION--control-implementation-retries.md
   source_atom_id: CA-O-024
   source_atom_revision: 24
   source_sha256: 50908c4c40c541a886e80013a1bd2917267449df45fe61a2681edc2a194818ea

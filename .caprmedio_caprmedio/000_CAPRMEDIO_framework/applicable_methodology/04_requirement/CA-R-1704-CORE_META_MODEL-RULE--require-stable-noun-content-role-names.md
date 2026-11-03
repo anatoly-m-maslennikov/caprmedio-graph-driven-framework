@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom.Role
+  active: CAPRMEDIO <+ MODEL <+ Atom.Role
   passive:
-  - Atom.Role
+  - CAPRMEDIO <+ MODEL <+ Atom.Role
 version: 35
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -16,10 +16,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-RULE--require-stable-noun-content-role-names.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-RULE--require-stable-noun-content-role-names.md
   source_atom_id: CA-R-1704
   source_atom_revision: 35
-  source_sha256: ecebf91cf9264b264164a4fb85234fbb80cac9f47b19bad7f8f33095a39d1d3f
+  source_sha256: 2bd72c3a85f56f277a04b9565d76b254bd52ef0150fa8eb01d5aa527e4c90760
   original_relations_sha256: 1bb79538ba1bd0a27ba716a698f1817c43f1fc9b59537056c2b6466292e9bada
 ---
 ## Summary

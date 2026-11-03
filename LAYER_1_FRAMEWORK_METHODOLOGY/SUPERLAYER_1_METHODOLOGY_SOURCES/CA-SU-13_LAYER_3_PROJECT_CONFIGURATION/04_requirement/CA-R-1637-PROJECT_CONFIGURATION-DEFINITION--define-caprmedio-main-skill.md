@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Aspects <+ UX <+ Entry
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ UX <+ Entry
 version: 33
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

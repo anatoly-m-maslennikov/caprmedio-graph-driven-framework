@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Aspects <+ Engineering <+ Verification
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Verification
 version: 14
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

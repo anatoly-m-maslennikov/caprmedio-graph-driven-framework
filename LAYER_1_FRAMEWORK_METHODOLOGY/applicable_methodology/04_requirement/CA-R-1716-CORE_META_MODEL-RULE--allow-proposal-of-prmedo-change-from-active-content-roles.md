@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
 version: 30
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1716-CORE_META_MODEL-RULE--allow-proposal-of-prmedo-change-from-active-content-roles.md
   source_atom_id: CA-R-1716
   source_atom_revision: 30
-  source_sha256: 4c83ee952cff593cd18c4458602abf3e825cf6a5f444583dd65b229e4447d57e
+  source_sha256: e34080542386fba078f01d488ee0309451e4b27f00fd2f0e2365168e916ef44b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

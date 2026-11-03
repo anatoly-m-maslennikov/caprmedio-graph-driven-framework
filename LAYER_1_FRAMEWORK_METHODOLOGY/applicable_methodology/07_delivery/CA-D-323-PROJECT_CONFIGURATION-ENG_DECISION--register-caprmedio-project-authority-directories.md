@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Carrier/Directory
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
 version: 20
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-323-PROJECT_CONFIGURATION-ENG_DECISION--register-caprmedio-project-authority-directories.md
   source_atom_id: CA-D-323
   source_atom_revision: 20
-  source_sha256: c2409b84e29e3729bff6c0eba632b5acbb442793bfd5603b80c39d2c898455cb
+  source_sha256: 0b0b117d5cef64fd4cb36bdc108814044fe23d1c2f0c73397f56e609305d8f7d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

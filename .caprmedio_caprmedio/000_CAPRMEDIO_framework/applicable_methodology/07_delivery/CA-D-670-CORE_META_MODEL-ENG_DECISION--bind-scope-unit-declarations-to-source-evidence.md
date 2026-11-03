@@ -14,7 +14,7 @@ tier: 3
 role: Delivery
 form: Eng Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-670-CORE_META_MODEL-ENG_DECISION--bind-scope-unit-declarations-to-source-evidence.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-670-CORE_META_MODEL-ENG_DECISION--bind-scope-unit-declarations-to-source-evidence.md
   source_atom_id: CA-D-670
   source_atom_revision: 1
   source_sha256: 2e41b30289f7d5dbb21484daec70d353420673da59c38e722ec52c8c081a4c0b

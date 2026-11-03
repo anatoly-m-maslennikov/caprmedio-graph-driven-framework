@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - Atom/(.Role := Requirement)/(.Form := Scope Unit Declaration)
-  - Project
+  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)/(.Form := Scope Unit Declaration)
+  - CAPRMEDIO_MODEL <+ Project
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}

@@ -4,9 +4,9 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Journal
+  - CAPRMEDIO <+ MODEL <+ Journal
 version: 14
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -14,10 +14,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-504-PROJECT_CONFIGURATION-ENG_DECISION--use-the-governed-production-logging-platform.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-504-PROJECT_CONFIGURATION-ENG_DECISION--use-the-governed-production-logging-platform.md
   source_atom_id: CA-D-504
   source_atom_revision: 14
-  source_sha256: a253dbdc52a47fdd72d2f1bff92a6c811bfbcca3d1e95c5c5f3de25ed1bd6214
+  source_sha256: ab0c224608af17e1d17fa81412e09e57318a9e9610c6c8b08c46dfef7db8f854
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

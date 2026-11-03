@@ -8,7 +8,7 @@ updated_at: 2026-11-02 17:54:42 +0400
 current_scope_unit: CORE_META_MODEL
 tier: 3
 subjects:
-  active: CFEL <+ Relation//IS_RUN_BY
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_RUN_BY
 relations: {}
 ---
 

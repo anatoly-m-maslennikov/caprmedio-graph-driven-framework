@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 1
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-ENG_DECISION--represent-authority-without-semantic-change.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-ENG_DECISION--represent-authority-without-semantic-change.md
   source_atom_id: CA-D-311
   source_atom_revision: 27
-  source_sha256: 05b4fbbc04403c7e3cf3c8d10e9f0b8ca1aeed178b6ab8a6a664bbfda1bc4205
+  source_sha256: 4f51829f3a45cf3e9bb36221f5ee25ae4529d15f389700fd2d1be2c0f81870eb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

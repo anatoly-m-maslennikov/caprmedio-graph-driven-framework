@@ -26,7 +26,7 @@ author: Anatoly Maslennikov
 type: Action
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-027-PROJECT_CONFIGURATION-ACTION--assess-release-readiness-for-the-current-candidate.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-027-PROJECT_CONFIGURATION-ACTION--assess-release-readiness-for-the-current-candidate.md
   source_atom_id: CA-O-027
   source_atom_revision: 16
   source_sha256: e809de88443adbb5562ca730be663028000f9693d641805333c6846ea437f6f4

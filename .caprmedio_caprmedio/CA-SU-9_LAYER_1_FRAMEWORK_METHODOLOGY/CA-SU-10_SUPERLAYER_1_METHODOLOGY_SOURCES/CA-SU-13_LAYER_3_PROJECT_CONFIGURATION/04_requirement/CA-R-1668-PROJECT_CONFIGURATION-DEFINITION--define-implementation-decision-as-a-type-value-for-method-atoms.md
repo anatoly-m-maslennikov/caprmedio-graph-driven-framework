@@ -1,7 +1,6 @@
 ---
 subjects:
-  active: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type:
-    Eng Decision'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Eng Decision'
 version: 35
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

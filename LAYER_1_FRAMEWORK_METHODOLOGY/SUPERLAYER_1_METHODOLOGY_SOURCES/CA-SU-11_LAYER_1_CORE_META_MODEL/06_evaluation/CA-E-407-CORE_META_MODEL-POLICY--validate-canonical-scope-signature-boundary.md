@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
   passive:
-  - Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - 'Entity/Object/Continuant/Projection/Type: Canonical Scope Signature'
-  - Carrier/File
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Canonical Scope Signature'
+  - CAPRMEDIO <+ MODEL <+ Carrier/File
 version: 30
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

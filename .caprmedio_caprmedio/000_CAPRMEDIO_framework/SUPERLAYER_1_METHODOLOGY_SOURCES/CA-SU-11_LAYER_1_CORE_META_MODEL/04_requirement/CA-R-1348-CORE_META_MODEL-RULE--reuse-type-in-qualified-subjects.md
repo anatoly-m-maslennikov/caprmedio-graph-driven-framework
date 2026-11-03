@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Term//Type
+  active: CAPRMEDIO <+ MODEL <+ Term//Type
   passive:
-  - Entity
-  - Term
+  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO <+ MODEL <+ Term
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

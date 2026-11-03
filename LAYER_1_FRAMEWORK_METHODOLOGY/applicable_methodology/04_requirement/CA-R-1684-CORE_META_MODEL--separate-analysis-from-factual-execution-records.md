@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Journal
+  active: CAPRMEDIO <+ MODEL <+ Journal
 version: 29
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL--separate-analysis-from-factual-execution-records.md
   source_atom_id: CA-R-1684
   source_atom_revision: 29
-  source_sha256: ec7f690deff95d24fbfa3ebeaebe1b216b5868fcd7b5738375148f6be94cd66c
+  source_sha256: 8066a275bd28f4363e0a43ccb5100d8b4d7c7b0a5a7039671a5ef9941d9178a4
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

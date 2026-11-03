@@ -4,13 +4,17 @@ current_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 subjects:
-  active: CFEL <+ Relation//HAS_EXECUTION
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_EXECUTION
 relations: {}
-version: 4
-updated_at: 2026-11-02 08:06:47 +0400
+version: 5
+updated_at: 2026-11-03 20:00:05 +0400
 claim_target_scope_unit: CORE_META_MODEL
 role: Requirement
 form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 
@@ -18,22 +22,8 @@ Define HAS_EXECUTION Relation
 
 ## Claim
 
-HAS_EXECUTION is the declared derived inverse of IS_EXECUTION_OF; its full execution-binding meaning remains in CA-R-2245. No independently stored reverse fact is introduced.
+### Formal Claim
 
 ```CFEL
-((IS_EXECUTION_OF)) ((HAS_INVERSE)) ((HAS_EXECUTION));
-
-((HAS_EXECUTION)) >| Derivation == Derived;
-((HAS_EXECUTION)) ((IS_DERIVED_RELATION_OF)) ((IS_EXECUTION_OF));
-
-Workflow// ((HAS_EXECUTION)) $workflow_run
+Relation//HAS_EXECUTION <((HAS_INVERSE)) Relation//IS_EXECUTION_OF
 ```
-
-## Semantics
-
-
-
-The Host is the reusable Workflow and the Target is its actual Workflow Run.
-Forward `Host ((HAS_EXECUTION)) Target` and reverse `Target <((HAS_EXECUTION)) Host` are views of the same Relation fact.
-HAS_EXECUTION relates Workflow to Workflow Run. It is the derived inverse of IS_EXECUTION_OF; it does not add a separately authored fact.
-

@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Carrier/File.Filename
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Filename
   passive:
-  - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit'
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit'
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,7 +17,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-287-CORE_META_MODEL-ENG_DECISION--serialize-demand-type-and-producer-scope.md
   source_atom_id: CA-D-287
   source_atom_revision: 28
-  source_sha256: 51c6fdb4db5d5b5ff205a29e0dd8217906f8ebe3bf3101070bfeb0dfdcda5b65
+  source_sha256: b4031f5683b4de636b32c9290e63a17d9a5b085f6007343aefc537f03bedc06b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

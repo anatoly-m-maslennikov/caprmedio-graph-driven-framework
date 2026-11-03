@@ -21,7 +21,7 @@ author: Anatoly Maslennikov
 type: Action
 tier: 3
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-022-PROJECT_CONFIGURATION-ACTION--resolve-and-activate-operator-priorities.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-022-PROJECT_CONFIGURATION-ACTION--resolve-and-activate-operator-priorities.md
   source_atom_id: CA-O-022
   source_atom_revision: 21
   source_sha256: 7aa00d35c4a202ca7e1e63605515156580a34e7ef08b6440dd1aceac70489b23

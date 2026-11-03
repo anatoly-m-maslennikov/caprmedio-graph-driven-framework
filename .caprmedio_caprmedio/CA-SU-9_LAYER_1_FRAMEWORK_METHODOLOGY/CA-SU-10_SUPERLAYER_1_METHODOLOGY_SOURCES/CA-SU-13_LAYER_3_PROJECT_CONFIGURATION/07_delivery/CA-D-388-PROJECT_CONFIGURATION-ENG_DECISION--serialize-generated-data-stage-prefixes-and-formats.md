@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - Aspects <+ Engineering <+ Data Handling <+ Serialization
-  - Projection
-  - Carrier.Format
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Serialization
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Carrier.Format
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

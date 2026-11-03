@@ -4,9 +4,9 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - Journal
+  - CAPRMEDIO_MODEL <+ Journal
 version: 14
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

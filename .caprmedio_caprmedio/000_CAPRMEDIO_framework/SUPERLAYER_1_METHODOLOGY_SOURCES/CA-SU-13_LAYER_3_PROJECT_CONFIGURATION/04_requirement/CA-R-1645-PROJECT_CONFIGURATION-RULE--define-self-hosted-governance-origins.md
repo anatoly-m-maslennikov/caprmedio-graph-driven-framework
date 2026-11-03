@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Entity/Object/Continuant/Governing Objects/Atom.Governance Origin
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Governance Origin
   passive:
-  - Project
-  - Entity/Object/Continuant/Term//Artifact
-  - Aspects <+ Product
-  - Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Product
+  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 39
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

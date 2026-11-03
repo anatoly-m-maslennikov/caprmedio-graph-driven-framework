@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Carrier/File.Main Content
+  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
   passive:
-  - Carrier
-  - Journal
-  - Event Record
-  - Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Event Record
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
 version: 26
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-465-PROJECT_CONFIGURATION-EVAL_CASE--validate-replacement-event-schema-encoding.md
   source_atom_id: CA-E-465
   source_atom_revision: 26
-  source_sha256: 322b5ef33097a3ffdeb4ae87bae016c9822b8c78ab339a663080eaec2b64c39f
+  source_sha256: ec1bbb5eb5770b3176e9e04fef2848da6ec14e69b3eb4bdf89548629a0a4a43f
   original_relations_sha256: ab954123eb0e5c59cf4240bd5fc1eff515c3df6541497c0bfdef1e8385c68df3
 ---
 ## Summary

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom
+  active: CAPRMEDIO <+ MODEL <+ Atom
 version: 15
 updated_at: 2026-11-02 15:49:28 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md
   source_atom_id: CA-R-2102
   source_atom_revision: 15
-  source_sha256: 2e3e3185f80908c1fa089cfc9084d81caa734ae8379464e6d371996d00bd8dae
+  source_sha256: ef77c0779b34fcc1bf276760f8e11e86f78b48b8825b21c466be08a5d3590214
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

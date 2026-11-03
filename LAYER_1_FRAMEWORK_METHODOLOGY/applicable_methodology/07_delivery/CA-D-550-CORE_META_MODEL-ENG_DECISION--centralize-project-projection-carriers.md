@@ -4,16 +4,16 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: Carrier/Directory
+  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
   passive:
-  - Project
-  - Projection
-  - Carrier
-  - 'Entity/Object/Continuant/Projection/Type: Applicable Methodology'
-  - Journal
-  - Atom
-  - Scope Unit
-  - Project.Settings
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Project.Settings
 version: 20
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -24,7 +24,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL-ENG_DECISION--centralize-project-projection-carriers.md
   source_atom_id: CA-D-550
   source_atom_revision: 20
-  source_sha256: 53d95e074e03e66ffde6497e749297389ec538a10de750956053c644a3339692
+  source_sha256: 50a16baecd331c9b17877acb7d18b7980f0987fbdfe5be44a81e658e52597f60
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

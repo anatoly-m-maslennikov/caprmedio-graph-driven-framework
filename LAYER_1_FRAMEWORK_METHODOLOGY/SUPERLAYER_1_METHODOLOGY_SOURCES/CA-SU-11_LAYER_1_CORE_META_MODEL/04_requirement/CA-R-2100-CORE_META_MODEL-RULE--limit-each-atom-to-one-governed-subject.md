@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Atom.Subjects
+  active: CAPRMEDIO <+ MODEL <+ Atom.Subjects
   passive:
-  - CFEL > Relation//GOVERNS
+  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//GOVERNS
 atom_id: CA-R-2100
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

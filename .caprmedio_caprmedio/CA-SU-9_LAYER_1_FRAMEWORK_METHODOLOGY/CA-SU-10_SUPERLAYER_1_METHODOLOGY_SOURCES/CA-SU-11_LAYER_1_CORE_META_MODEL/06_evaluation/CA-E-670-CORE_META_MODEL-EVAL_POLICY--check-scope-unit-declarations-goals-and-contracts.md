@@ -3,7 +3,7 @@ atom_id: CA-E-670
 form: Eval Policy
 status: Active
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
 version: 1
 relations: {}
 tier: 3

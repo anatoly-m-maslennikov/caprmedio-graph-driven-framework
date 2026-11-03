@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Projection/(.Form:=Catalog)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)
 version: 33
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}

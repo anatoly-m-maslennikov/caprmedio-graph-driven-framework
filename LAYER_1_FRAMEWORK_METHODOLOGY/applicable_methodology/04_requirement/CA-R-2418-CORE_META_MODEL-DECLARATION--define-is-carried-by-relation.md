@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 subjects:
-  active: CFEL <+ Relation//IS_CARRIED_BY
+  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_CARRIED_BY
 relations: {}
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2418-CORE_META_MODEL-DECLARATION--define-is-carried-by-relation.md
   source_atom_id: CA-R-2418
   source_atom_revision: 4
-  source_sha256: ca0aefc680cb06e7336e369848409ffff7879e83d41554e844398809b7ae9627
+  source_sha256: 3f187b8172b8d400aa205af6090fc56da0afec7d407662c3377a2d6cfbaac613
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

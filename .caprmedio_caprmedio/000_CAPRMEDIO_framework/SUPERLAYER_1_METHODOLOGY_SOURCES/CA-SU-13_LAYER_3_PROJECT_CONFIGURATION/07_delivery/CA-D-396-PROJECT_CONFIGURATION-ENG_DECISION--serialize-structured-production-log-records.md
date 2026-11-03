@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: Carrier
+  active: CAPRMEDIO <+ MODEL <+ Carrier
   passive:
-  - Aspects <+ Engineering <+ Observability <+ Logging
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

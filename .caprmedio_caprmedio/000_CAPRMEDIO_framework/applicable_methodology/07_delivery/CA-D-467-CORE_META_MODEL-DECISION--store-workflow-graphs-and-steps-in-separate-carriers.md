@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
   passive:
-  - Carrier/Directory
-  - Carrier
-  - Atom/(.Role:=Operations)/Workflow
-  - Atom/(.Role := Operations)/Step
+  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
+  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
+  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Step
 version: 28
 updated_at: 2026-11-02 17:54:42 +0400
 relations:
@@ -20,10 +20,10 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md
   source_atom_id: CA-D-467
   source_atom_revision: 28
-  source_sha256: d069d751018b1a8986e2a70f842ad97d82fedce4e5752a5ffc066786a47b25cf
+  source_sha256: ede897a3fcd79d0f1ccb07c9011b1c6fcb4fcb10272146b405d520d7b1610e69
   original_relations_sha256: d0044d401c04912541104905ec20e3fe8aa446a6e50f04a28e8754696dfdaf01
 ---
 ## Summary

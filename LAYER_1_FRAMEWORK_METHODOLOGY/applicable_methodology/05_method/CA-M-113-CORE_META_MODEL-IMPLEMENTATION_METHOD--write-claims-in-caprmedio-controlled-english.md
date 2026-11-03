@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Aspects <+ Engineering <+ Authoring <+ Controlled English
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   passive:
-  - Actor
-  - Atom.Content
+  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO <+ MODEL <+ Atom.Content
 version: 42
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-claims-in-caprmedio-controlled-english.md
   source_atom_id: CA-M-113
   source_atom_revision: 42
-  source_sha256: adf9498a75ca0d3b9e84755405c413964f9c8622b76280402d563ddb72c3da62
+  source_sha256: 65ba8f7c3f0ae0e8dcaedf5a23020b9fb8dfcbc206e35aa9d0c11143a319ed73
   original_relations_sha256: 2701bc866cb6ded663ce6728ada8d5991d372b20fe3d8b0d795cc53ee044986b
 ---
 ## Summary

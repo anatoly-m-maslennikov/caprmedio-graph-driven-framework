@@ -6,12 +6,12 @@ status: Active
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: CFEL <+ Relation//CARRIES
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//CARRIES
   passive:
-  - Entity
-  - Term//Property
-  - Carrier
-  - CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 relations: {}
 tier: 1
 role: Delivery

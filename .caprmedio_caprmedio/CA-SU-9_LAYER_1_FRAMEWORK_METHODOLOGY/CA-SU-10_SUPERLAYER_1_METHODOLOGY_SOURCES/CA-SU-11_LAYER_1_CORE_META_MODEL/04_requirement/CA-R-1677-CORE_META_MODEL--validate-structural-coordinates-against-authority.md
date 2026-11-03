@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
 version: 35
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

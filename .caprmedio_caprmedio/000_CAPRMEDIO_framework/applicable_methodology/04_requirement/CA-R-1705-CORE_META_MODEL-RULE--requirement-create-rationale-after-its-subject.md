@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Atom/(.Role := "Analysis & Advisory")/(.Form := Rationale)
+  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := Rationale)
 version: 33
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -14,10 +14,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-RULE--requirement-create-rationale-after-its-subject.md
   source_atom_id: CA-R-1705
   source_atom_revision: 33
-  source_sha256: a88f1cc5c9d3217a4aa8ead245f55778795a0ee1337be8eb510b315fa82b818e
+  source_sha256: c3c775e3e61b0bb60877513240e605d5753286d5f0d11e71962800b124adf77c
   original_relations_sha256: 86f48d79fbbfe66ffab2b0bb686a446bbbe206535c96d6e0d3b25f21670f9677
 ---
 ## Summary

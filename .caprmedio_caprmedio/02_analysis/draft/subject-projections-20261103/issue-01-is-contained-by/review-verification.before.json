@@ -1,0 +1,42 @@
+{
+  "reviewed_at": "2026-11-03T15:39:30+04:00",
+  "status": "MODEL_SCOPE_REVIEW_COMPLETE_ISSUES_FOUND",
+  "scope": "MODEL entities, relations, classifications, inheritance and declared Property contracts",
+  "excluded": [
+    "concrete Atom instances and their Property values",
+    "carrier serialization",
+    "project STRUCTURE instances",
+    "bulk instance metadata migration",
+    "runtime conformance"
+  ],
+  "supersedes_review_report_sha256": "d832a6c10fd8069f0b1e3f43470f3016666f09ffeca86b6e26513b6ca8230d87",
+  "review_report": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/review-issues.md",
+  "review_report_sha256": "532d4199e3e4d30911b1f50139e4272c7cfcdb084bd2bb2110d783b86d735470",
+  "evidence_selection_sources": 1132,
+  "selected_exact_declarations": 176,
+  "selection_counts_are_model_only": false,
+  "frontier_sha256": "c1b4672814485bb01ef1f8ac2456b0d298a7d9fe703b9af7fcd22497572cb636",
+  "generation_manifest_sha256": "9c82b851ca23a1175e64437f9ca13b4cff54c7b834c973a87943a77d6b2af46d",
+  "source_hash_mismatches": [],
+  "projection_hash_mismatches": [],
+  "model_issue_groups": [
+    "SP-01",
+    "SP-02",
+    "SP-03"
+  ],
+  "model_projection_issue_groups": [
+    "SP-04",
+    "SP-05"
+  ],
+  "withdrawn_prior_issue_groups": [
+    "SP-06"
+  ],
+  "outside_selection_evidence": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2687-CORE_META_MODEL-DECLARATION--declare-scope-unit-order.md",
+      "sha256": "526f1b55855dfa2714113a3b3587593f4747bba72e1b1949b60ac4f42b1b3456"
+    }
+  ],
+  "source_or_implementation_changes": false,
+  "instance_or_runtime_checked": false
+}

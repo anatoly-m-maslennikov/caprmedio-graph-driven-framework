@@ -5,11 +5,11 @@ relations:
   child_of:
   - CA-M-447
 subjects:
-  active: Project
+  active: CAPRMEDIO <+ MODEL <+ Project
   passive:
-  - Project
-  - Atom.Tier
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO <+ MODEL <+ Atom.Tier
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
 atom_id: CA-R-2426
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2426-CORE_META_MODEL-RULE--preserve-project-wide-foundational-invariants.md
   source_atom_id: CA-R-2426
   source_atom_revision: 3
-  source_sha256: 972918a7952b767890d907b71e9f1a6299b3e238c73422869eed394ae46a51c7
+  source_sha256: 13e98dd6a0c1d5ba3d95e1fc99eb1690bc56c453bf32e3b9527b80b89ea11a5f
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

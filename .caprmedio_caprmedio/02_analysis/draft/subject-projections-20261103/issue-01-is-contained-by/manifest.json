@@ -1,0 +1,97 @@
+{
+  "status": "APPLIED_VERIFIED",
+  "decision": "Use IS_CONTAINED_BY throughout MODEL instead of contained_by",
+  "model_declarations": [
+    "CA-R-2490",
+    "CA-R-2491",
+    "CA-R-2492",
+    "CA-R-2511",
+    "CA-R-2520"
+  ],
+  "reference_document": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md",
+  "changes": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2490-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by.md",
+      "replacement_count": 4,
+      "before_sha256": "3b7b716b5a9a27c4d364fad1012b5c683ea0e953601aff3d47ee16b40d1fa65f",
+      "after_sha256": "ee1c90f5391d52b8b2d9e2a9b5470aedc28323fea3c593708bc3cbdbff39ce64"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2491-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-atom.md",
+      "replacement_count": 4,
+      "before_sha256": "8bc7b86f1bd1440db03de23f7f3035257563dc247cee47772b53e05feaa7fe01",
+      "after_sha256": "3c5a116fc383bca5cfae12f43b140c74f2f80b377d3091840602ba242450f417"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2492-CORE_META_MODEL-DECLARATION--declare-atom-relations-contained-by-scope-unit.md",
+      "replacement_count": 4,
+      "before_sha256": "726226946b071c9da58b133ecc3ee364bb547c3e0b8d97c3b4deb8d80cf55ef2",
+      "after_sha256": "5328bfc87232b329268a637548def15f7771fae6411c4417d093f36d812d982b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "replacement_count": 1,
+      "before_sha256": "1174658161330991919f8306661b1faf5b18ea0a611fc0fb0792d6ada2eae8e3",
+      "after_sha256": "3f4947227ff97f2a3bedb9784c77c6c46db2cb5a1e7bc74745b3eceff11f0224"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2520-CORE_META_MODEL-DECLARATION--declare-plan-work-sequence-number.md",
+      "replacement_count": 4,
+      "before_sha256": "b034afc0b8c2eb478a65677f3e03360ecc4e9e95d8b4a74a6b3ceb43eb9db527",
+      "after_sha256": "92c99f0e07aeda10b19299d52e3f5ac6d917457b9dc6620a3618a2f6fd5f7817"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md",
+      "replacement_count": 3,
+      "before_sha256": "6bae15e374499408b77e8621de607339c2cf73f873596802966a194ca0658abb",
+      "after_sha256": "191fbb7f74bc02de6894105e6500804682c0480b13d8deb4a4de0dc9cd606fb6"
+    }
+  ],
+  "total_replacements": 20,
+  "exclusions": [
+    "concrete Atom instances and stored relation values",
+    "carrier filenames and paths",
+    "D662 carrier YAML key mapping",
+    "runtime and installed copies",
+    "archived historical sources",
+    "unrelated model issues"
+  ],
+  "verification": {
+    "reference_census": "five canonical Current MODEL Declarations; no matching direct Core RMED Drafts",
+    "in_memory_model_check": "approved Property paths; no coverage gaps, duplicate Declarations or inheritance diagnostics",
+    "source_mutation_performed": true,
+    "after_hash_matches": 6,
+    "source_content_replacements": 17,
+    "proposal_label_replacements": 3,
+    "independent_model_check": "PASS: parsed paths, inherited properties and canonical Relation name; no coverage gaps, duplicate Declarations or inheritance diagnostics",
+    "model_source_after_hashes_match": 5,
+    "proposal_after_hash_matches": true,
+    "identity_version_timestamp_metadata_preserved": true,
+    "exact_renamed_property_paths": 3,
+    "inherited_plan_properties_verified": true,
+    "canonical_relation_binding": "Relation//IS_CONTAINED_BY",
+    "coverage_gaps": 0,
+    "duplicate_declarations": 0,
+    "inheritance_diagnostics": 0,
+    "published_views": 7,
+    "selected_source_hashes_verified": 1132,
+    "projection_hashes_match": true,
+    "staged_and_published_match": true,
+    "old_six_projections_unchanged": true,
+    "applicable_formal_blocks_verbatim": 107,
+    "lowercase_model_tokens_in_new_views": 0,
+    "carrier_mapping_D662_unchanged": true,
+    "operator_manual_override": true
+  },
+  "mcp_blocker": {
+    "operation": "get_execution_context",
+    "id": "CA-O-104",
+    "context_complete": false,
+    "message": "binding evidence invalid: correct bindings, then re-preview selected routes"
+  },
+  "patch_sha256": "5b35c1a12ad62aaf08331067f406fbf9b29a72b8799d13575700aadda8dee5b8",
+  "applied_at": "2026-11-03T17:05:03+04:00",
+  "authorization": "Explicit Operator approval: Apply the patch manually (Recommended)",
+  "new_projection_frontier": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/issue-01-is-contained-by/current-source-frontier.json",
+  "verification_receipt": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/issue-01-is-contained-by/verification.json"
+}

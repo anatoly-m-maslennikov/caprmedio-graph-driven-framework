@@ -3,9 +3,9 @@ atom_id: CA-D-666
 form: Policy
 status: Active
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
   passive:
-  - Carrier
+  - CAPRMEDIO <+ MODEL <+ Carrier
 version: 1
 relations: {}
 tier: 3
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-666-CORE_META_MODEL-POLICY--carry-scope-unit-declarations-as-governing-atoms.md
   source_atom_id: CA-D-666
   source_atom_revision: 1
-  source_sha256: 4c302c4b4d8de43faea2922a48f730a700ed882e4ae9ac379ae351bc75f15f47
+  source_sha256: 69b3e609510c3848583b4e62ca05d464a00a40969434ac1c185b1f576011e0a0
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

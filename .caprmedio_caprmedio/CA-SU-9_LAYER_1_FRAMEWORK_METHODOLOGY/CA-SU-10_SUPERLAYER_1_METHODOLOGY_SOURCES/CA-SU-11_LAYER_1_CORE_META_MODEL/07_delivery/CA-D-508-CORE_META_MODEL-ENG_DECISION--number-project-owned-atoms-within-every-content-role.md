@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: Atom.ID
+  active: CAPRMEDIO_MODEL <+ Atom.ID
   passive:
-  - Atom
-  - Project
-  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
 version: 19
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

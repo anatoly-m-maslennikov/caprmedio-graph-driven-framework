@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: Entity
+  active: CAPRMEDIO <+ MODEL <+ Entity
   passive:
-  - 'Entity/Object/Continuant/Projection/(.Type: Applicable Methodology)'
-  - Scope Unit
-  - Term//Type
-  - CFEL
-  - Entity/Property
+  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Applicable Methodology)'
+  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO <+ MODEL <+ Term//Type
+  - CAPRMEDIO <+ MODEL <+ CFEL
+  - CAPRMEDIO <+ MODEL <+ Entity/Property
 version: 27
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -18,10 +18,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md
   source_atom_id: CA-R-1284
   source_atom_revision: 27
-  source_sha256: 80eb385f0e4c919ad7273544049cb28b144909fe57cd28cb52adf52db0858b88
+  source_sha256: 8bb9cac40eecedf3b9abca9c9a15c0f051ab3814ff4e0f5dae4abbc2ed735030
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection.Form
+  active: CAPRMEDIO <+ MODEL <+ Projection.Form
   passive:
-  - Entity/Object/Continuant/Term//Artifact
-  - Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
 version: 26
 updated_at: 2026-11-02 08:06:47 +0400
 relations:

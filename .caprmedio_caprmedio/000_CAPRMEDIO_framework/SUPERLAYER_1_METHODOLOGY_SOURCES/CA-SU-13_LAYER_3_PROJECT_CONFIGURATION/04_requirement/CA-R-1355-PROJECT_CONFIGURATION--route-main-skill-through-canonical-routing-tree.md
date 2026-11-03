@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Aspects <+ UX <+ Discovery and Navigation
+  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ UX <+ Discovery and Navigation
   passive:
-  - Aspects <+ UX <+ Entry
-  - Aspects <+ Engineering
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ UX <+ Entry
+  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering
 version: 24
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

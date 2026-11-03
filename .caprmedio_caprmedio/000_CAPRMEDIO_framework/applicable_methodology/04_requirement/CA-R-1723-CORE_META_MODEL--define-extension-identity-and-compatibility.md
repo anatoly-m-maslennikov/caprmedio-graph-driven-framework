@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: Scope Unit
+  active: CAPRMEDIO <+ MODEL <+ Scope Unit
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -14,10 +14,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL--define-extension-identity-and-compatibility.md
+  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL--define-extension-identity-and-compatibility.md
   source_atom_id: CA-R-1723
   source_atom_revision: 27
-  source_sha256: 3caa9ac23f749da95fd128ddbfb099f99e521670ae103568393faf1890efee99
+  source_sha256: 87ac5950f107b0c63948fa586130376c69338282b57d9035e8b97b7451d8ca75
   original_relations_sha256: 8327a76c4677fbf6f789f0eeef5664eceee4476461b9e24d43ba3761b4ae6458
 ---
 ## Summary

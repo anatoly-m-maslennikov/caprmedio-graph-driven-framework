@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: Projection.Form
+  active: CAPRMEDIO <+ MODEL <+ Projection.Form
   passive:
-  - Entity/Object/Continuant/Term//Artifact
-  - Atom.ID
+  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO <+ MODEL <+ Atom.ID
 version: 26
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -20,7 +20,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-397-PROJECT_CONFIGURATION-DECISION--register-caprmedio-type-prefixes.md
   source_atom_id: CA-D-397
   source_atom_revision: 26
-  source_sha256: a5d902d4d0c9a3344623be7ba68b6d0e25301fd49de9b66b044cd7987639095e
+  source_sha256: 9b68c0f31b771cb580ae57a09d22abf8c67b81ef92afd3415b25d1fd19384972
   original_relations_sha256: a6d638134d69fe971d3bde80c3f62222f7ca0d2ff91362d9992fd7b5263e9c8d
 ---
 ## Summary

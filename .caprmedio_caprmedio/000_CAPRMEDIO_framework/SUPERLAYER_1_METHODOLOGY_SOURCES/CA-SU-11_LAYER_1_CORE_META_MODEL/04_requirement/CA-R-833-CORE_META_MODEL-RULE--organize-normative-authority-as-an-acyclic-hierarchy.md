@@ -5,9 +5,9 @@ relations:
   child_of:
   - CA-R-1407
 subjects:
-  active: Entity/Object/Continuant/Selection
+  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - Project
+  - CAPRMEDIO <+ MODEL <+ Project
 atom_id: CA-R-833
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

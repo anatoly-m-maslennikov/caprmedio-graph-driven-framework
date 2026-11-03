@@ -1,0 +1,28 @@
+---
+subjects:
+  active: Term
+  passive:
+  - 'Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
+  - CFEL <+ Relation//NARROWER_THAN
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1347
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Define Root Term
+
+## Claim scope
+
+Terms in the Terms Graph.
+
+## Claim
+
+a Root Term **means** a Term with **`=0`** direct NARROWER_THAN parents **in** the Terms Graph.

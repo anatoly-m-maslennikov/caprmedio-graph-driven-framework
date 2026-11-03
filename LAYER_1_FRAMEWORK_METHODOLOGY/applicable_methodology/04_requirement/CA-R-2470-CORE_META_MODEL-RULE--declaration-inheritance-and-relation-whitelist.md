@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: (Node, Node/**, .**)
+  active: CAPRMEDIO <+ MODEL <+ (Node, Node/**, .**)
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,7 +15,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2470-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md
   source_atom_id: CA-R-2470
   source_atom_revision: 2
-  source_sha256: f745229e672dd0effaa6d9926f0a48aa7dd2d5a41a7144649863de2970a43d9a
+  source_sha256: aa023562b77c427b4129ac35142202bfc98a9c73ffdc35be571946c42ea71362
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
