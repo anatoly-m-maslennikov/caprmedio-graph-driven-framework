@@ -10,13 +10,36 @@ sys.path.insert(0, str(TOOLS))
 
 from subject_notation import (  # noqa: E402
     DeclaredReference, GrammarPin, InitialAtomSelector, Name, Path,
-    Qualification, RelationChain, Span, SubjectNotationError, ValueLiteral,
+    Qualification, RelationChain, SelectionGroup, SelectionSuffix, Span, SubjectNotationError, ValueLiteral,
     get_profile, parse_initial_atom_selector, parse_subject,
     namespace_local_expression, parse_subject_expression, profile_evidence, render_subject,
 )
 
 
 class SubjectNotationTest(unittest.TestCase):
+    def test_selection_groups_preserve_members_and_roundtrip(self) -> None:
+        for text, expected in (
+            ('CAPRMEDIO <+ MODEL <+ (Node, Node.**)', 'CAPRMEDIO <+ MODEL <+ (Node,Node.**)'),
+            ('CAPRMEDIO <+ MODEL <+ (Node//,(Node//).**)', 'CAPRMEDIO <+ MODEL <+ (Node//,(Node//).**)'),
+            ('((Node,Node.**),Other)', '((Node,Node.**),Other)'),
+        ):
+            with self.subTest(text=text):
+                expression = parse_subject_expression(text).expression
+                self.assertEqual(render_subject(expression), expected)
+                self.assertEqual(render_subject(parse_subject_expression(expected)), expected)
+                local = namespace_local_expression(expression) or expression
+                self.assertIsInstance(local.head, SelectionGroup)
+                self.assertEqual(len(local.head.members), 2)
+        group = parse_subject_expression('(Node,Node.**)').expression.head
+        self.assertIsInstance(group.members[1].steps[0].operand, SelectionSuffix)
+        for invalid in ('()', '(,Node)', '(Node,)', '(Node,,Other)', '(Node,Node/**,.**)'):
+            with self.subTest(invalid=invalid), self.assertRaises(SubjectNotationError):
+                parse_subject_expression(invalid)
+        for text in ('(' * 65 + 'Node' + ')' * 65, 'N' * 16385):
+            with self.assertRaises(SubjectNotationError) as caught:
+                parse_subject_expression(text)
+            self.assertEqual(caught.exception.code, 'subject-limit')
+
     def test_inverse_binding_keeps_distinct_relation_endpoints(self) -> None:
         source = 'Relation//NARROWER_THAN <--> Relation//BROADER_THAN'
         expression = parse_subject_expression(source).expression

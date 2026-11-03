@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

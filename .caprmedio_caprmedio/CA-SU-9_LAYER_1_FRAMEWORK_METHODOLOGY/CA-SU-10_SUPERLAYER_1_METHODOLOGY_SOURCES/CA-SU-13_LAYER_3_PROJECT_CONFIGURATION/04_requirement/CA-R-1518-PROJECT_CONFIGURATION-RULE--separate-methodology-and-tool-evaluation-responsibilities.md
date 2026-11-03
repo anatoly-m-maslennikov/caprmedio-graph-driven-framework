@@ -10,7 +10,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Package
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
-  - CAPRMEDIO_MODEL <+ CFEL > Relation//evaluation_for
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//evaluation_for
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

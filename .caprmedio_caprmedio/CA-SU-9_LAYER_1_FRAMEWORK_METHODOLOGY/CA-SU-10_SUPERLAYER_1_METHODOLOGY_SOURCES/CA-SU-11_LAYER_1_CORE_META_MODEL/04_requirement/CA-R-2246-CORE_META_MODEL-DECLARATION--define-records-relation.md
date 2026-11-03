@@ -6,7 +6,7 @@ status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//RECORDS
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
 version: 8
 relations: {}

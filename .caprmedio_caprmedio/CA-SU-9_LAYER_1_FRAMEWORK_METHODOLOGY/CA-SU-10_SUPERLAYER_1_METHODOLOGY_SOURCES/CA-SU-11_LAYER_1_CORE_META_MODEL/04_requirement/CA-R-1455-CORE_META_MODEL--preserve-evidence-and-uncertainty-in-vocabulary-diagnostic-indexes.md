@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Catalog)'
+  active: 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)'
   passive:
   - CAPRMEDIO_MODEL <+ Term
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Requirement)/(.Header.Form: Entity Definition)'

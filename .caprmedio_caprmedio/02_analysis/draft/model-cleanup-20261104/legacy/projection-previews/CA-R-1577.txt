@@ -1,0 +1,31 @@
+---
+subjects:
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
+  passive:
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
+  - 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)'
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1577
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Define Plan authoring Subtypes
+
+## Claim
+
+### Prose Claim
+
+
+Plan authoring Subtypes.
+
+
+a Plan Subtype **means** an explicitly governed specialization of Plan authoring rules; a Label **must not** imply that specialization **without** its own applicable authority.

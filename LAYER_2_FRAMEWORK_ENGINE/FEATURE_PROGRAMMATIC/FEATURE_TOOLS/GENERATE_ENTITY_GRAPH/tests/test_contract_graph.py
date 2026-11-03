@@ -113,7 +113,7 @@ class ContractGraphTests(unittest.TestCase):
             carrier("CA-R-4", "CAPRMEDIO_MODEL <+ Atom.Header.Form", body("Form.")),
             carrier("CA-R-5", "CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Requirement)", body("Role rule."), form="Rule"),
             carrier("CA-R-6", "CAPRMEDIO_MODEL <+ Atom/(.Header.Form:=Declaration)", body("Form rule."), form="Rule"),
-            carrier("CA-R-7", "CAPRMEDIO_MODEL <+ (Node, Node/**, .**)", body("Scope."), form="Rule"),
+            carrier("CA-R-7", "CAPRMEDIO_MODEL <+ (Node, Node.**)", body("Scope."), form="Rule"),
             carrier("CA-R-8", "CAPRMEDIO_MODEL <+ Node", body("Node.")),
             carrier("CA-R-9", "CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Requirement)/(.Header.Form:=Declaration)", body("Combined rule."), form="Rule"),
             carrier("CA-R-10", "CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Declaration)", body("Combined colon rule."), form="Rule"),
@@ -127,7 +127,8 @@ class ContractGraphTests(unittest.TestCase):
         combined = next(row for row in rows["Atom"]["shared"] if row["source"]["atom_id"] == "CA-R-9")
         self.assertEqual(["Atom.Header.Role", "Atom.Header.Form"], combined["binding_context"]["properties"])
         self.assertEqual("CA-R-12", rows["Atom.Content.Claim"]["shared"][0]["source"]["atom_id"])
-        self.assertEqual("model_applicability_scope", rows["Node"]["shared"][0]["binding"])
+        self.assertEqual([], rows["Node"]["shared"])
+        self.assertIn("complex selection scope", graph["coverage_gaps"][0]["message"])
 
     def test_named_claim_children_keep_prose_markdown_and_only_extract_formal_cfel(self):
         graph = compose_contract_graph([
@@ -374,8 +375,8 @@ Actual root detail.
                     body("Project rule."), form="Rule"),
             carrier("CA-R-11", "CAPRMEDIO <+ MODEL <+ Projection", body("Projection declaration.")),
             carrier("CA-R-12", "CAPRMEDIO <+ MODEL <+ Named Selection", body("Selection declaration.")),
-            carrier("CA-R-13", "CAPRMEDIO <+ MODEL <+ (Node, Node/**, .**)", body("Node scope."), form="Rule"),
-            carrier("CA-R-14", "CAPRMEDIO <+ MODEL <+ (Node, Node/**, .**)", body("Node scope."), form="Rule"),
+            carrier("CA-R-13", "CAPRMEDIO <+ MODEL <+ (Node, Node.**)", body("Node scope."), form="Rule"),
+            carrier("CA-R-14", "CAPRMEDIO <+ MODEL <+ (Node, Node.**)", body("Node scope."), form="Rule"),
             carrier("CA-R-15", "CAPRMEDIO <+ STRUCTURE <+ Projection//PROJECT_SCOPE_UNIT_GRAPH",
                     body("Projection context."), form="Rule"),
             carrier("CA-R-16", "CAPRMEDIO <+ STRUCTURE <+ Projection//PROJECT_SCOPE_UNIT_GRAPH",
@@ -397,11 +398,11 @@ Actual root detail.
         self.assertEqual("depends_on", relations["depends_on"]["target"])
         self.assertEqual("CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//depends_on",
                          relations["depends_on"]["shared"][0]["subject"])
-        self.assertEqual(3, len(entities["Node"]["shared"]))
+        self.assertEqual(1, len(entities["Node"]["shared"]))
         self.assertEqual(2, len(entities["Projection"]["shared"]))
         self.assertEqual("known_instance_context", entities["Projection"]["shared"][0]["binding"])
         self.assertEqual("known_instance_context", entities["Named Selection"]["shared"][0]["binding"])
-        self.assertEqual(0, graph["coverage"]["coverage_gaps"])
+        self.assertEqual(2, graph["coverage"]["coverage_gaps"])
 
     def test_claim_scope_and_details_are_source_bound_context_before_claim(self):
         graph = compose_contract_graph([

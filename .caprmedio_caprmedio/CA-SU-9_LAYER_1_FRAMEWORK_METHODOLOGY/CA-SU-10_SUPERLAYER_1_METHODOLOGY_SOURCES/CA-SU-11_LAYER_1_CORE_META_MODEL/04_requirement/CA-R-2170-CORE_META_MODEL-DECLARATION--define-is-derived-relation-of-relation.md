@@ -6,7 +6,7 @@ status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_DERIVED_RELATION_OF
   passive:
-  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 10
 updated_at: 2026-11-03 20:00:05 +0400
 relations: {}

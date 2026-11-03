@@ -2,12 +2,12 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
   passive:
-  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Atom.Content
-version: 37
-updated_at: 2026-11-03 20:00:05 +0400
+version: 38
+updated_at: 2026-11-04 03:22:03 +0400
 relations:
   depends_on:
   - CA-R-1275
@@ -44,8 +44,8 @@ Atom//$atom ((GOVERNS)) $governed_subject
 #### Applicability
 the GOVERNS Subject Relation Kind.
 
-GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canonical Subject graph node about which the Atom governs through its applicable role-specific content.
+GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canonical Subject entity or instance about which the Atom governs through its applicable role-specific content.
 
 The Target is the canonical Subject about which the Atom governs through its applicable content.
 Forward `Host ((GOVERNS)) Target` and reverse `Target <((GOVERNS)) Host` are views of the same Relation fact.
-GOVERNS relates Atom to canonical Subject graph node.
+GOVERNS relates Atom to canonical Subject entity or instance.

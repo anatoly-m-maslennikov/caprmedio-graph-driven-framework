@@ -5,7 +5,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Carrier/File
-  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

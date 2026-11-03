@@ -37,6 +37,21 @@ def carrier(
 
 
 class EnhancedCurrentGraphTests(unittest.TestCase):
+    def test_selection_scopes_do_not_emit_entities_or_declarations(self) -> None:
+        values = ("Node.**", "Node//", "@(Node.**)", "CAPRMEDIO <+ MODEL <+ (Node,Node.**)")
+        carriers = [carrier(f"CA-R-{i}", {"active": value, "passive": []}, declaration=True)
+                    for i, value in enumerate(values, 1)]
+        graph, provenance = compose_enhanced_current_graph(carriers)
+        self.assertEqual([], graph["nodes"])
+        self.assertEqual([], graph["edges"])
+        self.assertEqual(4, len(graph["diagnostics"]))
+        self.assertEqual(4, len(provenance["occurrences"]))
+        for category in ("primary_nodes", "properties", "instances"):
+            self.assertEqual([], graph["model"][category])
+        for value in values:
+            with self.assertRaisesRegex(ValueError, "Complex Subject selection"):
+                subject_facts(value)
+
     def test_model_binder_is_opaque_and_population_count_applies_to_selection(self) -> None:
         block = '''# model
 IF $model_node in (Node, Node.**) THEN (

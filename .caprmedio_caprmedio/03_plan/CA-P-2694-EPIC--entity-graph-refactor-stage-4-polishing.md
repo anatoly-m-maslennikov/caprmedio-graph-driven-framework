@@ -5,8 +5,8 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
 tier: 3
-version: 52
-updated_at: 2026-11-04 00:31:42 +0400
+version: 53
+updated_at: 2026-11-04 03:41:53 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations: {}
@@ -106,3 +106,14 @@ The reviewed packet applies 89 revisions and 19 retirements. The declaring Relat
 - The projection audit retains 74 uncovered Subject expressions and 51 unresolved expressions for review. P2707 keeps its existing Engine verification scope.
 
 [Continuation report](../02_analysis/draft/model-completeness-audit-20261103/implementation/report.md). The Epic remains Active; this does not claim a release or complete semantic evaluation.
+
+## Parallel MODEL cleanup — 2026-11-04
+
+- Four lanes reviewed legacy Subjects/Claims, syntax, 88 Property declarations and 41 Relations.
+- Applied 107 clear source repairs: 104 mechanical changes and three revisions with exact predecessor archives.
+- Fixed selector parsing and kept selectors separate from graph entities. Recognized Method/Term Definition lexical authority.
+- Rebuilt seven MODEL projections from 1,151 pinned suppliers. The audit now reports 64 uncovered and 26 unresolved expressions, down from 74/51.
+- 415 graph tests, 14 notation tests, four merge tests and independent preservation checks pass.
+- Hold Property presence defaults, outgoing permission bounds, old Projection job/Form mapping and omitted execution-kind decisions. The first user question is pending.
+
+[Cleanup report](../02_analysis/draft/model-cleanup-20261104/REPORT.md). The Epic remains Active.

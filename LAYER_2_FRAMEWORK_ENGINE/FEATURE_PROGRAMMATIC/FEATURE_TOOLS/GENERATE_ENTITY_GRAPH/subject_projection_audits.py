@@ -10,7 +10,7 @@ from typing import Any
 
 import subject_notation as notation
 from carrier_aliases import carrier_read_view
-from contract_graph import _conditional_target, _target as _contract_target
+from contract_graph import _conditional_target, _has_selection, _target as _contract_target
 from current_subject_graph import _model_target, _target_kind, namespace_local_expression
 from subject_projection_data import build_subject_projection_data
 
@@ -46,20 +46,29 @@ def _scope_subject(value: str) -> str:
     if namespace == "CAPRMEDIO_STRUCTURE":
         return "structure"
     if namespace != "CAPRMEDIO_MODEL":
-        if isinstance(expression, notation.Path) and isinstance(expression.head, notation.Name) and expression.head.value == "CAPRMEDIO_MODEL" and not expression.steps:
-            return "model"
+        if isinstance(expression, notation.Path) and isinstance(expression.head, notation.Name) and not expression.steps:
+            if expression.head.value == "CAPRMEDIO_MODEL":
+                return "model"
+            if expression.head.value == "CAPRMEDIO_STRUCTURE":
+                return "structure"
         return "unresolved"
 
-    def has_concrete_instance(expr: notation.Path | notation.RelationChain) -> bool:
+    def has_concrete_instance(expr: object) -> bool:
+        if isinstance(expr, notation.SelectionGroup):
+            return any(has_concrete_instance(member) for member in expr.members)
+        if isinstance(expr, notation.Qualification):
+            return has_concrete_instance(expr.relative_path)
         if isinstance(expr, notation.RelationChain):
             return any(has_concrete_instance(endpoint) for endpoint in expr.endpoints)
-        if isinstance(expr.head, (notation.Path, notation.RelationChain)) and has_concrete_instance(expr.head):
+        if not isinstance(expr, notation.Path):
+            return False
+        if has_concrete_instance(expr.head):
             return True
         prior = expr.head.value if isinstance(expr.head, notation.Name) else None
         for step in expr.steps:
             if step.operator == "//" and prior not in _MODEL_DESCRIPTORS:
                 return True
-            if isinstance(step.operand, (notation.Path, notation.RelationChain)) and has_concrete_instance(step.operand):
+            if has_concrete_instance(step.operand):
                 return True
             if isinstance(step.operand, notation.Name):
                 prior = step.operand.value
@@ -172,6 +181,8 @@ def _local_target(subject: str) -> tuple[str, str] | None:
 
     expression = notation.parse_subject_expression(subject, subject_profile="approved").expression
     expression = namespace_local_expression(expression) or expression
+    if _has_selection(expression):
+        return None
     if (isinstance(expression, notation.Path) and isinstance(expression.head, notation.Name)
             and expression.head.value in {"CAPRMEDIO_MODEL", "CAPRMEDIO_STRUCTURE"} and not expression.steps):
         return None
@@ -236,6 +247,40 @@ def _entity_definitions(carriers: list[Record]) -> dict[str, list[Record]]:
     return rows
 
 
+def _term_identity(subject: str) -> str | None:
+    expression = notation.parse_subject_expression(subject, subject_profile="approved").expression
+    expression = namespace_local_expression(expression) or expression
+    if (not isinstance(expression, notation.Path) or not isinstance(expression.head, notation.Name)
+            or expression.head.value != "Term" or len(expression.steps) != 1
+            or expression.steps[0].operator != "//" or not isinstance(expression.steps[0].operand, notation.Name)
+            or expression.value_format is not None or expression.value_cardinality is not None):
+        return None
+    return notation.render_subject(expression)
+
+
+def _term_definitions(carriers: list[Record]) -> dict[str, list[Record]]:
+    rows: dict[str, list[Record]] = defaultdict(list)
+    for carrier in carriers:
+        view = _view(carrier)
+        if (view.get("content_role") != "Method" or view.get("type") != "Term Definition"
+                or not str(_source(carrier).get("atom_id", "")).startswith("CA-M-")):
+            continue
+        subjects = _authored_subjects(carrier)
+        if subjects is None:
+            continue
+        values = subjects.get("active", subjects.get("governs"))
+        values = values if isinstance(values, list) else [values]
+        if len(values) != 1 or not isinstance(values[0], str):
+            continue
+        try:
+            identity = _term_identity(values[0])
+        except notation.SubjectNotationError:
+            continue
+        if identity is not None:
+            rows[identity].append(_source(carrier))
+    return rows
+
+
 def _declaration_catalog(data: Mapping[str, Any]) -> dict[tuple[str, str], list[Record]]:
     declarations = data["declarations"]
     catalog = {("primary_node", identity): rows for identity, rows in declarations.get("primary_nodes", {}).items()}
@@ -271,7 +316,8 @@ def _inherited_property_coverage(identity: str, data: Mapping[str, Any]) -> Reco
             "declaration_refs": sorted({ref for row in inherited for ref in row["declaration_refs"]})}
 
 
-def _coverage(subject: str, data: Mapping[str, Any], definitions: Mapping[str, list[Record]]) -> Record:
+def _coverage(subject: str, data: Mapping[str, Any], definitions: Mapping[str, list[Record]],
+              term_definitions: Mapping[str, list[Record]]) -> Record:
     declarations = data["declarations"]
     known = _declaration_catalog(data)
     target = _local_target(subject)
@@ -305,6 +351,11 @@ def _coverage(subject: str, data: Mapping[str, Any], definitions: Mapping[str, l
     conditional = _conditional_coverage(subject, known)
     if conditional is not None:
         return {**conditional, "target": identity}
+    term_identity = _term_identity(subject)
+    if term_identity is not None and term_identity in term_definitions:
+        return {"status": "outside_required_scope", "target": identity,
+                "message": "Term has a Method / Term Definition; outside Requirement Declaration scope",
+                "term_definition_refs": [_pin(source) for source in term_definitions[term_identity]]}
     definition_refs = definitions.get(subject, [])
     if kind == "component" and definition_refs:
         return {"status": "outside_required_scope", "target": identity,
@@ -326,7 +377,9 @@ def _is_defining(carrier: Mapping[str, Any], target: tuple[str, str]) -> bool:
     form = str(_view(carrier).get("type", ""))
     if atom_id.startswith("CA-R-") and (form.endswith("Declaration") or form.endswith("Definition")):
         return True
-    return atom_id.startswith("CA-M-") and form == "Term Definition" and target[0] == "component" and target[1].startswith("Term")
+    return (atom_id.startswith("CA-M-") and _view(carrier).get("content_role") == "Method"
+            and form == "Term Definition" and target[0] == "component"
+            and _term_identity(target[1]) is not None)
 
 
 def _inherited_definition_refs(target: tuple[str, str], data: Mapping[str, Any]) -> list[str]:
@@ -399,6 +452,7 @@ def build_subject_audits(carriers: list[Record], data: Record | None = None, *, 
         if (subject not in active if rows[0]["subject"] is not None else rows[0]["raw_value"].strip() not in active_raw)
     ]
     definitions = _entity_definitions(carriers)
+    term_definitions = _term_definitions(carriers)
     coverage_rows, unresolved = [], []
     unresolved_rows: dict[str, list[Record]] = defaultdict(list)
     for row in occurrences:
@@ -415,7 +469,7 @@ def build_subject_audits(carriers: list[Record], data: Record | None = None, *, 
                            **_provenance(rows)})
     diagnostics.extend(scope_diagnostics or [])
     for subject in sorted({row["subject"] for row in occurrences if row["subject"] is not None}):
-        result = _coverage(subject, data, definitions)
+        result = _coverage(subject, data, definitions, term_definitions)
         row = {"subject": subject, **result, **_provenance([row for row in occurrences if row["subject"] == subject])}
         (unresolved if result["status"] == "unresolved" else coverage_rows).append(row)
     return {
@@ -456,7 +510,9 @@ def render_subject_audit(audit: Mapping[str, Any], kind: str) -> str:
         lines = ["# Subjects Without Effective Requirement Declaration Coverage", "", "## Subjects", ""]
         lines.extend(f"- `{row['subject']}` — {row['message']}; {evidence(row)}" for row in report["subjects"])
         lines.extend(["", "## Informational outside required scope", ""])
-        lines.extend(f"- `{row['subject']}` — {row['message']}; {evidence(row)}" for row in report["informational"])
+        lines.extend(f"- `{row['subject']}` — {row['message']}; {evidence(row)}"
+                     + (f"; Term Definition: {', '.join(row['term_definition_refs'])}" if row.get("term_definition_refs") else "")
+                     for row in report["informational"])
         lines.extend(["", "## Unresolved coverage needing review", ""])
         lines.extend(f"- `{row['subject']}` — {row['message']}; {evidence(row)}" for row in report["unresolved"])
     else:

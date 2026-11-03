@@ -7,7 +7,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Carrier
   passive:
   - CAPRMEDIO_MODEL <+ Entity
-  - CAPRMEDIO_MODEL <+ CFEL > Relation//CARRIES
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//CARRIES
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
 relations:
   child_of:

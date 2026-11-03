@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   passive:
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

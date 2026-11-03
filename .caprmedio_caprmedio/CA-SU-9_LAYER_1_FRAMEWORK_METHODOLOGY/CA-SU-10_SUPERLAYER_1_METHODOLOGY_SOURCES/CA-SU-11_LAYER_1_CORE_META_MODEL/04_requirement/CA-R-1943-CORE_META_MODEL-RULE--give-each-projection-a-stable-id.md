@@ -7,7 +7,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Projection.ID
   passive:
   - CAPRMEDIO_MODEL <+ Projection
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type
+  - CAPRMEDIO_MODEL <+ Projection.Form
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
 version: 15
 updated_at: 2026-11-02 00:18:22 +0400

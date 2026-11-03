@@ -11,7 +11,7 @@ subjects:
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Realization Graph'
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Projection
-  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 25
 relations:
   depends_on:

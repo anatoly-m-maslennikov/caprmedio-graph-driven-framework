@@ -5,8 +5,8 @@ subjects:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Projection.Form
   - CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Map'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Hub'
+  - 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Map)'
+  - 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Hub)'
   - CAPRMEDIO_MODEL <+ Atom.Content
 version: 45
 updated_at: 2026-11-02 08:06:47 +0400

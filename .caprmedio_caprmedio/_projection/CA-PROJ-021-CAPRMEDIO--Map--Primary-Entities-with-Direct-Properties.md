@@ -431,8 +431,8 @@ source:
   - CA-R-1181@30
   - CA-R-118@35
   - CA-R-1194@32
-  - CA-R-1199@37
-  - CA-R-1200@40
+  - CA-R-1199@38
+  - CA-R-1200@41
   - CA-R-1202@30
   - CA-R-1203@32
   - CA-R-1206@28
@@ -949,7 +949,7 @@ source:
   - CA-R-2585@2
   - CA-R-2586@2
   - CA-R-2587@2
-  - CA-R-2588@4
+  - CA-R-2588@5
   - CA-R-2589@2
   - CA-R-2590@2
   - CA-R-2591@1
@@ -1078,6 +1078,9 @@ source:
   - CA-R-2722@1
   - CA-R-2730@1
   - CA-R-2732@1
+  - CA-R-2733@1
+  - CA-R-2734@1
+  - CA-R-2735@1
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1153,12 +1156,12 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 00:38:44 +0400
+updated_at: 2026-11-04 03:34:02 +0400
 ---
 
 ## Primary entities
 
-Selected sources: 1148 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
+Selected sources: 1151 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
 
 Cardinalities, formats and Formal Claims come only from Current Requirement / Declaration Atoms. Unsupported CFEL remains visible with diagnostics.
 
@@ -1178,6 +1181,8 @@ Atom
 		/ Step
 		/ Substep
 		/ Workflow
+			/ (.Purpose:=Project)
+			/ (.Purpose:=Runtime)
 	/ (.Header.Role:=Plan)
 	/ (.Header.Role:=Requirement)
 		/ (.Header.Form:=Declaration)
@@ -1275,6 +1280,11 @@ CAPRMEDIO_MODEL
 - Declaration sources: CA-R-2467@2
 - property: `Atom/(.Header.Role:=Operations)/Action.Execution Kind` (relative `Execution Kind`) — CA-R-2521@2
 
+### `Atom/(.Header.Role:=Operations)/Workflow`
+
+- Declaration sources: CA-R-2464@5
+- property: `Atom/(.Header.Role:=Operations)/Workflow.Purpose` (relative `Purpose`) — CA-R-2733@1
+
 ### `Atom/(.Header.Role:=Plan)`
 
 - Declaration sources: CA-R-2511@2
@@ -1316,6 +1326,7 @@ CAPRMEDIO_MODEL
 - property: `Project.Settings` (relative `Settings`) — CA-R-2532@8
 - property: `Project.Settings.AI Agent Confidence Threshold` (relative `Settings.AI Agent Confidence Threshold`) — CA-R-2564@2
 - property: `Project.Settings.Artifact Timestamp Timezone` (relative `Settings.Artifact Timestamp Timezone`) — CA-R-1977@15
+- property: `Project.Settings.Authority Modes` (relative `Settings.Authority Modes`) — CA-R-2632@2
 - property: `Project.Settings.Authority Modes.Default Scope Unit Authority Mode` (relative `Settings.Authority Modes.Default Scope Unit Authority Mode`) — CA-R-2633@1
 - property: `Project.Settings.Authority Modes.Project Authority Mode` (relative `Settings.Authority Modes.Project Authority Mode`) — CA-R-2634@1
 - property: `Project.Settings.Code-Root Locators` (relative `Settings.Code-Root Locators`) — CA-R-1978@15
@@ -1511,4 +1522,6 @@ THEN ($atom.Header.Subjects.Active{==1}) — CA-R-2714@1
 - Carrier/Git Branch — CA-R-2200@6
 - Carrier/Pull Request — CA-R-2201@6
 - Carrier/Git Repository — CA-R-2203@7
+- Atom/(.Header.Role: Operations)/Workflow/(.Purpose: Runtime) — CA-R-2734@1
+- Atom/(.Header.Role: Operations)/Workflow/(.Purpose: Project) — CA-R-2735@1
 - Event Record: no explicit NARROWER_THAN parent; rendered as a root.

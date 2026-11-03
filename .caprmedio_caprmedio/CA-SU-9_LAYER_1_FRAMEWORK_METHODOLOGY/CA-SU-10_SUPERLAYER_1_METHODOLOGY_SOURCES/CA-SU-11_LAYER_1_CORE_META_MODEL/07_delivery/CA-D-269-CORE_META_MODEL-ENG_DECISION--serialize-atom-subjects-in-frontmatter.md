@@ -3,10 +3,10 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
-  - CAPRMEDIO_MODEL <+ CFEL > Relation//GOVERNS
-  - CAPRMEDIO_MODEL <+ CFEL > Relation//DEPENDS_ON
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
   - CAPRMEDIO_MODEL <+ Entity
-  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}

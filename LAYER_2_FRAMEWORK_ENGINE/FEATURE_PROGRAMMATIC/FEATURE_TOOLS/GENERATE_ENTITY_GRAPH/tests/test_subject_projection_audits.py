@@ -49,6 +49,23 @@ class SubjectProjectionAuditTests(unittest.TestCase):
         self.assertIn("Legacy Node", [row["subject"] for row in audits["subjects_without_declaration_coverage"]["unresolved"]])
         self.assertEqual("CAPRMEDIO_STRUCTURE <+ Project", sources[1]["subjects"]["active"])
 
+    def test_selection_groups_keep_model_scope_and_exclude_instance_scope(self):
+        model = "CAPRMEDIO <+ MODEL <+ (Node, Node.**)"
+        instance = "CAPRMEDIO <+ MODEL <+ (Node//,(Node//).**)"
+        selected, diagnostics = select_model_subjects([
+            carrier("CA-R-1", model, [instance], form="Rule"),
+            carrier("CA-R-2", instance, form="Rule"),
+            carrier("CA-R-3", "CAPRMEDIO_STRUCTURE", form="Rule"),
+        ])
+        self.assertEqual(model, selected[0]["subjects"]["active"])
+        self.assertNotIn("passive", selected[0]["subjects"])
+        self.assertEqual({}, selected[1]["subjects"])
+        self.assertEqual({}, selected[2]["subjects"])
+        self.assertEqual([], diagnostics)
+        audits = build_subject_audits(selected)
+        unresolved = audits["subjects_without_declaration_coverage"]["unresolved"]
+        self.assertTrue(any(row["subject"] == "CAPRMEDIO <+ MODEL <+ (Node,Node.**)" for row in unresolved))
+
     def test_passive_set_difference_does_not_confuse_owner_active_subjects(self):
         audits = build_subject_audits([
             carrier("CA-R-1", "OwnerA", ["Shared", "Passive Only"]),
@@ -105,6 +122,27 @@ class SubjectProjectionAuditTests(unittest.TestCase):
         self.assertFalse(rows["Rule Only"]["missing_active"])
         self.assertTrue(rows["Passive Only"]["missing_active"])
         self.assertIn("| Entity |", render_subject_audit({"entity_definition_summary": report}, "entity_definition_summary"))
+
+    def test_term_definition_is_informational_only_for_its_exact_term(self):
+        audits = build_subject_audits([
+            carrier("CA-M-1", "CAPRMEDIO <+ MODEL <+ Term//Word", role="Method", form="Term Definition"),
+            carrier("CA-M-2", "Term//Wrong.Name", role="Method", form="Term Definition"),
+            carrier("CA-M-3", "Format//markdown", role="Method", form="Term Definition"),
+            carrier("CA-R-4", "Owner", ["Term//Word", "Term//Unregistered", "Term//Wrong", "Format//markdown"]),
+        ])
+        report = audits["subjects_without_declaration_coverage"]
+        info = {row["subject"]: row for row in report["informational"]}
+        missing = {row["subject"] for row in report["subjects"]}
+        self.assertEqual(["CA-M-1@1"], info["Term//Word"]["term_definition_refs"])
+        self.assertIn("Term Definition: CA-M-1@1", render_subject_audit(audits, "subjects_without_declaration_coverage"))
+        self.assertTrue({"Term//Unregistered", "Term//Wrong", "Format//markdown"} <= missing)
+        summary = {row["identity"]: row for row in audits["entity_definition_summary"]["entities"]}
+        self.assertFalse(summary["Term//Word"]["missing_definition"])
+        self.assertFalse(summary["Term//Word"]["missing_active"])
+        self.assertTrue(summary["Term//Unregistered"]["missing_definition"])
+        self.assertTrue(summary["Term//Unregistered"]["missing_active"])
+        self.assertTrue(summary["Term//Wrong.Name"]["missing_definition"])
+        self.assertTrue(summary["Format//markdown"]["missing_definition"])
 
     def test_exact_relation_and_instance_declarations_cover_their_own_targets(self):
         audits = build_subject_audits([

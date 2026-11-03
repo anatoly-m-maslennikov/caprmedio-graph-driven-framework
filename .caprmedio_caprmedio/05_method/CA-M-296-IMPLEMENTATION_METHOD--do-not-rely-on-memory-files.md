@@ -5,7 +5,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Project
   passive:
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Projection

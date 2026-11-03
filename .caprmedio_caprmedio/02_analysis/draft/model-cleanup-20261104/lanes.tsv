@@ -1,0 +1,6 @@
+deliverable	owner	exclusive edit scope	acceptance	status
+Legacy Subjects and Claims	model_legacy_cleanup	legacy/	pinned exact corrections; real ambiguities isolated	done
+Subject syntax	model_subject_syntax	syntax/	51cases; correct composition; idempotent subject-only fixes	running
+Property contracts	model_property_contracts	properties/	88contracts; effective counts/formats; uncertainties explicit	done
+Relation contracts	model_relation_contracts	relations/	41directions; permission conflicts identified	done
+Integration and publication	root	canonical,code,projections,Git	guarded repairs and checks	running

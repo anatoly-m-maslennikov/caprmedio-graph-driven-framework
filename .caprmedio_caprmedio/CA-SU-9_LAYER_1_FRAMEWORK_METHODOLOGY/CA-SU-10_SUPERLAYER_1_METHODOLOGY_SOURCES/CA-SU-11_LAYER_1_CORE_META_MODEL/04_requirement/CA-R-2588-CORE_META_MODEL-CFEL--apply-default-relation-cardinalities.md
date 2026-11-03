@@ -5,8 +5,8 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL
-version: 4
-updated_at: 2026-11-03 23:25:51 +0400
+version: 5
+updated_at: 2026-11-04 03:22:03 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -22,20 +22,6 @@ Apply default Relation cardinalities
 
 ## Claim
 
-### Formal Claim
-
-```CFEL
-# model
-(Node, Node.**) {:0}((*));
-
-# instances
-Node//$node;
-
-($node, $node.**) {:0}((*));
-
-Journal//$journal {:0+}((CONTAINS)) Event Record//$event_record
-```
-
 ### Prose Claim
 
 - `Host {:0}((*))` sets the default outgoing Relation cardinality for Host to zero.
@@ -48,9 +34,3 @@ Journal//$journal {:0+}((CONTAINS)) Event Record//$event_record
 - Model-entity and instance selectors have separate effective whitelists. An entry applies only to its stated layer. A direct Relation permission does not automatically permit its inverse view; each direction needs its own named entry. Derived inverse links are not authored a second time.
 - Relation counts are attached to their written endpoint slots: `Source {:left}((R)){:right} Target` constrains outgoing matches from the written Source on the left and incoming matches to the written Target on the right. Either slot may be omitted and remains unspecified. Normalize a reverse-written view by swapping canonical endpoints and their written count slots. The wildcard default governs outgoing counts only; it does not reinterpret a right-slot bound as outgoing or infer a missing bound. Each counterpart direction still needs its own applicable named outgoing permission; the direct Declaration owns the shared meaning and counterpart binding.
 
-#### Details
-Model-entity default:
-
-Instance default:
-
-Instance exception:

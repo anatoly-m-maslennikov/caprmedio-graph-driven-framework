@@ -30,6 +30,20 @@ _KINDS = {
 _NAMESPACE_ROOTS = {"CAPRMEDIO_MODEL", "CAPRMEDIO_STRUCTURE"}
 
 
+def _has_selection(node: object) -> bool:
+    if isinstance(node, (notation.SelectionGroup, notation.SelectionSuffix)):
+        return True
+    if isinstance(node, notation.RelationChain):
+        return any(_has_selection(endpoint) for endpoint in node.endpoints)
+    if isinstance(node, notation.Path):
+        return _has_selection(node.head) or any(_has_selection(step.operand) for step in node.steps)
+    if isinstance(node, notation.Qualification):
+        return _has_selection(node.relative_path)
+    if isinstance(node, notation.DeclaredReference):
+        return _has_selection(node.entity)
+    return False
+
+
 def _identifier(prefix: str, value: object) -> str:
     raw = json.dumps(value, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
     return prefix + hashlib.sha256(raw).hexdigest()
@@ -143,6 +157,8 @@ class _SubjectFacts:
 def subject_facts(subject: str) -> tuple[list[Record], list[Record], str]:
     """Project typed syntax to direct facts; never infer identities from role order."""
     expression = notation.parse_subject_expression(subject, subject_profile="approved").expression
+    if _has_selection(expression):
+        raise ValueError("Complex Subject selection cannot be projected as individual entities")
     projection = _SubjectFacts()
     if isinstance(expression, notation.Path):
         target = projection.path(expression)
@@ -277,6 +293,8 @@ def _target_kind(expression: notation.Path | notation.RelationChain) -> str | No
     """Classify one declared Path; qualifiers remain part of that declaration."""
 
     expression = namespace_local_expression(expression) or expression
+    if _has_selection(expression):
+        return None
     if not isinstance(expression, notation.Path) or not isinstance(expression.head, notation.Name):
         return None
     if expression.head.value in _NAMESPACE_ROOTS and not expression.steps:

@@ -5,7 +5,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
-  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400

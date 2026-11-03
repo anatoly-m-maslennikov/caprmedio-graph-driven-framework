@@ -8,7 +8,7 @@ subjects:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
-  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Implementation Retry Limit'
   - CAPRMEDIO_MODEL <+ Scope Unit

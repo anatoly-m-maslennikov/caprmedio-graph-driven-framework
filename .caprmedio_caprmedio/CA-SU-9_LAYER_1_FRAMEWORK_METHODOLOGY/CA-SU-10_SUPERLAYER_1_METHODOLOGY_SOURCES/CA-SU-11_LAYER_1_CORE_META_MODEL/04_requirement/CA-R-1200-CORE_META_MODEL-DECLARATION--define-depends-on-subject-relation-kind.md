@@ -2,14 +2,14 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
   passive:
-  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
-version: 40
-updated_at: 2026-11-03 20:00:05 +0400
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)
+version: 41
+updated_at: 2026-11-04 03:22:03 +0400
 relations:
   depends_on:
   - CA-R-1275
@@ -46,11 +46,11 @@ Atom//$atom ((DEPENDS_ON)) $referenced_subject
 #### Applicability
 the DEPENDS_ON Subject Relation Kind of an Atom.
 
-DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Subject graph node mentioned **in** its applicable role-specific content or other registered content, other than its GOVERNS target. this reference does **not** make the Atom's content—or every Governing Configuration fact—authoritative about that Subject graph node; formal authority depends on the applicable registered content form and role. a formal Claim may be carried in Markdown, structured YAML, or Governing Configuration, but Governing Configuration facts are not automatically Atom Claims.
+DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Subject entity or instance mentioned **in** its applicable role-specific content or other registered content, other than its GOVERNS target. this reference does **not** make the Atom's content—or every Governing Configuration fact—authoritative about that Subject entity or instance; formal authority depends on the applicable registered content form and role. a formal Claim may be carried in Markdown, structured YAML, or Governing Configuration, but Governing Configuration facts are not automatically Atom Claims.
 
 The Target is a canonical Subject referenced by the Atom, other than its governing target.
 Forward `Host ((DEPENDS_ON)) Target` and reverse `Target <((DEPENDS_ON)) Host` are views of the same Relation fact.
-DEPENDS_ON relates Atom to referenced Subject graph node.
+DEPENDS_ON relates Atom to referenced Subject entity or instance.
 
 #### Details
 mentions **in** Summary, Scope, Claim, Details, other registered body sections, tables, **and** examples count, whether the logical Claim is carried in Markdown, structured YAML, or Governing Configuration. this Relation does **not** establish Workflow control flow **or** execution order; Plan start prerequisites remain separately governed by `BLOCKS` under CA-R-1580-CORE_META_MODEL-DEFINITION--define-plan-blocking.

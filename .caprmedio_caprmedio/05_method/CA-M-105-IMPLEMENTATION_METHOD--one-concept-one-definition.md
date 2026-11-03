@@ -11,7 +11,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Entity
   passive:
   - CAPRMEDIO_MODEL <+ Entity
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Property
+  - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 llm_session_ids:

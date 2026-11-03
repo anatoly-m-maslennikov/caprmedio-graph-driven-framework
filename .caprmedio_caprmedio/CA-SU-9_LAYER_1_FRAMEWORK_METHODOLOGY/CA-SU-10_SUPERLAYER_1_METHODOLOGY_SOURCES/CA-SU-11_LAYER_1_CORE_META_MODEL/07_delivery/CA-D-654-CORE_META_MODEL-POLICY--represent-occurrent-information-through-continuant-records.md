@@ -7,8 +7,8 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Node/Occurrent
   passive:
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - CAPRMEDIO_MODEL <+ CFEL > Relation//CARRIES
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//CARRIES
 version: 3
 relations: {}
 tier: 1

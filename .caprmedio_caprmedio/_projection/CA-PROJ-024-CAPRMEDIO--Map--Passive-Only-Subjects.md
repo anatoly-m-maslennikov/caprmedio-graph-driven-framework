@@ -431,8 +431,8 @@ source:
   - CA-R-1181@30
   - CA-R-118@35
   - CA-R-1194@32
-  - CA-R-1199@37
-  - CA-R-1200@40
+  - CA-R-1199@38
+  - CA-R-1200@41
   - CA-R-1202@30
   - CA-R-1203@32
   - CA-R-1206@28
@@ -949,7 +949,7 @@ source:
   - CA-R-2585@2
   - CA-R-2586@2
   - CA-R-2587@2
-  - CA-R-2588@4
+  - CA-R-2588@5
   - CA-R-2589@2
   - CA-R-2590@2
   - CA-R-2591@1
@@ -1078,6 +1078,9 @@ source:
   - CA-R-2722@1
   - CA-R-2730@1
   - CA-R-2732@1
+  - CA-R-2733@1
+  - CA-R-2734@1
+  - CA-R-2735@1
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1153,12 +1156,12 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 00:38:44 +0400
+updated_at: 2026-11-04 03:34:02 +0400
 ---
 
 # Subjects Used Only Passively
 
-Selected sources: 1148 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
+Selected sources: 1151 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
 
 Cardinalities, formats and Formal Claims come only from Current Requirement / Declaration Atoms. Unsupported CFEL remains visible with diagnostics.
 
@@ -1174,7 +1177,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Action)` — pins: CA-D-457@26, CA-E-487@28, CA-E-488@25, CA-E-494@20, CA-E-495@19, CA-E-497@20, CA-E-513@23, CA-E-652@22, CA-M-304@26, CA-M-314@24, CA-R-1312@28, CA-R-1463@26, CA-R-1514@27, CA-R-1515@25, CA-R-1517@18, CA-R-1518@25, CA-R-1520@22, CA-R-1525@25, CA-R-1528@22, CA-R-1565@21, CA-R-1683@45, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18, CA-R-1799@20, CA-R-1800@19; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Action).Execution Kind` — pins: CA-E-495@19, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Action).Execution Kind:Agentic` — pins: CA-M-304@26; keys: passive
-- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Workflow)` — pins: CA-D-457@26, CA-D-549@19, CA-E-487@28, CA-E-488@25, CA-E-494@20, CA-E-495@19, CA-E-513@23, CA-E-523@18, CA-E-652@22, CA-M-304@26, CA-M-314@24, CA-R-1200@40, CA-R-1312@28, CA-R-1463@26, CA-R-1514@27, CA-R-1515@25, CA-R-1517@18, CA-R-1518@25, CA-R-1520@22, CA-R-1525@25, CA-R-1565@21, CA-R-1567@25, CA-R-1683@45, CA-R-1799@20, CA-R-1800@19, CA-R-2245@8; keys: passive
+- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Workflow)` — pins: CA-D-457@26, CA-D-549@19, CA-E-487@28, CA-E-488@25, CA-E-494@20, CA-E-495@19, CA-E-513@23, CA-E-523@18, CA-E-652@22, CA-M-304@26, CA-M-314@24, CA-R-1200@41, CA-R-1312@28, CA-R-1463@26, CA-R-1514@27, CA-R-1515@25, CA-R-1517@18, CA-R-1518@25, CA-R-1520@22, CA-R-1525@25, CA-R-1565@21, CA-R-1567@25, CA-R-1683@45, CA-R-1799@20, CA-R-1800@19, CA-R-2245@8; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Autonomous Confidence Threshold` — pins: CA-E-440@36, CA-E-441@35, CA-R-1559@26; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Content.Details` — pins: CA-D-470@29, CA-E-501@30; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Header.Status:Done` — pins: CA-E-504@22, CA-R-1580@27, CA-R-1592@23; keys: passive
@@ -1186,32 +1189,18 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Plan)/(.Header.Form:Plan).Header.Label` — pins: CA-E-505@22; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Requirement)/(.Header.Form:Demand)` — pins: CA-E-246@47; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Requirement)/(.Header.Form:Entity Definition)` — pins: CA-E-382@49, CA-E-444@34, CA-R-1455@27; keys: passive
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — pins: CA-D-264@29, CA-D-269@28, CA-D-304@30, CA-E-466@28, CA-E-481@22, CA-E-506@28, CA-E-624@38, CA-E-666@4, CA-M-306@32, CA-R-035@36, CA-R-1016@32, CA-R-1017@31, CA-R-1019@30, CA-R-1020@31, CA-R-1021@31, CA-R-1022@32, CA-R-1033@28, CA-R-1034@26, CA-R-1035@26, CA-R-1036@26, CA-R-1037@26, CA-R-1199@37, CA-R-1200@40, CA-R-1276@25, CA-R-1408@25, CA-R-1471@27, CA-R-1578@25, CA-R-1593@25, CA-R-1598@25, CA-R-1616@25, CA-R-1654@38, CA-R-1993@20, CA-R-2170@10, CA-R-960@28, CA-R-992@36; keys: passive; unresolved syntax
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//CARRIES` — pins: CA-D-636@16, CA-D-654@3; keys: passive; unresolved syntax
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//CONTAINS` — pins: CA-R-1498@17; keys: passive; unresolved syntax
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//DEPENDS_ON` — pins: CA-D-269@28, CA-R-1202@30, CA-R-1276@25, CA-R-1278@23, CA-R-1580@27; keys: passive; unresolved syntax
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//DERIVED_FROM` — pins: CA-R-1314@34; keys: passive; unresolved syntax
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//GOVERNS` — pins: CA-D-269@28, CA-R-1202@30, CA-R-1203@32, CA-R-1276@25, CA-R-2100@8; keys: passive; unresolved syntax
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//NARROWER_THAN` — pins: CA-D-416@29; keys: passive; unresolved syntax
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//evaluation_for` — pins: CA-M-264@29, CA-M-265@26, CA-R-1518@25; keys: passive; unresolved syntax
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record` — pins: CA-E-522@19, CA-R-1720@38; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — pins: CA-D-308@26, CA-D-339@29, CA-D-360@27, CA-D-365@26, CA-D-654@3, CA-E-379@46, CA-E-474@27, CA-E-476@23, CA-E-486@23, CA-E-523@18, CA-E-624@38, CA-E-666@4, CA-R-047@37, CA-R-1317@31, CA-R-1463@26, CA-R-1491@29, CA-R-1497@24, CA-R-1505@27, CA-R-1528@22, CA-R-1649@34, CA-R-1682@41, CA-R-1683@45, CA-R-1692@38, CA-R-1702@49, CA-R-2246@8; keys: passive; unresolved syntax
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record` — pins: CA-D-308@26, CA-D-339@29, CA-D-360@27, CA-D-365@26, CA-D-654@3, CA-E-379@46, CA-E-474@27, CA-E-476@23, CA-E-486@23, CA-E-522@19, CA-E-523@18, CA-E-624@38, CA-E-666@4, CA-R-047@37, CA-R-1317@31, CA-R-1463@26, CA-R-1491@29, CA-R-1497@24, CA-R-1505@27, CA-R-1528@22, CA-R-1649@34, CA-R-1682@41, CA-R-1683@45, CA-R-1692@38, CA-R-1702@49, CA-R-1720@38, CA-R-2246@8; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module` — pins: CA-E-382@49, CA-E-444@34, CA-E-472@30, CA-R-1321@35; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit` — pins: CA-E-382@49, CA-E-444@34, CA-E-472@30, CA-R-1321@35, CA-R-1931@18; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package > Prompt` — pins: CA-R-1560@19; keys: passive; unresolved syntax
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Prompt` — pins: CA-R-1560@19; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Eval Package` — pins: CA-E-382@49, CA-E-444@34, CA-E-472@30; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation` — pins: CA-E-487@28, CA-M-006@31, CA-M-100@27, CA-R-047@37, CA-R-1407@28, CA-R-1504@25, CA-R-1505@27, CA-R-1514@27, CA-R-1548@24, CA-R-1567@25, CA-R-1568@26, CA-R-1610@25, CA-R-1682@41, CA-R-1683@45, CA-R-1692@38, CA-R-1694@41, CA-R-1703@40, CA-R-1720@38, CA-R-1772@37, CA-R-2448@5, CA-R-634@22, CA-R-954@33; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Runtime Package` — pins: CA-E-382@49, CA-E-444@34, CA-E-472@30; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection.Form` — pins: CA-R-1405@29, CA-R-1655@45; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Applicable Methodology)` — pins: CA-R-1284@27, CA-R-1655@45; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Atom Subjects Graph)` — pins: CA-E-246@47, CA-M-232@34; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type` — pins: CA-D-635@16, CA-D-653@16, CA-R-1460@22, CA-R-1943@15; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Applicable Methodology` — pins: CA-D-550@20, CA-E-379@46, CA-E-437@27, CA-E-476@23, CA-M-296@21, CA-R-1178@28, CA-R-1219@32, CA-R-1424@28, CA-R-1491@29, CA-R-1577@23; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Artifact Change Log` — pins: CA-E-464@24, CA-R-1463@26; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Canonical Scope Signature` — pins: CA-E-407@30, CA-M-241@28; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Catalog` — pins: CA-R-1779@17; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Hub` — pins: CA-R-1634@45; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Map` — pins: CA-R-1634@45; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Process Log` — pins: CA-E-464@24, CA-R-1463@26; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Realization Graph` — pins: CA-R-1616@25; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Reconciled Projection` — pins: CA-R-1213@40; keys: passive
@@ -1224,170 +1213,57 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime/Session` — pins: CA-R-1650@34; keys: passive
 - `CAPRMEDIO_MODEL <+ History` — pins: CA-R-1644@37; keys: passive
 - `CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology.Member)` — pins: CA-D-306@30; keys: passive
+- `CAPRMEDIO_MODEL <+ Projection/(.Form:=Hub)` — pins: CA-R-1634@45; keys: passive
+- `CAPRMEDIO_MODEL <+ Projection/(.Form:=Map)` — pins: CA-R-1634@45; keys: passive
+- `CAPRMEDIO_MODEL <+ Scope Unit/Project` — pins: CA-E-671@1, CA-R-1430@27; keys: passive
 - `CAPRMEDIO_MODEL <+ Step Run` — pins: CA-E-496@23; keys: passive
 - `CAPRMEDIO_MODEL <+ Workflow Run` — pins: CA-E-496@23; keys: passive
 
-## Diagnostics (162)
+## Diagnostics (46)
 
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-035@36; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-047@37; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1016@32; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1017@31; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1019@30; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1020@31; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1021@31; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1022@32; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1033@28; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1034@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1035@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1036@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1037@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1199@37; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1200@40; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//GOVERNS` — CA-R-1202@30; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//DEPENDS_ON` — CA-R-1202@30; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//GOVERNS` — CA-R-1203@32; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1276@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//GOVERNS` — CA-R-1276@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//DEPENDS_ON` — CA-R-1276@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//DEPENDS_ON` — CA-R-1278@23; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1312@28; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1408@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-1463@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1471@27; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-1491@29; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-1497@24; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//CONTAINS` — CA-R-1498@17; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-1505@27; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1519@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1520@22; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1525@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1528@22; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-1528@22; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1554@23; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1563@27; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1565@21; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1578@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//DEPENDS_ON` — CA-R-1580@27; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1593@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1598@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-1649@34; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1654@38; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-1682@41; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-1683@45; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1702@49; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-1702@49; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1789@21; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1790@19; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1791@18; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1792@18; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1793@18; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1991@13; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1993@20; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//GOVERNS` — CA-R-2100@8; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-2170@10; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-2246@8; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ (Node, Node/**, .**)` — CA-R-2469@4; active; Unsupported Subject: unterminated logical group
-- `CAPRMEDIO_MODEL <+ (Node, Node/**, .**)` — CA-R-2470@2; active; Unsupported Subject: unterminated logical group
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-960@28; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-992@36; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//evaluation_for` — CA-M-264@29; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//evaluation_for` — CA-M-265@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-M-303@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-M-304@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-M-305@22; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-M-306@32; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-M-314@24; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow) {:1+}<+ Atom/(.Header.Role: Operations)/(.Header.Form: Step)` — CA-M-444@5; passive; Unsupported Subject: cardinality must be {n}, {n+}, or {n..m}
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-E-466@28; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-E-476@23; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-E-481@22; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-486@23; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-E-486@23; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-489@23; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-494@20; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-495@19; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-497@20; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-E-506@28; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-E-523@18; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-E-624@38; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-E-624@38; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-658@14; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-661@4; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-D-264@29; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//GOVERNS` — CA-D-269@28; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//DEPENDS_ON` — CA-D-269@28; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-D-269@28; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-D-304@30; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-D-308@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-D-360@27; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-D-365@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//NARROWER_THAN` — CA-D-416@29; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-D-457@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//CARRIES` — CA-D-636@16; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-D-654@3; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//CARRIES` — CA-D-654@3; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//DERIVED_FROM` — CA-R-1314@34; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-1317@31; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1518@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation//evaluation_for` — CA-R-1518@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package > Prompt` — CA-R-1560@19; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-R-1616@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-R-1692@38; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1800@19; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-E-379@46; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-474@27; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-E-474@27; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-488@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-491@25; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-513@23; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-652@22; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ CFEL > Relation` — CA-E-666@4; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-E-666@4; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record` — CA-D-339@29; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `Project.Settings.Authority Modes` — CA-R-1430@27; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings` — CA-R-1430@27; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project` — CA-R-1430@27; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Scope Unit` — CA-R-1430@27; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Atom` — CA-R-1430@27; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings` — CA-R-1750@41; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Entity/Object/Continuant/Actor/Operator` — CA-R-1750@41; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings` — CA-R-1750@41; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Entity/Object/Continuant/Governing Objects/Governing Configuration` — CA-R-1750@41; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings.Name` — CA-R-1750@41; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings.Prefix` — CA-R-1750@41; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Atom` — CA-R-1750@41; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `CAPRMEDIO_STRUCTURE` — CA-R-2483@6; active; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings.Authority Modes` — CA-R-2632@2; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Scope Unit.Path` — CA-R-2689@1; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Scope Unit` — CA-R-2689@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Entity/Object/Continuant/Structural Unit/Scope Unit.Parent` — CA-R-2689@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Entity/Object/Continuant/Structural Unit/Scope Unit.Children` — CA-R-2689@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Scope Unit` — CA-R-2690@1; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Carrier/Directory` — CA-R-2690@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Atom/(.Role := Delivery)` — CA-R-2690@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings` — CA-E-006@40; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings` — CA-E-006@40; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Entity/Object/Continuant/Governing Objects/Governing Configuration` — CA-E-006@40; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings` — CA-E-621@37; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings` — CA-E-621@37; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Entity/Object/Continuant/Actor/Operator` — CA-E-621@37; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Scope Unit` — CA-E-671@1; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings` — CA-E-671@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Framework Settings` — CA-E-671@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project` — CA-E-671@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Carrier` — CA-E-671@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Scope Unit` — CA-E-672@1; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Carrier` — CA-E-672@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `{'Entity/Object/Continuant/Projection/Type': 'Scope Unit Graph'}` — CA-E-672@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings.Authority Modes` — CA-D-668@2; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Atom` — CA-D-669@1; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Atom.Content` — CA-D-669@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Settings` — CA-D-669@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Project.Framework Settings` — CA-D-669@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Scope Unit` — CA-D-670@1; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Entity/Object/Continuant/History` — CA-D-670@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Journal` — CA-D-670@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Carrier` — CA-D-670@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Scope Unit` — CA-D-671@1; governs; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Carrier/Directory` — CA-D-671@1; depends_on; Subject lacks an explicit parseable MODEL namespace; review required.
+- `Entity/Object/Continuant/Actor/Operator` — CA-R-1750@41; passive; Subject lacks an explicit parseable MODEL namespace; review required.
+- `Entity/Object/Continuant/Governing Objects/Governing Configuration` — CA-R-1750@41; passive; Subject lacks an explicit parseable MODEL namespace; review required.
+- `Entity/Object/Continuant/Structural Unit/Scope Unit.Parent` — CA-R-2689@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
+- `Entity/Object/Continuant/Structural Unit/Scope Unit.Children` — CA-R-2689@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
+- `Atom/(.Role := Delivery)` — CA-R-2690@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
+- `Entity/Object/Continuant/Governing Objects/Governing Configuration` — CA-E-006@40; passive; Subject lacks an explicit parseable MODEL namespace; review required.
+- `Entity/Object/Continuant/Actor/Operator` — CA-E-621@37; passive; Subject lacks an explicit parseable MODEL namespace; review required.
+- `Project.Framework Settings` — CA-E-671@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
+- `{'Entity/Object/Continuant/Projection/Type': 'Scope Unit Graph'}` — CA-E-672@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
+- `Project.Framework Settings` — CA-D-669@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
+- `Entity/Object/Continuant/History` — CA-D-670@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.

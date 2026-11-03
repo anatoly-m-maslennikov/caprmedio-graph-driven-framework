@@ -4,7 +4,7 @@ subjects:
   passive:
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
   - CAPRMEDIO_MODEL <+ Scope Unit
 version: 31
 updated_at: 2026-11-02 08:06:47 +0400

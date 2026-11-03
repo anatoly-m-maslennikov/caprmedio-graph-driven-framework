@@ -7,7 +7,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Journal
-  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

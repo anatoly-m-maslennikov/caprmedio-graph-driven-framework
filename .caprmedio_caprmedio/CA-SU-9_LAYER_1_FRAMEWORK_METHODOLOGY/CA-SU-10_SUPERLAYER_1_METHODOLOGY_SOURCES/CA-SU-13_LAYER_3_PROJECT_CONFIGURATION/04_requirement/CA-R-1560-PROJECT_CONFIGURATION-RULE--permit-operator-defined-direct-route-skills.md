@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package > Prompt
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Prompt
 version: 19
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}

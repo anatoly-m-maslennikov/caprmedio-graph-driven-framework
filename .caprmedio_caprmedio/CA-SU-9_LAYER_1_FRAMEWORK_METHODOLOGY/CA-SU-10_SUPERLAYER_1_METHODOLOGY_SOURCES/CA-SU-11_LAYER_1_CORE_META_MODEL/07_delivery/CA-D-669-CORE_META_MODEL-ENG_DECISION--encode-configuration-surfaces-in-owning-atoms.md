@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Atom
-  depends_on:
-  - Atom.Content
-  - Project.Settings
+  active: CAPRMEDIO_MODEL <+ Atom
+  passive:
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Project.Settings
   - Project.Framework Settings
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400

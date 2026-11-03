@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO_MODEL <+ (Node, Node/**, .**)
+  active: CAPRMEDIO_MODEL <+ (Node, Node.**)
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -23,13 +23,13 @@ Require one Declaration for each Node
 
 ```CFEL
 # instances
-Atom/(.Header.Role: Requirement)/(.Header.Form: Declaration)//$atom ((HAS_ACTIVE_SUBJECT)){:1} (Node, Node/**, .**)
+Atom/(.Header.Role: Requirement)/(.Header.Form: Declaration)//$atom ((HAS_ACTIVE_SUBJECT)){:1} (Node, Node.**)
 ```
 
 ### Prose Claim
 
 
-Evaluate ownership within the selected effective MODEL. Each member selected by (Node, Node/**, .**), including the root and each Property, has exactly one effective Current authoritative Requirement/Form: Declaration addressing that Node.
+Evaluate ownership within the selected effective MODEL. Each member selected by (Node, Node.**), including the root and each Property, has exactly one effective Current authoritative Requirement/Form: Declaration addressing that Node.
 
 Count inherited Current Declarations and explicit local replacements after MODEL override resolution. A replaced base Declaration remains available in its base MODEL and is not a second effective owner in the local MODEL. Drafts and archives are not Current owners. Other Atoms may address the same Node.
 

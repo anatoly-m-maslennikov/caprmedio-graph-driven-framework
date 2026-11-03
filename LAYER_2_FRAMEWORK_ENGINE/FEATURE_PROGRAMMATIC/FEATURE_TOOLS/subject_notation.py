@@ -98,15 +98,27 @@ class DeclaredReference:
 
 
 @dataclass(frozen=True)
+class SelectionGroup:
+    members: tuple[Path | RelationChain, ...]
+    span: Span
+
+
+@dataclass(frozen=True)
+class SelectionSuffix:
+    value: str
+    span: Span
+
+
+@dataclass(frozen=True)
 class PathStep:
     operator: str
-    operand: Name | ValueLiteral | Qualification | DeclaredReference | Path | RelationChain
+    operand: Name | ValueLiteral | Qualification | DeclaredReference | Path | RelationChain | SelectionGroup | SelectionSuffix
     span: Span
 
 
 @dataclass(frozen=True)
 class Path:
-    head: Name | InitialAtomSelector | DeclaredReference | Path | RelationChain
+    head: Name | InitialAtomSelector | DeclaredReference | Path | RelationChain | SelectionGroup
     steps: tuple[PathStep, ...]
     value_format: FormatReference | None
     value_cardinality: Cardinality | None
@@ -458,6 +470,7 @@ class _ExpressionParser:
     def __init__(self, source: str) -> None:
         self.source = source
         self.position = 0
+        self.depth = 0
 
     def whitespace(self) -> None:
         self.position = _skip_whitespace(self.source, self.position)
@@ -553,19 +566,28 @@ class _ExpressionParser:
             self.position += 1
         return DeclaredReference(entity, Span(start, self.position))
 
-    def head(self, *, initial: bool) -> Name | InitialAtomSelector | DeclaredReference | Path | RelationChain:
+    def head(self, *, initial: bool) -> Name | InitialAtomSelector | DeclaredReference | Path | RelationChain | SelectionGroup:
         self.whitespace()
         start = self.position
         if self.at("@"):
             return self.reference()
-        if self.at("(") and not self.at("(("):
+        if self.at("("):
+            if self.depth >= 64:
+                self.fail("Subject grouping exceeds the depth limit", start, "subject-limit")
             self.position += 1
-            expression = self.expression(initial=False)
+            self.depth += 1
+            members = [self.expression(initial=False)]
+            self.whitespace()
+            while self.at(","):
+                self.position += 1
+                members.append(self.expression(initial=False))
+                self.whitespace()
+            self.depth -= 1
             self.whitespace()
             if not self.at(")"):
                 self.fail("unterminated logical group", start)
             self.position += 1
-            return expression
+            return members[0] if len(members) == 1 else SelectionGroup(tuple(members), Span(start, self.position))
         if self.at("atom("):
             if not initial:
                 self.fail("atom selector may occur only as the initial component", start, "subject-selector-position")
@@ -601,7 +623,12 @@ class _ExpressionParser:
                 break
             self.position += len(operator)
             self.whitespace()
-            if operator == "/" and self.at("(") and not self.at("(("):
+            if operator == "//" and (self.position == len(self.source) or self.at(")") or self.at(",")):
+                operand = SelectionSuffix("", Span(self.position, self.position))
+            elif operator == "." and self.at("**"):
+                operand = SelectionSuffix("**", Span(self.position, self.position + 2))
+                self.position += 2
+            elif operator == "/" and self.at("(") and not self.at("(("):
                 after_open = _skip_whitespace(self.source, self.position + 1)
                 if self.source.startswith(".", after_open):
                     qualification_start = self.position
@@ -700,6 +727,8 @@ def parse_subject_expression(text: str, *, subject_profile: str = "approved") ->
         head = nodes[0][0]
         expression = Path(head, tuple(PathStep(operator, node, node.span) for node, operator in nodes[1:]), None, None, Span(head.span.start, nodes[-1][0].span.end))
         return ParsedSubject(text, expression, expression.span)
+    if len(text) > 16384:
+        raise SubjectNotationError("subject-limit", "Subject exceeds the length limit", Span(0, len(text)))
     parser = _ExpressionParser(text)
     parser.whitespace()
     if parser.position == len(text):
@@ -745,7 +774,11 @@ def render_subject(parsed: ParsedSubject | Path | RelationChain) -> str:
     return result + _render_cardinality(parsed.value_cardinality)
 
 
-def _render_operand(node: Name | ValueLiteral | InitialAtomSelector | Qualification | DeclaredReference | Path | RelationChain) -> str:
+def _render_operand(node: Name | ValueLiteral | InitialAtomSelector | Qualification | DeclaredReference | Path | RelationChain | SelectionGroup | SelectionSuffix) -> str:
+    if isinstance(node, SelectionGroup):
+        return "(" + ",".join(render_subject(member) for member in node.members) + ")"
+    if isinstance(node, SelectionSuffix):
+        return node.value
     if isinstance(node, InitialAtomSelector):
         return "atom(" + ",".join(key + '="' + value + '"' for key, value in node.selector.items()) + ")"
     if isinstance(node, Qualification):
@@ -799,7 +832,7 @@ def profile_evidence(
 
 __all__ = [
     "Span", "Name", "ValueLiteral", "FormatReference", "Cardinality",
-    "Qualification", "DeclaredReference", "PathStep", "Path",
+    "Qualification", "DeclaredReference", "SelectionGroup", "SelectionSuffix", "PathStep", "Path",
     "RelationLink", "RelationChain", "ParsedSubject",
     "parse_subject_expression", "render_subject",
     "GrammarSource",

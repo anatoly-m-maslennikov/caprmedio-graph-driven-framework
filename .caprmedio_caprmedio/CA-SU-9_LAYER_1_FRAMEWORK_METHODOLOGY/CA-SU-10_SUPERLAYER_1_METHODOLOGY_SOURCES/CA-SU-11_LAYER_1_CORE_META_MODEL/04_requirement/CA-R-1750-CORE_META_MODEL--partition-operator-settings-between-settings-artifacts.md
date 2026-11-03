@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: Project.Settings
-  depends_on:
+  active: CAPRMEDIO_MODEL <+ Project.Settings
+  passive:
   - Entity/Object/Continuant/Actor/Operator
-  - Project.Settings
+  - CAPRMEDIO_MODEL <+ Project.Settings
   - Entity/Object/Continuant/Governing Objects/Governing Configuration
-  - Project.Settings.Name
-  - Project.Settings.Prefix
-  - Atom
+  - CAPRMEDIO_MODEL <+ Project.Settings.Name
+  - CAPRMEDIO_MODEL <+ Project.Settings.Prefix
+  - CAPRMEDIO_MODEL <+ Atom
 version: 41
 updated_at: 2026-11-02 20:07:03 +0400
 relations: {}

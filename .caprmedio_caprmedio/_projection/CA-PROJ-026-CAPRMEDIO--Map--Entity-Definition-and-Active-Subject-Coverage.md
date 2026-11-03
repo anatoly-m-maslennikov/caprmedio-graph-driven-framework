@@ -431,8 +431,8 @@ source:
   - CA-R-1181@30
   - CA-R-118@35
   - CA-R-1194@32
-  - CA-R-1199@37
-  - CA-R-1200@40
+  - CA-R-1199@38
+  - CA-R-1200@41
   - CA-R-1202@30
   - CA-R-1203@32
   - CA-R-1206@28
@@ -949,7 +949,7 @@ source:
   - CA-R-2585@2
   - CA-R-2586@2
   - CA-R-2587@2
-  - CA-R-2588@4
+  - CA-R-2588@5
   - CA-R-2589@2
   - CA-R-2590@2
   - CA-R-2591@1
@@ -1078,6 +1078,9 @@ source:
   - CA-R-2722@1
   - CA-R-2730@1
   - CA-R-2732@1
+  - CA-R-2733@1
+  - CA-R-2734@1
+  - CA-R-2735@1
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1153,12 +1156,12 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 00:38:44 +0400
+updated_at: 2026-11-04 03:34:02 +0400
 ---
 
 # Entity Definition Summary
 
-Selected sources: 1148 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
+Selected sources: 1151 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
 
 Cardinalities, formats and Formal Claims come only from Current Requirement / Declaration Atoms. Unsupported CFEL remains visible with diagnostics.
 
@@ -1178,7 +1181,6 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 | `Entity/Object/Continuant/Package/Eval Package` | primary_node | missing | missing |
 | `Entity/Object/Continuant/Package/Project Implementation` | primary_node | missing | missing |
 | `Entity/Object/Continuant/Package/Runtime Package` | primary_node | missing | missing |
-| `Entity/Object/Continuant/Projection/Type` | primary_node | missing | missing |
 | `Entity/Object/Continuant/Selection` | primary_node | missing | CA-E-460@34, CA-E-481@22, CA-M-121@28, CA-M-273@38, CA-R-1447@25, CA-R-1548@24, CA-R-833@29, CA-R-942@32, CA-R-999@26 |
 | `Entity/Object/Continuant/Term` | primary_node | missing | missing |
 | `Entity/Object/Occurrent/Execution` | primary_node | missing | CA-E-439@29, CA-R-1528@22, CA-R-853@28 |
@@ -1189,6 +1191,8 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 | `Entity/Property` | primary_node | missing | CA-R-1247@24, CA-R-2003@16 |
 | `History` | primary_node | missing | missing |
 | `Module` | primary_node | missing | missing |
+| `Prompt` | primary_node | missing | missing |
+| `Scope Unit/Project` | primary_node | missing | missing |
 | `Step Run` | primary_node | missing | missing |
 | `Workflow Run` | primary_node | missing | missing |
 | `Atom.Enabled Relations.Contains` | property | missing | missing |
@@ -1198,7 +1202,6 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 | `Atom.Target Scope Unit` | property | missing | CA-R-1596@22, CA-R-1732@25, CA-R-718@44, CA-R-947@40 |
 | `Entity/Object/Continuant/Actor/AI Agent.Permissions` | property | missing | CA-E-230@27, CA-R-846@31, CA-R-852@32 |
 | `Entity/Object/Continuant/History/Release.ID` | property | missing | CA-R-1692@38 |
-| `Entity/Object/Continuant/Projection.Form` | property | missing | missing |
 | `Entity/Object/Continuant/Structural Unit/Scope Unit.Children` | property | missing | CA-R-1756@36, CA-R-1771@30 |
 | `Entity/Object/Continuant/Structural Unit/Scope Unit.Parent` | property | missing | CA-R-1658@32 |
 | `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings` | property | missing | CA-D-359@29, CA-D-360@27, CA-D-361@32, CA-D-383@31, CA-D-387@27, CA-D-497@18, CA-E-458@35, CA-R-1404@26, CA-R-1631@34, CA-R-1724@36, CA-R-2271@3 |

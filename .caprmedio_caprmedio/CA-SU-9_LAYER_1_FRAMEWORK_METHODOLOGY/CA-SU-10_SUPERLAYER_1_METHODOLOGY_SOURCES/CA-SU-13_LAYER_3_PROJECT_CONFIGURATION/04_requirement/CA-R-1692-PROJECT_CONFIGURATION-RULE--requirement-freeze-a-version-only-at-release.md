@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release.ID
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release.ID
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation

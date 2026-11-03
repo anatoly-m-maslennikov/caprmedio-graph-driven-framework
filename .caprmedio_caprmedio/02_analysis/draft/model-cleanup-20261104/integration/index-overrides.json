@@ -1,0 +1,10 @@
+[
+  {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-RULE--journal-projection-rebuild-events.md",
+    "head_sha256": "ead4c284758b3143f2b5c4c2a6adfba1d500915c3be6f13fcc74c0fc59d1f549",
+    "index_payload": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection\n  passive:\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record\n  - CAPRMEDIO_MODEL <+ Projection\nversion: 33\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\natom_id: CA-R-1649\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 2\nrole: Requirement\nform: Rule\n---\n## Summary\n\nJournal Projection Rebuild Events\n\n## Claim\n\n### Prose Claim\n\n\nProjection Rebuilds and their Work Journal Actions and terminal Events.\n\n\n**every** Projection Rebuild **must** have **`=1`** Work Journal Action whose terminal Event records the rebuild outcome.\n\n## Details\n\nacceptance of that Event into the Journal does **not**, by itself, make the Projection current. currentness remains subject **to** the Projection's applicable source **and** validation requirements; the accepted Event preserves the observed outcome **without** replacing those requirements.\n",
+    "index_sha256": "86e0bcbdaad1d17c0f8e5ae5afecd8e2915e2835f7c99f1fd877621d45a81210",
+    "working_sha256": "53095960ef40ec519c8f72104fbb88907a4a4f49d8878a05fe377b93c9e5dbb9",
+    "policy": "Only our Subject changes staged over committed baseline; concurrent body and version stay in working tree."
+  }
+]

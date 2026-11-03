@@ -1,0 +1,9 @@
+[
+  {
+    "id": "CA-R-1649",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-RULE--journal-projection-rebuild-events.md",
+    "reason": "concurrent baseline content",
+    "head_sha256": "ead4c284758b3143f2b5c4c2a6adfba1d500915c3be6f13fcc74c0fc59d1f549",
+    "before_sha256": "787ee47624053df66d1325676ec2170f9c77ea77eb85ab7d14318083130b1d56"
+  }
+]

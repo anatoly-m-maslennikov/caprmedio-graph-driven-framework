@@ -1,0 +1,159 @@
+{
+  "status": "prospective review only",
+  "previews": [
+    {
+      "atom_id": "CA-R-1405",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-RULE--register-core-artifact-type-values.md",
+      "source_sha256": "5b8cfeb2ee057efd2d448c27d1bb4910148c934bd5471607f7c0d2d2e4b4baa3",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/previews/CA-R-1405.txt",
+      "preview_sha256": "3cf75410940a71d7357a8c701a2d182f9aa503665bddff7034902415cd48a5c5",
+      "old_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection.Form",
+      "new_subject": "CAPRMEDIO_MODEL <+ Projection.Form",
+      "authority": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+        "sha256": "852aaa4943ab5268bd4b80c204fab37be6b1cdab4e11623f29ffc8c7ec11135f"
+      },
+      "scope": "passive subject only; separately review any obsolete surrounding Claim or other subjects before adoption"
+    },
+    {
+      "atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-RULE--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "cf682435902588c1225ffc2d783b3471cc508a5d1038131b1df508db0e01804e",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/previews/CA-R-1655.txt",
+      "preview_sha256": "0d2d79957067097ad57d0494ff28bae3299c6f83c998808087758a3fe0681465",
+      "old_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection.Form",
+      "new_subject": "CAPRMEDIO_MODEL <+ Projection.Form",
+      "authority": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+        "sha256": "852aaa4943ab5268bd4b80c204fab37be6b1cdab4e11623f29ffc8c7ec11135f"
+      },
+      "scope": "passive subject only; separately review any obsolete surrounding Claim or other subjects before adoption"
+    },
+    {
+      "atom_id": "CA-E-436",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-436-EVAL_POLICY--evaluate-graph-of-graphs-connectivity.md",
+      "source_sha256": "e7c4d63c776480676485b1198450bd96c53e5b514840c3478f51b5339dcbb7ac",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/previews/CA-E-436.txt",
+      "preview_sha256": "40f1ebe2da8d6907d7ce01a0954afa0c8778159860162302bfeb62939fd1d0b5",
+      "old_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact",
+      "new_subject": "CAPRMEDIO_MODEL <+ Term//Artifact",
+      "authority": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md",
+        "sha256": "db1436c8bde02ae8ffd65c4909a6e54f068982fd763a28892afea74df554419a"
+      },
+      "scope": "passive subject only; separately review any obsolete surrounding Claim or other subjects before adoption"
+    },
+    {
+      "atom_id": "CA-E-437",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-437-POLICY--evaluate-methodology-alignment-support.md",
+      "source_sha256": "891fc422951fdea2527700cc4fc81d6ba1fbda0e3d5832323e03b0dec3e05923",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/previews/CA-E-437.txt",
+      "preview_sha256": "0a6ee1510d2e1371f3fafc0491ad8524b5c62cb000adf7cf5c38ebdabbdd8590",
+      "old_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact",
+      "new_subject": "CAPRMEDIO_MODEL <+ Term//Artifact",
+      "authority": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md",
+        "sha256": "db1436c8bde02ae8ffd65c4909a6e54f068982fd763a28892afea74df554419a"
+      },
+      "scope": "passive subject only; separately review any obsolete surrounding Claim or other subjects before adoption"
+    },
+    {
+      "atom_id": "CA-M-138",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-138-IMPLEMENTATION_METHOD--author-in-canonical-framework-language.md",
+      "source_sha256": "9ef584b2b10552b06c88c247ad2b8be3fda8412aa7acb0ec95623e5232576ec1",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/previews/CA-M-138.txt",
+      "preview_sha256": "e3d69dcf63c1bd0952e927b5d186fa8a1a2662fee3a89e8e95e15da55f3d294a",
+      "old_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact",
+      "new_subject": "CAPRMEDIO_MODEL <+ Term//Artifact",
+      "authority": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md",
+        "sha256": "db1436c8bde02ae8ffd65c4909a6e54f068982fd763a28892afea74df554419a"
+      },
+      "scope": "passive subject only; separately review any obsolete surrounding Claim or other subjects before adoption"
+    },
+    {
+      "atom_id": "CA-M-277",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-277-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-silent-mode.md",
+      "source_sha256": "ff6b938d77f0eada8f83de64704688822b1be94bbbe64deee6a1756376c68c7a",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/previews/CA-M-277.txt",
+      "preview_sha256": "18380d048dae6c357bb4071c33717272dcc574f28029b01daf71fe575fba67e1",
+      "old_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact",
+      "new_subject": "CAPRMEDIO_MODEL <+ Term//Artifact",
+      "authority": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md",
+        "sha256": "db1436c8bde02ae8ffd65c4909a6e54f068982fd763a28892afea74df554419a"
+      },
+      "scope": "passive subject only; separately review any obsolete surrounding Claim or other subjects before adoption"
+    },
+    {
+      "atom_id": "CA-M-278",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-278-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-verbose-mode.md",
+      "source_sha256": "99fbcdf70c2a14297ced9452953e5a98b8f1c568f8179ba5c25424e76a14d26b",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/previews/CA-M-278.txt",
+      "preview_sha256": "d204168180771af9d07f98225dc524fe1d77d8957a94c4fc90fbf3715cd704b8",
+      "old_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact",
+      "new_subject": "CAPRMEDIO_MODEL <+ Term//Artifact",
+      "authority": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md",
+        "sha256": "db1436c8bde02ae8ffd65c4909a6e54f068982fd763a28892afea74df554419a"
+      },
+      "scope": "passive subject only; separately review any obsolete surrounding Claim or other subjects before adoption"
+    },
+    {
+      "atom_id": "CA-M-296",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-296-IMPLEMENTATION_METHOD--do-not-rely-on-memory-files.md",
+      "source_sha256": "30fe97922fcd01ed775d610867b1d8d0ae2386de6d195f52f7b7af9b3cf91be8",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/previews/CA-M-296.txt",
+      "preview_sha256": "43326198dbc7359b7c49a577e8778755afe68d39d9493b789cee48691d82e21f",
+      "old_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact",
+      "new_subject": "CAPRMEDIO_MODEL <+ Term//Artifact",
+      "authority": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md",
+        "sha256": "db1436c8bde02ae8ffd65c4909a6e54f068982fd763a28892afea74df554419a"
+      },
+      "scope": "passive subject only; separately review any obsolete surrounding Claim or other subjects before adoption"
+    },
+    {
+      "atom_id": "CA-R-1424",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1424-GOAL--provide-tools-to-maintain-methodology-alignment.md",
+      "source_sha256": "598f7d792feb450d943344115de625dbc1428dce639ed47455a4448888c31f7a",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/previews/CA-R-1424.txt",
+      "preview_sha256": "484bb1b86c2b1a9aebd985579b608def23681f4eaa064ab683abc8491cd5cfcb",
+      "old_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact",
+      "new_subject": "CAPRMEDIO_MODEL <+ Term//Artifact",
+      "authority": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md",
+        "sha256": "db1436c8bde02ae8ffd65c4909a6e54f068982fd763a28892afea74df554419a"
+      },
+      "scope": "passive subject only; separately review any obsolete surrounding Claim or other subjects before adoption"
+    },
+    {
+      "atom_id": "CA-R-622",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-622-PROJECT_CONFIGURATION-RULE--keep-selected-settings-in-their-authoritative-settings-artifact.md",
+      "source_sha256": "15d550d15553f6501beb3e8b360a682f669cbd5a68ce81f38e52f9652b82cba0",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/previews/CA-R-622.txt",
+      "preview_sha256": "eadcdf57ad54e3ef5aeefd0c760d36a19581322b869d1ae0d3b6b9ac24c0d36e",
+      "old_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact",
+      "new_subject": "CAPRMEDIO_MODEL <+ Term//Artifact",
+      "authority": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md",
+        "sha256": "db1436c8bde02ae8ffd65c4909a6e54f068982fd763a28892afea74df554419a"
+      },
+      "scope": "passive subject only; separately review any obsolete surrounding Claim or other subjects before adoption"
+    },
+    {
+      "atom_id": "CA-M-105",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-105-IMPLEMENTATION_METHOD--one-concept-one-definition.md",
+      "source_sha256": "8aa9616305d11d8aa5aa2f2d80f02de85516f5925efc32cada6d981544e90cde",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/previews/CA-M-105.txt",
+      "preview_sha256": "8209d51744a5982bf835cfcf64985340e94c2eefa5e597d4d16f4f9c5d58a1ca",
+      "old_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Property",
+      "new_subject": "CAPRMEDIO_MODEL <+ Term//Property",
+      "authority": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+        "sha256": "dd60c8d121d9d8cd62a91aaaa85531012a829bcdac6a106715297f29459c4238"
+      },
+      "scope": "passive subject only; separately review any obsolete surrounding Claim or other subjects before adoption"
+    }
+  ]
+}

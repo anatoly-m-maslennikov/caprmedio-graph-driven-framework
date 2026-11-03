@@ -6,7 +6,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Projection
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status: Done'
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ CFEL > Relation//DEPENDS_ON
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
 version: 27
 updated_at: 2026-11-03 20:00:05 +0400
 relations: {}

@@ -2,7 +2,7 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//implementation_of
   passive:
-  - CAPRMEDIO_MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 31
 updated_at: 2026-11-03 23:25:51 +0400
 relations: {}

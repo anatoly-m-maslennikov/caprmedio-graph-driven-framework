@@ -1,0 +1,360 @@
+[
+  {
+    "id": "CA-R-1016",
+    "relation": "rationale_for",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-DECLARATION--register-rationale-for-relation.md",
+    "sha256": "b0602df9bdff5a4a91afce228379dff33c829bae89048c16f335e14eb3c58733",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1017",
+    "relation": "method_for",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-DECLARATION--register-method-for-relation.md",
+    "sha256": "a8e1c7244a58453442d1d0c3d8c4536df5f88d800530d2a09c2b35e54d44bf81",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1018",
+    "relation": "evaluation_for",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-DECLARATION--register-evaluation-targets.md",
+    "sha256": "48410dd19c032ed26139667d3fe9ad766b6c33edd598f79c626b69c30efbb0b6",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1019",
+    "relation": "delivery_for",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-DECLARATION--register-delivery-for-relation.md",
+    "sha256": "14e72cb7ef450752d21e4f4aeb676b8fb4364d642b8af77860e8bf3c760d66e6",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1020",
+    "relation": "implementation_of",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+    "sha256": "c1ff4908b6308b2dce5c3a7d5c70da3f79c1f45522dffc4c27e27df0ce999eb8",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1021",
+    "relation": "evidence_for",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+    "sha256": "f5a6765e0c28882810f6bcbe48b944636de9b143a095f8a6ca02f2d9f36545fc",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1022",
+    "relation": "concern_about",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-DECLARATION--register-concern-about-relation.md",
+    "sha256": "434b113fdc17721002be07fcb51d17c5d7bc5364287574b344b04d0337ab57fc",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1026",
+    "relation": "depends_on",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md",
+    "sha256": "761422f7245c231d3c813eb8caf07f4fba2fc135563f88e7b3dc1780fa1c66e2",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1199",
+    "relation": "GOVERNS",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md",
+    "sha256": "cc9d2af8e9d3d8a375c86da00e813fa3d8b712c5ba19e27e9938fc02b0afda09",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1200",
+    "relation": "DEPENDS_ON",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md",
+    "sha256": "dfe34fc354cfe85dded6563cc3fae1782dad74c4bcf668ab4216327a4ede3a97",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1580",
+    "relation": "BLOCKS",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+    "sha256": "7e41dacc8c9febc96f449e5ff3e232f7f869e15b6d8a97c51f4c145bfcee8dc9",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1639",
+    "relation": "DERIVED_FROM",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-DECLARATION--register-derived-from-relation.md",
+    "sha256": "cc759f728ea7026f510224834325364688389cbf9b1bf5e050ec6bd57c7d1428",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1654",
+    "relation": "feature_realization",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-DECLARATION--register-feature-realization-relation-kind.md",
+    "sha256": "c1f944964a36996447c76465f2c8a5fb1d81bee49a22d05849b4dbeb21574860",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1660",
+    "relation": "structural_parent",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-DECLARATION--register-structural-parent-relation.md",
+    "sha256": "175001423157ce246b5a20c26b2a47eb8f29deb08649a7948ad091247bd25759",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1993",
+    "relation": "CARRIES",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1993-CORE_META_MODEL-DECLARATION--define-carries.md",
+    "sha256": "eef3e3ba7f47fb54bbe64e4d1536ca1c73afec18f14834f8198c622a4032a0c9",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2170",
+    "relation": "IS_DERIVED_RELATION_OF",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+    "sha256": "ad073416c82f007876c71e7bad4d8b9c693b5ffba2d06bd87aa6eefe6781608b",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2245",
+    "relation": "IS_EXECUTION_OF",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+    "sha256": "7d393e6c90f6971355c27611eab95fb40d9892f2db6b6aac30a1946ecb3a8716",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2246",
+    "relation": "RECORDS",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+    "sha256": "9ed0650198ed9816ea30922126a4a7a53bba48402f7d0dd928915f88c99259d8",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2255",
+    "relation": "EXECUTES",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2255-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+    "sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2417",
+    "relation": "HAS_EXECUTION",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+    "sha256": "e50b96e2a066c11c7deee1f31ef85197b74d09aaa93c12579648e7c9ef8bd691",
+    "classification": "Derived inverse",
+    "inverse_source": "IS_EXECUTION_OF"
+  },
+  {
+    "id": "CA-R-2418",
+    "relation": "IS_CARRIED_BY",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2418-CORE_META_MODEL-DECLARATION--define-is-carried-by-relation.md",
+    "sha256": "4944f3098c5c6d1e4962ea88f6424cb1df23abcf0810e4c93cdc6d0f7f2d27ca",
+    "classification": "Derived inverse",
+    "inverse_source": "CARRIES"
+  },
+  {
+    "id": "CA-R-2420",
+    "relation": "IS_EXECUTED_BY",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2420-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+    "sha256": "52e09f067858fcaa9c26bfd100227b9c7866058482054e0fca93331cdc238263",
+    "classification": "Derived inverse",
+    "inverse_source": "EXECUTES"
+  },
+  {
+    "id": "CA-R-2421",
+    "relation": "IS_RECORDED_BY",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2421-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+    "sha256": "1e6ddc6a60e24a613c8ea03be2c11b4dc452bb94d5e1fa2bd652123295b82277",
+    "classification": "Derived inverse",
+    "inverse_source": "RECORDS"
+  },
+  {
+    "id": "CA-R-2422",
+    "relation": "required_by",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2422-CORE_META_MODEL-DECLARATION--define-required-by-relation.md",
+    "sha256": "99a6c6ff6a56f1fa98a1ab141749ced037e9f0aa7cea75f92f1e5371b4875349",
+    "classification": "Derived inverse",
+    "inverse_source": "depends_on"
+  },
+  {
+    "id": "CA-R-2473",
+    "relation": "IS_PROPERTY_OF",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+    "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2475",
+    "relation": "NARROWER_THAN",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+    "sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2476",
+    "relation": "INSTANCE_OF",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+    "sha256": "d9110e5814d5b097ff5261d9220df0962eec4264cfc4afad82a2cf6a4e307bf4",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2477",
+    "relation": "HAS_CLASSIFICATION",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2477-CORE_META_MODEL-DECLARATION--define-classification-and-its-written-reverse.md",
+    "sha256": "e4b24cf8cabe401be72fde576c8d4694e8e72ca63ab18066c274a3c12da174af",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2478",
+    "relation": "IS_CONTAINED_BY",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+    "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2485",
+    "relation": "HAS_INVERSE",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2485-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+    "sha256": "e108830788cccfecf0857b817c020c282dc9697a006719c6c6d09eb99c9b4fba",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2583",
+    "relation": "HAS_EVENT_AUTHOR",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2583-CORE_META_MODEL-DECLARATION--define-has-event-author.md",
+    "sha256": "afbd2d65a6d8942764b91094b800fae52c2edff98e8e7cdee2950e212a81347c",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2617",
+    "relation": "CONTAINS",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md",
+    "sha256": "129277b5d905006aed8279b20be9ed45ed8fcc1733b3097ca07321cdb03db16d",
+    "classification": "Derived inverse",
+    "inverse_source": "IS_CONTAINED_BY"
+  },
+  {
+    "id": "CA-R-2618",
+    "relation": "HAS_ACTIVE_SUBJECT",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+    "sha256": "3dbe86364921d2cf506ab40a264a4499484f21f629d88627854e37b1f9bdf4c0",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2619",
+    "relation": "HAS_INSTANCE",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2619-CORE_META_MODEL-DECLARATION--declare-has-instance.md",
+    "sha256": "f8d8f828420b31bfedced5bbcd2eb9c51086c30b3b61e2d1cd8712f8bddb516b",
+    "classification": "Derived inverse",
+    "inverse_source": "INSTANCE_OF"
+  },
+  {
+    "id": "CA-R-2620",
+    "relation": "HAS_NARROWER",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2620-CORE_META_MODEL-DECLARATION--declare-has-narrower.md",
+    "sha256": "92dbcc2aa54b613c6a43c437ad0beedd632bc9ccb7d9905638f9e31472948d19",
+    "classification": "Derived inverse",
+    "inverse_source": "NARROWER_THAN"
+  },
+  {
+    "id": "CA-R-2621",
+    "relation": "HAS_PROPERTY",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2621-CORE_META_MODEL-DECLARATION--declare-has-property.md",
+    "sha256": "c51142ed47d1f6a98da90b3a0f0708156c25c1b3bdc98b27a4a819b9bd3d9618",
+    "classification": "Derived inverse",
+    "inverse_source": "IS_PROPERTY_OF"
+  },
+  {
+    "id": "CA-R-2622",
+    "relation": "IS_EVENT_AUTHOR_OF",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2622-CORE_META_MODEL-DECLARATION--declare-is-event-author-of.md",
+    "sha256": "ccad12aa39c516e384ebd4ae9ee64eb7d4fe772548a0efa42609164774503eea",
+    "classification": "Derived inverse",
+    "inverse_source": "HAS_EVENT_AUTHOR"
+  },
+  {
+    "id": "CA-R-2623",
+    "relation": "IS_RUN_BY",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+    "sha256": "dd540f1c2fd04b4826443a96daa6f7e190853ecd8645ad1a369d85a3744a2fc6",
+    "classification": "Derived inverse",
+    "inverse_source": "RUNS"
+  },
+  {
+    "id": "CA-R-2638",
+    "relation": "RUNS",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+    "sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-796",
+    "relation": "child_of",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-DECLARATION--keep-tier-parent-relations-within-atom-scope.md",
+    "sha256": "607e22a1220107c29659a90a98f80dd9b0477dfb21c00229426a3a45a12ffa86",
+    "classification": "Direct",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-2732",
+    "relation": "IS_DECLARED_BY",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2732-CORE_META_MODEL-DECLARATION--declare-is-declared-by.md",
+    "sha256": "735ddf3eaafc28810d65128fa112c53d792d945377f56777e3d0725d00ff17cc",
+    "classification": "Qualified derived",
+    "inverse_source": null
+  },
+  {
+    "id": "CA-R-1199",
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md",
+    "source_sha256": "cc9d2af8e9d3d8a375c86da00e813fa3d8b712c5ba19e27e9938fc02b0afda09",
+    "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/relations/CA-R-1199.preview.txt",
+    "candidate_sha256": "651760d84586c87ee5de8f133f8da69266b9a481d0dba7bc174b9ac8381f5692"
+  },
+  {
+    "id": "CA-R-1200",
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md",
+    "source_sha256": "dfe34fc354cfe85dded6563cc3fae1782dad74c4bcf668ab4216327a4ede3a97",
+    "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/relations/CA-R-1200.preview.txt",
+    "candidate_sha256": "1b7df8fad77d47543354dc2214cdc77ee17eaa965e0ff2696a5e65fa3332db9a"
+  },
+  {
+    "id": "CA-R-2469",
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2469-CORE_META_MODEL-RULE--require-one-declaration-for-each-node.md",
+    "source_sha256": "5c43c0b692741c0c1b2effd8217f8a6b87d559f05e66e79dbfe08b0419252a07",
+    "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/relations/CA-R-2469.preview.txt",
+    "candidate_sha256": "f2bf87d4a1a2b7faf36d519926d83e6a4143040d132560b37c8bdd20fa7f98e6",
+    "change": "Add outgoing exactly one to existing incoming exactly one for Declaration to selected Nodes; Node union normalization is assigned to source worker."
+  },
+  {
+    "id": "CA-R-2588",
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+    "source_sha256": "d17089e940e09253bebd58b24dd37ead5ec8608187b8669cf4997ba9afbed3dc",
+    "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/relations/CA-R-2588.preview.txt",
+    "candidate_sha256": "133aa17d14239d3a301fd397e0db9b901345db5e2e7a9fa596c60f58c8a5fb0c",
+    "change": "Remove duplicated executable examples and empty Details labels; preserve Prose Claim. Node baseline owned by CA-R-2462; Journal containment by CA-R-2536."
+  }
+]

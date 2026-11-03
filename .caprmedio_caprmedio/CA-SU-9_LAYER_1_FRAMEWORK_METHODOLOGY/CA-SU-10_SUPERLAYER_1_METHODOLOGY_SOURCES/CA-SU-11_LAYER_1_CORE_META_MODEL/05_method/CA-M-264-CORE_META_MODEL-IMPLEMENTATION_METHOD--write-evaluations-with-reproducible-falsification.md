@@ -6,7 +6,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
   - CAPRMEDIO_MODEL <+ Atom.Content.Claim.Prose Claim
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
-  - CAPRMEDIO_MODEL <+ CFEL > Relation//evaluation_for
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//evaluation_for
 version: 29
 updated_at: 2026-11-03 20:00:05 +0400
 relations: {}

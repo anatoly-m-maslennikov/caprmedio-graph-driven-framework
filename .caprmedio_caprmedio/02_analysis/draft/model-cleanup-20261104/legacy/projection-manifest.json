@@ -1,0 +1,676 @@
+{
+  "status": "prospective exact Subject edits only",
+  "authority": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2535-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "sha256": "4933262a274a3bc1f76521fbfcd741468cc5d5d634b47085de0f91a7c8a620d6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+      "sha256": "852aaa4943ab5268bd4b80c204fab37be6b1cdab4e11623f29ffc8c7ec11135f"
+    }
+  ],
+  "triage": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/syntax/triage.json",
+    "sha256": "85c08d4b3a91b685b98fa2ffec1d39543f7a2320b4bba3d381f1abc587faed78"
+  },
+  "legacy_triage": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/manifest.json",
+    "sha256": "8c2da57a51479f5f15177291ed64cf6c7e8aefa9c01f7d03cce4bca7cba8c8ef"
+  },
+  "previews": [
+    {
+      "atom_id": "CA-R-1178",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1178-CAPRMEDIO-SCOPE_CONTRACT-GOAL--reduce-tokens-mistakes-and-context-clutter.md",
+      "source_sha256": "823f949778dbbcf451f80a4b19538d183471f4c7fe773f31fe6406d12db850b7",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1178.txt",
+      "preview_sha256": "c8bb6afd856f4f51d59e5b46a1133edb7ad2426d236eb90af33d04402969ba10",
+      "edits": [
+        {
+          "case": "syntax-39",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1424",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-1424-GOAL--provide-tools-to-maintain-methodology-alignment.md",
+      "source_sha256": "598f7d792feb450d943344115de625dbc1428dce639ed47455a4448888c31f7a",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1424.txt",
+      "preview_sha256": "dedf9999b7ce3eac8b967e77098d158db0e8073088b026c809f03cd23354e8f8",
+      "edits": [
+        {
+          "case": "syntax-39",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-M-296",
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-296-IMPLEMENTATION_METHOD--do-not-rely-on-memory-files.md",
+      "source_sha256": "30fe97922fcd01ed775d610867b1d8d0ae2386de6d195f52f7b7af9b3cf91be8",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-M-296.txt",
+      "preview_sha256": "a6e93291c2b8a2b2e97a5e78839b8fcfb9fb4fa26b7563a2bca880a90984e3eb",
+      "edits": [
+        {
+          "case": "syntax-39",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-E-437",
+      "source_path": ".caprmedio_caprmedio/06_evaluation/CA-E-437-POLICY--evaluate-methodology-alignment-support.md",
+      "source_sha256": "891fc422951fdea2527700cc4fc81d6ba1fbda0e3d5832323e03b0dec3e05923",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-E-437.txt",
+      "preview_sha256": "254d13bc33510757591e806057f38305f744b0558388011a95dc019a56f81902",
+      "edits": [
+        {
+          "case": "syntax-39",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1052",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-RULE--separate-project-settings-from-the-project-scope-unit-graph.md",
+      "source_sha256": "55a4d84ce8866b7ee6b56d9029db5a9ccca21f5f4a57654a735ff6c39d4bdcf5",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1052.txt",
+      "preview_sha256": "977fc1eca977696a1252ee16979e071de7da80284b284d4f087374a7c3158ebf",
+      "edits": [
+        {
+          "case": "syntax-48",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Scope Unit Graph",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Scope Unit Graph)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1219",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1219-CORE_META_MODEL-DEFINITION--define-methodology-source.md",
+      "source_sha256": "ecc1c5fcee0c8192c3ff3d915533d82ceb373c6a6d559ca1107b1688b9551799",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1219.txt",
+      "preview_sha256": "77c61cd1021f042122b74ff31bb295049e9e26db64f0c70272223d229bceeef0",
+      "edits": [
+        {
+          "case": "syntax-39",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1244",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1244-CORE_META_MODEL-RULE--allow-multiple-direct-term-hierarchy-parents.md",
+      "source_sha256": "1652a8ee39a253aa26aa491011b91a83580799262e5cadda817914ab9f6010fe",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1244.txt",
+      "preview_sha256": "87ce1791ede74a54caf192cee72a106a38516cc9c5c9b4097223fa3a51b04b7c",
+      "edits": [
+        {
+          "case": "legacy-26",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Terms Graph)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1284",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md",
+      "source_sha256": "47048137a76a2cb71acc40277f94fb59f4d619af5c498ab7349bf55da7fe1d36",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1284.txt",
+      "preview_sha256": "c0b79c35ed73d19d677a4afb1188189838323e0071b86728363cd0e9747785ee",
+      "edits": [
+        {
+          "case": "legacy-19",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Applicable Methodology)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1325",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-RULE--keep-composite-subject-expressions-out-of-terminology.md",
+      "source_sha256": "604ba5b39b6bf8af930e9c3336fe56911245c21872172b1fe1fa9d223bf5d958",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1325.txt",
+      "preview_sha256": "72eac2d8bc848fbe26491a1211539910c82f2f83cbd1a98be0c1c76392d6f903",
+      "edits": [
+        {
+          "case": "legacy-21",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Catalog)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)",
+          "role": "active"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1345",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1345-CORE_META_MODEL-RULE--keep-the-narrower-than-graph-acyclic.md",
+      "source_sha256": "f39df22cca9398efb859b357a14a2ff0b36eab8017bc2a9f8fbaa570fc85b540",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1345.txt",
+      "preview_sha256": "3d183b96c3251ba60871ac9f2195ce359af2432a284ef474d7d07e2856838a3d",
+      "edits": [
+        {
+          "case": "syntax-49",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Terms Graph",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Terms Graph)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1347",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1347-CORE_META_MODEL-DEFINITION--define-root-term.md",
+      "source_sha256": "d68625245525eae22c35ff16e79d4a8cfbe6de10bb89f06fe820033503dd8f46",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1347.txt",
+      "preview_sha256": "a8ff33ad28cb743ff854004a71bcb07656db89d0bef9847c16c2310af54c1f8c",
+      "edits": [
+        {
+          "case": "legacy-26",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Terms Graph)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1454",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL--derive-governed-terms-views-from-selected-authority.md",
+      "source_sha256": "fcb5de2427dd003ac6d18a49268e3594a5263d9d1442eeaf3efd60560810c642",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1454.txt",
+      "preview_sha256": "59d3f9d72c6daf57c3eb571b577cb0a94f58e6cf955842ce35cc9e5a0332968e",
+      "edits": [
+        {
+          "case": "legacy-26",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Terms Graph)",
+          "role": "active"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1455",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+      "source_sha256": "e50ed367d5d5752e7dee944c226f45d9ccdceac4cc74886037347abb05f1e3b0",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1455.txt",
+      "preview_sha256": "be47968372b3a0626f1132faa983dfaf50896dea75a10eda5368f12fede6e6ae",
+      "edits": [
+        {
+          "case": "legacy-21",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Catalog)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)",
+          "role": "active"
+        },
+        {
+          "case": "legacy-26",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Terms Graph)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1456",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL-RULE--derive-entities-views-from-selected-authority.md",
+      "source_sha256": "3d803bf5beae93141a965c02a859affdd334b3f69bdca71a7c92b82515651c4b",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1456.txt",
+      "preview_sha256": "ea9201d8272d23ece514e3b0ecda8764210d7f0601096abf1a3ae4c9e107dc0b",
+      "edits": [
+        {
+          "case": "legacy-22",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Entities Graph)",
+          "role": "active"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1460",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1460-CORE_META_MODEL--separate-projection-derivation-from-carrier-materialization.md",
+      "source_sha256": "212def449db057c53a76f92e2da9c79533dff068efdb5dac61a53b6bc7c0d1e3",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1460.txt",
+      "preview_sha256": "db4d2413055850627477f16224106da1849e6d4720f753d17491b5a88cf78244",
+      "edits": [
+        {
+          "case": "legacy-27",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type",
+          "new": "CAPRMEDIO_MODEL <+ Projection.Form",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1463",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-RULE--derive-log-views-from-the-shared-journal.md",
+      "source_sha256": "b063df6b39fc2cf098058855df19f269b580334e7e153e3114d3214c5d2ceac6",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1463.txt",
+      "preview_sha256": "38fbcb20ac7d892c45a67f665ef1fbb2bb6b13af7e3250c95417fe19ac2d1693",
+      "edits": [
+        {
+          "case": "syntax-40",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Artifact Change Log)",
+          "role": "passive"
+        },
+        {
+          "case": "syntax-45",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Process Log)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1491",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md",
+      "source_sha256": "bf11d2c700707d022c8fbc3ab4c7b499dacf16e176bd2c30cc962286dff20168",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1491.txt",
+      "preview_sha256": "dd1c74604d9ee7c179473a25304156069219cc0d3d3c3517f3104a117dceb837",
+      "edits": [
+        {
+          "case": "syntax-39",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1577",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1577-CORE_META_MODEL-DEFINITION--define-plan-authoring-subtypes.md",
+      "source_sha256": "00b5730c7867787b06784d6750a4f29ab85a619ce6be56e18f9235560d8958c4",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1577.txt",
+      "preview_sha256": "ea7a3a5358686311ab0dd841151d6f8807de28a60482787d9d33de5dd1a7ce26",
+      "edits": [
+        {
+          "case": "syntax-39",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1634",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-RULE--register-catalog-map-and-hub-as-type-values-under-projection.md",
+      "source_sha256": "2577297c3040d6daa2a17687c34f83bfe6991eee122a7c352b7c0fa832981fb4",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1634.txt",
+      "preview_sha256": "3b238ba472273c57a6cb6dc2b56c21c2b1e2072d756a8675b446d4af3d993b66",
+      "edits": [
+        {
+          "case": "syntax-43",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Hub",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Hub)",
+          "role": "passive"
+        },
+        {
+          "case": "syntax-44",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Map",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Map)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-RULE--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "cf682435902588c1225ffc2d783b3471cc508a5d1038131b1df508db0e01804e",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1655.txt",
+      "preview_sha256": "f19123a42a5e6cb4fa3aff8615ee775d26b23733bbaa5831b4999a72effff9a9",
+      "edits": [
+        {
+          "case": "legacy-19",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Applicable Methodology)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)",
+          "role": "passive"
+        },
+        {
+          "case": "legacy-24",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Scope Unit Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Scope Unit Graph)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1703",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-RULE--use-implementation-overview-as-a-projection.md",
+      "source_sha256": "5f8ae47413affdaf940598d8cc3ae283e4678103e4af367d7ecc77b986d99801",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1703.txt",
+      "preview_sha256": "9e4ad77b744ce6d6d1ed9d73a5eb0037cbfa71aea2f015da46f987dfb913efcc",
+      "edits": [
+        {
+          "case": "legacy-23",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Implementation Overview)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Implementation Overview)",
+          "role": "active"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1943",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md",
+      "source_sha256": "579c7a935f463b7c55aa43f83671356472ebd0030cdb2799f75c1a06f04acf7a",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1943.txt",
+      "preview_sha256": "6ede75d73558b6e80be59257403759e71e60d9232506d6296596b9d821bbe14d",
+      "edits": [
+        {
+          "case": "legacy-27",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type",
+          "new": "CAPRMEDIO_MODEL <+ Projection.Form",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "4f4f73d9c4216d8dc9a34059acadcb5a909b1bbd193a0885222fc41765baf83d",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-M-114.txt",
+      "preview_sha256": "298e9a64fc7b23d2e3636033e78afc90d01572c06d41c8234349046135f3f6bf",
+      "edits": [
+        {
+          "case": "legacy-21",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Catalog)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-M-232",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md",
+      "source_sha256": "9f84da9fa587c9d41b91fbc4754afa3b470a3e8eb398bd0207399a34ad1f90af",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-M-232.txt",
+      "preview_sha256": "c18f381fc4f00eac5ae91d12d75073c717a5788b7c7e26ca581bc95488dfa0f4",
+      "edits": [
+        {
+          "case": "legacy-20",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Atom Subjects Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Atom Subjects Graph)",
+          "role": "passive"
+        },
+        {
+          "case": "legacy-25",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Subject Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Subject Graph)",
+          "role": "active"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-M-241",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-241-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-canonical-scope-signatures-without-source-rewrite.md",
+      "source_sha256": "732cb83f371ab6d2d239371a91f3098950c418a5fa1843b5253a0f07f4316248",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-M-241.txt",
+      "preview_sha256": "ecf6ed195e39ce82f4ddd6f2f76f0469eeb97461e4ef25a1f024331eadc3bb7b",
+      "edits": [
+        {
+          "case": "syntax-41",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Canonical Scope Signature",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Canonical Scope Signature)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-M-385",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md",
+      "source_sha256": "113ca9b8f8e6992dbce1b8e12b49e035ec75ebc9f945c86763572ec3d6fd7a95",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-M-385.txt",
+      "preview_sha256": "f28348388fa9f482d0a1974a47d94d1474232b2f20544a647f24d77caeadedb8",
+      "edits": [
+        {
+          "case": "legacy-22",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Entities Graph)",
+          "role": "active"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-E-246",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md",
+      "source_sha256": "9f6fdb1f34591e398edb050628ae52679dc9e6a3a7aafbc28d6356e6451ecf52",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-E-246.txt",
+      "preview_sha256": "08637f120f03c51e461843fbc4a20b661fcb3e92af1a28408e65ca160b389ef1",
+      "edits": [
+        {
+          "case": "legacy-20",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Atom Subjects Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Atom Subjects Graph)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-E-382",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md",
+      "source_sha256": "540f7bca8553b45adbedf7d94c922ab614d8434f077155d496b164a66132dd6e",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-E-382.txt",
+      "preview_sha256": "2e9872590ff434a1a9600ad6c317ac7e620df1bedce0a49924f4714bf94a2967",
+      "edits": [
+        {
+          "case": "legacy-26",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Terms Graph)",
+          "role": "active"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-E-407",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-407-CORE_META_MODEL-POLICY--validate-canonical-scope-signature-boundary.md",
+      "source_sha256": "3a7a7cd453d4571e00af90abccedae8f3fabbff4df58ec61b571e59bc9eae4f2",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-E-407.txt",
+      "preview_sha256": "3f87c04e594d6491b75c9d73c7720453b2e741b2b039943062d2555ac989e2a9",
+      "edits": [
+        {
+          "case": "syntax-41",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Canonical Scope Signature",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Canonical Scope Signature)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-E-444",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "source_sha256": "7e851a7da148d0e524705426d81cfb0d45b645110e54bc0b2f1869412538a071",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-E-444.txt",
+      "preview_sha256": "228418a75dcf08fae00b1f2a91b7b1073f46007def96b1a1bbcd1e2e56c0b82c",
+      "edits": [
+        {
+          "case": "legacy-26",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Terms Graph)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-E-449",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md",
+      "source_sha256": "caca33e72e9b323d2570792e5cff4b1f1e8cb77adceb2fda24c0cbb4473cb6e5",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-E-449.txt",
+      "preview_sha256": "4ce948e29972348ed13d59d3fed8bd7b04c36fd4109d70435a1c6113d2d3f583",
+      "edits": [
+        {
+          "case": "legacy-22",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Entities Graph)",
+          "role": "active"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-E-464",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-POLICY--validate-journal-independence-from-git.md",
+      "source_sha256": "3ec93c268712b295db59ea022e06b132b3a8c0baa877b005ac59d66fe2c54d0a",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-E-464.txt",
+      "preview_sha256": "f2867cf22263057969b12076e3fc0972e78d6aa9355b32bd737437802414efe3",
+      "edits": [
+        {
+          "case": "syntax-40",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Artifact Change Log)",
+          "role": "passive"
+        },
+        {
+          "case": "syntax-45",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Process Log)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-E-476",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-EVAL_CASE--check-the-journal-storage-boundary.md",
+      "source_sha256": "f40d860d602227371bc2c8ddefeb900a40a3e2ab815669ca34096dd43e5a82a9",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-E-476.txt",
+      "preview_sha256": "0c896f8199adbbd1c2e79a24401abe03e2c56a1fe7eb093e383af88075c2fcb4",
+      "edits": [
+        {
+          "case": "syntax-39",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-D-392",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-392-CORE_META_MODEL-ENG_DECISION--register-obsolete-project-names.md",
+      "source_sha256": "f815c732383f600e3c7602f84f4c59f4f136e0492a10acd680999e74768cd0ed",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-D-392.txt",
+      "preview_sha256": "a95677670ccea895a5a6ebcff602bbc1839a5106b177931060c253807c350324",
+      "edits": [
+        {
+          "case": "legacy-24",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Scope Unit Graph)",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Scope Unit Graph)",
+          "role": "active"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-D-550",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL-ENG_DECISION--centralize-project-projection-carriers.md",
+      "source_sha256": "269c09c682181356a6e1476473af8754b554ba3e69f62bf27df3f24f44ba40ac",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-D-550.txt",
+      "preview_sha256": "14440e66486602cc3cac92ca2969e193529cb7191b94018ddd83a26db7ff4f0f",
+      "edits": [
+        {
+          "case": "syntax-39",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-D-635",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames.md",
+      "source_sha256": "154ef34631d17c2338f89f9d875588bda22cb01a2f69c174d698218c00089476",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-D-635.txt",
+      "preview_sha256": "941abe457fe07666870696131c8dc7c8423651f9f98bc5d72c2c6ea424a26319",
+      "edits": [
+        {
+          "case": "legacy-27",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type",
+          "new": "CAPRMEDIO_MODEL <+ Projection.Form",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-D-653",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-653-CORE_META_MODEL-ENG_DECISION--deliver-readable-subject-graph-views-as-markdown.md",
+      "source_sha256": "3d7a8aa23dab3690f4578e7cf27ae9aa55e76dc0942e8204336215c44f28f8da",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-D-653.txt",
+      "preview_sha256": "4208267478648cb3eee781e2beb96e31cf971dac894b2e1ee02cc6eca26f5877",
+      "edits": [
+        {
+          "case": "legacy-27",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type",
+          "new": "CAPRMEDIO_MODEL <+ Projection.Form",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1213",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1213-PROJECT_CONFIGURATION-RULE--define-applicable-methodology-as-a-compiled-projection.md",
+      "source_sha256": "78ce37e2a37232355b5dce990ff5ee9853e75eeb4f70295da44e34b7f3294572",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1213.txt",
+      "preview_sha256": "0be0626fe0159a90da7e02e1e8662b47367c19c4345edc53c7f5a9a96162dc30",
+      "edits": [
+        {
+          "case": "syntax-47",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Reconciled Projection",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Reconciled Projection)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1616",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1616-PROJECT_CONFIGURATION-RULE--define-realization-graph.md",
+      "source_sha256": "da81aed4325b44304a19bed5d4bc7650bf61262c99cad003c8739fefc7e5a89d",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1616.txt",
+      "preview_sha256": "be3b0b8f5cd7fbe9e6d85768e96a884fdaec92e7cf97784b8641c705ffb28431",
+      "edits": [
+        {
+          "case": "syntax-46",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Realization Graph",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1779",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1779-PROJECT_CONFIGURATION-RULE--require-production-logging-policies.md",
+      "source_sha256": "323280d25b7bc07517ae81193dda59aaffe564148c61429e43933ed237eb42d6",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-R-1779.txt",
+      "preview_sha256": "2dde910a97d76d03b6b9d2be4d3ddf9f1b421626e91e9910420d0917ac7faf5b",
+      "edits": [
+        {
+          "case": "syntax-42",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Catalog",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)",
+          "role": "passive"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-E-379",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md",
+      "source_sha256": "49ffce17d9cba7e227963cf669ae6dc174ade388d8a5c5cc327ea9645701d8e8",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/projection-previews/CA-E-379.txt",
+      "preview_sha256": "a9de3f4e14f299fc006ef0d2d8000ce3716fe0f98d2287eb330c5c53d1792d98",
+      "edits": [
+        {
+          "case": "syntax-39",
+          "old": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "new": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)",
+          "role": "passive"
+        }
+      ]
+    }
+  ],
+  "holds": [],
+  "note": "Selection preserves the existing value and makes no claim that the selected Form is admitted, complete, or produced by a runtime. Claims, literal references, and other fields unchanged."
+}

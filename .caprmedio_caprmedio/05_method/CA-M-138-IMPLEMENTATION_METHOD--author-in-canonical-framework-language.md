@@ -7,7 +7,7 @@ relations:
 subjects:
   active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 cce_version: cce_1

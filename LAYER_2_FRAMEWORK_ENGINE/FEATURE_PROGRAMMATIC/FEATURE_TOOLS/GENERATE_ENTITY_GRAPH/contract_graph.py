@@ -20,6 +20,7 @@ from cfel_claim_constraints import (
     section_text,
 )
 from current_subject_graph import (
+    _has_selection,
     _model_target,
     _relation_definition_target,
     _target_kind,
@@ -34,10 +35,6 @@ Candidate = tuple[Record, Mapping[str, Any], str | None, notation.Path | notatio
 _RMED = {"Requirement", "Method", "Evaluation", "Delivery"}
 _DECLARATION_FORMS = {"Declaration", "Relation Definition", "Entity Definition"}
 _COMPONENT_ROOTS = {"CFEL", "Carrier", "Term"}
-_MODEL_APPLICABILITY_SELECTORS = {
-    "(Node,Node/**,.**)": "Node",
-    "(Node,Node.**)": "Node",
-}
 _SCOPE_UNIT_DECLARATION_FORM = "Scope Unit Declaration"
 _DECLARED_INSTANCE_KINDS = frozenset({"Scope Unit", "Project"})
 _KNOWN_NAMED_CONTRACT_CONTEXTS = {
@@ -159,6 +156,8 @@ def _target(expression: notation.Path | notation.RelationChain) -> tuple[str, st
     """Map an exact active Subject to one already-declarable target category."""
 
     expression = namespace_local_expression(expression) or expression
+    if _has_selection(expression):
+        return None
     relation = _relation_definition_target(expression)
     if relation is not None:
         target, _ = relation
@@ -185,6 +184,8 @@ def _conditional_target(
     """
 
     expression = namespace_local_expression(expression) or expression
+    if _has_selection(expression):
+        return None
     if isinstance(expression, notation.RelationChain):
         if len(expression.links) != 1 or expression.links[0].operator not in {">|", "|<"}:
             return None
@@ -375,11 +376,6 @@ def _raw_selector_binding(
     """Handle the few admitted non-Path selectors without expanding them."""
 
     compact = re.sub(r"\s+", "", _local_raw_selector(subject))
-    base = _MODEL_APPLICABILITY_SELECTORS.get(compact)
-    if base is not None:
-        target = ("primary_node", base)
-        if target in catalog:
-            return target, "model_applicability_scope", {"applicability_scope": subject}
     kind = _KNOWN_NAMED_CONTRACT_CONTEXTS.get(compact)
     if kind is not None:
         target = ("primary_node", kind)
@@ -400,6 +396,8 @@ def _lexical_term_binding(
     """Keep a Term//Name as lexical evidence under Term, never as a Node."""
 
     expression = namespace_local_expression(expression) or expression
+    if _has_selection(expression):
+        return None
     if not isinstance(expression, notation.Path) or not isinstance(expression.head, notation.Name):
         return None
     if expression.head.value != "Term" or not any(step.operator == "//" for step in expression.steps):
@@ -625,10 +623,8 @@ def compose_contract_graph(carriers: list[Record]) -> Record:
         try:
             expression = notation.parse_subject_expression(subject, subject_profile="approved").expression
         except notation.SubjectNotationError as error:
-            if re.sub(r"\s+", "", _local_raw_selector(subject)) not in _MODEL_APPLICABILITY_SELECTORS:
-                gaps.append(_gap(carrier, str(error), subject))
-                continue
-            expression = None
+            gaps.append(_gap(carrier, str(error), subject))
+            continue
         candidates.append((carrier, view, subject, expression))
         if not _is_declaration(view):
             continue
@@ -679,7 +675,10 @@ def compose_contract_graph(carriers: list[Record]) -> Record:
                 if lexical is not None:
                     target, binding, context = lexical
         if target is None or binding is None:
-            entry = _gap(carrier, "Active Subject has no declared target in this selection.", subject)
+            message = ("Active Subject is a complex selection scope; review required."
+                       if expression is not None and _has_selection(expression)
+                       else "Active Subject has no declared target in this selection.")
+            entry = _gap(carrier, message, subject)
             root = _root_name(expression) if expression is not None else "Node"
             if root is not None and root not in roots:
                 entry["message"] = "Selected source is outside the declared model scope."

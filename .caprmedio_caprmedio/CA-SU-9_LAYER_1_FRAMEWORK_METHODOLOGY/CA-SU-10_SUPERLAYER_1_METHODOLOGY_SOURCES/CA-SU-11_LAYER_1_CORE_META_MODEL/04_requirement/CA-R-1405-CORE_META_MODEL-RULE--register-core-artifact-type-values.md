@@ -4,7 +4,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection.Form
+  - CAPRMEDIO_MODEL <+ Projection.Form
   - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
 version: 29
 updated_at: 2026-11-02 08:06:47 +0400

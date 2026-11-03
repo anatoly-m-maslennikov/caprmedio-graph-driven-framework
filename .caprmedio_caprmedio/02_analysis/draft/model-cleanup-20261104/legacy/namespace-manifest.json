@@ -1,0 +1,554 @@
+{
+  "status": "prospective review only",
+  "triage_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/syntax/triage.json",
+  "triage_sha256": "85c08d4b3a91b685b98fa2ffec1d39543f7a2320b4bba3d381f1abc587faed78",
+  "previews": [
+    {
+      "atom_id": "CA-R-1430",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL--select-authority-modes-through-framework-instance-settings.md",
+      "source_sha256": "690388b6719ccc200c2852110b7563674699d27b1d173192991d8a56b5bdd095",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-R-1430.txt",
+      "preview_sha256": "ca69bfc14eb35f5f715ab8388c750c815bdcbff0f5833a610d0de285c467fc4f",
+      "edits": [
+        {
+          "case": 14,
+          "old": "Atom",
+          "new": "CAPRMEDIO_MODEL <+ Atom",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+            "sha256": "7daab4c10ab54b4c88d021b103d7468d68e4afdcac416ec3ef654322d28e8e28"
+          }
+        },
+        {
+          "case": 26,
+          "old": "Project",
+          "new": "CAPRMEDIO_MODEL <+ Scope Unit/Project",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+            "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db"
+          }
+        },
+        {
+          "case": 28,
+          "old": "Project.Settings",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+            "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+          }
+        },
+        {
+          "case": 29,
+          "old": "Project.Settings.Authority Modes",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2632-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes.md",
+            "sha256": "50edd82f2a5afdf663753cecb1e472a504f5a1ce16a990f42927ceff3a0a8b49"
+          }
+        },
+        {
+          "case": 32,
+          "old": "Scope Unit",
+          "new": "CAPRMEDIO_MODEL <+ Scope Unit",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+            "sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active",
+        "depends_on→passive"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1750",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md",
+      "source_sha256": "1ff3baa487a261f448ffe9e3cbd29916d728a028960e8760fa7edb13581e079c",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-R-1750.txt",
+      "preview_sha256": "5dbdc3487ccb8e9359c1b2702c5bb9b2031d758af9d20858974f6a719861768a",
+      "edits": [
+        {
+          "case": 14,
+          "old": "Atom",
+          "new": "CAPRMEDIO_MODEL <+ Atom",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+            "sha256": "7daab4c10ab54b4c88d021b103d7468d68e4afdcac416ec3ef654322d28e8e28"
+          }
+        },
+        {
+          "case": 28,
+          "old": "Project.Settings",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+            "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+          }
+        },
+        {
+          "case": 28,
+          "old": "Project.Settings",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+            "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+          }
+        },
+        {
+          "case": 30,
+          "old": "Project.Settings.Name",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings.Name",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2533-CORE_META_MODEL-DECLARATION--declare-project-settings-name.md",
+            "sha256": "ae7bbcf3e0273469c26dc240c719eed1db1cc6f0ecde80acf1bd5115da4fe8c1"
+          }
+        },
+        {
+          "case": 31,
+          "old": "Project.Settings.Prefix",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings.Prefix",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2534-CORE_META_MODEL-DECLARATION--declare-project-settings-prefix.md",
+            "sha256": "dce964081bdba99185482ef2c44d4544f55432136be8cef0228d1ef120056cb9"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active",
+        "depends_on→passive"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    },
+    {
+      "atom_id": "CA-R-2632",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2632-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes.md",
+      "source_sha256": "50edd82f2a5afdf663753cecb1e472a504f5a1ce16a990f42927ceff3a0a8b49",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-R-2632.txt",
+      "preview_sha256": "72bbb18889365d388a2ba800527acc9d3029bfa218bdd4d629c4cdf6d1417c82",
+      "edits": [
+        {
+          "case": 29,
+          "old": "Project.Settings.Authority Modes",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2632-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes.md",
+            "sha256": "50edd82f2a5afdf663753cecb1e472a504f5a1ce16a990f42927ceff3a0a8b49"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    },
+    {
+      "atom_id": "CA-R-2689",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2689-CORE_META_MODEL-RULE--derive-scope-unit-ancestry-from-declarations.md",
+      "source_sha256": "b77e6ae03e270f9efaf8ab1c8f7296ce4df14c034c1ecdf2753279118544604e",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-R-2689.txt",
+      "preview_sha256": "231b696a82ee2de48e57234e4bdcf981e2638bc44eb8a39e69ebece84dd8b6bd",
+      "edits": [
+        {
+          "case": 32,
+          "old": "Scope Unit",
+          "new": "CAPRMEDIO_MODEL <+ Scope Unit",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+            "sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819"
+          }
+        },
+        {
+          "case": 33,
+          "old": "Scope Unit.Path",
+          "new": "CAPRMEDIO_MODEL <+ Scope Unit.Path",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2530-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+            "sha256": "9abd4823d07e60b55d674823274fef480205f39e0eb5e193ac30d06c4f59a075"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active",
+        "depends_on→passive"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    },
+    {
+      "atom_id": "CA-R-2690",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2690-CORE_META_MODEL-RULE--derive-scope-unit-places-from-declarations.md",
+      "source_sha256": "2ad87c75026fb5aa7252a32fe1af9e57a94c2fad6ba15ac64d2453c5e411ac99",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-R-2690.txt",
+      "preview_sha256": "da2c4ba8c71e593979e6e0a03b64957c7d2aa9190c5ffe17034ec57ad99ddedd",
+      "edits": [
+        {
+          "case": 19,
+          "old": "Carrier/Directory",
+          "new": "CAPRMEDIO_MODEL <+ Carrier/Directory",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1956-CORE_META_MODEL-DEFINITION--define-entity-carrier-directory-carrier.md",
+            "sha256": "dacacf47d0215d11e97e87b45aab8e0bd95ce880bf261498f837ec5db386b7ca"
+          }
+        },
+        {
+          "case": 32,
+          "old": "Scope Unit",
+          "new": "CAPRMEDIO_MODEL <+ Scope Unit",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+            "sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active",
+        "depends_on→passive"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    },
+    {
+      "atom_id": "CA-E-006",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md",
+      "source_sha256": "48bedc3fbbe4ccbbb07559fcb2c7a541b1d72f3ce13efaf36423a9c956956f29",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-E-006.txt",
+      "preview_sha256": "909749d12b6dc525dfa6ed8e315d5717040632ec86c77e89c137d163e7e77263",
+      "edits": [
+        {
+          "case": 28,
+          "old": "Project.Settings",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+            "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+          }
+        },
+        {
+          "case": 28,
+          "old": "Project.Settings",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+            "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active",
+        "depends_on→passive"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    },
+    {
+      "atom_id": "CA-E-621",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-621-CORE_META_MODEL-EVAL_CASE--settings-artifact-usability.md",
+      "source_sha256": "0f0a6b7641041f2f936b4c48b2042845c3f9054b197159627f6824a032999060",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-E-621.txt",
+      "preview_sha256": "f3cadbc89afaf3e6a55156c68f19de0c322ef104bad33b545b7f0c349a663812",
+      "edits": [
+        {
+          "case": 28,
+          "old": "Project.Settings",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+            "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+          }
+        },
+        {
+          "case": 28,
+          "old": "Project.Settings",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+            "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active",
+        "depends_on→passive"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    },
+    {
+      "atom_id": "CA-E-671",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-671-CORE_META_MODEL-EVAL_CASE--validate-settings-boundaries-and-scope-unit-declarations.md",
+      "source_sha256": "b312c38875940094a2ec7435dfc4ffeefeae2c75a32e9d9398520c3c53864488",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-E-671.txt",
+      "preview_sha256": "d8276e59cf186a398f194cc424f484d49c038e135261c7af444b8acb7a6289fe",
+      "edits": [
+        {
+          "case": 18,
+          "old": "Carrier",
+          "new": "CAPRMEDIO_MODEL <+ Carrier",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1958-CORE_META_MODEL--define-entity-carrier.md",
+            "sha256": "0a0074cc98230942772d96f790537e644d27b85837a3e08665c12fdde7b291ba"
+          }
+        },
+        {
+          "case": 26,
+          "old": "Project",
+          "new": "CAPRMEDIO_MODEL <+ Scope Unit/Project",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+            "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db"
+          }
+        },
+        {
+          "case": 28,
+          "old": "Project.Settings",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+            "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+          }
+        },
+        {
+          "case": 32,
+          "old": "Scope Unit",
+          "new": "CAPRMEDIO_MODEL <+ Scope Unit",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+            "sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active",
+        "depends_on→passive"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    },
+    {
+      "atom_id": "CA-E-672",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-672-CORE_META_MODEL-EVAL_POLICY--distinguish-scope-unit-declarations-from-observations.md",
+      "source_sha256": "b3b80b6486b3053fb2f1ddc9468e27a234b0ad26137855cc7ff75c35b0e8105f",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-E-672.txt",
+      "preview_sha256": "c32b44016be761c36a9ea731735a98edf7d09e25027fe65ffc087a110f4bf5e7",
+      "edits": [
+        {
+          "case": 18,
+          "old": "Carrier",
+          "new": "CAPRMEDIO_MODEL <+ Carrier",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1958-CORE_META_MODEL--define-entity-carrier.md",
+            "sha256": "0a0074cc98230942772d96f790537e644d27b85837a3e08665c12fdde7b291ba"
+          }
+        },
+        {
+          "case": 32,
+          "old": "Scope Unit",
+          "new": "CAPRMEDIO_MODEL <+ Scope Unit",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+            "sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active",
+        "depends_on→passive"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    },
+    {
+      "atom_id": "CA-D-668",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-668-CORE_META_MODEL-ENG_DECISION--encode-project-authority-modes-in-framework-settings.md",
+      "source_sha256": "7447805cb751fdc62a9b38a77057248f1dee995e07350410a86e09b222055f49",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-D-668.txt",
+      "preview_sha256": "a0412ffc5defc1cf5e97872b395cca244a395c18b9598b2410ac3a4371cb6beb",
+      "edits": [
+        {
+          "case": 29,
+          "old": "Project.Settings.Authority Modes",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2632-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes.md",
+            "sha256": "50edd82f2a5afdf663753cecb1e472a504f5a1ce16a990f42927ceff3a0a8b49"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    },
+    {
+      "atom_id": "CA-D-669",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-669-CORE_META_MODEL-ENG_DECISION--encode-configuration-surfaces-in-owning-atoms.md",
+      "source_sha256": "2c8f687f4a2dca405146618de3d55b5fb547ab559a1afde59074bdf5af5c776b",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-D-669.txt",
+      "preview_sha256": "d9908d53ae4588788931994e7a58fe2e7797fcf2441ee61ed998e75d49ca41f6",
+      "edits": [
+        {
+          "case": 14,
+          "old": "Atom",
+          "new": "CAPRMEDIO_MODEL <+ Atom",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+            "sha256": "7daab4c10ab54b4c88d021b103d7468d68e4afdcac416ec3ef654322d28e8e28"
+          }
+        },
+        {
+          "case": 15,
+          "old": "Atom.Content",
+          "new": "CAPRMEDIO_MODEL <+ Atom.Content",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+            "sha256": "9ffe7c05ec917038367889633aa487478b09f370ecea282ef33396afa67b4d84"
+          }
+        },
+        {
+          "case": 28,
+          "old": "Project.Settings",
+          "new": "CAPRMEDIO_MODEL <+ Project.Settings",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+            "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active",
+        "depends_on→passive"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    },
+    {
+      "atom_id": "CA-D-670",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-670-CORE_META_MODEL-ENG_DECISION--bind-scope-unit-declarations-to-source-evidence.md",
+      "source_sha256": "2e41b30289f7d5dbb21484daec70d353420673da59c38e722ec52c8c081a4c0b",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-D-670.txt",
+      "preview_sha256": "f18f6aa29ae095def1a50796a771f795f745db0c1fb3b987c7406fd7792d6d2d",
+      "edits": [
+        {
+          "case": 18,
+          "old": "Carrier",
+          "new": "CAPRMEDIO_MODEL <+ Carrier",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1958-CORE_META_MODEL--define-entity-carrier.md",
+            "sha256": "0a0074cc98230942772d96f790537e644d27b85837a3e08665c12fdde7b291ba"
+          }
+        },
+        {
+          "case": 25,
+          "old": "Journal",
+          "new": "CAPRMEDIO_MODEL <+ Journal",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2536-CORE_META_MODEL-DECLARATION--declare-journal.md",
+            "sha256": "20a5b68515df5b16e7b2a4facd9304f786d7fcbefb16097e8480d930ef93c991"
+          }
+        },
+        {
+          "case": 32,
+          "old": "Scope Unit",
+          "new": "CAPRMEDIO_MODEL <+ Scope Unit",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+            "sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active",
+        "depends_on→passive"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    },
+    {
+      "atom_id": "CA-D-671",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-671-CORE_META_MODEL-ENG_DECISION--carry-materialized-scope-units-with-directory-carriers.md",
+      "source_sha256": "2e6fd842be10279b31175075f2b9f0c33056bd4b5463871e4481df81eee542c6",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/legacy/namespace-previews/CA-D-671.txt",
+      "preview_sha256": "4b159eea8047bd208a13cace2be4ffc732b9f2706eb32bc8f2eb17b965e74224",
+      "edits": [
+        {
+          "case": 19,
+          "old": "Carrier/Directory",
+          "new": "CAPRMEDIO_MODEL <+ Carrier/Directory",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1956-CORE_META_MODEL-DEFINITION--define-entity-carrier-directory-carrier.md",
+            "sha256": "dacacf47d0215d11e97e87b45aab8e0bd95ce880bf261498f837ec5db386b7ca"
+          }
+        },
+        {
+          "case": 32,
+          "old": "Scope Unit",
+          "new": "CAPRMEDIO_MODEL <+ Scope Unit",
+          "count": 1,
+          "authority": {
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+            "sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819"
+          }
+        }
+      ],
+      "subject_key_renames": [
+        "governs→active",
+        "depends_on→passive"
+      ],
+      "held_values": [
+        "unrecognized subject entries retained exactly; do not treat candidate as complete semantic reconciliation"
+      ]
+    }
+  ],
+  "holds": []
+}
