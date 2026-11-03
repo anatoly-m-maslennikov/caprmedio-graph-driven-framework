@@ -19,10 +19,12 @@ form: Rule
 
 Route Main Skill Through Canonical Routing Tree
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 requested registered branches **or** leaves handled by the CAPRMEDIO Main Skill.
 
-## Claim
 
 the CAPRMEDIO Main Skill **must** route **every** requested registered branch **or** leaf through the CAPRMEDIO Routing Tree.

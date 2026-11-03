@@ -2,9 +2,9 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   - CAPRMEDIO_MODEL <+ CFEL > Relation
 version: 30
 updated_at: 2026-11-02 00:18:22 +0400
@@ -21,10 +21,12 @@ form: Decision
 
 Preserve Authority through Carrier-Only Recoding
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Carrier-only recoding.
 
-## Claim
 
 **every** Carrier-only recoding **must** preserve Atom identity, Claim, its textual Claim Scope, Claim Target Scope Unit, Atom Scope, **and** authored direct semantic relations **without** semantic change.

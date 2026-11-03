@@ -18,10 +18,12 @@ form: Decision
 
 Serialize Journals as Append-Only Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Journal Carriers.
 
-## Claim
 
 **every** Journal Carrier **must** serialize its ordered Records append-only **in** its registered format **and** **must not** rewrite an admitted Record.

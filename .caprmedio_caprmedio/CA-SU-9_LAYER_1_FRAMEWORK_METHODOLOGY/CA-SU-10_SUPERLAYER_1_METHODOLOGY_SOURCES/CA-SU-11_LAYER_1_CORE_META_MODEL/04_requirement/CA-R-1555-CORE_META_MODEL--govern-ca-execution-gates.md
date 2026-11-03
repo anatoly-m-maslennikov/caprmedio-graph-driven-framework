@@ -22,10 +22,12 @@ form: Rule
 ## Summary
 Govern CA execution gates
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 identified AI Agents considering clarification omission under applicable configured confidence requirements.
 
-## Claim
 
 an identified AI Agent **may** omit clarification **only** **when** confidence **in** **every** following item meets its applicable configured requirement:
 

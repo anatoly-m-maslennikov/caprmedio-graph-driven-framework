@@ -19,6 +19,9 @@ Inherit Declaration constraints and enforce Relation whitelists
 
 ## Claim
 
+### Prose Claim
+
+
 For Node1/Node2, Node2's instances receive Node1's applicable:
 
 - Relation cardinalities.

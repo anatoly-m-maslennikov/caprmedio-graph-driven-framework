@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Require a Definition of Done for every Plan
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan Atoms, including Hubs with no own work.
 
-## Claim
 
 **every** Plan Atom **must** have **`=1`** Definition of Done, including a Hub with no own work.

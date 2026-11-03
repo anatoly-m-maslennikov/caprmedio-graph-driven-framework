@@ -31,4 +31,7 @@ Provide tools to maintain methodology alignment
 
 ## Claim
 
+### Prose Claim
+
+
 the CAPRMEDIO Framework Instance **must** provide Tools sufficient **to** evaluate, repair, **and** maintain instance alignment with the current Applicable Methodology from the Project's registered Framework Instance directory, including accurate reporting of orphan Atoms **and** other nonconformance; repair **must** remain under Operator control, **and** the Operator **may** leave findings unresolved **or** retain nonconforming Artifacts.

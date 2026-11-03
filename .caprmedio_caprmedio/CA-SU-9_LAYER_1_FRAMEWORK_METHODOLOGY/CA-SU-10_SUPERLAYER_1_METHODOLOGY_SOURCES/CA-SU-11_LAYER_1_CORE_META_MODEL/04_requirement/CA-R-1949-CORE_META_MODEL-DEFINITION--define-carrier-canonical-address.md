@@ -18,11 +18,13 @@ form: Entity Definition
 
 Define Carrier.Canonical Address
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Canonical locators of Carriers.
 
-## Claim
 
 A Carrier's Canonical Address **means** its designated locator under the applicable addressing rules. It is **not** the Carrier's ID.
 

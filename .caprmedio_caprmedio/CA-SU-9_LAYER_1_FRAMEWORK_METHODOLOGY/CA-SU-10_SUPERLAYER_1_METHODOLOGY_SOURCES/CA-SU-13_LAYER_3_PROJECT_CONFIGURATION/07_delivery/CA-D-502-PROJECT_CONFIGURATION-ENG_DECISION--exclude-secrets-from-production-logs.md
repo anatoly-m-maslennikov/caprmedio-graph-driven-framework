@@ -16,11 +16,13 @@ form: Decision
 
 Exclude secrets from production logs
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production logs that can contain credentials **or** secret-bearing payloads.
 
-## Claim
 
 production logs **must not** contain passwords, API keys, access tokens, session secrets, cookies, private keys, complete credentials, **or** unredacted secret-bearing payloads.
 

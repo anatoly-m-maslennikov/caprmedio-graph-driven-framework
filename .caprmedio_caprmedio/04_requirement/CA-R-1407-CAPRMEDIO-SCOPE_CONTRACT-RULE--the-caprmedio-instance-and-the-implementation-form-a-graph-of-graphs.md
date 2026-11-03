@@ -26,4 +26,7 @@ The CAPRMEDIO instance and the Implementation form a graph of graphs
 
 ## Claim
 
+### Prose Claim
+
+
 the CAPRMEDIO Framework Instance **and** the Implementation **must** form one connected Graph of Graphs.

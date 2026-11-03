@@ -16,10 +16,12 @@ form: Decision
 
 Keep Durable Hub Navigation at Folder Level
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 durable Hub Carrier navigation.
 
-## Claim
 
 a durable Hub Carrier **may** list stable child folders **and** their Hubs but **must not** enumerate individual Atom Carriers **or** Runtime State descendants.

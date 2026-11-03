@@ -18,6 +18,9 @@ Distinguish event time from record insertion time
 
 ## Claim
 
+### Prose Claim
+
+
 - Event Record.happened_at is the time the recorded event happened.
 - Event Record.inserted_at is the time the record was added to its Journal.
 - Delayed insertion does not replace happened_at with inserted_at.

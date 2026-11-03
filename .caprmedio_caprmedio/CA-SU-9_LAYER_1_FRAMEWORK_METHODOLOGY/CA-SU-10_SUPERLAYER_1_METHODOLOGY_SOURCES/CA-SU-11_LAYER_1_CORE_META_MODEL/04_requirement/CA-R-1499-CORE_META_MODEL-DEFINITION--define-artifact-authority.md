@@ -20,11 +20,13 @@ form: Rule
 
 Define Artifact Authority
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an Artifact's governed capacity to establish meaning of a declared kind.
 
-## Claim
 
 
 For an Atom as a governed Artifact, Authority must mean its governed capacity to establish meaning of a declared kind.

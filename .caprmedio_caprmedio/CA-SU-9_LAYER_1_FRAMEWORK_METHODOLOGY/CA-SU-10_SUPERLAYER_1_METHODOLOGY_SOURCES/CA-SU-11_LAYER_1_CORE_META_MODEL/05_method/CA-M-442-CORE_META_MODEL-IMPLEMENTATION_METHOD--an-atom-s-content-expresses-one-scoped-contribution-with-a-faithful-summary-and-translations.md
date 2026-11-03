@@ -23,11 +23,13 @@ form: Implementation Method
 
 An Atom's content expresses one scoped contribution with a faithful Summary and Translations.
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoring an Atom's prose CCE primary contribution, its applicability, **and** its derived Summary. The same Claim may contain readable prose and an optional R-only nested Formal claim under the Claim definition.
 
-## Claim
 
 **to** author one CCE Claim **and** its derived Summary, an Author **must** use these authoring constraints:
 

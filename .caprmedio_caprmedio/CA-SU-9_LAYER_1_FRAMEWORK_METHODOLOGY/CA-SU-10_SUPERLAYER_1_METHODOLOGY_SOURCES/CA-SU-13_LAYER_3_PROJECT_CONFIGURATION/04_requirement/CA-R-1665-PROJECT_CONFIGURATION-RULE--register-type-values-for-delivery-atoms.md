@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery).Header.Form'
 version: 35
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Rule
 
 Register Type Values for Delivery Atoms
 
-## Claim scope
-
-`Atom/Content Role: Delivery/Type` values.
-
 ## Claim
+
+### Prose Claim
+
+
+`Atom/(.Header.Role := Delivery).Header.Form` values.
+
 
 Policy and Decision are the Delivery Type values for reusable delivery rules and bounded delivery choices. Release and Environment describe governed things or applicability; they do not require separate Delivery Types.
 

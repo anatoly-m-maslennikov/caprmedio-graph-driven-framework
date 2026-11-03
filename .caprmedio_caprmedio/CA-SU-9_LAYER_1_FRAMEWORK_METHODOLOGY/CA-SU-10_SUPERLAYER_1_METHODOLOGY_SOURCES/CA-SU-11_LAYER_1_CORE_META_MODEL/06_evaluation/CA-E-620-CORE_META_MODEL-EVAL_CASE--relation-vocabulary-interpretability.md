@@ -16,11 +16,13 @@ form: Eval Case
 
 Relation-vocabulary interpretability
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the case covers lineage, implementation, checking, evidence, resolution, conflict solution, override, replacement, recurrence, **and** generic relation.
 
-## Claim
 
 the registered relation vocabulary lets an independent assessor select the governed relation for representative artifact pairs **without** inventing another kind.
 

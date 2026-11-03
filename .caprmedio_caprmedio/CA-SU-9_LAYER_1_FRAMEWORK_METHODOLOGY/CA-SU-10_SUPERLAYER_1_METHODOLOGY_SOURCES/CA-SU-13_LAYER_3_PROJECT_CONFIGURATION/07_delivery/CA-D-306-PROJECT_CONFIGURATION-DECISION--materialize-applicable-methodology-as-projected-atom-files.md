@@ -18,10 +18,12 @@ form: Decision
 
 Materialize Applicable Methodology as Projected Atom Files
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Applicable Methodology selected projected RMEDO Atom File Carriers.
 
-## Claim
 
 Applicable Methodology **must** be materialized as its selected projected RMEDO Atom File Carriers **and** **must not** be replaced by one monolithic JSON Carrier.

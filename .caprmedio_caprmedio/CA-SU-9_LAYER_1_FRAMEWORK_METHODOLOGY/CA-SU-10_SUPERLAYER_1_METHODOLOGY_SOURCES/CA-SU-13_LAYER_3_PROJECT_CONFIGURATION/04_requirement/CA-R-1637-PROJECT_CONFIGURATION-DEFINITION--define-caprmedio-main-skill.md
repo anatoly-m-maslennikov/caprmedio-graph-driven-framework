@@ -16,10 +16,12 @@ form: Rule
 
 Define CAPRMEDIO Main Skill
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the CAPRMEDIO Main Skill.
 
-## Claim
 
 The CAPRMEDIO Main Skill **must** be the canonical Skill with identity `ca`.

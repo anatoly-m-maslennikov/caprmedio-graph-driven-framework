@@ -22,11 +22,13 @@ form: Decision
 
 Serialize the Project Atom prefix
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Operator-selected Atom prefix in the Project Settings TOML Carrier.
 
-## Claim
 
 the Project Settings TOML Carrier **must** encode the Operator-selected Atom prefix as its exact nonempty uppercase TOML string value under CA-D-378 **in** `artifacts.identity.project_prefix` **before** the first Project Atom is created.
 

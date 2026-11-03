@@ -18,7 +18,10 @@ Declare Event Record.object_output.version
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Event Record.object_output.version{:0..1}: [int]{:1};
 Event Record.object_output.version.*[]{:0}
 ```
+

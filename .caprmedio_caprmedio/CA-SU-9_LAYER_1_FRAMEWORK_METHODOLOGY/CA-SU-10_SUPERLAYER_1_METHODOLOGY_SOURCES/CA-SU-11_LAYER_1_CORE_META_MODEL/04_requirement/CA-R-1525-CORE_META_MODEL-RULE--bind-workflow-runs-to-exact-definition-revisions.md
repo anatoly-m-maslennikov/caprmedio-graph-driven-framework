@@ -2,9 +2,9 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Journal
@@ -24,11 +24,13 @@ form: Rule
 
 Bind Workflow Runs to exact definition Revisions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Workflow Runs **and** their exact definition Revisions admitted for execution.
 
-## Claim
 
 **every** Workflow Run **must** retain the exact Workflow graph Revision, referenced Step Atom Revisions, **and** referenced Action definition Revisions admitted for its execution.
 

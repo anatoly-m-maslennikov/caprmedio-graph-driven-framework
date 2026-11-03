@@ -19,10 +19,12 @@ form: Rule
 
 Separate Extension Installation from Activation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Extension installation and activation applicability in the current Project.
 
-## Claim
 
 installing an Extension **must** make its immutable authority available **to** Project Configuration **without** making the Extension authority applicable **to** the current Project.

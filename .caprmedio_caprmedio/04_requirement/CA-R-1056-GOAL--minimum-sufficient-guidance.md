@@ -28,4 +28,7 @@ Minimum sufficient guidance
 
 ## Claim
 
+### Prose Claim
+
+
 CAPRMEDIO **must** supply an LLM **only** the guidance necessary **to** meet the Operator-defined adequacy threshold under the currently observed model, host, task, **and** risk conditions.

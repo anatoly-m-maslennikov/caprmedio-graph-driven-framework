@@ -19,10 +19,12 @@ form: Rule
 
 Define Extension
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Extensions within the Core Meta-Model's permitted expansion boundary.
 
-## Claim
 
 an Extension **means** an immutable Methodology Source that adds authority within the Core Meta-Model's permitted expansion boundary under CA-R-1375-CORE_META_MODEL-CORE-REQUIREMENT--restrict-methodology-source-expansion-to-core-permission. specialization is admitted **only** **where** that boundary permits it **and** preserves applicable Core Meta-Model authority; unchanged Core Carrier bytes alone do **not** establish preservation.

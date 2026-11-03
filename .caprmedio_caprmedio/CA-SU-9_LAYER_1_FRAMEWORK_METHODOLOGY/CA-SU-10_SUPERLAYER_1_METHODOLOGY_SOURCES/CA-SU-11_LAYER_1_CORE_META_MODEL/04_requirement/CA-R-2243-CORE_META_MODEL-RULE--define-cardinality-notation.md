@@ -21,6 +21,18 @@ Define Cardinality Notation
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+p{:occurrence}: [value format]{:value count};
+p.*[immediate name format]{:immediate name count};
+p.**[recursive name format]{:recursive name count};
+p.*[name format]{:name count}: [value format]{:value count}
+```
+
+### Prose Claim
+
+
 Cardinality annotations state allowed counts; they do not count a value merely
 because a dependent Property exists. `{:n}` allows exactly n, `{:n+}` at
 least n, and `{:n..m}` the inclusive range for its qualified selection. Bounds
@@ -33,12 +45,6 @@ nested children.
 
 Property occurrence, value and dependent-name counts are separate:
 
-```CFEL
-p{:occurrence}: [value format]{:value count};
-p.*[immediate name format]{:immediate name count};
-p.**[recursive name format]{:recursive name count};
-p.*[name format]{:name count}: [value format]{:value count}
-```
 
 `p{:0}` forbids authored occurrences of p; it does not forbid independently
 declared children. `p.*[]{:0}` states that p has no declared immediate

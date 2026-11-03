@@ -1,20 +1,20 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Tier
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
   passive:
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom.Tier
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
-  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
 version: 12
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
   evaluation_for:
-  - CA-R-2504
+  - CA-R-2706
   - CA-R-2125
   - CA-R-2428
   - CA-R-2131
@@ -33,11 +33,13 @@ form: Eval Case
 
 Validate Integer Tier Ordering and Scope Constraints
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Current RMEDO source Atoms and their permitted Current Atom targets.
 
-## Claim
 
 this Evaluation **must** cover one coherent numeric graph-ordering case:
 

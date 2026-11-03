@@ -18,7 +18,10 @@ Declare Event Record.object_input.id
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Event Record.object_input.id{:1}: [string]{:1};
 Event Record.object_input.id.*[]{:0}
 ```
+

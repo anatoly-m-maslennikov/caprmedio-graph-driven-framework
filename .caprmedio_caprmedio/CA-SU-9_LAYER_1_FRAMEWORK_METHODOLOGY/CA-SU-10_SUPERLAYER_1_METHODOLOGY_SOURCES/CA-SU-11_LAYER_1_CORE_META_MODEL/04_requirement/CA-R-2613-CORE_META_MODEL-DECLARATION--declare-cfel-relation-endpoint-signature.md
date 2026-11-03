@@ -19,8 +19,10 @@ Declare CFEL Relation endpoint signature
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
-@Operator//RelationEndpointSignature == "$host ((RELATION)) $target"
+Operator//RelationEndpointSignature == "$host ((RELATION)) $target"
 ```
 
 ## Semantics

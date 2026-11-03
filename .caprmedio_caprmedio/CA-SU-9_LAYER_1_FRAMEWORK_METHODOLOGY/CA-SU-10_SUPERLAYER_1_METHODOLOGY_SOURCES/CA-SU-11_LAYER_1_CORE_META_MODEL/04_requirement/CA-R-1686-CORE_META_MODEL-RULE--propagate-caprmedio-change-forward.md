@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Relations
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Relations
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -18,11 +18,13 @@ form: Rule
 
 Propagate CAPRMEDIO change forward
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an accepted upstream change in the ordered layer graph.
 
-## Claim
 
 the change propagates **only** forward through the ordered layer graph. it:
 

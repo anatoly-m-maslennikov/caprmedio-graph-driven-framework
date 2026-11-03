@@ -6,10 +6,10 @@ status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -25,11 +25,13 @@ form: Eval Case
 
 Validate the Atom Carrier Validation Workflow definition
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Atom Carrier Validation Workflow definition.
 
-## Claim
 
 the Atom Carrier Validation definition check **must** reject a graph **or** binding that cannot preserve its declared read-only assessment boundary.
 

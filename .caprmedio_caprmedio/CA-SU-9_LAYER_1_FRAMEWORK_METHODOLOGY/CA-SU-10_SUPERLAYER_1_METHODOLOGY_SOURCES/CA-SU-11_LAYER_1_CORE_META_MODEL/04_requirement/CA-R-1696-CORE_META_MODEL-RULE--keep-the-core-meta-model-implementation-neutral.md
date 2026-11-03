@@ -19,11 +19,13 @@ form: Rule
 
 Keep the Core Meta-Model implementation neutral
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CORE_META_MODEL authority and its reusable model invariants and expansion boundaries.
 
-## Claim
 
 CORE_META_MODEL authority **must** define reusable model invariants **and** expansion boundaries **without** hidden dependence on a programming language, LLM provider **or** model, agent host, operating system, repository host, package manager, database, deployment platform, **or** other replaceable implementation mechanism.
 

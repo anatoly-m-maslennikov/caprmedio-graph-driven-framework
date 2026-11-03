@@ -16,11 +16,13 @@ form: Rule
 
 Protect primary operations from logging failure
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 logging Implementation for production-relevant components.
 
-## Claim
 
 logging Implementation **must not** make the primary operation silently fail.
 

@@ -18,6 +18,9 @@ Count direct Property values and distinct values
 
 ## Claim
 
+### Prose Claim
+
+
 - Within `COUNT(...)`, `p: $` selects the direct value occurrences of Property p on the current bearer. `$` is anonymous and binds no new named variable. It does not select dependent Property names.
 - Repeated equal values remain separate occurrences. A known absent optional p selects an empty selection of value occurrences. An unresolved or malformed bearer, Property population, or value is an error, not an empty set.
 - `COUNT(p: $)` returns the nonnegative number of selected direct value occurrences. `COUNT(DISTINCT p: $)` returns the number of their unique values.
@@ -28,5 +31,5 @@ Count direct Property values and distinct values
 ## Details
 
 ```CFEL
-COUNT(Atom.Subjects.Passive: $) = COUNT(DISTINCT Atom.Subjects.Passive: $)
+COUNT(Atom.Header.Subjects.Passive: $) = COUNT(DISTINCT Atom.Header.Subjects.Passive: $)
 ```

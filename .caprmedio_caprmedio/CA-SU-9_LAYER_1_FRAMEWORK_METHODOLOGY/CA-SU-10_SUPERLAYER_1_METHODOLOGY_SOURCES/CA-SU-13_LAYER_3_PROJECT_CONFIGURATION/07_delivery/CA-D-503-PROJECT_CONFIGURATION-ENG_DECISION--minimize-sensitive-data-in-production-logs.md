@@ -16,11 +16,13 @@ form: Decision
 
 Minimize sensitive data in production logs
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production logs that can contain personal, customer, **or** commercially sensitive data.
 
-## Claim
 
 personal, customer, **and** commercially sensitive data in production logs **must** be omitted, masked, hashed, tokenized, **or** **otherwise** minimized according to the applicable boundary.
 

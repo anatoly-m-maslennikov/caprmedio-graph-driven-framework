@@ -3,8 +3,8 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Scope Unit
@@ -30,11 +30,13 @@ form: Eval Policy
 
 Validate Composite Claims and Derived Summaries
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Claim boundary, applicability, supporting Details, **and** Summary of an Atom.
 
-## Claim
 
 the Evaluation **must** reject an Atom **if** **any** applicable content-boundary condition fails:
 

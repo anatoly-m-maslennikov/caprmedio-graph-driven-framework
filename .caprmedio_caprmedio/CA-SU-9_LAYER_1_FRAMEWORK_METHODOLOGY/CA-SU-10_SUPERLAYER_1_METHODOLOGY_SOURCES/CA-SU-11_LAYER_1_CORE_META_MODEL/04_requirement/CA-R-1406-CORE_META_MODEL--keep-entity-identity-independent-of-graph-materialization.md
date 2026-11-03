@@ -21,10 +21,12 @@ form: Rule
 
 Keep Entity Identity Independent of Graph Materialization
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Entity identity while a Graph Projection is materialized, refreshed, or deleted.
 
-## Claim
 
 materializing, refreshing, **or** deleting a Graph Projection **must not** establish, change, **or** remove Entity identity.

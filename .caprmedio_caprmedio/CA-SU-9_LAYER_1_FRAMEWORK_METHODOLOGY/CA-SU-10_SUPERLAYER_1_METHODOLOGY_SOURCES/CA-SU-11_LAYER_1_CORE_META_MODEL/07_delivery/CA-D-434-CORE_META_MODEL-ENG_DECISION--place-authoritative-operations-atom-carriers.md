@@ -2,7 +2,7 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_MODEL <+ Scope Unit
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
@@ -19,10 +19,12 @@ form: Decision
 
 Place authoritative Operations Atom Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the placement of a current authoritative Operations Atom File Carrier.
 
-## Claim
 
 a current authoritative Operations Atom File Carrier **must** reside **in** the `09_operations/` Content Role Directory directly under its owning Scope Unit. first-artifact directory materialization remains governed by CA-D-296-CORE_META_MODEL--materialize-content-role-directories-on-first-artifact; this placement does **not** replace the separately governed placement of projected copies **or** archived Revisions.

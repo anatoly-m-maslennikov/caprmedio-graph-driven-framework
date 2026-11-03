@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  active: CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -18,10 +18,12 @@ form: Rule
 
 Target the narrowest capable improvement owner
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 improvement proposals **and** their evidence-backed causes.
 
-## Claim
 
 an improvement proposal **must** target the narrowest governed owner capable of resolving its evidence-backed cause.

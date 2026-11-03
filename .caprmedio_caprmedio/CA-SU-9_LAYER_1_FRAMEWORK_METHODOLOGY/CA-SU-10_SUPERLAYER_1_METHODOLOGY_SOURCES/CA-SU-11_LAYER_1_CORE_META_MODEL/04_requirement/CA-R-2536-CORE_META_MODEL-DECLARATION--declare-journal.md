@@ -18,15 +18,15 @@ Declare Journal
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Journal {:0}((IS_PROPERTY_OF));
 Journal//{:1};
 Journal >| (Container == yes);
 Journal// {:0+}((CONTAINS)) Event Record//;
-Journal ((NARROWER_THAN)) @Continuant
+Journal ((NARROWER_THAN)) Continuant
 ```
-
-
 
 ## Semantics
 

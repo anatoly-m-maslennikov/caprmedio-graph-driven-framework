@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Backlog'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status: Backlog'
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
   - CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
@@ -21,10 +21,12 @@ form: Decision
 
 Serialize the Plan Backlog directory
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Plan Backlog Directory and version-labeled Plan Carrier locations.
 
-## Claim
 
 the Plan Backlog Directory **must** be `03_plan/001_backlog`; it is a Status container, **not** a Plan Atom. a Version-labeled Plan uses the ordinary Plan Carrier grammar under CA-D-469-CORE_META_MODEL-DELIVERY--serialize-plan-carrier-stems rather than an independently identified Version Plan Collection **or** special `version-<VERSION>` container.

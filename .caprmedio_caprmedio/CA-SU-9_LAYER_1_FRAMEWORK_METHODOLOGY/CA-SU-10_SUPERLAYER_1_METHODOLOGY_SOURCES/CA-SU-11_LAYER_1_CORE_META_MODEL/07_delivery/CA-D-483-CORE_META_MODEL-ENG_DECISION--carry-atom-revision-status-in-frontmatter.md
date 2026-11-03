@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Status
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Status
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.Status
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Type
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Form
   - CAPRMEDIO_MODEL <+ Carrier.Canonical Address
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
@@ -21,11 +21,13 @@ form: Decision
 
 Carry Atom Revision Status in frontmatter
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Status property carried by an Atom Revision.
 
-## Claim
 
 **every** Atom Revision **must** carry **`=1`** explicit `status` value **in** its own Markdown frontmatter.
 

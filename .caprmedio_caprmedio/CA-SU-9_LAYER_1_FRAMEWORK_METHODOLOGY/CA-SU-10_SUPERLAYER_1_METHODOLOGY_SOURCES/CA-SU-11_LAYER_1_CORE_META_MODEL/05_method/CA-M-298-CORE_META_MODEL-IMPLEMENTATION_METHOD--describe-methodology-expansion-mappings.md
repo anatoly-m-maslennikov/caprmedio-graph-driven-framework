@@ -24,11 +24,13 @@ form: Implementation Method
 
 Describe methodology expansion mappings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Methodology Source expansion mappings.
 
-## Claim
 
 **to** describe a Methodology Source expansion mapping, use **`=1`** explicit mapping description that identifies:
 

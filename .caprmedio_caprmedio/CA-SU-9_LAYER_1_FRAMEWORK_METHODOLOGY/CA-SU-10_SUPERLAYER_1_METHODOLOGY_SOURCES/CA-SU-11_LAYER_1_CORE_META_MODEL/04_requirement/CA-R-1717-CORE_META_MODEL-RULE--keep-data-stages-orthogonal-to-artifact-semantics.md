@@ -16,10 +16,12 @@ form: Rule
 
 Keep data stages orthogonal to artifact semantics
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Generated-data stage names.
 
-## Claim
 
 Generated-data stage names **must** classify transformation position **without** becoming Artifact forms, Content roles, Governance origins, scope coordinates, **or** sources of authority.

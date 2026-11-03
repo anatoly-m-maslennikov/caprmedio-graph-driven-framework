@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern/Type'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Header.Form'
 version: 37
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Register Type Values for Concern Atoms
 
-## Claim scope
-
-internal values of `Atom/Content Role: Concern/Type`.
-
 ## Claim
 
-Question **and** Problem retain their canonical admission under CA-R-1231@28. Risk **and** Opportunity **must** be registered as additional internal values of `Atom/Content Role: Concern/Type`.
+### Prose Claim
+
+
+internal values of `Atom/(.Header.Role := Concern).Header.Form`.
+
+
+Question **and** Problem retain their canonical admission under CA-R-1231@28. Risk **and** Opportunity **must** be registered as additional internal values of `Atom/(.Header.Role := Concern).Header.Form`.

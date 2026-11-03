@@ -19,11 +19,13 @@ form: Rule
 
 Journal Projection Rebuild Events
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection Rebuilds and their Work Journal Actions and terminal Events.
 
-## Claim
 
 **every** Projection Rebuild **must** have **`=1`** Work Journal Action whose terminal Event records the rebuild outcome.
 

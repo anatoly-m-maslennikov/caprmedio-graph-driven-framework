@@ -23,11 +23,13 @@ form: Decision
 
 Serialize Project initialization identity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Operator-selected Project Name in the Project Settings TOML Carrier.
 
-## Claim
 
 the Project Settings TOML Carrier **must** encode the Operator-selected Project Name as its exact nonempty lowercase TOML string value **in** `project.name`, **before** the first Project Atom **or** Implementation is created.
 

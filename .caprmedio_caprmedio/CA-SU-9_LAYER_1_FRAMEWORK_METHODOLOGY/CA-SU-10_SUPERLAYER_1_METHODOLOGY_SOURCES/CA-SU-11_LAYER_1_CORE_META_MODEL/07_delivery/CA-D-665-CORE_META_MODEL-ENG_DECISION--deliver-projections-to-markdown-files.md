@@ -18,6 +18,9 @@ Deliver Projections to Markdown files
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Projection// >> Carrier/Markdown_file//
 ```
+

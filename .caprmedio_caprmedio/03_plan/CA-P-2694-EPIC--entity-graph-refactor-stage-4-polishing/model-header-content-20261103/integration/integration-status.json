@@ -1,8 +1,8 @@
 {
-  "status": "DECLARATIONS_APPLIED_PRE_MIGRATION_CHECKPOINT",
+  "status": "MIGRATION_CHECKED_WITH_MODEL_AUDIT_QUEUE",
   "project_root": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework",
   "epic": "CA-P-2694",
-  "epic_version": 48,
+  "epic_version": 49,
   "branch": "amm/dev",
   "manual_route_authorized": true,
   "git_index_owner": "root",
@@ -17,9 +17,8 @@
     "independent_verification": "PASS"
   },
   "next_order": [
-    "commit andpushallamm/dev",
-    "mechanicalmigrationinplace",
-    "checkandrebuildprojections"
+    "resolve remaining MODEL bindings one at a time",
+    "existing P2707 verification"
   ],
   "latest_decisions": [
     "Atom.Header YAML logical group;physicalYAMLflat",
@@ -40,11 +39,8 @@
     "relations": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/relations/source-map.json"
   },
   "needed_root_work": [
-    "adoption-review thenapply",
-    "refreshcurrentD479binding",
-    "checkpointcommitpushbeforebulkmechanicalmigration",
-    "applymigrationwithnotationrepairs",
-    "checkandrebuildfaithfulprojections"
+    "resolve12MODELbindinggapsoneatatime",
+    "existingP2707Engineverification"
   ],
   "migration_input_map": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/integration/reference-map.json",
   "migration_input_paths": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/integration/mechanical-source-files.before-adoption.txt",
@@ -56,7 +52,7 @@
     "CA-R-2696",
     "CA-R-2722"
   ],
-  "migration_implementation": "22tests,1157previewrecords,zeroheld;regenerateafteradoption",
+  "migration_implementation": "27tests;1158finalselected;1071changed;zeroheld;repeatapply0",
   "adopted_output_count": 87,
   "archived_predecessors": 86,
   "adoption_native_workflow": false,
@@ -71,11 +67,15 @@
       "body.additional_properties"
     ]
   },
-  "checkpoint_state": "index staged; commit/push next",
-  "focused_checks": {
-    "migration": 26,
-    "claim_layout": 16,
-    "contract_graph": 20,
-    "status_models": 12
-  }
+  "checkpoint_state": "PUSHED_VERIFIED db837f08ec3f29eeb6010e4bce09bfc64f2332d1",
+  "focused_checks": "final-tests.json:160passed",
+  "checkpoint_commit": "db837f08ec3f29eeb6010e4bce09bfc64f2332d1",
+  "remote_checkpoint_verified": true,
+  "bulk_migration_applied": true,
+  "remaining_model_binding_gaps": 12,
+  "focused_tests_passed": 160,
+  "projections_rebuilt": 7,
+  "projection_current_sources": 1154,
+  "postcheck_retirement_references": 0,
+  "live_scope_status_reader": "PASS;44ScopeDeclarations and3statusdomains"
 }

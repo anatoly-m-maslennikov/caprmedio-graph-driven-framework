@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role:=Plan).AI Agent Confidence Threshold
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
@@ -21,10 +21,12 @@ form: Rule
 
 Require an effective confidence threshold for Plan execution
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 autonomous Plan execution decisions.
 
-## Claim
 
 **every** autonomous Plan execution decision **must** resolve **=1** effective Autonomous Confidence Threshold from its applicable explicit **or** inherited source under CA-M-271.

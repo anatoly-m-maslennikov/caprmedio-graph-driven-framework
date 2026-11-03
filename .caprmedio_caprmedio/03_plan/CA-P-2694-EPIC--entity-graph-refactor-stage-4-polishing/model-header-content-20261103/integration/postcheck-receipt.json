@@ -1,0 +1,15 @@
+{
+  "status": "APPLIED_VERIFIED",
+  "selected": 5,
+  "changed": 5,
+  "second_apply_changed": 0,
+  "ids_status_versions_timestamps_summaries_preserved": true,
+  "source_ids": [
+    "CA-E-460",
+    "CA-E-506",
+    "CA-E-511",
+    "CA-R-1588",
+    "CA-D-283"
+  ],
+  "plan_sha256": "d366f6ca32fd553afc510363a24fc26f3179250b699ad681dc2e169863f4ee52"
+}

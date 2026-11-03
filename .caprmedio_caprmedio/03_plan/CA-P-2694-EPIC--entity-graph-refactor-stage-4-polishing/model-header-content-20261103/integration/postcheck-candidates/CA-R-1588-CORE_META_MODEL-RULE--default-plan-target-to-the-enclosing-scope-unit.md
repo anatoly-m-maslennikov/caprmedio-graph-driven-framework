@@ -1,0 +1,32 @@
+---
+subjects:
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Subjects.Active'
+  passive:
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1588
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Default Plan target to the enclosing Scope Unit
+
+## Claim
+
+### Prose Claim
+
+
+Plans and their resolved Claim Target Scope Units.
+
+
+a Plan’s Claim Target Scope Unit **must** be resolved from its one active Subject under CA-R-2102. Its current Scope Unit is established by containment; Plan nesting **or** Label does not independently select a target, and a Hub does not become one by default.

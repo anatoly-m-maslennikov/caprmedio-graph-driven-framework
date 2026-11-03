@@ -71,7 +71,7 @@ def render_scope_declaration(
             claims.append(f"{local_subject} ((IS_CONTAINED_BY)) {parent_subject}")
     return (
         header
-        + f"## Summary\n\nDeclare {name}\n\n## Claim\n\n```CFEL\n"
+        + f"## Summary\n\nDeclare {name}\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n"
         + ";\n".join(claims)
         + "\n```\n"
     )

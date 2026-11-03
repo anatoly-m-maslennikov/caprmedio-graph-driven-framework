@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Projection.Form
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
-  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
 version: 26
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -21,11 +21,13 @@ form: Decision
 
 Register CAPRMEDIO Type prefixes
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 fixed lowercase prefixes for listed Artifact Type values.
 
-## Claim
 
 the following fixed lowercase prefixes **must** be registered **only** for the listed Type values under Artifact; Atom identities use class short names instead.
 

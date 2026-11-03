@@ -16,10 +16,12 @@ form: Rule
 
 Record Lineage Impact disposition context
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Lineage Impact dispositions.
 
-## Claim
 
 **every** Lineage Impact disposition **must** preserve the examined parent Revision, the examined child Revision, the selected disposition, **and** **any** resulting child Revision **or** blocking Concern Atom.

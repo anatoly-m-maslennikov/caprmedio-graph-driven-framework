@@ -27,4 +27,7 @@ Add reusable capabilities through Extensions
 
 ## Claim
 
+### Prose Claim
+
+
 CAPRMEDIO **must** govern independently evolvable reusable capabilities as explicit Extensions whose extension points, authority boundaries, **and** compatibility conditions are declared.

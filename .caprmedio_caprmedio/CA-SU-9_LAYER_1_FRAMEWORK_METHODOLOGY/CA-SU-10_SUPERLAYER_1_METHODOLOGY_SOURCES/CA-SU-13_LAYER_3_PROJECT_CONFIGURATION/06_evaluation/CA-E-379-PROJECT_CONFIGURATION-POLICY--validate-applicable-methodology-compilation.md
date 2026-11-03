@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
+  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Applicable Methodology Compilation'
   passive:
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
@@ -35,11 +35,13 @@ form: Eval Policy
 
 Validate Applicable Methodology Compilation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Applicable Methodology Compilation.
 
-## Claim
 
 the Applicable Methodology Compilation Validation **must not** pass **if** **any** of:
 

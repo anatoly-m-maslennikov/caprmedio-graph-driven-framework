@@ -16,6 +16,8 @@ Declare SCHEDULERS
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//SCHEDULERS.ID == "CA-SU-32";
 Scope Unit//SCHEDULERS.Name == "SCHEDULERS";
@@ -23,3 +25,4 @@ Scope Unit//SCHEDULERS.Label == "FEATURE_GROUP";
 Scope Unit//SCHEDULERS.order.ordered == false;
 Scope Unit//SCHEDULERS ((IS_CONTAINED_BY)) Scope Unit//TOOLS
 ```
+

@@ -18,11 +18,13 @@ form: Rule
 
 Bound high-frequency INFO logging
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 logging Implementation for high-frequency success, polling, **and** progress events under production Logging Policies.
 
-## Claim
 
 logging Implementation **must** bound high-frequency success, polling, **and** progress events through aggregation, sampling, **or** emission as `DEBUG` **where** appropriate rather than creating unbounded `INFO` noise.
 

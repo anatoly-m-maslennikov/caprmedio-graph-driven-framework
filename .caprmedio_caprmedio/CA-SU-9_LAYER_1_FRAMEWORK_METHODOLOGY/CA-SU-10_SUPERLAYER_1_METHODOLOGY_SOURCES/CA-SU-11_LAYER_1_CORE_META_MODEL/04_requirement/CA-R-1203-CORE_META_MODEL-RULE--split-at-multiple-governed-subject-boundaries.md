@@ -19,10 +19,12 @@ form: Rule
 
 Split at Multiple Governed Subject Boundaries
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an Atom Claim governing canonical Entities through GOVERNS Subject Relations.
 
-## Claim
 
 an Atom **must** be split **if** its Claim governs **`>1`** canonical Entities through GOVERNS Subject Relations.

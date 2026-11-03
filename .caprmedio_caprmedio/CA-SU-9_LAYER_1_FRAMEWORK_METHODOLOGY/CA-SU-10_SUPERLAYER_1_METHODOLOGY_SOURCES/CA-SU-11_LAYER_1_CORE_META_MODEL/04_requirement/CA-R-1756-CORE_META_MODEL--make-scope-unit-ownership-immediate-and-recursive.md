@@ -16,10 +16,12 @@ form: Rule
 
 Make Scope Unit ownership immediate and recursive
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Units and their direct child Scope Units.
 
-## Claim
 
 **every** Scope Unit **must** own **only** its direct child Scope Units through the same recursive structural-parent relation.

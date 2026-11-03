@@ -18,6 +18,8 @@ Declare Scope Unit.order
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit.order: []{:0};
 Scope Unit.order.*[in (ordered, number)]{:1..2}

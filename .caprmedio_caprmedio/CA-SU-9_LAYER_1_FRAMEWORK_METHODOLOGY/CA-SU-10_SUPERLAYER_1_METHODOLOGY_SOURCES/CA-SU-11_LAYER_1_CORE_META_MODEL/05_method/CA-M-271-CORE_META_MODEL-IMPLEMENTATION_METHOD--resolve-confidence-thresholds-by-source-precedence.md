@@ -2,7 +2,7 @@
 subjects:
   active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   - CAPRMEDIO_MODEL <+ Term//Property
@@ -23,10 +23,12 @@ form: Implementation Method
 ## Summary
 Resolve confidence thresholds by source precedence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 resolution of a Confidence Threshold.
 
-## Claim
 **to** resolve an effective Confidence Threshold, select the first applicable explicit source **in** this precedence:
 
 1. direct Operator input for the current decision context.

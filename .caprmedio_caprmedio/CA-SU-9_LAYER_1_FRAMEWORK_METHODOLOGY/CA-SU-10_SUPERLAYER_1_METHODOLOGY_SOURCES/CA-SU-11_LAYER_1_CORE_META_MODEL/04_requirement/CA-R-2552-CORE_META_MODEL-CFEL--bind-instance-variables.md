@@ -18,6 +18,9 @@ Bind instance variables
 
 ## Claim
 
+### Prose Claim
+
+
 - `Kind//` selects existing instances of Kind and its narrower kinds.
 - `Kind//{:n}` applies the existing cardinality to the selected logical instances within the Project context. Resolve the complete selection and count each instance once across repeated references or Carrier representations. An unresolved population is an error.
 - `Kind//$x` ranges over the selected instances. Each constraint must hold for every matching binding. Repeated `$x` references in one Claim block identify the same instance within each binding.
@@ -26,7 +29,7 @@ Bind instance variables
 - In an IF condition, `Kind//$c ((R)) Kind//$p` tests a link that already exists, including a legitimately derived inverse. It is not an endpoint signature and does not create a link.
 - Evaluate the condition for candidate bindings. Its THEN conclusion applies only to bindings for which that link exists; it does not require links between every candidate pair.
 - Endpoint counts aggregate matching links per endpoint; they do not require a link between every pair of bindings.
-- Binding selects existing instances. It does not create an instance named `$x` or assign a value imperatively. `@` continues to reference an existing target.
+- Binding selects existing instances. It does not create an instance named `$x` or assign a value imperatively. A bare qualified address refers to its declared target.
 
 ## Details
 

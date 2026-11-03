@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
 version: 30
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Rule
 
 Absorb Implementation Decisions without semantic loss
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Eng Decisions.
 
-## Claim
 
 an Eng Decision **may** be archived as absorbed **only** **after** **`>=1`** active Eng Policies preserve **every** part of its still-necessary governed meaning for the affected realization scope.
 

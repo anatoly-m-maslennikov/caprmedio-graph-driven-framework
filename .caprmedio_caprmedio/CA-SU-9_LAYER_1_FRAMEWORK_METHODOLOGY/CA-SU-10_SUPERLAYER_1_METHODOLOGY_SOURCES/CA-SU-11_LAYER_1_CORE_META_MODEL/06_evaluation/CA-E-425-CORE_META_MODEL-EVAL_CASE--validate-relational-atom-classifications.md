@@ -2,9 +2,9 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand'
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
 version: 30
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -25,11 +25,13 @@ form: Eval Case
 
 Validate Relational Atom Classifications
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Relational Atom classifications.
 
-## Claim
 
 the Relational Atom classification Evaluation **must** enforce the qualified Types admitted by CA-R-924 **without** treating Plan Labels as Types.
 

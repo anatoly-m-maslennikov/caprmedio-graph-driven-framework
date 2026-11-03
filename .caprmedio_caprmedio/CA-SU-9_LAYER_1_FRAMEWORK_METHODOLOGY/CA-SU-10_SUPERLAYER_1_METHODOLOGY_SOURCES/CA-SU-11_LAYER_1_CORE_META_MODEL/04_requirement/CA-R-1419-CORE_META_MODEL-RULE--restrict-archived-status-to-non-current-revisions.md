@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Status:Archived
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Status:Archived
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.Status
-  - CAPRMEDIO_MODEL <+ Atom.Version
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
 version: 23
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Restrict Archived Status to Non-Current Revisions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Archived Status of an Atom version.
 
-## Claim
 
 an Atom version **may** have Status Archived **only** **if** it is a prior version **or** the final version of a replaced, absorbed, **or** retired Atom.

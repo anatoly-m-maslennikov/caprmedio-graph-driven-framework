@@ -33,11 +33,13 @@ form: Eval Policy
 
 Validate Authoritative Project Settings Artifact
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoritative Project Settings Artifacts.
 
-## Claim
 
 the Evaluation **must** reject Project Settings **if**
 

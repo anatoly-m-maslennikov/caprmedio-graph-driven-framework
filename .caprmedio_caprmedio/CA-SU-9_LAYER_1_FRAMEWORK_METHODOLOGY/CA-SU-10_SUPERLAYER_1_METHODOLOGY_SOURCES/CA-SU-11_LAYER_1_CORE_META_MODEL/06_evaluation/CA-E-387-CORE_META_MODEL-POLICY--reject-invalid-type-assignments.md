@@ -22,11 +22,13 @@ form: Eval Policy
 
 Reject Invalid Type Assignments
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Type assignments on Entity occurrences.
 
-## Claim
 
 the Evaluation **must** reject a Type assignment **if** **any** of the following holds:
 

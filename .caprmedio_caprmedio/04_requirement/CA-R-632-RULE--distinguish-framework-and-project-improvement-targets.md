@@ -27,6 +27,9 @@ Distinguish framework and Project improvement targets
 
 ## Claim
 
+### Prose Claim
+
+
 **every** governed improvement cycle **in** caprmedio **must** declare **`=1`** primary target:
 
 - the CAPRMEDIO Framework Instance operating within caprmedio; **or**

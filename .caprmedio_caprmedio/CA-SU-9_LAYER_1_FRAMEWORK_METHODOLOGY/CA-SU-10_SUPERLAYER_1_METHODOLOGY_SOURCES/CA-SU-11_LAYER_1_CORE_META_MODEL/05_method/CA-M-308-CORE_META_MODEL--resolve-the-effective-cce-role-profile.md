@@ -3,8 +3,8 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Type
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Form
   - CAPRMEDIO_MODEL <+ Atom.Content
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
@@ -23,11 +23,13 @@ form: Implementation Method
 
 Resolve the Effective CCE Role Profile
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 effective CCE Role Profiles for Atom Claims.
 
-## Claim
 
 **to** resolve one effective CCE Role Profile for one Atom Claim, the Author **must** perform **all** of:
 

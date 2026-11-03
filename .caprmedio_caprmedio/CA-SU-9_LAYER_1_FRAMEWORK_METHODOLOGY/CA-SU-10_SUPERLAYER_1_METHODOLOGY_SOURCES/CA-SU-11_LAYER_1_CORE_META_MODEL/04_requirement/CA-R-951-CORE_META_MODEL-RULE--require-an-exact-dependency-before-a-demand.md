@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)'
   passive:
   - CAPRMEDIO_MODEL <+ Atom
 version: 33
@@ -19,10 +19,12 @@ form: Rule
 ## Summary
 Require an exact dependency before a Demand
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Consumer Scope Units with an accepted Goal.
 
-## Claim
 
 a Consumer Scope Unit **must** own a Demand Atom **only** **when** its accepted Goal authorizes an exact dependency on the demanded Producer result.

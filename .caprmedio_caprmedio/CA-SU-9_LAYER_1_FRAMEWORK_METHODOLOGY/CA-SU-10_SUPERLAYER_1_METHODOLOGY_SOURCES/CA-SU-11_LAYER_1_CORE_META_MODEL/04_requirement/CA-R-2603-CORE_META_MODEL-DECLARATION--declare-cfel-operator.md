@@ -19,8 +19,10 @@ Declare CFEL operator !=
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
-@Operator//Inequality == "!="
+Operator//Inequality == "!="
 ```
 
 ## Semantics

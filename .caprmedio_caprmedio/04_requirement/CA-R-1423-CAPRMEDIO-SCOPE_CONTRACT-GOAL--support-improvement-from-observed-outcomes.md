@@ -24,4 +24,7 @@ Support improvement from observed outcomes
 
 ## Claim
 
+### Prose Claim
+
+
 CAPRMEDIO **must** support the Operator **in** producing **and** evaluating an improvement proposal for **every** material observed Project outcome, with the proposal limited **to** the narrowest scope affected by that outcome **and** kept within the Operator's current authority.

@@ -20,11 +20,13 @@ form: Rule
 
 Bind proof records to dependency frontiers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 governed proof records, their applicable inputs, and all selected Workflows, release policies, and version-control mechanisms.
 
-## Claim
 
 **every** governed proof record **must** bind its observation **to** the exact applicable inputs under which it was produced.
 

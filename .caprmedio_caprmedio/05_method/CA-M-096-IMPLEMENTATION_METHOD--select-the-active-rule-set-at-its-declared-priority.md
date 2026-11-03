@@ -27,4 +27,7 @@ Select the active rule set at its declared priority
 
 ## Claim
 
+### Prose Claim
+
+
 select which optional rules **and** rule groups are active for the affected scope **and** Project stage according **to** the current Operator-declared active-rule-set priority **without** disabling mandatory authority.

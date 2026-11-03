@@ -17,9 +17,11 @@ form: Rule
 ## Summary
 Keep each Atom semantically irreducible
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Atoms.
 
-## Claim
 
 **every** Atom **must** contain **only** content necessary for its one independently replaceable Claim.

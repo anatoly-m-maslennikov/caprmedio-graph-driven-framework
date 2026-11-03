@@ -18,6 +18,9 @@ State assertions about the active Subject
 
 ## Claim
 
+### Prose Claim
+
+
 - For an Atom with an active Subject, all assertions and prescriptions concern that active Subject.
 - References to other Subjects describe the active Subject's endpoints, inputs, outputs, conditions or dependencies.
 - Independent assertions about another Subject belong in an Atom with that active Subject.

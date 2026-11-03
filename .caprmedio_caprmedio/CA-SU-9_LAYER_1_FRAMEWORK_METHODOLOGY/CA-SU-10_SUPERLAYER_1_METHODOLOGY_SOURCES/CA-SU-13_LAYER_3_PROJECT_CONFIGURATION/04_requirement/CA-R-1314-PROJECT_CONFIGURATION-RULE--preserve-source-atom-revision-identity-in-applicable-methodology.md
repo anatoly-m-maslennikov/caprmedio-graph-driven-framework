@@ -19,10 +19,12 @@ form: Rule
 
 Preserve Source Atom Revision Identity in Applicable Methodology
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The direct source relation of each projected Applicable Methodology member.
 
-## Claim
 
 Applicable Methodology **must** retain each member’s **`=1`** direct DERIVED_FROM relation **to** that member’s exact source Atom Revision.

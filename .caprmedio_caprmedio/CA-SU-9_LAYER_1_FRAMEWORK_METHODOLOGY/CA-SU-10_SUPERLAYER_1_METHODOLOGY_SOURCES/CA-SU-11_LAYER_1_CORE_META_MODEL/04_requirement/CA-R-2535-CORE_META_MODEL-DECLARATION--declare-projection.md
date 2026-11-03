@@ -18,11 +18,12 @@ Declare Projection
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Projection {:0}((IS_PROPERTY_OF));
-Projection ((NARROWER_THAN)) @Continuant
+Projection ((NARROWER_THAN)) Continuant
 ```
-
 
 ## Semantics
 

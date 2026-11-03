@@ -6,10 +6,10 @@ subjects:
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Projection
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -29,10 +29,12 @@ form: Eval Policy
 ## Summary
 Validate structural change cutover
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 structural changes **and** no-change repeats, including create, rename, reparent, reorder, rebind, reconciliation, **and** declaration removal.
 
-## Claim
 
 the Evaluation **must** fail a structural change **if** it:
 

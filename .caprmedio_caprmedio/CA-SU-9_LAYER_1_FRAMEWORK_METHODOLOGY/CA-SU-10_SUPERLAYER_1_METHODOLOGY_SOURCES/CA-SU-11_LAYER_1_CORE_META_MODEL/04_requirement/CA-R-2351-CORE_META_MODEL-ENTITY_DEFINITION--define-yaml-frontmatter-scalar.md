@@ -16,15 +16,16 @@ form: Entity Definition
 
 Define YAML Frontmatter Scalar
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Direct primitive values within declared YAML Frontmatter metadata fields.
 
-## Claim
 
 A YAML Frontmatter Scalar is one direct primitive value within a declared metadata field of a File Carrier YAML Frontmatter; zero or more may occur. Registered YAML-safe controlled strings are serialized as plain scalars.
 
-### Formal claim
 
 ```text
 Carrier/File.YAML Frontmatter.Scalar[scalar]{0+}

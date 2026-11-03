@@ -23,10 +23,12 @@ form: Eval Policy
 
 Validate Generated-Only Provenance Boundary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 generated-only provenance validation.
 
-## Claim
 
 generated-only provenance validation **must not** pass **if** an update **only** **to** generated Projections contributes an Implementation Relation **or** a generated Projection cites itself as its semantic input. the same boundary applies with **or** **without** a version-control integration.

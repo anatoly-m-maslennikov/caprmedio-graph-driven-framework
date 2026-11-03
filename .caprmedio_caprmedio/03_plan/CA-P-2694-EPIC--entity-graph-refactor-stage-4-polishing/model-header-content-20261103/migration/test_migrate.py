@@ -73,6 +73,18 @@ class MigrationTests(unittest.TestCase):
         invalid = dict(MAP, reviewed_source_overrides=[dict(row, candidate_sha256='0' * 64)])
         with self.assertRaises(Ambiguous): transform(source, invalid)
 
+    def test_summary_identity_preserved_and_absence_retained(self):
+        mapping = dict(MAP, full_property_paths=[{'old': 'Atom.Status', 'new': 'Atom.Header.Status'}],
+                       base_atom_id_replacements={'CA-R-1': 'CA-R-999'})
+        summary = '\nDefine Atom.Status CA-R-1 "Atom.Status" \'CA-R-1\'\n\n### Unregistered\nAtom.Status CA-R-1\n\n'
+        source = ('---\nrole: Rule\n---\n## Summary\n' + summary + '## Claim\nAtom.Status CA-R-1\n').encode()
+        result = transform(source, mapping).decode()
+        self.assertIn('## Summary\n' + summary + '## Claim', result)
+        self.assertIn('Atom.Header.Status CA-R-999', result)
+        self.assertEqual(transform(result.encode(), mapping).decode(), result)
+        incomplete = transform(b'---\nstatus: Draft\nrole: Rule\n---\n## Claim\nA\n', mapping)
+        self.assertNotIn(b'## Summary', incomplete)
+
     def test_id_map_preserves_frozen_references(self):
         mapping = dict(MAP, base_atom_id_replacements={'CA-R-1': 'CA-R-999'})
         source = b'---\nrole: Rule\n---\n## Claim\nCA-R-1 CA-R-1@2 CA-R-10 "CA-R-1"\n'

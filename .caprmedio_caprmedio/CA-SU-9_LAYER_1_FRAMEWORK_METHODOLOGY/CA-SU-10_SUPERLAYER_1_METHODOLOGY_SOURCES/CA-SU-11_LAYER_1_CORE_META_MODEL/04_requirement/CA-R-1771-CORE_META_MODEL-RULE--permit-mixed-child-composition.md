@@ -16,10 +16,12 @@ form: Rule
 
 Permit mixed Child Composition
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a Scope Unit whose Child Composition is MIXED.
 
-## Claim
 
 a Scope Unit **may** own (Ordered Scope Units **and** Unordered Scope Units) as direct children.

@@ -18,6 +18,9 @@ Compare and add numeric values in CFEL
 
 ## Claim
 
+### Prose Claim
+
+
 - `x > y`: x is greater than y.
 - `x >= y`: x is greater than or equal to y.
 - `x < y`: x is less than y.
@@ -37,8 +40,8 @@ Compare and add numeric values in CFEL
 ## Details
 
 ```CFEL
-Atom.Version >= 1;
-IF (Atom/(.Role: Plan).Work Sequence Number{=1})
-THEN (Atom/(.Role: Plan).Work Sequence Number > 0);
-Atom.Tier >= -1
+Atom.Header.Version >= 1;
+IF (Atom/(.Header.Role: Plan).Header.Work Sequence Number{=1})
+THEN (Atom/(.Header.Role: Plan).Header.Work Sequence Number > 0);
+Atom.Header.Tier >= -1
 ```

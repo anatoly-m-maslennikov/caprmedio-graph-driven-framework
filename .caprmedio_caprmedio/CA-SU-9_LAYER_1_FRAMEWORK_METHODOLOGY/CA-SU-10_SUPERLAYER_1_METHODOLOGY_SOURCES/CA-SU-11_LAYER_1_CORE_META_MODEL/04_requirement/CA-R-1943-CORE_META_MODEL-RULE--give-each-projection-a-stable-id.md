@@ -22,11 +22,13 @@ form: Rule
 
 Give each Projection a stable ID
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection identity across rebuilds.
 
-## Claim
 
 Every Projection has one Projection ID. The same Projection Type, named source selection and source of truth identify the same Projection and keep the same ID across rebuilds.
 

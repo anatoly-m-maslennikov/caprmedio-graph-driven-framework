@@ -11,7 +11,7 @@ import sys
 import tempfile
 import yaml
 
-from claim import Ambiguous, migrate_claim
+from claim import Ambiguous, migrate_claim, sections
 
 ROOT = Path(__file__).resolve().parents[5]
 sys.path.insert(0, str(ROOT / 'LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS'))
@@ -136,6 +136,16 @@ def transform(raw, mapping):
         if match:
             message = f'line {int(match.group(1)) + text[:end].count(chr(10))}:' + message[match.end():]
         raise Ambiguous(message) from error
+    # Summary is identity-bearing text, including any unregistered Markdown headings.
+    summary = None
+    body_lines, body_sections = sections(body)
+    roots = [(position, name) for position, level, name in body_sections if level == 2]
+    for index, (position, name) in enumerate(roots):
+        if name == 'summary':
+            stop = roots[index + 1][0] if index + 1 < len(roots) else len(body_lines)
+            summary = ''.join(body_lines[position + 1:stop])
+            body = ''.join(body_lines[:position + 1]) + '\x00SUMMARYVALUE\x00' + ''.join(body_lines[stop:])
+            break
     original_metadata = yaml.safe_load(text[delimiters[0].end():delimiters[1].start()])
     mapped_ids = dict(mapping.get('base_atom_id_replacements', {}), **mapping.get('atom_id_replacements', {}))
     if original_metadata.get('status') == 'Draft' and original_metadata.get('atom_id') in mapped_ids:
@@ -215,6 +225,8 @@ def transform(raw, mapping):
             raise Ambiguous(f'line {number}: relation colon outside cardinality braces')
     text = re.sub(r'\x00SUBJECTQUOTE(\d+)\x00', lambda m: subject_quotes[int(m.group(1))], text)
     text = re.sub(r'\x00LITERAL(\d+)\x00', lambda m: literals[int(m.group(1))], text)
+    if summary is not None:
+        text = text.replace('\x00SUMMARYVALUE\x00', summary)
     return text.encode('utf-8')
 
 

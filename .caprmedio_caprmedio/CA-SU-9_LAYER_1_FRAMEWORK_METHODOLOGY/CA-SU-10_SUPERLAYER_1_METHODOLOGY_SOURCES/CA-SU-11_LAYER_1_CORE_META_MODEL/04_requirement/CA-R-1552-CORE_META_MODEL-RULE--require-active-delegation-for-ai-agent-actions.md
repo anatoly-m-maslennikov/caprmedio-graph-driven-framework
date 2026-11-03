@@ -22,10 +22,12 @@ form: Rule
 
 Require active delegation for AI Agent actions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 AI Agent actions under active Operator-issued delegation.
 
-## Claim
 
 an AI Agent **may** perform **or** authorize a governed action **without** per-action Operator approval **only** **when** an active Operator-issued delegation authorizes that identified Agent, action, target scope, **and** applicable constraints.

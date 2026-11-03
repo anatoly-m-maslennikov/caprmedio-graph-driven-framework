@@ -31,6 +31,9 @@ Do not rely on memory files
 
 ## Claim
 
+### Prose Claim
+
+
 **to** preserve valuable information while developing caprmedio, keep that information recoverable from its proper Project Artifacts **without** depending on Agent memory **or** session continuity.
 
 - do **not** use `MEMORY.md`, similar memory files, conversation summaries, **or** handoff notes as governing authority **or** as the sole preserved copy of valuable information.

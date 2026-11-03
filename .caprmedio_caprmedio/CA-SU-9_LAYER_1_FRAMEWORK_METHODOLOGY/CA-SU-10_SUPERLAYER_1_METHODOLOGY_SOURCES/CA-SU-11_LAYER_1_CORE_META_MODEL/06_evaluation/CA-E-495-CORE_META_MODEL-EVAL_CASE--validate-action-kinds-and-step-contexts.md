@@ -2,10 +2,10 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action).Execution Kind'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 19
@@ -27,11 +27,13 @@ form: Eval Case
 
 Validate Action kinds and Step contexts
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Action Execution Kind **and** Agentic Step Execution Context.
 
-## Claim
 
 the Evaluation **must** check that Action Execution Kind **and** Agentic Step Execution Context remain distinct **and** support reuse **without** duplicate definitions.
 

@@ -16,6 +16,8 @@ Declare CONNECTOR_TOOLS
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//CONNECTOR_TOOLS.ID == "CA-SU-17";
 Scope Unit//CONNECTOR_TOOLS.Name == "CONNECTOR_TOOLS";
@@ -23,3 +25,4 @@ Scope Unit//CONNECTOR_TOOLS.Label == "FEATURE";
 Scope Unit//CONNECTOR_TOOLS.order.ordered == false;
 Scope Unit//CONNECTOR_TOOLS ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC
 ```
+

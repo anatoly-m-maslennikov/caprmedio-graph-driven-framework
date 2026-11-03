@@ -16,6 +16,8 @@ Declare SKILLS
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//SKILLS.ID == "CA-SU-23";
 Scope Unit//SKILLS.Name == "SKILLS";
@@ -23,3 +25,4 @@ Scope Unit//SKILLS.Label == "FEATURE";
 Scope Unit//SKILLS.order.ordered == false;
 Scope Unit//SKILLS ((IS_CONTAINED_BY)) Scope Unit//AGENTIC
 ```
+

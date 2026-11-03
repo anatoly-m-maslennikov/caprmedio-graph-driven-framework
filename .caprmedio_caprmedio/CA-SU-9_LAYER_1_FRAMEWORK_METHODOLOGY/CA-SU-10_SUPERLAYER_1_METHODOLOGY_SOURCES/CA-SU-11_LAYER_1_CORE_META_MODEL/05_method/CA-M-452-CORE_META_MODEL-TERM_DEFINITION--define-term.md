@@ -8,7 +8,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Term
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
 version: 3
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -20,12 +20,14 @@ form: Term Definition
 
 Define Term
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The reusable lexical Term `Term` used in complete or qualified entity names and
 authored content.
 
-## Claim
 
 Term **means** a reusable word **or** phrase component of complete **or**
 qualified entity names **and** authored content whose approved Project-specific
@@ -48,7 +50,7 @@ complete canonical name. It cannot use one registered Term alone as that name,
 except for the Subject root `Entity`. The target of this Method is within the
 Term branch, so it is not an additional exception.
 
-`Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: X)/(.Type: X)` is a qualified expression that reuses the Term
+`Atom/(.Header.Role: X)/(.Header.Form: X)` is a qualified expression that reuses the Term
 `X` in separately qualified value contexts. Each context still requires its
 own governing admission; repeated components neither introduce `X` nor
 transfer an admission.

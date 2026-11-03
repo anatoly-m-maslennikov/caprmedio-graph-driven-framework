@@ -19,7 +19,10 @@ Declare Scope Unit.order.ordered
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit.order.ordered: [bool]{:1};
 Scope Unit.order.ordered.*[]{:0}
 ```
+

@@ -8,7 +8,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Project
   passive:
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
@@ -24,10 +24,12 @@ form: Rule
 
 Minimal default project model
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project models.
 
-## Claim
 
 CAPRMEDIO **must** use Project-scope Requirement authority plus its real Implementation as the minimum Project model, **must not** require an Implementation Atom, **and** **may** enable other Atom roles, applicability tiers, descendant scopes, **or** automation **only** **when** necessary. Scope Unit ancestry remains parent-declaration data; no Structural Level property is required.

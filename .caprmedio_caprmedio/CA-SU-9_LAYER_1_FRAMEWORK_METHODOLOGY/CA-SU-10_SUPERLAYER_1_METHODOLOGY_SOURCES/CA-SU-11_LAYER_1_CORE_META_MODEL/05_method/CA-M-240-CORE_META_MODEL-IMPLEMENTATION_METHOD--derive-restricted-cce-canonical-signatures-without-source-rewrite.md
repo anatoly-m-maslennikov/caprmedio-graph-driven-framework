@@ -22,10 +22,12 @@ form: Implementation Method
 
 Derive Restricted CCE Canonical Signatures **without** Source Rewrite
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 derivation of Canonical Signatures from one selected Atom Carrier folder.
 
-## Claim
 
 **to** derive Canonical Signatures from one selected Atom Carrier folder, the Tool **must** inspect **only** active single-statement Atom Claims, identify **every** outermost parenthesized expression that **contains** the **and** Operator **or** the **or** Operator, derive a Canonical Signature **only** **if** the expression satisfies the Restricted Boolean Expression grammar, emit source-identity evidence **and** **every** exclusion diagnostic, **and** make no source-Carrier rewrite, lifecycle change, Claim merge, **or** authority decision.

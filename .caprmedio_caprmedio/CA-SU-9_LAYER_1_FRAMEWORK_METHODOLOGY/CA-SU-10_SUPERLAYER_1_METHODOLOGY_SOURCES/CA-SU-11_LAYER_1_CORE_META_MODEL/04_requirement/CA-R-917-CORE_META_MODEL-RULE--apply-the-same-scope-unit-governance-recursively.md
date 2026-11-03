@@ -19,10 +19,12 @@ form: Rule
 ## Summary
 Apply the same Scope Unit governance recursively
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Structural levels of the CAPRMEDIO Metamodel.
 
-## Claim
 
 the CAPRMEDIO Metamodel **must** be fractal by applying the same Scope Unit governance pattern recursively at **every** Structural level.

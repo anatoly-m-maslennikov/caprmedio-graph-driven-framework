@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
 version: 35
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,11 +18,13 @@ form: Rule
 
 Distinguish Implementation Methods from Implementation Decisions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Method Eng Policy/Eng Decision and Delivery Policy/Decision Types.
 
-## Claim
 
 A Method Eng Policy governs reusable engineering policy and an Eng Decision selects a bounded engineering approach. A Delivery Policy governs a reusable representation or delivery family, while a Delivery Decision selects a bounded representation or delivery choice. **neither** Eng Policy **nor** Eng Decision is an execution Plan **or** native Implementation.
 

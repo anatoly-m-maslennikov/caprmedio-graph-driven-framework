@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Subjects
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity
@@ -21,14 +21,16 @@ form: Rule
 
 Define Subject
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Things or topics an Atom governs or depends on.
 
-## Claim
 
 
-An Atom.Subjects target must name the thing or topic the Atom governs or depends on; it is not a copied target, intermediate Subject object, or a requirement for a separate entity kind.
+An Atom.Header.Subjects target must name the thing or topic the Atom governs or depends on; it is not a copied target, intermediate Subject object, or a requirement for a separate entity kind.
 
 ## Details
 

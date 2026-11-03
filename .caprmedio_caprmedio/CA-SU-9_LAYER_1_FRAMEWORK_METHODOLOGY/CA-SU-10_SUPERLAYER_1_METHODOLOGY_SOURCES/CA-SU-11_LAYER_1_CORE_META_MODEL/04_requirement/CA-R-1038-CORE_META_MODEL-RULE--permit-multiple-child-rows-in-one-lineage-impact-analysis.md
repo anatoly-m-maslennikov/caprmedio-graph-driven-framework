@@ -18,10 +18,12 @@ form: Rule
 
 Permit multiple child rows in one Lineage Impact Analysis
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 child rows in a Lineage Impact Analysis Atom.
 
-## Claim
 
 **`=1`** Lineage Impact Analysis Atom **may** contain multiple child rows **when** **every** row supports its one primary conclusion that the changed parent Revision's Impact Review is complete **or** blocked.

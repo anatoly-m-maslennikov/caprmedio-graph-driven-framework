@@ -18,6 +18,9 @@ Record business Property changes in one update Event Record
 
 ## Claim
 
+### Prose Claim
+
+
 Event Records with action create or update describe accepted, completed business creations or updates. No-op, failed, unaccepted, archive and Carrier-only events do not use these actions.
 
 One accepted business update has one update Event Record.

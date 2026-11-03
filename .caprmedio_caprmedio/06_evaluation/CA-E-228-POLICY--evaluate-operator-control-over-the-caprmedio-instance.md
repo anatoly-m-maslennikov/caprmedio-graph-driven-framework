@@ -28,6 +28,9 @@ Evaluate Operator control over the CAPRMEDIO instance
 
 ## Claim
 
+### Prose Claim
+
+
 the declared Operators collectively retain control over **every** governed part of the CAPRMEDIO instance **and** can use the instance **to** change the Project within their current authority.
 
 ## Applicable conditions

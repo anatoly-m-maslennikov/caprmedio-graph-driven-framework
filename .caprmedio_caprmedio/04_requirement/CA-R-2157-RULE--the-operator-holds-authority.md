@@ -23,4 +23,7 @@ The Operator holds authority
 
 ## Claim
 
+### Prose Claim
+
+
 the Operator holds original authority over the Project **and** its CAPRMEDIO Framework Instance **and** **may** perform **or** authorize governed actions within that authority.

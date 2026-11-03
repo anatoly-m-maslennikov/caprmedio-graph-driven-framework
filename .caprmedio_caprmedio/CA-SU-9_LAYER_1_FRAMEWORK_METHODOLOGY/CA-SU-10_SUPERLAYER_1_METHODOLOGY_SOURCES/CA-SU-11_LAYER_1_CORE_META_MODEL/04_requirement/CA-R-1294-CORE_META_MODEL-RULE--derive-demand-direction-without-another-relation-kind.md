@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Demand).Target Scope Unit'
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Derive Demand Direction without Another Relation Kind
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Demand Atom directions.
 
-## Claim
 
 a Demand Atom **must not** introduce a graph Relation Kind for its direction because its Consumer Atom Scope Unit **and** Producer Claim Target Scope Unit references determine that direction.

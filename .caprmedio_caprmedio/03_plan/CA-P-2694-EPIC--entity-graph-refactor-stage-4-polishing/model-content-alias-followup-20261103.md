@@ -128,3 +128,7 @@ Header / Content and the Claim child-presence rule are decided. Claim has zero d
 ## Applied Declaration checkpoint
 
 87 Current outputs were applied manually with 86 exact-byte predecessor archives. 23 Header identity replacements and four new Declarations use CA-R-2696–CA-R-2722. R2501, R2595 and D482 were retired. M228 and E240 now follow the current grammar and active-Subject scope resolution. The D479 Current layout adapter pin was refreshed. This is manual source application, without a native workflow admission or Journal append. The bulk migration remains pending until the remote checkpoint is verified.
+
+## Checked migration
+
+The checkpoint db837f08e is pushed and independently verified. The in-place migration changed 1,071 of 1,158 selected files and repeated with zero changes. IDs, Summaries, versions, statuses, timestamps, frozen version citations and quoted CFEL literals were preserved. Five subsequent consumer repairs removed every live unversioned reference to retired/replaced IDs. Seven projections use 1,154 exact Current sources; detail constraints come only from Requirement / Declaration. All 160 focused tests pass. Twelve MODEL binding gaps remain in the report; existing P2707 verification is separate. The Epic remains Active.

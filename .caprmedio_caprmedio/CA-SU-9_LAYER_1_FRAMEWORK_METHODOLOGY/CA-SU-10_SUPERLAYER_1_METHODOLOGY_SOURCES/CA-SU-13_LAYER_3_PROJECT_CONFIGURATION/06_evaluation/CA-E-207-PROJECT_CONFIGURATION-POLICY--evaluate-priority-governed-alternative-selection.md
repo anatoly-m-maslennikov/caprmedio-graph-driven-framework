@@ -30,11 +30,13 @@ form: Eval Policy
 
 Evaluate priority-governed alternative selection
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 this Evaluation checks priority resolution **and** alternative selection for an affected Scope **and** Project stage under CA-R-1487, CA-M-297, CA-O-022, **and** CA-O-023.
 
-## Claim
 
 the evaluated behavior passes **if** **all** applicable conditions hold **and** are supported by the evaluated evidence:
 

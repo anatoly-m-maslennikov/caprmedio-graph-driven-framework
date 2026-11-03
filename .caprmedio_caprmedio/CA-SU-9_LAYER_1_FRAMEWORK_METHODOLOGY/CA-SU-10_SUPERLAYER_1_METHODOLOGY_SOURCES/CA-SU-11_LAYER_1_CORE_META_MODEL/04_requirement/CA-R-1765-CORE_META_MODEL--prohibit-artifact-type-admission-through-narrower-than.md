@@ -19,10 +19,12 @@ form: Rule
 
 Prohibit Artifact Type admission through NARROWER_THAN
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifact Type values.
 
-## Claim
 
 an Artifact Type value **must not** use NARROWER_THAN **to** establish its admission as an Artifact.

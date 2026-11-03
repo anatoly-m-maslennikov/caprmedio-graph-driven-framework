@@ -20,14 +20,20 @@ Define string Value Format
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+CFEL <+ Format/string
+```
+
+### Prose Claim
+
+
 The string Value Format admits textual string values. It does not turn null
 into a string or set a property's cardinality, uniqueness, or carrier
 representation.
 
 
-```CFEL
-CFEL <+ Format/string
-```
 
 ## Semantics
 

@@ -19,9 +19,15 @@ Define Necessary Information Threshold
 
 ## Claim
 
-An absent override uses the governed default.
+### Formal Claim
 
 ```CFEL
 Project.Settings.Confidence.Necessary Information Threshold{:0..1}: [int]{:1};
 Project.Settings.Confidence.Necessary Information Threshold.*[]{:0}
 ```
+
+### Prose Claim
+
+
+An absent override uses the governed default.
+

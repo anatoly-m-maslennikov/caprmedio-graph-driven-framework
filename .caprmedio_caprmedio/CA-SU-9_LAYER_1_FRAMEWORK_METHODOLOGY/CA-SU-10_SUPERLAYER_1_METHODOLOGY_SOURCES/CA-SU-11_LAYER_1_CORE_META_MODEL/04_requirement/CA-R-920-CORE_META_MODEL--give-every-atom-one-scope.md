@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  active: CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   passive:
   - CAPRMEDIO_MODEL <+ Atom
 version: 33
@@ -17,9 +17,11 @@ form: Rule
 ## Summary
 Give Every Atom One Scope
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Atoms.
 
-## Claim
 
 **every** Atom **must** have **`=1`** Scope.

@@ -16,10 +16,12 @@ form: Decision
 
 Omit Version Suffixes from Active Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Current Atom source Carriers across all admitted Status values.
 
-## Claim
 
 a Current Atom source Carrier basename **must not** contain an `@<version>` suffix, regardless of the Atom's admitted Status value.

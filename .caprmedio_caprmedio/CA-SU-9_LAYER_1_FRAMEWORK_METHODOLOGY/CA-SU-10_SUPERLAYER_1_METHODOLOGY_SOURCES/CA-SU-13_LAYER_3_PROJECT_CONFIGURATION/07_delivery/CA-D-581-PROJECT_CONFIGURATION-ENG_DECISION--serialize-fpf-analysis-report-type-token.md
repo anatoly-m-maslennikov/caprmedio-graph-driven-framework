@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
   passive:
   - CAPRMEDIO_MODEL <+ Carrier/File.Filename
   - CAPRMEDIO_MODEL <+ Carrier
@@ -21,11 +21,13 @@ form: Decision
 
 Serialize FPF Analysis Report Type Token
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the filename Form component of a project-owned FPF Analysis Report Markdown Carrier.
 
-## Claim
 
 a project-owned Analysis & Advisory Atom with `form: FPF Analysis Report` **must** serialize its Form filename component as `FPF_ANALYSIS_REPORT` within the filename grammar governed by CA-D-283 and CA-D-284.
 

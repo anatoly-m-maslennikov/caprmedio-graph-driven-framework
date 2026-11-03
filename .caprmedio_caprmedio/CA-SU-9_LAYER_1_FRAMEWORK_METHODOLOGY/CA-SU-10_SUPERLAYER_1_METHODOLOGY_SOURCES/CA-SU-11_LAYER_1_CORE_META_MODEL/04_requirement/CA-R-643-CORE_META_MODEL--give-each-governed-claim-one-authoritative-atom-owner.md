@@ -18,10 +18,12 @@ form: Rule
 
 Give each governed Claim one authoritative Atom owner
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 governed Claims.
 
-## Claim
 
 **every** governed Claim **must** have **`=1`** authoritative Atom owner.

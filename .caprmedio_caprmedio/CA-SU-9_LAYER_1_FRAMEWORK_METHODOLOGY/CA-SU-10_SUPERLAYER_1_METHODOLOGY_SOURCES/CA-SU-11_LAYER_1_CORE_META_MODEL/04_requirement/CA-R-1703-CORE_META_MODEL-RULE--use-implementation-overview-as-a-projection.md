@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Implementation Overview)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Implementation Overview)'
   passive:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Atom
@@ -8,8 +8,8 @@ subjects:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Content Role
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
 version: 40
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -25,11 +25,13 @@ form: Rule
 
 Use Implementation Overview as a Projection
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Implementation Overview Projections.
 
-## Claim
 
 an Implementation Overview is a non-authoritative Projection of what the current normative Atom frontier, native project targets, available provenance, **and** **any** registered implementation lineage sources show as implemented. its Implementation Bindings derive from the shared Project Journal under CA-R-1695; the current view does **not** replace the historical implementation event records retained **in** that Journal. the Atom Content Role axis does **not** apply **to** this Projection.
 

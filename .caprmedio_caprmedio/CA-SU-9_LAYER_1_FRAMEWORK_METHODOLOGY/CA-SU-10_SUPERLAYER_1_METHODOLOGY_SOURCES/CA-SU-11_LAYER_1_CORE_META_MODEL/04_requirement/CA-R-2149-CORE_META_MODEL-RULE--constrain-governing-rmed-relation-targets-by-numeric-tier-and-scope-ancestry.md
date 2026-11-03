@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Relations
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Relations
   passive:
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
-  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
   - CAPRMEDIO_MODEL <+ Scope Unit
 relations: {}
 atom_id: CA-R-2149
@@ -20,11 +20,13 @@ form: Rule
 
 Constrain Governing RMED Relation Targets by Numeric Tier and Scope Ancestry
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Stored governing Requirement, Method, Evaluation and Delivery relation occurrences selected under CA-R-2148@10, and any independently admitted Operations-source relation within the narrow Tier 0 exception.
 
-## Claim
 
 Each stored governing RMED relation must target an Atom in the same ordering Scope Unit at a strictly lower numeric Tier or satisfy the narrow Tier 0 exception below, an Atom in a strict ancestor ordering Scope Unit, or the Core Meta-model prerequisite of Project Configuration explicitly declared by CA-R-1218@31. The prerequisite exception is one-way and non-transitive. Other descendant and sibling targets are forbidden. Unresolved membership, endpoint, Tier or Scope evidence does not pass. A verified Project Goal uses its Target Project for this ordering check; its owner remains the Operator.
 

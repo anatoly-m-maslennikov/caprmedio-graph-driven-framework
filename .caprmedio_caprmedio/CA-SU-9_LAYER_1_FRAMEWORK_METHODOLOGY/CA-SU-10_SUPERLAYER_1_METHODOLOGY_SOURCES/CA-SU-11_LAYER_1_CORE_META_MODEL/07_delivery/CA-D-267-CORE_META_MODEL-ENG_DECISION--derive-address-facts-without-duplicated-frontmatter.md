@@ -19,10 +19,12 @@ form: Decision
 
 Derive Address Facts without Duplicated Frontmatter
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 registered canonical Carrier addresses that completely **and** unambiguously derive non-Atom Artifact Properties.
 
-## Claim
 
 that address **must** be its sole Carrier encoding **and** embedded metadata **must not** duplicate it. Atom Properties instead follow CA-D-478 **and** CA-D-480.

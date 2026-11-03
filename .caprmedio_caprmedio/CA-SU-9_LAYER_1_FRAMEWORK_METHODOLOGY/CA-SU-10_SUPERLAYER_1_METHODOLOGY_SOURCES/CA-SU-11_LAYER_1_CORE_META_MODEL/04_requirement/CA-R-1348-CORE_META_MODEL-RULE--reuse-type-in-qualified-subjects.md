@@ -19,10 +19,12 @@ form: Rule
 
 Reuse Type in Qualified Subjects
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 qualified Type Subjects.
 
-## Claim
 
 a qualified Type Subject **must** reuse the Term Type **and** **must not** create a role-specific Type Term.

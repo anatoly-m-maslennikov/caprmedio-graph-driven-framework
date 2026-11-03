@@ -16,11 +16,13 @@ form: Decision
 
 Place Disposable Temporary State
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 disposable temporary state in a CAPRMEDIO Project.
 
-## Claim
 
 the CAPRMEDIO Project **must** place disposable scratch, staging, test cache, atomic-write intermediate, build intermediate, **and** interrupted-cleanup Carriers under `.caprmedio_tmp/`.
 

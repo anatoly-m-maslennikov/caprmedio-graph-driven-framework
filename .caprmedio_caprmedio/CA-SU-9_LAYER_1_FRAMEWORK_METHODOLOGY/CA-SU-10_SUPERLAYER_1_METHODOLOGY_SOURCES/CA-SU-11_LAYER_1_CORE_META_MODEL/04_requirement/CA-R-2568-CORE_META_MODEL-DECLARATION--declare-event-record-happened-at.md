@@ -18,7 +18,10 @@ Declare Event Record.happened_at
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Event Record.happened_at{:1}: [datetime]{:1};
 Event Record.happened_at.*[]{:0}
 ```
+

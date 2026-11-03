@@ -18,10 +18,12 @@ form: Rule
 ## Summary
 Reconcile Development Backlog candidates **after** release
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Development Backlog candidates **after** a Release Record is accepted.
 
-## Claim
 
 CAPRMEDIO **must** reconcile the Development Backlog against its exact released manifest as follows:
 

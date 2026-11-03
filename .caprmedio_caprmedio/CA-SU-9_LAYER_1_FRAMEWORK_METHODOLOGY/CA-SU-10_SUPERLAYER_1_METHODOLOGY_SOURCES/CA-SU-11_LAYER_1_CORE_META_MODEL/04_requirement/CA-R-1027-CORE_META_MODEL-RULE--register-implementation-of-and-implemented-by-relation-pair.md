@@ -18,10 +18,12 @@ form: Rule
 
 Register implementation_of **and** implemented_by relation pair
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the `implementation_of` **and** `implemented_by` relation pair.
 
-## Claim
 
 `implementation_of` **must** be registered as the declared upstream relation **and** `implemented_by` as its inverse-derived downstream relation **in** the realization ordering domain.

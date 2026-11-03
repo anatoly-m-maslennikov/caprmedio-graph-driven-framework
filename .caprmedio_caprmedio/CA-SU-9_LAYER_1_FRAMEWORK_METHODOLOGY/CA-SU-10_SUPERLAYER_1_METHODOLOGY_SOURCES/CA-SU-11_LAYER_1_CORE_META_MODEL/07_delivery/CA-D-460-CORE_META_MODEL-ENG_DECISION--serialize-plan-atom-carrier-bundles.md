@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Carrier/File
   - CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 25
@@ -20,11 +20,13 @@ form: Decision
 
 Serialize Plan Atom Carrier Bundles
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan Atom Carrier Bundles.
 
-## Claim
 
 a Plan Atom Carrier Bundle **must** consist of **`=1`** Markdown File Carrier **and** **`<=1`** optional matching Directory Carrier using the same canonical stem under CA-D-469-CORE_META_MODEL-DELIVERY--serialize-plan-carrier-stems.
 

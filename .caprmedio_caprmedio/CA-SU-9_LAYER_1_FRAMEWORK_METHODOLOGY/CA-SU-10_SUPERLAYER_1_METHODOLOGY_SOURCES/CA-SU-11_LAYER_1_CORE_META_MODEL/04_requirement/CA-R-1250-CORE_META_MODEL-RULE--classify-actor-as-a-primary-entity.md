@@ -18,10 +18,12 @@ form: Rule
 
 Classify Actor as a Primary Entity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the classification of Actor as a Primary Entity.
 
-## Claim
 
 the Term Actor **must** be NARROWER_THAN Primary Entity.

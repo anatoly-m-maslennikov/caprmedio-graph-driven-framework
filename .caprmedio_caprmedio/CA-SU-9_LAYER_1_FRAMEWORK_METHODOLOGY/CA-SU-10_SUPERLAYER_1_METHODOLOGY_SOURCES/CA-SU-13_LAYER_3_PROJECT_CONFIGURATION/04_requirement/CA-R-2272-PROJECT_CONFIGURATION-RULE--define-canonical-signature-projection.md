@@ -18,5 +18,8 @@ Define Canonical Signature Projection
 
 ## Claim
 
+### Prose Claim
+
+
 A Canonical Signature Projection reports the canonicalized CCE signatures of selected source expression occurrences, their exact source frontier and exclusions. It is a derived external report, not an Atom or proof that two Claims are equivalent. Its input evidence and delivery remain governed by CA-D-346 and the existing canonicalization rules.
 

@@ -17,10 +17,12 @@ form: Rule
 ## Summary
 Prohibit order-derived dependencies
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Dependencies between related Governed Entities.
 
-## Claim
 
 the Local Order of two Scope Units **or** the position of one canonical target reference **in** `relations.<RELATION_KIND>` **must not** establish **or** alter a dependency between related Governed Entities.

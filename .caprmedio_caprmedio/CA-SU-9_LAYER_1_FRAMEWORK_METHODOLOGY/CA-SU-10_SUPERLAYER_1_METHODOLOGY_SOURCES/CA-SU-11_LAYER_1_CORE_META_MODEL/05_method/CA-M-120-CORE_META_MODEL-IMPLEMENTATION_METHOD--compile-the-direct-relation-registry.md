@@ -5,7 +5,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Package
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
@@ -29,11 +29,13 @@ form: Implementation Method
 
 Compile the direct-relation registry
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 direct-relation registry compilation.
 
-## Claim
 
 **to** compile the optional direct-relation registry Projection, the Generator **must** perform **all** of:
 

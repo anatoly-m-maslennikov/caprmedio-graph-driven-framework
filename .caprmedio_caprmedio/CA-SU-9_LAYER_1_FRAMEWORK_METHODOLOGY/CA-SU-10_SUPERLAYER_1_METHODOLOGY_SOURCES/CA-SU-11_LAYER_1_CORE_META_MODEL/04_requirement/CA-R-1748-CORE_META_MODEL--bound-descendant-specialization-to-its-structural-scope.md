@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
@@ -25,11 +25,13 @@ form: Rule
 
 Bound descendant specialization to its structural scope
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Applicable inherited authority in descendant Scope Units and specializations within their permitted boundaries.
 
-## Claim
 
 applicable inherited authority **must** remain effective **in** a descendant Scope Unit **unless** that authority explicitly permits a specialization **and** the specialization stays within the permitted boundary.
 

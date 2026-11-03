@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
-  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
   - CAPRMEDIO_MODEL <+ Scope Unit
 version: 34
 updated_at: 2026-11-02 08:06:47 +0400
@@ -20,11 +20,13 @@ form: Rule
 
 Apply relation direction within its ordering domain
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 declared relations.
 
-## Claim
 
 **every** declared relation **must** satisfy the target position **and** ordering domain registered for its relation family. Stored governing RMED relation occurrences selected by CA-R-2148@10 **must** use the numeric Tier-and-Scope ordering in CA-R-2149: a same-Scope target **must** have a strictly lower numeric Tier, a target in a strict ancestor Scope Unit is accepted without Tier comparison, the exact one-way Project Configuration-to-Core Meta-Model logical-role prerequisite declared by CA-R-1218@31 is accepted without Tier comparison, and every other descendant **or** sibling target is forbidden. Temporal relations **must** use lifecycle succession, realization relations **must** use realization order, dependency relations **must** use dependency order, **and** **every** other admitted domain **must** use its own registered order. a universal upstream **or** downstream rule **must not** be inferred across different ordering domains, **and** an inverse-derived view **must not** create another declared edge.
 

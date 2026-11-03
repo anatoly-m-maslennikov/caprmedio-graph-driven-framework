@@ -18,6 +18,9 @@ Select fenced Markdown labels
 
 ## Claim
 
+### Prose Claim
+
+
 `FENCED_LABELS(p)` selects one label per fenced code-block occurrence in one scalar Markdown value.
 
 - Evaluate p separately for each matching bearer. Do not pool values across Atoms.

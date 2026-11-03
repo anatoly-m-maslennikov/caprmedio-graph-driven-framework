@@ -27,4 +27,7 @@ Optimize correctness at its declared priority
 
 ## Claim
 
+### Prose Claim
+
+
 choose among acceptable alternatives by optimizing verified agreement with applicable acceptance criteria according **to** the current Operator-declared correctness priority.

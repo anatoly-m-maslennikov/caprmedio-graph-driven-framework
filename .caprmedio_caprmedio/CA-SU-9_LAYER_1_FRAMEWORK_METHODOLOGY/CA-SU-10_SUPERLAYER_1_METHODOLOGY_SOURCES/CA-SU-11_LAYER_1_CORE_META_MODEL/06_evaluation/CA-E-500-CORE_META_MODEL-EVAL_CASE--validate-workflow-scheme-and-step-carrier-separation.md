@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Workflow
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Step
-  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
   - CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 28
 updated_at: 2026-11-02 17:54:42 +0400
@@ -26,11 +26,13 @@ form: Eval Case
 
 Validate Workflow scheme and Step carrier separation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Workflow representation; Step Carrier separation.
 
-## Claim
 
 the Workflow representation Evaluation **must** reject a Carrier arrangement that duplicates definition authority **or** derives execution order from storage order.
 

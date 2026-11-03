@@ -23,11 +23,13 @@ form: Rule
 
 Govern extension semantics
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Extension semantics within the Core Meta-Model.
 
-## Claim
 
 an Extension **must** provide a reusable, independently governed, optional package of capability contributions. its authority **and** evolution remain distinct from Core Meta-Model **and** Project Configuration authority.
 

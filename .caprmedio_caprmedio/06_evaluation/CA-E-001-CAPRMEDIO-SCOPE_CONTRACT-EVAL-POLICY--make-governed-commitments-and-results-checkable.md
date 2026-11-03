@@ -6,7 +6,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 35
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -24,5 +24,8 @@ form: Eval Policy
 Make governed commitments and results checkable
 
 ## Claim
+
+### Prose Claim
+
 
 governed commitments **and** results **must** be checkable **when** used **to** govern work **or** evaluate a result.

@@ -19,15 +19,16 @@ form: Entity Definition
 
 Define Markdown File Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Markdown File Carriers and their File-Carrier Format.
 
-## Claim
 
 A Markdown File Carrier **means** a File Carrier whose Format is Markdown.
 
-### Formal claim
 
 ```text
 Carrier/File/Markdown

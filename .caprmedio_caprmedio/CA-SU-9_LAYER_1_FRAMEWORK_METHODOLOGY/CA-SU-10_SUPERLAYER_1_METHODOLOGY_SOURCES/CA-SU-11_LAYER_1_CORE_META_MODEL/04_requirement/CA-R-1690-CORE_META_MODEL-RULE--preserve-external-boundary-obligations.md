@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Governance Origin
+  active: CAPRMEDIO_MODEL <+ Atom.Governance Origin
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Rule
 
 Preserve external boundary obligations
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 identified external obligations.
 
-## Claim
 
 an Operator-accepted DDL, file schema, API, protocol, host format, supported-platform interface, CI interface, dependency boundary, **or** comparable external obligation is represented by its primary semantic contribution **and** external Governance Origin.
 

@@ -18,7 +18,10 @@ Declare Project.Settings.AI Agent Confidence Threshold
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Project.Settings.AI Agent Confidence Threshold{:1}: [int]{:1};
 Project.Settings.AI Agent Confidence Threshold.*[]{:0}
 ```
+

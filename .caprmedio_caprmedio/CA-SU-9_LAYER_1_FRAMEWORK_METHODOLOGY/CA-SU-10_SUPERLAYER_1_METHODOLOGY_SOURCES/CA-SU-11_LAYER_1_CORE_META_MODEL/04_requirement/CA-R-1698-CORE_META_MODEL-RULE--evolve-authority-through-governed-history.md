@@ -16,10 +16,12 @@ form: Rule
 
 Evolve authority through governed history
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 governed authority in CAPRMEDIO.
 
-## Claim
 
 CAPRMEDIO evolves governed authority through recoverable revisions that preserve the exact historical meaning on which accepted downstream work relied.

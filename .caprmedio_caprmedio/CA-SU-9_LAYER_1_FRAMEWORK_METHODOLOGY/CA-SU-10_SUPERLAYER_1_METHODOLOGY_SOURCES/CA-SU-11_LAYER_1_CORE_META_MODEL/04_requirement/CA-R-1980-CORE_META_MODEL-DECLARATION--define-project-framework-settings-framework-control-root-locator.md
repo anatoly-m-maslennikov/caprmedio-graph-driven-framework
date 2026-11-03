@@ -18,16 +18,21 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Define Project.Framework Settings.Framework Control-Root Locator
 
-## Claim scope
-
-the Project's framework control-root reference in Framework Settings.
-
 ## Claim
+
+### Formal Claim
 
 ```CFEL
 Project.Settings.Framework Control-Root Locator{:0..1}: [string]{:1};
 Project.Settings.Framework Control-Root Locator.*[]{:0}
 ```
+
+### Prose Claim
+
+
+the Project's framework control-root reference in Framework Settings.
+
+
 
 ## Details
 

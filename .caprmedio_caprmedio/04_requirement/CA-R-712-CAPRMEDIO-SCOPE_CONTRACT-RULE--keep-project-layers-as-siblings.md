@@ -22,4 +22,7 @@ Keep Project Layers as siblings
 
 ## Claim
 
+### Prose Claim
+
+
 **every** Project Layer is an immediate child of CAPRMEDIO **and** does **not** own another Project Layer's scope.

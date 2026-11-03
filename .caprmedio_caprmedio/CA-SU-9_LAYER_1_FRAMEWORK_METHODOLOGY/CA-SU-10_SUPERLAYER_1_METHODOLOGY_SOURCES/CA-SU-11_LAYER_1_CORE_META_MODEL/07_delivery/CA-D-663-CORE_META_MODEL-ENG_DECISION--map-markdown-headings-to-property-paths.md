@@ -18,6 +18,9 @@ Map Markdown headings to Property paths
 
 ## Claim
 
+### Prose Claim
+
+
 - Map heading ancestry to nested Content Properties.
 - The first heading may have any level.
 - Skipped levels create no empty Properties.

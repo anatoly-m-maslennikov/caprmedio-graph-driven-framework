@@ -7,7 +7,7 @@ author: Anatoly Maslennikov
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)/(.Form := Declaration)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER
 version: 1
 updated_at: 2026-11-03 14:19:59 +0400
@@ -25,6 +25,9 @@ carrier_destination:
 Derive RMED Subject Maps from Declarations
 
 ## Claim
+
+### Prose Claim
+
 
 - Select and pin Current source Atoms, resolve each active Subject's declared Properties and Relation constraints, then resolve NARROWER inheritance to obtain effective Properties and constraints.
 - Label every output Property or constraint as `direct` with its declaring Atom ID@Version or `inherited` with its original Declaration Atom ID@Version.

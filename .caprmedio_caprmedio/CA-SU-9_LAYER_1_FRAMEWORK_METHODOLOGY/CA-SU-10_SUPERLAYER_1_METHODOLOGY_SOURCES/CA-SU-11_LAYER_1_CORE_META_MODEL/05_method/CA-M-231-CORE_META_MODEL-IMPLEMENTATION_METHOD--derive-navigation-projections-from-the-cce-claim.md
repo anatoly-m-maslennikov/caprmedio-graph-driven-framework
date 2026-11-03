@@ -19,11 +19,13 @@ form: Implementation Method
 
 Derive Navigation Projections from the CCE Claim
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 derivation of an Atom's navigation values from its authoritative content.
 
-## Claim
 
 **to** derive an Atom's navigation values, derive them from authoritative content rather than another navigation value:
 

@@ -15,10 +15,12 @@ form: Rule
 ## Summary
 Prohibit silent non-compatible Impact dispositions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the selection of non-compatible Impact dispositions.
 
-## Claim
 
 TOOLING **must not** select `update_required`, `replacement_required`, **or** `uncertain` **without** an explicit governed disposition.

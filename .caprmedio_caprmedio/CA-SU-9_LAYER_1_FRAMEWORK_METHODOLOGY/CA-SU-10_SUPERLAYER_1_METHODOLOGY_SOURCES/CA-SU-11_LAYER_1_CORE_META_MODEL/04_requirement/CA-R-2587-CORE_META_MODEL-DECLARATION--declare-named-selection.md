@@ -18,9 +18,11 @@ Declare Named Selection
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Named Selection {:0}((IS_PROPERTY_OF));
-Named Selection ((NARROWER_THAN)) @Continuant
+Named Selection ((NARROWER_THAN)) Continuant
 ```
 
 ## Semantics

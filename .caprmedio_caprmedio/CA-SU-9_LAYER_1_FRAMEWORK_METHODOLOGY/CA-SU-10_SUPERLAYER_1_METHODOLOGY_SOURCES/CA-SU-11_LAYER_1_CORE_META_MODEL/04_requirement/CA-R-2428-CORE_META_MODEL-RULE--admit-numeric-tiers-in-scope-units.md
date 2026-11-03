@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Tier
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
   passive:
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
 relations:
   child_of:
   - CA-R-917
@@ -21,11 +21,13 @@ form: Rule
 
 Admit Numeric Tiers in Scope Units
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 ordinary Atoms owned by Scope Units in the Project.
 
-## Claim
 
 a Scope Unit in the Project **must** admit an integer Tier **>=0** for every ordinary Atom it owns. The explicit Project Goal case carries Tier `-1` under CA-R-2132. Higher integer Tiers remain admissible without an upper bound and may be assigned or raised when required by the approved governing-relation ordering.
 

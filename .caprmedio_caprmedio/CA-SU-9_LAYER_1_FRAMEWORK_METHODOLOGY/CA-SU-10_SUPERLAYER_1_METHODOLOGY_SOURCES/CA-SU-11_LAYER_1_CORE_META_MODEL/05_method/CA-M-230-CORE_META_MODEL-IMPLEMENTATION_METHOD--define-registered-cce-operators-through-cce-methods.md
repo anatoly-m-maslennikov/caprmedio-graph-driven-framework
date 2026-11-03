@@ -18,10 +18,12 @@ form: Implementation Method
 
 Define Registered CCE Operators through CCE Methods
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 registered CCE Operators in CCE.
 
-## Claim
 
 within CCE, a CCE Operator **means** one canonical lowercase word-form token **or** token sequence **or** one canonical symbolic token that one active CCE Method assigns one syntactic **or** logical function.

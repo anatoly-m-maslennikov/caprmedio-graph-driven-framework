@@ -6,9 +6,9 @@ subjects:
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Step Run
   - CAPRMEDIO_MODEL <+ Workflow Run
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Workflow
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Step
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action
   - CAPRMEDIO_MODEL <+ Projection
 version: 22
 updated_at: 2026-11-02 08:06:47 +0400
@@ -28,11 +28,13 @@ form: Eval Case
 
 Validate nested Tool-call evidence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 serialized Tool-call evidence within a Step Run.
 
-## Claim
 
 the Main Content of a Journal Carrier that encodes Tool-call evidence within a Step Run **must** undergo an actual Evaluation under CA-R-1528. Available wire evidence alone is **not** a passing result.
 

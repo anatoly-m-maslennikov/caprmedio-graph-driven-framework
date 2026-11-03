@@ -19,10 +19,12 @@ form: Decision
 
 Prohibit Persistent Applicable Methodology Subject Indexes
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Applicable Methodology.
 
-## Claim
 
 Applicable Methodology **must not** store a persistent GOVERNS **or** DEPENDS_ON Subject Index Carrier.

@@ -18,7 +18,10 @@ Declare Event Record.Relations
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Event Record.Relations{:1}: []{:0};
 Event Record.Relations.*[Relation//]{:0+}
 ```
+

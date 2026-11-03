@@ -23,4 +23,7 @@ Preserve ancestor Core authority across structural levels
 
 ## Claim
 
+### Prose Claim
+
+
 a conflict between active Core Requirements on one ancestor–descendant path **must** preserve the ancestor-scope Core **and** reconcile the descendant-scope Core **without** changing the ancestor meaning.

@@ -19,9 +19,11 @@ form: Decision
 ## Summary
 Classify Markdown Atom Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 the Term Markdown Atom Carrier.
 
-## Claim
 
 the Term Markdown Atom Carrier **must** be **NARROWER_THAN** File Carrier.

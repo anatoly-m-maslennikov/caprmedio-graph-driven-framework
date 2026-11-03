@@ -3,8 +3,8 @@ subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
   - CAPRMEDIO_MODEL <+ Scope Unit
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
 version: 38
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -21,11 +21,13 @@ form: Rule
 ## Summary
 Define result-flow direction
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Producer result flow directions.
 
-## Claim
 
 
 For a producer-to-consumer result flow expressed by an existing Relation, direction must run from the Producer Claim Target Scope Unit to the Consumer Atom Scope Unit.

@@ -8,7 +8,7 @@ relations:
   child_of:
   - CA-R-1423
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Concern)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
   passive:
   - CAPRMEDIO_MODEL <+ Atom
 cce_version: cce_1
@@ -25,5 +25,8 @@ form: Rule
 Prevent recurrence of resolved failures
 
 ## Claim
+
+### Prose Claim
+
 
 a material Concern **may** be considered solved **only** **when** its analyzed cause is corrected **and** its recurrence risk is governed.

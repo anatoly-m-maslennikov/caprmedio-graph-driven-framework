@@ -23,11 +23,13 @@ form: Eval Policy
 
 Validate the normative-authority hierarchy
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the active normative-authority subgraph.
 
-## Claim
 
 the Evaluation of the active normative-authority subgraph **must** fail **when** **any** declared authority-bearing direct edge lacks its registered typing **or** the directed subgraph **contains** a cycle under CA-R-833.
 

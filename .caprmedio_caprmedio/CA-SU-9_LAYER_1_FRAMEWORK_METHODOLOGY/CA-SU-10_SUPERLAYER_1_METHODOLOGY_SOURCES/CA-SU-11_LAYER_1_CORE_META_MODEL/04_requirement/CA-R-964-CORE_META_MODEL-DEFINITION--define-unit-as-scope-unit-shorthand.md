@@ -18,10 +18,12 @@ form: Rule
 
 Define Unit as Scope Unit shorthand
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the governed shorthand `Unit` in CAPRMEDIO.
 
-## Claim
 
 Unit **means** Scope Unit **when** CAPRMEDIO uses Unit as a governed shorthand.

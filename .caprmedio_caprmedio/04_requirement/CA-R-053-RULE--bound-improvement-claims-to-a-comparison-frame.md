@@ -28,4 +28,7 @@ Bound improvement claims to a comparison frame
 
 ## Claim
 
+### Prose Claim
+
+
 **before** CAPRMEDIO claims improvement, the governed improvement cycle **must** identify the exact target **and** baseline revision, evaluation frame, protected trade-offs, **and** continuation **or** stop condition.

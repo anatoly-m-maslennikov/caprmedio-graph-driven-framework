@@ -19,7 +19,10 @@ Declare Scope Unit Label
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit.Label{:0..1}: [string]{:1};
 Scope Unit.Label.*[]{:0}
 ```
+

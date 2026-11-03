@@ -16,10 +16,12 @@ form: Goal
 
 Provide the Minimal Self-Applicable Canonical Methodology Model
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CORE_META_MODEL.
 
-## Claim
 
 CORE_META_MODEL **must** provide the minimal self-applicable canonical model necessary **and** sufficient **to** represent, govern, validate, **and** compile CAPRMEDIO Methodology authority.

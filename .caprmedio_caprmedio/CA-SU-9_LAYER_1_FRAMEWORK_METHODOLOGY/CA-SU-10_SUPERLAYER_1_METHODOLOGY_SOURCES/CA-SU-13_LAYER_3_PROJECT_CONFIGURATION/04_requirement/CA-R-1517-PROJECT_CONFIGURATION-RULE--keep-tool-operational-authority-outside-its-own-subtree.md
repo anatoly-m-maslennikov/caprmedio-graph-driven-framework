@@ -3,10 +3,10 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Package
   passive:
   - CAPRMEDIO_MODEL <+ Scope Unit
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
@@ -23,11 +23,13 @@ form: Rule
 
 Keep Tool operational authority outside its own subtree
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Tools' implementation references to methodology Action and Workflow definitions in the caprmedio Project.
 
-## Claim
 
 **in** the caprmedio Project, a Tool's implementation reference **to** a methodology Action **or** Workflow definition **must not** target an O Atom owned by the Tool's Scope Unit **or** **any** descendant of that Scope Unit.
 

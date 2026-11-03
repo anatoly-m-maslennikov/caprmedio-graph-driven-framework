@@ -18,9 +18,15 @@ Declare Projection.Source.Atoms
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Projection.Source.Atoms{:0..1}: [string]{:0+};
 Projection.Source.Atoms.*[]{:0}
 ```
+
+### Prose Claim
+
+
 
 Each value is an Atom ID with an explicit Version.

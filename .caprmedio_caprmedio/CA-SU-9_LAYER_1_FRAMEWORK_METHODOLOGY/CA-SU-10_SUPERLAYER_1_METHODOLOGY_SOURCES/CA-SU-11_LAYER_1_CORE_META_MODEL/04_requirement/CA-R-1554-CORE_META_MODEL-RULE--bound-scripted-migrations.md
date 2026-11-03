@@ -2,7 +2,7 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
@@ -21,11 +21,13 @@ form: Rule
 
 Bound Scripted Migrations
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 AI Agent participation in Scripted Migrations.
 
-## Claim
 
 an AI Agent that performs a Scripted Migration **must** satisfy **all** of these participation conditions:
 

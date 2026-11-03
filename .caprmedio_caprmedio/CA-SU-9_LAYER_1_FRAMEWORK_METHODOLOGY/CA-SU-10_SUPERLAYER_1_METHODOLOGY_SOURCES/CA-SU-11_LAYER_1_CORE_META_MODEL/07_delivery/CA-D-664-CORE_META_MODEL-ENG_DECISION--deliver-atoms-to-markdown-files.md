@@ -18,6 +18,24 @@ Deliver Atoms to Markdown files
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+Atom >> Carrier//Markdown file;
+Atom.**!(.Content, .Content.**) >> Carrier//Markdown file.frontmatter;
+Atom.Header.Carrier Destination.File.Name >> Carrier//Markdown file.frontmatter.carrier_destination.file.name;
+Atom.Header.Carrier Destination.File.Path >> Carrier//Markdown file.frontmatter.carrier_destination.file.path;
+Atom.Content.** >> Carrier//Markdown file.markdown;
+Atom.Header.Carrier Destination.File.Name >> Carrier//Markdown file.filename;
+Atom.Header.Carrier Destination.File.Path >> Carrier//Markdown file.location;
+Carrier//Markdown file.filename{:1}: [string]{:1};
+Carrier//Markdown file.location{:1}: [string]{:1};
+Carrier//Markdown file.frontmatter.author{:0}
+```
+
+### Prose Claim
+
+
 The Carrier below is the Markdown file delivering this Atom.
 
 Frontmatter starts at the beginning of the file:
@@ -28,15 +46,3 @@ Frontmatter starts at the beginning of the file:
 
 Location is the directory path relative to the repository root.
 
-```CFEL
-Atom >> @Carrier//Markdown file;
-Atom.**!(.Content, .Content.**) >> @Carrier//Markdown file.frontmatter;
-Atom.Carrier Destination.File.Name >> @Carrier//Markdown file.frontmatter.carrier_destination.file.name;
-Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.frontmatter.carrier_destination.file.path;
-Atom.Content.** >> @Carrier//Markdown file.markdown;
-Atom.Carrier Destination.File.Name >> @Carrier//Markdown file.filename;
-Atom.Carrier Destination.File.Path >> @Carrier//Markdown file.location;
-@Carrier//Markdown file.filename{:1}: [string]{:1};
-@Carrier//Markdown file.location{:1}: [string]{:1};
-@Carrier//Markdown file.frontmatter.author{:0}
-```

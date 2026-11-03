@@ -16,10 +16,12 @@ form: Rule
 
 Record recurrence-check outcomes in the Journal
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 execution outcomes of recurrence-protection mechanisms.
 
-## Claim
 
 **every** execution outcome of a recurrence-protection mechanism **must** be carried by a Journal Record as execution evidence, distinct from the reusable Operations definition.

@@ -4,7 +4,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Scope Unit
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 29
@@ -22,11 +22,13 @@ form: Decision
 
 Register Project Current-Scope Content Role Directories
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 administrative Content Role directory placement at the CAPRMEDIO Project root **and** **in** **every** descendant Scope Unit, including `CORE_META_MODEL`, `INSTALLED_EXTENSIONS`, **and** `PROJECT_CONFIGURATION`.
 
-## Claim
 
 **every** Scope Unit **in** the CAPRMEDIO Project **must** use the same administrative Content Role directory mapping directly under its own authority directory for current-scope placement:
 

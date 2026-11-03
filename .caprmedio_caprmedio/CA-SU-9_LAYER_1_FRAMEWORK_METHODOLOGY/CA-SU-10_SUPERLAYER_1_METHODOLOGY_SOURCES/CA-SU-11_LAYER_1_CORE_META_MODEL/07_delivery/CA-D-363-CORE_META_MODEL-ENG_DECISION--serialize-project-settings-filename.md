@@ -21,10 +21,12 @@ form: Decision
 
 Serialize Project Settings Filename
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoritative Project Settings TOML File Carrier filenames.
 
-## Claim
 
 the authoritative Project Settings TOML File Carrier filename **must** be exactly `caprmedio_project_settings.toml`.

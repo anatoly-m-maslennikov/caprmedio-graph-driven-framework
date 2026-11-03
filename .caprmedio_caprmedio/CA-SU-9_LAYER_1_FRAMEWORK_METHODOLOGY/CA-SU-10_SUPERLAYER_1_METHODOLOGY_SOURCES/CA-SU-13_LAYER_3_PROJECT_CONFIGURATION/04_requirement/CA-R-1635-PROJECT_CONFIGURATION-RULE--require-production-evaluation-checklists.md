@@ -20,11 +20,13 @@ form: Rule
 
 Require production evaluation checklists
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production-relevant components and governed scopes.
 
-## Claim
 
 **every** production-relevant component **or** governed scope **must** define a Production Evaluation Checklist **before** it can pass a production-readiness gate. the checklist states how operators will know that the realized system remains healthy, correct, supportable, **and** within its accepted operating boundaries during real work.
 

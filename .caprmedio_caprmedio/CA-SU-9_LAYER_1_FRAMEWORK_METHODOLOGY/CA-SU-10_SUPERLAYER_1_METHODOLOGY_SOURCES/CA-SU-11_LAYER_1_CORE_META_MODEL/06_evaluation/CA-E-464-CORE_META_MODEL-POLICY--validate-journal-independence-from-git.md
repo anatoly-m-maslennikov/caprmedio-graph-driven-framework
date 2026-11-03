@@ -27,11 +27,13 @@ form: Eval Policy
 
 Validate Journal independence from Git
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Core Meta-Model rules concerning Journal recording, replacement evidence, and canonical log Projections.
 
-## Claim
 
 the Evaluation **must** reject a Core Meta-Model rule that makes Journal recording, replacement evidence, **or** either canonical log Projection depend on Git installation, commit topology, hooks, **or** commit messages.
 

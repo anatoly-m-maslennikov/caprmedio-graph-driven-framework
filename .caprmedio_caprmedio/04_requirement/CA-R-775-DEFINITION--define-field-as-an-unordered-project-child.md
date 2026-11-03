@@ -23,4 +23,7 @@ Define FIELD as an unordered Project child
 
 ## Claim
 
+### Prose Claim
+
+
 FIELD is an unordered direct child of caprmedio; it has no `local_order` **and** is **not** a Project Layer.

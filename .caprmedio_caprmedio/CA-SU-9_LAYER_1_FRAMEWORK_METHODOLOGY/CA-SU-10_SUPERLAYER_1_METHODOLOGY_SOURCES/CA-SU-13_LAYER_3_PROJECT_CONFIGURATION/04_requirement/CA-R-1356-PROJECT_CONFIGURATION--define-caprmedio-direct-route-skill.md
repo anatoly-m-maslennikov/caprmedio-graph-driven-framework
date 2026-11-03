@@ -19,10 +19,12 @@ form: Rule
 
 Define CAPRMEDIO Direct Route Skill
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO Direct Route Skills.
 
-## Claim
 
 A CAPRMEDIO Direct Route Skill **must** be an Operator-defined Skill bound **to** **`=1`** branch **or** leaf registered **in** the CAPRMEDIO Routing Tree **and** **must** invoke **only** that bound target.

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Status
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Status
   passive:
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
@@ -19,10 +19,12 @@ form: Rule
 
 Keep Qualified Status Domains Open
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 qualified Status domains.
 
-## Claim
 
 an Extension **or** Project Configuration **may** add Status values **and** transition rules **only** under one exact complete qualified Artifact Type **or** Atom Content Role **and** Type path.

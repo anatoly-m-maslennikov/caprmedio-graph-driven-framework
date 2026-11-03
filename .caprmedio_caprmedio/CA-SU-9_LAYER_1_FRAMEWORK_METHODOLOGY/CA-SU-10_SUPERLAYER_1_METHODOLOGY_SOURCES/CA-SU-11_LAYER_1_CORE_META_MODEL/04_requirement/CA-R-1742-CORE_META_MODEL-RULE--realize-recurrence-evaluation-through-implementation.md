@@ -18,10 +18,12 @@ form: Rule
 
 Realize recurrence Evaluation through Implementation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Implementation of a recurrence Evaluation Atom.
 
-## Claim
 
 Implementation **must** realize a recurrence Evaluation Atom through an executable test, evaluation, monitor, alert, **or** other conforming mechanism.

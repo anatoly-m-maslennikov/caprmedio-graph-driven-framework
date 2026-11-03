@@ -18,4 +18,7 @@ Write Summary for the Complete Contribution
 
 ## Claim
 
+### Prose Claim
+
+
 Write Atom.Content.Summary to cover the Atom's complete contribution.

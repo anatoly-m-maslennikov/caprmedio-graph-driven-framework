@@ -22,11 +22,13 @@ form: Rule
 
 Admit typed secondary graph connections
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 connections represented by a secondary CAPRMEDIO Graph.
 
-## Claim
 
 a secondary CAPRMEDIO Graph **may** represent typed Relations between its own nodes, **to** another secondary graph **or** its nodes, **and** **to** source Atoms **or** other admitted authoritative sources.
 

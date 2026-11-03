@@ -26,4 +26,7 @@ Provide means to resolve Atom conflicts
 
 ## Claim
 
+### Prose Claim
+
+
 CAPRMEDIO **must** provide the Operator with capabilities for resolving conflicts between Atoms.

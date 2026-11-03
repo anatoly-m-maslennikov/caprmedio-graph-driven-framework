@@ -20,10 +20,12 @@ form: Rule
 
 Require declared source Atoms before Projection refresh
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection refreshes with declared source Atoms.
 
-## Claim
 
 a Projection **may** refresh **only** **after** **every** declared source Atom exists.

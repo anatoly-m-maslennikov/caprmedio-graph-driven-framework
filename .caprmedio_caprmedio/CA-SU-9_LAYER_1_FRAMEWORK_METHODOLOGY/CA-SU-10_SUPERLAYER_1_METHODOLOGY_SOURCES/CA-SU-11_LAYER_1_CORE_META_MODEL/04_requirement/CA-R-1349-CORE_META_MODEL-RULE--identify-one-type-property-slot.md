@@ -18,10 +18,12 @@ form: Rule
 
 Identify One Type Property Slot
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 qualified Type Subjects of an Entity occurrence.
 
-## Claim
 
 **all** qualified Type Subjects of **`=1`** Entity occurrence **must** identify the same Type Property.

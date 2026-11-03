@@ -16,6 +16,8 @@ Declare OPERATOR_DOCUMENTATION
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//OPERATOR_DOCUMENTATION.ID == "CA-SU-25";
 Scope Unit//OPERATOR_DOCUMENTATION.Name == "OPERATOR_DOCUMENTATION";
@@ -24,3 +26,4 @@ Scope Unit//OPERATOR_DOCUMENTATION.order.ordered == true;
 Scope Unit//OPERATOR_DOCUMENTATION.order.number == 3;
 Scope Unit//OPERATOR_DOCUMENTATION ((IS_CONTAINED_BY)) Project//caprmedio
 ```
+

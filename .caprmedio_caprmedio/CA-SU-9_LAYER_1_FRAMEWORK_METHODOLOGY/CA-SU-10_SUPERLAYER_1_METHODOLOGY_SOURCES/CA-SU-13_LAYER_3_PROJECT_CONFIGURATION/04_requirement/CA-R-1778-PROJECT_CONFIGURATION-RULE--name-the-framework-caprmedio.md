@@ -18,10 +18,12 @@ form: Rule
 
 Name the Framework CAPRMEDIO
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Framework name.
 
-## Claim
 
 the Framework name **must** be `CAPRMEDIO`.

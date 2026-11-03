@@ -18,4 +18,7 @@ Define Pull Request Carrier
 
 ## Claim
 
+### Prose Claim
+
+
 A Pull Request **means** a repository-hosted Carrier of a proposed change and its review state.

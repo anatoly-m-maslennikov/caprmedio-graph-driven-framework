@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Content.Claim
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
@@ -24,10 +24,12 @@ form: Rule
 
 Normative atoms are the CAPRMEDIO specification
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 applicable Active Requirement, Method, Evaluation, Delivery Atoms across **all** Governance loci.
 
-## Claim
 
 applicable Active Requirement, Method, Evaluation, **and** Delivery Atoms across **all** Governance loci collectively form the Project's normative Spec for governed Entities, including Change content **and** Implementation; particular Change content, actual realizations, **and** execution evidence remain distinct from the specification governing them.

@@ -18,6 +18,9 @@ Define Git Commit Carrier
 
 ## Claim
 
+### Prose Claim
+
+
 A Git Commit **means** an immutable Carrier representing a committed repository snapshot and its commit metadata.
 
 ## Semantics

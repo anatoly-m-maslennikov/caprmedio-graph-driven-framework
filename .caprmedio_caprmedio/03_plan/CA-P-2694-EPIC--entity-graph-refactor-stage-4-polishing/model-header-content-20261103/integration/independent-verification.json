@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "basis": "read-only migration_independent_review agent proof before the five separately pinned postcheck repairs",
+  "checkpoint": "db837f08ec3f29eeb6010e4bce09bfc64f2332d1",
+  "selected_checkpoint_before_and_live_after_hashes_verified": 1158,
+  "ids_status_versions_timestamps_summaries_preserved": 1158,
+  "archives_exact_and_unchanged": 86,
+  "pinned_semantic_repairs": 13,
+  "version_citations_preserved": true,
+  "CFEL_quoted_literals_preserved": true,
+  "later_explicit_delta": "postcheck-plan.json / postcheck-receipt.json"
+}

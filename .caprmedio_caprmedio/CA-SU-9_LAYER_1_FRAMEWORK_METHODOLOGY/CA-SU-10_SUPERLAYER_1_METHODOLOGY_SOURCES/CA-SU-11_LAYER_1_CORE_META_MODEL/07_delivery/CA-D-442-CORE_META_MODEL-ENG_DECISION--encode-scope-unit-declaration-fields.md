@@ -18,6 +18,9 @@ Encode Scope Unit declaration fields
 
 ## Claim
 
+### Prose Claim
+
+
 Carry a Scope Unit Declaration as a Markdown Atom. Its frontmatter carries Role = Requirement, Form = Scope Unit Declaration and the specific Scope Unit as `subjects.active`. Its Claim carries the declared structural facts in CFEL.
 
 The shared Scope Unit model supplies field formats and cardinalities. Project inherits its unordered state and absence of order.number and Scope Unit ID from the Project model. Folder names are derived by the shared Delivery Policy; they are not authored in a Declaration.

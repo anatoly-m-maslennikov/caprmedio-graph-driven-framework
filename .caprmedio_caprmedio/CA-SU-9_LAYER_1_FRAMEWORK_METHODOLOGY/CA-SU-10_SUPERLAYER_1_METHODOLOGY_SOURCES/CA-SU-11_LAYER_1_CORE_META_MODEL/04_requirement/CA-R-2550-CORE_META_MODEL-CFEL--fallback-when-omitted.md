@@ -18,9 +18,15 @@ Resolve a fallback when an optional Property is omitted
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 p ?= expression
 ```
+
+### Prose Claim
+
+
 
 - `p ?= e1 ?= e2` is one ordered fallback chain. Use p when authored; otherwise use the first available valid expression from left to right. An authored invalid value is an error, not absence. Omission is Property absence, not null, an empty string, zero or false.
 
@@ -38,5 +44,5 @@ p ?= expression
 ## Details
 
 ```CFEL
-Atom.Label ?= Atom.Form
+Atom.Header.Label ?= Atom.Header.Form
 ```

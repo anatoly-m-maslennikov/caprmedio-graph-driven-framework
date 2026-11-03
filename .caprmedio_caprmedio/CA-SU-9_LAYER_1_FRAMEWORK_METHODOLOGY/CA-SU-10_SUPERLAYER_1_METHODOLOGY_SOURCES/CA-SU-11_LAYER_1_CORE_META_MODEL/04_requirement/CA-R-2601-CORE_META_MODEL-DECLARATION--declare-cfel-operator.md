@@ -19,8 +19,10 @@ Declare CFEL operator ()
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
-@Operator//Grouping == "()"
+Operator//Grouping == "()"
 ```
 
 ## Semantics

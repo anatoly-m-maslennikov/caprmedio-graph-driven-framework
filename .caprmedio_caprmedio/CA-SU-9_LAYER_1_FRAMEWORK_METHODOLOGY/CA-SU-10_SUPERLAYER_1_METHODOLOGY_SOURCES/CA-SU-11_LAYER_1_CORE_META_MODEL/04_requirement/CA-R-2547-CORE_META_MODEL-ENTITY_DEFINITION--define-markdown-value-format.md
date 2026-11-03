@@ -18,4 +18,7 @@ Define markdown value Format
 
 ## Claim
 
+### Prose Claim
+
+
 The markdown Format admits Markdown source. A section value preserves its markup. Its retrieved value includes its heading and descendant sections.

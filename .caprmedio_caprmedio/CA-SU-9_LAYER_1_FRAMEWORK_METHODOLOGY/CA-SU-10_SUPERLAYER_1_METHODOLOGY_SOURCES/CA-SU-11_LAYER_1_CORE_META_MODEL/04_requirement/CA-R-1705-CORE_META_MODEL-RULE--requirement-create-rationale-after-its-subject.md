@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := Rationale)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := Rationale)
 version: 33
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,11 +18,13 @@ form: Rule
 
 Requirement — Create Rationale **after** its subject
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Rationale Atoms and their pre-existing specification subjects.
 
-## Claim
 
 a Rationale is an Analysis & Advisory Atom created **only** **after** **every** specification Atom it explains already exists. the Rationale stores the directed relation **to** its subjects; specification Atoms contain **none** of (embedded Rationale, persisted Rationale backlink).
 

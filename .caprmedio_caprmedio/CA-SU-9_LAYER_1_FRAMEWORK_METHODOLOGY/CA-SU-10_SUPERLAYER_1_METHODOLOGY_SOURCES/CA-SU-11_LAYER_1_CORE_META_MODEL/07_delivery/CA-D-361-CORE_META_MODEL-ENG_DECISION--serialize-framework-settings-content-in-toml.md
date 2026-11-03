@@ -22,10 +22,12 @@ form: Decision
 
 Serialize Framework Settings Content in TOML
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Framework Instance Settings TOML Carrier.
 
-## Claim
 
 the Framework Instance Settings TOML Carrier **must** encode explicit Operator-selected instance choices through sections **and** fields specified by concrete settings-specification Atoms under its foundational content **and** authority boundaries **and** applicable shared settings specifications; it **must not** store Project initialization inputs **or** authoritative Project Structure declarations **or** derived structural values as independently editable settings.

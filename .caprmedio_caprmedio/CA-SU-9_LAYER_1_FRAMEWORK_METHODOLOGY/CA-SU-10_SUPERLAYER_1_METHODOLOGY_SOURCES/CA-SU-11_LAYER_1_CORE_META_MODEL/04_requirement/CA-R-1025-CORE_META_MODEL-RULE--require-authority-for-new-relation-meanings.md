@@ -16,10 +16,12 @@ form: Rule
 
 Require authority for new relation meanings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 additional direct relation meanings.
 
-## Claim
 
 **every** additional direct relation meaning **must** have separate owning Requirement authority instead of reusing a registered relation with a different meaning.

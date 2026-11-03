@@ -18,6 +18,9 @@ Require Exactly One Defining Requirement per Model Entity
 
 ## Claim
 
+### Prose Claim
+
+
 Each logical model Entity has exactly one canonical defining Requirement of Type Entity Definition. Its governed Subject identifies the defined entity. Relation Definition qualifies through the accepted specialized template without a subtype hierarchy. Additional scoped Requirements may constrain an Entity but are not additional Entity Definitions. This applies to Objects, Aspects, Graph Syntax, Carriers and their dependent properties; a Scope Unit does not change the Entity's identity or defining meaning.
 
 A missing canonical Definition or multiple qualifying Definitions fails this requirement. Derived IS_DEFINED_BY identifies that one Definition. Do not create new entities for every characteristic or nuance merely to multiply Atoms; preserve one coherent Claim and report weak fits of the dedicated-Definition trial. Equivalent property headings denote one logical Entity.

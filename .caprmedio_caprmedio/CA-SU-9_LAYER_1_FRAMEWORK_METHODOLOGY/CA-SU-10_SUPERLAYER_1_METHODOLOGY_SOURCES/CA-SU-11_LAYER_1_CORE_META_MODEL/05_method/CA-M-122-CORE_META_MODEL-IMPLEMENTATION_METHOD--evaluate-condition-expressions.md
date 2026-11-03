@@ -21,11 +21,13 @@ form: Implementation Method
 
 Evaluate Condition Expressions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 evaluation of CCE Condition Expressions.
 
-## Claim
 
 **to** evaluate one CCE condition expression, the Resolver **must** perform **all** of:
 

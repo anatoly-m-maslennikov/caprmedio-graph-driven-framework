@@ -20,6 +20,8 @@ Declare Scope Unit.order.number
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0};
 Scope Unit.order.number.*[]{:0}

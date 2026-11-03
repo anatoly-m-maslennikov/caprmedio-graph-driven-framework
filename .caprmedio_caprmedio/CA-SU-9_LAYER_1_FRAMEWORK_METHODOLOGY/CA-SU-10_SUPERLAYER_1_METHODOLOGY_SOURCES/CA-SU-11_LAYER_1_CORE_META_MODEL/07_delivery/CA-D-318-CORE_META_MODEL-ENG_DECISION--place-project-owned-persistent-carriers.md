@@ -16,11 +16,13 @@ form: Decision
 
 Place Project-Owned Persistent Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 persistent Carriers of Project governing Artifacts and project-control evidence.
 
-## Claim
 
 **every** governed Project **must** place its governing Artifacts **and** project-control evidence under `.caprmedio_<project_name>/`, **where** `<project_name>` is that Project's exact lowercase name.
 

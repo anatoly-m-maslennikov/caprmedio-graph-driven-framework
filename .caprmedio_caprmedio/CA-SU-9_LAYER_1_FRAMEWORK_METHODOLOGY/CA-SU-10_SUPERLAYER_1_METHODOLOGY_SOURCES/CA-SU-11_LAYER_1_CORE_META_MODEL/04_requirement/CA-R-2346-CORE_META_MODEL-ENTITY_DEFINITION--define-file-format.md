@@ -16,15 +16,16 @@ form: Entity Definition
 
 Define File Format
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Formats applicable to File Carriers.
 
-## Claim
 
 A File Carrier's Format is the rules for encoding and interpreting its represented content. Core Meta-Model permits registered Markdown, TOML, YAML and JSON formats; Extensions and Project Configuration may register additional Carrier Formats.
 
-### Formal claim
 
 ```text
 Carrier/File.Format[string]{1}

@@ -26,4 +26,7 @@ Support informed Operator decisions
 
 ## Claim
 
+### Prose Claim
+
+
 the CAPRMEDIO Framework Instance **and** AI Agents **must** keep communication with the Operator necessary **and** sufficient for the Operator **to** make informed decisions.

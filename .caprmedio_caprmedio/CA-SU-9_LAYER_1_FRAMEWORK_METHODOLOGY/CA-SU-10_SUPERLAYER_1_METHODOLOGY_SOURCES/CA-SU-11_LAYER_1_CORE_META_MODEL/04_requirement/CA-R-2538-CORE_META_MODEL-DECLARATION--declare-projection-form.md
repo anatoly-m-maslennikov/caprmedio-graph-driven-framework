@@ -18,6 +18,8 @@ Declare Projection.Form
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Projection.Form{:1}: [string]{:1};
 Projection.Form.*[]{:0};
@@ -25,3 +27,4 @@ Projection.Form: Catalog;
 Projection.Form: Map;
 Projection.Form: Hub
 ```
+

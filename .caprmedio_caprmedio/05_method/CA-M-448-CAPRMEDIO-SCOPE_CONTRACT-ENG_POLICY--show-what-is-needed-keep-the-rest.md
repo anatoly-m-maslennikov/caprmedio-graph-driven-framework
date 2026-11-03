@@ -25,4 +25,7 @@ Show what is needed; keep the rest
 
 ## Claim
 
+### Prose Claim
+
+
 **to** expose information for a task, preserve **all** information necessary for governed use, expose the complete currently justified sufficient information set for that task from the preserved information **and** nothing outside that set, **and** keep **all** unexposed preserved information recoverable.

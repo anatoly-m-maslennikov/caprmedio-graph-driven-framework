@@ -30,4 +30,7 @@ Separate core, Extension, and Project Configuration authority
 
 ## Claim
 
+### Prose Claim
+
+
 CAPRMEDIO **must** govern core methodology authority, reusable Extension authority, **and** Project-specific Project Configuration authority as distinct strata **without** copying **or** silently transferring meaning among them.

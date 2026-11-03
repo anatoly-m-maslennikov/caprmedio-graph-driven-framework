@@ -18,11 +18,13 @@ form: Rule
 
 Define uncertain Lineage Impact disposition
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 `uncertain` Lineage Impact dispositions.
 
-## Claim
 
 
 When a Lineage Impact analysis addresses an Atom, `uncertain` must mean a blocking Question or Problem is required and traversal stops until resolution.

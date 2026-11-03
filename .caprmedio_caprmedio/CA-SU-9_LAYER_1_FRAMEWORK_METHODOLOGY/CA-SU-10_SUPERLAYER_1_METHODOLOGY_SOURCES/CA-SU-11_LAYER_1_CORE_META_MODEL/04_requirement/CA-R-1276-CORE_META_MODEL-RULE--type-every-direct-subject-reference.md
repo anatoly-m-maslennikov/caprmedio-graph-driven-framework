@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Subjects
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
   - CAPRMEDIO_MODEL <+ CFEL > Relation
   - CAPRMEDIO_MODEL <+ CFEL > Relation//GOVERNS
@@ -20,10 +20,12 @@ form: Rule
 
 Type Every Direct Subject Reference
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 direct references in an Atom's Subjects Property.
 
-## Claim
 
 **every** direct reference **in** an Atom's Subjects Property **must** use **`=1`** Relation Kind **in** (GOVERNS, DEPENDS_ON). the relation entry supplies this kind **without** an additional kind Property on a Subject object.

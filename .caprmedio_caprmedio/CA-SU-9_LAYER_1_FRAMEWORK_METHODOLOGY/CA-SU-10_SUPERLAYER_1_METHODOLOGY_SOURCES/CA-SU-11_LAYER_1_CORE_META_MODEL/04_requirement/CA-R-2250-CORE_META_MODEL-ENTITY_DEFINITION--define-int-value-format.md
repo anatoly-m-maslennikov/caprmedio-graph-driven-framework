@@ -20,14 +20,20 @@ Define int Value Format
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+CFEL <+ Format/int
+```
+
+### Prose Claim
+
+
 The int Value Format admits integer numeric values with no fractional part. It
 does not set a numeric range, cardinality, uniqueness rule, or carrier
 representation.
 
 
-```CFEL
-CFEL <+ Format/int
-```
 
 ## Semantics
 

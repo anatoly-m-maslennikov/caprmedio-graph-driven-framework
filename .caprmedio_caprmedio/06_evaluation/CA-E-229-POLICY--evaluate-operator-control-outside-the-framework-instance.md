@@ -12,7 +12,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -29,6 +29,9 @@ form: Eval Policy
 Evaluate Operator control outside the framework instance
 
 ## Claim
+
+### Prose Claim
+
 
 the Operator controls **every** governed Project part outside the CAPRMEDIO Framework Instance, **and** **every** material change **to** those parts is observable, steerable, interruptible, **and** recoverable under the Operator's current authority.
 

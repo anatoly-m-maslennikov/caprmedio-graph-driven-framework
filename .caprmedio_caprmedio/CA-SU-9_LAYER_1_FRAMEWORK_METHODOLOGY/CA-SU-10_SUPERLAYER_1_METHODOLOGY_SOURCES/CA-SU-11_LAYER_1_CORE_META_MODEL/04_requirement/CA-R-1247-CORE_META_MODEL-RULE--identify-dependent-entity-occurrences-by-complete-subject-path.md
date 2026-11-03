@@ -21,12 +21,14 @@ form: Rule
 
 Identify Dependent-Entity Occurrences by Complete Subject Path
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 `Entity/Property` occurrences, their immediate bearers, and their
 complete Subject Paths.
 
-## Claim
 
 **every** `Entity/Property` occurrence **must** derive its
 source-admitted bearer-qualified identity from its complete Subject Path

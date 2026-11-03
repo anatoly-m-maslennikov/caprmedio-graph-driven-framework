@@ -21,11 +21,13 @@ form: Rule
 
 Define Artifact Currentness
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the exact applicable Artifact Revision in a declared context.
 
-## Claim
 
 
 For an Atom as a governed Artifact, Currentness must mean which exact applicable Artifact Revision is presently effective in the declared context.

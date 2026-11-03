@@ -35,4 +35,7 @@ Keep selected settings in their authoritative Settings Artifact
 
 ## Claim
 
+### Prose Claim
+
+
 the CAPRMEDIO Framework Instance serving caprmedio **must** consume Project Settings **and** Framework Instance Settings according **to** Core Meta-Model authority under CA-R-1750, **without** redefining their purpose, locations, **or** selected values **in** Project Atoms.

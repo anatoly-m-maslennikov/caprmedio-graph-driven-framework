@@ -1,18 +1,18 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Catalog)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Catalog)'
   passive:
   - CAPRMEDIO_MODEL <+ Term
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Entity Definition)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Requirement)/(.Header.Form: Entity Definition)'
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -33,11 +33,13 @@ form: Rule
 
 Preserve evidence and uncertainty in vocabulary diagnostic indexes
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Catalogs used as vocabulary diagnostic indexes.
 
-## Claim
 
 a Catalog used as a vocabulary diagnostic index **must** distinguish ordinary English use under CA-R-1320 from evidence of unresolved Project-specific use, with **every** entry bound **to** its exact source occurrence, surrounding Claim **or** reference context, **and** Artifact Revision. the index **must** declare the source selection **and** checked definition coverage that bound its judgments. capitalization, consistent use, occurrence **in** GOVERNS **or** DEPENDS_ON, **or** the appearance of a Scope Unit name, Actor name, identifier, path, **or** syntax token alone **must not** establish Project-specific Term status **or** a missing definition.
 

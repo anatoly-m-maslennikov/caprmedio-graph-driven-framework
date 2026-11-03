@@ -16,6 +16,8 @@ Declare Scope Unit ID
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit.ID{:0..1}: [string]{:1};
 Scope Unit.ID.*[]{:0};

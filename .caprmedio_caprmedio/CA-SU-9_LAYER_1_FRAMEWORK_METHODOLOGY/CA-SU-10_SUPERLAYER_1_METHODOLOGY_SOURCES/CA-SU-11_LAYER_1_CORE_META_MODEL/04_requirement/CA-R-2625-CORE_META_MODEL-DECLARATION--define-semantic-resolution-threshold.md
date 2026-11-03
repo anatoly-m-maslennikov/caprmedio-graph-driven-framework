@@ -19,9 +19,15 @@ Define Semantic Resolution Threshold
 
 ## Claim
 
-An absent override uses the governed default.
+### Formal Claim
 
 ```CFEL
 Project.Settings.Confidence.Semantic Resolution Threshold{:0..1}: [int]{:1};
 Project.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}
 ```
+
+### Prose Claim
+
+
+An absent override uses the governed default.
+

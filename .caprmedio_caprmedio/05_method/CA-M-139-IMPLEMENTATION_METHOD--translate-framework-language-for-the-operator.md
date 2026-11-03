@@ -28,4 +28,7 @@ Translate framework language for the operator
 
 ## Claim
 
+### Prose Claim
+
+
 **to** address the Operator, use ordinary language by default; introduce **only** the canonical CAPRMEDIO Terms needed **when** ordinary language would make a material distinction ambiguous **or** incorrect, **and** explain **every** introduced Term **in** ordinary language.

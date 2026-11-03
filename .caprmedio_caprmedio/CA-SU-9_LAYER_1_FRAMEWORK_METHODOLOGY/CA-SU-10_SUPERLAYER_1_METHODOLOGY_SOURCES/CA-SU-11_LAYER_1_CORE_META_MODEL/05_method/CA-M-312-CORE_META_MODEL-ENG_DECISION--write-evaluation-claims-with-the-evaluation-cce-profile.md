@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation.Content.Claim'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Content.Claim'
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
 version: 24
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -24,11 +24,13 @@ form: Eng Decision
 
 Write Evaluation Claims with the Evaluation CCE Profile
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Evaluation Claims with the Evaluation CCE Role Profile.
 
-## Claim
 
 **to** write an Evaluation Claim with the Evaluation CCE Role Profile, the Author **must** perform **all** of:
 

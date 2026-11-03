@@ -16,10 +16,12 @@ form: Rule
 
 Distinguish native targets from governed Artifacts
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 native project targets **and** governed Artifacts.
 
-## Claim
 
 a native project target is Implementation rather than a governed Artifact **unless** CAPRMEDIO separately admits an Artifact identity that represents **or** binds it.

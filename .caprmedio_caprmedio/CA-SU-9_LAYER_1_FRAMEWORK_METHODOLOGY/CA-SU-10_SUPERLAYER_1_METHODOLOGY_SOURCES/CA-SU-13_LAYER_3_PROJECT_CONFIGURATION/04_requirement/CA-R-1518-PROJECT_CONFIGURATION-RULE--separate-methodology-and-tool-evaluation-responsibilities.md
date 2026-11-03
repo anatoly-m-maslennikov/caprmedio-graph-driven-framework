@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   passive:
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
   - CAPRMEDIO_MODEL <+ Scope Unit
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_MODEL <+ Package
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
   - CAPRMEDIO_MODEL <+ CFEL > Relation//evaluation_for
 version: 25
@@ -29,11 +29,13 @@ form: Rule
 
 Separate methodology and Tool Evaluation responsibilities
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Evaluation responsibility for operational definitions and their Tool implementations.
 
-## Claim
 
 **in** the CAPRMEDIO Project, Evaluation responsibility for operational definitions **and** their Tool implementations **must** follow this allocation:
 

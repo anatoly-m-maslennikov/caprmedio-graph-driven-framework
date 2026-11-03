@@ -20,10 +20,12 @@ form: Decision
 
 Preserve GitHub File Preview Compatibility
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO-owned Markdown, TOML, and YAML File Carrier repository previews.
 
-## Claim
 
 **every** CAPRMEDIO-owned Markdown, TOML, **or** YAML File Carrier **must** remain valid, legible, **and** navigable **in** GitHub repository file preview **without** relying on editor-specific syntax for required content.

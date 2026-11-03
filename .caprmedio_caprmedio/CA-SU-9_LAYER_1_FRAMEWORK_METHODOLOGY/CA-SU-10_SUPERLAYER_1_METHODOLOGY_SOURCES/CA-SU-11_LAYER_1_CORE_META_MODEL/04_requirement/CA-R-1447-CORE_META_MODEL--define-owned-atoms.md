@@ -20,11 +20,13 @@ form: Rule
 
 Define Owned Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the ownership of Atoms by Scope Units.
 
-## Claim
 
 Owned Atoms **means** the set of **all** Atoms whose internally carried current Scope Unit **`=`** the selected Scope Unit.
 

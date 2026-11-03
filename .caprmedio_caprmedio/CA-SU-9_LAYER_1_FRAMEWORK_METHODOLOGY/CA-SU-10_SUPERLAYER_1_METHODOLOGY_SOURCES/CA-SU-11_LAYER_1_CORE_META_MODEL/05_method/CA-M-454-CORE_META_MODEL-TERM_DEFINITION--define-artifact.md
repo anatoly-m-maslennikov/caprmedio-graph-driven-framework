@@ -9,7 +9,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Carrier
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
 version: 4
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -21,12 +21,14 @@ form: Term Definition
 
 Define Artifact
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The reusable lexical Term Artifact in model statements about Entity instances
 and their Carrier representations.
 
-## Claim
 
 Artifact **means** an Entity instance represented in a Carrier. This Claim
 explicitly introduces the lexical Term instance Artifact at

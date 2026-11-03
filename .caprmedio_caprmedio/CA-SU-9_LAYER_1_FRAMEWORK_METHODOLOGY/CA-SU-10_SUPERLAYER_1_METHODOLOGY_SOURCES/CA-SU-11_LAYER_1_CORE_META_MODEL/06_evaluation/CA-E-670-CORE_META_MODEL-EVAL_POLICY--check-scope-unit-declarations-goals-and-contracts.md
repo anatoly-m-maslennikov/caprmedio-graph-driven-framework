@@ -16,6 +16,9 @@ Check Scope Unit Declarations, Goals and Contracts
 
 ## Claim
 
+### Prose Claim
+
+
 Identify Scope Unit Declaration Atoms by Role Requirement, Form Scope Unit Declaration and active Subject (`subjects.active`) naming the specific Scope Unit. Count exactly one matching Declaration for each Scope Unit; do not count other Requirements about that Scope Unit as Declarations.
 
 Check the selected sources for one external Declaration per Scope Unit, its declared ID where applicable, Name, ordered state, optional Label, conditional order.number and direct containment. Check that Project is unordered and has neither Scope Unit ID nor order.number. Check that its Declaration is outside Project with external Operator ownership.

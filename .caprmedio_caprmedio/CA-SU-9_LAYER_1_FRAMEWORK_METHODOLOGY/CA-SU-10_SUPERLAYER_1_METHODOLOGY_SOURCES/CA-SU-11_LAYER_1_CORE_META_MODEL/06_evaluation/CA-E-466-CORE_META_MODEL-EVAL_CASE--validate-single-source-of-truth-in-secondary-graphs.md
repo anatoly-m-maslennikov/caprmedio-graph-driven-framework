@@ -27,10 +27,12 @@ form: Eval Case
 ## Summary
 Validate Single Source of Truth in secondary graphs
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 source authority **in** secondary graph representations.
 
-## Claim
 the Evaluation **must** distinguish authoritative source facts from their secondary graph representations **and** reject a Projection that acquires independent authority for a represented fact.
 
 ### Test cases

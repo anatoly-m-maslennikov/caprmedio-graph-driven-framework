@@ -18,11 +18,13 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Define Project.Framework Settings.Parameter Resolution
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 resolution of an effective framework parameter.
 
-## Claim
 
 Resolve each effective framework parameter from explicit Framework Settings or Default Settings under the applicable precedence. The result is derived; do not store it as a new Project.Settings Property.
 

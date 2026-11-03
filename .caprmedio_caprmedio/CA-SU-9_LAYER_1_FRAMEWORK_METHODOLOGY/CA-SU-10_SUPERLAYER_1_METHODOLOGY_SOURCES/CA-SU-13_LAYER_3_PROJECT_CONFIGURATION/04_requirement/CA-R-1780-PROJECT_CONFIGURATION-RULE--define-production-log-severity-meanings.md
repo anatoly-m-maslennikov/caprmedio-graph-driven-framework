@@ -16,11 +16,13 @@ form: Rule
 
 Define production log severity meanings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Logging Policies for production-relevant components.
 
-## Claim
 
 a Logging Policy **must** use these four operational levels:
 

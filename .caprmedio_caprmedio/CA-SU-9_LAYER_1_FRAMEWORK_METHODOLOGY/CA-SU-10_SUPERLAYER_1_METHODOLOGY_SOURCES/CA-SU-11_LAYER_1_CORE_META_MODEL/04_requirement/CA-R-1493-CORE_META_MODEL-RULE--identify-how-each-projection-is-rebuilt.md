@@ -18,10 +18,12 @@ form: Rule
 
 Identify how each Projection is rebuilt
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection generators, generation procedures, and declared configurations.
 
-## Claim
 
 a Projection's governed generator **or** generation procedure **and** declared configuration **must** identify how **to** rebuild that Projection.

@@ -5,7 +5,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Event Record
-  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
 version: 25
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Decision
 
 Serialize Atom replacement event references
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 actual Atom replacement references supplied to the Main Content of a Journal Carrier.
 
-## Claim
 
 the Main Content of a Journal Carrier **must** preserve the actually supplied predecessor **and** successor Atom references of a replacement observation, including `predecessor_atom_id` **and** `successor_atom_ids` **when** supplied.
 

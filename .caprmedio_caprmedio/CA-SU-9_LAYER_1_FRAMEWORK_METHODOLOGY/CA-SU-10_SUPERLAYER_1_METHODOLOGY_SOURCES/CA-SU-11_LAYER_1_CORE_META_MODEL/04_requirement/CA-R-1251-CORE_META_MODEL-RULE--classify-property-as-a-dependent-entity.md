@@ -18,10 +18,12 @@ form: Rule
 
 Classify Property as a Dependent Entity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the classification of Property as a Dependent Entity.
 
-## Claim
 
 the Term Property **must** be NARROWER_THAN Dependent Entity.

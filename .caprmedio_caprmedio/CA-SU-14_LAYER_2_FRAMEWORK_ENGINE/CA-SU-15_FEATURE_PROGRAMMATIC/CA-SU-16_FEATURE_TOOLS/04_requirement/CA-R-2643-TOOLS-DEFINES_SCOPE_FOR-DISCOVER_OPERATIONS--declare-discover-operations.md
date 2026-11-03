@@ -16,6 +16,8 @@ Declare DISCOVER_OPERATIONS
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//DISCOVER_OPERATIONS.ID == "CA-SU-4";
 Scope Unit//DISCOVER_OPERATIONS.Name == "DISCOVER_OPERATIONS";
@@ -23,3 +25,4 @@ Scope Unit//DISCOVER_OPERATIONS.Label == "TOOL";
 Scope Unit//DISCOVER_OPERATIONS.order.ordered == false;
 Scope Unit//DISCOVER_OPERATIONS ((IS_CONTAINED_BY)) Scope Unit//TOOLS
 ```
+

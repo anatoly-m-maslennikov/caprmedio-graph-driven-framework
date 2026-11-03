@@ -19,16 +19,17 @@ form: Rule
 
 Permit Zero or More Properties on Every Entity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Property occurrences borne by every Entity.
 
-## Claim
 
 **every** Entity **may** bear **`>=0`** Property occurrences.
 
-### Formal claim
 
 ```text
-Entity {0+}((HAS_PROPERTY)){1} Property
+Entity {:0+}((HAS_PROPERTY)){:1} Property
 ```

@@ -24,11 +24,13 @@ form: Decision
 
 Serialize Project Settings Content in TOML
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Project Settings TOML Carrier.
 
-## Claim
 
 the Project Settings TOML Carrier **must** encode Operator-editable Project initialization inputs through sections **and** fields specified by concrete settings-specification Atoms under its foundational content **and** authority boundaries **and** applicable shared settings specifications; it **must not** store Framework Instance choices **or** authoritative Project Structure declarations **or** derived structural values as independently editable settings.
 

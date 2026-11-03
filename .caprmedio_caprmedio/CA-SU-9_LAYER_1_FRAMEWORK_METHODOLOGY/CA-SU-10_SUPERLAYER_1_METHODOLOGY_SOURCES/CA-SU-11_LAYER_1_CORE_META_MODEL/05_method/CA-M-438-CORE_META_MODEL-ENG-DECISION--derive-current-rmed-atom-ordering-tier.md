@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Tier
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
   passive:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
@@ -13,7 +13,7 @@ version: 17
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
   method_for:
-  - CA-R-2504
+  - CA-R-2706
   - CA-R-2125
   - CA-R-2428
   - CA-R-2131
@@ -31,11 +31,13 @@ form: Eng Decision
 
 Derive Current RMED Atom Ordering Tier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Current RMEDO Atoms and the stored governing relation occurrences that constrain their integer Tier.
 
-## Claim
 
 to derive one Current R/M/E/D Atom's integer Tier, the Author **must**:
 

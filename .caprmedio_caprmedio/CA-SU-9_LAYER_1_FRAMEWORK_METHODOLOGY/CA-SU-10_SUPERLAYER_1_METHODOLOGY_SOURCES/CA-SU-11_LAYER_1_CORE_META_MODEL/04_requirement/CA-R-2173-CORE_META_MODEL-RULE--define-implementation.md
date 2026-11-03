@@ -18,6 +18,9 @@ Define Implementation
 
 ## Claim
 
+### Prose Claim
+
+
 Implementation **means** the actual Code, Prompts, Documentation and Resources that realize RMED for a Project. Directly edited Implementation can be authoritative for what is actually implemented.
 
 ## Semantics

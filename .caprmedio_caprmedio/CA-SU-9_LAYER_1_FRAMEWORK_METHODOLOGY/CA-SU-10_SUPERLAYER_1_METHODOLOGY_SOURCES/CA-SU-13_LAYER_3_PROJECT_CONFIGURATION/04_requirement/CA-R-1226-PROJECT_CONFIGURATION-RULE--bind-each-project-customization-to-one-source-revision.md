@@ -20,10 +20,12 @@ form: Rule
 
 Bind Each Project Customization to One Source Revision
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project Customizations and their customized Core Meta-Model or Extension revisions.
 
-## Claim
 
 **every** Project Customization **must** identify **`=1`** customized Core Meta-Model **or** Extension revision **without** modifying that revision.

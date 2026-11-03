@@ -18,7 +18,7 @@ subjects:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-436
@@ -32,5 +32,8 @@ form: Eval Policy
 Evaluate graph-of-graphs connectivity
 
 ## Claim
+
+### Prose Claim
+
 
 the Graph of Graphs connectivity Evaluation **must** return `fail` **if** a governed Artifact **or** delivered Implementation element has no recoverable location **or** no valid connection **to** the shared connected whole; a connection **may** cross graph boundaries, **and** specialized Methodology, Engine, **or** other Scope Unit checks **may** supply evidence **to** this Evaluation. apply cycle restrictions **only** **to** graph families whose authority requires them; connectivity **must not** impose universal acyclicity.

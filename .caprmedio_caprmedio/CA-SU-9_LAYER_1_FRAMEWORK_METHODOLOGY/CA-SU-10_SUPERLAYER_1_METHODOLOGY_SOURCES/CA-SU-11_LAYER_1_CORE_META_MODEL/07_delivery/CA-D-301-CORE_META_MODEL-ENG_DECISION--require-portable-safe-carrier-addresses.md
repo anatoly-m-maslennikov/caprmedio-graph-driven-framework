@@ -16,11 +16,13 @@ form: Decision
 
 Require Portable-Safe Carrier Addresses
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project-owned Carrier address segments.
 
-## Claim
 
 **every** Project-owned Carrier address segment
 

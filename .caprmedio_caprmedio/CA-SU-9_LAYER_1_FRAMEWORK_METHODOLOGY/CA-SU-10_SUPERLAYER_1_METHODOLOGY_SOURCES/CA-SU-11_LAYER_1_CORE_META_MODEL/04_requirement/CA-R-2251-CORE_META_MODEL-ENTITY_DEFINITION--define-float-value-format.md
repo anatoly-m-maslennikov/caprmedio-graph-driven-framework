@@ -20,14 +20,20 @@ Define float Value Format
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+CFEL <+ Format/float
+```
+
+### Prose Claim
+
+
 The float Value Format admits floating-point numeric values. It does not set
 precision, a numeric range, cardinality, uniqueness, or carrier
 representation.
 
 
-```CFEL
-CFEL <+ Format/float
-```
 
 ## Semantics
 

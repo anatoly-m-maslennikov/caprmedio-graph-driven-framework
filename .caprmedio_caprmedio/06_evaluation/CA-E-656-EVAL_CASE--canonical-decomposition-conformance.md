@@ -14,7 +14,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
 cce_version: cce_1
 cce_form: evaluation
 current_scope_unit: caprmedio
@@ -29,6 +29,9 @@ form: Eval Case
 Canonical decomposition conformance
 
 ## Claim
+
+### Prose Claim
+
 
 **every** canonical decomposition satisfies CA-M-447 **and** CA-R-642.
 

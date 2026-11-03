@@ -18,10 +18,12 @@ form: Rule
 
 Classify Dependent Entity as an Entity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the classification of Dependent Entity as an Entity.
 
-## Claim
 
 the Term Dependent Entity **must** be NARROWER_THAN Entity.

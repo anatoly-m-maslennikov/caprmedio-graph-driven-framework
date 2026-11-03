@@ -18,7 +18,10 @@ Declare Event Record.inserted_at
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Event Record.inserted_at{:1}: [datetime]{:1};
 Event Record.inserted_at.*[]{:0}
 ```
+

@@ -18,12 +18,18 @@ Classify permission to have parts as Container
 
 ## Claim
 
-Container is a classification whose admitted value cases are yes and no:
+### Formal Claim
 
 ```CFEL
 Node >| Container: yes;
 Node >| Container: no
 ```
+
+### Prose Claim
+
+
+Container is a classification whose admitted value cases are yes and no:
+
 
 The yes case permits the Node to be the whole endpoint of CONTAINS, subject to its effective Relation whitelist and cardinalities. It does not by itself require a part. The no case forbids that endpoint role. Whether a part may belong to a whole is distinct from whether that part may itself have parts.
 

@@ -4,13 +4,13 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Projection
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -27,11 +27,13 @@ form: Rule
 ## Summary
 Keep Authority, Applicability, and Currentness distinct
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an Artifact's Authority, Applicability, and Currentness Properties.
 
-## Claim
 
 an Artifact's Authority, Applicability, **and** Currentness **must** remain distinct Properties under CA-R-1499, CA-R-1500, **and** CA-R-1501.
 

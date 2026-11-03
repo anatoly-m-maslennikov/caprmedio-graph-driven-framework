@@ -18,10 +18,12 @@ form: Entity Definition
 
 Define Entity/Carrier/Directory Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Directories that represent a carried Continuant.
 
-## Claim
 
 A Directory Carrier **means** a Carrier that uses a directory to represent its carried Continuant. Merely containing files does **not** make a directory a Directory Carrier.

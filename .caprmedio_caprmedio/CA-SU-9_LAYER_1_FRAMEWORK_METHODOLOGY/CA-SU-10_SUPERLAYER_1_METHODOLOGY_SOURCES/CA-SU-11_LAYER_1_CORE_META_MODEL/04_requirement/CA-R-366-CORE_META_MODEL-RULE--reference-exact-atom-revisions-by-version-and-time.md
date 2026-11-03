@@ -2,9 +2,9 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.ID
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - CAPRMEDIO_MODEL <+ Atom.Updated At
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - CAPRMEDIO_MODEL <+ Atom.Header.Updated At
 version: 35
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -20,10 +20,12 @@ form: Rule
 
 Reference exact Atom Revisions by version and time
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 exact Atom Revision references.
 
-## Claim
 
 **every** exact Atom Revision reference **must** identify Atom identity, Version, **and** Updated At.

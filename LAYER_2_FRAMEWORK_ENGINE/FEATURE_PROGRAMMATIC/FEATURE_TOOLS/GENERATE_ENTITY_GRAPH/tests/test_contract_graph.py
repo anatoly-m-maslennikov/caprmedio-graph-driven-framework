@@ -77,13 +77,17 @@ class ContractGraphTests(unittest.TestCase):
             carrier("CA-R-7", "CAPRMEDIO_MODEL <+ (Node, Node/**, .**)", body("Scope."), form="Rule"),
             carrier("CA-R-8", "CAPRMEDIO_MODEL <+ Node", body("Node.")),
             carrier("CA-R-9", "CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Requirement)/(.Header.Form:=Declaration)", body("Combined rule."), form="Rule"),
+            carrier("CA-R-10", "CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Declaration)", body("Combined colon rule."), form="Rule"),
+            carrier("CA-R-11", "CAPRMEDIO_MODEL <+ Atom.Content.Claim", body("Claim.")),
+            carrier("CA-R-12", "CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Delivery).Content.Claim", body("Claim rule."), form="Rule"),
         ])
         rows = {row["target"]: row for row in graph["entities"]}
-        self.assertEqual({"Atom", "Atom.Header", "Atom.Header.Role", "Atom.Header.Form", "Node"}, set(rows))
+        self.assertEqual({"Atom", "Atom.Header", "Atom.Header.Role", "Atom.Header.Form", "Atom.Content.Claim", "Node"}, set(rows))
         self.assertEqual({"Atom.Header.Role", "Atom.Header.Form"},
                          {row["binding_context"]["property"] for row in rows["Atom"]["shared"] if "property" in row["binding_context"]})
         combined = next(row for row in rows["Atom"]["shared"] if row["source"]["atom_id"] == "CA-R-9")
         self.assertEqual(["Atom.Header.Role", "Atom.Header.Form"], combined["binding_context"]["properties"])
+        self.assertEqual("CA-R-12", rows["Atom.Content.Claim"]["shared"][0]["source"]["atom_id"])
         self.assertEqual("model_applicability_scope", rows["Node"]["shared"][0]["binding"])
 
     def test_named_claim_children_keep_prose_markdown_and_only_extract_formal_cfel(self):

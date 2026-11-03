@@ -21,16 +21,17 @@ form: Entity Definition
 
 Define Markdown Atom Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Markdown File Carriers that represent Atoms.
 
-## Claim
 
 A Markdown Atom Carrier **means** a Markdown File Carrier that represents an
 Atom.
 
-### Formal claim
 
 ```text
 Carrier/File/Markdown/Markdown Atom Carrier

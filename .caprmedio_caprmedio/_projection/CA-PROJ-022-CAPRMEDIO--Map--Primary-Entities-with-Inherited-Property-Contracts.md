@@ -130,13 +130,12 @@ source:
   - CA-D-473@25
   - CA-D-475@24
   - CA-D-478@31
-  - CA-D-479@27
+  - CA-D-479@29
   - CA-D-480@23
-  - CA-D-482@27
   - CA-D-483@23
   - CA-D-485@26
   - CA-D-494@17
-  - CA-D-495@25
+  - CA-D-495@27
   - CA-D-496@24
   - CA-D-497@18
   - CA-D-498@13
@@ -174,12 +173,7 @@ source:
   - CA-D-665@2
   - CA-D-666@1
   - CA-D-667@1
-  - CA-D-668@2
-  - CA-D-669@1
-  - CA-D-670@1
-  - CA-D-671@1
   - CA-E-001@35
-  - CA-E-006@40
   - CA-E-206@26
   - CA-E-207@36
   - CA-E-208@26
@@ -187,7 +181,7 @@ source:
   - CA-E-228@28
   - CA-E-229@28
   - CA-E-230@27
-  - CA-E-240@47
+  - CA-E-240@49
   - CA-E-241@47
   - CA-E-243@39
   - CA-E-246@47
@@ -260,7 +254,6 @@ source:
   - CA-E-523@18
   - CA-E-588@20
   - CA-E-620@34
-  - CA-E-621@37
   - CA-E-622@53
   - CA-E-623@30
   - CA-E-624@38
@@ -276,8 +269,6 @@ source:
   - CA-E-668@2
   - CA-E-669@4
   - CA-E-670@1
-  - CA-E-671@1
-  - CA-E-672@1
   - CA-M-005@28
   - CA-M-006@31
   - CA-M-091@27
@@ -304,7 +295,7 @@ source:
   - CA-M-138@29
   - CA-M-139@28
   - CA-M-225@33
-  - CA-M-228@34
+  - CA-M-228@36
   - CA-M-229@33
   - CA-M-230@25
   - CA-M-231@34
@@ -321,7 +312,7 @@ source:
   - CA-M-261@19
   - CA-M-262@27
   - CA-M-263@23
-  - CA-M-264@27
+  - CA-M-264@29
   - CA-M-265@26
   - CA-M-266@25
   - CA-M-270@29
@@ -393,17 +384,17 @@ source:
   - CA-R-047@37
   - CA-R-053@28
   - CA-R-1014@40
-  - CA-R-1016@31
-  - CA-R-1017@30
-  - CA-R-1018@37
-  - CA-R-1019@29
-  - CA-R-1020@29
-  - CA-R-1021@29
-  - CA-R-1022@31
+  - CA-R-1016@32
+  - CA-R-1017@31
+  - CA-R-1018@38
+  - CA-R-1019@30
+  - CA-R-1020@30
+  - CA-R-1021@30
+  - CA-R-1022@32
   - CA-R-1023@27
   - CA-R-1024@28
   - CA-R-1025@28
-  - CA-R-1026@32
+  - CA-R-1026@33
   - CA-R-1027@28
   - CA-R-1029@27
   - CA-R-1030@27
@@ -433,8 +424,8 @@ source:
   - CA-R-1181@30
   - CA-R-118@35
   - CA-R-1194@32
-  - CA-R-1199@36
-  - CA-R-1200@39
+  - CA-R-1199@37
+  - CA-R-1200@40
   - CA-R-1202@30
   - CA-R-1203@32
   - CA-R-1206@28
@@ -520,7 +511,7 @@ source:
   - CA-R-1412@24
   - CA-R-1415@28
   - CA-R-1416@26
-  - CA-R-1417@31
+  - CA-R-1417@33
   - CA-R-1418@28
   - CA-R-1419@23
   - CA-R-1420@27
@@ -530,7 +521,6 @@ source:
   - CA-R-1426@25
   - CA-R-1428@32
   - CA-R-1429@28
-  - CA-R-1430@27
   - CA-R-1432@27
   - CA-R-1437@32
   - CA-R-1439@23
@@ -601,7 +591,7 @@ source:
   - CA-R-1575@25
   - CA-R-1577@23
   - CA-R-1578@25
-  - CA-R-1580@26
+  - CA-R-1580@27
   - CA-R-1584@23
   - CA-R-1585@23
   - CA-R-1587@26
@@ -633,7 +623,7 @@ source:
   - CA-R-1634@45
   - CA-R-1635@42
   - CA-R-1637@33
-  - CA-R-1639@37
+  - CA-R-1639@38
   - CA-R-1640@32
   - CA-R-1641@33
   - CA-R-1642@33
@@ -647,13 +637,13 @@ source:
   - CA-R-1650@34
   - CA-R-1651@33
   - CA-R-1652@41
-  - CA-R-1654@37
+  - CA-R-1654@38
   - CA-R-1655@45
   - CA-R-1656@28
   - CA-R-1657@33
   - CA-R-1658@32
   - CA-R-1659@31
-  - CA-R-1660@36
+  - CA-R-1660@37
   - CA-R-1661@32
   - CA-R-1662@39
   - CA-R-1663@37
@@ -728,7 +718,6 @@ source:
   - CA-R-1747@29
   - CA-R-1748@37
   - CA-R-1749@27
-  - CA-R-1750@41
   - CA-R-1752@32
   - CA-R-1753@31
   - CA-R-1754@32
@@ -795,12 +784,12 @@ source:
   - CA-R-1983@15
   - CA-R-1990@12
   - CA-R-1991@13
-  - CA-R-1993@19
+  - CA-R-1993@20
   - CA-R-1994@15
   - CA-R-2003@16
   - CA-R-2004@14
   - CA-R-2100@8
-  - CA-R-2102@15
+  - CA-R-2102@17
   - CA-R-2123@9
   - CA-R-2125@10
   - CA-R-2131@10
@@ -809,7 +798,7 @@ source:
   - CA-R-2156@10
   - CA-R-2157@10
   - CA-R-2158@12
-  - CA-R-2170@9
+  - CA-R-2170@10
   - CA-R-2173@9
   - CA-R-2174@6
   - CA-R-2198@5
@@ -820,9 +809,9 @@ source:
   - CA-R-2203@6
   - CA-R-2225@4
   - CA-R-2243@11
-  - CA-R-2245@7
-  - CA-R-2246@7
-  - CA-R-2247@5
+  - CA-R-2245@8
+  - CA-R-2246@8
+  - CA-R-2247@6
   - CA-R-2248@4
   - CA-R-2249@5
   - CA-R-2250@5
@@ -830,7 +819,7 @@ source:
   - CA-R-2252@5
   - CA-R-2253@5
   - CA-R-2254@5
-  - CA-R-2255@8
+  - CA-R-2255@9
   - CA-R-2256@4
   - CA-R-2257@4
   - CA-R-2269@3
@@ -840,7 +829,7 @@ source:
   - CA-R-2276@6
   - CA-R-2277@4
   - CA-R-2278@2
-  - CA-R-2279@4
+  - CA-R-2279@5
   - CA-R-2327@5
   - CA-R-2345@2
   - CA-R-2346@2
@@ -854,11 +843,11 @@ source:
   - CA-R-2354@4
   - CA-R-2355@4
   - CA-R-2415@3
-  - CA-R-2417@4
-  - CA-R-2418@4
-  - CA-R-2420@4
-  - CA-R-2421@4
-  - CA-R-2422@4
+  - CA-R-2417@5
+  - CA-R-2418@5
+  - CA-R-2420@5
+  - CA-R-2421@5
+  - CA-R-2422@5
   - CA-R-2424@2
   - CA-R-2425@4
   - CA-R-2426@3
@@ -880,42 +869,27 @@ source:
   - CA-R-2468@2
   - CA-R-2469@4
   - CA-R-2470@2
-  - CA-R-2471@4
+  - CA-R-2471@6
   - CA-R-2472@8
-  - CA-R-2473@4
+  - CA-R-2473@5
   - CA-R-2474@2
-  - CA-R-2475@4
-  - CA-R-2476@4
-  - CA-R-2477@4
-  - CA-R-2478@4
+  - CA-R-2475@5
+  - CA-R-2476@5
+  - CA-R-2477@5
+  - CA-R-2478@5
   - CA-R-2481@2
   - CA-R-2482@2
   - CA-R-2483@6
   - CA-R-2484@2
-  - CA-R-2485@4
-  - CA-R-2486@4
-  - CA-R-2487@8
-  - CA-R-2488@2
-  - CA-R-2489@2
-  - CA-R-2490@2
-  - CA-R-2491@2
-  - CA-R-2492@2
-  - CA-R-2493@2
-  - CA-R-2494@2
-  - CA-R-2495@2
-  - CA-R-2496@2
-  - CA-R-2497@2
-  - CA-R-2498@2
-  - CA-R-2499@2
-  - CA-R-2500@2
-  - CA-R-2501@2
-  - CA-R-2502@2
-  - CA-R-2503@2
-  - CA-R-2504@2
-  - CA-R-2505@2
-  - CA-R-2506@2
-  - CA-R-2507@2
-  - CA-R-2508@2
+  - CA-R-2485@5
+  - CA-R-2486@5
+  - CA-R-2487@9
+  - CA-R-2498@4
+  - CA-R-2499@4
+  - CA-R-2500@4
+  - CA-R-2502@4
+  - CA-R-2503@4
+  - CA-R-2508@4
   - CA-R-2509@2
   - CA-R-2511@2
   - CA-R-2512@2
@@ -923,9 +897,6 @@ source:
   - CA-R-2514@2
   - CA-R-2515@2
   - CA-R-2516@5
-  - CA-R-2518@2
-  - CA-R-2519@2
-  - CA-R-2520@2
   - CA-R-2521@2
   - CA-R-2523@2
   - CA-R-2524@3
@@ -948,8 +919,6 @@ source:
   - CA-R-2542@2
   - CA-R-2543@4
   - CA-R-2544@2
-  - CA-R-2545@2
-  - CA-R-2546@2
   - CA-R-2547@2
   - CA-R-2548@2
   - CA-R-2549@2
@@ -986,19 +955,18 @@ source:
   - CA-R-2580@2
   - CA-R-2581@2
   - CA-R-2582@2
-  - CA-R-2583@4
+  - CA-R-2583@5
   - CA-R-2584@2
   - CA-R-2585@2
   - CA-R-2586@2
   - CA-R-2587@2
-  - CA-R-2588@2
+  - CA-R-2588@3
   - CA-R-2589@2
   - CA-R-2590@2
   - CA-R-2591@1
   - CA-R-2592@1
   - CA-R-2593@1
   - CA-R-2594@1
-  - CA-R-2595@1
   - CA-R-2596@1
   - CA-R-2597@1
   - CA-R-2598@1
@@ -1012,7 +980,7 @@ source:
   - CA-R-2606@1
   - CA-R-2607@1
   - CA-R-2608@1
-  - CA-R-2609@1
+  - CA-R-2609@2
   - CA-R-2610@1
   - CA-R-2611@1
   - CA-R-2612@1
@@ -1020,49 +988,103 @@ source:
   - CA-R-2614@1
   - CA-R-2615@1
   - CA-R-2616@1
-  - CA-R-2617@1
-  - CA-R-2618@1
-  - CA-R-2619@1
-  - CA-R-2620@1
-  - CA-R-2621@1
-  - CA-R-2622@1
-  - CA-R-2623@3
+  - CA-R-2617@2
+  - CA-R-2618@2
+  - CA-R-2619@2
+  - CA-R-2620@2
+  - CA-R-2621@2
+  - CA-R-2622@2
+  - CA-R-2623@4
   - CA-R-2624@1
   - CA-R-2625@1
   - CA-R-2626@1
   - CA-R-2629@1
   - CA-R-2630@1
   - CA-R-2631@1
-  - CA-R-2632@2
   - CA-R-2633@1
   - CA-R-2634@1
   - CA-R-2635@1
   - CA-R-2636@1
   - CA-R-2637@1
-  - CA-R-2638@2
+  - CA-R-2638@3
   - CA-R-2639@2
   - CA-R-2640@1
+  - CA-R-2641@1
+  - CA-R-2642@1
+  - CA-R-2643@1
+  - CA-R-2644@1
+  - CA-R-2645@1
+  - CA-R-2646@1
+  - CA-R-2647@1
   - CA-R-2648@1
   - CA-R-2649@1
   - CA-R-2650@1
   - CA-R-2651@1
   - CA-R-2652@1
   - CA-R-2653@1
+  - CA-R-2654@1
+  - CA-R-2655@1
+  - CA-R-2656@1
+  - CA-R-2657@1
+  - CA-R-2658@3
+  - CA-R-2659@1
+  - CA-R-2660@1
+  - CA-R-2661@1
+  - CA-R-2662@1
+  - CA-R-2663@1
   - CA-R-2664@1
   - CA-R-2665@1
   - CA-R-2666@1
   - CA-R-2667@1
   - CA-R-2668@1
+  - CA-R-2669@1
+  - CA-R-2670@1
+  - CA-R-2671@1
+  - CA-R-2672@1
+  - CA-R-2673@1
+  - CA-R-2674@1
+  - CA-R-2675@1
+  - CA-R-2676@1
+  - CA-R-2677@1
+  - CA-R-2678@1
+  - CA-R-2679@1
+  - CA-R-2680@1
+  - CA-R-2681@1
+  - CA-R-2682@1
+  - CA-R-2683@1
+  - CA-R-2684@1
   - CA-R-2685@1
   - CA-R-2686@1
+  - CA-R-2687@1
   - CA-R-2688@1
-  - CA-R-2689@1
-  - CA-R-2690@1
   - CA-R-2691@1
-  - CA-R-2692@1
-  - CA-R-2693@1
-  - CA-R-2694@1
-  - CA-R-2695@1
+  - CA-R-2696@1
+  - CA-R-2697@1
+  - CA-R-2698@1
+  - CA-R-2699@1
+  - CA-R-2700@1
+  - CA-R-2701@1
+  - CA-R-2702@1
+  - CA-R-2703@1
+  - CA-R-2704@1
+  - CA-R-2705@1
+  - CA-R-2706@1
+  - CA-R-2707@1
+  - CA-R-2708@1
+  - CA-R-2709@1
+  - CA-R-2710@1
+  - CA-R-2711@1
+  - CA-R-2712@1
+  - CA-R-2713@1
+  - CA-R-2714@1
+  - CA-R-2715@1
+  - CA-R-2716@1
+  - CA-R-2717@1
+  - CA-R-2718@1
+  - CA-R-2719@1
+  - CA-R-2720@1
+  - CA-R-2721@1
+  - CA-R-2722@1
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1086,7 +1108,7 @@ source:
   - CA-R-740@39
   - CA-R-771@32
   - CA-R-775@22
-  - CA-R-796@43
+  - CA-R-796@44
   - CA-R-806@42
   - CA-R-807@34
   - CA-R-808@34
@@ -1138,18 +1160,34 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-03 17:05:11 +0400
+updated_at: 2026-11-03 20:25:46 +0400
 ---
 
 ## Primary entities
 
-Selected sources: 1132 Current Methodology and direct Project RMED Atoms. Coverage and absence are evaluated within this selection.
+Selected sources: 1154 Current Methodology and direct Project RMED Atoms. Coverage and absence are evaluated within this selection.
 
 Cardinalities, formats and Formal Claims come only from Current Requirement / Declaration Atoms. Unsupported CFEL remains visible with diagnostics.
 
 NARROWER_THAN: `/`
 
 ```text
+Actor
+Aspect
+Atom
+	/ (.Header.Role:="Analysis & Advisory")
+	/ (.Header.Role:=Concern)
+	/ (.Header.Role:=Delivery)
+	/ (.Header.Role:=Evaluation)
+	/ (.Header.Role:=Method)
+	/ (.Header.Role:=Operations)
+		/ Action
+		/ Step
+		/ Substep
+		/ Workflow
+	/ (.Header.Role:=Plan)
+	/ (.Header.Role:=Requirement)
+		/ (.Header.Form:=Declaration)
 CFEL
 Cardinality
 Carrier
@@ -1164,6 +1202,7 @@ Carrier
 	/ Git Index
 	/ Git Repository
 	/ Pull Request
+Event Record
 Format
 	/ bool
 	/ datetime
@@ -1172,46 +1211,27 @@ Format
 	/ int
 	/ scalar
 	/ string
+Journal
+Named Selection
 Node
-	/ Aspect
 	/ Continuant
-		/ Actor
-		/ Atom
-			/ (.Role:="Analysis & Advisory")
-			/ (.Role:=Concern)
-			/ (.Role:=Delivery)
-			/ (.Role:=Evaluation)
-			/ (.Role:=Method)
-			/ (.Role:=Operations)
-				/ Action
-				/ Step
-				/ Substep
-				/ Workflow
-			/ (.Role:=Plan)
-			/ (.Role:=Requirement)
-				/ (.Form:=Declaration)
-		/ Event Record
-		/ Journal
-		/ Named Selection
-		/ Package
-			/ Implementation
-		/ Projection
-		/ Scope Unit
-			/ Project
-	/ MODEL
 	/ Occurrent
-	/ PROJECT STRUCTURE
 Operator
+PROJECT STRUCTURE
+Package
+	/ Implementation
+Project
+Projection
 Relation
+Scope Unit
 Term
 ```
 
 ## Namespace context
 
 ```text
-CAPRMEDIO
-  <+ MODEL [CA-R-2559@2]
-  <+ STRUCTURE [CA-R-2483@6]
+CAPRMEDIO_MODEL
+CAPRMEDIO_STRUCTURE
 ```
 
 
@@ -1236,4624 +1256,4846 @@ CAPRMEDIO
 
 ### `Atom`
 
-- Declaration sources: CA-R-2508@2
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) — CA-R-2692@1
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+- Declaration sources: CA-R-2508@4
+- property: `Atom.Content` (relative `Content`) — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) — CA-R-2500@4
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) — CA-R-2721@1
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) — CA-R-2722@1
+- property: `Atom.Content.Details` (relative `Content.Details`) — CA-R-2503@4
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) — CA-R-2502@4
+- property: `Atom.Content.Summary` (relative `Content.Summary`) — CA-R-2499@4
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) — CA-R-2719@1
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) — CA-R-2715@1
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) — CA-R-2693@1
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) — CA-R-2694@1
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) — CA-R-2717@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) — CA-R-2695@1
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) — CA-R-2718@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) — CA-R-2498@2
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) — CA-R-2500@2
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) — CA-R-2501@2
-- property: `Atom.Content.Details` (relative `Content.Details`) — CA-R-2503@2
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) — CA-R-2502@2
-- property: `Atom.Content.Summary` (relative `Content.Summary`) — CA-R-2499@2
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) — CA-R-2495@2
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+- property: `Atom.Header.Form` (relative `Header.Form`) — CA-R-2703@1
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) — CA-R-2493@2
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) — CA-R-2701@1
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) — CA-R-2497@2
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) — CA-R-2705@1
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) — CA-R-2507@2
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) — CA-R-2709@1
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) — CA-R-2490@2
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) — CA-R-2698@1
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) — CA-R-2491@2
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) — CA-R-2699@1
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) — CA-R-2492@2
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) — CA-R-2700@1
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) — CA-R-2494@2
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) — CA-R-2702@1
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) — CA-R-2488@2
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) — CA-R-2696@1
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) — CA-R-2545@2
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) — CA-R-2713@1
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) — CA-R-2546@2
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) — CA-R-2714@1
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) — CA-R-2506@2
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) — CA-R-2708@1
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) — CA-R-2504@2
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) — CA-R-2505@2
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) — CA-R-2707@1
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) — CA-R-2489@2
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) — CA-R-2697@1
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) — CA-R-2496@2
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) — CA-R-2704@1
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:="Analysis & Advisory")`
+### `Atom/(.Header.Role:="Analysis & Advisory")`
 
 - Declaration sources: CA-R-2637@1
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:=Concern)`
+### `Atom/(.Header.Role:=Concern)`
 
 - Declaration sources: CA-R-2509@2
-- property: `Atom/(.Role:=Concern).Priority` (relative `Priority`) — CA-R-2518@2
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom/(.Header.Role:=Concern).Header.Priority` (relative `Header.Priority`) — CA-R-2710@1
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:=Delivery)`
+### `Atom/(.Header.Role:=Delivery)`
 
 - Declaration sources: CA-R-2515@2
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:=Evaluation)`
+### `Atom/(.Header.Role:=Evaluation)`
 
 - Declaration sources: CA-R-2514@2
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:=Method)`
+### `Atom/(.Header.Role:=Method)`
 
 - Declaration sources: CA-R-2513@2
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:=Operations)`
+### `Atom/(.Header.Role:=Operations)`
 
 - Declaration sources: CA-R-2463@2
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:=Operations)/Action`
+### `Atom/(.Header.Role:=Operations)/Action`
 
 - Declaration sources: CA-R-2467@2
-- property: `Atom/(.Role:=Operations)/Action.Execution Kind` (relative `Execution Kind`) — CA-R-2521@2
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom/(.Header.Role:=Operations)/Action.Execution Kind` (relative `Execution Kind`) — CA-R-2521@2
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:=Operations)/Step`
+### `Atom/(.Header.Role:=Operations)/Step`
 
 - Declaration sources: CA-R-2465@4
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:=Operations)/Substep`
+### `Atom/(.Header.Role:=Operations)/Substep`
 
 - Declaration sources: CA-R-2466@4
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:=Operations)/Workflow`
+### `Atom/(.Header.Role:=Operations)/Workflow`
 
 - Declaration sources: CA-R-2464@4
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:=Plan)`
+### `Atom/(.Header.Role:=Plan)`
 
 - Declaration sources: CA-R-2511@2
-- property: `Atom/(.Role:=Plan).AI Agent Confidence Threshold` (relative `AI Agent Confidence Threshold`) — CA-R-2519@2
-- property: `Atom/(.Role:=Plan).Work Sequence Number` (relative `Work Sequence Number`) — CA-R-2520@2
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold` (relative `Header.AI Agent Confidence Threshold`) — CA-R-2711@1
+- property: `Atom/(.Header.Role:=Plan).Header.Work Sequence Number` (relative `Header.Work Sequence Number`) — CA-R-2712@1
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:=Requirement)`
+### `Atom/(.Header.Role:=Requirement)`
 
 - Declaration sources: CA-R-2512@2
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
 
-### `Atom/(.Role:=Requirement)/(.Form:=Declaration)`
+### `Atom/(.Header.Role:=Requirement)/(.Header.Form:=Declaration)`
 
 - Declaration sources: CA-R-2516@5
-- property: `Atom.Carrier Destination` (relative `Carrier Destination`) [inherited] — CA-R-2692@1
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination{:1}: []{:0}` — CA-R-2692@1
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.*[in (File)]{:1}` — CA-R-2692@1
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+    - nesting: `recursive_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - value format: `markdown`
+    - value cardinality: `0..1`
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+  - origin: `Atom`
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
+  - origin: `Atom`
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
+  - origin: `Atom`
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
+  - origin: `Atom`
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: `markdown`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header` (relative `Header`) [inherited] — CA-R-2719@1
+  - origin: `Atom`
+  - contract: `Atom.Header{:1}: []{:0}` — CA-R-2719@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
+    - nesting: `immediate_dependents`
+    - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
+    - occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+- property: `Atom.Header.Carrier Destination` (relative `Header.Carrier Destination`) [inherited] — CA-R-2715@1
+  - origin: `Atom`
+  - contract: `Atom.Header.Carrier Destination{:1}: []{:0}` — CA-R-2715@1
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File` (relative `Carrier Destination.File`) [inherited] — CA-R-2693@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File{:1}: []{:0}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2693@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Name` (relative `Carrier Destination.File.Name`) [inherited] — CA-R-2694@1
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}` — CA-R-2717@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Name.*[]{:0}` — CA-R-2694@1
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Carrier Destination.File.Path` (relative `Carrier Destination.File.Path`) [inherited] — CA-R-2695@1
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@1
   - origin: `Atom`
-  - contract: `Atom.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}` — CA-R-2718@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Carrier Destination.File.Path.*[]{:0}` — CA-R-2695@1
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@2
+- property: `Atom.Header.Form` (relative `Header.Form`) [inherited] — CA-R-2703@1
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@2
-    - nesting: `immediate_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `None`
-    - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:1}` — CA-R-2498@2
-    - nesting: `recursive_dependents`
-    - name format: `string`
-    - occurrence cardinality: `0+`
-    - value format: `markdown`
-    - value cardinality: `1`
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@2
-  - origin: `Atom`
-- property: `Atom.Content.Claim Scope` (relative `Content.Claim Scope`) [inherited] — CA-R-2501@2
-  - origin: `Atom`
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@2
-  - origin: `Atom`
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@2
-  - origin: `Atom`
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@2
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Atom.Form` (relative `Form`) [inherited] — CA-R-2495@2
-  - origin: `Atom`
-  - contract: `Atom.Form{:1}: [string]{:1}` — CA-R-2495@2
+  - contract: `Atom.Header.Form{:1}: [string]{:1}` — CA-R-2703@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Form.*[]{:0}` — CA-R-2495@2
+  - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.ID` (relative `ID`) [inherited] — CA-R-2493@2
+- property: `Atom.Header.ID` (relative `Header.ID`) [inherited] — CA-R-2701@1
   - origin: `Atom`
-  - contract: `Atom.ID{:1}: [string]{:1}` — CA-R-2493@2
+  - contract: `Atom.Header.ID{:1}: [string]{:1}` — CA-R-2701@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.ID.*[]{:0}` — CA-R-2493@2
+  - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Label` (relative `Label`) [inherited] — CA-R-2497@2
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
   - origin: `Atom`
-  - contract: `Atom.Label{:0..1}: [string]{:1}` — CA-R-2497@2
+  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Label.*[]{:0}` — CA-R-2497@2
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations` (relative `Relations`) [inherited] — CA-R-2507@2
+- property: `Atom.Header.Relations` (relative `Header.Relations`) [inherited] — CA-R-2709@1
   - origin: `Atom`
-  - contract: `Atom.Relations{:1}: []{:0}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations{:1}: []{:0}` — CA-R-2709@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.*[Relation//]{:0+}` — CA-R-2507@2
+  - contract: `Atom.Header.Relations.*[Relation//]{:0+}` — CA-R-2709@1
     - nesting: `immediate_dependents`
     - name format: `Relation//`
     - occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY` (relative `Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2490@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) [inherited] — CA-R-2698@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}` — CA-R-2698@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2490@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.atom` (relative `Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2491@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `atom id`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2491@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Relations.IS_CONTAINED_BY.scope_unit` (relative `Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2492@2
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
   - origin: `Atom`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `scope unit`
     - value cardinality: `1`
-  - contract: `Atom.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2492@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Role` (relative `Role`) [inherited] — CA-R-2494@2
+- property: `Atom.Header.Role` (relative `Header.Role`) [inherited] — CA-R-2702@1
   - origin: `Atom`
-  - contract: `Atom.Role{:1}: [string]{:1}` — CA-R-2494@2
+  - contract: `Atom.Header.Role{:1}: [string]{:1}` — CA-R-2702@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Role.*[]{:0}` — CA-R-2494@2
+  - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Status` (relative `Status`) [inherited] — CA-R-2488@2
+- property: `Atom.Header.Status` (relative `Header.Status`) [inherited] — CA-R-2696@1
   - origin: `Atom`
-  - contract: `Atom.Status{:1}: [string]{:1}` — CA-R-2488@2
+  - contract: `Atom.Header.Status{:1}: [string]{:1}` — CA-R-2696@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Status.*[]{:0}` — CA-R-2488@2
+  - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Status: Draft` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
     - allowed literal: `Draft`
-  - contract: `Atom.Status: Active` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Active` — CA-R-2696@1
     - allowed literal: `Active`
-  - contract: `Atom.Status: Archived` — CA-R-2488@2
+  - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
-- property: `Atom.Subjects` (relative `Subjects`) [inherited] — CA-R-2545@2
+- property: `Atom.Header.Subjects` (relative `Header.Subjects`) [inherited] — CA-R-2713@1
   - origin: `Atom`
-  - contract: `Atom.Subjects{:1}: []{:0}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects{:1}: []{:0}` — CA-R-2713@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2545@2
+  - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Active` (relative `Subjects.Active`) [inherited] — CA-R-2546@2
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Subjects.Active.*[]{:0}` — CA-R-2546@2
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Subjects.Passive` (relative `Subjects.Passive`) [inherited] — CA-R-2506@2
+- property: `Atom.Header.Subjects.Passive` (relative `Header.Subjects.Passive`) [inherited] — CA-R-2708@1
   - origin: `Atom`
-  - contract: `Atom.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}` — CA-R-2708@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
-  - contract: `Atom.Subjects.Passive.*[]{:0}` — CA-R-2506@2
+  - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier` (relative `Tier`) [inherited] — CA-R-2504@2
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
   - origin: `Atom`
-  - contract: `Atom.Tier{:1}: [int]{:1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Tier.*[in(Label)]{:0..1}` — CA-R-2504@2
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Tier.Label` (relative `Tier.Label`) [inherited] — CA-R-2505@2
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
   - origin: `Atom`
-  - contract: `Atom.Tier.Label{:0..1}: [string]{:1}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `1`
-  - contract: `Atom.Tier.Label.*[]{:0}` — CA-R-2505@2
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Updated At` (relative `Updated At`) [inherited] — CA-R-2489@2
+- property: `Atom.Header.Updated At` (relative `Header.Updated At`) [inherited] — CA-R-2697@1
   - origin: `Atom`
-  - contract: `Atom.Updated At{:1}: [datetime]{:1}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At{:1}: [datetime]{:1}` — CA-R-2697@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
-  - contract: `Atom.Updated At.*[]{:0}` — CA-R-2489@2
+  - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Atom.Version` (relative `Version`) [inherited] — CA-R-2496@2
+- property: `Atom.Header.Version` (relative `Header.Version`) [inherited] — CA-R-2704@1
   - origin: `Atom`
-  - contract: `Atom.Version{:1}: [int]{:1}` — CA-R-2496@2
+  - contract: `Atom.Header.Version{:1}: [int]{:1}` — CA-R-2704@1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Version.*[]{:0}` — CA-R-2496@2
+  - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
@@ -6129,19 +6371,6 @@ CAPRMEDIO
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Project.Settings.Authority Modes` (relative `Settings.Authority Modes`) — CA-R-2632@2
-  - contract: `Project.Settings.Authority Modes{:0..1}: []{:0}` — CA-R-2632@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `0..1`
-    - value format: ``
-    - value cardinality: `0`
-  - contract: `Project.Settings.Authority Modes.*[in (Default Scope Unit Authority Mode, Project Authority Mode)]{:2}` — CA-R-2632@2
-    - nesting: `immediate_dependents`
-    - name format: `in (Default Scope Unit Authority Mode, Project Authority Mode)`
-    - occurrence cardinality: `2`
-    - value format: `None`
-    - value cardinality: `missing`
 - property: `Project.Settings.Authority Modes.Default Scope Unit Authority Mode` (relative `Settings.Authority Modes.Default Scope Unit Authority Mode`) — CA-R-2633@1
   - contract: `Project.Settings.Authority Modes.Default Scope Unit Authority Mode{:1}: [string]{:1}` — CA-R-2633@1
     - nesting: `property`
@@ -6337,112 +6566,6 @@ CAPRMEDIO
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-- property: `Scope Unit.ID` (relative `ID`) [inherited] — CA-R-2526@3
-  - origin: `Scope Unit`
-  - contract: `Scope Unit.ID{:0..1}: [string]{:1}` — CA-R-2526@3
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `0..1`
-    - value format: `string`
-    - value cardinality: `1`
-  - contract: `Scope Unit.ID.*[]{:0}` — CA-R-2526@3
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Scope Unit.Label` (relative `Label`) [inherited] — CA-R-2528@2
-  - origin: `Scope Unit`
-  - contract: `Scope Unit.Label{:0..1}: [string]{:1}` — CA-R-2528@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `0..1`
-    - value format: `string`
-    - value cardinality: `1`
-  - contract: `Scope Unit.Label.*[]{:0}` — CA-R-2528@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Scope Unit.Name` (relative `Name`) [inherited] — CA-R-2527@2
-  - origin: `Scope Unit`
-  - contract: `Scope Unit.Name{:1}: [string]{:1}` — CA-R-2527@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `string`
-    - value cardinality: `1`
-  - contract: `Scope Unit.Name.*[]{:0}` — CA-R-2527@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Scope Unit.Path` (relative `Path`) [inherited] — CA-R-2530@2
-  - origin: `Scope Unit`
-  - contract: `Scope Unit.Path{:1}: [string]{:1+}` — CA-R-2530@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `string`
-    - value cardinality: `1+`
-  - contract: `Scope Unit.Path.*[]{:0}` — CA-R-2530@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Scope Unit.Project Boundary Position` (relative `Project Boundary Position`) [inherited] — CA-R-2531@2
-  - origin: `Scope Unit`
-  - contract: `Scope Unit.Project Boundary Position{:1}: [string]{:1}` — CA-R-2531@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `string`
-    - value cardinality: `1`
-  - contract: `Scope Unit.Project Boundary Position.*[]{:0}` — CA-R-2531@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Scope Unit.order.number` (relative `order.number`) [inherited] — CA-R-2686@1
-  - origin: `Scope Unit`
-  - contract: `Scope Unit.order.number.*[]{:0}` — CA-R-2686@1
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Scope Unit.order.ordered` (relative `order.ordered`) [inherited] — CA-R-2685@1
-  - origin: `Scope Unit`
-  - contract: `Scope Unit.order.ordered: [bool]{:1}` — CA-R-2685@1
-    - nesting: `values`
-    - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `bool`
-    - value cardinality: `1`
-  - contract: `Scope Unit.order.ordered.*[]{:0}` — CA-R-2685@1
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
-- property: `Scope Unit.structural_level` (relative `structural_level`) [inherited] — CA-R-2554@2
-  - origin: `Scope Unit`
-  - contract: `Scope Unit.structural_level{:1}: [int]{:1}` — CA-R-2554@2
-    - nesting: `property`
-    - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `int`
-    - value cardinality: `1`
-  - contract: `Scope Unit.structural_level.*[]{:0}` — CA-R-2554@2
-    - nesting: `immediate_dependents`
-    - name format: ``
-    - occurrence cardinality: `0`
-    - value format: `None`
-    - value cardinality: `missing`
 
 ### `Projection`
 
@@ -6600,6 +6723,19 @@ CAPRMEDIO
     - occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+- property: `Scope Unit.order` (relative `order`) — CA-R-2687@1
+  - contract: `Scope Unit.order: []{:0}` — CA-R-2687@1
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `missing`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Scope Unit.order.*[in (ordered, number)]{:1..2}` — CA-R-2687@1
+    - nesting: `immediate_dependents`
+    - name format: `in (ordered, number)`
+    - occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
 - property: `Scope Unit.order.number` (relative `order.number`) — CA-R-2686@1
   - contract: `Scope Unit.order.number.*[]{:0}` — CA-R-2686@1
     - nesting: `immediate_dependents`
@@ -6643,84 +6779,42 @@ THEN ((Node, Node.**) >| (Independence == Primary Node)) — CA-R-2462@2
 THEN ((Node, Node.**) >| (Independence == Property))
 AND ((Node, Node.**) {==0}((HAS_NARROWER)))
 AND ((Node, Node.**) {==0}((HAS_INSTANCE))) — CA-R-2462@2
-- Atom/(.Role: Operations) — CA-R-2463@2
-- Atom/(.Role: Operations)/Workflow — CA-R-2464@4
-- Atom/(.Role: Operations)/Step — CA-R-2465@4
+- Atom/(.Header.Role: Operations) — CA-R-2463@2
+- Atom/(.Header.Role: Operations)/Workflow — CA-R-2464@4
+- Atom/(.Header.Role: Operations)/Step — CA-R-2465@4
 - IF Step// {=0}((RUNS)) THEN Step// {:1+}((CONTAINS)) Substep// — CA-R-2465@4
 - IF Step// {>0}((RUNS)) THEN Step// {:0}((CONTAINS)) — CA-R-2465@4
 - IF Step// {=0}((CONTAINS)) THEN Step// {:1}((RUNS)) (in (Action, Workflow))// — CA-R-2465@4
-- Atom/(.Role: Operations)/Substep — CA-R-2466@4
-- Atom/(.Role: Operations)/Action — CA-R-2467@2
-- ((IS_PROPERTY_OF)) == . — CA-R-2473@4
-- ((NARROWER_THAN)) == / — CA-R-2475@4
-- ((INSTANCE_OF)) == // — CA-R-2476@4
-- ((HAS_CLASSIFICATION)) == >| — CA-R-2477@4
-- ((IS_CONTAINED_BY)) == +> — CA-R-2478@4
-- Atom//$atom.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=1}, .object_output.id = $atom.ID, .object_output.version = $atom.Version, (.action = create OR .action = update)).happened_at) — CA-R-2489@2
-- IF ((Atom.Status >| Status Group = Current) OR (Atom.Status >| Status Group = Archived))
-THEN (IMMUTABLE(Atom.ID)) — CA-R-2493@2
-- Atom.Version >= 1 — CA-R-2496@2
-- Atom.Label ?= Atom.Form — CA-R-2497@2
+- Atom/(.Header.Role: Operations)/Substep — CA-R-2466@4
+- Atom/(.Header.Role: Operations)/Action — CA-R-2467@2
 - DETERMINES(
   Atom//,
   (.ID),
   (.Content.Summary),
-  (Atom.Status >| Status Group = Current) OR (Atom.Status >| Status Group = Archived)
-) — CA-R-2499@2
-- Atom/(.Role in RMED).Content.Claim{:1}: [markdown]{:1} — CA-R-2500@2
-- Atom/(.Role in RMED).Content.Claim.*[]{:0} — CA-R-2500@2
-- FENCED_LABELS(Atom/(.Role in RMED).Content.Claim): [in (CFEL)]{:0..1} — CA-R-2500@2
-- Atom/(.Role in RMED).Content.Claim Scope{:0..1}: [markdown]{:1} — CA-R-2501@2
-- Atom/(.Role in RMED).Content.Claim Scope.*[]{:0} — CA-R-2501@2
-- Atom/(.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1} — CA-R-2502@2
-- Atom/(.Role in RMED).Content.Semantics.*[]{:0} — CA-R-2502@2
-- Atom/(.Role in RMED).Content.Details{:0..1}: [markdown]{:1} — CA-R-2503@2
-- Atom/(.Role in RMED).Content.Details.*[string]{:0+} — CA-R-2503@2
-- Atom.Tier >= -1 — CA-R-2504@2
-- IF ((Atom.Tier.Label{=1}) AND (Atom.Tier = 0)) THEN (Atom.Tier.Label == Scope Contract) — CA-R-2505@2
-- IF ((Atom.Tier.Label{=1}) AND (Atom.Tier = 1)) THEN (Atom.Tier.Label == Core) — CA-R-2505@2
-- IF ((Atom.Tier.Label{=1}) AND (Atom.Tier = 2)) THEN (Atom.Tier.Label == General) — CA-R-2505@2
-- IF ((Atom.Tier.Label{=1}) AND (Atom.Tier = 3)) THEN (Atom.Tier.Label == Standard) — CA-R-2505@2
-- IF ((Atom.Tier.Label{=1}) AND (Atom.Tier = 4)) THEN (Atom.Tier.Label == Detail) — CA-R-2505@2
-- COUNT(Atom.Subjects.Passive: $) = COUNT(DISTINCT Atom.Subjects.Passive: $) — CA-R-2506@2
-- Atom — CA-R-2508@2
-- UNIQUE(Atom//, (.ID, .Version)) — CA-R-2508@2
-- Atom/(.Role: Concern) — CA-R-2509@2
-- Atom/(.Role: Plan) — CA-R-2511@2
-- IF ((Atom/(.Role: Plan).Status = Active) AND (Atom/(.Role: Plan).Work Sequence Number{=1}))
-THEN (Atom/(.Role: Plan).Relations.IS_CONTAINED_BY{==1}) — CA-R-2511@2
-- Atom/(.Role: Requirement) — CA-R-2512@2
-- Atom/(.Role: Method) — CA-R-2513@2
-- Atom/(.Role: Evaluation) — CA-R-2514@2
-- Atom/(.Role: Delivery) — CA-R-2515@2
-- Atom/(.Role: Concern).Priority{:1}: [string]{:1} — CA-R-2518@2
-- Atom/(.Role: Concern).Priority.*[]{:0} — CA-R-2518@2
-- Atom/(.Role: Concern).Priority: High — CA-R-2518@2
-- Atom/(.Role: Concern).Priority: Medium — CA-R-2518@2
-- Atom/(.Role: Concern).Priority: Low — CA-R-2518@2
-- Atom/(.Role: Plan).AI Agent Confidence Threshold{:0..1}: [int]{:1} — CA-R-2519@2
-- Atom/(.Role: Plan).AI Agent Confidence Threshold.*[]{:0} — CA-R-2519@2
-- Atom/(.Role: Plan).AI Agent Confidence Threshold
-  ?= LOOKUP(IS_CONTAINED_BY, Atom/(.Role: Plan).AI Agent Confidence Threshold)
-  ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold — CA-R-2519@2
-- Atom/(.Role: Plan).Work Sequence Number{:0..1}: [int]{:1} — CA-R-2520@2
-- Atom/(.Role: Plan).Work Sequence Number.*[]{:0} — CA-R-2520@2
-- IF (Atom/(.Role: Plan).Work Sequence Number{=1})
-THEN (Atom/(.Role: Plan).Work Sequence Number > 0) — CA-R-2520@2
-- UNIQUE(
-  Atom/(.Role: Plan)//,
-  (.Relations.IS_CONTAINED_BY.atom, .Work Sequence Number),
-  (.Status = Active) AND (.Work Sequence Number{=1}) AND (.Relations.IS_CONTAINED_BY.atom{=1})
-) — CA-R-2520@2
-- UNIQUE(
-  Atom/(.Role: Plan)//,
-  (.Relations.IS_CONTAINED_BY.scope_unit, .Work Sequence Number),
-  (.Status = Active) AND (.Work Sequence Number{=1}) AND (.Relations.IS_CONTAINED_BY.scope_unit{=1})
-) — CA-R-2520@2
-- Atom/(.Role: Operations)/Action.Execution Kind{:1}: [string]{:1} — CA-R-2521@2
-- Atom/(.Role: Operations)/Action.Execution Kind.*[]{:0} — CA-R-2521@2
-- Atom/(.Role: Operations)/Action.Execution Kind: Programmatic — CA-R-2521@2
-- Atom/(.Role: Operations)/Action.Execution Kind: Agentic — CA-R-2521@2
+  (Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived)
+) — CA-R-2499@4
+- Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0} — CA-R-2500@4
+- Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2} — CA-R-2500@4
+- Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1} — CA-R-2500@4
+- Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1} — CA-R-2500@4
+- Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1} — CA-R-2502@4
+- Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0} — CA-R-2502@4
+- Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1} — CA-R-2503@4
+- Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+} — CA-R-2503@4
+- Atom — CA-R-2508@4
+- UNIQUE(Atom//, (.Header.ID, .Header.Version)) — CA-R-2508@4
+- Atom/(.Header.Role: Concern) — CA-R-2509@2
+- Atom/(.Header.Role: Plan) — CA-R-2511@2
+- IF ((Atom/(.Header.Role: Plan).Header.Status = Active) AND (Atom/(.Header.Role: Plan).Header.Work Sequence Number{=1}))
+THEN (Atom/(.Header.Role: Plan).Header.Relations.IS_CONTAINED_BY{==1}) — CA-R-2511@2
+- Atom/(.Header.Role: Requirement) — CA-R-2512@2
+- Atom/(.Header.Role: Method) — CA-R-2513@2
+- Atom/(.Header.Role: Evaluation) — CA-R-2514@2
+- Atom/(.Header.Role: Delivery) — CA-R-2515@2
+- Atom/(.Header.Role: Operations)/Action.Execution Kind{:1}: [string]{:1} — CA-R-2521@2
+- Atom/(.Header.Role: Operations)/Action.Execution Kind.*[]{:0} — CA-R-2521@2
+- Atom/(.Header.Role: Operations)/Action.Execution Kind: Programmatic — CA-R-2521@2
+- Atom/(.Header.Role: Operations)/Action.Execution Kind: Agentic — CA-R-2521@2
 - IF (Scope Unit//$unit not in (Scope Unit/Project//))
 THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//) — CA-R-2523@2
 - Scope Unit/Project — CA-R-2524@3
@@ -6734,8 +6828,6 @@ THEN ($unit.ID{:1}) — CA-R-2526@3
 - Projection//$projection.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=0}, .object_output.id = $projection.ID, (.action = create OR .action = update)).happened_at) — CA-R-2539@2
 - Actor — CA-R-2542@2
 - Aspect — CA-R-2543@4
-- IF (Atom.Status >| Status Group = Current)
-THEN (Atom.Subjects.Active{==1}) — CA-R-2546@2
 - Package/Implementation — CA-R-2553@2
 - Scope Unit.structural_level >= 0 — CA-R-2554@2
 - Scope Unit/Project//$project.structural_level = 0 — CA-R-2554@2
@@ -6748,29 +6840,72 @@ THEN ($contained.structural_level = $container.structural_level + 1) — CA-R-25
 - UNIQUE(Event Record//, (.ID)) — CA-R-2558@2
 - Node/Continuant — CA-R-2589@2
 - Node/Occurrent — CA-R-2590@2
-- @Operator//Addition == "+" — CA-R-2591@1
-- @Operator//AllowedValue == ":" — CA-R-2592@1
-- @Operator//Conclusion == "==" — CA-R-2593@1
-- @Operator//Condition == "=" — CA-R-2594@1
-- @Operator//DeclaredReference == "@" — CA-R-2595@1
-- @Operator//Delivery == ">>" — CA-R-2596@1
-- @Operator//ExpressionSeparator == ";" — CA-R-2597@1
-- @Operator//Fallback == "?=" — CA-R-2598@1
-- @Operator//GreaterOrEqual == ">=" — CA-R-2599@1
-- @Operator//GreaterThan == ">" — CA-R-2600@1
-- @Operator//Grouping == "()" — CA-R-2601@1
-- @Operator//ImmediateWildcard == "*" — CA-R-2602@1
-- @Operator//Inequality == "!=" — CA-R-2603@1
-- @Operator//InstanceBinding == "$" — CA-R-2604@1
-- @Operator//Instance == "//" — CA-R-2605@1
-- @Operator//LessOrEqual == "<=" — CA-R-2606@1
-- @Operator//LessThan == "<" — CA-R-2607@1
-- @Operator//Membership == "in / not in" — CA-R-2608@1
-- @Operator//Narrowing == "/" — CA-R-2610@1
-- @Operator//Property == "." — CA-R-2611@1
-- @Operator//RecursiveWildcard == "**" — CA-R-2612@1
-- @Operator//SelectionExclusion == "!()" — CA-R-2614@1
-- @Operator//SubjectValueSelection == ":=" — CA-R-2615@1
-- ((CONTAINS)) == <+ — CA-R-2617@1
-- Atom/(.Role: "Analysis & Advisory") — CA-R-2637@1
+- Operator//Addition == "+" — CA-R-2591@1
+- Operator//AllowedValue == ":" — CA-R-2592@1
+- Operator//Conclusion == "==" — CA-R-2593@1
+- Operator//Condition == "=" — CA-R-2594@1
+- Operator//Delivery == ">>" — CA-R-2596@1
+- Operator//ExpressionSeparator == ";" — CA-R-2597@1
+- Operator//Fallback == "?=" — CA-R-2598@1
+- Operator//GreaterOrEqual == ">=" — CA-R-2599@1
+- Operator//GreaterThan == ">" — CA-R-2600@1
+- Operator//Grouping == "()" — CA-R-2601@1
+- Operator//ImmediateWildcard == "*" — CA-R-2602@1
+- Operator//Inequality == "!=" — CA-R-2603@1
+- Operator//InstanceBinding == "$" — CA-R-2604@1
+- Operator//Instance == "//" — CA-R-2605@1
+- Operator//LessOrEqual == "<=" — CA-R-2606@1
+- Operator//LessThan == "<" — CA-R-2607@1
+- Operator//Membership == "in / not in" — CA-R-2608@1
+- Operator//Narrowing == "/" — CA-R-2610@1
+- Operator//Property == "." — CA-R-2611@1
+- Operator//RecursiveWildcard == "**" — CA-R-2612@1
+- Operator//SelectionExclusion == "!()" — CA-R-2614@1
+- Operator//SubjectValueSelection == ":=" — CA-R-2615@1
+- Atom/(.Header.Role: "Analysis & Advisory") — CA-R-2637@1
 - Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0} — CA-R-2686@1
+- Atom//$atom.Header.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=1}, .object_output.id = $atom.Header.ID, .object_output.version = $atom.Header.Version, (.action = create OR .action = update)).happened_at) — CA-R-2697@1
+- IF ((Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived))
+THEN (IMMUTABLE(Atom.Header.ID)) — CA-R-2701@1
+- Atom.Header.Version >= 1 — CA-R-2704@1
+- Atom.Header.Label ?= Atom.Header.Form — CA-R-2705@1
+- Atom.Header.Tier >= -1 — CA-R-2706@1
+- IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 0)) THEN (Atom.Header.Tier.Label == Scope Contract) — CA-R-2707@1
+- IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 1)) THEN (Atom.Header.Tier.Label == Core) — CA-R-2707@1
+- IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 2)) THEN (Atom.Header.Tier.Label == General) — CA-R-2707@1
+- IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 3)) THEN (Atom.Header.Tier.Label == Standard) — CA-R-2707@1
+- IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 4)) THEN (Atom.Header.Tier.Label == Detail) — CA-R-2707@1
+- COUNT(Atom.Header.Subjects.Passive: $) = COUNT(DISTINCT Atom.Header.Subjects.Passive: $) — CA-R-2708@1
+- Atom/(.Header.Role: Concern).Header.Priority{:1}: [string]{:1} — CA-R-2710@1
+- Atom/(.Header.Role: Concern).Header.Priority.*[]{:0} — CA-R-2710@1
+- Atom/(.Header.Role: Concern).Header.Priority: High — CA-R-2710@1
+- Atom/(.Header.Role: Concern).Header.Priority: Medium — CA-R-2710@1
+- Atom/(.Header.Role: Concern).Header.Priority: Low — CA-R-2710@1
+- Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold{:0..1}: [int]{:1} — CA-R-2711@1
+- Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{:0} — CA-R-2711@1
+- Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold
+  ?= LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)
+  ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold — CA-R-2711@1
+- Atom/(.Header.Role: Plan).Header.Work Sequence Number{:0..1}: [int]{:1} — CA-R-2712@1
+- Atom/(.Header.Role: Plan).Header.Work Sequence Number.*[]{:0} — CA-R-2712@1
+- IF (Atom/(.Header.Role: Plan).Header.Work Sequence Number{=1})
+THEN (Atom/(.Header.Role: Plan).Header.Work Sequence Number > 0) — CA-R-2712@1
+- UNIQUE(
+  Atom/(.Header.Role: Plan)//,
+  (.Header.Relations.IS_CONTAINED_BY.atom, .Header.Work Sequence Number),
+  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.atom{=1})
+) — CA-R-2712@1
+- UNIQUE(
+  Atom/(.Header.Role: Plan)//,
+  (.Header.Relations.IS_CONTAINED_BY.scope_unit, .Header.Work Sequence Number),
+  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.scope_unit{=1})
+) — CA-R-2712@1
+- IF (Atom.Header.Status >| Status Group = Current)
+THEN (Atom.Header.Subjects.Active{==1}) — CA-R-2714@1
+- Operator//Alias == "alias(Relation//RELATION_NAME) == \"notation token\"" — CA-R-2720@1
+- Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1} — CA-R-2721@1
+- Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0} — CA-R-2721@1
+- FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1} — CA-R-2721@1
+- Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1} — CA-R-2722@1
+- Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0} — CA-R-2722@1
+- Event Record: no explicit NARROWER_THAN parent; rendered as a root.

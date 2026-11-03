@@ -24,4 +24,7 @@ Define how Projects are represented and operated
 
 ## Claim
 
+### Prose Claim
+
+
 FRAMEWORK_METHODOLOGY **must** define how Projects are represented **and** operated.

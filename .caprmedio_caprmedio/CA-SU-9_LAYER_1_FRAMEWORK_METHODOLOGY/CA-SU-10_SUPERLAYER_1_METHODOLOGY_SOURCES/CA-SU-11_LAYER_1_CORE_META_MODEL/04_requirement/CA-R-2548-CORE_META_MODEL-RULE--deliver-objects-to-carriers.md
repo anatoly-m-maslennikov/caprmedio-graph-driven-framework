@@ -18,9 +18,12 @@ Deliver Objects to Carriers
 
 ## Claim
 
+### Prose Claim
+
+
 - `>>` delivers an Object to the referenced Carrier or Carrier part.
 - A selection delivers its selected Objects.
-- `@` refers to an already declared target.
+- A bare qualified address refers to its declared target.
 - `!(selectors)` excludes those branches from a selection.
 - Relative exclusions use the selection's base.
 - `=` states an equality condition.

@@ -18,13 +18,19 @@ Declare Event Record
 
 ## Claim
 
-An Event Record is immutable.
+### Formal Claim
 
 ```CFEL
 Event Record {:0}((IS_PROPERTY_OF));
-Event Record ((NARROWER_THAN)) @Continuant;
+Event Record ((NARROWER_THAN)) Continuant;
 Event Record// {:1}((IS_CONTAINED_BY)) Journal//
 ```
+
+### Prose Claim
+
+
+An Event Record is immutable.
+
 
 ## Semantics
 

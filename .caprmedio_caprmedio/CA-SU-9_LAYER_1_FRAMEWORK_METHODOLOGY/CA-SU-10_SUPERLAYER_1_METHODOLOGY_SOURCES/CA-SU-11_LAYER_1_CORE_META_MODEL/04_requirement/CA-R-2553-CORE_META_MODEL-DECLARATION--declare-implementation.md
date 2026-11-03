@@ -19,6 +19,8 @@ Declare Implementation
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Package/Implementation;
 Package/Implementation//{:1};

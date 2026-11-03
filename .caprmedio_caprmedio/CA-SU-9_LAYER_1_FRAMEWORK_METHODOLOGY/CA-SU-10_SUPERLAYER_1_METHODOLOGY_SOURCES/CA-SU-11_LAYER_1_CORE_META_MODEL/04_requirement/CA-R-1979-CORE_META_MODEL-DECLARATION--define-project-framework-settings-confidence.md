@@ -18,16 +18,21 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Define Project.Framework Settings.Confidence
 
-## Claim scope
-
-the Confidence grouping in the Project's Framework Settings.
-
 ## Claim
+
+### Formal Claim
 
 ```CFEL
 Project.Settings.Confidence{:0..1}: []{:0};
 Project.Settings.Confidence.*[in (Necessary Information Threshold, Semantic Resolution Threshold)]{:0..2}
 ```
+
+### Prose Claim
+
+
+the Confidence grouping in the Project's Framework Settings.
+
+
 
 ## Details
 

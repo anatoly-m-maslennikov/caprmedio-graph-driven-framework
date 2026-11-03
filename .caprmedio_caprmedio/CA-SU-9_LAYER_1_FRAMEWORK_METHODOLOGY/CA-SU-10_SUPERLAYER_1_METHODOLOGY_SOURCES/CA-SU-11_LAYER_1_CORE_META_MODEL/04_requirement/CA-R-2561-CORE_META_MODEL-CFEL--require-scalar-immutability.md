@@ -18,6 +18,9 @@ Require scalar Property immutability
 
 ## Claim
 
+### Prose Claim
+
+
 `IMMUTABLE(p)` requires the same valid scalar Property value for one logical bearer from the first point when the surrounding scope selects that Property onward.
 
 - At first applicability, bind the one existing valid scalar value. Existing occurrence, Format and value-cardinality constraints still apply. Guard an optional Property before applying `IMMUTABLE`.

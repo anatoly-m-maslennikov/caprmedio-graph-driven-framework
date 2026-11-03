@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
   passive:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   - CAPRMEDIO_MODEL <+ Carrier
@@ -21,11 +21,13 @@ form: Eval Case
 
 Check FPF Analysis Report Imports
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 content-preserving migration of existing reports into FPF Analysis Report Carriers.
 
-## Claim
 
 an FPF Analysis Report import **must** pass all of the following checks before the original Carrier is retired:
 

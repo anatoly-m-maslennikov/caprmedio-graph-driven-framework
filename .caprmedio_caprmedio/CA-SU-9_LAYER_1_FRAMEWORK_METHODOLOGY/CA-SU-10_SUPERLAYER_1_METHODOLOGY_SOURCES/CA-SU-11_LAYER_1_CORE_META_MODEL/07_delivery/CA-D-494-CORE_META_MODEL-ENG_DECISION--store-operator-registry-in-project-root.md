@@ -20,11 +20,13 @@ form: Decision
 
 Store Operator Registry in Project Root
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the authoritative Operator registry of a Project.
 
-## Claim
 
 the authoritative Operator registry **must** use **`=1`** `operators_registry.toml` file **in** the Project authority root, alongside Project Settings.
 

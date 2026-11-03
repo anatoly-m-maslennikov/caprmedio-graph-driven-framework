@@ -16,11 +16,13 @@ form: Implementation Method
 
 Name Model Concepts with Canonical Terms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Authoring names for metamodel and Project concepts.
 
-## Claim
 
 - Choose names that distinguish their referents.
 - Avoid Entity, Type, Content or Value when they add no information.

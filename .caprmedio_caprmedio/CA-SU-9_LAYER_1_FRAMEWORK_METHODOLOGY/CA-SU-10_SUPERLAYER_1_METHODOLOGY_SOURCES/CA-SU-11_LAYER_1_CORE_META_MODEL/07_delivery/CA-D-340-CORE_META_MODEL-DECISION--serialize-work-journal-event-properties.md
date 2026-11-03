@@ -23,11 +23,13 @@ form: Decision
 
 Serialize Work Journal Event Properties
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 serialization **and** reading of supplied Work Journal Event representations.
 
-## Claim
 
 the Main Content of a Journal Carrier **must** preserve the properties actually supplied as observations through safe encoding; reading **must** return stored representations as recorded.
 

@@ -7,7 +7,7 @@ subjects:
   active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
   passive:
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Catalog'
 version: 17
 updated_at: 2026-11-02 18:35:20 +0400
@@ -20,11 +20,13 @@ form: Rule
 
 Require production Logging Policies
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production-relevant components **and** their Logging Policies.
 
-## Claim
 
 **every** production-relevant component **must** define a Logging Policy. that policy:
 

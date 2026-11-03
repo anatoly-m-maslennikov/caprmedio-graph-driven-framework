@@ -24,4 +24,7 @@ Make engine execution observable and transparent
 
 ## Claim
 
+### Prose Claim
+
+
 FRAMEWORK_ENGINE **must** provide observability **and** transparency sufficient for the Operator **to** understand execution, inspect changes **and** evidence, recognize failures **and** limitations, **and** make informed decisions.

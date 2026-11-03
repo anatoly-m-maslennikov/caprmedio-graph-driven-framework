@@ -24,4 +24,7 @@ Collect inputs from other CAPRMEDIO users
 
 ## Claim
 
+### Prose Claim
+
+
 FIELD **must** collect inputs from other CAPRMEDIO users, including feedback, questions, suggestions, **and** problem reports.

@@ -20,14 +20,20 @@ Define decimal Value Format
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+CFEL <+ Format/decimal
+```
+
+### Prose Claim
+
+
 The decimal Value Format admits decimal numeric values. It does not set scale,
 precision, a numeric range, cardinality, uniqueness, or carrier
 representation.
 
 
-```CFEL
-CFEL <+ Format/decimal
-```
 
 ## Semantics
 

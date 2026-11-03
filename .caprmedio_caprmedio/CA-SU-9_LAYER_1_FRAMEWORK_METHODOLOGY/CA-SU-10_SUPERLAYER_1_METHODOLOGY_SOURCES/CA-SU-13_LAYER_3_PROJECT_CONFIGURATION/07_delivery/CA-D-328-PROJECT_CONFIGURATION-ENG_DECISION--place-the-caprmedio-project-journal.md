@@ -19,10 +19,12 @@ form: Decision
 
 Place the CAPRMEDIO Project Journal
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the shared Work Journal of the CAPRMEDIO Project.
 
-## Claim
 
 the CAPRMEDIO Project **must** place its shared Work Journal **in** `.caprmedio_caprmedio/_journal/`.

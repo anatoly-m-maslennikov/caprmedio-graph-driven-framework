@@ -16,10 +16,12 @@ form: Rule
 
 Require acyclic structural ownership
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the directed graph formed by active `structural_parent` relations.
 
-## Claim
 
 the directed graph formed by active `structural_parent` relations **must** be acyclic.

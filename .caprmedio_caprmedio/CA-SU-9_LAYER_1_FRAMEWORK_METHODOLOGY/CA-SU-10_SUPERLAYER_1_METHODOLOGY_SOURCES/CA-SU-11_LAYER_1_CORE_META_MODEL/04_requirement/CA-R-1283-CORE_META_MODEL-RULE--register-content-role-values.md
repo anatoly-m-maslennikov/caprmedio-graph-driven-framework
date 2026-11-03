@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Role
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Register Content Role Values
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 allowed Atom Content Role values.
 
-## Claim
 
 the allowed Content Role values **must** be exactly (Concern, "Analysis & Advisory", Plan, Requirement, Method, Evaluation, Delivery, Operations).

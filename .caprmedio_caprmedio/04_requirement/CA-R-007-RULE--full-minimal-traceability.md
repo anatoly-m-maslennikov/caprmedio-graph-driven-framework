@@ -28,4 +28,7 @@ Full minimal traceability
 
 ## Claim
 
+### Prose Claim
+
+
 CAPRMEDIO **must** record **all** **and** **only** the direct typed relations necessary **to** trace **every** governed authority **to** its real Implementation **and** material dependents; inverse, transitive, **and** aggregate relations **must** be derived.

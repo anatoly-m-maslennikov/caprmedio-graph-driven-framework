@@ -21,11 +21,13 @@ form: Rule
 
 Fail Closed on Unresolved Methodology Conflicts
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 unresolved conflicts in Applicable Methodology **and** their required Operator approvals.
 
-## Claim
 
 **if** an Applicable Methodology conflict remains unresolved **or** its required Operator approval is missing, stale, partial, ambiguous, **or** mismatched, **then** compilation **must** fail **without** changing Applicable Methodology membership.
 

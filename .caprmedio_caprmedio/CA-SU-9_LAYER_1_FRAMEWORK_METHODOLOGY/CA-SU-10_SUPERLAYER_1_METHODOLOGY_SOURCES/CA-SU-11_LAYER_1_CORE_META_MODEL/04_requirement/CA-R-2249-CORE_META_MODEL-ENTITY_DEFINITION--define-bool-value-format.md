@@ -20,13 +20,19 @@ Define bool Value Format
 
 ## Claim
 
-The bool Value Format admits the Boolean values true and false. It does not set a
-property's cardinality, default, nullability, or carrier representation.
-
+### Formal Claim
 
 ```CFEL
 CFEL <+ Format/bool
 ```
+
+### Prose Claim
+
+
+The bool Value Format admits the Boolean values true and false. It does not set a
+property's cardinality, default, nullability, or carrier representation.
+
+
 
 ## Semantics
 

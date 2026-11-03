@@ -18,10 +18,12 @@ form: Rule
 
 Store each semantic relation once
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 semantic relations.
 
-## Claim
 
 **every** semantic relation **must** have **`=1`** authoritative declaration.

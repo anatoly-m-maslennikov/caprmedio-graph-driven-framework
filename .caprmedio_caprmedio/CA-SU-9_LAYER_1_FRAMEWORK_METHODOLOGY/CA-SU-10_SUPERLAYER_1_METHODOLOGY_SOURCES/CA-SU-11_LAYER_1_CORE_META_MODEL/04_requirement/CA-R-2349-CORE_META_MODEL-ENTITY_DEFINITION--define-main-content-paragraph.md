@@ -16,15 +16,16 @@ form: Entity Definition
 
 Define Main Content Paragraph
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Prose paragraphs within Markdown File Carrier Main Content.
 
-## Claim
 
 A Main Content Paragraph is one prose paragraph in a Markdown File Carrier Main Content; zero or more may occur. Delivery serializes each paragraph on one unwrapped source line with one blank line between adjacent paragraphs.
 
-### Formal claim
 
 ```text
 Carrier/File.Main Content.Paragraph[string]{0+}

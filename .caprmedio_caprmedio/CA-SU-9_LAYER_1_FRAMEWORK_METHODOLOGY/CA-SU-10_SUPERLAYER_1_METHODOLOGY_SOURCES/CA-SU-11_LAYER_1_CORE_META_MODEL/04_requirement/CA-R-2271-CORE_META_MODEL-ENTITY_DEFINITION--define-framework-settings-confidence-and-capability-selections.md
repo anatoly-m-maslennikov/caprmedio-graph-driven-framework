@@ -18,11 +18,13 @@ Define Framework Settings confidence and capability selections
 
 ## Claim
 
+### Prose Claim
+
+
 Framework Settings may explicitly override the necessary-information and semantic-resolution confidence defaults as integer percentages. Their effective defaults remain Operator-configurable under CA-R-1652 and CA-R-380; absence of an explicit value preserves the governed default resolution.
 
 Tool Selections groups the selected active/background capabilities and their per-capability settings. Extension Selections groups enabled or disabled installed Extensions, selected Versions where applicable, and retained per-Extension settings. These are structured groups with no direct scalar value; retaining settings does not enable a disabled Extension. Their internal declarations remain governed by applicable D authority, not a new generic schema.
 
-### Formal claim
 
 ```text
 Project.Framework Settings.Confidence.Necessary Information Threshold[int]{0..1}

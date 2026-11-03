@@ -18,6 +18,9 @@ Require functional dependencies between Property tuples
 
 ## Claim
 
+### Prose Claim
+
+
 `DETERMINES(selector, (.key, ...), (.dependent, ...))` requires equal ordered key tuples to have equal ordered dependent tuples. An optional fourth argument, `condition`, restricts the state population: `DETERMINES(selector, (.key, ...), (.dependent, ...), condition)`.
 
 - Use one explicit Project evaluation context. Resolve the complete relevant state history selected by Kind, including versions and rebuild states, rather than only the latest Current snapshot.

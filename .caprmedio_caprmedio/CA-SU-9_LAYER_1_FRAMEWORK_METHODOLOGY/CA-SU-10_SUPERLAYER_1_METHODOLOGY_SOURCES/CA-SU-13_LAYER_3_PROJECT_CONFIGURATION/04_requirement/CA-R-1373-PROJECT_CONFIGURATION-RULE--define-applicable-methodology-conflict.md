@@ -18,11 +18,13 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Define Applicable Methodology Conflict
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Applicable Methodology candidate selections within one exact source frontier.
 
-## Claim
 
 For an Applicable Methodology, a Conflict is one compiler-detected incompatible candidate selection within one exact source frontier.
 

@@ -21,11 +21,13 @@ form: Implementation Method
 
 Render Governed Terms and CCE Operators Distinctly
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO content lexical-case rendering.
 
-## Claim
 
 **to** render CAPRMEDIO content, the Author **must** apply the following lexical-case rules:
 

@@ -21,11 +21,13 @@ form: Rule
 
 Permit Projections as Implementation outputs
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 non-authoritative view Projections delivered as Implementation outputs.
 
-## Claim
 
 a view Projection **may** be delivered as an Implementation output of its governing RMED **without** becoming an Atom **or** another source of truth for the facts it represents.
 

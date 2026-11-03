@@ -18,6 +18,9 @@ Check Node Declaration migration readiness
 
 ## Claim
 
+### Prose Claim
+
+
 A migration packet passes only when its selected Node inventory, predecessor dispositions, governing sources and consumer changes are explicit and independently reviewed. Reject incomplete or contradictory coverage; a prepared Draft is not an adopted Declaration.
 
 ## Details

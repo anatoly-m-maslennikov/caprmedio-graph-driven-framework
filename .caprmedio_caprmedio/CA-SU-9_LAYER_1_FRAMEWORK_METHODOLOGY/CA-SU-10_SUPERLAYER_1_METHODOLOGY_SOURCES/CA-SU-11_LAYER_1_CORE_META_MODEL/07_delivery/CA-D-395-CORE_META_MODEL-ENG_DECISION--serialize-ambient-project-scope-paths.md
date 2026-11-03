@@ -19,10 +19,12 @@ form: Decision
 
 Serialize Ambient Project Scope Paths
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the `scope_path` encoding of a Carrier.
 
-## Claim
 
 a Carrier encoding of `scope_path` **must** omit the ambient current Project **and** use an empty path for Project Scope.

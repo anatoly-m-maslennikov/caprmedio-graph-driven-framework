@@ -1,0 +1,243 @@
+{
+  "mapping": {
+    "status": "ADOPTED_IDS_AND_REVIEWED_REPAIRS",
+    "full_property_paths": [
+      {
+        "old": "Atom.Status",
+        "new": "Atom.Header.Status"
+      },
+      {
+        "old": "Atom.Updated At",
+        "new": "Atom.Header.Updated At"
+      },
+      {
+        "old": "Atom.Relations.IS_CONTAINED_BY",
+        "new": "Atom.Header.Relations.IS_CONTAINED_BY"
+      },
+      {
+        "old": "Atom.Relations.IS_CONTAINED_BY.atom",
+        "new": "Atom.Header.Relations.IS_CONTAINED_BY.atom"
+      },
+      {
+        "old": "Atom.Relations.IS_CONTAINED_BY.scope_unit",
+        "new": "Atom.Header.Relations.IS_CONTAINED_BY.scope_unit"
+      },
+      {
+        "old": "Atom.ID",
+        "new": "Atom.Header.ID"
+      },
+      {
+        "old": "Atom.Role",
+        "new": "Atom.Header.Role"
+      },
+      {
+        "old": "Atom.Form",
+        "new": "Atom.Header.Form"
+      },
+      {
+        "old": "Atom.Version",
+        "new": "Atom.Header.Version"
+      },
+      {
+        "old": "Atom.Label",
+        "new": "Atom.Header.Label"
+      },
+      {
+        "old": "Atom.Tier",
+        "new": "Atom.Header.Tier"
+      },
+      {
+        "old": "Atom.Tier.Label",
+        "new": "Atom.Header.Tier.Label"
+      },
+      {
+        "old": "Atom.Subjects.Passive",
+        "new": "Atom.Header.Subjects.Passive"
+      },
+      {
+        "old": "Atom.Relations",
+        "new": "Atom.Header.Relations"
+      },
+      {
+        "old": "Atom/(.Role := Concern).Priority",
+        "new": "Atom/(.Header.Role := Concern).Header.Priority"
+      },
+      {
+        "old": "Atom/(.Role := Plan).AI Agent Confidence Threshold",
+        "new": "Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold"
+      },
+      {
+        "old": "Atom/(.Role := Plan).Work Sequence Number",
+        "new": "Atom/(.Header.Role := Plan).Header.Work Sequence Number"
+      },
+      {
+        "old": "Atom.Subjects",
+        "new": "Atom.Header.Subjects"
+      },
+      {
+        "old": "Atom.Subjects.Active",
+        "new": "Atom.Header.Subjects.Active"
+      },
+      {
+        "old": "Atom.Carrier Destination",
+        "new": "Atom.Header.Carrier Destination"
+      },
+      {
+        "old": "Atom.Carrier Destination.File",
+        "new": "Atom.Header.Carrier Destination.File"
+      },
+      {
+        "old": "Atom.Carrier Destination.File.Name",
+        "new": "Atom.Header.Carrier Destination.File.Name"
+      },
+      {
+        "old": "Atom.Carrier Destination.File.Path",
+        "new": "Atom.Header.Carrier Destination.File.Path"
+      },
+      {
+        "old": "Atom.Type",
+        "new": "Atom.Header.Form"
+      },
+      {
+        "old": "Atom.Content Role",
+        "new": "Atom.Header.Role"
+      },
+      {
+        "old": "Atom.Version Number",
+        "new": "Atom.Header.Version"
+      }
+    ],
+    "atom_header_fields": [
+      "AI Agent Confidence Threshold",
+      "Carrier Destination",
+      "Form",
+      "ID",
+      "Label",
+      "Priority",
+      "Relations",
+      "Role",
+      "Status",
+      "Subjects",
+      "Tier",
+      "Updated At",
+      "Version",
+      "Work Sequence Number"
+    ],
+    "role_condition_fields": {
+      "Role": "Header.Role",
+      "Form": "Header.Form",
+      "Type": "Header.Form",
+      "Content Role": "Header.Role"
+    },
+    "root_property_headings": [
+      "Summary",
+      "Claim",
+      "Semantics",
+      "Details"
+    ],
+    "claim_child_headings": [
+      "Formal Claim",
+      "Prose Claim"
+    ],
+    "removed_heading": "Claim Scope",
+    "removed_heading_destination": "Prose Claim",
+    "counterpart_relation": "HAS_INVERSE",
+    "subject_counterpart_notation": "<-->",
+    "reference_operator": "removed; @Nversiontags/emails/quotedliteralsretained",
+    "new_roots": [
+      "CAPRMEDIO_MODEL",
+      "CAPRMEDIO_STRUCTURE"
+    ],
+    "base_atom_id_replacements": {
+      "CA-R-2488": "CA-R-2696",
+      "CA-R-2489": "CA-R-2697",
+      "CA-R-2490": "CA-R-2698",
+      "CA-R-2491": "CA-R-2699",
+      "CA-R-2492": "CA-R-2700",
+      "CA-R-2493": "CA-R-2701",
+      "CA-R-2494": "CA-R-2702",
+      "CA-R-2495": "CA-R-2703",
+      "CA-R-2496": "CA-R-2704",
+      "CA-R-2497": "CA-R-2705",
+      "CA-R-2504": "CA-R-2706",
+      "CA-R-2505": "CA-R-2707",
+      "CA-R-2506": "CA-R-2708",
+      "CA-R-2507": "CA-R-2709",
+      "CA-R-2518": "CA-R-2710",
+      "CA-R-2519": "CA-R-2711",
+      "CA-R-2520": "CA-R-2712",
+      "CA-R-2545": "CA-R-2713",
+      "CA-R-2546": "CA-R-2714",
+      "CA-R-2692": "CA-R-2715",
+      "CA-R-2693": "CA-R-2716",
+      "CA-R-2694": "CA-R-2717",
+      "CA-R-2695": "CA-R-2718"
+    },
+    "atom_id_replacements": {},
+    "reviewed_source_overrides": [
+      {
+        "source_id": "CA-E-460",
+        "before_sha256": "12341785debac636774930c03bdacba96f271addcc0cbfab6cead57a385781da",
+        "candidate_sha256": "8cbc1b2d9266b0d6039a8c68d0e3840703daa9f1c0c085c8f4558d36ecbbfc60",
+        "candidate": "---\natom_id: CA-E-460\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection\n  passive:\n  - CAPRMEDIO_MODEL <+ Carrier\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Header.Status\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection\n  - CAPRMEDIO_MODEL <+ Scope Unit\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ Atom.Header.Tier\nversion: 34\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  evaluation_for:\n  - CA-R-2102\n  - CA-D-495\n  - CA-M-273\n  - CA-M-288\n  - CA-R-1271\n  - CA-R-1447\n  - CA-R-1448\n  - CA-R-1449\n  - CA-R-1595@21\n  - CA-R-1596\n  - CA-R-942\ntier: 4\nrole: Evaluation\nform: Eval Case\n---\n## Summary\n\nValidate Atom-set Selection **and** the spec Alias\n\n## Claim\n\n### Prose Claim\n\nthe four ownership **and** targeting selections for a Scope Unit, including the `spec` alias.\n\n\n**Claim checked.**\n\nownership **and** Claim targeting produce their respective direct **and** recursive Atom sets, **and** the alias `spec` selects **only** Active RMED Subtree-targeting Atoms.\n\n## Details\n\n### Test case\n\nconstruct Scope Unit `A`, its child Scope Unit `A_CHILD`, a sibling Scope Unit `B`, **and** nested Atom Collections inside `A`. the fixture Scope Units are Unordered. use the following distinct source Atoms; resolve each target Scope Unit from the Atom\u2019s one active Subject under CA-R-2102; derive its current Scope Unit from containment. `d`, `e`, **and** `f` have Role Requirement **and** Form Demand under CA-R-932@37, with applicable Demand conditions satisfied. The remaining rows are valid Current-scope Atoms with admitted non-relational Forms; a target equal to the current Scope Unit does **not** make them Relational.\n\n| Atom | Current Scope Unit | Placement | Claim Target Scope Unit | Role | Status |\n|---|---|---|---|---|---|\n| `a` | `A` | directly under `A` | `A` | Requirement | Active |\n| `b` | `A` | nested Atom Collection | `A` | Method | Active |\n| `c` | `A_CHILD` | directly under `A_CHILD` | `A_CHILD` | Evaluation | Active |\n| `d` | `B` | directly under `B` | `A` | Requirement | Active |\n| `e` | `B` | directly under `B` | `A_CHILD` | Requirement | Active |\n| `f` | `A` | directly under `A` | `B` | Requirement | Active |\n| `g` | `A` | Draft placement | `A` | Requirement | Draft |\n| `h` | `A` | directly under `A` | `A` | Plan | Active |\n| `i` | `A` | Archived placement | `A` | Delivery | Archived |\n\nderive **all** four sets for `A` **and** the alias `spec`. repeat **after** moving `a` into a nested Atom Collection under `A` **and** changing **only** numeric Tiers; repeat with narrower **and** explicitly grouped composite applicability restrictions **in** Claim.Prose Claim while retaining the active Subjects; repeat with `b` assigned **every** RMED Role while retaining its other properties. **then** omit `B` from the claimed-complete source frontier, treat a Hub Plan as a Scope Unit, replace targeting with ownership, copy a selected Atom as new authority, omit an active Subject, infer a different target from Claim text, use an unresolved structural target **or** cyclic ancestry, **or** register `spec` as a separate Entity.\n\n### Acceptance criteria\n\nthe results **must** be:\n\n| Selection | Members |\n|---|---|\n| Owned Atoms | `a, b, f, g, h, i` |\n| Targeting Atoms | `a, b, d, g, h, i` |\n| Subtree-owned Atoms | `a, b, c, f, g, h, i` |\n| Subtree-targeting Atoms | `a, b, c, d, e, g, h, i` |\n| `spec` alias | `a, b, c, d, e` |\n\ncollection nesting, textual applicability restrictions, **and** numeric-Tier-only changes **must not** alter those results. `spec` **must not** create a separate Entity, independently maintained Atom set, **or** source of authority. incoming `d` **and** `e` retain ownership under `B`; outgoing `f` remains owned by `A` **without** entering its Targeting Atoms **or** `spec`. incomplete source coverage, missing, multiple **or** unresolved active Subjects, targets inferred from Claim text, cyclic ancestry, ownership/target substitution, **and** duplicate authority fail explicitly.\n\n### Failure disposition\n\nreport the source Revision, selected Scope Unit, expected set, **and** exact missing, extra, duplicated, **or** unresolved member; do **not** silently return a complete result **or** rewrite source ownership.\n"
+      },
+      {
+        "source_id": "CA-E-506",
+        "before_sha256": "55f1a902642259406a3afc6a43572578f6dfa2f123de29962bb755546b02575a",
+        "candidate_sha256": "7a7cb9c813d01bd499112c588aed556ffc79d410ebcd7a6b1356fa5a38344a2e",
+        "candidate": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Carrier/File\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Header.Status\n  - CAPRMEDIO_MODEL <+ CFEL > Relation\n  - CAPRMEDIO_MODEL <+ Carrier/File\nversion: 28\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  evaluation_for:\n  - CA-R-1598\n  - CA-R-1599\n  - CA-D-478\n  - CA-D-479\n  - CA-D-480\n  - CA-R-2102\n  - CA-D-483\n  - CA-D-485\n  - CA-D-460\n  - CA-D-470\natom_id: CA-E-506\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 4\nrole: Evaluation\nform: Eval Case\n---\n## Summary\n\nValidate self-sufficient Atom Carriers\n\n## Claim\n\n### Prose Claim\n\n\nself-sufficiency **and** representation consistency of Markdown Atom Carriers.\n\n\nthe Evaluation **must** accept **only** Atom Carriers that preserve self-sufficiency, **`=1`** internal value source, **and** consistent outward representations.\n\n## Details\n\n### Test case\n\n- construct a valid Atom with its required Properties inside its Markdown Carrier, using the applicable registered fields **and** body sections. include a required defaulted value, an optional absent Property, **and** an inapplicable Property that is correctly absent.\n- extract Summary **and** the Role-specific primary contribution under CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties **without** reading the filename **or** containing directories. include fenced code containing example headings; those examples **must not** create Property boundaries.\n- for RMED, include exactly one Claim container with one or both of Formal Claim and Prose Claim; Details is optional. Extract only declared headings and include narrower **and** composite applicability in Prose Claim without changing the target resolved from the active Subject.\n- compare the carried values against filename **and** placement representations using the applicable encoding. include a Summary whose slug differs from its readable text.\n- include active Subjects that resolve to the current Scope Unit and to a permitted different target; derive current Scope Unit from containment.\n- include a Plan with its mandatory Markdown file **and** DoD nested inside Details, with **and** **without** a matching directory; include a child-owned `IS_CONTAINED_BY` edge with its derived `CONTAINS` view.\n- include an unselected inherited confidence setting **and** a selected override currently equal **to** inheritance; change the upstream setting **and** check that **only** the inherited selection follows it.\n- include invalid RMED fixtures with a missing or duplicated Claim container, no Formal Claim or Prose Claim, duplicated Claim children, an undeclared heading treated as a Property, **or** a second applicability copy **in** frontmatter.\n- create invalid fixtures by removing a required internal value, supplying that value **only** through an address, duplicating it **in** frontmatter **and** body, repeating a declared Property heading **or** YAML key, renaming a required heading, introducing an ambiguous boundary, conflicting with the address, omitting a Plan's file **or** DoD, **or** storing an inverse Atom Relation independently.\n\n### Acceptance criteria\n\n- **every** valid fixture yields the expected Property values **and** Relations.\n- **every** invalid fixture fails with the exact Property, location, Relation, **or** address conflict identified.\n- address **and** inverse checks **must not** silently rewrite the source **or** treat derived representations as separate authority.\n"
+      },
+      {
+        "source_id": "CA-E-511",
+        "before_sha256": "7a225828af8db837f38eb22963f2f4a462c63871cebaa23736585943928b753e",
+        "candidate_sha256": "638939f5bd755383364af8d1e17dd5bb55fbbcc50c85fe8c9480704be456cc2a",
+        "candidate": "---\natom_id: CA-E-511\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ Scope Unit\nversion: 23\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  evaluation_for:\n  - CA-R-2102\n  - CA-D-495\n  - CA-R-1271\n  - CA-R-1588\n  - CA-R-1595@21\n  - CA-R-1596\n  - CA-R-922\n  - CA-R-923\ntier: 4\nrole: Evaluation\nform: Eval Case\n---\n## Summary\n\nValidate Target Scope Unit **and** textual Claim Scope\n\n## Claim\n\n### Prose Claim\n\nthe distinction between an Atom's Claim Target Scope Unit **and** its textual applicability.\n\n\n**Claim checked.**\n\n**every** Atom has exactly one active Subject; resolve its Claim Target Scope Unit from that Subject under CA-R-2102. Textual applicability belongs in Claim.Prose Claim under CA-D-495 and does not create another structural target.\n\n## Details\n\n### Test case\n\ncreate an Atom whose active Subject resolves to its current Scope Unit and whose Prose Claim restricts applicability to Python files; repeat with a composite restriction and with an admitted different target. Include a Plan nested in Container Atoms. Then omit or duplicate the active Subject, use an unresolved Subject, or infer a target from the textual restriction alone.\n\n### Acceptance criteria\n\nvalid fixtures resolve the target from exactly one active Subject; containment supplies current Scope Unit context. Applicability restrictions and Container Atom nesting do not independently change that target. Invalid fixtures identify the missing, multiple, unresolved, or improperly inferred Subject or target.\n\n### Failure disposition\n\nreport the affected Atom **and** target **or** textual-applicability distinction; preserve the source **until** an authorized correction is selected.\n"
+      },
+      {
+        "source_id": "CA-R-1588",
+        "before_sha256": "d0891bd052cb3db6da5e62d155b63c079ee399e031bfd89aedebc27f23aaf864",
+        "candidate_sha256": "a50e103ea2571f5b8b6e647510f0f8bfe0a4a30dc4c2194d54502e0fa3fc1131",
+        "candidate": "---\nsubjects:\n  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Subjects.Active'\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active\n  - CAPRMEDIO_MODEL <+ Scope Unit\n  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'\nversion: 26\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\natom_id: CA-R-1588\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 1\nrole: Requirement\nform: Rule\n---\n## Summary\n\nDefault Plan target to the enclosing Scope Unit\n\n## Claim\n\n### Prose Claim\n\n\nPlans and their resolved Claim Target Scope Units.\n\n\na Plan\u2019s Claim Target Scope Unit **must** be resolved from its one active Subject under CA-R-2102. Its current Scope Unit is established by containment; Plan nesting **or** Label does not independently select a target, and a Hub does not become one by default.\n"
+      },
+      {
+        "source_id": "CA-D-283",
+        "before_sha256": "1d9806f2605414874ecce1ccc97ce5d7f661f91e6c567a33c4cbd06f66a87400",
+        "candidate_sha256": "ffe601634f9889091ca02c56dfc3d39645e7c17faf8f4cf5f3bd9792309878a6",
+        "candidate": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Carrier/File.Filename\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom.Header.ID\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\n  - CAPRMEDIO_MODEL <+ Atom.Header.Tier\n  - CAPRMEDIO_MODEL <+ Atom.Header.Label\nversion: 32\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\natom_id: CA-D-283\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 3\nrole: Delivery\nform: Decision\n---\n## Summary\n\nSerialize Project-Owned Markdown Atom Filenames\n\n## Claim\n\n### Prose Claim\n\n\nIdentified Project-owned Markdown Atom filenames other than Plan filenames governed by CA-D-469.\n\n\n**every** identified Project-owned Markdown Atom filename other than a Plan filename governed by CA-D-469 **must** match `<ATOM_ID>[-<CURRENT_SCOPE>][-<TIER>][-<LABEL>][-<TARGET_SCOPE>]--<SUMMARY_SLUG>.<EXT>`. When present, the `LABEL` segment uses the Atom's effective Label: its explicit Label when present, otherwise its Form name under CA-R-2705. Normalize that token under CA-D-284; an explicit Label replaces the Form name there and does not change the Atom's Form. **every** same-identity Atom Version **must** preserve its exact assigned Atom-ID segment **in** its Carrier filename **and** serialize its retained Summary under CA-D-282. A Draft filename uses the Draft marker as its Atom-ID segment as specified by CA-D-650. An Archived predecessor uses `<canonical-ID>@<old-version>` exactly once in that segment under CA-D-289; do not append a duplicate version suffix. Existing legacy archive filenames are not normalized automatically. a replacement filename **must** contain the successor Atom ID **and** the successor's Summary Slug; a Summary Slug **must not** be edited independently of its source Summary.\n\n## Details\n\nThe `TIER` segment follows CA-D-651. It is mandatory for numeric Tier `0` and carries the registered `SCOPE_CONTRACT` token; for other Tiers its presence and numeric encoding follow the applicable filename grammar. Omitting an optional token does not omit, default or change the mandatory stored Tier. `SCOPE_CONTRACT` is the Tier representation, not the Atom's Form or effective Label. Do not restore `PRINCIPLE` or another unregistered legacy Tier token. A legacy filename remains nonconformant until its affected Carrier and references have an explicit migration disposition; old names are not grandfathered by this rule.\n\nThis generic Project-owned Carrier rule does not replace the dedicated filename rules for an Operator-owned Project Goal. It does not invent a default numeric Tier or revive the retired named/default-Tier rules.\n"
+      }
+    ]
+  },
+  "records": [
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-460-CORE_META_MODEL-EVAL_CASE--validate-atom-set-selection-and-the-spec-alias.md",
+      "before_sha256": "12341785debac636774930c03bdacba96f271addcc0cbfab6cead57a385781da",
+      "after_sha256": "8cbc1b2d9266b0d6039a8c68d0e3840703daa9f1c0c085c8f4558d36ecbbfc60",
+      "candidate": "---\natom_id: CA-E-460\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection\n  passive:\n  - CAPRMEDIO_MODEL <+ Carrier\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Header.Status\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection\n  - CAPRMEDIO_MODEL <+ Scope Unit\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ Atom.Header.Tier\nversion: 34\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  evaluation_for:\n  - CA-R-2102\n  - CA-D-495\n  - CA-M-273\n  - CA-M-288\n  - CA-R-1271\n  - CA-R-1447\n  - CA-R-1448\n  - CA-R-1449\n  - CA-R-1595@21\n  - CA-R-1596\n  - CA-R-942\ntier: 4\nrole: Evaluation\nform: Eval Case\n---\n## Summary\n\nValidate Atom-set Selection **and** the spec Alias\n\n## Claim\n\n### Prose Claim\n\nthe four ownership **and** targeting selections for a Scope Unit, including the `spec` alias.\n\n\n**Claim checked.**\n\nownership **and** Claim targeting produce their respective direct **and** recursive Atom sets, **and** the alias `spec` selects **only** Active RMED Subtree-targeting Atoms.\n\n## Details\n\n### Test case\n\nconstruct Scope Unit `A`, its child Scope Unit `A_CHILD`, a sibling Scope Unit `B`, **and** nested Atom Collections inside `A`. the fixture Scope Units are Unordered. use the following distinct source Atoms; resolve each target Scope Unit from the Atom\u2019s one active Subject under CA-R-2102; derive its current Scope Unit from containment. `d`, `e`, **and** `f` have Role Requirement **and** Form Demand under CA-R-932@37, with applicable Demand conditions satisfied. The remaining rows are valid Current-scope Atoms with admitted non-relational Forms; a target equal to the current Scope Unit does **not** make them Relational.\n\n| Atom | Current Scope Unit | Placement | Claim Target Scope Unit | Role | Status |\n|---|---|---|---|---|---|\n| `a` | `A` | directly under `A` | `A` | Requirement | Active |\n| `b` | `A` | nested Atom Collection | `A` | Method | Active |\n| `c` | `A_CHILD` | directly under `A_CHILD` | `A_CHILD` | Evaluation | Active |\n| `d` | `B` | directly under `B` | `A` | Requirement | Active |\n| `e` | `B` | directly under `B` | `A_CHILD` | Requirement | Active |\n| `f` | `A` | directly under `A` | `B` | Requirement | Active |\n| `g` | `A` | Draft placement | `A` | Requirement | Draft |\n| `h` | `A` | directly under `A` | `A` | Plan | Active |\n| `i` | `A` | Archived placement | `A` | Delivery | Archived |\n\nderive **all** four sets for `A` **and** the alias `spec`. repeat **after** moving `a` into a nested Atom Collection under `A` **and** changing **only** numeric Tiers; repeat with narrower **and** explicitly grouped composite applicability restrictions **in** Claim.Prose Claim while retaining the active Subjects; repeat with `b` assigned **every** RMED Role while retaining its other properties. **then** omit `B` from the claimed-complete source frontier, treat a Hub Plan as a Scope Unit, replace targeting with ownership, copy a selected Atom as new authority, omit an active Subject, infer a different target from Claim text, use an unresolved structural target **or** cyclic ancestry, **or** register `spec` as a separate Entity.\n\n### Acceptance criteria\n\nthe results **must** be:\n\n| Selection | Members |\n|---|---|\n| Owned Atoms | `a, b, f, g, h, i` |\n| Targeting Atoms | `a, b, d, g, h, i` |\n| Subtree-owned Atoms | `a, b, c, f, g, h, i` |\n| Subtree-targeting Atoms | `a, b, c, d, e, g, h, i` |\n| `spec` alias | `a, b, c, d, e` |\n\ncollection nesting, textual applicability restrictions, **and** numeric-Tier-only changes **must not** alter those results. `spec` **must not** create a separate Entity, independently maintained Atom set, **or** source of authority. incoming `d` **and** `e` retain ownership under `B`; outgoing `f` remains owned by `A` **without** entering its Targeting Atoms **or** `spec`. incomplete source coverage, missing, multiple **or** unresolved active Subjects, targets inferred from Claim text, cyclic ancestry, ownership/target substitution, **and** duplicate authority fail explicitly.\n\n### Failure disposition\n\nreport the source Revision, selected Scope Unit, expected set, **and** exact missing, extra, duplicated, **or** unresolved member; do **not** silently return a complete result **or** rewrite source ownership.\n"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-EVAL_CASE--validate-self-sufficient-atom-carriers.md",
+      "before_sha256": "55f1a902642259406a3afc6a43572578f6dfa2f123de29962bb755546b02575a",
+      "after_sha256": "7a7cb9c813d01bd499112c588aed556ffc79d410ebcd7a6b1356fa5a38344a2e",
+      "candidate": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Carrier/File\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Header.Status\n  - CAPRMEDIO_MODEL <+ CFEL > Relation\n  - CAPRMEDIO_MODEL <+ Carrier/File\nversion: 28\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  evaluation_for:\n  - CA-R-1598\n  - CA-R-1599\n  - CA-D-478\n  - CA-D-479\n  - CA-D-480\n  - CA-R-2102\n  - CA-D-483\n  - CA-D-485\n  - CA-D-460\n  - CA-D-470\natom_id: CA-E-506\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 4\nrole: Evaluation\nform: Eval Case\n---\n## Summary\n\nValidate self-sufficient Atom Carriers\n\n## Claim\n\n### Prose Claim\n\n\nself-sufficiency **and** representation consistency of Markdown Atom Carriers.\n\n\nthe Evaluation **must** accept **only** Atom Carriers that preserve self-sufficiency, **`=1`** internal value source, **and** consistent outward representations.\n\n## Details\n\n### Test case\n\n- construct a valid Atom with its required Properties inside its Markdown Carrier, using the applicable registered fields **and** body sections. include a required defaulted value, an optional absent Property, **and** an inapplicable Property that is correctly absent.\n- extract Summary **and** the Role-specific primary contribution under CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties **without** reading the filename **or** containing directories. include fenced code containing example headings; those examples **must not** create Property boundaries.\n- for RMED, include exactly one Claim container with one or both of Formal Claim and Prose Claim; Details is optional. Extract only declared headings and include narrower **and** composite applicability in Prose Claim without changing the target resolved from the active Subject.\n- compare the carried values against filename **and** placement representations using the applicable encoding. include a Summary whose slug differs from its readable text.\n- include active Subjects that resolve to the current Scope Unit and to a permitted different target; derive current Scope Unit from containment.\n- include a Plan with its mandatory Markdown file **and** DoD nested inside Details, with **and** **without** a matching directory; include a child-owned `IS_CONTAINED_BY` edge with its derived `CONTAINS` view.\n- include an unselected inherited confidence setting **and** a selected override currently equal **to** inheritance; change the upstream setting **and** check that **only** the inherited selection follows it.\n- include invalid RMED fixtures with a missing or duplicated Claim container, no Formal Claim or Prose Claim, duplicated Claim children, an undeclared heading treated as a Property, **or** a second applicability copy **in** frontmatter.\n- create invalid fixtures by removing a required internal value, supplying that value **only** through an address, duplicating it **in** frontmatter **and** body, repeating a declared Property heading **or** YAML key, renaming a required heading, introducing an ambiguous boundary, conflicting with the address, omitting a Plan's file **or** DoD, **or** storing an inverse Atom Relation independently.\n\n### Acceptance criteria\n\n- **every** valid fixture yields the expected Property values **and** Relations.\n- **every** invalid fixture fails with the exact Property, location, Relation, **or** address conflict identified.\n- address **and** inverse checks **must not** silently rewrite the source **or** treat derived representations as separate authority.\n"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-EVAL_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+      "before_sha256": "7a225828af8db837f38eb22963f2f4a462c63871cebaa23736585943928b753e",
+      "after_sha256": "638939f5bd755383364af8d1e17dd5bb55fbbcc50c85fe8c9480704be456cc2a",
+      "candidate": "---\natom_id: CA-E-511\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ Scope Unit\nversion: 23\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  evaluation_for:\n  - CA-R-2102\n  - CA-D-495\n  - CA-R-1271\n  - CA-R-1588\n  - CA-R-1595@21\n  - CA-R-1596\n  - CA-R-922\n  - CA-R-923\ntier: 4\nrole: Evaluation\nform: Eval Case\n---\n## Summary\n\nValidate Target Scope Unit **and** textual Claim Scope\n\n## Claim\n\n### Prose Claim\n\nthe distinction between an Atom's Claim Target Scope Unit **and** its textual applicability.\n\n\n**Claim checked.**\n\n**every** Atom has exactly one active Subject; resolve its Claim Target Scope Unit from that Subject under CA-R-2102. Textual applicability belongs in Claim.Prose Claim under CA-D-495 and does not create another structural target.\n\n## Details\n\n### Test case\n\ncreate an Atom whose active Subject resolves to its current Scope Unit and whose Prose Claim restricts applicability to Python files; repeat with a composite restriction and with an admitted different target. Include a Plan nested in Container Atoms. Then omit or duplicate the active Subject, use an unresolved Subject, or infer a target from the textual restriction alone.\n\n### Acceptance criteria\n\nvalid fixtures resolve the target from exactly one active Subject; containment supplies current Scope Unit context. Applicability restrictions and Container Atom nesting do not independently change that target. Invalid fixtures identify the missing, multiple, unresolved, or improperly inferred Subject or target.\n\n### Failure disposition\n\nreport the affected Atom **and** target **or** textual-applicability distinction; preserve the source **until** an authorized correction is selected.\n"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1588-CORE_META_MODEL-RULE--default-plan-target-to-the-enclosing-scope-unit.md",
+      "before_sha256": "d0891bd052cb3db6da5e62d155b63c079ee399e031bfd89aedebc27f23aaf864",
+      "after_sha256": "a50e103ea2571f5b8b6e647510f0f8bfe0a4a30dc4c2194d54502e0fa3fc1131",
+      "candidate": "---\nsubjects:\n  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Subjects.Active'\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active\n  - CAPRMEDIO_MODEL <+ Scope Unit\n  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'\nversion: 26\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\natom_id: CA-R-1588\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 1\nrole: Requirement\nform: Rule\n---\n## Summary\n\nDefault Plan target to the enclosing Scope Unit\n\n## Claim\n\n### Prose Claim\n\n\nPlans and their resolved Claim Target Scope Units.\n\n\na Plan\u2019s Claim Target Scope Unit **must** be resolved from its one active Subject under CA-R-2102. Its current Scope Unit is established by containment; Plan nesting **or** Label does not independently select a target, and a Hub does not become one by default.\n"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md",
+      "before_sha256": "1d9806f2605414874ecce1ccc97ce5d7f661f91e6c567a33c4cbd06f66a87400",
+      "after_sha256": "ffe601634f9889091ca02c56dfc3d39645e7c17faf8f4cf5f3bd9792309878a6",
+      "candidate": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Carrier/File.Filename\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom.Header.ID\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\n  - CAPRMEDIO_MODEL <+ Atom.Header.Tier\n  - CAPRMEDIO_MODEL <+ Atom.Header.Label\nversion: 32\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\natom_id: CA-D-283\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 3\nrole: Delivery\nform: Decision\n---\n## Summary\n\nSerialize Project-Owned Markdown Atom Filenames\n\n## Claim\n\n### Prose Claim\n\n\nIdentified Project-owned Markdown Atom filenames other than Plan filenames governed by CA-D-469.\n\n\n**every** identified Project-owned Markdown Atom filename other than a Plan filename governed by CA-D-469 **must** match `<ATOM_ID>[-<CURRENT_SCOPE>][-<TIER>][-<LABEL>][-<TARGET_SCOPE>]--<SUMMARY_SLUG>.<EXT>`. When present, the `LABEL` segment uses the Atom's effective Label: its explicit Label when present, otherwise its Form name under CA-R-2705. Normalize that token under CA-D-284; an explicit Label replaces the Form name there and does not change the Atom's Form. **every** same-identity Atom Version **must** preserve its exact assigned Atom-ID segment **in** its Carrier filename **and** serialize its retained Summary under CA-D-282. A Draft filename uses the Draft marker as its Atom-ID segment as specified by CA-D-650. An Archived predecessor uses `<canonical-ID>@<old-version>` exactly once in that segment under CA-D-289; do not append a duplicate version suffix. Existing legacy archive filenames are not normalized automatically. a replacement filename **must** contain the successor Atom ID **and** the successor's Summary Slug; a Summary Slug **must not** be edited independently of its source Summary.\n\n## Details\n\nThe `TIER` segment follows CA-D-651. It is mandatory for numeric Tier `0` and carries the registered `SCOPE_CONTRACT` token; for other Tiers its presence and numeric encoding follow the applicable filename grammar. Omitting an optional token does not omit, default or change the mandatory stored Tier. `SCOPE_CONTRACT` is the Tier representation, not the Atom's Form or effective Label. Do not restore `PRINCIPLE` or another unregistered legacy Tier token. A legacy filename remains nonconformant until its affected Carrier and references have an explicit migration disposition; old names are not grandfathered by this rule.\n\nThis generic Project-owned Carrier rule does not replace the dedicated filename rules for an Operator-owned Project Goal. It does not invent a default numeric Tier or revive the retired named/default-Tier rules.\n"
+    }
+  ],
+  "held": []
+}

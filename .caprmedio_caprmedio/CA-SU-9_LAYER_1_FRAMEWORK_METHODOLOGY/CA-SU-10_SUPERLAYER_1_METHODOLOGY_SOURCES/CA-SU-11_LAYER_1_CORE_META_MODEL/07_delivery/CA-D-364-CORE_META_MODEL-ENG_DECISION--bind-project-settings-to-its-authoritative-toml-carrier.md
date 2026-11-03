@@ -20,10 +20,12 @@ form: Decision
 
 Bind Project Settings **to** its authoritative TOML Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the authoritative TOML File Carrier for Project Settings of a Project named `<project_name>`.
 
-## Claim
 
 the Project Settings Artifact for a Project named `<project_name>` **must** use `caprmedio_project_settings.toml` directly inside that selected Project's `.caprmedio_<project_name>/` control root as its **`=1`** authoritative TOML File Carrier.

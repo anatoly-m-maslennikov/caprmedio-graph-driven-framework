@@ -19,8 +19,10 @@ Declare CFEL operator in / not in
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
-@Operator//Membership == "in / not in"
+Operator//Membership == "in / not in"
 ```
 
 ## Semantics

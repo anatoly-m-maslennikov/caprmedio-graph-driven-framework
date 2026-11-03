@@ -19,9 +19,15 @@ Declare Scope Unit Path
 
 ## Claim
 
-The Path lists Scope Unit identities along the complete declared containment chain from the root to the addressed Scope Unit.
+### Formal Claim
 
 ```CFEL
 Scope Unit.Path{:1}: [string]{:1+};
 Scope Unit.Path.*[]{:0}
 ```
+
+### Prose Claim
+
+
+The Path lists Scope Unit identities along the complete declared containment chain from the root to the addressed Scope Unit.
+

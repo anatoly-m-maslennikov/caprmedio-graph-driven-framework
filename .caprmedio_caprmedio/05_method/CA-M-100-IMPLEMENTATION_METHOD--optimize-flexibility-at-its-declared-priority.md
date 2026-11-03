@@ -9,7 +9,7 @@ relations:
 subjects:
   active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Project
@@ -28,5 +28,8 @@ form: Implementation Method
 Optimize flexibility at its declared priority
 
 ## Claim
+
+### Prose Claim
+
 
 choose among acceptable alternatives by minimizing the expected effort of later changes **to** direction, scope, assumptions, Methods, **or** Implementation according **to** the current Operator-declared flexibility priority.

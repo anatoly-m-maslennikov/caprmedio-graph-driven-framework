@@ -18,10 +18,12 @@ form: Rule
 
 Separate Navigational Order from structural relations
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Navigational Order Number.
 
-## Claim
 
 a Navigational Order Number **must not** establish **or** change Scope Unit parentage, ancestry/path, Type, Local Order, Atom Tier, **or** dependency. It is a presentation value and cannot create a persisted Structural Coordinate or Structural Level.

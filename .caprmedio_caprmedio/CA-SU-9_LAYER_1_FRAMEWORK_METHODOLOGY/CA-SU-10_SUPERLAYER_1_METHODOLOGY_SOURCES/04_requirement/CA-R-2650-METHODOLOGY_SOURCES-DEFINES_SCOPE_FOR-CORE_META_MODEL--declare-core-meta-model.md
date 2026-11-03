@@ -16,6 +16,8 @@ Declare CORE_META_MODEL
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//CORE_META_MODEL.ID == "CA-SU-11";
 Scope Unit//CORE_META_MODEL.Name == "CORE_META_MODEL";

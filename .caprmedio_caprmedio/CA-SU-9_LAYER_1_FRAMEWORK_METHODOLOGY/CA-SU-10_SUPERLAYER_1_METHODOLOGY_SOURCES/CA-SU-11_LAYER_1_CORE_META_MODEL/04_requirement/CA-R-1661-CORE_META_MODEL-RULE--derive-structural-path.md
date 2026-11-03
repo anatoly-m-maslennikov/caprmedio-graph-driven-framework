@@ -22,11 +22,13 @@ form: Rule
 
 Derive Structural Path
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Structural Paths derived from active Scope Unit identities and their declared Structural Parent Relations.
 
-## Claim
 
 **every** Structural Path **must** be derived from active Scope Unit identities **and** their declared Structural Parent Relations.
 

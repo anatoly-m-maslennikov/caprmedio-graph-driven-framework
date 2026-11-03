@@ -25,4 +25,7 @@ Target framework improvement at the operating framework
 
 ## Claim
 
+### Prose Claim
+
+
 a framework-improvement cycle **in** caprmedio **must** improve the capabilities, configuration, **or** operation of the CAPRMEDIO Framework Instance used within the Project.

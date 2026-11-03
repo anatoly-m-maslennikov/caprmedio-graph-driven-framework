@@ -27,4 +27,7 @@ Minimize external expense at its declared priority
 
 ## Claim
 
+### Prose Claim
+
+
 choose among acceptable alternatives by minimizing LLM, compute, service, **and** monetary expense according **to** the current Operator-declared external-expense priority.

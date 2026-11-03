@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Subjects
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
   - CAPRMEDIO_MODEL <+ Entity
 atom_id: CA-R-2004
@@ -18,14 +18,16 @@ form: Rule
 
 Define Subject Target
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a direct GOVERNS or DEPENDS_ON target in an Atom's Subjects.
 
-## Claim
 
 
-A direct GOVERNS or DEPENDS_ON target in Atom.Subjects must be the topic addressed by a canonical Entity-rooted Subject expression and may identify a kind, axis, property, allowed value, or named instance.
+A direct GOVERNS or DEPENDS_ON target in Atom.Header.Subjects must be the topic addressed by a canonical Entity-rooted Subject expression and may identify a kind, axis, property, allowed value, or named instance.
 
 ## Details
 
@@ -35,4 +37,4 @@ Entity is the canonical expression root. Its four sibling branches are Object, A
 
 The Subject does not repeat or assign the Atom's Local Scope Unit, folder or Carrier. Topic meanings come from source use and Semantics; the Terms Graph derives definitions from those cases rather than creating another authority layer.
 
-Within the shared Atom branch, `Atom/Content Role` names the classification axis. `Atom/Content Role: Requirement` names a narrower Atom kind that inherits Atom properties. Naming the axis does not create a Content Role entity or assign a role value to an Atom instance.
+Within the shared Atom branch, `Atom.Header.Role` names the classification axis. `Atom/(.Header.Role := Requirement)` names a narrower Atom kind that inherits Atom properties. Naming the axis does not create a Content Role entity or assign a role value to an Atom instance.

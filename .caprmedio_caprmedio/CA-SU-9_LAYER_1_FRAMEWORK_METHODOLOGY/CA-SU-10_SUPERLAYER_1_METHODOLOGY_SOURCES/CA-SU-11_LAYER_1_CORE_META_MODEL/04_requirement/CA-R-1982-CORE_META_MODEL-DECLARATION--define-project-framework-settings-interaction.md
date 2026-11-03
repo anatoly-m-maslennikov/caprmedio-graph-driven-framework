@@ -18,16 +18,21 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Define Project.Framework Settings.Interaction
 
-## Claim scope
-
-the Interaction grouping in the Project's Framework Settings.
-
 ## Claim
+
+### Formal Claim
 
 ```CFEL
 Project.Settings.Interaction{:0..1}: []{:0};
 Project.Settings.Interaction.*[in (Reporting Mode)]{:1}
 ```
+
+### Prose Claim
+
+
+the Interaction grouping in the Project's Framework Settings.
+
+
 
 ## Details
 

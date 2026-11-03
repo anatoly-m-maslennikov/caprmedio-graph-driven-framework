@@ -22,10 +22,12 @@ form: Rule
 
 Configure the semantic-resolution confidence default
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 semantic-resolution Confidence Threshold instance defaults.
 
-## Claim
 
 the semantic-resolution Confidence Threshold **must** have an Operator-configurable instance default.

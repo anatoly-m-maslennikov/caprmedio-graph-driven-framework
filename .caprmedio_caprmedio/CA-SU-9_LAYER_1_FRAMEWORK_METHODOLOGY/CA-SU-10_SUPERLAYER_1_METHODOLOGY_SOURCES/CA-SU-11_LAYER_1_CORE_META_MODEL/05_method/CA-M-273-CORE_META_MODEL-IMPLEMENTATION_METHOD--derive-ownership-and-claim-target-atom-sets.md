@@ -6,9 +6,9 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 38
 updated_at: 2026-11-02 00:18:22 +0400
@@ -25,11 +25,13 @@ form: Implementation Method
 
 Derive Ownership **and** Claim-target Atom Sets
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 selection of Owned Atoms, Targeting Atoms, Subtree-owned Atoms, **and** Subtree-targeting Atoms for a Scope Unit.
 
-## Claim
 
 **to** derive the four Atom sets for a selected Scope Unit, the resolver **must** perform **all** of:
 

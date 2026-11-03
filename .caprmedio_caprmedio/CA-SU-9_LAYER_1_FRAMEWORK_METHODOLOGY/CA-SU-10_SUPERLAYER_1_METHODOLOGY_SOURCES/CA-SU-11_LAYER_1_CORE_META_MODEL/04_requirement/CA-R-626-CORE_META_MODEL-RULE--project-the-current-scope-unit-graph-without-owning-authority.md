@@ -4,7 +4,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Projection
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
 version: 43
 updated_at: 2026-11-02 19:44:26 +0400
@@ -25,10 +25,12 @@ form: Rule
 
 Project the current Scope Unit Graph without owning authority
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project Scope Unit Graph Projections.
 
-## Claim
 
 **every** Project Scope Unit Graph Projection **must** distinguish declared Scope Unit facts from Project Structure, derived structural values, effective Settings, **and** observed Carrier materialization. a discrepancy, missing Goal, undeclared candidate directory, **or** declared unit with no existing Carrier **must** remain visible as a separate finding **without** silently changing the declaration **or** inventing source authority.

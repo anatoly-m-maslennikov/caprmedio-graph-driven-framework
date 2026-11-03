@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done'
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan).Work Sequence Number
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status: Done'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Work Sequence Number
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -25,11 +25,13 @@ form: Eval Case
 
 Validate Plan blocking and parallel readiness
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan blocking **and** parallel readiness.
 
-## Claim
 
 the blocking Evaluation **must** reject a start **unless** **all** explicit blockers are Done **and** the applicable execution permissions hold.
 

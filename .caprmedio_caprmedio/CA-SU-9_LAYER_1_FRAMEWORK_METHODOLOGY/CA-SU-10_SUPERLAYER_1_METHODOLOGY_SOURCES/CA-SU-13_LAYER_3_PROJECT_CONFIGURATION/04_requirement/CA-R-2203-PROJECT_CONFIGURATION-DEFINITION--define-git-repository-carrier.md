@@ -18,9 +18,11 @@ Define Git Repository Carrier
 
 ## Claim
 
+### Prose Claim
+
+
 A Git Repository **means** a Carrier of versioned content and Git references.
 
-### Formal claim
 
 ```text
 Git Repository > @(Git Branch)

@@ -18,9 +18,11 @@ form: Decision
 ## Summary
 Register Current File Carrier Formats
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 registration of File Carrier Formats.
 
-## Claim
 
 the Core Meta-Model **must** permit registered File Carrier Formats including Markdown, TOML, YAML, **and** JSON while Extensions **and** Project Configuration **may** register additional Carrier Formats.

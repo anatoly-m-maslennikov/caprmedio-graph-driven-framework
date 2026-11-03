@@ -16,10 +16,12 @@ form: Decision
 
 Register CAPRMEDIO Root Delivery Directories
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the CAPRMEDIO Project root.
 
-## Claim
 
 the CAPRMEDIO Project root **must** use (LAYER_1_FRAMEWORK_METHODOLOGY, LAYER_2_FRAMEWORK_ENGINE, LAYER_3_OPERATOR_DOCUMENTATION, LAYER_4_CORE_EXTENSIONS, LAYER_5_RELEASES, FEATURE_COMMUNITY_EXTENSIONS, FEATURE_FIELD) as its current Scope Unit Delivery Directory Carriers.

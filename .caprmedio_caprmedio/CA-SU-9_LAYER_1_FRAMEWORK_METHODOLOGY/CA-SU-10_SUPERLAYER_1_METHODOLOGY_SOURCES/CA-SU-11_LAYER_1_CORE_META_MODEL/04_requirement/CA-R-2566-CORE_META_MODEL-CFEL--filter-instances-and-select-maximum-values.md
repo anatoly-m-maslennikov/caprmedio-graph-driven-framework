@@ -18,6 +18,9 @@ Filter instances and select maximum values
 
 ## Claim
 
+### Prose Claim
+
+
 `Kind//(c1, ...).p` selects p from matching instances of Kind and its narrower kinds in one explicit current-Project instance snapshot.
 
 - Relative filter paths bind the same candidate instance. Outer variables retain their enclosing bindings; an unbound or ambiguous variable is an error.

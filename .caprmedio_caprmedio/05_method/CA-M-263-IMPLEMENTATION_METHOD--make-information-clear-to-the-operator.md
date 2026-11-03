@@ -26,4 +26,7 @@ Make information clear to the Operator
 
 ## Claim
 
+### Prose Claim
+
+
 **to** expose governed information **to** the Operator, provide an initial **or** adapted representation that the Operator accepts as sufficient for the current governed use **or**, **when** applicable adaptation attempts are exhausted **or** declined, explicitly report the remaining comprehension gap; adapt the representation **without** changing the governed information.

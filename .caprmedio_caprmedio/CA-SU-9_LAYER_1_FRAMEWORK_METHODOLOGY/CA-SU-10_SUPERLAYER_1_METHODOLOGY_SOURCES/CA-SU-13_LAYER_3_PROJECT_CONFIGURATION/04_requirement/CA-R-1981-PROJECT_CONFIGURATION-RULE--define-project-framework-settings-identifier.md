@@ -18,11 +18,13 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Define Project.Framework Settings.Identifier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Identifier of the Project’s authoritative Framework Instance Settings Carrier.
 
-## Claim
 
 The Identifier of the Project’s authoritative Framework Instance Settings Carrier is `caprmedio_framework_settings`.
 

@@ -23,11 +23,13 @@ form: Rule
 
 Define Single Source of Truth
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the authority of independently maintained facts.
 
-## Claim
 
 Single Source of Truth **means** **`=1`** canonical authoritative source for **every** independently maintained fact **in** the same applicable context. another representation of that fact references **or** derives from its source **without** becoming an independently maintained authority.
 

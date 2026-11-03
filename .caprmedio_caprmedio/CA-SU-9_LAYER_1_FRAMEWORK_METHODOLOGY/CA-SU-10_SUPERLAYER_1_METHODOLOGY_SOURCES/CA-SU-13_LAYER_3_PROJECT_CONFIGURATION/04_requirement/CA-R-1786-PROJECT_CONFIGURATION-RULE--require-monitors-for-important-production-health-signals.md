@@ -16,11 +16,13 @@ form: Rule
 
 Require monitors for important production health signals
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 important production health counters, thresholds, **and** service-level signals.
 
-## Claim
 
 important production health counters, thresholds, **and** service-level signals receive explicit monitors.
 

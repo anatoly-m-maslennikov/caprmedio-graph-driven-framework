@@ -18,8 +18,11 @@ Declare Projection.Updated At
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Projection.Updated At{:1}: [datetime]{:1};
 Projection.Updated At.*[]{:0};
 Projection//$projection.Updated At == MAX(Event Record//(.object_output{=1}, .object_output.version{=0}, .object_output.id = $projection.ID, (.action = create OR .action = update)).happened_at)
 ```
+

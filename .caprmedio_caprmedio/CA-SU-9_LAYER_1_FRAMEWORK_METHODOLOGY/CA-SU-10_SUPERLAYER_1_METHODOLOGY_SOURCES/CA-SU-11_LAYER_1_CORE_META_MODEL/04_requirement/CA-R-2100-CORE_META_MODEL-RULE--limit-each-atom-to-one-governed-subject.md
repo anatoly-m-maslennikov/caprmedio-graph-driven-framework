@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Subjects
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
   - CAPRMEDIO_MODEL <+ CFEL > Relation//GOVERNS
 atom_id: CA-R-2100
@@ -18,11 +18,13 @@ form: Rule
 
 Limit each Atom to one governed Subject
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The direct GOVERNS Subject Relations recorded in an Atom's Subjects.
 
-## Claim
 
 An Atom **may** have zero or one direct GOVERNS Subject Relation. No Atom's Subjects **may** contain more than one direct GOVERNS Subject Relation.
 

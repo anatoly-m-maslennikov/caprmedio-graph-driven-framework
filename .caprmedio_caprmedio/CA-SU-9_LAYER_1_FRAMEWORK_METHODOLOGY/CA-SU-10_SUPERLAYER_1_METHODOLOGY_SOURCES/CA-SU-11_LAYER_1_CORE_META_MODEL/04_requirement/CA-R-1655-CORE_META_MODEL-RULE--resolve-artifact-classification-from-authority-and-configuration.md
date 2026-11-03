@@ -4,12 +4,12 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Content Role
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection.Type
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Applicable Methodology)'
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection.Form
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Applicable Methodology)'
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   - CAPRMEDIO_MODEL <+ Scope Unit
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Scope Unit Graph)'
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Scope Unit Graph)'
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes
@@ -27,11 +27,13 @@ form: Rule
 ## Summary
 Resolve Artifact Classification from Authority and Configuration
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifact classifications resolved from Applicable Methodology and Project Configuration with structural context from authoritative Project Structure.
 
-## Claim
 
 CAPRMEDIO **must** resolve **every** Artifact's applicable classification from Applicable Methodology **and** Project Configuration, with structural context from authoritative Project Structure:
 

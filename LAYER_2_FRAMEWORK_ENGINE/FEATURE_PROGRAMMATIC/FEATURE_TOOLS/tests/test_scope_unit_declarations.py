@@ -55,6 +55,22 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         )
         return root, parent, child
 
+    def test_formal_claim_layout_and_ambiguous_fences(self) -> None:
+        source = self.declaration("demo", "CA-R-1", project=True)
+        current = source.read_text(encoding="utf-8")
+        self.assertIn("## Claim\n\n### Formal Claim\n\n```CFEL", current)
+        legacy = current.replace("### Formal Claim\n\n", "")
+        current += "\n### Prose Claim\n\nExplanation.\n\n## Unregistered heading\n\nMore prose.\n\n## Details\n\nDetails.\n"
+        self.assertEqual("demo", parse_scope_unit_declaration(current.encode(), source).name)
+        self.assertEqual("demo", parse_scope_unit_declaration(legacy.encode(), source).name)
+        for invalid in (
+            current + "\n```CFEL\nextra\n```\n",
+            current.replace("### Formal Claim", "### Formal Claim\n\n```CFEL\nextra\n```\n\n### Formal Claim"),
+            current + "\n```\nunterminated\n",
+        ):
+            with self.subTest(invalid=invalid), self.assertRaises(ScopeDeclarationError):
+                parse_scope_unit_declaration(invalid.encode(), source)
+
     def test_discovers_current_sources_and_derives_all_paths(self) -> None:
         root_source, parent_source, child_source = self.complete_tree()
         result = read_scope_unit_declarations(self.root, self.control.name)

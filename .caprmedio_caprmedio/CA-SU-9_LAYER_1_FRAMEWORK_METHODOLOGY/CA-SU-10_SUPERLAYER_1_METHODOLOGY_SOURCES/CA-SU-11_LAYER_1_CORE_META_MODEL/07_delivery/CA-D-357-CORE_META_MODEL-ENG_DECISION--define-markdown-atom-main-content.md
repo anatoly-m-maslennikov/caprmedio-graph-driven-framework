@@ -18,10 +18,12 @@ form: Decision
 
 Define Markdown Atom Main Content
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Main Content of a Markdown Atom Carrier.
 
-## Claim
 
 the Main Content of a Markdown Atom Carrier **means** the content **after** its YAML Frontmatter.

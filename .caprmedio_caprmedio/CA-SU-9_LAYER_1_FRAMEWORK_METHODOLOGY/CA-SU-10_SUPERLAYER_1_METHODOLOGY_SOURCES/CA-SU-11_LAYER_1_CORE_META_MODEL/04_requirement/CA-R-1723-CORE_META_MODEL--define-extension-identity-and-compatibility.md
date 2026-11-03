@@ -17,9 +17,11 @@ form: Rule
 ## Summary
 Define Extension identity and compatibility
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Extensions **and** their identity, version, extension-point, compatibility, **and** canonical capability declarations.
 
-## Claim
 
 **every** Extension declares stable identity, version boundary, explicit extension points, compatibility obligations, **and** the canonical capabilities it adds **or** specializes **without** copying **or** redefining canonical authority.

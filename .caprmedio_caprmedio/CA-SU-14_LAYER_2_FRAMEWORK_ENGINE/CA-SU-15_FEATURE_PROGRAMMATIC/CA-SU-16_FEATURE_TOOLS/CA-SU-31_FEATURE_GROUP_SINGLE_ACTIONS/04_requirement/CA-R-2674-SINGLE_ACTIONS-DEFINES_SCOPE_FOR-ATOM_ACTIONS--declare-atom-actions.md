@@ -16,6 +16,8 @@ Declare ATOM_ACTIONS
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//ATOM_ACTIONS.ID == "CA-SU-35";
 Scope Unit//ATOM_ACTIONS.Name == "ATOM_ACTIONS";
@@ -23,3 +25,4 @@ Scope Unit//ATOM_ACTIONS.Label == "FEATURE_GROUP";
 Scope Unit//ATOM_ACTIONS.order.ordered == false;
 Scope Unit//ATOM_ACTIONS ((IS_CONTAINED_BY)) Scope Unit//SINGLE_ACTIONS
 ```
+

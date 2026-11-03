@@ -5,10 +5,10 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release.ID
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 38
@@ -28,11 +28,13 @@ form: Rule
 
 Requirement — Freeze a version only at release
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 target Versions and their selected authorized release events.
 
-## Claim
 
 a target Version **must** remain mutable **until** its selected authorized release event succeeds **and** the shared Journal records that outcome for the exact released candidate.
 

@@ -18,10 +18,12 @@ form: Rule
 
 Forbid Claim Synthesis and Merge During Compilation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Applicable Methodology compilation of source Claims.
 
-## Claim
 
 Applicable Methodology compilation **must not** synthesize **or** merge source Claims.

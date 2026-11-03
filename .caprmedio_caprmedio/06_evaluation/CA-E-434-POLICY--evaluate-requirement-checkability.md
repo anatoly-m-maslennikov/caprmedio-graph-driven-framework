@@ -7,10 +7,10 @@ relations:
   child_of:
   - CA-E-001
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -26,6 +26,9 @@ form: Eval Policy
 Evaluate Requirement checkability
 
 ## Claim
+
+### Prose Claim
+
 
 **when** an accepted Requirement is used **to** govern work **or** evaluate a result, its checkability Evaluation **must** return `pass` **if** the available evidence identifies **all** of the following:
 

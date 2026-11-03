@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Atom.Content
 version: 25
@@ -20,11 +20,13 @@ form: Rule
 
 Require work or decomposition in every Plan
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan Atoms, their own work, and their direct Plan containment.
 
-## Claim
 
 **every** Plan Atom **must** have **`>=1`** of:
 

@@ -20,11 +20,13 @@ form: Rule
 
 Derive Implementation and use its actual state as source
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 native Implementation production and subsequent use as a source.
 
-## Claim
 
 Implementation production **must** derive I from current applicable RMED using governed Operations: **RMED → using O → I**. native I **may** subsequently act as source truth for its actual realized content, structure, dependencies, **and** behavior. a further view derived from I using O, including a dependency graph, **must** remain a non-authoritative Projection: **I → using O → Projection**.
 

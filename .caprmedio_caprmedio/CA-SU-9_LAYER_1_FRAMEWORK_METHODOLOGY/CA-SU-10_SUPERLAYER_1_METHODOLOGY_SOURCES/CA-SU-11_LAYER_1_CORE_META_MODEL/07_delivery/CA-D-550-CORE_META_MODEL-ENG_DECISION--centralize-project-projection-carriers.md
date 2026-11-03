@@ -25,11 +25,13 @@ form: Decision
 
 Centralize Project Projection Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 persistent non-authoritative view Projection Carriers belonging to a Project.
 
-## Claim
 
 **all** persistent view Projection Carriers of a Project **must** reside under **`=1`** Directory Carrier: `.caprmedio_<project_name>/_projection/`, **except** Applicable Methodology, whose Carrier Root **must** remain `.caprmedio_<project_name>/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/`.
 

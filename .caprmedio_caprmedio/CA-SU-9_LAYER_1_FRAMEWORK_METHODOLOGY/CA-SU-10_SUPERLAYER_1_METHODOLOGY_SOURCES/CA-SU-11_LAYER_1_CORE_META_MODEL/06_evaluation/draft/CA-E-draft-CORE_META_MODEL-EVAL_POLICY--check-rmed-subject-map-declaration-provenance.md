@@ -7,7 +7,7 @@ author: Anatoly Maslennikov
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)/(.Form := Declaration)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER
 version: 1
 updated_at: 2026-11-03 14:19:59 +0400
@@ -25,6 +25,9 @@ carrier_destination:
 Check RMED Subject Map Declaration Provenance
 
 ## Claim
+
+### Prose Claim
+
 
 - Pass when every displayed Primary Subject, direct or inherited Property, or Relation constraint identifies its effective Current Requirement/Form: Declaration by Atom ID@Version, preserves direct versus inherited source labeling, and preserves each applicable full CFEL Formal Claim block verbatim with any parse diagnostic.
 - Fail when any cardinality, Format, Property presence, nested name, recursive structure, Relation cardinality, or Formal Claim is taken from a non-Declaration RMED Atom.

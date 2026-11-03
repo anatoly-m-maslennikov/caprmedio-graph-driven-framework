@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Action.Execution Kind
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action.Execution Kind
 version: 2
 relations: {}
 tier: 3
@@ -18,9 +18,12 @@ Declare Atom/(.Role := Operations)/Action.Execution Kind
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
-Atom/(.Role: Operations)/Action.Execution Kind{:1}: [string]{:1};
-Atom/(.Role: Operations)/Action.Execution Kind.*[]{:0};
-Atom/(.Role: Operations)/Action.Execution Kind: Programmatic;
-Atom/(.Role: Operations)/Action.Execution Kind: Agentic
+Atom/(.Header.Role: Operations)/Action.Execution Kind{:1}: [string]{:1};
+Atom/(.Header.Role: Operations)/Action.Execution Kind.*[]{:0};
+Atom/(.Header.Role: Operations)/Action.Execution Kind: Programmatic;
+Atom/(.Header.Role: Operations)/Action.Execution Kind: Agentic
 ```
+

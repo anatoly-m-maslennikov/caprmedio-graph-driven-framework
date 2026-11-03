@@ -23,4 +23,7 @@ Add complexity only when necessary
 
 ## Claim
 
+### Prose Claim
+
+
 **to** govern the Project's mechanisms, admit **or** retain a mechanism **only** **when** the other admitted mechanisms cannot preserve a required outcome **or** a material governed distinction.

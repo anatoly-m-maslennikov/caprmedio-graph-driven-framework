@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Subjects
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   - CAPRMEDIO_MODEL <+ CFEL > Relation//GOVERNS
   - CAPRMEDIO_MODEL <+ CFEL > Relation//DEPENDS_ON
   - CAPRMEDIO_MODEL <+ Entity
@@ -22,11 +22,13 @@ form: Policy
 
 Serialize Atom Subjects in Frontmatter
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 New or migrated Markdown Atom carriers.
 
-## Claim
 
 For Markdown Atom carriers, encode `subjects` as a mapping with one scalar nonempty Entity path under `active` and zero or more unique nonempty Entity paths as a YAML sequence under `passive`. An omitted `passive` means zero. The grouping mapping has no direct value; its child values are counted separately. A Draft may be incomplete before promotion.
 

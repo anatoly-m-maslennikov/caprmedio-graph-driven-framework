@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Status
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Status
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 ## Summary
 Separate Governed Transitions from Status Values
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Artifact Revision Status values associated with admission, acceptance, commitment, activation, completion, **or** archival.
 
-## Claim
 an Artifact Revision Status value **must** remain distinct from the Action **or** Workflow whose execution **may** establish that value.
 
 ## Details

@@ -19,9 +19,15 @@ Declare Project.Settings.Implementation Retry Limit
 
 ## Claim
 
-An omitted value follows the governed default resolution. A value is an integer at least zero. Zero permits no retries after the initial failure. The limit does not grant repair permission or bypass authority or confidence rules.
+### Formal Claim
 
 ```CFEL
 Project.Settings.Implementation Retry Limit{:0..1}: [int]{:1};
 Project.Settings.Implementation Retry Limit.*[]{:0}
 ```
+
+### Prose Claim
+
+
+An omitted value follows the governed default resolution. A value is an integer at least zero. Zero permits no retries after the initial failure. The limit does not grant repair permission or bypass authority or confidence rules.
+

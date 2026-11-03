@@ -18,15 +18,16 @@ form: Entity Definition
 
 Define Entity/Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Carrier representations of Continuants.
 
-## Claim
 
 A Carrier **means** a storage representation of a Continuant, distinct from what it represents. A Carrier can represent a record of an Occurrent, **not** the Occurrent itself.
 
-### Formal claim
 
 ```text
 Carrier.ID[string]{1}

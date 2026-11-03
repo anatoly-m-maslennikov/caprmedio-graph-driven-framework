@@ -129,13 +129,12 @@ source:
   - CA-D-473@25
   - CA-D-475@24
   - CA-D-478@31
-  - CA-D-479@27
+  - CA-D-479@29
   - CA-D-480@23
-  - CA-D-482@27
   - CA-D-483@23
   - CA-D-485@26
   - CA-D-494@17
-  - CA-D-495@25
+  - CA-D-495@27
   - CA-D-496@24
   - CA-D-497@18
   - CA-D-498@13
@@ -173,12 +172,7 @@ source:
   - CA-D-665@2
   - CA-D-666@1
   - CA-D-667@1
-  - CA-D-668@2
-  - CA-D-669@1
-  - CA-D-670@1
-  - CA-D-671@1
   - CA-E-001@35
-  - CA-E-006@40
   - CA-E-206@26
   - CA-E-207@36
   - CA-E-208@26
@@ -186,7 +180,7 @@ source:
   - CA-E-228@28
   - CA-E-229@28
   - CA-E-230@27
-  - CA-E-240@47
+  - CA-E-240@49
   - CA-E-241@47
   - CA-E-243@39
   - CA-E-246@47
@@ -259,7 +253,6 @@ source:
   - CA-E-523@18
   - CA-E-588@20
   - CA-E-620@34
-  - CA-E-621@37
   - CA-E-622@53
   - CA-E-623@30
   - CA-E-624@38
@@ -275,8 +268,6 @@ source:
   - CA-E-668@2
   - CA-E-669@4
   - CA-E-670@1
-  - CA-E-671@1
-  - CA-E-672@1
   - CA-M-005@28
   - CA-M-006@31
   - CA-M-091@27
@@ -303,7 +294,7 @@ source:
   - CA-M-138@29
   - CA-M-139@28
   - CA-M-225@33
-  - CA-M-228@34
+  - CA-M-228@36
   - CA-M-229@33
   - CA-M-230@25
   - CA-M-231@34
@@ -320,7 +311,7 @@ source:
   - CA-M-261@19
   - CA-M-262@27
   - CA-M-263@23
-  - CA-M-264@27
+  - CA-M-264@29
   - CA-M-265@26
   - CA-M-266@25
   - CA-M-270@29
@@ -392,17 +383,17 @@ source:
   - CA-R-047@37
   - CA-R-053@28
   - CA-R-1014@40
-  - CA-R-1016@31
-  - CA-R-1017@30
-  - CA-R-1018@37
-  - CA-R-1019@29
-  - CA-R-1020@29
-  - CA-R-1021@29
-  - CA-R-1022@31
+  - CA-R-1016@32
+  - CA-R-1017@31
+  - CA-R-1018@38
+  - CA-R-1019@30
+  - CA-R-1020@30
+  - CA-R-1021@30
+  - CA-R-1022@32
   - CA-R-1023@27
   - CA-R-1024@28
   - CA-R-1025@28
-  - CA-R-1026@32
+  - CA-R-1026@33
   - CA-R-1027@28
   - CA-R-1029@27
   - CA-R-1030@27
@@ -432,8 +423,8 @@ source:
   - CA-R-1181@30
   - CA-R-118@35
   - CA-R-1194@32
-  - CA-R-1199@36
-  - CA-R-1200@39
+  - CA-R-1199@37
+  - CA-R-1200@40
   - CA-R-1202@30
   - CA-R-1203@32
   - CA-R-1206@28
@@ -519,7 +510,7 @@ source:
   - CA-R-1412@24
   - CA-R-1415@28
   - CA-R-1416@26
-  - CA-R-1417@31
+  - CA-R-1417@33
   - CA-R-1418@28
   - CA-R-1419@23
   - CA-R-1420@27
@@ -529,7 +520,6 @@ source:
   - CA-R-1426@25
   - CA-R-1428@32
   - CA-R-1429@28
-  - CA-R-1430@27
   - CA-R-1432@27
   - CA-R-1437@32
   - CA-R-1439@23
@@ -600,7 +590,7 @@ source:
   - CA-R-1575@25
   - CA-R-1577@23
   - CA-R-1578@25
-  - CA-R-1580@26
+  - CA-R-1580@27
   - CA-R-1584@23
   - CA-R-1585@23
   - CA-R-1587@26
@@ -632,7 +622,7 @@ source:
   - CA-R-1634@45
   - CA-R-1635@42
   - CA-R-1637@33
-  - CA-R-1639@37
+  - CA-R-1639@38
   - CA-R-1640@32
   - CA-R-1641@33
   - CA-R-1642@33
@@ -646,13 +636,13 @@ source:
   - CA-R-1650@34
   - CA-R-1651@33
   - CA-R-1652@41
-  - CA-R-1654@37
+  - CA-R-1654@38
   - CA-R-1655@45
   - CA-R-1656@28
   - CA-R-1657@33
   - CA-R-1658@32
   - CA-R-1659@31
-  - CA-R-1660@36
+  - CA-R-1660@37
   - CA-R-1661@32
   - CA-R-1662@39
   - CA-R-1663@37
@@ -727,7 +717,6 @@ source:
   - CA-R-1747@29
   - CA-R-1748@37
   - CA-R-1749@27
-  - CA-R-1750@41
   - CA-R-1752@32
   - CA-R-1753@31
   - CA-R-1754@32
@@ -794,12 +783,12 @@ source:
   - CA-R-1983@15
   - CA-R-1990@12
   - CA-R-1991@13
-  - CA-R-1993@19
+  - CA-R-1993@20
   - CA-R-1994@15
   - CA-R-2003@16
   - CA-R-2004@14
   - CA-R-2100@8
-  - CA-R-2102@15
+  - CA-R-2102@17
   - CA-R-2123@9
   - CA-R-2125@10
   - CA-R-2131@10
@@ -808,7 +797,7 @@ source:
   - CA-R-2156@10
   - CA-R-2157@10
   - CA-R-2158@12
-  - CA-R-2170@9
+  - CA-R-2170@10
   - CA-R-2173@9
   - CA-R-2174@6
   - CA-R-2198@5
@@ -819,9 +808,9 @@ source:
   - CA-R-2203@6
   - CA-R-2225@4
   - CA-R-2243@11
-  - CA-R-2245@7
-  - CA-R-2246@7
-  - CA-R-2247@5
+  - CA-R-2245@8
+  - CA-R-2246@8
+  - CA-R-2247@6
   - CA-R-2248@4
   - CA-R-2249@5
   - CA-R-2250@5
@@ -829,7 +818,7 @@ source:
   - CA-R-2252@5
   - CA-R-2253@5
   - CA-R-2254@5
-  - CA-R-2255@8
+  - CA-R-2255@9
   - CA-R-2256@4
   - CA-R-2257@4
   - CA-R-2269@3
@@ -839,7 +828,7 @@ source:
   - CA-R-2276@6
   - CA-R-2277@4
   - CA-R-2278@2
-  - CA-R-2279@4
+  - CA-R-2279@5
   - CA-R-2327@5
   - CA-R-2345@2
   - CA-R-2346@2
@@ -853,11 +842,11 @@ source:
   - CA-R-2354@4
   - CA-R-2355@4
   - CA-R-2415@3
-  - CA-R-2417@4
-  - CA-R-2418@4
-  - CA-R-2420@4
-  - CA-R-2421@4
-  - CA-R-2422@4
+  - CA-R-2417@5
+  - CA-R-2418@5
+  - CA-R-2420@5
+  - CA-R-2421@5
+  - CA-R-2422@5
   - CA-R-2424@2
   - CA-R-2425@4
   - CA-R-2426@3
@@ -879,42 +868,27 @@ source:
   - CA-R-2468@2
   - CA-R-2469@4
   - CA-R-2470@2
-  - CA-R-2471@4
+  - CA-R-2471@6
   - CA-R-2472@8
-  - CA-R-2473@4
+  - CA-R-2473@5
   - CA-R-2474@2
-  - CA-R-2475@4
-  - CA-R-2476@4
-  - CA-R-2477@4
-  - CA-R-2478@4
+  - CA-R-2475@5
+  - CA-R-2476@5
+  - CA-R-2477@5
+  - CA-R-2478@5
   - CA-R-2481@2
   - CA-R-2482@2
   - CA-R-2483@6
   - CA-R-2484@2
-  - CA-R-2485@4
-  - CA-R-2486@4
-  - CA-R-2487@8
-  - CA-R-2488@2
-  - CA-R-2489@2
-  - CA-R-2490@2
-  - CA-R-2491@2
-  - CA-R-2492@2
-  - CA-R-2493@2
-  - CA-R-2494@2
-  - CA-R-2495@2
-  - CA-R-2496@2
-  - CA-R-2497@2
-  - CA-R-2498@2
-  - CA-R-2499@2
-  - CA-R-2500@2
-  - CA-R-2501@2
-  - CA-R-2502@2
-  - CA-R-2503@2
-  - CA-R-2504@2
-  - CA-R-2505@2
-  - CA-R-2506@2
-  - CA-R-2507@2
-  - CA-R-2508@2
+  - CA-R-2485@5
+  - CA-R-2486@5
+  - CA-R-2487@9
+  - CA-R-2498@4
+  - CA-R-2499@4
+  - CA-R-2500@4
+  - CA-R-2502@4
+  - CA-R-2503@4
+  - CA-R-2508@4
   - CA-R-2509@2
   - CA-R-2511@2
   - CA-R-2512@2
@@ -922,9 +896,6 @@ source:
   - CA-R-2514@2
   - CA-R-2515@2
   - CA-R-2516@5
-  - CA-R-2518@2
-  - CA-R-2519@2
-  - CA-R-2520@2
   - CA-R-2521@2
   - CA-R-2523@2
   - CA-R-2524@3
@@ -947,8 +918,6 @@ source:
   - CA-R-2542@2
   - CA-R-2543@4
   - CA-R-2544@2
-  - CA-R-2545@2
-  - CA-R-2546@2
   - CA-R-2547@2
   - CA-R-2548@2
   - CA-R-2549@2
@@ -985,19 +954,18 @@ source:
   - CA-R-2580@2
   - CA-R-2581@2
   - CA-R-2582@2
-  - CA-R-2583@4
+  - CA-R-2583@5
   - CA-R-2584@2
   - CA-R-2585@2
   - CA-R-2586@2
   - CA-R-2587@2
-  - CA-R-2588@2
+  - CA-R-2588@3
   - CA-R-2589@2
   - CA-R-2590@2
   - CA-R-2591@1
   - CA-R-2592@1
   - CA-R-2593@1
   - CA-R-2594@1
-  - CA-R-2595@1
   - CA-R-2596@1
   - CA-R-2597@1
   - CA-R-2598@1
@@ -1011,7 +979,7 @@ source:
   - CA-R-2606@1
   - CA-R-2607@1
   - CA-R-2608@1
-  - CA-R-2609@1
+  - CA-R-2609@2
   - CA-R-2610@1
   - CA-R-2611@1
   - CA-R-2612@1
@@ -1019,49 +987,103 @@ source:
   - CA-R-2614@1
   - CA-R-2615@1
   - CA-R-2616@1
-  - CA-R-2617@1
-  - CA-R-2618@1
-  - CA-R-2619@1
-  - CA-R-2620@1
-  - CA-R-2621@1
-  - CA-R-2622@1
-  - CA-R-2623@3
+  - CA-R-2617@2
+  - CA-R-2618@2
+  - CA-R-2619@2
+  - CA-R-2620@2
+  - CA-R-2621@2
+  - CA-R-2622@2
+  - CA-R-2623@4
   - CA-R-2624@1
   - CA-R-2625@1
   - CA-R-2626@1
   - CA-R-2629@1
   - CA-R-2630@1
   - CA-R-2631@1
-  - CA-R-2632@2
   - CA-R-2633@1
   - CA-R-2634@1
   - CA-R-2635@1
   - CA-R-2636@1
   - CA-R-2637@1
-  - CA-R-2638@2
+  - CA-R-2638@3
   - CA-R-2639@2
   - CA-R-2640@1
+  - CA-R-2641@1
+  - CA-R-2642@1
+  - CA-R-2643@1
+  - CA-R-2644@1
+  - CA-R-2645@1
+  - CA-R-2646@1
+  - CA-R-2647@1
   - CA-R-2648@1
   - CA-R-2649@1
   - CA-R-2650@1
   - CA-R-2651@1
   - CA-R-2652@1
   - CA-R-2653@1
+  - CA-R-2654@1
+  - CA-R-2655@1
+  - CA-R-2656@1
+  - CA-R-2657@1
+  - CA-R-2658@3
+  - CA-R-2659@1
+  - CA-R-2660@1
+  - CA-R-2661@1
+  - CA-R-2662@1
+  - CA-R-2663@1
   - CA-R-2664@1
   - CA-R-2665@1
   - CA-R-2666@1
   - CA-R-2667@1
   - CA-R-2668@1
+  - CA-R-2669@1
+  - CA-R-2670@1
+  - CA-R-2671@1
+  - CA-R-2672@1
+  - CA-R-2673@1
+  - CA-R-2674@1
+  - CA-R-2675@1
+  - CA-R-2676@1
+  - CA-R-2677@1
+  - CA-R-2678@1
+  - CA-R-2679@1
+  - CA-R-2680@1
+  - CA-R-2681@1
+  - CA-R-2682@1
+  - CA-R-2683@1
+  - CA-R-2684@1
   - CA-R-2685@1
   - CA-R-2686@1
+  - CA-R-2687@1
   - CA-R-2688@1
-  - CA-R-2689@1
-  - CA-R-2690@1
   - CA-R-2691@1
-  - CA-R-2692@1
-  - CA-R-2693@1
-  - CA-R-2694@1
-  - CA-R-2695@1
+  - CA-R-2696@1
+  - CA-R-2697@1
+  - CA-R-2698@1
+  - CA-R-2699@1
+  - CA-R-2700@1
+  - CA-R-2701@1
+  - CA-R-2702@1
+  - CA-R-2703@1
+  - CA-R-2704@1
+  - CA-R-2705@1
+  - CA-R-2706@1
+  - CA-R-2707@1
+  - CA-R-2708@1
+  - CA-R-2709@1
+  - CA-R-2710@1
+  - CA-R-2711@1
+  - CA-R-2712@1
+  - CA-R-2713@1
+  - CA-R-2714@1
+  - CA-R-2715@1
+  - CA-R-2716@1
+  - CA-R-2717@1
+  - CA-R-2718@1
+  - CA-R-2719@1
+  - CA-R-2720@1
+  - CA-R-2721@1
+  - CA-R-2722@1
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1085,7 +1107,7 @@ source:
   - CA-R-740@39
   - CA-R-771@32
   - CA-R-775@22
-  - CA-R-796@43
+  - CA-R-796@44
   - CA-R-806@42
   - CA-R-807@34
   - CA-R-808@34
@@ -1137,12 +1159,12 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-03 17:05:11 +0400
+updated_at: 2026-11-03 20:25:46 +0400
 ---
 
 # Entity Definition Summary
 
-Selected sources: 1132 Current Methodology and direct Project RMED Atoms. Coverage and absence are evaluated within this selection.
+Selected sources: 1154 Current Methodology and direct Project RMED Atoms. Coverage and absence are evaluated within this selection.
 
 Cardinalities, formats and Formal Claims come only from Current Requirement / Declaration Atoms. Unsupported CFEL remains visible with diagnostics.
 
@@ -1175,11 +1197,9 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 | `Dynamic Testing` | primary_node | missing | missing |
 | `Effect Authorization` | primary_node | missing | CA-M-095@26, CA-M-097@27, CA-M-098@26, CA-M-099@26, CA-M-100@27, CA-M-266@25, CA-R-1206@28, CA-R-1354@24, CA-R-1356@26, CA-R-1560@19, CA-R-1679@31, CA-R-1755@30 |
 | `Engineering` | primary_node | missing | CA-R-1178@28, CA-R-1407@28, CA-R-1795@15, CA-R-1796@15, CA-R-1798@16 |
-| `Entity` | primary_node | missing | CA-D-506@18, CA-D-507@16, CA-E-383@45, CA-E-387@27, CA-E-466@28, CA-E-505@22, CA-E-657@8, CA-M-105@27, CA-M-228@34, CA-R-1245@28, CA-R-1259@24, CA-R-1261@24, CA-R-1284@27, CA-R-1285@25, CA-R-1286@25, CA-R-1349@21, CA-R-1350@20, CA-R-1405@29, CA-R-1470@27, CA-R-1471@27, CA-R-1498@17, CA-R-151@32, CA-R-1655@45, CA-R-1683@45, CA-R-1701@34, CA-R-1708@39, CA-R-1719@33, CA-R-1765@35, CA-R-1994@15, CA-R-2276@6, CA-R-2278@2 |
+| `Entity` | primary_node | missing | CA-D-506@18, CA-D-507@16, CA-E-383@45, CA-E-387@27, CA-E-466@28, CA-E-505@22, CA-E-657@8, CA-M-105@27, CA-R-1245@28, CA-R-1259@24, CA-R-1261@24, CA-R-1284@27, CA-R-1285@25, CA-R-1286@25, CA-R-1349@21, CA-R-1350@20, CA-R-1405@29, CA-R-1470@27, CA-R-1471@27, CA-R-1498@17, CA-R-151@32, CA-R-1655@45, CA-R-1683@45, CA-R-1701@34, CA-R-1708@39, CA-R-1719@33, CA-R-1765@35, CA-R-1994@15, CA-R-2276@6, CA-R-2278@2 |
 | `Entity/Object/Continuant/Actor/AI Agent` | primary_node | missing | CA-E-440@36, CA-R-1552@22, CA-R-1554@23, CA-R-1555@23, CA-R-1556@26, CA-R-1557@21, CA-R-1558@23, CA-R-1559@26, CA-R-1561@28, CA-R-2158@12 |
 | `Entity/Object/Continuant/Actor/Operator` | primary_node | missing | CA-E-209@25, CA-M-139@28, CA-M-263@23, CA-R-1057@34, CA-R-1420@27, CA-R-2157@10 |
-| `Entity/Object/Continuant/Governing Objects/Atom/Content Role` | primary_node | missing | missing |
-| `Entity/Object/Continuant/Governing Objects/Atom/Type` | primary_node | missing | missing |
 | `Entity/Object/Continuant/Governing Objects/Governing Configuration` | primary_node | missing | CA-D-407@25, CA-D-408@24, CA-R-1226@25, CA-R-1421@23, CA-R-1429@28, CA-R-1441@26, CA-R-1640@32, CA-R-1641@33, CA-R-832@35 |
 | `Entity/Object/Continuant/History` | primary_node | missing | CA-D-329@27, CA-R-1051@35, CA-R-1698@32 |
 | `Entity/Object/Continuant/History/Release` | primary_node | missing | CA-R-1181@30 |
@@ -1207,7 +1227,6 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 | `Parsing` | primary_node | missing | missing |
 | `Product` | primary_node | missing | CA-E-228@28, CA-E-437@27, CA-M-094@25, CA-R-004@37, CA-R-007@33, CA-R-028@27, CA-R-035@36, CA-R-1056@30, CA-R-1058@39, CA-R-1174@27, CA-R-1180@29, CA-R-1423@27, CA-R-1424@28, CA-R-1736@33, CA-R-1778@30, CA-R-1799@20, CA-R-2445@6, CA-R-2452@4, CA-R-633@21, CA-R-634@22, CA-R-815@35, CA-R-818@28, CA-R-826@22, CA-R-827@32, CA-R-831@28 |
 | `Prompt Authoring` | primary_node | missing | CA-M-304@26 |
-| `STRUCTURE` | primary_node | missing | CA-R-2483@6 |
 | `Serialization` | primary_node | missing | missing |
 | `Source Selection` | primary_node | missing | CA-R-1175@25, CA-R-1769@36 |
 | `Static Analysis` | primary_node | missing | CA-E-435@26 |
@@ -1217,18 +1236,14 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 | `Traceability` | primary_node | missing | CA-E-624@38, CA-M-135@32, CA-R-1611@28, CA-R-1646@41, CA-R-1687@34, CA-R-1695@38 |
 | `Verification` | primary_node | missing | CA-E-001@35, CA-E-206@26, CA-R-1635@42, CA-R-1742@30, CA-R-1787@14, CA-R-637@15 |
 | `Workflow Run` | primary_node | missing | missing |
-| `Atom.Version Number` | property | missing | missing |
+| `Atom.Enabled Relations.Contains` | property | missing | missing |
+| `Atom.Governance Origin` | property | missing | CA-R-1645@39, CA-R-1690@33 |
+| `Atom.Header.Subjects.Governs` | property | missing | missing |
+| `Atom.Local Scope Unit` | property | missing | CA-D-291@31, CA-R-1014@40, CA-R-886@39, CA-R-920@33 |
+| `Atom.Target Scope Unit` | property | missing | CA-R-1596@22, CA-R-1732@25, CA-R-718@44, CA-R-947@40 |
 | `Entity/Object/Continuant/Actor/AI Agent.Permissions` | property | missing | CA-E-230@27, CA-R-846@31, CA-R-852@32 |
-| `Entity/Object/Continuant/Governing Objects/Atom.Content Role` | property | missing | missing |
-| `Entity/Object/Continuant/Governing Objects/Atom.Enabled Relations.Contains` | property | missing | missing |
-| `Entity/Object/Continuant/Governing Objects/Atom.Governance Origin` | property | missing | CA-R-1645@39, CA-R-1690@33 |
-| `Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit` | property | missing | CA-D-291@31, CA-R-1014@40, CA-R-886@39, CA-R-920@33 |
-| `Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs` | property | missing | missing |
-| `Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit` | property | missing | CA-D-482@27, CA-E-511@23, CA-R-1596@22, CA-R-1732@25, CA-R-718@44, CA-R-947@40 |
-| `Entity/Object/Continuant/Governing Objects/Atom.Type` | property | missing | CA-D-393@23, CA-R-1700@33, CA-R-924@37 |
-| `Entity/Object/Continuant/Governing Objects/Atom.Version Number` | property | missing | missing |
 | `Entity/Object/Continuant/History/Release.ID` | property | missing | CA-R-1692@38 |
-| `Entity/Object/Continuant/Projection.Type` | property | missing | missing |
+| `Entity/Object/Continuant/Projection.Form` | property | missing | missing |
 | `Entity/Object/Continuant/Structural Unit/Scope Unit.Children` | property | missing | CA-R-1756@36, CA-R-1771@30 |
 | `Entity/Object/Continuant/Structural Unit/Scope Unit.Parent` | property | missing | CA-R-1658@32 |
 | `Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings` | property | missing | CA-D-359@28, CA-D-360@27, CA-D-361@32, CA-D-383@31, CA-D-387@27, CA-D-497@18, CA-E-458@35, CA-R-1404@26, CA-R-1631@34, CA-R-1724@36, CA-R-2271@3 |
@@ -1251,6 +1266,4 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 | `Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context` | property | missing | CA-E-495@19 |
 | `Entity/Object/Occurrent/Execution/Step Run.Invocation Context` | property | missing | CA-E-497@20, CA-R-1789@21 |
 | `Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit` | property | missing | CA-E-473@26, CA-M-295@32 |
-| `Project.Framework Settings` | property | missing | missing |
-| `Scope Unit.order` | property | missing | missing |
 - None.

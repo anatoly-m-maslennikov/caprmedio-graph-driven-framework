@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Subjects
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
@@ -8,7 +8,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ Term//Term
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//evaluation_for
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Entity/Property
@@ -27,11 +27,13 @@ form: Implementation Method
 
 Assign Subjects from the Claim
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Subject assignment for an Atom from its Claim **and** complete Markdown Main Content.
 
-## Claim
 
 **to** assign an Atom's Subjects, the Author **must** perform **all** of:
 

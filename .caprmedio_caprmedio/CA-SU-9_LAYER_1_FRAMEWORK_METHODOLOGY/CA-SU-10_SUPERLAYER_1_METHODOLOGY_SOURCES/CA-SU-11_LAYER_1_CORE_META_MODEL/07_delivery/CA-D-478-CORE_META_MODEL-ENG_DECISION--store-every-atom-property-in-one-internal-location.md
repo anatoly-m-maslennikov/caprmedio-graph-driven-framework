@@ -22,11 +22,13 @@ form: Policy
 
 Store every Atom Property in one internal location
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom Property representation in an Atom Markdown File Carrier.
 
-## Claim
 
 Use YAML Frontmatter for an Atom's metadata properties. Use named Markdown
 Main Content sections for `content.*` properties. Each applicable Atom Property
@@ -37,7 +39,7 @@ This reusable Policy governs Atom representation. It does not create a Carrier
 or a CARRIES fact for each property or section, and it does not change the
 owning direction of an Atom-to-Atom Relation.
 
-Qualified classifications are carried as ordinary metadata properties. For example, `Atom/(.Role := Concern)` selects the Atom's `role` value, and a qualified Form selects its `form` value; neither creates a nested Role object. Use the property names and canonical value encodings registered by the applicable D policy, including CA-D-657, rather than inventing a new field from the display path.
+Qualified classifications are carried as ordinary metadata properties. For example, `Atom/(.Header.Role := Concern)` selects the Atom's `role` value, and a qualified Form selects its `form` value; neither creates a nested Role object. Use the property names and canonical value encodings registered by the applicable D policy, including CA-D-657, rather than inventing a new field from the display path.
 
 ## Semantics
 

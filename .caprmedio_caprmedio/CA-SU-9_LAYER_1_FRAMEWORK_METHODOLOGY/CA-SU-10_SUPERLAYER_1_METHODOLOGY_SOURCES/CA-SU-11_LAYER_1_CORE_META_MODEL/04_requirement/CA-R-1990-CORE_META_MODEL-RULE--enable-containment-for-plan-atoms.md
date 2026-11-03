@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Enabled Relations.Contains'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Enabled Relations.Contains'
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Enabled Relations.Contains
+  - CAPRMEDIO_MODEL <+ Atom.Enabled Relations.Contains
 relations:
   child_of:
   - CA-R-2478
@@ -20,13 +20,15 @@ form: Rule
 
 Enable containment for Plan Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Containment capability of Plan Atoms.
 
-## Claim
 
-`Atom/Content Role: Plan.Enabled Relations.Contains` **must** be True. a Plan Atom **may** contain other Plan Atoms.
+`Atom/(.Header.Role := Plan).Enabled Relations.Contains` **must** be True. a Plan Atom **may** contain other Plan Atoms.
 
 ## Details
 

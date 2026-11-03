@@ -26,11 +26,13 @@ form: Eval Policy
 
 Reject Invalid Dependency-Order Derivations
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 derived non-Plan Artifact dependency orders.
 
-## Claim
 
 the Evaluation **must** reject one derived non-Plan Artifact dependency order **if** a relation endpoint is **not** an admitted non-Plan Artifact, one `relations.depends_on` target reference repeats, a permutation of target-list positions changes its direct-edge set **or** derived order, an edge is absent from `relations.depends_on`, `relations.derived_from` contributes an edge, **or** the direct dependency graph **contains** a cycle.
 

@@ -26,4 +26,7 @@ Help operators optimize the active rule set
 
 ## Claim
 
+### Prose Claim
+
+
 CAPRMEDIO **must** help the Operator keep the active rule set necessary **and** sufficient for the current scope, stage, **and** priorities.

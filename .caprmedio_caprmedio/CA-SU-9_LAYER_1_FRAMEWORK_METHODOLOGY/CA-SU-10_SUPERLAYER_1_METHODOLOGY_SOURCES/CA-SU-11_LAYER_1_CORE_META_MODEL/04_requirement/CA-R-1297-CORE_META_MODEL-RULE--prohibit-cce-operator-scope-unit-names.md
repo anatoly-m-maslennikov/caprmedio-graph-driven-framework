@@ -18,10 +18,12 @@ form: Rule
 
 Prohibit CCE Operator Scope Unit Names
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit Names.
 
-## Claim
 
 a Scope Unit Name **must not** equal the uppercase underscore-joined rendering of **any** word-form CCE Operator.

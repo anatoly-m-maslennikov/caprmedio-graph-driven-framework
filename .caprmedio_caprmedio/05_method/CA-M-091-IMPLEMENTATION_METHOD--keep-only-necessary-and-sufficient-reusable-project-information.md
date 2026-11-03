@@ -24,11 +24,13 @@ form: Implementation Method
 
 Keep only necessary and sufficient reusable project information
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 reusable Project information, including its methodology.
 
-## Claim
 
 **to** maintain reusable Project information, keep **only** the smallest information set sufficient **to** understand, govern, operate, **and** change the Project.
 

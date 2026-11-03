@@ -16,10 +16,12 @@ form: Decision
 
 Structure Markdown Atom Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoritative Markdown Atom Carrier structure.
 
-## Claim
 
 **every** authoritative Markdown Atom Carrier **must** contain YAML Frontmatter followed by Main Content.

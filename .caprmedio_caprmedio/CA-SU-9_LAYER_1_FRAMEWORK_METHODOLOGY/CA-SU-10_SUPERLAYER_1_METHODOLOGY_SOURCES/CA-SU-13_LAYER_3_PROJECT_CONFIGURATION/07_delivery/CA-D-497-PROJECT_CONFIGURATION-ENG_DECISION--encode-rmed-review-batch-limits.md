@@ -21,11 +21,13 @@ form: Decision
 
 Encode RMED review batch limits
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the `rmed_review` parameter group **in** Framework Instance Settings **and** Default Settings.
 
-## Claim
 
 RMED review batch limits **must** use these TOML parameters:
 

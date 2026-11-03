@@ -5,7 +5,7 @@ relations:
   child_of:
   - CA-M-447
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
   passive:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
@@ -22,10 +22,12 @@ form: Rule
 
 Let Parents Own Immediate Child Goals
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 parent Scope Units and their immediate child Scope Units.
 
-## Claim
 
 **every** parent Scope Unit **must** own the Goal Atoms for its immediate child Scope Units under CA-R-926; those Goal Atoms belong **to** the parent's Owned Atoms **and** the child's Targeting Atoms **without** transferring their ownership.

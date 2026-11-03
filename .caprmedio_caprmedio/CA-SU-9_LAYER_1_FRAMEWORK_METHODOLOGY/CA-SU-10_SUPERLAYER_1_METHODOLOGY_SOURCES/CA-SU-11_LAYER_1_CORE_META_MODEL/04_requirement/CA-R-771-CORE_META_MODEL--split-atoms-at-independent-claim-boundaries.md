@@ -17,9 +17,11 @@ form: Rule
 ## Summary
 Split Atoms at independent Claim boundaries
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Atoms.
 
-## Claim
 
 an Atom **must** be split **when** part of its content can be accepted, replaced, **or** retired independently from the Atom's remaining Claim.

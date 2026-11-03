@@ -18,11 +18,13 @@ form: Rule
 
 Define compatible Lineage Impact disposition
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 `compatible` Lineage Impact dispositions.
 
-## Claim
 
 
 When a Lineage Impact analysis addresses an Atom, `compatible` must mean the child remains valid against the parent Revision required by the gate and traversal stops without a child update; a pinned earlier Revision does not establish compatibility where the new Revision is required.

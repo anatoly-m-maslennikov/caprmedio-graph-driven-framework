@@ -2,7 +2,7 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)/(.Form := Scope Unit Declaration)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Scope Unit Declaration)
   - CAPRMEDIO_MODEL <+ Project
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
@@ -17,11 +17,13 @@ role: Requirement
 
 Require one Scope Unit Declaration
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Each Scope Unit, including Project.
 
-## Claim
 
 Every specific Scope Unit, including Project, has exactly one external Requirement Atom with Form `Scope Unit Declaration` and an active Subject naming that Scope Unit. The Declaration is the sole structural authority for its declared values.
 

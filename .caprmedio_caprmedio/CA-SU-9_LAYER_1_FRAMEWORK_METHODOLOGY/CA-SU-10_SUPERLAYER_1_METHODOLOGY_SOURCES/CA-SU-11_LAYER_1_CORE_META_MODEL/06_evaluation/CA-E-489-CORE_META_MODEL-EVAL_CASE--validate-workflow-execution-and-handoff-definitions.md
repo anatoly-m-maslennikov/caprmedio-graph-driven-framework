@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Action
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 23
@@ -25,11 +25,13 @@ form: Eval Case
 
 Validate Workflow execution and handoff definitions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a Workflow's declared execution **and** handoff behavior.
 
-## Claim
 
 the Evaluation **must** check whether a Workflow's declared execution **and** handoff behavior is well formed under CA-R-1519 **and** CA-R-1520, independently of current executor availability.
 

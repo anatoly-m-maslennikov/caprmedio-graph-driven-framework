@@ -18,6 +18,9 @@ Reuse formal notation and write isolated constraints in prose
 
 ## Claim
 
+### Prose Claim
+
+
 - Use admitted CFEL when it expresses the constraint.
 - Use short Claim prose only when CFEL cannot express the constraint without a single-use extension.
 - Do not invent syntax for one constraint.

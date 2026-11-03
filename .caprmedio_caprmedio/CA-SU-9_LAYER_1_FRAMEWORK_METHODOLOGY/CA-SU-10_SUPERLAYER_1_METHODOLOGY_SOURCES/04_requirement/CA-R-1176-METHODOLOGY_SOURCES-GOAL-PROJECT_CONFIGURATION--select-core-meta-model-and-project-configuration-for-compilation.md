@@ -18,10 +18,12 @@ form: Goal
 
 Select Core Meta-Model and Project Configuration for Compilation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 PROJECT_CONFIGURATION.
 
-## Claim
 
 PROJECT_CONFIGURATION **must** state Project-owned Customizations **and** composition decisions that select CORE_META_MODEL **and** PROJECT_CONFIGURATION for Applicable Methodology compilation.

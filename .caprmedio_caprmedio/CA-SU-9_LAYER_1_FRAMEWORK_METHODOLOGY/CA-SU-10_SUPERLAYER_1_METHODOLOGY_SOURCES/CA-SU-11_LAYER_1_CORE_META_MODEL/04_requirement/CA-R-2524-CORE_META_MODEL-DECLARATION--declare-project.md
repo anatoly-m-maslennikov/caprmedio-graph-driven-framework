@@ -17,18 +17,24 @@ Declare Project
 
 ## Claim
 
-A Project uses CAPRMEDIO's MODEL.
+### Formal Claim
 
 ```CFEL
 Scope Unit/Project;
 Scope Unit/Project//{:1};
 Project >| (Container == yes);
 Project// {:0}((IS_CONTAINED_BY)) Scope Unit//;
-Project ((NARROWER_THAN)) @Scope Unit;
+Project ((NARROWER_THAN)) Scope Unit;
 Project//.order.ordered == false;
 Project//.order.number: []{:0};
 Project//.ID: []{:0}
 ```
+
+### Prose Claim
+
+
+A Project uses CAPRMEDIO's MODEL.
+
 
 ## Semantics
 

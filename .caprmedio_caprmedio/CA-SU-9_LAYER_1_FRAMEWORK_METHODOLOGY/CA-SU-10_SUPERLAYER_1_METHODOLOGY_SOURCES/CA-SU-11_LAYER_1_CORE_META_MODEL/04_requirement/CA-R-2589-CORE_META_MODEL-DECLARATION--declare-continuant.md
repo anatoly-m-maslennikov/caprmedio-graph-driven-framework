@@ -19,6 +19,8 @@ Declare Continuant
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Node/Continuant
 ```

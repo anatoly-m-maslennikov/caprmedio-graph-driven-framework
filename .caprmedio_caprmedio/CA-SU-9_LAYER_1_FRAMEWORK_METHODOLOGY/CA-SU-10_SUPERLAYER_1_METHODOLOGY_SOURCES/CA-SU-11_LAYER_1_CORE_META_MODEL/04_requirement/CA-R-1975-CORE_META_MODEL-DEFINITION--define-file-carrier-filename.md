@@ -18,15 +18,16 @@ form: Entity Definition
 
 Define File Carrier.Filename
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 File Carrier names within their containing directories.
 
-## Claim
 
 A File Carrier's Filename **means** the name of its file within its containing directory, including any extension. It does **not** include the directory path.
 
-### Formal claim
 
 ```text
 File.Filename[string]{1}

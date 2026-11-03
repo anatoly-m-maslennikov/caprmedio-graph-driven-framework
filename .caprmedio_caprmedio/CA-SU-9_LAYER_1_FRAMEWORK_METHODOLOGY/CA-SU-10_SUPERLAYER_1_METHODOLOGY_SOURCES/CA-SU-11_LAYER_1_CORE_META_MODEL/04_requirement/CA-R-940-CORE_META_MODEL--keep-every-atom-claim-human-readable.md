@@ -19,9 +19,11 @@ form: Rule
 ## Summary
 Keep every Atom Claim human-readable
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Atom Claims.
 
-## Claim
 
 **every** Atom Claim **must** be readable by its intended human reader.

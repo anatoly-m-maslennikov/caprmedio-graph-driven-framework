@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Target Scope Unit'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Subjects.Active'
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active
   - CAPRMEDIO_MODEL <+ Scope Unit
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -21,10 +21,12 @@ form: Rule
 
 Default Plan target to the enclosing Scope Unit
 
-## Claim scope
-
-Plans with no separately selected Claim Target Scope Unit during authoring.
-
 ## Claim
 
-during authoring, a Plan with no separately selected Claim Target Scope Unit **must** select its owning Scope Unit as the target, independently of Plan containment **or** Label; a Hub does **not** become that default target. carry the resolved target under CA-D-482.
+### Prose Claim
+
+
+Plans and their resolved Claim Target Scope Units.
+
+
+a Plan’s Claim Target Scope Unit **must** be resolved from its one active Subject under CA-R-2102. Its current Scope Unit is established by containment; Plan nesting **or** Label does not independently select a target, and a Hub does not become one by default.

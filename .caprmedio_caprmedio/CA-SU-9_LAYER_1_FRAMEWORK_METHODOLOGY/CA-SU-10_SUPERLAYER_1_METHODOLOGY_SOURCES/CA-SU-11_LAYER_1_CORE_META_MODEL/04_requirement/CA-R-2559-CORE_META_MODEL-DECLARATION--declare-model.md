@@ -19,11 +19,17 @@ Declare MODEL
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 MODEL {:0}((IS_PROPERTY_OF));
 MODEL >| (Container == yes);
-MODEL ((NARROWER_THAN)) @Node
+MODEL ((NARROWER_THAN)) Node
 ```
+
+### Prose Claim
+
+
 
 - A local MODEL inherits CAPRMEDIO's MODEL.
 - MODEL inheritance is distinct from Node narrowing.

@@ -18,11 +18,13 @@ form: Rule
 
 Define Entity/Node
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Nodes in the Subject graph.
 
-## Claim
 
 
 An Entity used as a Subject-graph node must identify a thing or topic addressed by the graph; its description and Carrier remain separate.

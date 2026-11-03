@@ -19,11 +19,13 @@ form: Rule
 
 Register Type Values for Work Journal Events
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 legacy Work Journal execution-observation category labels in serialized Journal Carrier Main Content.
 
-## Claim
 
 the Main Content of a serialized Journal Carrier **must** preserve a supplied legacy Work Journal execution-observation category label as one of (Started, Progressed, Completed, Failed, Interrupted, Abandoned, Recovered).
 

@@ -18,11 +18,13 @@ form: Decision
 
 Use the governed production logging platform
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production technical and business runtime log Journal Carriers.
 
-## Claim
 
 production technical **and** business runtime log Journals **must** use the deployment environment's governed logging sink. governed CAPRMEDIO workflow **and** local project-control Journals **are not** substitutes for the production system's log platform.
 

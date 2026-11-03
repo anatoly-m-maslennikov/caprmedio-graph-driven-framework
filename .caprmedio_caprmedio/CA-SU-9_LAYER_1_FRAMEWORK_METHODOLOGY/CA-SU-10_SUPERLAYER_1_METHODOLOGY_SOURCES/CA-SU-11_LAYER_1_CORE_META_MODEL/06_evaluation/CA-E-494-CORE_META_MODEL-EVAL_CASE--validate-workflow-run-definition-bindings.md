@@ -2,9 +2,9 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Journal
@@ -26,11 +26,13 @@ form: Eval Case
 
 Validate Workflow Run definition bindings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a Workflow Run's declared definition bindings **and** revalidation evidence.
 
-## Claim
 
 the Evaluation **must** check a Workflow Run's declared definition bindings **and** revalidation evidence under CA-R-1525.
 

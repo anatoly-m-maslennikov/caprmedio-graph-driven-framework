@@ -9,10 +9,10 @@ relations:
 subjects:
   active: CAPRMEDIO_MODEL <+ Package/Implementation
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Project
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -27,6 +27,9 @@ form: Implementation Method
 Preserve sufficient authority for reconstruction
 
 ## Claim
+
+### Prose Claim
+
 
 **to** rebuild the Implementation, use the current RMED as sufficient authority for reproducing its required behavior **and** passing its applicable Evaluations **without** the previous Implementation **or** additional specification preparation; **if** the implementation language changes, **then** update the affected Method **and** Delivery authority **before** rebuilding against the resulting current RMED. a ready-made alternative Implementation is **not** required.
 

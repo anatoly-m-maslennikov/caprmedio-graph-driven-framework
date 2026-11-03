@@ -24,4 +24,7 @@ AI Agents act within permission
 
 ## Claim
 
+### Prose Claim
+
+
 an AI Agent has no original authority, **must not** create **or** expand its own authority, **and** **may** perform **or** authorize a governed action **only** **when** a current Operator-established AI Agent Delegation **or** authorization rule identifies that AI Agent **and** permits the complete action, its target, **and** its decision boundary.

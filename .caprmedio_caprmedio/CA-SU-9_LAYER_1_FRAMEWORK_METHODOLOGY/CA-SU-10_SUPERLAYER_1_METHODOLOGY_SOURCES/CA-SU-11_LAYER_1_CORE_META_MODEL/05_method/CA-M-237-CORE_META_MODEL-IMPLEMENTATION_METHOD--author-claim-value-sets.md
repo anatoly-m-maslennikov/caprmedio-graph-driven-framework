@@ -23,11 +23,13 @@ form: Implementation Method
 
 Author Claim Value Sets
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Claim Value Set authoring.
 
-## Claim
 
 **to** author one Claim Value Set, the Author **must**:
 

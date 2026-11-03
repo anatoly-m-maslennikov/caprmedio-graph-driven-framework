@@ -16,6 +16,8 @@ Declare JOURNAL_ACTIONS
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//JOURNAL_ACTIONS.ID == "CA-SU-38";
 Scope Unit//JOURNAL_ACTIONS.Name == "JOURNAL_ACTIONS";
@@ -23,3 +25,4 @@ Scope Unit//JOURNAL_ACTIONS.Label == "FEATURE_GROUP";
 Scope Unit//JOURNAL_ACTIONS.order.ordered == false;
 Scope Unit//JOURNAL_ACTIONS ((IS_CONTAINED_BY)) Scope Unit//SINGLE_ACTIONS
 ```
+

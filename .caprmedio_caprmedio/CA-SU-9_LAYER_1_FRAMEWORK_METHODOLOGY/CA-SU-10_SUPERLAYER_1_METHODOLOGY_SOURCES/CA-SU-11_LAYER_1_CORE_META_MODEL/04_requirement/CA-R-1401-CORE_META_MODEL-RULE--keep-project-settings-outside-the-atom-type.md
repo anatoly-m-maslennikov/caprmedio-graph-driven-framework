@@ -20,10 +20,12 @@ form: Rule
 
 Keep Project Settings Outside the Atom Type
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Project Settings Artifact.
 
-## Claim
 
 the Project Settings Artifact **must not** be an Atom.

@@ -16,6 +16,8 @@ Declare TOOL_WORKFLOWS
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//TOOL_WORKFLOWS.ID == "CA-SU-18";
 Scope Unit//TOOL_WORKFLOWS.Name == "TOOL_WORKFLOWS";
@@ -23,3 +25,4 @@ Scope Unit//TOOL_WORKFLOWS.Label == "FEATURE";
 Scope Unit//TOOL_WORKFLOWS.order.ordered == false;
 Scope Unit//TOOL_WORKFLOWS ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC
 ```
+

@@ -22,4 +22,7 @@ Catalog Externally Maintained Extension Packages
 
 ## Claim
 
+### Prose Claim
+
+
 COMMUNITY_EXTENSIONS **must** catalog externally maintained Extension packages **without** making those packages CAPRMEDIO-owned Scope Units.

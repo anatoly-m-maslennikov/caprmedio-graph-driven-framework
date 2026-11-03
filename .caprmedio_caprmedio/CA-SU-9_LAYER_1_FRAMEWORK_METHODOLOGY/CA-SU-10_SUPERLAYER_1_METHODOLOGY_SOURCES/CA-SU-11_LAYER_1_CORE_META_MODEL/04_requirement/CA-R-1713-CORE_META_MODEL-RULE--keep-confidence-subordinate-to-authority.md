@@ -16,10 +16,12 @@ form: Rule
 
 Keep confidence subordinate to authority
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 execution confidence and Operator authority.
 
-## Claim
 
 Execution confidence **must** never create, extend, **or** replace operator authority.

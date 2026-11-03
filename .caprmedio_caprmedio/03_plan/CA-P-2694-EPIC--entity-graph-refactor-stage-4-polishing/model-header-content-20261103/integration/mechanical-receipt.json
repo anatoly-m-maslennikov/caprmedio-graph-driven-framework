@@ -1,0 +1,11 @@
+{
+  "status": "APPLIED_VERIFIED",
+  "selected": 1158,
+  "changed": 1071,
+  "held": 0,
+  "read_back_hashes": "all match",
+  "second_apply_changed": 0,
+  "plan_sha256": "958bd2c41bcae6da111c4ced05af31c341991b8cff2b4eecc8948c6b40151403",
+  "pre_migration_remote_checkpoint": "db837f08ec3f29eeb6010e4bce09bfc64f2332d1",
+  "route": "explicit user-authorized in-place migration; identity and timestamps preserved"
+}

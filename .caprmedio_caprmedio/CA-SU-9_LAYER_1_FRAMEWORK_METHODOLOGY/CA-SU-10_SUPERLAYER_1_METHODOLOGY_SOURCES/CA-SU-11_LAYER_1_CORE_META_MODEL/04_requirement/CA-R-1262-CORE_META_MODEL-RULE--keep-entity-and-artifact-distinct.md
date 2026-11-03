@@ -18,10 +18,12 @@ form: Rule
 
 Keep Entity and Artifact Distinct
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the distinction between Artifact and Entity.
 
-## Claim
 
 Artifact **must not** be equivalent **to** Entity.

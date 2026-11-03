@@ -8,18 +8,18 @@ updated_at: 2026-11-02 18:35:20 +0400
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Content.Details
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Content Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
 relations:
   evaluation_for:
   - CA-D-269
@@ -42,11 +42,13 @@ form: Eval Policy
 
 Check RMED Atom coherence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 individual active RMED Atoms reviewed locally against their exact carried text **and** applicable local authoring rules.
 
-## Claim
 
 an RMED Atom passes this local Evaluation **only** **when** **all** of these checks pass with source evidence:
 

@@ -8,8 +8,8 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Project
   passive:
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Atom.Tier
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
 atom_id: CA-R-2426
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -22,10 +22,12 @@ form: Rule
 
 Preserve Project-wide foundational invariants
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project-wide foundational invariants.
 
-## Claim
 
 CAPRMEDIO must preserve all irreducible governed invariants that apply across the entire current Project independently of Scope Unit ancestry, scope label, Content Role, Artifact form, Extension, Project Configuration or substrate. Those Project-wide foundational invariants retain their applicability throughout the Project; Project-owned Tier `0` Atoms express their foundational authority. This does not make every local or Project-owned Tier `0` Atom Project-wide, add a conflict winner based on Tier, or impose a fixed Role checklist.

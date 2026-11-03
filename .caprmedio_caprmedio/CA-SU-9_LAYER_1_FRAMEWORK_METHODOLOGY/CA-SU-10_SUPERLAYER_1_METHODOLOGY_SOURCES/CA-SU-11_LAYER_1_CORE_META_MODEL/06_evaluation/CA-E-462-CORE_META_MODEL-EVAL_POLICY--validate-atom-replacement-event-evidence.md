@@ -2,10 +2,10 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Event Record
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.ID
-  - CAPRMEDIO_MODEL <+ Atom.Version Number
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Project
@@ -28,11 +28,13 @@ form: Eval Policy
 
 Validate Atom replacement event evidence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom replacement event evidence.
 
-## Claim
 
 an Event Record offered as Atom replacement evidence **must** undergo an actual Evaluation against CA-R-807. Available evidence and Journal acceptance are **not** proof that the replacement is correct.
 

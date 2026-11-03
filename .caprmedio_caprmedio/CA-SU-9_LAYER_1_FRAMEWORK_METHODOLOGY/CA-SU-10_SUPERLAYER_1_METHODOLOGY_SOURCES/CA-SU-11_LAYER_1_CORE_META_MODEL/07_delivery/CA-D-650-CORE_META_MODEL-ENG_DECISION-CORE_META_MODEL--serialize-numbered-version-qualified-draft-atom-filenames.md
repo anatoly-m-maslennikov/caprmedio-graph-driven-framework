@@ -2,8 +2,8 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Carrier/File.Filename
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.ID
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
 version: 12
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,11 +19,13 @@ form: Decision
 
 Serialize numbered version-qualified Draft Atom filenames
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project-owned Draft Atom filename identity segments.
 
-## Claim
 
 A Draft Atom proposing a revision of an existing Atom **must** carry `atom_id: <canonical-ID>@<proposed-version>-draft`, where `<proposed-version>` is the proposed numeric Atom Version. Its filename **must** carry that exact marker once as the Atom-ID segment before the filename's mutable components under CA-D-283. Do **not** append another `@<version>` suffix to the basename. The Draft marker identifies the proposed revision; it does not replace or advance the Current Atom source before an admitted update.
 

@@ -5,8 +5,8 @@ subjects:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Type
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Form
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -25,11 +25,13 @@ form: Implementation Method
 
 Validate Claims against Effective CCE Role Profiles
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom Claims against effective CCE Role Profiles.
 
-## Claim
 
 **to** validate one Atom Claim against its effective CCE Role Profile, the Validator **must** perform **all** of:
 

@@ -1,0 +1,40 @@
+{
+  "status": "proposed; not applied",
+  "records": [
+    {
+      "source_id": "CA-E-460",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-460-CORE_META_MODEL-EVAL_CASE--validate-atom-set-selection-and-the-spec-alias.md",
+      "source_sha256": "12341785debac636774930c03bdacba96f271addcc0cbfab6cead57a385781da",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/integration/postcheck-candidates/CA-E-460-CORE_META_MODEL-EVAL_CASE--validate-atom-set-selection-and-the-spec-alias.md",
+      "candidate_sha256": "8cbc1b2d9266b0d6039a8c68d0e3840703daa9f1c0c085c8f4558d36ecbbfc60"
+    },
+    {
+      "source_id": "CA-E-506",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-EVAL_CASE--validate-self-sufficient-atom-carriers.md",
+      "source_sha256": "55f1a902642259406a3afc6a43572578f6dfa2f123de29962bb755546b02575a",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/integration/postcheck-candidates/CA-E-506-CORE_META_MODEL-EVAL_CASE--validate-self-sufficient-atom-carriers.md",
+      "candidate_sha256": "7a7cb9c813d01bd499112c588aed556ffc79d410ebcd7a6b1356fa5a38344a2e"
+    },
+    {
+      "source_id": "CA-E-511",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-EVAL_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+      "source_sha256": "7a225828af8db837f38eb22963f2f4a462c63871cebaa23736585943928b753e",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/integration/postcheck-candidates/CA-E-511-CORE_META_MODEL-EVAL_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+      "candidate_sha256": "638939f5bd755383364af8d1e17dd5bb55fbbcc50c85fe8c9480704be456cc2a"
+    },
+    {
+      "source_id": "CA-R-1588",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1588-CORE_META_MODEL-RULE--default-plan-target-to-the-enclosing-scope-unit.md",
+      "source_sha256": "d0891bd052cb3db6da5e62d155b63c079ee399e031bfd89aedebc27f23aaf864",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/integration/postcheck-candidates/CA-R-1588-CORE_META_MODEL-RULE--default-plan-target-to-the-enclosing-scope-unit.md",
+      "candidate_sha256": "a50e103ea2571f5b8b6e647510f0f8bfe0a4a30dc4c2194d54502e0fa3fc1131"
+    },
+    {
+      "source_id": "CA-D-283",
+      "source_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md",
+      "source_sha256": "1d9806f2605414874ecce1ccc97ce5d7f661f91e6c567a33c4cbd06f66a87400",
+      "candidate_path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/integration/postcheck-candidates/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md",
+      "candidate_sha256": "ffe601634f9889091ca02c56dfc3d39645e7c17faf8f4cf5f3bd9792309878a6"
+    }
+  ]
+}

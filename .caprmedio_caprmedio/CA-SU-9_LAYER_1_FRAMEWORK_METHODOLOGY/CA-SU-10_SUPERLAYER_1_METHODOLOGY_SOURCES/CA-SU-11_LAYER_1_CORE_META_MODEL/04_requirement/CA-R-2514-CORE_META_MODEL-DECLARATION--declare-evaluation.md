@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 2
 relations: {}
 tier: 3
@@ -18,8 +18,10 @@ Declare Atom/(.Role := Evaluation)
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
-Atom/(.Role: Evaluation)
+Atom/(.Header.Role: Evaluation)
 ```
 
 ## Semantics

@@ -20,10 +20,12 @@ form: Decision
 
 Identify Framework Settings Artifact
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Identifier of the authoritative Framework Instance Settings Artifact.
 
-## Claim
 
 the Identifier of the authoritative Framework Instance Settings Artifact **must** be `caprmedio_framework_settings`.

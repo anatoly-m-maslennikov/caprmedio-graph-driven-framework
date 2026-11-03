@@ -18,10 +18,12 @@ form: Rule
 
 Classify Relational Atom as an Atom
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Term Relational Atom.
 
-## Claim
 
 the Term Relational Atom **must** be NARROWER_THAN Atom.

@@ -6,7 +6,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
 version: 47
@@ -33,11 +33,13 @@ form: Eval Case
 
 Validate CCE Claims and derived Projections
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 active and draft Atom Claims, their Summaries, and requested Translation and terminology Projections.
 
-## Claim
 
 **every** active **or** draft Atom **contains** **`=1`** human-readable precise CCE Claim **and** a source-faithful Summary. requested Translation **and** terminology Projections preserve their source meaning; their absence **when** **not** requested is **not** an Atom defect.
 

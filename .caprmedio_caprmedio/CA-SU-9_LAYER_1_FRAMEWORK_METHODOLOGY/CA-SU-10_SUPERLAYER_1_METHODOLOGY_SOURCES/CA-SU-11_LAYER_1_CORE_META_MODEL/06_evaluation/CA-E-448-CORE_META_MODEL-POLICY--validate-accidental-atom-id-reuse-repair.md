@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.ID
+  active: CAPRMEDIO_MODEL <+ Atom.Header.ID
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.ID
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
   - CAPRMEDIO_MODEL <+ Carrier.Canonical Address
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
@@ -30,11 +30,13 @@ form: Eval Policy
 
 Validate accidental Atom ID reuse repair
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom ID collision repairs.
 
-## Claim
 
 the Evaluation **must** reject completion of an Atom ID collision repair under CA-M-276-CORE_META_MODEL-IMPLEMENTATION_METHOD--repair-accidental-atom-id-reuse **if** **any** of:
 

@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.ID
+  active: CAPRMEDIO_MODEL <+ Atom.Header.ID
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.ID
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
   - CAPRMEDIO_MODEL <+ Carrier.Canonical Address
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
@@ -18,7 +18,7 @@ version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
   method_for:
-  - CA-R-2493
+  - CA-R-2701
 atom_id: CA-M-276
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -31,11 +31,13 @@ form: Implementation Method
 
 Repair accidental Atom ID reuse
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 repair of accidental reuse of assigned Project Atom IDs.
 
-## Claim
 
 **to** repair accidental reuse of an assigned Project Atom ID, an AI Agent **must** perform **all** of:
 

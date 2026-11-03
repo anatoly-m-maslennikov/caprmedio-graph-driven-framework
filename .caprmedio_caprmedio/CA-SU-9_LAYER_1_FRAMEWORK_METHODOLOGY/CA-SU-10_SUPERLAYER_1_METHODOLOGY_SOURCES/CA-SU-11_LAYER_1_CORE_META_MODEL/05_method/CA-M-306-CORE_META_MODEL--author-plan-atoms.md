@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
   - CAPRMEDIO_MODEL <+ CFEL > Relation
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Implementation Retry Limit'
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Carrier/File
 version: 32
@@ -30,11 +30,13 @@ form: Implementation Method
 
 Author Plan Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan Atoms.
 
-## Claim
 
 **to** author a Plan Atom, apply the common Plan authoring rules independently of Label:
 

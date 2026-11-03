@@ -28,6 +28,9 @@ Evaluate craft-independent project operation
 
 ## Claim
 
+### Prose Claim
+
+
 ## Claim checked
 
 the Operator can complete a representative Project lifecycle through direction **and** control **without** personally performing specialist craft work.

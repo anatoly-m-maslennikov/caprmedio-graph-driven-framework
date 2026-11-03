@@ -18,10 +18,12 @@ form: Rule
 
 Register child_of and parent_of relation pair
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the `child_of` and `parent_of` relation pair.
 
-## Claim
 
 `child_of` **must** be registered as the declared upstream relation **and** `parent_of` as its inverse-derived downstream relation **in** the normative-authority ordering domain.

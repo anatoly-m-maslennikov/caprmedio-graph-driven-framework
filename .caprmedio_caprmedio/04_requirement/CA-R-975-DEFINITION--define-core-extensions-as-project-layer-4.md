@@ -28,4 +28,7 @@ Define CORE_EXTENSIONS as Project Layer 4
 
 ## Claim
 
+### Prose Claim
+
+
 CORE_EXTENSIONS **must** be the CAPRMEDIO Project Layer with Local Order `4`.

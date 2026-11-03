@@ -2,7 +2,7 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ CFEL > Relation
   - CAPRMEDIO_MODEL <+ Carrier
@@ -21,10 +21,12 @@ form: Rule
 
 Define the Plan Graph
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Plan Graph.
 
-## Claim
 
 the Plan Graph **means** a Projection whose nodes reference authoritative Plan Atoms **and** whose graph-owned Relations represent Plan containment **and** blocking. explicit once-owned Plan Relation declarations are the sources of those facts; optional directory placement represents them **without** becoming another declaration.

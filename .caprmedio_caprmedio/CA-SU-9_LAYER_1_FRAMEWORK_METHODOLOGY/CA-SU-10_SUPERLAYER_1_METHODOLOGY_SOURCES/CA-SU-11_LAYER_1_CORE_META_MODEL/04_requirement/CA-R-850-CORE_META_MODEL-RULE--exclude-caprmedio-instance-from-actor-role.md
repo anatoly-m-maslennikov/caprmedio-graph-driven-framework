@@ -20,10 +20,12 @@ form: Rule
 
 Exclude CAPRMEDIO instance from Actor role
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the CAPRMEDIO Framework Instance.
 
-## Claim
 
 the CAPRMEDIO Framework Instance **must not** be classified as an Actor.

@@ -19,10 +19,12 @@ form: Rule
 
 Define Subtree-targeting Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the targeting of Atoms to a Scope Unit subtree.
 
-## Claim
 
 Subtree-targeting Atoms **means** the union of Targeting Atoms for the selected Scope Unit **and** **every** descendant Scope Unit.

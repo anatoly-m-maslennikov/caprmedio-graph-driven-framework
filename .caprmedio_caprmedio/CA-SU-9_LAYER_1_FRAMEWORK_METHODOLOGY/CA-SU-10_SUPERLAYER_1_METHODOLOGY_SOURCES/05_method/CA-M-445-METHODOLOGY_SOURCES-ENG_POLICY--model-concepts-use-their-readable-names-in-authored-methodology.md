@@ -9,9 +9,9 @@ updated_at: 2026-11-02 18:35:20 +0400
 subjects:
   active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Text Writing Style
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - CAPRMEDIO_MODEL <+ Atom.Updated At
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Header.Updated At
   - CAPRMEDIO_MODEL <+ Carrier
 relations: {}
 role: Method
@@ -21,11 +21,13 @@ form: Eng Policy
 
 Model concepts use their readable names in authored methodology.
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Model names in authored Methodology Sources, including their applicable child Scope Units.
 
-## Claim
 
 **when** writing model concepts in Subjects, Formal claims **or** authored model text, the Author **must** use their governed readable model names. For example, name the applicable model concepts:
 

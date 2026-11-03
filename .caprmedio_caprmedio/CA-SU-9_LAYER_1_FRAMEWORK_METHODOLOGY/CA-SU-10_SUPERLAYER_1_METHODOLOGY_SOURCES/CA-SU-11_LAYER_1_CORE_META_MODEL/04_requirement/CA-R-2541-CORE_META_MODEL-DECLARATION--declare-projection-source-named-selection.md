@@ -18,7 +18,10 @@ Declare Projection.Source.Named Selection
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Projection.Source.Named Selection{:1}: [Named Selection//]{:1};
 Projection.Source.Named Selection.*[]{:0}
 ```
+

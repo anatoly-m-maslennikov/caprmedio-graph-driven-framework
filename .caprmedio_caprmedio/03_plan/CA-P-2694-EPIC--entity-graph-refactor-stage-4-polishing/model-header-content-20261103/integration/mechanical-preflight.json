@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "selected": 1158,
+  "held": [],
+  "changed": 1071,
+  "identity_status_version_updated_at_preserved": true,
+  "summaries_preserved": true,
+  "all_idempotent": true,
+  "pinned_semantic_repairs": 13
+}

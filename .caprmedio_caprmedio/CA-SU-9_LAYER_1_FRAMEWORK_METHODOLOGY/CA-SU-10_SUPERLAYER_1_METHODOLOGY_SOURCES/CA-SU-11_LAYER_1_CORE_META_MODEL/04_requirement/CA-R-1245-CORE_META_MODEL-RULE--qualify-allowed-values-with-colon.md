@@ -19,10 +19,12 @@ form: Rule
 
 Qualify Allowed Values with Colon
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 allowed-value qualification in a Subject Expression.
 
-## Claim
 
 **in** a Subject Expression, `X:Y` **must** admit Y as one possible value of X in X's qualified context, irrespective of X's kind or path. This qualification is a CFEL operator, not a graph Relation. It does not assign Y to an occurrence or determine direct-value cardinality.

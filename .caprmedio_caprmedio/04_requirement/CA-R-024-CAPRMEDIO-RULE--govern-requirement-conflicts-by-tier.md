@@ -6,9 +6,9 @@ llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   - CAPRMEDIO_MODEL <+ Atom
 cce_version: cce_1
@@ -24,5 +24,8 @@ form: Rule
 Govern Requirement conflicts by tier
 
 ## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO **must** resolve conflicts among active Requirements other than Requirements expressing Project-wide foundational invariants through explicit rules determined by their applicability tiers rather than presentation order, Concern priority, **or** implicit interpretation.

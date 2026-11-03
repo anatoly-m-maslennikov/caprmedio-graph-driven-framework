@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Updated At
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
   passive:
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Carrier.Canonical Address
 version: 18
@@ -23,11 +23,13 @@ form: Rule
 
 Refresh Updated At whenever an Atom changes
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 accepted Markdown Atom Carrier edits.
 
-## Claim
 
 **every** actual accepted edit **to** an Atom Carrier **must** refresh that Current Atom's `updated_at` **to** the actual Project-time edit instant, including a formatting, lossless serialization, Entity-name, admitted Current Status, direct-owner, **or** current-Atom local-placement edit. an exact no-op **must** retain Updated At. When a real update publishes a successor and archives its predecessor, the Archive Carrier **must** retain the predecessor's prior Updated At, numeric Version, and unrelated content while carrying the Archived status and version-qualified identity; Git history preserves the exact pre-archive bytes. Standalone archival is not an edit to the Current Atom's content: it only materializes the Archived representation with its version-qualified identity, filename and location, so it does not create a successor or refresh Updated At.
 

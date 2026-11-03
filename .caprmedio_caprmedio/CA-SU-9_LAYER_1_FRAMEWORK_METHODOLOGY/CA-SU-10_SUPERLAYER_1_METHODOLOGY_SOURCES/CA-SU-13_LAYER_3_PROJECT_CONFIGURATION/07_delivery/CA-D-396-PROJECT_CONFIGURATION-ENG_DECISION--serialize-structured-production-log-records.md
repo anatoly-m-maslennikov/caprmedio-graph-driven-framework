@@ -18,11 +18,13 @@ form: Decision
 
 Serialize Structured Production Log Records
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 structured production log records.
 
-## Claim
 
 **every** structured production log record **must** include, **where** applicable:
 

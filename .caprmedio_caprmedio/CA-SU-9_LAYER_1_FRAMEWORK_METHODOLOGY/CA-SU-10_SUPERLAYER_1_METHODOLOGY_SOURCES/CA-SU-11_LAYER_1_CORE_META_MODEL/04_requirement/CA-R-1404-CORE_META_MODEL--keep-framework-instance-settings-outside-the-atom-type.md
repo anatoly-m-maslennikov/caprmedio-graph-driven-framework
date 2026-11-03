@@ -20,10 +20,12 @@ form: Rule
 
 Keep Framework Instance Settings Outside the Atom Type
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Framework Instance Settings Artifact.
 
-## Claim
 
 the Framework Instance Settings Artifact **must not** be an Atom.

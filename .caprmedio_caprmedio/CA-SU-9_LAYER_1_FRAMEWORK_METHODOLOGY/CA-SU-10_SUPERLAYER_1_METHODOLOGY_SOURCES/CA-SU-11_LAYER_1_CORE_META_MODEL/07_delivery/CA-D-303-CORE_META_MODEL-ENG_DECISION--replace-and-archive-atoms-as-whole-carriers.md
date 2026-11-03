@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom
   passive:
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Decision
 
 Replace **and** Archive Atoms as Whole Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom replacement and archival operations.
 
-## Claim
 
 **every** Atom replacement **or** archival operation **must** replace **or** archive one whole Atom Carrier as one atomic Carrier transition.

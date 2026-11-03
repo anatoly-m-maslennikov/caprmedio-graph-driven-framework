@@ -18,9 +18,11 @@ form: Decision
 ## Summary
 Serialize Scope Unit References as Filename Tokens
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Scope Unit references serialized **in** Atom filenames.
 
-## Claim
 
 **every** Scope Unit reference serialized **in** an Atom filename **must** use **`=1`** stable uppercase token selected from its Scope Unit Name by Project Configuration.

@@ -17,12 +17,12 @@ relations:
 subjects:
   active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
-  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Project
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -38,6 +38,9 @@ form: Eval Policy
 Evaluate the Evaluation-first implementation loop
 
 ## Claim
+
+### Prose Claim
+
 
 within the caprmedio Project, the implementation-loop Evaluation **must** return `fail` **if**
 

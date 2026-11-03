@@ -16,10 +16,12 @@ form: Decision
 
 Serialize Projection Updated At
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection Carrier latest completed rebuild times.
 
-## Claim
 
 **every** Projection Carrier **must** serialize the time of its latest completed rebuild as `updated_at` **in** Project time **without** treating that value alone as proof of currentness.

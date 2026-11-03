@@ -27,4 +27,7 @@ Optimize project velocity at its declared priority
 
 ## Claim
 
+### Prose Claim
+
+
 choose among acceptable alternatives by minimizing elapsed time from an Operator-accepted change intent **to** an Operator-accepted result according **to** the current Operator-declared velocity priority.

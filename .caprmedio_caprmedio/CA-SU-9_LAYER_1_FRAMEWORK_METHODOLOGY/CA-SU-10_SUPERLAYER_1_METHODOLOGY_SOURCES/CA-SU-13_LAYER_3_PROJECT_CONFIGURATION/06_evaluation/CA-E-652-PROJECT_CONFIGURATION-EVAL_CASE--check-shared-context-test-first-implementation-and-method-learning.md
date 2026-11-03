@@ -4,15 +4,15 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: 'CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Implementation Workflow'
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Test Design
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
@@ -50,11 +50,13 @@ form: Eval Case
 
 Check shared-context test-first implementation and Method learning
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 shared-context test-first implementation and Method-learning Workflow checks.
 
-## Claim
 
 the shared-context implementation **and** Method-learning Workflow check **must** reject any definition **or** Run that conflates their separate completion conditions **or** bypasses their evidence gates.
 

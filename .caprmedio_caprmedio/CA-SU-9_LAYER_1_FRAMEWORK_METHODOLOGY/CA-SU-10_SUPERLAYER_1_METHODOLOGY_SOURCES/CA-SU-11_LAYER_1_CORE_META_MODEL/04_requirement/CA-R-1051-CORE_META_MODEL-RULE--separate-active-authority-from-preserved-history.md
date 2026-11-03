@@ -18,10 +18,12 @@ form: Rule
 
 Separate active authority from preserved history
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the active RMED authority graph and preserved historical states and transitions.
 
-## Claim
 
 the active RMED authority graph represents **only** current governed state. historical states **and** transitions are excluded from that graph **and** preserved through canonical lifecycle placement **and** append-only Journals; generated Projections **may** render history **without** making it active RMED authority.

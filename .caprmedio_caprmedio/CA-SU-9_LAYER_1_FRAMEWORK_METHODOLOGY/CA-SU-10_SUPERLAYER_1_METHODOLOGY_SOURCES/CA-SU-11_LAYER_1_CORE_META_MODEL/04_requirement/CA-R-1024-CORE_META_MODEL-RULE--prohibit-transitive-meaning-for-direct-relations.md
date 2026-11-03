@@ -16,10 +16,12 @@ form: Rule
 
 Prohibit transitive meaning for direct relations
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 registered direct relations.
 
-## Claim
 
 a registered direct relation **must not** imply a transitive relation.

@@ -27,4 +27,7 @@ Apply declared rule conformance to the active rule set
 
 ## Claim
 
+### Prose Claim
+
+
 apply **every** active rule group's current Operator-declared conformance priority **to** its verification **and** enforcement **without** weakening the applicability of the rule.

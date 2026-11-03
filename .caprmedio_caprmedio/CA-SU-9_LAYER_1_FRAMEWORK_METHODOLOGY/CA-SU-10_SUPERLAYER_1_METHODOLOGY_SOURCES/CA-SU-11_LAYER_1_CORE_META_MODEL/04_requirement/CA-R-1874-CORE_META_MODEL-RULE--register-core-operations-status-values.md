@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations.Status'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Header.Status'
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type'
-  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Header.Form'
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 19
@@ -22,11 +22,13 @@ form: Rule
 
 Register Core Operations Status Values
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the default Status value domain of Operations Atoms with Type Workflow, Step, or Action.
 
-## Claim
 
 the Core allowed values of Operations Status **must** be exactly (Draft, Active, Archived); that one Content Role Status model applies to Operations Atoms with Type Workflow, Step, or Action unless an admitted Extension or Project Configuration establishes a more-specific Status domain under that exact Content Role and Type path.
 

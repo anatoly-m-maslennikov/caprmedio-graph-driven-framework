@@ -22,10 +22,12 @@ form: Rule
 
 Configure necessary-information confidence threshold
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the necessary-information Confidence Threshold.
 
-## Claim
 
 the necessary-information Confidence Threshold **must** have an Operator-configurable integer-percentage instance default.

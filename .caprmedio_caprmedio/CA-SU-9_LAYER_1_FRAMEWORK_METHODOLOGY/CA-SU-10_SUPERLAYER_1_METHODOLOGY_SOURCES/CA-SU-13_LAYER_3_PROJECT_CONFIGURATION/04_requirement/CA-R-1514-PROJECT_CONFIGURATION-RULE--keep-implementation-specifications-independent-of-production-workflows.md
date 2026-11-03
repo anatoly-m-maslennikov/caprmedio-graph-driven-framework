@@ -5,11 +5,11 @@ subjects:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
   - CAPRMEDIO_MODEL <+ Package
 version: 27
 updated_at: 2026-11-02 18:35:20 +0400
@@ -28,11 +28,13 @@ form: Rule
 
 Keep Implementation specifications independent of production Workflows
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the CAPRMEDIO Project's governing RMED for an Implementation.
 
-## Claim
 
 **in** the CAPRMEDIO Project, governing RMED **must** fully specify the required Implementation independently of the Workflow used **to** produce it.
 

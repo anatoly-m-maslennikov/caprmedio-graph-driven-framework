@@ -18,10 +18,12 @@ form: Rule
 
 Define General Term
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 words or phrases used with their ordinary English meaning rather than a Project-specific meaning.
 
-## Claim
 
 a General Term **means** a word **or** phrase used with its ordinary English meaning rather than a Project-specific meaning.

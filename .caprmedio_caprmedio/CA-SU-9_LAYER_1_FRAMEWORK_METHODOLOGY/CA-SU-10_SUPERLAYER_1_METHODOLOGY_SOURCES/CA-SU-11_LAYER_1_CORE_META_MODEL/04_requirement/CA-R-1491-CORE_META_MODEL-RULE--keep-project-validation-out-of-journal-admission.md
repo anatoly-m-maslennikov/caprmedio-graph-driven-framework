@@ -7,7 +7,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Project
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -25,11 +25,13 @@ form: Rule
 
 Keep Project validation out of Journal admission
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plain append/read of observable Project events.
 
-## Claim
 
 the Journal **must** preserve observable Project events independently of whether the recorded Project state conforms **to** Applicable Methodology.
 

@@ -21,10 +21,12 @@ form: Decision
 
 Serialize Completed Projection Rebuild Results
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 encoded completed Projection Rebuild Event Record results.
 
-## Claim
 
 the Main Content that encodes a completed Projection Rebuild Event Record **must** serialize the published Projection Updated At value, output Carrier reference, **and** content digest.

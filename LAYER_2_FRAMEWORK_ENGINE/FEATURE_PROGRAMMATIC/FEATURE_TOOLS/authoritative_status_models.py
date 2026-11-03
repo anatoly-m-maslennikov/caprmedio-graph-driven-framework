@@ -145,7 +145,7 @@ def _source_snapshot(path: Path, root: Path, raw: bytes | None = None) -> dict[s
         qualified = re.search(r"(?:^|[/+]\s*)Atom\.(?:Header\.)?Status$", governed) is not None
     else:
         qualified = (role_match is not None and role_match.group(1).strip() == declared_role)
-        qualified |= re.search(r'Atom/\(\.(?:Header\.)?Role := "' + re.escape(declared_role) + r'"\)(?:/\(\.(?:Header\.)?Form := "[^"\n]+"\))?\.(?:Header\.)?Status$', governed) is not None
+        qualified |= re.search(r'Atom/\(\.(?:Header\.)?Role := (?:"' + re.escape(declared_role) + r'"|' + re.escape(declared_role) + r')\)(?:/\(\.(?:Header\.)?Form := "[^"\n]+"\))?\.(?:Header\.)?Status$', governed) is not None
     if not qualified:
         raise StatusModelError("source-invalid", f"status-model authority does not govern its declared role: {path}")
     raw_values = match.group(1) if mode == "base" else match.group(2)

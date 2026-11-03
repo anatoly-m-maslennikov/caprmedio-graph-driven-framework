@@ -20,11 +20,13 @@ form: Rule
 
 Require exactly one immediate bearer for each dependent Entity occurrence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Declared Property occurrences and their direct IS_PROPERTY_OF connections.
 
-## Claim
 
 Every declared Property occurrence must have exactly one immediate bearer, identified by one outgoing direct IS_PROPERTY_OF connection to that bearer. A source establishes dependence independently of whether the edge is present, so a missing edge fails this requirement. The named Selection “Property Occurrences” selects those declared occurrences; it does not infer dependence from edges or create a bearer connection.
 

@@ -20,10 +20,12 @@ form: Rule
 
 Projections have updated at
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection revisions after completed rebuilds.
 
-## Claim
 
 **every** Projection has **`=1`** unambiguous Updated At date-time identifying its latest completed rebuild.

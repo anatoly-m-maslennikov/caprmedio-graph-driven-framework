@@ -18,10 +18,12 @@ form: Rule
 
 Keep Readable Scope Unit Name Renderings Nonauthoritative
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 readable renderings derived from Scope Unit Names.
 
-## Claim
 
 a readable rendering derived from a Scope Unit Name **must not** become an independent Scope Unit property **or** authority.

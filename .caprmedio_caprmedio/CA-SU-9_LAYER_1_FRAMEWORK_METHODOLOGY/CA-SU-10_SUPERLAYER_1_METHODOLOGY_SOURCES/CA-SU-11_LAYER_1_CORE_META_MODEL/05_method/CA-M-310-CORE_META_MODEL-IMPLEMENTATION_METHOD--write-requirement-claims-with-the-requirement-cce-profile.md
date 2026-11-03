@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement.Content.Claim'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement).Content.Claim'
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Atom.Content
 version: 25
@@ -22,11 +22,13 @@ form: Implementation Method
 
 Write Requirement Claims with the Requirement CCE Profile
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Requirement Claims with the Requirement CCE Role Profile.
 
-## Claim
 
 **to** write a Requirement Claim with the Requirement CCE Role Profile, the Author **must** perform **all** of:
 

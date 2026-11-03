@@ -10,7 +10,7 @@ relations:
 subjects:
   active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: permission
@@ -26,6 +26,9 @@ form: Rule
 Admit necessary materialized representations
 
 ## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO **may** admit a materialized representation **only** **when** an explicit Requirement establishes that the representation is necessary **to** preserve a required outcome **or** a material governed distinction under CA-M-005.
 

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status: Done'
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Keep Plan completion prerequisites acyclic
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan execution.
 
-## Claim
 
 Plan execution **must not** contain a cycle of completion prerequisites, including one formed jointly by `BLOCKS` **and** the requirement **to** complete directly contained Plan work **before** its containing Plan can be Done **or** Canceled.

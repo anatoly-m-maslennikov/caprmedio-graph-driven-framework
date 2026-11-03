@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content'
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
@@ -25,11 +25,13 @@ form: Implementation Method
 
 Write Plan Claims with the Plan CCE Profile
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan Claims written with the Plan CCE Role Profile.
 
-## Claim
 
 **to** write a Plan Claim with the Plan CCE Role Profile, the Author **must** perform **all** of:
 

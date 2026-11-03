@@ -15,10 +15,12 @@ form: Implementation Method
 ## Summary
 Evaluate Scope Expressions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 evaluation of a Scope Expression.
 
-## Claim
 **to** evaluate one Scope Expression, the Resolver **must** perform **all** of:
 
 1. resolve **every** exact Atom ID **or** other atomic identity **to** **`=1`** Governed Entity.

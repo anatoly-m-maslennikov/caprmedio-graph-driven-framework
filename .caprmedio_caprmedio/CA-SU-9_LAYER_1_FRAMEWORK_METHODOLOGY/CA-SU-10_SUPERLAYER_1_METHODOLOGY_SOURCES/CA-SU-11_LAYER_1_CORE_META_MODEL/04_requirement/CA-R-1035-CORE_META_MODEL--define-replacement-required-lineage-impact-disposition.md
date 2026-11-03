@@ -18,11 +18,13 @@ form: Rule
 
 Define replacement_required Lineage Impact disposition
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 `replacement_required` Lineage Impact dispositions.
 
-## Claim
 
 
 When a Lineage Impact analysis addresses an Atom, `replacement_required` must mean the child requires a successor and archival before traversal continues through every affected descendant.

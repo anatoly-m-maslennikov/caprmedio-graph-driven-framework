@@ -18,6 +18,9 @@ Define Git Branch Carrier
 
 ## Claim
 
+### Prose Claim
+
+
 A Git Branch **means** a repository-owned Carrier identifying a branch head.
 
 ## Semantics

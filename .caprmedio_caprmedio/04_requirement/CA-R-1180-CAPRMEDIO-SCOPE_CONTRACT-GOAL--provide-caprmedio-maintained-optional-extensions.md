@@ -22,4 +22,7 @@ Provide CAPRMEDIO-Maintained Optional Extensions
 
 ## Claim
 
+### Prose Claim
+
+
 CORE_EXTENSIONS **must** provide CAPRMEDIO-maintained Extensions that add **or** specialize optional CAPRMEDIO capabilities **without** modifying canonical Core Meta-Model authority.

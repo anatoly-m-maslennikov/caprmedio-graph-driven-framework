@@ -20,11 +20,13 @@ form: Rule
 
 Define Graph of Graphs
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Graph of Graphs compositions and any generated overview Artifact.
 
-## Claim
 
 
 

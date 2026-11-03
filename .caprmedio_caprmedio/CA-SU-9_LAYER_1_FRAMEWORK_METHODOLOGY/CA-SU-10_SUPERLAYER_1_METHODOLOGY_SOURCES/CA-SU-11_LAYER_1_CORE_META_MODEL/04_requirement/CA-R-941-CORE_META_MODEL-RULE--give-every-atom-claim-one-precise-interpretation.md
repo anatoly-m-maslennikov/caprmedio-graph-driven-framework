@@ -17,10 +17,12 @@ form: Rule
 ## Summary
 Give every Atom Claim one precise interpretation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom Claims.
 
-## Claim
 
 **every** Atom Claim **must** have **`=1`** precise interpretation.

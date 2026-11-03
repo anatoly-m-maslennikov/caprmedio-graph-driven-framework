@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "total_tests": 160,
+  "suites": [
+    {
+      "suite": "migration",
+      "tests": 27,
+      "exit_code": 0
+    },
+    {
+      "suite": "Claim layouts",
+      "tests": 16,
+      "exit_code": 0
+    },
+    {
+      "suite": "status reader",
+      "tests": 12,
+      "exit_code": 0
+    },
+    {
+      "suite": "contract graph",
+      "tests": 20,
+      "exit_code": 0
+    },
+    {
+      "suite": "Subject projections",
+      "tests": 27,
+      "exit_code": 0
+    },
+    {
+      "suite": "Subject graph",
+      "tests": 21,
+      "exit_code": 0
+    },
+    {
+      "suite": "Current sources",
+      "tests": 13,
+      "exit_code": 0
+    },
+    {
+      "suite": "Scope Declaration parser",
+      "tests": 20,
+      "exit_code": 0
+    },
+    {
+      "suite": "Scope Declaration writer",
+      "tests": 4,
+      "exit_code": 0
+    }
+  ],
+  "scope": "focused migration/readers/layout/projection/Scope Declaration checks; no full Engine/release run"
+}

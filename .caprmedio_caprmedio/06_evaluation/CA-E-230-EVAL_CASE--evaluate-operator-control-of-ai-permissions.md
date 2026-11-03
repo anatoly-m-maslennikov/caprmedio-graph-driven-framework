@@ -31,6 +31,9 @@ Evaluate Operator control of AI permissions
 
 ## Claim
 
+### Prose Claim
+
+
 the Operator can create, inspect, limit, modify, suspend, **and** revoke AI Agent Delegations **and** mandatory authorization rules for identified AI Agents.
 
 ## Applicable conditions

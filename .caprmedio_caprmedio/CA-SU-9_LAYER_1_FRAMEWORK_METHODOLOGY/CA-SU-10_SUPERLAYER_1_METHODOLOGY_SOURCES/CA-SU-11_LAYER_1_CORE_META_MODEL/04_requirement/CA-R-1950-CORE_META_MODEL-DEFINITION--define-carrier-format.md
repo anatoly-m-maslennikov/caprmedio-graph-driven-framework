@@ -18,15 +18,16 @@ form: Entity Definition
 
 Define Carrier.Format
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Carriers with an applicable representation format.
 
-## Claim
 
 A Carrier's Format **means** the rules for encoding and interpreting its represented content. The registered File Carrier values include Markdown, TOML, YAML and JSON under CA-D-262; representation details remain governed by Delivery.
 
-### Formal claim
 
 ```text
 Carrier/File.Format: Markdown

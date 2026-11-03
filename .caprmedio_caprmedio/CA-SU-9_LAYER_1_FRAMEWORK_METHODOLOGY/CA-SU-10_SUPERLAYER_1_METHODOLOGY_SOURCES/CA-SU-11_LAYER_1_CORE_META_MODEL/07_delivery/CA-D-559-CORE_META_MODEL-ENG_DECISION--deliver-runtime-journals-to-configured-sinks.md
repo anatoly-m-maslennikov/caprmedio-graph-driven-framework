@@ -21,11 +21,13 @@ form: Decision
 
 Deliver runtime Journals to configured sinks
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 technical and business runtime Journal Carriers.
 
-## Claim
 
 runtime technical **and** business Journals **may** be delivered **to** an explicitly configured local database, remote database, **or** governed logging sink. these Carriers **need not** reside under `.caprmedio_<project_name>/_journal/` **or** `.caprmedio_runtime/`.
 

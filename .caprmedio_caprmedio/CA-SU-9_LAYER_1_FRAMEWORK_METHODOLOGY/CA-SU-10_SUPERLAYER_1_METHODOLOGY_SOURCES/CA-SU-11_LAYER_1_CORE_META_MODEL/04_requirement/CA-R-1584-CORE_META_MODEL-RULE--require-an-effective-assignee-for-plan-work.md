@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Actor
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
@@ -19,10 +19,12 @@ form: Rule
 
 Require an effective Assignee for Plan work
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan Atoms with their own work content, excluding pure Hubs **without** their own work.
 
-## Claim
 
 **every** Plan Atom with its own work content **must** have **`=1`** effective Assignee; a pure Hub **without** its own work does **not** require an additional Assignee merely because it organizes other Plans.

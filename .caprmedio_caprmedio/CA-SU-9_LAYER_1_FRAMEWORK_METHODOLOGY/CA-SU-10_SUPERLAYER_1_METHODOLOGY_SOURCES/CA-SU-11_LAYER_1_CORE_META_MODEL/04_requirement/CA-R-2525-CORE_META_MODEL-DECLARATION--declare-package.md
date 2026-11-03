@@ -19,13 +19,15 @@ Declare Package
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Package >| (Container == yes);
 Package//{:0..1}((IS_CONTAINED_BY)) Package//;
 Package//{:0+}((CONTAINS)) Package//;
 IF (Package//$package not in (Package/Implementation//))
 THEN ($package {==1}((IS_CONTAINED_BY)) Package//);
-Package ((NARROWER_THAN)) @Continuant
+Package ((NARROWER_THAN)) Continuant
 ```
 
 ## Semantics

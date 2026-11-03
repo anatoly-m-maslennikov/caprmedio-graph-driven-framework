@@ -16,10 +16,12 @@ form: Rule
 
 Permit distinct direct relations on one Atom
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 direct relations declared by an Atom.
 
-## Claim
 
 an Atom **may** declare `derived_from` **and** another registered direct relation **when** the two relations express different direct facts.

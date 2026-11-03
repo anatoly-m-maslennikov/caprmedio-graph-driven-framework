@@ -19,6 +19,8 @@ Declare Occurrent
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Node/Occurrent
 ```

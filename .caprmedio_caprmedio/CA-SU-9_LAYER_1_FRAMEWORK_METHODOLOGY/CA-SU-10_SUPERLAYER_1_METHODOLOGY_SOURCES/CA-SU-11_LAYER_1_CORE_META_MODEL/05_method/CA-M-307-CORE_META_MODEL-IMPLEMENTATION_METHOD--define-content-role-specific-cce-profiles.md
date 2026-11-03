@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Role
   passive:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Role
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Type
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Form
 version: 29
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -25,11 +25,13 @@ form: Implementation Method
 
 Define Content-role-specific CCE Profiles
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CCE Role Profiles.
 
-## Claim
 
 a CCE Role Profile **means** one restriction of shared CCE that identifies the permitted primary Claim contribution, permitted CCE Operator uses, permitted subordinate content slots, **and** prohibited primary contributions for one Content Role **or** one narrower Type **or** content slot.
 

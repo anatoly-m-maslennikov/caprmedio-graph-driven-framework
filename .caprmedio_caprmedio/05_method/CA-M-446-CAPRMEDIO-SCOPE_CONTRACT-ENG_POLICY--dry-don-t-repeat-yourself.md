@@ -23,4 +23,7 @@ DRY: Don't repeat yourself
 
 ## Claim
 
+### Prose Claim
+
+
 **to** govern the Project, reuse existing authority **and** canonical representations **without** independently maintaining duplicates for the same purpose **in** the same context.

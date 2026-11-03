@@ -18,10 +18,12 @@ form: Rule
 
 Keep Scope Unit Outside the Atom Taxonomy
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the position of Scope Unit outside the Atom taxonomy.
 
-## Claim
 
 the Term Scope Unit **must not** be NARROWER_THAN Atom.

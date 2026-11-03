@@ -16,6 +16,8 @@ Declare SINGLE_ACTIONS
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//SINGLE_ACTIONS.ID == "CA-SU-31";
 Scope Unit//SINGLE_ACTIONS.Name == "SINGLE_ACTIONS";
@@ -23,3 +25,4 @@ Scope Unit//SINGLE_ACTIONS.Label == "FEATURE_GROUP";
 Scope Unit//SINGLE_ACTIONS.order.ordered == false;
 Scope Unit//SINGLE_ACTIONS ((IS_CONTAINED_BY)) Scope Unit//TOOLS
 ```
+

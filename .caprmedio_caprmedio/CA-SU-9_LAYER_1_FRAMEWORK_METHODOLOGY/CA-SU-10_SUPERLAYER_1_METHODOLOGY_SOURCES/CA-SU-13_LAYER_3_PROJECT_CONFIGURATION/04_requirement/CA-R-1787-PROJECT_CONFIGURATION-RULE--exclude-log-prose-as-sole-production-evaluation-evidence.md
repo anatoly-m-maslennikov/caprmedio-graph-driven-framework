@@ -16,11 +16,13 @@ form: Rule
 
 Exclude log prose as sole production-evaluation evidence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production evaluation decisions.
 
-## Claim
 
 a production evaluation decision **must not** depend solely on parsing free-form log prose.
 

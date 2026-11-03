@@ -18,11 +18,13 @@ form: Implementation Method
 
 Register Expandable Canonical CCE Operator List
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the canonical CCE Operator Registry.
 
-## Claim
 
 the current canonical CCE Operator Registry **must** contain this expandable set:
 

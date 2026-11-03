@@ -20,14 +20,20 @@ Define datetime Value Format
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+CFEL <+ Format/datetime
+```
+
+### Prose Claim
+
+
 The datetime Value Format admits date-and-time values. It does not set a
 timezone convention, precision, cardinality, uniqueness, or carrier
 representation.
 
 
-```CFEL
-CFEL <+ Format/datetime
-```
 
 ## Semantics
 

@@ -2,7 +2,7 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Carrier.Canonical Address
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Carrier/Directory
@@ -21,11 +21,13 @@ form: Decision
 
 Materialize Content Role Directories on First Artifact
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 administrative Content Role directories in Scope Units.
 
-## Claim
 
 a Scope Unit's administrative Content Role directory **must** be materialized for canonical Artifact placement **only** **when** the first current Artifact requires that placement.
 

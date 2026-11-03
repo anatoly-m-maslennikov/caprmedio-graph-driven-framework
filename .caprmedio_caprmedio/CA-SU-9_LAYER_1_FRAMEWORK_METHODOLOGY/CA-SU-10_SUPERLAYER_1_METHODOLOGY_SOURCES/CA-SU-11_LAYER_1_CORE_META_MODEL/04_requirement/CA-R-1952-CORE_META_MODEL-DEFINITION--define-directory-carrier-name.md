@@ -18,15 +18,16 @@ form: Entity Definition
 
 Define Directory Carrier.Name
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Directory Carrier names within their parent directories.
 
-## Claim
 
 A Directory Carrier's Name **means** the name of its directory within its parent directory, excluding the parent path.
 
-### Formal claim
 
 ```text
 Directory.Name[string]{1}

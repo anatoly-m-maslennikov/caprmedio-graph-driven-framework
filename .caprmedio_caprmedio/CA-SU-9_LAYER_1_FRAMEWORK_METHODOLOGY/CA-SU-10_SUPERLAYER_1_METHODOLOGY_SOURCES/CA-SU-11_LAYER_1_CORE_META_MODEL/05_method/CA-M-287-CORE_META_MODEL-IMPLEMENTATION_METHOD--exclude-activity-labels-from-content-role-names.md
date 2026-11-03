@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Role
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Actor
-  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
 version: 25
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -20,10 +20,12 @@ form: Implementation Method
 
 Exclude Activity Labels from Content Role Names
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Content Role names.
 
-## Claim
 
 **to** name a Content Role, the Author **must not** use a verb, imperative, workflow instruction, Status, **or** activity label.

@@ -24,11 +24,13 @@ form: Rule
 
 Define General Artifact Graph
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the General Artifact Graph and its represented governed Artifacts and Structural Entities.
 
-## Claim
 
 
 

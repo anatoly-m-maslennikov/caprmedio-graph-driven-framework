@@ -18,11 +18,13 @@ form: Implementation Method
 
 Normalize Noncanonical CCE Operator Expressions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 noncanonical CCE Operator Expressions.
 
-## Claim
 
 **to** normalize one noncanonical CCE Operator Expression, the Author **must** apply **all** applicable rewrites:
 

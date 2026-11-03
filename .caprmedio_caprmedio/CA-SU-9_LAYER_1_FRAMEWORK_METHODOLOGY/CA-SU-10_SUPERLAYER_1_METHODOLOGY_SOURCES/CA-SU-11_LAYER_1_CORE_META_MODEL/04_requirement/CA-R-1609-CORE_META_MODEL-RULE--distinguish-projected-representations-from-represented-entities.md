@@ -20,11 +20,13 @@ form: Rule
 
 Distinguish projected representations from represented Entities
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Representations inside a Projection and the Entities they represent.
 
-## Claim
 
 a representation inside a Projection **must** remain distinct from the Entity it represents.
 

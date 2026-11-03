@@ -18,6 +18,19 @@ Define Value Format
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+CFEL <+ Format;
+Format.Data Type{:1}: [string]{:1};
+Format.Data Type.*[]{:0};
+Format.Uniqueness Selection{:0..1}: [string]{:1};
+Format.Uniqueness Selection.*[]{:0}
+```
+
+### Prose Claim
+
+
 Format defines the admissible value domain of each direct Property value,
 separately from its cardinality. In CFEL, `Format` is the language element for
 expressing that value domain. Data Type names the value domain. Uniqueness
@@ -30,13 +43,6 @@ null and an empty string each count as one direct value when present; Format
 and prose conditions determine admissibility.
 
 
-```CFEL
-CFEL <+ Format;
-Format.Data Type{:1}: [string]{:1};
-Format.Data Type.*[]{:0};
-Format.Uniqueness Selection{:0..1}: [string]{:1};
-Format.Uniqueness Selection.*[]{:0}
-```
 
 ## Semantics
 

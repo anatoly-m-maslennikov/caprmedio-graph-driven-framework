@@ -18,10 +18,12 @@ form: Decision
 
 Serialize Main Skill Invocation per Host
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Host Invocations for the CAPRMEDIO Main Skill **and** separately authorized compatibility layers.
 
-## Claim
 
 for the CAPRMEDIO Main Skill, the Host Invocation **must** serialize as `$ca` **in** Codex; **if** a Claude compatibility Extension **or** Operator-provided compatibility layer is separately authorized by the Operator, **then** its Host Invocation **must** serialize as `/ca` **in** Claude.

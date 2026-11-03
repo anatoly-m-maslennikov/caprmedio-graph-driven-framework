@@ -22,11 +22,13 @@ form: Eval Policy
 
 Validate Restricted CCE Canonical Signature Boundary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Canonical Signature derivations evaluated against the restricted CCE boundary.
 
-## Claim
 
 the Evaluation **must** reject a Canonical Signature derivation **if** any of the following is true:
 

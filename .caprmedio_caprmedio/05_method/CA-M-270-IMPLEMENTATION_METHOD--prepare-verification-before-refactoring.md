@@ -9,10 +9,10 @@ relations:
 subjects:
   active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Test Design
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Test Design
   - CAPRMEDIO_MODEL <+ Project
 llm_session_ids:
@@ -28,6 +28,9 @@ form: Implementation Method
 Prepare verification before refactoring
 
 ## Claim
+
+### Prose Claim
+
 
 **to** refactor existing Implementation, prepare the applicable verification **before** changing the target Implementation:
 

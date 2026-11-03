@@ -19,10 +19,12 @@ form: Rule
 
 Define Methodology Source
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Units selected as input to Applicable Methodology compilation.
 
-## Claim
 
 a Methodology Source **means** a Scope Unit selected as input **to** Applicable Methodology compilation.

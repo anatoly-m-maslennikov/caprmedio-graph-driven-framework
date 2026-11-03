@@ -18,10 +18,12 @@ form: Rule
 
 Validate Structural coordinates against authority
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 derived Ordered Scope Unit locations and their components.
 
-## Claim
 
 the validator **must** validate **every** derived Ordered Scope Unit location **and** **every** of its components against the active authority defining the Scope Unit Path and Local Order. It **must not** treat a Structural Coordinate or persisted Structural Level field as an independent authority.

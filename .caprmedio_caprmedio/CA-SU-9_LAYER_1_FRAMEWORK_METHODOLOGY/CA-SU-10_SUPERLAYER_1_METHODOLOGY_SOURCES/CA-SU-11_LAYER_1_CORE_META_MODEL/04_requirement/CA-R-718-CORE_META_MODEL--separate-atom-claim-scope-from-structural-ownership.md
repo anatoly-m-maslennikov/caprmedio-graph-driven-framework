@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  active: CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Scope Unit
-  - CAPRMEDIO_MODEL <+ Atom.Content.Claim Scope
+  - CAPRMEDIO_MODEL <+ Atom.Content.Claim.Prose Claim
 version: 44
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -22,10 +22,12 @@ form: Rule
 
 Separate Atom Claim Scope from structural ownership
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the relationship between an Atom's Claim targeting, textual applicability, **and** structural ownership.
 
-## Claim
 
 an Atom's Claim Target Scope Unit reference **and** applicability restrictions **in** its Main Content **must not**, by themselves, establish an additional edge **in** the Scope Unit tree **or** alter structural-parent ownership.

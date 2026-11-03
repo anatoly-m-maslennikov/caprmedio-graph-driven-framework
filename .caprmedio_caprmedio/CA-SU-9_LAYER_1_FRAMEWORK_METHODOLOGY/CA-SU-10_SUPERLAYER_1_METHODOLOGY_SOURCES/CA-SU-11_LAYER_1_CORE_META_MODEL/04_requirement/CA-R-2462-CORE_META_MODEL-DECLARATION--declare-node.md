@@ -19,6 +19,8 @@ Declare Node
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 (Node, Node.**) {:0}((*));
 (Node//, (Node//).**) {:0}((*));

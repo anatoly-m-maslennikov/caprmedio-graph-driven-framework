@@ -15,9 +15,11 @@ form: Decision
 ## Summary
 Serialize Filename Token Case
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 structured Atom filename tokens, Summary Slug, **and** extension.
 
-## Claim
 
 **every** structured Atom filename token **must** use uppercase ASCII with underscores inside tokens, while Summary Slug **and** extension **must** use lowercase ASCII.

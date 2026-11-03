@@ -23,11 +23,13 @@ form: Eval Policy
 
 Validate Canonical Scope Signature Boundary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Canonical Scope Signature derivations.
 
-## Claim
 
 the Evaluation **must** reject a Canonical Scope Signature derivation **if** **any** of the following holds:
 

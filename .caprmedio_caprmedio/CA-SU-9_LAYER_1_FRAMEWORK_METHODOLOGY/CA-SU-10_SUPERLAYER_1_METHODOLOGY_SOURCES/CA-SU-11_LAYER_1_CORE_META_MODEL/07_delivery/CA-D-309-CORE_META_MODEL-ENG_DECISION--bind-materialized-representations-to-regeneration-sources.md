@@ -18,11 +18,13 @@ form: Decision
 
 Bind Materialized Representations to Regeneration Sources
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 admitted materialized representation Carriers.
 
-## Claim
 
 **every** admitted materialized representation Carrier **must** have a recoverable binding **to** its exact canonical source Revision **and** **`=1`** deterministic regeneration **or** reconciliation rule.
 

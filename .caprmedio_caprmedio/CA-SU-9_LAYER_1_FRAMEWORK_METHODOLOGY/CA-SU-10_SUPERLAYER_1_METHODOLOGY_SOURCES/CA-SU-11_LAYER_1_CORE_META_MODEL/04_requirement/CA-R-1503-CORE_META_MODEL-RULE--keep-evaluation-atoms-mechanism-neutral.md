@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
@@ -19,11 +19,13 @@ form: Rule
 
 Keep Evaluation Atoms mechanism-neutral
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Evaluation Atom check definitions and their implementation mechanisms.
 
-## Claim
 
 an Evaluation Atom **must** define the checked Claim, applicable conditions, acceptance criteria, **and** disposition rule **without** prescribing the mechanism that realizes its check.
 

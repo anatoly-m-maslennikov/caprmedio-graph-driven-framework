@@ -19,10 +19,12 @@ form: Rule
 
 Configure Optional Projection Activation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Framework Instance Settings Artifact and registered optional Projections.
 
-## Claim
 
 the Framework Instance Settings Artifact **must** resolve **every** registered optional Projection as active **or** inactive, with inactive as the default **and** an unknown Type value under Projection rejected.

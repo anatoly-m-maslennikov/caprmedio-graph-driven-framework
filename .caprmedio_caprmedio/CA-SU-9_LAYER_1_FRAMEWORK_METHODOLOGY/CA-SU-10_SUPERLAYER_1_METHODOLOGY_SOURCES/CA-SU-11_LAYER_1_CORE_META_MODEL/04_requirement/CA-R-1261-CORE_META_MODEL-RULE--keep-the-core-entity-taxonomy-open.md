@@ -18,10 +18,12 @@ form: Rule
 
 Keep the Core Entity Taxonomy Open
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Core Meta-Model Entity subkind registry.
 
-## Claim
 
 the Core Meta-Model **must not** declare its Entity subkind registry exhaustive **or** prevent compatible Extension **and** Project Configuration subkinds.

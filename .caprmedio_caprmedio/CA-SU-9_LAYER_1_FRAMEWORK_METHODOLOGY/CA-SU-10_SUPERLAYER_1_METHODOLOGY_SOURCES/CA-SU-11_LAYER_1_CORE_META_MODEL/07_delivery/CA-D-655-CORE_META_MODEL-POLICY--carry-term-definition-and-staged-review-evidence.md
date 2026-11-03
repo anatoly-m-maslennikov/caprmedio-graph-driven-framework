@@ -7,7 +7,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
   - CAPRMEDIO_MODEL <+ Term
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
 version: 3
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,11 +19,13 @@ form: Policy
 
 Carry Term Definition and staged review evidence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Content of M/Term Definition Atoms and evidence returned by their well-formedness and staged usage checks.
 
-## Claim
 
 an M/Term Definition **must** carry its Term spelling **and** authoritative meaning **in** its registered Claim section, **and** its applicable meaning boundary **in** Claim scope **when** required by the existing applicability authority. carry supporting distinctions **and** examples **in** Semantics **or** Details **when** applicable under the registered body layout. a review result **must** identify the selected Term Definition Atom **and** revision, checked source boundary **and** coverage, checked stage, affected Atom **and** revision, exact field occurrence **and** relevant context, assessed condition **and** result, **and** any conflict **or** uncertainty. distinct results for definition well-formedness, meaning ownership, occurrence consistency **and** coverage **must not** be collapsed **into** an unqualified pass. this evidence **must not** require a dictionary Projection, lookup index, new storage format **or** synthetic graph entity.
 

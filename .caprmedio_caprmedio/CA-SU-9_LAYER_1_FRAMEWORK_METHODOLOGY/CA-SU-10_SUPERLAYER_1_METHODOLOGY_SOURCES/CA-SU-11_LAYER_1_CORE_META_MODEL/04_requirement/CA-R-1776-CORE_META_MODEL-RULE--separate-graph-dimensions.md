@@ -23,10 +23,12 @@ form: Rule
 
 Separate graph dimensions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Project's graph dimensions.
 
-## Claim
 
 CAPRMEDIO **must** keep Structural ownership, scope inclusion, local order, normative authority, applicability tier, Subject classification, semantic control, dependency, realization, information **or** result flow, **and** lifecycle succession as distinct graph dimensions. a position **or** edge on one dimension **must not** create **or** substitute for a position **or** edge on another.

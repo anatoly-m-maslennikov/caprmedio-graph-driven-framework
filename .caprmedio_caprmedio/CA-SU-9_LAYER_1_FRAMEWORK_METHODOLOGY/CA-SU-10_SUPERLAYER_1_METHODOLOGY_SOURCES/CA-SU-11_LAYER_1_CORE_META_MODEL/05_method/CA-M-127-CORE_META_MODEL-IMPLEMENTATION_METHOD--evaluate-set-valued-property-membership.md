@@ -21,10 +21,12 @@ form: Implementation Method
 
 Evaluate Set-valued Property Membership
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 evaluation of **in** **or** **not in** for one set-valued governed property.
 
-## Claim
 
 **to** evaluate **in** **or** **not in** for one set-valued governed property, the Resolver **must** evaluate **in** as true exactly **when** **`>=1`** property member **`=`** one listed value **and** **must** evaluate **not in** as true exactly **when** no property member **`=`** **any** listed value.

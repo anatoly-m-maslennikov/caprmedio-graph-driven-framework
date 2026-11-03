@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Header.Form'
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 24
 updated_at: 2026-11-02 18:35:20 +0400
@@ -26,11 +26,13 @@ form: Implementation Method
 
 Write Operations Claims with Type-specific CCE Profiles
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Operations Claims written with their admitted Operations Type-specific CCE Profiles.
 
-## Claim
 
 **to** write an Operations Claim, the Author **must** first resolve its admitted Operations Type **and** **then** apply **`=1`** primary Type profile:
 

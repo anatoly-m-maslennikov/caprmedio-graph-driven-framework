@@ -20,11 +20,13 @@ form: Rule
 
 Requirement — Bound recursive self-hosting
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO's own repository.
 
-## Claim
 
 CAPRMEDIO applies the same structural constitution **and** governance semantics **to** its own repository while keeping native reusable framework source, project authority, **and** non-authoritative convenience locators under distinct owners.
 

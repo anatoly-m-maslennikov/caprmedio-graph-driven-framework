@@ -20,11 +20,13 @@ form: Implementation Method
 
 Prefer Positive Normative Statements
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 normative Atom prose authored **in** CCE.
 
-## Claim
 
 **to** author normative Atom prose, state applicable conditions **and** required behavior positively **when** this preserves the complete Claim; an explicit prohibition is warranted **only** **when** it prevents a real ambiguity **or** protects an important boundary.
 

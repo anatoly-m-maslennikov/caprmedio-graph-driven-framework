@@ -16,10 +16,12 @@ form: Rule
 
 Register one canonical routing tree
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 machine-readable and human-readable CAPRMEDIO Routing Trees.
 
-## Claim
 
 **`=1`** machine-readable **and** human-readable routing tree **must** be registered as the sole owner of intent concepts, synonyms, entry criteria, route targets, authority effects, outputs, **and** approval requirements.

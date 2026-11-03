@@ -18,10 +18,12 @@ form: Decision
 
 Serialize CCE Operators **in** Bold
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CCE Operator occurrences within Markdown Atom Carrier Main Content.
 
-## Claim
 
 **every** CCE Operator occurrence within Markdown Atom Carrier Main Content **must** use its exact canonical spelling with bold rendering; a word-form CCE Operator **must** use lowercase bold text, while a symbolic CCE Operator **must** use bold inline-code rendering.

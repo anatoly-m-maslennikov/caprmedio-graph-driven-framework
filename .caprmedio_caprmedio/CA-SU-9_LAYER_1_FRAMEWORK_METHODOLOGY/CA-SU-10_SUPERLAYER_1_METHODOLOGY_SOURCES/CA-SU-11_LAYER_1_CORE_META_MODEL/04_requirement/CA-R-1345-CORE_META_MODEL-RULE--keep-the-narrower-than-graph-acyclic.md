@@ -18,10 +18,12 @@ form: Rule
 
 Keep the NARROWER_THAN graph acyclic
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the NARROWER_THAN graph.
 
-## Claim
 
 the NARROWER_THAN graph **must** remain acyclic.

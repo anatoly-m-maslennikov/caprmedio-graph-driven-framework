@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
@@ -21,11 +21,13 @@ form: Implementation Method
 
 Author FPF Analysis Reports
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoring and content-preserving import of FPF Analysis Report Atoms.
 
-## Claim
 
 **to** author an FPF Analysis Report, use the common Analysis & Advisory structure under CA-D-479 and retain the report's bounded question, scope, approach, results, provenance and evidence limits without treating its recommendations as accepted specification.
 

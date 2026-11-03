@@ -25,4 +25,7 @@ Keep the framework configurable and extensible
 
 ## Claim
 
+### Prose Claim
+
+
 the CAPRMEDIO Framework Instance **must** support Configuration of available capabilities **and** addition of new capabilities through Extensions.

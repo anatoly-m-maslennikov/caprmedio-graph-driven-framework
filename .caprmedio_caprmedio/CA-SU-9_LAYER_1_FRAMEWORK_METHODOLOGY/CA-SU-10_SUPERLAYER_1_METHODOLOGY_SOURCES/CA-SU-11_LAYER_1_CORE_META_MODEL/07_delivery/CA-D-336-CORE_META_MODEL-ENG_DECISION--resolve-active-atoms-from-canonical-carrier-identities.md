@@ -2,7 +2,7 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Carrier.Canonical Address
 version: 30
 updated_at: 2026-11-02 00:18:22 +0400
@@ -19,11 +19,13 @@ form: Decision
 
 Resolve Active Atoms from Canonical Carrier Identities
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Active Atom Carrier discovery from selected Project-owned Markdown source frontiers.
 
-## Claim
 
 Active Atom Carrier discovery **must** resolve requested Atom IDs from the identities carried inside the selected Project-owned Markdown source frontier **and** select carried Status Active.
 

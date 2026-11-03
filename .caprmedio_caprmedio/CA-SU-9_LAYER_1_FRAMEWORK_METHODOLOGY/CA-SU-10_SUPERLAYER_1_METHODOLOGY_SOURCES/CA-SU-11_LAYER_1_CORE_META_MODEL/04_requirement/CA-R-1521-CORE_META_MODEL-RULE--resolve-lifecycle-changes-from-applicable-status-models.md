@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   passive:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Content Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Scope Unit.order.ordered
-  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Carrier
 version: 32
@@ -25,11 +25,13 @@ form: Rule
 
 Resolve lifecycle changes from applicable Status models
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Workflows that change an Entity's Status.
 
-## Claim
 
 a Workflow for changing an Entity's Status **must** admit **any** requested Status allowed by that Entity's applicable status model, rather than a fixed list built into the Workflow. For Atom creation **and** explicit Atom Status updates, **any** value admitted by the qualified Content Role/Type model is selectable **without** a required intermediate Status **or** transition matrix.
 

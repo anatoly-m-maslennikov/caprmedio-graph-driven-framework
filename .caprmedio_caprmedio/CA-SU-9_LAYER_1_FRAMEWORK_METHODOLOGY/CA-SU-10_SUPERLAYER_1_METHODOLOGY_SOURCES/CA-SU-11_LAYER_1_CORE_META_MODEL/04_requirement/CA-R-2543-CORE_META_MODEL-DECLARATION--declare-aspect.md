@@ -18,10 +18,16 @@ Declare Aspect
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Aspect;
-Aspect ((NARROWER_THAN)) @Node
+Aspect ((NARROWER_THAN)) Node
 ```
+
+### Prose Claim
+
+
 
 - MODEL declares the generic Aspect.
 - All concrete Aspects are instances in the applicable PROJECT STRUCTURE tree.

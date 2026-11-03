@@ -16,6 +16,8 @@ Declare METHODOLOGY_SOURCES
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//METHODOLOGY_SOURCES.ID == "CA-SU-10";
 Scope Unit//METHODOLOGY_SOURCES.Name == "METHODOLOGY_SOURCES";

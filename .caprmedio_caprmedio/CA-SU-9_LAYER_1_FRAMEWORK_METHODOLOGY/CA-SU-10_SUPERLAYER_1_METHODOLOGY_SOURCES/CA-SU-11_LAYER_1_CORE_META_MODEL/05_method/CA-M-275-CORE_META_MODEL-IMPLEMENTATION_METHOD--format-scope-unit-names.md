@@ -20,10 +20,12 @@ form: Implementation Method
 
 Format Scope Unit Names
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit Names.
 
-## Claim
 
 **to** write a Scope Unit Name, join nonempty uppercase letter-or-digit word tokens with single underscores.

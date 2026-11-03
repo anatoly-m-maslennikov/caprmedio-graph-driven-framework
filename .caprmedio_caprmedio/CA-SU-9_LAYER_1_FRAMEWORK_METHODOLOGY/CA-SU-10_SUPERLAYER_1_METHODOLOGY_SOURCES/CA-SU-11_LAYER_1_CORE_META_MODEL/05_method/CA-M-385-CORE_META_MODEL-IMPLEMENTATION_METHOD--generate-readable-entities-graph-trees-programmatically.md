@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
   passive:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
@@ -23,11 +23,13 @@ form: Implementation Method
 
 Generate readable Entities Graph trees programmatically
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The readable structural Inherency and named declaration views of an Entities Graph.
 
-## Claim
 
 Generate the structural Inherency and selected named declaration views with deterministic code from their selected sources and explicit governing evidence. **Do not** use an LLM to choose nodes, classify edges, invent relations or arrange the output.
 

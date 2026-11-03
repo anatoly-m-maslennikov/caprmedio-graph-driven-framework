@@ -18,11 +18,13 @@ form: Decision
 
 Select material production log events
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production log emission under Logging Policies for production-relevant components.
 
-## Claim
 
 production logs record material state transitions **and** boundary outcomes; ordinary internal ticks do **not** define routine production log events.
 

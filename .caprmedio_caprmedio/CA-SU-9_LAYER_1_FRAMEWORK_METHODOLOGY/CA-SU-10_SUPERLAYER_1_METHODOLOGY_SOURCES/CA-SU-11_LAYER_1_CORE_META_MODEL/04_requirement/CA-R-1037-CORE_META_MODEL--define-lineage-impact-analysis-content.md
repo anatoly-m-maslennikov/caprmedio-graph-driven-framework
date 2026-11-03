@@ -18,10 +18,12 @@ form: Rule
 
 Define Lineage Impact Analysis content
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Lineage Impact Analysis Atoms.
 
-## Claim
 
 a Lineage Impact Analysis Atom **must** identify the changed Atom **and** exact previous **and** new Revisions, change class **and** basis, responsible Operator **and** session provenance, expected impact radius, **every** examined child Revision **and** disposition with its basis, **every** resulting Revision, successor, **or** blocking Concern Atom, **every** recursive branch result, **and** the overall fixed-point conclusion.

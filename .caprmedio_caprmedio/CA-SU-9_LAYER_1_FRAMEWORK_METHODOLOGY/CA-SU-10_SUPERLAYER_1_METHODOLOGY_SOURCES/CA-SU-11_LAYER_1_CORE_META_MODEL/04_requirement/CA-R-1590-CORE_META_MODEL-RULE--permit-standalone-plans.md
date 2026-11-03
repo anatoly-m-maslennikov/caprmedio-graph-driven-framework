@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom
@@ -19,10 +19,12 @@ form: Rule
 
 Permit standalone Plans
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan Atoms.
 
-## Claim
 
 a Plan Atom **may** exist **without** an `IS_CONTAINED_BY` connection to a containing Plan; its Label **must not** require a containing Plan.

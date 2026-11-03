@@ -2,11 +2,11 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
   - CAPRMEDIO_MODEL <+ Carrier
 version: 24
@@ -24,11 +24,13 @@ form: Rule
 
 Define Specification Content Roles
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Specification Content Roles (Spec, RMED).
 
-## Claim
 
 Specification Content Roles (Spec, RMED) **means** the set (Requirement, Method, Evaluation, Delivery) that specifies governed content **and** Entities, including CAPO **and** I.
 

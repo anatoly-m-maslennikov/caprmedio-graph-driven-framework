@@ -19,11 +19,13 @@ form: Decision
 
 Place Local Environment Injection Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 secret values and local environment injection Carriers.
 
-## Claim
 
 secret values **must** be stored **only** **in**:
 

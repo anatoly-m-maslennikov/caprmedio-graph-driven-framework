@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Property
   - CAPRMEDIO_MODEL <+ Entity
@@ -11,16 +11,16 @@ subjects:
   - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Projection
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 44
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -47,10 +47,12 @@ form: Eval Policy
 ## Summary
 Validate Entities Graph
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Entities Graphs **and** selected views, including source selection, display selection, **and** governing source constraints.
 
-## Claim
 
 the Evaluation **must** reject an Entities Graph **if** **any** of:
 

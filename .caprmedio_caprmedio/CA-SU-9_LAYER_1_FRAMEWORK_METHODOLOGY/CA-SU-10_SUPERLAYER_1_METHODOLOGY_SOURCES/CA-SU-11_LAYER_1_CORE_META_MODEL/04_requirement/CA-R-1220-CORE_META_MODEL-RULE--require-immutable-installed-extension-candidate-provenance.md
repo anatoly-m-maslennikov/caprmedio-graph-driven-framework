@@ -19,10 +19,12 @@ form: Rule
 
 Require Immutable Installed Extension Candidate Provenance
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Installed Extensions Catalog Entries and immutable Extension Candidates.
 
-## Claim
 
 **every** Installed Extensions Catalog Entry **must** identify **`=1`** immutable Extension Candidate by stable Identity, Version, Author, Source, Source Version, Origin, **and** Content Digest.

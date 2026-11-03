@@ -25,4 +25,7 @@ Provide usable CAPRMEDIO versions and release notes
 
 ## Claim
 
+### Prose Claim
+
+
 RELEASES **must** provide the Operator with usable, evaluated versions of CAPRMEDIO **and** their release notes describing changes, compatibility, **and** known limitations.

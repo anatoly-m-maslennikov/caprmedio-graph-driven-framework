@@ -19,11 +19,13 @@ form: Decision
 
 Carry Projected Atoms without New Identity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The source binding and representation of each Atom Carrier projected as an Applicable Methodology member.
 
-## Claim
 
 Applicable Methodology **must** represent each projected Atom Carrier with a one-way source binding **to** its selected authoritative Atom Revision **without** creating another Atom identity:
 

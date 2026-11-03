@@ -1,21 +1,21 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Role
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Tier
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_MODEL <+ Package/Implementation
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   - CAPRMEDIO_MODEL <+ Actor
-  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Action
-  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Workflow
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_MODEL <+ Carrier
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400
@@ -41,11 +41,13 @@ form: Eval Policy
 
 Validate Tier Zero Content-role semantics
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a Tier 0 Atom’s Content Role classification.
 
-## Claim
 
 a Tier 0 Atom’s Content Role classification **must** fail this Evaluation **if** its complete Claim's primary contribution does **not** match the applicable Content Role definition.
 

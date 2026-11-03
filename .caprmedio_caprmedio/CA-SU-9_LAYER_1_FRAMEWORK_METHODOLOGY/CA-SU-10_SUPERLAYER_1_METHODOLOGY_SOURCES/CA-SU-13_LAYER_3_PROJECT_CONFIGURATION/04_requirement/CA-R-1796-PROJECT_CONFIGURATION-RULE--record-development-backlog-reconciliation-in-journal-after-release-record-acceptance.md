@@ -18,9 +18,11 @@ form: Rule
 ## Summary
 Record Development Backlog reconciliation **in** Journal **after** Release Record acceptance
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Development Backlog reconciliation **after** the Release Record is accepted.
 
-## Claim
 
 CAPRMEDIO **must** append Journal records for Development Backlog reconciliation.

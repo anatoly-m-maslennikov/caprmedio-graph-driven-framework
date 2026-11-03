@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Role
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
 version: 35
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -20,10 +20,12 @@ form: Rule
 
 Require Stable Noun Content Role Names
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 canonical Content Role names.
 
-## Claim
 
 **every** canonical Content Role name **must** be a noun that names its primary contribution **and** remains stable across workflow, Actor, Tool, **and** implementation changes.

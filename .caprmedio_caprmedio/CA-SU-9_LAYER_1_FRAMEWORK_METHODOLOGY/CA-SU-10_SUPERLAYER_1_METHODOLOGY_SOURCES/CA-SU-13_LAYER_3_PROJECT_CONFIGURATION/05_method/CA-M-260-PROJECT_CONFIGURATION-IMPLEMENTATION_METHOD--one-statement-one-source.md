@@ -2,7 +2,7 @@
 cce_version: cce_1
 cce_form: method
 subjects:
-  active: 'CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
+  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Applicable Methodology Compilation'
   passive:
   - CAPRMEDIO_MODEL <+ Project
 version: 23
@@ -23,5 +23,8 @@ form: Implementation Method
 One statement, one source
 
 ## Claim
+
+### Prose Claim
+
 
 **to** represent a governed statement **in** the Project, maintain **`=1`** authoritative source for that statement **in** the same context **and** make **all** other representations reference **or** derive from that source **without** independent authority.

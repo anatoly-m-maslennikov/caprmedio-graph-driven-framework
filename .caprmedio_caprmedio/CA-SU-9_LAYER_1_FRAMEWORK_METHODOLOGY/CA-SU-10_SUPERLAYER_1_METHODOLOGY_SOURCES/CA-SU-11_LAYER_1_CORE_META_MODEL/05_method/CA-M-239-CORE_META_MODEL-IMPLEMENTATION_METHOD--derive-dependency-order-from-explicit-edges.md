@@ -5,7 +5,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Term//Artifact
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)/(.Type: Plan)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -23,11 +23,13 @@ form: Implementation Method
 
 Derive Dependency Order from Explicit Edges
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 non-Plan Artifact dependency order derivation from explicit edges.
 
-## Claim
 
 **to** derive one non-Plan Artifact dependency order, the resolver **must**:
 

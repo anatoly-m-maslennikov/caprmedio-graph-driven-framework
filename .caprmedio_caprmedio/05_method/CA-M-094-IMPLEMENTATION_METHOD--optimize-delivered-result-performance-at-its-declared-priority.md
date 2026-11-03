@@ -27,4 +27,7 @@ Optimize delivered-result performance at its declared priority
 
 ## Claim
 
+### Prose Claim
+
+
 choose among acceptable alternatives by optimizing the delivered result against its applicable Project-defined performance measures according **to** the current Operator-declared performance priority.

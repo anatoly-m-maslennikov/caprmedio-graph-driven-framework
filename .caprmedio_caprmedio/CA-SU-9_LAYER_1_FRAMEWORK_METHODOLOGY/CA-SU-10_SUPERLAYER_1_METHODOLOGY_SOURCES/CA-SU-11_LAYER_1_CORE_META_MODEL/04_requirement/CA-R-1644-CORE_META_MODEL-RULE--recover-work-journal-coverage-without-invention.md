@@ -21,11 +21,13 @@ form: Rule
 
 Recover Work Journal coverage without invention
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 recovered observations retained by a Journal.
 
-## Claim
 
 a Journal **may** retain an Event Record recovered from evidence **only** for facts established by **any** of:
 

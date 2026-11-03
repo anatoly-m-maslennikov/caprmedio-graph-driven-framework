@@ -20,10 +20,12 @@ form: Rule
 
 Let the dependent Atom own the relation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 direct semantic relations owned by dependent Atoms.
 
-## Claim
 
 the dependent Atom **must** own the **`=1`** authoritative declaration of its direct semantic relation.

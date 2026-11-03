@@ -3,12 +3,12 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
   - CAPRMEDIO_MODEL <+ Term
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow) {1+}<+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Step)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow) {:1+}<+ Atom/(.Header.Role: Operations)/(.Header.Form: Step)'
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
 version: 5
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -26,11 +26,13 @@ form: Implementation Method
 
 Atom Claims expose their meaning, conditions and consequences clearly.
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom Claims.
 
-## Claim
 
 **to** make an Atom Claim easy **to** understand, the Author **must** express **and** organize its content so the intended reader can identify what is claimed, what it concerns, **and** how its conditions **and** consequences fit together **without** guessing unstated connections.
 

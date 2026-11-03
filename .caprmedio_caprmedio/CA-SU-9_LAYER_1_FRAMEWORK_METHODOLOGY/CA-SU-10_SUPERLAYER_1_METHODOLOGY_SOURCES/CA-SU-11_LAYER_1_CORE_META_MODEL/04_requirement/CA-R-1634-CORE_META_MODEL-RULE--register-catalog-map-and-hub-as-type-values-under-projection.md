@@ -23,11 +23,13 @@ form: Rule
 
 Register Catalog, Map, and Hub as Type Values under Projection
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection Type values and derived terminology lists or vocabulary diagnostic indexes.
 
-## Claim
 
 Catalog, Map, **and** Hub **must** be distinct Type values under Projection with no authority over linked Artifact Claims.
 

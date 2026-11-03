@@ -22,11 +22,13 @@ form: Policy
 
 Bind Carriers to their represented current or historical Entities
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Carrier bindings of non-ephemeral Entities.
 
-## Claim
 
 a Carrier binding **must** identify the Entity actually represented by that Carrier. a current Entity's Carrier binds that current Entity; a preserved historical version's Carrier binds that archived Atom version or the historical record actually represented, not a separate Revision entity. citing a current Entity's Version **must not** reclassify the current Entity as an archived version.
 

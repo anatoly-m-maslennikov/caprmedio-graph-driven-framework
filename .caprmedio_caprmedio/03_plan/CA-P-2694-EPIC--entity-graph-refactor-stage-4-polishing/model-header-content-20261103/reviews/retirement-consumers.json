@@ -1,0 +1,126 @@
+{
+  "status": "postcheck_verified_read_only",
+  "scope": {
+    "frontier_file": "integration/mechanical-source-files.txt",
+    "frontier_sha256": "56761ee2de840008cd3ced2263140cb5187b8abff4c4a64cbcae14349264d50e",
+    "frontier_files": 1158,
+    "missing_files": 0,
+    "archive_paths_scanned": 0,
+    "proposal_corpus_scanned": false,
+    "plan_sha256": "4354341d5df4f9fd94b0d0da312a815351d3eda167dd24dc0051d61d4e523e1b",
+    "postcheck_plan_sha256": "d366f6ca32fd553afc510363a24fc26f3179250b699ad681dc2e169863f4ee52",
+    "receipt_plan_sha256": "d366f6ca32fd553afc510363a24fc26f3179250b699ad681dc2e169863f4ee52"
+  },
+  "postcheck_receipt": {
+    "status": "APPLIED_VERIFIED",
+    "selected": 5,
+    "changed": 5,
+    "second_apply_changed": 0,
+    "source_ids": [
+      "CA-E-460",
+      "CA-E-506",
+      "CA-E-511",
+      "CA-R-1588",
+      "CA-D-283"
+    ],
+    "plan_hash_matches": true,
+    "all_after_hashes_match": true,
+    "records": [
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-460-CORE_META_MODEL-EVAL_CASE--validate-atom-set-selection-and-the-spec-alias.md",
+        "after_sha256_matches": true
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-EVAL_CASE--validate-self-sufficient-atom-carriers.md",
+        "after_sha256_matches": true
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-EVAL_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+        "after_sha256_matches": true
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1588-CORE_META_MODEL-RULE--default-plan-target-to-the-enclosing-scope-unit.md",
+        "after_sha256_matches": true
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md",
+        "after_sha256_matches": true
+      }
+    ]
+  },
+  "counts": {
+    "files_by_status": {
+      "Active": 1154,
+      "Draft": 4
+    },
+    "retired_ids": 3,
+    "replaced_old_ids": 23,
+    "unversioned_live_edges_to_retirees": 0,
+    "unversioned_live_edges_to_replaced_ids": 0,
+    "explicit_versioned_live_edges": 0,
+    "unversioned_body_refs_to_retirees": 0,
+    "unversioned_body_refs_to_replaced_ids": 0,
+    "summary_titles_excluded": true,
+    "current_filename_mentions": 0,
+    "archive_paths_in_frontier": 0
+  },
+  "target_reference_counts": {
+    "CA-D-482": {
+      "edges": 0,
+      "texts": 0
+    },
+    "CA-R-2501": {
+      "edges": 0,
+      "texts": 0
+    },
+    "CA-R-2595": {
+      "edges": 0,
+      "texts": 0
+    },
+    "CA-R-2497": {
+      "edges": 0,
+      "texts": 0
+    }
+  },
+  "evaluation_for_after_repair": {
+    "CA-E-460": [
+      "CA-R-2102",
+      "CA-D-495",
+      "CA-M-273",
+      "CA-M-288",
+      "CA-R-1271",
+      "CA-R-1447",
+      "CA-R-1448",
+      "CA-R-1449",
+      "CA-R-1595@21",
+      "CA-R-1596",
+      "CA-R-942"
+    ],
+    "CA-E-506": [
+      "CA-R-1598",
+      "CA-R-1599",
+      "CA-D-478",
+      "CA-D-479",
+      "CA-D-480",
+      "CA-R-2102",
+      "CA-D-483",
+      "CA-D-485",
+      "CA-D-460",
+      "CA-D-470"
+    ],
+    "CA-E-511": [
+      "CA-R-2102",
+      "CA-D-495",
+      "CA-R-1271",
+      "CA-R-1588",
+      "CA-R-1595@21",
+      "CA-R-1596",
+      "CA-R-922",
+      "CA-R-923"
+    ]
+  },
+  "remaining_unversioned_live_edges": [],
+  "remaining_body_refs_outside_summary": [],
+  "incidental_current_filenames": [],
+  "interpretation": "Zero unversioned relations/subjects or non-Summary body references remain to retired IDs or replaced Header IDs. Explicit @N references, if present, are frozen-history pins. Summary titles were excluded. The three evaluation_for repairs now target CA-R-2102; R1588 no longer cites D482; D283 now cites CA-R-2705."
+}

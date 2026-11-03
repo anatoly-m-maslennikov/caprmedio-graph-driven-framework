@@ -11,7 +11,7 @@ subjects:
   active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   passive:
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
 cce_version: cce_1
 cce_form: obligation
@@ -26,5 +26,8 @@ form: Rule
 Target Project improvement at the system being developed
 
 ## Claim
+
+### Prose Claim
+
 
 a Project-improvement cycle **in** caprmedio **must** improve the CAPRMEDIO Framework being developed through changes **to** its PRMEDO authority, its Implementation, **or** their combination.

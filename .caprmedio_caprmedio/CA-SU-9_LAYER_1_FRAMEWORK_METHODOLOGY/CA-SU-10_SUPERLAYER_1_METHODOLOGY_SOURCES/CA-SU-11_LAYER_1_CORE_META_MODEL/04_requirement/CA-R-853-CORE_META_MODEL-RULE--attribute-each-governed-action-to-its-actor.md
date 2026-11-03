@@ -16,10 +16,12 @@ form: Rule
 
 Attribute each governed action to its Actor
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 governed actions.
 
-## Claim
 
 **every** governed action **must** identify its initiating Actor **and** the approval **or** active delegation that authorized it.

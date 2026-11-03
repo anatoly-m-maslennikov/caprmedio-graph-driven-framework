@@ -18,18 +18,23 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Define Project.Framework Settings.Artifact Timestamp Timezone
 
-## Claim scope
-
-the Artifact timestamp timezone setting in Framework Settings.
-
 ## Claim
 
-The value supplies the timezone used when emitting Artifact timestamps.
+### Formal Claim
 
 ```CFEL
 Project.Settings.Artifact Timestamp Timezone{:0..1}: [string]{:1};
 Project.Settings.Artifact Timestamp Timezone.*[]{:0}
 ```
+
+### Prose Claim
+
+
+the Artifact timestamp timezone setting in Framework Settings.
+
+
+The value supplies the timezone used when emitting Artifact timestamps.
+
 
 ## Details
 

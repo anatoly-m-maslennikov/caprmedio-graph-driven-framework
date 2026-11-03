@@ -17,7 +17,7 @@ status: Active
 atom_id: CA-R-030
 tier: 2
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Relations
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Relations
 role: Requirement
 form: Rule
 ---
@@ -25,6 +25,9 @@ form: Rule
 Require complete authority topology in strict mode
 
 ## Claim
+
+### Prose Claim
+
 
 a scope **in** strict authority mode **must** maintain a complete, conflict-free active PRMEDO authority topology with these constraints:
 

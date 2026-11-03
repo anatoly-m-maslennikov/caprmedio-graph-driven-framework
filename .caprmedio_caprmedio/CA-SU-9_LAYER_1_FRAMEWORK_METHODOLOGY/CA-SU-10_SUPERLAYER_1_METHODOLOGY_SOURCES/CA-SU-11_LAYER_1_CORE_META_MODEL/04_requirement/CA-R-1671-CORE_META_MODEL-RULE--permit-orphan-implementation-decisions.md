@@ -19,11 +19,13 @@ form: Rule
 
 Permit orphan Implementation Decisions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 orphan permission for an active Eng Decision in strict authority mode.
 
-## Claim
 
 `eng_decision` **must** be registered as orphan-permitted, so an active Eng Decision **may** have no parent Eng Policy even **in** strict authority mode.
 

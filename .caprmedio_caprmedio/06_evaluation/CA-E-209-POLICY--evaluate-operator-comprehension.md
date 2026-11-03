@@ -28,6 +28,9 @@ Evaluate operator comprehension
 
 ## Claim
 
+### Prose Claim
+
+
 the intended Operator can identify the represented meaning, available controls, **and** material consequences.
 
 ## Applicable conditions

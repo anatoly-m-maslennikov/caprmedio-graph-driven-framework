@@ -16,10 +16,12 @@ form: Rule
 
 Bind governed transactions to stable artifact revisions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 governed changes.
 
-## Claim
 
 **every** governed change forms one directed provenance transaction from exact parent Artifact revisions **to** the governed Artifacts **or** native targets created **or** revised by that change.

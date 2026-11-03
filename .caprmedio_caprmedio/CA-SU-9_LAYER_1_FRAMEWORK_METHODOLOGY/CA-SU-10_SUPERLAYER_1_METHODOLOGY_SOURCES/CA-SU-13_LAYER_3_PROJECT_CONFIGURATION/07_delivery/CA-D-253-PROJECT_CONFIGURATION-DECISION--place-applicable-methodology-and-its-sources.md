@@ -19,10 +19,12 @@ form: Decision
 
 Place Applicable Methodology and Its Sources
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Applicable Methodology Carrier topology.
 
-## Claim
 
 the Applicable Methodology Carrier topology **must** separate authoritative Methodology Source Carriers from non-authoritative projected member Carriers.

@@ -7,7 +7,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//ID
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Term Definition'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Term Definition)'
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,11 +19,13 @@ form: Term Definition
 
 Define ID
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The reusable lexical Term `ID` as used for identifiers of Continuant and Occurrent entity instances within a matching prefix namespace.
 
-## Claim
 
 ID **means** a unique identifier used **to** find **`=1`** entity instance, whether Continuant **or** Occurrent, whose uniqueness is bounded **to** its matching prefix namespace. This Claim explicitly introduces the lexical Term instance named ID at `Entity/Object/Continuant/Term//ID`.
 

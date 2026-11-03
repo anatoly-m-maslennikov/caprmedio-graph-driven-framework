@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Substep
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Substep
 version: 4
 updated_at: 2026-11-02 17:54:42 +0400
 relations: {}
@@ -19,8 +19,10 @@ Declare Substep
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
-Atom/(.Role: Operations)/Substep;
+Atom/(.Header.Role: Operations)/Substep;
 Substep//{:1}((IS_CONTAINED_BY)) Step//;
 Substep//{:1}((RUNS)) Action//
 ```

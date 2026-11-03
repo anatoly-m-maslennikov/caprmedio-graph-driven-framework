@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Local Scope Unit'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Local Scope Unit'
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Place Concerns at the narrowest owning scope
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a Concern whose subject spans multiple Structural scopes.
 
-## Claim
 
 a Concern whose subject spans multiple Structural scopes belongs **to** their narrowest common ancestor.

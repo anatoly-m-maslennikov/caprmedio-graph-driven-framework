@@ -21,4 +21,7 @@ Support repository relative work areas
 
 ## Claim
 
+### Prose Claim
+
+
 CAPRMEDIO **must** support repository-level work **and** repository-relative Scope Units, including Scope Units using the `WORK_AREA` Label, containing code, services, libraries, documentation, methodology, data, **or** mixed content **without** requiring a particular architecture **or** deployability model.

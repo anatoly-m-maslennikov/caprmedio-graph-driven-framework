@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern/Type'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Header.Form'
   passive:
   - CAPRMEDIO_MODEL <+ Carrier
 version: 24
@@ -18,11 +18,13 @@ form: Decision
 
 Serialize Concern Type Tokens
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the serialization of Concern Type tokens in a Concern Atom File Carrier filename.
 
-## Claim
 
 a Concern Atom File Carrier **must** serialize the following Type components within the Atom filename grammar governed by CA-D-283 **and** CA-D-284:
 

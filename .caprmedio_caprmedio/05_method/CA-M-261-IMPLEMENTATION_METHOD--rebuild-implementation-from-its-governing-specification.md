@@ -26,6 +26,9 @@ The creation or evolution of this Project's Implementation.
 
 ## Claim
 
+### Prose Claim
+
+
 **to** create **or** evolve the Implementation, keep it rebuildable from the current governing RMED **without** relying on the existing Implementation **or** first preparing missing authority.
 
 ## Details

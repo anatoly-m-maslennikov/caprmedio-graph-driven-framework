@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Eng Decision'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Eng Decision)'
 version: 35
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,11 +18,13 @@ form: Rule
 
 Define Implementation Decision as a Type Value for Method Atoms
 
-## Claim scope
-
-`Atom/Content Role: Method/Type: Eng Decision` values.
-
 ## Claim
+
+### Prose Claim
+
+
+`Atom/(.Header.Role := Method)/(.Header.Form := Eng Decision)` values.
+
 
 Eng Decision **means** the internal Type value under Content Role Method for one concrete implementation choice bounded **to** an explicit realization target.
 

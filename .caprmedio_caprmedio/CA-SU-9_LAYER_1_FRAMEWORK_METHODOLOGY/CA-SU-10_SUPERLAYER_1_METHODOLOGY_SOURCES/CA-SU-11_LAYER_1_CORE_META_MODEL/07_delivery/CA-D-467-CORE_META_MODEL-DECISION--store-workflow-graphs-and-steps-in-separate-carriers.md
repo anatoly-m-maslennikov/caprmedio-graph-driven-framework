@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   passive:
   - CAPRMEDIO_MODEL <+ Carrier/Directory
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Workflow
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Step
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
 version: 28
 updated_at: 2026-11-02 17:54:42 +0400
 relations:
@@ -24,11 +24,13 @@ form: Decision
 
 Store Workflow graphs **and** Steps in separate carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 folder-backed Workflows, Step Carriers, **and** their leaf Substep Carriers.
 
-## Claim
 
 a folder-backed Workflow **must** use **`=1`** Workflow Atom Markdown Carrier **and** **`<=1`** optional sibling Directory Carrier with the same filename stem. the Directory Carrier contains separate Markdown Carriers for its Step Atoms; it **must not** contain a second Workflow definition.
 

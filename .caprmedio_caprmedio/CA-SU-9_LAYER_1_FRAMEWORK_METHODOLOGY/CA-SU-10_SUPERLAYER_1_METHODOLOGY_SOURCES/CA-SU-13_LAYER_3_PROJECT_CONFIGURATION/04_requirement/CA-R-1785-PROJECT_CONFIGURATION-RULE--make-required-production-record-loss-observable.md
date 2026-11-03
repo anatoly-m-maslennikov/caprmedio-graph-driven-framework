@@ -18,11 +18,13 @@ form: Rule
 
 Make required production-record loss observable
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 logging Implementation **when** required records are lost **or** suppressed under production Logging Policies.
 
-## Claim
 
 logging Implementation **must** produce an observable failure signal **when** required records are lost **or** suppressed.
 

@@ -18,6 +18,9 @@ Capture Projection input and output metadata
 
 ## Claim
 
+### Prose Claim
+
+
 An Event Record for Projection creation or update has object_output. An update record also has object_input; creation input is optional.
 
 For each present Projection input or output, the Event Record captures:

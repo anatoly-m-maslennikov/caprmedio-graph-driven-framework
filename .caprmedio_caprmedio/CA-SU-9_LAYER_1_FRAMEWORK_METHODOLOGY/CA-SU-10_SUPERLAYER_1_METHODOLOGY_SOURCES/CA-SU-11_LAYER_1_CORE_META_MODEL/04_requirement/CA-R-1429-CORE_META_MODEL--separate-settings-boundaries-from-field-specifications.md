@@ -4,7 +4,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Project.Settings
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
   - CAPRMEDIO_MODEL <+ Scope Unit
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
@@ -21,11 +21,13 @@ form: Rule
 
 Separate settings boundaries from field specifications
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the authority boundary between settings foundations, shared settings specifications, **and** concrete specifications.
 
-## Claim
 
 - the settings foundations for Project Settings, Framework Instance Settings, **and** Default Settings **must** define their purpose, content, **and** authority boundaries;
 - an independently governable shared settings specification **must** preserve those foundations **without** selecting a concrete representation;

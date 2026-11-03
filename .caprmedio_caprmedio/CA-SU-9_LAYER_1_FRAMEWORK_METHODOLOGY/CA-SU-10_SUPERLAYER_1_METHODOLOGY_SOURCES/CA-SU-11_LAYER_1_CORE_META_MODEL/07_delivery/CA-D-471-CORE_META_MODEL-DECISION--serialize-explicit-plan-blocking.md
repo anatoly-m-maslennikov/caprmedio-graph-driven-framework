@@ -2,10 +2,10 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO_MODEL <+ Atom.ID
-  - CAPRMEDIO_MODEL <+ Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
 version: 24
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -23,11 +23,13 @@ form: Decision
 
 Serialize explicit Plan blocking
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 explicit `A BLOCKS B` facts, including their storage on Plan `A` under `relations.blocks` for Plan `B`.
 
-## Claim
 
 **every** explicit `A BLOCKS B` fact **must** be stored once on Plan `A` under `relations.blocks`, as a unique canonical Atom ID for Plan `B`; an omitted list encodes **`=0`** outgoing blocking Relations.
 

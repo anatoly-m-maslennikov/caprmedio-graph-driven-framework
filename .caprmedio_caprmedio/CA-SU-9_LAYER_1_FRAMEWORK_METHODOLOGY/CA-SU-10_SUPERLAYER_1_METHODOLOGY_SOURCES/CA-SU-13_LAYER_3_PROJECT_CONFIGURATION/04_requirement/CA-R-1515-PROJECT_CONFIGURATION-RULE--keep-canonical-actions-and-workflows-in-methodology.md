@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
   - CAPRMEDIO_MODEL <+ Scope Unit
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
@@ -25,11 +25,13 @@ form: Rule
 
 Keep canonical Actions and Workflows in methodology
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the canonical O definitions of Actions and Workflows used by TOOLS in the caprmedio Project.
 
-## Claim
 
 **in** the caprmedio Project, the canonical O definitions of Actions **and** Workflows used by TOOLS **must** belong **to** methodology source Scope Units.
 

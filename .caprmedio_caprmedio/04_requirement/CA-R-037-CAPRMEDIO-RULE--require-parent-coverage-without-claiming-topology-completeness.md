@@ -16,7 +16,7 @@ status: Active
 atom_id: CA-R-037
 tier: 2
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Relations
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Relations
 role: Requirement
 form: Rule
 ---
@@ -24,6 +24,9 @@ form: Rule
 Require parent coverage without claiming topology completeness
 
 ## Claim
+
+### Prose Claim
+
 
 **in** strict authority mode, **every** active tier-classified PRMEDO Atom **must** have **`>=1`** permitted active parent **unless** the applicable Type authority registers its Type as orphan-permitted.
 

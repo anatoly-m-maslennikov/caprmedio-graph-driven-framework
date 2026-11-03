@@ -16,11 +16,13 @@ form: Decision
 
 Require actionable ERROR and WARNING records
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 ERROR **and** WARNING production log records.
 
-## Claim
 
 an `ERROR` **or** `WARNING` record **must** be actionable: it identifies the failed **or** degraded condition, affected scope, expected operator **or** automated response, **and** whether retry is safe.
 

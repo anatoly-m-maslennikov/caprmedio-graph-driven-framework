@@ -2,8 +2,8 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
 version: 37
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -20,10 +20,12 @@ form: Demand
 ## Summary
 Restrict ordered Demands to earlier Producers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Demand Atoms whose Consumer Atom Scope Unit and Producer Claim Target Scope Unit are ordered siblings.
 
-## Claim
 
 **if** a Demand Atom's Consumer Atom Scope Unit **and** Producer Claim Target Scope Unit are ordered siblings, **then** its Producer Claim Target Scope Unit **must** precede its Consumer Atom Scope Unit.

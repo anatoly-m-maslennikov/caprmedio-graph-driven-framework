@@ -19,9 +19,11 @@ form: Implementation Method
 ## Summary
 Use English as the Project language
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 expressing CAPRMEDIO Project meaning.
 
-## Claim
 
 **to** express CAPRMEDIO Project meaning, the Author **must** use English as the base language.

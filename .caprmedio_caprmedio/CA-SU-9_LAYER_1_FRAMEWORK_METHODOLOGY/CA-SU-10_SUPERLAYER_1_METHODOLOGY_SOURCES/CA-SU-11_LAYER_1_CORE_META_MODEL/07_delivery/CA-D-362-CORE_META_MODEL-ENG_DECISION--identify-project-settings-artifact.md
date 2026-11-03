@@ -20,10 +20,12 @@ form: Decision
 
 Identify Project Settings Artifact
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project Settings for a Project named `<project_name>`.
 
-## Claim
 
 the Identifier of Project Settings for a Project named `<project_name>` **must** be `caprmedio_<project_name>_settings`.

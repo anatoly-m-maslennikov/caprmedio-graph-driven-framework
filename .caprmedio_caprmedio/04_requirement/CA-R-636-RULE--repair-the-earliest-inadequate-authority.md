@@ -22,10 +22,12 @@ form: Rule
 
 Repair the earliest inadequate authority
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Continuous-improvement RMED authority lineage.
 
-## Claim
 
 **before** closing a material Concern, CAPRMEDIO **must** inspect its upstream RMED lineage **and** update the earliest inadequate active owner.

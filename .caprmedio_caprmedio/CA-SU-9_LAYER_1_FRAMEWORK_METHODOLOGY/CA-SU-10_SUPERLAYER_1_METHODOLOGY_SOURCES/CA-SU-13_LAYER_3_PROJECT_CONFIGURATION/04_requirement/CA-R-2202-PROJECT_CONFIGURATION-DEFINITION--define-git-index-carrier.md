@@ -18,4 +18,7 @@ Define Git Index Carrier
 
 ## Claim
 
+### Prose Claim
+
+
 A Git Index **means** a Carrier representing a repository's staged-file snapshot.

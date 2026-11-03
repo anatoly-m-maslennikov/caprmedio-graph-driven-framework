@@ -24,4 +24,7 @@ Keep the project under Operator control
 
 ## Claim
 
+### Prose Claim
+
+
 CAPRMEDIO **must** keep **every** governed Project part outside the CAPRMEDIO Framework Instance under the Operator's control throughout Project evolution.

@@ -21,11 +21,13 @@ form: Rule
 
 Route questions and ideas through Exploration Mode
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 exploratory Operator input and its promotion from Exploration Mode.
 
-## Claim
 
 an AI Agent **must** handle exploratory Operator input **in** Exploration Mode under the following participation policy:
 

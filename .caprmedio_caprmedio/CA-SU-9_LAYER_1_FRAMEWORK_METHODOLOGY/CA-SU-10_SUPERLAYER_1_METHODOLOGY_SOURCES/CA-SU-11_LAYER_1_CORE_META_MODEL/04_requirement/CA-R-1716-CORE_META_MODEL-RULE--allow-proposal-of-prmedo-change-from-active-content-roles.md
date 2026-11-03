@@ -16,10 +16,12 @@ form: Rule
 
 Allow proposal of PRMEDO change from active content roles
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 proposals of PRMEDO authority changes by active content roles.
 
-## Claim
 
 Concern, Analysis & Advisory, Task, **and** native Implementation **may** propose a PRMEDO authority change, but **only** Operator-approved PRMEDO authority **may** establish that change.

@@ -14,7 +14,7 @@ status: Active
 atom_id: CA-R-038
 tier: 2
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Relations
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Relations
 role: Requirement
 form: Rule
 ---
@@ -22,5 +22,8 @@ form: Rule
 Permit incomplete PRMEDO topology in casual mode
 
 ## Claim
+
+### Prose Claim
+
 
 a scope **in** casual authority mode **may** contain active PRMEDO Core **and** Standard Atoms **without** permitted active parents **and** **may** omit permitted active children.

@@ -20,11 +20,13 @@ form: Decision
 
 YAML Frontmatter encodes Atom Properties with minimal syntax
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 YAML frontmatter of Markdown Atom carriers.
 
-## Claim
 
 Encode each key once and use a YAML sequence for multiple values. Use a nonempty string for each required string; null and collections do not satisfy a scalar requirement. Integers exclude booleans.
 

@@ -2,15 +2,15 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Carrier/File
   - CAPRMEDIO_MODEL <+ Carrier/Directory
-  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan).Work Sequence Number
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Work Sequence Number
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -35,10 +35,12 @@ form: Eval Case
 ## Summary
 Validate Plan Carrier identity **and** placement
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Plan Carrier identity **and** placement.
 
-## Claim
 the Plan Carrier Evaluation **must** reject Carrier facts that create duplicate identity **or** contradict the shared Plan model.
 
 - accept a mandatory Markdown file **with** **or** **without** a matching optional Hub directory under `CA-D-460-CORE_META_MODEL-CORE-DELIVERY--serialize-plan-atom-carrier-bundles`; reject a directory **without** that file.

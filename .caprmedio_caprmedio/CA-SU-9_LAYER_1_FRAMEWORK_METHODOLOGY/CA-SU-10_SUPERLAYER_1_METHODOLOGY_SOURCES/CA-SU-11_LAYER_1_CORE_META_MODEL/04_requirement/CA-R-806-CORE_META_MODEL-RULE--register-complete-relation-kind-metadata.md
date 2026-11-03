@@ -20,11 +20,13 @@ form: Rule
 
 Register Complete Relation Kind Metadata
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 admitted Relation Types and their defining source Claims.
 
-## Claim
 
 The canonical name and meaning of each Relation Type **are** defined in its governing R Claim(s). A governing Claim **may** state a relevant inverse, derivation, or transitivity rule; no such optional property is required when it is not relevant.
 

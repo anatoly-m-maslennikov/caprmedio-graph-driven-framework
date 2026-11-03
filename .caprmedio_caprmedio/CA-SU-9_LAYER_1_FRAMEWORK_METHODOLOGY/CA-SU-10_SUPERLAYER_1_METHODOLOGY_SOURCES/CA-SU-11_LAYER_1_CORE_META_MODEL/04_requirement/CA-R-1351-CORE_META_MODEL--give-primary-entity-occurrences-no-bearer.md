@@ -19,11 +19,13 @@ form: Rule
 
 Give Primary Entity Occurrences No Bearer
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Primary Entity occurrences referenced by a Subject.
 
-## Claim
 
 a Primary Entity referenced by a Subject **must** have **`=0`** outgoing IS_PROPERTY_OF Relations.
 

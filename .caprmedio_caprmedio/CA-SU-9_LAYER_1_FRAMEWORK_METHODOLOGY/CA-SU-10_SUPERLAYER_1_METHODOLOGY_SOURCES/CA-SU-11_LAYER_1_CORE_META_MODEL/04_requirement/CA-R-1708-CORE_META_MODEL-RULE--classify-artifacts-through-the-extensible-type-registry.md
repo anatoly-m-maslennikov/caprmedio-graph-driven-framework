@@ -21,10 +21,12 @@ form: Rule
 
 Classify Artifacts through the Extensible Type Registry
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifacts and their Types.
 
-## Claim
 
 an Artifact **must** have **`=1`** Type admitted by applicable authority; the Core values are specified by CA-R-1405 **and** remain open **to** permitted expansion.

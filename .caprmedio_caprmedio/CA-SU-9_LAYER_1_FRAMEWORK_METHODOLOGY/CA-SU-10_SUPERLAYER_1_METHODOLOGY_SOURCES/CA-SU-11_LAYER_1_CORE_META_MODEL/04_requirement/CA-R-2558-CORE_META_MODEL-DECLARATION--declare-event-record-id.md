@@ -18,8 +18,11 @@ Declare Event Record.ID
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Event Record.ID{:1}: [string]{:1};
 Event Record.ID.*[]{:0};
 UNIQUE(Event Record//, (.ID))
 ```
+

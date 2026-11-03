@@ -18,15 +18,21 @@ Define Format Data Type
 
 ## Claim
 
-Format Data Type names the admissible value domain of a direct Property value.
-It is separate from cardinality. The initial vocabulary is provisional; list,
-map and reference semantics remain with the governing Format definition.
-
+### Formal Claim
 
 ```CFEL
 Format.Data Type{:1}: [string]{:1};
 Format.Data Type.*[]{:0}
 ```
+
+### Prose Claim
+
+
+Format Data Type names the admissible value domain of a direct Property value.
+It is separate from cardinality. The initial vocabulary is provisional; list,
+map and reference semantics remain with the governing Format definition.
+
+
 
 ## Details
 

@@ -27,4 +27,7 @@ Follow the Operator's priorities
 
 ## Claim
 
+### Prose Claim
+
+
 the CAPRMEDIO Framework Instance **must** support implementing **every** admissible priority model established by the Operator for possible Project trade-offs.

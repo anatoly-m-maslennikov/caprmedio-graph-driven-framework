@@ -7,7 +7,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   - CAPRMEDIO_MODEL <+ Project
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
 version: 30
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -26,5 +26,8 @@ form: Goal
 Help Operators use CAPRMEDIO to achieve Project Goals
 
 ## Claim
+
+### Prose Claim
+
 
 OPERATOR_DOCUMENTATION **must** provide the Operator with sufficient, readable information **to** use a CAPRMEDIO Framework Instance efficiently **to** achieve their Project Goals.

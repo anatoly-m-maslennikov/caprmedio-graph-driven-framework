@@ -7,7 +7,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -30,6 +30,9 @@ form: Eval Case
 Validate Methodology membership in the Project
 
 ## Claim
+
+### Prose Claim
+
 
 the Methodology Scope Units belong **to** the caprmedio Project Scope Unit tree **and** remain governed by its active Project-owned Tier 0 Atoms.
 

@@ -19,7 +19,10 @@ Declare Project Settings Prefix
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Project.Settings.Prefix{:1}: [string]{:1};
 Project.Settings.Prefix.*[]{:0}
 ```
+

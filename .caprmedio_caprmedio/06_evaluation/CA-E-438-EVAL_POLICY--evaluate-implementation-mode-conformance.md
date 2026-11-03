@@ -13,12 +13,12 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Package/Implementation
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Package/Implementation
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Project
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -33,6 +33,9 @@ form: Eval Policy
 Evaluate implementation mode conformance
 
 ## Claim
+
+### Prose Claim
+
 
 the implementation mode Evaluation **must** return `fail` **if**
 

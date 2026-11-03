@@ -18,9 +18,12 @@ Declare Projection.ID
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Projection.ID{:1}: [string]{:1};
 Projection.ID.*[]{:0};
 DETERMINES(Projection//, (.Form, .Source.Named Selection), (.ID));
 DETERMINES(Projection//, (.ID), (.Form, .Source.Named Selection))
 ```
+

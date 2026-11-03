@@ -19,11 +19,13 @@ form: Rule
 
 Gate atomic admission and promotion
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 atomic admission strictness settings and one-step promotion eligibility.
 
-## Claim
 
 the effective atomic admission strictness setting **must** be **in** (`medium`, `high`).
 

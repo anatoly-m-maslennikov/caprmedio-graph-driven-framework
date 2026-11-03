@@ -18,9 +18,11 @@ Declare Actor
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Actor;
-Actor ((NARROWER_THAN)) @Continuant
+Actor ((NARROWER_THAN)) Continuant
 ```
 
 ## Semantics

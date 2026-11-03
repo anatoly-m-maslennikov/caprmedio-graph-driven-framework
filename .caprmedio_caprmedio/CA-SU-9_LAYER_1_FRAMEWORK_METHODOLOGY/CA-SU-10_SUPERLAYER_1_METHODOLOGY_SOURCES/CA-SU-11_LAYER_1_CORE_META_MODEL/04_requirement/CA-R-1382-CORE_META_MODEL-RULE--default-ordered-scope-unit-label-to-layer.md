@@ -18,10 +18,12 @@ form: Rule
 
 Default Ordered Scope Unit Label to Layer
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Ordered Scope Unit Labels.
 
-## Claim
 
 **every** Ordered Scope Unit **must** use Layer as its default Label.

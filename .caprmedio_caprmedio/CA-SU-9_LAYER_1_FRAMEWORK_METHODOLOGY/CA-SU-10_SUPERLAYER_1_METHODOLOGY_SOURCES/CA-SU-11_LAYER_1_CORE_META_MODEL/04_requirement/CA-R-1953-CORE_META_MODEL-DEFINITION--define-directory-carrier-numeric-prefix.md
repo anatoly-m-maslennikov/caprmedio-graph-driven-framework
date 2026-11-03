@@ -18,15 +18,16 @@ form: Entity Definition
 
 Define Directory Carrier.Numeric Prefix
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Directory Carrier names whose applicable naming convention uses a numeric prefix.
 
-## Claim
 
 A Directory Carrier's Numeric Prefix **means** the leading numeric part of its Name when the applicable naming convention uses one.
 
-### Formal claim
 
 ```text
 Directory.Numeric Prefix[int]{0..1}

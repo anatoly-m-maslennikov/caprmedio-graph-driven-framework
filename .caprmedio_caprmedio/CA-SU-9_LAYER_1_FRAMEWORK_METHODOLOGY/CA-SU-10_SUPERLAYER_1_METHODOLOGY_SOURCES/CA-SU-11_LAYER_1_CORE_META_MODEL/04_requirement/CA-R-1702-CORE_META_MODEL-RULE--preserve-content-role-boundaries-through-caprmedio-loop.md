@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Role
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Package/Implementation
-  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Action
-  - CAPRMEDIO_MODEL <+ Atom/(.Role:=Operations)/Workflow
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
@@ -27,11 +27,13 @@ form: Rule
 
 Preserve content role boundaries through CAPRMEDIO loop
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 transitions through the CAPRMEDIO loop across Content Roles.
 
-## Claim
 
 **every** transition through Concern, Analysis & Advisory, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Operations produces **or** updates the meaning owned by the receiving Content Role **without** converting the source meaning into that role **or** implying completion of a later role.
 

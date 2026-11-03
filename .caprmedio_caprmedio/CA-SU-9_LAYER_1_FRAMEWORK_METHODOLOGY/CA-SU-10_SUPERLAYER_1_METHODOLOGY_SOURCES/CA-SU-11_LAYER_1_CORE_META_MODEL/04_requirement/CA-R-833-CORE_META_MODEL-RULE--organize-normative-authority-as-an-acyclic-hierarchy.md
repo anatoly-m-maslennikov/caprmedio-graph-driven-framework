@@ -20,10 +20,12 @@ form: Rule
 
 Organize normative authority as an acyclic hierarchy
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the normative-authority subgraph.
 
-## Claim
 
 the normative-authority subgraph **must** form an explicit, typed, **and** acyclic hierarchy.

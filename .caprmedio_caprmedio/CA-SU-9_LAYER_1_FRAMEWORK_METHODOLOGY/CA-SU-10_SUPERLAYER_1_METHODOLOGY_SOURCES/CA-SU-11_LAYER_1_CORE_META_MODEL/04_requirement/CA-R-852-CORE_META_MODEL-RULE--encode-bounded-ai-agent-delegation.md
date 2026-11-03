@@ -19,10 +19,12 @@ form: Rule
 
 Encode Bounded AI Agent Delegation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 AI Agent Delegations.
 
-## Claim
 
 **every** AI Agent Delegation **must** identify its Operator, AI Agent, allowed actions, allowed target Scopes, constraints, validity boundary, **and** revocation state.

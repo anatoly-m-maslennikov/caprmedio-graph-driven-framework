@@ -250,6 +250,9 @@ class AuthoritativeStatusModelsTest(unittest.TestCase):
         self.assertEqual(model["statuses"], ["Draft", "Active", "Archived", "Done"])
         self.assertEqual([pin["sha256"] for pin in model["model_sources"]],
                          [hashlib.sha256(path.read_bytes()).hexdigest() for path in (base, source)])
+        unquoted = source.read_text().replace('"Analysis & Advisory"', 'Analysis & Advisory')
+        source.write_text(unquoted, encoding="utf-8")
+        self.assertEqual(resolve_status_model(self.root, atom, "Done")["statuses"], model["statuses"])
         source.write_text(source.read_text() + "\n", encoding="utf-8")
         with self.assertRaisesRegex(StatusModelError, "differs"):
             resolve_status_model(self.root, atom, "Done", supplied_model=model)

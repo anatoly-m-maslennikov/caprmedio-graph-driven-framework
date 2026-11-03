@@ -3,8 +3,8 @@ subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom.Role
-  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Entity
@@ -39,7 +39,10 @@ form: Eval Case
 
 Canonical relation validity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 - admit **`=1`** valid example of each selected known Relation Type under its defining Claim; evaluate any applicable Entity Definition constraints without inventing a default.
 - reject an unknown Relation Type; report missing or conflicting Rule evidence as unresolved only when an existing source contract requires that evidence, without treating every known Type as requiring a new Rule.
@@ -66,7 +69,6 @@ Canonical relation validity
 - reject loss of any applicable governing constraint context, silent foreign-node import, **or** a projected Relation treated as independently authored authority; absence of a newly invented Rule is not itself a failure.
 - accept a source-traceable derived Relation **without** its own direct source declaration **only** **when** the governing Relation authority admits that derivation; reject its use **to** bypass an explicit-declaration requirement.
 
-## Claim
 
 **every** known Relation Type accepts valid examples under its defining Claim; any applicable Entity Definition constraint supplies additional source/target, cardinality, lifecycle, or other constraints. reject unknown Types and violations of explicit applicable constraints, while retaining missing or conflicting constraint evidence as unresolved without choosing default allow or default deny.
 

@@ -16,15 +16,16 @@ form: Entity Definition
 
 Define Main Content CCE Operator
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CCE Operator occurrences within Markdown File Carrier Main Content.
 
-## Claim
 
 A Main Content CCE Operator is a textual occurrence of a CCE Operator in a Markdown File Carrier Main Content; its serialized spelling and rendering follow the canonical Delivery rule.
 
-### Formal claim
 
 ```text
 Carrier/File.Main Content.CCE Operator[string]{0+}

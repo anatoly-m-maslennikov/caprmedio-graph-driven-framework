@@ -9,9 +9,9 @@ subjects:
   active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
 relations:
   child_of:
   - CA-R-2157
@@ -23,11 +23,13 @@ form: Rule
 
 Provide capabilities **without** forcing their execution
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 capabilities provided by the CAPRMEDIO Framework Instance.
 
-## Claim
 
 the CAPRMEDIO Framework Instance **must** provide capabilities for the Operator **without** initiating **or** forcing their execution independently of Operator authorization.
 

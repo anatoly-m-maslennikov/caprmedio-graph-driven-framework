@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Updated At
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
   passive:
   - CAPRMEDIO_MODEL <+ Atom
 version: 26
@@ -18,10 +18,12 @@ form: Rule
 
 Give Every Atom Revision One Updated At
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Updated At date-time of **every** Atom.
 
-## Claim
 
 **every** Atom **must** have **`=1`** unambiguous Updated At date-time.

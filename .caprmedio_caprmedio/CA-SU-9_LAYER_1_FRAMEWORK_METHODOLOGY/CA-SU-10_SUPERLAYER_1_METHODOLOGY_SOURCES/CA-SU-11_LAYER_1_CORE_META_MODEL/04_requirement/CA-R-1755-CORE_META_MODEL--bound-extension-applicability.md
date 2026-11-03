@@ -16,10 +16,12 @@ form: Rule
 
 Bound Extension applicability
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Extensions and their declared applicability boundaries.
 
-## Claim
 
 **every** Extension **must** affect **only** its declared applicability boundary.

@@ -17,10 +17,12 @@ form: Rule
 ## Summary
 Preserve Producer authority outside demanded result
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Demand Atoms and their named Implementation results.
 
-## Claim
 
 a Demand Atom **must not** constrain Producer authority outside the exact Implementation result named by the Demand Atom.

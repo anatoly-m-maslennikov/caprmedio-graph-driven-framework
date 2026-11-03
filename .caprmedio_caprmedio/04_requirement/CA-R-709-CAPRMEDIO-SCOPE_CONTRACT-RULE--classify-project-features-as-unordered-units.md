@@ -23,4 +23,7 @@ Classify Project Features as unordered units
 
 ## Claim
 
+### Prose Claim
+
+
 **every** CAPRMEDIO Feature is an `unordered_unit`, is owned by **=1** immediate Structural unit, **and** has no `local_order`.

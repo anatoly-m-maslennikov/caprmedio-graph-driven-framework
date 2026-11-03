@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Concern).Priority
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Header.Priority
 version: 30
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -19,7 +19,10 @@ form: Eval Case
 
 Effective-priority selection
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the following effective-priority selection conditions:
 
@@ -32,7 +35,6 @@ the following effective-priority selection conditions:
 7. confirm `auto_by_effective_priority` selects **`=1`** unique eligible winner **and** asks on ties, incomparable scopes, uncertainty, **or** multiple winners.
 8. confirm unsatisfiable external obligations stop rather than auto-resolve.
 
-## Claim
 
 conflict selection follows the admissible Operator-selected priority model **without** an implicit ancestry bonus **and** never chooses through a tie, incomparable scope, uncertainty, **or** ineligible external obligation.
 

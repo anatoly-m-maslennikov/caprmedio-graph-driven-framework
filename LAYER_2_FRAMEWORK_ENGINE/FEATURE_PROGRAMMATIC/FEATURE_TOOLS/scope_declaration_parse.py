@@ -159,9 +159,47 @@ def _local_subject(active: str, path: Path) -> str:
 
 
 def _cfel(body: str, path: Path) -> list[str]:
-    matched = _CLAIM.search(body)
+    lines = body.splitlines()
+    headings = []
+    fence = None
+    cfel_count = 0
+    for index, line in enumerate(lines):
+        marker = re.match(r"^ {0,3}(`{3,}|~{3,})(.*)$", line)
+        if marker:
+            token, suffix = marker.groups()
+            if fence is None:
+                fence = (token[0], len(token))
+                cfel_count += suffix.strip() == "CFEL"
+            elif token[0] == fence[0] and len(token) >= fence[1] and not suffix.strip():
+                fence = None
+            continue
+        if fence is None:
+            heading = re.fullmatch(r"(#{1,6}) (.+)", line)
+            if heading:
+                headings.append((len(heading[1]), heading[2], index))
+    if fence is not None or cfel_count != 1:
+        raise ScopeDeclarationError(f"{path}: declaration requires one unambiguous CFEL block")
+    claims = [row for row in headings if row[:2] == (2, "Claim")]
+    if len(claims) != 1:
+        raise ScopeDeclarationError(f"{path}: declaration requires one CFEL Claim")
+    start = claims[0][2]
+    boundaries = {(2, name) for name in ("Summary", "Scope", "Claim scope", "Claim", "Semantics", "Details")}
+    end = next((row[2] for row in headings if row[2] > start and row[:2] in boundaries), len(lines))
+    children = [row for row in headings if start < row[2] < end
+                and row[:2] in {(3, "Formal Claim"), (3, "Prose Claim")}]
+    claim = "\n".join(lines[start + 1:end]).strip()
+    if children:
+        formal = [row for row in children if row[1] == "Formal Claim"]
+        if len(formal) != 1 or len({row[1] for row in children}) != len(children):
+            raise ScopeDeclarationError(f"{path}: declaration requires one Formal Claim")
+        formal_start = formal[0][2]
+        formal_end = next((row[2] for row in children if row[2] > formal_start), end)
+        if "\n".join(lines[start + 1:children[0][2]]).strip():
+            raise ScopeDeclarationError(f"{path}: ambiguous Claim container")
+        claim = "\n".join(lines[formal_start + 1:formal_end]).strip()
+    matched = re.fullmatch(r"```CFEL\n(?P<cfel>.*?)\n```", claim, re.DOTALL)
     if matched is None:
-        raise ScopeDeclarationError(f"{path}: declaration requires one terminal CFEL Claim")
+        raise ScopeDeclarationError(f"{path}: declaration requires one CFEL Claim")
     statements = [line.strip() for line in matched["cfel"].splitlines() if line.strip()]
     if not statements:
         raise ScopeDeclarationError(f"{path}: declaration Claim is empty")

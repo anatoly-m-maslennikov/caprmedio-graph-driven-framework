@@ -18,10 +18,12 @@ form: Rule
 
 Requirement — Scale operational mechanisms to risk
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 operational mechanisms within CAPRMEDIO.
 
-## Claim
 
 CAPRMEDIO **must** require operational mechanisms **to** be proportional **to** explicit failure risk **and** a declared authoritative-state boundary. CAPRMEDIO **must not** mandate one recovery **or** durability mechanism for **every** Project.

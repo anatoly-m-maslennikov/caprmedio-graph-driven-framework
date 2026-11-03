@@ -25,11 +25,13 @@ form: Rule
 
 Register Realization Graph Projection Type
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the caprmedio Project Configuration registration of the `realization_graph` Projection Type.
 
-## Claim
 
 the caprmedio Project Configuration **must** register `realization_graph` as a specialized non-authoritative Projection Type for understanding existing Implementation **and** supporting reverse engineering into proposed RMED.
 

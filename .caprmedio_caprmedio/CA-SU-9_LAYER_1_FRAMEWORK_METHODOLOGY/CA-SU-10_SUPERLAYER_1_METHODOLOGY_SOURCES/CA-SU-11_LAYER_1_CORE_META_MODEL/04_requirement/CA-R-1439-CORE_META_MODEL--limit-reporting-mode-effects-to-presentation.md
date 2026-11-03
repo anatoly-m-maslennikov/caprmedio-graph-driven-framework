@@ -20,10 +20,12 @@ form: Rule
 
 Limit reporting mode effects to presentation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the effects of the interaction reporting mode.
 
-## Claim
 
 the interaction reporting mode **must** affect presentation **only**, **without** changing authorization, Artifact creation, workflow routing, validation, **or** safety behavior.

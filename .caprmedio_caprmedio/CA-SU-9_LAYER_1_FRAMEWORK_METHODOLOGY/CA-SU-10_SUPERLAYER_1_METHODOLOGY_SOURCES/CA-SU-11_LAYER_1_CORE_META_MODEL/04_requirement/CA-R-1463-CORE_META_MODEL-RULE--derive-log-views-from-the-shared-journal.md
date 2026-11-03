@@ -4,8 +4,8 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
   - CAPRMEDIO_MODEL <+ Project
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log'
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log'
@@ -24,11 +24,13 @@ form: Rule
 
 Derive log views from the shared Journal
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifact Change Log and Process Log log Projection Types derived from the same Project Journal.
 
-## Claim
 
 the Core Meta-Model **must** provide Artifact Change Log **and** Process Log as **`=2`** log Projection Types derived from the same Project Journal, under CA-R-1467@19-CORE_META_MODEL-DEFINITION--define-artifact-change-log-projection **and** CA-R-1468@20-CORE_META_MODEL-REQUIREMENT--define-process-log-projection. these Types organize recorded history **without** introducing independent Journals; additional Projection Types remain governed by the open Projection model.
 

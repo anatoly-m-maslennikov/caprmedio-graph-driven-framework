@@ -16,6 +16,8 @@ Declare INSTALLED_EXTENSIONS
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//INSTALLED_EXTENSIONS.ID == "CA-SU-12";
 Scope Unit//INSTALLED_EXTENSIONS.Name == "INSTALLED_EXTENSIONS";

@@ -19,10 +19,12 @@ form: Rule
 
 Defer CAPRMEDIO-Specific Extension Packaging
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO Project methodology customizations before the Operator accepts an Extension package.
 
-## Claim
 
 the CAPRMEDIO Project's methodology customizations **must** remain **in** PROJECT_CONFIGURATION **until** the Operator accepts a separately identified Extension package containing those customizations.

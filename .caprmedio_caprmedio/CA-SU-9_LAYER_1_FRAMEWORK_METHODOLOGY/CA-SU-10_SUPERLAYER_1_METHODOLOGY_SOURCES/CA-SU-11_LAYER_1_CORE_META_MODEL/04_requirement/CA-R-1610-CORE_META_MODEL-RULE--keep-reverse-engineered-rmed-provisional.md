@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Status
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Status
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
@@ -21,11 +21,13 @@ form: Rule
 
 Keep reverse-engineered RMED provisional
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 RMED Claims reconstructed from existing Implementation or its Projections.
 
-## Claim
 
 RMED Claims reconstructed from existing Implementation **or** its Projections **must** remain proposed Draft Claims **until** accepted through the applicable Atom acceptance authority.
 

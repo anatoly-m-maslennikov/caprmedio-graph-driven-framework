@@ -21,10 +21,12 @@ form: Decision
 
 Serialize Scope Unit Graph Projection Generation Metadata
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a retained Project Scope Unit Graph Projection for compatibility.
 
-## Claim
 
 **if** a Project Scope Unit Graph Projection is retained for compatibility, its Carrier **must** serialize Updated At, generator identity **and** digest, exact consumed Project Structure **and** Settings source states, **and** the source bindings **and** distinct Directory Carrier observations needed **to** explain emitted values **and** unresolved findings. this compatibility format does **not** require production **or** refresh of a separate structural Projection.

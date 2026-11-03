@@ -7,7 +7,7 @@ author: Anatoly Maslennikov
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)/(.Form := Declaration)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER
 version: 1
 updated_at: 2026-11-03 14:19:59 +0400
@@ -25,6 +25,9 @@ carrier_destination:
 Deliver Seven RMED Subject Maps
 
 ## Claim
+
+### Prose Claim
+
 
 Deliver seven named Maps from an explicit named source selection: `Subject Tree`, `Direct Property List`, `Effective Property List`, `Effective Formal Claim List`, `Passive-only Subject Audit`, `Missing Requirement Declaration Audit`, and `Defining Atom Summary`. Each Map must pin complete source provenance as selected Current Atom ID@Version values, state its bounded scope, and report diagnostics.
 

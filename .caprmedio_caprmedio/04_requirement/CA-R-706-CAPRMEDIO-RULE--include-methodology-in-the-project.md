@@ -22,4 +22,7 @@ Include Methodology in the Project
 
 ## Claim
 
+### Prose Claim
+
+
 the caprmedio Project **must** include FRAMEWORK_METHODOLOGY, METHODOLOGY_SOURCES, **and** its Methodology Source Scope Units **in** its Project Scope Unit tree under the authority of its active Project-owned Tier 0 Atoms.

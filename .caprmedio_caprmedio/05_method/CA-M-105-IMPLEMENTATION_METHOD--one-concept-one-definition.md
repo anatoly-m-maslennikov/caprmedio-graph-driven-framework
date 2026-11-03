@@ -29,6 +29,9 @@ One concept, one definition
 
 ## Claim
 
+### Prose Claim
+
+
 **to** represent a kind of information **in** the Project, use **`=1`** canonical Entity, including a Property, for that kind **in** the same context:
 
 1. reuse its existing canonical definition instead of introducing another Entity **or** Property for the same information.

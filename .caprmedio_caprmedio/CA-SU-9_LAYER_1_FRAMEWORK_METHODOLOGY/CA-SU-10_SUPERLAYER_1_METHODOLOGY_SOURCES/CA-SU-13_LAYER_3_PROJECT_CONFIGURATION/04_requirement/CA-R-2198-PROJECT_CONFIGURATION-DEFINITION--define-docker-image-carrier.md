@@ -18,4 +18,7 @@ Define Docker Image Carrier
 
 ## Claim
 
+### Prose Claim
+
+
 A Docker Image **means** an immutable, addressable Carrier of packaged Implementation.

@@ -17,10 +17,12 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Require framework instance root locators
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The caprmedio Project’s Framework Instance Settings.
 
-## Claim
 
 The Settings contain at least one framework code-root locator and exactly one framework control-root locator.

@@ -18,10 +18,12 @@ form: Rule
 
 Define Scope Expression
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Expressions.
 
-## Claim
 
 a Scope Expression **means** one deterministic expression that identifies Governed Entities through atomic references, explicit Atom IDs, parentheses, registered set **or** logical operators, **and** field predicates including **where**.

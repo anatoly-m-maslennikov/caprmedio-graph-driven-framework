@@ -24,11 +24,13 @@ form: Rule
 
 Reserve Project-wide invariant conflict resolution to the Operator
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 conflicts between active Project-wide foundational invariants **and** an AI Agent's delegated conflict resolution.
 
-## Claim
 
 - **only** an Operator **may** resolve a conflict between active Project-wide foundational invariants, **and** an Operator's decision to resolve that conflict is non-delegable.
 - an AI Agent **may** detect, analyze, **and** propose resolutions for a conflict between active Project-wide foundational invariants but **must not** choose a resolution for a conflict between active Project-wide foundational invariants.

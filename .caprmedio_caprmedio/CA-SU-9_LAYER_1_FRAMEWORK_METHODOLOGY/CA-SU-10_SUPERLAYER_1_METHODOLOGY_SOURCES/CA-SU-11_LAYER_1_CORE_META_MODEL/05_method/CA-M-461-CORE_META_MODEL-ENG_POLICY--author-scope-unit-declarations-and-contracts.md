@@ -16,6 +16,9 @@ Author Scope Unit Declarations and Contracts
 
 ## Claim
 
+### Prose Claim
+
+
 - Keep the Operator’s wording as close as possible. Correct grammar and organize it into coherent statements with the simplest syntax possible. Preserve clear terms and key concepts; do not replace them with polished synonyms.
 - Write one external Scope Unit Declaration for each declared Scope Unit. Use Role Requirement and Form Scope Unit Declaration. Set its active Subject (`subjects.active`) to that specific Scope Unit; do not add another binding field or an additional per-unit Definition Atom.
 - Keep one or more Goals separate from the Declaration and outside the declared Scope Unit; link them without duplicating their content.

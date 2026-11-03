@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "models": {
+    "Requirement": {
+      "statuses": [
+        "Draft",
+        "Active",
+        "Archived"
+      ],
+      "model_sources": [
+        {
+          "atom_id": "CA-R-1309",
+          "revision": 28,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1309-CORE_META_MODEL-RULE--register-core-requirement-status-values.md",
+          "sha256": "ff2d6bcf40c40005fef9f30ed9a004bfb983807e5839c652373506ee6c489e69"
+        }
+      ]
+    },
+    "Plan": {
+      "statuses": [
+        "Draft",
+        "Active",
+        "Archived",
+        "Backlog",
+        "Done",
+        "Canceled"
+      ],
+      "model_sources": [
+        {
+          "atom_id": "CA-R-1947",
+          "revision": 13,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL--define-atom-status-allowed-values.md",
+          "sha256": "d40a876b0bcd4b3045e05c2580f2132e742d1f583a9a1accfe60128abee3791c"
+        },
+        {
+          "atom_id": "CA-R-1539",
+          "revision": 22,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-RULE--register-core-plan-status-values.md",
+          "sha256": "2ee64909c4c16e0e518d9325e33eb98e290d94265d668e76d981265377fbd6b1"
+        }
+      ]
+    },
+    "Analysis & Advisory": {
+      "statuses": [
+        "Draft",
+        "Active",
+        "Archived",
+        "Done"
+      ],
+      "model_sources": [
+        {
+          "atom_id": "CA-R-1947",
+          "revision": 13,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL--define-atom-status-allowed-values.md",
+          "sha256": "d40a876b0bcd4b3045e05c2580f2132e742d1f583a9a1accfe60128abee3791c"
+        },
+        {
+          "atom_id": "CA-R-1875",
+          "revision": 22,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+          "sha256": "610421330e00d3c9f5d157296e4458c040af74f6c9ddeb151485188be6d59de2"
+        }
+      ]
+    }
+  }
+}

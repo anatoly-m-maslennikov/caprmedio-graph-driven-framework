@@ -18,11 +18,13 @@ form: Decision
 
 Separate Persistent Authority from Runtime State
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 persistent Carriers holding canonical authority or retained history, in relation to runtime cleanup.
 
-## Claim
 
 runtime cleanup **must not** remove persistent Carriers holding canonical authority or retained history.
 

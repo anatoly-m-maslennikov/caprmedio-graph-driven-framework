@@ -3,8 +3,8 @@ subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
   - CAPRMEDIO_MODEL <+ Scope Unit
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
 version: 37
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -21,10 +21,12 @@ form: Rule
 ## Summary
 Prohibit Demands between ancestors and descendants
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Demand Atoms.
 
-## Claim
 
 a Demand Atom's Claim Target Scope Unit **must not** be an ancestor **or** descendant of its Consumer Scope Unit.

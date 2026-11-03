@@ -18,11 +18,13 @@ form: Rule
 
 Requirement — Close every constitutional amendment
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CORE_META_MODEL constitutional amendments.
 
-## Claim
 
 **every** semantic change **to** CORE_META_MODEL follows one closed amendment sequence:
 

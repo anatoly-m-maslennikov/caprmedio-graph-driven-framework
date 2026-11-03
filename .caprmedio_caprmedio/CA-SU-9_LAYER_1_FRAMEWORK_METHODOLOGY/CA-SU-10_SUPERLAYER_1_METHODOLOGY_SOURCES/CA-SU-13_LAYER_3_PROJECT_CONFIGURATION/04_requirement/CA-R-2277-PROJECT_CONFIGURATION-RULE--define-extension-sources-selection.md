@@ -17,11 +17,17 @@ Define Extension Sources Selection
 
 ## Claim
 
-Extension Sources is the named Selection of immutable installed Extension source Atoms available as candidate inputs to methodology compilation. Membership establishes availability, not activation. Framework Settings separately selects activation and the installed source version for an Extension; Applicable Methodology separately includes only sources applicable under those settings.
+### Formal Claim
 
 ```CFEL
 Named Selection//Extension Sources
 ```
+
+### Prose Claim
+
+
+Extension Sources is the named Selection of immutable installed Extension source Atoms available as candidate inputs to methodology compilation. Membership establishes availability, not activation. Framework Settings separately selects activation and the installed source version for an Extension; Applicable Methodology separately includes only sources applicable under those settings.
+
 
 ## Details
 

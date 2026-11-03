@@ -25,4 +25,7 @@ Do not require human participants to master or personally perform specialist wor
 
 ## Claim
 
+### Prose Claim
+
+
 the CAPRMEDIO Framework Instance **must not** require **any** of the Operator's human participants **to** acquire specialist craft proficiency **or** personally perform specialist craft work **to** create, deliver, run, **or** maintain **any** feasible Project.

@@ -1,0 +1,10 @@
+{
+  "status": "PUSHED_VERIFIED",
+  "branch": "amm/dev",
+  "local_commit": "db837f08ec3f29eeb6010e4bce09bfc64f2332d1",
+  "remote_commit": "db837f08ec3f29eeb6010e4bce09bfc64f2332d1",
+  "verification": "git ls-remote origin refs/heads/amm/dev",
+  "all_worktree_changes_included": true,
+  "hooks": "command-local core.hooksPath=/dev/null; persistent config unchanged",
+  "bulk_migration_started_at_checkpoint": false
+}

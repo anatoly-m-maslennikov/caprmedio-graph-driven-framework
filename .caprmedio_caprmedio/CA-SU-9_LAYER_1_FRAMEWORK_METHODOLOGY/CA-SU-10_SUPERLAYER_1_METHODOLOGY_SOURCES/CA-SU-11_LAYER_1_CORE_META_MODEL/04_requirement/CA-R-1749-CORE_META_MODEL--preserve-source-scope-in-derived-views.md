@@ -16,10 +16,12 @@ form: Rule
 
 Preserve source scope in derived views
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Derived views of declared source scopes.
 
-## Claim
 
 a derived view preserves **every** source's declared scope **and** **must not** inflate truth, completeness, evaluation, **or** priority by aggregating sources.

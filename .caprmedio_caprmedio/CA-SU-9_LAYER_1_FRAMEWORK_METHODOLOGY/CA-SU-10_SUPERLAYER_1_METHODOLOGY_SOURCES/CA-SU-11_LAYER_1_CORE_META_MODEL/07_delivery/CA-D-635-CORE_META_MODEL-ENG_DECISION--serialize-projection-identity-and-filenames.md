@@ -25,11 +25,13 @@ form: Decision
 
 Serialize Projection identity and filenames
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection Markdown File Carriers.
 
-## Claim
 
 Use this filename:
 

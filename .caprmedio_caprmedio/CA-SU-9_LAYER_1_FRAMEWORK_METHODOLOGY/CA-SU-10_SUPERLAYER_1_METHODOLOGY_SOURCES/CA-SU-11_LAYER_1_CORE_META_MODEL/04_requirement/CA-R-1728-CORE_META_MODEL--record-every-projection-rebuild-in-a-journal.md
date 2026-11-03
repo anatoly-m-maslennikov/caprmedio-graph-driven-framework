@@ -18,10 +18,12 @@ form: Rule
 
 Record every Projection rebuild in a Journal
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection rebuild attempts.
 
-## Claim
 
 **every** Projection rebuild attempt **must** produce append-only Journal provenance from its start through **`=1`** terminal outcome, binding the target Projection, exact source Atom revisions **and** Journal records, generator, configuration, **and** produced revision **when** successful. Programmatic generation **and** LLM generation are provenance facts **only**; the two generation forms grant the Projection no authority.

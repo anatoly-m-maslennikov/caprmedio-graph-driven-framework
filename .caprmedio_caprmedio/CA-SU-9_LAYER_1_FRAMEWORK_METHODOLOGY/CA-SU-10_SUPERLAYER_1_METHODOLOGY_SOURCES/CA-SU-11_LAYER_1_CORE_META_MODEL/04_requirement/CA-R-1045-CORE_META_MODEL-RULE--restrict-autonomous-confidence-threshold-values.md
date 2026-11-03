@@ -18,10 +18,12 @@ form: Rule
 
 Restrict Autonomous Confidence Threshold values
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Autonomous Confidence Threshold values.
 
-## Claim
 
 **every** Autonomous Confidence Threshold **must** be an integer percentage **`>=0`** **and** **`<=100`**. resolve its effective value from the applicable source under CA-M-271; the methodology **must not** restrict that value **to** a closed list of preferred percentages.

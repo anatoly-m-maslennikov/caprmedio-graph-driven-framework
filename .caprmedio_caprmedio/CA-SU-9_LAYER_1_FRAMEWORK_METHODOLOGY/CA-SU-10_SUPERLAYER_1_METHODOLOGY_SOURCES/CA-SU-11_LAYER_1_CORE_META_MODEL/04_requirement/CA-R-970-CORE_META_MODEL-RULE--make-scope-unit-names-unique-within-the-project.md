@@ -21,10 +21,12 @@ form: Rule
 
 Make Scope Unit Names Unique within the Project
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit Names within one Project.
 
-## Claim
 
 **every** Scope Unit Name **must** be unique within its Project.

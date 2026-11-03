@@ -19,6 +19,9 @@ Separate Property names and values
 
 ## Claim
 
+### Prose Claim
+
+
 - `p{:occurrence}` constrains occurrences of the named Property.
 - `p{:occurrence}: [value format]{:value count}` constrains its direct values.
 - `p.*[name format]{:child count}` constrains immediate dependent names.

@@ -18,13 +18,19 @@ Define Cardinality
 
 ## Claim
 
-Cardinality is CFEL syntax for expressing the allowed number of direct values,
-dependent Properties, Relation instances or contained parts.
-
+### Formal Claim
 
 ```CFEL
 CFEL <+ Cardinality
 ```
+
+### Prose Claim
+
+
+Cardinality is CFEL syntax for expressing the allowed number of direct values,
+dependent Properties, Relation instances or contained parts.
+
+
 
 The forms are `{:n}`, `{:n+}` and `{:n..m}` with non-negative integer bounds.
 

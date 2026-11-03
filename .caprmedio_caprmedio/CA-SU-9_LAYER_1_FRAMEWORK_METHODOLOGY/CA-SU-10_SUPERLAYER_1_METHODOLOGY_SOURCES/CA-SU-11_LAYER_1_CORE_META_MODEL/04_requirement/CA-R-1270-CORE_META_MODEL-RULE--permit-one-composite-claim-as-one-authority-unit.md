@@ -18,10 +18,12 @@ form: Rule
 
 Permit One Composite Claim as One Authority Unit
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 logically composite Claims whose components are accepted, replaced, and retired together.
 
-## Claim
 
 **if** **every** component of a logically composite Claim **must** be accepted, replaced, **and** retired together, **then** the composite Claim **must** remain one Claim.

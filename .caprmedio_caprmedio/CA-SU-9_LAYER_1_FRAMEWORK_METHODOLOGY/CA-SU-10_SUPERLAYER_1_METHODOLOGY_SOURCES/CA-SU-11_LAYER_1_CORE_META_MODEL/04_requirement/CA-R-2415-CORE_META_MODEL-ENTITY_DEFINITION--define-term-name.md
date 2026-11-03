@@ -18,9 +18,11 @@ Define Term Name
 
 ## Claim
 
+### Prose Claim
+
+
 Term.Name means the required word or phrase used as the Term's meaning.
 
-### Formal claim
 
 ```text
 Term.Name[string]{1}

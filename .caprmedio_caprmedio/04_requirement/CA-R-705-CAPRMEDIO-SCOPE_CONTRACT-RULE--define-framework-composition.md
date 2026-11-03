@@ -23,4 +23,7 @@ Define Framework composition
 
 ## Claim
 
+### Prose Claim
+
+
 the CAPRMEDIO Framework **must** comprise **all** outputs of the caprmedio Project delivered **to** the repository's root Implementation Folders. OPERATOR_DOCUMENTATION, CORE_EXTENSIONS, **and** RELEASES are downstream Project Layers; COMMUNITY_EXTENSIONS **and** FIELD are direct Project Features.

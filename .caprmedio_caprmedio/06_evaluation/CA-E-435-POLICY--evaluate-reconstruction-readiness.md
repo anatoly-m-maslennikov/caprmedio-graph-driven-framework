@@ -12,10 +12,10 @@ relations:
 subjects:
   active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Static Analysis
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Project
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -30,6 +30,9 @@ form: Eval Policy
 Evaluate reconstruction readiness
 
 ## Claim
+
+### Prose Claim
+
 
 the reconstruction readiness Evaluation **must** return `fail` **if** rebuilding required behavior **or** evaluating the rebuilt result needs authority recovered from the previous Implementation **or** specification work **before** reconstruction; **if** a language change is selected, **then** evaluate readiness against the current RMED **after** its affected Method **and** Delivery updates. absence of a prebuilt alternative **must not** by itself cause failure.
 

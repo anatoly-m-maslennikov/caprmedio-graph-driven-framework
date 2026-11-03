@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Role
 version: 39
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -19,10 +19,12 @@ form: Rule
 
 Give Every Atom One Content Role
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atoms.
 
-## Claim
 
 **every** Atom **must** have **`=1`** Content Role.

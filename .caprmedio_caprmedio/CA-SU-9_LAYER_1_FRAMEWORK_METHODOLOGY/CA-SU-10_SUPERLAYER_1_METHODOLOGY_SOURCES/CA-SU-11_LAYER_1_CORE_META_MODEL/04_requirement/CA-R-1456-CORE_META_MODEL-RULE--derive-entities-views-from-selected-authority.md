@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
   passive:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
@@ -35,11 +35,13 @@ form: Rule
 
 Derive Entities views from selected authority
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Entities Graph views for a requested source selection.
 
-## Claim
 
 a derived Entities Graph view **must** declare its requested source selection **and** **any** narrower display selection, including a hierarchy view. it **must** include **all** **and** **only** Entity identities admitted under CA-R-2462-CORE_META_MODEL-DEFINITION--define-entity by the selected source Claims that satisfy the declared display selection, **and** Relations explicitly declared by selected source Atoms whose endpoints are included, whose Relation Type has a defining source Claim, with any applicable Entity Definition constraints preserved, **and** that satisfy the declared display selection. a narrower view **must not** silently enlarge the source selection **or** be represented as the full combined graph. A declaration-only display selection excludes link instances. The presence of endpoints does not override that filter or require importing actual Relation tuples into the declaration view.
 
@@ -81,4 +83,4 @@ Constraints belong to the governing Entity Definitions. The selected Relation Ty
 
 Both views retain exact governing source Claim and Revision evidence. Missing or ambiguous identity, metadata, schema or coverage stays visible as a limitation. Neither view admits new source facts, changes source Relation identity/storage, evaluates rules or claims unsupported semantic completeness.
 
-Preserve declared containment in the model tree using `Part +> Whole` or `Whole <+ Part` and `@` references to already declared Entities, without propagating Properties through containment. Preserve each independent pre-token Source count and post-token Target reverse count; an omitted count stays unspecified.
+Preserve declared containment in the model tree using `Part +> Whole` or `Whole <+ Part` and bare qualified references to already declared Entities, without propagating Properties through containment. Preserve each independent pre-token Source count and post-token Target reverse count; an omitted count stays unspecified.

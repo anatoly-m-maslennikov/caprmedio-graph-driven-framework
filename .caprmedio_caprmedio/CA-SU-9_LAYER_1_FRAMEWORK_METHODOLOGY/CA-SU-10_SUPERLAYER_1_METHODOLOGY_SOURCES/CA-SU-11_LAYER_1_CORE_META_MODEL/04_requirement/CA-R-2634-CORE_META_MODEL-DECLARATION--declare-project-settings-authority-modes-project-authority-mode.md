@@ -19,9 +19,15 @@ Declare Project.Settings.Authority Modes.Project Authority Mode
 
 ## Claim
 
-The permitted values are `strict` and `casual`. The effective selection follows the applicable authority-mode resolution.
+### Formal Claim
 
 ```CFEL
 Project.Settings.Authority Modes.Project Authority Mode{:1}: [string]{:1};
 Project.Settings.Authority Modes.Project Authority Mode.*[]{:0}
 ```
+
+### Prose Claim
+
+
+The permitted values are `strict` and `casual`. The effective selection follows the applicable authority-mode resolution.
+

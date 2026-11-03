@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Version
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Version
   passive:
   - CAPRMEDIO_MODEL <+ Atom
 version: 28
@@ -18,10 +18,12 @@ form: Rule
 
 Give Every Atom Revision One Version
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Version of **every** Atom.
 
-## Claim
 
 **every** Atom **must** have **`=1`** positive integer Version that increases monotonically across successive versions of the same Atom.

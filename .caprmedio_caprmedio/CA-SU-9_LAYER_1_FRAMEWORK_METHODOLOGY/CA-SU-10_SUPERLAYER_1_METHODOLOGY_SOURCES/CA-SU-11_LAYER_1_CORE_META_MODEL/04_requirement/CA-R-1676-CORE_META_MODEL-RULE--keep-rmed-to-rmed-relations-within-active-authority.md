@@ -18,10 +18,12 @@ form: Rule
 
 Keep RMED-to-RMED Relations within Active Authority
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 direct relations authored by Current RMED Atoms that target RMED Atoms.
 
-## Claim
 
 **if** a direct relation is authored by a Current Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery) **and** targets an Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery), **then** the target Atom **must** be Current.

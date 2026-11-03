@@ -30,4 +30,7 @@ Require operator authority for governed change
 
 ## Claim
 
+### Prose Claim
+
+
 CAPRMEDIO **must** establish **or** change governed Project meaning **only** through explicit per-action acceptance by the Operator **or** active authority explicitly delegated by the Operator **to** the identified AI Agent performing the change.

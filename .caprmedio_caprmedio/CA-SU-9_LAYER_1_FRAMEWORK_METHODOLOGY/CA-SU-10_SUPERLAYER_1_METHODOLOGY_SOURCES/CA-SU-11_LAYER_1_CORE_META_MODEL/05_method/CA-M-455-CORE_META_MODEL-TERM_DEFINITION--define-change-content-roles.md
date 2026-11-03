@@ -8,7 +8,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Term
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
 version: 4
 updated_at: 2026-11-02 15:49:28 +0400
 relations: {}
@@ -20,12 +20,14 @@ form: Term Definition
 
 Define Change Content Roles
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The reusable lexical Term `Change Content Roles` in authored content and
 governed Project work.
 
-## Claim
 
 Change Content Roles (CAPO) **means** the set (Concern, Analysis & Advisory, Plan, Operations) used **to** identify, investigate, organize, **and** perform governed Project work, including changes **to** specification **and** Implementation. This Claim explicitly introduces the lexical Term instance named Change Content Roles at `Term//Change Content Roles`.
 

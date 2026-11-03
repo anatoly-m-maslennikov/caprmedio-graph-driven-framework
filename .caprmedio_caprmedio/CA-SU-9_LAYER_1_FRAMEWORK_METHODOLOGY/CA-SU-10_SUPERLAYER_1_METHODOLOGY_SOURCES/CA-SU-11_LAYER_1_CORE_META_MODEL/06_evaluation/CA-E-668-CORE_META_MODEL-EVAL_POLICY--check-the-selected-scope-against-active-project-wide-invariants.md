@@ -32,6 +32,9 @@ Check the selected Scope against active Project-wide invariants
 
 ## Claim
 
+### Prose Claim
+
+
 For **every** selected Scope, the complete set of active Atoms **must** align with **every** active Project-wide foundational invariant.
 
 ## Check

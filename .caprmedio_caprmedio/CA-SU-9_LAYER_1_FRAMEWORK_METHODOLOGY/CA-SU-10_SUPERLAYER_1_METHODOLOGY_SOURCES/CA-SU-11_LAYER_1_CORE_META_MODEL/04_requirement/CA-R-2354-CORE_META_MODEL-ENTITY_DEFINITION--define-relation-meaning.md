@@ -18,16 +18,22 @@ Define Relation Meaning
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+Relation.Meaning{:1}: [string]{:1};
+Relation.Meaning.*[]{:0}
+```
+
+### Prose Claim
+
+
 Relation Meaning is the canonical meaning of a reusable Relation Type.
 Direction and transitivity describe the Type. An optional derived inverse is a
 view of the direct tuple, not another authored edge. Actual source and target
 endpoints remain tuple facts.
 
 
-```CFEL
-Relation.Meaning{:1}: [string]{:1};
-Relation.Meaning.*[]{:0}
-```
 
 ## Details
 

@@ -23,4 +23,7 @@ MECE: Cover the whole with non-overlapping parts
 
 ## Claim
 
+### Prose Claim
+
+
 **to** construct a canonical decomposition that claims **to** cover a declared universe at one abstraction level, use parts drawn **only** from that universe that together cover the full declared universe **and** have no overlap between **any** two distinct parts at that level.

@@ -18,10 +18,12 @@ form: Entity Definition
 
 Define Entity/Carrier/File Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 File Carriers.
 
-## Claim
 
 A File Carrier **means** a Carrier that represents content in a file.

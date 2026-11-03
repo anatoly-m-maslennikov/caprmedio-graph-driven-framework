@@ -18,11 +18,13 @@ form: Rule
 
 Requirement — Keep product framing optional
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 User Stories, intended Outcomes, measured outcomes.
 
-## Claim
 
 User Stories **and** intended Outcomes remain optional framing, while measured **or** reported outcomes remain factual observations rather than reusable Operations definitions.
 

@@ -21,10 +21,12 @@ form: Rule
 
 Define Default Settings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the definition of Default Settings.
 
-## Claim
 
 Default Settings **means** the authoritative Artifact containing reusable baseline values for registered CAPRMEDIO Framework Instance Settings parameters, **not** Project initialization inputs **or** a Project's explicit Operator selections.

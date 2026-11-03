@@ -2,7 +2,7 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
 version: 39
@@ -21,9 +21,11 @@ form: Rule
 ## Summary
 Define Relational Atom
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Relational Atoms.
 
-## Claim
 
 a Relational Atom **means** an Atom that has no containing Scope Unit **or** whose resolved Claim Target Scope Unit differs from its current Scope Unit.

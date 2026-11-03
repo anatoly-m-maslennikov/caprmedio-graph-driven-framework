@@ -18,11 +18,13 @@ form: Decision
 
 Prevent duplicate production exception stack traces
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 exceptions handled **or** escalated through production-relevant components’ Logging Policies.
 
-## Claim
 
 an exception is emitted once at the boundary responsible for handling **or** escalating it; lower layers preserve structured context **without** duplicating the same stack trace at **every** call boundary.
 

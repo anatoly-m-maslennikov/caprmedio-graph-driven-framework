@@ -18,7 +18,10 @@ Declare Event Record.object_input.updated_at
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Event Record.object_input.updated_at{:1}: [datetime]{:1};
 Event Record.object_input.updated_at.*[]{:0}
 ```
+

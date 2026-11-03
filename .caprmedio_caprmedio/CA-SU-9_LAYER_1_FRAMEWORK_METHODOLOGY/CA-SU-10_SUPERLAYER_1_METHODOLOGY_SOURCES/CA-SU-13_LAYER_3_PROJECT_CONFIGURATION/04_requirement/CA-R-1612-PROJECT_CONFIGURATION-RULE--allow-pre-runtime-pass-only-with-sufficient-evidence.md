@@ -7,7 +7,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
@@ -20,11 +20,13 @@ form: Rule
 
 Allow pre-runtime pass only with sufficient evidence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Evaluations using a Realization Graph before runtime, for their declared input boundary.
 
-## Claim
 
 an Evaluation using a Realization Graph **may** return `pass` **before** runtime **only** **when** sufficient evidence establishes the checked Claim for the declared input boundary.
 

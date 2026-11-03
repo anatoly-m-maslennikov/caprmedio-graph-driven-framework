@@ -18,6 +18,9 @@ Write positive Claims about the active Subject
 
 ## Claim
 
+### Prose Claim
+
+
 - Keep the Claim on its active Subject.
 - Prefer positive statements that preserve the constraint.
 - Use ancestor rules for inherited constraints.

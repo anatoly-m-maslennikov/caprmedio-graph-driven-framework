@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Tier
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Project Goal)'
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Atom.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 12
 updated_at: 2026-11-02 00:18:22 +0400
@@ -21,11 +21,13 @@ form: Rule
 
 Assign Project Goal Tier Minus One
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project Goal Atoms.
 
-## Claim
 
 Every Requirement Atom of Type Project Goal **must** target the Project, be owned by its Operator Actor instead of a Local Scope Unit, and carry exactly one numeric Tier `-1`. Tier `-1` is explicit, is not omitted, and is outside the ordinary nonnegative Tier range. This Rule does not impose an arbitrary Type-to-Tier restriction beyond verified Project Goal identity and ownership.
 

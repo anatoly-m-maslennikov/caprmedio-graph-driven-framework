@@ -19,9 +19,15 @@ Declare Project.Settings.RMED Review.Context Headroom Fraction
 
 ## Claim
 
-When present, the value is finite and strictly between zero and one.
+### Formal Claim
 
 ```CFEL
 Project.Settings.RMED Review.Context Headroom Fraction{:0..1}: [float]{:1};
 Project.Settings.RMED Review.Context Headroom Fraction.*[]{:0}
 ```
+
+### Prose Claim
+
+
+When present, the value is finite and strictly between zero and one.
+

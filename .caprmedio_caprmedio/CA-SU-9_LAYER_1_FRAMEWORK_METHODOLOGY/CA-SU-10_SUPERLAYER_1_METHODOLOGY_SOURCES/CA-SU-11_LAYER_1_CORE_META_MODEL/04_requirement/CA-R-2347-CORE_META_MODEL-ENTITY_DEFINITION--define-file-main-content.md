@@ -16,15 +16,16 @@ form: Entity Definition
 
 Define File Main Content
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Main Content of a Markdown File Carrier.
 
-## Claim
 
 A Markdown File Carrier Main Content means the content after its YAML Frontmatter and is its Markdown body. It is optional, may contain Paragraph and CCE Operator occurrences as content parts, and is not a separate File.
 
-### Formal claim
 
 ```text
 Carrier/File.Main Content[string]{0..1}

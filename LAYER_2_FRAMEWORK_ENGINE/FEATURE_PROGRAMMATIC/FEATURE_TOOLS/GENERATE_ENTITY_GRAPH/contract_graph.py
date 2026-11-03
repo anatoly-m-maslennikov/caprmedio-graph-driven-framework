@@ -206,6 +206,23 @@ def _conditional_target(
 
     qualifiers = [(index, step.operand) for index, step in enumerate(expression.steps)
                   if step.operator == "/" and isinstance(step.operand, notation.Qualification)]
+    if qualifiers and all(any(step.operator == ":" for step in qualifier.relative_path.steps) for _, qualifier in qualifiers):
+        base = replace(expression, steps=tuple(step for step in expression.steps if not (
+            step.operator == "/" and isinstance(step.operand, notation.Qualification))), value_format=None, value_cardinality=None)
+        target = _target(base)
+        properties = []
+        for index, qualifier in qualifiers:
+            relative = qualifier.relative_path
+            marker = next((i for i, step in enumerate(relative.steps) if step.operator == ":"), None)
+            anchor_steps = tuple(step for step in expression.steps[:index] if not (
+                step.operator == "/" and isinstance(step.operand, notation.Qualification)))
+            anchor = _target(replace(expression, steps=anchor_steps, value_format=None, value_cardinality=None))
+            if marker is None or anchor is None or any(step.operator != ":" for step in relative.steps[marker:]):
+                break
+            path = replace(relative, steps=relative.steps[:marker], value_format=None, value_cardinality=None)
+            properties.append(anchor[1] + "." + notation.render_subject(path))
+        if target in catalog and len(properties) == len(qualifiers) and all(("property", prop) in catalog for prop in properties):
+            return target, "property_qualification", {"properties": properties, "condition": notation.render_subject(expression)}
     if len(qualifiers) > 1 and [index for index, _ in qualifiers] == list(range(qualifiers[0][0], len(expression.steps))):
         base = replace(expression, steps=expression.steps[:qualifiers[0][0]], value_format=None, value_cardinality=None)
         target = _target(base)

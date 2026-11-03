@@ -19,10 +19,12 @@ form: Rule
 
 Restrict General System Prompt Loading to Main Skill
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO General System Prompt loading.
 
-## Claim
 
 **only** the CAPRMEDIO Main Skill **may** load the CAPRMEDIO General System Prompt.

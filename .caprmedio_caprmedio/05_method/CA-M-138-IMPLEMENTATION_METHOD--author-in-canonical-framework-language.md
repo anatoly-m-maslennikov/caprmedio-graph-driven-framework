@@ -27,4 +27,7 @@ Author in canonical framework language
 
 ## Claim
 
+### Prose Claim
+
+
 **to** author CAPRMEDIO-internal Artifacts, use the exact canonical CAPRMEDIO vocabulary, coherent Term meanings, **and** the strictest syntax needed **to** preserve the governed distinctions; treat FPF as a derivation source rather than external authority.

@@ -16,11 +16,13 @@ form: Rule
 
 Require production logging lifecycle settings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production Logging Policies **and** their retention, access, sampling, rotation, maximum size, back-pressure, unavailable-sink, **and** disk-pressure conditions.
 
-## Claim
 
 a production Logging Policy **must** define retention, access, sampling, rotation, maximum size, back-pressure, unavailable-sink behavior, **and** disk-pressure behavior.
 

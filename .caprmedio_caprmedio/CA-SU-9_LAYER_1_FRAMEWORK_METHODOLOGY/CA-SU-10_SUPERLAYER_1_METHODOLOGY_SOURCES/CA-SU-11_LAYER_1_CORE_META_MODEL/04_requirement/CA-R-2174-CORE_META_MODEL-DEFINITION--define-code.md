@@ -18,4 +18,7 @@ Define Code
 
 ## Claim
 
+### Prose Claim
+
+
 Code **means** program instructions and definitions that realize behavior.

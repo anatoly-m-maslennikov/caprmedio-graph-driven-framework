@@ -18,15 +18,21 @@ Separate the CAPRMEDIO model from Project structure
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+Aspects <+ Product
+```
+
+### Prose Claim
+
+
 CAPRMEDIO's PROJECT STRUCTURE has:
 
 - Scope Structure.
 - Aspect instances, including Product.
 - Other declared components.
 
-```CFEL
-Aspects <+ Product
-```
 
 Its Scope Structure retains the proposed ordered Units:
 

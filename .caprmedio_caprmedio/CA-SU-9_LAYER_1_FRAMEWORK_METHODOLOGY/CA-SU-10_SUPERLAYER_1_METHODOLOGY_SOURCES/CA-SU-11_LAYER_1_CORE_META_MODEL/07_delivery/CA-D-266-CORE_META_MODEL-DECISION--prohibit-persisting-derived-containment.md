@@ -19,11 +19,13 @@ form: Decision
 
 Prohibit Persisting Derived Containment
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 `CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting.
 
-## Claim
 
 `CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting **must not** be persisted as independent relation declarations.
 

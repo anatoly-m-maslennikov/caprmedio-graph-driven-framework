@@ -4,7 +4,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection.Type
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection.Form
   - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
 version: 29
 updated_at: 2026-11-02 08:06:47 +0400
@@ -23,10 +23,12 @@ form: Rule
 
 Register Core Artifact Type Values
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Core allowed values of Artifact Type.
 
-## Claim
 
 the Core allowed values of Artifact Type **must** be (Atom, Journal, Projection, Project Settings, Framework Instance Settings, Default Settings).

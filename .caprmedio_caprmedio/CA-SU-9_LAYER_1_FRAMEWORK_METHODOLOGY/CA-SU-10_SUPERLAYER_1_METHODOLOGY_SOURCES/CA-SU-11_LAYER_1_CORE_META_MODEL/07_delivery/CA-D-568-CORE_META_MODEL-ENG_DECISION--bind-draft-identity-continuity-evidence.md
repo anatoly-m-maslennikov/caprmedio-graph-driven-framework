@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.ID
+  active: CAPRMEDIO_MODEL <+ Atom.Header.ID
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Status: Draft'
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Draft'
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
   - CAPRMEDIO_MODEL <+ Atom
 version: 19
 updated_at: 2026-11-02 00:18:22 +0400
@@ -24,11 +24,13 @@ form: Decision
 
 Bind Draft Identity Continuity Evidence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 identity continuity when a Draft Atom is created, updated or admitted to a non-Draft Status.
 
-## Claim
 
 Draft identity continuity **must** follow the exact admitted target and the applicable identity rules; retained Draft history **must not** be a prerequisite for Create, Update, promotion, another admitted Status change or their success.
 

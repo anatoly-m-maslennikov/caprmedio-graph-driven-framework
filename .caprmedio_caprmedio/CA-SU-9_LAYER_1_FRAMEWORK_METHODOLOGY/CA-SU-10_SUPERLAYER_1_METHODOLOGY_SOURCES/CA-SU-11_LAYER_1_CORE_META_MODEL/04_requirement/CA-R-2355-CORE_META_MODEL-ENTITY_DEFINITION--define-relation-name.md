@@ -18,15 +18,21 @@ Define Relation Name
 
 ## Claim
 
-Relation Name is the canonical name of a reusable Relation Type. The named
-Type can connect many endpoint pairs. An actual edge remains the
-source/Type/target tuple and does not create a separate Relation ID.
-
+### Formal Claim
 
 ```CFEL
 Relation.Name{:1}: [string]{:1};
 Relation.Name.*[]{:0}
 ```
+
+### Prose Claim
+
+
+Relation Name is the canonical name of a reusable Relation Type. The named
+Type can connect many endpoint pairs. An actual edge remains the
+source/Type/target tuple and does not create a separate Relation ID.
+
+
 
 ## Details
 

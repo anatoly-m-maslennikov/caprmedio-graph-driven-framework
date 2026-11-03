@@ -18,10 +18,12 @@ form: Rule
 
 Derive inverse structural ownership
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the inverse `structural_children` view derived from stored `structural_parent` relations.
 
-## Claim
 
 CAPRMEDIO **must** derive the inverse `structural_children` view from stored `structural_parent` relations **and** **must not** persist that inverse separately.

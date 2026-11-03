@@ -18,10 +18,12 @@ form: Rule
 
 Keep same-tier Requirements as authority peers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 active Current-scope Requirement Atoms in the same numeric Tier.
 
-## Claim
 
 **every** active Current-scope Requirement Atom is an authority peer of **every** other active Current-scope Requirement Atom **in** the same numeric Tier.

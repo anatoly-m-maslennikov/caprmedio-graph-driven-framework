@@ -6,7 +6,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Projection
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 38
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -26,11 +26,13 @@ form: Rule
 
 Preserve Implementation traceability in the shared Project Journal
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 structural Scope Units that realize RMED Atoms.
 
-## Claim
 
 **every** structural Scope Unit that realizes RMED Atoms **must** record its Implementation Bindings **in** the shared Project Work Journal. its admitted Records establish, replace, correct, **or** remove Implementation Bindings **and** bind exact Requirement, Method, Evaluation, **and** Delivery Atom Revisions **to** the native implementation targets that declare their realization.
 

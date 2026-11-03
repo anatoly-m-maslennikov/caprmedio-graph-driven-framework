@@ -22,11 +22,13 @@ form: Rule
 
 Follow the Operator-selected priority model
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 priority-model selection by the CAPRMEDIO Framework Instance for an affected Scope and Project stage.
 
-## Claim
 
 the CAPRMEDIO Framework Instance **must** support the admissible priority model established by the Operator for the affected Scope **and** Project stage. **every** resulting alternative selection **must** satisfy **all** of the following:
 

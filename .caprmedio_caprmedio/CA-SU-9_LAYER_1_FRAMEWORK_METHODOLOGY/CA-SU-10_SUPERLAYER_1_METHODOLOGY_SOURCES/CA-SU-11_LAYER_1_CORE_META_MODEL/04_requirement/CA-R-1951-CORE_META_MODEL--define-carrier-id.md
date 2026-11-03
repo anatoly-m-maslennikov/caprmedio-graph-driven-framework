@@ -18,15 +18,16 @@ form: Entity Definition
 
 Define Carrier.ID
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Identifiers of individual Carriers.
 
-## Claim
 
 A Carrier ID identifies one Carrier. Its filename and path are **not** its ID.
 
-### Formal claim
 
 ```text
 Carrier.ID[string]{1}

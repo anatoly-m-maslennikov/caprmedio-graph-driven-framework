@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory").Form
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory").Header.Form
   passive:
   - CAPRMEDIO_MODEL <+ Carrier
 version: 27
@@ -18,11 +18,13 @@ form: Decision
 
 Serialize Analysis Type Tokens
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the serialization of Analysis & Advisory Form tokens in an Analysis & Advisory Atom File Carrier filename.
 
-## Claim
 
 an Analysis & Advisory Atom File Carrier **must** serialize the following Form components within the Atom filename grammar governed by CA-D-283 **and** CA-D-284:
 

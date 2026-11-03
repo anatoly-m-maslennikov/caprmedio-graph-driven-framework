@@ -18,6 +18,9 @@ Carry Scope Unit Declarations as Governing Atoms
 
 ## Claim
 
+### Prose Claim
+
+
 Carry a Scope Unit Declaration in a Markdown Atom file. The file is its Carrier; the Declaration is the governing source.
 
 Frontmatter carries its Role, Form and active Subject. Claim carries its operative prose, CFEL expressions, or both. `project_structure.toml` is not a governing source.

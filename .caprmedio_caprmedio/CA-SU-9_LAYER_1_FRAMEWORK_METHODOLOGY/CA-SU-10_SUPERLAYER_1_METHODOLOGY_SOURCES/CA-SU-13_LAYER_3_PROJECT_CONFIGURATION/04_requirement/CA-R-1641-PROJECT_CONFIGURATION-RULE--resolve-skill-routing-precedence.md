@@ -19,9 +19,11 @@ form: Rule
 ## Summary
 Resolve skill routing precedence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 skill route resolution.
 
-## Claim
 
 skill routes **must** resolve by explicit precedence: project-local CAPRMEDIO routes override framework routes, which override provider-global routes.

@@ -18,10 +18,12 @@ form: Rule
 
 Give Every Scope Unit One Name
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit Names.
 
-## Claim
 
 **every** Scope Unit **must** have **`=1`** authoritative Name.

@@ -26,4 +26,7 @@ Preserve valuable information
 
 ## Claim
 
+### Prose Claim
+
+
 the CAPRMEDIO Framework Instance **must** keep **all** valuable Project information recoverable across sessions, handoffs, context loss, **and** Implementation changes.

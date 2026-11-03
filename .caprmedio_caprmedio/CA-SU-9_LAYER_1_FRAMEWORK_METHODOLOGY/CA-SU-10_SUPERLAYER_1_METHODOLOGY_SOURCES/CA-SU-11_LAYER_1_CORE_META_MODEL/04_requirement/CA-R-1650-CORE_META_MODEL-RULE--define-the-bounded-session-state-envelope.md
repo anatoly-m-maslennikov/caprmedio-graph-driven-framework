@@ -18,10 +18,12 @@ form: Rule
 
 Define the bounded session-state envelope
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the bounded session-state envelope.
 
-## Claim
 
 the bounded session-state envelope **must** contain **only** routing invariants, current scope, applicable settings, compact session state, **and** references needed **to** load active authority on demand.

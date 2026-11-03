@@ -18,15 +18,16 @@ form: Entity Definition
 
 Define Carrier.Canonical Address.Segment
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Carriers whose canonical address format has component segments.
 
-## Claim
 
 A Canonical Address Segment **means** one component of a Carrier's Canonical Address under its applicable address format.
 
-### Formal claim
 
 ```text
 Carrier.Canonical Address.Segment[string]{1}

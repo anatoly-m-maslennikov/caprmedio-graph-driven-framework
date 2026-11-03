@@ -2,7 +2,7 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
 version: 38
@@ -21,9 +21,11 @@ form: Rule
 ## Summary
 Define Current-scope Atom
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Current-scope Atoms.
 
-## Claim
 
 a Current-scope Atom **means** an Atom whose resolved Claim Target Scope Unit **`=`** its current Scope Unit.

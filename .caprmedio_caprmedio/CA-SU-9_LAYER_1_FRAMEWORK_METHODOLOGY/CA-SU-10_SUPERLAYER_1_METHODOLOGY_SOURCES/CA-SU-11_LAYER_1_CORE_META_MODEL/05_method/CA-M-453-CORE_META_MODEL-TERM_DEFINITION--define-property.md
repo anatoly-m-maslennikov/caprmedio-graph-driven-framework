@@ -13,7 +13,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Property
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_PROPERTY
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
 relations: {}
 role: Method
 form: Term Definition
@@ -22,12 +22,14 @@ form: Term Definition
 
 Define Property
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The reusable lexical Term `Property` in Entity definitions, immediate-bearer
 Relations, qualified Subject Paths, and authored content.
 
-## Claim
 
 Property **means** an Entity whose identity depends on its immediate bearer and
 whose direct bearer Relation is IS_PROPERTY_OF from that Property to the

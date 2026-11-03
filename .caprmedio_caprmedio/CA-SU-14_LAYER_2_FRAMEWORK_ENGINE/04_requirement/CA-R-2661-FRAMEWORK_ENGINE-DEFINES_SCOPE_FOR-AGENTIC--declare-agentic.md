@@ -16,6 +16,8 @@ Declare AGENTIC
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//AGENTIC.ID == "CA-SU-22";
 Scope Unit//AGENTIC.Name == "AGENTIC";
@@ -23,3 +25,4 @@ Scope Unit//AGENTIC.Label == "FEATURE";
 Scope Unit//AGENTIC.order.ordered == false;
 Scope Unit//AGENTIC ((IS_CONTAINED_BY)) Scope Unit//FRAMEWORK_ENGINE
 ```
+

@@ -17,6 +17,9 @@ Declare caprmedio
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Project//caprmedio.Name == "caprmedio"
 ```
+

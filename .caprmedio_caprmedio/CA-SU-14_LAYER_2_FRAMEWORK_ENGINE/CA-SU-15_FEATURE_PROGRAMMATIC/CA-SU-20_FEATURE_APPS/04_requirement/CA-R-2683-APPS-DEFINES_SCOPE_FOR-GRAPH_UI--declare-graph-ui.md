@@ -16,6 +16,8 @@ Declare GRAPH_UI
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//GRAPH_UI.ID == "CA-SU-44";
 Scope Unit//GRAPH_UI.Name == "GRAPH_UI";
@@ -23,3 +25,4 @@ Scope Unit//GRAPH_UI.Label == "APP";
 Scope Unit//GRAPH_UI.order.ordered == false;
 Scope Unit//GRAPH_UI ((IS_CONTAINED_BY)) Scope Unit//APPS
 ```
+

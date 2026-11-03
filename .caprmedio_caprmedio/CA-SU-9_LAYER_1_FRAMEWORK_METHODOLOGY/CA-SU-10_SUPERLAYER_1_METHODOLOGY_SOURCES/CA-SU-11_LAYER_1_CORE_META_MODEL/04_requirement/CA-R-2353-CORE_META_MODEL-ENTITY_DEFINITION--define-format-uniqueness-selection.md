@@ -18,15 +18,21 @@ Define Format Uniqueness Selection
 
 ## Claim
 
-Format Uniqueness Selection identifies the comparison population for a
-Property uniqueness check. It is optional and does not itself impose
-uniqueness. It does not define a notation.
-
+### Formal Claim
 
 ```CFEL
 Format.Uniqueness Selection{:0..1}: [string]{:1};
 Format.Uniqueness Selection.*[]{:0}
 ```
+
+### Prose Claim
+
+
+Format Uniqueness Selection identifies the comparison population for a
+Property uniqueness check. It is optional and does not itself impose
+uniqueness. It does not define a notation.
+
+
 
 ## Details
 

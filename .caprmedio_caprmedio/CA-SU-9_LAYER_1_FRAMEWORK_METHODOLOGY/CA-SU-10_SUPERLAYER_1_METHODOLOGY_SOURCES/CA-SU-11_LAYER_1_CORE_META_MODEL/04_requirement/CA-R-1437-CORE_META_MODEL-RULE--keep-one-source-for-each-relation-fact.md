@@ -23,11 +23,13 @@ form: Rule
 
 Keep one source for each relation fact
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoritative source declarations for Relation facts.
 
-## Claim
 
 **every** independently authored Relation fact **must** have **`=1`** authoritative source declaration under Single Source of Truth. its representation **in** multiple CAPRMEDIO Graph views remains a reference **or** derived Projection of that declaration **without** creating another independently maintained source.
 

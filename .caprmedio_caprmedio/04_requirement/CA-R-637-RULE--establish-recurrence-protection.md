@@ -22,10 +22,12 @@ form: Rule
 
 Establish recurrence protection
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Continuous-improvement recurrence protection checks.
 
-## Claim
 
 **when** a resolved failure class can materially recur, Evaluation **must** detect it at the earliest practical boundary.

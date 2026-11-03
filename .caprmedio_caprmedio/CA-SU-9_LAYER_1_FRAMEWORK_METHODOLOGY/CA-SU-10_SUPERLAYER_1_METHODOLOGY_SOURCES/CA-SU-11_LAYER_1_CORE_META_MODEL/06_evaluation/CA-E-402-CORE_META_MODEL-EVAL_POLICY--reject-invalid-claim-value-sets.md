@@ -23,10 +23,12 @@ form: Eval Policy
 
 Reject Invalid Claim Value Sets
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Claim Value Sets.
 
-## Claim
 
 the Evaluation **must** reject a Claim Value Set **if** it identifies **`!=1`** Property, has **`=0`** values, repeats a value, uses one noncanonical value, has nonfinite **or** ordered semantics, **contains** one value **not** allowed by its Property, permits one value **to** be accepted, replaced, **or** retired independently, **or** parses `:` as Subject Expression syntax.

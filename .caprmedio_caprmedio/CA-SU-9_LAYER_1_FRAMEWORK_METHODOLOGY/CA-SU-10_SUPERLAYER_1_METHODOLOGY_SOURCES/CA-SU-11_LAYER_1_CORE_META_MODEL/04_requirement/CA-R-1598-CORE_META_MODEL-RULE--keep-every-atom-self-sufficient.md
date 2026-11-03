@@ -21,11 +21,13 @@ form: Rule
 
 Keep every Atom self-sufficient
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom Revisions and their applicable Properties.
 
-## Claim
 
 **every** Atom Revision **must** carry its applicable Properties within its own Markdown Carrier so that its own declared content can be read **without** reconstructing it from a filename **or** directory placement.
 

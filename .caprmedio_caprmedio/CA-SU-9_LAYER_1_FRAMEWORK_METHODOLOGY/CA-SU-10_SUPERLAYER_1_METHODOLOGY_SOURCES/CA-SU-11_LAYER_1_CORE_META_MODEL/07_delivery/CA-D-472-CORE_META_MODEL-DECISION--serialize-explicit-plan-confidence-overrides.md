@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role:=Plan).AI Agent Confidence Threshold
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   - CAPRMEDIO_MODEL <+ Carrier/File
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
 version: 29
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Decision
 
 Serialize explicit Plan confidence overrides
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 explicit Plan Autonomous Confidence Threshold overrides in Plan Atom Markdown File Carriers.
 
-## Claim
 
 an explicit Plan Autonomous Confidence Threshold override **must** use the top-level integer frontmatter field `autonomous_confidence_threshold` **in** that Plan Atom's own mandatory Markdown File Carrier.
 

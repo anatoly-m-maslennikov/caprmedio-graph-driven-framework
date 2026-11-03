@@ -28,4 +28,7 @@ Let the Operator control AI permissions
 
 ## Claim
 
+### Prose Claim
+
+
 CAPRMEDIO **must** let the Operator create AI Agent Delegations **and** mandatory authorization rules for **every** identified AI Agent **and** inspect, limit, modify, suspend, **and** revoke **every** such delegation **or** rule.

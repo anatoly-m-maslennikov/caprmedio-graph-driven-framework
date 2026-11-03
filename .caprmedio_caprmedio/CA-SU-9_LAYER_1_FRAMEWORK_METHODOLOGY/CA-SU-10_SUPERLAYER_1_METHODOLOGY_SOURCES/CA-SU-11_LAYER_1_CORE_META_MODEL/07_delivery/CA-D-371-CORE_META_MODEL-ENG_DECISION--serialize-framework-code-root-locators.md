@@ -20,10 +20,12 @@ form: Decision
 
 Serialize framework code-root locators
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Framework Instance Settings TOML Carrier.
 
-## Claim
 
 the Framework Instance Settings TOML Carrier **must** encode **`>=1`** code-root locator for the instance.

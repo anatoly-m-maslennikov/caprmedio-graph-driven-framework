@@ -10,12 +10,12 @@ relations:
   - CA-R-1559
   - CA-M-295
 subjects:
-  active: 'CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Implementation Retry Control'
+  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Implementation Retry Control'
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Failure Handling
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Autonomous Confidence Threshold'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Autonomous Confidence Threshold'
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
 atom_id: CA-E-441
@@ -30,11 +30,13 @@ form: Eval Policy
 
 Evaluate retry budget **and** escalation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the retry-policy Evaluation.
 
-## Claim
 
 the retry-policy Evaluation **must** return `fail` **if** **any** of the following occurs:
 

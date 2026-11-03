@@ -24,10 +24,12 @@ form: Decision
 
 Serialize Interaction Reporting Mode
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an explicit instance reporting default **in** the Framework Instance Settings TOML Carrier.
 
-## Claim
 
 an explicit instance reporting default **in** the Framework Instance Settings TOML Carrier **must** use `reporting_mode` **in** the `[interaction]` section, using an allowed value governed by CA-R-1628-CORE_META_MODEL-RULE--allow-silent-and-verbose-reporting-modes.

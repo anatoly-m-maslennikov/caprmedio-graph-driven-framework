@@ -21,11 +21,13 @@ form: Rule
 
 Define Artifact Applicability
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifact governed meaning in a declared context.
 
-## Claim
 
 
 

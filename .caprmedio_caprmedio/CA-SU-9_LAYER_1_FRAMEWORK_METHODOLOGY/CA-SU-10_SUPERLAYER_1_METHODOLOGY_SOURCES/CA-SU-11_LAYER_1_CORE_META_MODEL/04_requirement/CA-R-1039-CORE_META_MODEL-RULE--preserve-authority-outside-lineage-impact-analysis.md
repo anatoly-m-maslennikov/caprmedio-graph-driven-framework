@@ -16,10 +16,12 @@ form: Rule
 
 Preserve authority outside Lineage Impact Analysis
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Lineage Impact Analysis Atoms.
 
-## Claim
 
 a Lineage Impact Analysis Atom **must not** replace an examined child, supporting Evidence, **or** another Atom's Claim.

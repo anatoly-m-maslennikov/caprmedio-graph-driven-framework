@@ -19,10 +19,12 @@ form: Rule
 
 Define Child Composition
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the classification of direct children of a Scope Unit.
 
-## Claim
 
 Child Composition **means** the classification of one Scope Unit's direct children as **none**, LAYERS, FEATURES, **or** MIXED.

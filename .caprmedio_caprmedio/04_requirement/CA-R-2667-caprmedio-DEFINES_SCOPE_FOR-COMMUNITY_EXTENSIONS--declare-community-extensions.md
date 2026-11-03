@@ -16,6 +16,8 @@ Declare COMMUNITY_EXTENSIONS
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//COMMUNITY_EXTENSIONS.ID == "CA-SU-28";
 Scope Unit//COMMUNITY_EXTENSIONS.Name == "COMMUNITY_EXTENSIONS";
@@ -23,3 +25,4 @@ Scope Unit//COMMUNITY_EXTENSIONS.Label == "FEATURE";
 Scope Unit//COMMUNITY_EXTENSIONS.order.ordered == false;
 Scope Unit//COMMUNITY_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio
 ```
+

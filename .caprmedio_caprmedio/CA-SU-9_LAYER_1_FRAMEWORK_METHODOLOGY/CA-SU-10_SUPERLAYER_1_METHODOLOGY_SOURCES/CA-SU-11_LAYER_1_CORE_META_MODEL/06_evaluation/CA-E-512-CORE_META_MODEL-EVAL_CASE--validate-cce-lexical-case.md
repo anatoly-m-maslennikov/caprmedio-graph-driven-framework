@@ -9,7 +9,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
   - CAPRMEDIO_MODEL <+ Carrier/File.Main Content.CCE Operator
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
 version: 27
@@ -27,10 +27,12 @@ form: Eval Case
 
 Validate CCE lexical case
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 CCE Claims evaluated for lexical case and Markdown operator representation.
 
-## Claim
 
 **Claim checked.**
 

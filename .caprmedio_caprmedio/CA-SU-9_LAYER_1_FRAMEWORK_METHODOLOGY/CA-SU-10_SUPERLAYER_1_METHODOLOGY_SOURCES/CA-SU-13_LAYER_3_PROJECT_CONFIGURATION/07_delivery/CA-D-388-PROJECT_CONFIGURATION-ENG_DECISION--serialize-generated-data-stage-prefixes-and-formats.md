@@ -20,10 +20,12 @@ form: Decision
 
 Serialize Generated Data Stage Prefixes and Formats
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Journal input and generated Projection Carriers.
 
-## Claim
 
 Journal input **and** generated Projection Carriers **must** use these ordered stage prefixes: canonical Journal input `src`, deterministic lossless staging Projection `stg`, consumer-ready semantic Projection `mrt`, **and** aggregated metrics Projection `biz`. `src` **must** use canonical NDJSON Journal input; `stg` **must** use TOON. these prefixes classify Journal inputs **and** generated Projections **only**. unregistered stage prefixes remain available for later governed Extension.

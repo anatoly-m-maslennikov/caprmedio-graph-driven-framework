@@ -19,10 +19,12 @@ form: Rule
 
 Permit Operator-Defined Direct Route Skills
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Operator-defined CAPRMEDIO Direct Route Skills.
 
-## Claim
 
 the Operator **may** add a CAPRMEDIO Direct Route Skill.

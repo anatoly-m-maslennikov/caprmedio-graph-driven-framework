@@ -22,10 +22,12 @@ form: Decision
 
 Serialize the necessary-information confidence default
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an explicit necessary-information confidence default in the Framework Instance Settings TOML Carrier.
 
-## Claim
 
 an explicit necessary-information confidence default **in** the Framework Instance Settings TOML Carrier **must** use the integer-percentage field `confidence.necessary_information_threshold_percent`.

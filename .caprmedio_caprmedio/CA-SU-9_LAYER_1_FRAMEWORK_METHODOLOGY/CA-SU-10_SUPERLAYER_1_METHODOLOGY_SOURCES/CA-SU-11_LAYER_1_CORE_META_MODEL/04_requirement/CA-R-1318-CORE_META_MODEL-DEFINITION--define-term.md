@@ -26,17 +26,18 @@ form: Entity Definition
 
 Define Term
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project-specific vocabulary used as reusable lexical components of complete or qualified entity names and authored content, including the word `Term` itself.
 
-## Claim
 
 A Term is a direct specialization of Entity at `Term`. A Term has one Name, the word or phrase used for its meaning. Its named instances initially form a flat set, using `Term//<Name>` without additional Term groups. This declares the vocabulary kind and its existing Name property; it does not implement the deferred Terms Graph.
 
 **every** instance of `Term` **must** represent a reusable word **or** phrase component of complete **or** qualified entity expressions **and** authored content whose approved Project-specific meaning remains consistent across **all** its uses.
 
-### Formal claim
 
 ```text
 Term
@@ -55,7 +56,7 @@ A Governed Term has exactly one dedicated active Method Atom of Type Term Defini
 
 The only Entity outside the Term branch whose complete canonical name is also a registered Term is `Entity`, because it is the Subject root. The R / Entity Definition governs `Entity`; the M / Term Definition governs `Term//Entity`. Their matching word does not merge the two targets. Root status in another hierarchy does not extend this sole Subject-root exception.
 
-Use the full expression when identifying or comparing entities. `Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: X)/(.Type: X)` is a possible qualified expression: the repeated X components retain the same Term meaning while their complete qualifications differ. Each value still requires admission in its own context; the example does not introduce X or new value admissions. Likewise, `Entity/Property` is a qualified entity expression, while Property is the lexical Term at `Term//Property`. This distinction does not withdraw either pending definition or require a new Term Definition for every complete entity expression.
+Use the full expression when identifying or comparing entities. `Atom/(.Header.Role: X)/(.Header.Form: X)` is a possible qualified expression: the repeated X components retain the same Term meaning while their complete qualifications differ. Each value still requires admission in its own context; the example does not introduce X or new value admissions. Likewise, `Entity/Property` is a qualified entity expression, while Property is the lexical Term at `Term//Property`. This distinction does not withdraw either pending definition or require a new Term Definition for every complete entity expression.
 
 ### Draft source pin
 

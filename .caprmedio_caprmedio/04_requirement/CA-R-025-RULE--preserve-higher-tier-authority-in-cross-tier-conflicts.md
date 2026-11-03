@@ -14,7 +14,7 @@ status: Active
 atom_id: CA-R-025
 tier: 3
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Tier
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
 role: Requirement
 form: Rule
 ---
@@ -22,5 +22,8 @@ form: Rule
 Preserve higher-tier authority in cross-tier conflicts
 
 ## Claim
+
+### Prose Claim
+
 
 a conflict between active Requirements at different global tiers **must** preserve the lower-numbered claim **and** reconcile the higher-numbered claim **without** changing the lower-numbered meaning.

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.ID
+  active: CAPRMEDIO_MODEL <+ Atom.Header.ID
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Status: Draft'
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Draft'
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,11 +19,13 @@ form: Decision
 
 Give Every Non-Draft Atom Revision One Identifier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Current Atom sources, Archived Atom versions and Draft Atom sources.
 
-## Claim
 
 For each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with `status: Archived` and its prior Updated At retained; Git history preserves exact pre-archive bytes.
 

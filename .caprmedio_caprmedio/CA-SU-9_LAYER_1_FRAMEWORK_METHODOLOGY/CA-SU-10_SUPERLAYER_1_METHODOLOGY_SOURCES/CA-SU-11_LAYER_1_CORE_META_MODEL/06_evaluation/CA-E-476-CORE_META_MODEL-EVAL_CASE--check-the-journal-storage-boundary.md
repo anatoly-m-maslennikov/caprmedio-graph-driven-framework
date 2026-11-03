@@ -26,11 +26,13 @@ form: Eval Case
 
 Check the Journal storage boundary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Journal admission checks event **and** storage integrity **without** becoming a Project-conformance gate.
 
-## Claim
 
 report a failed Evaluation **if** the Journal loses recordable evidence because of Project defects, accepts corrupted **or** unauthorized writes, silently changes observations, **or** rewrites accepted history.
 

@@ -19,10 +19,12 @@ form: Rule
 
 Prohibit Authority Derivation from Summary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the relationship between an Atom's Summary and its authoritative content.
 
-## Claim
 
 an Atom's primary content block, remaining Main Content, Claim restrictions, **or** Translation **must not** be reconstructed **or** validated from its Summary. Summary is derived navigation, **not** authority for the content it abbreviates.

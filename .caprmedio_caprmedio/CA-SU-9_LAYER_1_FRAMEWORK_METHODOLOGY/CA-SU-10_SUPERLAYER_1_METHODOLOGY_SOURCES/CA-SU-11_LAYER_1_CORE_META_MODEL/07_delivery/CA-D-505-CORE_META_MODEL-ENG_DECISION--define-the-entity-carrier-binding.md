@@ -21,11 +21,13 @@ form: Decision
 
 Define the Entity Carrier binding
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Carrier bindings of Entities.
 
-## Claim
 
 the Carrier Property of an Entity **means** its binding **to** the Carrier that stores **or** represents it.
 

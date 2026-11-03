@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Concern).Priority
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Header.Priority
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
@@ -21,11 +21,13 @@ form: Rule
 
 Effective priority conflict selection
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 priority-conflict selection for Concern Atoms.
 
-## Claim
 
 a Concern Atom has **`=1`** Priority value: High, Medium, **or** Low.
 

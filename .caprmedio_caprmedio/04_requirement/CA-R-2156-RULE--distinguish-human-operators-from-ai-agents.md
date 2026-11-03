@@ -25,4 +25,7 @@ Distinguish human Operators from AI Agents
 
 ## Claim
 
+### Prose Claim
+
+
 **every** Actor that performs **or** authorizes a governed action **must** have **`=1`** Type **in** (Operator, AI Agent).

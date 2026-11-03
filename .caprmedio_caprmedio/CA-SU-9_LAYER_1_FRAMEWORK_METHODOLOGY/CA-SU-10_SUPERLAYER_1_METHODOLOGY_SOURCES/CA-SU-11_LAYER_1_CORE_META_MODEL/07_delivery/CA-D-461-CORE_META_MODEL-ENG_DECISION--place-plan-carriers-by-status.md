@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
   passive:
-  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,11 +19,13 @@ form: Decision
 
 Place Plan Carriers by Status
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan Carrier Bundle placement by carried Status.
 
-## Claim
 
 **every** Plan Carrier Bundle **must** represent its carried Status **in** the following locations:
 

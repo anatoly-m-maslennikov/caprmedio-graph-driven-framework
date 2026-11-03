@@ -20,11 +20,13 @@ form: Policy
 
 Represent Occurrent information through Continuant records
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 representation of an Occurrent's recorded information.
 
-## Claim
 
 An Occurrent is not carried or stored as the occurrence itself. When
 information about an Occurrent is retained, a Continuant record represents

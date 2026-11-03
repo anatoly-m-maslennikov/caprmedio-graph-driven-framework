@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  active: CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
 version: 39
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -19,10 +19,12 @@ form: Rule
 ## Summary
 Resolve Scope Unit References from Atom Scope
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit references in Atoms whose Atom Scope is a Scope Unit.
 
-## Claim
 
 **every** Scope Unit reference **in** an Atom whose Atom Scope is a Scope Unit **must** resolve relative **to** that Scope Unit.

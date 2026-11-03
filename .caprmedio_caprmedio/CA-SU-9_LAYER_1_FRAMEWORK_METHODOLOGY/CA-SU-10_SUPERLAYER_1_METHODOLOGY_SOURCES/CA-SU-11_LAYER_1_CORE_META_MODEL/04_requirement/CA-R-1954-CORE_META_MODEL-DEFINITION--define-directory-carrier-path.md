@@ -18,15 +18,16 @@ form: Entity Definition
 
 Define Directory Carrier.Path
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Directory Carrier filesystem locators.
 
-## Claim
 
 A Directory Carrier's Path **means** the locator of its directory within a filesystem, absolute or relative to a stated base. It does **not** define Scope Unit parentage or Carrier identity.
 
-### Formal claim
 
 ```text
 Directory.Path[string]{1}

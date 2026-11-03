@@ -16,15 +16,16 @@ form: Entity Definition
 
 Define File YAML Frontmatter
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Optional structured metadata region of a Markdown File Carrier.
 
-## Claim
 
 A Markdown File Carrier YAML Frontmatter is its optional structured metadata region. It has no direct scalar value and is a logical region, not a separate Carrier; its encoding uses economical YAML syntax and keeps uncontrolled prose in Main Content.
 
-### Formal claim
 
 ```text
 Carrier/File.YAML Frontmatter{0}

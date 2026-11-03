@@ -28,4 +28,7 @@ Expose only task necessary distinctions
 
 ## Claim
 
+### Prose Claim
+
+
 CAPRMEDIO **must** expose **to** the Operator **only** the distinctions necessary **to** understand **and** control the current task.

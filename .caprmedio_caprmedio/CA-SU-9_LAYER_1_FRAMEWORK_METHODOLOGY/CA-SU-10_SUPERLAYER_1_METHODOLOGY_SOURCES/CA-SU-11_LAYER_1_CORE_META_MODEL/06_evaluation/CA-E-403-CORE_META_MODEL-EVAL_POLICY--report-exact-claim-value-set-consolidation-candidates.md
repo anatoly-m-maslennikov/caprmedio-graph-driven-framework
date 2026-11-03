@@ -2,8 +2,8 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Subjects.Governs
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Governs
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
 version: 36
@@ -24,10 +24,12 @@ form: Eval Policy
 
 Report Exact Claim Value-Set Consolidation Candidates
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Claim Value Set consolidation candidates.
 
-## Claim
 
 the Evaluation **must** report **`=1`** Claim Value Set consolidation candidate **only** **if** **every** contributing active Atom has the same Atom Scope, Atom Governed Subject, Claim Target Scope Unit, textual Claim Scope, Property, **and** exact qualifiers, has **`=1`** mechanically parseable single-value Claim, **and** differs **only** by **`=1`** unique value proven as allowed by the `:` qualification for that Property; it **must not** mutate, merge, archive, replace, compile, **or** change a Source Atom by another operation, use semantic **or** LLM inference, **or** cause Applicable Methodology compilation **to** fail.

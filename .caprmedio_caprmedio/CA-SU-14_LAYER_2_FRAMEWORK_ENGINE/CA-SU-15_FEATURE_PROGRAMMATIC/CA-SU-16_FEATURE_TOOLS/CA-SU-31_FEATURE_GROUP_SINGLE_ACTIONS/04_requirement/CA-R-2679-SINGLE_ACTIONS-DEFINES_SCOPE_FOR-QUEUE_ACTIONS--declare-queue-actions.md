@@ -16,6 +16,8 @@ Declare QUEUE_ACTIONS
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//QUEUE_ACTIONS.ID == "CA-SU-40";
 Scope Unit//QUEUE_ACTIONS.Name == "QUEUE_ACTIONS";
@@ -23,3 +25,4 @@ Scope Unit//QUEUE_ACTIONS.Label == "FEATURE_GROUP";
 Scope Unit//QUEUE_ACTIONS.order.ordered == false;
 Scope Unit//QUEUE_ACTIONS ((IS_CONTAINED_BY)) Scope Unit//SINGLE_ACTIONS
 ```
+

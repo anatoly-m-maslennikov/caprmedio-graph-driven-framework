@@ -18,6 +18,9 @@ Require unique Property tuples
 
 ## Claim
 
+### Prose Claim
+
+
 `UNIQUE(selector, (.p, .q))` requires unique tuples of the selected Properties across the selected logical instances in the explicit Project evaluation context. An optional third argument, `condition`, restricts the population: `UNIQUE(selector, (.p, .q), condition)`.
 
 - Use each selected instance's state in one explicit Project snapshot. Do not expand earlier lifecycle states as DETERMINES does. Without a condition, evaluate the complete selected population regardless of Status Group or containment, including selected Drafts and Archived instances. An incomplete or unresolved population is an error. A known empty population satisfies uniqueness.

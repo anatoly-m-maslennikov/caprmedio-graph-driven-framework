@@ -25,4 +25,7 @@ Keep the whole project coherent
 
 ## Claim
 
+### Prose Claim
+
+
 **to** govern the Project, keep its Terms, Claims, rules, structure, **and** Implementation mutually coherent **where** they share authority **or** interact.

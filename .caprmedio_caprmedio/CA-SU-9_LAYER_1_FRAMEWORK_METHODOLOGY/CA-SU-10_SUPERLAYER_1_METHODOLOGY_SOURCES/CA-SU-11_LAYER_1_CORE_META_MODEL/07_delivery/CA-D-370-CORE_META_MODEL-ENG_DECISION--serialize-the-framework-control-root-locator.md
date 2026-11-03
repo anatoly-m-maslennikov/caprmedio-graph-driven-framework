@@ -22,10 +22,12 @@ form: Decision
 
 Serialize the framework control-root locator
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the framework control-root locator for a Project in the Framework Instance Settings TOML Carrier.
 
-## Claim
 
 the Framework Instance Settings TOML Carrier **must** encode the framework control-root locator for its Project, resolving **to** the Directory Carrier prescribed by CA-D-317 **without** selecting a different authority root.

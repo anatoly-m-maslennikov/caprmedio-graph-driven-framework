@@ -16,6 +16,8 @@ Declare MCP
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//MCP.ID == "CA-SU-21";
 Scope Unit//MCP.Name == "MCP";
@@ -23,3 +25,4 @@ Scope Unit//MCP.Label == "FEATURE";
 Scope Unit//MCP.order.ordered == false;
 Scope Unit//MCP ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC
 ```
+

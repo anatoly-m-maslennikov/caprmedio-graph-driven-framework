@@ -19,11 +19,13 @@ form: Rule
 
 Scope path does not change semantic coordinates
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope paths in the current project.
 
-## Claim
 
 Scope path is a project-relative address containing **`>=0`** operator-labeled structural scopes ordered from broader parent **to** narrower child.
 

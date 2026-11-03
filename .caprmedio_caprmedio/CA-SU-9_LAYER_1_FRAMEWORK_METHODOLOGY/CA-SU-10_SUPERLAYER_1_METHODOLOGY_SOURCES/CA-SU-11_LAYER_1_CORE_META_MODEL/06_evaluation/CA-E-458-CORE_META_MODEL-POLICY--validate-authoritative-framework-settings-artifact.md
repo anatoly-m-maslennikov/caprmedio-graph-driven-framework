@@ -30,11 +30,13 @@ form: Eval Policy
 
 Validate Authoritative Framework Settings Artifact
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Framework Instance Settings.
 
-## Claim
 
 the Evaluation **must** reject Framework Instance Settings **if**
 

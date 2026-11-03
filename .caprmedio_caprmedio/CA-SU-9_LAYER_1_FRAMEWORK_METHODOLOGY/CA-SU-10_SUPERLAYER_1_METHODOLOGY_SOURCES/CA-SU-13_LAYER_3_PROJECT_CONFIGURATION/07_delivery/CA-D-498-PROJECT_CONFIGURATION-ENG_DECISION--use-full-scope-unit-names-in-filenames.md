@@ -24,11 +24,13 @@ form: Decision
 
 Use full Scope Unit names in filenames
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit references serialized **in** Atom filenames **in** the CAPRMEDIO Project.
 
-## Claim
 
 **every** filename token representing a Scope Unit **must** use its complete Scope Unit Name, rendered **in** uppercase with underscores under `CA-D-284-CORE_META_MODEL-DELIVERY--serialize-filename-token-case`, **without** abbreviation **or** a separately maintained alias.
 

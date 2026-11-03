@@ -27,4 +27,7 @@ Minimize human effort at its declared priority
 
 ## Claim
 
+### Prose Claim
+
+
 choose among acceptable alternatives by minimizing Operator **and** other human time **and** effort according **to** the current Operator-declared human-effort priority.

@@ -16,10 +16,12 @@ form: Decision
 
 Serialize Markdown Paragraphs as Unwrapped Lines
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Markdown Atom Carrier Main Content prose paragraphs.
 
-## Claim
 
 **every** Markdown Atom Carrier Main Content prose paragraph **must** use one unwrapped source line **and** one blank line between adjacent paragraphs.

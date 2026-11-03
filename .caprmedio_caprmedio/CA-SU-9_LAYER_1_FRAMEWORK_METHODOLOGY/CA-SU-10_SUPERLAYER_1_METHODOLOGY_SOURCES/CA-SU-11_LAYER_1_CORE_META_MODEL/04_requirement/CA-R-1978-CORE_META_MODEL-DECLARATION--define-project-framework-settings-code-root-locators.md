@@ -18,16 +18,21 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Define Project.Framework Settings.Code-Root Locators
 
-## Claim scope
-
-the code-root references in the Project's Framework Settings.
-
 ## Claim
+
+### Formal Claim
 
 ```CFEL
 Project.Settings.Code-Root Locators{:0..1}: [string]{:1+};
 Project.Settings.Code-Root Locators.*[]{:0}
 ```
+
+### Prose Claim
+
+
+the code-root references in the Project's Framework Settings.
+
+
 
 ## Details
 

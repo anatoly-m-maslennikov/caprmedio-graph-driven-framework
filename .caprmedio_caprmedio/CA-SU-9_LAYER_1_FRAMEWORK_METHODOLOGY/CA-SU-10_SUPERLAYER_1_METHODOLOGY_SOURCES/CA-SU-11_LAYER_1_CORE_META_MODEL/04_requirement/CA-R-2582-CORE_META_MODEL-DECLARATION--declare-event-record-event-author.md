@@ -18,7 +18,10 @@ Declare Event Record.Relations.HAS_EVENT_AUTHOR
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Event Record.Relations.HAS_EVENT_AUTHOR{:1}: [Actor//]{:1};
 Event Record.Relations.HAS_EVENT_AUTHOR.*[]{:0}
 ```
+

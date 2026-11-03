@@ -19,7 +19,10 @@ Define Interaction Reporting Mode
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Project.Settings.Interaction.Reporting Mode{:1}: [string]{:1};
 Project.Settings.Interaction.Reporting Mode.*[]{:0}
 ```
+

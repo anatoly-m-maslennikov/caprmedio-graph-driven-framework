@@ -18,10 +18,12 @@ form: Decision
 
 Keep Status Subdirectories Outside the Directory Carrier Type
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Status subdirectories used for Artifact Carrier placement.
 
-## Claim
 
 a Status subdirectory used for Artifact Carrier placement **must not** be a Directory Carrier.

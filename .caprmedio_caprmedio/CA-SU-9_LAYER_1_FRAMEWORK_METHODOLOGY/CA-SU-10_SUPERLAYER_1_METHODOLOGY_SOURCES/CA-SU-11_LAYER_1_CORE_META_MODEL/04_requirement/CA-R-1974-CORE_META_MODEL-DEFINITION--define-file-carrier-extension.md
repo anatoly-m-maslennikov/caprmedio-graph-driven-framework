@@ -18,15 +18,16 @@ form: Entity Definition
 
 Define File Carrier.Extension
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 File Carriers whose filename uses an extension.
 
-## Claim
 
 A File Carrier's Extension **means** the filename suffix used to indicate its format. The extension does **not** establish the carried Entity's identity.
 
-### Formal claim
 
 ```text
 File.Extension[string]{0..1}

@@ -24,10 +24,12 @@ form: Implementation Method
 
 Report **in** silent mode
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 silent-mode reporting.
 
-## Claim
 
 **to** report **in** `silent` mode, answer exploratory input normally **and**, apart from the mandatory information governed by CA-R-1440-CORE_META_MODEL-GENERAL-REQUIREMENT--preserve-mandatory-information-in-every-reporting-mode, report **only** durable Artifacts **or** Project state that CAPRMEDIO created, updated, archived, committed, **or** **otherwise** changed; omit ordinary announcements of mode selection, workflow routing, Skill chaining, **and** gate transitions.

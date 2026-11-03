@@ -18,11 +18,13 @@ form: Rule
 
 Control production DEBUG enablement
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 logging Implementation for production DEBUG logging under Logging Policies.
 
-## Claim
 
 logging Implementation **must** keep production DEBUG logging disabled by default. temporary enablement **must** be scoped by component, subject, run, entity, **or** another bounded selector, have an automatic expiry, **and** preserve the same redaction rules as **every** other level.
 

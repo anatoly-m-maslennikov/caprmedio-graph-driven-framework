@@ -16,11 +16,13 @@ form: Implementation Method
 
 Exclude generated-only implementation edges
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 provenance validation of recorded changes in the governed selection.
 
-## Claim
 
 provenance validation inspects **every** recorded change **in** the governed selection. a change contributes an Implementation Relation, implementation coverage, **or** semantic traceability edge **only** **when** it changes **`>=1`** non-generated governed source.
 

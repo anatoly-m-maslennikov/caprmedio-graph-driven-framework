@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Content.Summary
   passive:
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Atom.Content
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
@@ -24,11 +24,13 @@ form: Eval Case
 
 Validate Summary identity preservation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 candidate Atom Revisions and their Summary Property.
 
-## Claim
 
 the Evaluation **must** reject a candidate Atom Revision **if** its Summary differs from the Summary established for that Atom identity, even **when** its Claim is unchanged. it **must** reject treating Summary as an independently identified, versioned, **or** timestamped Artifact; Summary belongs **to** its Atom under CA-R-2499.
 

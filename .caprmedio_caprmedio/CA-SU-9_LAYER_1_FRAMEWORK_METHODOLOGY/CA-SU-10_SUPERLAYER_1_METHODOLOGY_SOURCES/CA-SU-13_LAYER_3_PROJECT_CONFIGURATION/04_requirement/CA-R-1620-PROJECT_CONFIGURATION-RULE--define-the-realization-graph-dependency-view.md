@@ -19,11 +19,13 @@ form: Rule
 
 Define the Realization Graph dependency view
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 optional dependency views of Realization Graphs.
 
-## Claim
 
 the dependency view of a Realization Graph **means** an optional derived view of the selected declarations, resources, internal dependency targets, external dependency targets, **and** admitted typed Relations among them.
 

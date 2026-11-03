@@ -18,10 +18,12 @@ form: Entity Definition
 
 Define Entity/Carrier/Database Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Database Carriers.
 
-## Claim
 
 A Database Carrier **means** a Carrier that represents content in a database.

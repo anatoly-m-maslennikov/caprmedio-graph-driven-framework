@@ -21,11 +21,13 @@ form: Rule
 
 Preserve mandatory information in every reporting mode
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 mandatory information reported by **every** interaction reporting mode.
 
-## Claim
 
 **every** interaction reporting mode **must** report the following mandatory information:
 

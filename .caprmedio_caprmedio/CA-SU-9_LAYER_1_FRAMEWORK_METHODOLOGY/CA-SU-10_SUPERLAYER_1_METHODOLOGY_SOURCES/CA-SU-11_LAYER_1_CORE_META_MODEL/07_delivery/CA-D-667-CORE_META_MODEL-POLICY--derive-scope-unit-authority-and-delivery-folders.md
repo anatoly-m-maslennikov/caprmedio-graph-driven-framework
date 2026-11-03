@@ -22,6 +22,9 @@ Derive Authority and Delivery Folder Names
 
 ## Claim
 
+### Prose Claim
+
+
 The Project Authority Folder is `.caprmedio_<project name>`, without a Scope Unit ID.
 
 For a non-root Scope Unit, derive the folder names from its ID, Label, order.number and Name:

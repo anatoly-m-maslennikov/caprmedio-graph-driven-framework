@@ -23,4 +23,7 @@ Permit only forward Layer dependencies
 
 ## Claim
 
+### Prose Claim
+
+
 **every** dependency between Project Layers **must** point from the Project root **or** an earlier Layer **to** a later Layer **in** the cumulative order.

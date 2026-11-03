@@ -18,15 +18,16 @@ form: Entity Definition
 
 Define File Carrier.Path
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 File Carrier filesystem locators.
 
-## Claim
 
 A File Carrier's Path **means** the locator of its file within a filesystem, absolute or relative to a stated base. It is a locator, **not** the Carrier's ID.
 
-### Formal claim
 
 ```text
 File.Path[string]{1}

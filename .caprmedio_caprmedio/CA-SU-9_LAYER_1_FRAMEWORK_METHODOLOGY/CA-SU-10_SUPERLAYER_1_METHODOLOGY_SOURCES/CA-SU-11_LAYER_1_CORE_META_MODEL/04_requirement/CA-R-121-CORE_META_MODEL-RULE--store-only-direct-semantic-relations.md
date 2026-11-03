@@ -18,10 +18,12 @@ form: Rule
 
 Store only direct semantic relations
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 declared semantic relations.
 
-## Claim
 
 **every** declared semantic relation **must** connect its two named participants through one registered immediate meaning.

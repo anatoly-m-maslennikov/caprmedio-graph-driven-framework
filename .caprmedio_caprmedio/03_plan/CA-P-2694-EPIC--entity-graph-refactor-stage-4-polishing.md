@@ -5,14 +5,17 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
 tier: 3
-version: 48
-updated_at: 2026-11-03 18:44:41 +0400
+version: 49
+updated_at: 2026-11-03 20:30:27 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations: {}
 role: Plan
 form: Plan
-author: Anatoly Maslennikov
+carrier_destination:
+  file:
+    name: CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md
+    path: .caprmedio_caprmedio/03_plan
 ---
 ## Summary
 
@@ -37,7 +40,7 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 
 The latest Operator decisions add an explicit YAML/Markdown grouping, an empty Claim container with Formal Claim and Prose Claim children, removal of Claim Scope, symbolic aliases, minimal declared relation counterparts, and declaration-based heading interpretation. `Node.**` covers all Properties of Node and its branch.
 
-Completed next task: [CA-P-2709 — simplify MODEL and STRUCTURE Subject roots](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/13-CA-P-2709-TASK--simplify-model-and-structure-subject-roots.md). Apply `CAPRMEDIO <+ MODEL` → `CAPRMEDIO_MODEL` and `CAPRMEDIO <+ STRUCTURE` → `CAPRMEDIO_STRUCTURE` in `subjects.active` and `subjects.passive` only, with a simple in-place script. Verified 1,178 source files and 3,685 Subject values, with every other source byte preserved. The four follow-up stages below now continue.
+Completed next task: [CA-P-2709 — simplify MODEL and STRUCTURE Subject roots](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/13-CA-P-2709-TASK--simplify-model-and-structure-subject-roots.md). Apply `CAPRMEDIO <+ MODEL` → `CAPRMEDIO_MODEL` and `CAPRMEDIO <+ STRUCTURE` → `CAPRMEDIO_STRUCTURE` in `subjects.active` and `subjects.passive` only, with a simple in-place script. Verified 1,178 source files and 3,685 Subject values, with every other source byte preserved. The four follow-up stages below have been executed and checked for the selected frontier.
 
 Execute in this order:
 
@@ -46,7 +49,7 @@ Execute in this order:
 3. Apply the agreed mechanical migration in place and align its required consumers/projections.
 4. Check the migration against the frozen source frontier and adopted Declarations.
 
-The [follow-up plan and pending choices](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-content-alias-followup-20261103.md) define scope, owners and acceptance checks. Ask unresolved choices one at a time. The group names are now `Atom.Header` and `Atom.Content`. Remaining Claim/alias grammar choices are tracked in the follow-up; the new Git checkpoint and migration have not started. Prior completed Tasks remain Done, and P2707 retains its existing verification scope.
+The [follow-up plan and pending choices](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-content-alias-followup-20261103.md) define scope, owners and acceptance checks. Ask unresolved choices one at a time. The group names are now `Atom.Header` and `Atom.Content`. Claim/alias grammar choices are resolved. The pre-migration checkpoint db837f08e is pushed and verified; the selected source migration and seven projection rebuilds are complete. The MODEL audit queue remains explicit. Prior completed Tasks remain Done, and P2707 retains its existing verification scope.
 
 ## Current tasks
 
@@ -66,4 +69,6 @@ The earlier CFEL/model migration remains completed history. Its eight completed 
 
 ## Verification checkpoint
 
-The earlier Scope Unit cutover is complete through P2706. P2707 remains Active for its recorded Engine verification blockers. The new Subject-root task P2709 is Done. Header/Claim/alias Declaration preparation and review are in progress; the Epic remains Active independently. No new release, live MCP replacement, commit or push is claimed by this plan update.
+The Scope Unit cutover is complete through P2706; P2709 is Done. The Header/Claim/alias follow-up applied 87 Current outputs with 86 exact-byte predecessor archives, pushed the pre-migration checkpoint db837f08e to amm/dev, migrated 1,158 selected files in place (1,071 changed), repaired five remaining consumers and rebuilt seven faithful MODEL projections from 1,154 Current sources. Independent preservation checks and 160 focused tests pass. Twelve model-binding gaps remain in the audit queue. P2707 retains its existing Engine verification blockers; the Epic remains Active. This update records manual source application and focused checks, without native workflow or release completion.
+
+[Migration report and remaining queue](../02_analysis/draft/model-header-content-migration-20261103/report.md).

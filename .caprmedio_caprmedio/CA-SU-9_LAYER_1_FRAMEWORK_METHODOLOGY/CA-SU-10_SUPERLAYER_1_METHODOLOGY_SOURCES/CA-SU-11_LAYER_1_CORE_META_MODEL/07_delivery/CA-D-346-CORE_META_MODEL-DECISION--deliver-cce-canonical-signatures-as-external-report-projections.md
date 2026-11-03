@@ -4,7 +4,7 @@ subjects:
   passive:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Output Publication
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Carrier/File
@@ -25,9 +25,11 @@ form: Decision
 ## Summary
 Deliver CCE Canonical Signatures as External Report Projections
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Canonical Signature Projections for selected source frontiers **and** their external reports.
 
-## Claim
 
 **every** Canonical Signature Projection **must** be delivered as **`=1`** non-authoritative report under its Project's `.caprmedio_<project_name>/_projection/` Directory Carrier with the selected source frontier digest, **every** source Atom Identity **and** Revision, **every** source expression occurrence, **every** Canonical Signature, **and** **every** exclusion diagnostic; the Projection **must not** become an Atom Carrier, modify a selected source Carrier, **or** establish Claim equivalence.

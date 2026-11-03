@@ -16,15 +16,16 @@ form: Entity Definition
 
 Define File Filename Scope Unit Token
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit references serialized in a File Carrier filename.
 
-## Claim
 
 A File Carrier Filename Scope Unit Token is one stable uppercase token for a referenced Scope Unit. A filename may contain zero or more tokens; each serialized Scope Unit reference uses one token selected by Project Configuration.
 
-### Formal claim
 
 ```text
 Carrier/File.Filename.Scope Unit Token[string]{0+}

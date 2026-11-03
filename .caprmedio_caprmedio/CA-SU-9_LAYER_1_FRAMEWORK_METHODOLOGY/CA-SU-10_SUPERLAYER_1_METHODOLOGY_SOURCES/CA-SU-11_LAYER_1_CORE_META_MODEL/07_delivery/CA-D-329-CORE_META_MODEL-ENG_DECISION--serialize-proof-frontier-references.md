@@ -16,10 +16,12 @@ form: Decision
 
 Serialize Proof Frontier References
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 proof Carrier dependency-frontier serialization.
 
-## Claim
 
 **every** proof Carrier **must** serialize its machine-readable dependency frontier as a YAML `proof_frontier_refs` list of exact versioned **or** digest-bound references. prose **must** be reserved for additional invalidation conditions that cannot be encoded **without** loss.

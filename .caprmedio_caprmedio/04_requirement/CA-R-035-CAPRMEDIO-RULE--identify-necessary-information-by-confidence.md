@@ -30,6 +30,9 @@ Identify necessary information by confidence
 
 ## Claim
 
+### Prose Claim
+
+
 an AI Agent's assessment of necessary Project information **must** use progressive context acquisition: read **every** active Project-owned Tier 0 Atom **before** using indexes, Relations, **and** Subjects **to** identify applicable Atoms; read **and** check the full Claims of those Atoms; expand inspection **when** dependencies, conflicts, missing evidence, **or** uncertainty require it. indexes, Relations, **and** Subjects support discovery **and** **must not** substitute for checking the applicable Claims. shared ancestry, descendancy, **or** structural scope alone **must not** require loading **every** Atom's full content.
 
 the information is necessary **when** its omission would leave the AI Agent below the effective Confidence Threshold resolved under CA-M-271. the confidence **and** threshold remain operational heuristics, **not** comparable probabilities across configurations.

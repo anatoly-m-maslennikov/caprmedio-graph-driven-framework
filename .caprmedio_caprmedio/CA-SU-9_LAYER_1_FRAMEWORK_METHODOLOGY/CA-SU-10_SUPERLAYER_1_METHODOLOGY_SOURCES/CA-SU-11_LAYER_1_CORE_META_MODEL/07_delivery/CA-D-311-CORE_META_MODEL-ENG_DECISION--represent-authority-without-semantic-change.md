@@ -16,10 +16,12 @@ form: Decision
 
 Represent Authority without Semantic Change
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 governed Carrier representations.
 
-## Claim
 
 **every** governed Carrier **must** represent its carried Artifact Revision deterministically **and** human-readably **without** adding, removing, duplicating, **or** changing authoritative content.

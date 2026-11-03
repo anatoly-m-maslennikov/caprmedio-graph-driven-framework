@@ -19,10 +19,12 @@ form: Rule
 
 Keep Qualified Type Domains Open
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 qualified Type domains.
 
-## Claim
 
 an Extension **or** Project Configuration **may** add Type values under **`=1`** exact qualified Type Subject **without** creating another Type Property.

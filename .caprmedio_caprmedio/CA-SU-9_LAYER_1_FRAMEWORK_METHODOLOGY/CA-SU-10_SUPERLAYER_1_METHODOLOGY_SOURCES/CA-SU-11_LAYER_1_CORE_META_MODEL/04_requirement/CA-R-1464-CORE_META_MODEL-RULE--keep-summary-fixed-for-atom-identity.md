@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Content.Summary
   passive:
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Atom.Content
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
@@ -20,10 +20,12 @@ form: Rule
 
 Keep Summary fixed for Atom identity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Summary of an Atom across its Revisions.
 
-## Claim
 
 an Atom **must** keep the Summary created with it across **all** of its Revisions. **if** its Summary needs a change, **then** it **must** be replaced by a new Atom with a new Atom ID, even **if** its Claim is unchanged.

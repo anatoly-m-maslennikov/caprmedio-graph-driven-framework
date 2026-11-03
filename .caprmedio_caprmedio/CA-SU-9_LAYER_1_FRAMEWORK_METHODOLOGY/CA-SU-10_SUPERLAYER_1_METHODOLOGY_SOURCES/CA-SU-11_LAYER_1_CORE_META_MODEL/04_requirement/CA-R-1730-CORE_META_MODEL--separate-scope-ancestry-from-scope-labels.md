@@ -25,11 +25,13 @@ form: Rule
 
 Separate scope ancestry from scope labels
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit ancestry **and** Scope Unit Labels.
 
-## Claim
 
 Scope Unit ancestry **must** follow declared Scope Unit parentage. CAPRMEDIO **must not** author or persist a Structural Level property; an optional derived depth or path rendering **must not** independently override that parentage under CA-R-1485.
 

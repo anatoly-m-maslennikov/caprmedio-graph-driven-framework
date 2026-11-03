@@ -18,10 +18,12 @@ form: Decision
 
 Serialize Filename Summary Slug from Summary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom Filenames and their Summary Slugs.
 
-## Claim
 
 **every** Atom Filename Summary Slug **must** be the lowercase ASCII kebab-case serialization of the complete Atom Summary.

@@ -16,10 +16,12 @@ form: Rule
 
 Prohibit skipped Scope Unit ownership
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit ownership through a stored structural-parent relation.
 
-## Claim
 
 a Scope Unit **must not** own a descendant Scope Unit through a stored structural-parent relation **when** another active Scope Unit lies between them.

@@ -18,11 +18,13 @@ Define Markdown and YAML regions in a File Carrier
 
 ## Claim
 
+### Prose Claim
+
+
 For a Markdown File Carrier, Main Content is its Markdown body and YAML Frontmatter is its optional structured metadata region. Main Content can contain Paragraphs and CCE Operator occurrences; these are content parts, not additional Files. A Frontmatter Scalar is one direct primitive value within a declared metadata field. These logical regions are not separate Carriers.
 
 The Filename may contain zero or more Scope Unit Tokens. Each serialized Scope Unit reference uses one token under CA-D-302; this does not require all File names to carry such a token.
 
-### Formal claim
 
 ```text
 Carrier/File.Main Content[string]{0..1}

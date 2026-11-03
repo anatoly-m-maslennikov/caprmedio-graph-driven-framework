@@ -16,6 +16,8 @@ Declare PROJECT_ACTIONS
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit//PROJECT_ACTIONS.ID == "CA-SU-39";
 Scope Unit//PROJECT_ACTIONS.Name == "PROJECT_ACTIONS";
@@ -23,3 +25,4 @@ Scope Unit//PROJECT_ACTIONS.Label == "FEATURE_GROUP";
 Scope Unit//PROJECT_ACTIONS.order.ordered == false;
 Scope Unit//PROJECT_ACTIONS ((IS_CONTAINED_BY)) Scope Unit//SINGLE_ACTIONS
 ```
+

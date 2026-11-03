@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement.Status'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement).Header.Status'
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Register Core Requirement Status Values
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Core Requirement Status values.
 
-## Claim
 
 the Core allowed values of Requirement Status **must** be exactly (Draft, Active, Archived).

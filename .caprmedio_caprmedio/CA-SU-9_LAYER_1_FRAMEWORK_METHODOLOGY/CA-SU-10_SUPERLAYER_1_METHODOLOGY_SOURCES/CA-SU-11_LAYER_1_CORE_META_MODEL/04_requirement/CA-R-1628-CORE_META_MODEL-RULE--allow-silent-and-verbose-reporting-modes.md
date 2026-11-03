@@ -20,10 +20,12 @@ form: Rule
 
 Allow silent and verbose reporting modes
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the framework-instance interaction reporting setting.
 
-## Claim
 
 the framework-instance interaction reporting setting **must** have **`=1`** value **in** (`silent`, `verbose`).

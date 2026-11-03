@@ -20,10 +20,12 @@ form: Decision
 
 Separate Entity identity from Carrier format
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 changes limited **to** Carrier Format **or** File Carrier Extension.
 
-## Claim
 
 a change **to** Carrier Format **or** File Carrier Extension alone **must not** establish **or** change Entity identity.

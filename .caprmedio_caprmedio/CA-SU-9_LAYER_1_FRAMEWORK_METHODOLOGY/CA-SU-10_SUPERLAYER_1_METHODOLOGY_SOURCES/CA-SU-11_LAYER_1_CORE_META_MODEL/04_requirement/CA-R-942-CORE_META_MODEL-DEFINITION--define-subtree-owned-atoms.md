@@ -18,10 +18,12 @@ form: Rule
 ## Summary
 Define Subtree-owned Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Owned Atoms of a selected Scope Unit and its descendant Scope Units.
 
-## Claim
 
 Subtree-owned Atoms **means** the union of Owned Atoms for the selected Scope Unit **and** **every** descendant Scope Unit.

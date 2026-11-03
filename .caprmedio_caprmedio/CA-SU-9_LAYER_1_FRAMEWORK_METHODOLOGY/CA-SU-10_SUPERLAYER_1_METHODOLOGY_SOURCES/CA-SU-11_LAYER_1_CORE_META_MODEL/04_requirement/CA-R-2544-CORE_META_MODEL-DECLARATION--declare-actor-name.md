@@ -18,7 +18,10 @@ Declare Actor.Name
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Actor.Name{:0..1}: [string]{:1};
 Actor.Name.*[]{:0}
 ```
+

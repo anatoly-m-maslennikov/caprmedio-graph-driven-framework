@@ -19,13 +19,15 @@ Declare Scope Unit
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
 Scope Unit >| (Container == yes);
 Scope Unit//{:0..1}((IS_CONTAINED_BY)) Scope Unit//;
 Scope Unit//{:0+}((CONTAINS)) Scope Unit//;
 IF (Scope Unit//$unit not in (Scope Unit/Project//))
 THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//);
-Scope Unit ((NARROWER_THAN)) @Continuant
+Scope Unit ((NARROWER_THAN)) Continuant
 ```
 
 ## Semantics

@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Updated At
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO_MODEL <+ Atom.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Entity
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
@@ -30,11 +30,13 @@ form: Eval Case
 
 Verify Updated At refresh and semantic Versioning
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 accepted Markdown Atom Carrier edits classified by governed meaning.
 
-## Claim
 
 the Evaluation **must** accept **only** an actual same-ID edit that refreshes `updated_at` **and** increments Version by exactly **`1`**, regardless of semantic change class. an exact no-op retains Version **and** Updated At; required predecessor history retains its exact prior bytes.
 

@@ -16,10 +16,12 @@ form: Rule
 
 Keep Project-specific substrates out of the reusable Core
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an Operator-mandated Project-specific substrate.
 
-## Claim
 
 an Operator-mandated Project-specific substrate **must** be governed by Project authority **or** PROJECT_CONFIGURATION **without** becoming an implicit prerequisite of the reusable CORE_META_MODEL.

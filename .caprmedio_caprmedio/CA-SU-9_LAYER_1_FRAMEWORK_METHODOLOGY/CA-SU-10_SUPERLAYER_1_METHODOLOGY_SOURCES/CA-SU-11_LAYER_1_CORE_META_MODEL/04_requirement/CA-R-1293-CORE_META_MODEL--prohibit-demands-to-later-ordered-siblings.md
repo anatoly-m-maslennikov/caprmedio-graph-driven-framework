@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Demand).Target Scope Unit'
   passive:
   - CAPRMEDIO_MODEL <+ Scope Unit.order.number
   - CAPRMEDIO_MODEL <+ Scope Unit
@@ -19,10 +19,12 @@ form: Rule
 
 Prohibit Demands to Later Ordered Siblings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Demand Atoms owned by Ordered Scope Units.
 
-## Claim
 
 a Demand Atom owned by an Ordered Scope Unit **must not** target a later Ordered sibling under the same direct parent.

@@ -18,11 +18,13 @@ form: Decision
 
 Serialize Authored Direct Relations on Their Owning Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Authored direct semantic relations.
 
-## Claim
 
 **every** authored direct semantic relation **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns its declared direction as a nonempty unordered collection of unique canonical target references; target position **must not** add, remove, **or** alter a direct relation **or** dependency. source-file target order is nonsemantic; validation **must not** require canonical sorting **or** order normalization. each Relation Kind's direction, endpoint validity **and** other declared semantics remain applicable.
 

@@ -19,10 +19,12 @@ form: Implementation Method
 
 Distinguish Scope Unit Names from Ordinary English
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit references in CAPRMEDIO content.
 
-## Claim
 
 **to** distinguish a Scope Unit reference from ordinary English, use its exact uppercase Scope Unit Name **to** denote the Scope Unit. an **otherwise** identical lowercase word retains its ordinary English meaning.

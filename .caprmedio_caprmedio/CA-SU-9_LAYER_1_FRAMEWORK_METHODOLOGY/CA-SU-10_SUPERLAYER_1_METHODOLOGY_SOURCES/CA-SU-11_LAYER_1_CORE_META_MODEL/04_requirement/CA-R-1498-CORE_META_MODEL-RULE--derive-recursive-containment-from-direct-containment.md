@@ -18,10 +18,12 @@ form: Rule
 
 Derive Recursive Containment from Direct Containment
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 recursive Structural Entity containment.
 
-## Claim
 
 recursive Structural Entity containment **must** **`=`** the transitive closure of direct Structural Entity containment.

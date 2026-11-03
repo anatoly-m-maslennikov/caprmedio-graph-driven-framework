@@ -16,11 +16,13 @@ form: Rule
 
 Reject authored inverse relations
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authored inverse typed relations.
 
-## Claim
 
 validators **must** reject **every** inverse typed relation authored **in** an Atom Carrier.
 

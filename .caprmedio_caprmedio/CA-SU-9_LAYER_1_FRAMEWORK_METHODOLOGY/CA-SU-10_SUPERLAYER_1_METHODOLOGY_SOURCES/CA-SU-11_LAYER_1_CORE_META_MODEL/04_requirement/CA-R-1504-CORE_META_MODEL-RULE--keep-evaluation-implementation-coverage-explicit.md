@@ -2,7 +2,7 @@
 subjects:
   active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Coverage
   passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
   - CAPRMEDIO_MODEL <+ Atom.Content
 version: 25
@@ -20,11 +20,13 @@ form: Rule
 
 Keep Evaluation implementation coverage explicit
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 coverage between Evaluation Atoms and their implementation realizations.
 
-## Claim
 
 coverage between Evaluation Atoms **and** their realizations **may** be many-to-many **only** with explicit attribution:
 

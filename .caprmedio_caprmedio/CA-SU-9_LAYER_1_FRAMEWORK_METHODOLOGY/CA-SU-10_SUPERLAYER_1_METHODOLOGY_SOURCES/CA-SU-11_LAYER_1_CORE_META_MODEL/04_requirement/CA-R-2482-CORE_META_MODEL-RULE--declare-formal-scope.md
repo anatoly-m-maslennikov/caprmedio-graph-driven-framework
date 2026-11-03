@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Role := Requirement)/(.Form := Declaration)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
   passive:
   - CAPRMEDIO_MODEL <+ Atom
 version: 2
@@ -18,11 +18,13 @@ form: Rule
 
 Declare Formal Scope Independently of Scope Unit
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Formal Scope expressed by a Declaration.
 
-## Claim
 
 - A formal Scope Declaration is contained outside the Scope Unit it constrains.
 - It states permitted active and passive Subjects, Relations, endpoints and cardinalities.

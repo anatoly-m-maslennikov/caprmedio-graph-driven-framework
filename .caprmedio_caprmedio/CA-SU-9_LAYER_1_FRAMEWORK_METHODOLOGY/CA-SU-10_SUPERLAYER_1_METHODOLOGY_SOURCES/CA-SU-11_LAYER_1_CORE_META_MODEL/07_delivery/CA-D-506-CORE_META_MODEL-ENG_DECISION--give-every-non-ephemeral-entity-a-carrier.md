@@ -19,11 +19,13 @@ form: Policy
 
 Give every non-ephemeral Entity a Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 non-ephemeral Entities.
 
-## Claim
 
 Every represented non-ephemeral Entity has at least one declared Carrier or a location within a shared Carrier. Reusable D Policies may define that binding for an entire Object kind and its dependent properties; individual D Decisions govern bounded exceptions. The governed Subject names the represented entity, not an extra representation node.
 

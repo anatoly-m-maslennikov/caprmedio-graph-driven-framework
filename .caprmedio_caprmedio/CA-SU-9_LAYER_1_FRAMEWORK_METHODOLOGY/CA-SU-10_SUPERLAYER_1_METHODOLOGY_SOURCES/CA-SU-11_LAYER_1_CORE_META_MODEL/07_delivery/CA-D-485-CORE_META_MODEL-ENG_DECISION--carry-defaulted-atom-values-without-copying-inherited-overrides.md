@@ -20,11 +20,13 @@ form: Decision
 
 Carry defaulted Atom values without copying inherited overrides
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 defaulted Atom values and inherited external settings.
 
-## Claim
 
 a writer **must** preserve the distinction between a defaulted Atom Property **and** an inherited external setting:
 

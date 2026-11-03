@@ -7,7 +7,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := Analysis Report)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := Analysis Report)
 version: 26
 updated_at: 2026-11-02 19:33:47 +0400
 relations:
@@ -25,11 +25,13 @@ form: Rule
 
 Keep Analysis optional before specification
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 AI Agent creation of Spec Atoms and optional Analysis Reports before specification.
 
-## Claim
 
 an identified AI Agent **may** create Spec Atoms directly from sufficiently clear Operator input **when** active Operator authority permits the required actions.
 

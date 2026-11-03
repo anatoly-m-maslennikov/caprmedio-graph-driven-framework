@@ -22,6 +22,9 @@ Create and evolve a working CAPRMEDIO Framework
 
 ## Claim
 
+### Prose Claim
+
+
 The caprmedio Project **must** create **and** evolve a working CAPRMEDIO Framework. Given enough resources, that Framework **must** let **any** Operator use AI Agents **to** do **all** of the following for **any** feasible Project:
 
 - create the Project;

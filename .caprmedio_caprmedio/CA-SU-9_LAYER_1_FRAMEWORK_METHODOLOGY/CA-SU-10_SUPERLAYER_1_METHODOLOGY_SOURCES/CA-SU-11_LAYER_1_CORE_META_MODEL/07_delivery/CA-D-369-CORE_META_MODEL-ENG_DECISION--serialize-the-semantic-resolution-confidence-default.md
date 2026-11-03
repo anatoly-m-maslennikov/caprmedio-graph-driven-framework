@@ -21,10 +21,12 @@ form: Decision
 
 Serialize the semantic-resolution confidence default
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an explicit semantic-resolution confidence default in the Framework Instance Settings TOML Carrier.
 
-## Claim
 
 an explicit semantic-resolution confidence default **in** the Framework Instance Settings TOML Carrier **must** use the integer-percentage field `confidence.semantic_resolution_threshold_percent`.
