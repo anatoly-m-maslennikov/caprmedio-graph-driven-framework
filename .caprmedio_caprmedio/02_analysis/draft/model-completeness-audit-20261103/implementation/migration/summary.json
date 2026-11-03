@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETE_PREVIEW_NO_CANONICAL_APPLY",
+  "source_count": 1167,
+  "safe_records": 1167,
+  "changed_safe_records": 250,
+  "held_sources": 0,
+  "held_clauses": 0,
+  "all_safe_candidates_idempotent": true,
+  "tests": 15,
+  "candidate_manifest": "/tmp/caprmedio-instance-preview.json",
+  "relation_rename": "opt-in CFEL-only; prose/Subjects rename requires reviewed packet overrides; metadata and Summary never renamed"
+}

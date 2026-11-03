@@ -6,10 +6,10 @@ status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
   passive:
-  - CAPRMEDIO_MODEL <+ Carrier/File.Filename
+  - CAPRMEDIO_MODEL <+ Carrier/File
   - CAPRMEDIO_MODEL <+ Carrier
-version: 17
-updated_at: 2026-11-02 19:33:47 +0400
+version: 18
+updated_at: 2026-11-03 23:25:51 +0400
 relations:
   delivery_for:
   - CA-R-1888

@@ -58,8 +58,8 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
     def test_formal_claim_layout_and_ambiguous_fences(self) -> None:
         source = self.declaration("demo", "CA-R-1", project=True)
         current = source.read_text(encoding="utf-8")
-        self.assertIn("## Claim\n\n### Formal Claim\n\n```CFEL", current)
-        legacy = current.replace("### Formal Claim\n\n", "")
+        self.assertIn("## Claim\n\n### Formal Claim\n\n```CFEL\n# instances", current)
+        legacy = current.replace("### Formal Claim\n\n", "").replace("# instances\n", "")
         current += "\n### Prose Claim\n\nExplanation.\n\n## Unregistered heading\n\nMore prose.\n\n## Details\n\nDetails.\n"
         self.assertEqual("demo", parse_scope_unit_declaration(current.encode(), source).name)
         self.assertEqual("demo", parse_scope_unit_declaration(legacy.encode(), source).name)
@@ -70,6 +70,18 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         ):
             with self.subTest(invalid=invalid), self.assertRaises(ScopeDeclarationError):
                 parse_scope_unit_declaration(invalid.encode(), source)
+
+    def test_cfel_comments_preserve_quoted_hash_and_reject_inline_junk(self) -> None:
+        source = self.declaration("CHILD", "CA-R-2", scope_id="CA-SU-1", label="L#1", parent=PROJECT)
+        current = source.read_text(encoding="utf-8")
+        current = current.replace("# instances\n", "# model\n# explanatory comment\n# instances\n")
+        self.assertEqual("L#1", parse_scope_unit_declaration(current.encode(), source).label)
+        invalid = current.replace('"L#1";', '"L#1" # comment;')
+        with self.assertRaises(ScopeDeclarationError):
+            parse_scope_unit_declaration(invalid.encode(), source)
+        variable = current.replace("Scope Unit//CHILD", "Scope Unit//$x")
+        with self.assertRaises(ScopeDeclarationError):
+            parse_scope_unit_declaration(variable.encode(), source)
 
     def test_discovers_current_sources_and_derives_all_paths(self) -> None:
         root_source, parent_source, child_source = self.complete_tree()

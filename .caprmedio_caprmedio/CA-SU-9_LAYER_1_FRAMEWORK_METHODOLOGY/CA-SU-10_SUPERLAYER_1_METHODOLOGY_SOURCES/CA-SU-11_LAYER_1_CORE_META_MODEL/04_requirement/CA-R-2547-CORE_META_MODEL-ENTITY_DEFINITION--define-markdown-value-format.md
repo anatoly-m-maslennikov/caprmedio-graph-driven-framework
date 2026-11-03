@@ -5,12 +5,12 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Format//markdown
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+version: 3
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 tier: 3
 role: Requirement
-form: Entity Definition
+form: Declaration
 ---
 ## Summary
 

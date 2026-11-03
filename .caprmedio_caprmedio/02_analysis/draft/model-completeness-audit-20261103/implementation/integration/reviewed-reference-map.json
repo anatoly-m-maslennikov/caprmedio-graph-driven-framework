@@ -1,0 +1,4 @@
+{
+  "reviewed_source_overrides": [],
+  "reference_policy": "Current bare ID and IS_DEFINED_BY tokens only; frozen @N, identity metadata, Summary and quoted literals preserved."
+}

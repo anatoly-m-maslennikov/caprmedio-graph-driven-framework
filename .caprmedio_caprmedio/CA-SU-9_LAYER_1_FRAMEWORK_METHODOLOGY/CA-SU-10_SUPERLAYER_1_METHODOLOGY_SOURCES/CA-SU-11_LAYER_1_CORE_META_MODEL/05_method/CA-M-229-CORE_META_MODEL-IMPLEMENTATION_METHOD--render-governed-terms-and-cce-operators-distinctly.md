@@ -5,9 +5,9 @@ subjects:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
   - CAPRMEDIO_MODEL <+ Actor
-  - CAPRMEDIO_MODEL <+ Carrier/File.Main Content.CCE Operator
-version: 33
-updated_at: 2026-11-02 18:35:20 +0400
+  - CAPRMEDIO_MODEL <+ Carrier/File
+version: 34
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-M-229
 current_scope_unit: CORE_META_MODEL

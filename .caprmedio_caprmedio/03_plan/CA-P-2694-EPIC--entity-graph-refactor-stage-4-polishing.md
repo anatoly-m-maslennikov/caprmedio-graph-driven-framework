@@ -5,8 +5,8 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
 tier: 3
-version: 49
-updated_at: 2026-11-03 20:30:27 +0400
+version: 51
+updated_at: 2026-11-03 23:28:12 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations: {}
@@ -51,8 +51,19 @@ Execute in this order:
 
 The [follow-up plan and pending choices](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-content-alias-followup-20261103.md) define scope, owners and acceptance checks. Ask unresolved choices one at a time. The group names are now `Atom.Header` and `Atom.Content`. Claim/alias grammar choices are resolved. The pre-migration checkpoint db837f08e is pushed and verified; the selected source migration and seven projection rebuilds are complete. The MODEL audit queue remains explicit. Prior completed Tasks remain Done, and P2707 retains its existing verification scope.
 
+## CFEL grouping and variables
+
+- Group Formal Claim expressions with `# model` and `# instances` comments inside the same CFEL block. Model expressions come first. These comments do not create Markdown Properties.
+- Use explicit `$x` instance bindings, such as `Atom//$atom` and `Carrier//$carrier`, in place of anonymous instance references. Repeated variables identify the same bound instance within a Claim.
+- Use the same `$x` notation for model bindings where needed. Preserve the distinction between model entities and their instances; document the applicable binding scope.
+- Preserve explicit named references, inherited constraints, population cardinalities and endpoint-count meanings during migration.
+- Update the CFEL rules and authoring guidance, affected readers/checkers/renderers, fixtures and projections. Verify comment handling and model/instance bindings before adoption.
+
+The governing follow-up is adopted in 89 Current revisions, with 19 retired sources and 108 exact predecessor archives. The notation migration and projection rebuild are next. The earlier completed migration remains completed history. The [decision record](../02_analysis/draft/model-completeness-audit-20261103/decisions.md) holds the latest Operator wording.
+
 ## Current tasks
 
+- CFEL grouping and `$x` notation — governing rules and readers applied; mechanical migration and projections pending.
 - [CA-P-2709](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/13-CA-P-2709-TASK--simplify-model-and-structure-subject-roots.md) — Done; Subject-root migration independently verified.
 - [CA-P-2704](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/09-CA-P-2704-TASK--remove-obsolete-scope-authority-mode-overrides.md) — Done.
 - [CA-P-2705](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/10-CA-P-2705-TASK--adopt-formal-scope-unit-declarations.md) — Done.
@@ -61,7 +72,7 @@ The [follow-up plan and pending choices](CA-P-2694-EPIC--entity-graph-refactor-s
 
 ## Definition of Done
 
-Current Declarations and shared model are coherent and history is preserved. The new MODEL follow-up has completed its declaration, remote checkpoint, in-place migration and migration-check stages; unresolved choices and migration defects are closed. The live project_structure.toml file is absent. Production execution no longer requires or writes it. Retired bindings are not exposed. Affected runtime/script tests pass, including required integration checks for release. Remaining source or implementation gaps are explicit rather than hidden by legacy fallback.
+Current Declarations and shared model are coherent and history is preserved. The new MODEL follow-up has completed its declaration, remote checkpoint, in-place migration and migration-check stages; unresolved choices and migration defects are closed. The live project_structure.toml file is absent. Production execution no longer requires or writes it. Retired bindings are not exposed. Affected runtime/script tests pass, including required integration checks for release. Remaining source or implementation gaps are explicit rather than hidden by legacy fallback. The pending CFEL grouping and variable follow-up is adopted in its governing rules and affected sources; model/instance binding, comment handling and projection checks pass.
 
 ## Previous completed stage
 
@@ -72,3 +83,15 @@ The earlier CFEL/model migration remains completed history. Its eight completed 
 The Scope Unit cutover is complete through P2706; P2709 is Done. The Header/Claim/alias follow-up applied 87 Current outputs with 86 exact-byte predecessor archives, pushed the pre-migration checkpoint db837f08e to amm/dev, migrated 1,158 selected files in place (1,071 changed), repaired five remaining consumers and rebuilt seven faithful MODEL projections from 1,154 Current sources. Independent preservation checks and 160 focused tests pass. Twelve model-binding gaps remain in the audit queue. P2707 retains its existing Engine verification blockers; the Epic remains Active. This update records manual source application and focused checks, without native workflow or release completion.
 
 [Migration report and remaining queue](../02_analysis/draft/model-header-content-migration-20261103/report.md).
+
+The CFEL grouping and variable rules are adopted. The mechanical notation migration and projections remain pending. The Epic remains Active for this follow-up and P2707.
+
+## Carrier boundary
+
+- Operate on Objects read from whole Carriers.
+- Keep Carrier kinds in the MODEL.
+- Delivery templates and adapters own Carrier internals and physical layout.
+- Keep Atom.Header.Carrier Destination.File.Name and Path as mandatory string values.
+- Retire the internal Carrier Property sources, their internal-region Rule, and Git Index.
+
+The reviewed packet applies 89 revisions and 19 retirements. The declaring Relation is IS_DECLARED_BY, registered by CA-R-2732; its qualified derivation remains intact. The selected frontier contains 1,148 Current sources after retirement.

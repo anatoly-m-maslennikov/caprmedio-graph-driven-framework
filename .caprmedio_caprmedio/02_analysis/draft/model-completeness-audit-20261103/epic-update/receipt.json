@@ -1,0 +1,12 @@
+{
+  "status": "APPLIED_VERIFIED",
+  "atom_id": "CA-P-2694",
+  "old_version": 49,
+  "new_version": 50,
+  "status_after": "Active",
+  "before_sha256": "ce6646ab8b2a8a995b799f8c9b975f8e740b00ea67542a70875ceeb7d1e8ec60",
+  "after_sha256": "b59f1b62c35227c300ee70fdb5e75487712f4bcb21aa8660bf080a8cde3bbc07",
+  "exact_predecessor": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/epic-update/CA-P-2694@49-before.txt",
+  "archived_revision": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@49-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "change": "Add planned # model/# instances groups and $x variables for instances/model where needed; no notation implementation performed"
+}

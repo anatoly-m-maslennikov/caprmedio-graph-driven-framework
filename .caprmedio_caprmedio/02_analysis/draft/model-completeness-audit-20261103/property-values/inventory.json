@@ -1,0 +1,816 @@
+{
+  "status": "partial conservative inventory; not an effective-contract audit",
+  "scope": "Current frontier Declaration active Property subjects; no wildcard expansion",
+  "rows": [
+    {
+      "id": "CA-R-1977",
+      "path": "Project.Settings.Artifact Timestamp Timezone",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1977-CORE_META_MODEL-DECLARATION--define-project-framework-settings-artifact-timestamp-timezone.md",
+      "sha256": "095adcf6c09ace85ded71b773b1bbb87aa75850472bde4ea4041a6c2e8fdf61a",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Artifact Timestamp Timezone | 26: Project.Settings.Artifact Timestamp Timezone{:0..1}: [string]{:1}; | 27: Project.Settings.Artifact Timestamp Timezone.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-1978",
+      "path": "Project.Settings.Code-Root Locators",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1978-CORE_META_MODEL-DECLARATION--define-project-framework-settings-code-root-locators.md",
+      "sha256": "69475849be179741fae008be22665be17fc4e73df096fe76343252421beaa12a",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Code-Root Locators | 26: Project.Settings.Code-Root Locators{:0..1}: [string]{:1+}; | 27: Project.Settings.Code-Root Locators.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-1979",
+      "path": "Project.Settings.Confidence",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1979-CORE_META_MODEL-DECLARATION--define-project-framework-settings-confidence.md",
+      "sha256": "6323cfdf13fde41d44bcc9830e9428e638c912cbfbff96b54ba4022f71c01357",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Confidence | 26: Project.Settings.Confidence{:0..1}: []{:0}; | 27: Project.Settings.Confidence.*[in (Necessary Information Threshold, Semantic Resolution Threshold)]{:0..2}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-1980",
+      "path": "Project.Settings.Framework Control-Root Locator",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1980-CORE_META_MODEL-DECLARATION--define-project-framework-settings-framework-control-root-locator.md",
+      "sha256": "9c33ba36b7c99bf704648f5d39a75c38b870b5fa4213725ef1d64cfa7d80382a",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Framework Control-Root Locator | 26: Project.Settings.Framework Control-Root Locator{:0..1}: [string]{:1}; | 27: Project.Settings.Framework Control-Root Locator.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-1982",
+      "path": "Project.Settings.Interaction",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1982-CORE_META_MODEL-DECLARATION--define-project-framework-settings-interaction.md",
+      "sha256": "c7077dc984d043935d76fdaf11bfed42f5e9abb57940f620031aa832f3fda08d",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Interaction | 26: Project.Settings.Interaction{:0..1}: []{:0}; | 27: Project.Settings.Interaction.*[in (Reporting Mode)]{:1}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2498",
+      "path": "Atom.Content",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+      "sha256": "36464a3eadbc08f72321b412b131cfda1c11283e078b1df5a0d313cf291cc7b7",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Content | 21: Declare Atom.Content | 28: Atom.Content{:1}: []{:0}; | 29: Atom.Content.*[string]{:0+}; | 30: Atom.Content.**[string]{:0+}: [markdown]{:0..1}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2499",
+      "path": "Atom.Content.Summary",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2499-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+      "sha256": "f0bef177bc20a14789b98c7a37c097272099c992bb771cb698805f5c910cdc57",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Content.Summary | 21: Declare Atom.Content.Summary | 28: Atom.Content.Summary{:1}: [markdown]{:1}; | 29: Atom.Content.Summary.*[]{:0};",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2500",
+      "path": "Atom.Content.Claim",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2500-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "sha256": "43f7e35fe3abe25935570b681bd9468b09fbd8fe3d62f8d1d5be29da525cbdd4",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Content.Claim | 21: Declare Atom.Content.Claim",
+      "direct_explicit": false,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2502",
+      "path": "Atom.Content.Semantics",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2502-CORE_META_MODEL-DECLARATION--declare-atom-content-semantics.md",
+      "sha256": "38febdb69ae08e603194e0d348d2ce251afb87fd13653013336354cfa6c2ba31",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Content.Semantics | 21: Declare Atom.Content.Semantics",
+      "direct_explicit": false,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2503",
+      "path": "Atom.Content.Details",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2503-CORE_META_MODEL-DECLARATION--declare-atom-content-details.md",
+      "sha256": "207efe7243d452d136d2aba28724c5238f2d1c6ba6c72e15965b1a78dad95195",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Content.Details | 21: Declare Atom.Content.Details",
+      "direct_explicit": false,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2521",
+      "path": "Atom/(.Header.Role := Operations)/Action.Execution Kind",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2521-CORE_META_MODEL-DECLARATION--declare-action-execution-kind.md",
+      "sha256": "cad7590cc897aa41ba9a6882287b863da9a3524b9deda303708e1cad0addd26b",
+      "frontier_drift": false,
+      "matching_lines": "24: Atom/(.Header.Role: Operations)/Action.Execution Kind{:1}: [string]{:1}; | 25: Atom/(.Header.Role: Operations)/Action.Execution Kind.*[]{:0}; | 26: Atom/(.Header.Role: Operations)/Action.Execution Kind: Programmatic; | 27: Atom/(.Header.Role: Operations)/Action.Execution Kind: Agentic",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2526",
+      "path": "Scope Unit.ID",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "sha256": "8c1cbe3ab5d47cd77a8a968558f13ee6e25b229a132a5d575415c90d6bc46a46",
+      "frontier_drift": false,
+      "matching_lines": "5: active: CAPRMEDIO_MODEL <+ Scope Unit.ID | 22: Scope Unit.ID{:0..1}: [string]{:1}; | 23: Scope Unit.ID.*[]{:0};",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2527",
+      "path": "Scope Unit.Name",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2527-CORE_META_MODEL-DECLARATION--declare-scope-unit-name.md",
+      "sha256": "4d59f7a9027de576013520eff2754ef8ae796a3c7cf2e904d1c8690190d4ebf8",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Scope Unit.Name | 25: Scope Unit.Name{:1}: [string]{:1}; | 26: Scope Unit.Name.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2528",
+      "path": "Scope Unit.Label",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2528-CORE_META_MODEL-DECLARATION--declare-scope-unit-label.md",
+      "sha256": "473459fe9bfd21c131699a1cb59224617efdc381fb0d66e418ddd8fe698a39f9",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Scope Unit.Label | 25: Scope Unit.Label{:0..1}: [string]{:1}; | 26: Scope Unit.Label.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2530",
+      "path": "Scope Unit.Path",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2530-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "sha256": "c98f7cfc30eec616db397835a65a2b36028759cdc0c2d587b683221db5cc58bc",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Scope Unit.Path | 25: Scope Unit.Path{:1}: [string]{:1+}; | 26: Scope Unit.Path.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2531",
+      "path": "Scope Unit.Project Boundary Position",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2531-CORE_META_MODEL-DECLARATION--declare-scope-unit-project-boundary-position.md",
+      "sha256": "e841ec3e35122f3347181e1975446a22a9ce5bbb9e383495c34fe1d57a323655",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Scope Unit.Project Boundary Position | 25: Scope Unit.Project Boundary Position{:1}: [string]{:1}; | 26: Scope Unit.Project Boundary Position.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2532",
+      "path": "Project.Settings",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "ad4342de7cf68d87f7555d3edde77a03ac341f04c9adb2e289e54f27d67c61fe",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings | 17: Declare Project.Settings | 24: Project.Settings{:1}: []{:0}; | 25: Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Implementation Retry Limit, RMED Review)]{:3..11}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2533",
+      "path": "Project.Settings.Name",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2533-CORE_META_MODEL-DECLARATION--declare-project-settings-name.md",
+      "sha256": "6e66593378543491c44265021f5c4986a205710ba657e340d167ce44b8f9fdd3",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Name | 25: Project.Settings.Name{:1}: [string]{:1}; | 26: Project.Settings.Name.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2534",
+      "path": "Project.Settings.Prefix",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2534-CORE_META_MODEL-DECLARATION--declare-project-settings-prefix.md",
+      "sha256": "b8659013aa9bd05860e608629670b69fe62d6ad764c81c192279d29461238cd6",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Prefix | 25: Project.Settings.Prefix{:1}: [string]{:1}; | 26: Project.Settings.Prefix.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2537",
+      "path": "Projection.ID",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "sha256": "300b0d86cdba313bae8675f1c5521c07f0ad23377b3e0bd98d63334c2b2e2318",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Projection.ID | 17: Declare Projection.ID | 24: Projection.ID{:1}: [string]{:1}; | 25: Projection.ID.*[]{:0};",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2538",
+      "path": "Projection.Form",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+      "sha256": "120f4c731a2399a2e377b42ddcdec2a0f9d57db00053e4e350b3959a6a204471",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Projection.Form | 17: Declare Projection.Form | 24: Projection.Form{:1}: [string]{:1}; | 25: Projection.Form.*[]{:0}; | 26: Projection.Form: Catalog; | 27: Projection.Form: Map; | 28: Projection.Form: Hub",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2539",
+      "path": "Projection.Updated At",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2539-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+      "sha256": "5577a6679a1eecbbf2becdc21402b093034bd5857f6976c1141dc8277b8fa8e0",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Projection.Updated At | 17: Declare Projection.Updated At | 24: Projection.Updated At{:1}: [datetime]{:1}; | 25: Projection.Updated At.*[]{:0};",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2540",
+      "path": "Projection.Source.Atoms",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2540-CORE_META_MODEL-DECLARATION--declare-projection-source-atoms.md",
+      "sha256": "12f1740a0cd77d4994db408bd3090b16accfa39aaa05f2029b5c92b30b379fc6",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Projection.Source.Atoms | 17: Declare Projection.Source.Atoms | 24: Projection.Source.Atoms{:0..1}: [string]{:0+}; | 25: Projection.Source.Atoms.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2541",
+      "path": "Projection.Source.Named Selection",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2541-CORE_META_MODEL-DECLARATION--declare-projection-source-named-selection.md",
+      "sha256": "36b08aae5e1a2c64e6dd81ec146c797f56d325ad84497acd16bbabfda018ca44",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Projection.Source.Named Selection | 17: Declare Projection.Source.Named Selection | 24: Projection.Source.Named Selection{:1}: [Named Selection//]{:1}; | 25: Projection.Source.Named Selection.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2544",
+      "path": "Actor.Name",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2544-CORE_META_MODEL-DECLARATION--declare-actor-name.md",
+      "sha256": "53077f14ce1af0b797c44471d10d167e0594e2b386524ad4baa8136130d00061",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Actor.Name | 17: Declare Actor.Name | 24: Actor.Name{:0..1}: [string]{:1}; | 25: Actor.Name.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2554",
+      "path": "Scope Unit.structural_level",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+      "sha256": "98b83f94d136fa44d3adc8f07f430f0c853fa4a75b1fa6534fddd53590a19a57",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Scope Unit.structural_level | 18: Declare Scope Unit.structural_level | 25: Scope Unit.structural_level{:1}: [int]{:1}; | 26: Scope Unit.structural_level.*[]{:0}; | 27: Scope Unit.structural_level >= 0;",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2555",
+      "path": "Package.structural_level",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+      "sha256": "258aad8dd488d706804a5a5020e936df57d828e9986ef0fc783fc4af3c8feb9b",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Package.structural_level | 18: Declare Package.structural_level | 25: Package.structural_level{:1}: [int]{:1}; | 26: Package.structural_level.*[]{:0}; | 27: Package.structural_level >= 0;",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2558",
+      "path": "Event Record.ID",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2558-CORE_META_MODEL-DECLARATION--declare-event-record-id.md",
+      "sha256": "c97f30d1e1edea30cc600fa41ed4081141386b5b1642b7825a6ef111e6f0738b",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.ID | 17: Declare Event Record.ID | 24: Event Record.ID{:1}: [string]{:1}; | 25: Event Record.ID.*[]{:0};",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2564",
+      "path": "Project.Settings.AI Agent Confidence Threshold",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "sha256": "ad9efd07aa98f2d73b1d351164122dbe6a9b53c7ac717a10316d5827f5c0e809",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.AI Agent Confidence Threshold | 17: Declare Project.Settings.AI Agent Confidence Threshold | 24: Project.Settings.AI Agent Confidence Threshold{:1}: [int]{:1}; | 25: Project.Settings.AI Agent Confidence Threshold.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2568",
+      "path": "Event Record.happened_at",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2568-CORE_META_MODEL-DECLARATION--declare-event-record-happened-at.md",
+      "sha256": "3ecb0b81303607bed5a09f0116e1c98f0adf6b392d8d586b5e7b333b6d814554",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.happened_at | 17: Declare Event Record.happened_at | 24: Event Record.happened_at{:1}: [datetime]{:1}; | 25: Event Record.happened_at.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2569",
+      "path": "Event Record.inserted_at",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2569-CORE_META_MODEL-DECLARATION--declare-event-record-inserted-at.md",
+      "sha256": "01c3ed7dec9a9cc9b9cff746aaec8ea89776ad980267996e6bab1734c0018d2f",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.inserted_at | 17: Declare Event Record.inserted_at | 24: Event Record.inserted_at{:1}: [datetime]{:1}; | 25: Event Record.inserted_at.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2572",
+      "path": "Event Record.object_input",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2572-CORE_META_MODEL-DECLARATION--declare-event-record-object-input.md",
+      "sha256": "7fcaf509b840fb480e6baa0af10ae37c3e5f04a4b9d41bbd4ebac362a32b1114",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.object_input | 17: Declare Event Record.object_input | 24: Event Record.object_input{:0..1}: []{:0}; | 25: Event Record.object_input.*[in(id,version,updated_at)]{:2..3}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2573",
+      "path": "Event Record.object_input.id",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2573-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-id.md",
+      "sha256": "fee59439a4c62a36ec5a987c626a14ece2376f47c7be1d36105b6eba68a04269",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.object_input.id | 17: Declare Event Record.object_input.id | 24: Event Record.object_input.id{:1}: [string]{:1}; | 25: Event Record.object_input.id.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2574",
+      "path": "Event Record.object_input.version",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2574-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-version.md",
+      "sha256": "6b745abe41a12972c4f991bd8bcedd5d6520dc47228ddb3098057f1fa3c81fdc",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.object_input.version | 17: Declare Event Record.object_input.version | 24: Event Record.object_input.version{:0..1}: [int]{:1}; | 25: Event Record.object_input.version.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2575",
+      "path": "Event Record.object_input.updated_at",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2575-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-updated-at.md",
+      "sha256": "01f149b21cdcceb9a35105ab675b1b8b443ae80c30483c5b17fe6f6ce97962a3",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.object_input.updated_at | 17: Declare Event Record.object_input.updated_at | 24: Event Record.object_input.updated_at{:1}: [datetime]{:1}; | 25: Event Record.object_input.updated_at.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2576",
+      "path": "Event Record.object_output",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2576-CORE_META_MODEL-DECLARATION--declare-event-record-object-output.md",
+      "sha256": "2f02574b0a72e8a9dbb228761840b919f0fccfc9bceeaf3876344929f16e3aeb",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.object_output | 17: Declare Event Record.object_output | 24: Event Record.object_output{:0..1}: []{:0}; | 25: Event Record.object_output.*[in(id,version,updated_at)]{:2..3}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2577",
+      "path": "Event Record.object_output.id",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2577-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-id.md",
+      "sha256": "4fa2b66aec5e24bb1ac58a4288e494bd9418b6c75a5df7555f7445e5e45707a7",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.object_output.id | 17: Declare Event Record.object_output.id | 24: Event Record.object_output.id{:1}: [string]{:1}; | 25: Event Record.object_output.id.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2578",
+      "path": "Event Record.object_output.version",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2578-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-version.md",
+      "sha256": "a90c96a2a82c47a4c963bfbe91e59ba3fb6f07ea97ad1a1d48c8c7bd0edbd878",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.object_output.version | 17: Declare Event Record.object_output.version | 24: Event Record.object_output.version{:0..1}: [int]{:1}; | 25: Event Record.object_output.version.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2579",
+      "path": "Event Record.object_output.updated_at",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2579-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-updated-at.md",
+      "sha256": "92603edc4763d5a7098509413da4f9e4a9189d3a002c5182a4054fd8497f811e",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.object_output.updated_at | 17: Declare Event Record.object_output.updated_at | 24: Event Record.object_output.updated_at{:1}: [datetime]{:1}; | 25: Event Record.object_output.updated_at.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2580",
+      "path": "Event Record.action",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2580-CORE_META_MODEL-DECLARATION--declare-event-record-action.md",
+      "sha256": "15a50b37de05ac7d7ddd6fd8129419e04e11e71e65aef10f00949dd15c072ef3",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.action | 17: Declare Event Record.action | 24: Event Record.action{:1}: [string]{:1}; | 25: Event Record.action.*[]{:0}; | 26: Event Record.action: create; | 27: Event Record.action: update; | 28: Event Record.action: archive",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2581",
+      "path": "Event Record.Relations",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2581-CORE_META_MODEL-DECLARATION--declare-event-record-relations.md",
+      "sha256": "d31c606730a8951dd7e004a6414c011d8ee7dabdce84b7c4b2ce7ce3e13c9c8e",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.Relations | 17: Declare Event Record.Relations | 24: Event Record.Relations{:1}: []{:0}; | 25: Event Record.Relations.*[Relation//]{:0+}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2582",
+      "path": "Event Record.Relations.HAS_EVENT_AUTHOR",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2582-CORE_META_MODEL-DECLARATION--declare-event-record-event-author.md",
+      "sha256": "c72f492050b174581fe447d3b6325058f6aef5423aa109934f4aba2ed7378fb7",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Event Record.Relations.HAS_EVENT_AUTHOR | 17: Declare Event Record.Relations.HAS_EVENT_AUTHOR | 24: Event Record.Relations.HAS_EVENT_AUTHOR{:1}: [Actor//]{:1}; | 25: Event Record.Relations.HAS_EVENT_AUTHOR.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2586",
+      "path": "Projection.Source",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2586-CORE_META_MODEL-DECLARATION--declare-projection-source.md",
+      "sha256": "f80b9f13468402721bec55ea4049295573a003604caa7414dc93c1fe2fb08c7e",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Projection.Source | 17: Declare Projection.Source | 24: Projection.Source{:1}: []{:0}; | 25: Projection.Source.*[in (Named Selection, Atoms)]{:1..2}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2624",
+      "path": "Project.Settings.Confidence.Necessary Information Threshold",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2624-CORE_META_MODEL-DECLARATION--define-necessary-information-threshold.md",
+      "sha256": "cdcf58e910a27be429ee43a5f9d930e8ee1bb5a388ce9a4bb67183ea98107b30",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Confidence.Necessary Information Threshold | 25: Project.Settings.Confidence.Necessary Information Threshold{:0..1}: [int]{:1}; | 26: Project.Settings.Confidence.Necessary Information Threshold.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2625",
+      "path": "Project.Settings.Confidence.Semantic Resolution Threshold",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2625-CORE_META_MODEL-DECLARATION--define-semantic-resolution-threshold.md",
+      "sha256": "f67100b959675c177ed8937476bbe855a5b17ac5eb3e6b52ef7d52c8044f66a7",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Confidence.Semantic Resolution Threshold | 25: Project.Settings.Confidence.Semantic Resolution Threshold{:0..1}: [int]{:1}; | 26: Project.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2626",
+      "path": "Project.Settings.Interaction.Reporting Mode",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2626-CORE_META_MODEL-DECLARATION--define-interaction-reporting-mode.md",
+      "sha256": "00678838fdc7cfd66e461226effadbd7df02ecbd1b72bcccc9acd48fff99c13f",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Interaction.Reporting Mode | 25: Project.Settings.Interaction.Reporting Mode{:1}: [string]{:1}; | 26: Project.Settings.Interaction.Reporting Mode.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2629",
+      "path": "Project.Settings.RMED Review.Context Headroom Fraction",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2629-CORE_META_MODEL-DECLARATION--declare-project-settings-rmed-review-context-headroom-fraction.md",
+      "sha256": "11e7881b90e09b2184e925d49d2a70cd6173363b8ac0e1387cd27a8c3bc10eef",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.RMED Review.Context Headroom Fraction | 18: Declare Project.Settings.RMED Review.Context Headroom Fraction | 25: Project.Settings.RMED Review.Context Headroom Fraction{:0..1}: [float]{:1}; | 26: Project.Settings.RMED Review.Context Headroom Fraction.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2630",
+      "path": "Project.Settings.RMED Review.Max Atoms",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2630-CORE_META_MODEL-DECLARATION--declare-project-settings-rmed-review-max-atoms.md",
+      "sha256": "7b9dd867a4f90f185bf6f7aaf46ebde955f46147c73127cebd0e7540d7c57ae4",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.RMED Review.Max Atoms | 18: Declare Project.Settings.RMED Review.Max Atoms | 25: Project.Settings.RMED Review.Max Atoms{:0..1}: [int]{:1}; | 26: Project.Settings.RMED Review.Max Atoms.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2631",
+      "path": "Project.Settings.RMED Review",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2631-CORE_META_MODEL-DECLARATION--declare-project-settings-rmed-review.md",
+      "sha256": "4d1a2b69a26af94dec43f8d2a382b33eccda1fe51146ad2dcaaaad8cd24aa90e",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.RMED Review | 18: Declare Project.Settings.RMED Review | 25: Project.Settings.RMED Review{:0..1}: []{:0}; | 26: Project.Settings.RMED Review.*[in (Context Headroom Fraction, Max Atoms)]{:0..2}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2633",
+      "path": "Project.Settings.Authority Modes.Default Scope Unit Authority Mode",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2633-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes-default-scope-unit-authority-mode.md",
+      "sha256": "b3ba968b2f73af8fe6abbabb3f28eb33ac27bb9b661b82a0a0ee62b02687d8e5",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes.Default Scope Unit Authority Mode | 18: Declare Project.Settings.Authority Modes.Default Scope Unit Authority Mode | 25: Project.Settings.Authority Modes.Default Scope Unit Authority Mode{:1}: [string]{:1}; | 26: Project.Settings.Authority Modes.Default Scope Unit Authority Mode.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2634",
+      "path": "Project.Settings.Authority Modes.Project Authority Mode",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2634-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes-project-authority-mode.md",
+      "sha256": "c9cf726778880a5f5626ecf7f8e8f30a13b7b6469cca76160d81493e1a29f71b",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes.Project Authority Mode | 18: Declare Project.Settings.Authority Modes.Project Authority Mode | 25: Project.Settings.Authority Modes.Project Authority Mode{:1}: [string]{:1}; | 26: Project.Settings.Authority Modes.Project Authority Mode.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2635",
+      "path": "Project.Settings.Implementation Retry Limit",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2635-CORE_META_MODEL-DECLARATION--declare-project-settings-implementation-retry-limit.md",
+      "sha256": "08d680d8a46897c07fd516490a6b4e756acbd5280b9904c68cda5114ddb9dc08",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Project.Settings.Implementation Retry Limit | 18: Declare Project.Settings.Implementation Retry Limit | 25: Project.Settings.Implementation Retry Limit{:0..1}: [int]{:1}; | 26: Project.Settings.Implementation Retry Limit.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2685",
+      "path": "Scope Unit.order.ordered",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2685-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-ordered.md",
+      "sha256": "aa33ae3b3a021b8a54527bf7b631b2d9b06d9ffdbdbb43f722afc3de546c338a",
+      "frontier_drift": false,
+      "matching_lines": "5: active: CAPRMEDIO_MODEL <+ Scope Unit.order.ordered | 18: Declare Scope Unit.order.ordered | 25: Scope Unit.order.ordered: [bool]{:1}; | 26: Scope Unit.order.ordered.*[]{:0}",
+      "direct_explicit": false,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2686",
+      "path": "Scope Unit.order.number",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2686-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-number.md",
+      "sha256": "a7fd2470c56bfaa7ed1d84a0334bf3209dac85f02276ba67faccd7ba646dbf9d",
+      "frontier_drift": false,
+      "matching_lines": "5: active: CAPRMEDIO_MODEL <+ Scope Unit.order.number | 19: Declare Scope Unit.order.number | 26: Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0}; | 27: Scope Unit.order.number.*[]{:0}",
+      "direct_explicit": false,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2687",
+      "path": "Scope Unit.order",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2687-CORE_META_MODEL-DECLARATION--declare-scope-unit-order.md",
+      "sha256": "cdd4d623ffbf0cdbd415e06c11356d7053d3adb1d6db95aab162bd6c1a754047",
+      "frontier_drift": false,
+      "matching_lines": "10: active: CAPRMEDIO_MODEL <+ Scope Unit.order | 17: Declare Scope Unit.order | 24: Scope Unit.order: []{:0}; | 25: Scope Unit.order.*[in (ordered, number)]{:1..2}",
+      "direct_explicit": false,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2696",
+      "path": "Atom.Header.Status",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2696-CORE_META_MODEL-DECLARATION--declare-atom-header-status.md",
+      "sha256": "e92004058d2f493e70e54f48d6bc59a6e3035fe7b73ab0e17db293bd2de646ad",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Status | 21: Declare Atom.Header.Status | 28: Atom.Header.Status{:1}: [string]{:1}; | 29: Atom.Header.Status.*[]{:0}; | 30: Atom.Header.Status: Draft; | 31: Atom.Header.Status: Active; | 32: Atom.Header.Status: Archived",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2697",
+      "path": "Atom.Header.Updated At",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2697-CORE_META_MODEL-DECLARATION--declare-atom-header-updated-at.md",
+      "sha256": "d5ebb0612690519fe3416a5e3dfb329fc551eba531877359a4c8125931b14389",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Updated At | 21: Declare Atom.Header.Updated At | 28: Atom.Header.Updated At{:1}: [datetime]{:1}; | 29: Atom.Header.Updated At.*[]{:0};",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2698",
+      "path": "Atom.Header.Relations.IS_CONTAINED_BY",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+      "sha256": "199006ac21b84e1905263c892a2d3e9f5d723ce5099825d41a25cb097dfc0186",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY | 21: Declare Atom.Header.Relations.IS_CONTAINED_BY | 28: Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0}; | 29: Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2699",
+      "path": "Atom.Header.Relations.IS_CONTAINED_BY.atom",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2699-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-atom.md",
+      "sha256": "63670c12e32a1a5eccfee0fe378cb2310b935fa63cf708afd02d35f51800bf61",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY.atom | 21: Declare Atom.Header.Relations.IS_CONTAINED_BY.atom | 28: Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}; | 29: Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2700",
+      "path": "Atom.Header.Relations.IS_CONTAINED_BY.scope_unit",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2700-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-scope-unit.md",
+      "sha256": "e3864a0d5d432b8970c826459eaa42e0577c7797345e0f8eceddcde4b8409515",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit | 21: Declare Atom.Header.Relations.IS_CONTAINED_BY.scope_unit | 28: Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}; | 29: Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2701",
+      "path": "Atom.Header.ID",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2701-CORE_META_MODEL-DECLARATION--declare-atom-header-id.md",
+      "sha256": "e59567c73961a91dc2e3128766a1d5c3ea4b0c0e0cddad04a24eca96d4110d12",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.ID | 21: Declare Atom.Header.ID | 28: Atom.Header.ID{:1}: [string]{:1}; | 29: Atom.Header.ID.*[]{:0}; | 31: THEN (IMMUTABLE(Atom.Header.ID))",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2702",
+      "path": "Atom.Header.Role",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2702-CORE_META_MODEL-DECLARATION--declare-atom-header-role.md",
+      "sha256": "1c14f7bf6f9cbcceaa2cb2ed3f29b17f831b463ee6dc8104ce6e5a038541646c",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Role | 21: Declare Atom.Header.Role | 28: Atom.Header.Role{:1}: [string]{:1}; | 29: Atom.Header.Role.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2703",
+      "path": "Atom.Header.Form",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2703-CORE_META_MODEL-DECLARATION--declare-atom-header-form.md",
+      "sha256": "66686618abf17a1d463feca5b82e68473085525e63b28eebdbf33339c691dc2f",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Form | 21: Declare Atom.Header.Form | 28: Atom.Header.Form{:1}: [string]{:1}; | 29: Atom.Header.Form.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2704",
+      "path": "Atom.Header.Version",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2704-CORE_META_MODEL-DECLARATION--declare-atom-header-version.md",
+      "sha256": "ca1de792909fcb666b294189709ca56e2d3c16c9d7b1164ae527daab63d21ecd",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Version | 21: Declare Atom.Header.Version | 28: Atom.Header.Version{:1}: [int]{:1}; | 29: Atom.Header.Version.*[]{:0}; | 30: Atom.Header.Version >= 1",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2705",
+      "path": "Atom.Header.Label",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
+      "sha256": "cc78d17723da9dde5cf9cce778f9fb87531317e5aecaf80cf7016e3cdab90c0e",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Label | 21: Declare Atom.Header.Label | 28: Atom.Header.Label{:0..1}: [string]{:1}; | 29: Atom.Header.Label.*[]{:0}; | 30: Atom.Header.Label ?= Atom.Header.Form",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2706",
+      "path": "Atom.Header.Tier",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2706-CORE_META_MODEL-DECLARATION--declare-atom-header-tier.md",
+      "sha256": "9e366643f69eb7cff6c8121ab06cff63f9409a22f498be8e970c9c687634dd39",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Tier | 21: Declare Atom.Header.Tier | 32: Atom.Header.Tier{:1}: [int]{:1}; | 33: Atom.Header.Tier.*[in(Label)]{:0..1}; | 34: Atom.Header.Tier >= -1",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2707",
+      "path": "Atom.Header.Tier.Label",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+      "sha256": "22c9b1252a7f03082503e87057397f7d4aed903754d98d3beff3b5527b0ecadf",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Tier.Label | 21: Declare Atom.Header.Tier.Label | 28: Atom.Header.Tier.Label{:0..1}: [string]{:1}; | 29: Atom.Header.Tier.Label.*[]{:0}; | 30: IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 0)) THEN (Atom.Header.Tier.Label == Scope Contract); | 31: IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 1)) THEN (Atom.Header.Tier.Label == Core); | 32: IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 2)) THEN (Atom.Header.Tier.Label == General); | 33: IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 3)) THEN (Atom.Header.Tier.Label == Standard); | 34: IF ((Atom.Header.Tier.Label{=1}) AND (Atom.Header.Tier = 4)) THEN (Atom.Header.Tier.Label == Detail)",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2708",
+      "path": "Atom.Header.Subjects.Passive",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2708-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-passive.md",
+      "sha256": "63e080ec5b16912f45ed3e66a05eb9c033b8c443ad91381533aa04b7b1dc95ab",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Passive | 21: Declare Atom.Header.Subjects.Passive | 32: Atom.Header.Subjects.Passive{:0..1}: [string]{:0+}; | 33: Atom.Header.Subjects.Passive.*[]{:0}; | 34: COUNT(Atom.Header.Subjects.Passive: $) = COUNT(DISTINCT Atom.Header.Subjects.Passive: $)",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2709",
+      "path": "Atom.Header.Relations",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "1dc60361341fc1144c30e35bdcb48bfb3f362f90aecacc5cf664dbdfec7bd094",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Relations | 21: Declare Atom.Header.Relations | 28: Atom.Header.Relations{:1}: []{:0}; | 29: Atom.Header.Relations.*[Relation//]{:0+}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2710",
+      "path": "Atom/(.Header.Role := Concern).Header.Priority",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2710-CORE_META_MODEL-DECLARATION--declare-atom-header-role-concern-header-priority.md",
+      "sha256": "a65eb85c55665b813ee22883d4bb446bc0280b82d38866a9034000a20167c338",
+      "frontier_drift": false,
+      "matching_lines": "28: Atom/(.Header.Role: Concern).Header.Priority{:1}: [string]{:1}; | 29: Atom/(.Header.Role: Concern).Header.Priority.*[]{:0}; | 30: Atom/(.Header.Role: Concern).Header.Priority: High; | 31: Atom/(.Header.Role: Concern).Header.Priority: Medium; | 32: Atom/(.Header.Role: Concern).Header.Priority: Low",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2711",
+      "path": "Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "sha256": "c07417d5b6d692ad7f8263157f813b05a5a3ef71b389a44f30ad27112853459c",
+      "frontier_drift": false,
+      "matching_lines": "28: Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold{:0..1}: [int]{:1}; | 29: Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{:0}; | 30: Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold | 31: ?= LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2712",
+      "path": "Atom/(.Header.Role := Plan).Header.Work Sequence Number",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+      "sha256": "ca5d3f3a06e8e299f792fd7e4903656d37fb774ed460b249afe5202227be002d",
+      "frontier_drift": false,
+      "matching_lines": "28: Atom/(.Header.Role: Plan).Header.Work Sequence Number{:0..1}: [int]{:1}; | 29: Atom/(.Header.Role: Plan).Header.Work Sequence Number.*[]{:0}; | 30: IF (Atom/(.Header.Role: Plan).Header.Work Sequence Number{=1}) | 31: THEN (Atom/(.Header.Role: Plan).Header.Work Sequence Number > 0);",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2713",
+      "path": "Atom.Header.Subjects",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects.md",
+      "sha256": "dfd8709e2ae825647f6492b91df96d1671eea399c02994916ace0eb27f247224",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects | 21: Declare Atom.Header.Subjects | 28: Atom.Header.Subjects{:1}: []{:0}; | 29: Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2714",
+      "path": "Atom.Header.Subjects.Active",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2714-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-active.md",
+      "sha256": "293dc4724e4e41854d0224c181b6e813799be59ab86287c38abab50eb1f0afe0",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active | 21: Declare Atom.Header.Subjects.Active | 28: Atom.Header.Subjects.Active{:0..1}: [string]{:1}; | 29: Atom.Header.Subjects.Active.*[]{:0}; | 31: THEN (Atom.Header.Subjects.Active{==1})",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2715",
+      "path": "Atom.Header.Carrier Destination",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2715-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination.md",
+      "sha256": "fb5697cc3917406620f7173a5b896620e7b886aad9dac2ff8949235e781b4da1",
+      "frontier_drift": false,
+      "matching_lines": "10: active: CAPRMEDIO_MODEL <+ Atom.Header.Carrier Destination | 21: Declare Atom.Header.Carrier Destination | 28: Atom.Header.Carrier Destination{:1}: []{:0}; | 29: Atom.Header.Carrier Destination.*[in (File)]{:1}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2716",
+      "path": "Atom.Header.Carrier Destination.File",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2716-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file.md",
+      "sha256": "82ca702f3b74e1533a5a84ce6cfc0b52eaed5abf0eb4da9256df3fe3be9a0e85",
+      "frontier_drift": false,
+      "matching_lines": "10: active: CAPRMEDIO_MODEL <+ Atom.Header.Carrier Destination.File | 21: Declare Atom.Header.Carrier Destination.File | 28: Atom.Header.Carrier Destination.File{:1}: []{:0}; | 29: Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2717",
+      "path": "Atom.Header.Carrier Destination.File.Name",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2717-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-name.md",
+      "sha256": "c0b2cc7763d51cd1d90995243434dcd80503e1980b765e31559d81c1155afac2",
+      "frontier_drift": false,
+      "matching_lines": "10: active: CAPRMEDIO_MODEL <+ Atom.Header.Carrier Destination.File.Name | 21: Declare Atom.Header.Carrier Destination.File.Name | 28: Atom.Header.Carrier Destination.File.Name{:1}: [string]{:1}; | 29: Atom.Header.Carrier Destination.File.Name.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2718",
+      "path": "Atom.Header.Carrier Destination.File.Path",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2718-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-path.md",
+      "sha256": "d05dc95e7b4ee942602f4fa3c222e737c097927839f5ee6a6b8fc2ffffbad4e1",
+      "frontier_drift": false,
+      "matching_lines": "10: active: CAPRMEDIO_MODEL <+ Atom.Header.Carrier Destination.File.Path | 21: Declare Atom.Header.Carrier Destination.File.Path | 28: Atom.Header.Carrier Destination.File.Path{:1}: [string]{:1}; | 29: Atom.Header.Carrier Destination.File.Path.*[]{:0}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2719",
+      "path": "Atom.Header",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "sha256": "af5a6d8b36ce83c65be526a53f3b9b54e87debd4cab09ba7c9f7ce04a99f4e17",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Header | 21: Declare Atom.Header | 27: Atom.Header groups the Atom Properties carried in YAML frontmatter, including for Draft Atoms. | 32: Atom.Header{:1}: []{:0}; | 33: Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}",
+      "direct_explicit": true,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2721",
+      "path": "Atom.Content.Claim.Formal Claim",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2721-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-formal-claim.md",
+      "sha256": "7ff58b7c32bbeaf1c0a68eacc5635e2daa113addc42c53535f7613c806abcef1",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Content.Claim.Formal Claim | 21: Declare Atom.Content.Claim.Formal Claim",
+      "direct_explicit": false,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    },
+    {
+      "id": "CA-R-2722",
+      "path": "Atom.Content.Claim.Prose Claim",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2722-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-prose-claim.md",
+      "sha256": "74d6dc959d384e2cdd1e020477d6a751c9839c1a792cec9b20e5369d727438a9",
+      "frontier_drift": false,
+      "matching_lines": "7: active: CAPRMEDIO_MODEL <+ Atom.Content.Claim.Prose Claim | 21: Declare Atom.Content.Claim.Prose Claim",
+      "direct_explicit": false,
+      "effective_status": "unknown: inheritance, prose, qualified contexts and additional declarations require review"
+    }
+  ]
+}

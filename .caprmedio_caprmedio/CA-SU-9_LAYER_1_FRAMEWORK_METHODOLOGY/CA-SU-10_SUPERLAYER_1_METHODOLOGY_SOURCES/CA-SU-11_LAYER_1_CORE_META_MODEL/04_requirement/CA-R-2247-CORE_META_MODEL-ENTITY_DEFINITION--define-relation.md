@@ -5,16 +5,12 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 6
-updated_at: 2026-11-03 20:00:05 +0400
+version: 7
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 tier: 1
 role: Requirement
-form: Entity Definition
-carrier_destination:
-  file:
-    name: CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md
-    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+form: Declaration
 ---
 ## Summary
 
@@ -25,10 +21,7 @@ Define Relation
 ### Formal Claim
 
 ```CFEL
-Relation.Name{:1}: [string]{:1};
-Relation.Name.*[]{:0};
-Relation.Meaning{:1}: [string]{:1};
-Relation.Meaning.*[]{:0}
+Relation
 ```
 
 ### Prose Claim

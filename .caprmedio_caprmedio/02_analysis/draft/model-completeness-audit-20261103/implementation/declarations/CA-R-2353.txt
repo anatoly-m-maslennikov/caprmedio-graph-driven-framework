@@ -1,0 +1,36 @@
+---
+atom_id: CA-R-2353
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Format.Uniqueness Selection
+version: 5
+updated_at: 2026-11-02 08:06:47 +0400
+relations: {}
+tier: 1
+role: Requirement
+form: Declaration
+---
+## Summary
+
+Define Format Uniqueness Selection
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+Format.Uniqueness Selection{:0..1}: [string]{:1};
+Format.Uniqueness Selection.*[]{:0}
+```
+
+### Prose Claim
+
+
+Format Uniqueness Selection identifies the comparison population for a
+Property uniqueness check. It is optional and does not itself impose
+uniqueness. It does not define a notation.
+
+
+

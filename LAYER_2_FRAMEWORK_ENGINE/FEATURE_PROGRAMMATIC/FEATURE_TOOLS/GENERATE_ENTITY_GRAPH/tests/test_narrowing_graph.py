@@ -25,6 +25,15 @@ def claim(expression):
 
 
 class NarrowingGraphTests(unittest.TestCase):
+    def test_instance_group_cannot_create_a_narrowing_edge(self):
+        graph, _ = compose_narrowing_graph([
+            carrier("CA-R-1", "Node"), carrier("CA-R-2", "Node/Continuant"),
+            carrier("CA-R-3", "Node/Actor", body=claim("# instances\nActor ((NARROWER_THAN)) @Continuant")),
+        ])
+        names = {row["id"]: row["identity"] for row in graph["nodes"]}
+        edges = {(names[row["relation_source"]], names[row["relation_target"]]) for row in graph["edges"]}
+        self.assertNotIn(("Node/Actor", "Node/Continuant"), edges)
+
     def test_declared_paths_and_explicit_reference_claims_form_the_only_tree_edges(self):
         graph, provenance = compose_narrowing_graph([
             carrier("CA-R-0", "Node"),

@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File.Filename
-version: 25
-updated_at: 2026-11-02 19:44:26 +0400
+  active: CAPRMEDIO_MODEL <+ Carrier/File
+version: 26
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-284
 current_scope_unit: CORE_META_MODEL

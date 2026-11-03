@@ -3,8 +3,8 @@ subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//implementation_of
   passive:
   - CAPRMEDIO_MODEL <+ CFEL > Relation
-version: 30
-updated_at: 2026-11-03 20:00:05 +0400
+version: 31
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-R-1020
 current_scope_unit: CORE_META_MODEL
@@ -28,18 +28,11 @@ Register implementation_of relation
 
 ```CFEL
 Relation//implementation_of ((HAS_CLASSIFICATION)) Derivation == Direct;
-
-$implementation_carrier ((implementation_of)) Atom//
+Carrier//$implementation_carrier ((implementation_of)) Atom//$specification_atom
 ```
 
 ### Prose Claim
 
-#### Applicability
-the `implementation_of` direct relation owned by a governed Implementation carrier.
+implementation_of is the direct Relation owned by a governed Implementation Carrier. The Host is that governed Implementation Carrier and each tuple targets the specification Atom it implements.
 
-`implementation_of` **means** the direct relation from an Implementation
-carrier to the specification Atom that it implements.
-
-The Host is an Implementation carrier; the target is the specification Atom it implements.
-Forward `Host ((implementation_of)) Target` and reverse `Target <((implementation_of)) Host` are views of the same Relation fact.
-implementation_of relates Implementation carrier to specification Atom.
+These are endpoint permissions. They are not extra fields on a reusable Relation Type and do not authorize an additional storage fact for a derived inverse. Forward `Host ((implementation_of)) Target` and reverse `Target <((implementation_of)) Host` are written views of the same direct fact.

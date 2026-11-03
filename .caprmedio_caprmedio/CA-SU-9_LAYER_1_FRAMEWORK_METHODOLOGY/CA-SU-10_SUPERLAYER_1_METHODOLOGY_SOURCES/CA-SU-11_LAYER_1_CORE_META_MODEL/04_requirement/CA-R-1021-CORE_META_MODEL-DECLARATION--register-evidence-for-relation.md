@@ -3,8 +3,8 @@ subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//evidence_for
   passive:
   - CAPRMEDIO_MODEL <+ CFEL > Relation
-version: 30
-updated_at: 2026-11-03 20:00:05 +0400
+version: 31
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-R-1021
 current_scope_unit: CORE_META_MODEL
@@ -28,18 +28,11 @@ Register evidence_for relation
 
 ```CFEL
 Relation//evidence_for ((HAS_CLASSIFICATION)) Derivation == Direct;
-
-$evidence_carrier ((evidence_for)) Carrier//
+Carrier//$evidence_carrier ((evidence_for)) Carrier//$supported_carrier
 ```
 
 ### Prose Claim
 
-#### Applicability
-`evidence_for` relations.
+evidence_for is the direct Relation owned by an evidence Carrier. The Host is that evidence Carrier and each tuple targets the Evaluation or Implementation Carrier it supports.
 
-`evidence_for` **means** the direct relation from an Evidence carrier to the
-carrier that the Evidence supports.
-
-The Host is an Evidence carrier; the target is the carrier it supports.
-Forward `Host ((evidence_for)) Target` and reverse `Target <((evidence_for)) Host` are views of the same Relation fact.
-evidence_for relates Evidence carrier to supported carrier.
+The generic Target variable retains precisely that source-supported endpoint condition; it does not admit every supported Carrier or introduce a new kind. These are endpoint permissions, not extra fields on a reusable Relation Type or additional storage facts for derived inverses. Forward `Host ((evidence_for)) Target` and reverse `Target <((evidence_for)) Host` are written views of the same direct fact.

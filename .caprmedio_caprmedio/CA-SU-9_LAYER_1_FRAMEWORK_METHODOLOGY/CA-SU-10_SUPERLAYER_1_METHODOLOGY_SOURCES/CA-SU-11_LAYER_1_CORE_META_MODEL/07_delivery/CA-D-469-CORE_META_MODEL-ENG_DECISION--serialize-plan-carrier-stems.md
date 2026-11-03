@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File.Filename
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Work Sequence Number
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Carrier
-version: 24
-updated_at: 2026-11-02 00:18:22 +0400
+version: 25
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-469
 current_scope_unit: CORE_META_MODEL

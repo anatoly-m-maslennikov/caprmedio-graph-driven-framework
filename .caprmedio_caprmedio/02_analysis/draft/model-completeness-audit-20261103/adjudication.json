@@ -1,0 +1,224 @@
+{
+  "scope": "source audit only; no authoritative source changes",
+  "supplier_frontier_sha256": "8deca481ee12c09ac65df272e20c4d15aaffafbafcd344187003011bfe9db71e",
+  "supplier_hashes_unchanged": 1167,
+  "relation_findings": [
+    {
+      "id": "REL-01",
+      "priority": "high",
+      "title": "Declaration active-Subject domain excludes non-Node descriptor declarations",
+      "evidence": [
+        {
+          "atom_id": "CA-R-2618",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+          "line": 28,
+          "sha256": "fe22cfb906a133ea619fcf25ce425a52fe42095f706356f2ffb4a5a9d91cd6f5"
+        },
+        {
+          "atom_id": "CA-R-2618",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+          "line": 37,
+          "sha256": "fe22cfb906a133ea619fcf25ce425a52fe42095f706356f2ffb4a5a9d91cd6f5"
+        },
+        {
+          "atom_id": "CA-R-2618",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+          "line": 39,
+          "sha256": "fe22cfb906a133ea619fcf25ce425a52fe42095f706356f2ffb4a5a9d91cd6f5"
+        },
+        {
+          "atom_id": "CA-R-2487",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+          "line": 92,
+          "sha256": "2d3091e7b35c3e90364ce973e4066fb59e1c8aae6522383003601b84f2b48434"
+        }
+      ],
+      "adjudication": "requires explicit non-Node/Node inheritance evidence from graph lane; do not force arbitrary objects into Node",
+      "root_verdict": "confirmed conflict",
+      "reason": "Declaration domain is constrained to Node/Properties, but Relation and CFEL-Operator Declarations address distinct non-Node descriptors admitted by R2486. No applicable Node subtype evidence was found for those descriptors."
+    },
+    {
+      "id": "REL-02",
+      "priority": "high",
+      "title": "Universal outgoing-only count sentence conflicts with admitted reverse slot",
+      "evidence": [
+        {
+          "atom_id": "CA-R-2588",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+          "line": 47,
+          "sha256": "fbb7672fe8c51ab95ebfde2c6905611f501d2bfd50346799f4e8390e35b03e14"
+        },
+        {
+          "atom_id": "CA-R-2487",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+          "line": 68,
+          "sha256": "2d3091e7b35c3e90364ce973e4066fb59e1c8aae6522383003601b84f2b48434"
+        },
+        {
+          "atom_id": "CA-R-2469",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2469-CORE_META_MODEL-RULE--require-one-declaration-for-each-node.md",
+          "line": 25,
+          "sha256": "090d1dfe579f22ff414f9fa6be7f8c1ddc011bca470dde62d8d07273a71b5861"
+        }
+      ],
+      "adjudication": "right-side cardinality is legal; general sentence is the conflicting policy",
+      "root_verdict": "confirmed wording conflict",
+      "reason": "The universal outgoing-only sentence excludes the admitted target-side slot. Both endpoint bounds remain legal; do not move or delete the right-side bound."
+    },
+    {
+      "id": "REL-03",
+      "priority": "medium",
+      "title": "General derived policy overapplies minimal inverse form to qualified non-inverse view",
+      "evidence": [
+        {
+          "atom_id": "CA-R-2486",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+          "line": 27,
+          "sha256": "95ce7328e4f5d4c888289330c4e8d25ddae5935cd3ec90b441234434b8da420c"
+        },
+        {
+          "atom_id": "CA-R-2486",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+          "line": 33,
+          "sha256": "95ce7328e4f5d4c888289330c4e8d25ddae5935cd3ec90b441234434b8da420c"
+        },
+        {
+          "atom_id": "CA-R-2487",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+          "line": 89,
+          "sha256": "2d3091e7b35c3e90364ce973e4066fb59e1c8aae6522383003601b84f2b48434"
+        },
+        {
+          "atom_id": "CA-R-2279",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2279-CORE_META_MODEL-DECLARATION--define-derived-is-defined-by-relation.md",
+          "line": 28,
+          "sha256": "772055b1c810ca28ab47ec36edfb1a26136fdc91fdb34f61c0b4a6dc1b935331"
+        },
+        {
+          "atom_id": "CA-R-2279",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2279-CORE_META_MODEL-DECLARATION--define-derived-is-defined-by-relation.md",
+          "line": 36,
+          "sha256": "772055b1c810ca28ab47ec36edfb1a26136fdc91fdb34f61c0b4a6dc1b935331"
+        },
+        {
+          "atom_id": "CA-R-1199",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md",
+          "line": 35,
+          "sha256": "91339f2466bb1670d6f297b592ad6d113649463b7723be241e574911c7ef2792"
+        }
+      ],
+      "adjudication": "keep IS_DEFINED_BY qualification; no unconditional HAS_INVERSE inferred",
+      "root_verdict": "confirmed policy overbreadth",
+      "reason": "The general derived policy requires reverse HAS_INVERSE binding, while the retained qualified IS_DEFINED_BY view is defined via IS_DERIVED_RELATION_OF and is explicitly not an unconditional inverse. The inverse-specific rule needs its own scope."
+    },
+    {
+      "id": "REL-04",
+      "priority": "informational",
+      "title": "Thirteen Formal Claim classifications use admitted HAS_CLASSIFICATION short alias",
+      "evidence": [
+        {
+          "atom_id": "CA-R-2462",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+          "line": 37,
+          "sha256": "48d631a224262c5b17dd8464f007dba3b3c2a5d8ac2de2781ee20cfd7cb25d25",
+          "text": "THEN ((Node, Node.**) >| (Independence == Primary Node));"
+        },
+        {
+          "atom_id": "CA-R-2462",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+          "line": 39,
+          "sha256": "48d631a224262c5b17dd8464f007dba3b3c2a5d8ac2de2781ee20cfd7cb25d25",
+          "text": "THEN ((Node, Node.**) >| (Independence == Property))"
+        },
+        {
+          "atom_id": "CA-R-2484",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2484-CORE_META_MODEL-RULE--admit-container-classification.md",
+          "line": 24,
+          "sha256": "0c4fd720fe1e4ce6015154db57063de8d2ede5268566162b263bf82b5992f763",
+          "text": "Node >| Container: yes;"
+        },
+        {
+          "atom_id": "CA-R-2484",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2484-CORE_META_MODEL-RULE--admit-container-classification.md",
+          "line": 25,
+          "sha256": "0c4fd720fe1e4ce6015154db57063de8d2ede5268566162b263bf82b5992f763",
+          "text": "Node >| Container: no"
+        },
+        {
+          "atom_id": "CA-R-2499",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2499-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+          "line": 34,
+          "sha256": "f0bef177bc20a14789b98c7a37c097272099c992bb771cb698805f5c910cdc57",
+          "text": "  (Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived)"
+        },
+        {
+          "atom_id": "CA-R-2523",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+          "line": 25,
+          "sha256": "767698dfed7d4009e2a78a00736d56a690f996e52b5caf56b7bac5fb6d74db55",
+          "text": "Scope Unit >| (Container == yes);"
+        },
+        {
+          "atom_id": "CA-R-2524",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+          "line": 25,
+          "sha256": "5595371c0c1a954fb3368192e9a9a2095d172abce21448a4f94477c48830a2ca",
+          "text": "Project >| (Container == yes);"
+        },
+        {
+          "atom_id": "CA-R-2525",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2525-CORE_META_MODEL-DECLARATION--declare-package.md",
+          "line": 25,
+          "sha256": "90e5b772a0bac745cc16232a22859c076d36c81d263e1f7adb4cc627681ccf93",
+          "text": "Package >| (Container == yes);"
+        },
+        {
+          "atom_id": "CA-R-2536",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2536-CORE_META_MODEL-DECLARATION--declare-journal.md",
+          "line": 26,
+          "sha256": "5a7b11cf9f28a266ee3dc195d017d3f0deec51b09682923756187cc31428bc0a",
+          "text": "Journal >| (Container == yes);"
+        },
+        {
+          "atom_id": "CA-R-2559",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2559-CORE_META_MODEL-DECLARATION--declare-model.md",
+          "line": 26,
+          "sha256": "2f6bf12c03e2f155bc5437382d81958b57e7731e1488ec630b5ed87e62030a59",
+          "text": "MODEL >| (Container == yes);"
+        },
+        {
+          "atom_id": "CA-R-2560",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2560-CORE_META_MODEL-DECLARATION--declare-project-structure.md",
+          "line": 26,
+          "sha256": "bc25809a42f2f8fa90d0df1959eaeba86ad926d3c2d30e574c62d3e543809af8",
+          "text": "PROJECT STRUCTURE >| (Container == yes);"
+        },
+        {
+          "atom_id": "CA-R-2701",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2701-CORE_META_MODEL-DECLARATION--declare-atom-header-id.md",
+          "line": 30,
+          "sha256": "e59567c73961a91dc2e3128766a1d5c3ea4b0c0e0cddad04a24eca96d4110d12",
+          "text": "IF ((Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived))"
+        },
+        {
+          "atom_id": "CA-R-2714",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2714-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-active.md",
+          "line": 30,
+          "sha256": "293dc4724e4e41854d0224c181b6e813799be59ab86287c38abab50eb1f0afe0",
+          "text": "IF (Atom.Header.Status >| Status Group = Current)"
+        }
+      ],
+      "adjudication": "Current R2477/R2487/R2588 admit and normalize this glyph; object/predicate distinction alone does not prohibit admitted aliases. Not an automatic defect.",
+      "classification": "admitted-alias-style-observation-not-grammar-defect",
+      "root_verdict": "informational; not a defect",
+      "reason": ">| is an explicitly declared HAS_CLASSIFICATION alias admitted in Formal Claims. Typed Relation objects versus relation use does not prohibit short aliases."
+    }
+  ],
+  "property_notes": [
+    "A zero-value group []{:0} satisfies the value-cardinality check; a format for absent values is not required.",
+    "82 explicit Declaration value contracts are present;22 Definition-only property targets lack exact Declaration authority, with inherited/alternate identities separated.",
+    "19 distinct declared parent groups have nested-count evidence; two additional qualified Header contexts inherit it.",
+    "A non-RMED Claim is not presumed declared or required, so the speculative context is not a confirmed missing-count defect.",
+    "Scope Unit.order has a parent total1..2; missing separate child occurrence bounds are a secondary precision issue."
+  ]
+}

@@ -28,6 +28,45 @@ def body(*claim_lines, semantics=None):
 
 
 class ContractGraphTests(unittest.TestCase):
+    def test_qualified_declared_by_derivation_is_not_an_unconditional_inverse(self):
+        graph = compose_contract_graph([carrier("CA-R-1", "CFEL <+ Relation//IS_DECLARED_BY", body(
+            "### Formal Claim", "```CFEL", "# model",
+            "Relation//IS_DECLARED_BY ((IS_DERIVED_RELATION_OF)) Relation//GOVERNS;", "```",
+            "### Prose Claim", "Only governing links satisfying the Declaration ownership rule."))])
+        relation = graph["relations"][0]
+        self.assertEqual(["GOVERNS"], [row["name"] for row in relation["derivation_links"]])
+        self.assertEqual([], relation["inverses"])
+        self.assertNotIn("derived_view", relation)
+        self.assertIn("not structurally interpreted", relation["derivation_scope"])
+
+    def test_instance_group_does_not_supply_relation_classification_or_alias(self):
+        graph = compose_contract_graph([carrier("CA-R-1", "CFEL <+ Relation//TEST", body(
+            "### Formal Claim", "```CFEL", "# instances",
+            "Relation//TEST ((HAS_CLASSIFICATION)) Derivation == Direct;",
+            'alias(Relation//TEST) == "/";', "```"))])
+        relation = graph["relations"][0]
+        self.assertEqual([], relation["metadata"])
+        self.assertEqual(2, len(relation["own"][0]["instance_clauses"]))
+
+    def test_grouped_formal_claims_keep_instance_variables_out_of_model_contracts(self):
+        graph = compose_contract_graph([
+            carrier("CA-R-1", "Atom", body("Atom.")),
+            carrier("CA-R-2", "Atom.Header.Name", body(
+                "### Formal Claim", "```CFEL", "# model",
+                "Atom.Header.Name: [string]{:1};", 'alias(Relation//CONTAINS) == "# instances";',
+                "# a full-line comment", "# instances", "Atom//$atom;", "$atom.Header.Name: [string]{:1};", "```")),
+        ])
+        row = next(row for row in graph["entities"] if row["target"] == "Atom.Header.Name")
+        entry = row["own"][0]
+        self.assertEqual(["model", "model"], [x["group"] for x in entry["clauses"]])
+        self.assertEqual(["instance_binding", "property_constraint"], [x["kind"] for x in entry["instance_clauses"]])
+        self.assertEqual("$atom.Header.Name", entry["instance_clauses"][1]["property_selector"])
+        self.assertEqual("# instances", entry["clauses"][1]["glyph"])
+        self.assertEqual([], entry["diagnostics"])
+        self.assertIn("# instances", entry["cfel_blocks"][0]["block"])
+        self.assertFalse(any("$atom" in x["target"] for x in graph["entities"]))
+        self.assertIn("Instance constraints:", render_contract_graph(graph))
+
     def test_minimal_inverse_uses_corroborated_direct_meaning_and_reversed_endpoint_view(self):
         direct = carrier("CA-R-1", "CFEL <+ Relation//DIRECT", body(
             "### Formal Claim", "```CFEL", "$left ((DIRECT)) $right;",

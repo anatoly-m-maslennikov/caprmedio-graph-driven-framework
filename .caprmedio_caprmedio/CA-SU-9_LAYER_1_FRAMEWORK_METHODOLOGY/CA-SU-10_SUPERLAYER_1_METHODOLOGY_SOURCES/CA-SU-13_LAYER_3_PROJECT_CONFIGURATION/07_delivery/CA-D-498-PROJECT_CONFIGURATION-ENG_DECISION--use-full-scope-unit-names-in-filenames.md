@@ -1,12 +1,12 @@
 ---
 atom_id: CA-D-498
-version: 13
-updated_at: 2026-11-02 00:18:22 +0400
+version: 14
+updated_at: 2026-11-03 23:25:51 +0400
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File.Filename
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Project

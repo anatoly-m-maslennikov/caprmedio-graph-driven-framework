@@ -3,11 +3,11 @@ atom_id: CA-D-667
 role: Delivery
 form: Policy
 status: Active
-version: 1
-updated_at: 2026-11-02 19:17:40 +0400
+version: 2
+updated_at: 2026-11-03 23:25:51 +0400
 tier: 1
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/Directory.Name
+  active: CAPRMEDIO_MODEL <+ Carrier/Directory
   passive:
   - CAPRMEDIO_MODEL <+ Scope Unit.ID
   - CAPRMEDIO_MODEL <+ Scope Unit.Name

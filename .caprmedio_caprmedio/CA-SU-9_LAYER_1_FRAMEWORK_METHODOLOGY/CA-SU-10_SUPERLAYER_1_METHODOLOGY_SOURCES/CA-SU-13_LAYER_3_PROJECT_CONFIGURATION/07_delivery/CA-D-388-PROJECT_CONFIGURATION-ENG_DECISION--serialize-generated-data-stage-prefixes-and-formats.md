@@ -4,9 +4,8 @@ subjects:
   passive:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Serialization
   - CAPRMEDIO_MODEL <+ Projection
-  - CAPRMEDIO_MODEL <+ Carrier.Format
-version: 23
-updated_at: 2026-11-02 18:35:20 +0400
+version: 24
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-388
 current_scope_unit: PROJECT_CONFIGURATION

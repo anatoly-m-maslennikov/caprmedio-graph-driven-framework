@@ -1,0 +1,210 @@
+{
+  "status": "inventory only; no retirement proposed except explicitly approved CA-R-2349",
+  "boundary": "Carrier root and physical filename/location interface retained; deep internal representation remains open for user decision",
+  "properties": [
+    {
+      "identity": "Carrier.Canonical Address",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-1949",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1949-CORE_META_MODEL-DEFINITION--define-carrier-canonical-address.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier.Canonical Address.Segment",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-1948",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1948-CORE_META_MODEL-DEFINITION--define-carrier-canonical-address-segment.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier.Format",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-1950",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1950-CORE_META_MODEL-DEFINITION--define-carrier-format.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier.ID",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-1951",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1951-CORE_META_MODEL--define-carrier-id.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/Directory.Name",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-1952",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1952-CORE_META_MODEL-DEFINITION--define-directory-carrier-name.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/Directory.Numeric Prefix",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-1953",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1953-CORE_META_MODEL-DEFINITION--define-directory-carrier-numeric-prefix.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/Directory.Path",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-1954",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1954-CORE_META_MODEL-DEFINITION--define-directory-carrier-path.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/File.Extension",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-1974",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1974-CORE_META_MODEL-DEFINITION--define-file-carrier-extension.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/File.Filename",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-1975",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1975-CORE_META_MODEL-DEFINITION--define-file-carrier-filename.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/File.Filename.Scope Unit Token",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-2345",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2345-CORE_META_MODEL-ENTITY_DEFINITION--define-file-filename-scope-unit-token.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/File.Format",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-2346",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2346-CORE_META_MODEL-ENTITY_DEFINITION--define-file-format.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/File.Main Content",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-2347",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2347-CORE_META_MODEL-ENTITY_DEFINITION--define-file-main-content.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/File.Main Content.CCE Operator",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-2348",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2348-CORE_META_MODEL-ENTITY_DEFINITION--define-main-content-cce-operator.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/File.Main Content.Paragraph",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-2349",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2349-CORE_META_MODEL-ENTITY_DEFINITION--define-main-content-paragraph.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/File.Path",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-1976",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1976-CORE_META_MODEL-DEFINITION--define-file-carrier-path.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/File.YAML Frontmatter",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-2350",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2350-CORE_META_MODEL-ENTITY_DEFINITION--define-file-yaml-frontmatter.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    },
+    {
+      "identity": "Carrier/File.YAML Frontmatter.Scalar",
+      "status": "definition_only",
+      "sources": [
+        {
+          "id": "CA-R-2351",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2351-CORE_META_MODEL-ENTITY_DEFINITION--define-yaml-frontmatter-scalar.md",
+          "line": 7,
+          "form": "Entity Definition"
+        }
+      ]
+    }
+  ]
+}

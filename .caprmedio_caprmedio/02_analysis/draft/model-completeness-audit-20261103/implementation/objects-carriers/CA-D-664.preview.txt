@@ -1,0 +1,44 @@
+---
+atom_id: CA-D-664
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+subjects:
+  active: CAPRMEDIO_MODEL <+ Atom
+version: 5
+relations: {}
+tier: 3
+role: Delivery
+form: Eng Decision
+updated_at: 2026-11-03 00:20:05 +0400
+---
+## Summary
+
+Deliver Atoms to Markdown files
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+Atom//$atom >> Carrier//$carrier;
+$atom.Header.** >> $carrier.frontmatter;
+$atom.Content.** >> $carrier.markdown;
+$carrier.filename == $atom.Header.Carrier Destination.File.Name;
+$carrier.location == $atom.Header.Carrier Destination.File.Path
+```
+
+### Prose Claim
+
+The selected Carrier is the Markdown file delivering the selected Atom. Its filename includes the extension, and its location is the containing directory relative to the repository root.
+
+## Details
+
+The file layout is:
+
+```text
+---
+<yaml>
+---
+<markdown>
+```

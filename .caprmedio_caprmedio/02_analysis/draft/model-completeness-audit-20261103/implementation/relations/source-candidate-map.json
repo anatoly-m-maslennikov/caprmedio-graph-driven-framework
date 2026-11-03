@@ -1,0 +1,142 @@
+{
+  "status": "PROSPECTIVE_REPLACEMENTS_ONLY",
+  "sources": [
+    {
+      "source_atom_id": "CA-R-2278",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2278-CORE_META_MODEL-RULE--require-exactly-one-defining-requirement-per-model-entity.md",
+      "source_sha256": "eec9b80e97766bab437436da814dc2bba3fee50c3419c054594baafa7d6224f2",
+      "source_version": 2,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/relations/previews/CA-R-2278-CORE_META_MODEL-RULE--require-exactly-one-defining-requirement-per-model-entity.txt",
+      "candidate_sha256": "edb28ea02147b9ed7c8ecaf792ab05a56b1493a81fc8465ea60ca65ed3df79d7",
+      "candidate_atom_id": "CA-R-2278",
+      "fresh_id_required": false,
+      "source_summary": "Require Exactly One Defining Requirement per Model Entity",
+      "candidate_summary": "Require Exactly One Defining Requirement per Model Entity",
+      "decision": "same Summary; prospective source revision"
+    },
+    {
+      "source_atom_id": "CA-R-2279",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2279-CORE_META_MODEL-DECLARATION--define-derived-is-defined-by-relation.md",
+      "source_sha256": "772055b1c810ca28ab47ec36edfb1a26136fdc91fdb34f61c0b4a6dc1b935331",
+      "source_version": 5,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/relations/previews/NEW--declare-is-declared-by.txt",
+      "candidate_sha256": "554472475a4e4bf2c2f6fcb8ffe8d3c7295db11a8ea75431f74af73c22da4fa7",
+      "candidate_atom_id": "CA-R-draft",
+      "fresh_id_required": true,
+      "source_summary": "Define Derived IS_DEFINED_BY Relation",
+      "candidate_summary": "Declare IS_DECLARED_BY",
+      "decision": "new declaring-view identity and Declaration qualification"
+    },
+    {
+      "source_atom_id": "CA-R-2486",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+      "source_sha256": "95ce7328e4f5d4c888289330c4e8d25ddae5935cd3ec90b441234434b8da420c",
+      "source_version": 5,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/relations/previews/CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.txt",
+      "candidate_sha256": "034675548b348ef7d07614b0a23f4d50e2af97b4395b589c11717995add10288",
+      "candidate_atom_id": "CA-R-2486",
+      "fresh_id_required": false,
+      "source_summary": "Declare Relation endpoints",
+      "candidate_summary": "Declare Relation endpoints",
+      "decision": "same Summary; prospective source revision"
+    },
+    {
+      "source_atom_id": "CA-R-2588",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "source_sha256": "fbb7672fe8c51ab95ebfde2c6905611f501d2bfd50346799f4e8390e35b03e14",
+      "source_version": 3,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/relations/previews/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.txt",
+      "candidate_sha256": "59ddf1f8ad51484b4e68bf83aff0d81c95e592bdfb4518e26cf2c54e2ecea983",
+      "candidate_atom_id": "CA-R-2588",
+      "fresh_id_required": false,
+      "source_summary": "Apply default Relation cardinalities",
+      "candidate_summary": "Apply default Relation cardinalities",
+      "decision": "same Summary; prospective source revision"
+    },
+    {
+      "source_atom_id": "CA-R-2618",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+      "source_sha256": "fe22cfb906a133ea619fcf25ce425a52fe42095f706356f2ffb4a5a9d91cd6f5",
+      "source_version": 2,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/relations/previews/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.txt",
+      "candidate_sha256": "bcddc3cc39d9bd6532f9b6174d5e409041294b809d7cca02759c176c672b18f1",
+      "candidate_atom_id": "CA-R-2618",
+      "fresh_id_required": false,
+      "source_summary": "Declare HAS_ACTIVE_SUBJECT",
+      "candidate_summary": "Declare HAS_ACTIVE_SUBJECT",
+      "decision": "same Summary; prospective source revision"
+    },
+    {
+      "source_atom_id": "CA-R-1020",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "source_sha256": "d0348c98a97f2971f01184c5324cb84441da5e342cc609df3b0fb2b1ad541662",
+      "source_version": 30,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/relations/previews/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.txt",
+      "candidate_sha256": "b53724113cc4729eb54bacb5295182047469f397d4d7a86ec7665ab2edb2c871",
+      "candidate_atom_id": "CA-R-1020",
+      "fresh_id_required": false,
+      "source_summary": "Register implementation_of relation",
+      "candidate_summary": "Register implementation_of relation",
+      "decision": "Relocate existing R1958 endpoint permissions to owning Relation Declaration without changing their domain or direct-storage meaning."
+    },
+    {
+      "source_atom_id": "CA-R-1021",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "source_sha256": "d369b96686bfefb912c61c24af35d86500ee8bc483330506aa11761e5f40d555",
+      "source_version": 30,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/relations/previews/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.txt",
+      "candidate_sha256": "80929cb557a8bdd616a921d1f67dd3f7f4caf9a12d1739e475507b530a33500e",
+      "candidate_atom_id": "CA-R-1021",
+      "fresh_id_required": false,
+      "source_summary": "Register evidence_for relation",
+      "candidate_summary": "Register evidence_for relation",
+      "decision": "Relocate existing R1958 endpoint permissions to owning Relation Declaration without changing their domain or direct-storage meaning."
+    }
+  ],
+  "canonical_edits": false,
+  "git_edits": false,
+  "new_id_allocation_owner": "root",
+  "unchanged_governs_base": {
+    "atom_id": "CA-R-1199",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md",
+    "sha256": "91339f2466bb1670d6f297b592ad6d113649463b7723be241e574911c7ef2792",
+    "disposition": "unchanged; general GOVERNS semantics supports qualification without conflict"
+  },
+  "selected_current_reference_corrections": [
+    "CA-R-2278",
+    "CA-R-2279"
+  ],
+  "recommended_other_owner_fragment": {
+    "atom_id": "CA-R-2487",
+    "owner": "entity lane",
+    "replacement": "A derived inverse Declaration retains the reverse HAS_INVERSE binding and its own alias, when present. A qualified or other non-inverse derived view retains its source, endpoint transformation and qualification; derivation alone does not imply unconditional endpoint reversal."
+  },
+  "decisions": [
+    "Rename the qualified declaring view to IS_DECLARED_BY; qualification is Requirement role and Declaration form, with governed Subject and effective declaring ownership.",
+    "Keep IS_DERIVED_RELATION_OF source GOVERNS; retain endpoint transformation and qualification in the derived view and R2278. No unconditional HAS_INVERSE for GOVERNS.",
+    "Allow Declaration active Subjects to resolve to any declared model entity or instance, including non-Node descriptors; exclude literals and glyphs.",
+    "Preserve both written count slots, unspecified omitted counts and outgoing-only wildcard defaults; no automatic inverse permissions.",
+    "Restrict minimal reverse-HAS_INVERSE carriers to inverse views; non-inverse qualified derivations retain substantive constraints.",
+    "Keep all admitted aliases, including short classification syntax, legal.",
+    "Move the existing R1958 implementation_of/evidence_for endpoint permissions into their owning Relation Declarations, retaining the governed Implementation owner and the Evaluation-or-Implementation target restriction; no global carrier policy is introduced."
+  ],
+  "blockers": [
+    "Root must allocate a fresh numeric Atom ID for the new Summary Declare IS_DECLARED_BY and integrate the old-source replacement lifecycle.",
+    "Entity owner must reconcile the broad derived sentence in R2487 using the supplied fragment."
+  ],
+  "validation_scope": "Source/candidate pin and prospective contract checks only; no Current repair, native validation, graph rebuild, ID allocation or lifecycle operation.",
+  "endpoint_permission_relocation": {
+    "source_atom_id": "CA-R-1958",
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1958-CORE_META_MODEL--define-entity-carrier.md",
+    "source_sha256": "642b712a2acf94bb668db4134ae93ab4f9c01a7a7940f33caf4c1a9320baf1ea",
+    "exact_preserved_text": "For implementation_of, the direct owner is the governed Implementation Carrier and each tuple targets the specification Atom it implements. For evidence_for, the direct owner is the evidence Carrier and each tuple targets the Evaluation or Implementation Carrier it supports. These are endpoint permissions, not extra fields on reusable Relation Types or additional storage facts for their derived inverses.",
+    "destinations": [
+      "CA-R-1020",
+      "CA-R-1021"
+    ],
+    "source_removal_owner": "header_declaration_packet",
+    "source_removal_status": "confirmed by header owner; prospective Carrier preview no longer contains foreign Relation paragraph",
+    "source_removal_candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/carrier-declarations/CA-R-1958.preview.txt",
+    "source_removal_candidate_sha256": "d1cc28a859078e9ab79777ca3ac4a3b2dc5aae19e09fdf9aa417549dfa0ab1c5"
+  }
+}

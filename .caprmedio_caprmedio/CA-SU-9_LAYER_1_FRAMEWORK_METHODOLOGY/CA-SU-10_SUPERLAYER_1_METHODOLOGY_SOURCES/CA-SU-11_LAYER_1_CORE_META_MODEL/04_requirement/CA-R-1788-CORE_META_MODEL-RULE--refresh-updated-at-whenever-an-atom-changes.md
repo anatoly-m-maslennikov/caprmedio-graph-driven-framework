@@ -5,9 +5,8 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Carrier.Canonical Address
-version: 18
-updated_at: 2026-11-02 00:18:22 +0400
+version: 20
+updated_at: 2026-11-03 23:25:51 +0400
 claim_target_scope_unit: CORE_META_MODEL
 relations:
   child_of:

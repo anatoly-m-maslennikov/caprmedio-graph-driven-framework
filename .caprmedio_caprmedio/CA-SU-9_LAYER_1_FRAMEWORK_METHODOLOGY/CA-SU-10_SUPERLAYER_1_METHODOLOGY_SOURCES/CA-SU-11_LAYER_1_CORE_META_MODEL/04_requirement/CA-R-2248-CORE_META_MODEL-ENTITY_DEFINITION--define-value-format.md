@@ -5,12 +5,12 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Format
-version: 4
-updated_at: 2026-11-02 08:06:47 +0400
+version: 5
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 tier: 1
 role: Requirement
-form: Entity Definition
+form: Declaration
 ---
 ## Summary
 
@@ -21,11 +21,7 @@ Define Value Format
 ### Formal Claim
 
 ```CFEL
-CFEL <+ Format;
-Format.Data Type{:1}: [string]{:1};
-Format.Data Type.*[]{:0};
-Format.Uniqueness Selection{:0..1}: [string]{:1};
-Format.Uniqueness Selection.*[]{:0}
+CFEL <+ Format
 ```
 
 ### Prose Claim
@@ -51,7 +47,3 @@ Carrier representation formats, not value Formats. The initial scalar
 vocabulary—bool, datetime, decimal, float, int and string—is provisional. A
 format annotation selects a value domain; it does not impose uniqueness.
 
-## Details
-
-Formula expressions, function-style uniqueness notation and bracketed
-conditions remain separate proposals.

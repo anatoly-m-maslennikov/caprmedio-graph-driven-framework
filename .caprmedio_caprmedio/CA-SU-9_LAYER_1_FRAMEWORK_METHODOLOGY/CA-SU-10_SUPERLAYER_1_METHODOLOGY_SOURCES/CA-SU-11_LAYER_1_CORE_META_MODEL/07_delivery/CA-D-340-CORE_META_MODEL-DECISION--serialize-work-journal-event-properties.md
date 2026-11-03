@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Journal
@@ -8,8 +8,8 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Projection
-version: 33
-updated_at: 2026-11-02 08:06:47 +0400
+version: 34
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-340
 current_scope_unit: CORE_META_MODEL

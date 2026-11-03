@@ -200,7 +200,7 @@ def _cfel(body: str, path: Path) -> list[str]:
     matched = re.fullmatch(r"```CFEL\n(?P<cfel>.*?)\n```", claim, re.DOTALL)
     if matched is None:
         raise ScopeDeclarationError(f"{path}: declaration requires one CFEL Claim")
-    statements = [line.strip() for line in matched["cfel"].splitlines() if line.strip()]
+    statements = [line.strip() for line in matched["cfel"].splitlines() if line.strip() and not line.lstrip().startswith("#")]
     if not statements:
         raise ScopeDeclarationError(f"{path}: declaration Claim is empty")
     return statements

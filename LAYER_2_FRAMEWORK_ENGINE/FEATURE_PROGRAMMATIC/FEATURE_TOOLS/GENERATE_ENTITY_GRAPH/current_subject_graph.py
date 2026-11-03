@@ -488,7 +488,7 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
         constraints, _ = extract_claim_constraints(carrier)
         for constraint in constraints:
             expression = constraint.get("expression")
-            if (constraint.get("kind") != "relation_cardinality" or constraint.get("relation") != "NARROWER_THAN"
+            if (constraint.get("group") == "instances" or constraint.get("kind") != "relation_cardinality" or constraint.get("relation") != "NARROWER_THAN"
                     or not isinstance(expression, str) or not str(constraint.get("target_selector", "")).strip().startswith("@")):
                 continue
             if constraint.get("source_cardinality") is not None or constraint.get("target_cardinality") is not None:
@@ -662,15 +662,37 @@ def compose_enhanced_current_graph(carriers: list[Record]) -> tuple[Record, Reco
     annotations into graph Nodes.
     """
 
-    from cfel_claim_constraints import constraints_for
+    from cfel_claim_constraints import claim_cfel_blocks, constraints_for
 
     graph, provenance = compose_current_graph(carriers, unsupported_as_diagnostics=True)
     constraints, unresolved = constraints_for(carriers)
+    declaration_sources = {
+        (carrier["source"].get("atom_id"), carrier["source"].get("version"), carrier["source"].get("path"))
+        for carrier in carriers if isinstance(carrier.get("source"), dict) and _is_declaration(carrier)
+    }
+    identified_sources = {
+        (carrier["source"].get("atom_id"), carrier["source"].get("version"), carrier["source"].get("path"))
+        for carrier in carriers if isinstance(carrier.get("source"), dict) and _view(carrier).get("type")
+    }
+    def declared(row: Record) -> bool:
+        source = row.get("source", {})
+        return (source.get("atom_id"), source.get("version"), source.get("path")) in declaration_sources
+    def non_declaration_property(row: Record) -> bool:
+        source = row.get("source", {})
+        key = (source.get("atom_id"), source.get("version"), source.get("path"))
+        return (row.get("kind") in {"property_constraint", "allowed_literal"}
+                and key in identified_sources and not declared(row))
+    model_constraints = [row for row in constraints if row.get("group") != "instances" and not non_declaration_property(row)]
     enhanced = {
         **graph,
         "kind": "current_atom_model_graph",
         "model": _enhanced_categories(carriers, provenance, graph["diagnostics"]),
-        "constraints": constraints,
+        "constraints": model_constraints,
+        "model_contracts": [row for row in model_constraints
+                            if row.get("kind") in {"property_constraint", "allowed_literal"} and declared(row)],
+        "source_constraints": [row for row in constraints if row.get("group") != "instances" and non_declaration_property(row)],
+        "instance_constraints": [row for row in constraints if row.get("group") == "instances"],
+        "formal_claim_blocks": [block for carrier in carriers for block in claim_cfel_blocks(carrier)],
         "cfel_diagnostics": unresolved,
     }
     return enhanced, provenance

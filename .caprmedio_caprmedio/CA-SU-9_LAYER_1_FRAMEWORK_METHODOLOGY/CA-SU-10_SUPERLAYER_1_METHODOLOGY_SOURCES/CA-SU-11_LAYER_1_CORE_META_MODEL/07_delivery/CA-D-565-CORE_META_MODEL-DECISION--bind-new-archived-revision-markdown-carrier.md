@@ -3,10 +3,9 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Header.Status:Archived
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Header.Status
-  - CAPRMEDIO_MODEL <+ Atom.Header.Status:Archived
-  - CAPRMEDIO_MODEL <+ Carrier.Canonical Address
-version: 20
-updated_at: 2026-11-02 08:06:47 +0400
+  - CAPRMEDIO_MODEL <+ Carrier
+version: 21
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-565
 current_scope_unit: CORE_META_MODEL

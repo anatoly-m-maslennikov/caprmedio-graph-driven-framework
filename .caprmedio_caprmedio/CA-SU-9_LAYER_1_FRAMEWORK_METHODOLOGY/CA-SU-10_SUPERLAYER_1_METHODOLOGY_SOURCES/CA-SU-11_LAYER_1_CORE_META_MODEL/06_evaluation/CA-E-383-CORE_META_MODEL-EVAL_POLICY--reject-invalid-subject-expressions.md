@@ -12,8 +12,8 @@ subjects:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
-version: 45
-updated_at: 2026-11-02 18:35:20 +0400
+version: 46
+updated_at: 2026-11-03 23:25:51 +0400
 relations:
   evaluation_for:
   - CA-R-1194
@@ -49,7 +49,7 @@ Under A1296, count an omitted property as zero values, a scalar null as one valu
 
 For the Entity format check under CA-A-1285, check string-valued content and the admitted notation. Do not fail that format check solely because a defining Atom introduces a new governed entity. Target authority and explicit existing-kind reference resolution are separate semantic checks, not consequences of the string Format.
 
-Under CA-A-1283, admit subjects{0} with one governs reference and zero or more dependencies; reject a direct subjects scalar without rejecting its declared children. Require direct prose for claim{1} even when formal_claim{0..1} is present. For property[string]{2}, require two string values under one key; repeated sibling YAML keys do not satisfy cardinality. Do not treat a sequence as one list-formatted value or count child keys as direct parent values.
+Under CA-A-1283, admit subjects{0} with one governs reference and zero or more dependencies; reject a direct subjects scalar without rejecting its declared children. Require no direct Claim value and one or both declared Formal Claim and Prose Claim children. For property[string]{2}, require two string values under one key; repeated sibling YAML keys do not satisfy cardinality. Do not treat a sequence as one list-formatted value or count child keys as direct parent values.
 
 Accept Package/Project Implementation as the parentless root Package and each Module only when it belongs to exactly one Package; reject the superseded root-under-Implementation and independent-Module cases.
 
@@ -82,6 +82,16 @@ the Evaluation **must** reject an Entity Expression **if**
 - **or** a registered CCE Operator is redefined as a Governed Term **or** Scope Unit Name.
 
 For example, in `Kind//Instance Name`, the RHS identifies the named instance and is not automatically a Term; require the complete path to resolve to exactly one canonical target that already exists or is explicitly introduced by applicable defining authority. References must resolve to their intended declared targets. Recognizing `//` alone does not establish or admit an INSTANCE_OF graph fact. Do not reject or accept the name by an Atom-ID pattern; its source/name authority and exact-target resolution govern.
+
+For CFEL Formal Claims, accept full-line `# model` and `# instances` comments in one fence, with MODEL first when both groups occur. Do not interpret the comments, variables or nested Markdown headings as declared Properties. Continue to read historical ungrouped Claims and existing bare population selectors; new authoring uses the applicable explicit binder.
+
+Accept `IF $x in (Node, Node.**) THEN ($x.Name: [string]{:1}; $x.Status: [string]{:1})` as one MODEL binding expression. Its unbound variable ranges over the selection; an already bound variable is tested against that same selection. Statements inside its parenthesized conclusion share the binding. Reject treating the variable as a declared Node, executing nested statements without the binding, or introducing a FOR operator.
+
+Accept `(in (Action, Workflow))//$selected` as a binding over the union's existing logical population. Accept an explicit binder immediately before the unchanged filter in `Event Record//$event_record(.object_output{=1}, .object_output.id = $projection.ID)`. In `MAX(Event Record//$event_record(.object_output{=1}).happened_at)`, retain the filtered population as the aggregate argument; do not force a separate aggregate per bound row.
+
+Accept `Node//$x{:1..3}` as a count of the distinct selected logical instances in context, not a one-row count for `$x`; repeated references or Carrier representations of an instance do not multiply the count. Preserve `Kind//{:n}` as a readable historical population selector. Named `Relation//NAME` and `Operator//NAME` addresses and quoted strings retain their identity and text. MODEL Relation descriptor variables stay MODEL evidence; a binder does not create an entity, a Relation fact, an inverse permission or endpoint cardinality.
+
+These variable forms occur in Formal Claims. They do not relax the separate Subject-expression requirement that a named `Kind//Instance Name` reference resolve to its intended declared target. Validate MODEL Property format and count authority from applicable Requirement / Declaration sources separately from syntax recognition; other RMED Claims do not become MODEL Declaration authority.
 
 ## Details
 

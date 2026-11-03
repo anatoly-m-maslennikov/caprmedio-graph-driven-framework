@@ -37,6 +37,56 @@ def carrier(
 
 
 class EnhancedCurrentGraphTests(unittest.TestCase):
+    def test_model_binder_is_opaque_and_population_count_applies_to_selection(self) -> None:
+        block = '''# model
+IF $model_node in (Node, Node.**) THEN (
+  $model_node.Name: [string]{:1};
+  IF $model_node >| Category == "A; B" THEN ($model_node.X: [string]{:1})
+);
+Relation//$relation ((HAS_INVERSE)) Relation//$relation_2;
+# instances
+Node//$n{:1..3};
+$n.Name: [string]{:1}
+'''
+        graph, _ = compose_enhanced_current_graph([
+            carrier("CA-R-1", {"active": "Node", "passive": []}, declaration=True),
+            carrier("CA-R-2", {"active": "Node.Name", "passive": []}, "## Claim\n### Formal Claim\n```CFEL\n" + block + "```\n", declaration=True),
+        ])
+        binder = next(row for row in graph["constraints"] if row["kind"] == "model_binding")
+        self.assertEqual("model_node", binder["variable"])
+        self.assertEqual("Node, Node.**", binder["selection"])
+        self.assertIn('"A; B"', binder["expression"])
+        self.assertEqual("opaque", binder["interpretation"])
+        self.assertEqual([], graph["model_contracts"])
+        population = next(row for row in graph["instance_constraints"] if row["kind"] == "instance_population_constraint")
+        self.assertEqual({"minimum": 1, "maximum": 3}, population["population_cardinality"])
+        self.assertEqual("Node", population["kind_selector"])
+        self.assertTrue(any(row.get("relation") == "HAS_INVERSE" for row in graph["constraints"]))
+        self.assertFalse(any("$" in row["identity"] for row in graph["model"]["primary_nodes"]))
+        self.assertIn(block, [row["block"] for row in graph["formal_claim_blocks"]])
+
+    def test_grouped_constraints_keep_declaration_model_and_instance_evidence_separate(self) -> None:
+        block = """# model
+Node.Name: [string]{:1};
+Node ((CONTAINS)) Node;
+# instances
+Node//$n;
+$n.Name: [integer]{:1};
+$n ((CONTAINS)) Node//$child
+"""
+        graph, _ = compose_enhanced_current_graph([
+            carrier("CA-R-1", {"active": "Node", "passive": []}, declaration=True),
+            carrier("CA-R-2", {"active": "Node.Name", "passive": []}, "## Claim\n### Formal Claim\n```CFEL\n" + block + "```\n", declaration=True),
+            carrier("CA-R-3", {"active": "Node.Name", "passive": []}, "## Claim\n```CFEL\n# model\nNode.Name: [integer]{:1};\n```\n", declaration=True, form="Rule"),
+        ])
+        self.assertEqual(["string"], [row["value_format"] for row in graph["model_contracts"]])
+        self.assertEqual(["integer"], [row["value_format"] for row in graph["source_constraints"]])
+        self.assertEqual({"instance_binding", "property_constraint", "relation_cardinality"},
+                         {row["kind"] for row in graph["instance_constraints"]})
+        self.assertTrue(any(row.get("relation") == "CONTAINS" for row in graph["constraints"]))
+        self.assertIn(block, [row["block"] for row in graph["formal_claim_blocks"]])
+        self.assertFalse(any("$n" in row["identity"] for row in graph["model"]["primary_nodes"]))
+
     def test_migrated_subject_keys_keep_the_legacy_graph_shape(self) -> None:
         legacy, _ = compose_current_graph([
             carrier("CA-R-1001", {"governs": "Node.Property", "depends_on": []}),

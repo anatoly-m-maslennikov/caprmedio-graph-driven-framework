@@ -1,11 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File.Filename
-  passive:
-  - CAPRMEDIO_MODEL <+ Carrier/File
-  - CAPRMEDIO_MODEL <+ Carrier/File.Format
-version: 28
-updated_at: 2026-11-02 00:18:22 +0400
+  active: CAPRMEDIO_MODEL <+ Carrier/File
+version: 29
+updated_at: 2026-11-03 23:25:51 +0400
 relations:
   child_of:
   - CA-D-362

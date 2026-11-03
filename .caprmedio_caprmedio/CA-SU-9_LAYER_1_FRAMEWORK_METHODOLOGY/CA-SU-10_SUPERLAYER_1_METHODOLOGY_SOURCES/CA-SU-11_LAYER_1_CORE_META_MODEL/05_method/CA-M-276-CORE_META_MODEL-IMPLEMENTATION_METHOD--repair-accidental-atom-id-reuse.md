@@ -2,20 +2,19 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Header.ID
   passive:
-  - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Header.Version
-  - CAPRMEDIO_MODEL <+ Carrier.Canonical Address
+  - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   - CAPRMEDIO_MODEL <+ Journal
-version: 31
-updated_at: 2026-11-02 18:35:20 +0400
+version: 32
+updated_at: 2026-11-03 23:25:51 +0400
 relations:
   method_for:
   - CA-R-2701

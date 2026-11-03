@@ -1,0 +1,164 @@
+[
+  {
+    "id": "CA-R-2487",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+    "source_sha256": "2d3091e7b35c3e90364ce973e4066fb59e1c8aae6522383003601b84f2b48434",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2487.txt",
+    "candidate_sha256": "e350ef9fe7805b21e31e70343889ccb711a824e547bf0b5f349cd4de75fd2642",
+    "summary": "Define CFEL",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2327",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2327-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md",
+    "source_sha256": "57086b4d9d82ae06622dbb027e0ca877b12f2186494fbc323fcda0a9a6474b24",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2327.txt",
+    "candidate_sha256": "f61465a91fc064f2bc2cb5856e0287df70d8d5ab76905c573f29dcfa78e4f2fa",
+    "summary": "Define Cardinality",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2248",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+    "source_sha256": "875da50a507e96d7fdc9377bbf9b13da6b75a4c605043be90aad476eaa1688ad",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2248.txt",
+    "candidate_sha256": "905c7705c4e7bac19bec0e066c47e3c5e75a32fe3c5764310878736e45b67099",
+    "summary": "Define Value Format",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2249",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2249-CORE_META_MODEL-ENTITY_DEFINITION--define-bool-value-format.md",
+    "source_sha256": "1c6a292b6482a656768a53e449d686e605efabe02ae02f0ae6ea7cb87c573f7a",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2249.txt",
+    "candidate_sha256": "0d7009f077d944267deee01b9e106808e6e7a8c8f19901ea3e71b79a8bf686e6",
+    "summary": "Define bool Value Format",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2250",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2250-CORE_META_MODEL-ENTITY_DEFINITION--define-int-value-format.md",
+    "source_sha256": "61e995cf0e5538ecd6b4b2d7d974f3722949720b92b4e2ffec85924670a0fd9d",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2250.txt",
+    "candidate_sha256": "04ed933b4d826a5ce1334c7be88babaa404fd618959a42a9fde307022722e4a4",
+    "summary": "Define int Value Format",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2251",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2251-CORE_META_MODEL-ENTITY_DEFINITION--define-float-value-format.md",
+    "source_sha256": "cad3d5f7018e82f87df4fe8222c4b545f479861182a649aacfec7a23558acc8e",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2251.txt",
+    "candidate_sha256": "9aeeb51da463eff7be253fe00fd4158ce2c9e5b6a8ed5285c03e7ed46cefb26f",
+    "summary": "Define float Value Format",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2252",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2252-CORE_META_MODEL-ENTITY_DEFINITION--define-decimal-value-format.md",
+    "source_sha256": "e384d1e1961682e740c32372f47be44f1aa13a1e4fb88c7a53da5e4c3596d142",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2252.txt",
+    "candidate_sha256": "8925c3b6167a320aed98606bd49cc7fb226b567737ab22012339f7f5d9f29d98",
+    "summary": "Define decimal Value Format",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2253",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2253-CORE_META_MODEL-ENTITY_DEFINITION--define-string-value-format.md",
+    "source_sha256": "0df8ceebd75d1706399889afe1ec53582398107f13e4f884cd577943bb4eb6b4",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2253.txt",
+    "candidate_sha256": "ee79c51c221d95909c2ca70f81ca62c353d1054d85d0632d9c8388a5d825e61b",
+    "summary": "Define string Value Format",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2254",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2254-CORE_META_MODEL-ENTITY_DEFINITION--define-datetime-value-format.md",
+    "source_sha256": "dbff0a7e970b68aaca757e3afd6b3b1381c3b4163e3e53932dc98ee02b69fd8f",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2254.txt",
+    "candidate_sha256": "2f1192696d4088d22d575a25ab62e9730f64dff5a5ba6f8ff943ae37b0e085c5",
+    "summary": "Define datetime Value Format",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2257",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2257-CORE_META_MODEL-ENTITY_DEFINITION--define-scalar-value-format.md",
+    "source_sha256": "eb9d2c6bfbeb84047ae9703d77b5df861716bcc568f35c2db63026249a586a39",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2257.txt",
+    "candidate_sha256": "8842d8581251f93cd1b198883bb2fe941f50ebf1507cd9374ededca620060a3b",
+    "summary": "Define scalar Value Format",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2247",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+    "source_sha256": "202cdf2ba172d0666e8aacbcf6f554db1f418266ed93cf9f371b48ce178621e6",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2247.txt",
+    "candidate_sha256": "f74ada62cc162c3b3b880db43b3d265cabbb2dca4b994fb39742438760fde2bd",
+    "summary": "Define Relation",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-1318",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+    "source_sha256": "eb5ed7d736b0a67324024d8b14fb2c6ac540fa81025500fdf5cf883eb7977410",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-1318.txt",
+    "candidate_sha256": "56df0cd5ea213d07dcc6783d7442e97943800ebdd9edd6af644b824438e4e11e",
+    "summary": "Define Term",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2547",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2547-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-value-format.md",
+    "source_sha256": "377c53fe263370be37375c27d457469f13b69f060857f1a40814480166c48903",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2547.txt",
+    "candidate_sha256": "f5e14f178a42cef85b0d15bba9a2421981069f0634a45c5eea7070698752fb22",
+    "summary": "Define markdown value Format",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2352",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2352-CORE_META_MODEL-ENTITY_DEFINITION--define-format-data-type.md",
+    "source_sha256": "5d196232b826c956065d3e2f87faaed8ec0fe35efaf2a0de6bed434fb40293a8",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2352.txt",
+    "candidate_sha256": "33b929e5c52ab68d844bdf20a539f0631e54596298e65d176ca5dd287a3b9eae",
+    "summary": "Define Format Data Type",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2353",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2353-CORE_META_MODEL-ENTITY_DEFINITION--define-format-uniqueness-selection.md",
+    "source_sha256": "b8dcb80255403ef3d0463e170a45aeebfc920a926b2511216c9d534194f190af",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2353.txt",
+    "candidate_sha256": "a8c53e3e71db110ff3c1d0917364b2cfc2042da44ed2638c6b86ecc96becd956",
+    "summary": "Define Format Uniqueness Selection",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2354",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md",
+    "source_sha256": "65fb95e8529c1b45414d09f2cdbf447022922924e23b3934f6b7e9da97679411",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2354.txt",
+    "candidate_sha256": "cf1c0f7349acdbfb7317a4ceb9c90a1b3fa2201ddbf9ee73ea62f33c8f506bcd",
+    "summary": "Define Relation Meaning",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2355",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+    "source_sha256": "b9273ce0995ffec84a95096868b63b99cd0424be2e6e3c1c4487edf7d8ae5180",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2355.txt",
+    "candidate_sha256": "1967f5618cd0a58cf00577045385b89866a96811556e95d01d2d0efa51e4b0f8",
+    "summary": "Define Relation Name",
+    "disposition": "candidate form change, no ID allocation"
+  },
+  {
+    "id": "CA-R-2415",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2415-CORE_META_MODEL-ENTITY_DEFINITION--define-term-name.md",
+    "source_sha256": "6457a85b0f2d317ee64d58644c6c866b5803a51280e1d6d0011759a4dcaea537",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/declarations/CA-R-2415.txt",
+    "candidate_sha256": "9db24e5d24c4fc06e6da16347ab9a185862eef613d2accd9e929ccfa6ae65168",
+    "summary": "Define Term Name",
+    "disposition": "candidate form change, no ID allocation"
+  }
+]

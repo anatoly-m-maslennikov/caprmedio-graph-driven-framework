@@ -1,0 +1,31 @@
+{
+  "status": "PREVIEW_NOT_ADOPTED",
+  "scope": "Full prospective carriers; source metadata intentionally unchanged for review. No Current write or adoption.",
+  "candidates": [
+    {
+      "atom_id": "CA-R-2552",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2552-CORE_META_MODEL-CFEL--bind-instance-variables.md",
+      "source_sha256": "0952d42dd5eb31cb4f2afcacf169f4067dff4d33bc1479c544fe7e8f354839eb",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/variables/CA-R-2552-prospective.txt",
+      "candidate_sha256": "900dec8b641422da3c59e9f5a7e16b10473d4cc9663623c5b708a344412d7f8a",
+      "metadata": "unchanged from Current; future application must choose version and updated timestamp"
+    },
+    {
+      "atom_id": "CA-M-228",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "source_sha256": "b48c0e8db0d964d71cfa60a15a6403e75eca4ca5f31a46d8f084f26bae776f4d",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/variables/CA-M-228-prospective.txt",
+      "candidate_sha256": "76ad9efec1f0659eaa45932150a7cf3047a4f7ea941ee588b22699358a0742bb",
+      "metadata": "unchanged from Current; future application must choose version and updated timestamp"
+    },
+    {
+      "atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "source_sha256": "ec65040b647eec8666874fcb4eaeed7436e094577c58a675227eac8e9017a27b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/variables/CA-E-383-prospective.txt",
+      "candidate_sha256": "e3930aecc7c949f5507cf03f22022dde4dc19d852d1a5061f40557263d227f42",
+      "metadata": "unchanged from Current; future application must choose version and updated timestamp"
+    }
+  ],
+  "grammar_reference": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/migration/R2552-composition-preview.md"
+}

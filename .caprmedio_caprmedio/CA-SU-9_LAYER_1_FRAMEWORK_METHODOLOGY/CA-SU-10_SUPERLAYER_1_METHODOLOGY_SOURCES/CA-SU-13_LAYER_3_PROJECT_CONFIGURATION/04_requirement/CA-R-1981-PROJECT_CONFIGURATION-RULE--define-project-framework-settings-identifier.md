@@ -4,15 +4,15 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier.ID
+  active: CAPRMEDIO_MODEL <+ Carrier
 relations:
   child_of:
   - CA-R-1176
-version: 16
+version: 17
 tier: 3
 role: Requirement
 form: Rule
-updated_at: 2026-11-02 08:06:47 +0400
+updated_at: 2026-11-03 23:25:51 +0400
 ---
 ## Summary
 

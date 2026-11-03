@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Atom.Header.ID
-version: 25
-updated_at: 2026-11-02 08:06:47 +0400
+version: 26
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-435
 current_scope_unit: PROJECT_CONFIGURATION

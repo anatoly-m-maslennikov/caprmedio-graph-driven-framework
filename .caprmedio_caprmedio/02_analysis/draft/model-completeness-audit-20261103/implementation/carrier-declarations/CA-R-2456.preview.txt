@@ -1,0 +1,31 @@
+---
+atom_id: CA-R-2456
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+version: 3
+updated_at: 2026-11-02 00:18:22 +0400
+subjects:
+  active: CAPRMEDIO_MODEL <+ Carrier/File/Markdown
+  passive:
+  - CAPRMEDIO_MODEL <+ Carrier/File
+relations: {}
+role: Requirement
+form: Declaration
+---
+## Summary
+
+Define Markdown File Carrier
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+Carrier/File/Markdown
+```
+
+### Prose Claim
+
+A Markdown File Carrier is a File Carrier represented using Markdown.

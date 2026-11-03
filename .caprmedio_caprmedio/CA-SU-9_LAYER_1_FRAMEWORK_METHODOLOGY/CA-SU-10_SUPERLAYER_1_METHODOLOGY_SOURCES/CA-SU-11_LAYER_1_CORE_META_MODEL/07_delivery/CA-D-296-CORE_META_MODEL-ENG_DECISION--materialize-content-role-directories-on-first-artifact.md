@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier.Canonical Address
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Carrier/Directory
-version: 29
-updated_at: 2026-11-02 00:18:22 +0400
+version: 30
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-296
 current_scope_unit: CORE_META_MODEL

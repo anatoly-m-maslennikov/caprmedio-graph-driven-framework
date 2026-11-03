@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Journal
@@ -10,8 +10,8 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action
   - CAPRMEDIO_MODEL <+ Projection
-version: 22
-updated_at: 2026-11-02 08:06:47 +0400
+version: 23
+updated_at: 2026-11-03 23:25:51 +0400
 relations:
   evaluation_for:
   - CA-R-1528

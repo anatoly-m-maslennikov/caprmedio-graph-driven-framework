@@ -8,11 +8,11 @@ subjects:
 relations:
   child_of:
   - CA-R-1174
-version: 15
-updated_at: 2026-11-02 00:18:22 +0400
+version: 16
+updated_at: 2026-11-03 23:25:51 +0400
 tier: 1
 role: Requirement
-form: Entity Definition
+form: Declaration
 ---
 ## Summary
 
@@ -20,19 +20,13 @@ Define Entity/Carrier
 
 ## Claim
 
-### Prose Claim
+### Formal Claim
 
-
-Carrier representations of Continuants.
-
-
-A Carrier **means** a storage representation of a Continuant, distinct from what it represents. A Carrier can represent a record of an Occurrent, **not** the Occurrent itself.
-
-
-```text
-Carrier.ID[string]{1}
-Carrier.Canonical Address[string]{1}
-Carrier.Format[string]{1}
+```CFEL
+Carrier
 ```
 
-For implementation_of, the direct owner is the governed Implementation Carrier and each tuple targets the specification Atom it implements. For evidence_for, the direct owner is the evidence Carrier and each tuple targets the Evaluation or Implementation Carrier it supports. These are endpoint permissions, not extra fields on reusable Relation Types or additional storage facts for their derived inverses.
+### Prose Claim
+
+A Carrier is a storage representation distinct from the Object it represents. An Object is an instance of any model Entity.
+

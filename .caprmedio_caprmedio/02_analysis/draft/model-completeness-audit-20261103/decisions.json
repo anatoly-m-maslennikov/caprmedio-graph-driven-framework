@@ -1,0 +1,178 @@
+{
+  "status": "operator_decisions_recorded; governing sources not applied",
+  "decisions": [
+    {
+      "id": "carrier-boundary-01",
+      "recorded_at": "2026-11-03T21:59:36.087065+04:00",
+      "latest_operator_words": [
+        "we do not need the paragraph model; adapters are responsible for correctly creating, updating and moving files",
+        "artifacts - files and folders",
+        "objects - Node instances",
+        "No, Object >> Carrier//, it is enough",
+        "Object is any entity instance from model",
+        "atom.header.** >> markdown.frontmatter; atom.content.** >> markdown.markdown (content spelling normalized from input)",
+        "Define Atom.Header.Carrier Destination.File.Name and .Path on MODEL as Atom properties; set Carrier//.filename and .location from them, or similar."
+      ],
+      "accepted_meaning": {
+        "Object": "instance of any model entity",
+        "Artifact": "file or folder",
+        "working_boundary": "operate on Objects; adapters handle their file/folder representation",
+        "paragraph_property": "not needed; do not create its Declaration to close the audit gap",
+        "delivery_expression": "Object >> Carrier//",
+        "Carrier": "retained as the delivery target; // selects a Carrier instance",
+        "serialization_mappings": [
+          "atom.header.** >> markdown.frontmatter",
+          "atom.content.** >> markdown.markdown"
+        ],
+        "stored_destination_properties": {
+          "retained": true,
+          "properties": [
+            "Atom.Header.Carrier Destination.File.Name",
+            "Atom.Header.Carrier Destination.File.Path"
+          ],
+          "Name": "calculated full filename including extension",
+          "Path": "calculated containing directory relative to repository root"
+        },
+        "adapter_destination_mappings": [
+          "Carrier//.filename == Atom.Header.Carrier Destination.File.Name",
+          "Carrier//.location == Atom.Header.Carrier Destination.File.Path"
+        ],
+        "instance_bound_example": [
+          "Atom//$atom >> Carrier//$carrier",
+          "$carrier.filename == $atom.Header.Carrier Destination.File.Name",
+          "$carrier.location == $atom.Header.Carrier Destination.File.Path"
+        ]
+      },
+      "not_yet_decided": [],
+      "source_application": "not applied; analysis decision record only",
+      "superseded_wording": [
+        "Object = Node instance only",
+        "Object >> Artifact"
+      ]
+    },
+    {
+      "id": "declared-by-02",
+      "recorded_at": "2026-11-03T22:13:32.944436+04:00",
+      "accepted_meaning": {
+        "relation_name": "IS_DECLARED_BY",
+        "replaces": "IS_DEFINED_BY",
+        "qualification": "Declarations replace the former Entity Definition qualification",
+        "preserve": "qualified derived view; no unconditional inverse inferred"
+      },
+      "source_application": "not applied; decision record only"
+    },
+    {
+      "id": "instance-notation-03",
+      "recorded_at": "2026-11-03T22:13:32.944436+04:00",
+      "latest_operator_words": [
+        "not just Atom//, but Atom//$atom",
+        "$ is preferred for variables",
+        "formal expressions for model and for instances; group model first; # model and # instances are comments",
+        "Atom.Header.Carrier Destination.File.Name: [string]{:1}; Atom.Header.Carrier Destination.File.Path: [string]{:1};",
+        "also add #model + #instances and \"$x\" notation for instances (and if needed - for model)"
+      ],
+      "accepted_meaning": {
+        "variable_prefix": "$",
+        "typed_instance_binding": "Kind//$variable",
+        "bound_reference": "$variable",
+        "anonymous_instance_reference": "use an explicit variable rather than bare Kind//",
+        "named_instances": "explicit named addresses remain references, not anonymous variable bindings",
+        "binding_scope": "one Claim block; repeated variable identifies the same instance within each matching binding",
+        "binding_semantics": "retain current R2552 matching and endpoint aggregation; a binder does not create an instance",
+        "groups": [
+          "# model",
+          "# instances"
+        ],
+        "group_order": "model before instances when both are present",
+        "group_kind": "comments inside the same CFEL fence; not Markdown Properties",
+        "group_meaning": "group by model versus instance purpose; do not move named Relation/Operator model descriptors solely because their addresses contain //",
+        "destination_model_clauses": [
+          "Atom.Header.Carrier Destination.File.Name: [string]{:1};",
+          "Atom.Header.Carrier Destination.File.Path: [string]{:1};"
+        ],
+        "destination_model_clause_note": "For these two Properties, write the value format and allowed value count after the colon, without an extra occurrence count before it. No global change to other optional-property syntax is inferred.",
+        "model_variables": "Use $x for model bindings where needed; preserve model versus instance meaning."
+      },
+      "implementation_followup": [
+        "update current variable and CFEL authoring rules",
+        "review instance population-cardinality patterns before mechanical variable replacement",
+        "teach all affected CFEL readers to ignore comment lines safely",
+        "migrate grouping and anonymous binders without changing existing matching/identity/count meanings"
+      ],
+      "source_application": "not applied; decision record only",
+      "epic_tracking": {
+        "id": "CA-P-2694",
+        "version": 50,
+        "implementation_status": "Planned"
+      }
+    },
+    {
+      "id": "carrier-kinds-04",
+      "recorded_at": "2026-11-03T22:41:18.339180+04:00",
+      "operator_words": "we do not need git index, everything else is good",
+      "accepted_meaning": {
+        "retire": [
+          "Carrier/Git Index"
+        ],
+        "retain": [
+          "Carrier/Database",
+          "Carrier/Docker Image",
+          "Carrier/Git Branch",
+          "Carrier/Git Commit",
+          "Carrier/Git Repository",
+          "Carrier/Pull Request"
+        ],
+        "scope": "answer concerns the seven Carrier kinds asked about; does not decide other detailed Carrier Properties",
+        "delivery_scope": "Current Object delivery bindings target files and folders; other Carrier kinds remain modeled."
+      },
+      "source_application": "pending",
+      "latest_operator_words": [
+        "we have only file carrier now",
+        "in model we should other Carriers, but in the model for objects we have >> only to files and folders"
+      ]
+    },
+    {
+      "id": "model-binding-05",
+      "recorded_at": "2026-11-03T22:53:32.955584+04:00",
+      "operator_words": "IF $x in (...) THEN ( multi-line expressions ); reuse IF THEN, FOR is just sugar",
+      "accepted_meaning": {
+        "form": "IF $x in (selection) THEN ( multi-line expressions )",
+        "binding": "an unbound variable ranges over matching selection members; a bound variable is tested for membership",
+        "body_scope": "same matching binding is used through the parenthesized conclusion",
+        "FOR": "not a required language primitive; no FOR syntax/implementation added"
+      },
+      "source_application": "pending"
+    },
+    {
+      "id": "carrier-format-06",
+      "recorded_at": "2026-11-03T23:11:52.446401+04:00",
+      "operator_words": "Use the template; remove Carrier.Format",
+      "accepted_meaning": {
+        "retire": [
+          "Carrier.Format"
+        ],
+        "layout": "--- newline <yaml> newline --- newline <markdown>",
+        "owner": "Delivery template and adapter",
+        "preserve": "Object Property formats such as [string] and [markdown]",
+        "file_specific_format": "no inherited Carrier/File.Format Property remains; remove or rebind its old rule to representation templates"
+      },
+      "source_application": "pending"
+    },
+    {
+      "id": "carrier-details-07",
+      "operator_words": "Retire these detailed properties",
+      "accepted_meaning": {
+        "retire": [
+          "Carrier/File.Main Content.CCE Operator",
+          "Carrier/File.YAML Frontmatter.Scalar",
+          "Carrier/File.Filename.Scope Unit Token",
+          "Carrier.Canonical Address.Segment",
+          "Carrier/Directory.Numeric Prefix"
+        ],
+        "keep": "Adapters and Delivery rules retain behavior; file/folder interfaces and Atom destination Properties remain"
+      },
+      "source_application": "pending"
+    }
+  ],
+  "open_questions": []
+}

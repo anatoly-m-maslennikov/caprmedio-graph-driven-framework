@@ -8,11 +8,11 @@ subjects:
 relations:
   child_of:
   - CA-R-1174
-version: 11
-updated_at: 2026-11-02 00:18:22 +0400
+version: 12
+updated_at: 2026-11-03 23:25:51 +0400
 tier: 3
 role: Requirement
-form: Entity Definition
+form: Declaration
 ---
 ## Summary
 
@@ -20,10 +20,12 @@ Define Entity/Carrier/File Carrier
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+Carrier/File
+```
+
 ### Prose Claim
 
-
-File Carriers.
-
-
-A File Carrier **means** a Carrier that represents content in a file.
+A File Carrier represents content in a file.

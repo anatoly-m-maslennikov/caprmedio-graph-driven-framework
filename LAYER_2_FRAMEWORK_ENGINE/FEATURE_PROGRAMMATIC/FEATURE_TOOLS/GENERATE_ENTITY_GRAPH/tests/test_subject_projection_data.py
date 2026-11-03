@@ -9,6 +9,7 @@ TOOL = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(TOOL.parent), str(TOOL)]
 
 from subject_projection_data import build_subject_projection_data  # noqa: E402
+from subject_projection_views import render_primary_projection  # noqa: E402
 
 
 def carrier(atom_id, subject, body, *, role="Requirement", form="Declaration"):
@@ -24,6 +25,23 @@ def claim(*lines):
 
 
 class SubjectProjectionDataTests(unittest.TestCase):
+    def test_inherited_model_format_and_instance_constraints_stay_separate(self):
+        data = build_subject_projection_data([
+            carrier("CA-R-1", "Node", claim("Node declaration.")),
+            carrier("CA-R-2", "Node/Child", claim("Child declaration.")),
+            carrier("CA-R-3", "Node.Name", claim("```CFEL", "# model", "Node.Name: [string]{:1};", "# instances", "Node//$n;", "$n.Name: [string]{:1};", "```")),
+            carrier("CA-R-4", "Node.Name", claim("```CFEL", "# model", "Node.Name: [integer]{:1};", "```"), form="Rule"),
+        ])
+        child = next(row for row in data["entities"] if row["identity"] == "Node/Child")
+        prop = child["inherited_properties"][0]
+        self.assertEqual(["string"], [row["value_format"] for row in prop["contracts"]])
+        self.assertEqual(["instance_binding", "property_constraint"], [row["kind"] for row in prop["instance_constraints"]])
+        self.assertIn("# model", prop["formal_claims"][0]["block"])
+        self.assertIn("# instances", prop["formal_claims"][0]["block"])
+        self.assertFalse(any("$n" in row["identity"] for row in data["entities"]))
+        inspector = render_primary_projection(data, 4)
+        self.assertIn("# model\nNode.Name: [string]{:1};\n# instances\nNode//$n;\n$n.Name: [string]{:1};", inspector)
+
     def test_keeps_explicit_new_namespace_roots(self):
         data = build_subject_projection_data([
             carrier("CA-R-1", "CAPRMEDIO_MODEL", claim("Model root.")),

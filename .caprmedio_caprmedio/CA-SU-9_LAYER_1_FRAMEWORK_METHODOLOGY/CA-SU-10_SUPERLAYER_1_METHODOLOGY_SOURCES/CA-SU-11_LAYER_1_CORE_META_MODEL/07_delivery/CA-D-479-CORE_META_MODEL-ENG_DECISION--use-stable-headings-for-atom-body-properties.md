@@ -1,15 +1,14 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Atom.Content.Details
   - CAPRMEDIO_MODEL <+ Term//Property
-  - CAPRMEDIO_MODEL <+ Carrier/File
-version: 29
-updated_at: 2026-11-03 20:00:05 +0400
+version: 30
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-479
 current_scope_unit: CORE_META_MODEL

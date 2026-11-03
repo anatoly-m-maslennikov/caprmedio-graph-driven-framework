@@ -1,0 +1,12 @@
+deliverable	owner	exclusive_scope	dependencies	acceptance	status
+Entity Declaration coverage	graph_claim_consumers	entities/	1167-source frontier	177 exact Declared,45 distinct strict-form gaps,2 identities separated	done
+Property value contracts	header_declaration_packet	property-values/	entity census	82 direct contracts,22 missing-authority targets separated	done
+Nested Property contracts	claim_declaration_packet	nested-properties/	entity census	19 parent groups checked,2 inherited contexts,4 authority gaps	done
+Relation integrity	relation_declaration_packet	relations/	1167-source frontier	41 Declarations,3 semantic findings,legal aliases preserved	done
+Census and adjudication	root	root audit files only	all lanes	Current source hashes unchanged; reports reconciled	done
+Semantic Carrier and Object packet	header_declaration_packet	implementation/carrier-declarations,objects-carriers	latest Carrier boundary	retire internal structure; keep Delivery behavior	done
+CFEL variables and comments guidance	graph_claim_consumers	implementation/variables	approved IF and binders	full pinned source previews	done
+Guarded adoption and notation migration	complete_model_migration	implementation/integration,migration	final packets and fresh ID	exact archives; stale-hash and rollback tests	running
+Independent packet review	declaration_identity_review	implementation/reviews	final retirement packet	no ownership, identity, authority or shape blocker	running
+Reader verification and refreshed frontier	header_status_reader	implementation/frontiers	live source authority	451 focused tests; 1167 refreshed pins	done
+Canonical application and Git	root	canonical sources, projections, Epic, Git index	packet review and guarded plan	apply; rebuild; verify; preserve concurrent work	ready

@@ -2,11 +2,9 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - 'CAPRMEDIO_MODEL <+ Carrier/File.Format: Markdown'
-  - 'CAPRMEDIO_MODEL <+ Carrier/File.Format: TOML'
-  - 'CAPRMEDIO_MODEL <+ Carrier/File.Format: YAML'
-version: 27
-updated_at: 2026-11-02 00:18:22 +0400
+  - CAPRMEDIO_MODEL <+ Carrier/File/Markdown
+version: 28
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-330
 current_scope_unit: CORE_META_MODEL

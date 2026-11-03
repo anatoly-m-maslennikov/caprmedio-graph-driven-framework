@@ -52,6 +52,9 @@ _REVERSE_GROUPED_CLASSIFICATION = re.compile(
 _ALLOWED_LITERAL = re.compile(r"^(?P<property>.+?)\s*:\s*(?P<literal>[^\[\]{}]+)$")
 _RELATION_ALIAS = re.compile(r'^alias\(\s*(?:Relation//)?(?P<name>[A-Za-z][A-Za-z0-9_]*)\s*\)\s*==\s*"(?P<glyph>[^"\r\n]+)"$')
 _COUNTERPART = re.compile(r'^(?P<source>Relation//[A-Za-z][A-Za-z0-9_]*)\s*<-->\s*(?P<target>Relation//[A-Za-z][A-Za-z0-9_]*)$')
+_INSTANCE_BINDING = re.compile(r'^(?P<kind>[A-Za-z][A-Za-z0-9_ /.-]*)//\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)$')
+_INSTANCE_POPULATION = re.compile(rf'^(?P<kind>[A-Za-z][A-Za-z0-9_ /.-]*)//\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)\{{:{_COUNT}\}}$')
+_MODEL_BINDING = re.compile(r'^IF\s+\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)\s+in\s*\((?P<selection>[^()]*)\)\s+THEN\s*\(', re.I)
 _CONTROL = re.compile(r"\b(?:IF|THEN|AND|OR)\b")
 _HEADING = re.compile(r"^(?P<hashes>#{1,6})[ \t]+(?P<name>[^\n#][^\n]*?)[ \t]*$", re.M)
 
@@ -175,6 +178,7 @@ def _split_expressions(block: str) -> list[str]:
     start = 0
     quote: str | None = None
     escaped = False
+    depth = 0
     for index, character in enumerate(block):
         if quote is not None:
             if escaped:
@@ -186,7 +190,11 @@ def _split_expressions(block: str) -> list[str]:
             continue
         if character in {"'", '"'}:
             quote = character
-        elif character == ";":
+        elif character == "(":
+            depth += 1
+        elif character == ")":
+            depth = max(0, depth - 1)
+        elif character == ";" and depth == 0:
             value = block[start:index].strip()
             if value:
                 values.append(value)
@@ -197,10 +205,62 @@ def _split_expressions(block: str) -> list[str]:
     return values
 
 
-def _expressions(body: str) -> tuple[list[str], list[Record]]:
+def _grouped_expressions(block: str) -> list[tuple[str, str | None]]:
+    groups: list[tuple[str, str | None]] = []
+    pending: list[str] = []
+    group = None
+    quote = None
+    escaped = False
+    for line in block.splitlines(keepends=True):
+        if quote is None and line.lstrip().startswith('#'):
+            groups.extend((value, group) for value in _split_expressions(''.join(pending)))
+            pending = []
+            marker = line.strip().casefold()
+            if marker in {'# model', '# instances'}:
+                group = marker[2:]
+            continue
+        pending.append(line)
+        for character in line:
+            if quote is not None:
+                if escaped:
+                    escaped = False
+                elif character == '\\':
+                    escaped = True
+                elif character == quote:
+                    quote = None
+            elif character in {'"', "'"}:
+                quote = character
+    groups.extend((value, group) for value in _split_expressions(''.join(pending)))
+    return groups
+
+
+def _balanced_parentheses(value: str) -> bool:
+    depth = 0
+    quote = None
+    escaped = False
+    for character in value:
+        if quote:
+            if escaped:
+                escaped = False
+            elif character == '\\':
+                escaped = True
+            elif character == quote:
+                quote = None
+        elif character in {'"', "'"}:
+            quote = character
+        elif character == '(':
+            depth += 1
+        elif character == ')':
+            depth -= 1
+            if depth < 0:
+                return False
+    return depth == 0 and quote is None
+
+
+def _expressions(body: str) -> tuple[list[tuple[str, str | None]], list[Record]]:
     """Read CFEL fences inside Claim; retain skipped fences as diagnostics."""
 
-    values: list[str] = []
+    values: list[tuple[str, str | None]] = []
     diagnostics: list[Record] = []
     parts = _claim_parts(body)
     claim_ranges = parts[0] if parts is not None else _claim_ranges(body)
@@ -221,7 +281,7 @@ def _expressions(body: str) -> tuple[list[str], list[Record]]:
             })
             continue
         if in_claim:
-            values.extend(_split_expressions(body[content_start:closing]))
+            values.extend(_grouped_expressions(body[content_start:closing]))
         else:
             diagnostics.append({
                 "code": "cfel-fence-outside-claim",
@@ -309,148 +369,169 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
         return [], []
     expressions, diagnostics = _expressions(body)
     records: list[Record] = []
-    for expression in expressions:
-        alias = _RELATION_ALIAS.fullmatch(expression)
-        if alias is not None:
-            records.append(_record(source, expression, "relation_alias", relation=alias.group("name"), glyph=alias.group("glyph")))
-            continue
-        counterpart = _COUNTERPART.fullmatch(expression)
-        if counterpart is not None:
-            records.append(_record(source, expression, "relation_cardinality", source_selector=counterpart.group("source"),
-                                   relation="HAS_INVERSE", relation_notation="<-->", target_selector=counterpart.group("target"),
-                                   source_cardinality=None, target_cardinality=None, written_direction="forward"))
-            continue
-        if _CONTROL.search(expression):
+    for expression, group in expressions:
+        record_start, diagnostic_start = len(records), len(diagnostics)
+        try:
+            binder = _MODEL_BINDING.match(expression) if group == 'model' else None
+            if binder is not None and expression.rstrip().endswith(')') and _balanced_parentheses(expression):
+                records.append(_record(source, expression, "model_binding", variable=binder.group("variable"),
+                                       selection=binder.group("selection"), interpretation="opaque"))
+                continue
+            population = _INSTANCE_POPULATION.fullmatch(expression) if group == 'instances' else None
+            if population is not None:
+                records.append(_record(source, expression, "instance_population_constraint",
+                                       kind_selector=population.group("kind").strip(), variable=population.group("variable"),
+                                       population_cardinality=_count(population.group("minimum"), population.group("tail"), population.group("maximum"))))
+                continue
+            binding = _INSTANCE_BINDING.fullmatch(expression) if group == 'instances' else None
+            if binding is not None:
+                records.append(_record(source, expression, "instance_binding", kind_selector=binding.group("kind").strip(), variable=binding.group("variable")))
+                continue
+            alias = _RELATION_ALIAS.fullmatch(expression)
+            if alias is not None:
+                records.append(_record(source, expression, "relation_alias", relation=alias.group("name"), glyph=alias.group("glyph")))
+                continue
+            counterpart = _COUNTERPART.fullmatch(expression)
+            if counterpart is not None:
+                records.append(_record(source, expression, "relation_cardinality", source_selector=counterpart.group("source"),
+                                       relation="HAS_INVERSE", relation_notation="<-->", target_selector=counterpart.group("target"),
+                                       source_cardinality=None, target_cardinality=None, written_direction="forward"))
+                continue
+            if _CONTROL.search(expression):
+                diagnostics.append({
+                    "code": "cfel-expression-unsupported",
+                    "message": "CFEL control expression is outside the bounded projection extractor.",
+                    "expression": expression,
+                    "source": dict(source),
+                })
+                continue
+            relation = _RELATION.fullmatch(expression)
+            if relation is not None and not (relation.group("source").rstrip().endswith(":")
+                                             or relation.group("target").lstrip().startswith(":")):
+                reverse_named = relation.group("reverse_relation") is not None
+                written_source = relation.group("source").strip()
+                written_target = relation.group("target").strip()
+                written_forward = _count(
+                    relation.group("forward_minimum"), relation.group("forward_tail"), relation.group("forward_maximum"),
+                )
+                written_reverse = _count(
+                    relation.group("reverse_minimum"), relation.group("reverse_tail"), relation.group("reverse_maximum"),
+                )
+                records.append(_record(
+                    source, expression, "relation_cardinality",
+                    source_selector=written_target if reverse_named else written_source,
+                    relation=(relation.group("reverse_relation") or relation.group("relation")).strip()
+                    if (relation.group("reverse_relation") or relation.group("relation")) else None,
+                    relation_notation=relation.group("relation_notation"),
+                    target_selector=written_source if reverse_named else written_target,
+                    source_cardinality=written_reverse if reverse_named else written_forward,
+                    target_cardinality=written_forward if reverse_named else written_reverse,
+                    written_direction="reverse" if reverse_named else "forward",
+                    written_source_selector=written_source,
+                    written_target_selector=written_target,
+                    written_source_cardinality=written_forward,
+                    written_target_cardinality=written_reverse,
+                ))
+                continue
+            relation_without_target = _RELATION_WITHOUT_TARGET.fullmatch(expression)
+            if relation_without_target is not None:
+                relation_name = (
+                    relation_without_target.group("relation")
+                    or relation_without_target.group("bare_relation")
+                )
+                records.append(_record(
+                    source, expression, "relation_cardinality",
+                    source_selector=relation_without_target.group("source").strip(),
+                    relation=relation_name,
+                    relation_notation=relation_without_target.group("relation_notation"),
+                    target_selector=None,
+                    source_cardinality=_count(
+                        relation_without_target.group("forward_minimum"),
+                        relation_without_target.group("forward_tail"),
+                        relation_without_target.group("forward_maximum"),
+                    ),
+                    target_cardinality=None,
+                    selection="all_relations" if relation_name == "*" else "named_relation",
+                ))
+                continue
+            classification = (
+                _FORWARD_GROUPED_CLASSIFICATION.fullmatch(expression)
+                or _REVERSE_GROUPED_CLASSIFICATION.fullmatch(expression)
+                or _FORWARD_CLASSIFICATION.fullmatch(expression)
+                or _REVERSE_CLASSIFICATION.fullmatch(expression)
+            )
+            if classification is not None:
+                records.append(_record(
+                    source, expression, "classification_condition",
+                    subject_selector=classification.group("subject").strip(),
+                    axis=classification.group("axis").strip(),
+                    operator=classification.group("operator"),
+                    value=classification.group("value").strip(),
+                ))
+                continue
+            property_constraint = _PROPERTY.fullmatch(expression)
+            # The direct-value form is a different constraint: the count applies
+            # to values per Property, not to Property occurrences.  Keep it out
+            # of the broader Property matcher, whose path token may otherwise
+            # absorb the colon.
+            property_selector = _property_selector(property_constraint.group("property")) if property_constraint is not None else None
+            if property_constraint is not None and property_selector is not None and not (
+                property_constraint.group("descendants") is None
+                and property_constraint.group("property").rstrip().endswith(":")
+            ):
+                selection = {None: "property", ".*": "immediate_dependents", ".**": "recursive_dependents"}[
+                    property_constraint.group("descendants")
+                ]
+                records.append(_record(
+                    source, expression, "property_constraint",
+                    property_selector=property_selector,
+                    selection=selection,
+                    name_format=property_constraint.group("name_format"),
+                    occurrence_cardinality=_count(
+                        property_constraint.group("minimum"), property_constraint.group("tail"), property_constraint.group("maximum"),
+                    ),
+                    value_format=property_constraint.group("value_format"),
+                    value_cardinality=_count(
+                        property_constraint.group("value_minimum"), property_constraint.group("value_tail"), property_constraint.group("value_maximum"),
+                    ),
+                ))
+                continue
+            property_value = _PROPERTY_VALUE.fullmatch(expression)
+            value_selector = _property_selector(property_value.group("property")) if property_value is not None else None
+            if property_value is not None and value_selector is not None:
+                records.append(_record(
+                    source, expression, "property_constraint",
+                    property_selector=value_selector,
+                    selection="values",
+                    name_format=None,
+                    occurrence_cardinality=None,
+                    value_format=property_value.group("value_format"),
+                    value_cardinality=_count(
+                        property_value.group("minimum"), property_value.group("tail"), property_value.group("maximum"),
+                    ),
+                ))
+                continue
+            allowed_literal = _ALLOWED_LITERAL.fullmatch(expression)
+            literal_selector = _property_selector(allowed_literal.group("property")) if allowed_literal is not None else None
+            if allowed_literal is not None and literal_selector is not None and not any(
+                token in expression for token in (":=", ": =", "(", ")", "'", '"', ">|", "|<", "((")
+            ):
+                records.append(_record(
+                    source, expression, "allowed_literal",
+                    property_selector=literal_selector,
+                    literal=allowed_literal.group("literal").strip(),
+                ))
+                continue
             diagnostics.append({
                 "code": "cfel-expression-unsupported",
-                "message": "CFEL control expression is outside the bounded projection extractor.",
+                "message": "CFEL expression is outside the bounded projection extractor.",
                 "expression": expression,
                 "source": dict(source),
             })
-            continue
-        relation = _RELATION.fullmatch(expression)
-        if relation is not None and not (relation.group("source").rstrip().endswith(":")
-                                         or relation.group("target").lstrip().startswith(":")):
-            reverse_named = relation.group("reverse_relation") is not None
-            written_source = relation.group("source").strip()
-            written_target = relation.group("target").strip()
-            written_forward = _count(
-                relation.group("forward_minimum"), relation.group("forward_tail"), relation.group("forward_maximum"),
-            )
-            written_reverse = _count(
-                relation.group("reverse_minimum"), relation.group("reverse_tail"), relation.group("reverse_maximum"),
-            )
-            records.append(_record(
-                source, expression, "relation_cardinality",
-                source_selector=written_target if reverse_named else written_source,
-                relation=(relation.group("reverse_relation") or relation.group("relation")).strip()
-                if (relation.group("reverse_relation") or relation.group("relation")) else None,
-                relation_notation=relation.group("relation_notation"),
-                target_selector=written_source if reverse_named else written_target,
-                source_cardinality=written_reverse if reverse_named else written_forward,
-                target_cardinality=written_forward if reverse_named else written_reverse,
-                written_direction="reverse" if reverse_named else "forward",
-                written_source_selector=written_source,
-                written_target_selector=written_target,
-                written_source_cardinality=written_forward,
-                written_target_cardinality=written_reverse,
-            ))
-            continue
-        relation_without_target = _RELATION_WITHOUT_TARGET.fullmatch(expression)
-        if relation_without_target is not None:
-            relation_name = (
-                relation_without_target.group("relation")
-                or relation_without_target.group("bare_relation")
-            )
-            records.append(_record(
-                source, expression, "relation_cardinality",
-                source_selector=relation_without_target.group("source").strip(),
-                relation=relation_name,
-                relation_notation=relation_without_target.group("relation_notation"),
-                target_selector=None,
-                source_cardinality=_count(
-                    relation_without_target.group("forward_minimum"),
-                    relation_without_target.group("forward_tail"),
-                    relation_without_target.group("forward_maximum"),
-                ),
-                target_cardinality=None,
-                selection="all_relations" if relation_name == "*" else "named_relation",
-            ))
-            continue
-        classification = (
-            _FORWARD_GROUPED_CLASSIFICATION.fullmatch(expression)
-            or _REVERSE_GROUPED_CLASSIFICATION.fullmatch(expression)
-            or _FORWARD_CLASSIFICATION.fullmatch(expression)
-            or _REVERSE_CLASSIFICATION.fullmatch(expression)
-        )
-        if classification is not None:
-            records.append(_record(
-                source, expression, "classification_condition",
-                subject_selector=classification.group("subject").strip(),
-                axis=classification.group("axis").strip(),
-                operator=classification.group("operator"),
-                value=classification.group("value").strip(),
-            ))
-            continue
-        property_constraint = _PROPERTY.fullmatch(expression)
-        # The direct-value form is a different constraint: the count applies
-        # to values per Property, not to Property occurrences.  Keep it out
-        # of the broader Property matcher, whose path token may otherwise
-        # absorb the colon.
-        property_selector = _property_selector(property_constraint.group("property")) if property_constraint is not None else None
-        if property_constraint is not None and property_selector is not None and not (
-            property_constraint.group("descendants") is None
-            and property_constraint.group("property").rstrip().endswith(":")
-        ):
-            selection = {None: "property", ".*": "immediate_dependents", ".**": "recursive_dependents"}[
-                property_constraint.group("descendants")
-            ]
-            records.append(_record(
-                source, expression, "property_constraint",
-                property_selector=property_selector,
-                selection=selection,
-                name_format=property_constraint.group("name_format"),
-                occurrence_cardinality=_count(
-                    property_constraint.group("minimum"), property_constraint.group("tail"), property_constraint.group("maximum"),
-                ),
-                value_format=property_constraint.group("value_format"),
-                value_cardinality=_count(
-                    property_constraint.group("value_minimum"), property_constraint.group("value_tail"), property_constraint.group("value_maximum"),
-                ),
-            ))
-            continue
-        property_value = _PROPERTY_VALUE.fullmatch(expression)
-        value_selector = _property_selector(property_value.group("property")) if property_value is not None else None
-        if property_value is not None and value_selector is not None:
-            records.append(_record(
-                source, expression, "property_constraint",
-                property_selector=value_selector,
-                selection="values",
-                name_format=None,
-                occurrence_cardinality=None,
-                value_format=property_value.group("value_format"),
-                value_cardinality=_count(
-                    property_value.group("minimum"), property_value.group("tail"), property_value.group("maximum"),
-                ),
-            ))
-            continue
-        allowed_literal = _ALLOWED_LITERAL.fullmatch(expression)
-        literal_selector = _property_selector(allowed_literal.group("property")) if allowed_literal is not None else None
-        if allowed_literal is not None and literal_selector is not None and not any(
-            token in expression for token in (":=", ": =", "(", ")", "'", '"', ">|", "|<", "((")
-        ):
-            records.append(_record(
-                source, expression, "allowed_literal",
-                property_selector=literal_selector,
-                literal=allowed_literal.group("literal").strip(),
-            ))
-            continue
-        diagnostics.append({
-            "code": "cfel-expression-unsupported",
-            "message": "CFEL expression is outside the bounded projection extractor.",
-            "expression": expression,
-            "source": dict(source),
-        })
+        finally:
+            if group is not None:
+                for row in records[record_start:] + diagnostics[diagnostic_start:]:
+                    row["group"] = group
     return records, diagnostics
 
 

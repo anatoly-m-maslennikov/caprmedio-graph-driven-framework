@@ -3,9 +3,8 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   passive:
   - CAPRMEDIO_MODEL <+ Carrier/File
-  - CAPRMEDIO_MODEL <+ Carrier/File.Format
-version: 28
-updated_at: 2026-11-02 00:18:22 +0400
+version: 29
+updated_at: 2026-11-03 23:25:51 +0400
 relations:
   child_of:
   - CA-D-358

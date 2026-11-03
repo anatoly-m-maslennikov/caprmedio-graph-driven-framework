@@ -201,6 +201,9 @@ def _render_property(lines: list[str], property: Mapping[str, Any], level: int) 
         lines.append(f"  - origin: `{property['origin_entity']}`")
     if level >= 3:
         _render_contracts(lines, property, refs)
+        for clause in property.get("instance_constraints", []):
+            if isinstance(clause, Mapping):
+                lines.append(f"  - instance constraint: `{clause.get('expression', '')}` — {', '.join(_refs(clause.get('source'))) or 'missing source'}")
     if level == 4:
         claims = _claims(property.get("formal_claims"))
         if claims:

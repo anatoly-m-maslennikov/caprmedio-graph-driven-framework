@@ -1,0 +1,23 @@
+{
+  "status": "AUDIT_FOUND_GAPS",
+  "authoritative_sources_changed": false,
+  "supplier_sources": 1167,
+  "supplier_hashes_unchanged": 1167,
+  "strict_declared_targets": 177,
+  "exact_definition_only_targets": 47,
+  "high_confidence_distinct_declaration_gaps": 45,
+  "declaration_identity_questions": 2,
+  "exact_duplicate_declarations": 0,
+  "property_declarations_with_explicit_value_contracts": 82,
+  "property_targets_without_exact_declaration": 22,
+  "declared_parent_groups_with_counts": 19,
+  "inherited_qualified_header_contexts": 2,
+  "carrier_parent_declaration_contract_gaps": 4,
+  "relation_declarations": 41,
+  "used_concrete_predicates": 35,
+  "aliases": 7,
+  "consistent_inverse_pairs": 11,
+  "relation_semantic_conflicts": 3,
+  "short_alias_formal_uses_are_legal": true,
+  "selection_omissions": 13
+}

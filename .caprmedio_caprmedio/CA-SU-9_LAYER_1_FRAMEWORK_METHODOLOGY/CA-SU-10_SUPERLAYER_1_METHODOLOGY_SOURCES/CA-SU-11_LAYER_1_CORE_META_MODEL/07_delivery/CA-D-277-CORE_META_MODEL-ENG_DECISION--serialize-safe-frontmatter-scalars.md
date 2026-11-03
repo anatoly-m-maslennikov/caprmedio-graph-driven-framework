@@ -1,10 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File.YAML Frontmatter.Scalar
-  passive:
-  - CAPRMEDIO_MODEL <+ Carrier/File.Main Content
-version: 24
-updated_at: 2026-11-02 00:18:22 +0400
+  active: CAPRMEDIO_MODEL <+ Carrier/File
+version: 25
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-277
 current_scope_unit: CORE_META_MODEL

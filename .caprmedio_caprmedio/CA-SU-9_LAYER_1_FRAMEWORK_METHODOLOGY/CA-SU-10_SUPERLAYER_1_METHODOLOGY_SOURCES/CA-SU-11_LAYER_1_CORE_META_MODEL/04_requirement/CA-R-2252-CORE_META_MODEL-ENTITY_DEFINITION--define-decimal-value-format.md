@@ -7,12 +7,12 @@ subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Format/decimal
   passive:
   - CAPRMEDIO_MODEL <+ CFEL <+ Format
-version: 5
-updated_at: 2026-11-02 08:06:47 +0400
+version: 6
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 tier: 1
 role: Requirement
-form: Entity Definition
+form: Declaration
 ---
 ## Summary
 

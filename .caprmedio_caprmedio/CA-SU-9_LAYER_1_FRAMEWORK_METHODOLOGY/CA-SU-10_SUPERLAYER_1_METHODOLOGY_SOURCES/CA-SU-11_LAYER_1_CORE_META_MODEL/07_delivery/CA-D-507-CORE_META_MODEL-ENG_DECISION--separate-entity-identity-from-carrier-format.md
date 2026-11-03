@@ -3,14 +3,12 @@ atom_id: CA-D-507
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-version: 16
-updated_at: 2026-11-02 00:18:22 +0400
+version: 17
+updated_at: 2026-11-03 23:25:51 +0400
 subjects:
   active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO_MODEL <+ Entity
-  - CAPRMEDIO_MODEL <+ Carrier.Format
-  - CAPRMEDIO_MODEL <+ Carrier/File.Extension
+  - CAPRMEDIO_MODEL <+ Carrier/File
 relations: {}
 tier: 1
 role: Delivery

@@ -1,0 +1,23 @@
+{
+  "status": "SOURCE_AUDIT_COMPLETE_FINDINGS_OPEN",
+  "source_count": 1167,
+  "source_pin_drift": 0,
+  "declaredRelations": 41,
+  "actual_concrete_named_predicates": 35,
+  "carrier_relation_keys": 5,
+  "aliases": 7,
+  "alias_collisions": 0,
+  "inverse_pairs": 11,
+  "inverse_binding_written_views": 22,
+  "undeclared_actual_predicates": 0,
+  "findings": 4,
+  "inventory_sha256": "f6210ab5e4785378857b8dc9a71693fdcf057a0db3849ba8d646122af74a397c",
+  "findings_sha256": "e7b779f5014c7d874a6a52b532aafcf625b0188f1cb2a561ff52356f4a2b3740",
+  "report_sha256": "92eb5dad1d15fafe55c729810ced3a3764ce6806eab4d2416c334e1d2dd3e6ea",
+  "scope": "Read-only selected Current frontier; semantic source evidence, not runtime/evaluator proof",
+  "open_semantic_findings": 3,
+  "informational_observations": 1,
+  "frontier_sha256": "8deca481ee12c09ac65df272e20c4d15aaffafbafcd344187003011bfe9db71e",
+  "supplier_extra_count": 13,
+  "rel04_status": "admitted alias observation, not hard grammar violation"
+}

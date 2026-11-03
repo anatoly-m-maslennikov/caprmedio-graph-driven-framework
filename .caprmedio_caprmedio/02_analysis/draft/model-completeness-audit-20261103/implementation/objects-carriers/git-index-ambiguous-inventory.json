@@ -1,0 +1,41 @@
+{
+  "selection": "Current canonical census, bounded literal contextual index terms",
+  "items": [
+    {
+      "id": "CA-D-009",
+      "source_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/07_delivery/CA-D-009-TOOLS-ENG_DECISION--deliver-the-change-record-appender-script.md",
+      "source_sha256": "aba2a6b5cee46f8289b40f543cc7ac81d2a210c60c11446038219924f8cf76e3",
+      "mentions": [
+        {
+          "line": 55,
+          "text": "The appender **must not** acquire a Git-effect lease, alter the index, create a Commit, reconstruct observations from current files **or** perform the recorded source/lifecycle operation. Public parameters express data **and** requested operations, **not** authorization; retain the existing authorized Project-MCP boundary **and** ordinary filesystem access. Preserve truthful I/O failure **and** any actually observed partial append; do **not** claim an unobserved completion **or** automatically replay an effect. There is no Journal validation, idempotency, receipt, reconciliation **or** recovery prerequisite."
+        }
+      ],
+      "disposition": "operational index reference; no explicit Carrier/Git Index identity; review if semantic dependency asserted"
+    },
+    {
+      "id": "CA-E-217",
+      "source_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-34_FEATURE_GROUP_ACTION_ENGINE/06_evaluation/CA-E-217-ACTION_ENGINE-EVAL_CASE--report-complete-auto-commit-operational-status.md",
+      "source_sha256": "e92d472406ae59165a8a02ee157b477489dd9ed4213cb0a951269ef02c4ca9fe",
+      "mentions": [
+        {
+          "line": 33,
+          "text": "one schema-versioned result reports Hook activation, service process **and** selected release, admission, queue count **and** bytes, current action **and** phase, pending state, lease, last success **and** failure, budget usage, circuit state, dead letters, receipts, **and** deterministic recovery instructions. the invocation changes no Hook carrier, process, queue item, action state, file, index entry, ref, Journal record, lease, budget, circuit, **or** adapter state."
+        }
+      ],
+      "disposition": "operational index reference; no explicit Carrier/Git Index identity; review if semantic dependency asserted"
+    },
+    {
+      "id": "CA-R-1455",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+      "source_sha256": "e50ed367d5d5752e7dee944c226f45d9ccdceac4cc74886037347abb05f1e3b0",
+      "mentions": [
+        {
+          "line": 44,
+          "text": "a Catalog used as a vocabulary diagnostic index **must** distinguish ordinary English use under CA-R-1320 from evidence of unresolved Project-specific use, with **every** entry bound **to** its exact source occurrence, surrounding Claim **or** reference context, **and** Artifact Revision. the index **must** declare the source selection **and** checked definition coverage that bound its judgments. capitalization, consistent use, occurrence **in** GOVERNS **or** DEPENDS_ON, **or** the appearance of a Scope Unit name, Actor name, identifier, path, **or** syntax token alone **must not** establish Project-specific Term status **or** a missing definition."
+        }
+      ],
+      "disposition": "operational index reference; no explicit Carrier/Git Index identity; review if semantic dependency asserted"
+    }
+  ]
+}

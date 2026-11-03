@@ -10,10 +10,10 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
-  - CAPRMEDIO_MODEL <+ Carrier/File.Main Content.CCE Operator
+  - CAPRMEDIO_MODEL <+ Carrier/File
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
-version: 27
-updated_at: 2026-11-02 18:35:20 +0400
+version: 28
+updated_at: 2026-11-03 23:25:51 +0400
 relations:
   evaluation_for:
   - CA-D-280

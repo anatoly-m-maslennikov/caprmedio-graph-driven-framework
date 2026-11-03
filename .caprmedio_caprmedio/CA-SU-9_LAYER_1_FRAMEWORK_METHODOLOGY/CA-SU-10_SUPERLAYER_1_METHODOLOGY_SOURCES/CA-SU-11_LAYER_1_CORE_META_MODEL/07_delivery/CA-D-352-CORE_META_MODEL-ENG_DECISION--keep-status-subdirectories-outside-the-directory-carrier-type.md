@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier.Canonical Address.Segment
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
   - CAPRMEDIO_MODEL <+ Carrier/Directory
-version: 25
-updated_at: 2026-11-02 00:18:22 +0400
+version: 26
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-352
 current_scope_unit: CORE_META_MODEL

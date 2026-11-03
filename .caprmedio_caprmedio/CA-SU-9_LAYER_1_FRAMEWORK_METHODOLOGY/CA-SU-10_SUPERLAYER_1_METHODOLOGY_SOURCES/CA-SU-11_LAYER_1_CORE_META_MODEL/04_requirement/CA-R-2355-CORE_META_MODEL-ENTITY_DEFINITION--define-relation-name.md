@@ -5,12 +5,12 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation.Name
-version: 4
-updated_at: 2026-11-02 08:06:47 +0400
+version: 5
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 tier: 1
 role: Requirement
-form: Entity Definition
+form: Declaration
 ---
 ## Summary
 
@@ -34,7 +34,3 @@ source/Type/target tuple and does not create a separate Relation ID.
 
 
 
-## Details
-
-Source meaning: CA-R-2247. Scope-specific constraints remain in the governing
-Relation Declarations.

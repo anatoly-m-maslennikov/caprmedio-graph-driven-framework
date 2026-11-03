@@ -7,14 +7,12 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom
   passive:
   - CAPRMEDIO_MODEL <+ Carrier/File
-  - CAPRMEDIO_MODEL <+ Carrier/File.YAML Frontmatter
-  - CAPRMEDIO_MODEL <+ Carrier/File.Main Content
-version: 31
+version: 32
 relations:
   delivery_for:
   - CA-R-1598
 tier: 2
-updated_at: 2026-11-02 00:55:09 +0400
+updated_at: 2026-11-03 23:25:51 +0400
 role: Delivery
 form: Policy
 ---

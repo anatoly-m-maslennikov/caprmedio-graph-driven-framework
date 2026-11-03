@@ -11,6 +11,7 @@ from typing import Any
 import subject_notation as notation
 from carrier_aliases import carrier_read_view
 from cfel_claim_constraints import (
+    _grouped_expressions,
     claim_cfel_blocks,
     claim_fenced_blocks,
     claim_prose,
@@ -85,7 +86,9 @@ def _entry(carrier: Mapping[str, Any], subject: str, target: str, kind: str) -> 
     return {
         "source": source, "subject": subject, "target": target, "kind": kind,
         "blocks": claim_fenced_blocks(carrier), "cfel_blocks": claim_cfel_blocks(carrier),
-        "clauses": clauses, "prose": claim_prose(carrier),
+        "clauses": [row for row in clauses if row.get("group") != "instances"],
+        "instance_clauses": [row for row in clauses if row.get("group") == "instances"],
+        "prose": claim_prose(carrier),
         "prose_claim": has_prose_claim(carrier),
         "claim_scope": section_text(carrier, "Claim Scope"),
         "semantics": section_text(carrier, "Semantics"),
@@ -418,11 +421,14 @@ def _metadata(entries: list[Record], relation: str) -> list[Record]:
             if clause.get("kind") == "relation_alias" and clause.get("relation") == relation:
                 rows.append({"kind": "notation", "value": clause["glyph"], "source": clause["source"]})
         for block in entry["cfel_blocks"]:
-            for match in _CLASSIFICATION.finditer(block["block"]):
-                if match.group("name") == relation:
+            for expression, group in _grouped_expressions(block["block"]):
+                if group == "instances":
+                    continue
+                match = _CLASSIFICATION.fullmatch(expression)
+                if match and match.group("name") == relation:
                     rows.append({"kind": "derivation", "value": match.group("value"), "source": block["source"]})
-            for match in _METADATA.finditer(block["block"]):
-                if match.group("name") == relation:
+                match = _METADATA.fullmatch(expression)
+                if match and match.group("name") == relation:
                     rows.append({
                         "kind": "notation" if match.group("notation") else "derivation",
                         "value": (match.group("short") or match.group("derivation")).strip(),
@@ -817,6 +823,8 @@ def _render_entry(lines: list[str], entry: Record, label: str) -> None:
     for title, values in groups.items():
         if values:
             lines.extend([f"  - {title}:", *["    - " + value for value in values]])
+    if entry["instance_clauses"]:
+        lines.extend(["  - Instance constraints:", *["    - " + _clause(row) for row in entry["instance_clauses"]]])
     for diagnostic in entry["diagnostics"]:
         lines.append(f"  - Unresolved CFEL: `{diagnostic.get('expression', diagnostic.get('message'))}`")
     if entry["semantics"]:

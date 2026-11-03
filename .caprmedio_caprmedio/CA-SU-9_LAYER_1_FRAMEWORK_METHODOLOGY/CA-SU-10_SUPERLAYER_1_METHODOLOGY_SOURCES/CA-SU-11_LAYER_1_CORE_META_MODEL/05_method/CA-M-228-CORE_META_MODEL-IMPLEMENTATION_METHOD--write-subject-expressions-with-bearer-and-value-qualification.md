@@ -3,8 +3,8 @@ subjects:
   active: CAPRMEDIO_MODEL <+ CFEL
   passive:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 36
-updated_at: 2026-11-03 20:00:05 +0400
+version: 37
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-M-228
 current_scope_unit: CORE_META_MODEL
@@ -37,3 +37,11 @@ Write a named Relation object as `Relation//NAME` and its actual use as `Source 
 Use `:` for allowed values, `=` for a condition, `==` for setting a value, and `:=` for allowed value and condition in a Subject. Separate complete expressions with semicolons. Use bare Entity references without an `@` reference marker.
 
 An ordinary RMED Claim is a zero-direct-value group with one or both declared Formal Claim and Prose Claim children. Formal Claim contains a CFEL-labelled fence; Prose Claim contains ordinary Markdown.
+
+When a CFEL Formal Claim has both MODEL and instance constraints, use one fence with full-line `# model` and `# instances` comments, in that order. The comments classify the statements without changing the meaning of named addresses. Existing ungrouped Claims remain readable as historical sources.
+
+For a selected MODEL population, write `IF $x in (selection) THEN ( ... )`. An unbound `$x` ranges over the selection; membership of an already bound `$x` filters that binding. Reuse it throughout the parenthesized conclusion, separating complete statements with semicolons. Do not write a FOR operator.
+
+In instance constraints, `Kind//$x` binds an existing selected instance and `$x.Property` reads the same binding. A union receiver can bind as `(in (Action, Workflow))//$selected`. Insert a binder before an existing filter, as in `Event Record//$event_record(.object_output{=1}, .object_output.id = $projection.ID)`, preserving the filter and any enclosing aggregate population, as in `MAX(Event Record//$event_record(.object_output{=1}).happened_at)`. `Kind//$x{:n}` constrains the count of the selected logical population, not one bound row; existing `Kind//{:n}` remains readable in historical Claims.
+
+Keep MODEL Relation descriptor variables in the MODEL group and preserve named `Relation//NAME` and `Operator//NAME` addresses. A `//` spelling alone does not make a named MODEL object a runtime constraint. Preserve inherited Property contracts at the declared bearer; a reference to an inherited Property does not create another Declaration.

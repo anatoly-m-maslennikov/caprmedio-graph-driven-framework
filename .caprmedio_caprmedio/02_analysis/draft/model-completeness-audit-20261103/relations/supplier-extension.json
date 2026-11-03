@@ -1,0 +1,235 @@
+{
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/model-supplier-frontier.json",
+  "frontier_sha256": "8deca481ee12c09ac65df272e20c4d15aaffafbafcd344187003011bfe9db71e",
+  "extra_suppliers": [
+    {
+      "base_id": "CA-R-1430",
+      "version": 27,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL--select-authority-modes-through-framework-instance-settings.md",
+      "sha256": "690388b6719ccc200c2852110b7563674699d27b1d173192991d8a56b5bdd095",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "governs": "Project.Settings.Authority Modes",
+        "depends_on": [
+          "Project.Settings",
+          "Project",
+          "Scope Unit",
+          "Atom"
+        ]
+      },
+      "in_previous_selection": false
+    },
+    {
+      "base_id": "CA-R-1750",
+      "version": 41,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md",
+      "sha256": "1ff3baa487a261f448ffe9e3cbd29916d728a028960e8760fa7edb13581e079c",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "governs": "Project.Settings",
+        "depends_on": [
+          "Entity/Object/Continuant/Actor/Operator",
+          "Project.Settings",
+          "Entity/Object/Continuant/Governing Objects/Governing Configuration",
+          "Project.Settings.Name",
+          "Project.Settings.Prefix",
+          "Atom"
+        ]
+      },
+      "in_previous_selection": false
+    },
+    {
+      "base_id": "CA-R-2632",
+      "version": 2,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2632-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes.md",
+      "sha256": "e2a99af37c0876bcf3f6bcf707b90ef7b65091c79516ff63be571475030570c1",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration",
+      "subjects": {
+        "governs": "Project.Settings.Authority Modes"
+      },
+      "in_previous_selection": false
+    },
+    {
+      "base_id": "CA-R-2689",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2689-CORE_META_MODEL-RULE--derive-scope-unit-ancestry-from-declarations.md",
+      "sha256": "b77e6ae03e270f9efaf8ab1c8f7296ce4df14c034c1ecdf2753279118544604e",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "governs": "Scope Unit.Path",
+        "depends_on": [
+          "Scope Unit",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit.Parent",
+          "Entity/Object/Continuant/Structural Unit/Scope Unit.Children"
+        ]
+      },
+      "in_previous_selection": false
+    },
+    {
+      "base_id": "CA-R-2690",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2690-CORE_META_MODEL-RULE--derive-scope-unit-places-from-declarations.md",
+      "sha256": "2ad87c75026fb5aa7252a32fe1af9e57a94c2fad6ba15ac64d2453c5e411ac99",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Rule",
+      "subjects": {
+        "governs": "Scope Unit",
+        "depends_on": [
+          "Carrier/Directory",
+          "Atom/(.Role := Delivery)"
+        ]
+      },
+      "in_previous_selection": false
+    },
+    {
+      "base_id": "CA-E-006",
+      "version": 40,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md",
+      "sha256": "48bedc3fbbe4ccbbb07559fcb2c7a541b1d72f3ce13efaf36423a9c956956f29",
+      "status": "Active",
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "subjects": {
+        "governs": "Project.Settings",
+        "depends_on": [
+          "Project.Settings",
+          "Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        ]
+      },
+      "in_previous_selection": false
+    },
+    {
+      "base_id": "CA-E-621",
+      "version": 37,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-621-CORE_META_MODEL-EVAL_CASE--settings-artifact-usability.md",
+      "sha256": "0f0a6b7641041f2f936b4c48b2042845c3f9054b197159627f6824a032999060",
+      "status": "Active",
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "subjects": {
+        "governs": "Project.Settings",
+        "depends_on": [
+          "Project.Settings",
+          "Entity/Object/Continuant/Actor/Operator"
+        ]
+      },
+      "in_previous_selection": false
+    },
+    {
+      "base_id": "CA-E-671",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-671-CORE_META_MODEL-EVAL_CASE--validate-settings-boundaries-and-scope-unit-declarations.md",
+      "sha256": "b312c38875940094a2ec7435dfc4ffeefeae2c75a32e9d9398520c3c53864488",
+      "status": "Active",
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "subjects": {
+        "governs": "Scope Unit",
+        "depends_on": [
+          "Project.Settings",
+          "Project.Framework Settings",
+          "Project",
+          "Carrier"
+        ]
+      },
+      "in_previous_selection": false
+    },
+    {
+      "base_id": "CA-E-672",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-672-CORE_META_MODEL-EVAL_POLICY--distinguish-scope-unit-declarations-from-observations.md",
+      "sha256": "b3b80b6486b3053fb2f1ddc9468e27a234b0ad26137855cc7ff75c35b0e8105f",
+      "status": "Active",
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "subjects": {
+        "governs": "Scope Unit",
+        "depends_on": [
+          "Carrier",
+          {
+            "Entity/Object/Continuant/Projection/Type": "Scope Unit Graph"
+          }
+        ]
+      },
+      "in_previous_selection": false
+    },
+    {
+      "base_id": "CA-D-668",
+      "version": 2,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-668-CORE_META_MODEL-ENG_DECISION--encode-project-authority-modes-in-framework-settings.md",
+      "sha256": "7447805cb751fdc62a9b38a77057248f1dee995e07350410a86e09b222055f49",
+      "status": "Active",
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "subjects": {
+        "governs": "Project.Settings.Authority Modes"
+      },
+      "in_previous_selection": false
+    },
+    {
+      "base_id": "CA-D-669",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-669-CORE_META_MODEL-ENG_DECISION--encode-configuration-surfaces-in-owning-atoms.md",
+      "sha256": "2c8f687f4a2dca405146618de3d55b5fb547ab559a1afde59074bdf5af5c776b",
+      "status": "Active",
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "subjects": {
+        "governs": "Atom",
+        "depends_on": [
+          "Atom.Content",
+          "Project.Settings",
+          "Project.Framework Settings"
+        ]
+      },
+      "in_previous_selection": false
+    },
+    {
+      "base_id": "CA-D-670",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-670-CORE_META_MODEL-ENG_DECISION--bind-scope-unit-declarations-to-source-evidence.md",
+      "sha256": "2e41b30289f7d5dbb21484daec70d353420673da59c38e722ec52c8c081a4c0b",
+      "status": "Active",
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "subjects": {
+        "governs": "Scope Unit",
+        "depends_on": [
+          "Entity/Object/Continuant/History",
+          "Journal",
+          "Carrier"
+        ]
+      },
+      "in_previous_selection": false
+    },
+    {
+      "base_id": "CA-D-671",
+      "version": 1,
+      "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-671-CORE_META_MODEL-ENG_DECISION--carry-materialized-scope-units-with-directory-carriers.md",
+      "sha256": "2e6fd842be10279b31175075f2b9f0c33056bd4b5463871e4481df81eee542c6",
+      "status": "Active",
+      "role": "Delivery",
+      "form": "Eng Decision",
+      "subjects": {
+        "governs": "Scope Unit",
+        "depends_on": [
+          "Carrier/Directory"
+        ]
+      },
+      "in_previous_selection": false
+    }
+  ],
+  "additional_named_relation_predicates": [],
+  "additional_relation_declarations": [],
+  "additional_carrier_keys": [],
+  "unknown_relation_names": []
+}

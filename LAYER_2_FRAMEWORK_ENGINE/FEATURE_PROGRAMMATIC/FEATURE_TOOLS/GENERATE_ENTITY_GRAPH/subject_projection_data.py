@@ -79,6 +79,7 @@ def _property_record(row: Record) -> Record | None:
             if clause.get("kind") in {"property_constraint", "allowed_literal"}
         ],
         "formal_claims": _formal_claims(row["own"]),
+        "instance_constraints": [clause for entry in row["own"] for clause in entry["instance_clauses"]],
     }
 
 

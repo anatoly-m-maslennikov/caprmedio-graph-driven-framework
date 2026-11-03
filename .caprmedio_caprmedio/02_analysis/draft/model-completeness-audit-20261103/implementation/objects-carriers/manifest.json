@@ -1,0 +1,104 @@
+{
+  "status": "review previews only; not applied",
+  "frontier_sha256": "8deca481ee12c09ac65df272e20c4d15aaffafbafcd344187003011bfe9db71e",
+  "items": [
+    {
+      "id": "CA-M-458",
+      "action": "revise",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-458-CORE_META_MODEL-TERM_DEFINITION--define-object.md",
+      "source_sha256": "d748a71809d511f0a38e5bee442bf4a423bd946e46aa5a63e11d68ed0425da64",
+      "source_version": 2,
+      "candidate": "CA-M-458.preview.txt",
+      "candidate_sha256": "f6bfcc558c3d8a93f3ba66dffec0107dd7319c92e23752aad81eb3a4befa147e",
+      "summary_changed": false
+    },
+    {
+      "id": "CA-M-454",
+      "action": "revise",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md",
+      "source_sha256": "c3bacef8040ece994841cf8a3da435d6534eb7e35c08bf5a7718d269fb3d8ac0",
+      "source_version": 4,
+      "candidate": "CA-M-454.preview.txt",
+      "candidate_sha256": "9736a32ac2e5ab0a2621bf0494769cb1ff4bac3bc38a6b7701fabd415cdff399",
+      "summary_changed": false
+    },
+    {
+      "id": "CA-R-2269",
+      "action": "retire",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2269-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-and-yaml-regions-in-a-file-carrier.md",
+      "source_sha256": "2a67ac242b92da60eface1154b8dc43e5ef5f37ee684f72b9b2b963cfc651e14",
+      "source_version": 3,
+      "candidate": null,
+      "candidate_sha256": null,
+      "summary_changed": false
+    },
+    {
+      "id": "CA-D-279",
+      "action": "revise",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-279-CORE_META_MODEL-ENG_DECISION--serialize-markdown-paragraphs-as-unwrapped-lines.md",
+      "source_sha256": "b9b4ba65ad23895a384589c7d487a75c5323adcce6736021e46a45385df77a8b",
+      "source_version": 25,
+      "candidate": "CA-D-279.preview.txt",
+      "candidate_sha256": "f3b53eae1d7c452aa824eae5563679546299d23c0ab03be0ad532b6987fa0b76",
+      "summary_changed": false
+    },
+    {
+      "id": "CA-D-664",
+      "action": "revise",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "source_sha256": "037b149954224ef49afdf35dba1013028f4d5986e0fce9582b49cc905cd35c23",
+      "source_version": 5,
+      "candidate": "CA-D-664.preview.txt",
+      "candidate_sha256": "db061eed75ccf71f864d0bf0aca6990a84a1f9dd59ac49e1ee4ca9fe71ac3514",
+      "summary_changed": false
+    },
+    {
+      "id": "CA-R-2717",
+      "action": "revise",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2717-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-name.md",
+      "source_sha256": "c0b2cc7763d51cd1d90995243434dcd80503e1980b765e31559d81c1155afac2",
+      "source_version": 1,
+      "candidate": "CA-R-2717.preview.txt",
+      "candidate_sha256": "3ce2529f29d52558250425a35706011e5fc9b6ba0beb12235fe79704c9d0d7f8",
+      "summary_changed": false
+    },
+    {
+      "id": "CA-R-2718",
+      "action": "revise",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2718-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-path.md",
+      "source_sha256": "d05dc95e7b4ee942602f4fa3c222e737c097927839f5ee6a6b8fc2ffffbad4e1",
+      "source_version": 1,
+      "candidate": "CA-R-2718.preview.txt",
+      "candidate_sha256": "a39f86d8c118b46fa18302cca4f6805068dde6510e656e360a71bbd28400a984",
+      "summary_changed": false
+    },
+    {
+      "id": "CA-R-2349",
+      "action": "retire",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2349-CORE_META_MODEL-ENTITY_DEFINITION--define-main-content-paragraph.md",
+      "source_sha256": "0dd0518b708cf0e2267ddb3ba40dade7068e4151ce41ced896bd93908971150e",
+      "source_version": 2,
+      "candidate": null,
+      "candidate_sha256": null,
+      "summary_changed": false
+    },
+    {
+      "id": "CA-R-2202",
+      "action": "retire",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-2202-PROJECT_CONFIGURATION-DEFINITION--define-git-index-carrier.md",
+      "source_sha256": "b8c951efb89cb5bd6d582dc153c5abd5d5070446bf168d74bf016267c3bf6391",
+      "source_version": 5,
+      "candidate": null,
+      "candidate_sha256": null,
+      "summary_changed": false
+    }
+  ],
+  "notes": [
+    "Previews retain original metadata and do not represent valid Drafts or promoted versions; adopter assigns revision and timestamp.",
+    "CA-R-2349 retirement requires coordinated lifecycle handling.",
+    "Paragraph remains ordinary Markdown prose, not a Carrier Property.",
+    "CA-D-279 subject is the existing Carrier/File.Main Content interface; paragraph is ordinary Markdown, not a Property.",
+    "Exact string search across 1987-source canonical census found CA-R-2202 alone for Git Index/GitIndex/CA-R-2202; no exact Current consumers to rebind. Ordinary Git index and staging operational references persist as implementation details; absence of semantic aliases is not proven.",
+    "CA-R-2269 retires; D664 and D302 retain applicable physical delivery rules."
+  ]
+}
