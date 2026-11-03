@@ -1,0 +1,76 @@
+---
+atom_id: CA-E-512
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+subjects:
+  active: Term
+  passive:
+  - Atom
+  - Atom.Content
+  - Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - Atom/(.Role := Concern)
+  - Carrier/File.Main Content.CCE Operator
+  - Scope Unit.Name
+version: 27
+updated_at: 2026-11-02 18:35:20 +0400
+relations:
+  evaluation_for:
+  - CA-D-280
+  - CA-M-229
+  - CA-M-234
+tier: 4
+role: Evaluation
+form: Eval Case
+projection:
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-EVAL_CASE--validate-cce-lexical-case.md
+  source_atom_id: CA-E-512
+  source_atom_revision: 27
+  source_sha256: acbead04514c835510909258fbd7a8d8b5d92bf699dd427b25b7b2ce6cfe1b11
+  original_relations_sha256: 143f71e7ff7db540b42f007e3cf765db4eb060cd493e3ff603ec74d9d6184078
+---
+## Summary
+
+Validate CCE lexical case
+
+## Claim scope
+CCE Claims evaluated for lexical case and Markdown operator representation.
+
+## Claim
+
+**Claim checked.**
+
+**every** CCE Claim satisfies the lexical-case Method CA-M-229-CORE_META_MODEL-IMPLEMENTATION_METHOD--render-governed-terms-and-cce-operators-distinctly **and** the Markdown operator representation specified by CA-D-280-CORE_META_MODEL-ENG_DECISION--serialize-cce-operators-in-bold.
+
+## Details
+
+### Test case
+
+- identify the tested CCE version, applicable CCE Operator Registry under CA-M-234-CORE_META_MODEL-IMPLEMENTATION_METHOD--register-expandable-canonical-cce-operator-list, **and** exact Revisions of the checked authority. record the fixtures **and** their expected results.
+- create valid fixtures with ordinary English words at sentence **and** list-item starts. include ordinary words that are **not** named Terms.
+- create valid fixtures beginning with a Governed Term, a General Term, an exact Scope Unit Name, **and** an exact registered reference. preserve the case required for the token rather than changing it because of its sentence **or** list position.
+- use **every** registered word-form CCE Operator **in** a valid context at sentence-initial **and** sentence-internal positions **where** the applicable grammar admits that position. include whole multiword forms such as **must not**, **not in**, **is not empty**, **starts with**, **and** **ends with**.
+- use **every** registered symbolic CCE Operator **in** a valid context with the representation required by CA-D-280. include **`=`**, **`!=`**, **`<`**, **`<=`**, **`>`**, **`>=`**, **and** cardinality forms such as **`=1`** **and** **`>=1`**.
+- derive invalid fixtures by applying **`=1`** of these mutations at a time:
+  - capitalize an ordinary sentence-initial word.
+  - capitalize an ordinary list-initial word.
+  - capitalize a word-form CCE Operator.
+  - remove an emphasis delimiter pair.
+  - add an unmatched emphasis delimiter.
+  - emphasize **only** part of a multiword CCE Operator.
+  - omit bold rendering from a symbolic CCE Operator.
+  - retain bold rendering but remove its inline-code rendering.
+  - lowercase a Governed Term.
+  - capitalize a General Term.
+  - alter an exact Scope Unit Name.
+  - alter an exact registered reference.
+
+### Acceptance criteria
+
+- **every** valid fixture retains **`=1`** precise interpretation **and** passes the lexical-case **and** representation checks.
+- **every** invalid fixture fails the affected check. the result identifies the incorrect token occurrence, actual representation, expected token class **and** representation, **and** checked authority.
+- fixture expectations come from the checked authority; this Evaluation **must not** introduce another operator spelling **or** formatting rule.
+
+### Failure disposition
+
+record a Concern naming the affected CCE Claim **and** incorrect token. checking **must not** rewrite the source Claim.

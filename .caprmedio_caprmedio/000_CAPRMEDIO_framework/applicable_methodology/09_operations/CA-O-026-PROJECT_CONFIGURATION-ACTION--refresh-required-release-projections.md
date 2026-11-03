@@ -1,39 +1,33 @@
 ---
 subjects:
-  governs: "Refresh Required Release Projections"
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-    - "Action"
-    - "Projection"
-    - "Artifact/Revision"
-    - "Operator"
-    - "Journal/Record"
-    - "Projection/Type: Reconciled Projection"
-    - "Applicable Methodology"
-    - "Atom/Claim"
-    - "Atom/Content Role: Delivery"
-version: 5
-updated_at: "2026-09-18 14:16:20 +0000"
-relations:
-  relates_to:
-    - "CA-O-025"
-    - "CA-O-010"
-    - "CA-O-011"
-    - "CA-R-1460"
-atom_id: "CA-O-026"
-content_role: "Operations"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Reconciled Projection'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
+version: 15
+updated_at: 2026-10-27 19:59:44 +0400
+relations: {}
+atom_id: CA-O-026
+content_role: Operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-026-PROJECT_CONFIGURATION-ACTION--refresh-required-release-projections.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-026-PROJECT_CONFIGURATION-ACTION--refresh-required-release-projections.md
   source_atom_id: CA-O-026
-  source_atom_revision: 5
-  source_sha256: ea86b010ef15a3c978f1a367ff64830d1ec871ac60ee115a066c3591d2518816
-  original_relations_sha256: c35a65796bde8249029cdd377a11e0c7f0657bada6e8dda47f1820226cc12b02
+  source_atom_revision: 15
+  source_sha256: e535bbee60059b998bb1b582a5c8ae078a9559b0b8fc2c88d1bdf9e1e8f07e11
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Refresh required release Projections
 

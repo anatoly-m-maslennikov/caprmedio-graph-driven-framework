@@ -4,27 +4,28 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Implementation Repair Step"
+  governs: Subject/caprmedio/Step//Implementation Repair Step
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Node/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run"]
-version: 7
-updated_at: "2026-10-19 15:56:40 +0400"
-relations:
-  relates_to:
-    - CA-O-021
-    - CA-R-1527
-    - CA-R-1525
-global_tier: 11
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+version: 17
+updated_at: 2026-10-27 19:59:45 +0400
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-099-PROJECT_CONFIGURATION-STEP--repair-code-and-retain-issue-evidence.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-099-PROJECT_CONFIGURATION-STEP--repair-code-and-retain-issue-evidence.md
   source_atom_id: CA-O-099
-  source_atom_revision: 7
-  source_sha256: 3132e3ce0af4418548a3b96515f274fcd473d036b844a5b12934e108b4ae1eaa
-  original_relations_sha256: 1ea5c7fc0c690b75607075f32f2d9552decfced01b385e0f28a6205f30651f72
+  source_atom_revision: 17
+  source_sha256: 7ab4581287d273aeb9f789606a74ecca9d42a66687503bbb7f5787b334eb9cf8
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 
@@ -32,12 +33,14 @@ Repair code and retain issue evidence
 
 ## Operation
 
-Implementation Repair Step **means** the Workflow node invoking **=1** Action, CA-O-021, **in** Isolated context under CA-R-1527.
+Implementation Repair Step **means** the Workflow node invoking **=1** Action, CA-O-021, **in** Integrated context under CA-R-1527.
 
-- bind inputs from the same assigned implementation subagent context, diagnosis from CA-O-095, admitted retry from CA-O-096, selected P/Plan **and** owned boundary, current candidate, Method Projection **and** R/E/D, regression commands, **and** retained issue **and** regression evidence.
+- bind inputs from the same retained participating-session context, diagnosis from CA-O-234, admitted retry from CA-O-096, selected P/Plan **and** owned boundary, current candidate, direct full `methods` rows **and** R/E/D, regression commands, **and** retained issue **and** regression evidence. An optional legacy `method_projection` may accompany those rows but is not required.
 - use the host's native session/subagent, file, **and** command capabilities; this binding has no MCP prerequisite. missing required context **or** capability returns a blocked invocation, **not** silent execution **in** another context.
 - retain exact Action/Step Revisions, source bindings, actual effects, **and** returned results. pass the Action's result **to** the Workflow **without** independently copying its behavior.
 
-reuse the assigned subagent for the selected P work across its test, implementation, diagnosis, **and** repair invocations **when** available. replacement requires the complete retained input/evidence handoff **and** fresh admission; do **not** rely on unrecorded conversational memory.
+Retain the participating session and complete source-bound work/evidence across these Integrated invocations. A replacement requires a complete retained handoff and fresh admission; conversational memory alone is not evidence.
+
+- retain shared request/Plan, current source-bound R/M/E/D, exact candidate and actual prior results, findings, and remaining retry/resource state. This explicit Integrated binding does not alter the context of standalone review Steps.
 
 ## Details

@@ -1,40 +1,33 @@
 ---
 subjects:
-  governs: "Project Structure Maintenance"
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-    ["Relation/Type: On Result", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Project.Structure", "Select Reconciliation Sources", "Prepare Structural Change", "Assess Source Conflicts", "Authorize Structural Change", "Apply Structural Change"]
-version: 12
-updated_at: "2026-10-19 15:56:37 +0400"
-relations:
-  relates_to:
-    - "CA-R-1483"
-    - "CA-M-291"
-    - "CA-O-004"
-    - "CA-O-005"
-    - "CA-O-012"
-    - "CA-O-013"
-    - "CA-O-014"
-    - "CA-O-139"
-    - "CA-O-140"
-    - "CA-O-141"
-    - "CA-O-142"
-    - "CA-O-143"
-    - "CA-O-144"
-atom_id: "CA-O-015"
-content_role: "Operations"
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/caprmedio/Action//Prepare Structural Change
+  - Subject/caprmedio/Action//Authorize Structural Change
+  - Subject/caprmedio/Action//Apply Structural Change
+version: 21
+updated_at: 2026-10-27 19:59:44 +0400
+relations: {}
+atom_id: CA-O-015
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Workflow"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Workflow
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-015-PROJECT_CONFIGURATION-WORKFLOW--maintain-project-structure.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-015-PROJECT_CONFIGURATION-WORKFLOW--maintain-project-structure.md
   source_atom_id: CA-O-015
-  source_atom_revision: 12
-  source_sha256: c907f61954743aa06db7d586fc8e44741ed5db7397cfd52f8ceaefe5a4f8b499
-  original_relations_sha256: 569e3438c37c00da6868cfa4d3d012142a4a3163bb9330450903e1ae5e11062c
+  source_atom_revision: 21
+  source_sha256: e8719709ec2edc9a7d0d05e8894ef12a99ccb5655cc14f0f646aa8f58e5fe4e6
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 
@@ -59,7 +52,7 @@ the entry Step is CA-O-139. interpret Step bindings **and** run boundaries under
 
 ### Transitions
 
-the transitions below use the Workflow-scoped ON_RESULT Relation under CA-R-1513 **when** the destination is a Step. a terminal outcome ends the Workflow Run; it is **not** another Step **or** Action.
+the transitions below are declared in this Workflow's Step structure; result-based routing belongs to the applicable Conditional Step definition **when** the destination is a Step. a terminal outcome ends the Workflow Run; it is **not** another Step **or** Action.
 
 | Step | Result condition | Next Step **or** outcome |
 |---|---|---|

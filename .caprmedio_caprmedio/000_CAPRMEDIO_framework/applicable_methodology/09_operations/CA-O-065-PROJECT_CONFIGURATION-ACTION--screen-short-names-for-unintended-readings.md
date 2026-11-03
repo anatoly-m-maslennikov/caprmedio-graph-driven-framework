@@ -1,26 +1,29 @@
 ---
 subjects:
-  governs: "Screen Short Names"
+  governs: Subject/caprmedio/Action//Screen Short Names
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project"]
-version: 8
-updated_at: "2026-10-19 15:56:47 +0400"
-relations: {"child_of":["CA-M-005"],"relates_to":["CA-R-1057"]}
-atom_id: "CA-O-065"
-content_role: "Operations"
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+version: 15
+updated_at: 2026-10-27 19:59:45 +0400
+relations:
+  child_of:
+  - CA-M-005
+atom_id: CA-O-065
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-065-PROJECT_CONFIGURATION-ACTION--screen-short-names-for-unintended-readings.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-065-PROJECT_CONFIGURATION-ACTION--screen-short-names-for-unintended-readings.md
   source_atom_id: CA-O-065
-  source_atom_revision: 8
-  source_sha256: 9c50b8e6816eb84e58937311891571542f62409fc46e8f553b0b60aaa3a8d1f8
-  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  source_atom_revision: 15
+  source_sha256: 5c370aab4856a1ecbf4bc3b7103af3c983c046cea523b520758ae531939de707
+  original_relations_sha256: 492413f1249ab26855e5486c7d168371d1c677633fce8e2c0144e0c4df387c15
 ---
 # Summary
 

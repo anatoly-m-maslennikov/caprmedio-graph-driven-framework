@@ -4,29 +4,27 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Source Reconciliation Correction Step"
+  governs: Subject/caprmedio/Step//Source Reconciliation Correction Step
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Source Reconciliation", "Agentic Step Execution Context", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run"]
-version: 7
-updated_at: "2026-10-19 15:56:31 +0400"
-relations:
-  relates_to:
-    - CA-O-010
-    - CA-O-008
-    - CA-R-1509
-    - CA-R-1511
-    - CA-R-1527
-global_tier: 11
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+version: 14
+updated_at: 2026-10-27 19:59:47 +0400
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-010-PROJECT_CONFIGURATION-WORKFLOW--reconcile-sources/CA-O-150-PROJECT_CONFIGURATION-STEP--apply-the-reconciliation-source-corrections.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-010-PROJECT_CONFIGURATION-WORKFLOW--reconcile-sources/CA-O-150-PROJECT_CONFIGURATION-STEP--apply-the-reconciliation-source-corrections.md
   source_atom_id: CA-O-150
-  source_atom_revision: 7
-  source_sha256: cc0a0167554cdc9ba754250e6e5b85efe721e5fe2faee5ea47ad7e09874a03e1
-  original_relations_sha256: 780467f0f6663a189f4c15ef3973a1efecd7bdb4aba3d168e4abed11eecccee6
+  source_atom_revision: 14
+  source_sha256: cf16737b673617ff6d7991a5d48e02c2e17c849b89541693f3aef666c7b0ce2d
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 

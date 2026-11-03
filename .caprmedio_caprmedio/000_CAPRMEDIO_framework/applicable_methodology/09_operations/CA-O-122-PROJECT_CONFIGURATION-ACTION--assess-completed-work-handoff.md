@@ -4,24 +4,33 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Plan"
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Relation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/History/Journal"]
-version: 7
-updated_at: "2026-10-19 15:56:57 +0400"
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Definition of Done'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status'
+  - Subject/CAPRMEDIO/Graph/Relation
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+version: 16
+updated_at: 2026-10-29 22:26:57 +0400
 relations:
-  relates_to: [CA-R-1583, CA-R-1599, CA-R-1520, CA-R-1580, CA-O-079, CA-O-017, CA-O-077, CA-O-090]
+  depends_on:
+  - CA-R-1583
+  - CA-R-1599
+  - CA-R-1580
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-122-PROJECT_CONFIGURATION-ACTION--assess-completed-work-handoff.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-122-PROJECT_CONFIGURATION-ACTION--assess-completed-work-handoff.md
   source_atom_id: CA-O-122
-  source_atom_revision: 7
-  source_sha256: 09a678a3d6cabb25f37909b337cd69412585d5a2fa6f71a207a64d5a110198cb
-  original_relations_sha256: 7038b731397220a891683e692ecd42be19539b02fa491c4738bc20910feef073
+  source_atom_revision: 16
+  source_sha256: 5a70ef81979e4326b4c74e7ebca520bf2c980c6d3694bc0bad07b225ea613226
+  original_relations_sha256: 3b978e5112a9b98098806481d216209436fd33799ac74561d0db6319bf1aac7c
 ---
 # Summary
 
@@ -34,13 +43,13 @@ This optional read-only Action assesses a completed bounded Plan's actual result
 ### Inputs and preconditions
 
 - the admitted assessment request, selected predecessor Plan identity and current Revision, bounded actual outputs, and references to existing completion, check and performed-effect evidence. Include non-implementation work; a supplied Done value or historical test/save report alone is not completion proof.
-- applicable current authority and Project Principles, the predecessor's own work, decomposition and Definition of Done, and any unresolved completion obligations under CA-R-1583 and CA-R-1599.
+- applicable current authority and Project-owned Tier 0 Atoms, the predecessor's own work, Plan containment and Definition of Done, and any unresolved completion obligations under CA-R-1583 and CA-R-1599.
 - the declared complete universe of candidate next Plans, its scope and exclusions, each candidate's exact current Revision, Claim boundary, inputs, required checks, prerequisites, declared consumption bindings and explicit blocking Relations. Folder order, sibling location and mere mentions are not dependency evidence.
 - the assessor's authorized read context and applicable permission limits. If separately authorized reconciliation has already occurred, provide its exact CA-O-079 outcome, before/current Revisions and recoverable effect evidence; do not assume or replay an effect.
 
 ### Assessment
 
-1. Verify the applicable predecessor completion evidence under existing completion authority. Missing or uncertain evidence, unfinished own work or directly decomposed Plans, or a Definition of Done whose falsifying condition is not established false prevents a verified closure/readiness claim. Return the exact missing or failed obligation; do not close the Plan or weaken its conditions.
+1. Verify the applicable predecessor completion evidence under existing completion authority. Missing or uncertain evidence, unfinished own work **or** directly contained Plans, or a Definition of Done whose falsifying condition is not established false prevents a verified closure/readiness claim. Return the exact missing or failed obligation; do not close the Plan or weaken its conditions.
 2. Identify actually affected candidates from the actual result, declared consumption and explicit governing bindings. Give every candidate an evidence-backed affected or unaffected disposition when supported. If the universe or a consumption/dependency binding is insufficient to justify exhaustive coverage, retain each unresolved classification and return blocked or uncertain coverage with the missing scope/evidence; never force an unsupported binary disposition, certify “all affected Plans” from a partial set or guess an edge.
 3. For each affected Plan, compare every relevant exact input, Claim boundary, required check and prerequisite with the actual predecessor output and current authority. Assess output changes even when authority is unchanged. Disposition each affected binding as unchanged, rebinding-required, blocked or recovery-required, with its observed Revision and exact evidence. Preserve unrelated candidates and their unselected work unchanged.
 4. Where representation changes are needed, return a bounded CA-O-079-ready reconciliation request and its missing permission or prerequisite. CA-O-079 remains the owner of authorized remaining-work edits, reuse or conditional creation, completed-prefix preservation, explicit blocking, current-Revision/placement checks and actual Journal events. This Action neither performs nor invokes those edits. If an actual separately authorized reconciliation outcome was supplied, assess and reference that outcome rather than duplicate it; partial or stale effects retain exact recoverable state and recovery-required or blocked disposition.

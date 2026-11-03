@@ -4,36 +4,41 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Check Atoms"
+  governs: Subject/caprmedio/Action//Check Atoms
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Property", "Markdown Atom Carrier.YAML Frontmatter", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/History/Revision/Type: Atom", "Owned Atoms", "Subtree-owned Atoms", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Structure", "Global Tier", "Local Tier", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Entity/Node/Continuant/Projection", "Entity/Relation", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal"]
-version: 10
-updated_at: "2026-10-19 15:56:50 +0400"
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Carrier/File.YAML Frontmatter
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Relation
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+version: 26
+updated_at: 2026-11-02 19:44:26 +0400
 relations:
-  relates_to:
-    - CA-R-1598
-    - CA-R-942
-    - CA-R-1447
-    - CA-D-305
-    - CA-D-478
-    - CA-D-479
-    - CA-D-480
-    - CA-D-481
-    - CA-D-482
-    - CA-D-483
-    - CA-E-379
-    - CA-E-506
-global_tier: 11
+  depends_on:
+  - CA-D-305
+  - CA-E-379
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-087-PROJECT_CONFIGURATION-ACTION--check-atoms.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-087-PROJECT_CONFIGURATION-ACTION--check-atoms.md
   source_atom_id: CA-O-087
-  source_atom_revision: 10
-  source_sha256: 0c8927adb867fb93922f5afe48098f71be6cda3cb28d8849615e8f3ee8f03d7b
-  original_relations_sha256: 2dc986c40a8906cb9501be88b2d0cee5617d887bd2450c8e21e2652ae24615d2
+  source_atom_revision: 26
+  source_sha256: 9d95ccf6979357cbd6c4d11b80c09099970f0359abc9f77efb060fe08112727e
+  original_relations_sha256: 8b48b789949eda9e7de72fbbcc197c76a7d8f3440549cc4b6df63a183513b30b
 ---
 # Summary
 

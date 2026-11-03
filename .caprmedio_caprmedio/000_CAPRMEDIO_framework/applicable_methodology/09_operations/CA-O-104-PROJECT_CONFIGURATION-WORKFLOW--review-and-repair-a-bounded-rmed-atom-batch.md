@@ -4,23 +4,31 @@ content_role: Operations
 type: Workflow
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 13
-updated_at: "2026-10-19 15:56:53 +0400"
+version: 25
+updated_at: 2026-10-27 19:59:45 +0400
 subjects:
-  governs: "RMED Atom Review Workflow"
+  governs: Subject/caprmedio/Workflow//RMED Atom Review Workflow
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Relation/Type: On Result", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record", "Evaluation Report"]
-relations: {"relates_to":["CA-D-340","CA-O-108","CA-O-109","CA-O-110","CA-R-1643","CA-R-1720"]}
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History
+relations:
+  depends_on:
+  - CA-R-1643
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.md
   source_atom_id: CA-O-104
-  source_atom_revision: 13
-  source_sha256: c30b0950a64df3593bfabcbb589d72807e26ee9e446feec2e0249cc086195743
-  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  source_atom_revision: 25
+  source_sha256: 96f1c8cd61e691205723867000872e3a1af6261ab738e532c4a6d6a98c640e1c
+  original_relations_sha256: 56b5eb5ae85fe5a342c167be27d0cf8aafa2233afaf1a8d12de477035817ccb9
 ---
 # Summary
 
@@ -74,7 +82,7 @@ completion requires **all** **`=6`** initial checks **to** conclude **and** **al
 ### Run evidence
 
 - at the start of an Operator-authorized Run, bind its Workflow name, Run ID, full report location, **and** shared Project Journal. retain the same Run ID through **all** Steps **and** context handoffs.
-- record the Run's start, Step outcomes, handoffs, **and** terminal outcome **in** the shared Journal using the admitted Event Types under CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events **and** the registered Event Carrier. include the Run ID **and** full report reference **in** the recorded context. this is the existing Project Journal, **not** a new per-Workflow Journal.
+- record the Run's start, Step outcomes, handoffs, **and** terminal outcome **in** the shared Journal using the admitted Event Types under CA-R-1643-CORE_META_MODEL-RULE--register-type-values-for-work-journal-events **and** the registered Event Carrier. include the Run ID **and** full report reference **in** the recorded context. this is the existing Project Journal, **not** a new per-Workflow Journal.
 - assemble the full report from the original selection **and** saved per-Atom evidence **after** gathering, **after** received check **or** fix results, **and** at handoff **or** termination. include clean, fixed, blocked, **and** pending Atoms; retain initial findings separately from their dispositions. an empty selection **or** early blocker still has a Run report.
 - record Completed **only** for a completed selection, Interrupted for a Run awaiting Operator input, **and** Failed for an execution failure. context continuation **in** another subagent retains the current Run rather than inventing a completed Run.
 - retain actual report-write **or** Journal-append failures as evidence-recording blockers. distinguish them from the saved Atom outcomes, report the incomplete Run record, **and** preserve applied edits **without** replaying them. an unconfirmed Journal append is **not** a recorded Event.

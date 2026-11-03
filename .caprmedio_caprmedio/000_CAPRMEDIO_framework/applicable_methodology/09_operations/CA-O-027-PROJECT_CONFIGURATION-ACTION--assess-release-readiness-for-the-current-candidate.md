@@ -1,40 +1,36 @@
 ---
 subjects:
-  governs: "Assess Release Readiness"
+  governs: Subject/caprmedio/Action//Assess Release Readiness
   depends_on:
-    - "Action"
-    - "Release Readiness"
-    - "Artifact/Revision"
-    - "Atom/Content Role: Evaluation"
-    - "Implementation"
-    - "Projection"
-    - "Operator"
-    - "Journal/Record"
-    - "Version"
-    - "AI Agent"
-version: 5
-updated_at: "2026-10-04 15:08:16 +0000"
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/caprmedio/Workflow//Release Readiness
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+version: 16
+updated_at: 2026-10-27 19:59:44 +0400
 relations:
-  relates_to:
-    - "CA-O-025"
-    - "CA-R-1646"
-    - "CA-R-1692"
-    - "CA-R-1712"
-atom_id: "CA-O-027"
-content_role: "Operations"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+  depends_on:
+  - CA-R-1646
+atom_id: CA-O-027
+content_role: Operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-027-PROJECT_CONFIGURATION-ACTION--assess-release-readiness-for-the-current-candidate.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-027-PROJECT_CONFIGURATION-ACTION--assess-release-readiness-for-the-current-candidate.md
   source_atom_id: CA-O-027
-  source_atom_revision: 5
-  source_sha256: c8ba68a5531d8f64649824f222061b4c7ef18031b4dbdefa039d8b4df6d86c32
-  original_relations_sha256: 63bf50f04a839263b06e79e5436975f0777a019f58028e9f8d712f3fbf886a86
+  source_atom_revision: 16
+  source_sha256: e809de88443adbb5562ca730be663028000f9693d641805333c6846ea437f6f4
+  original_relations_sha256: 43194bd5d3ad1ccd16b5498f97b40f50ec371a09dc198b0a80980887c10d29ec
 ---
 # Summary
 

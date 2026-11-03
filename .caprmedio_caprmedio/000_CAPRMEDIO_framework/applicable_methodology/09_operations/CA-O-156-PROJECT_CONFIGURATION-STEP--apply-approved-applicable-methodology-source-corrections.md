@@ -4,24 +4,31 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-19 15:56:35 +0400"
+version: 17
+updated_at: 2026-10-27 19:59:47 +0400
 subjects:
-  governs: "Applicable Methodology Compilation Correct Step"
+  governs: Subject/caprmedio/Step//Applicable Methodology Compilation Correct Step
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Apply Approved Source Corrections", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal.Record", "Methodology Source", "Entity/Node/Continuant/Atom.Substance"]
-relations:
-  relates_to: [CA-O-011, CA-O-008]
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-156-PROJECT_CONFIGURATION-STEP--apply-approved-applicable-methodology-source-corrections.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-156-PROJECT_CONFIGURATION-STEP--apply-approved-applicable-methodology-source-corrections.md
   source_atom_id: CA-O-156
-  source_atom_revision: 7
-  source_sha256: c4c8701c4b98651ef3d41b510878b8b8d709de472760158cdb61fc71de937b95
-  original_relations_sha256: 096b0599580a28c8c6f7e0bdc2d9f2defb1fb2b6089cf791e3f3adfc1be1f947
+  source_atom_revision: 17
+  source_sha256: 1e6289b4cb2494408edc9ed18918ce9823ba64f2223dd1a1ca11eeb824d3b557
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 
@@ -33,9 +40,9 @@ this Step is the correct node **of** CA-O-011, Applicable Methodology Compilatio
 
 ### Inputs and parameters
 
-bind the exact approved correction and recorded decision from CA-O-155, their selected frontier, and the Workflow Run's current source state and separately authorized owning-source change workflow.
+bind the exact approved correction and actual Operator decision from CA-O-155, independently retained **and** verified through admitted execution evidence, their selected frontier, and the Workflow Run's current source state and separately authorized owning-source change workflow.
 
-require the separately authorized source change workflow; corrections are **not** compiler side effects **or** edits **to** projected Claims. **if** **any** source changes, the Workflow Run returns **to** select **and** repeats assessment against the new frontier. failure **or** partial effects never justify publishing from the earlier assessment.
+require the separately authorized source change workflow; corrections are **not** compiler side effects **or** edits **to** projected Claims. the Journal append is a business-provenance attempt, not a prerequisite, proof, permission, completion, **or** recovery gate; an append failure yields a `recording_error` diagnostic while the actual decision and any effects remain independently evidenced. it does **not** authorize replay **or** a second correction execution; reconcile independent effects separately. **if** **any** source changes, the Workflow Run returns **to** select **and** repeats assessment against the new frontier. failure **or** partial effects never justify publishing from the earlier assessment.
 
 ### Agentic invocation binding
 

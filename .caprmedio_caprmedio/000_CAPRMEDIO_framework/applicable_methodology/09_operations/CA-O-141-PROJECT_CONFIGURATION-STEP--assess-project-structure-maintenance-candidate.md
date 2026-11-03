@@ -4,23 +4,31 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Project Structure Maintenance Candidate Assessment Step"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Agentic Step Execution Context"]
-version: 6
-updated_at: "2026-10-19 15:57:06 +0400"
+  governs: Subject/caprmedio/Step//Project Structure Maintenance Candidate Assessment Step
+  depends_on:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+version: 14
+updated_at: 2026-10-29 22:26:57 +0400
 relations:
-  relates_to: [CA-O-015, CA-O-005, CA-O-140, CA-R-1509, CA-R-1510, CA-R-1511, CA-R-1527]
+  depends_on:
+  - CA-R-1510
+  - CA-R-1511
+  - CA-R-1527
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-141-PROJECT_CONFIGURATION-STEP--assess-project-structure-maintenance-candidate.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-141-PROJECT_CONFIGURATION-STEP--assess-project-structure-maintenance-candidate.md
   source_atom_id: CA-O-141
-  source_atom_revision: 6
-  source_sha256: 646f5d8f2651e14e31b3554100ca287fec96f55482a893bc5bb8ad7e40c12a76
-  original_relations_sha256: 84e57d2627001fdc2faee475356d21f46cc7b8ec8b78c7467b87a849b9ef8aa8
+  source_atom_revision: 14
+  source_sha256: 19ac37a5889d66be9351dc82baf28753bc3ce7a9dbbe37fb05d4b52f4474962f
+  original_relations_sha256: bbb7a933f993d681bf6de69ad04a1d67f08d7a34b98fc65a5cb43947fd02e1de
 ---
 # Summary
 
@@ -33,7 +41,7 @@ Project Structure Maintenance Candidate Assessment Step **means** the node **in*
 | Required input or parameter | Bound source |
 | --- | --- |
 | Bounded candidate and its stated checks | CA-O-140's returned proposal, expected effects, validation conditions and affected-source frontier. |
-| Applicable authority and current selected source state | The same Workflow Run's current authority, Goal/Principles and CA-O-139's retained source identities/Revisions; the candidate is assessed against that exact frontier. |
+| Applicable authority and current selected source state | The same Workflow Run's current authority, Goal/Project-owned Tier 0 Atoms and CA-O-139's retained source identities/Revisions; the candidate is assessed against that exact frontier. |
 
 For an invocation whose actual bound Action is Agentic, bind **=1** Integrated **or** Isolated context under CA-R-1527 from the admitted invocation's supplied `agentic_execution_context` runtime parameter **before** dispatch. Missing, ambiguous **or** unsupported values, **or** unavailable required context/capability, block that Agentic invocation; do **not** default **or** silently substitute. A Programmatic invocation does **not** acquire an Agent context. Applicable authority, permissions and remaining retry allowance come from the same Workflow Run; the binding grants no additional authority.
 

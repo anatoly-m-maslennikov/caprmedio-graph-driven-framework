@@ -4,27 +4,30 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Corrective Method Acceptance Step"
+  governs: Subject/caprmedio/Step//Corrective Method Acceptance Step
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Node/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run"]
-version: 9
-updated_at: "2026-10-19 15:56:52 +0400"
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+version: 16
+updated_at: 2026-10-27 19:59:45 +0400
 relations:
-  relates_to:
-    - CA-O-090
-    - CA-R-1527
-    - CA-R-1525
-global_tier: 11
+  depends_on:
+  - CA-R-1527
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-102-PROJECT_CONFIGURATION-WORKFLOW--learn-methods-from-verified-implementation-issues/CA-O-098-PROJECT_CONFIGURATION-STEP--verify-and-activate-corrective-method-drafts.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-102-PROJECT_CONFIGURATION-WORKFLOW--learn-methods-from-verified-implementation-issues/CA-O-098-PROJECT_CONFIGURATION-STEP--verify-and-activate-corrective-method-drafts.md
   source_atom_id: CA-O-098
-  source_atom_revision: 9
-  source_sha256: 86d4da3c56f75621e75a0034364b8cc374613226875e1447fd45964660c6e06a
-  original_relations_sha256: 6c05b0491f90ce42dacccbc1fe094328e13701a15a3952f2aa74e7b0c7afb7cd
+  source_atom_revision: 16
+  source_sha256: 7f747560d0b09830363d6e490deb89f0b931d8c3a58d327b85ddcd8dbd45506f
+  original_relations_sha256: 2666ccb08661ed0d4c167ab8f92e4bfd878a2385a2e46976fda8893ef7cc0ef1
 ---
 # Summary
 

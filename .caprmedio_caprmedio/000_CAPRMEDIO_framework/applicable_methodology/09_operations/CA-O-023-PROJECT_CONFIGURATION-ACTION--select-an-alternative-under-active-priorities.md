@@ -1,31 +1,33 @@
 ---
-version: 10
-updated_at: "2026-10-19 15:56:43 +0400"
+version: 20
+updated_at: 2026-10-27 19:59:44 +0400
 relations:
   child_of:
-    - CA-R-1487
-  relates_to:
-    - CA-O-022
-    - CA-M-297
-subjects:
-  governs: "Select Priority-Governed Alternative"
+  - CA-R-1487
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Resolve Operator Priorities", "Project Priority Model Application", "Project Lexicographic Selection"]
-atom_id: "CA-O-023"
-content_role: "Operations"
+  - CA-M-297
+subjects:
+  governs: Subject/caprmedio/Action//Select Priority-Governed Alternative
+  depends_on:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_LEXICOGRAPHIC
+atom_id: CA-O-023
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-023-PROJECT_CONFIGURATION-ACTION--select-an-alternative-under-active-priorities.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-023-PROJECT_CONFIGURATION-ACTION--select-an-alternative-under-active-priorities.md
   source_atom_id: CA-O-023
-  source_atom_revision: 10
-  source_sha256: f6b6c3edba8f1442bd9343c276d6bb47abf497bb2f6f8237a753e1b33d5ec00d
-  original_relations_sha256: 047cd938435fe8ff2d4107ef1a67b8ae794bce6978dda89e63efeacb3951c6b3
+  source_atom_revision: 20
+  source_sha256: b678eccef9bdaedb7e98c32369a03ca90a550f1017059f697eff77de8a799fc5
+  original_relations_sha256: 8df28fafc59a8839acbe18a6aef8b5f090b211118455b922c1125a08b40bc003
 ---
 # Summary
 

@@ -4,23 +4,25 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step"
-  depends_on: ["Assess Atom Update Identity", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Agentic Step Execution Context"]
-version: 6
-updated_at: "2026-10-19 15:57:08 +0400"
-relations:
-  relates_to: [CA-O-067, CA-M-303, CA-R-1509, CA-R-1511, CA-R-1527]
+  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  depends_on:
+  - Subject/caprmedio/Action//Assess Atom Update Identity
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+version: 14
+updated_at: 2026-10-27 19:59:47 +0400
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-145-PROJECT_CONFIGURATION-STEP--assess-update-identity-for-atom-lifecycle.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-145-PROJECT_CONFIGURATION-STEP--assess-update-identity-for-atom-lifecycle.md
   source_atom_id: CA-O-145
-  source_atom_revision: 6
-  source_sha256: 8f6e7e89467f1b0da65a8abc52c20c73ea3f68a746f3f9da18cf2da0c2c12897
-  original_relations_sha256: 230246f64c1454e87387dde25cc082ad40aa84ab1cd1a524398f06c74698a992
+  source_atom_revision: 14
+  source_sha256: 2f3be292386554fcb6e3cc6af04707b1d004c355921cbc7ae0928ea52948f1f7
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 

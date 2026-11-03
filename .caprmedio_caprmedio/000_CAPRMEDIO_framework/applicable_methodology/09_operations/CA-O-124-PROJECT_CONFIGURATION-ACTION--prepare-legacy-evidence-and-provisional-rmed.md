@@ -4,23 +4,29 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Legacy Evidence and Provisional RMED Preparation"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Implementation", "Spec", "Entity/Node/Continuant/Atom", "Artifact/Revision", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent"]
-version: 4
-updated_at: "2026-10-19 15:56:58 +0400"
-relations:
-  relates_to: [CA-O-006, CA-O-007, CA-O-008, CA-O-017, CA-O-019, CA-O-103]
+  governs: Subject/caprmedio/Action//Legacy Evidence and Provisional RMED Preparation
+  depends_on:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+version: 15
+updated_at: 2026-10-27 19:59:46 +0400
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-124-PROJECT_CONFIGURATION-ACTION--prepare-legacy-evidence-and-provisional-rmed.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-124-PROJECT_CONFIGURATION-ACTION--prepare-legacy-evidence-and-provisional-rmed.md
   source_atom_id: CA-O-124
-  source_atom_revision: 4
-  source_sha256: a4af5c5dafed2c5438f47a83b42955e77c0cef3f136bf07f9df5770d1e12f260
-  original_relations_sha256: fffd167ab4ddcd68e15eab641a709ad2a0619d1cf352db0b53bb6f92da8f8ccf
+  source_atom_revision: 15
+  source_sha256: 1d24770f3fe189971d43d30462d9a4c728acd8a6489b715d3c3ab10331730ab9
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 

@@ -4,23 +4,30 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entities Graph Construction Step"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Agentic Step Execution Context", "Entity/Node/Continuant/Projection/Type: Entities Graph"]
-version: 5
-updated_at: "2026-10-19 15:57:03 +0400"
+  governs: Subject/caprmedio/Step//Entities Graph Construction Step
+  depends_on:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph'
+version: 12
+updated_at: 2026-10-27 19:59:46 +0400
 relations:
-  relates_to: [CA-O-133, CA-O-134, CA-R-1509, CA-R-1525, CA-R-1526, CA-R-1527]
+  depends_on:
+  - CA-R-1526
+  - CA-R-1527
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-135-PROJECT_CONFIGURATION-STEP--construct-the-requested-entities-graph.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-135-PROJECT_CONFIGURATION-STEP--construct-the-requested-entities-graph.md
   source_atom_id: CA-O-135
-  source_atom_revision: 5
-  source_sha256: ed2bc60d8e2030bc0ac8f14323e4d3f33b3d579c989c4543f2eb9580273adad5
-  original_relations_sha256: ba5b0565492adc01712e4665d0a19d0c5305e0eba4cd6d2277b6b196e73a92be
+  source_atom_revision: 12
+  source_sha256: 0bcdbb030292d494b8177ce2599b741117ab5163f6b8ce89854412e7c6d091ed
+  original_relations_sha256: ec3b20ab3a449b114f2fd233ef010206d5313c3274fca1623cc37b187f4c09ad
 ---
 # Summary
 

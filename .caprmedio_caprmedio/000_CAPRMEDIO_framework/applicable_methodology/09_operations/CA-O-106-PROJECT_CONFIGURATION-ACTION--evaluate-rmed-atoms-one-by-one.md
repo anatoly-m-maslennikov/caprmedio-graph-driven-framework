@@ -4,22 +4,24 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 12
-updated_at: "2026-10-19 15:56:56 +0400"
+version: 19
+updated_at: 2026-10-27 19:59:46 +0400
 subjects:
-  governs: "Evaluate RMED Review Batch"
+  governs: Subject/caprmedio/Action//Evaluate RMED Review Batch
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Occurrent/Execution/Workflow Run"]
-relations: {"relates_to":["CA-D-496","CA-E-520"]}
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-106-PROJECT_CONFIGURATION-ACTION--evaluate-rmed-atoms-one-by-one.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-106-PROJECT_CONFIGURATION-ACTION--evaluate-rmed-atoms-one-by-one.md
   source_atom_id: CA-O-106
-  source_atom_revision: 12
-  source_sha256: a5637754d9efc234f02e292547f0bf0220f750e24cf6947c0409c858f3766f72
+  source_atom_revision: 19
+  source_sha256: d0bfd9f5672348d6f9fd3e9f31a6e4679a8fc37c804e613ce20e80b591ad6cfb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

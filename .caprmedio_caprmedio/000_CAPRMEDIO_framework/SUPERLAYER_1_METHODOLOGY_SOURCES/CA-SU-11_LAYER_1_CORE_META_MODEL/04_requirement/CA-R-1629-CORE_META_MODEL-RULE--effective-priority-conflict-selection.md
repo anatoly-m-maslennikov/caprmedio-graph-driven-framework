@@ -1,0 +1,43 @@
+---
+subjects:
+  active: Atom/(.Role := Concern).Priority
+  passive:
+  - Atom/(.Role := Concern)
+  - Scope Unit
+  - Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - Entity/Object/Continuant/Actor/Operator
+version: 39
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1629
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 3
+role: Requirement
+form: Rule
+---
+## Summary
+
+Effective priority conflict selection
+
+## Claim scope
+
+priority-conflict selection for Concern Atoms.
+
+## Claim
+
+a Concern Atom has **`=1`** Priority value: High, Medium, **or** Low.
+
+direct comparison of Concern Atoms **must** follow the admissible Operator-selected priority model governed by CA-R-1487:
+
+- use the selected model, its effective parameters, **and** its active criteria.
+- Scope Unit ancestry **must not** add an implicit Priority increment.
+- **if** the model **or** its application does **not** justify a selection, leave the conflict unresolved **and** ask the Operator.
+
+the Framework Instance Settings Artifact exposes **`=2`** selection modes:
+
+- `ask_always`, the default, explains the conflict **and** asks the operator; **and**
+- `auto_by_effective_priority`, which **may** select **only** one uniquely eligible winner.
+
+the selection mode **must** ask the Operator **if** ties, incomparable structure, uncertainty, **or** multiple winners occur. mutually unsatisfiable external obligations stop for Operator **or** external resolution. PRMEDO Tier precedence, deterministic replacement, explicit scoped override, stale-view routing, **and** Implementation drift follow their own semantics rather than this selection mode.

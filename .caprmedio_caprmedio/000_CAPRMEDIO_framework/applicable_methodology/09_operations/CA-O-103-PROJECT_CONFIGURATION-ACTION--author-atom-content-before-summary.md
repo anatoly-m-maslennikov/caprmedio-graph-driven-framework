@@ -4,23 +4,30 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Atom Content Authoring"
+  governs: Subject/caprmedio/Action//Atom Content Authoring
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Details", "Entity/Node/Continuant/Atom.Summary", "Atom/Content Role", "Author"]
-relations: {"relates_to": ["CA-M-111", "CA-D-479", "CA-R-1465", "CA-R-1464", "CA-E-384"]}
-version: 6
-updated_at: "2026-10-19 15:56:52 +0400"
-global_tier: 11
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Details
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
+relations:
+  depends_on:
+  - CA-D-479
+  - CA-R-1464
+version: 16
+updated_at: 2026-10-27 19:59:45 +0400
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-103-PROJECT_CONFIGURATION-ACTION--author-atom-content-before-summary.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-103-PROJECT_CONFIGURATION-ACTION--author-atom-content-before-summary.md
   source_atom_id: CA-O-103
-  source_atom_revision: 6
-  source_sha256: f1e4249bf936800c2485caf8fc4a3ea469b3464a15e71625ccad3ae26a155986
-  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  source_atom_revision: 16
+  source_sha256: b0b581fef9eb95dc26f200d7ba0bbedf156f82fc8d23e957fbcda47d3a706552
+  original_relations_sha256: fa3a1e362de1b94f55b35ed3ee53e910097d54924cf8b3a3e4aa60f47f27e514
 ---
 # Summary
 

@@ -4,23 +4,27 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-19 15:56:59 +0400"
+version: 15
+updated_at: 2026-10-27 19:59:46 +0400
 subjects:
-  governs: "Assess Prepared Result Conformance"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Artifact", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent"]
-relations:
-  relates_to: [CA-O-005, CA-O-104, CA-O-106, CA-O-111, CA-O-118]
+  governs: Subject/caprmedio/Action//Assess Prepared Result Conformance
+  depends_on:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-126-PROJECT_CONFIGURATION-ACTION--assess-prepared-result-conformance.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-126-PROJECT_CONFIGURATION-ACTION--assess-prepared-result-conformance.md
   source_atom_id: CA-O-126
-  source_atom_revision: 5
-  source_sha256: 2eb3691480503d4a654b87ca335a5f4662903b865fca8eb6cb60b89c791eb5fc
-  original_relations_sha256: bcc31f577cd7f39c9381f0a44ee9c75b747e7f598b8eff68adb11593d5e2f9b3
+  source_atom_revision: 15
+  source_sha256: 1cec4cc7b0458b5d96e64162e5ab7d98d28685b82df2bade57c9d048a896ed70
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 

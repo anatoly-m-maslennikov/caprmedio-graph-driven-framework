@@ -1,28 +1,31 @@
 ---
-version: 11
-updated_at: "2026-10-19 15:56:43 +0400"
+version: 21
+updated_at: 2026-10-27 19:59:44 +0400
 relations:
   child_of:
-    - CA-R-1487
+  - CA-R-1487
 subjects:
-  governs: "Resolve Operator Priorities"
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project", "Scope", "CAPRMEDIO Framework Instance", "Project Priority Model Application"]
-atom_id: "CA-O-022"
-content_role: "Operations"
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
+atom_id: CA-O-022
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-022-PROJECT_CONFIGURATION-ACTION--resolve-and-activate-operator-priorities.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-022-PROJECT_CONFIGURATION-ACTION--resolve-and-activate-operator-priorities.md
   source_atom_id: CA-O-022
-  source_atom_revision: 11
-  source_sha256: e53a9dda7de8286cc94fbfef74922f4fdfbf638ae0a54cbc3d86d81b175e9a49
-  original_relations_sha256: 6bed8d41cbd7d52168cdd7e51dd4f6908abe8e316b7f83b5bc478ba64412d785
+  source_atom_revision: 21
+  source_sha256: 7aa00d35c4a202ca7e1e63605515156580a34e7ef08b6440dd1aceac70489b23
+  original_relations_sha256: 2cccfab5f9eb53e0f786c8f141ca6d892cd6285d32a2aceff4e7a46010d8ba97
 ---
 # Summary
 

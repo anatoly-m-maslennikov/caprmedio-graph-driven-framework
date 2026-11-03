@@ -4,27 +4,35 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Implementation Retry Control"
+  governs: Subject/caprmedio/Action//Implementation Retry Control
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Implementation Workflow", "Implementation Retry Limit", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Continuant/Actor/Type: Operator", "Atom/Content Role: Plan/Type: Plan", "Autonomous Confidence Threshold", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Implementation"]
-version: 15
-updated_at: "2026-10-19 15:56:43 +0400"
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/caprmedio/Workflow//Implementation Workflow
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Implementation Retry Limit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Failure Handling
+version: 24
+updated_at: 2026-10-27 19:59:44 +0400
 relations:
-  relates_to:
-    - CA-R-1559
-    - CA-R-1591
-    - CA-M-295
-global_tier: 11
+  depends_on:
+  - CA-R-1559
+  - CA-R-1591
+  - CA-M-295
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-024-PROJECT_CONFIGURATION-ACTION--control-implementation-retries.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-024-PROJECT_CONFIGURATION-ACTION--control-implementation-retries.md
   source_atom_id: CA-O-024
-  source_atom_revision: 15
-  source_sha256: 0c7d7803fc3679f27e65bf676bbdd314f528771b70bbe0b7fe09491711b7214a
-  original_relations_sha256: e654698fd3f567fe0db1e47fe0385ac5ad43f81f7b191e5cabf60899e1938eb4
+  source_atom_revision: 24
+  source_sha256: 50908c4c40c541a886e80013a1bd2917267449df45fe61a2681edc2a194818ea
+  original_relations_sha256: 08b9eee982b6b131a4ab117cbcf99dce941c37fd1bb736cf7acd8ebb7e84d131
 ---
 # Summary
 

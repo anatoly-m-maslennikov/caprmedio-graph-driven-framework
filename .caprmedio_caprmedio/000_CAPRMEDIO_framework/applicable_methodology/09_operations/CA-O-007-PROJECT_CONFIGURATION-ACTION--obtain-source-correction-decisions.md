@@ -1,25 +1,30 @@
 ---
 subjects:
-  governs: "Obtain Source Correction Decision"
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Artifact", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record"]
-version: 10
-updated_at: "2026-10-19 15:56:27 +0400"
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+version: 20
+updated_at: 2026-10-27 19:59:43 +0400
 relations: {}
-atom_id: "CA-O-007"
-content_role: "Operations"
+atom_id: CA-O-007
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-007-PROJECT_CONFIGURATION-ACTION--obtain-source-correction-decisions.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-007-PROJECT_CONFIGURATION-ACTION--obtain-source-correction-decisions.md
   source_atom_id: CA-O-007
-  source_atom_revision: 10
-  source_sha256: a75c26c864530c9d6dc19f36e04d156fb32daed92af085f7a64bb9b0d70ad1ad
+  source_atom_revision: 20
+  source_sha256: 270b2cd59d614b711c7343050676710e45c27157064e4c63d2136574fd124724
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
@@ -32,9 +37,9 @@ Obtain Source Correction Decision **means** the reusable Action that obtains the
 
 1. present the proposal, the conflict it addresses, **and** the selected source frontier **to** the Operator.
 2. request an explicit decision. distinguish approval, rejection, requested revision, **and** absence of a decision; confidence, inferred intent, **or** an LLM judgment is **not** approval.
-3. record the actual decision **in** the Journal with its proposal, conflict, exact source-frontier binding, **and** provenance. record a missing decision as missing, **not** as an approval **or** rejection.
-4. return the recorded decision for the applicable authorization checks. a changed proposal **or** source frontier requires the decision's applicability **to** be checked again **before** reliance.
+3. retain the actual decision with its proposal, conflict, exact source-frontier binding, **and** provenance in admitted execution evidence. attempt the Journal append as a business-provenance record; an append failure yields a `recording_error` diagnostic and does not change the decision **or** block authorization. record a missing decision as missing, **not** as an approval **or** rejection.
+4. return the actual decision and its independently verified execution evidence for the applicable authorization checks. a changed proposal **or** source frontier requires the decision's applicability **to** be checked again **before** reliance.
 
-this Action **must not** apply the correction, record approval the Operator did **not** give, **or** create a duplicate approval Atom **in** Project Configuration. the Journal records the decision; it does **not** independently redefine the governing source Claims.
+this Action **must not** apply the correction, record approval the Operator did **not** give, **or** create a duplicate approval Atom **in** Project Configuration. the Journal append is a business-provenance obligation; it does **not** independently redefine the governing source Claims **or** serve as proof, permission, completion, **or** recovery gate.
 
 ## Details

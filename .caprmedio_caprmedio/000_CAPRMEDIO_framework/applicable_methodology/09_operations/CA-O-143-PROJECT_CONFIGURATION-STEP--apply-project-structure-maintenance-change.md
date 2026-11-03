@@ -4,23 +4,27 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Project Structure Maintenance Application Step"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Agentic Step Execution Context"]
-version: 6
-updated_at: "2026-10-19 15:57:07 +0400"
-relations:
-  relates_to: [CA-O-015, CA-O-014, CA-O-142, CA-R-1509, CA-R-1510, CA-R-1511, CA-R-1527]
+  governs: Subject/caprmedio/Step//Project Structure Maintenance Application Step
+  depends_on:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+version: 13
+updated_at: 2026-10-27 19:59:46 +0400
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-143-PROJECT_CONFIGURATION-STEP--apply-project-structure-maintenance-change.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-143-PROJECT_CONFIGURATION-STEP--apply-project-structure-maintenance-change.md
   source_atom_id: CA-O-143
-  source_atom_revision: 6
-  source_sha256: 2c13d1ba9159797b0df015291137482297d9d053889108403527680b60114807
-  original_relations_sha256: b09c465d404df265b613170609c20cd5357a0e059eb79ca0f094db2bb9b7ea8c
+  source_atom_revision: 13
+  source_sha256: 5261015bb46e1577c2e3c808b233d8b9ca0ba0a39b4324459e9d5c942de12442
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 

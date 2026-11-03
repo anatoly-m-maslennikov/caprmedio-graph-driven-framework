@@ -1,29 +1,29 @@
 ---
 subjects:
-  governs: "Prepare Structural Change"
+  governs: Subject/caprmedio/Action//Prepare Structural Change
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier"]
-version: 9
-updated_at: "2026-10-19 15:56:36 +0400"
-relations:
-  relates_to:
-    - "CA-M-291"
-    - "CA-R-926"
-atom_id: "CA-O-012"
-content_role: "Operations"
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Structure
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Goal'
+  - Subject/CAPRMEDIO/Carrier
+version: 17
+updated_at: 2026-10-27 19:59:43 +0400
+relations: {}
+atom_id: CA-O-012
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-012-PROJECT_CONFIGURATION-ACTION--prepare-structural-change.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-012-PROJECT_CONFIGURATION-ACTION--prepare-structural-change.md
   source_atom_id: CA-O-012
-  source_atom_revision: 9
-  source_sha256: a46406c43c552c11dee98161a8a52a174d04774f00d3b9fb7897ac5f1ea7a5ff
-  original_relations_sha256: 08dceb7951a19459d315b2a173b7f929ab36215f5b2a5295c1defac06f5086a7
+  source_atom_revision: 17
+  source_sha256: 0b0db6892eb07ffde4ad72fd3548bfd9ffc931ee546ce33ca15ef9a24137374a
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 

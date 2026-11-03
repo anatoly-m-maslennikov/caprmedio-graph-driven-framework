@@ -4,23 +4,31 @@ content_role: Operations
 type: Step
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Project Structure Maintenance Result Assessment Step"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Agentic Step Execution Context"]
-version: 6
-updated_at: "2026-10-19 15:57:07 +0400"
+  governs: Subject/caprmedio/Step//Project Structure Maintenance Result Assessment Step
+  depends_on:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+version: 14
+updated_at: 2026-10-29 22:26:57 +0400
 relations:
-  relates_to: [CA-O-015, CA-O-005, CA-O-143, CA-R-1509, CA-R-1510, CA-R-1511, CA-R-1527]
+  depends_on:
+  - CA-R-1510
+  - CA-R-1511
+  - CA-R-1527
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-144-PROJECT_CONFIGURATION-STEP--assess-project-structure-maintenance-result.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-144-PROJECT_CONFIGURATION-STEP--assess-project-structure-maintenance-result.md
   source_atom_id: CA-O-144
-  source_atom_revision: 6
-  source_sha256: 29142803fb0e9e77efd70ac46a8b244f056746379d5617a981fce16ff9afa738
-  original_relations_sha256: 8475e8fa17dec5679e7856f79cceeb8822d4b3b8af3175990c928160cf60b0c3
+  source_atom_revision: 14
+  source_sha256: cdcde737a756e360611e0ab4f4485be808b7ef6add3439d6f130bd109e261d52
+  original_relations_sha256: bbb7a933f993d681bf6de69ad04a1d67f08d7a34b98fc65a5cb43947fd02e1de
 ---
 # Summary
 
@@ -34,7 +42,7 @@ Project Structure Maintenance Result Assessment Step **means** the node **in** t
 | --- | --- |
 | Resulting declarations, references and separate Carrier observations | CA-O-143's actual returned cutover effects and resulting source identities/Revisions. |
 | Accepted effects and required checks | CA-O-140's proposal/checks as authorized by CA-O-142, retained in the same Workflow Run. |
-| Applicable current authority and affected-source coverage | The same Workflow Run's governing authority/Goal/Principles and the resulting exact source frontier, without replacing it with a Projection. |
+| Applicable current authority and affected-source coverage | The same Workflow Run's governing authority/Goal/Project-owned Tier 0 Atoms and the resulting exact source frontier, without replacing it with a Projection. |
 
 For an invocation whose actual bound Action is Agentic, bind **=1** Integrated **or** Isolated context under CA-R-1527 from the admitted invocation's supplied `agentic_execution_context` runtime parameter **before** dispatch. Missing, ambiguous **or** unsupported values, **or** unavailable required context/capability, block that Agentic invocation; do **not** default **or** silently substitute. A Programmatic invocation does **not** acquire an Agent context. Applicable authority, permissions and remaining retry allowance come from the same Workflow Run; the binding grants no additional authority.
 

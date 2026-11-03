@@ -4,23 +4,27 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Scoped Operator-choice Applicability"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Atom", "Artifact", "Entity/Node/Continuant/History/Journal"]
-version: 5
-updated_at: "2026-10-19 15:56:59 +0400"
-relations:
-  relates_to: [CA-O-007, CA-O-008, CA-O-013, CA-O-022, CA-O-023, CA-O-065, CA-O-078, CA-O-118]
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+  depends_on:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+version: 14
+updated_at: 2026-10-29 22:26:57 +0400
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-125-PROJECT_CONFIGURATION-ACTION--assess-scoped-operator-choice-applicability.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-125-PROJECT_CONFIGURATION-ACTION--assess-scoped-operator-choice-applicability.md
   source_atom_id: CA-O-125
-  source_atom_revision: 5
-  source_sha256: 4f99264337e16b5b059cb6d2290041b856e3a3c57e5a4f3385a43fd144593b75
-  original_relations_sha256: 578c17b6338a827816194a58a1a8ff63e74697ec3dc4ee0bb0e6c0f5d912b739
+  source_atom_revision: 14
+  source_sha256: e5c0a0ca80eae47aea915928069575c923c204c08bb5cd6fd37205c052492f81
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 
@@ -34,7 +38,7 @@ Scoped Operator-choice Applicability Assessment **means** the optional read-only
 
 - literal Operator input or annotation with actual provenance, its applicable target and prospective scope; distinguish it from assistant reports, copied wrappers and inferred approval.
 - exact question, proposal and alternative versions, including later explicit corrections and the current relevant source state.
-- the caller-bounded independent-choice list and its declared completeness, existing settled decisions and delegation, and current applicable Goal, Project Principles, authority and effective confidence requirements. Unknown antecedent or list completeness remains unknown.
+- the caller-bounded independent-choice list and its declared completeness, existing settled decisions and delegation, and current applicable Goal, Project-owned Tier 0 Atoms, authority and effective confidence requirements. Unknown antecedent or list completeness remains unknown.
 
 ### Assessment
 

@@ -1,29 +1,36 @@
 ---
 subjects:
-  governs: "Migrate Atom CCE Representation"
+  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Projection", "CCE", "Confidence Threshold", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent"]
-version: 9
-updated_at: "2026-10-19 15:56:45 +0400"
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+version: 21
+updated_at: 2026-10-29 23:58:03 +0400
 relations:
   child_of:
-    - CA-M-115
-    - CA-R-380
-atom_id: "CA-O-053"
-content_role: "Operations"
+  - CA-M-443
+  - CA-R-380
+atom_id: CA-O-053
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-053-PROJECT_CONFIGURATION-ACTION--migrate-atoms-to-a-current-cce-version.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-053-PROJECT_CONFIGURATION-ACTION--migrate-atoms-to-a-current-cce-version.md
   source_atom_id: CA-O-053
-  source_atom_revision: 9
-  source_sha256: 3fefd17ee537e2d5b1df0b59f1e9de97f02bafe71b606f04532badaeca571181
-  original_relations_sha256: e96ce022b6ca9ebedf6f1896049d977e7cbcf98c15a6cf9d8a6fdd4fb67b6a60
+  source_atom_revision: 21
+  source_sha256: 288cdff640b4ef6d048330b43eedccc79f9c124597cd1295c6c56b7bcf3cba61
+  original_relations_sha256: e6f49019e8e73920ff560e36d53d124d605d60ba73f55c4bd9de725847b0b85b
 ---
 # Summary
 

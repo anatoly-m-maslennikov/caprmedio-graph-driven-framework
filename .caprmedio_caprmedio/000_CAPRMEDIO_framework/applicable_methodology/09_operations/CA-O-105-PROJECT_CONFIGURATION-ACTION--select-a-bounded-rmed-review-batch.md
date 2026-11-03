@@ -4,22 +4,26 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: "2026-10-19 15:56:56 +0400"
+version: 16
+updated_at: 2026-10-27 19:59:45 +0400
 subjects:
-  governs: "Select RMED Review Batch"
+  governs: Subject/caprmedio/Action//Select RMED Review Batch
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
-relations: {"relates_to":["CA-D-496","CA-D-497"]}
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-105-PROJECT_CONFIGURATION-ACTION--select-a-bounded-rmed-review-batch.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-105-PROJECT_CONFIGURATION-ACTION--select-a-bounded-rmed-review-batch.md
   source_atom_id: CA-O-105
-  source_atom_revision: 9
-  source_sha256: 1bed8262d2b657429812b319a9684d34493dedd891ea270493097e1a352d8321
+  source_atom_revision: 16
+  source_sha256: 52479a1de6ee04b527d8eeab16123a989c5e3d28a5440f8e0c5290e571d1d10e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

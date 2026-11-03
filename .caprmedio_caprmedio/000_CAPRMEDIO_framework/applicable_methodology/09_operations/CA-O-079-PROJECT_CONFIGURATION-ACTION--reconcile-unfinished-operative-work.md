@@ -4,22 +4,36 @@ content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Reconcile Unfinished Work"
+  governs: Subject/caprmedio/Action//Reconcile Unfinished Work
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Relation", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Occurrent/Execution/Workflow Run"]
-version: 8
-updated_at: "2026-10-19 15:56:48 +0400"
-relations: {"relates_to": ["CA-R-1715", "CA-M-306", "CA-R-1574", "CA-R-1576", "CA-R-1577", "CA-R-1579", "CA-R-1580", "CA-R-1583", "CA-R-1599", "CA-R-1539", "CA-R-1464", "CA-D-461", "CA-D-470", "CA-D-481", "CA-R-1490", "CA-R-1720"]}
-global_tier: 11
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Definition of Done'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Status'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Label'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
+  - Subject/CAPRMEDIO/Graph/Relation
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Carrier
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+version: 22
+updated_at: 2026-10-30 03:11:58 +0400
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-079-PROJECT_CONFIGURATION-ACTION--reconcile-unfinished-operative-work.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-079-PROJECT_CONFIGURATION-ACTION--reconcile-unfinished-operative-work.md
   source_atom_id: CA-O-079
-  source_atom_revision: 8
-  source_sha256: b1f21230a16fc0fec33eeb665235083ee1fc59ff22afefea49a06f4b214287d5
+  source_atom_revision: 22
+  source_sha256: dab594fe4ad7e25dd817c17c67126af4bfd95c6c1a6fac5c12bc6ef5d26f0971
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
@@ -33,16 +47,16 @@ Reconcile Unfinished Work **means** the Action that reconciles still-valid remai
 ### Inputs and preconditions
 
 - the selected work, its source context, available completion evidence, **and** the reason it remains unfinished.
-- current relevant Plan Revisions, their Claims, Definitions of Done, Status values, decomposition, blocking Relations, **and** evidence references.
+- current relevant Plan Revisions, their Claims, Definitions of Done, Status values, Plan containment, blocking Relations, **and** evidence references.
 - applicable Scope Unit ownership, Claim Target Scope Unit, authoring rules, **and** authorization for the proposed Plan changes.
 
 ### Behavior
 
 1. distinguish the still-valid remaining work from completed results, canceled work, obsolete requests, **and** uncertain completion claims. use available evidence; missing evidence is **not** proof of completion **or** permission **to** replay an effect.
 2. find whether the remaining work is already represented by a Plan. check the originating Plan first **when** available, **then** other relevant Plans by Claim **and** applicability rather than Label **or** folder name. reuse an applicable existing Plan; **if** several competing representations remain unresolved, report them rather than create another duplicate.
-3. reconcile necessary progress, remaining-work details, blockers, **and** source references within the authorized change. retain the existing Claim boundary **and** identity; a Summary change requires replacement under CA-R-1464. reference completed Plan Atoms **and** canonical Journal events using existing preservation authority CA-D-461, CA-R-1490, **and** CA-R-1720; do **not** copy those Atoms **or** historical events into another authoritative record.
-4. **if** no applicable Plan represents still-valid work, create a Plan **only** within existing creation authority **and** under CA-M-306, CA-R-1599, **and** CA-D-470. select admitted Status **and** placement under CA-R-1539 **and** CA-D-461. use an explicitly justified `IS_DECOMPOSITION_OF` Relation under CA-D-481 **when** the work contributes required work **to** another Plan; a standalone Plan remains permitted. do **not** introduce a Version Plan **or** Change Plan authoring model merely from its Label.
-5. retain explicit blocking under CA-R-1580 independently of decomposition **and** navigation order. do **not** silently reopen Done, Canceled, **or** Archived work, change another Plan's Status, **or** infer readiness from moving a Carrier. unresolved authority, applicability, validity, **or** destination selection remains a reported blocker.
+3. reconcile necessary progress, remaining-work details, blockers, **and** source references within the authorized change. retain the existing Claim boundary **and** identity; a Summary change requires replacement under CA-R-1464. reference completed Plan Atoms **and** canonical Journal events using existing preservation authority CA-D-461, CA-R-2448, **and** CA-R-1720; do **not** copy those Atoms **or** historical events into another authoritative record.
+4. **if** no applicable Plan represents still-valid work, create a Plan **only** within existing creation authority **and** under CA-M-306, CA-R-1599, **and** CA-D-470. select admitted Status **and** placement under CA-R-1539 **and** CA-D-461. use an explicitly justified `IS_CONTAINED_BY` connection on the child Plan **when** the work belongs under another Plan; derive `CONTAINS`; a standalone Plan remains permitted. do **not** introduce a Version Plan **or** Change Plan authoring model merely from its Label.
+5. retain explicit blocking under CA-R-1580 independently of Plan containment **and** navigation order. do **not** silently reopen Done, Canceled, **or** Archived work, change another Plan's Status, **or** infer readiness from moving a Carrier. unresolved authority, applicability, validity, **or** destination selection remains a reported blocker.
 6. **before** applying an authorized change, confirm the selected Plan Revisions remain current. apply **only** the bounded reconciliation, check its resulting references **and** Carrier placement, **and** record actual change events under the existing Journal authority. an already reconciled item is a no-change result, **not** another Plan **or** duplicate historical event.
 
 ### Results and effects

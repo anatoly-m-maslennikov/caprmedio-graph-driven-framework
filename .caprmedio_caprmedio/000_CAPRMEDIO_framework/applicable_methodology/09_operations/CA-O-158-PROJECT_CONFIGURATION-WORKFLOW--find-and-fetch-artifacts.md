@@ -1,24 +1,33 @@
 ---
-atom_id: "CA-O-158"
-content_role: "Operations"
+atom_id: CA-O-158
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-global_tier: 11
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Workflow"
-version: 7
-updated_at: "2026-10-19 15:57:08 +0400"
+status: Active
+author: Anatoly Maslennikov
+type: Workflow
+version: 17
+updated_at: 2026-11-02 19:46:47 +0400
 subjects:
-  governs: "Find and Fetch Artifacts"
-  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Artifact", "Markdown", "Entity/Node/Continuant/History/Journal", "Tool"]
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+  depends_on:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
+  - 'Subject/CAPRMEDIO/Carrier/File.Format: Markdown'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
 relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-158-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-artifacts.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-158-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-artifacts.md
   source_atom_id: CA-O-158
-  source_atom_revision: 7
-  source_sha256: 3560b87dd251e1d59acca577b187bde04b7c452e59e31ff55d73ecaff091a5df
+  source_atom_revision: 17
+  source_sha256: 2f6769717822611f6dac0408318edbe4cfac6faa7cfeac2916627aafc61b3c02
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
@@ -58,11 +67,11 @@ CA-O-038's body-free generic helper.
 
 The implementation contract is CA-R-1849@3, CA-R-1850@2, CA-M-330@3,
 CA-E-569@2, and CA-D-551@4 in
-`102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/`.
+`102_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/`.
 The delivered Tool and golden test paths are respectively
-`102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/`
+`LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/FIND_AND_FETCH_ARTIFACTS/`
 and
-`102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py`.
+`LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py`.
 
 An actual admitted execution uses the shared RUN_SUPPORT and Work Journal
 defined by CA-D-527 through CA-D-529; preview creates no Run and shared Run

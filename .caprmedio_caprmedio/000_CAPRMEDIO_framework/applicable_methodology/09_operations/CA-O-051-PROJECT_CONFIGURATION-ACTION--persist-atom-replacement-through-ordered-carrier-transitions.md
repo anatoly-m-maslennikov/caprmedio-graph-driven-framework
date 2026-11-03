@@ -1,26 +1,32 @@
 ---
 subjects:
-  governs: "Persist Atom Replacement"
+  governs: Subject/caprmedio/Action//Persist Atom Replacement
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Revision/Type: Atom", "Atom Carrier", "Entity/Node/Continuant/History/Journal", "Artifact Archive Carrier Basename"]
-version: 11
-updated_at: "2026-10-19 15:56:44 +0400"
-relations: {relates_to: [CA-R-1432, CA-R-807]}
-atom_id: "CA-O-051"
-content_role: "Operations"
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Carrier/File
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+  - Subject/CAPRMEDIO/Carrier/File.Filename
+version: 21
+updated_at: 2026-10-27 19:59:44 +0400
+relations:
+  depends_on:
+  - CA-R-807
+atom_id: CA-O-051
+content_role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Action"
-global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+type: Action
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-051-PROJECT_CONFIGURATION-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-051-PROJECT_CONFIGURATION-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md
   source_atom_id: CA-O-051
-  source_atom_revision: 11
-  source_sha256: d1b84e744465fae1bac2e84e93e8514d281847f6b5f0353ef6663728935749d5
-  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  source_atom_revision: 21
+  source_sha256: 562423186c08e0e9ec39db0b79346a634bc49b371e31a037e49ab1596fba0251
+  original_relations_sha256: 67577f2516b11efabad843133bbc9a2bcd11b91623e7a492544579838c61aac8
 ---
 # Summary
 
@@ -32,7 +38,7 @@ Persist Atom Replacement **means** the reusable Action that persists **`=1`** ac
 
 1. persist the successor as Active **before** archiving the predecessor.
 2. archive the predecessor as one whole Carrier under CA-D-303 **and** record the corresponding replacement **in** the authoritative Journal with explicit predecessor **and** successor Atom IDs under CA-R-807.
-3. retain the predecessor's exact prior Revision bytes as history, including its prior Version, Status **and** Updated At, **without** another metadata edit to them. preserve the current predecessor's body, Summary, identity **and** every frontmatter value except Version, lifecycle `status` **and** `updated_at`; increment Version by exactly **`1`**, serialize `status: Archived` **and** refresh `updated_at` to the actual archive time. change its basename **only** by adding the canonical `@<version>` Archive suffix for that resulting Version under CA-D-289.
+3. retain the predecessor's exact prior Revision bytes as history, including its prior Version, Status **and** Updated At, **without** another metadata edit to them. materialize the predecessor's Archived representation with its prior Version and Updated At, version-qualified identity and governed history location; archival alone does not increment Version or refresh Updated At. the Active successor receives Version **`N+1`** and the actual Project-time Updated At for the real replacement update. change its basename **only** by adding the canonical `@<version>` Archive suffix for that predecessor Version under CA-D-289.
 4. keep replacement history out of predecessor **and** successor Atom frontmatter; formal replacement relations **and** inverse navigation remain deferred under CA-R-807.
 
 ## Details

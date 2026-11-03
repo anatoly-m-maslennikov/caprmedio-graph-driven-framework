@@ -3,23 +3,29 @@ atom_id: CA-O-180
 content_role: Operations
 type: Action
 current_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
-global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-09 16:36:54 +0400"
+version: 14
+updated_at: 2026-10-27 19:59:47 +0400
 subjects:
-  governs: "Initialize first Framework runtime and project-local ca Skill"
-  depends_on: [Action, Operator, Framework Package, Runtime, Methodology, Skill, Docker Image, Journal]
-relations:
-  relates_to: [CA-O-164, CA-R-1525, CA-R-1720, CA-R-1881, CA-M-338, CA-D-575]
+  governs: Subject/caprmedio/Action//Initialize first Framework runtime and project-local ca Skill
+  depends_on:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Carrier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface
+  - Subject/CAPRMEDIO/Carrier/Docker Image
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-180-PROJECT_CONFIGURATION-ACTION--initialize-the-first-framework-runtime-and-project-local-ca-skill.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-180-PROJECT_CONFIGURATION-ACTION--initialize-the-first-framework-runtime-and-project-local-ca-skill.md
   source_atom_id: CA-O-180
-  source_atom_revision: 3
-  source_sha256: 4303a6f35b84b6e36818f3236760173f9216233d881af51f5ac466b5af85bcda
-  original_relations_sha256: 288ebaea35a3ae58838c012c2ac1187781290de12e31a00403f1d2e1e6831746
+  source_atom_revision: 14
+  source_sha256: b80bc2474d2f04900345527e77213bbef5624d93e7460cb186fddb0a5532abea
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 

@@ -1,0 +1,29 @@
+---
+subjects:
+  active: Atom.ID
+  passive:
+  - Atom
+  - Project
+  - Entity/Object/Continuant/Governing Objects/Atom/Content Role
+version: 19
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-D-508
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 3
+role: Delivery
+form: Decision
+---
+## Summary
+
+Number Project-owned Atoms within **every** Content Role
+
+## Claim scope
+
+identified Project-owned Atoms.
+
+## Claim
+
+**every** identified Project-owned Atom **must** receive the next unreused number from the Project-wide sequence for its Content Role.

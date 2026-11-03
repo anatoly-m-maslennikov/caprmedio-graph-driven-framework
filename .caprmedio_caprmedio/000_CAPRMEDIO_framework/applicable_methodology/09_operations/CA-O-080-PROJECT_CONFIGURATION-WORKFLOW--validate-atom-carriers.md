@@ -4,28 +4,24 @@ content_role: Operations
 type: Workflow
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Atom Carrier Validation"
+  governs: Subject/CAPRMEDIO/Carrier
   depends_on:
-    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result", "Check Atoms Step"]
-version: 9
-updated_at: "2026-10-19 15:56:49 +0400"
-relations:
-  relates_to:
-    - CA-O-088
-    - CA-R-1513
-    - CA-R-1519
-    - CA-R-1570
-global_tier: 11
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - Subject/caprmedio/Step//Check Atoms Step
+version: 17
+updated_at: 2026-10-27 19:59:45 +0400
+relations: {}
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-080-PROJECT_CONFIGURATION-WORKFLOW--validate-atom-carriers.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-080-PROJECT_CONFIGURATION-WORKFLOW--validate-atom-carriers.md
   source_atom_id: CA-O-080
-  source_atom_revision: 9
-  source_sha256: ee021e8e71041496fdbc69309092d038a03c216a7b02e51aa88951d0160d05a3
-  original_relations_sha256: f59b0957a2d6f670bd211e54ae86aee3b30520244c95f04e6fd1545abae07fe7
+  source_atom_revision: 17
+  source_sha256: 4864b5909b72bd5c9b8e24b809a7fd68e8cc5aa76fc51b0f81583b4c97e59bbf
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 

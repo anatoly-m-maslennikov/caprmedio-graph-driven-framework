@@ -1,63 +1,42 @@
 ---
 subjects:
-  governs: "Release Readiness"
+  governs: Subject/caprmedio/Workflow//Release Readiness
   depends_on:
-    - "Workflow/Relation Kind: On Result"
-    - "Step Run"
-    - "Workflow Run"
-    - "Step"
-    - "Workflow"
-    - "Action"
-    - "Operator"
-    - "Implementation Workflow"
-    - "Select Reconciliation Sources"
-    - "Assess Source Conflicts"
-    - "Propose Source Corrections"
-    - "Obtain Source Correction Decision"
-    - "Apply Approved Source Corrections"
-    - "Refresh Required Release Projections"
-    - "Implementation Evaluation"
-    - "Assess Release Readiness"
-    - "Implementation Retry Control"
-    - "Artifact/Revision"
-    - "Journal/Record"
-    - "Project Configuration"
-    - "Atom"
-    - "Projection"
-    - "Atom/Content Role: Evaluation"
-    - "Version"
-    - "Autonomous Confidence Threshold"
-version: 6
-updated_at: "2026-10-04 15:08:16 +0000"
-relations:
-  relates_to:
-    - "CA-O-016"
-    - "CA-O-004"
-    - "CA-O-005"
-    - "CA-O-006"
-    - "CA-O-007"
-    - "CA-O-008"
-    - "CA-O-020"
-    - "CA-O-024"
-    - "CA-O-026"
-    - "CA-O-027"
-    - "CA-R-1692"
-    - "CA-R-1646"
-atom_id: "CA-O-025"
-content_role: "Operations"
-current_scope_unit: "PROJECT_CONFIGURATION"
-claim_target_scope_unit: "PROJECT_CONFIGURATION"
-local_tier: "Standard"
-status: "Active"
-author: "Anatoly Maslennikov"
-type: "Workflow"
-global_tier: 11
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/caprmedio/Workflow//Implementation Workflow
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
+  - Subject/caprmedio/Action//Assess Release Readiness
+  - Subject/caprmedio/Action//Implementation Retry Control
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
+version: 20
+updated_at: 2026-10-27 19:59:44 +0400
+relations: {}
+atom_id: CA-O-025
+content_role: Operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+status: Active
+author: Anatoly Maslennikov
+type: Workflow
+tier: 3
 projection:
-  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-025-PROJECT_CONFIGURATION-WORKFLOW--check-release-readiness-when-selected.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-025-PROJECT_CONFIGURATION-WORKFLOW--check-release-readiness-when-selected.md
   source_atom_id: CA-O-025
-  source_atom_revision: 6
-  source_sha256: f7d2e3edc6eaf05d901bd6924a77f7019c98652e8a1ada63ae77bc2c831af43f
-  original_relations_sha256: 7235e8a1c87920355d46c80bdb1426e0d3bd5f0b2a5de186979a007e10713b17
+  source_atom_revision: 20
+  source_sha256: 60fcb0c371c8663f07187e7817dce33d3660090ef6d9e5f87fe6076cf6893a23
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 
@@ -90,7 +69,7 @@ the entry Step is select. interpret Step bindings **and** run boundaries under C
 
 ### Transitions
 
-the transitions below use the Workflow-scoped ON_RESULT Relation under CA-R-1513 **when** the destination is a Step. a terminal outcome ends the Workflow Run; it is **not** another Step **or** Action.
+the transitions below are declared in this Workflow's Step structure; result-based routing belongs to the applicable Conditional Step definition **when** the destination is a Step. a terminal outcome ends the Workflow Run; it is **not** another Step **or** Action.
 
 | Step **and** Action | Result condition | Next Step **or** outcome |
 |---|---|---|
