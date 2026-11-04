@@ -145,7 +145,7 @@
     <div class="workspace-toolbar"><div class="toolbar-main"><WorksheetTabs {tabs} {activeId} onselect={(id) => activeId = id} onclose={closeWorksheet} onadd={addWorksheet} /></div><div class="toolbar-actions"><Button onclick={() => collapsed = !collapsed}>{collapsed ? 'Show editor' : 'Hide editor'}</Button></div></div>
     {#if active}
       <section class="editor-panel"><div class="panel-heading"><h2>{active.title}</h2><Button class="editor-toggle" onclick={() => collapsed = !collapsed}>{collapsed ? 'Show editor' : 'Hide editor'}</Button></div>
-        <div class="editor-content" hidden={collapsed}><SqlEditor value={active.sql} cursor={active.cursor} disabled={active.busy} {schema} onchange={edit} onaction={(kind, cursor) => action(kind, cursor)} /></div>
+        <div class="editor-content" hidden={collapsed}>{#key active.id}<SqlEditor value={active.sql} cursor={active.cursor} disabled={active.busy} {schema} onchange={edit} onaction={(kind, cursor) => action(kind, cursor)} />{/key}</div>
         <div class="query-actions"><Button type="button" disabled={active.busy || savedBusy} onclick={() => action('run')}>Run</Button><Button type="button" disabled={active.busy || savedBusy} onclick={() => action('check')}>Check</Button><Button type="button" disabled={active.busy || savedBusy} onclick={() => action('save')}>Save</Button><Button type="button" disabled={active.busy || savedBusy} onclick={saveWorksheet}>Save Worksheet</Button><span class="shortcut">Cmd+Enter Run · Shift+Cmd+Enter Check</span></div>
         {#if active.error}<p class="error" role="alert">{active.error}</p>{/if}
         {#if active.saved}<p class="notice">Saved: <a href={active.saved.saved_query_url}>{active.saved.saved_query_id}</a></p>{/if}

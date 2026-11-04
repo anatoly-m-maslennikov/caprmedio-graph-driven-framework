@@ -1,7 +1,13 @@
 // CA-E-678@1
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { cleanAfterSave, persistable, restore } from './workspace.js';
+import { cleanAfterSave, newWorksheet, persistable, restore } from './workspace.js';
+
+test('a new empty worksheet starts clean', () => {
+  const tab = newWorksheet(1);
+  assert.equal(tab.sql, tab.savedSql);
+  assert.equal(tab.dirty, false);
+});
 
 test('single-statement save does not mark a multi-statement worksheet clean', () => {
   const tab = { id: 'a', title: 'Worksheet 1', sql: 'SELECT 1; SELECT 2', cursor: 0, dirty: true };

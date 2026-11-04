@@ -16,6 +16,7 @@
 @media (prefers-color-scheme: dark) { :root[data-theme='system'] { --page: #17191c; --surface: #202327; --surface-muted: #292d32; --surface-raised: #262a2f; --text: #eef1f4; --text-muted: #aeb7c2; --border: #3b4149; --border-strong: #59636f; --accent: #82b3ff; --accent-soft: #1d3e68; --danger: #ffaaa4; --notice: #f5cb72; --focus-ring: #a2c6ff; --syntax-keyword: #cba6ff; --syntax-string: #78d8a8; --syntax-number: #f2b36d; --syntax-comment: #aab3bd; } }
 * { box-sizing: border-box; }
 body { margin: 0; min-width: 320px; background: var(--page); color: var(--text); font-size: calc(14px * var(--text-scale)); line-height: 1.5; }
+a { color: var(--accent); }
 button, input, select, textarea { font: inherit; border: 1px solid var(--border-strong); border-radius: 5px; background: var(--surface); color: var(--text); }
 button { min-height: 32px; padding: 5px 10px; cursor: pointer; }
 button:hover:not(:disabled), button.primary { border-color: var(--accent); }

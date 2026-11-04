@@ -1,6 +1,6 @@
 // @ts-nocheck
 // CA-M-470@1
-const empty = () => ({ id: crypto.randomUUID(), title: 'Worksheet', sql: '', cursor: 0, dirty: false });
+const empty = () => ({ id: crypto.randomUUID(), title: 'Worksheet', sql: '', savedSql: '', cursor: 0, dirty: false });
 
 export function newWorksheet(number) {
   return { ...empty(), title: `Worksheet ${number}` };
