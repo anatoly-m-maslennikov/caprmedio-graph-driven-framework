@@ -1,0 +1,35 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Carrier/File
+  passive:
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-D-416
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Delivery
+form: Decision
+projection:
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-416-CORE_META_MODEL-ENG_DECISION--classify-markdown-atom-carrier.md
+  source_atom_id: CA-D-416
+  source_atom_revision: 29
+  source_sha256: 5cfcda668adf8e01cb5b0ab4e262bbc2de85e4b4c4e1a4e7cc77303a85239fab
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+---
+## Summary
+Classify Markdown Atom Carrier
+
+## Claim
+
+### Prose Claim
+
+the Term Markdown Atom Carrier.
+
+
+the Term Markdown Atom Carrier **must** be **NARROWER_THAN** File Carrier.
