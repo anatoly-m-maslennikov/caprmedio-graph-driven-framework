@@ -1,0 +1,15 @@
+Candidate only; no Current source changed.
+Target: CA-R-2721@1 sha256:bfab59fd707eeaf43113eb5ceaac35ffc6ccfe852ad08ac62772c4d75b8a9832
+Source: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2721-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-formal-claim.md
+Inherited format: CA-R-2498@4 sha256:9ffe7c05ec917038367889633aa487478b09f370ecea282ef33396afa67b4d84
+Ancestor source: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md
+Ancestor format declaration proposed for the separate CA-R-2498 lane: Atom.Content.**: [markdown]
+The existing recursive child-name constraint Atom.Content.**[string]{:0+} remains separate.
+Applicability: Atoms whose Header.Role is in RMED; these target Properties are descendants of Atom.Content. The ancestor applies to Atom.Content descendants for all Atoms, including this target context.
+The ancestor contributes format only; target occurrence, value, child-name bounds and all other clauses remain as indexed. Conditional/new decisions on bounds require rebasing this candidate.
+
+Indexed formal claim:
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1}; Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}; FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+
+Candidate formal claim:
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: {:1}; Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}; FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}

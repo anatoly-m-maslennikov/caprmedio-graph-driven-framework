@@ -1,0 +1,13 @@
+# Additional bounded format-inheritance previews
+
+Nine complete `.txt` previews cover three parent declarations and their six leaf declarations. The adjacent manifest pins every source, preview, the 1,151-entry frontier, and the 36-entry rules overlay. Every frontier file matched its pinned SHA-256; every overlay source and candidate matched its manifest hash. Current files were not edited.
+
+Each parent retains its existing bounded child-name selector and count, then adds a separate `Parent.*: [format]` clause with no value cardinality. Each child removes its identical `[string]` or `[int]`; the four string leaves retain `{:1}`, while the two confidence leaves incorporate the latest rules-overlay change to `{:0..1}`. Occurrence and child-name constraints and other source text remain unchanged. The bounded selector continues to constrain the applicable child names; the separate wildcard supplies their value format. The candidates require the generic inherited-format and omitted-annotation rules in the pinned overlay (especially CA-R-2472 and CA-R-2487); they are not independently effective before those rules are adopted.
+
+| Parent and exact selector | Covered leaves | Evidence |
+|---|---|---|
+| CA-R-2716 `Atom.Header.Carrier Destination.File.*: [string]` | CA-R-2717 Name; CA-R-2718 Path | Both existing leaf declarations state string and forbid children. CA-D-664 maps them to filename and directory location. |
+| CA-R-2632 `Project.Settings.Authority Modes.*: [string]` | CA-R-2633 Default Scope Unit Authority Mode; CA-R-2634 Project Authority Mode | Both are strings and forbid children; parent and leaves preserve their `strict`/`casual` restrictions. CA-R-1430 and CA-D-668 retain the mode-selection/encoding requirements. |
+| CA-R-1979 `Project.Settings.Confidence.*: [int]` | CA-R-2624 Necessary Information Threshold; CA-R-2625 Semantic Resolution Threshold | Both are ints and forbid children; absence and governed default remain intact. CA-R-2271 also describes the two thresholds as integer percentages. |
+
+The full frontier was searched for Carrier Destination, Authority Modes, Confidence and the threshold names; 54 files had textual hits, including declarations, configuration, delivery and operational references. The direct parent and leaf declarations above determine the bounded selector and format; the neighboring textual hits do not establish an additional differently typed child under those selectors. This is a bounded textual and declaration review of the pinned frontier, not proof about sources outside that frontier or runtime implementation. The overlay supplies notation and property semantics; previews preserve the pinned source text and are not an admission, source application, runtime validation, or a migration.

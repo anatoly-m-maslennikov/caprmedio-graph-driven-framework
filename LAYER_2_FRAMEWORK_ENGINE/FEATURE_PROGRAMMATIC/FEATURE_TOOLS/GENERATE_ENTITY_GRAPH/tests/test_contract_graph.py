@@ -28,6 +28,19 @@ def body(*claim_lines, semantics=None):
 
 
 class ContractGraphTests(unittest.TestCase):
+    def test_render_occurrence_and_population_scopes(self):
+        graph = compose_contract_graph([
+            carrier("CA-R-1", "Node", body("Node.")),
+            carrier("CA-R-2", "Node.Name", body(
+                "```CFEL", "# model", "Node.Name{:0..1}: [string]{:0..1};",
+                "# instances", "Node.**//{:1};", "Node//$node{:1}", "```")),
+        ])
+        document = render_contract_graph(graph)
+        self.assertIn("written names count=0..1; effective names count=0..1", document)
+        self.assertIn("values count=0..1", document)
+        self.assertIn("for each Property schema per bearer", document)
+        self.assertIn("in project population", document)
+
     def test_qualified_declared_by_derivation_is_not_an_unconditional_inverse(self):
         graph = compose_contract_graph([carrier("CA-R-1", "CFEL <+ Relation//IS_DECLARED_BY", body(
             "### Formal Claim", "```CFEL", "# model",

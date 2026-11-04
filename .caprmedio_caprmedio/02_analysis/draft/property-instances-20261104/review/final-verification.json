@@ -1,0 +1,33 @@
+{
+  "verdict": "pass_bounded_source_review",
+  "rules_manifest_sha256": "90d5a4a69306c4430b7cd75d242d42bbf309c29372df5349aed3b6184d71b1cf",
+  "extra_manifest_sha256": "38bf2b7cdd32ec99583449652223f7b80d485f54406a69e42d6533061851885f",
+  "pins": "all source, candidate, overlay, frontier and base candidate hashes match",
+  "rules_count": 36,
+  "extra_count": 9,
+  "unique_candidates": 43,
+  "precedence": {
+    "CA-R-2624": "inheritance-extra",
+    "CA-R-2625": "inheritance-extra"
+  },
+  "checks": {
+    "parent_formats": "four new format-only selectors; no new count in those selectors",
+    "leaf_counts": "preserved from rules overlay for overlaps and Current for other extra leaves",
+    "format_ambiguity": "no new conflict found in bounded affected declarations; not a global applicability proof",
+    "property_instances": "0..1 per applicable schema and bearer; present instance has one bearer and one schema; inverse permissions explicit",
+    "mandatory": "no universal mandatory property statement in packet",
+    "guard": "Formal Claim fence selection conditional on presence"
+  },
+  "remaining_conditional_evidence": [
+    "Atom.Content",
+    "Atom.Header.Relations",
+    "Atom.Header.Subjects",
+    "Project.Settings.Confidence",
+    "Project.Settings.RMED Review",
+    "Operations.Workflow.Purpose applicability"
+  ],
+  "limitations": [
+    "88 declaration impact inventory is bounded; conditional evidence remains unresolved",
+    "no runtime or parser enforcement, data migration, promotion or Current modification verified"
+  ]
+}

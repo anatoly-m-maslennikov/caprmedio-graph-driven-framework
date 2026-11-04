@@ -7,12 +7,12 @@ subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Cardinality
   passive:
   - CAPRMEDIO_MODEL <+ CFEL
-version: 11
+version: 12
 relations: {}
 tier: 1
 role: Requirement
 form: Rule
-updated_at: 2026-11-02 17:54:42 +0400
+updated_at: 2026-11-04 05:21:15 +0400
 ---
 
 ## Summary
@@ -50,8 +50,7 @@ nested children.
 Property occurrence, value and dependent-name counts are separate:
 
 
-`p{:0}` forbids authored occurrences of p; it does not forbid independently
-declared children. `p.*[]{:0}` states that p has no declared immediate
+A named applicable Property has at most one occurrence per corresponding bearer. A leaf with a positive applicable value minimum requires an occurrence; a zero minimum by itself does not require presence. Explicit occurrence and other applicable constraints still apply. A present Property has a value; for a structural parent, nonempty child structure is a value even when its direct-value count is zero. `p: {:0..1}` specifies the direct-value count using its applicable inherited format. Explicit occurrence and value constraints both apply. `p.*[]{:0}` states that p has no declared immediate
 dependents after local and inherited declaration resolution. The value count
 to the right of `[value format]` is per selected existing Property occurrence;
 the name count is the number of selected dependent Property names. A recursive
@@ -63,5 +62,5 @@ bearer's descendants.
 counts. The first constrains outgoing Relation instances per selected Source;
 the second constrains reverse links per selected Target. Reversing the written
 Relation swaps the slots. Neither count is a Property value count, a distinct
-target count, or Relation arity. An omitted annotation is unspecified.
+target count, or Relation arity. An omitted occurrence annotation does not make a Property required; presence follows its applicable value constraints. Other omitted annotations are unspecified.
 

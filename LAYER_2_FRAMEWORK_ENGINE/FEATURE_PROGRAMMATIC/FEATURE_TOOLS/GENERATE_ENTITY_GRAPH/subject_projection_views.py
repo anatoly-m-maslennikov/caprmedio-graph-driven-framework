@@ -169,10 +169,13 @@ def _contract_channels(contract: Mapping[str, Any]) -> list[str]:
     for key, label in (
         ("selection", "nesting"), ("name_format", "name format"),
         ("occurrence_cardinality", "occurrence cardinality"),
+        ("effective_occurrence_cardinality", "effective occurrence cardinality"),
         ("value_format", "value format"), ("value_cardinality", "value cardinality"),
     ):
         if key in contract:
-            value = _cardinality(contract[key]) if key.endswith("cardinality") else contract[key]
+            value = ("omitted" if key == "occurrence_cardinality" and contract[key] is None
+                     else "conflict" if key == "effective_occurrence_cardinality" and contract.get("occurrence_conflict")
+                     else _cardinality(contract[key]) if key.endswith("cardinality") else contract[key])
             channels.append(f"    - {label}: `{value}`")
     return channels
 
@@ -201,9 +204,13 @@ def _render_property(lines: list[str], property: Mapping[str, Any], level: int) 
         lines.append(f"  - origin: `{property['origin_entity']}`")
     if level >= 3:
         _render_contracts(lines, property, refs)
+        if "effective_value_format" in property:
+            sources = [ref for source in property.get("effective_value_format_sources", []) for ref in _refs(source)]
+            lines.append(f"  - effective value format: `{property['effective_value_format']}` — {', '.join(sources) or 'missing source'}")
         for clause in property.get("instance_constraints", []):
             if isinstance(clause, Mapping):
-                lines.append(f"  - instance constraint: `{clause.get('expression', '')}` — {', '.join(_refs(clause.get('source'))) or 'missing source'}")
+                scope = {"per_bearer_each_schema": "each Property schema per bearer", "project": "project population"}.get(clause.get("scope"))
+                lines.append(f"  - instance constraint: `{clause.get('expression', '')}` — {', '.join(_refs(clause.get('source'))) or 'missing source'}" + (f"; scope: {scope}" if scope else ""))
     if level == 4:
         claims = _claims(property.get("formal_claims"))
         if claims:

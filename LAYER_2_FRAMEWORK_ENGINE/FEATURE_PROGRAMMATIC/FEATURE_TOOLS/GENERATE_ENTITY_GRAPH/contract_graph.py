@@ -788,7 +788,13 @@ def _clause(row: Mapping[str, Any]) -> str:
         written = row.get("written_direction", "forward")
         return f"`{row.get('source_selector')}` — {relation} → `{row.get('target_selector')}`; Host={_count(row.get('source_cardinality'))}; Target={_count(row.get('target_cardinality'))}; written direction={written}"
     if row.get("kind") == "property_constraint":
-        return f"`{row.get('property_selector')}` {row.get('selection')}; names={row.get('name_format')}; names count={_count(row.get('occurrence_cardinality'))}; values={row.get('value_format')}; values count={_count(row.get('value_cardinality'))}"
+        effective = "conflict" if row.get("occurrence_conflict") else _count(row.get("effective_occurrence_cardinality"))
+        written = _count(row["occurrence_cardinality"]) if row.get("occurrence_cardinality") is not None else "omitted"
+        return f"`{row.get('property_selector')}` {row.get('selection')}; names={row.get('name_format')}; written names count={written}; effective names count={effective}; values={row.get('value_format')}; values count={_count(row.get('value_cardinality'))}"
+    if row.get("kind") == "property_instance_population_constraint":
+        return f"`{row.get('expression')}`; count={_count(row.get('population_cardinality'))} for each Property schema per bearer"
+    if row.get("kind") == "instance_population_constraint":
+        return f"`{row.get('expression')}`; count={_count(row.get('population_cardinality'))} in project population"
     if row.get("kind") == "allowed_literal":
         return f"`{row.get('property_selector')}: {row.get('literal')}`"
     if row.get("kind") == "classification_condition":

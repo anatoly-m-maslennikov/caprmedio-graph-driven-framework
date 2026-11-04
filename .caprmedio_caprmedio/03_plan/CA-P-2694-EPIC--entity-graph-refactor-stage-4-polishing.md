@@ -5,8 +5,8 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
 tier: 3
-version: 53
-updated_at: 2026-11-04 03:41:53 +0400
+version: 54
+updated_at: 2026-11-04 05:23:38 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations: {}
@@ -114,6 +114,16 @@ The reviewed packet applies 89 revisions and 19 retirements. The declaring Relat
 - Fixed selector parsing and kept selectors separate from graph entities. Recognized Method/Term Definition lexical authority.
 - Rebuilt seven MODEL projections from 1,151 pinned suppliers. The audit now reports 64 uncovered and 26 unresolved expressions, down from 74/51.
 - 415 graph tests, 14 notation tests, four merge tests and independent preservation checks pass.
-- Hold Property presence defaults, outgoing permission bounds, old Projection job/Form mapping and omitted execution-kind decisions. The first user question is pending.
+- Property presence is resolved in the follow-up below. Hold outgoing permission bounds, old Projection job/Form mapping and omitted execution-kind decisions.
 
 [Cleanup report](../02_analysis/draft/model-cleanup-20261104/REPORT.md). The Epic remains Active.
+
+## Property instances and inherited formats — 2026-11-04
+
+- Applied 42 reviewed source revisions and preserved exact predecessors.
+- A present Property has a value. A zero value minimum permits omission. Property instances have schema and bearer links.
+- Declared four shared formats: Content Markdown; File destination strings; Authority Modes strings; Confidence integers. Removed 13 repeated format annotations; local counts remain.
+- The reader resolves inherited formats through narrower branches and cites the supplying Declaration. All 421 graph tests pass.
+- Rebuilt seven MODEL projections from 1,151 pinned suppliers. Six conditional applicability cases remain; the broader audit remains 64 uncovered / 26 unresolved.
+
+[Application and verification](../02_analysis/draft/property-instances-20261104/REPORT.md). Instance conformance and runtime release remain outside this pass.

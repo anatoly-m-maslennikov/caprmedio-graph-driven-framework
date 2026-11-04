@@ -774,10 +774,10 @@ source:
   - CA-R-1956@12
   - CA-R-1957@12
   - CA-R-1958@16
-  - CA-R-1977@15
+  - CA-R-1977@16
   - CA-R-1978@15
-  - CA-R-1979@15
-  - CA-R-1980@15
+  - CA-R-1979@16
+  - CA-R-1980@16
   - CA-R-1981@17
   - CA-R-1982@15
   - CA-R-1983@15
@@ -806,7 +806,7 @@ source:
   - CA-R-2201@6
   - CA-R-2203@7
   - CA-R-2225@4
-  - CA-R-2243@11
+  - CA-R-2243@12
   - CA-R-2245@8
   - CA-R-2246@8
   - CA-R-2247@7
@@ -828,7 +828,7 @@ source:
   - CA-R-2278@3
   - CA-R-2327@6
   - CA-R-2352@5
-  - CA-R-2353@5
+  - CA-R-2353@6
   - CA-R-2354@5
   - CA-R-2355@5
   - CA-R-2415@4
@@ -849,7 +849,7 @@ source:
   - CA-R-2452@4
   - CA-R-2456@4
   - CA-R-2457@4
-  - CA-R-2462@2
+  - CA-R-2462@3
   - CA-R-2463@2
   - CA-R-2464@5
   - CA-R-2465@4
@@ -858,12 +858,12 @@ source:
   - CA-R-2468@2
   - CA-R-2469@4
   - CA-R-2470@2
-  - CA-R-2471@6
-  - CA-R-2472@8
+  - CA-R-2471@7
+  - CA-R-2472@9
   - CA-R-2473@5
-  - CA-R-2474@2
+  - CA-R-2474@3
   - CA-R-2475@5
-  - CA-R-2476@5
+  - CA-R-2476@6
   - CA-R-2477@5
   - CA-R-2478@5
   - CA-R-2481@2
@@ -872,12 +872,12 @@ source:
   - CA-R-2484@2
   - CA-R-2485@5
   - CA-R-2486@6
-  - CA-R-2487@10
-  - CA-R-2498@4
-  - CA-R-2499@4
-  - CA-R-2500@4
-  - CA-R-2502@4
-  - CA-R-2503@4
+  - CA-R-2487@11
+  - CA-R-2498@5
+  - CA-R-2499@5
+  - CA-R-2500@5
+  - CA-R-2502@5
+  - CA-R-2503@5
   - CA-R-2508@4
   - CA-R-2509@2
   - CA-R-2511@2
@@ -890,9 +890,9 @@ source:
   - CA-R-2523@2
   - CA-R-2524@3
   - CA-R-2525@2
-  - CA-R-2526@3
+  - CA-R-2526@4
   - CA-R-2527@2
-  - CA-R-2528@2
+  - CA-R-2528@3
   - CA-R-2530@2
   - CA-R-2531@2
   - CA-R-2532@8
@@ -907,13 +907,13 @@ source:
   - CA-R-2541@2
   - CA-R-2542@2
   - CA-R-2543@4
-  - CA-R-2544@2
+  - CA-R-2544@3
   - CA-R-2547@3
   - CA-R-2548@2
   - CA-R-2549@2
   - CA-R-2550@2
   - CA-R-2551@2
-  - CA-R-2552@3
+  - CA-R-2552@4
   - CA-R-2553@2
   - CA-R-2554@2
   - CA-R-2555@2
@@ -935,11 +935,11 @@ source:
   - CA-R-2571@2
   - CA-R-2572@2
   - CA-R-2573@2
-  - CA-R-2574@2
+  - CA-R-2574@3
   - CA-R-2575@2
   - CA-R-2576@2
   - CA-R-2577@2
-  - CA-R-2578@2
+  - CA-R-2578@3
   - CA-R-2579@2
   - CA-R-2580@2
   - CA-R-2581@2
@@ -984,16 +984,16 @@ source:
   - CA-R-2621@2
   - CA-R-2622@2
   - CA-R-2623@4
-  - CA-R-2624@1
-  - CA-R-2625@1
+  - CA-R-2624@2
+  - CA-R-2625@2
   - CA-R-2626@1
-  - CA-R-2629@1
-  - CA-R-2630@1
+  - CA-R-2629@2
+  - CA-R-2630@2
   - CA-R-2631@1
-  - CA-R-2632@2
-  - CA-R-2633@1
-  - CA-R-2634@1
-  - CA-R-2635@1
+  - CA-R-2632@3
+  - CA-R-2633@2
+  - CA-R-2634@2
+  - CA-R-2635@2
   - CA-R-2636@1
   - CA-R-2637@1
   - CA-R-2638@3
@@ -1052,30 +1052,30 @@ source:
   - CA-R-2696@1
   - CA-R-2697@1
   - CA-R-2698@1
-  - CA-R-2699@1
-  - CA-R-2700@1
+  - CA-R-2699@2
+  - CA-R-2700@2
   - CA-R-2701@1
   - CA-R-2702@1
   - CA-R-2703@1
   - CA-R-2704@1
-  - CA-R-2705@1
+  - CA-R-2705@2
   - CA-R-2706@1
-  - CA-R-2707@1
+  - CA-R-2707@2
   - CA-R-2708@1
   - CA-R-2709@1
   - CA-R-2710@1
-  - CA-R-2711@1
-  - CA-R-2712@1
+  - CA-R-2711@2
+  - CA-R-2712@2
   - CA-R-2713@1
-  - CA-R-2714@1
+  - CA-R-2714@2
   - CA-R-2715@1
-  - CA-R-2716@1
-  - CA-R-2717@2
-  - CA-R-2718@2
+  - CA-R-2716@2
+  - CA-R-2717@3
+  - CA-R-2718@3
   - CA-R-2719@1
   - CA-R-2720@1
-  - CA-R-2721@1
-  - CA-R-2722@1
+  - CA-R-2721@2
+  - CA-R-2722@2
   - CA-R-2730@1
   - CA-R-2732@1
   - CA-R-2733@1
@@ -1156,7 +1156,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 03:34:02 +0400
+updated_at: 2026-11-04 05:22:13 +0400
 ---
 
 ## Primary entities
@@ -1248,24 +1248,16 @@ CAPRMEDIO_MODEL
 - IF $step {=0}((CONTAINS)) THEN $step {:1}((RUNS)) (in (Action, Workflow))//$selected — CA-R-2465@4
 - Atom/(.Header.Role: Operations)/Substep — CA-R-2466@4
 - Atom/(.Header.Role: Operations)/Action — CA-R-2467@2
-- p{:occurrence}: [value format]{:value count} — CA-R-2487@10
-- p.*[name format]{:immediate name count} — CA-R-2487@10
-- p.**[name format]{:recursive name count} — CA-R-2487@10
-- p.*[name format]{:immediate name count}: [value format]{:value count} — CA-R-2487@10
+- p{:occurrence}: [value format]{:value count} — CA-R-2487@11
+- p.*[name format]{:immediate name count} — CA-R-2487@11
+- p.**[name format]{:recursive name count} — CA-R-2487@11
+- p.*[name format]{:immediate name count}: [value format]{:value count} — CA-R-2487@11
 - DETERMINES(
   Atom//$atom,
   (.ID),
   (.Content.Summary),
   (Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived)
-) — CA-R-2499@4
-- Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0} — CA-R-2500@4
-- Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2} — CA-R-2500@4
-- Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1} — CA-R-2500@4
-- Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1} — CA-R-2500@4
-- Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1} — CA-R-2502@4
-- Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0} — CA-R-2502@4
-- Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1} — CA-R-2503@4
-- Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+} — CA-R-2503@4
+) — CA-R-2499@5
 - Atom — CA-R-2508@4
 - UNIQUE(Atom//$atom, (.Header.ID, .Header.Version)) — CA-R-2508@4
 - Atom/(.Header.Role: Concern) — CA-R-2509@2
@@ -1288,7 +1280,7 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6) — CA-R-2523@2
 - IF (Package//$package not in (Package/Implementation//$package_6))
 THEN ($package {==1}((IS_CONTAINED_BY)) Package//$package_7) — CA-R-2525@2
 - IF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit))
-THEN ($unit.ID{:1}) — CA-R-2526@3
+THEN ($unit.ID{:1}) — CA-R-2526@4
 - DETERMINES(Projection//$projection, (.Form, .Source.Named Selection), (.ID)) — CA-R-2537@2
 - DETERMINES(Projection//$projection_2, (.ID), (.Form, .Source.Named Selection)) — CA-R-2537@2
 - Projection//$projection.Updated At == MAX(Event Record//$event_record(.object_output{=1}, .object_output.version{=0}, .object_output.id = $projection.ID, (.action = create OR .action = update)).happened_at) — CA-R-2539@2
@@ -1334,47 +1326,45 @@ THEN ($contained.structural_level = $container.structural_level + 1) — CA-R-25
 - IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID)) — CA-R-2701@1
 - Atom.Header.Version >= 1 — CA-R-2704@1
-- Atom.Header.Label ?= Atom.Header.Form — CA-R-2705@1
+- Atom.Header.Label ?= Atom.Header.Form — CA-R-2705@2
 - Atom.Header.Tier >= -1 — CA-R-2706@1
-- IF (($atom.Header.Tier.Label{=1}) AND ($atom.Header.Tier = 0)) THEN ($atom.Header.Tier.Label == Scope Contract) — CA-R-2707@1
-- IF (($atom_2.Header.Tier.Label{=1}) AND ($atom_2.Header.Tier = 1)) THEN ($atom_2.Header.Tier.Label == Core) — CA-R-2707@1
-- IF (($atom_3.Header.Tier.Label{=1}) AND ($atom_3.Header.Tier = 2)) THEN ($atom_3.Header.Tier.Label == General) — CA-R-2707@1
-- IF (($atom_4.Header.Tier.Label{=1}) AND ($atom_4.Header.Tier = 3)) THEN ($atom_4.Header.Tier.Label == Standard) — CA-R-2707@1
-- IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5.Header.Tier.Label == Detail) — CA-R-2707@1
+- IF (($atom.Header.Tier.Label{=1}) AND ($atom.Header.Tier = 0)) THEN ($atom.Header.Tier.Label == Scope Contract) — CA-R-2707@2
+- IF (($atom_2.Header.Tier.Label{=1}) AND ($atom_2.Header.Tier = 1)) THEN ($atom_2.Header.Tier.Label == Core) — CA-R-2707@2
+- IF (($atom_3.Header.Tier.Label{=1}) AND ($atom_3.Header.Tier = 2)) THEN ($atom_3.Header.Tier.Label == General) — CA-R-2707@2
+- IF (($atom_4.Header.Tier.Label{=1}) AND ($atom_4.Header.Tier = 3)) THEN ($atom_4.Header.Tier.Label == Standard) — CA-R-2707@2
+- IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5.Header.Tier.Label == Detail) — CA-R-2707@2
 - COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $) — CA-R-2708@1
 - Atom/(.Header.Role: Concern).Header.Priority{:1}: [string]{:1} — CA-R-2710@1
 - Atom/(.Header.Role: Concern).Header.Priority.*[]{:0} — CA-R-2710@1
 - Atom/(.Header.Role: Concern).Header.Priority: High — CA-R-2710@1
 - Atom/(.Header.Role: Concern).Header.Priority: Medium — CA-R-2710@1
 - Atom/(.Header.Role: Concern).Header.Priority: Low — CA-R-2710@1
-- Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold{:0..1}: [int]{:1} — CA-R-2711@1
-- Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{:0} — CA-R-2711@1
+- Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold: [int]{:0..1} — CA-R-2711@2
+- Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{:0} — CA-R-2711@2
 - Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold
   ?= LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)
-  ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold — CA-R-2711@1
-- Atom/(.Header.Role: Plan).Header.Work Sequence Number{:0..1}: [int]{:1} — CA-R-2712@1
-- Atom/(.Header.Role: Plan).Header.Work Sequence Number.*[]{:0} — CA-R-2712@1
-- Atom/(.Header.Role: Plan)//$atom — CA-R-2712@1
+  ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold — CA-R-2711@2
+- Atom/(.Header.Role: Plan).Header.Work Sequence Number: [int]{:0..1} — CA-R-2712@2
+- Atom/(.Header.Role: Plan).Header.Work Sequence Number.*[]{:0} — CA-R-2712@2
+- Atom/(.Header.Role: Plan)//$atom — CA-R-2712@2
 - IF ($atom.Header.Work Sequence Number{=1})
-THEN ($atom.Header.Work Sequence Number > 0) — CA-R-2712@1
+THEN ($atom.Header.Work Sequence Number > 0) — CA-R-2712@2
 - UNIQUE(
   Atom/(.Header.Role: Plan)//$atom_2,
   (.Header.Relations.IS_CONTAINED_BY.atom, .Header.Work Sequence Number),
   (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.atom{=1})
-) — CA-R-2712@1
+) — CA-R-2712@2
 - UNIQUE(
   Atom/(.Header.Role: Plan)//$atom_3,
   (.Header.Relations.IS_CONTAINED_BY.scope_unit, .Header.Work Sequence Number),
   (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.scope_unit{=1})
-) — CA-R-2712@1
+) — CA-R-2712@2
 - IF ($atom.Header.Status >| Status Group = Current)
-THEN ($atom.Header.Subjects.Active{==1}) — CA-R-2714@1
+THEN ($atom.Header.Subjects.Active{==1}) — CA-R-2714@2
 - Operator//Alias == "alias(Relation//RELATION_NAME) == \"notation token\"" — CA-R-2720@1
-- Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1} — CA-R-2721@1
-- Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0} — CA-R-2721@1
-- FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1} — CA-R-2721@1
-- Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1} — CA-R-2722@1
-- Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0} — CA-R-2722@1
+- IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+) — CA-R-2721@2
 - Carrier/Docker Image — CA-R-2198@6
 - Carrier/Git Commit — CA-R-2199@6
 - Carrier/Git Branch — CA-R-2200@6

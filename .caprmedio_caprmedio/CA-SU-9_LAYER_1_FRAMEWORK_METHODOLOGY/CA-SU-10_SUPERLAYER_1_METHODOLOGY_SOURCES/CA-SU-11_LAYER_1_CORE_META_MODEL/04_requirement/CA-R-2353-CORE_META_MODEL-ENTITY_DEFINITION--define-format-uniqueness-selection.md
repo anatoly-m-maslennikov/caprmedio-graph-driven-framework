@@ -5,8 +5,8 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Format.Uniqueness Selection
-version: 5
-updated_at: 2026-11-03 23:25:51 +0400
+version: 6
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 1
 role: Requirement
@@ -22,7 +22,7 @@ Define Format Uniqueness Selection
 
 ```CFEL
 # model
-Format.Uniqueness Selection{:0..1}: [string]{:1};
+Format.Uniqueness Selection: [string]{:0..1};
 
 Format.Uniqueness Selection.*[]{:0}
 ```

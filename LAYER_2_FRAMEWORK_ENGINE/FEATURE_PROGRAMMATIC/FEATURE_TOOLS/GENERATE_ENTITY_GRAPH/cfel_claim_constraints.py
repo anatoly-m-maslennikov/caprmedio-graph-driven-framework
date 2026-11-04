@@ -21,12 +21,14 @@ _PROPERTY = re.compile(
     rf"^(?P<property>.+?)(?P<descendants>\.\*\*|\.\*)?"
     rf"(?:\[(?P<name_format>[^\]]*)\])?"
     rf"\{{:{_COUNT}\}}"
-    rf"(?:\s*:\s*\[(?P<value_format>[^\]]*)\]\{{:(?P<value_minimum>0|[1-9][0-9]*)(?P<value_tail>\+|\.\.(?P<value_maximum>0|[1-9][0-9]*))?\}})?$"
+    rf"(?:\s*:\s*(?:\[(?P<value_format>[^\]]*)\])?\{{:(?P<value_minimum>0|[1-9][0-9]*)(?P<value_tail>\+|\.\.(?P<value_maximum>0|[1-9][0-9]*))?\}})?$"
 )
 _PROPERTY_VALUE = re.compile(
-    rf"^(?P<property>.+?)\s*:\s*\[(?P<value_format>[^\]]*)\]"
-    rf"\{{:{_COUNT}\}}$"
+    rf"^(?P<property>.+?)(?P<descendants>\.\*\*|\.\*)?\s*:\s*(?:\[(?P<value_format>[^\]]*)\])?"
+    rf"(?:\{{:{_COUNT}\}})?$"
 )
+_NAMED_PROPERTY = re.compile(rf"^(?P<property>.+?)(?:\{{:{_COUNT}\}})?\s*:$")
+_MEMBERSHIP_QUALIFIER = re.compile(r"/\(\.[A-Za-z][A-Za-z0-9_. -]*\s+in\s+[A-Za-z][A-Za-z0-9_. -]*\)(?=\.|$)")
 _RELATION = re.compile(
     rf"^(?P<source>.+?)\s*(?:\{{:(?P<forward_minimum>0|[1-9][0-9]*)(?P<forward_tail>\+|\.\.(?P<forward_maximum>0|[1-9][0-9]*))?\}}\s*)?"
     rf"(?:<\(\((?P<reverse_relation>[^()]+)\)\)|\(\((?P<relation>[^()]+)\)\)|(?P<relation_notation>\+>|<\+))\s*"
@@ -54,6 +56,7 @@ _RELATION_ALIAS = re.compile(r'^alias\(\s*(?:Relation//)?(?P<name>[A-Za-z][A-Za-
 _COUNTERPART = re.compile(r'^(?P<source>Relation//[A-Za-z][A-Za-z0-9_]*)\s*<-->\s*(?P<target>Relation//[A-Za-z][A-Za-z0-9_]*)$')
 _INSTANCE_BINDING = re.compile(r'^(?P<kind>[A-Za-z][A-Za-z0-9_ /.-]*)//\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)$')
 _INSTANCE_POPULATION = re.compile(rf'^(?P<kind>[A-Za-z][A-Za-z0-9_ /.-]*)//\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)\{{:{_COUNT}\}}$')
+_PROPERTY_INSTANCE_POPULATION = re.compile(rf'^(?P<bearer>[A-Za-z][A-Za-z0-9_ /.-]*)\.\*\*//\{{:{_COUNT}\}}$')
 _MODEL_BINDING = re.compile(r'^IF\s+\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)\s+in\s*\((?P<selection>[^()]*)\)\s+THEN\s*\(', re.I)
 _CONTROL = re.compile(r"\b(?:IF|THEN|AND|OR)\b")
 _HEADING = re.compile(r"^(?P<hashes>#{1,6})[ \t]+(?P<name>[^\n#][^\n]*?)[ \t]*$", re.M)
@@ -68,6 +71,14 @@ def _count(minimum: str | None, tail: str | None, maximum: str | None) -> Record
     }
 
 
+def _named_property_count(count: Record | None, value_count: Record | None = None) -> Record | None:
+    minimum = max(count["minimum"] if count else 0, 1 if value_count and value_count["minimum"] > 0 else 0)
+    maximum = min(1, count["maximum"]) if count and count["maximum"] is not None else 1
+    if minimum > maximum:
+        return None
+    return {"minimum": minimum, "maximum": maximum}
+
+
 def _record(source: Mapping[str, Any], expression: str, kind: str, **fields: Any) -> Record:
     return {"kind": kind, "expression": expression, "source": dict(source), **fields}
 
@@ -76,7 +87,8 @@ def _property_selector(value: str) -> str | None:
     """Accept only a plain Property path; functions and expressions stay opaque."""
 
     selector = value.strip()
-    if not selector or any(token in selector for token in ("(", ")", "+", "=", "<", ">", "|", "@", "*", ";", ":", "[", "]", "{", "}", "'", '"')):
+    plain = _MEMBERSHIP_QUALIFIER.sub("", selector)
+    if not plain or any(token in plain for token in ("(", ")", "+", "=", "<", ">", "|", "@", "*", ";", ":", "[", "]", "{", "}", "'", '"')):
         return None
     return selector
 
@@ -381,7 +393,15 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
             if population is not None:
                 records.append(_record(source, expression, "instance_population_constraint",
                                        kind_selector=population.group("kind").strip(), variable=population.group("variable"),
+                                       scope="project",
                                        population_cardinality=_count(population.group("minimum"), population.group("tail"), population.group("maximum"))))
+                continue
+            property_population = _PROPERTY_INSTANCE_POPULATION.fullmatch(expression)
+            if property_population is not None:
+                records.append(_record(source, expression, "property_instance_population_constraint",
+                                       bearer_selector=property_population.group("bearer").strip(),
+                                       property_selection="recursive_dependents", scope="per_bearer_each_schema",
+                                       population_cardinality=_count(property_population.group("minimum"), property_population.group("tail"), property_population.group("maximum"))))
                 continue
             binding = _INSTANCE_BINDING.fullmatch(expression) if group == 'instances' else None
             if binding is not None:
@@ -469,6 +489,16 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
                     value=classification.group("value").strip(),
                 ))
                 continue
+            named_property = _NAMED_PROPERTY.fullmatch(expression)
+            named_selector = _property_selector(named_property.group("property")) if named_property is not None else None
+            if named_property is not None and named_selector is not None:
+                occurrence = _count(named_property.group("minimum"), named_property.group("tail"), named_property.group("maximum"))
+                effective = _named_property_count(occurrence)
+                records.append(_record(source, expression, "property_constraint", property_selector=named_selector,
+                                       selection="property", name_format=None, occurrence_cardinality=occurrence,
+                                       effective_occurrence_cardinality=effective, occurrence_conflict=effective is None,
+                                       value_format=None, value_cardinality=None))
+                continue
             property_constraint = _PROPERTY.fullmatch(expression)
             # The direct-value form is a different constraint: the count applies
             # to values per Property, not to Property occurrences.  Keep it out
@@ -482,33 +512,37 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
                 selection = {None: "property", ".*": "immediate_dependents", ".**": "recursive_dependents"}[
                     property_constraint.group("descendants")
                 ]
+                occurrence = _count(property_constraint.group("minimum"), property_constraint.group("tail"), property_constraint.group("maximum"))
+                named = selection == "property" and property_constraint.group("name_format") is None
+                value_count = _count(property_constraint.group("value_minimum"), property_constraint.group("value_tail"), property_constraint.group("value_maximum"))
+                effective = _named_property_count(occurrence, value_count) if named else occurrence
                 records.append(_record(
                     source, expression, "property_constraint",
                     property_selector=property_selector,
                     selection=selection,
                     name_format=property_constraint.group("name_format"),
-                    occurrence_cardinality=_count(
-                        property_constraint.group("minimum"), property_constraint.group("tail"), property_constraint.group("maximum"),
-                    ),
+                    occurrence_cardinality=occurrence,
+                    effective_occurrence_cardinality=effective,
+                    occurrence_conflict=named and effective is None,
                     value_format=property_constraint.group("value_format"),
-                    value_cardinality=_count(
-                        property_constraint.group("value_minimum"), property_constraint.group("value_tail"), property_constraint.group("value_maximum"),
-                    ),
+                    value_cardinality=value_count,
                 ))
                 continue
             property_value = _PROPERTY_VALUE.fullmatch(expression)
             value_selector = _property_selector(property_value.group("property")) if property_value is not None else None
-            if property_value is not None and value_selector is not None:
+            if (property_value is not None and value_selector is not None
+                    and (property_value.group("value_format") is not None or property_value.group("minimum") is not None)):
+                value_count = _count(property_value.group("minimum"), property_value.group("tail"), property_value.group("maximum"))
+                descendants = property_value.group("descendants")
                 records.append(_record(
                     source, expression, "property_constraint",
                     property_selector=value_selector,
-                    selection="values",
+                    selection={None: "values", ".*": "immediate_dependent_values", ".**": "recursive_dependent_values"}[descendants],
                     name_format=None,
                     occurrence_cardinality=None,
+                    **({"effective_occurrence_cardinality": _named_property_count(None, value_count)} if descendants is None else {}),
                     value_format=property_value.group("value_format"),
-                    value_cardinality=_count(
-                        property_value.group("minimum"), property_value.group("tail"), property_value.group("maximum"),
-                    ),
+                    value_cardinality=value_count,
                 ))
                 continue
             allowed_literal = _ALLOWED_LITERAL.fullmatch(expression)

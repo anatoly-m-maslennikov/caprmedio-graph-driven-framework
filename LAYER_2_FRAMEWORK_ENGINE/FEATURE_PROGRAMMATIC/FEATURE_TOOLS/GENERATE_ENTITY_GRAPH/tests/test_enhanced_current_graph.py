@@ -185,6 +185,54 @@ Property.**[string]{:0+}: [markdown]{:1}
         self.assertEqual({"minimum": 0, "maximum": None}, recursive["occurrence_cardinality"])
         self.assertEqual({"minimum": 1, "maximum": 1}, recursive["value_cardinality"])
 
+    def test_named_property_occurrences_and_property_population_scopes(self) -> None:
+        records, diagnostics = extract_claim_constraints(carrier("CA-R-1001", {}, """## Claim
+```CFEL
+Bare:;
+Bare{:1}:;
+Name: [string]{:0..1};
+Name{:1}: [string]{:0..1};
+Name{:0..1}: [string]{:0..1};
+Name{:2}: [string]{:0..1};
+Required: [string]{:1};
+Child: {:0..1};
+Child{:0..1}: {:0..1};
+Required{:0}: [string]{:1};
+Node.**: [markdown];
+Node.**[string]{:0+};
+# Instances
+Node.**//{:1};
+PrimaryKind//$x{:1}
+```
+"""))
+        self.assertEqual([], diagnostics)
+        bare, bare_explicit, implicit, explicit, bounded, impossible, required, inherited, inherited_explicit, conflict, inherited_scope, wildcard, prop_population, kind_population = records
+        one = {"minimum": 1, "maximum": 1}
+        optional = {"minimum": 0, "maximum": 1}
+        self.assertEqual(optional, bare["effective_occurrence_cardinality"])
+        self.assertEqual(one, bare_explicit["effective_occurrence_cardinality"])
+        self.assertEqual(optional, implicit["effective_occurrence_cardinality"])
+        self.assertEqual(one, explicit["effective_occurrence_cardinality"])
+        self.assertEqual(optional, bounded["occurrence_cardinality"])
+        self.assertEqual(optional, bounded["effective_occurrence_cardinality"])
+        self.assertIsNone(impossible["effective_occurrence_cardinality"])
+        self.assertTrue(impossible["occurrence_conflict"])
+        self.assertEqual(one, required["effective_occurrence_cardinality"])
+        self.assertEqual(optional, inherited["value_cardinality"])
+        self.assertIsNone(inherited["value_format"])
+        self.assertEqual(optional, inherited_explicit["effective_occurrence_cardinality"])
+        self.assertIsNone(inherited_explicit["value_format"])
+        self.assertTrue(conflict["occurrence_conflict"])
+        self.assertEqual(("recursive_dependent_values", "markdown", None),
+                         (inherited_scope["selection"], inherited_scope["value_format"], inherited_scope["value_cardinality"]))
+        self.assertNotIn("effective_occurrence_cardinality", inherited_scope)
+        self.assertEqual(optional, implicit["value_cardinality"])
+        self.assertEqual({"minimum": 0, "maximum": None}, wildcard["effective_occurrence_cardinality"])
+        self.assertEqual(("property_instance_population_constraint", "Node", "per_bearer_each_schema", one),
+                         (prop_population["kind"], prop_population["bearer_selector"], prop_population["scope"], prop_population["population_cardinality"]))
+        self.assertEqual(("instance_population_constraint", "PrimaryKind", "project", one),
+                         (kind_population["kind"], kind_population["kind_selector"], kind_population["scope"], kind_population["population_cardinality"]))
+
     def test_bounded_extractor_preserves_structural_and_reverse_classification_notation(self) -> None:
         records, diagnostics = extract_claim_constraints(carrier("CA-R-1001", {}, """## Claim
 ```CFEL

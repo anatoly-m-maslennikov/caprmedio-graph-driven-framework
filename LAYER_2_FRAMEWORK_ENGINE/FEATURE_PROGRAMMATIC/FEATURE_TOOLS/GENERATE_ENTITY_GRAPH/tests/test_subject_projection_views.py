@@ -64,6 +64,67 @@ def projection(*, namespace=False):
 
 
 class SubjectProjectionViewTests(unittest.TestCase):
+    def test_qualified_leaf_and_empty_structural_domain_keep_inherited_format(self):
+        data = build_subject_projection_data([
+            carrier("CA-R-1", "Node", claim("Node.")),
+            carrier("CA-R-2", "Node.Section", claim("```CFEL", "Node.Section.**: [markdown];", "```")),
+            carrier("CA-R-3", "Node.Section.Group", claim("```CFEL", "Node.Section.Group{:1}: []{:0};", "```")),
+            carrier("CA-R-4", "Node.Section.Group.Summary", claim("```CFEL", "Node/(.Header.Role in RMED).Section.Group.Summary: {:0..1};", "```")),
+        ])
+        properties = next(row for row in data["entities"] if row["identity"] == "Node")["direct_properties"]
+        group = next(row for row in properties if row["identity"] == "Node.Section.Group")
+        summary = next(row for row in properties if row["identity"] == "Node.Section.Group.Summary")
+        self.assertEqual("markdown", group["effective_value_format"])
+        self.assertEqual("markdown", summary["effective_value_format"])
+        self.assertEqual("Node/(.Header.Role in RMED).Section.Group.Summary", summary["contracts"][0]["property_selector"])
+        self.assertEqual({"minimum": 0, "maximum": 1}, summary["contracts"][0]["value_cardinality"])
+        self.assertFalse(any(row.get("code") == "conflicting_property_value_formats" for row in data["diagnostics"]))
+
+    def test_recursive_format_inheritance_keeps_local_count_and_source(self):
+        rows = [
+            carrier("CA-R-1", "Node", claim("Node.")),
+            carrier("CA-R-2", "Node.Section", claim("```CFEL", "Node.Section.**: [markdown];", "```")),
+            carrier("CA-R-3", "Node.Section.Summary", claim("```CFEL", "Node.Section.Summary: {:0..1};", "```")),
+            carrier("CA-R-4", "Node.Section.Nested.Detail", claim("```CFEL", "Node.Section.Nested.Detail: {:0..1};", "```")),
+            carrier("CA-M-5", "Node.Section", claim("```CFEL", "Node.Section.**: [integer];", "```"), role="Method", form="Policy"),
+        ]
+        data = build_subject_projection_data(rows)
+        properties = next(row for row in data["entities"] if row["identity"] == "Node")["direct_properties"]
+        summary = next(row for row in properties if row["identity"] == "Node.Section.Summary")
+        self.assertEqual({"minimum": 0, "maximum": 1}, summary["contracts"][0]["value_cardinality"])
+        self.assertIsNone(summary["contracts"][0]["value_format"])
+        self.assertEqual(["CA-R-2"], [row["atom_id"] for row in summary["effective_value_format_sources"]])
+        document = views.render_primary_projection(data, 3)
+        self.assertEqual(2, document.count("effective value format: `markdown` — CA-R-2@1"))
+        self.assertIn("value cardinality: `0..1`", document)
+        self.assertNotIn("integer", document)
+        self.assertFalse(any(row.get("code") == "conflicting_property_value_formats" for row in data["diagnostics"]))
+
+    def test_conflicting_local_and_recursive_formats_are_diagnostic(self):
+        data = build_subject_projection_data([
+            carrier("CA-R-1", "Node", claim("Node.")),
+            carrier("CA-R-2", "Node.Section", claim("```CFEL", "Node.Section.**: [markdown];", "```")),
+            carrier("CA-R-3", "Node.Section.Summary", claim("```CFEL", "Node.Section.Summary: [integer]{:0..1};", "```")),
+        ])
+        document = views.render_primary_projection(data, 3)
+        self.assertNotIn("effective value format:", document)
+        self.assertIn("Conflicting applicable value formats for Node.Section.Summary", document)
+        self.assertIn("CA-R-2@1, CA-R-3@1", document)
+
+    def test_level_three_shows_effective_occurrence_and_population_scopes(self):
+        data = build_subject_projection_data([
+            carrier("CA-R-1", "Node", claim("Node.")),
+            carrier("CA-R-2", "Node.Name", claim(
+                "```CFEL", "# model", "Node.Name{:0..1}: [string]{:0..1};",
+                "# instances", "Node.**//{:1};", "Node//$node{:1}", "```")),
+        ])
+        document = views.render_primary_projection(data, 3)
+        self.assertIn("occurrence cardinality: `0..1`", document)
+        self.assertIn("effective occurrence cardinality: `0..1`", document)
+        self.assertIn("value cardinality: `0..1`", document)
+        self.assertIn("scope: each Property schema per bearer", document)
+        self.assertIn("scope: project population", document)
+
     def test_explicit_new_namespace_roots_render_without_invented_parent(self):
         data = projection()
         data["namespaces"] = [

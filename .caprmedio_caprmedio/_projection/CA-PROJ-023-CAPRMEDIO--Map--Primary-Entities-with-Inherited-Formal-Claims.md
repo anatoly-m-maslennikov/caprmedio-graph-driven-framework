@@ -775,10 +775,10 @@ source:
   - CA-R-1956@12
   - CA-R-1957@12
   - CA-R-1958@16
-  - CA-R-1977@15
+  - CA-R-1977@16
   - CA-R-1978@15
-  - CA-R-1979@15
-  - CA-R-1980@15
+  - CA-R-1979@16
+  - CA-R-1980@16
   - CA-R-1981@17
   - CA-R-1982@15
   - CA-R-1983@15
@@ -807,7 +807,7 @@ source:
   - CA-R-2201@6
   - CA-R-2203@7
   - CA-R-2225@4
-  - CA-R-2243@11
+  - CA-R-2243@12
   - CA-R-2245@8
   - CA-R-2246@8
   - CA-R-2247@7
@@ -829,7 +829,7 @@ source:
   - CA-R-2278@3
   - CA-R-2327@6
   - CA-R-2352@5
-  - CA-R-2353@5
+  - CA-R-2353@6
   - CA-R-2354@5
   - CA-R-2355@5
   - CA-R-2415@4
@@ -850,7 +850,7 @@ source:
   - CA-R-2452@4
   - CA-R-2456@4
   - CA-R-2457@4
-  - CA-R-2462@2
+  - CA-R-2462@3
   - CA-R-2463@2
   - CA-R-2464@5
   - CA-R-2465@4
@@ -859,12 +859,12 @@ source:
   - CA-R-2468@2
   - CA-R-2469@4
   - CA-R-2470@2
-  - CA-R-2471@6
-  - CA-R-2472@8
+  - CA-R-2471@7
+  - CA-R-2472@9
   - CA-R-2473@5
-  - CA-R-2474@2
+  - CA-R-2474@3
   - CA-R-2475@5
-  - CA-R-2476@5
+  - CA-R-2476@6
   - CA-R-2477@5
   - CA-R-2478@5
   - CA-R-2481@2
@@ -873,12 +873,12 @@ source:
   - CA-R-2484@2
   - CA-R-2485@5
   - CA-R-2486@6
-  - CA-R-2487@10
-  - CA-R-2498@4
-  - CA-R-2499@4
-  - CA-R-2500@4
-  - CA-R-2502@4
-  - CA-R-2503@4
+  - CA-R-2487@11
+  - CA-R-2498@5
+  - CA-R-2499@5
+  - CA-R-2500@5
+  - CA-R-2502@5
+  - CA-R-2503@5
   - CA-R-2508@4
   - CA-R-2509@2
   - CA-R-2511@2
@@ -891,9 +891,9 @@ source:
   - CA-R-2523@2
   - CA-R-2524@3
   - CA-R-2525@2
-  - CA-R-2526@3
+  - CA-R-2526@4
   - CA-R-2527@2
-  - CA-R-2528@2
+  - CA-R-2528@3
   - CA-R-2530@2
   - CA-R-2531@2
   - CA-R-2532@8
@@ -908,13 +908,13 @@ source:
   - CA-R-2541@2
   - CA-R-2542@2
   - CA-R-2543@4
-  - CA-R-2544@2
+  - CA-R-2544@3
   - CA-R-2547@3
   - CA-R-2548@2
   - CA-R-2549@2
   - CA-R-2550@2
   - CA-R-2551@2
-  - CA-R-2552@3
+  - CA-R-2552@4
   - CA-R-2553@2
   - CA-R-2554@2
   - CA-R-2555@2
@@ -936,11 +936,11 @@ source:
   - CA-R-2571@2
   - CA-R-2572@2
   - CA-R-2573@2
-  - CA-R-2574@2
+  - CA-R-2574@3
   - CA-R-2575@2
   - CA-R-2576@2
   - CA-R-2577@2
-  - CA-R-2578@2
+  - CA-R-2578@3
   - CA-R-2579@2
   - CA-R-2580@2
   - CA-R-2581@2
@@ -985,16 +985,16 @@ source:
   - CA-R-2621@2
   - CA-R-2622@2
   - CA-R-2623@4
-  - CA-R-2624@1
-  - CA-R-2625@1
+  - CA-R-2624@2
+  - CA-R-2625@2
   - CA-R-2626@1
-  - CA-R-2629@1
-  - CA-R-2630@1
+  - CA-R-2629@2
+  - CA-R-2630@2
   - CA-R-2631@1
-  - CA-R-2632@2
-  - CA-R-2633@1
-  - CA-R-2634@1
-  - CA-R-2635@1
+  - CA-R-2632@3
+  - CA-R-2633@2
+  - CA-R-2634@2
+  - CA-R-2635@2
   - CA-R-2636@1
   - CA-R-2637@1
   - CA-R-2638@3
@@ -1053,30 +1053,30 @@ source:
   - CA-R-2696@1
   - CA-R-2697@1
   - CA-R-2698@1
-  - CA-R-2699@1
-  - CA-R-2700@1
+  - CA-R-2699@2
+  - CA-R-2700@2
   - CA-R-2701@1
   - CA-R-2702@1
   - CA-R-2703@1
   - CA-R-2704@1
-  - CA-R-2705@1
+  - CA-R-2705@2
   - CA-R-2706@1
-  - CA-R-2707@1
+  - CA-R-2707@2
   - CA-R-2708@1
   - CA-R-2709@1
   - CA-R-2710@1
-  - CA-R-2711@1
-  - CA-R-2712@1
+  - CA-R-2711@2
+  - CA-R-2712@2
   - CA-R-2713@1
-  - CA-R-2714@1
+  - CA-R-2714@2
   - CA-R-2715@1
-  - CA-R-2716@1
-  - CA-R-2717@2
-  - CA-R-2718@2
+  - CA-R-2716@2
+  - CA-R-2717@3
+  - CA-R-2718@3
   - CA-R-2719@1
   - CA-R-2720@1
-  - CA-R-2721@1
-  - CA-R-2722@1
+  - CA-R-2721@2
+  - CA-R-2722@2
   - CA-R-2730@1
   - CA-R-2732@1
   - CA-R-2733@1
@@ -1157,7 +1157,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 03:34:02 +0400
+updated_at: 2026-11-04 05:22:13 +0400
 ---
 
 ## Primary entities
@@ -1237,24 +1237,27 @@ CAPRMEDIO_MODEL
 ### `Actor`
 
 - Declaration sources: CA-R-2542@2
-- property: `Actor.Name` (relative `Name`) — CA-R-2544@2
-  - contract: `Actor.Name{:0..1}: [string]{:1}` — CA-R-2544@2
-    - nesting: `property`
+- property: `Actor.Name` (relative `Name`) — CA-R-2544@3
+  - contract: `Actor.Name: [string]{:0..1}` — CA-R-2544@3
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Actor.Name.*[]{:0}` — CA-R-2544@2
+    - value cardinality: `0..1`
+  - contract: `Actor.Name.*[]{:0}` — CA-R-2544@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2544@3
   - Property Declaration CFEL:
-    - source: `CA-R-2544@2`
+    - source: `CA-R-2544@3`
 ```CFEL
 # model
-Actor.Name{:0..1}: [string]{:1};
+Actor.Name: [string]{:0..1};
 
 Actor.Name.*[]{:0}
 ```
@@ -1262,104 +1265,191 @@ Actor.Name.*[]{:0}
 ### `Atom`
 
 - Declaration sources: CA-R-2508@4
-- property: `Atom.Content` (relative `Content`) — CA-R-2498@4
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) — CA-R-2498@5
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) — CA-R-2500@5
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) — CA-R-2721@1
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) — CA-R-2722@1
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) — CA-R-2503@4
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) — CA-R-2502@4
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) — CA-R-2499@4
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) — CA-R-2721@2
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) — CA-R-2722@2
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) — CA-R-2503@5
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) — CA-R-2502@5
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) — CA-R-2499@5
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -1376,12 +1466,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -1397,12 +1489,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -1413,66 +1507,82 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) — CA-R-2716@1
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) — CA-R-2716@2
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) — CA-R-2717@2
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) — CA-R-2717@3
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) — CA-R-2718@2
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) — CA-R-2718@3
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -1481,14 +1591,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -1502,14 +1615,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -1525,24 +1641,27 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) — CA-R-2705@1
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+- property: `Atom.Header.Label` (relative `Header.Label`) — CA-R-2705@2
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -1553,6 +1672,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -1570,12 +1690,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -1586,45 +1708,51 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) — CA-R-2699@1
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) — CA-R-2699@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) — CA-R-2700@1
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) — CA-R-2700@2
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -1633,14 +1761,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -1654,12 +1785,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -1668,6 +1801,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -1687,12 +1821,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -1703,25 +1839,28 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) — CA-R-2714@1
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) — CA-R-2714@2
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -1736,14 +1875,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -1763,14 +1905,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -1781,29 +1926,32 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) — CA-R-2707@1
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) — CA-R-2707@2
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -1833,14 +1981,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -1857,14 +2008,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -1879,111 +2033,198 @@ Atom.Header.Version >= 1
 ### `Atom/(.Header.Role:="Analysis & Advisory")`
 
 - Declaration sources: CA-R-2637@1
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -2001,12 +2242,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -2023,12 +2266,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -2039,69 +2284,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -2111,14 +2372,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -2133,14 +2397,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -2156,25 +2423,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -2186,6 +2456,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -2204,12 +2475,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -2220,47 +2493,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -2270,14 +2549,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -2292,12 +2574,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -2306,6 +2590,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -2326,12 +2611,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -2342,26 +2629,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -2377,14 +2667,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -2405,14 +2698,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -2423,30 +2719,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -2477,14 +2776,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -2502,14 +2804,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -2539,111 +2844,198 @@ Atom/(.Header.Role: Concern).Header.Priority: Medium;
 
 Atom/(.Header.Role: Concern).Header.Priority: Low
 ```
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -2661,12 +3053,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -2683,12 +3077,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -2699,69 +3095,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -2771,14 +3183,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -2793,14 +3208,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -2816,25 +3234,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -2846,6 +3267,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -2864,12 +3286,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -2880,47 +3304,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -2930,14 +3360,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -2952,12 +3385,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -2966,6 +3401,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -2986,12 +3422,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -3002,26 +3440,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -3037,14 +3478,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -3065,14 +3509,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -3083,30 +3530,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -3137,14 +3587,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -3162,14 +3615,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -3184,111 +3640,198 @@ Atom.Header.Version >= 1
 ### `Atom/(.Header.Role:=Delivery)`
 
 - Declaration sources: CA-R-2515@2
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -3306,12 +3849,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -3328,12 +3873,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -3344,69 +3891,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -3416,14 +3979,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -3438,14 +4004,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -3461,25 +4030,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -3491,6 +4063,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -3509,12 +4082,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -3525,47 +4100,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -3575,14 +4156,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -3597,12 +4181,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -3611,6 +4197,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -3631,12 +4218,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -3647,26 +4236,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -3682,14 +4274,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -3710,14 +4305,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -3728,30 +4326,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -3782,14 +4383,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -3807,14 +4411,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -3829,111 +4436,198 @@ Atom.Header.Version >= 1
 ### `Atom/(.Header.Role:=Evaluation)`
 
 - Declaration sources: CA-R-2514@2
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -3951,12 +4645,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -3973,12 +4669,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -3989,69 +4687,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -4061,14 +4775,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -4083,14 +4800,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -4106,25 +4826,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -4136,6 +4859,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -4154,12 +4878,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -4170,47 +4896,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -4220,14 +4952,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -4242,12 +4977,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -4256,6 +4993,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -4276,12 +5014,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -4292,26 +5032,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -4327,14 +5070,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -4355,14 +5101,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -4373,30 +5122,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -4427,14 +5179,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -4452,14 +5207,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -4474,111 +5232,198 @@ Atom.Header.Version >= 1
 ### `Atom/(.Header.Role:=Method)`
 
 - Declaration sources: CA-R-2513@2
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -4596,12 +5441,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -4618,12 +5465,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -4634,69 +5483,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -4706,14 +5571,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -4728,14 +5596,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -4751,25 +5622,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -4781,6 +5655,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -4799,12 +5674,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -4815,47 +5692,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -4865,14 +5748,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -4887,12 +5773,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -4901,6 +5789,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -4921,12 +5810,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -4937,26 +5828,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -4972,14 +5866,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -5000,14 +5897,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -5018,30 +5918,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -5072,14 +5975,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -5097,14 +6003,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -5119,111 +6028,198 @@ Atom.Header.Version >= 1
 ### `Atom/(.Header.Role:=Operations)`
 
 - Declaration sources: CA-R-2463@2
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -5241,12 +6237,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -5263,12 +6261,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -5279,69 +6279,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -5351,14 +6367,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -5373,14 +6392,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -5396,25 +6418,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -5426,6 +6451,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -5444,12 +6470,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -5460,47 +6488,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -5510,14 +6544,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -5532,12 +6569,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -5546,6 +6585,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -5566,12 +6606,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -5582,26 +6624,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -5617,14 +6662,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -5645,14 +6693,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -5663,30 +6714,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -5717,14 +6771,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -5742,14 +6799,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -5777,111 +6837,198 @@ Atom/(.Header.Role: Operations)/Action.Execution Kind: Programmatic;
 
 Atom/(.Header.Role: Operations)/Action.Execution Kind: Agentic
 ```
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -5899,12 +7046,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -5921,12 +7070,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -5937,69 +7088,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -6009,14 +7176,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -6031,14 +7201,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -6054,25 +7227,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -6084,6 +7260,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -6102,12 +7279,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -6118,47 +7297,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -6168,14 +7353,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -6190,12 +7378,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -6204,6 +7394,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -6224,12 +7415,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -6240,26 +7433,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -6275,14 +7471,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -6303,14 +7502,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -6321,30 +7523,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -6375,14 +7580,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -6400,14 +7608,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -6422,111 +7633,198 @@ Atom.Header.Version >= 1
 ### `Atom/(.Header.Role:=Operations)/Step`
 
 - Declaration sources: CA-R-2465@4
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -6544,12 +7842,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -6566,12 +7866,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -6582,69 +7884,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -6654,14 +7972,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -6676,14 +7997,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -6699,25 +8023,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -6729,6 +8056,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -6747,12 +8075,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -6763,47 +8093,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -6813,14 +8149,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -6835,12 +8174,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -6849,6 +8190,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -6869,12 +8211,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -6885,26 +8229,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -6920,14 +8267,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -6948,14 +8298,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -6966,30 +8319,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -7020,14 +8376,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -7045,14 +8404,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -7067,111 +8429,198 @@ Atom.Header.Version >= 1
 ### `Atom/(.Header.Role:=Operations)/Substep`
 
 - Declaration sources: CA-R-2466@4
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -7189,12 +8638,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -7211,12 +8662,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -7227,69 +8680,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -7299,14 +8768,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -7321,14 +8793,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -7344,25 +8819,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -7374,6 +8852,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -7392,12 +8871,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -7408,47 +8889,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -7458,14 +8945,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -7480,12 +8970,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -7494,6 +8986,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -7514,12 +9007,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -7530,26 +9025,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -7565,14 +9063,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -7593,14 +9094,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -7611,30 +9115,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -7665,14 +9172,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -7690,14 +9200,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -7716,7 +9229,8 @@ Atom.Header.Version >= 1
   - contract: `Workflow//$workflow.Purpose: [string]{:1}` — CA-R-2733@1
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - Property Declaration CFEL:
@@ -7724,111 +9238,198 @@ Atom.Header.Version >= 1
 ```CFEL
 Workflow//$workflow.Purpose: [string]{:1}
 ```
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -7846,12 +9447,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -7868,12 +9471,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -7884,69 +9489,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -7956,14 +9577,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -7978,14 +9602,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -8001,25 +9628,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -8031,6 +9661,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -8049,12 +9680,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -8065,47 +9698,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -8115,14 +9754,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -8137,12 +9779,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -8151,6 +9795,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -8171,12 +9816,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -8187,26 +9834,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -8222,14 +9872,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -8250,14 +9903,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -8268,30 +9924,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -8322,14 +9981,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -8347,14 +10009,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -8374,7 +10039,8 @@ Atom.Header.Version >= 1
   - contract: `Workflow//$workflow.Purpose: [string]{:1}` — CA-R-2733@1
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - Property Declaration CFEL:
@@ -8382,111 +10048,198 @@ Atom.Header.Version >= 1
 ```CFEL
 Workflow//$workflow.Purpose: [string]{:1}
 ```
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -8504,12 +10257,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -8526,12 +10281,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -8542,69 +10299,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -8614,14 +10387,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -8636,14 +10412,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -8659,25 +10438,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -8689,6 +10471,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -8707,12 +10490,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -8723,47 +10508,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -8773,14 +10564,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -8795,12 +10589,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -8809,6 +10605,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -8829,12 +10626,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -8845,26 +10644,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -8880,14 +10682,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -8908,14 +10713,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -8926,30 +10734,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -8980,14 +10791,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -9005,14 +10819,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -9032,7 +10849,8 @@ Atom.Header.Version >= 1
   - contract: `Workflow//$workflow.Purpose: [string]{:1}` — CA-R-2733@1
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - Property Declaration CFEL:
@@ -9040,111 +10858,198 @@ Atom.Header.Version >= 1
 ```CFEL
 Workflow//$workflow.Purpose: [string]{:1}
 ```
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -9162,12 +11067,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -9184,12 +11091,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -9200,69 +11109,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -9272,14 +11197,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -9294,14 +11222,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -9317,25 +11248,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -9347,6 +11281,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -9365,12 +11300,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -9381,47 +11318,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -9431,14 +11374,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -9453,12 +11399,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -9467,6 +11415,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -9487,12 +11436,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -9503,26 +11454,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -9538,14 +11492,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -9566,14 +11523,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -9584,30 +11544,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -9638,14 +11601,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -9663,14 +11629,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -9685,12 +11654,12 @@ Atom.Header.Version >= 1
 ### `Atom/(.Header.Role:=Plan)`
 
 - Declaration sources: CA-R-2511@2
-- property: `Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold` (relative `Header.AI Agent Confidence Threshold`) — CA-R-2711@1
+- property: `Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold` (relative `Header.AI Agent Confidence Threshold`) — CA-R-2711@2
   - Property Declaration CFEL:
-    - source: `CA-R-2711@1`
+    - source: `CA-R-2711@2`
 ```CFEL
 # model
-Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold{:0..1}: [int]{:1};
+Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold: [int]{:0..1};
 
 Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{:0};
 
@@ -9699,12 +11668,12 @@ Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold
   ?= LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)
   ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold
 ```
-- property: `Atom/(.Header.Role:=Plan).Header.Work Sequence Number` (relative `Header.Work Sequence Number`) — CA-R-2712@1
+- property: `Atom/(.Header.Role:=Plan).Header.Work Sequence Number` (relative `Header.Work Sequence Number`) — CA-R-2712@2
   - Property Declaration CFEL:
-    - source: `CA-R-2712@1`
+    - source: `CA-R-2712@2`
 ```CFEL
 # model
-Atom/(.Header.Role: Plan).Header.Work Sequence Number{:0..1}: [int]{:1};
+Atom/(.Header.Role: Plan).Header.Work Sequence Number: [int]{:0..1};
 
 Atom/(.Header.Role: Plan).Header.Work Sequence Number.*[]{:0};
 
@@ -9726,111 +11695,198 @@ UNIQUE(
   (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.scope_unit{=1})
 )
 ```
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -9848,12 +11904,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -9870,12 +11928,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -9886,69 +11946,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -9958,14 +12034,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -9980,14 +12059,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -10003,25 +12085,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -10033,6 +12118,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -10051,12 +12137,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -10067,47 +12155,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -10117,14 +12211,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -10139,12 +12236,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -10153,6 +12252,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -10173,12 +12273,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -10189,26 +12291,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -10224,14 +12329,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -10252,14 +12360,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -10270,30 +12381,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -10324,14 +12438,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -10349,14 +12466,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -10371,111 +12491,198 @@ Atom.Header.Version >= 1
 ### `Atom/(.Header.Role:=Requirement)`
 
 - Declaration sources: CA-R-2512@2
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -10493,12 +12700,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -10515,12 +12724,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -10531,69 +12742,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -10603,14 +12830,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -10625,14 +12855,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -10648,25 +12881,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -10678,6 +12914,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -10696,12 +12933,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -10712,47 +12951,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -10762,14 +13007,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -10784,12 +13032,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -10798,6 +13048,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -10818,12 +13069,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -10834,26 +13087,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -10869,14 +13125,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -10897,14 +13156,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -10915,30 +13177,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -10969,14 +13234,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -10994,14 +13262,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -11016,111 +13287,198 @@ Atom.Header.Version >= 1
 ### `Atom/(.Header.Role:=Requirement)/(.Header.Form:=Declaration)`
 
 - Declaration sources: CA-R-2516@5
-- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@4
+- property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
-  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@4
+  - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@4
+  - contract: `Atom.Content.*[string]{:0+}` — CA-R-2498@5
     - nesting: `immediate_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
-  - contract: `Atom.Content.**[string]{:0+}: [markdown]{:0..1}` — CA-R-2498@4
+  - contract: `Atom.Content.**[string]{:0+}` — CA-R-2498@5
     - nesting: `recursive_dependents`
     - name format: `string`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - contract: `Atom.Content.**: [markdown]` — CA-R-2498@5
+    - nesting: `recursive_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
     - value format: `markdown`
-    - value cardinality: `0..1`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2498@4`
+    - source: `CA-R-2498@5`
 ```CFEL
 # model
 Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
-- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@4
+- property: `Atom.Content.Claim` (relative `Content.Claim`) [inherited] — CA-R-2500@5
   - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0}` — CA-R-2500@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: ``
+    - value cardinality: `0`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}` — CA-R-2500@5
+    - nesting: `immediate_dependents`
+    - name format: `string, in (Formal Claim, Prose Claim)`
+    - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2500@4`
+    - source: `CA-R-2500@5`
 ```CFEL
 # model
 Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1}
+Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2}
 ```
-- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@1
+- property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) [inherited] — CA-R-2721@2
   - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2721@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
-
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
-```
-- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@1
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2722@1`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
-```
-- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2503@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
-```
-- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@4
-  - origin: `Atom`
-  - Property Declaration CFEL:
-    - source: `CA-R-2502@4`
-```CFEL
-# model
-Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1};
-
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
-```
-- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@4
-  - origin: `Atom`
-  - contract: `Atom.Content.Summary{:1}: [markdown]{:1}` — CA-R-2499@4
-    - nesting: `property`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1}` — CA-R-2721@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `1`
-    - value format: `markdown`
-    - value cardinality: `1`
-  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@4
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0}` — CA-R-2721@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
   - Property Declaration CFEL:
-    - source: `CA-R-2499@4`
+    - source: `CA-R-2721@2`
 ```CFEL
 # model
-Atom.Content.Summary{:1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0};
+
+IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+)
+```
+- property: `Atom.Content.Claim.Prose Claim` (relative `Content.Claim.Prose Claim`) [inherited] — CA-R-2722@2
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1}` — CA-R-2722@2
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}` — CA-R-2722@2
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2722@2`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0}
+```
+- property: `Atom.Content.Details` (relative `Content.Details`) [inherited] — CA-R-2503@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details: {:0..1}` — CA-R-2503@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}` — CA-R-2503@5
+    - nesting: `immediate_dependents`
+    - name format: `string`
+    - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2503@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
+```
+- property: `Atom.Content.Semantics` (relative `Content.Semantics`) [inherited] — CA-R-2502@5
+  - origin: `Atom`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics: {:0..1}` — CA-R-2502@5
+    - nesting: `values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}` — CA-R-2502@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2502@5`
+```CFEL
+# model
+Atom/(.Header.Role in RMED).Content.Semantics: {:0..1};
+
+Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0}
+```
+- property: `Atom.Content.Summary` (relative `Content.Summary`) [inherited] — CA-R-2499@5
+  - origin: `Atom`
+  - contract: `Atom.Content.Summary{:1}: {:1}` — CA-R-2499@5
+    - nesting: `property`
+    - name format: `None`
+    - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
+    - value cardinality: `1`
+  - contract: `Atom.Content.Summary.*[]{:0}` — CA-R-2499@5
+    - nesting: `immediate_dependents`
+    - name format: ``
+    - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
+    - value format: `None`
+    - value cardinality: `missing`
+  - effective value format: `markdown` — CA-R-2498@5
+  - Property Declaration CFEL:
+    - source: `CA-R-2499@5`
+```CFEL
+# model
+Atom.Content.Summary{:1}: {:1};
 
 Atom.Content.Summary.*[]{:0};
 
@@ -11138,12 +13496,14 @@ DETERMINES(
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{:0+}` — CA-R-2719@1
     - nesting: `immediate_dependents`
     - name format: `string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)`
     - occurrence cardinality: `0+`
+    - effective occurrence cardinality: `0+`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -11160,12 +13520,14 @@ Atom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Carrier Destination.*[in (File)]{:1}` — CA-R-2715@1
     - nesting: `immediate_dependents`
     - name format: `in (File)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -11176,69 +13538,85 @@ Atom.Header.Carrier Destination{:1}: []{:0};
 
 Atom.Header.Carrier Destination.*[in (File)]{:1}
 ```
-- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@1
+- property: `Atom.Header.Carrier Destination.File` (relative `Header.Carrier Destination.File`) [inherited] — CA-R-2716@2
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File{:1}: []{:0}` — CA-R-2716@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@1
+  - contract: `Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}` — CA-R-2716@2
     - nesting: `immediate_dependents`
     - name format: `in (Name, Path)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Atom.Header.Carrier Destination.File.*: [string]` — CA-R-2716@2
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2716@1`
+    - source: `CA-R-2716@2`
 ```CFEL
 # model
 Atom.Header.Carrier Destination.File{:1}: []{:0};
 
-Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2}
+Atom.Header.Carrier Destination.File.*[in (Name, Path)]{:2};
+
+Atom.Header.Carrier Destination.File.*: [string]
 ```
-- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@2
+- property: `Atom.Header.Carrier Destination.File.Name` (relative `Header.Carrier Destination.File.Name`) [inherited] — CA-R-2717@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Name: [string]{:1}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name: {:1}` — CA-R-2717@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@2
+  - contract: `Atom.Header.Carrier Destination.File.Name.*[]{:0}` — CA-R-2717@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2717@2`
+    - source: `CA-R-2717@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```
-- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@2
+- property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) [inherited] — CA-R-2718@3
   - origin: `Atom`
-  - contract: `Atom.Header.Carrier Destination.File.Path: [string]{:1}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path: {:1}` — CA-R-2718@3
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
-    - value format: `string`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@2
+  - contract: `Atom.Header.Carrier Destination.File.Path.*[]{:0}` — CA-R-2718@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2716@2
   - Property Declaration CFEL:
-    - source: `CA-R-2718@2`
+    - source: `CA-R-2718@3`
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path: [string]{:1};
+Atom.Header.Carrier Destination.File.Path: {:1};
 
 Atom.Header.Carrier Destination.File.Path.*[]{:0}
 ```
@@ -11248,14 +13626,17 @@ Atom.Header.Carrier Destination.File.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Form.*[]{:0}` — CA-R-2703@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2703@1
   - Property Declaration CFEL:
     - source: `CA-R-2703@1`
 ```CFEL
@@ -11270,14 +13651,17 @@ Atom.Header.Form.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.ID.*[]{:0}` — CA-R-2701@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2701@1
   - instance constraint: `Atom//$atom` — CA-R-2701@1
   - Property Declaration CFEL:
     - source: `CA-R-2701@1`
@@ -11293,25 +13677,28 @@ Atom//$atom;
 IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID))
 ```
-- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@1
+- property: `Atom.Header.Label` (relative `Header.Label`) [inherited] — CA-R-2705@2
   - origin: `Atom`
-  - contract: `Atom.Header.Label{:0..1}: [string]{:1}` — CA-R-2705@1
-    - nesting: `property`
+  - contract: `Atom.Header.Label: [string]{:0..1}` — CA-R-2705@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Label.*[]{:0}` — CA-R-2705@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2705@2
   - Property Declaration CFEL:
-    - source: `CA-R-2705@1`
+    - source: `CA-R-2705@2`
 ```CFEL
 # model
-Atom.Header.Label{:0..1}: [string]{:1};
+Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
@@ -11323,6 +13710,7 @@ Atom.Header.Label ?= Atom.Header.Form
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Atom.Header.Relations.*[Relation//$relation]{:0+}` — CA-R-2709@1
@@ -11341,12 +13729,14 @@ Atom.Header.Relations.*[Relation//$relation]{:0+}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}` — CA-R-2698@1
     - nesting: `immediate_dependents`
     - name format: `in(atom,scope_unit)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -11357,47 +13747,53 @@ Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) [inherited] — CA-R-2699@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1}` — CA-R-2699@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1}` — CA-R-2699@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `atom id`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}` — CA-R-2699@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `atom id` — CA-R-2699@2
   - Property Declaration CFEL:
-    - source: `CA-R-2699@1`
+    - source: `CA-R-2699@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.atom{:0..1}: [atom id]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.atom: [atom id]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.atom.*[]{:0}
 ```
-- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@1
+- property: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit` (relative `Header.Relations.IS_CONTAINED_BY.scope_unit`) [inherited] — CA-R-2700@2
   - origin: `Atom`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1}` — CA-R-2700@1
-    - nesting: `property`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1}` — CA-R-2700@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `scope unit`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}` — CA-R-2700@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `scope unit` — CA-R-2700@2
   - Property Declaration CFEL:
-    - source: `CA-R-2700@1`
+    - source: `CA-R-2700@2`
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY.scope_unit{:0..1}: [scope unit]{:1};
+Atom.Header.Relations.IS_CONTAINED_BY.scope_unit: [scope unit]{:0..1};
 
 Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
 ```
@@ -11407,14 +13803,17 @@ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Role.*[]{:0}` — CA-R-2702@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2702@1
   - Property Declaration CFEL:
     - source: `CA-R-2702@1`
 ```CFEL
@@ -11429,12 +13828,14 @@ Atom.Header.Role.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Atom.Header.Status.*[]{:0}` — CA-R-2696@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Atom.Header.Status: Draft` — CA-R-2696@1
@@ -11443,6 +13844,7 @@ Atom.Header.Role.*[]{:0}
     - allowed literal: `Active`
   - contract: `Atom.Header.Status: Archived` — CA-R-2696@1
     - allowed literal: `Archived`
+  - effective value format: `string` — CA-R-2696@1
   - Property Declaration CFEL:
     - source: `CA-R-2696@1`
 ```CFEL
@@ -11463,12 +13865,14 @@ Atom.Header.Status: Archived
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}` — CA-R-2713@1
     - nesting: `immediate_dependents`
     - name format: `in(Active,Passive)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -11479,26 +13883,29 @@ Atom.Header.Subjects{:1}: []{:0};
 
 Atom.Header.Subjects.*[in(Active,Passive)]{:0..2}
 ```
-- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@1
+- property: `Atom.Header.Subjects.Active` (relative `Header.Subjects.Active`) [inherited] — CA-R-2714@2
   - origin: `Atom`
-  - contract: `Atom.Header.Subjects.Active{:0..1}: [string]{:1}` — CA-R-2714@1
-    - nesting: `property`
+  - contract: `Atom.Header.Subjects.Active: [string]{:0..1}` — CA-R-2714@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Subjects.Active.*[]{:0}` — CA-R-2714@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2714@1
+  - effective value format: `string` — CA-R-2714@2
+  - instance constraint: `Atom//$atom` — CA-R-2714@2
   - Property Declaration CFEL:
-    - source: `CA-R-2714@1`
+    - source: `CA-R-2714@2`
 ```CFEL
 # model
-Atom.Header.Subjects.Active{:0..1}: [string]{:1};
+Atom.Header.Subjects.Active: [string]{:0..1};
 
 Atom.Header.Subjects.Active.*[]{:0};
 
@@ -11514,14 +13921,17 @@ THEN ($atom.Header.Subjects.Active{==1})
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Atom.Header.Subjects.Passive.*[]{:0}` — CA-R-2708@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2708@1
   - instance constraint: `Atom//$atom` — CA-R-2708@1
   - Property Declaration CFEL:
     - source: `CA-R-2708@1`
@@ -11542,14 +13952,17 @@ COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.P
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2706@1
   - Property Declaration CFEL:
     - source: `CA-R-2706@1`
 ```CFEL
@@ -11560,30 +13973,33 @@ Atom.Header.Tier.*[in(Label)]{:0..1};
 
 Atom.Header.Tier >= -1
 ```
-- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@1
+- property: `Atom.Header.Tier.Label` (relative `Header.Tier.Label`) [inherited] — CA-R-2707@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier.Label{:0..1}: [string]{:1}` — CA-R-2707@1
-    - nesting: `property`
+  - contract: `Atom.Header.Tier.Label: [string]{:0..1}` — CA-R-2707@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@1
+    - value cardinality: `0..1`
+  - contract: `Atom.Header.Tier.Label.*[]{:0}` — CA-R-2707@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
-  - instance constraint: `Atom//$atom` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_2` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_3` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_4` — CA-R-2707@1
-  - instance constraint: `Atom//$atom_5` — CA-R-2707@1
+  - effective value format: `string` — CA-R-2707@2
+  - instance constraint: `Atom//$atom` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_2` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_3` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_4` — CA-R-2707@2
+  - instance constraint: `Atom//$atom_5` — CA-R-2707@2
   - Property Declaration CFEL:
-    - source: `CA-R-2707@1`
+    - source: `CA-R-2707@2`
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 
@@ -11614,14 +14030,17 @@ IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Atom.Header.Updated At.*[]{:0}` — CA-R-2697@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2697@1
   - Property Declaration CFEL:
     - source: `CA-R-2697@1`
 ```CFEL
@@ -11639,14 +14058,17 @@ Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Atom.Header.Version.*[]{:0}` — CA-R-2704@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2704@1
   - Property Declaration CFEL:
     - source: `CA-R-2704@1`
 ```CFEL
@@ -11666,14 +14088,17 @@ Atom.Header.Version >= 1
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Event Record.ID.*[]{:0}` — CA-R-2558@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2558@2
   - Property Declaration CFEL:
     - source: `CA-R-2558@2`
 ```CFEL
@@ -11690,6 +14115,7 @@ UNIQUE(Event Record//$event_record, (.ID))
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - instance constraint: `Event Record.Relations.*[Relation//$relation]{:0+}` — CA-R-2581@2
@@ -11707,6 +14133,7 @@ Event Record.Relations.*[Relation//$relation]{:0+}
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - instance constraint: `Event Record.Relations.HAS_EVENT_AUTHOR{:1}: [Actor//$actor]{:1}` — CA-R-2582@2
@@ -11724,12 +14151,14 @@ Event Record.Relations.HAS_EVENT_AUTHOR{:1}: [Actor//$actor]{:1};
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Event Record.action.*[]{:0}` — CA-R-2580@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Event Record.action: create` — CA-R-2580@2
@@ -11738,6 +14167,7 @@ Event Record.Relations.HAS_EVENT_AUTHOR{:1}: [Actor//$actor]{:1};
     - allowed literal: `update`
   - contract: `Event Record.action: archive` — CA-R-2580@2
     - allowed literal: `archive`
+  - effective value format: `string` — CA-R-2580@2
   - Property Declaration CFEL:
     - source: `CA-R-2580@2`
 ```CFEL
@@ -11757,14 +14187,17 @@ Event Record.action: archive
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Event Record.happened_at.*[]{:0}` — CA-R-2568@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2568@2
   - Property Declaration CFEL:
     - source: `CA-R-2568@2`
 ```CFEL
@@ -11778,14 +14211,17 @@ Event Record.happened_at.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Event Record.inserted_at.*[]{:0}` — CA-R-2569@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2569@2
   - Property Declaration CFEL:
     - source: `CA-R-2569@2`
 ```CFEL
@@ -11799,12 +14235,14 @@ Event Record.inserted_at.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Event Record.object_input.*[in(id,version,updated_at)]{:2..3}` — CA-R-2572@2
     - nesting: `immediate_dependents`
     - name format: `in(id,version,updated_at)`
     - occurrence cardinality: `2..3`
+    - effective occurrence cardinality: `2..3`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -11820,14 +14258,17 @@ Event Record.object_input.*[in(id,version,updated_at)]{:2..3}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Event Record.object_input.id.*[]{:0}` — CA-R-2573@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2573@2
   - Property Declaration CFEL:
     - source: `CA-R-2573@2`
 ```CFEL
@@ -11841,14 +14282,17 @@ Event Record.object_input.id.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Event Record.object_input.updated_at.*[]{:0}` — CA-R-2575@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2575@2
   - Property Declaration CFEL:
     - source: `CA-R-2575@2`
 ```CFEL
@@ -11857,24 +14301,27 @@ Event Record.object_input.updated_at{:1}: [datetime]{:1};
 
 Event Record.object_input.updated_at.*[]{:0}
 ```
-- property: `Event Record.object_input.version` (relative `object_input.version`) — CA-R-2574@2
-  - contract: `Event Record.object_input.version{:0..1}: [int]{:1}` — CA-R-2574@2
-    - nesting: `property`
+- property: `Event Record.object_input.version` (relative `object_input.version`) — CA-R-2574@3
+  - contract: `Event Record.object_input.version: [int]{:0..1}` — CA-R-2574@3
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `int`
-    - value cardinality: `1`
-  - contract: `Event Record.object_input.version.*[]{:0}` — CA-R-2574@2
+    - value cardinality: `0..1`
+  - contract: `Event Record.object_input.version.*[]{:0}` — CA-R-2574@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2574@3
   - Property Declaration CFEL:
-    - source: `CA-R-2574@2`
+    - source: `CA-R-2574@3`
 ```CFEL
 # model
-Event Record.object_input.version{:0..1}: [int]{:1};
+Event Record.object_input.version: [int]{:0..1};
 
 Event Record.object_input.version.*[]{:0}
 ```
@@ -11883,12 +14330,14 @@ Event Record.object_input.version.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Event Record.object_output.*[in(id,version,updated_at)]{:2..3}` — CA-R-2576@2
     - nesting: `immediate_dependents`
     - name format: `in(id,version,updated_at)`
     - occurrence cardinality: `2..3`
+    - effective occurrence cardinality: `2..3`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -11904,14 +14353,17 @@ Event Record.object_output.*[in(id,version,updated_at)]{:2..3}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Event Record.object_output.id.*[]{:0}` — CA-R-2577@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2577@2
   - Property Declaration CFEL:
     - source: `CA-R-2577@2`
 ```CFEL
@@ -11925,14 +14377,17 @@ Event Record.object_output.id.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Event Record.object_output.updated_at.*[]{:0}` — CA-R-2579@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2579@2
   - Property Declaration CFEL:
     - source: `CA-R-2579@2`
 ```CFEL
@@ -11941,24 +14396,27 @@ Event Record.object_output.updated_at{:1}: [datetime]{:1};
 
 Event Record.object_output.updated_at.*[]{:0}
 ```
-- property: `Event Record.object_output.version` (relative `object_output.version`) — CA-R-2578@2
-  - contract: `Event Record.object_output.version{:0..1}: [int]{:1}` — CA-R-2578@2
-    - nesting: `property`
+- property: `Event Record.object_output.version` (relative `object_output.version`) — CA-R-2578@3
+  - contract: `Event Record.object_output.version: [int]{:0..1}` — CA-R-2578@3
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `int`
-    - value cardinality: `1`
-  - contract: `Event Record.object_output.version.*[]{:0}` — CA-R-2578@2
+    - value cardinality: `0..1`
+  - contract: `Event Record.object_output.version.*[]{:0}` — CA-R-2578@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2578@3
   - Property Declaration CFEL:
-    - source: `CA-R-2578@2`
+    - source: `CA-R-2578@3`
 ```CFEL
 # model
-Event Record.object_output.version{:0..1}: [int]{:1};
+Event Record.object_output.version: [int]{:0..1};
 
 Event Record.object_output.version.*[]{:0}
 ```
@@ -11971,14 +14429,17 @@ Event Record.object_output.version.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Format.Data Type.*[]{:0}` — CA-R-2352@5
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2352@5
   - Property Declaration CFEL:
     - source: `CA-R-2352@5`
 ```CFEL
@@ -11987,24 +14448,27 @@ Format.Data Type{:1}: [string]{:1};
 
 Format.Data Type.*[]{:0}
 ```
-- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) — CA-R-2353@5
-  - contract: `Format.Uniqueness Selection{:0..1}: [string]{:1}` — CA-R-2353@5
-    - nesting: `property`
+- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) — CA-R-2353@6
+  - contract: `Format.Uniqueness Selection: [string]{:0..1}` — CA-R-2353@6
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@5
+    - value cardinality: `0..1`
+  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@6
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2353@6
   - Property Declaration CFEL:
-    - source: `CA-R-2353@5`
+    - source: `CA-R-2353@6`
 ```CFEL
 # model
-Format.Uniqueness Selection{:0..1}: [string]{:1};
+Format.Uniqueness Selection: [string]{:0..1};
 
 Format.Uniqueness Selection.*[]{:0}
 ```
@@ -12018,14 +14482,17 @@ Format.Uniqueness Selection.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Format.Data Type.*[]{:0}` — CA-R-2352@5
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2352@5
   - Property Declaration CFEL:
     - source: `CA-R-2352@5`
 ```CFEL
@@ -12034,25 +14501,28 @@ Format.Data Type{:1}: [string]{:1};
 
 Format.Data Type.*[]{:0}
 ```
-- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@5
+- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@6
   - origin: `Format`
-  - contract: `Format.Uniqueness Selection{:0..1}: [string]{:1}` — CA-R-2353@5
-    - nesting: `property`
+  - contract: `Format.Uniqueness Selection: [string]{:0..1}` — CA-R-2353@6
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@5
+    - value cardinality: `0..1`
+  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@6
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2353@6
   - Property Declaration CFEL:
-    - source: `CA-R-2353@5`
+    - source: `CA-R-2353@6`
 ```CFEL
 # model
-Format.Uniqueness Selection{:0..1}: [string]{:1};
+Format.Uniqueness Selection: [string]{:0..1};
 
 Format.Uniqueness Selection.*[]{:0}
 ```
@@ -12066,14 +14536,17 @@ Format.Uniqueness Selection.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Format.Data Type.*[]{:0}` — CA-R-2352@5
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2352@5
   - Property Declaration CFEL:
     - source: `CA-R-2352@5`
 ```CFEL
@@ -12082,25 +14555,28 @@ Format.Data Type{:1}: [string]{:1};
 
 Format.Data Type.*[]{:0}
 ```
-- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@5
+- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@6
   - origin: `Format`
-  - contract: `Format.Uniqueness Selection{:0..1}: [string]{:1}` — CA-R-2353@5
-    - nesting: `property`
+  - contract: `Format.Uniqueness Selection: [string]{:0..1}` — CA-R-2353@6
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@5
+    - value cardinality: `0..1`
+  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@6
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2353@6
   - Property Declaration CFEL:
-    - source: `CA-R-2353@5`
+    - source: `CA-R-2353@6`
 ```CFEL
 # model
-Format.Uniqueness Selection{:0..1}: [string]{:1};
+Format.Uniqueness Selection: [string]{:0..1};
 
 Format.Uniqueness Selection.*[]{:0}
 ```
@@ -12114,14 +14590,17 @@ Format.Uniqueness Selection.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Format.Data Type.*[]{:0}` — CA-R-2352@5
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2352@5
   - Property Declaration CFEL:
     - source: `CA-R-2352@5`
 ```CFEL
@@ -12130,25 +14609,28 @@ Format.Data Type{:1}: [string]{:1};
 
 Format.Data Type.*[]{:0}
 ```
-- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@5
+- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@6
   - origin: `Format`
-  - contract: `Format.Uniqueness Selection{:0..1}: [string]{:1}` — CA-R-2353@5
-    - nesting: `property`
+  - contract: `Format.Uniqueness Selection: [string]{:0..1}` — CA-R-2353@6
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@5
+    - value cardinality: `0..1`
+  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@6
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2353@6
   - Property Declaration CFEL:
-    - source: `CA-R-2353@5`
+    - source: `CA-R-2353@6`
 ```CFEL
 # model
-Format.Uniqueness Selection{:0..1}: [string]{:1};
+Format.Uniqueness Selection: [string]{:0..1};
 
 Format.Uniqueness Selection.*[]{:0}
 ```
@@ -12162,14 +14644,17 @@ Format.Uniqueness Selection.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Format.Data Type.*[]{:0}` — CA-R-2352@5
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2352@5
   - Property Declaration CFEL:
     - source: `CA-R-2352@5`
 ```CFEL
@@ -12178,25 +14663,28 @@ Format.Data Type{:1}: [string]{:1};
 
 Format.Data Type.*[]{:0}
 ```
-- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@5
+- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@6
   - origin: `Format`
-  - contract: `Format.Uniqueness Selection{:0..1}: [string]{:1}` — CA-R-2353@5
-    - nesting: `property`
+  - contract: `Format.Uniqueness Selection: [string]{:0..1}` — CA-R-2353@6
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@5
+    - value cardinality: `0..1`
+  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@6
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2353@6
   - Property Declaration CFEL:
-    - source: `CA-R-2353@5`
+    - source: `CA-R-2353@6`
 ```CFEL
 # model
-Format.Uniqueness Selection{:0..1}: [string]{:1};
+Format.Uniqueness Selection: [string]{:0..1};
 
 Format.Uniqueness Selection.*[]{:0}
 ```
@@ -12210,14 +14698,17 @@ Format.Uniqueness Selection.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Format.Data Type.*[]{:0}` — CA-R-2352@5
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2352@5
   - Property Declaration CFEL:
     - source: `CA-R-2352@5`
 ```CFEL
@@ -12226,25 +14717,28 @@ Format.Data Type{:1}: [string]{:1};
 
 Format.Data Type.*[]{:0}
 ```
-- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@5
+- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@6
   - origin: `Format`
-  - contract: `Format.Uniqueness Selection{:0..1}: [string]{:1}` — CA-R-2353@5
-    - nesting: `property`
+  - contract: `Format.Uniqueness Selection: [string]{:0..1}` — CA-R-2353@6
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@5
+    - value cardinality: `0..1`
+  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@6
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2353@6
   - Property Declaration CFEL:
-    - source: `CA-R-2353@5`
+    - source: `CA-R-2353@6`
 ```CFEL
 # model
-Format.Uniqueness Selection{:0..1}: [string]{:1};
+Format.Uniqueness Selection: [string]{:0..1};
 
 Format.Uniqueness Selection.*[]{:0}
 ```
@@ -12258,14 +14752,17 @@ Format.Uniqueness Selection.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Format.Data Type.*[]{:0}` — CA-R-2352@5
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2352@5
   - Property Declaration CFEL:
     - source: `CA-R-2352@5`
 ```CFEL
@@ -12274,25 +14771,28 @@ Format.Data Type{:1}: [string]{:1};
 
 Format.Data Type.*[]{:0}
 ```
-- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@5
+- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@6
   - origin: `Format`
-  - contract: `Format.Uniqueness Selection{:0..1}: [string]{:1}` — CA-R-2353@5
-    - nesting: `property`
+  - contract: `Format.Uniqueness Selection: [string]{:0..1}` — CA-R-2353@6
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@5
+    - value cardinality: `0..1`
+  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@6
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2353@6
   - Property Declaration CFEL:
-    - source: `CA-R-2353@5`
+    - source: `CA-R-2353@6`
 ```CFEL
 # model
-Format.Uniqueness Selection{:0..1}: [string]{:1};
+Format.Uniqueness Selection: [string]{:0..1};
 
 Format.Uniqueness Selection.*[]{:0}
 ```
@@ -12306,14 +14806,17 @@ Format.Uniqueness Selection.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Format.Data Type.*[]{:0}` — CA-R-2352@5
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2352@5
   - Property Declaration CFEL:
     - source: `CA-R-2352@5`
 ```CFEL
@@ -12322,25 +14825,28 @@ Format.Data Type{:1}: [string]{:1};
 
 Format.Data Type.*[]{:0}
 ```
-- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@5
+- property: `Format.Uniqueness Selection` (relative `Uniqueness Selection`) [inherited] — CA-R-2353@6
   - origin: `Format`
-  - contract: `Format.Uniqueness Selection{:0..1}: [string]{:1}` — CA-R-2353@5
-    - nesting: `property`
+  - contract: `Format.Uniqueness Selection: [string]{:0..1}` — CA-R-2353@6
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@5
+    - value cardinality: `0..1`
+  - contract: `Format.Uniqueness Selection.*[]{:0}` — CA-R-2353@6
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2353@6
   - Property Declaration CFEL:
-    - source: `CA-R-2353@5`
+    - source: `CA-R-2353@6`
 ```CFEL
 # model
-Format.Uniqueness Selection{:0..1}: [string]{:1};
+Format.Uniqueness Selection: [string]{:0..1};
 
 Format.Uniqueness Selection.*[]{:0}
 ```
@@ -12353,14 +14859,17 @@ Format.Uniqueness Selection.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Package.structural_level.*[]{:0}` — CA-R-2555@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2555@2
   - Property Declaration CFEL:
     - source: `CA-R-2555@2`
 ```CFEL
@@ -12387,14 +14896,17 @@ THEN ($contained.structural_level = $container.structural_level + 1)
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Package.structural_level.*[]{:0}` — CA-R-2555@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2555@2
   - Property Declaration CFEL:
     - source: `CA-R-2555@2`
 ```CFEL
@@ -12420,12 +14932,14 @@ THEN ($contained.structural_level = $container.structural_level + 1)
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Implementation Retry Limit, RMED Review)]{:3..11}` — CA-R-2532@8
     - nesting: `immediate_dependents`
     - name format: `in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Implementation Retry Limit, RMED Review)`
     - occurrence cardinality: `3..11`
+    - effective occurrence cardinality: `3..11`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -12441,14 +14955,17 @@ Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Tim
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Project.Settings.AI Agent Confidence Threshold.*[]{:0}` — CA-R-2564@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2564@2
   - Property Declaration CFEL:
     - source: `CA-R-2564@2`
 ```CFEL
@@ -12457,87 +14974,106 @@ Project.Settings.AI Agent Confidence Threshold{:1}: [int]{:1};
 
 Project.Settings.AI Agent Confidence Threshold.*[]{:0}
 ```
-- property: `Project.Settings.Artifact Timestamp Timezone` (relative `Settings.Artifact Timestamp Timezone`) — CA-R-1977@15
-  - contract: `Project.Settings.Artifact Timestamp Timezone{:0..1}: [string]{:1}` — CA-R-1977@15
-    - nesting: `property`
+- property: `Project.Settings.Artifact Timestamp Timezone` (relative `Settings.Artifact Timestamp Timezone`) — CA-R-1977@16
+  - contract: `Project.Settings.Artifact Timestamp Timezone: [string]{:0..1}` — CA-R-1977@16
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Project.Settings.Artifact Timestamp Timezone.*[]{:0}` — CA-R-1977@15
+    - value cardinality: `0..1`
+  - contract: `Project.Settings.Artifact Timestamp Timezone.*[]{:0}` — CA-R-1977@16
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-1977@16
   - Property Declaration CFEL:
-    - source: `CA-R-1977@15`
+    - source: `CA-R-1977@16`
 ```CFEL
 # model
-Project.Settings.Artifact Timestamp Timezone{:0..1}: [string]{:1};
+Project.Settings.Artifact Timestamp Timezone: [string]{:0..1};
 
 Project.Settings.Artifact Timestamp Timezone.*[]{:0}
 ```
-- property: `Project.Settings.Authority Modes` (relative `Settings.Authority Modes`) — CA-R-2632@2
-  - contract: `Project.Settings.Authority Modes{:0..1}: []{:0}` — CA-R-2632@2
+- property: `Project.Settings.Authority Modes` (relative `Settings.Authority Modes`) — CA-R-2632@3
+  - contract: `Project.Settings.Authority Modes{:0..1}: []{:0}` — CA-R-2632@3
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Project.Settings.Authority Modes.*[in (Default Scope Unit Authority Mode, Project Authority Mode)]{:2}` — CA-R-2632@2
+  - contract: `Project.Settings.Authority Modes.*[in (Default Scope Unit Authority Mode, Project Authority Mode)]{:2}` — CA-R-2632@3
     - nesting: `immediate_dependents`
     - name format: `in (Default Scope Unit Authority Mode, Project Authority Mode)`
     - occurrence cardinality: `2`
+    - effective occurrence cardinality: `2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Project.Settings.Authority Modes.*: [string]` — CA-R-2632@3
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `string`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-2632@2`
+    - source: `CA-R-2632@3`
 ```CFEL
 # model
 Project.Settings.Authority Modes{:0..1}: []{:0};
 
-Project.Settings.Authority Modes.*[in (Default Scope Unit Authority Mode, Project Authority Mode)]{:2}
+Project.Settings.Authority Modes.*[in (Default Scope Unit Authority Mode, Project Authority Mode)]{:2};
+
+Project.Settings.Authority Modes.*: [string]
 ```
-- property: `Project.Settings.Authority Modes.Default Scope Unit Authority Mode` (relative `Settings.Authority Modes.Default Scope Unit Authority Mode`) — CA-R-2633@1
-  - contract: `Project.Settings.Authority Modes.Default Scope Unit Authority Mode{:1}: [string]{:1}` — CA-R-2633@1
+- property: `Project.Settings.Authority Modes.Default Scope Unit Authority Mode` (relative `Settings.Authority Modes.Default Scope Unit Authority Mode`) — CA-R-2633@2
+  - contract: `Project.Settings.Authority Modes.Default Scope Unit Authority Mode{:1}: {:1}` — CA-R-2633@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
-    - value format: `string`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Project.Settings.Authority Modes.Default Scope Unit Authority Mode.*[]{:0}` — CA-R-2633@1
+  - contract: `Project.Settings.Authority Modes.Default Scope Unit Authority Mode.*[]{:0}` — CA-R-2633@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2632@3
   - Property Declaration CFEL:
-    - source: `CA-R-2633@1`
+    - source: `CA-R-2633@2`
 ```CFEL
 # model
-Project.Settings.Authority Modes.Default Scope Unit Authority Mode{:1}: [string]{:1};
+Project.Settings.Authority Modes.Default Scope Unit Authority Mode{:1}: {:1};
 
 Project.Settings.Authority Modes.Default Scope Unit Authority Mode.*[]{:0}
 ```
-- property: `Project.Settings.Authority Modes.Project Authority Mode` (relative `Settings.Authority Modes.Project Authority Mode`) — CA-R-2634@1
-  - contract: `Project.Settings.Authority Modes.Project Authority Mode{:1}: [string]{:1}` — CA-R-2634@1
+- property: `Project.Settings.Authority Modes.Project Authority Mode` (relative `Settings.Authority Modes.Project Authority Mode`) — CA-R-2634@2
+  - contract: `Project.Settings.Authority Modes.Project Authority Mode{:1}: {:1}` — CA-R-2634@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
-    - value format: `string`
+    - effective occurrence cardinality: `1`
+    - value format: `None`
     - value cardinality: `1`
-  - contract: `Project.Settings.Authority Modes.Project Authority Mode.*[]{:0}` — CA-R-2634@1
+  - contract: `Project.Settings.Authority Modes.Project Authority Mode.*[]{:0}` — CA-R-2634@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2632@3
   - Property Declaration CFEL:
-    - source: `CA-R-2634@1`
+    - source: `CA-R-2634@2`
 ```CFEL
 # model
-Project.Settings.Authority Modes.Project Authority Mode{:1}: [string]{:1};
+Project.Settings.Authority Modes.Project Authority Mode{:1}: {:1};
 
 Project.Settings.Authority Modes.Project Authority Mode.*[]{:0}
 ```
@@ -12546,14 +15082,17 @@ Project.Settings.Authority Modes.Project Authority Mode.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1+`
   - contract: `Project.Settings.Code-Root Locators.*[]{:0}` — CA-R-1978@15
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-1978@15
   - Property Declaration CFEL:
     - source: `CA-R-1978@15`
 ```CFEL
@@ -12562,108 +15101,130 @@ Project.Settings.Code-Root Locators{:0..1}: [string]{:1+};
 
 Project.Settings.Code-Root Locators.*[]{:0}
 ```
-- property: `Project.Settings.Confidence` (relative `Settings.Confidence`) — CA-R-1979@15
-  - contract: `Project.Settings.Confidence{:0..1}: []{:0}` — CA-R-1979@15
+- property: `Project.Settings.Confidence` (relative `Settings.Confidence`) — CA-R-1979@16
+  - contract: `Project.Settings.Confidence{:0..1}: []{:0}` — CA-R-1979@16
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
-  - contract: `Project.Settings.Confidence.*[in (Necessary Information Threshold, Semantic Resolution Threshold)]{:0..2}` — CA-R-1979@15
+  - contract: `Project.Settings.Confidence.*[in (Necessary Information Threshold, Semantic Resolution Threshold)]{:0..2}` — CA-R-1979@16
     - nesting: `immediate_dependents`
     - name format: `in (Necessary Information Threshold, Semantic Resolution Threshold)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
+  - contract: `Project.Settings.Confidence.*: [int]` — CA-R-1979@16
+    - nesting: `immediate_dependent_values`
+    - name format: `None`
+    - occurrence cardinality: `omitted`
+    - value format: `int`
+    - value cardinality: `missing`
   - Property Declaration CFEL:
-    - source: `CA-R-1979@15`
+    - source: `CA-R-1979@16`
 ```CFEL
 # model
 Project.Settings.Confidence{:0..1}: []{:0};
 
-Project.Settings.Confidence.*[in (Necessary Information Threshold, Semantic Resolution Threshold)]{:0..2}
+Project.Settings.Confidence.*[in (Necessary Information Threshold, Semantic Resolution Threshold)]{:0..2};
+
+Project.Settings.Confidence.*: [int]
 ```
-- property: `Project.Settings.Confidence.Necessary Information Threshold` (relative `Settings.Confidence.Necessary Information Threshold`) — CA-R-2624@1
-  - contract: `Project.Settings.Confidence.Necessary Information Threshold{:0..1}: [int]{:1}` — CA-R-2624@1
-    - nesting: `property`
+- property: `Project.Settings.Confidence.Necessary Information Threshold` (relative `Settings.Confidence.Necessary Information Threshold`) — CA-R-2624@2
+  - contract: `Project.Settings.Confidence.Necessary Information Threshold: {:0..1}` — CA-R-2624@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
-    - value format: `int`
-    - value cardinality: `1`
-  - contract: `Project.Settings.Confidence.Necessary Information Threshold.*[]{:0}` — CA-R-2624@1
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Project.Settings.Confidence.Necessary Information Threshold.*[]{:0}` — CA-R-2624@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-1979@16
   - Property Declaration CFEL:
-    - source: `CA-R-2624@1`
+    - source: `CA-R-2624@2`
 ```CFEL
 # model
-Project.Settings.Confidence.Necessary Information Threshold{:0..1}: [int]{:1};
+Project.Settings.Confidence.Necessary Information Threshold: {:0..1};
 
 Project.Settings.Confidence.Necessary Information Threshold.*[]{:0}
 ```
-- property: `Project.Settings.Confidence.Semantic Resolution Threshold` (relative `Settings.Confidence.Semantic Resolution Threshold`) — CA-R-2625@1
-  - contract: `Project.Settings.Confidence.Semantic Resolution Threshold{:0..1}: [int]{:1}` — CA-R-2625@1
-    - nesting: `property`
+- property: `Project.Settings.Confidence.Semantic Resolution Threshold` (relative `Settings.Confidence.Semantic Resolution Threshold`) — CA-R-2625@2
+  - contract: `Project.Settings.Confidence.Semantic Resolution Threshold: {:0..1}` — CA-R-2625@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
-    - value format: `int`
-    - value cardinality: `1`
-  - contract: `Project.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}` — CA-R-2625@1
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
+    - value format: `None`
+    - value cardinality: `0..1`
+  - contract: `Project.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}` — CA-R-2625@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-1979@16
   - Property Declaration CFEL:
-    - source: `CA-R-2625@1`
+    - source: `CA-R-2625@2`
 ```CFEL
 # model
-Project.Settings.Confidence.Semantic Resolution Threshold{:0..1}: [int]{:1};
+Project.Settings.Confidence.Semantic Resolution Threshold: {:0..1};
 
 Project.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}
 ```
-- property: `Project.Settings.Framework Control-Root Locator` (relative `Settings.Framework Control-Root Locator`) — CA-R-1980@15
-  - contract: `Project.Settings.Framework Control-Root Locator{:0..1}: [string]{:1}` — CA-R-1980@15
-    - nesting: `property`
+- property: `Project.Settings.Framework Control-Root Locator` (relative `Settings.Framework Control-Root Locator`) — CA-R-1980@16
+  - contract: `Project.Settings.Framework Control-Root Locator: [string]{:0..1}` — CA-R-1980@16
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Project.Settings.Framework Control-Root Locator.*[]{:0}` — CA-R-1980@15
+    - value cardinality: `0..1`
+  - contract: `Project.Settings.Framework Control-Root Locator.*[]{:0}` — CA-R-1980@16
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-1980@16
   - Property Declaration CFEL:
-    - source: `CA-R-1980@15`
+    - source: `CA-R-1980@16`
 ```CFEL
 # model
-Project.Settings.Framework Control-Root Locator{:0..1}: [string]{:1};
+Project.Settings.Framework Control-Root Locator: [string]{:0..1};
 
 Project.Settings.Framework Control-Root Locator.*[]{:0}
 ```
-- property: `Project.Settings.Implementation Retry Limit` (relative `Settings.Implementation Retry Limit`) — CA-R-2635@1
-  - contract: `Project.Settings.Implementation Retry Limit{:0..1}: [int]{:1}` — CA-R-2635@1
-    - nesting: `property`
+- property: `Project.Settings.Implementation Retry Limit` (relative `Settings.Implementation Retry Limit`) — CA-R-2635@2
+  - contract: `Project.Settings.Implementation Retry Limit: [int]{:0..1}` — CA-R-2635@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `int`
-    - value cardinality: `1`
-  - contract: `Project.Settings.Implementation Retry Limit.*[]{:0}` — CA-R-2635@1
+    - value cardinality: `0..1`
+  - contract: `Project.Settings.Implementation Retry Limit.*[]{:0}` — CA-R-2635@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2635@2
   - Property Declaration CFEL:
-    - source: `CA-R-2635@1`
+    - source: `CA-R-2635@2`
 ```CFEL
 # model
-Project.Settings.Implementation Retry Limit{:0..1}: [int]{:1};
+Project.Settings.Implementation Retry Limit: [int]{:0..1};
 
 Project.Settings.Implementation Retry Limit.*[]{:0}
 ```
@@ -12672,12 +15233,14 @@ Project.Settings.Implementation Retry Limit.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Project.Settings.Interaction.*[in (Reporting Mode)]{:1}` — CA-R-1982@15
     - nesting: `immediate_dependents`
     - name format: `in (Reporting Mode)`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -12693,14 +15256,17 @@ Project.Settings.Interaction.*[in (Reporting Mode)]{:1}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Project.Settings.Interaction.Reporting Mode.*[]{:0}` — CA-R-2626@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2626@1
   - Property Declaration CFEL:
     - source: `CA-R-2626@1`
 ```CFEL
@@ -12714,14 +15280,17 @@ Project.Settings.Interaction.Reporting Mode.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Project.Settings.Name.*[]{:0}` — CA-R-2533@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2533@2
   - Property Declaration CFEL:
     - source: `CA-R-2533@2`
 ```CFEL
@@ -12735,14 +15304,17 @@ Project.Settings.Name.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Project.Settings.Prefix.*[]{:0}` — CA-R-2534@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2534@2
   - Property Declaration CFEL:
     - source: `CA-R-2534@2`
 ```CFEL
@@ -12756,12 +15328,14 @@ Project.Settings.Prefix.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Project.Settings.RMED Review.*[in (Context Headroom Fraction, Max Atoms)]{:0..2}` — CA-R-2631@1
     - nesting: `immediate_dependents`
     - name format: `in (Context Headroom Fraction, Max Atoms)`
     - occurrence cardinality: `0..2`
+    - effective occurrence cardinality: `0..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -12772,45 +15346,51 @@ Project.Settings.RMED Review{:0..1}: []{:0};
 
 Project.Settings.RMED Review.*[in (Context Headroom Fraction, Max Atoms)]{:0..2}
 ```
-- property: `Project.Settings.RMED Review.Context Headroom Fraction` (relative `Settings.RMED Review.Context Headroom Fraction`) — CA-R-2629@1
-  - contract: `Project.Settings.RMED Review.Context Headroom Fraction{:0..1}: [float]{:1}` — CA-R-2629@1
-    - nesting: `property`
+- property: `Project.Settings.RMED Review.Context Headroom Fraction` (relative `Settings.RMED Review.Context Headroom Fraction`) — CA-R-2629@2
+  - contract: `Project.Settings.RMED Review.Context Headroom Fraction: [float]{:0..1}` — CA-R-2629@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `float`
-    - value cardinality: `1`
-  - contract: `Project.Settings.RMED Review.Context Headroom Fraction.*[]{:0}` — CA-R-2629@1
+    - value cardinality: `0..1`
+  - contract: `Project.Settings.RMED Review.Context Headroom Fraction.*[]{:0}` — CA-R-2629@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `float` — CA-R-2629@2
   - Property Declaration CFEL:
-    - source: `CA-R-2629@1`
+    - source: `CA-R-2629@2`
 ```CFEL
 # model
-Project.Settings.RMED Review.Context Headroom Fraction{:0..1}: [float]{:1};
+Project.Settings.RMED Review.Context Headroom Fraction: [float]{:0..1};
 
 Project.Settings.RMED Review.Context Headroom Fraction.*[]{:0}
 ```
-- property: `Project.Settings.RMED Review.Max Atoms` (relative `Settings.RMED Review.Max Atoms`) — CA-R-2630@1
-  - contract: `Project.Settings.RMED Review.Max Atoms{:0..1}: [int]{:1}` — CA-R-2630@1
-    - nesting: `property`
+- property: `Project.Settings.RMED Review.Max Atoms` (relative `Settings.RMED Review.Max Atoms`) — CA-R-2630@2
+  - contract: `Project.Settings.RMED Review.Max Atoms: [int]{:0..1}` — CA-R-2630@2
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `int`
-    - value cardinality: `1`
-  - contract: `Project.Settings.RMED Review.Max Atoms.*[]{:0}` — CA-R-2630@1
+    - value cardinality: `0..1`
+  - contract: `Project.Settings.RMED Review.Max Atoms.*[]{:0}` — CA-R-2630@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2630@2
   - Property Declaration CFEL:
-    - source: `CA-R-2630@1`
+    - source: `CA-R-2630@2`
 ```CFEL
 # model
-Project.Settings.RMED Review.Max Atoms{:0..1}: [int]{:1};
+Project.Settings.RMED Review.Max Atoms: [int]{:0..1};
 
 Project.Settings.RMED Review.Max Atoms.*[]{:0}
 ```
@@ -12823,12 +15403,14 @@ Project.Settings.RMED Review.Max Atoms.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Projection.Form.*[]{:0}` — CA-R-2538@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - contract: `Projection.Form: Catalog` — CA-R-2538@2
@@ -12837,6 +15419,7 @@ Project.Settings.RMED Review.Max Atoms.*[]{:0}
     - allowed literal: `Map`
   - contract: `Projection.Form: Hub` — CA-R-2538@2
     - allowed literal: `Hub`
+  - effective value format: `string` — CA-R-2538@2
   - Property Declaration CFEL:
     - source: `CA-R-2538@2`
 ```CFEL
@@ -12856,14 +15439,17 @@ Projection.Form: Hub
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Projection.ID.*[]{:0}` — CA-R-2537@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2537@2
   - Property Declaration CFEL:
     - source: `CA-R-2537@2`
 ```CFEL
@@ -12882,12 +15468,14 @@ DETERMINES(Projection//$projection_2, (.ID), (.Form, .Source.Named Selection))
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Projection.Source.*[in (Named Selection, Atoms)]{:1..2}` — CA-R-2586@2
     - nesting: `immediate_dependents`
     - name format: `in (Named Selection, Atoms)`
     - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -12903,14 +15491,17 @@ Projection.Source.*[in (Named Selection, Atoms)]{:1..2}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `0..1`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
     - value cardinality: `0+`
   - contract: `Projection.Source.Atoms.*[]{:0}` — CA-R-2540@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2540@2
   - Property Declaration CFEL:
     - source: `CA-R-2540@2`
 ```CFEL
@@ -12924,14 +15515,17 @@ Projection.Source.Atoms.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `Named Selection//`
     - value cardinality: `1`
   - contract: `Projection.Source.Named Selection.*[]{:0}` — CA-R-2541@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `Named Selection//` — CA-R-2541@2
   - Property Declaration CFEL:
     - source: `CA-R-2541@2`
 ```CFEL
@@ -12945,14 +15539,17 @@ Projection.Source.Named Selection.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `datetime`
     - value cardinality: `1`
   - contract: `Projection.Updated At.*[]{:0}` — CA-R-2539@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `datetime` — CA-R-2539@2
   - Property Declaration CFEL:
     - source: `CA-R-2539@2`
 ```CFEL
@@ -12973,14 +15570,17 @@ Projection//$projection.Updated At == MAX(Event Record//$event_record(.object_ou
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Relation.Meaning.*[]{:0}` — CA-R-2354@5
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2354@5
   - Property Declaration CFEL:
     - source: `CA-R-2354@5`
 ```CFEL
@@ -12994,14 +15594,17 @@ Relation.Meaning.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Relation.Name.*[]{:0}` — CA-R-2355@5
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2355@5
   - Property Declaration CFEL:
     - source: `CA-R-2355@5`
 ```CFEL
@@ -13014,24 +15617,27 @@ Relation.Name.*[]{:0}
 ### `Scope Unit`
 
 - Declaration sources: CA-R-2523@2
-- property: `Scope Unit.ID` (relative `ID`) — CA-R-2526@3
-  - contract: `Scope Unit.ID{:0..1}: [string]{:1}` — CA-R-2526@3
-    - nesting: `property`
+- property: `Scope Unit.ID` (relative `ID`) — CA-R-2526@4
+  - contract: `Scope Unit.ID: [string]{:0..1}` — CA-R-2526@4
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Scope Unit.ID.*[]{:0}` — CA-R-2526@3
+    - value cardinality: `0..1`
+  - contract: `Scope Unit.ID.*[]{:0}` — CA-R-2526@4
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2526@4
   - Property Declaration CFEL:
-    - source: `CA-R-2526@3`
+    - source: `CA-R-2526@4`
 ```CFEL
 # model
-Scope Unit.ID{:0..1}: [string]{:1};
+Scope Unit.ID: [string]{:0..1};
 
 Scope Unit.ID.*[]{:0};
 
@@ -13039,24 +15645,27 @@ Scope Unit.ID.*[]{:0};
 IF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit))
 THEN ($unit.ID{:1})
 ```
-- property: `Scope Unit.Label` (relative `Label`) — CA-R-2528@2
-  - contract: `Scope Unit.Label{:0..1}: [string]{:1}` — CA-R-2528@2
-    - nesting: `property`
+- property: `Scope Unit.Label` (relative `Label`) — CA-R-2528@3
+  - contract: `Scope Unit.Label: [string]{:0..1}` — CA-R-2528@3
+    - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `0..1`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: `string`
-    - value cardinality: `1`
-  - contract: `Scope Unit.Label.*[]{:0}` — CA-R-2528@2
+    - value cardinality: `0..1`
+  - contract: `Scope Unit.Label.*[]{:0}` — CA-R-2528@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2528@3
   - Property Declaration CFEL:
-    - source: `CA-R-2528@2`
+    - source: `CA-R-2528@3`
 ```CFEL
 # model
-Scope Unit.Label{:0..1}: [string]{:1};
+Scope Unit.Label: [string]{:0..1};
 
 Scope Unit.Label.*[]{:0}
 ```
@@ -13065,14 +15674,17 @@ Scope Unit.Label.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Scope Unit.Name.*[]{:0}` — CA-R-2527@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2527@2
   - Property Declaration CFEL:
     - source: `CA-R-2527@2`
 ```CFEL
@@ -13086,14 +15698,17 @@ Scope Unit.Name.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1+`
   - contract: `Scope Unit.Path.*[]{:0}` — CA-R-2530@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2530@2
   - Property Declaration CFEL:
     - source: `CA-R-2530@2`
 ```CFEL
@@ -13107,14 +15722,17 @@ Scope Unit.Path.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `string`
     - value cardinality: `1`
   - contract: `Scope Unit.Project Boundary Position.*[]{:0}` — CA-R-2531@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `string` — CA-R-2531@2
   - Property Declaration CFEL:
     - source: `CA-R-2531@2`
 ```CFEL
@@ -13127,13 +15745,15 @@ Scope Unit.Project Boundary Position.*[]{:0}
   - contract: `Scope Unit.order: []{:0}` — CA-R-2687@1
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `0..1`
     - value format: ``
     - value cardinality: `0`
   - contract: `Scope Unit.order.*[in (ordered, number)]{:1..2}` — CA-R-2687@1
     - nesting: `immediate_dependents`
     - name format: `in (ordered, number)`
     - occurrence cardinality: `1..2`
+    - effective occurrence cardinality: `1..2`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -13149,6 +15769,7 @@ Scope Unit.order.*[in (ordered, number)]{:1..2}
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
   - Property Declaration CFEL:
@@ -13163,15 +15784,18 @@ Scope Unit.order.number.*[]{:0}
   - contract: `Scope Unit.order.ordered: [bool]{:1}` — CA-R-2685@1
     - nesting: `values`
     - name format: `None`
-    - occurrence cardinality: `missing`
+    - occurrence cardinality: `omitted`
+    - effective occurrence cardinality: `1`
     - value format: `bool`
     - value cardinality: `1`
   - contract: `Scope Unit.order.ordered.*[]{:0}` — CA-R-2685@1
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `bool` — CA-R-2685@1
   - Property Declaration CFEL:
     - source: `CA-R-2685@1`
 ```CFEL
@@ -13185,14 +15809,17 @@ Scope Unit.order.ordered.*[]{:0}
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
+    - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
   - contract: `Scope Unit.structural_level.*[]{:0}` — CA-R-2554@2
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
+    - effective occurrence cardinality: `0`
     - value format: `None`
     - value cardinality: `missing`
+  - effective value format: `int` — CA-R-2554@2
   - Property Declaration CFEL:
     - source: `CA-R-2554@2`
 ```CFEL
@@ -13671,7 +16298,7 @@ UNIQUE(Atom//$atom, (.Header.ID, .Header.Version));
 ### `CFEL`
 
 - own Declaration:
-  - source: `CA-R-2487@10`
+  - source: `CA-R-2487@11`
 ```CFEL
 # model
 p{:occurrence}: [value format]{:value count};
@@ -14029,7 +16656,7 @@ Named Selection ((NARROWER_THAN)) Continuant
 ### `Node`
 
 - own Declaration:
-  - source: `CA-R-2462@2`
+  - source: `CA-R-2462@3`
 ```CFEL
 # model
 (Node, Node.**) {:0}((*));
@@ -14042,7 +16669,11 @@ Node {:0+}((NARROWER_THAN)) Node;
 
 Node {:0+}((HAS_NARROWER)) Node;
 
+Node.** {:1}((IS_PROPERTY_OF)) (Node, Node.**);
+
 (Node, Node.**) {:0+}((HAS_PROPERTY)) Node.**;
+
+Node.** {:0+}((HAS_INSTANCE)) Node.**//;
 
 IF $model_node in (Node, Node.**) THEN (
 IF ($model_node {=0}((IS_PROPERTY_OF)))
@@ -14052,8 +16683,7 @@ THEN ($model_node >| (Independence == Primary Node));
 IF $model_node_2 in (Node, Node.**) THEN (
 IF ($model_node_2 {=1}((IS_PROPERTY_OF)))
 THEN ($model_node_2 >| (Independence == Property))
-AND ($model_node_2 {==0}((HAS_NARROWER)))
-AND ($model_node_2 {==0}((HAS_INSTANCE)));
+AND ($model_node_2 {==0}((HAS_NARROWER)));
 );
 
 # instances
@@ -14066,6 +16696,10 @@ $node {:0+}((INSTANCE_OF)) Node;
 Node {:0+}((HAS_INSTANCE)) $node;
 
 $node.** {:1}((IS_PROPERTY_OF)) ($node, $node.**);
+
+$node.** {:1}((INSTANCE_OF)) Node.**;
+
+Node.**//{:0..1};
 
 ($node, $node.**) {:0+}((HAS_PROPERTY)) $node.**;
 ```
@@ -14079,7 +16713,7 @@ $node.** {:1}((IS_PROPERTY_OF)) ($node, $node.**);
 Node/Continuant
 ```
 - ancestor Declaration `Node`:
-  - source: `CA-R-2462@2`
+  - source: `CA-R-2462@3`
 ```CFEL
 # model
 (Node, Node.**) {:0}((*));
@@ -14092,7 +16726,11 @@ Node {:0+}((NARROWER_THAN)) Node;
 
 Node {:0+}((HAS_NARROWER)) Node;
 
+Node.** {:1}((IS_PROPERTY_OF)) (Node, Node.**);
+
 (Node, Node.**) {:0+}((HAS_PROPERTY)) Node.**;
+
+Node.** {:0+}((HAS_INSTANCE)) Node.**//;
 
 IF $model_node in (Node, Node.**) THEN (
 IF ($model_node {=0}((IS_PROPERTY_OF)))
@@ -14102,8 +16740,7 @@ THEN ($model_node >| (Independence == Primary Node));
 IF $model_node_2 in (Node, Node.**) THEN (
 IF ($model_node_2 {=1}((IS_PROPERTY_OF)))
 THEN ($model_node_2 >| (Independence == Property))
-AND ($model_node_2 {==0}((HAS_NARROWER)))
-AND ($model_node_2 {==0}((HAS_INSTANCE)));
+AND ($model_node_2 {==0}((HAS_NARROWER)));
 );
 
 # instances
@@ -14116,6 +16753,10 @@ $node {:0+}((INSTANCE_OF)) Node;
 Node {:0+}((HAS_INSTANCE)) $node;
 
 $node.** {:1}((IS_PROPERTY_OF)) ($node, $node.**);
+
+$node.** {:1}((INSTANCE_OF)) Node.**;
+
+Node.**//{:0..1};
 
 ($node, $node.**) {:0+}((HAS_PROPERTY)) $node.**;
 ```
@@ -14129,7 +16770,7 @@ $node.** {:1}((IS_PROPERTY_OF)) ($node, $node.**);
 Node/Occurrent
 ```
 - ancestor Declaration `Node`:
-  - source: `CA-R-2462@2`
+  - source: `CA-R-2462@3`
 ```CFEL
 # model
 (Node, Node.**) {:0}((*));
@@ -14142,7 +16783,11 @@ Node {:0+}((NARROWER_THAN)) Node;
 
 Node {:0+}((HAS_NARROWER)) Node;
 
+Node.** {:1}((IS_PROPERTY_OF)) (Node, Node.**);
+
 (Node, Node.**) {:0+}((HAS_PROPERTY)) Node.**;
+
+Node.** {:0+}((HAS_INSTANCE)) Node.**//;
 
 IF $model_node in (Node, Node.**) THEN (
 IF ($model_node {=0}((IS_PROPERTY_OF)))
@@ -14152,8 +16797,7 @@ THEN ($model_node >| (Independence == Primary Node));
 IF $model_node_2 in (Node, Node.**) THEN (
 IF ($model_node_2 {=1}((IS_PROPERTY_OF)))
 THEN ($model_node_2 >| (Independence == Property))
-AND ($model_node_2 {==0}((HAS_NARROWER)))
-AND ($model_node_2 {==0}((HAS_INSTANCE)));
+AND ($model_node_2 {==0}((HAS_NARROWER)));
 );
 
 # instances
@@ -14166,6 +16810,10 @@ $node {:0+}((INSTANCE_OF)) Node;
 Node {:0+}((HAS_INSTANCE)) $node;
 
 $node.** {:1}((IS_PROPERTY_OF)) ($node, $node.**);
+
+$node.** {:1}((INSTANCE_OF)) Node.**;
+
+Node.**//{:0..1};
 
 ($node, $node.**) {:0+}((HAS_PROPERTY)) $node.**;
 ```
@@ -14326,24 +16974,16 @@ Term.*[in (Name)]{:1}
 - IF $step {=0}((CONTAINS)) THEN $step {:1}((RUNS)) (in (Action, Workflow))//$selected — CA-R-2465@4
 - Atom/(.Header.Role: Operations)/Substep — CA-R-2466@4
 - Atom/(.Header.Role: Operations)/Action — CA-R-2467@2
-- p{:occurrence}: [value format]{:value count} — CA-R-2487@10
-- p.*[name format]{:immediate name count} — CA-R-2487@10
-- p.**[name format]{:recursive name count} — CA-R-2487@10
-- p.*[name format]{:immediate name count}: [value format]{:value count} — CA-R-2487@10
+- p{:occurrence}: [value format]{:value count} — CA-R-2487@11
+- p.*[name format]{:immediate name count} — CA-R-2487@11
+- p.**[name format]{:recursive name count} — CA-R-2487@11
+- p.*[name format]{:immediate name count}: [value format]{:value count} — CA-R-2487@11
 - DETERMINES(
   Atom//$atom,
   (.ID),
   (.Content.Summary),
   (Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived)
-) — CA-R-2499@4
-- Atom/(.Header.Role in RMED).Content.Claim{:1}: []{:0} — CA-R-2500@4
-- Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{:1..2} — CA-R-2500@4
-- Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1} — CA-R-2500@4
-- Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1} — CA-R-2500@4
-- Atom/(.Header.Role in RMED).Content.Semantics{:0..1}: [markdown]{:1} — CA-R-2502@4
-- Atom/(.Header.Role in RMED).Content.Semantics.*[]{:0} — CA-R-2502@4
-- Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1} — CA-R-2503@4
-- Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+} — CA-R-2503@4
+) — CA-R-2499@5
 - Atom — CA-R-2508@4
 - UNIQUE(Atom//$atom, (.Header.ID, .Header.Version)) — CA-R-2508@4
 - Atom/(.Header.Role: Concern) — CA-R-2509@2
@@ -14366,7 +17006,7 @@ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6) — CA-R-2523@2
 - IF (Package//$package not in (Package/Implementation//$package_6))
 THEN ($package {==1}((IS_CONTAINED_BY)) Package//$package_7) — CA-R-2525@2
 - IF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit))
-THEN ($unit.ID{:1}) — CA-R-2526@3
+THEN ($unit.ID{:1}) — CA-R-2526@4
 - DETERMINES(Projection//$projection, (.Form, .Source.Named Selection), (.ID)) — CA-R-2537@2
 - DETERMINES(Projection//$projection_2, (.ID), (.Form, .Source.Named Selection)) — CA-R-2537@2
 - Projection//$projection.Updated At == MAX(Event Record//$event_record(.object_output{=1}, .object_output.version{=0}, .object_output.id = $projection.ID, (.action = create OR .action = update)).happened_at) — CA-R-2539@2
@@ -14412,47 +17052,45 @@ THEN ($contained.structural_level = $container.structural_level + 1) — CA-R-25
 - IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID)) — CA-R-2701@1
 - Atom.Header.Version >= 1 — CA-R-2704@1
-- Atom.Header.Label ?= Atom.Header.Form — CA-R-2705@1
+- Atom.Header.Label ?= Atom.Header.Form — CA-R-2705@2
 - Atom.Header.Tier >= -1 — CA-R-2706@1
-- IF (($atom.Header.Tier.Label{=1}) AND ($atom.Header.Tier = 0)) THEN ($atom.Header.Tier.Label == Scope Contract) — CA-R-2707@1
-- IF (($atom_2.Header.Tier.Label{=1}) AND ($atom_2.Header.Tier = 1)) THEN ($atom_2.Header.Tier.Label == Core) — CA-R-2707@1
-- IF (($atom_3.Header.Tier.Label{=1}) AND ($atom_3.Header.Tier = 2)) THEN ($atom_3.Header.Tier.Label == General) — CA-R-2707@1
-- IF (($atom_4.Header.Tier.Label{=1}) AND ($atom_4.Header.Tier = 3)) THEN ($atom_4.Header.Tier.Label == Standard) — CA-R-2707@1
-- IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5.Header.Tier.Label == Detail) — CA-R-2707@1
+- IF (($atom.Header.Tier.Label{=1}) AND ($atom.Header.Tier = 0)) THEN ($atom.Header.Tier.Label == Scope Contract) — CA-R-2707@2
+- IF (($atom_2.Header.Tier.Label{=1}) AND ($atom_2.Header.Tier = 1)) THEN ($atom_2.Header.Tier.Label == Core) — CA-R-2707@2
+- IF (($atom_3.Header.Tier.Label{=1}) AND ($atom_3.Header.Tier = 2)) THEN ($atom_3.Header.Tier.Label == General) — CA-R-2707@2
+- IF (($atom_4.Header.Tier.Label{=1}) AND ($atom_4.Header.Tier = 3)) THEN ($atom_4.Header.Tier.Label == Standard) — CA-R-2707@2
+- IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5.Header.Tier.Label == Detail) — CA-R-2707@2
 - COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $) — CA-R-2708@1
 - Atom/(.Header.Role: Concern).Header.Priority{:1}: [string]{:1} — CA-R-2710@1
 - Atom/(.Header.Role: Concern).Header.Priority.*[]{:0} — CA-R-2710@1
 - Atom/(.Header.Role: Concern).Header.Priority: High — CA-R-2710@1
 - Atom/(.Header.Role: Concern).Header.Priority: Medium — CA-R-2710@1
 - Atom/(.Header.Role: Concern).Header.Priority: Low — CA-R-2710@1
-- Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold{:0..1}: [int]{:1} — CA-R-2711@1
-- Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{:0} — CA-R-2711@1
+- Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold: [int]{:0..1} — CA-R-2711@2
+- Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{:0} — CA-R-2711@2
 - Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold
   ?= LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)
-  ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold — CA-R-2711@1
-- Atom/(.Header.Role: Plan).Header.Work Sequence Number{:0..1}: [int]{:1} — CA-R-2712@1
-- Atom/(.Header.Role: Plan).Header.Work Sequence Number.*[]{:0} — CA-R-2712@1
-- Atom/(.Header.Role: Plan)//$atom — CA-R-2712@1
+  ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold — CA-R-2711@2
+- Atom/(.Header.Role: Plan).Header.Work Sequence Number: [int]{:0..1} — CA-R-2712@2
+- Atom/(.Header.Role: Plan).Header.Work Sequence Number.*[]{:0} — CA-R-2712@2
+- Atom/(.Header.Role: Plan)//$atom — CA-R-2712@2
 - IF ($atom.Header.Work Sequence Number{=1})
-THEN ($atom.Header.Work Sequence Number > 0) — CA-R-2712@1
+THEN ($atom.Header.Work Sequence Number > 0) — CA-R-2712@2
 - UNIQUE(
   Atom/(.Header.Role: Plan)//$atom_2,
   (.Header.Relations.IS_CONTAINED_BY.atom, .Header.Work Sequence Number),
   (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.atom{=1})
-) — CA-R-2712@1
+) — CA-R-2712@2
 - UNIQUE(
   Atom/(.Header.Role: Plan)//$atom_3,
   (.Header.Relations.IS_CONTAINED_BY.scope_unit, .Header.Work Sequence Number),
   (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.scope_unit{=1})
-) — CA-R-2712@1
+) — CA-R-2712@2
 - IF ($atom.Header.Status >| Status Group = Current)
-THEN ($atom.Header.Subjects.Active{==1}) — CA-R-2714@1
+THEN ($atom.Header.Subjects.Active{==1}) — CA-R-2714@2
 - Operator//Alias == "alias(Relation//RELATION_NAME) == \"notation token\"" — CA-R-2720@1
-- Atom/(.Header.Role in RMED).Content.Claim.Formal Claim{:0..1}: [markdown]{:1} — CA-R-2721@1
-- Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{:0} — CA-R-2721@1
-- FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1} — CA-R-2721@1
-- Atom/(.Header.Role in RMED).Content.Claim.Prose Claim{:0..1}: [markdown]{:1} — CA-R-2722@1
-- Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{:0} — CA-R-2722@1
+- IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
+) — CA-R-2721@2
 - Carrier/Docker Image — CA-R-2198@6
 - Carrier/Git Commit — CA-R-2199@6
 - Carrier/Git Branch — CA-R-2200@6

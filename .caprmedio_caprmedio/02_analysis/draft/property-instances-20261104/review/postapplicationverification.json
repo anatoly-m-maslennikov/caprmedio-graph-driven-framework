@@ -1,0 +1,18 @@
+{
+  "verdict": "pass",
+  "plan_sha256": "547b94da27a6e3374d0f0684a17e5252dc4e9a7dbfc3b2f2cb28dfc4f70afed1",
+  "receipt_sha256": "7221f74eea9d059ce2ad209bfafcb764cf1a0f26e56b024a2e7db265dce5d032",
+  "frontier_sha256": "b40245922796d93282ec704c0a9900cf02e88dccdd56cb751ba42edbf8e46b5c",
+  "checks": {
+    "receipt": "plan hash, 42 outputs and 84 operations match",
+    "operations": "all 84 after hashes match planned content and live files",
+    "archives": "42 new archives match exact predecessor bytes",
+    "metadata": "42 same-ID revisions preserve all parsed metadata except version and updated_at; summaries and subjects unchanged",
+    "versions": "42 versions exceed predecessors and all other same-ID CA-R Markdown versions in control root",
+    "frontier": "1151 distinct destination paths and live hashes match"
+  },
+  "limitations": [
+    "manual source application; receipt states native workflow admission and journal append did not occur",
+    "projection and runtime were not checked"
+  ]
+}

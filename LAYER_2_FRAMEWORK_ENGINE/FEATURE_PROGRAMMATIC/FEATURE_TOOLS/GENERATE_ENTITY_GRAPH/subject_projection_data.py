@@ -1,4 +1,4 @@
-"""Source-bound subject projections without CFEL evaluation or inheritance resolution."""
+"""Source-bound subject projections without CFEL evaluation."""
 
 from __future__ import annotations
 
@@ -83,6 +83,36 @@ def _property_record(row: Record) -> Record | None:
     }
 
 
+def _resolve_property_formats(properties: list[Record], entries: list[Record]) -> list[Record]:
+    candidates = [clause for entry in entries for clause in entry["clauses"]
+                  if clause.get("kind") == "property_constraint" and clause.get("value_format") is not None
+                  and not (clause["value_format"] == "" and (clause.get("value_cardinality") or {}).get("maximum") == 0)]
+    diagnostics = []
+    for property in properties:
+        identity = property["identity"]
+        matches = []
+        for clause in candidates:
+            selector, selection = clause.get("property_selector"), clause.get("selection")
+            if not isinstance(selector, str):
+                continue
+            suffix = identity[len(selector) + 1:] if identity.startswith(selector + ".") else None
+            applies = (selection in {"property", "values"} and selector == identity
+                       or selection in {"recursive_dependents", "recursive_dependent_values"} and suffix is not None
+                       or selection in {"immediate_dependents", "immediate_dependent_values"} and suffix is not None and "." not in suffix)
+            if applies:
+                matches.append(clause)
+        formats = {clause["value_format"] for clause in matches}
+        if len(formats) == 1:
+            property["effective_value_format"] = next(iter(formats))
+            property["effective_value_format_sources"] = [dict(clause["source"]) for clause in matches]
+        elif len(formats) > 1:
+            refs = sorted({_source_ref(clause["source"]) for clause in matches})
+            diagnostics.append({"code": "conflicting_property_value_formats",
+                                "message": f"Conflicting applicable value formats for {identity}: {', '.join(sorted(formats))} ({', '.join(refs)}).",
+                                "sources": [dict(clause["source"]) for clause in matches]})
+    return diagnostics
+
+
 def _ancestors(tree: Mapping[str, Any]) -> dict[str, list[str]]:
     nodes = {row["id"]: row["identity"] for row in tree["nodes"]}
     parents: dict[str, list[str]] = defaultdict(list)
@@ -163,6 +193,9 @@ def build_subject_projection_data(carriers: list[Record]) -> Record:
     tree_identities = {node["identity"] for node in tree["nodes"]}
     property_rows = [row for row in contracts["entities"] if row["kind"] == "property"]
     properties = [property for row in property_rows if (property := _property_record(row)) is not None]
+    format_diagnostics = _resolve_property_formats(
+        properties, [entry for row in [*contracts["entities"], *contracts["components"]] for entry in row["own"]],
+    )
     properties_by_origin: dict[str, list[Record]] = defaultdict(list)
     for property in properties:
         properties_by_origin[property["origin_entity"]].append(property)
@@ -209,6 +242,7 @@ def build_subject_projection_data(carriers: list[Record]) -> Record:
         },
         "diagnostics": [
             *contracts["diagnostics"],
+            *format_diagnostics,
             *[
                 {"code": "duplicate_exact_declaration", **conflict}
                 for conflict in contracts["conflicts"]

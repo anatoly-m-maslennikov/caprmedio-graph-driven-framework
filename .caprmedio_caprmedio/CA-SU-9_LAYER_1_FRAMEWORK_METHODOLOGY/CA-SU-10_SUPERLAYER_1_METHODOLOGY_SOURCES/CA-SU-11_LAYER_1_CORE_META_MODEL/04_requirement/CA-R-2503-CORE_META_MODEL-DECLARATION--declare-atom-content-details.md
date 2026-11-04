@@ -5,8 +5,8 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Content.Details
-version: 4
-updated_at: 2026-11-03 20:00:05 +0400
+version: 5
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -26,7 +26,7 @@ Declare Atom.Content.Details
 
 ```CFEL
 # model
-Atom/(.Header.Role in RMED).Content.Details{:0..1}: [markdown]{:1};
+Atom/(.Header.Role in RMED).Content.Details: {:0..1};
 
 Atom/(.Header.Role in RMED).Content.Details.*[string]{:0+}
 ```

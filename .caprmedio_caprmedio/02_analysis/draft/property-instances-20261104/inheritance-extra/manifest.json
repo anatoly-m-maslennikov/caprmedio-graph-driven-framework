@@ -1,0 +1,104 @@
+{
+  "frontier_path": ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/post-application-frontier.json",
+  "frontier_sha256": "4549c7537928a4ff25a86fc7814228e29913ad514b039941e6650b2aa573c182",
+  "frontier_count": 1151,
+  "rules_manifest_path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/rules/manifest.json",
+  "rules_manifest_sha256": "90d5a4a69306c4430b7cd75d242d42bbf309c29372df5349aed3b6184d71b1cf",
+  "overlay_count": 36,
+  "candidates": [
+    {
+      "id": "CA-R-2716",
+      "version": 1,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2716-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file.md",
+      "source_sha256": "1a8a11f3c79e891b92bb43b27961f5786403e988cafe85f9774408ffa52b74cd",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/inheritance-extra/CA-R-2716.preview.txt",
+      "candidate_sha256": "536109694d2272c7ae13caa0fdd058ae31b7d979d50b6a03923057dd1093f2c8",
+      "parent": "CA-R-2716",
+      "inherited_declaration": "Atom.Header.Carrier Destination.File.*: [string]"
+    },
+    {
+      "id": "CA-R-2717",
+      "version": 2,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2717-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-name.md",
+      "source_sha256": "d431c9924aaaaaaf0aca875bead92ae7c1a404742875e5cc10fb6ff0e82d0a8d",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/inheritance-extra/CA-R-2717.preview.txt",
+      "candidate_sha256": "ab2daad7f80d2051006c8582e0cb9470f7f7deed53e10749f69c80412bfd714e",
+      "parent": "CA-R-2716",
+      "inherited_declaration": "Atom.Header.Carrier Destination.File.*: [string]"
+    },
+    {
+      "id": "CA-R-2718",
+      "version": 2,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2718-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-path.md",
+      "source_sha256": "58c434fc4165c27b1ec08465a66902ee5678366fbaaaf2fbfa9da4a6233304fb",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/inheritance-extra/CA-R-2718.preview.txt",
+      "candidate_sha256": "600f93b8c2f2f59423765ad0d9aabd70317fec6128dac319eaf74de39acdb9f8",
+      "parent": "CA-R-2716",
+      "inherited_declaration": "Atom.Header.Carrier Destination.File.*: [string]"
+    },
+    {
+      "id": "CA-R-2632",
+      "version": 2,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2632-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes.md",
+      "source_sha256": "72bbb18889365d388a2ba800527acc9d3029bfa218bdd4d629c4cdf6d1417c82",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/inheritance-extra/CA-R-2632.preview.txt",
+      "candidate_sha256": "cadb0275849e064598ca2a799c5e3156671b54e36f912d037aa6c9d36299ed49",
+      "parent": "CA-R-2632",
+      "inherited_declaration": "Project.Settings.Authority Modes.*: [string]"
+    },
+    {
+      "id": "CA-R-2633",
+      "version": 1,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2633-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes-default-scope-unit-authority-mode.md",
+      "source_sha256": "b0f3445d75349f7ad1eb6d484869183c9024fe69d8b88908eef5987fdee88055",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/inheritance-extra/CA-R-2633.preview.txt",
+      "candidate_sha256": "12eb5022ef037a32552b17eefff3e2505a616670138f183f469e8c3309e245e7",
+      "parent": "CA-R-2632",
+      "inherited_declaration": "Project.Settings.Authority Modes.*: [string]"
+    },
+    {
+      "id": "CA-R-2634",
+      "version": 1,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2634-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes-project-authority-mode.md",
+      "source_sha256": "7d9273331597136b66fa4c4476f20bda0fdd0fb1b1e6d5af139f5b28663a0e68",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/inheritance-extra/CA-R-2634.preview.txt",
+      "candidate_sha256": "c6b8b77cfb515bd5bfdb8b9a06087cbb6abc6b80497d880e2d62d801a0a21a24",
+      "parent": "CA-R-2632",
+      "inherited_declaration": "Project.Settings.Authority Modes.*: [string]"
+    },
+    {
+      "id": "CA-R-1979",
+      "version": 15,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1979-CORE_META_MODEL-DECLARATION--define-project-framework-settings-confidence.md",
+      "source_sha256": "5eaddd046c6c0f960643f16540b9f19bb8750fb318904772dbe3473c7d8bff72",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/inheritance-extra/CA-R-1979.preview.txt",
+      "candidate_sha256": "a70a8edf1dddabd513d46c69ec9cc5c189253bf8ede2190b6873177c11ee626d",
+      "parent": "CA-R-1979",
+      "inherited_declaration": "Project.Settings.Confidence.*: [int]"
+    },
+    {
+      "id": "CA-R-2624",
+      "version": 1,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2624-CORE_META_MODEL-DECLARATION--define-necessary-information-threshold.md",
+      "source_sha256": "9c864abd2810a54d3ee701b770a59fc3066edfacd50e099269c0e05641639f6d",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/inheritance-extra/CA-R-2624.preview.txt",
+      "candidate_sha256": "2ef8807b58b642dc86680e5e15d8a55d909ec83e25a99b17ce2d40ab2531cfcb",
+      "parent": "CA-R-1979",
+      "inherited_declaration": "Project.Settings.Confidence.*: [int]",
+      "base_candidate_path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/rules/CA-R-2624.preview.txt",
+      "base_candidate_sha256": "d99710fe016bb6c3442831a723c74bff5b305f1eccf612a61f4edc9bb973c5ed"
+    },
+    {
+      "id": "CA-R-2625",
+      "version": 1,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2625-CORE_META_MODEL-DECLARATION--define-semantic-resolution-threshold.md",
+      "source_sha256": "0289448cdf1f96cf94a2a58d054f704fc7325a4e85a67741bbec27bcbf123ab1",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/inheritance-extra/CA-R-2625.preview.txt",
+      "candidate_sha256": "87450b802d848673c7bd29d010e692d844279d96638c9c0df66c3ec7977523a2",
+      "parent": "CA-R-1979",
+      "inherited_declaration": "Project.Settings.Confidence.*: [int]",
+      "base_candidate_path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/rules/CA-R-2625.preview.txt",
+      "base_candidate_sha256": "6c5515a6620eac922d574c533e5d868463c3c8bbbb4f484fa9c8476f9448638d"
+    }
+  ]
+}

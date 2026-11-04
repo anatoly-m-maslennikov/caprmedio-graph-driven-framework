@@ -5,8 +5,8 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//INSTANCE_OF
-version: 5
-updated_at: 2026-11-03 20:00:05 +0400
+version: 6
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -38,7 +38,7 @@ $instance ((INSTANCE_OF)) $kind;
 
 ### Prose Claim
 
-The Host is an instance of the Target declared kind; a Property kind is not independently instantiated.
+The Host is an instance of the Target declared kind. A Property instance is borne by its data bearer and is an instance of its corresponding model Property, which remains borne by its model bearer. A Property instance has no independent Carrier; its bearer and kind Relations are distinct and may coexist.
 
 Forward `Host ((INSTANCE_OF)) Target` and reverse `Target <((INSTANCE_OF)) Host` are views of the same Relation fact.
 In `X//Y`, Y INSTANCE_OF X; traversal runs from kind to instance.

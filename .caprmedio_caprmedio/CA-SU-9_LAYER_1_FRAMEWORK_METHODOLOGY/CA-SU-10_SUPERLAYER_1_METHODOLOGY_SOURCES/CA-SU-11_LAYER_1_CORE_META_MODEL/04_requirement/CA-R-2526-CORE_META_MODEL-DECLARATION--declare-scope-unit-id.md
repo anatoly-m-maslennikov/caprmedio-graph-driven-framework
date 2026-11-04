@@ -3,8 +3,8 @@ atom_id: CA-R-2526
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Scope Unit.ID
-version: 3
-updated_at: 2026-11-02 19:17:40 +0400
+version: 4
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -20,7 +20,7 @@ Declare Scope Unit ID
 
 ```CFEL
 # model
-Scope Unit.ID{:0..1}: [string]{:1};
+Scope Unit.ID: [string]{:0..1};
 
 Scope Unit.ID.*[]{:0};
 

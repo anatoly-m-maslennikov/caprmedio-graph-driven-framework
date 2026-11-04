@@ -5,12 +5,12 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes.Project Authority Mode
-version: 1
+version: 2
 relations: {}
 tier: 3
 role: Requirement
 form: Declaration
-updated_at: 2026-11-02 08:06:47 +0400
+updated_at: 2026-11-04 05:21:15 +0400
 ---
 
 ## Summary
@@ -23,7 +23,7 @@ Declare Project.Settings.Authority Modes.Project Authority Mode
 
 ```CFEL
 # model
-Project.Settings.Authority Modes.Project Authority Mode{:1}: [string]{:1};
+Project.Settings.Authority Modes.Project Authority Mode{:1}: {:1};
 
 Project.Settings.Authority Modes.Project Authority Mode.*[]{:0}
 ```

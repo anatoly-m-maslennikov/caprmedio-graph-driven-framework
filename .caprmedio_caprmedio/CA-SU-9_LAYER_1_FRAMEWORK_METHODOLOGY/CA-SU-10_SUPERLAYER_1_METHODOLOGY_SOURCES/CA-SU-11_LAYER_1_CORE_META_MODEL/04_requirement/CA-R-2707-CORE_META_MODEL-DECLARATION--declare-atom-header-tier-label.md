@@ -5,10 +5,10 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Header.Tier.Label
-version: 1
+version: 2
 relations: {}
 tier: 3
-updated_at: 2026-11-03 20:00:05 +0400
+updated_at: 2026-11-04 05:21:15 +0400
 role: Requirement
 form: Declaration
 carrier_destination:
@@ -26,7 +26,7 @@ Declare Atom.Header.Tier.Label
 
 ```CFEL
 # model
-Atom.Header.Tier.Label{:0..1}: [string]{:1};
+Atom.Header.Tier.Label: [string]{:0..1};
 
 Atom.Header.Tier.Label.*[]{:0};
 

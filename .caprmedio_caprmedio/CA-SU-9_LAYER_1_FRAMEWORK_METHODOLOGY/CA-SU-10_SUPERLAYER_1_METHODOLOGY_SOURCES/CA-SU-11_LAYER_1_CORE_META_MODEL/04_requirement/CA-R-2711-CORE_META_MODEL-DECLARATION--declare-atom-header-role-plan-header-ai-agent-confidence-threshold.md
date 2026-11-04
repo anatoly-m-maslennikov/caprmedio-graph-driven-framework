@@ -5,10 +5,10 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold
-version: 1
+version: 2
 relations: {}
 tier: 3
-updated_at: 2026-11-03 20:00:05 +0400
+updated_at: 2026-11-04 05:21:15 +0400
 role: Requirement
 form: Declaration
 carrier_destination:
@@ -26,7 +26,7 @@ Declare Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold
 
 ```CFEL
 # model
-Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold{:0..1}: [int]{:1};
+Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold: [int]{:0..1};
 
 Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{:0};
 

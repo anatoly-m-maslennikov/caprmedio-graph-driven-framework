@@ -5,8 +5,8 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Actor.Name
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+version: 3
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -22,7 +22,7 @@ Declare Actor.Name
 
 ```CFEL
 # model
-Actor.Name{:0..1}: [string]{:1};
+Actor.Name: [string]{:0..1};
 
 Actor.Name.*[]{:0}
 ```

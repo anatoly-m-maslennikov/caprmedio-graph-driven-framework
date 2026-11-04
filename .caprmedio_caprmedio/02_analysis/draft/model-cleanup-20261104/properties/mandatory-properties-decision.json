@@ -1,0 +1,13 @@
+{
+  "status": "SUPERSEDED_BY_LATEST_VALUE_DRIVEN_DECISION",
+  "operator_words": [
+    "okay, it means Name{:1}:",
+    "all properties are mandatory",
+    "we do not have any optional properties",
+    "we can add to Node: Node.**//{:1}"
+  ],
+  "accepted_meaning": "Each applicable named Property has exactly one occurrence per bearer. Name: is shorthand for Name{:1}:; value constraints remain a separate slot.",
+  "pending": "Whether Properties retain dependent occurrences without INSTANCE_OF/HAS_INSTANCE, or // is extended to Property instances.",
+  "canonical_source_changes": false,
+  "superseded_by": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/decisions.json"
+}

@@ -1,0 +1,15 @@
+# Format inheritance review
+
+Scope: the 88 indexed Property rows in `model-cleanup-20261104/properties/property-evidence.tsv`; pinned source hashes for the six candidates and the Content ancestor were checked against the live files. These are draft candidates, not source changes. The proposed ancestor declaration is owned by the separate CA-R-2498 lane and must be available before these removals are applied. General rule: an applicable ancestor declaration supplies only the format it explicitly specifies to covered descendants; descendant bounds and narrower constraints remain independently applicable. No value cardinality is inferred from a format-only rule.
+
+Six pinned previews remove seven repeated `[markdown]` format tokens: two in CA-R-2500, one each in CA-R-2721, CA-R-2722, CA-R-2503, CA-R-2502 and CA-R-2499. Each points to the precise proposed CA-R-2498 ancestor and the applicability intersection. All other indexed claim text is unchanged, including occurrence, value, and child-name bounds. CA-R-2500 also repeats the Formal and Prose Claim declarations found in CA-R-2721/2722; the format-only ancestor suffices for all four tokens without lifting their bounds. If a separate decision changes Prose's value bound to `{:0..1}`, preserve that new bound when rebasing; these candidates do not decide that change.
+
+A Property cannot exist without a value under the new decision: `Prose: [markdown]{:0..1}` permits absence or one value. A structural container with zero direct values and nonempty children remains valid. `[]` and zero cardinality are not redundant format copies of a literal value and are not removed here. Any existing indexed `{:0+}` literal contracts require separate reconciliation with the new decision, not silent rewriting in this format audit.
+
+Possible *new* direct-child format rules, for separate review only, are below. These are not existing inherited formats and no leaf-removal preview is authorized by them. In each case the indexed parent restricts its direct-child names to the two listed children, whose own declarations forbid children; this finding is bounded to indexed declarations and must be rechecked against all applicable unindexed declarations before adoption. A format-only rule retains each child's existing bounds.
+
+- CA-R-2716@1 `Atom.Header.Carrier Destination.File.*: [string]`: indexed `Name` (CA-R-2717@2) and `Path` (CA-R-2718@2).
+- CA-R-2632@2 `Project.Settings.Authority Modes.*: [string]`: indexed `Default Scope Unit Authority Mode` (CA-R-2633@1) and `Project Authority Mode` (CA-R-2634@1).
+- CA-R-1979@15 `Project.Settings.Confidence.*: [int]`: indexed `Necessary Information Threshold` (CA-R-2624@1) and `Semantic Resolution Threshold` (CA-R-2625@1).
+
+Do not lift a format across `Atom.Header.*`: indexed children include string, int, datetime, and structural containers. Other sibling groupings with mixed or unproven types, conditional formats, or no exhaustive name constraint are not candidates for broad lifting. An `in (...)` restriction on child *names* does not itself establish their value format. The index is not proof that no other declaration applies.

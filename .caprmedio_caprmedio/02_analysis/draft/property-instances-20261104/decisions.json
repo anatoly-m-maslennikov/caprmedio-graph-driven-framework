@@ -1,0 +1,12 @@
+{
+  "status": "APPLIED_VERIFIED_SOURCE_AND_PROJECTION",
+  "supersedes": "Globalmandatorypropertypresence/defaultone; existingemptylogicalslotinterpretation",
+  "decisions": [
+    "Property occurrence can be IS_PROPERTY_OF its bearer and INSTANCE_OF its schema simultaneously.",
+    "One property occurrence at most per applicable schema/bearer; exactly one schema and bearer for each present occurrence.",
+    "A present Property has a value; a zero value minimum permits omission unless another applicable constraint requires presence.",
+    "Claim.Prose Claim: [markdown]{:0..1} permits omission or one Markdown value, not an empty Property instance.",
+    "Atom.Content.**: [markdown] supplies an inherited recursive format only; local counts and exceptions stay separate."
+  ],
+  "implementation_boundary": "Structural groups may be populated through their children despite zero direct scalar values. No global one-instance Property requirement remains."
+}

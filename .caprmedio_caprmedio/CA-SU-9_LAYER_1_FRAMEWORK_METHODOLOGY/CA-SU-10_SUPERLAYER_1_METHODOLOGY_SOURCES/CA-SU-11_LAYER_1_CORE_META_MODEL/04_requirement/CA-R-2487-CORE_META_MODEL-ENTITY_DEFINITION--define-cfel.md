@@ -5,8 +5,8 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL
-version: 10
-updated_at: 2026-11-03 23:25:51 +0400
+version: 11
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -46,7 +46,7 @@ In a Formal Claim, `#model` and `#instances` are ordering comments for the model
 CFEL uses these graph-address forms:
 
 - `X/Y` selects a narrower Primary Node; `X//Name` selects an existing
-  instance of a Primary Node.
+  instance of a declared kind, including a Property instance borne by its data bearer.
 - `X.p` addresses Property p borne by X. In a Subject only,
   `X/(.p := V)` combines an admitted Property value with selection of X;
   `:=` is not a Formal-Claim value assignment.
@@ -70,7 +70,7 @@ actual count is greater than n using the existing numeric `>`, and `{==n}`
 concludes a required or derived count. These test/conclusion forms are not
 allowed bounds. A Relation has independent outgoing and
 reverse cardinalities: `Source {:forward}((RELATION)){:reverse} Target`.
-Omitted annotations are unspecified, not zero. `[format]` applies to direct
+A named Property has at most one occurrence per corresponding bearer; its applicable value constraints determine whether it is required. A present Property has a value, including nonempty child structure for a structural parent. `p: {:0..1}` specifies a direct-value count with its applicable inherited format. Other omitted annotations are unspecified, not zero. `[format]` applies to direct
 values; a name selector is not a value selector. A `p.**` count aggregates
 selected distinct descendant Property identities below p within each selected
 bearer, independently of direct values and other bearers.

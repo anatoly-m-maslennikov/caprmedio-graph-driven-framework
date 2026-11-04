@@ -5,8 +5,8 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Node
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+version: 3
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -33,7 +33,11 @@ Node {:0+}((NARROWER_THAN)) Node;
 
 Node {:0+}((HAS_NARROWER)) Node;
 
+Node.** {:1}((IS_PROPERTY_OF)) (Node, Node.**);
+
 (Node, Node.**) {:0+}((HAS_PROPERTY)) Node.**;
+
+Node.** {:0+}((HAS_INSTANCE)) Node.**//;
 
 IF $model_node in (Node, Node.**) THEN (
 IF ($model_node {=0}((IS_PROPERTY_OF)))
@@ -43,8 +47,7 @@ THEN ($model_node >| (Independence == Primary Node));
 IF $model_node_2 in (Node, Node.**) THEN (
 IF ($model_node_2 {=1}((IS_PROPERTY_OF)))
 THEN ($model_node_2 >| (Independence == Property))
-AND ($model_node_2 {==0}((HAS_NARROWER)))
-AND ($model_node_2 {==0}((HAS_INSTANCE)));
+AND ($model_node_2 {==0}((HAS_NARROWER)));
 );
 
 # instances
@@ -57,6 +60,10 @@ $node {:0+}((INSTANCE_OF)) Node;
 Node {:0+}((HAS_INSTANCE)) $node;
 
 $node.** {:1}((IS_PROPERTY_OF)) ($node, $node.**);
+
+$node.** {:1}((INSTANCE_OF)) Node.**;
+
+Node.**//{:0..1};
 
 ($node, $node.**) {:0+}((HAS_PROPERTY)) $node.**;
 ```

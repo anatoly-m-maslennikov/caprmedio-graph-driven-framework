@@ -3,14 +3,14 @@ atom_id: CA-R-2717
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-version: 2
+version: 3
 relations: {}
 tier: 3
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Header.Carrier Destination.File.Name
 role: Requirement
 form: Declaration
-updated_at: 2026-11-03 23:25:51 +0400
+updated_at: 2026-11-04 05:21:15 +0400
 carrier_destination:
   file:
     name: CA-R-2717-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-name.md
@@ -26,7 +26,7 @@ Declare Atom.Header.Carrier Destination.File.Name
 
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name: [string]{:1};
+Atom.Header.Carrier Destination.File.Name: {:1};
 
 Atom.Header.Carrier Destination.File.Name.*[]{:0}
 ```

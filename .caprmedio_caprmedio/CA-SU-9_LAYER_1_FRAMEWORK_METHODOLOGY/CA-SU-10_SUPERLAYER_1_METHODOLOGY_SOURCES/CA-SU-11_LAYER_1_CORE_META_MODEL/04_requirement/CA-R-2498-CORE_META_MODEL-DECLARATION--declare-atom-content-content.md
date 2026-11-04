@@ -5,8 +5,8 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Content
-version: 4
-updated_at: 2026-11-03 20:00:05 +0400
+version: 5
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -30,6 +30,8 @@ Atom.Content{:1}: []{:0};
 
 Atom.Content.*[string]{:0+};
 
-Atom.Content.**[string]{:0+}: [markdown]{:0..1}
+Atom.Content.**[string]{:0+};
+
+Atom.Content.**: [markdown]
 ```
 

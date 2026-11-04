@@ -5,8 +5,8 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL
-version: 6
-updated_at: 2026-11-03 20:00:05 +0400
+version: 7
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -24,13 +24,13 @@ Use distinct graph notation for Node relations
 
 ### Prose Claim
 
-In Subject addresses and Formal Claims, `X/Y` selects a narrower declared kind and `X//Name` an instance of a declared kind. A Property cannot narrow or instantiate. `X.p` addresses a Property borne by X; an unchanged inherited Property is resolved to its existing declaration rather than redeclared or given another bearer. In Subject addresses, `X/(.p := V)` admits V as a Property value and selects the whole Primary Node X where p equals V. The case does not exclude other allowed values from X.p. `(Node, Node.**)` selects Node and its recursive dependent Properties; it is not a narrowing assertion. Shared Node rules are declared once and inherited by applicable narrower Nodes.
+In Subject addresses and Formal Claims, `X/Y` selects a narrower declared kind and `X//Name` an instance of a declared kind. A Property cannot narrow; it can have instances borne by corresponding data bearers. `X.p` addresses a Property borne by X; an unchanged inherited Property is resolved to its existing declaration rather than redeclared or given another bearer. In Subject addresses, `X/(.p := V)` admits V as a Property value and selects the whole Primary Node X where p equals V. The case does not exclude other allowed values from X.p. `(Node, Node.**)` selects Node and its recursive dependent Properties; it is not a narrowing assertion. Shared Node rules are declared once and inherited by applicable narrower Nodes.
 
 `Part +> Whole` and `Whole <+ Part` are opposite written views of one composition fact, not narrowing. `X >| Axis` and `Axis |< X` are opposite views of one classification fact. `:` marks an allowed value. `=` tests a condition; `==` sets a value. Parentheses group expressions; `in (a, b)` expresses membership. A bare Entity name refers to the existing target without copying or reparenting it.
 
-For `Source {:left}((NAME)){:right} Target`, each optional bound constrains Relation instances at its written endpoint. Reversing the written view swaps the bounds. A Node-specific Claim addresses its active Node and its own bound; a Relation Declaration can state both intrinsic endpoint bounds. The opposite view requires its own applicable permission; a reverse written view does not grant permission. `{:n}` states an allowed cardinality. The same notation can constrain Properties, instances and Relations. Repeated references in a rule, including its conditions and conclusions, bind the same selected member. An omitted cardinality annotation leaves that cardinality undefined; it is not an implicit zero or permission.
+For `Source {:left}((NAME)){:right} Target`, each optional bound constrains Relation instances at its written endpoint. Reversing the written view swaps the bounds. A Node-specific Claim addresses its active Node and its own bound; a Relation Declaration can state both intrinsic endpoint bounds. The opposite view requires its own applicable permission; a reverse written view does not grant permission. `{:n}` states an allowed cardinality. The same notation can constrain Properties, instances and Relations. Repeated references in a rule, including its conditions and conclusions, bind the same selected member. An omitted named Property occurrence cardinality does not require presence; applicable value constraints determine presence. Other omitted cardinalities are undefined, not implicit zero or permission.
 
-`(Node, Node.**)` selects model Entities in the Node branch; it does not limit other declared Entities. `(Node//, (Node//).**)` is the instance-layer selector. `Node//` selects Node instances including instances of narrower kinds. `(Node//).**` selects recursive Property occurrences of a Node instance; it does not independently instantiate a Property kind. The two layers have separate permissions. Repeated instance matches count once by identity.
+`(Node, Node.**)` selects model Entities in the Node branch; it does not limit other declared Entities. `(Node//, (Node//).**)` is the instance-layer selector. `Node//` selects Node instances including instances of narrower kinds. `(Node//).**` selects recursive Property instances borne by a Node instance. Each is an instance of its corresponding model Property and has no independent Carrier. The two layers have separate permissions. Repeated instance matches count once by identity.
 
 Subjects remain addresses and do not contain complete Formal Claims. In Subjects, `:=` combines allowed value and condition, including `Atom.Header.Status := Draft` and `Atom/(.Header.Role := Method)`; it does not write an instance value. Formal Claims retain separate `:` and `=` meanings. The withdrawn `..` form is not adopted; `::` has no assigned meaning here.
 
