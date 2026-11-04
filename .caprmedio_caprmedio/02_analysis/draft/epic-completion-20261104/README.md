@@ -2,7 +2,7 @@
 
 Goal: complete the declaration-based Scope Unit authority and current MODEL/CFEL changes, then verify the source, consumer, Projection and P2707 gates. Ask the Operator one question at a time when confidence is below 90%.
 
-P2694@60 and P2707@5 are Active. Root owns MODEL/CFEL/Atom source changes and source Git work. CA #3 owns implementation and test execution; those gates remain required external dependencies. Manual source receipts do not establish native workflow admission or Journal append.
+P2694@61 and P2707@5 are Active. Root owns MODEL/CFEL/Atom source changes and source Git work. CA #3 owns implementation and test execution; those gates remain required external dependencies. Manual source receipts do not establish native workflow admission or Journal append.
 
 | Lane | Deliverable | State |
 | --- | --- | --- |
@@ -25,3 +25,5 @@ The source-only Occurrent packet now has 23 allocated Requirement Drafts (13 new
 Term Form/ID authority repair is Current and verified; exact R2275@2 is retired. Entity/Property Draft adoption remains held for legacy fields and Subject paths. Workbench and Workflows are owned by other agents. No required Epic gates were removed.
 
 The twelve held Drafts now have canonical containment Headers with obsolete scope fields removed. Their bodies and Current predecessors are unchanged; remaining Subject/prose repairs are still held.
+
+Latest: P2694@61 records the full CFEL specification audit and accepted ?== / IF binding decisions. Governing Configuration is Project properties. All23 prior acceptance groups remain. Four source lanes plus the non-Requirement Relation review cover the142-Atom specification census; completeness is not yet proven. Workbench/Workflows remain excluded owned files.

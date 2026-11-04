@@ -1,9 +1,9 @@
 {
   "schema": "caprmedio-epic-acceptance-matrix/1",
-  "epic": "CA-P-2694@60",
+  "epic": "CA-P-2694@61",
   "as_of": "2026-11-04",
   "purpose": "Read-only completeness assessment; not authority to change Current or transition status.",
-  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-frontier.json",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-binding-frontier.json",
   "current_frontier_note": "Seven MODEL views refreshed from 1,160 selected Current suppliers after Method Form/ID owner repair: 55 missing / 23 unresolved. Bounded source snapshot; Workbench/Workflows owned by other agents. Runtime gates remain open.",
   "requirements": [
     {
@@ -251,12 +251,18 @@
         "CFEL lane",
         "P2707"
       ],
-      "assessment": "reported_adopted_current_behavior_unverified",
+      "assessment": "source_spec_audit_in_progress_not_complete",
       "evidence_refs": [
         ".caprmedio_caprmedio/02_analysis/draft/model-header-content-migration-20261103/report.md",
         ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/REPORT.md",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/cfel/analysis.md",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/cfel/inventory.json"
+      ],
+      "latest_operator_requirements": [
+        "Complete Current CFEL spec review: every operator, Relation and expression syntax declared.",
+        "One actual active Subject per Atom; simple coherent vocabulary; remove redundant/staging text.",
+        "?== assigns omitted default; = condition; == assignment. Confidence default90 integer0..100.",
+        "IF-introduced variable scoped to IF condition and matching THEN group."
       ]
     },
     {
@@ -418,9 +424,9 @@
   ],
   "reviewed_plan_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
   "reviewed_plan_quality": "P2694@55 was independently reviewed; @56 clarifies required pushes versus no release and @57 records the verified1159-source checkpoint. Final gates remain open.",
-  "latest_projection_checkpoint": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term/generation-manifest.json",
-  "current_epic_version": 60,
-  "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/term-planning-checkpoint/adoption-receipt.json",
+  "latest_projection_checkpoint": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-binding/generation-manifest.json",
+  "current_epic_version": 61,
+  "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/cfel-audit-planning/adoption-receipt.json",
   "current_verification_task_version": 5,
   "execution_responsibility": {
     "this_chat": "MODEL, CFEL, Declarations, Atom sources and source projections",
