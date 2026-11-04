@@ -1,0 +1,55 @@
+{
+  "verdict": "PASS_BOUNDED_CURRENT_SOURCE_VERIFICATION",
+  "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/cfel-binding-range-promotion/adoption-plan.json",
+  "plan_sha256": "81193cd458a2b034d831afe3d63c2caec51e8de88677473e42b155f712f0e3e4",
+  "receipt_sha256": "6b583d29bc5abdced03b2af96f9317f9f134d86a86d414b6f56e9be1a573c993",
+  "operations_verified": 9,
+  "current": [
+    {
+      "id": "CA-R-2601",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "version": 3,
+      "sha256": "d31d8e02dedf8afe62ad100733208ff77c8f069666397b86480ae4d5da4de9a0"
+    },
+    {
+      "id": "CA-R-2604",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "version": 3,
+      "sha256": "f2b03e857aa8bc2e30beba8bac5f4b9b78d12af35061ab865d3c8e3ff07bdc5d"
+    },
+    {
+      "id": "CA-R-2711",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "version": 6,
+      "sha256": "0506c8ab90381874d50fd3f368b97217a392271e555c495b2b03d47bcf8267c3"
+    }
+  ],
+  "exact_predecessors": 3,
+  "drafts_consumed": 3,
+  "unchanged_structural_level_rules": [
+    {
+      "id": "CA-R-2554",
+      "sha256": "0f0ba69390d074f65a5c0c75469e6bf3b1f24bb53f321fa3d742d38ab6cfb75b"
+    },
+    {
+      "id": "CA-R-2555",
+      "sha256": "3823ca975892c836b070091fdbbf3ea91d3a6c7c6cc370efa619e903ebc58308"
+    }
+  ],
+  "current_vs_historical_audit": {
+    "resolved_by_current": [
+      "CA-R-2601 mixed AND/OR grouping",
+      "CA-R-2604 typed standalone and IF binding lifetime/no shadow",
+      "CA-R-2711 optional Plan threshold inclusive integer 0..100"
+    ],
+    "historical_only": [
+      "Earlier R2604 untyped standalone selector wording was held, and is superseded by Current @3.",
+      "Earlier R2554/R2555 assignment previews were rejected; unchanged Current tests remain authoritative."
+    ],
+    "other_cfel_scope_and_vocabulary_holds": "Still open; this verification does not resolve them."
+  },
+  "limits": [
+    "Manual source route; native workflow admission and Journal append are false.",
+    "No runtime/parser behavior or unrelated mutations established."
+  ]
+}
