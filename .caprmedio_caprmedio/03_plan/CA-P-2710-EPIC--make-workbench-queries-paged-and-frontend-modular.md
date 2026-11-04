@@ -1,10 +1,10 @@
 ---
 atom_id: CA-P-2710
 label: Epic
-status: Active
+status: Done
 tier: 3
-version: 4
-updated_at: 2026-11-04 18:57:01 +0400
+version: 5
+updated_at: 2026-11-04 19:31:25 +0400
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
 relations:
@@ -56,7 +56,7 @@ Workbench only. No repair of unrelated lifecycle or model migrations, custom SQL
 
 ## Status
 
-Active. Release 0.4.4.14 and its live browser/API checks passed. The final Project-specific Workbench URL and bounded result presentation are now being applied; their release remains pending.
+Done. Workbench 0.4.4.15 is released and the Project-specific page, API, MCP, health, pagination and bounded result display are verified live.
 
 ## Verification checkpoint
 
@@ -76,3 +76,14 @@ The Operator selected `/caprmedio/workbench/caprmedio`, with `/caprmedio/mcp` an
 Docker Desktop is now configured and verified at 32 GiB, as requested. Old unused runtime/probe images and the verified obsolete test-fixture container/image were removed. Only the current runtime image remains.
 
 The 0.4.4.14 live API and browser returned 4,592 rows and 17 columns through 100-row pages. Run, Check, Next, Previous, visible query errors and a subsequent valid query all passed. The final follow-up must not be counted as deployed until separately released.
+
+## Final result
+
+- Local release `workbench-20261104-project-url` completed as 0.4.4.15. Its final gate passed nine tests with zero skips or failures, plus all launcher Docker groups. Earlier focused gates passed 61 Workbench tests, 27 HTTP checks, the SDK page-dispatch regression and 29 packaging tests.
+- Live page: `http://127.0.0.1:56317/caprmedio/workbench/caprmedio`. MCP remains `/caprmedio/mcp`; health remains `/caprmedio/health`. Unqualified or mismatched Project pages return 404.
+- Live web and MCP SELECT-all requests return 4,592 rows and 17 columns through bounded pages. Browser Run, Check, Next and Previous passed; query errors are visible and a subsequent valid query succeeds. The final Project-qualified page and scrolling result pane were inspected in the browser.
+- Source files remain authoritative. The disk-backed database, internal results and spill live under `.caprmedio_runtime/workbench`. No custom SQL parser, extra server, queue, scheduler, retry or rollback was added.
+- WORKBENCH_BACKEND and WORKBENCH_FRONTEND are declared child Scope Units; their code and specific RMED are separated. Shared Workbench contracts remain in the parent.
+- Svelte + TypeScript + Vite, the component palette, >300-line recommendation and >500-line mandatory split are recorded in Current RMED. Frontend source files remain far below both thresholds.
+- Docker's applied disk size is 32 GiB. Old unused images and the verified obsolete test fixture were removed; only the current runtime image remains.
+- The release receipt is `.caprmedio_runtime/simple_local_release/reports/workbench-20261104-project-url.md`. Live API and browser evidence is retained under `.caprmedio_tmp/workbench`. The unrelated full repository suite was not run.
