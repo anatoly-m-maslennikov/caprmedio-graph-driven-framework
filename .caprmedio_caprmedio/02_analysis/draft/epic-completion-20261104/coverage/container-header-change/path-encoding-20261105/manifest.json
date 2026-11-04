@@ -442,7 +442,7 @@
       "candidate_version": 3,
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/CA-R-2530.v3.path-string.preview.md",
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/CA-R-2530.v3.path-string.preview.md",
-      "preview_sha256": "ebcc2b1907d7f86c572b9c7cc90a73f222de972a1204817deeeff0646cb6aac3",
+      "preview_sha256": "51876c8b0cdf5f6a7c097b7e76fefac93d6d24087de0c3a14ff9c9117704b44a",
       "change": "Replace one-or-more-string ordered chain with exactly one scalar path string; define `/` root and actual Name-chain syntax and examples."
     },
     {

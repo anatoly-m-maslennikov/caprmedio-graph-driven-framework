@@ -1,0 +1,45 @@
+{
+  "verdict": "PASS_BOUNDED_PATH_PREVIEWS_READY_FOR_DRAFT_PREPARATION",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/manifest.json",
+  "manifest_sha256": "62b62f5362408b998033cb85a5b2c08b6d17dc89b056d86a4e824834560c9f66",
+  "source_previews": [
+    {
+      "id": "CA-R-2530",
+      "source_version": 2,
+      "source_status": "Active",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2530-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "source_sha256": "9abd4823d07e60b55d674823274fef480205f39e0eb5e193ac30d06c4f59a075",
+      "candidate_version": 3,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/CA-R-2530.v3.path-string.preview.md",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/CA-R-2530.v3.path-string.preview.md",
+      "preview_sha256": "51876c8b0cdf5f6a7c097b7e76fefac93d6d24087de0c3a14ff9c9117704b44a",
+      "change": "Replace one-or-more-string ordered chain with exactly one scalar path string; define `/` root and actual Name-chain syntax and examples."
+    },
+    {
+      "id": "CA-R-2779@1",
+      "source_status": "Draft",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "source_sha256": "64741ac4fab3996fa585aebfb04efbc5bdab3d2826b4dba26eed6184a67b448f",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/CA-R-2779@1.path-integrated.preview.md",
+      "preview_sha256": "0f0521a431fd333ae7f325f14692efb03ee0fb7eb39ab3a0d214f8a17598263a",
+      "change": "Integrate canonical full Scope Unit path definition and actual Engine/Core Meta Model examples under allowed Header.Container values; existing base Atom ID and root world-default behavior remain intact.",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/CA-R-2779@1.path-integrated.preview.md"
+    }
+  ],
+  "checks": [
+    "All 46 native Declaration hashes match. Independently parsed all 45 nonroot Names and direct parent relations: every chain reaches the declared Project root, no Name contains slash and no sibling Name is duplicated in this source set.",
+    "FRAMEWORK_ENGINE is /FRAMEWORK_ENGINE; FRAMEWORK_METHODOLOGY \u2192 METHODOLOGY_SOURCES \u2192 CORE_META_MODEL is /FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/CORE_META_MODEL. These values derive from Declaration Names and parent relations, not folder names.",
+    "R2530 retains complete declared root-to-target identity order while changing Path from 1+ string values to one scalar string. R2779 preview changes only its path value description and retains formal bounds, base Atom ID Current lookup, root world fallback and valid explicit override, and sole stored Atom containment.",
+    "No new alias, Scope Unit, name-change rule or future escaping policy is introduced; slash-free names and sibling uniqueness are observed only for the current census."
+  ],
+  "integration_holds": [
+    "Allowed-value :: syntax must be adopted through the coordinated notation source packet.",
+    "Path scalar representation and Container source changes do not migrate Current Header data or prove consumer/runtime acceptance; any source successor must be applied and reviewed atomically with relevant consumers.",
+    "A slash in a future Scope Unit.Name is not covered by this bounded census; no escape or renaming rule is authorized here."
+  ],
+  "limits": [
+    "Both source previews are ready for guarded Draft preparation, not independently approved Current adoption or existing Header data migration.",
+    "No Current, actual Draft, code, tests or Git mutation."
+  ],
+  "resolved_finding": "R2530 now says the Project root has Path / generally; Project//caprmedio appears only in a source-backed example."
+}

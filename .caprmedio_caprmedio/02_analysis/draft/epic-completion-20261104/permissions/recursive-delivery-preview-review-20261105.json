@@ -1,21 +1,21 @@
 {
-  "verdict": "HOLD_TWO_TEXT_CLARIFICATIONS",
+  "verdict": "PASS_BOUNDED_SOURCE_PREVIEWS_READY_FOR_DRAFT_PREPARATION",
   "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/delivery/manifest.json",
-  "manifest_sha256": "786d18ed59dcd6303cb5e6faf5a3f546f3b3a9f48d06e2455f0b75de372f6ebe",
+  "manifest_sha256": "b4faab62d82e7875c1763ad7ab10874111dd3dbc698e068e3048a548f97e2f28",
   "previews": [
     {
       "id": "CA-D-467",
       "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
       "source_sha256": "ed46335c87661b1caa6ca3c6fc3f042f50a54de7dd0014e2b68877b1833a0b66",
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/delivery/CA-D-467.preview.md",
-      "preview_sha256": "a820a95ab65ef3ec753fd84df7798026bff0a8dba27cad652b7f7b174a13d93e"
+      "preview_sha256": "27a44a6a1c153e2a993ea23d04f354ed22f0efe373379a9ad44037eb4181a72f"
     },
     {
       "id": "CA-E-500",
       "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
       "source_sha256": "ceb0fdcccff0972ecb3e6b2aba27f6565ecd7cc05cea21bd9c8b072b4ce61edf",
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/delivery/CA-E-500.preview.md",
-      "preview_sha256": "7f5ff8d74bb53fedaedf3a470c8dc0fe53041fb09e1f57b14eaaa03f29c942cf"
+      "preview_sha256": "75dae62fd11f6e3ddc7cfb842e807d0e04988bdd47b2a09aaa167c62b1e11302"
     }
   ],
   "authority_pins": [
@@ -53,20 +53,14 @@
     "D467 retains Status placement under D466, explicit own status under D483, archived basename under D289, exact old archive bytes and no archive-tree migration. R1521 explicitly owns per-Atom model validation, same requested Status, recursive latest descendant selection and non-targets outside Carrier tree. E500 retains those concrete cases and tests.",
     "Rooted Workflow/Step composition and exactly one immediate whole match stated user decisions; no model entity or Relation is derived from folder structure."
   ],
-  "findings": [
-    {
-      "id": "D467_and_E500",
-      "issue": "Both previews also say all recursively contained Step descendants remain inside their parent Carrier tree for every Status. Read over logical containment, this conflicts with their expressly permitted separately placed resolving Step Carriers.",
-      "fix": "Restrict the placement statement to descendants actually carried within the parent tree; do not require independently placed logical Steps to move into it. Keep the R1521 cascade selection bounded to the actual parent Carrier tree, including recursively nested carried Steps."
-    },
-    {
-      "id": "CA-D-467",
-      "issue": "The new phrase \u201cdeclared Workflow graph and Step relations define control flow\u201d can imply containment relations create execution order; Current says the Workflow graph defines control flow.",
-      "fix": "Keep control flow owned by the declared Workflow graph; describe Step relations as composition only and retain no folder-inferred execution order."
-    }
-  ],
+  "findings": [],
   "limits": [
-    "No physical instance or runtime validation was performed; source previews only.",
+    "Source previews are ready for guarded Draft preparation, not independently ready for Current adoption or physical data/runtime migration.",
+    "Recursive Step MODEL, status cascade, applicable syntax and Header/Carrier authorities must be integrated as one reviewed source checkpoint.",
     "No Current, actual Draft, code, tests, Workflow/Workbench or Git mutation."
+  ],
+  "resolved_findings": [
+    "Both previews now limit preservation within the parent Carrier tree to Steps actually carried there and explicitly retain separately placed referenced Steps outside it. Cascades exclude references outside the Carrier tree.",
+    "D467 now states the declared Workflow graph defines control flow; Step relations express composition only and do not establish execution order."
   ]
 }

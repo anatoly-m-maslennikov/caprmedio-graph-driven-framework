@@ -14,7 +14,7 @@
       "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
       "current_sha256": "ed46335c87661b1caa6ca3c6fc3f042f50a54de7dd0014e2b68877b1833a0b66",
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/delivery/CA-D-467.preview.md",
-      "preview_sha256": "a820a95ab65ef3ec753fd84df7798026bff0a8dba27cad652b7f7b174a13d93e",
+      "preview_sha256": "27a44a6a1c153e2a993ea23d04f354ed22f0efe373379a9ad44037eb4181a72f",
       "summary_preserved": true,
       "metadata_preserved": true,
       "clause_map": [
@@ -32,7 +32,7 @@
         },
         {
           "before": "folder nesting organizes Carriers; it **must not** establish a Step/Substep Relation, execution inheritance, **or** execution order. the Workflow graph defines control flow; **every** leaf Step retains its own invocation of **`=1`** referenced Action or Workflow, and a containing Step has **`1+`** Substeps and no RUNS relation.",
-          "after": "Carrier placement organizes files; it **must not** establish a formal Step containment Relation, execution inheritance, **or** execution order. The declared Workflow graph and Step relations define control flow. Each Step has exactly one declared composition form: it RUNS one Action, RUNS one Workflow, or contains one or more Steps and RUNS neither target. Every Step has exactly one immediate whole, and its containment chain ends at exactly one root Workflow."
+          "after": "Carrier placement organizes files; it **must not** establish a formal Step containment Relation, execution inheritance, **or** execution order. The declared Workflow graph defines control flow; Step relations express composition only and do not establish execution order. Each Step has exactly one declared composition form: it RUNS one Action, RUNS one Workflow, or contains one or more Steps and RUNS neither target. Every Step has exactly one immediate whole, and its containment chain ends at exactly one root Workflow."
         },
         {
           "before": "**every** admitted Workflow **or** containing Step parent Status change requires the containment cascade under CA-R-1521: compose independent single-Atom Actions for the latest Revision of the Workflow's direct Steps and their direct leaf Substeps, or the Step's direct leaf Substeps, requesting the same Status under each Atom's own model. separately placed referenced Steps **and** Actions outside the Carrier tree are **not** cascade targets; older archived Revisions retain their exact bytes, Version **and** Status.",
@@ -40,7 +40,7 @@
         },
         {
           "before": "apply CA-D-466's Status placement inside each local Workflow **or** Step container. Workflow-to-Step-to-Substep descendants remain inside the parent Carrier tree for **every** Status, including Archived; apply CA-D-289's Version suffixes **to** Archive Carrier basenames. this rule does **not** migrate noncanonical legacy `archive/` trees.",
-          "after": "Apply CA-D-466 Status placement inside each local Workflow or Step container. All recursively contained Step descendants remain inside their parent Carrier tree for every Status, including Archived. Apply CA-D-289 Version suffixes to Archive Carrier basenames. This rule does not migrate noncanonical legacy `archive/` trees."
+          "after": "Apply CA-D-466 Status placement inside each local Workflow or Step container. Step descendants actually carried inside a parent Carrier tree remain there for every Status, including Archived. Separately placed referenced Steps remain separately addressable outside that tree and are not moved into it. Apply CA-D-289 Version suffixes to Archive Carrier basenames. This rule does not migrate noncanonical legacy `archive/` trees."
         },
         {
           "before": "read each Step and Substep's Status from its own Markdown Carrier under CA-D-483; containing Status directories **or** parents **must not** override it. the cascade writes the changed latest Revisions; it **does not** infer execution order **or** execution inheritance.",
@@ -57,7 +57,7 @@
       "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
       "current_sha256": "ceb0fdcccff0972ecb3e6b2aba27f6565ecd7cc05cea21bd9c8b072b4ce61edf",
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/delivery/CA-E-500.preview.md",
-      "preview_sha256": "7f5ff8d74bb53fedaedf3a470c8dc0fe53041fb09e1f57b14eaaa03f29c942cf",
+      "preview_sha256": "75dae62fd11f6e3ddc7cfb842e807d0e04988bdd47b2a09aaa167c62b1e11302",
       "summary_preserved": true,
       "metadata_preserved": true,
       "clause_map": [
@@ -83,7 +83,7 @@
         },
         {
           "before": "- retain the Workflow-to-Step-to-Substep descendants inside the parent Carrier tree, including Archived placement under CA-D-466 **and** CA-D-289. preserve exact bytes, Version **and** Status of older archived Revisions; reject their inclusion as cascade targets **or** their metadata rewrite. no migration of legacy `archive/` trees is implied.",
-          "after": "- retain all recursively contained Step descendants inside the parent Carrier tree for every Status, including Archived placement under CA-D-466 and CA-D-289. Preserve exact bytes, Version and Status of older archived Revisions; reject their inclusion as cascade targets or metadata rewrite. No migration of legacy `archive/` trees is implied."
+          "after": "- retain Step descendants actually carried inside the parent Carrier tree there for every Status, including Archived placement under CA-D-466 and CA-D-289. Keep separately placed referenced Steps outside that tree and separately addressable. Preserve exact bytes, Version and Status of older archived Revisions; reject their inclusion as cascade targets or metadata rewrite. No migration of legacy `archive/` trees is implied."
         }
       ]
     }

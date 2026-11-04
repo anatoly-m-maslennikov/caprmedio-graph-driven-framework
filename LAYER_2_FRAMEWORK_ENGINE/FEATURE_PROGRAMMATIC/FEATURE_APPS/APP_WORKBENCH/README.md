@@ -129,3 +129,5 @@ The Docker E2E test sets the browser URL and uses that cache automatically.
 A standalone browser run requires an explicit `WORKBENCH_E2E_URL` and the same
 `PLAYWRIGHT_BROWSERS_PATH`, then `npm run test:e2e`. It creates saved-item Journal
 entries in the selected test Project. No live-server URL is assumed.
+
+Browser test artifacts are written to `.caprmedio_tmp/workbench/browser-results`, outside application/image inputs.

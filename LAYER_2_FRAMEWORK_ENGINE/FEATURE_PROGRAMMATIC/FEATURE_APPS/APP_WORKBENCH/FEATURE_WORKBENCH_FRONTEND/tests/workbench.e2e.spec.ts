@@ -67,7 +67,16 @@ test('restores local Worksheet state and opens a saved Worksheet without running
 });
 
 test('uses palette navigation, quoted status completion, and focus after hiding the editor', async ({ page }) => {
+  const schemaResponse = page.waitForResponse((response) => (
+    response.request().method() === 'POST'
+    && new URL(response.url()).pathname.endsWith('/schema')
+    && response.status() === 200
+  ));
   await page.goto(url);
+  const schema = await (await schemaResponse).json() as {
+    tables: { atoms: Array<{ name: string; values?: string[] }> };
+  };
+  expect(schema.tables.atoms.find((column) => column.name === 'status')?.values).toContain('Active');
   await page.keyboard.press('Meta+P');
   const palette = page.getByRole('dialog', { name: 'Command palette' });
   await expect(palette.getByRole('textbox')).toBeFocused();

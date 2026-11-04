@@ -1,6 +1,6 @@
 {
   "verdict": "PASS_BOUNDED_PREVIEW_REVIEW",
-  "manifest_sha256": "47fd0ef06ff353ce1e91da62ffacfdbae115603fd26d80501145a932994e2c18",
+  "manifest_sha256": "cacf2dda328e296f9b511299d4a1ddac28bfd1c74dd3384d50b873277a05064e",
   "candidates": [
     {
       "id": "CA-R-2248",
@@ -9,7 +9,7 @@
       "candidate_pin": true,
       "diff_pin": true,
       "metadata_unchanged": true,
-      "candidate_sha256": "da89d39db30e97946a16dd38b0f35d2396fa476294d909d3def57a17ea22f232",
+      "candidate_sha256": "fc659a3f7a548667bc754ec27c5d2956dd2df3c59832ec6f9e3fd15189ffca70",
       "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format"
     },
     {
@@ -19,7 +19,7 @@
       "candidate_pin": true,
       "diff_pin": true,
       "metadata_unchanged": true,
-      "candidate_sha256": "9e9179d2f36dc05f751f9793161d6d3996b248c5c343c0e2769e645643a06c5c",
+      "candidate_sha256": "3196564240a961b03d315bbe581543c832b4c1d1df1c92a1cc7e3e7f1e87c02f",
       "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding"
     },
     {
@@ -29,27 +29,29 @@
       "candidate_pin": true,
       "diff_pin": true,
       "metadata_unchanged": true,
-      "candidate_sha256": "36e9b5b4f56a57776b658d7b7488fbb4a1329b5343534071ae0cbf530f599512",
+      "candidate_sha256": "896a10369c368ecc8d2b352b0554175cc71bc355fb5cf06c8003d62bcc470df2",
       "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
     }
   ],
   "dependency_pins_match": {
     "analysis_draft_path": true,
-    "for_each_draft_path": true
+    "for_each_draft_path": true,
+    "cardinality_authority_path": true
   },
-  "resolved_prior_findings": [
-    "A1321 proposal pin refreshed and reviewed; current dependency bytes match.",
-    "Universe wording now preserves existing Kind//$x and Kind// domains; bare Model kind denotes model entity and explicit IF model membership is retained.",
-    "Repeated anonymous selectors assert neither identical nor distinct referents; named binding retains identity."
+  "reviewed_claims": [
+    "Journal population bound counts selected logical instances within Current Project, does not create instances.",
+    "Property occurrence and direct value counts are distinct, with direct values counted per Property occurrence; Relation slots count links per written endpoint, consistent with R2243@12.",
+    "Current Kind//$x and Kind// domains retained; bare Model kind identifies model entity; repeated anonymous selections assert neither identity nor difference.",
+    "R2487 merges existing @14 ::, :=, IF binding and grouping; FOR EACH uses its separately declared scope, with no new header cardinality syntax.",
+    "R2604 retains existing IF and standalone scope and no-shadowing; active Subject does not supply an implicit participant.",
+    "Format notation does not create a Node, instance or graph fact."
   ],
-  "preservation": [
-    "R2487 @14 merge retains ::, :=, IF membership and FOR EACH separate logical quantification with active Subject as focus.",
-    "R2604 retains IF binding, no shadowing and standalone scope.",
-    "Object Format does not itself create an instance or graph fact."
+  "resolved_prior_findings": [
+    "Dependency A1321 and former universe/anonymous identity wording corrected and pinned.",
+    "Count attachment now mapped without adding count tests to FOR EACH headers."
   ],
   "remaining_gates": [
-    "Selection cardinality attachment remains unresolved; no rule invented.",
-    "Coordinated Draft integration and eventual source adoption required; R2778 remains Draft.",
-    "No Current or runtime/parser adoption asserted."
+    "Draft integration must preserve exact @14 basis and be coordinated with FOR EACH Draft and notation consumer sources.",
+    "No Current adoption, native workflow admission, runtime or parser conformance is asserted."
   ]
 }

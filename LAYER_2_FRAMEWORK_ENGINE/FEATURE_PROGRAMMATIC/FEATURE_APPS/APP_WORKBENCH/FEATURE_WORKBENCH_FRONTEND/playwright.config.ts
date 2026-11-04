@@ -1,5 +1,5 @@
 // CA-M-472@1
-// CA-E-678@4
+// CA-E-678@5
 import { defineConfig } from '@playwright/test';
 
 const baseURL = process.env.WORKBENCH_E2E_URL;
@@ -8,6 +8,7 @@ if (!baseURL) throw new Error('WORKBENCH_E2E_URL is required for Workbench brows
 
 export default defineConfig({
   testDir: './tests',
+  outputDir: '../../../../../.caprmedio_tmp/workbench/browser-results',
   timeout: 120_000,
   workers: 1,
   retries: 0,

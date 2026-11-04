@@ -4,7 +4,7 @@ status: Draft
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL
 version: 14
-updated_at: 2026-11-05 00:49:39 +0400
+updated_at: 2026-11-05 03:25:14 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
@@ -43,9 +43,9 @@ Graph and Carrier: Graph contains Nodes and Relations; CFEL addresses and
 constrains them. CFEL syntax neither creates a Node, Relation, Property,
 Carrier fact, Workflow step, nor evaluator result.
 
-An `IF` membership condition can bind an unbound variable to each matching member of its declared selection; a variable already bound in the surrounding scope is tested against membership without rebinding. A parenthesized multi-line `THEN` body uses the same binding in each complete expression. This does not introduce a `FOR` primitive.
+An `IF` membership condition can bind an unbound variable to each matching member of its declared selection; a variable already bound in the surrounding scope is tested against membership without rebinding. A parenthesized multi-line `THEN` body uses the same binding in each complete expression. `FOR EACH` states universal quantification under its own Declaration and does not revoke the IF binding rule.
 
-In a Formal Claim, `#model` and `#instances` are ordering comments for the model and instance expressions that follow; they do not assert graph facts. A `$variable` explicitly binds an anonymous selected Entity or instance; repeated occurrences in its scope select the same identity. A typed selector supplies its universe; use model variables where model entities are intended. These bindings introduce no new binding operator.
+In a Formal Claim, `#model` and `#instances` are ordering comments for the model and instance expressions that follow; they do not assert graph facts. A `$variable` explicitly binds an anonymous selected Entity or instance; repeated occurrences in its scope select the same identity. A bare Model kind identifies its model entity. `<Kind>` refers to that declared Model kind as a Format; `$x[<Kind>, (conditions)]` is the successor spelling of `Kind//$x`, and binds an existing instance of that kind subject to grouped conditions. `$<Kind>` is the anonymous successor of `Kind//`. Repeated anonymous selections have the same domain but assert neither identical nor different referents; a named participant expresses the same selected identity. Model-entity selection remains explicit, including IF membership over `(Node, Node.**)`; an instance selector does not turn a model entity into a data-layer fact. `$x[<Relation>, (.Name = IS_PROPERTY_OF)]` selects a Relation descriptor from the same declared domain as `Relation//IS_PROPERTY_OF`; it does not assert a data-graph fact. A `FOR EACH` body uses its own declared participant and scope; the active Subject identifies the Claim focus and supplies no implicit participant. For a selected instance population, `Journal//{:1}` maps to `$<Journal>{::1}` or `$journal[<Journal>]{::1}`: each counts selected logical Journal instances within the Current Project. `$x.p{::n}` counts occurrences of Property p on the selected bearer; `p{::occ} :: [<Kind>]{::valuecount}` separately bounds Property occurrences and direct values. Relation bounds remain in their before/after-operator slots and count links per written endpoint.
 
 CFEL uses these graph-address forms:
 
@@ -128,9 +128,6 @@ describes the admitted language contract; it does not claim a complete parser
 or evaluator. An unimplemented construct remains an adoption and conformance
 gap, not evidence that the construct has different semantics.
 
-This Definition does not convert a Format, Bool value, or any other value
-into an instance selected by `//`. Such an instance selection requires the
-existing source binding that declares it. No value-format-to-instance rewrite
-is implied by the CFEL overview.
+A Model kind can supply an object Format, but a Format, Bool value, or other literal does not become an instance merely by its Format or notation. Instance selection requires its declared source binding. No value-format-to-instance rewrite is implied by the CFEL overview.
 
 `Relation//IS_DECLARED_BY` is the qualified derived view of a GOVERNS fact whose source is a Requirement/Form Declaration; it reverses that selected fact while retaining the qualification. It is not a general inverse of GOVERNS or a permission for every Relation.
