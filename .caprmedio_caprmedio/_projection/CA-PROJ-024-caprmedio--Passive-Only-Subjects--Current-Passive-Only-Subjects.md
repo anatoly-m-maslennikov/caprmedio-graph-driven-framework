@@ -66,21 +66,19 @@ source:
   - CA-D-352@26
   - CA-D-356@23
   - CA-D-357@22
-  - CA-D-358@26
-  - CA-D-359@29
+  - CA-D-358@27
+  - CA-D-359@30
   - CA-D-360@27
   - CA-D-361@32
   - CA-D-362@26
   - CA-D-363@29
   - CA-D-364@30
   - CA-D-365@26
-  - CA-D-366@30
-  - CA-D-368@29
-  - CA-D-369@28
-  - CA-D-370@26
-  - CA-D-371@24
-  - CA-D-372@27
-  - CA-D-373@25
+  - CA-D-366@31
+  - CA-D-368@30
+  - CA-D-369@29
+  - CA-D-370@27
+  - CA-D-371@25
   - CA-D-375@30
   - CA-D-376@28
   - CA-D-377@26
@@ -91,7 +89,7 @@ source:
   - CA-D-387@27
   - CA-D-388@24
   - CA-D-389@27
-  - CA-D-390@27
+  - CA-D-390@28
   - CA-D-392@27
   - CA-D-393@23
   - CA-D-394@23
@@ -133,7 +131,7 @@ source:
   - CA-D-479@30
   - CA-D-480@23
   - CA-D-483@24
-  - CA-D-485@26
+  - CA-D-485@27
   - CA-D-494@17
   - CA-D-495@27
   - CA-D-496@24
@@ -174,7 +172,7 @@ source:
   - CA-D-666@1
   - CA-D-667@2
   - CA-D-668@2
-  - CA-D-669@1
+  - CA-D-669@2
   - CA-D-670@1
   - CA-D-671@1
   - CA-E-001@35
@@ -219,7 +217,7 @@ source:
   - CA-E-450@27
   - CA-E-457@34
   - CA-E-458@35
-  - CA-E-459@39
+  - CA-E-459@40
   - CA-E-460@34
   - CA-E-461@28
   - CA-E-462@33
@@ -328,8 +326,8 @@ source:
   - CA-M-273@38
   - CA-M-275@21
   - CA-M-276@32
-  - CA-M-277@33
-  - CA-M-278@30
+  - CA-M-277@34
+  - CA-M-278@31
   - CA-M-279@24
   - CA-M-287@25
   - CA-M-288@22
@@ -532,7 +530,7 @@ source:
   - CA-R-1430@27
   - CA-R-1432@27
   - CA-R-1437@32
-  - CA-R-1439@23
+  - CA-R-1439@24
   - CA-R-1440@24
   - CA-R-1441@26
   - CA-R-1447@25
@@ -623,7 +621,7 @@ source:
   - CA-R-1620@21
   - CA-R-1621@19
   - CA-R-1627@31
-  - CA-R-1628@41
+  - CA-R-1628@42
   - CA-R-1629@39
   - CA-R-1630@41
   - CA-R-1631@34
@@ -727,7 +725,6 @@ source:
   - CA-R-1747@29
   - CA-R-1748@37
   - CA-R-1749@27
-  - CA-R-1750@41
   - CA-R-1752@32
   - CA-R-1753@31
   - CA-R-1754@32
@@ -821,7 +818,6 @@ source:
   - CA-R-2255@9
   - CA-R-2256@4
   - CA-R-2257@5
-  - CA-R-2271@3
   - CA-R-2272@5
   - CA-R-2275@2
   - CA-R-2276@6
@@ -985,8 +981,8 @@ source:
   - CA-R-2621@2
   - CA-R-2622@2
   - CA-R-2623@4
-  - CA-R-2624@2
-  - CA-R-2625@2
+  - CA-R-2624@3
+  - CA-R-2625@3
   - CA-R-2626@1
   - CA-R-2629@2
   - CA-R-2630@2
@@ -1094,10 +1090,11 @@ source:
   - CA-R-2745@1
   - CA-R-2746@1
   - CA-R-2747@1
+  - CA-R-2748@1
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
-  - CA-R-622@34
+  - CA-R-622@35
   - CA-R-626@43
   - CA-R-632@29
   - CA-R-633@21
@@ -1168,12 +1165,12 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 09:26:01 +0400
+updated_at: 2026-11-04 09:37:31 +0400
 ---
 
 # Subjects Used Only Passively
 
-Selected sources: 1162 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
+Selected sources: 1159 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
 
 Cardinalities, formats and Formal Claims come only from Current Requirement / Declaration Atoms. Unsupported CFEL remains visible with diagnostics.
 
@@ -1218,6 +1215,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Scope Unit Graph` — pins: CA-R-1052@41; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Terms Graph` — pins: CA-R-1345@29; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes` — pins: CA-R-1655@45; keys: passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode` — pins: CA-D-383@31, CA-R-1440@24; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete Names` — pins: CA-D-392@27; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term` — pins: CA-D-416@29, CA-M-006@31, CA-M-138@29, CA-M-139@28, CA-R-1267@24, CA-R-2275@2; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime` — pins: CA-R-2255@9; keys: passive
@@ -1228,7 +1226,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Step Run` — pins: CA-E-496@23; keys: passive
 - `CAPRMEDIO_MODEL <+ Workflow Run` — pins: CA-E-496@23; keys: passive
 
-## Diagnostics (45)
+## Diagnostics (42)
 
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-D-457@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-474@27; passive; Unsupported Subject: unexpected reserved character or trailing expression
@@ -1265,13 +1263,10 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1793@18; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1800@19; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-R-1991@13; passive; Unsupported Subject: unexpected reserved character or trailing expression
-- `Project.Framework Settings` — CA-D-669@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
 - `Entity/Object/Continuant/History` — CA-D-670@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
 - `Entity/Object/Continuant/Governing Objects/Governing Configuration` — CA-E-006@40; passive; Subject lacks an explicit parseable MODEL namespace; review required.
 - `Entity/Object/Continuant/Actor/Operator` — CA-E-621@37; passive; Subject lacks an explicit parseable MODEL namespace; review required.
 - `Project.Framework Settings` — CA-E-671@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
 - `{'Entity/Object/Continuant/Projection/Type': 'Scope Unit Graph'}` — CA-E-672@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Entity/Object/Continuant/Actor/Operator` — CA-R-1750@41; passive; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Entity/Object/Continuant/Governing Objects/Governing Configuration` — CA-R-1750@41; passive; Subject lacks an explicit parseable MODEL namespace; review required.
 - `Entity/Object/Continuant/Structural Unit/Scope Unit.Parent` — CA-R-2689@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
 - `Entity/Object/Continuant/Structural Unit/Scope Unit.Children` — CA-R-2689@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.

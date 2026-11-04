@@ -1,0 +1,42 @@
+{
+  "status": "VERIFIED_PUBLISHED",
+  "frontier_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-endpoint-frontier.json",
+  "frontier_sha256": "f4362cdf1b1c94923caebe403c76489a37a23cf78d904d1a5a340e2e2a8495c7",
+  "selected_sources": 1162,
+  "projections": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-020-caprmedio--Primary-Entities-Tree--Current-Primary-Entities-Tree.md",
+      "sha256": "5a9eba384875bf583f0c58fb6df8d344b5b130c511ba30e41f02e500241da0b0"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-021-caprmedio--Primary-Entities-with-Direct-Properties--Current-Primary-Entities-with-Direct-Properties.md",
+      "sha256": "e8faa9ff2c6daae114d5a5fe7e3a4e5fbb689ab4e74af1aa01580689d4d26eca"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-022-caprmedio--Primary-Entities-with-Inherited-Property-Contracts--Current-Primary-Entities-with-Inherited-Property-Contracts.md",
+      "sha256": "36168cd8fb7630aebb20dfa89fab5dfe624d660753dfb08f2494b14fb9d41e96"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-023-caprmedio--Primary-Entities-with-Inherited-Formal-Claims--Current-Primary-Entities-with-Inherited-Formal-Claims.md",
+      "sha256": "d2c43a06971f79fd2cd26398fb957be7ee911c08a1cdfd3c1024dc9a866f6438"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-024-caprmedio--Passive-Only-Subjects--Current-Passive-Only-Subjects.md",
+      "sha256": "8d795fe23c39cf17ef93b3fe8fad3a80ca0421e909aeced58024a1e4a7c74e56"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-025-caprmedio--Subjects-without-Requirement-Declarations--Current-Subjects-without-Requirement-Declarations.md",
+      "sha256": "ffeeb012534fa38728641898f040dbefc87485e2bd0f0be4cd7b4436c32c91e4"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-026-caprmedio--Entity-Definition-and-Active-Subject-Coverage--Current-Entity-Definition-and-Active-Subject-Coverage.md",
+      "sha256": "1dd8e7e2c0fe6b7c35816b62cca2a0cd1ada21aaecd28f0d34ad8fdd9b884724"
+    }
+  ],
+  "checks": [
+    "all selected source hashes match",
+    "seven unique IDs and Form/Scope Unit pairs",
+    "seven root references and exact versioned source pins",
+    "generator protected frozen 014-019"
+  ]
+}

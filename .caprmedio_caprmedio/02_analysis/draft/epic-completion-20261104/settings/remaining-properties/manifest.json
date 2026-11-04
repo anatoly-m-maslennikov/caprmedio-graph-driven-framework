@@ -1,0 +1,59 @@
+{
+  "status": "PREVIEW_ONLY",
+  "candidates": [
+    {
+      "id": "CA-R-1629",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-RULE--effective-priority-conflict-selection.md",
+      "source_sha256": "635e69b32631817296e72aa8912641e068c3a4f81acc56bdafcbb8614309bb11",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-R-1629.preview.txt",
+      "candidate_sha256": "614d734bf241e14ea15cfe06544a79b7cd00cf1a57ec723467fcc6268917eadb"
+    },
+    {
+      "id": "CA-R-1631",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-RULE--configure-optional-projection-activation.md",
+      "source_sha256": "8d38aa78d67d72cc13ae9fbc999dd0029b6dd0e007a19226ba94c2d817396cde",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-R-1631.preview.txt",
+      "candidate_sha256": "f1ee27d999fb0e938ae8440889e4f3ff374a918021a30dc36655bc45801755bd"
+    },
+    {
+      "id": "CA-M-279",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings.md",
+      "source_sha256": "a0eaf436f740ee68608eefa952d3dd46d6db7ae044d66995922225acf123a756",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-M-279.preview.txt",
+      "candidate_sha256": "138497e6b2020ee352ce6fd594f2a3b2a247987515dad47c44dbc1de7da00b73"
+    },
+    {
+      "id": "CA-E-450",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md",
+      "source_sha256": "3f60f832dcb4b1e40193d9823ffb5c8facf0f5576a94ac0a864f1f4b1ab57e15",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-E-450.preview.txt",
+      "candidate_sha256": "bee59328977e605bf2cbec5c8f4c557a4b78bcb0c48a25e4cf91e784afaeaa20"
+    },
+    {
+      "id": "CA-M-277",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-277-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-silent-mode.md",
+      "source_sha256": "18380d048dae6c357bb4071c33717272dcc574f28029b01daf71fe575fba67e1",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-M-277.preview.txt",
+      "candidate_sha256": "34561566ba4780bddd19930e56ee881ddfdee65d4aad360f4343204e4e766bce"
+    },
+    {
+      "id": "CA-M-278",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-278-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-verbose-mode.md",
+      "source_sha256": "d204168180771af9d07f98225dc524fe1d77d8957a94c4fc90fbf3715cd704b8",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-M-278.preview.txt",
+      "candidate_sha256": "8790c7c850205e71e41c8b75fde5ebc7a3f90f68894d69543381fc44651ff753"
+    }
+  ],
+  "successor": {
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-R-ALLOCATE-settings-non-atom.txt",
+    "candidate_sha256": "ff9c549e88542c0a63bc4b540c845e47feacd52855ea270bad06e3ddd1488e24",
+    "predecessor": "CA-R-1404@26",
+    "requires": "allocate fresh ID; retire predecessor through governed process; reconcile Current CA-R-1981 evidence; preserve all frozen references and archive history"
+  },
+  "coordination": {
+    "CA-D-387": "carrier owner; do not overwrite their combined preview",
+    "CA-R-1981": "carrier/identifier owner; Current evidence references CA-R-1404",
+    "CA-D-358 and CA-D-362": "carrier owner; two legacy identifiers need coordinated disposition",
+    "CA-D-392": "obsolete names are substantive; no field-only retirement supported"
+  }
+}

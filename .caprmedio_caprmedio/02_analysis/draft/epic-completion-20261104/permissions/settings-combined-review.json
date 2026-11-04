@@ -1,0 +1,30 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/combined-previews/manifest.json",
+  "manifest_sha256": "71e68ebd3f0c5b5a252a43b5b917145ce47c5cb030372a7a22a5ee4d3fdd404c",
+  "entries": [
+    {
+      "id": "CA-R-1750",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "base_pin_matches": true,
+      "reviewed_base_body_exact": true,
+      "summary_changed_from_source": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/combined-previews/CA-R-1750.txt",
+      "reviewed_base_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-ALLOCATE-settings.txt"
+    },
+    {
+      "id": "CA-D-390",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "base_pin_matches": true,
+      "reviewed_base_body_exact": true,
+      "summary_changed_from_source": false,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/combined-previews/CA-D-390.txt",
+      "reviewed_base_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-390.txt"
+    }
+  ],
+  "identity": "CA-R-1750 changes Summary and is a Draft placeholder CA-R-ALLOCATE, so adoption requires a new ID, predecessor retirement, unversioned Current ref migration and preservation of frozen refs. CA-D-390 retains Summary and may retain its identity under normal revision/archive rules.",
+  "bindings": "Project, Actor, Atom, Project.Settings.Name and Prefix are declared by CA-R-2524, CA-R-2542, CA-R-2508, CA-R-2533 and CA-R-2534. CA-D-390 active Subject exactly matches CA-R-1977 active Property, and retains the reviewed Carrier/timezone/default and offset semantics. The Subject normalization alone does not prove runtime or physical carrier migration.",
+  "limits": "Two-file bounded source and reviewed-base comparison; no full Settings merge, admission, runtime or Git verification."
+}

@@ -5,12 +5,16 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Project.Settings.Confidence.Necessary Information Threshold
-version: 2
+version: 3
 relations: {}
 tier: 3
 role: Requirement
 form: Declaration
-updated_at: 2026-11-04 05:21:15 +0400
+updated_at: 2026-11-04 09:36:36 +0400
+carrier_destination:
+  file:
+    name: CA-R-2624-CORE_META_MODEL-DECLARATION--define-necessary-information-threshold.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 
 ## Summary
@@ -31,5 +35,5 @@ Project.Settings.Confidence.Necessary Information Threshold.*[]{:0}
 ### Prose Claim
 
 
-An absent override uses the governed default.
+A present threshold value is an integer-percentage override. An absent override uses the governed default.
 

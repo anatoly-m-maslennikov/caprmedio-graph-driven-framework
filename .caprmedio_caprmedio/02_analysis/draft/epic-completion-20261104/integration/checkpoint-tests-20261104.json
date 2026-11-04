@@ -1,0 +1,34 @@
+{
+  "status": "PASS_FOCUSED_ONLY",
+  "recorded_at": "2026-11-04T09:37:17.833008+04:00",
+  "implementation_commit": "dd90a1132c123cdb0f6d60f9eb3acadd3f70ed1b",
+  "checks": [
+    {
+      "command": ".venv/bin/python -m unittest LAYER_2_FRAMEWORK_ENGINE.FEATURE_PROGRAMMATIC.FEATURE_TOOLS.tests.test_connector_atom_read LAYER_2_FRAMEWORK_ENGINE.FEATURE_PROGRAMMATIC.FEATURE_TOOLS.tests.test_connector_atom_receiver LAYER_2_FRAMEWORK_ENGINE.FEATURE_PROGRAMMATIC.FEATURE_TOOLS.tests.test_carrier_aliases",
+      "tests": 32,
+      "failures": 0,
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/bin/python -m unittest LAYER_2_FRAMEWORK_ENGINE.FEATURE_PROGRAMMATIC.FEATURE_TOOLS.FIND_AND_FETCH_ARTIFACTS.tests.test_find_and_fetch_artifacts",
+      "tests": 16,
+      "failures": 0,
+      "exit_code": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/connector_atom_read.py",
+      "sha256": "b7d9cd3c53cdd558bd8abc029fb062e90db20c6c586450811d19e9811b6d257d"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_connector_atom_receiver.py",
+      "sha256": "0f4c9051e35867733a975375a7dc4ba8e692fb076ea2ea86a3798eb7c1ac0ccb"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py",
+      "sha256": "c55a7efee707daf281e35b563c14bff9397b8aef58701026ebc072cb9114cb4f"
+    }
+  ],
+  "limitations": "Observed focused test runs; not a complete suite, Docker gate, release or native workflow admission."
+}

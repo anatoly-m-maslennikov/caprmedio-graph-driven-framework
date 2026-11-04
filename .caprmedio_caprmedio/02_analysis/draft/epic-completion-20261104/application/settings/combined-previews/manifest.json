@@ -1,0 +1,25 @@
+{
+  "entries": [
+    {
+      "id": "CA-R-1750",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md",
+      "source_sha256": "5dbdc3487ccb8e9359c1b2702c5bb9b2031d758af9d20858974f6a719861768a",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/combined-previews/CA-R-1750.txt",
+      "candidate_sha256": "017382e58e73e981ae848ae08e8fa10bd94449b11e687896bc81d512d366a3d6",
+      "base_candidate_sha256": "11efa23437c9187f93676a497e434b51207bb1246a50a6ecf5974c10e5705b80",
+      "body_unchanged": true,
+      "change": "normalize contextual dependencies to declared model entities"
+    },
+    {
+      "id": "CA-D-390",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL-ENG_DECISION--configure-the-artifact-timestamp-timezone.md",
+      "source_sha256": "71ba0e9b31bb098ff5aebc91021852f6be0b6c6bb70368ad0fc66c9b7c1dc129",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/combined-previews/CA-D-390.txt",
+      "candidate_sha256": "31d4f201cc98d763cf4fb6fccb9783a154a08b3096a375696690343c48ce2852",
+      "base_candidate_sha256": "99e2dd623d7ed24d92bd6120e68eed1b6a32a5d1b758b4630ec49c5792dab76e",
+      "body_unchanged": true,
+      "change": "bind active Subject to existing R1977 Property"
+    }
+  ],
+  "status": "PREPARED_FOR_REVIEW"
+}

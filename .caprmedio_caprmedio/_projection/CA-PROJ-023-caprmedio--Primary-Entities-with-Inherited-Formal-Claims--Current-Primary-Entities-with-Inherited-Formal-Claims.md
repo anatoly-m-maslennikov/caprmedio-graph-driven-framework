@@ -67,21 +67,19 @@ source:
   - CA-D-352@26
   - CA-D-356@23
   - CA-D-357@22
-  - CA-D-358@26
-  - CA-D-359@29
+  - CA-D-358@27
+  - CA-D-359@30
   - CA-D-360@27
   - CA-D-361@32
   - CA-D-362@26
   - CA-D-363@29
   - CA-D-364@30
   - CA-D-365@26
-  - CA-D-366@30
-  - CA-D-368@29
-  - CA-D-369@28
-  - CA-D-370@26
-  - CA-D-371@24
-  - CA-D-372@27
-  - CA-D-373@25
+  - CA-D-366@31
+  - CA-D-368@30
+  - CA-D-369@29
+  - CA-D-370@27
+  - CA-D-371@25
   - CA-D-375@30
   - CA-D-376@28
   - CA-D-377@26
@@ -92,7 +90,7 @@ source:
   - CA-D-387@27
   - CA-D-388@24
   - CA-D-389@27
-  - CA-D-390@27
+  - CA-D-390@28
   - CA-D-392@27
   - CA-D-393@23
   - CA-D-394@23
@@ -134,7 +132,7 @@ source:
   - CA-D-479@30
   - CA-D-480@23
   - CA-D-483@24
-  - CA-D-485@26
+  - CA-D-485@27
   - CA-D-494@17
   - CA-D-495@27
   - CA-D-496@24
@@ -175,7 +173,7 @@ source:
   - CA-D-666@1
   - CA-D-667@2
   - CA-D-668@2
-  - CA-D-669@1
+  - CA-D-669@2
   - CA-D-670@1
   - CA-D-671@1
   - CA-E-001@35
@@ -220,7 +218,7 @@ source:
   - CA-E-450@27
   - CA-E-457@34
   - CA-E-458@35
-  - CA-E-459@39
+  - CA-E-459@40
   - CA-E-460@34
   - CA-E-461@28
   - CA-E-462@33
@@ -329,8 +327,8 @@ source:
   - CA-M-273@38
   - CA-M-275@21
   - CA-M-276@32
-  - CA-M-277@33
-  - CA-M-278@30
+  - CA-M-277@34
+  - CA-M-278@31
   - CA-M-279@24
   - CA-M-287@25
   - CA-M-288@22
@@ -533,7 +531,7 @@ source:
   - CA-R-1430@27
   - CA-R-1432@27
   - CA-R-1437@32
-  - CA-R-1439@23
+  - CA-R-1439@24
   - CA-R-1440@24
   - CA-R-1441@26
   - CA-R-1447@25
@@ -624,7 +622,7 @@ source:
   - CA-R-1620@21
   - CA-R-1621@19
   - CA-R-1627@31
-  - CA-R-1628@41
+  - CA-R-1628@42
   - CA-R-1629@39
   - CA-R-1630@41
   - CA-R-1631@34
@@ -728,7 +726,6 @@ source:
   - CA-R-1747@29
   - CA-R-1748@37
   - CA-R-1749@27
-  - CA-R-1750@41
   - CA-R-1752@32
   - CA-R-1753@31
   - CA-R-1754@32
@@ -822,7 +819,6 @@ source:
   - CA-R-2255@9
   - CA-R-2256@4
   - CA-R-2257@5
-  - CA-R-2271@3
   - CA-R-2272@5
   - CA-R-2275@2
   - CA-R-2276@6
@@ -986,8 +982,8 @@ source:
   - CA-R-2621@2
   - CA-R-2622@2
   - CA-R-2623@4
-  - CA-R-2624@2
-  - CA-R-2625@2
+  - CA-R-2624@3
+  - CA-R-2625@3
   - CA-R-2626@1
   - CA-R-2629@2
   - CA-R-2630@2
@@ -1095,10 +1091,11 @@ source:
   - CA-R-2745@1
   - CA-R-2746@1
   - CA-R-2747@1
+  - CA-R-2748@1
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
-  - CA-R-622@34
+  - CA-R-622@35
   - CA-R-626@43
   - CA-R-632@29
   - CA-R-633@21
@@ -1169,12 +1166,12 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 09:26:01 +0400
+updated_at: 2026-11-04 09:37:31 +0400
 ---
 
 ## Primary entities
 
-Selected sources: 1162 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
+Selected sources: 1159 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
 
 Cardinalities, formats and Formal Claims come only from Current Requirement / Declaration Atoms. Unsupported CFEL remains visible with diagnostics.
 
@@ -15221,15 +15218,15 @@ Project.Settings.Confidence.*[in (Necessary Information Threshold, Semantic Reso
 
 Project.Settings.Confidence.*: [int]
 ```
-- property: `Project.Settings.Confidence.Necessary Information Threshold` (relative `Settings.Confidence.Necessary Information Threshold`) — CA-R-2624@2
-  - contract: `Project.Settings.Confidence.Necessary Information Threshold: {:0..1}` — CA-R-2624@2
+- property: `Project.Settings.Confidence.Necessary Information Threshold` (relative `Settings.Confidence.Necessary Information Threshold`) — CA-R-2624@3
+  - contract: `Project.Settings.Confidence.Necessary Information Threshold: {:0..1}` — CA-R-2624@3
     - nesting: `values`
     - name format: `None`
     - occurrence cardinality: `omitted`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `0..1`
-  - contract: `Project.Settings.Confidence.Necessary Information Threshold.*[]{:0}` — CA-R-2624@2
+  - contract: `Project.Settings.Confidence.Necessary Information Threshold.*[]{:0}` — CA-R-2624@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
@@ -15238,22 +15235,22 @@ Project.Settings.Confidence.*: [int]
     - value cardinality: `missing`
   - effective value format: `int` — CA-R-1979@16
   - Property Declaration CFEL:
-    - source: `CA-R-2624@2`
+    - source: `CA-R-2624@3`
 ```CFEL
 # model
 Project.Settings.Confidence.Necessary Information Threshold: {:0..1};
 
 Project.Settings.Confidence.Necessary Information Threshold.*[]{:0}
 ```
-- property: `Project.Settings.Confidence.Semantic Resolution Threshold` (relative `Settings.Confidence.Semantic Resolution Threshold`) — CA-R-2625@2
-  - contract: `Project.Settings.Confidence.Semantic Resolution Threshold: {:0..1}` — CA-R-2625@2
+- property: `Project.Settings.Confidence.Semantic Resolution Threshold` (relative `Settings.Confidence.Semantic Resolution Threshold`) — CA-R-2625@3
+  - contract: `Project.Settings.Confidence.Semantic Resolution Threshold: {:0..1}` — CA-R-2625@3
     - nesting: `values`
     - name format: `None`
     - occurrence cardinality: `omitted`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `0..1`
-  - contract: `Project.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}` — CA-R-2625@2
+  - contract: `Project.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}` — CA-R-2625@3
     - nesting: `immediate_dependents`
     - name format: ``
     - occurrence cardinality: `0`
@@ -15262,7 +15259,7 @@ Project.Settings.Confidence.Necessary Information Threshold.*[]{:0}
     - value cardinality: `missing`
   - effective value format: `int` — CA-R-1979@16
   - Property Declaration CFEL:
-    - source: `CA-R-2625@2`
+    - source: `CA-R-2625@3`
 ```CFEL
 # model
 Project.Settings.Confidence.Semantic Resolution Threshold: {:0..1};

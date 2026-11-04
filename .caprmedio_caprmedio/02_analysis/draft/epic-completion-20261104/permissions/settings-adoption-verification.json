@@ -1,0 +1,304 @@
+{
+  "verdict": "PASS",
+  "plan_sha256": "c0ab8ff064fcd70620491192e2bff5f1f4be9e1e9674e28dc3314f1c14f13fa6",
+  "receipt_plan_matches": true,
+  "counts": {
+    "outputs": 17,
+    "operations": 35,
+    "archive_writes": 17,
+    "held": 25
+  },
+  "errors": [],
+  "outputs": [
+    {
+      "source_id": "CA-R-1439",
+      "current_id": "CA-R-1439",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1439.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-R-1628",
+      "current_id": "CA-R-1628",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1628.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-D-485",
+      "current_id": "CA-D-485",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-485.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-D-669",
+      "current_id": "CA-D-669",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-669.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-D-368",
+      "current_id": "CA-D-368",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-368.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-D-369",
+      "current_id": "CA-D-369",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-369.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-D-358",
+      "current_id": "CA-D-358",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-358.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-D-359",
+      "current_id": "CA-D-359",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-359.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-D-366",
+      "current_id": "CA-D-366",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-366.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-D-370",
+      "current_id": "CA-D-370",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-370.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-D-371",
+      "current_id": "CA-D-371",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-371.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-M-277",
+      "current_id": "CA-M-277",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-M-277.preview.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-M-278",
+      "current_id": "CA-M-278",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-M-278.preview.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-R-1750",
+      "current_id": "CA-R-2748",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/combined-previews/CA-R-1750.txt",
+      "new_id_version": true
+    },
+    {
+      "source_id": "CA-R-622",
+      "current_id": "CA-R-622",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-622.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-E-459",
+      "current_id": "CA-E-459",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-E-459.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    },
+    {
+      "source_id": "CA-D-390",
+      "current_id": "CA-D-390",
+      "output_hash_matches": true,
+      "reviewed_claim_body_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/combined-previews/CA-D-390.txt",
+      "summary_unchanged": true,
+      "version_increments": true
+    }
+  ],
+  "held_sources": [
+    {
+      "id": "CA-R-1630",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-RULE--gate-atomic-admission-and-promotion.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-1428",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL--permit-confidence-threshold-defaults-and-overrides.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-E-241",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-1629",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-RULE--effective-priority-conflict-selection.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-1631",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-RULE--configure-optional-projection-activation.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-1404",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL--keep-framework-instance-settings-outside-the-atom-type.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-1052",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-RULE--separate-project-settings-from-the-project-scope-unit-graph.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-1440",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL--preserve-mandatory-information-in-every-reporting-mode.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-1587",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-RULE--require-an-effective-confidence-threshold-for-plan-execution.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-1652",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL--configure-necessary-information-confidence-threshold.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-1655",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-RULE--resolve-artifact-classification-from-authority-and-configuration.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-1740",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL-RULE--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-380",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL--configure-the-semantic-resolution-confidence-default.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-626",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-626-CORE_META_MODEL-RULE--project-the-current-scope-unit-graph-without-owning-authority.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-D-497",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-497-PROJECT_CONFIGURATION-ENG_DECISION--encode-rmed-review-batch-limits.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-R-1441",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL--define-default-settings.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-D-383",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-ENG_DECISION--serialize-interaction-reporting-mode.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-D-408",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL-ENG_DECISION--reuse-framework-parameter-fields-in-default-settings.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-E-458",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-POLICY--validate-authoritative-framework-settings-artifact.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-D-360",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL-ENG_DECISION--bind-framework-settings-revisions-to-journal-receipts.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-D-361",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL-ENG_DECISION--serialize-framework-settings-content-in-toml.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-D-377",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL-ENG_DECISION--exclude-atom-metadata-from-framework-instance-settings.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-M-279",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-E-450",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md",
+      "unchanged_from_pinned_predecessor": true
+    },
+    {
+      "id": "CA-E-671",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-671-CORE_META_MODEL-EVAL_CASE--validate-settings-boundaries-and-scope-unit-declarations.md",
+      "unchanged_from_pinned_predecessor": true
+    }
+  ],
+  "new_id_native_current": [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2748-CORE_META_MODEL-RULE--unify-operator-selected-project-settings.md"
+  ],
+  "old_id_unversioned_current_refs": [],
+  "old_id_frozen_current_refs": [],
+  "frozen_ref_changes_in_revisions": [],
+  "new_containment_scope_ca_su_11": true,
+  "new_destination_matches_path": true,
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "limitations": "Source-level verification only. Held source comparisons use the normalized predecessor inventory; no runtime, native workflow admission, carrier data migration, suite, release or external push is asserted."
+}

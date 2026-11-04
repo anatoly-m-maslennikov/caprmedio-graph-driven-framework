@@ -1,0 +1,31 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Code-Root Locators
+  passive:
+  - CAPRMEDIO_MODEL <+ Project.Settings
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
+relations:
+  child_of:
+  - CA-D-361
+atom_id: CA-D-371
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 6
+role: Delivery
+form: Decision
+---
+## Summary
+
+Serialize framework code-root locators
+
+## Claim
+
+### Prose Claim
+
+
+explicitly selected code-root locators in the Project's Framework Settings TOML Carrier.
+
+
+when code-root locators are explicitly selected, the Framework Settings TOML Carrier **must** encode their declared values for the Project.

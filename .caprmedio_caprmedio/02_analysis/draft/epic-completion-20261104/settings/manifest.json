@@ -1,0 +1,528 @@
+{
+  "status": "PARTIAL_PROSPECTIVE_NOT_APPLIED",
+  "entries": [
+    {
+      "id": "CA-R-1052",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-RULE--separate-project-settings-from-the-project-scope-unit-graph.md",
+      "version": "41",
+      "source_sha256": "55a4d84ce8866b7ee6b56d9029db5a9ccca21f5f4a57654a735ff6c39d4bdcf5",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1052.txt",
+      "preview_sha256": "ff2e41cf5c22b46964573c30026d91dd23bce7d9c9dbc4be8031adb9ceb96f3d",
+      "reason": "exact declared settings Subject; old split Claim reconciled"
+    },
+    {
+      "id": "CA-R-1439",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1439-CORE_META_MODEL--limit-reporting-mode-effects-to-presentation.md",
+      "version": "23",
+      "source_sha256": "ec87243bd1702001a0c133ce35f998247544ec35da26f9d68988432090f2b20b",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1439.txt",
+      "preview_sha256": "c4846b37901f77deea9c67de92be6d36139be52f83713263faa6e08513834eea",
+      "reason": "exact declared settings Subject; source body has no split terminology"
+    },
+    {
+      "id": "CA-R-1440",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL--preserve-mandatory-information-in-every-reporting-mode.md",
+      "version": "24",
+      "source_sha256": "7cd4c17a4e05251083b1b060261b553526ce9a10a4a1ee869fcf9069d8e6a56e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1440.txt",
+      "preview_sha256": "16c0a246a34a4d83dc2864d08da006ccf4fe664a3c185af203f7b764a291bcff",
+      "reason": "exact declared settings Subject; source body has no split terminology"
+    },
+    {
+      "id": "CA-R-1587",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-RULE--require-an-effective-confidence-threshold-for-plan-execution.md",
+      "version": "26",
+      "source_sha256": "d0dcffc6432058f1fbd40d9403c4a621b233040827206a85907a057daa0f5cbc",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1587.txt",
+      "preview_sha256": "80553ec89953ab5f101251d91ede1f2c75c34f35edd4c4ad88282eafa9787a1b",
+      "reason": "exact declared settings Subject; source body has no split terminology"
+    },
+    {
+      "id": "CA-R-1628",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1628-CORE_META_MODEL-RULE--allow-silent-and-verbose-reporting-modes.md",
+      "version": "41",
+      "source_sha256": "5644c380d8642f11095d073f83971dd89aadf70856d362ad20f8c713ce00ce0e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1628.txt",
+      "preview_sha256": "4936788b57bbaf0c64abb0578667517a6fdfd9288093be121ed679eaa6a53561",
+      "reason": "exact declared settings Subject; source body has no split terminology"
+    },
+    {
+      "id": "CA-R-1630",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-RULE--gate-atomic-admission-and-promotion.md",
+      "version": "41",
+      "source_sha256": "b04b475be16eac265df9ecc4af54bf1ecf6024e8cb4dd5b0367833aaba148ac7",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1630.txt",
+      "preview_sha256": "356d892961bd4b108fd683d6fcde43f346653149fdbb77ac9f485dd41e53b6f8",
+      "reason": "exact declared settings Subject; source body has no split terminology"
+    },
+    {
+      "id": "CA-R-1652",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL--configure-necessary-information-confidence-threshold.md",
+      "version": "41",
+      "source_sha256": "825efc5dec8b194d7c44c2401b68d7f6fcf19b62d227489d959af5a3b66307f7",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1652.txt",
+      "preview_sha256": "0db3bb718d566c06680251a1bd5b89129854916c0156bf1d19ed487ecd235839",
+      "reason": "exact declared settings Subject; source body has no split terminology"
+    },
+    {
+      "id": "CA-R-1655",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-RULE--resolve-artifact-classification-from-authority-and-configuration.md",
+      "version": "45",
+      "source_sha256": "0d2d79957067097ad57d0494ff28bae3299c6f83c998808087758a3fe0681465",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1655.txt",
+      "preview_sha256": "2ab05a2ad7d08ab2cb7cb1bacaa036b4e013daca52f2c31d93ef33cf34036c7f",
+      "reason": "exact declared settings Subject; source body has no split terminology"
+    },
+    {
+      "id": "CA-R-1740",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL-RULE--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "version": "41",
+      "source_sha256": "01334463a83da244a4f6bc2761fb8fccb328a656ae8d15d1fdf235415c880c66",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1740.txt",
+      "preview_sha256": "44f88bc4169ac78316a3b8e8948c6ba5953a31a33e90301ae1667702f4f687ad",
+      "reason": "exact declared settings Subject; source body has no split terminology"
+    },
+    {
+      "id": "CA-R-380",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL--configure-the-semantic-resolution-confidence-default.md",
+      "version": "44",
+      "source_sha256": "5758398a3168932dc73e922e7a70d391634e9c28fdf995b7f377920f27cbffa6",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-380.txt",
+      "preview_sha256": "e8ef6a09735f38fbfd8e2d73c4883b8f5282718015cbc1b10963d1e154382e52",
+      "reason": "exact declared settings Subject; source body has no split terminology"
+    },
+    {
+      "id": "CA-R-626",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-626-CORE_META_MODEL-RULE--project-the-current-scope-unit-graph-without-owning-authority.md",
+      "version": "43",
+      "source_sha256": "a722e6d734ff0945ff9ec4ed8d2c4cd76ab028b0d903aeb69a02297ee442a956",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-626.txt",
+      "preview_sha256": "2e3140f09f131ddca32425d70d4e8f9c68dd1d9d6feaf63397a0e2d5ae75643a",
+      "reason": "exact declared settings Subject; source body has no split terminology"
+    },
+    {
+      "id": "CA-D-485",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-ENG_DECISION--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+      "version": "26",
+      "source_sha256": "5e4f75cef43a1d37d2111aaa176fb2abe0d5d132165f4eab7cf9fe5d78c511f8",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-485.txt",
+      "preview_sha256": "0d099bab259e2e705d4eeac78c750b625c65207ba90996009a9e2784b76f89de",
+      "reason": "remove stale retry Subject dependency from generic default/override Claim"
+    },
+    {
+      "id": "CA-R-1750",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md",
+      "version": "41",
+      "source_sha256": "5dbdc3487ccb8e9359c1b2702c5bb9b2031d758af9d20858974f6a719861768a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-ALLOCATE-settings.txt",
+      "preview_sha256": "11efa23437c9187f93676a497e434b51207bb1246a50a6ecf5974c10e5705b80",
+      "reason": "new identity placeholder: replaces old split rule"
+    },
+    {
+      "id": "CA-E-671",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-671-CORE_META_MODEL-EVAL_CASE--validate-settings-boundaries-and-scope-unit-declarations.md",
+      "version": "1",
+      "source_sha256": "d8276e59cf186a398f194cc424f484d49c038e135261c7af444b8acb7a6289fe",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-E-671.txt",
+      "preview_sha256": "81e00aba238a019380def24c5f81faac31408770a80eeb955eefe12fcb5b18af",
+      "reason": "replace old split Claim; remove exact duplicate alias; conform RMED Claim layout"
+    },
+    {
+      "id": "CA-D-669",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-669-CORE_META_MODEL-ENG_DECISION--encode-configuration-surfaces-in-owning-atoms.md",
+      "version": "1",
+      "source_sha256": "d9908d53ae4588788931994e7a58fe2e7797fcf2441ee61ed998e75d49ca41f6",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-669.txt",
+      "preview_sha256": "a82f66ab410e379712a289975ca4ffe190c627e8861f0f97c3ed49ddbff87a3c",
+      "reason": "combine settings merge with existing D669 Claim-layout preview"
+    },
+    {
+      "id": "CA-R-1428",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL--permit-confidence-threshold-defaults-and-overrides.md",
+      "version": "32",
+      "source_sha256": "4fd0a513d98f08920fbcfde8aacf54f9ecbc7f92fab2d2861d54471e0d566980",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1428.txt",
+      "preview_sha256": "3cc0eba745aae772f214cdd21c6b8910142dfecfe05f4ea8421f28643cc185e9",
+      "reason": "merge declared settings Subject and Claim while retaining default precedence"
+    },
+    {
+      "id": "CA-D-390",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL-ENG_DECISION--configure-the-artifact-timestamp-timezone.md",
+      "version": "27",
+      "source_sha256": "71ba0e9b31bb098ff5aebc91021852f6be0b6c6bb70368ad0fc66c9b7c1dc129",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-390.txt",
+      "preview_sha256": "99e2dd623d7ed24d92bd6120e68eed1b6a32a5d1b758b4630ec49c5792dab76e",
+      "reason": "merge declared settings Subject and Claim"
+    },
+    {
+      "id": "CA-D-497",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-497-PROJECT_CONFIGURATION-ENG_DECISION--encode-rmed-review-batch-limits.md",
+      "version": "18",
+      "source_sha256": "8941258e7b5c85835ae71d8f18b6ee21af39c40f64f52ea5212048b9dbbbc227",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-497.txt",
+      "preview_sha256": "2a654c7d5ffedf1f7ef55a0d1b1606e519da76ddc4d3473253aee62de78a5107",
+      "reason": "merge declared settings Subject and Claim"
+    },
+    {
+      "id": "CA-R-622",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-622-PROJECT_CONFIGURATION-RULE--keep-selected-settings-in-their-authoritative-settings-artifact.md",
+      "version": "34",
+      "source_sha256": "eadcdf57ad54e3ef5aeefd0c760d36a19581322b869d1ae0d3b6b9ac24c0d36e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-622.txt",
+      "preview_sha256": "949ec4ccd513f2eaae5abd342eab54938badde3db833c049c60f6222e18dbe06",
+      "reason": "merge settings Subject and Claim; R622 awaits allocated rule ID"
+    },
+    {
+      "id": "CA-R-1441",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL--define-default-settings.md",
+      "version": "26",
+      "source_sha256": "4e8fb187de61707999f26e1d24c2a1b7e0afb67634e3a3ebf72ce4793cd637ac",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1441.txt",
+      "preview_sha256": "1cf081be81d83fe987e165a0753525999d750fd82088be6125bf0ec93334fa12",
+      "reason": "merge declared settings Subject and Claim while preserving explicit/default distinction"
+    },
+    {
+      "id": "CA-E-241",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md",
+      "version": "47",
+      "source_sha256": "0f2673ddf610763e72e15de7d45bee76392d9d173d504e6246f03697f108f487",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-E-241.txt",
+      "preview_sha256": "e4acaa370ad7244abc9254b54f03c7eeb341874ffb54d255a72f77102f55c4b9",
+      "reason": "merge declared settings Subject and Claim while retaining default precedence"
+    },
+    {
+      "id": "CA-D-368",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL-ENG_DECISION--serialize-the-necessary-information-confidence-default.md",
+      "version": "29",
+      "source_sha256": "a3de70ed1af9847f9ee82f6fd49fddbf4a4aeb4eef079fd5c3156f54a68f68e3",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-368.txt",
+      "preview_sha256": "fc755984067f8c6b2569c7046aa7a0804e2b91ca3f488b396e35e446fe7ba9b6",
+      "reason": "logical Project.Settings target; preserve explicit values, existing physical field encoding and default relationship"
+    },
+    {
+      "id": "CA-D-369",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-369-CORE_META_MODEL-ENG_DECISION--serialize-the-semantic-resolution-confidence-default.md",
+      "version": "28",
+      "source_sha256": "5a572b6fd390733b108c41e1ef5201aba256f5dfba5d77a8d9faf4275b902b4a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-369.txt",
+      "preview_sha256": "067e1ff7b602f9eb77d5eb152ce865613f8be46aa7d23851cb4c4ef08419dd98",
+      "reason": "logical Project.Settings target; preserve explicit values, existing physical field encoding and default relationship"
+    },
+    {
+      "id": "CA-D-383",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-ENG_DECISION--serialize-interaction-reporting-mode.md",
+      "version": "31",
+      "source_sha256": "277f7a7533a72197f9c237a7e871c9712e11cb02fd1a99076d59c88e56e09ce3",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-383.txt",
+      "preview_sha256": "1e126cb8bdc2a56f3e5f59400280279d06510899e0d809b01277a37056e8ef0d",
+      "reason": "logical Project.Settings target; preserve explicit values, existing physical field encoding and default relationship"
+    },
+    {
+      "id": "CA-D-408",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL-ENG_DECISION--reuse-framework-parameter-fields-in-default-settings.md",
+      "version": "24",
+      "source_sha256": "e30baa661f56fb069b4650e23e34d63bd1b7d11c7130116cfacb352b105e3d86",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-D-408.txt",
+      "preview_sha256": "9e20f716dd516a533be16d7839322cc1a09bfb3c8081b72579e71361e06c1768",
+      "reason": "logical Project.Settings target; preserve explicit values, existing physical field encoding and default relationship"
+    }
+  ],
+  "held_56_sources": [
+    {
+      "id": "CA-R-1421",
+      "source": ".caprmedio_caprmedio/04_requirement/CA-R-1421-CAPRMEDIO-SCOPE_CONTRACT-GOAL--keep-the-framework-configurable-and-extensible.md",
+      "source_sha256": "c4fb697b0a0035ddb5082bc433ac109568eb6a2091f5cff18d04c596fb073047",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-R-832",
+      "source": ".caprmedio_caprmedio/04_requirement/CA-R-832-GOAL--select-optional-capabilities-through-configuration.md",
+      "source_sha256": "dde2603f75aabe1116542394ed8e7a3df6a19ab7c385778f080d1538bebab124",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-R-1207",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1207-CORE_META_MODEL-RULE--separate-project-configuration-rules-from-current-settings.md",
+      "source_sha256": "fd442f000f8b38f8764f967850d3f31b753003d65507cbee9e983617a6abea4c",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-R-1375",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL--restrict-methodology-source-expansion-to-core-permission.md",
+      "source_sha256": "2103e66bec8988ad7fdfbe524562e720a4f8fdcc3b14c5750f87b90753d23491",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-R-1404",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL--keep-framework-instance-settings-outside-the-atom-type.md",
+      "source_sha256": "c2312aa4988e589e6ac33c3a0adc801ae23644d5e90b0b12d947e5cc1c165e42",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-R-1489",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1489-CORE_META_MODEL-RULE--permit-implementation-retry-limit-defaults-and-overrides.md",
+      "source_sha256": "72bfe645888cf06c14471da14f137aa18f5d943685aa30daea7b62f17fa47731",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-R-1629",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-RULE--effective-priority-conflict-selection.md",
+      "source_sha256": "635e69b32631817296e72aa8912641e068c3a4f81acc56bdafcbb8614309bb11",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-R-1631",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-RULE--configure-optional-projection-activation.md",
+      "source_sha256": "8d38aa78d67d72cc13ae9fbc999dd0029b6dd0e007a19226ba94c2d817396cde",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-R-1724",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL--define-configuration-selection-and-precedence.md",
+      "source_sha256": "e26c1c32a1c1d26c07e1972c4639cb11a767013b25660d46f5ddba40c8740ae6",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-R-2271",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md",
+      "source_sha256": "978f4689ea6ef94e148cd47f72eacdc680ef3fc1b4dc4d9835a2f618d0755fd2",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-M-271",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md",
+      "source_sha256": "c3fee4fb0f4f733a805b5122b2e38da7af8c8eb39ac5208912b1e00f05663c1a",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-M-279",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings.md",
+      "source_sha256": "a0eaf436f740ee68608eefa952d3dd46d6db7ae044d66995922225acf123a756",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-M-295",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md",
+      "source_sha256": "e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-E-443",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-EVAL_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+      "source_sha256": "8242efa9ffd4494184d19f7bd667b20537b363c4ca69336cd8f3be3e8c59a1dd",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-E-450",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md",
+      "source_sha256": "3f60f832dcb4b1e40193d9823ffb5c8facf0f5576a94ac0a864f1f4b1ab57e15",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-E-458",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-POLICY--validate-authoritative-framework-settings-artifact.md",
+      "source_sha256": "0673486890ca4f0517debe3baee67fe872d0c04788af5d5e6efc2f3c7f44ac4e",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-E-459",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md",
+      "source_sha256": "d50d425e46708cecd12c05accffdd9ac7174f670f0a9b65d0ad981182e3e5b38",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-D-358",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL-ENG_DECISION--identify-framework-settings-artifact.md",
+      "source_sha256": "2d5f06a8b5ce2be078c71336a10c77086ffe4167718c3fa00f0dfbb09385ba1e",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-D-359",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL-ENG_DECISION--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+      "source_sha256": "eb11269ab9b7f71e354da1cf8390330a92183dd0495e2f9d8abe6e7d8b9f69da",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-D-360",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL-ENG_DECISION--bind-framework-settings-revisions-to-journal-receipts.md",
+      "source_sha256": "f54f12b4b3464ed0572c9976f7d88c1877998cdc5ba2df511e6ded84e4105238",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-D-361",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL-ENG_DECISION--serialize-framework-settings-content-in-toml.md",
+      "source_sha256": "ef9872d2e414ce9d88f3801278706ccb04fab2958c5e5dc3eb7a52410fd7973a",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-D-366",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md",
+      "source_sha256": "81060768aac09402e88887b772cd19e90856578352a15f5a3f087483a153530f",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-D-370",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-370-CORE_META_MODEL-ENG_DECISION--serialize-the-framework-control-root-locator.md",
+      "source_sha256": "65fb86919b668dd1292be381317c18796d9cf06058a51dcf1aacb9e1e5ac2f6c",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-D-371",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-371-CORE_META_MODEL-ENG_DECISION--serialize-framework-code-root-locators.md",
+      "source_sha256": "bd8ab429f1c8b3f9595f3e88ed9a3fc220052c0a4faf6405751620065a87e5fa",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-D-372",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-372-CORE_META_MODEL-ENG_DECISION--serialize-instance-tool-selections.md",
+      "source_sha256": "4f97abea348b70206f6b64f4d58828c959c340ca4056b97d08fdd87f3cd53e80",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-D-373",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-373-CORE_META_MODEL-ENG_DECISION--serialize-instance-extension-selections.md",
+      "source_sha256": "884b54e8f3a598872ba71c545256bda70be860cf583f33d67f75d801baa1defe",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-D-377",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL-ENG_DECISION--exclude-atom-metadata-from-framework-instance-settings.md",
+      "source_sha256": "39a9f4dce36bd65ed0f2a289ea6768b44aeaba68c67e4b3afd1b480397a17d51",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-D-387",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-387-CORE_META_MODEL-ENG_DECISION--serialize-atomic-admission-strictness.md",
+      "source_sha256": "5e90f0151371d8c6280d2d00ec56d796b59c66279a51a75ab07216b215b2a8ea",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-D-447",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-ENG_DECISION--serialize-the-implementation-retry-limit-setting.md",
+      "source_sha256": "4334b7cadc76ac932c59355d01ff395345a6beb1c1ab33cac68b0235188dbfb3",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-R-1228",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1228-PROJECT_CONFIGURATION-RULE--include-all-applicable-methodology-sources.md",
+      "source_sha256": "17ea9845e56cf8477465201b31982a3c0d883b4142d1dc508adbae9c5601f2f4",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-M-277",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-277-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-silent-mode.md",
+      "source_sha256": "18380d048dae6c357bb4071c33717272dcc574f28029b01daf71fe575fba67e1",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-M-278",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-278-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-verbose-mode.md",
+      "source_sha256": "d204168180771af9d07f98225dc524fe1d77d8957a94c4fc90fbf3715cd704b8",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-E-379",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md",
+      "source_sha256": "14cd076704cea5b4d65391b144bbb9edf9ed3e556075abcb4a00711911da0b73",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    },
+    {
+      "id": "CA-E-473",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-473-PROJECT_CONFIGURATION-EVAL_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+      "source_sha256": "235347ad6f66735c2e03a057243a697d051e7bc52f0e2e6407d91877ef4cffae",
+      "reason": "review source Claim, removed/deferred field, physical carrier or identity before integration"
+    }
+  ],
+  "coverage_settings_findings": [
+    {
+      "flag": "subjects:28",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+      "source_pins": "CA-D-333@35,CA-D-358@26,CA-D-359@29,CA-D-360@27,CA-D-361@32,CA-D-366@30,CA-D-368@29,CA-D-369@28,CA-D-370@26,CA-D-371@24,CA-D-372@27,CA-D-373@25,CA-D-377@26,CA-D-383@31,CA-D-387@27,CA-D-390@27,CA-D-408@24,CA-D-447@30,CA-D-497@18,CA-E-241@47,CA-E-379@46,CA-E-443@34,CA-E-450@27,CA-E-458@35,CA-E-459@39,CA-E-473@26,CA-M-271@29,CA-M-279@24,CA-M-295@32,CA-R-1052@41,CA-R-1207@31,CA-R-1228@35,CA-R-1375@33,CA-R-1404@26,CA-R-1421@23,CA-R-1428@32,CA-R-1429@28,CA-R-1441@26,CA-R-1489@25,CA-R-1587@26,CA-R-1628@41,CA-R-1629@39,CA-R-1630@41,CA-R-1631@34,CA-R-1652@41,CA-R-1724@36,CA-R-1740@41,CA-R-2271@3,CA-R-380@44,CA-R-622@34,CA-R-626@43,CA-R-832@35"
+    },
+    {
+      "flag": "subjects:29",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Artifact Timestamp Timezone",
+      "source_pins": "CA-D-390@27"
+    },
+    {
+      "flag": "subjects:30",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes",
+      "source_pins": "CA-R-1655@45"
+    },
+    {
+      "flag": "subjects:31",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Code-Root Locators",
+      "source_pins": "CA-D-371@24"
+    },
+    {
+      "flag": "subjects:32",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold",
+      "source_pins": "CA-D-368@29,CA-R-1652@41"
+    },
+    {
+      "flag": "subjects:33",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Semantic Resolution Threshold",
+      "source_pins": "CA-D-369@28,CA-R-380@44"
+    },
+    {
+      "flag": "subjects:34",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Extension Selections",
+      "source_pins": "CA-D-373@25"
+    },
+    {
+      "flag": "subjects:35",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Framework Control-Root Locator",
+      "source_pins": "CA-D-370@26"
+    },
+    {
+      "flag": "subjects:36",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Identifier",
+      "source_pins": "CA-D-358@26"
+    },
+    {
+      "flag": "subjects:37",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit",
+      "source_pins": "CA-D-447@30,CA-D-485@26,CA-R-1489@25"
+    },
+    {
+      "flag": "subjects:38",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction",
+      "source_pins": "CA-M-277@33,CA-M-278@30,CA-R-1439@23,CA-R-1440@24"
+    },
+    {
+      "flag": "subjects:39",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode",
+      "source_pins": "CA-D-383@31,CA-M-277@33,CA-M-278@30,CA-R-1439@23,CA-R-1440@24,CA-R-1628@41"
+    },
+    {
+      "flag": "subjects:40",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution",
+      "source_pins": "CA-E-450@27,CA-M-279@24"
+    },
+    {
+      "flag": "subjects:41",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Tool Selections",
+      "source_pins": "CA-D-372@27"
+    },
+    {
+      "flag": "unresolved:09",
+      "subject": "Project.Framework Settings",
+      "source_pins": "CA-D-669@1,CA-E-671@1"
+    },
+    {
+      "flag": "unresolved:25",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode:silent",
+      "source_pins": "CA-M-277@33"
+    },
+    {
+      "flag": "unresolved:26",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode:verbose",
+      "source_pins": "CA-M-278@30"
+    }
+  ],
+  "notes": [
+    "No Current write.",
+    "Do not adopt independently of source and declared target rechecks.",
+    "Held entries include removed/deferred fields and physical carrier or schema decisions."
+  ]
+}

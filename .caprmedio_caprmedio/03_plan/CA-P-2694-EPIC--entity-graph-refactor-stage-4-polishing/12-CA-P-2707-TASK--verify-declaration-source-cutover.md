@@ -4,8 +4,8 @@ role: Plan
 form: Plan
 label: Task
 status: Active
-version: 3
-updated_at: 2026-11-02 23:30:39 +0400
+version: 4
+updated_at: 2026-11-04 09:32:27 +0400
 tier: 4
 current_scope_unit: caprmedio
 subjects:
@@ -21,15 +21,31 @@ Verify the Declaration source cutover
 
 ## Objective
 
-Verify Current source readback, the absence of TOML readers/writers, and affected runtime/script tests. Run the complete suite with required integration tests before any release. No release, container restart, commit or push is implied.
+Verify the final Current Declaration sources, their consumers and carrier admission. Pass the complete suite, launcher and required Docker checks before Epic completion.
 
-## Verification
+## Recorded evidence
 
-- Current readback: 44 Declarations, 43 non-root IDs, nine Ordered units; unchanged source digest.
-- The live TOML is absent. Production Python has no `project_structure.toml` or `STRUCTURE_FILENAME` dependency.
-- Complete run: 517 modules, 4,252 tests, no skips; launcher passed. The run reported 28 failing modules before the targeted corrections.
-- The corrected host fixtures passed focused reruns. The fresh Docker query and creation-status matrix passed all nine tests; launcher verification passed again.
-- The deferred O016 desired-behavior test remains one explicit expected failure under Engine task P2708.
-- The W10 Docker expected-result hash versus real timestamp mismatch remains open for Engine review. Live Project carrier admission also still depends on retired D274.
+- Earlier cutover evidence reported 44 Scope Unit Declarations, 43 non-root IDs and nine Ordered units. Recheck those counts and identities on the final candidate.
+- The live project_structure.toml was retired. Recheck production, bindings, fixtures and documentation for executable dependencies.
+- Current D657 replaces retired D274 as live carrier-encoding authority. Its reviewed Claim digest, registry closure and 588 validator tests are recorded in the completion packet.
+- The latest reader passed 426 graph tests. Seven MODEL views use Project root ownership and Form + Scope Unit identity.
+- Connector and moved-default fixture corrections passed 48 focused tests.
+- Earlier whole-suite runs contained concurrent edits and failures. They do not establish a final pass.
 
-Keep this verification task Active until the remaining Engine release-gate issue is resolved. Do not expand the completed Declaration migration or claim a green whole-project suite. See [Engine follow-ups](scope-unit-governance-20261031/engine-followups.md) and [verification results](scope-unit-governance-20261031/verification/final-cutover-verification.json).
+## Remaining checks
+
+1. Verify final Declaration counts, identities, derived paths and source hashes. Explain each digest change from preserved source evidence.
+2. Close the legacy scope-field disposition and any missing Current execution bindings. A retired carrier is not a Current replacement.
+3. Verify live Project admission and fresh Docker query/status and lifecycle checks, including the W10 result/timestamp comparison.
+4. Run the complete current-source suite and launcher on a stable candidate. Record the exact implementation, source and image identities, results and cleanup.
+5. Preserve the explicit O016 expected-failure disposition under P2708. It does not waive unrelated failures.
+
+## Status
+
+Active. Focused tests and source adoption receipts do not close this gate. No release is required.
+
+## Evidence
+
+- [Integration packet](../../02_analysis/draft/epic-completion-20261104/integration/REPORT.md).
+- [Full acceptance matrix](../../02_analysis/draft/epic-completion-20261104/acceptance/matrix.json).
+- [Earlier cutover verification](scope-unit-governance-20261031/verification/final-cutover-verification.json).

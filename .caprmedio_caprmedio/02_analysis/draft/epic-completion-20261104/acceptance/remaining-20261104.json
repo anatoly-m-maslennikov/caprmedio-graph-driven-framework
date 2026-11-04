@@ -1,0 +1,175 @@
+{
+  "epic": "CA-P-2694@55",
+  "epic_sha256": "2bbd8102ac18b1d3370b0e8c3f3075b452c7f20649fb0d765e2d2c22ff731578",
+  "matrix_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/acceptance/matrix.json",
+  "matrix_sha256": "944f3b344cc7d096504ef75246f88af537a8eb4919d71373328ea9c3bb17b557",
+  "original_group_count": 23,
+  "assessment": "OPEN; matrix is a historical assessment and is stale with respect to subsequently applied batches. Read-only grouped remaining work, not an expanded acceptance baseline.",
+  "recent_applied_source_evidence": [
+    ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/goal-rules/adoption-receipt.json",
+    ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/projection-model/adoption-receipt.json",
+    ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/current-encoding/adoption-receipt.json",
+    ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/migration/endpoints/adoption-receipt.json",
+    ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/migration/coverage/adoption-receipt.json",
+    ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/migration/projections/adoption-receipt.json"
+  ],
+  "settings_hold": "R1404 remains Current with R1981 reference. Keep both together until the Carrier-versus-Object authority and retirement route are resolved. Independently reviewed Settings sources may be adopted only after dependency/conflict preflight; the held pair and affected endpoint disposition remain open for Epic closure.",
+  "items": [
+    {
+      "id": "D1",
+      "kind": "decision_if_no_authority",
+      "groups": [
+        "P2698",
+        "P2694: CFEL semantic preservation",
+        "P2704\u2013P2709: status and closure boundary"
+      ],
+      "action": "Resolve remaining genuinely ambiguous Settings semantics: prior Project names, atomic admission strictness domain, and Carrier/Artifact-versus-Atom boundary. Reuse already-decided merged Project.Settings, Workflow-only retry, and retain physical values; do not ask again for settled choices.",
+      "paths": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/integration-fixes/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/settings-consolidation-review.json"
+      ]
+    },
+    {
+      "id": "S1",
+      "kind": "deterministic_source",
+      "groups": [
+        "P2694: Claim/model notation",
+        "P2694: CFEL semantic preservation"
+      ],
+      "action": "Finish the existing Settings merge and endpoint dispositions using source-pinned reviewed candidates, resolving placeholders with fresh identities where Summary changes. Keep R1404 and its R1981 dependent together Current while held; a safe independent subset may proceed only after per-candidate dependency and conflict preflight. Holding them is not closure of their unresolved legacy Subject.",
+      "paths": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/integration-inventory/normalized-manifest.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/REPORT.md"
+      ]
+    },
+    {
+      "id": "S2",
+      "kind": "deterministic_source",
+      "groups": [
+        "P2698",
+        "P2694: CFEL semantic preservation"
+      ],
+      "action": "Recompute and disposition each remaining non-Terms MODEL coverage/unresolved item against the latest post-adoption frontier; preserve Terms Graph deferral and Term Definitions. Do not reuse earlier 64/26 counts as current without a fresh scan.",
+      "paths": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/migration/endpoints/adoption-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/migration/coverage/adoption-receipt.json"
+      ]
+    },
+    {
+      "id": "S3",
+      "kind": "deterministic_source_and_code",
+      "groups": [
+        "P2694: Carrier boundary",
+        "P2694: Claim/model notation",
+        "P2694: CFEL groups and bindings"
+      ],
+      "action": "Reconcile affected Delivery, Settings and Carrier sources/readers and required fixtures against Current authority. Preserve the exact source-bound validation obligations and avoid equating the encoding-source receipt with executable enforcement.",
+      "paths": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/delivery/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/current-encoding/adoption-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/REPORT.md"
+      ]
+    },
+    {
+      "id": "S4",
+      "kind": "deterministic_source_and_code",
+      "groups": [
+        "P2694: CFEL groups and bindings",
+        "P2694: CFEL semantic preservation"
+      ],
+      "action": "Finish the scoped reader/CFEL binding, qualified-selector, model/instance and unary-whitelist work; prove preserved source text and diagnostics for unsupported constructs rather than marking them evaluated.",
+      "paths": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/cfel/analysis.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/acceptance/matrix.json"
+      ]
+    },
+    {
+      "id": "S5",
+      "kind": "deterministic_source_and_code",
+      "groups": [
+        "P2707: Engine runtime cutover",
+        "P2707: carrier admission",
+        "P2694: workflow/API boundary"
+      ],
+      "action": "Recheck live Project admission after current encoding/validator work. Resolve any remaining retired D274 or missing O104 binding against Current source and update matching readers, registry, fixtures and tests; preserve author prohibition and business obligations. Do not revive archive as Current.",
+      "paths": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/current-encoding/adoption-receipt.json",
+        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py"
+      ]
+    },
+    {
+      "id": "T1",
+      "kind": "final_verification",
+      "groups": [
+        "P2694: declaration model",
+        "P2704",
+        "P2694: folder derivation",
+        "P2694/P2706: TOML retirement",
+        "P2707: Current declaration cutover"
+      ],
+      "action": "Recheck Current declarations (44/43/9), root and derived folder paths, retired overrides/TOML across production, bindings, fixtures and docs. Reconcile path/source hash drift without claiming the old aggregate digest unchanged where predecessor per-file hashes are unavailable.",
+      "paths": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/REPORT.md"
+      ]
+    },
+    {
+      "id": "T2",
+      "kind": "final_verification",
+      "groups": [
+        "P2694: Claim/model notation",
+        "P2694: CFEL semantic preservation",
+        "P2698"
+      ],
+      "action": "Rebuild seven MODEL-only views from the stable final Current frontier; verify projection identity, root Project binding, existing IDs, consumers and coverage. The recorded model/instance receipts and earlier post-migration check are not a final post-Goal/post-Settings rebuild.",
+      "paths": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projection-review/post-migration-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/migration/projections/adoption-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/projection-model/adoption-receipt.json"
+      ]
+    },
+    {
+      "id": "T3",
+      "kind": "final_verification",
+      "groups": [
+        "P2707: Engine runtime cutover",
+        "P2707: carrier admission",
+        "P2694: workflow/API boundary"
+      ],
+      "action": "After source and code stabilize, rerun complete current-source suite and launcher, fresh Docker query/status, live carrier-admission and W10 lifecycle journey; inspect failure diagnostics and cleanup. Earlier 490-module run was mixed-state with 56 failures, not a final integrated pass.",
+      "paths": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/full-suite-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/REPORT.md",
+        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/run_full_test_suite.py"
+      ]
+    },
+    {
+      "id": "T4",
+      "kind": "final_verification",
+      "groups": [
+        "P2694: source history/publication",
+        "P2704\u2013P2709: status and closure boundary"
+      ],
+      "action": "Verify exact predecessor archives, identity and unversioned reference migrations for all final applied batches; distinguish direct-file receipts from native workflow admission and Journal. Confirm checkpoint and final checked local/remote amm/dev evidence, then update status only when gates pass or authorized deferrals are explicit.",
+      "paths": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/goal-adoption-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/goal-rules/adoption-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/acceptance/REPORT.md",
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md"
+      ]
+    }
+  ],
+  "explicit_non_gates": [
+    "Terms Graph and its pinned projection occurrences are deferred; Term Definitions remain in scope.",
+    "No Project Goal Operator ownership gate.",
+    "Previously approved Engine/foundation deferrals remain distinct from unverified current obligations.",
+    "No release is required by the Epic; required checkpoint and final pushes remain distinct."
+  ],
+  "limits": "This is a bounded acceptance triage, not a fresh full-source census, execution of gates, authorization to modify sources, or proof of final deployment."
+}

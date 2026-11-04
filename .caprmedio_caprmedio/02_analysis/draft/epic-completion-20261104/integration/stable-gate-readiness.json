@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "blocked_before_stable_gate",
+  "snapshot_date": "2026-11-04",
+  "scope": "Read-only integration assessment after reported connector32pass and fixture16pass; no full-suite rerun on changing sources.",
+  "reported_resolved_checks_not_rerun_here": [
+    "connector direct suite: 32 passed",
+    "fixture direct suite: 16 passed"
+  ],
+  "exact_stable_gate": {
+    "preconditions": [
+      "No active source, registry, projection, implementation, or test writers.",
+      "CA-O-104 runtime definition is bound to exactly one live Current carrier with refreshed version, path, and sha256.",
+      "The full-suite Docker image is rebuilt/resolved from the frozen worktree rather than reusing the prior mismatched image."
+    ],
+    "command": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/run_full_test_suite.py --project-root \"$PWD\"",
+    "runner": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/run_full_test_suite.py",
+    "behavior": "Discovers every test module below LAYER_2_FRAMEWORK_ENGINE, runs modules in fresh interpreters, enables required Docker E2E environment, and fails on any module, required skip, or launcher failure."
+  },
+  "concrete_blockers": [
+    {
+      "id": "CA-O-104-live-current-binding",
+      "severity": "blocking",
+      "evidence": {
+        "runtime_binding": {
+          "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW/source_bindings.json",
+          "atom_id": "CA-O-104",
+          "version": 12,
+          "path_hint": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.md",
+          "sha256": "c4655ae7caddf8279db86f3f2d0069d94431da7fc3537a6f2bfa5550de01b342"
+        },
+        "current_lookup": "CurrentAtomLocator resolves the hint or exactly one active, non-draft, non-archive, non-projection carrier in registered Project authority roots.",
+        "live_project_result": "No non-archive CA-O-104 file exists below .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY.",
+        "archive_only": ".caprmedio_caprmedio/_journal/codex-workflow-archive-2026-11-03.ndjson records CA-O-104@25 in archived_atom_versions; its retained_workflows are CA-O-164, CA-O-188, and CA-O-127.",
+        "successor_result": "No journal record declares a successor_atom_ids entry for CA-O-104. The earlier CA-O-104@25 draft record is Draft, not a Current successor.",
+        "non_candidate_parallel_copy": "LAYER_1_FRAMEWORK_METHODOLOGY/.../CA-O-104... is Active v25 with sha256 96f1c8cd61e691205723867000872e3a1af6261ab738e532c4a6d6a98c640e1c, but it is outside the selected Project Current authority path and does not match the runtime binding pin."
+      },
+      "action": "Do not bind an archive, projection, draft, or parallel legacy copy. Obtain or adopt an explicit live Current CA-O-104 carrier or an explicitly declared successor, then refresh source_bindings.json to its exact identity, version, Project-relative path, and sha256."
+    },
+    {
+      "id": "docker-image-identity-after-freeze",
+      "severity": "blocking_for_full_gate",
+      "evidence": "The prior mixed-state suite receipt records launcher ImageError: image schema/source fingerprint/platform/immutable identity does not match. That receipt ran while the worktree changed and cannot validate the current tree.",
+      "action": "After the source and implementation worktree are frozen, let the stable runner resolve a fresh current-code test image; treat another ImageError as an environment/integration failure, not as a skipped gate."
+    }
+  ],
+  "current_main_changes_requiring_post_freeze_evidence": [
+    {
+      "area": "APP_WORKFLOW_ORCHESTRATOR",
+      "observation": "engine.py now separates implementation readiness fingerprinting from Current workflow fingerprinting, and untracked tests/workflow_fixture.py writes a synthetic current CA-O-104 for isolated tests.",
+      "delta": "The fixture can validate fixture behavior but cannot establish a live Project binding; retain the CA-O-104 blocker above for production admission."
+    },
+    {
+      "area": "FEATURE_MCP",
+      "observation": "hot-reload, HTTP/catalog, and four prior tool-list test modules have current working-tree changes.",
+      "delta": "The prior failures are not attributed again while those changes are active; run the exact targeted modules after freeze before the full gate."
+    }
+  ],
+  "post_freeze_targeted_rechecks": [
+    ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/tests/test_orchestrator.py",
+    ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/tests/test_docker_e2e.py",
+    ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/tests/test_hot_reload.py",
+    ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/tests/test_hot_reload_http.py",
+    ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/tests/test_mcp_tool_blacklist.py",
+    ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/tests/test_rmed_workflow_mcp.py"
+  ],
+  "historical_failures_not_current_blockers": "The 2026-11-04 mixed-state receipt's 56 failures include authority-context, connector, carrier-alias, and fixture clusters. They are not restated as current blockers because the worktree changed during that run and reported focused follow-ups supersede connector and fixture observations."
+}

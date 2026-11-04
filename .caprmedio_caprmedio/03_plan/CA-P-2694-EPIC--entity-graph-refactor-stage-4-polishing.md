@@ -5,8 +5,8 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
 tier: 3
-version: 55
-updated_at: 2026-11-04 07:21:10 +0400
+version: 57
+updated_at: 2026-11-04 09:38:36 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations: {}
@@ -45,15 +45,20 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 
 - P2695–P2706 and P2709 have recorded completed, bounded results. Preserve their history. P2708 owns the separately deferred O016 desired-behavior item.
 - The Scope Unit source cutover, TOML retirement, Header/Claim/alias migration, Subject-root migration and CFEL grouping migration have application and preservation evidence.
-- The latest published MODEL projections use 1,151 pinned Current suppliers. The last adopted batch passed 421 graph tests; subsequent reader changes require their own evidence and publication.
+- The seven published MODEL projections use 1,159 pinned Current suppliers and Project root ownership. The graph reader passed 426 tests; the projection generator passed ten tests. Current admission passed 588 tests. These are focused results, not the final integration gate.
 - The previous Epic version preserves the detailed checkpoint history. The acceptance matrix retains all 23 requirement groups and their evidence. These baselines do not close the remaining gates.
+
+- The Goal/Tier batch has 15 verified source contributions and exact predecessors. Seventeen reviewed Settings contributions merge logical ownership under Project.Settings; 25 ambiguous Settings sources remain held. R2747 and R2748 use fresh IDs because their Summaries changed.
+- Checkpoint dd90a1132 was pushed to amm/dev. It includes Goal/Tier changes, refreshed views and 48 passing connector/fixture tests.
+
+- The capability deferral batch preserves confidence constraints in two revised Declarations and retires three redundant Tool/Extension Settings sources. Exact archives and frozen references remain. The refreshed audit reports 56 missing and 23 unresolved Declaration-coverage cases.
 
 ## Remaining work
 
-1. **Relation permissions.** Adopt explicit outgoing permissions with correct model/instance scope, endpoint bounds and qualifications. Retain separate direct/inverse permissions. Record unary bounds in faithful graph projections.
+1. **Relation permissions.** Verify the adopted outgoing permissions, model/instance scope, endpoint bounds and qualifications against final sources. Retain separate direct/inverse permissions and source-linked unary bounds in projections.
 2. **Property contracts.** Resolve the six conditional cases from applicable Declarations. Keep Relations populated by the containment Relation. Repair the optional Subjects grouping without weakening Current Active-subject requirements.
-3. **MODEL coverage.** Disposition every flag in the 64 uncovered / 26 unresolved audit: source correction, declared authority, valid scope, authorized retirement or an Operator decision. Resolve used endpoint kinds and Settings ownership. Preserve operative Claims and exact history.
-4. **Projection identity.** Adopt Form + Scope Unit constraints, the required Scope Unit reference and distinct Forms for current views. Align Delivery, readers, identity checks and generated instances. Preserve versioned source references. Defer graph-specific Terms Graph work explicitly.
+3. **MODEL coverage.** Disposition every remaining flag in the refreshed coverage audit: source correction, declared authority, valid scope, authorized retirement or an Operator decision. Resolve used endpoint kinds and Settings ownership. Preserve operative Claims and exact history.
+4. **Projection identity.** Verify the adopted Form + Scope Unit constraints, required Scope Unit reference and distinct Forms across Delivery, readers, identity checks and published instances. Keep all seven views at the Project root. Preserve versioned source references and the explicit Terms Graph deferral.
 5. **CFEL and faithful projections.** Repair declared narrowing and namespace binding, supported qualified selectors and bindings. Classify remaining opaque expressions; retain their complete source and diagnostics. Rebuild all seven MODEL-only views from actual Current Declarations. Formats, cardinalities and Formal Claims come only from Declarations.
 6. **Current carrier admission.** Align live Delivery authority, source closure, registry and validators. Remove dependencies on retired D274; preserve fail-closed checks. Reconcile Header/Claim, role/form, Author removal and required fields with their Current authority before enabling admission.
 7. **P2707.** Verify current Scope Declaration counts and identities, explain source-digest changes, verify absence of TOML dependencies, pass live Project admission, required fresh Docker query/status and lifecycle checks, the complete current-source suite and launcher. Capture one authoritative final result after changes.
@@ -63,7 +68,7 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 
 - Ask one question at a time when confidence is below 90%. Record each answer and its affected sources.
 - Prepare and review source changes, commit the declaration checkpoint to amm/dev before a dependent mechanical migration, apply the accepted migration in place, then check it. Preserve disabled hooks and concurrent work.
-- Root owns canonical source integration and Git. Workers own the separate evidence and preview lanes in the completion packet. No release or external publication is required by this plan. Required local integration tests remain in scope.
+- Root owns canonical source integration and Git. Workers own the separate evidence and preview lanes in the completion packet. No release is required. The requested amm/dev checkpoint and final pushes, plus local integration tests, remain required.
 
 ## Definition of Done
 

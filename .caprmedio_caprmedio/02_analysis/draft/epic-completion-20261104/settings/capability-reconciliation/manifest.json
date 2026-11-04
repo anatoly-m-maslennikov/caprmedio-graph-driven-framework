@@ -1,0 +1,261 @@
+{
+  "schema": "settings-capability-reconciliation/1",
+  "status": "PINNED_PREVIEWS_REVIEW_REQUIRED_NO_CURRENT_CHANGES",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/post-application-frontier.json",
+  "reference_inventory": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/reference-inventory.json",
+  "subject_address_inventory": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/subject-address-inventory.json",
+  "reference_summary": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/reference-summary.json",
+  "active_unversioned_references": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/active-unversioned-references.tsv",
+  "active_address_references": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/active-address-references.json",
+  "scan": "Full Markdown reference scan under .caprmedio_caprmedio; source pins are canonical Current carriers. reference-inventory.json contains exact locations/snippets for unversioned and @version references.",
+  "previews": [
+    {
+      "source_id": "CA-R-832",
+      "source_path": ".caprmedio_caprmedio/04_requirement/CA-R-832-GOAL--select-optional-capabilities-through-configuration.md",
+      "source_version": "35",
+      "source_sha256": "dde2603f75aabe1116542394ed8e7a3df6a19ab7c385778f080d1538bebab124",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/CA-R-832.preview.txt",
+      "candidate_sha256": "4ae21cc707f65f2f19710abf144faaebaa128b2abd569e88272489ddaa34210c",
+      "summary_changed": false,
+      "new_id_required": false,
+      "changed_scope": "body and/or Subjects only; Current source unchanged",
+      "review_status": "PINNED_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "source_id": "CA-R-1207",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1207-CORE_META_MODEL-RULE--separate-project-configuration-rules-from-current-settings.md",
+      "source_version": "31",
+      "source_sha256": "fd442f000f8b38f8764f967850d3f31b753003d65507cbee9e983617a6abea4c",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/CA-R-1207.preview.txt",
+      "candidate_sha256": "cbe1393312c9260ff515aa73c4802fdf0ea90441d4069d3e397581fe10462342",
+      "summary_changed": false,
+      "new_id_required": false,
+      "changed_scope": "body and/or Subjects only; Current source unchanged",
+      "review_status": "PINNED_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "source_id": "CA-R-1375",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL--restrict-methodology-source-expansion-to-core-permission.md",
+      "source_version": "33",
+      "source_sha256": "2103e66bec8988ad7fdfbe524562e720a4f8fdcc3b14c5750f87b90753d23491",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/CA-R-1375.preview.txt",
+      "candidate_sha256": "3cecf2a650612c85468602b9abe3ffc1e4d3cdeea5b1ba01c3ba25963629d731",
+      "summary_changed": false,
+      "new_id_required": false,
+      "changed_scope": "body and/or Subjects only; Current source unchanged",
+      "review_status": "PINNED_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "source_id": "CA-R-1724",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL--define-configuration-selection-and-precedence.md",
+      "source_version": "36",
+      "source_sha256": "e26c1c32a1c1d26c07e1972c4639cb11a767013b25660d46f5ddba40c8740ae6",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/CA-R-1724.preview.txt",
+      "candidate_sha256": "c87c6fee5e83e1a2a1badab49b47479d35512a0836252096d546e2688469968c",
+      "summary_changed": false,
+      "new_id_required": false,
+      "changed_scope": "body and/or Subjects only; Current source unchanged",
+      "review_status": "PINNED_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "source_id": "CA-R-1228",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1228-PROJECT_CONFIGURATION-RULE--include-all-applicable-methodology-sources.md",
+      "source_version": "35",
+      "source_sha256": "17ea9845e56cf8477465201b31982a3c0d883b4142d1dc508adbae9c5601f2f4",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/CA-R-1228.preview.txt",
+      "candidate_sha256": "0e9af677c103dbd665634bad2f475b096f562069df78c8e538585f9f75a78767",
+      "summary_changed": false,
+      "new_id_required": false,
+      "changed_scope": "body and/or Subjects only; Current source unchanged",
+      "review_status": "BLOCKED_BY_CROSS_SCOPE_SOURCE_SELECTION_DEPENDENCIES"
+    },
+    {
+      "source_id": "CA-E-379",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md",
+      "source_version": "46",
+      "source_sha256": "14cd076704cea5b4d65391b144bbb9edf9ed3e556075abcb4a00711911da0b73",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/CA-E-379.preview.txt",
+      "candidate_sha256": "094df3f2f3176552995ee5143a6375cbe46032c79cb7a397225c636539c5901f",
+      "summary_changed": false,
+      "new_id_required": false,
+      "changed_scope": "body and/or Subjects only; Current source unchanged",
+      "review_status": "BLOCKED_BY_CROSS_SCOPE_SOURCE_SELECTION_DEPENDENCIES"
+    },
+    {
+      "source_id": "CA-R-2624",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2624-CORE_META_MODEL-DECLARATION--define-necessary-information-threshold.md",
+      "source_version": "2",
+      "source_sha256": "7e4db0ebbd83d3c1526aa4c0afbb2431abb9fb5fff22281242deee358ea72127",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/CA-R-2624.preview.txt",
+      "candidate_sha256": "95deb98c4279ec5f95110228e1fd6420a0af1e3770558791775d58bb79f1adc4",
+      "summary_changed": false,
+      "new_id_required": false,
+      "changed_scope": "body and/or Subjects only; Current source unchanged",
+      "review_status": "PINNED_PREVIEW_REVIEW_REQUIRED",
+      "meaning_guard": "Adds only integer-percentage prose; keeps optional 0..1 threshold and inherited int format; adds no value range."
+    },
+    {
+      "source_id": "CA-R-2625",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2625-CORE_META_MODEL-DECLARATION--define-semantic-resolution-threshold.md",
+      "source_version": "2",
+      "source_sha256": "a2138aa21b9b04793a9fec3d3acefa55ea527c8292e21ed98e2c0ff3e8ca715f",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/CA-R-2625.preview.txt",
+      "candidate_sha256": "414d353ca1f3c5d3d2478c795be1b3ef9e712e1ad0456fdb9e6750c380c0268a",
+      "summary_changed": false,
+      "new_id_required": false,
+      "changed_scope": "body and/or Subjects only; Current source unchanged",
+      "review_status": "PINNED_PREVIEW_REVIEW_REQUIRED",
+      "meaning_guard": "Adds only integer-percentage prose; keeps optional 0..1 threshold and inherited int format; adds no value range."
+    },
+    {
+      "source_id": "CA-R-2271",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md",
+      "source_version": "3",
+      "source_sha256": "978f4689ea6ef94e148cd47f72eacdc680ef3fc1b4dc4d9835a2f618d0755fd2",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/CA-R-2271.preview.txt",
+      "candidate_sha256": "1417ea1d058a617b20eaf35cc762b58278a3ea239a1650f78cc7b65334231989",
+      "summary_changed": true,
+      "new_id_required": true,
+      "changed_scope": "body and/or Subjects only; Current source unchanged",
+      "review_status": "NEW_ID_REQUIRED_CONFIDENCE_ONLY_RULE_PREVIEW"
+    }
+  ],
+  "retirement_candidates": [
+    {
+      "source_id": "CA-D-372",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-372-CORE_META_MODEL-ENG_DECISION--serialize-instance-tool-selections.md",
+      "source_version": 27,
+      "source_sha256": "4f97abea348b70206f6b64f4d58828c959c340ca4056b97d08fdd87f3cd53e80",
+      "disposition": "RETIREMENT_CANDIDATE",
+      "reason": "Field-only Tool Selections serialization in the obsolete Framework Settings TOML Carrier; not required by current capability scope.",
+      "preconditions": "R2271 retirement/rewrite removes its only active unversioned reference; preserve all frozen @ references and exact archive.",
+      "successor": "none",
+      "unversioned_reference_counts_all_repo": 50,
+      "frozen_versioned_reference_count_all_repo": 182
+    },
+    {
+      "source_id": "CA-D-373",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-373-CORE_META_MODEL-ENG_DECISION--serialize-instance-extension-selections.md",
+      "source_version": 25,
+      "source_sha256": "884b54e8f3a598872ba71c545256bda70be860cf583f33d67f75d801baa1defe",
+      "disposition": "RETIREMENT_CANDIDATE",
+      "reason": "Field-only Extension Selections serialization in the obsolete Framework Settings TOML Carrier; explicit Extension selection is deferred.",
+      "preconditions": "R2271 retirement/rewrite removes its only active unversioned reference; preserve all frozen @ references and exact archive.",
+      "successor": "none",
+      "unversioned_reference_counts_all_repo": 48,
+      "frozen_versioned_reference_count_all_repo": 158
+    },
+    {
+      "source_id": "CA-R-2271",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md",
+      "source_version": 3,
+      "source_sha256": "978f4689ea6ef94e148cd47f72eacdc680ef3fc1b4dc4d9835a2f618d0755fd2",
+      "disposition": "RETIREMENT_CANDIDATE",
+      "reason": "Mixed Definition/Rule: capability-selection schema duplicates are already covered by CA-R-1979 and CA-R-2624/2625; preserve its threshold-specific integer-percentage override semantics in a new-ID Rule preview.",
+      "preconditions": "Replace only after the new Rule is reviewed and CA-R-2624/2625 previews are adopted; preserve every frozen CA-R-2271@ reference.",
+      "successor": "NEW_ID_REQUIRED preview",
+      "unversioned_reference_counts_all_repo": 9,
+      "frozen_versioned_reference_count_all_repo": 120
+    }
+  ],
+  "held_items": [
+    {
+      "source_id": "CA-R-2277",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-2277-PROJECT_CONFIGURATION-RULE--define-extension-sources-selection.md",
+      "source_version": 4,
+      "source_sha256": "31e3991a770bc7917c7f7db0d778d94f5990049b5e79fad9c73d8965a63c2ad3",
+      "disposition": "HOLD_SELECTION_DOMAIN_HAS_LIVE_AUTHORITY_CONSUMERS",
+      "reason": "The abstract Extension Sources Selection remains referenced by 15 active canonical source owners, including Core source-authority Rules and Engine CA-R-1839, which still requires activated installed Extension sources in the Applicable Methodology frontier. Do not retire the Selection or erase all inbound Subjects in this bounded pass; its presence does not require Tool/Extension settings to be implemented now.",
+      "frozen_versioned_reference_count_all_repo": 108,
+      "active_address_owners": [
+        "CA-R-1226",
+        "CA-R-1286",
+        "CA-R-1313",
+        "CA-R-1375",
+        "CA-R-1515",
+        "CA-R-1724",
+        "CA-R-1748",
+        "CA-R-1874",
+        "CA-R-1875",
+        "CA-R-2277",
+        "CA-E-379",
+        "CA-R-1207",
+        "CA-R-1228",
+        "CA-R-1839",
+        "CA-E-559"
+      ],
+      "blocked_previews": [
+        "CA-R-1228",
+        "CA-E-379"
+      ],
+      "blocked_reason": "Their proposed removal of Extension-source inclusion requires coordinated review of live Engine source-frontier requirements and other active consumers."
+    }
+  ],
+  "historical_ids": [
+    {
+      "source_id": "CA-R-2408",
+      "disposition": "NO_CURRENT_SOURCE_DO_NOT_RESTORE",
+      "note": "No active Current source carrier in the canonical Core Model tree; historical/archive mentions are retained as history.",
+      "unversioned_reference_count_all_repo": 2,
+      "frozen_versioned_reference_count_all_repo": 4
+    },
+    {
+      "source_id": "CA-R-2411",
+      "disposition": "NO_CURRENT_SOURCE_DO_NOT_RESTORE",
+      "note": "No active Current source carrier in the canonical Core Model tree; historical/archive mentions are retained as history.",
+      "unversioned_reference_count_all_repo": 2,
+      "frozen_versioned_reference_count_all_repo": 4
+    }
+  ],
+  "preserved_core_authority": {
+    "CA-R-1421": "Retain broad configuration/extensibility Goal unchanged; this does not require current Extension implementation.",
+    "CA-R-831": "Retain high-level reusable-capability/Extension authority boundary unchanged; no extension mechanism or model entity is implemented in this lane.",
+    "CA-R-2532": "Current Project.Settings Declaration enumerates only its current settings children; Tool Selections and Extension Selections are absent from its allowed-child list.",
+    "CA-R-1979": "Retain Confidence grouping and child-name/cardinality limits.",
+    "CA-R-2624": "Retain optional single necessary-information threshold; preview adds explicit integer-percentage semantics.",
+    "CA-R-2625": "Retain optional single semantic-resolution threshold; preview adds explicit integer-percentage semantics.",
+    "CA-R-1652": "Retain Operator-configurable necessary-information default.",
+    "CA-R-380": "Retain Operator-configurable semantic-resolution default.",
+    "CA-D-368": "Retain Framework Instance default serialization decision; not superseded by retirement of field-only Tool/Extension decisions.",
+    "CA-D-369": "Retain Framework Instance default serialization decision; not superseded by retirement of field-only Tool/Extension decisions.",
+    "CA-R-1375": "Retain Core source-auth boundary; proposed wording applies it to additional selected source contributions without requiring an Extension selection."
+  },
+  "cross_scope_dependencies": {
+    "blocker": "The preview narrowing in CA-R-1228 and CA-E-379 must not be applied without resolving current active extension-source consumers outside this lane.",
+    "active_source_consumers": [
+      "CA-R-1839",
+      "CA-E-559",
+      "CA-R-1226",
+      "CA-R-1286",
+      "CA-R-1313",
+      "CA-R-1515",
+      "CA-R-1748",
+      "CA-R-1874",
+      "CA-R-1875"
+    ],
+    "hold": "Keep CA-R-2277 and its abstract Extension Sources Selection address. Do not remove live source-authority Subjects of unrelated Rules in this bounded pass."
+  },
+  "confidence_basis": {
+    "CA-R-2532": "Current @8 child-name enumeration excludes Tool Selections and Extension Selections.",
+    "CA-R-1979": "Current @16 defines optional Confidence group and its two children.",
+    "CA-R-2624": "Current @2 defines optional single threshold value and absent-default behavior.",
+    "CA-R-2625": "Current @2 defines optional single threshold value and absent-default behavior.",
+    "CA-R-1652": "Current @41 governs Operator-configurable necessary-information default.",
+    "CA-R-380": "Current @44 governs Operator-configurable semantic-resolution default.",
+    "CA-D-368": "Current @29 serializes Framework Instance necessary-information default; retained.",
+    "CA-D-369": "Current @28 serializes Framework Instance semantic-resolution default; retained."
+  },
+  "historical_context": [
+    {
+      "source_id": "CA-R-1175",
+      "historical_version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1175-APPLICABLE_MTHD_SOURCES-DEFINES_JOB_FOR-INSTALLED_EXTENSIONS--preserve-installed-extension-revisions-as-candidate-inputs@3.md",
+      "note": "Archived only; not restored."
+    }
+  ],
+  "root_integration_action": [
+    "Review/allocate the NEW_ID_REQUIRED confidence-only successor to CA-R-2271; its source and candidate hashes are pinned.",
+    "If accepted, adopt the integer-percentage clarifications in CA-R-2624@2 and CA-R-2625@2, retire CA-R-2271@3 with its exact archive, then retire CA-D-372@27 and CA-D-373@25 with exact archives. Preserve all frozen @ references.",
+    "Hold CA-R-1228/CA-E-379 until Engine source-frontier consumers (especially CA-R-1839) are reconciled; keep CA-R-2277 and unrelated Extension Sources authority references."
+  ]
+}

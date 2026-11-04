@@ -1,0 +1,140 @@
+{
+  "status": "PREPARED_NOT_ADOPTED",
+  "route": "explicit user concrete Tool/Extension deferral; reviewed duplicate consolidation",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "source_id": "CA-R-2624",
+      "atom_id": "CA-R-2624",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2624-CORE_META_MODEL-DECLARATION--define-necessary-information-threshold.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2624-CORE_META_MODEL-DECLARATION--define-necessary-information-threshold.md",
+      "version": 3,
+      "sha256": "e205f3f4da504a0ba75cf6b19717c22dffe8e3f865c432507cc59acaeb73f039"
+    },
+    {
+      "source_id": "CA-R-2625",
+      "atom_id": "CA-R-2625",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2625-CORE_META_MODEL-DECLARATION--define-semantic-resolution-threshold.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2625-CORE_META_MODEL-DECLARATION--define-semantic-resolution-threshold.md",
+      "version": 3,
+      "sha256": "4f1b15e5987e74114dafe7533030b130471d694e8dd8d319e63b187913a8e66d"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2624-CORE_META_MODEL-DECLARATION--define-necessary-information-threshold@2.md",
+      "before_sha256": null,
+      "before": null,
+      "after_sha256": "7e4db0ebbd83d3c1526aa4c0afbb2431abb9fb5fff22281242deee358ea72127",
+      "after": "---\natom_id: CA-R-2624\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Project.Settings.Confidence.Necessary Information Threshold\nversion: 2\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 05:21:15 +0400\n---\n\n## Summary\n\nDefine Necessary Information Threshold\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProject.Settings.Confidence.Necessary Information Threshold: {:0..1};\n\nProject.Settings.Confidence.Necessary Information Threshold.*[]{:0}\n```\n\n### Prose Claim\n\n\nAn absent override uses the governed default.\n\n"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2624-CORE_META_MODEL-DECLARATION--define-necessary-information-threshold.md",
+      "before_sha256": "7e4db0ebbd83d3c1526aa4c0afbb2431abb9fb5fff22281242deee358ea72127",
+      "before": "---\natom_id: CA-R-2624\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Project.Settings.Confidence.Necessary Information Threshold\nversion: 2\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 05:21:15 +0400\n---\n\n## Summary\n\nDefine Necessary Information Threshold\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProject.Settings.Confidence.Necessary Information Threshold: {:0..1};\n\nProject.Settings.Confidence.Necessary Information Threshold.*[]{:0}\n```\n\n### Prose Claim\n\n\nAn absent override uses the governed default.\n\n",
+      "after_sha256": "e205f3f4da504a0ba75cf6b19717c22dffe8e3f865c432507cc59acaeb73f039",
+      "after": "---\natom_id: CA-R-2624\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Project.Settings.Confidence.Necessary Information Threshold\nversion: 3\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 09:36:36 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2624-CORE_META_MODEL-DECLARATION--define-necessary-information-threshold.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n\n## Summary\n\nDefine Necessary Information Threshold\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProject.Settings.Confidence.Necessary Information Threshold: {:0..1};\n\nProject.Settings.Confidence.Necessary Information Threshold.*[]{:0}\n```\n\n### Prose Claim\n\n\nA present threshold value is an integer-percentage override. An absent override uses the governed default.\n\n"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2625-CORE_META_MODEL-DECLARATION--define-semantic-resolution-threshold@2.md",
+      "before_sha256": null,
+      "before": null,
+      "after_sha256": "a2138aa21b9b04793a9fec3d3acefa55ea527c8292e21ed98e2c0ff3e8ca715f",
+      "after": "---\natom_id: CA-R-2625\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Project.Settings.Confidence.Semantic Resolution Threshold\nversion: 2\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 05:21:15 +0400\n---\n\n## Summary\n\nDefine Semantic Resolution Threshold\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProject.Settings.Confidence.Semantic Resolution Threshold: {:0..1};\n\nProject.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}\n```\n\n### Prose Claim\n\n\nAn absent override uses the governed default.\n\n"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2625-CORE_META_MODEL-DECLARATION--define-semantic-resolution-threshold.md",
+      "before_sha256": "a2138aa21b9b04793a9fec3d3acefa55ea527c8292e21ed98e2c0ff3e8ca715f",
+      "before": "---\natom_id: CA-R-2625\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Project.Settings.Confidence.Semantic Resolution Threshold\nversion: 2\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 05:21:15 +0400\n---\n\n## Summary\n\nDefine Semantic Resolution Threshold\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProject.Settings.Confidence.Semantic Resolution Threshold: {:0..1};\n\nProject.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}\n```\n\n### Prose Claim\n\n\nAn absent override uses the governed default.\n\n",
+      "after_sha256": "4f1b15e5987e74114dafe7533030b130471d694e8dd8d319e63b187913a8e66d",
+      "after": "---\natom_id: CA-R-2625\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Project.Settings.Confidence.Semantic Resolution Threshold\nversion: 3\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 09:36:36 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2625-CORE_META_MODEL-DECLARATION--define-semantic-resolution-threshold.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n\n## Summary\n\nDefine Semantic Resolution Threshold\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProject.Settings.Confidence.Semantic Resolution Threshold: {:0..1};\n\nProject.Settings.Confidence.Semantic Resolution Threshold.*[]{:0}\n```\n\n### Prose Claim\n\n\nA present threshold value is an integer-percentage override. An absent override uses the governed default.\n\n"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-372-CORE_META_MODEL-ENG_DECISION--serialize-instance-tool-selections@27.md",
+      "before_sha256": null,
+      "before": null,
+      "after_sha256": "4f97abea348b70206f6b64f4d58828c959c340ca4056b97d08fdd87f3cd53e80",
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Tool Selections\n  passive:\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings\n  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Serialization\nversion: 27\nupdated_at: 2026-11-02 18:35:20 +0400\nrelations:\n  child_of:\n  - CA-D-361\natom_id: CA-D-372\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 6\nrole: Delivery\nform: Decision\n---\n## Summary\n\nSerialize instance Tool selections\n\n## Claim\n\n### Prose Claim\n\n\nselected active and background Tools in the Framework Instance Settings TOML Carrier.\n\n\nthe Framework Instance Settings TOML Carrier **must** encode selected active **and** background Tools with their per-Tool settings.\n"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-372-CORE_META_MODEL-ENG_DECISION--serialize-instance-tool-selections.md",
+      "before_sha256": "4f97abea348b70206f6b64f4d58828c959c340ca4056b97d08fdd87f3cd53e80",
+      "before": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Tool Selections\n  passive:\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings\n  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Serialization\nversion: 27\nupdated_at: 2026-11-02 18:35:20 +0400\nrelations:\n  child_of:\n  - CA-D-361\natom_id: CA-D-372\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 6\nrole: Delivery\nform: Decision\n---\n## Summary\n\nSerialize instance Tool selections\n\n## Claim\n\n### Prose Claim\n\n\nselected active and background Tools in the Framework Instance Settings TOML Carrier.\n\n\nthe Framework Instance Settings TOML Carrier **must** encode selected active **and** background Tools with their per-Tool settings.\n",
+      "after_sha256": null,
+      "after": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-373-CORE_META_MODEL-ENG_DECISION--serialize-instance-extension-selections@25.md",
+      "before_sha256": null,
+      "before": null,
+      "after_sha256": "884b54e8f3a598872ba71c545256bda70be860cf583f33d67f75d801baa1defe",
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Extension Selections\n  passive:\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings\n  - CAPRMEDIO_MODEL <+ Scope Unit\nversion: 25\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  child_of:\n  - CA-D-361\natom_id: CA-D-373\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 6\nrole: Delivery\nform: Decision\n---\n## Summary\n\nSerialize instance Extension selections\n\n## Claim\n\n### Prose Claim\n\n\nthe Framework Instance Settings TOML Carrier.\n\n\nthe Framework Instance Settings TOML Carrier **must** encode enabled **or** disabled Extensions with selected revisions **when** applicable **and** retained per-Extension settings; retained settings **must not** activate a disabled Extension.\n"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-373-CORE_META_MODEL-ENG_DECISION--serialize-instance-extension-selections.md",
+      "before_sha256": "884b54e8f3a598872ba71c545256bda70be860cf583f33d67f75d801baa1defe",
+      "before": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Extension Selections\n  passive:\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings\n  - CAPRMEDIO_MODEL <+ Scope Unit\nversion: 25\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  child_of:\n  - CA-D-361\natom_id: CA-D-373\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 6\nrole: Delivery\nform: Decision\n---\n## Summary\n\nSerialize instance Extension selections\n\n## Claim\n\n### Prose Claim\n\n\nthe Framework Instance Settings TOML Carrier.\n\n\nthe Framework Instance Settings TOML Carrier **must** encode enabled **or** disabled Extensions with selected revisions **when** applicable **and** retained per-Extension settings; retained settings **must not** activate a disabled Extension.\n",
+      "after_sha256": null,
+      "after": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections@3.md",
+      "before_sha256": null,
+      "before": null,
+      "after_sha256": "978f4689ea6ef94e148cd47f72eacdc680ef3fc1b4dc4d9835a2f618d0755fd2",
+      "after": "---\natom_id: CA-R-2271\ncurrent_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 1\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings\nrelations: {}\nversion: 3\nupdated_at: 2026-11-02 00:18:22 +0400\nclaim_target_scope_unit: CORE_META_MODEL\nrole: Requirement\nform: Rule\n---\n## Summary\n\nDefine Framework Settings confidence and capability selections\n\n## Claim\n\n### Prose Claim\n\n\nFramework Settings may explicitly override the necessary-information and semantic-resolution confidence defaults as integer percentages. Their effective defaults remain Operator-configurable under CA-R-1652 and CA-R-380; absence of an explicit value preserves the governed default resolution.\n\nTool Selections groups the selected active/background capabilities and their per-capability settings. Extension Selections groups enabled or disabled installed Extensions, selected Versions where applicable, and retained per-Extension settings. These are structured groups with no direct scalar value; retaining settings does not enable a disabled Extension. Their internal declarations remain governed by applicable D authority, not a new generic schema.\n\n\n```text\nProject.Framework Settings.Confidence.Necessary Information Threshold[int]{0..1}\nProject.Framework Settings.Confidence.Semantic Resolution Threshold[int]{0..1}\nProject.Framework Settings.Tool Selections{0}\nProject.Framework Settings.Extension Selections{0}\n```\n\n## Details\n\nCA-D-368, CA-D-369, CA-D-372 and CA-D-373 retain their serialization requirements. No current Settings value changes, unknown field migration, Tool catalog or Extension object is introduced. C613 tracks the minimal shared-schema continuation.\n"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md",
+      "before_sha256": "978f4689ea6ef94e148cd47f72eacdc680ef3fc1b4dc4d9835a2f618d0755fd2",
+      "before": "---\natom_id: CA-R-2271\ncurrent_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 1\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings\nrelations: {}\nversion: 3\nupdated_at: 2026-11-02 00:18:22 +0400\nclaim_target_scope_unit: CORE_META_MODEL\nrole: Requirement\nform: Rule\n---\n## Summary\n\nDefine Framework Settings confidence and capability selections\n\n## Claim\n\n### Prose Claim\n\n\nFramework Settings may explicitly override the necessary-information and semantic-resolution confidence defaults as integer percentages. Their effective defaults remain Operator-configurable under CA-R-1652 and CA-R-380; absence of an explicit value preserves the governed default resolution.\n\nTool Selections groups the selected active/background capabilities and their per-capability settings. Extension Selections groups enabled or disabled installed Extensions, selected Versions where applicable, and retained per-Extension settings. These are structured groups with no direct scalar value; retaining settings does not enable a disabled Extension. Their internal declarations remain governed by applicable D authority, not a new generic schema.\n\n\n```text\nProject.Framework Settings.Confidence.Necessary Information Threshold[int]{0..1}\nProject.Framework Settings.Confidence.Semantic Resolution Threshold[int]{0..1}\nProject.Framework Settings.Tool Selections{0}\nProject.Framework Settings.Extension Selections{0}\n```\n\n## Details\n\nCA-D-368, CA-D-369, CA-D-372 and CA-D-373 retain their serialization requirements. No current Settings value changes, unknown field migration, Tool catalog or Extension object is introduced. C613 tracks the minimal shared-schema continuation.\n",
+      "after_sha256": null,
+      "after": null
+    }
+  ],
+  "retirements": [
+    {
+      "source_id": "CA-D-372",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-372-CORE_META_MODEL-ENG_DECISION--serialize-instance-tool-selections.md",
+      "source_version": 27,
+      "source_sha256": "4f97abea348b70206f6b64f4d58828c959c340ca4056b97d08fdd87f3cd53e80",
+      "disposition": "RETIREMENT_CANDIDATE",
+      "reason": "Field-only Tool Selections serialization in the obsolete Framework Settings TOML Carrier; not required by current capability scope.",
+      "preconditions": "R2271 retirement/rewrite removes its only active unversioned reference; preserve all frozen @ references and exact archive.",
+      "successor": "none",
+      "unversioned_reference_counts_all_repo": 50,
+      "frozen_versioned_reference_count_all_repo": 182
+    },
+    {
+      "source_id": "CA-D-373",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-373-CORE_META_MODEL-ENG_DECISION--serialize-instance-extension-selections.md",
+      "source_version": 25,
+      "source_sha256": "884b54e8f3a598872ba71c545256bda70be860cf583f33d67f75d801baa1defe",
+      "disposition": "RETIREMENT_CANDIDATE",
+      "reason": "Field-only Extension Selections serialization in the obsolete Framework Settings TOML Carrier; explicit Extension selection is deferred.",
+      "preconditions": "R2271 retirement/rewrite removes its only active unversioned reference; preserve all frozen @ references and exact archive.",
+      "successor": "none",
+      "unversioned_reference_counts_all_repo": 48,
+      "frozen_versioned_reference_count_all_repo": 158
+    },
+    {
+      "source_id": "CA-R-2271",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md",
+      "source_version": 3,
+      "source_sha256": "978f4689ea6ef94e148cd47f72eacdc680ef3fc1b4dc4d9835a2f618d0755fd2",
+      "disposition": "RETIREMENT_CANDIDATE",
+      "reason": "Mixed Definition/Rule: capability-selection schema duplicates are already covered by CA-R-1979 and CA-R-2624/2625; preserve its threshold-specific integer-percentage override semantics in a new-ID Rule preview.",
+      "preconditions": "Replace only after the new Rule is reviewed and CA-R-2624/2625 previews are adopted; preserve every frozen CA-R-2271@ reference.",
+      "successor": "NEW_ID_REQUIRED preview",
+      "unversioned_reference_counts_all_repo": 9,
+      "frozen_versioned_reference_count_all_repo": 120
+    }
+  ],
+  "successor_created": false,
+  "preserved_confidence_sources": [
+    "CA-R-1979",
+    "CA-R-2624",
+    "CA-R-2625"
+  ]
+}

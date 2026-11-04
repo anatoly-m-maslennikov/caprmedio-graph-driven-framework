@@ -1,23 +1,21 @@
 # P2694 completion
 
-Goal: review the full Epic, repair its plan, then satisfy every completion requirement. Ask the Operator one question at a time when confidence is below 90%.
+Goal: complete the declaration-based Scope Unit authority and current MODEL/CFEL changes, then verify the source, consumer, Projection and P2707 gates. Ask the Operator one question at a time when confidence is below 90%.
 
-The source, consumer, projection and P2707 integration requirements remain in scope. Completed history stays preserved. Canonical edits and Git belong to root; workers prepare evidence and pinned previews first. The Operator-authorized manual route remains in use; no native Workflow admission is inferred.
+P2694@57 and P2707@4 are Active. Root owns canonical changes and Git; lanes retain pinned evidence and proposed changes. Manual source receipts do not establish native workflow admission or Journal append.
 
-| Lane | Owner | Exclusive write scope | Dependency | Acceptance | State |
-| --- | --- | --- | --- | --- | --- |
-| Epic acceptance matrix | model_subject_syntax | acceptance/ | Live Epic and children | Requirement-by-requirement evidence | Reviewed; plan v55 |
-| Relation permissions | model_relation_contracts | permissions/ | Current Declarations | Explicit directions and correct bounds | Adopted and verified |
-| Conditional Properties and Goals | mandatory_property_impact | properties/ | Applicable Declarations | Presence adopted; Goal packet review | Running |
-| Endpoint and legacy bindings | property_instance_relations_review | endpoints review/ | Current authority | Equivalent subject bindings | Reviewing; kind decision pending |
-| Projection model | model_legacy_cleanup | projections-model/ | Forms and Source rules | Preserve view and selection identities | Adopted; seven views migrated |
-| Subject coverage | model_selector_parser | coverage/ | Current audit | Classified complete finding set | Three repairs applied; 63/25 remain |
-| CFEL and graph reader | property_instance_reader | cfel/ and graph code | Current diagnostics | Faithful extraction and tests | Done: 426 tests; 65 opaque clauses |
-| P2707 integration | property_format_inheritance | integration/ | Stable candidate | Required runtime/script checks | Diagnostic run done; failure triage |
-| Settings merge | model_property_contracts / model_selector_parser | settings/ and review evidence | Operator merge decision | Source and carrier coherence | 25 previews in review; 34 held |
-| Current admission | current_admission | Validator workers and tests | D657 v4 and Role Declarations | Live authority and regression tests | 20/20; 588 tests; scope disposition pending |
-| Adoption and closure | root | Epic, canonical source, code, Git | Reviewed lanes and decisions | Full completion audit | Active; checkpoints pushed |
+| Lane | Deliverable | State |
+| --- | --- | --- |
+| Acceptance and plan | Preserve all 23 gates and reconcile live evidence | Matrix updated; final audit pending |
+| MODEL and relations | Property, containment and relation contracts | Reviewed batches applied; final semantic and consumer checks pending |
+| Goal sources | Reconcile Goal rules and preserve exact history | 15 outputs applied and verified; dependent checks pending |
+| Projection and Subject coverage | Seven identity-safe views and current source coverage | Seven views verified against 1,159 pinned sources; 56 missing / 23 unresolved cases remain |
+| Settings merge | Project.Settings ownership, carrier partitions and source references | 17 outputs with 17 archives verified; additional confidence/retry and capability packets are preparation, not adoption |
+| Confidence and retry | Source precedence, invalid inputs and Workflow retry obligations | Combined previews under review; consumer and physical-default gates open |
+| Capability reconciliation | Remove retired Tool/Extension setting claims without inventing fields | [Two confidence clarifications and three retirements applied](application/capability-deferral/adoption-receipt.json); remaining source-selection hold stays open |
+| Kind decisions | Resolve remaining model endpoint and lifecycle meanings | Four decisions pending; do not guess mappings |
+| CFEL and graph reader | Preserve source scope, unary bounds and unresolved diagnostics | Focused checks passed; final integrated verification pending |
+| Current admission and P2707 | Live authority, stable full suite, Docker and W10 | 20/20 authority and 588 focused tests reported; two scope-field dispositions and final checks open |
+| Adoption and closure | Exact history, final source/views and remote evidence | Root integrating; final verified push and Epic closure pending |
 
-Current baseline: a225af99f on amm/dev; P2694 version 54; 1,151 selected Current suppliers; 421 graph tests passed in the preceding batch. These are starting evidence, not proof that the Epic is complete.
-
-Latest: 20 source contributions adopted; nine exact archives; eleven new Declarations. All seven MODEL views use distinct Forms and Project//caprmedio. Declaration checkpoint 5a472b317 and migration/admission checkpoint c3ae4dcdf were pushed to amm/dev. Three subsequent Subjects-only repairs and their faithful view rebuild are checked locally. The Epic remains Active.
+The `amm/dev` remote-tracking checkpoint is `dd90a1132`; subsequent Settings changes and remaining work need final commit and remote readback. All seven views are verified against the final checkpoint of 1,159 sources. Coverage remains 56 missing / 23 unresolved cases. Historic snapshots and focused tests do not prove final integration, runtime activation, release or global data conformance.

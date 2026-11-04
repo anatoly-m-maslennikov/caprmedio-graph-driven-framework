@@ -1,0 +1,65 @@
+{
+  "schema": "capability-adoption-verification/1",
+  "status": "APPLIED_VERIFIED_WITH_PLAN_STATUS_MISMATCH",
+  "verified_at": "2026-11-04",
+  "result": "All 10 planned filesystem operations match the adoption receipt and current filesystem: two declaration revisions, three exact archives, and three source removals. No successor was created. The receipt plan hash matches the plan file hash.",
+  "plan_receipt": {
+    "plan_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/capability-deferral/adoption-plan.json",
+    "plan_sha256": "c3a9eb95cc4b025958c4c1875627440297a171813d835a108913fca77d65c7bb",
+    "receipt_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/capability-deferral/adoption-receipt.json",
+    "receipt_sha256": "51dd4748f96bdaf861b970198a4d46037be216283377aa04748851318d42c9be",
+    "receipt_status": "APPLIED_VERIFIED",
+    "receipt_operation_count": 10,
+    "receipt_output_count": 2,
+    "plan_status_text": "PREPARED_NOT_ADOPTED",
+    "mismatch": "The plan still labels itself PREPARED_NOT_ADOPTED although the hash-matched receipt reports APPLIED_VERIFIED and every recorded after-state matches the filesystem. Treat the plan status label as stale; no canonical source change is needed to reconcile this review."
+  },
+  "operation_checks": {
+    "CA-R-2624": {
+      "current": "version 3, sha256 e205f3f4da504a0ba75cf6b19717c22dffe8e3f865c432507cc59acaeb73f039; matches plan output",
+      "archive": "CA-R-2624@2 exists with exact prior hash 7e4db0ebbd83d3c1526aa4c0afbb2431abb9fb5fff22281242deee358ea72127",
+      "summary": "Define Necessary Information Threshold; unchanged"
+    },
+    "CA-R-2625": {
+      "current": "version 3, sha256 4f1b15e5987e74114dafe7533030b130471d694e8dd8d319e63b187913a8e66d; matches plan output",
+      "archive": "CA-R-2625@2 exists with exact prior hash a2138aa21b9b04793a9fec3d3acefa55ea527c8292e21ed98e2c0ff3e8ca715f",
+      "summary": "Define Semantic Resolution Threshold; unchanged"
+    },
+    "CA-R-2271": {
+      "current": "removed",
+      "archive": "CA-R-2271@3 exists with exact prior hash 978f4689ea6ef94e148cd47f72eacdc680ef3fc1b4dc4d9835a2f618d0755fd2",
+      "summary": "Define Framework Settings confidence and capability selections; preserved in exact archive",
+      "successor": "none created"
+    },
+    "CA-D-372": {
+      "current": "removed",
+      "archive": "CA-D-372@27 exists with exact prior hash 4f97abea348b70206f6b64f4d58828c959c340ca4056b97d08fdd87f3cd53e80",
+      "summary": "Serialize instance Tool selections; preserved in exact archive"
+    },
+    "CA-D-373": {
+      "current": "removed",
+      "archive": "CA-D-373@25 exists with exact prior hash 884b54e8f3a598872ba71c545256bda70be860cf583f33d67f75d801baa1defe",
+      "summary": "Serialize instance Extension selections; preserved in exact archive"
+    }
+  },
+  "claim_preservation": {
+    "CA-R-2624@3": "Optional single threshold value remains `{:0..1}` with no children (`*[]{:0}`); prose says a present value is an integer-percentage override and absence uses the governed default. No numeric value range was added.",
+    "CA-R-2625@3": "Same optional cardinality, integer-percentage override, and absent-default semantics for Semantic Resolution Threshold; no numeric value range was added.",
+    "CA-R-1979@16": "Unchanged, sha256 4fd335502ece4b20846d63f229366c967431da13be02bc6123d9ed76916c1a6c; optional Confidence parent, its two permitted children, and inherited int format remain governing.",
+    "CA-R-2532@8": "Unchanged, sha256 3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464; allowed Project.Settings child set includes Confidence and excludes Tool/Extension Selections.",
+    "defaults": "CA-R-1652@41 and CA-R-380@44 remain authorities; CA-D-368@29 (sha256 84df63908828f9ae25d3e4827f9903c24dde9873464a698050222b83e975e613) and CA-D-369@28 (sha256 d4c12c71aae5e0ff1911a6989d0ae1bd797a537d0a6d6c3c38fb371f725c4a25) remain present and unchanged.",
+    "frozen_references": "The three removed Current carriers were moved byte-for-byte to exact versioned archives; no plan operation changed reference-owner files. Frozen @version citations remain untouched in history and generated projection provenance."
+  },
+  "remaining_native_current_references": {
+    "CA-R-2271": "No native Current source body or subject-address consumer remains. Historical/pinned references remain in archives and generated staged projections.",
+    "CA-D-372": "No native Current Atom body or subject-address consumer remains. Only the completed CA-P-2675 handoff retains unversioned links and address rows, at lines 152 and 2397.",
+    "CA-D-373": "No native Current Atom body or subject-address consumer remains. Only the completed CA-P-2675 handoff retains unversioned links and address rows, at lines 153 and 2398.",
+    "CA-P-2675": {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2673-EPIC--subject-refinement-stage-3/done/02-CA-P-2675-TASK--draft-main-subject-definitions.md",
+      "sha256": "c36c12e3b6a0b4f10a6a8669b7294412389dd8adfb15eac1e26363d1a2305261",
+      "disposition": "Completed historical handoff/navigation links retained as instructed; they introduce no operative confidence or selection rule."
+    },
+    "scan_boundary": "Native Markdown scan excluded archive, archived, draft, 000 materializations, repository projections, and generated staged projections. Generated projection pins are historical provenance and must be refreshed by their normal rebuild process; they were not treated as native Current consumers."
+  },
+  "scope": "Read-only verification of the capability-deferral adoption plan, receipt, applied source carriers, exact archives, claim preservation, and remaining native references. No Current or Git edits were made by this review."
+}

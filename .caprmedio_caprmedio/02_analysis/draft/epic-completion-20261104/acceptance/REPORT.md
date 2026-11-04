@@ -1,24 +1,19 @@
 # P2694 acceptance and plan review
 
-## Plan review: PASS, with one wording clarification
+The acceptance matrix retains all 23 original requirement groups and their closure checks. The planning checkpoints applied P2694@56, then @57, and P2707@4 with exact predecessor archives. The earlier @55 review identified ambiguous publication wording; @56 now states that no release is required while the named `amm/dev` checkpoint and final pushes remain required. Both plans remain Active.
 
-P2694@55 retains all 23 original acceptance groups and links the matrix. Its Scope, remaining work and Definition of Done include the current obligations without dropping gates. The receipt records application from the pinned @54 predecessor to @55 and its exact archive.
+The MODEL declaration and Projection identity batches were applied and independently checked. Seven views use distinct Forms with `Project//caprmedio`; Named Selection remains source information. The Settings receipt records 17 outputs and 17 exact predecessor archives, including the CA-R-1750 → CA-R-2748 successor. Independent verification reports PASS, and a subsequent receipt verifies seven refreshed views against 1,162 pinned sources. These manual application receipts explicitly do not report native workflow admission or Journal append.
 
-The latest decisions are reflected correctly:
+The [capability-deferral receipt](../application/capability-deferral/adoption-receipt.json) records two confidence-Property clarifications (CA-R-2624@3 and CA-R-2625@3) and retirement of CA-R-2271, CA-D-372 and CA-D-373 through 10 operations with exact archives. No duplicate successor was created; other Extension Sources authority remains retained. The subsequent Projection verification confirms all seven views against 1,159 source pins; coverage remains 56 missing / 23 unresolved cases.
 
-- Projection identity is `(Form, Scope Unit)`; Named Selection remains source information.
-- Terms Graph work and its pinned projection references are deferred; Term Definitions and historical projections remain in scope.
-- Each required Relations group is supplied by exactly one direct `IS_CONTAINED_BY` relation to the immediate Container.
-- Project Goal ownership is not an Epic acceptance requirement, per the prior explicit Operator answer. The old CA-R-2132 statement must not reappear as a gate. Mandatory immediate containment remains separate and in scope.
-- The declared checkpoint push to `amm/dev` precedes the dependent mechanical migration; application is followed by verification. Final checked changes also require remote evidence.
+The Goal source batch records 15 outputs. Remote-tracking `amm/dev` records checkpoint `dd90a1132`, covering that Goal batch and the seven views. Root reports 48 focused connector/fixture tests passed; the independent default-fixture receipt records 16 passing. A focused check is not the final integration gate. The Settings batch and later work require their own final commit and remote readback.
 
-One wording clarification remains: “No release or external publication is required” is broad beside the required `amm/dev` checkpoint and final pushes. Recommended wording: “No release is required; the named `amm/dev` checkpoint and final pushes remain required.” No named acceptance gate is otherwise dropped.
+## Remaining gates
 
-## Current acceptance blockers
+- **P2707 and admission:** CA-D-657@4 admission evidence reports 20/20 live authority, eight Role bindings and 588 focused tests. The two Scope Unit field dispositions remain open. The full 4,068-test diagnostic was mixed-state and failed; repeat the complete suite on a stable final candidate, then run fresh Docker query/status and W10 lifecycle checks.
+- **MODEL, CFEL and Settings:** confidence/retry and remaining capability reconciliation have review-only packets, not adopted behavior. Four kind decisions and other unresolved source, reference, grammar and consumer cases remain. Preserve unsupported expressions and source evidence; do not infer runtime activation from source previews.
+- **Projections:** rebuild and verify all seven views against the actual final source frontier after remaining source changes. Terms Graph is deferred; Term Definitions remain in scope. Existing legacy histories are not evidence that all current Subject mappings are settled.
+- **Property and history:** immediate containment remains required and the optional Subjects group was applied in the reviewed MODEL batch. Project Goal ownership is not an Epic acceptance gate. Verify remaining data/consumer migration and final exact archives and pins.
+- **Closure:** reconcile every matrix gate with live evidence, complete P2707 and the P2708 disposition, and push final checked changes to `amm/dev`. Do not mark the Epic Done from focused tests, a checkpoint, a Draft or a partial source receipt.
 
-- **P2707:** Current declaration counts are confirmed. The declaration path set changed by one removed and one added path, but the earlier receipt lacks per-file hashes, so unchanged-source continuity is not established. The complete suite is running; its latest report has three Docker E2E setup errors from a test binding to absent Current CA-O-104. Resolve the applicable successor and rerun the suite. Live Project admission also still fails on retired CA-D-274. Fresh Docker query/status and W10 lifecycle verification remain required.
-- **MODEL and CFEL:** Several reader gaps, opaque CFEL forms, held settings/endpoints, and unapplied source previews remain. Apply only reviewed decisions; keep unsupported expressions complete and classified.
-- **Projection/coverage:** Form + Scope Unit identity is decided, but its application and consumer migration remain. Seven Terms Graph occurrences are deferred; preserve Term Definitions and review all other non-Terms findings.
-- **Property contracts:** One direct immediate-containment relation remains required. The optional Subjects grouping correction is preview-only until its receipt confirms application. Do not add a Project Goal ownership gate.
-
-`matrix.json` preserves the original 23 groups, records the @55 plan receipt and review result, and updates scope under the latest decisions. This packet changes no Current sources, Git state, plan status or release state.
+`matrix.json` is a read-only assessment, not authorization to alter Current sources or transition status. Historic counts in earlier evidence refer only to their recorded frontiers.
