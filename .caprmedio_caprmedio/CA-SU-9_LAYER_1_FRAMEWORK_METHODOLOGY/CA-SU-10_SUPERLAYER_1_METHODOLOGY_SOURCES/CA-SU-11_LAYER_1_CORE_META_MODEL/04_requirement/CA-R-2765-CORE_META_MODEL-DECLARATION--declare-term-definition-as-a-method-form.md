@@ -2,17 +2,17 @@
 atom_id: CA-R-2765
 status: Active
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   passive:
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
 tier: 3
 role: Requirement
 form: Declaration
-version: 2
-updated_at: 2026-11-04 18:21:02 +0400
+version: 3
+updated_at: 2026-11-04 18:28:33 +0400
 carrier_destination:
   file:
     name: CA-R-2765-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md

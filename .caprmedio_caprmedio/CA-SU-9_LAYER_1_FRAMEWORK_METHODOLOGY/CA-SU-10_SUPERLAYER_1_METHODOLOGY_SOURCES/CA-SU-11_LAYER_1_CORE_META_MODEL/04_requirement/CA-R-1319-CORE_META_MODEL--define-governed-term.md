@@ -2,12 +2,12 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Term
   passive:
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Term//Empty
   - CAPRMEDIO_MODEL <+ Term//ID
-version: 30
-updated_at: 2026-11-04 18:21:02 +0400
+version: 31
+updated_at: 2026-11-04 18:28:33 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11

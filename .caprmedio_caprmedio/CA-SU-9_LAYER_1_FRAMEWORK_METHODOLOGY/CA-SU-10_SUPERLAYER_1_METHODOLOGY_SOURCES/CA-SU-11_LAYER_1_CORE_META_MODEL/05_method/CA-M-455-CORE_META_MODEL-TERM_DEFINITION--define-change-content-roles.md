@@ -1,20 +1,24 @@
 ---
 atom_id: CA-M-455
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Term//Change Content Roles
   passive:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Term
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
-version: 4
-updated_at: 2026-11-02 15:49:28 +0400
-relations: {}
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
+version: 5
+updated_at: 2026-11-04 18:28:33 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 tier: 1
 role: Method
 form: Term Definition
+carrier_destination:
+  file:
+    name: CA-M-455-CORE_META_MODEL-TERM_DEFINITION--define-change-content-roles.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 ---
 ## Summary
 

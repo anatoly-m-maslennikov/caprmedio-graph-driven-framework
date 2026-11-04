@@ -2,15 +2,15 @@
 atom_id: CA-E-659
 status: Active
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   passive:
   - CAPRMEDIO_MODEL <+ Term//ID
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
-version: 5
-updated_at: 2026-11-04 18:21:02 +0400
+version: 6
+updated_at: 2026-11-04 18:28:33 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
