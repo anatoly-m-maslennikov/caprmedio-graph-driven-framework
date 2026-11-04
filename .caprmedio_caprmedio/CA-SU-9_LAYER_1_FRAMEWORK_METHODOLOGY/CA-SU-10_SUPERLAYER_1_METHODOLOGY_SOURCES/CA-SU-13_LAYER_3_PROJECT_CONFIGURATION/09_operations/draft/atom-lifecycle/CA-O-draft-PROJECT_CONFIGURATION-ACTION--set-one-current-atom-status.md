@@ -19,15 +19,10 @@ Set one Current Atom Status
 
 ## Claim scope
 
-This Action applies to one exact selected non-container Current Atom under its applicable model and one exact requested Status in that model's Current group. The group includes model-admitted statuses beyond Active when present and excludes Draft and Archived; no container, descendant, cascade, scope or tier target is admitted.
+This Action applies to one exact selected non-container Current Atom under its qualified applicable model and one exact requested Status in that model's Current group. The group includes model-admitted statuses beyond Active when present and excludes Draft and Archived; no container, descendant, cascade, scope or tier target is admitted.
 
 ## Claim
 
-Set One Current Atom Status **means** the reusable Action that validates the selected source, target Status and status-dependent placement before applying one status-only result:
+Resolve one exact non-container Current Atom. Validate schema, mandatory fields, expected source/currentness, permissions, collision, placement, and the requested Status against the qualified model's Current group; Draft and Archived are invalid and Active is never hardcoded.
 
-- A target Status must be exactly model-admitted as Current. The Action does not invent a transition matrix, infer Active, perform promotion, or handle Draft or Archived targets.
-- If the target equals the selected Current Status, return a truthful no-op with the same identity, content, Version and Updated At; create no archive or successor.
-- For an actual change, preserve identity, Summary, Role and content; archive the exact selected predecessor as canonical `ID@N` with status Archived, preserving Version N and its prior Updated At; then publish canonical `ID@N+1` with the actual Updated At and the target Status in its admitted Current placement.
-- Resolve and validate the exact source and destinations, avoid overwriting another Atom, and return attributable diagnostics for invalid inputs or artifacts. Preserve completed effects and their evidence on partial work; do not automatically retry or roll back. Journal only records actual business events and is not permission, completeness proof or a success gate.
-
-This Action owns the status effect and its validation boundary only. It owns no Workflow graph or Step binding and claims no implementation or provider selection.
+Change only Status in place and synchronize its admitted filename/location, preserving identity, Summary, Role, content, Version, and Updated At. Read back the carrier; create no archive, successor, new Version, promotion, descendant effect, or overwrite. Return the saved result or an explicit error with completed partial outputs. Do not retry, replay, or roll back. Journal records business events only and is nonblocking.

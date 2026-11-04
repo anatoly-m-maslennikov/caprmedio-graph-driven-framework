@@ -52,7 +52,8 @@ class SubjectIntentMaterializationTests(unittest.TestCase):
         self.assertEqual(self.patches, intent["subject_patches"])
         self.assertEqual({"version": 8, "updated_at": "actual_effect_time"}, intent["execution_metadata"])
         original = self.path.read_bytes()
-        intended = original.replace(b'governs: "Atom/Status"', b'governs: "Atom/State"')
+        self.assertEqual(original.count(b'active: "Atom/Status"'), 1)
+        intended = original.replace(b'active: "Atom/Status"', b'active: "Atom/State"')
         self.assertEqual(intended, prepared["intended_carrier"].encode("utf-8"))
         frontmatter, content = subject_patch._raw_frontmatter(operations, intended.decode("utf-8"))
         self.assertEqual({"frontmatter": frontmatter, "content": content}, prepared["proposed"])
@@ -108,11 +109,11 @@ class SubjectIntentMaterializationTests(unittest.TestCase):
         prepared = self._prepare(subject_profile="approved", patches=patches)
         self.assertEqual(patches, prepared["subject_intent"]["subject_patches"])
         metadata = operations.parse_carrier(prepared["intended_carrier"].encode(), self.path).metadata
-        self.assertEqual(literal, metadata["subjects"]["governs"])
-        self.assertEqual(["Atom", "Atom.Revision"], metadata["subjects"]["depends_on"])
+        self.assertEqual(literal, metadata["subjects"]["active"])
+        self.assertEqual(["Atom", "Atom.Revision"], metadata["subjects"]["passive"])
         self.assertEqual("not_performed", prepared["subject_intent"]["subject_profile_evidence"]["native_admission"])
         materialized = subject_patch.materialize_subject_intent(self.root, prepared, "2026-10-14 00:40:00 +0400")
-        self.assertEqual(["Atom", "Atom.Revision"], operations.parse_carrier(materialized["carrier_bytes"], self.path).metadata["subjects"]["depends_on"])
+        self.assertEqual(["Atom", "Atom.Revision"], operations.parse_carrier(materialized["carrier_bytes"], self.path).metadata["subjects"]["passive"])
 
     def test_target_descriptor_is_closed_and_all_fields_are_pinned(self) -> None:
         for field in self.target:

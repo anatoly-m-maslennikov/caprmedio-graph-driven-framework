@@ -1,0 +1,657 @@
+{
+  "search": "all readable .caprmedio_caprmedio Markdown/NDJSON, excluding archive, archived, draft, 02_analysis, 03_plan, 000_CAPRMEDIO_framework; explicit separate projection/journal outputs",
+  "source": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1981-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-identifier.md",
+    "sha256": "dc82e9f6d7d2f5fccd6dba94aa5f2654a571940ea889560eab3e0301d14044ca"
+  },
+  "retained_carrier_authority": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL-ENG_DECISION--identify-framework-settings-artifact.md",
+    "sha256": "2d5f06a8b5ce2be078c71336a10c77086ffe4167718c3fa00f0dfbb09385ba1e"
+  },
+  "current_native_inbound": [],
+  "derived_projection_hits": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-005-PROJECT_CONFIGURATION--Entities-Graph--Relation-Types-and-Graph-Rules.md",
+      "sha256": "ab4fd40a075d55cc376b84d050fbd403efe100e2cb11c1ab44de8df809e71d2a",
+      "lines": [
+        {
+          "line": 240,
+          "text": "- CA-R-1981@3"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md",
+      "sha256": "7b633286a280d6523550b1e5852b0c89b051f15504387044db143a08baea776e",
+      "lines": [
+        {
+          "line": 792,
+          "text": "- CA-R-1981@16"
+        },
+        {
+          "line": 2471,
+          "text": "- `CAPRMEDIO <+ MODEL <+ Carrier.ID` \u2014 CA-R-1981@16"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-012-CAPRMEDIO--Subject-Graph-Instances--Current-RMEDO.md",
+      "sha256": "7687b8355e388d0804ebdf7f31d7c5738fb805e3eba4b041a399b4d4b4bf48f9",
+      "lines": [
+        {
+          "line": 2047,
+          "text": "- CA-R-1981@9"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-016-CAPRMEDIO--Subject-Graph-Instances--Current-Methodology-and-Project-RMED.md",
+      "sha256": "c9136b4e64968dc4f7de9fcfac79b3c43a53bf200b7cb653fd864c649706eb82",
+      "lines": [
+        {
+          "line": 792,
+          "text": "- CA-R-1981@16"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-009-CAPRMEDIO--Subject-Graph--Current-RMEDO.md",
+      "sha256": "ff0765b71dc9aabceba5f78d6acdfd645f2410f87fb01bb58282cff744503149",
+      "lines": [
+        {
+          "line": 2047,
+          "text": "- CA-R-1981@9"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-022-caprmedio--Primary-Entities-with-Inherited-Property-Contracts--Current-Primary-Entities-with-Inherited-Property-Contracts.md",
+      "sha256": "7991967f3ac82620cc3a2e836f66b2769c0763fd804e80782dc35bfb7ae32f17",
+      "lines": [
+        {
+          "line": 783,
+          "text": "- CA-R-1981@17"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-026-caprmedio--Entity-Definition-and-Active-Subject-Coverage--Current-Entity-Definition-and-Active-Subject-Coverage.md",
+      "sha256": "4e2be25882a1fa4f711d65b0ba87d11542d9fb56e62a0c92af9604ca16a43070",
+      "lines": [
+        {
+          "line": 782,
+          "text": "- CA-R-1981@17"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-011-CAPRMEDIO--Subject-Graph-Properties--Current-RMEDO.md",
+      "sha256": "504d9523b6acd9ee33c323aff40e82bd465a00ac48bcfc5641d7a3eba362986f",
+      "lines": [
+        {
+          "line": 2047,
+          "text": "- CA-R-1981@9"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-015-CAPRMEDIO--Subject-Graph-Properties--Current-Methodology-and-Project-RMED.md",
+      "sha256": "4b31d30a33b4e3c2effbf46389fb55ff9e05472433c26d0e2159df2d0727da7d",
+      "lines": [
+        {
+          "line": 792,
+          "text": "- CA-R-1981@16"
+        },
+        {
+          "line": 2496,
+          "text": "- `CAPRMEDIO <+ MODEL <+ Carrier.ID` \u2014 CA-R-1981@16"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-021-caprmedio--Primary-Entities-with-Direct-Properties--Current-Primary-Entities-with-Direct-Properties.md",
+      "sha256": "b6eccbd78244174d38c89a060e88e8b26ca6adf78b0a5edadd1b48f3c8c893a3",
+      "lines": [
+        {
+          "line": 782,
+          "text": "- CA-R-1981@17"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-024-caprmedio--Passive-Only-Subjects--Current-Passive-Only-Subjects.md",
+      "sha256": "c93e4fd081b43b3997b96b94e2bbc83255dfafd2ec24f7902a4836a78eb04d66",
+      "lines": [
+        {
+          "line": 782,
+          "text": "- CA-R-1981@17"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-020-caprmedio--Primary-Entities-Tree--Current-Primary-Entities-Tree.md",
+      "sha256": "303492e7c3ce304790a34b508c66d044429e092d607e12025245cda99dc7d98f",
+      "lines": [
+        {
+          "line": 782,
+          "text": "- CA-R-1981@17"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-019-CAPRMEDIO--MODEL-Formal-Contracts.md",
+      "sha256": "1a393a3ef65685a7fa0a24b373fecb18ae3cf3acf388c70e6cce9c8d1037d6e2",
+      "lines": [
+        {
+          "line": 792,
+          "text": "- CA-R-1981@16"
+        },
+        {
+          "line": 8518,
+          "text": "- Shared RMED source (exact binding): `CA-R-1981@16`"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-007-FRAMEWORK_METHODOLOGY--Subject-Graph--Current-Project-Methodology-RMEDO.md",
+      "sha256": "bb28756b202c0211fae95d82c0ea2f1cc42eed8d6994e554b7e5598ea528534a",
+      "lines": [
+        {
+          "line": 377,
+          "text": "- CA-R-1981@8"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-013-CAPRMEDIO--Subject-Graph-Dependency-only-Subjects--Current-RMEDO.md",
+      "sha256": "a2842c246d417b924eea83c70a10c060732c8aeb709cbfd617f4135d71221068",
+      "lines": [
+        {
+          "line": 2047,
+          "text": "- CA-R-1981@9"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-025-caprmedio--Subjects-without-Requirement-Declarations--Current-Subjects-without-Requirement-Declarations.md",
+      "sha256": "eaca6e7f91a55a8639529b994ffaf6a24aacee626744511aa679f2da4332b296",
+      "lines": [
+        {
+          "line": 782,
+          "text": "- CA-R-1981@17"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-003-PROJECT_CONFIGURATION--Entities-Graph--Current-Atoms.md",
+      "sha256": "a54d924e2b2789f1dc402df9d6643431c620b4eaa3719d445d6423cf4fe78910",
+      "lines": [
+        {
+          "line": 240,
+          "text": "- CA-R-1981@3"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-010-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-RMEDO.md",
+      "sha256": "93e3a990eb16321b460371776008bb0b74decd06158301e7ddc83018b4fa5736",
+      "lines": [
+        {
+          "line": 2047,
+          "text": "- CA-R-1981@9"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-023-caprmedio--Primary-Entities-with-Inherited-Formal-Claims--Current-Primary-Entities-with-Inherited-Formal-Claims.md",
+      "sha256": "cb27963a98b85c69bd74dbbea90776357e2abf42ad5a36a2f2c010208c707868",
+      "lines": [
+        {
+          "line": 783,
+          "text": "- CA-R-1981@17"
+        }
+      ]
+    }
+  ],
+  "journal_history_hits": [
+    {
+      "path": ".caprmedio_caprmedio/_journal/Codex-2026-10-29-part-3.ndjson",
+      "sha256": "c96c8bb6226eb5db31ad80fcd4226af3f873d3b16676e3c868fd5d7f4e4ea875",
+      "lines": [
+        {
+          "line": 457,
+          "text": "{\"schema_version\":3,\"event_id\":\"a95caf3e-52e5-47c2-b0cd-5faaa6431021\",\"kind\":\"atom_updated\",\"event\":\"completed\",\"atom_id\":\"CA-R-1981\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"recorded_at\":\"2026-10-29T07:45:31.045176+04:00\",\"method\":\"P2683 normalize RMED body headings and Definition classifications; preserve meaning\",\"result\":{\"path\":\".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODO"
+        },
+        {
+          "line": 843,
+          "text": "{\"schema_version\":3,\"event_id\":\"9488c142-3ba9-4cf0-8468-d33690cf44ca\",\"kind\":\"atom_updated\",\"event\":\"completed\",\"atom_id\":\"CA-R-1981\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"recorded_at\":\"2026-10-29T09:55:37.651600+04:00\",\"method\":\"Complete real Property schemas and definitions; map policy-only topics to their governed objects without inventing fields\",\"result\":{\"path\":\".caprmedio_c"
+        },
+        {
+          "line": 880,
+          "text": "{\"schema_version\":3,\"event_id\":\"9d34258c-b41a-459c-b2fd-1fc2b377664c\",\"kind\":\"atom_updated\",\"event\":\"completed\",\"atom_id\":\"CA-R-1981\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"recorded_at\":\"2026-10-29T10:03:18.507534+04:00\",\"method\":\"Complete remaining real Definition/type/schema gaps and repair mistaken property mappings without new schema machinery\",\"result\":{\"path\":\".caprmedio_capr"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_journal/Codex-2026-11-02-part-2.ndjson",
+      "sha256": "c46f5a6169e8b44042ab420f25e92bb012cfb966478ece6509c5cdc1fb0af48a",
+      "lines": [
+        {
+          "line": 188,
+          "text": "{\"action\":\"update\",\"event_id\":\"2318fd6d-1af9-56f5-8313-164603069295\",\"happened_at\":\"2026-11-02 00:18:22 +0400\",\"inserted_at\":\"2026-11-02T00:18:27.946118+04:00\",\"object_input\":{\"id\":\"CA-R-1981\",\"updated_at\":\"2026-10-29 10:03:18 +0400\",\"version\":13},\"object_output\":{\"id\":\"CA-R-1981\",\"updated_at\":\"2026-11-02 00:18:22 +0400\",\"version\":14},\"relations\":{\"HAS_EVENT_AUTHOR\":\"Actor//Codex\"}}"
+        },
+        {
+          "line": 562,
+          "text": "{\"action\":\"update\",\"event_id\":\"a024aa69-d799-5f9a-b9ec-4a243b6bbc66\",\"happened_at\":\"2026-11-02 08:06:47 +0400\",\"inserted_at\":\"2026-11-02T08:06:48.580853+04:00\",\"object_input\":{\"id\":\"CA-R-1981\",\"updated_at\":\"2026-11-02 00:18:22 +0400\",\"version\":14},\"object_output\":{\"id\":\"CA-R-1981\",\"updated_at\":\"2026-11-02 08:06:47 +0400\",\"version\":16},\"relations\":{\"HAS_EVENT_AUTHOR\":\"Actor//Codex\"}}"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_journal/Codex-2026-10-29-part-5.ndjson",
+      "sha256": "98e87a87d9a015666db06fe42f5e5e6bdee87b0a6c75cdab8897e72a9548705f",
+      "lines": [
+        {
+          "line": 30,
+          "text": "{\"schema_version\":3,\"event_id\":\"743a3373-3bd0-4de4-b82c-119f33733010\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-29T22:43:19.004260+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 31,
+          "text": "{\"schema_version\":3,\"event_id\":\"c990cc7f-a7b9-4c33-8669-03376d875a0f\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-29T22:43:19.034469+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 32,
+          "text": "{\"schema_version\":3,\"event_id\":\"45324dbb-4ef2-48e9-99f5-2833efaa23c2\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-29T22:43:19.035702+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 33,
+          "text": "{\"schema_version\":3,\"event_id\":\"9acb2925-9f37-4ec4-8d33-bd934a173c75\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-29T22:43:19.064620+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 34,
+          "text": "{\"schema_version\":3,\"event_id\":\"b23a7caa-f27b-4ca0-814d-21055049de13\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-29T22:43:19.065699+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 35,
+          "text": "{\"schema_version\":3,\"event_id\":\"6c82c801-e25f-4570-8cab-31cf62ac8a13\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-29T22:43:19.100957+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 148,
+          "text": "{\"schema_version\":3,\"event_id\":\"2c62eed4-756a-4329-b8c5-582239d57c59\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-29T23:58:58.159131+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 149,
+          "text": "{\"schema_version\":3,\"event_id\":\"db25d10f-b4bc-4568-924f-d94afe7f7fd2\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-29T23:58:58.188078+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 150,
+          "text": "{\"schema_version\":3,\"event_id\":\"09aaccdc-9198-4943-9e5e-236b5d89fe6a\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-29T23:58:58.188889+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 151,
+          "text": "{\"schema_version\":3,\"event_id\":\"30d8fd27-c8cd-4907-b95c-f0e48f26a012\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-29T23:58:58.215257+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 152,
+          "text": "{\"schema_version\":3,\"event_id\":\"07ade70c-b00f-4be6-8936-d72a6d7ead04\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-29T23:58:58.216276+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 153,
+          "text": "{\"schema_version\":3,\"event_id\":\"aa826fec-1e5e-4240-9b6f-9cd4a1037ece\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-29T23:58:58.243550+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_journal/run-support-2026-10-19-part-5.ndjson",
+      "sha256": "cfc6484a9db8f61bb460c4c37fc3c680b788f09e101036f50d3419b3ea15eacf",
+      "lines": [
+        {
+          "line": 474,
+          "text": "{\"action_id\":\"CA-O-030\",\"action_type\":\"UPDATE\",\"author\":\"run-support\",\"event\":\"completed\",\"event_id\":\"lifecycle-change:candidate6-small-structure-subjects-20261019-001:subject:617:action:1:native:CA-O-030\",\"kind\":\"governed_project_change\",\"llm_session\":{\"app\":\"run-support\",\"uuid\":\"candidate6-small-structure-subjects-20261019-001\"},\"occurred_at\":\"2026-10-19T11:56:12+00:00\",\"result\":{\"filename\":\"CA-"
+        },
+        {
+          "line": 475,
+          "text": "{\"action_id\":\"candidate6-small-structure-subjects-20261019-001-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-030\",\"digest\":\"d6ae83f4307f1749b2a4b0e772bb3e322c90d0e0ae406ee479ee6310a57f5cd5\",\"kind\":\"action\",\"path\":\".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--"
+        },
+        {
+          "line": 476,
+          "text": "{\"action_id\":\"candidate6-small-structure-subjects-20261019-001-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-128\",\"digest\":\"1f2c01072bb8f5b88d52400fb468c401c978cc4a10dd5a58b37718cbc2d295cf\",\"kind\":\"action\",\"path\":\".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-128-PROJECT_CONFIGURATION-ACTION--app"
+        },
+        {
+          "line": 477,
+          "text": "{\"action_id\":\"candidate6-small-structure-subjects-20261019-001-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-129\",\"digest\":\"e076d77c0873091da3ccb275eff9fc06c2ba1ef57a5b1c71845d96a2a800cd43\",\"kind\":\"step\",\"path\":\".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-129-PROJECT_CONFIGURATION-STEP--apply-a"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_journal/run-support-2026-10-17-part-1.ndjson",
+      "sha256": "c54bff615fe925fcb6d8a03d84502060cb7660faf3e12dd3c8fc57a835b39e6c",
+      "lines": [
+        {
+          "line": 472,
+          "text": "{\"action_id\":\"candidate6-activation-048-95173ba72eb22d73-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-032\",\"digest\":\"ffb130459bd9536b85165f251f122c7c3715eca1e2ceef3f74f40e3b3e66fdc2\",\"kind\":\"action\",\"path\":\".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-032-TOOL_WORKFLOWS-STANDARD-ACTION--create"
+        },
+        {
+          "line": 473,
+          "text": "{\"action_id\":\"candidate6-activation-048-95173ba72eb22d73-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-129\",\"digest\":\"48830bce2aef24f2f11ba0f03aae3613ed4a15cba3751431b358b0b36bec8133\",\"kind\":\"step\",\"path\":\".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-li"
+        },
+        {
+          "line": 474,
+          "text": "{\"action_id\":\"candidate6-activation-048-95173ba72eb22d73-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-128\",\"digest\":\"cc4261602a28297690c1009c60d1dff085a53b573d67b28c03db280e73dc7e5b\",\"kind\":\"action\",\"path\":\".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom"
+        },
+        {
+          "line": 475,
+          "text": "{\"action_id\":\"candidate6-activation-048-95173ba72eb22d73-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-032\",\"digest\":\"ffb130459bd9536b85165f251f122c7c3715eca1e2ceef3f74f40e3b3e66fdc2\",\"kind\":\"action\",\"path\":\".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-032-TOOL_WORKFLOWS-STANDARD-ACTION--create"
+        },
+        {
+          "line": 476,
+          "text": "{\"action_id\":\"CA-O-032\",\"action_type\":\"ADD\",\"author\":\"run-support\",\"event\":\"completed\",\"event_digest\":\"c64e5b7c537914f14272f780bb6151ca8cfdac78dec2afe35c1df24acc578c3a\",\"event_id\":\"selected-creation:candidate6-activation-048-95173ba72eb22d73:step:1:action:1:nested:CA-O-032\",\"kind\":\"governed_project_change\",\"llm_session\":{\"app\":\"run-support\",\"uuid\":\"candidate6-activation-048-95173ba72eb22d73\"},\"occ"
+        },
+        {
+          "line": 477,
+          "text": "{\"action_id\":\"candidate6-activation-048-95173ba72eb22d73-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-032\",\"digest\":\"ffb130459bd9536b85165f251f122c7c3715eca1e2ceef3f74f40e3b3e66fdc2\",\"kind\":\"action\",\"path\":\".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-032-TOOL_WORKFLOWS-STANDARD-ACTION--create"
+        },
+        {
+          "line": 478,
+          "text": "{\"action_id\":\"candidate6-activation-048-95173ba72eb22d73-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-128\",\"digest\":\"cc4261602a28297690c1009c60d1dff085a53b573d67b28c03db280e73dc7e5b\",\"kind\":\"action\",\"path\":\".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom"
+        },
+        {
+          "line": 479,
+          "text": "{\"action_id\":\"candidate6-activation-048-95173ba72eb22d73-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-129\",\"digest\":\"48830bce2aef24f2f11ba0f03aae3613ed4a15cba3751431b358b0b36bec8133\",\"kind\":\"step\",\"path\":\".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-li"
+        },
+        {
+          "line": 480,
+          "text": "{\"action_id\":\"candidate6-activation-048-95173ba72eb22d73-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-032\",\"digest\":\"ffb130459bd9536b85165f251f122c7c3715eca1e2ceef3f74f40e3b3e66fdc2\",\"kind\":\"action\",\"path\":\".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-032-TOOL_WORKFLOWS-STANDARD-ACTION--create"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_journal/Codex-2026-10-30-part-1.ndjson",
+      "sha256": "da2bd3be5ef727c9606ae08f4dae902f781229a4f0d03e60701faec12cc0ee35",
+      "lines": [
+        {
+          "line": 8,
+          "text": "{\"schema_version\":3,\"event_id\":\"8a4fad29-e8cc-40c7-8863-cd14480e80f3\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-30T00:18:54.473612+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 9,
+          "text": "{\"schema_version\":3,\"event_id\":\"a762e5f6-f042-46ec-841f-e591566b4caf\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-30T00:18:54.500101+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 10,
+          "text": "{\"schema_version\":3,\"event_id\":\"94365a8b-1c97-422c-9082-6662e3be3c8d\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-30T00:18:54.500884+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 11,
+          "text": "{\"schema_version\":3,\"event_id\":\"703b79c2-589d-473d-82db-e9f4737aabbb\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-30T00:18:54.527042+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 12,
+          "text": "{\"schema_version\":3,\"event_id\":\"23e95c13-b7d8-408f-9021-52510f9b9f9c\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-30T00:18:54.527887+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 13,
+          "text": "{\"schema_version\":3,\"event_id\":\"6071c503-1e29-4478-bac4-ebfc9366965b\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-30T00:18:54.553784+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 26,
+          "text": "{\"schema_version\":3,\"event_id\":\"755051f6-4e1a-4528-b2ea-5b3c95862c42\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-30T00:34:18.614683+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 27,
+          "text": "{\"schema_version\":3,\"event_id\":\"d720bc46-93e7-43fe-94d7-e619ec7d533b\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-30T00:34:18.643245+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 28,
+          "text": "{\"schema_version\":3,\"event_id\":\"8d4666cc-dd9e-44ec-9dc1-31e204b9b336\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-30T00:34:18.644187+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 29,
+          "text": "{\"schema_version\":3,\"event_id\":\"fa20125f-9b26-438b-8bc1-8c0c3ca1dc58\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-30T00:34:18.671856+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 30,
+          "text": "{\"schema_version\":3,\"event_id\":\"436b1d45-1266-490a-821d-fc2f6235cea2\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-30T00:34:18.672936+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 31,
+          "text": "{\"schema_version\":3,\"event_id\":\"4b56c9a0-90a3-41ae-90fa-49a061322283\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-30T00:34:18.700351+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 94,
+          "text": "{\"schema_version\":3,\"event_id\":\"a9692129-1912-4764-a5d2-cb2407b8f2f8\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-30T01:33:28.557355+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 95,
+          "text": "{\"schema_version\":3,\"event_id\":\"fd6d5b27-4660-47a5-add9-dd4e91782e8c\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-30T01:33:28.586327+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 96,
+          "text": "{\"schema_version\":3,\"event_id\":\"5fdcb4ca-1bb4-4d9b-9b02-ad7345d9ae6b\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-30T01:33:28.587320+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 97,
+          "text": "{\"schema_version\":3,\"event_id\":\"acc52228-0d62-4436-a72d-4ab37330150b\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-30T01:33:28.614376+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 98,
+          "text": "{\"schema_version\":3,\"event_id\":\"52f96be7-c06a-4a7b-9a86-c540c8962dea\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-30T01:33:28.615552+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 99,
+          "text": "{\"schema_version\":3,\"event_id\":\"afb22230-7e69-4e23-9b97-0c8aa02b1343\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-30T01:33:28.642689+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 180,
+          "text": "{\"schema_version\":3,\"event_id\":\"9dabccfa-6bdd-4570-9b6d-4fa5a40fdacd\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-30T03:12:49.095637+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 181,
+          "text": "{\"schema_version\":3,\"event_id\":\"44a19c19-d7ec-47e3-a083-7ae003dae478\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-30T03:12:49.125166+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 182,
+          "text": "{\"schema_version\":3,\"event_id\":\"e0b9375c-da1c-4ba4-9b65-6209653053cf\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-30T03:12:49.126345+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 183,
+          "text": "{\"schema_version\":3,\"event_id\":\"bbfe7026-b746-45ff-9838-cf3ed8971a22\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-30T03:12:49.154311+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 184,
+          "text": "{\"schema_version\":3,\"event_id\":\"f0961512-a104-4eb5-afc5-bf0860012a7a\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-30T03:12:49.155618+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 185,
+          "text": "{\"schema_version\":3,\"event_id\":\"073c99f7-0e9e-4868-96be-f83aca45b601\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-30T03:12:49.182708+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 205,
+          "text": "{\"schema_version\":3,\"event_id\":\"2373381a-2d32-48d6-a685-86aafc024e41\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-30T03:57:25.777277+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 206,
+          "text": "{\"schema_version\":3,\"event_id\":\"a6925d39-6545-429c-96e8-9e6255071559\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-30T03:57:25.807480+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 207,
+          "text": "{\"schema_version\":3,\"event_id\":\"b34202e3-bd46-4439-b41a-e7188a6009ec\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-30T03:57:25.808744+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 208,
+          "text": "{\"schema_version\":3,\"event_id\":\"b94cdf1e-a89c-4d76-ad52-832fdd6afa9c\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-30T03:57:25.836954+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        },
+        {
+          "line": 209,
+          "text": "{\"schema_version\":3,\"event_id\":\"eec232e7-7a5a-4202-9045-759f58bf20d9\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-30T03:57:25.838655+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266"
+        },
+        {
+          "line": 210,
+          "text": "{\"schema_version\":3,\"event_id\":\"49c8ca18-84d3-4428-a6bc-653a8a4c531c\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-30T03:57:25.866596+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2701 Scope Contract Current-source rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-2"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_journal/Codex-2026-10-29-part-2.ndjson",
+      "sha256": "a20caeb0db33e5d847d303f7b0f39c4e59794751f7138f18aab8cc223a96405f",
+      "lines": [
+        {
+          "line": 367,
+          "text": "{\"schema_version\":3,\"event_id\":\"a7d32d3f-cb07-4a0b-b32b-cf57298361c7\",\"kind\":\"atom_updated\",\"event\":\"completed\",\"atom_id\":\"CA-R-1981\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"recorded_at\":\"2026-10-29T07:17:27.669852+04:00\",\"method\":\"P2683 mechanical Subjects migration; Governs then dependencies\",\"result\":{\"path\":\".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOUR"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_journal/run-support-2026-10-17-part-4.ndjson",
+      "sha256": "96c7f51764431004da4bedd3ea2dab2d64dfdbe9960d3a10f442451fa9a48b1a",
+      "lines": [
+        {
+          "line": 8,
+          "text": "{\"action_id\":\"CA-O-030\",\"action_type\":\"UPDATE\",\"author\":\"run-support\",\"event\":\"completed\",\"event_id\":\"lifecycle-change:candidate6-phase1-subjects-20261018-001:subject:301:action:1:native:CA-O-030\",\"kind\":\"governed_project_change\",\"llm_session\":{\"app\":\"run-support\",\"uuid\":\"candidate6-phase1-subjects-20261018-001\"},\"occurred_at\":\"2026-10-17T23:34:59+00:00\",\"result\":{\"filename\":\"CA-R-1981-PROJECT_CON"
+        },
+        {
+          "line": 9,
+          "text": "{\"action_id\":\"candidate6-phase1-subjects-20261018-001-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-030\",\"digest\":\"d6ae83f4307f1749b2a4b0e772bb3e322c90d0e0ae406ee479ee6310a57f5cd5\",\"kind\":\"action\",\"path\":\".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-se"
+        },
+        {
+          "line": 10,
+          "text": "{\"action_id\":\"candidate6-phase1-subjects-20261018-001-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-128\",\"digest\":\"cc4261602a28297690c1009c60d1dff085a53b573d67b28c03db280e73dc7e5b\",\"kind\":\"action\",\"path\":\".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom-li"
+        },
+        {
+          "line": 11,
+          "text": "{\"action_id\":\"candidate6-phase1-subjects-20261018-001-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-129\",\"digest\":\"48830bce2aef24f2f11ba0f03aae3613ed4a15cba3751431b358b0b36bec8133\",\"kind\":\"step\",\"path\":\".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-lifec"
+        },
+        {
+          "line": 68,
+          "text": "{\"action_id\":\"candidate6-phase1-subjects-20261018-001-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-030\",\"digest\":\"d6ae83f4307f1749b2a4b0e772bb3e322c90d0e0ae406ee479ee6310a57f5cd5\",\"kind\":\"action\",\"path\":\".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-se"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_journal/Codex-2026-10-27-part-4.ndjson",
+      "sha256": "e5c807a34429841d988c24c6acb97ca675b81809b17b7c7a269a5a7ec1726c25",
+      "lines": [
+        {
+          "line": 548,
+          "text": "{\"schema_version\":3,\"event_id\":\"41002cbc-d060-4771-a415-cd6a5970a0e1\",\"kind\":\"atom_created\",\"event\":\"completed\",\"atom_id\":\"CA-R-1981@9-draft\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"recorded_at\":\"2026-10-27T19:50:03.212579+04:00\",\"method\":\"Stage reviewed Candidate10 Subject changes\",\"result\":{\"path\":\".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJ"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_journal/Codex-2026-10-27-part-8.ndjson",
+      "sha256": "33f09580a4fc89964d46af6ea207a36b91c8b163c3d0f3e932ede9961f726796",
+      "lines": [
+        {
+          "line": 308,
+          "text": "{\"schema_version\":3,\"event_id\":\"6c3947a3-caae-4d62-90cb-14d1ca8c8455\",\"kind\":\"atom_updated\",\"event\":\"completed\",\"atom_id\":\"CA-R-1981\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"recorded_at\":\"2026-10-27T20:00:06.903470+04:00\",\"method\":\"Adopt reviewed Candidate10 Draft; preserve predecessor archive\",\"result\":{\"path\":\".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOUR"
+        },
+        {
+          "line": 652,
+          "text": "{\"schema_version\":3,\"event_id\":\"4d94b5f4-5012-4d21-9bd1-5170f3a2b9dc\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-29T11:42:15.264542+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2683 methodology-only rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\",\"CA-D-26"
+        },
+        {
+          "line": 653,
+          "text": "{\"schema_version\":3,\"event_id\":\"bd13604f-6635-4513-8b27-0c71236d92c1\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-29T11:42:15.292384+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2683 methodology-only rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\",\"CA-D-"
+        },
+        {
+          "line": 654,
+          "text": "{\"schema_version\":3,\"event_id\":\"c953847c-8f77-4dee-af29-eff12956e1f0\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-29T11:42:15.293533+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2683 methodology-only rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\",\"CA-D-26"
+        },
+        {
+          "line": 655,
+          "text": "{\"schema_version\":3,\"event_id\":\"7c7b34b2-32de-45e1-a830-dfc063110341\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-29T11:42:15.317670+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2683 methodology-only rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\",\"CA-D-"
+        },
+        {
+          "line": 656,
+          "text": "{\"schema_version\":3,\"event_id\":\"dccfa4be-9e07-485d-bd4e-71f03bc4380e\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-29T11:42:15.319152+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2683 methodology-only rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\",\"CA-D-26"
+        },
+        {
+          "line": 657,
+          "text": "{\"schema_version\":3,\"event_id\":\"0c40aecf-66db-4650-b18a-36e4fa6c90ef\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-29T11:42:15.343291+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2683 methodology-only rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\",\"CA-D-"
+        },
+        {
+          "line": 658,
+          "text": "{\"schema_version\":3,\"event_id\":\"e35cf3cf-d4b8-4ae9-ab06-36d60ae283fa\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-29T11:47:17.767846+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2683 methodology-only rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\",\"CA-D-26"
+        },
+        {
+          "line": 659,
+          "text": "{\"schema_version\":3,\"event_id\":\"3a389e4d-09c9-45f4-a02f-b031880d6848\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-29T11:47:17.795540+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2683 methodology-only rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\",\"CA-D-"
+        },
+        {
+          "line": 660,
+          "text": "{\"schema_version\":3,\"event_id\":\"2f8951b7-841e-43b4-8a5e-944a47c6368e\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-29T11:47:17.796695+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2683 methodology-only rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\",\"CA-D-26"
+        },
+        {
+          "line": 661,
+          "text": "{\"schema_version\":3,\"event_id\":\"777c61b0-c50d-425a-8b74-9c814e079a53\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-29T11:47:17.821619+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2683 methodology-only rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\",\"CA-D-"
+        },
+        {
+          "line": 662,
+          "text": "{\"schema_version\":3,\"event_id\":\"326af399-1736-42f5-a92c-04e4a0f2db94\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-29T11:47:17.822813+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2683 methodology-only rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\",\"CA-D-26"
+        },
+        {
+          "line": 663,
+          "text": "{\"schema_version\":3,\"event_id\":\"afd2948a-f7af-4fe2-99b4-396f4a3abe9f\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-29T11:47:17.847536+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2683 methodology-only rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\",\"CA-D-"
+        },
+        {
+          "line": 674,
+          "text": "{\"schema_version\":3,\"event_id\":\"d1541bfd-38eb-4705-a233-1284c1326832\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-29T14:40:37.957865+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2695 dependency-only polishing rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\""
+        },
+        {
+          "line": 675,
+          "text": "{\"schema_version\":3,\"event_id\":\"d61c3980-2ba2-4270-82d8-8b8a0dbfba99\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-29T14:40:37.993654+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2695 dependency-only polishing rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@2"
+        },
+        {
+          "line": 676,
+          "text": "{\"schema_version\":3,\"event_id\":\"9c42a16d-d3f0-4482-aaad-c6d4996eb472\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-29T14:40:37.995121+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2695 dependency-only polishing rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\""
+        },
+        {
+          "line": 677,
+          "text": "{\"schema_version\":3,\"event_id\":\"977337db-630f-45e0-8ff0-2f5c7d60c987\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-29T14:40:38.023519+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2695 dependency-only polishing rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@2"
+        },
+        {
+          "line": 678,
+          "text": "{\"schema_version\":3,\"event_id\":\"01c6467f-d971-47dc-9a4d-7ad59bdfa3b8\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-29T14:40:38.025102+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2695 dependency-only polishing rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@26\""
+        },
+        {
+          "line": 679,
+          "text": "{\"schema_version\":3,\"event_id\":\"f51d81ba-e5d8-4f26-ab18-71bab6e5222b\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-29T14:40:38.054139+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2695 dependency-only polishing rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-264@28\",\"CA-D-266@2"
+        },
+        {
+          "line": 711,
+          "text": "{\"schema_version\":3,\"event_id\":\"1d1ba024-d229-4498-b1c6-d9523941329a\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-29T17:18:12.418234+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2698 canonical Definition and inheritance polishing rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-"
+        },
+        {
+          "line": 712,
+          "text": "{\"schema_version\":3,\"event_id\":\"1677fb72-ff1a-4136-8aac-92b82d737e60\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-014\",\"recorded_at\":\"2026-10-29T17:18:12.450472+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2698 canonical Definition and inheritance polishing rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-"
+        },
+        {
+          "line": 713,
+          "text": "{\"schema_version\":3,\"event_id\":\"6a770734-5e93-4dcb-8693-9bc88e724af8\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-29T17:18:12.451803+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2698 canonical Definition and inheritance polishing rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-"
+        },
+        {
+          "line": 714,
+          "text": "{\"schema_version\":3,\"event_id\":\"65d94818-1c4c-4f54-ac91-313ba73c5cf0\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-015\",\"recorded_at\":\"2026-10-29T17:18:12.479661+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2698 canonical Definition and inheritance polishing rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-"
+        },
+        {
+          "line": 715,
+          "text": "{\"schema_version\":3,\"event_id\":\"c9b311c2-df18-4da1-b79e-f45aa6c584db\",\"kind\":\"projection_generated\",\"event\":\"started\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-29T17:18:12.481063+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2698 canonical Definition and inheritance polishing rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-D-"
+        },
+        {
+          "line": 716,
+          "text": "{\"schema_version\":3,\"event_id\":\"bffd697b-c1f5-40a9-ae1f-1a314a76880c\",\"kind\":\"projection_generated\",\"event\":\"completed\",\"projection_id\":\"CA-PROJ-016\",\"recorded_at\":\"2026-10-29T17:18:12.509119+04:00\",\"author\":\"Codex\",\"requested_by\":\"Anatoly Maslennikov\",\"method\":\"Local scratch render_entity.py; P2698 canonical Definition and inheritance polishing rebuild\",\"sources\":[\"CA-D-253@27\",\"CA-D-262@26\",\"CA-"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/_journal/run-support-2026-10-19-part-6.ndjson",
+      "sha256": "f2e72fd0634c1b7c1db9e3d012e34b66c34947ad47e4994ee2d392d0a4431c30",
+      "lines": [
+        {
+          "line": 381,
+          "text": "{\"action_id\":\"candidate6-small-structure-subjects-20261019-001-assignment\",\"author\":\"run-support\",\"definition_bindings\":[{\"atom_id\":\"CA-O-030\",\"digest\":\"d6ae83f4307f1749b2a4b0e772bb3e322c90d0e0ae406ee479ee6310a57f5cd5\",\"kind\":\"action\",\"path\":\".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--"
+        }
+      ]
+    }
+  ],
+  "limitations": "A bounded source-tree search is not proof about external consumers or unselected runtime systems. Physical mirrors outside this source root are not active native source; check their generation before publication."
+}

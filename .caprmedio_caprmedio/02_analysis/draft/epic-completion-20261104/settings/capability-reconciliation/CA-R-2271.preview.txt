@@ -1,0 +1,29 @@
+---
+atom_id: NEW_ID_REQUIRED
+current_scope_unit: CORE_META_MODEL
+status: Draft
+tier: 1
+subjects:
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Confidence
+relations: {}
+version: NEW_VERSION_REQUIRED
+updated_at: 2026-11-02 00:18:22 +0400
+claim_target_scope_unit: CORE_META_MODEL
+role: Requirement
+form: Rule
+---
+## Summary
+
+Allow Project Settings confidence overrides
+
+## Claim scope
+
+The Project Settings confidence thresholds as overrides to their governed defaults.
+
+## Claim
+
+Project.Settings.Confidence may supply one integer-percentage override for each defined threshold. When the corresponding Project setting is absent, the effective threshold remains the Operator-configurable default governed by CA-R-1652 or CA-R-380. An override does not change the threshold's governed meaning.
+
+## Details
+
+CA-R-1979 defines the optional Confidence grouping; CA-R-2624 and CA-R-2625 define its two optional threshold values and default fallback. CA-R-1652 and CA-R-380 govern the Operator-configurable defaults. CA-D-368 and CA-D-369 separately govern serialization of those Framework Instance defaults.

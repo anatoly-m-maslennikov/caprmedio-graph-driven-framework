@@ -52,9 +52,8 @@ def summary(body):
 
 
 def runtime_fingerprint(root=None):
-    """Bind the selected implementation and Action prompts, not a second description."""
+    """Fingerprint implementation files needed to start and health-check a worker."""
     app = Path(__file__).resolve().parent
-    project_root = Path(root).resolve(strict=True) if root is not None else app.parents[3]
     paths = [app / name for name in ('contracts.py', 'engine.py', 'agent.py', 'backend.py',
         'coverage.py', 'replacement.py', 'remote_agent.py', 'runtime_config.py')]
     paths.append(app / 'orchestrator.py')
@@ -69,21 +68,30 @@ def runtime_fingerprint(root=None):
         'auth.compose.yaml', 'mock.compose.yaml'))
     paths.extend(app.parents[3] / name for name in ('pyproject.toml', 'uv.lock'))
     paths.extend(PROMPTS / f'CA-O-{number}.prompt.md' for number in (108, 109, 110))
-    manifest = json.loads((PROMPTS / 'source_bindings.json').read_text())
+    observations = [
+        {'path': str(path.relative_to(app.parents[3])),
+         'sha256': hashlib.sha256(path.read_bytes()).hexdigest()}
+        for path in paths]
+    return hashlib.sha256(encoded(observations)).hexdigest()
+
+
+def workflow_fingerprint(root):
+    """Bind a queued Coordinator request to its Current workflow definition."""
+    app = Path(__file__).resolve().parent
+    project_root = Path(root).resolve(strict=True)
+    manifest_path = PROMPTS / 'source_bindings.json'
+    manifest = json.loads(manifest_path.read_text())
     definition = next(row for row in manifest['sources'] if row['atom_id'] == 'CA-O-104')
     locator = CurrentAtomLocator(project_root)
     definition_relative = locator.locate(definition['atom_id'], definition['path'])
     definition_path = RunEvidence(project_root).path(definition_relative)
     observations = [
-        {'path': str(path.relative_to(app.parents[3])),
-         'sha256': hashlib.sha256(path.read_bytes()).hexdigest()}
-        for path in paths]
-    observations.append({'path': definition['path'],
-        'sha256': hashlib.sha256(definition_path.read_bytes()).hexdigest()})
+        {'implementation_fingerprint': runtime_fingerprint()},
+        {'path': definition['path'], 'sha256': hashlib.sha256(definition_path.read_bytes()).hexdigest()},
+        {'path': str(manifest_path.relative_to(app.parents[3])),
+         'sha256': hashlib.sha256(manifest_path.read_bytes()).hexdigest()},
+    ]
     locator.revalidate()
-    manifest_path = PROMPTS / 'source_bindings.json'
-    observations.append({'path': str(manifest_path.relative_to(app.parents[3])),
-        'sha256': hashlib.sha256(manifest_path.read_bytes()).hexdigest()})
     return hashlib.sha256(encoded(observations)).hexdigest()
 
 
@@ -123,7 +131,7 @@ class Coordinator:
             self.validate_selected(row)
         rules = [self.store.observe(path) for path in request.criteria_paths]
         value = {'request': request.model_dump(), 'selection_bindings': observations,
-                 'rule_bindings': rules, 'runtime_fingerprint': runtime_fingerprint(self.root)}
+                 'rule_bindings': rules, 'runtime_fingerprint': workflow_fingerprint(self.root)}
         self.save(path, value)
         return value
 
@@ -145,7 +153,7 @@ class Coordinator:
 
     def request(self, run_id):
         value = json.loads((self.run_directory(run_id) / 'request.json').read_text())
-        if value['runtime_fingerprint'] != runtime_fingerprint(self.root):
+        if value['runtime_fingerprint'] != workflow_fingerprint(self.root):
             raise Interrupted('Action prompts or implementation changed after enqueue')
         return Enqueue.model_validate(value['request']), value
 

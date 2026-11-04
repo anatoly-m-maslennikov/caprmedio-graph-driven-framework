@@ -3,8 +3,8 @@ cce_version: cce_1
 cce_form: evaluation
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-version: 18
-updated_at: 2026-11-02 19:44:26 +0400
+version: 19
+updated_at: 2026-11-03 23:17:14 +0400
 relations:
   evaluation_for:
   - CA-M-196
@@ -34,7 +34,7 @@ Examine the current active APPS authority and its child declarations, using deri
 
 ## Acceptance criteria
 
-`GRAPH_SERVER`, `GRAPH_UI`, `WORKFLOW_ORCHESTRATOR`, **and** `AGENT_HOST_PLUGINS` are distinct immediate unordered APPS children. `GRAPH_SERVER` operates headlessly for Tools **and** MCP; `GRAPH_UI` remains optional; orchestration state belongs to `WORKFLOW_ORCHESTRATOR`; **and** no child becomes project authority.
+`WORKBENCH`, `GRAPH_UI`, `WORKFLOW_ORCHESTRATOR`, **and** `AGENT_HOST_PLUGINS` are distinct immediate unordered APPS children. `WORKBENCH` operates headlessly for Tools **and** MCP; `GRAPH_UI` remains optional; orchestration state belongs to `WORKFLOW_ORCHESTRATOR`; **and** no child becomes project authority.
 
 ## Failure disposition
 

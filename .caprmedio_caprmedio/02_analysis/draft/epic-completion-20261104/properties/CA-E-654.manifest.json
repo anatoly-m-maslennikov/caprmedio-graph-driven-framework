@@ -1,0 +1,10 @@
+{
+  "atom_id": "CA-E-654",
+  "current_version": 12,
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-654-CORE_META_MODEL-EVAL-CASE--validate-integer-tier-ordering-and-scope-constraints.md",
+  "source_sha256": "834ccbe92b8414d7cf360a74bceea8c6a526c794f9ca453674fbf6880278bacc",
+  "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-E-654.preview.txt",
+  "preview_sha256": "586620d7cbc41f75a39fcef2ac36fd682fb942bf2a33bbdf7bf4f323ad582563",
+  "change_count": 1,
+  "change_summary": "align exact predicate and positive/negative cases; preserve fixed -1 Tier and ordinary range adjustment"
+}

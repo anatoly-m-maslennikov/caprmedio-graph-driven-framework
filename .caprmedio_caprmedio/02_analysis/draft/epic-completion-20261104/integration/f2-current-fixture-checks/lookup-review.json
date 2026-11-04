@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "files": [
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_subject_lookup.py",
+      "sha256": "f516e00c31778fd61fc06266742a3633ac0ad195c7ae9b9cc96919b92dd323fd"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_subject_lookup_current_owner.py",
+      "sha256": "8bb768d96e9695472518cfc751e6fe4ea1e4a9b5c7048a2727388ffff7714a42"
+    }
+  ],
+  "checks": [
+    "Current owner uses root-bound verified Project context and `_current_containment_owner` on the original metadata, never active Subject or legacy scope fallback.",
+    "Explicit D276 profile retains the legacy owner field; unknown/missing/ambiguous profile or unresolved Current containment yields source-invalid diagnostics and limited coverage, not a guessed owner.",
+    "One lazily created Project context is reused across candidates; selected sources and owner authority reader are checked for currentness before output.",
+    "Lazy import inside lookup avoids an import-time cycle with atom_operations, and no generic search API semantics were changed in this reviewed diff.",
+    "The virtual current_scope_unit read view is used for owner/path checks and result fields without writing carrier bytes or rewriting the active Subject.",
+    "Focused fixtures cover Current direct Scope Unit, missing relation, no fallback to a legacy field, alias conflict, one context for two carriers and explicit legacy branch."
+  ],
+  "limitations": "Worker reports six focused tests passing; reviewer did not run them. Plan-Atom owner resolution depends on the separately reviewed bounded containment helper and its source pins. Two ATOM_SEARCH fixtures remain under a separate owner. No full suite, installed/deployed runtime, or all-role owner coverage is asserted."
+}

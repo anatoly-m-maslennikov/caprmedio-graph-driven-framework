@@ -1,0 +1,336 @@
+{
+  "status": "READ_ONLY_EVIDENCE_NOT_ADOPTION",
+  "human_decision": "Retain Workflow Run, Step Run, Runtime, Event and Session under the Node/Occurrent branch; do not infer actual instances.",
+  "sources": [
+    {
+      "id": "CA-R-1510@18",
+      "version": 18,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1510@18-CORE_META_MODEL-DEFINITION--define-workflow-run.md",
+      "sha256": "e70a8d3a80b3d22b40701bbb84fb97f3a432b9ad3881cd35b9690c6798050a44"
+    },
+    {
+      "id": "CA-R-1511@22",
+      "version": 22,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1511@22-CORE_META_MODEL--define-step-run.md",
+      "sha256": "5f65da33915d10e670dd0d965b789d747fec1ea026b430b779b8d1013b71d4dc"
+    },
+    {
+      "id": "CA-R-1968@12",
+      "version": 12,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1968@12-CORE_META_MODEL-DEFINITION--define-entity-occurrent-event.md",
+      "sha256": "5af3761f4bdfbaa740a326f470dae52e9e9b46e6a91d4c54e13fa3934bffd224"
+    },
+    {
+      "id": "CA-R-1969@11",
+      "version": 11,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1969@11-CORE_META_MODEL-DEFINITION--define-entity-occurrent-execution-action-run.md",
+      "sha256": "11541a9d347bf81aa010d51c1d372517471e4d0c808a52a58e95a16c263b31d5"
+    },
+    {
+      "id": "CA-R-1970@10",
+      "version": 10,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1970@10-CORE_META_MODEL-DEFINITION--define-entity-occurrent-execution.md",
+      "sha256": "5487cca096d1a8ea414b1e777cee5f005af315b465994ec3213cbf95a9dbca68"
+    },
+    {
+      "id": "CA-R-1971@12",
+      "version": 12,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1971@12-CORE_META_MODEL-DEFINITION--define-entity-occurrent-session.md",
+      "sha256": "9dd99cbb1acdf16fa4064c73d30cf30e58a361864947eb3ac6e7bc96397f7bd8"
+    },
+    {
+      "id": "CA-R-2194@6",
+      "version": 6,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2194@6-CORE_META_MODEL-DEFINITION--define-runtime.md",
+      "sha256": "feb0febc2b6ddf2c31d3227b85d0378802938204cf40707ac7c54e5113294cf1"
+    },
+    {
+      "id": "CA-R-2235@3",
+      "version": 3,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2235@3-CORE_META_MODEL-ENTITY_DEFINITION--define-execution-result.md",
+      "sha256": "e53399a1d2908eb2df8bf30b4cda1e617f4f6160b7d67d72ca729869051c6f72"
+    },
+    {
+      "id": "CA-R-2242@2",
+      "version": 2,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2242@2-CORE_META_MODEL-ENTITY_DEFINITION--define-substep.md",
+      "sha256": "1e66195b0b7c65fd7b976b4db7c1a226433b9d1230a1f4f42a87f573dd86fb87"
+    },
+    {
+      "id": "CA-R-2590",
+      "version": 2,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2590-CORE_META_MODEL-DECLARATION--declare-occurrent.md",
+      "sha256": "d730e7db828cee2963d00db6c596079ac5a98b796021fbcd2a7882b1ac70b8c2"
+    },
+    {
+      "id": "CA-R-2557",
+      "version": 4,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2557-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "sha256": "0357e59cb3366ebbb2e13d0ef139d29e8fd24a449729014686c438555e535dcb"
+    },
+    {
+      "id": "CA-R-2536",
+      "version": 2,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2536-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "sha256": "20a5b68515df5b16e7b2a4facd9304f786d7fcbefb16097e8480d930ef93c991"
+    },
+    {
+      "id": "CA-R-2245",
+      "version": 8,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae"
+    },
+    {
+      "id": "CA-R-2246",
+      "version": 8,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+      "sha256": "5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03"
+    },
+    {
+      "id": "CA-R-1528",
+      "version": 22,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f"
+    },
+    {
+      "id": "CA-R-1525",
+      "version": 25,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1525-CORE_META_MODEL-RULE--bind-workflow-runs-to-exact-definition-revisions.md",
+      "sha256": "f1c5bad655bebbb6226f1c1546174ac1a15eb494fd6217c41c67315f6496dfed"
+    },
+    {
+      "id": "CA-R-1520",
+      "version": 22,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1520-CORE_META_MODEL-RULE--return-workflow-handoffs-through-terminal-results.md",
+      "sha256": "16c0e177c3bbbcbcefe518a54e6d76fd047ef24f71dbf3219e44a45620aada63"
+    },
+    {
+      "id": "CA-R-1519",
+      "version": 25,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1519-CORE_META_MODEL-RULE--require-conforming-workflow-execution.md",
+      "sha256": "06016d66513a94fb318be0ec91e59126a3764fc66109ac6672690d56ff597ad8"
+    },
+    {
+      "id": "CA-R-1650",
+      "version": 34,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-RULE--define-the-bounded-session-state-envelope.md",
+      "sha256": "05eb1ad5b975fb5c071e6f83533195b51fb3cf43b9540c1b3a9e0bd34ee33ddd"
+    },
+    {
+      "id": "CA-R-2255",
+      "version": 9,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2255-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a"
+    },
+    {
+      "id": "CA-R-2464",
+      "version": 5,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "70222545ca403b3b704862bb8cbd4972a664021368100fa1f90e9634240112be"
+    },
+    {
+      "id": "CA-R-2465",
+      "version": 4,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf"
+    },
+    {
+      "id": "CA-R-2466",
+      "version": 4,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "sha256": "f2a40705628b526539a0422901b2e5032ffaec8f0900072fb9c4d8d89b20bd11"
+    },
+    {
+      "id": "CA-R-853",
+      "version": 28,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-853-CORE_META_MODEL-RULE--attribute-each-governed-action-to-its-actor.md",
+      "sha256": "4678c5deef52f04244716e4de4a38a6d24f40d04ad6bb3708ee437cdc5f0676a"
+    }
+  ],
+  "suggested_minimum_tree": {
+    "Node/Occurrent": {
+      "Execution": [
+        "Workflow Run",
+        "Step Run",
+        "Action Run"
+      ],
+      "Runtime": [
+        "Session"
+      ],
+      "Event": []
+    }
+  },
+  "assessment": [
+    {
+      "name": "Execution",
+      "position": "Node/Occurrent/Execution",
+      "disposition": "propose restoration of the existing parent",
+      "evidence": [
+        "CA-R-1970@10",
+        "CA-R-1528"
+      ],
+      "reason": "Historical Definition names actual performance of work and explicitly groups the known Runs; Current R1528 governs Tool Calls during execution. No generic Run synonym is needed."
+    },
+    {
+      "name": "Action Run",
+      "position": "Node/Occurrent/Execution/Action Run",
+      "disposition": "propose as additional source-backed kind",
+      "evidence": [
+        "CA-R-1969@11",
+        "CA-R-1528",
+        "CA-R-1511@22"
+      ],
+      "reason": "Archived definition names actual Action execution; Current R1528 explicitly requires a leaf Step Run to execute its Action through an Action Run. A separate Current Requirement / Declaration is not established by this inventory."
+    },
+    {
+      "name": "Workflow Run",
+      "position": "Node/Occurrent/Execution/Workflow Run",
+      "disposition": "human explicitly retained; declaration still needs source promotion",
+      "evidence": [
+        "CA-R-1510@18",
+        "CA-R-1525",
+        "CA-R-2245"
+      ]
+    },
+    {
+      "name": "Step Run",
+      "position": "Node/Occurrent/Execution/Step Run",
+      "disposition": "human explicitly retained; declaration still needs source promotion",
+      "evidence": [
+        "CA-R-1511@22",
+        "CA-R-1519",
+        "CA-R-1528"
+      ]
+    },
+    {
+      "name": "Runtime",
+      "position": "Node/Occurrent/Runtime",
+      "disposition": "human explicitly retained; declaration still needs source promotion",
+      "evidence": [
+        "CA-R-2194@6",
+        "CA-R-2255"
+      ],
+      "reason": "Historical source calls it a live technical execution context, distinct from work and persistent records."
+    },
+    {
+      "name": "Session",
+      "position": "Node/Occurrent/Runtime/Session",
+      "disposition": "human explicitly retained; nested Runtime placement derives from archived Subject and needs source promotion",
+      "evidence": [
+        "CA-R-1971@12",
+        "CA-R-1650"
+      ]
+    },
+    {
+      "name": "Event",
+      "position": "Node/Occurrent/Event",
+      "disposition": "human explicitly retained; declaration still needs source promotion",
+      "evidence": [
+        "CA-R-1968@12",
+        "CA-R-2246"
+      ],
+      "reason": "Actual occurrence; a persistent Event Record is not that occurrence."
+    },
+    {
+      "name": "Event Record",
+      "position": "Node/Continuant/Event Record",
+      "disposition": "already declared; keep separate from Occurrent tree",
+      "evidence": [
+        "CA-R-2557",
+        "CA-R-2536",
+        "CA-R-2246"
+      ],
+      "reason": "R2557 makes Event Record narrower than Continuant; Journal contains records, which may RECORD actual Events or executions."
+    },
+    {
+      "name": "Substep Run",
+      "position": null,
+      "disposition": "do not infer a new kind",
+      "evidence": [
+        "CA-R-2242@2",
+        "CA-R-2466"
+      ],
+      "reason": "No Current defining source found in searched core requirements; archived R2242@2 explicitly says no Sub-step Run kind is introduced. Recheck if an independently governed need appears."
+    },
+    {
+      "name": "Run",
+      "position": null,
+      "disposition": "no independent generic Run kind established",
+      "evidence": [
+        "CA-R-1970@10"
+      ],
+      "reason": "Execution already names the historical common parent; do not invent a synonym."
+    },
+    {
+      "name": "Tool Call",
+      "position": null,
+      "disposition": "retain as execution detail, not automatically another kind",
+      "evidence": [
+        "CA-R-1528"
+      ],
+      "reason": "Current rule defines Tool invocation evidence within Step Run but does not itself introduce a separate Node kind."
+    },
+    {
+      "name": "Execution.Result",
+      "position": "Execution.Result",
+      "disposition": "historical property evidence; not an additional primary kind",
+      "evidence": [
+        "CA-R-2235@3"
+      ],
+      "reason": "Separate property acceptance and governing admission must be checked; no automatic instance or result semantics inferred."
+    }
+  ],
+  "limits": [
+    "Historical Definitions are archived and are not Current governing declarations; proposed tree is a review candidate only.",
+    "Scanned bounded Core Requirement sources for names including Substep Run, Action Run and generic Run; absence is not a claim about all repositories.",
+    "No source/code/Git changes, graph regeneration, runtime evidence or actual instances."
+  ]
+}

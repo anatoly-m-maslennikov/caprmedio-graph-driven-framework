@@ -1,0 +1,292 @@
+{
+  "status": "REVIEW_ONLY_NO_CANONICAL_IDS",
+  "human_decision": "Runtime has four narrower kinds: Internal Local Runtime, Internal Remote Runtime, External Local Runtime and External Remote Runtime. Internal/external refers to our application. Local is on the Operator’s machine; Remote is elsewhere. Session is NARROWER_THAN External Remote Runtime. Retain Execution with Workflow Run, Step Run and Action Run, plus Event.",
+  "entries": [
+    {
+      "name": "Execution",
+      "parent": "Occurrent",
+      "placeholder": "UNALLOCATED-execution",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution.preview.txt",
+      "preview_sha256": "a2e917f5a8c652acd82cdc131d03962d364915fde47e73ceee2eac37e2708b43",
+      "source_ids": [
+        "CA-R-1970@10",
+        "CA-R-2590"
+      ],
+      "instance_relation": null
+    },
+    {
+      "name": "Workflow Run",
+      "parent": "Execution",
+      "placeholder": "UNALLOCATED-workflow-run",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/workflow-run.preview.txt",
+      "preview_sha256": "f686f26232d8f1704eaecd9f083d13cd59c9484efca48f31d71cbfd484455432",
+      "source_ids": [
+        "CA-R-1510@18",
+        "CA-R-2245"
+      ],
+      "instance_relation": "Workflow Run//$run {:1}((IS_EXECUTION_OF)) Workflow//$workflow"
+    },
+    {
+      "name": "Step Run",
+      "parent": "Execution",
+      "placeholder": "UNALLOCATED-step-run",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/step-run.preview.txt",
+      "preview_sha256": "779d9a7dd1c7eb848721c2ad3cc66c8a4eac6fa53a206310e7c30315966ff26a",
+      "source_ids": [
+        "CA-R-1511@22",
+        "CA-R-1528"
+      ],
+      "instance_relation": null
+    },
+    {
+      "name": "Action Run",
+      "parent": "Execution",
+      "placeholder": "UNALLOCATED-action-run",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/action-run.preview.txt",
+      "preview_sha256": "f4aa049ad557a57bfcd1bed32762d8e8ba46d07d7fbd159aae3d13ad9ff38302",
+      "source_ids": [
+        "CA-R-1969@11",
+        "CA-R-1528"
+      ],
+      "instance_relation": null
+    },
+    {
+      "name": "Runtime",
+      "parent": "Occurrent",
+      "placeholder": "UNALLOCATED-runtime",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/runtime.preview.txt",
+      "preview_sha256": "5ca3e9e8f35c04bd2e84a1a6ea1285c0667e0842eabb924452763d1c667e75bf",
+      "source_ids": [
+        "CA-R-2194@6",
+        "CA-R-2255"
+      ],
+      "instance_relation": null
+    },
+    {
+      "name": "Session",
+      "parent": "External Remote Runtime",
+      "placeholder": "UNALLOCATED-session",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/session.preview.txt",
+      "preview_sha256": "a3a779b9ac889dbe6275d163977aa1fd7accb9d9f2dda516e307853bc6b0fb26",
+      "source_ids": [
+        "CA-R-1971@12",
+        "CA-R-1650"
+      ],
+      "instance_relation": null
+    },
+    {
+      "name": "Event",
+      "parent": "Occurrent",
+      "placeholder": "UNALLOCATED-event",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event.preview.txt",
+      "preview_sha256": "972f9f006a723b8391cb9f844cf1f37b67e57e6b365b039a49844706614329da",
+      "source_ids": [
+        "CA-R-1968@12",
+        "CA-R-2557",
+        "CA-R-2246"
+      ],
+      "instance_relation": null
+    },
+    {
+      "name": "Internal Local Runtime",
+      "parent": "Runtime",
+      "placeholder": "UNALLOCATED-internal-local-runtime",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/internal-local-runtime.preview.txt",
+      "preview_sha256": "668e2c5b8d1a908c38103af2af2b8f966b564ec68615ab1a981f332af62fb0c9",
+      "source_ids": [
+        "CA-R-2194@6"
+      ],
+      "instance_relation": null,
+      "decision_source": "Human decision: internal/external relative to our application; local on the Operator’s machine, remote elsewhere."
+    },
+    {
+      "name": "Internal Remote Runtime",
+      "parent": "Runtime",
+      "placeholder": "UNALLOCATED-internal-remote-runtime",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/internal-remote-runtime.preview.txt",
+      "preview_sha256": "7e54a3904db737652af9056aea87f941513e26286b103d637cd7540a5df0f37f",
+      "source_ids": [
+        "CA-R-2194@6"
+      ],
+      "instance_relation": null,
+      "decision_source": "Human decision: internal/external relative to our application; local on the Operator’s machine, remote elsewhere."
+    },
+    {
+      "name": "External Local Runtime",
+      "parent": "Runtime",
+      "placeholder": "UNALLOCATED-external-local-runtime",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/external-local-runtime.preview.txt",
+      "preview_sha256": "8de3213723aeb722c00c4ab57f8cf4d7f647398e5130881058b6f86e6f7f0a9e",
+      "source_ids": [
+        "CA-R-2194@6"
+      ],
+      "instance_relation": null,
+      "decision_source": "Human decision: internal/external relative to our application; local on the Operator’s machine, remote elsewhere."
+    },
+    {
+      "name": "External Remote Runtime",
+      "parent": "Runtime",
+      "placeholder": "UNALLOCATED-external-remote-runtime",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/external-remote-runtime.preview.txt",
+      "preview_sha256": "92fdab2c8dceffb46d4ec07dd660dc85e3082ab6a8b8cbf7550e155a6f204ab0",
+      "source_ids": [
+        "CA-R-2194@6"
+      ],
+      "instance_relation": null,
+      "decision_source": "Human decision: internal/external relative to our application; local on the Operator’s machine, remote elsewhere."
+    }
+  ],
+  "sources": [
+    {
+      "id": "CA-R-1510@18",
+      "version": 18,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1510@18-CORE_META_MODEL-DEFINITION--define-workflow-run.md",
+      "sha256": "e70a8d3a80b3d22b40701bbb84fb97f3a432b9ad3881cd35b9690c6798050a44"
+    },
+    {
+      "id": "CA-R-1511@22",
+      "version": 22,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1511@22-CORE_META_MODEL--define-step-run.md",
+      "sha256": "5f65da33915d10e670dd0d965b789d747fec1ea026b430b779b8d1013b71d4dc"
+    },
+    {
+      "id": "CA-R-1528",
+      "version": 22,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f"
+    },
+    {
+      "id": "CA-R-1650",
+      "version": 34,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-RULE--define-the-bounded-session-state-envelope.md",
+      "sha256": "05eb1ad5b975fb5c071e6f83533195b51fb3cf43b9540c1b3a9e0bd34ee33ddd"
+    },
+    {
+      "id": "CA-R-1968@12",
+      "version": 12,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1968@12-CORE_META_MODEL-DEFINITION--define-entity-occurrent-event.md",
+      "sha256": "5af3761f4bdfbaa740a326f470dae52e9e9b46e6a91d4c54e13fa3934bffd224"
+    },
+    {
+      "id": "CA-R-1969@11",
+      "version": 11,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1969@11-CORE_META_MODEL-DEFINITION--define-entity-occurrent-execution-action-run.md",
+      "sha256": "11541a9d347bf81aa010d51c1d372517471e4d0c808a52a58e95a16c263b31d5"
+    },
+    {
+      "id": "CA-R-1970@10",
+      "version": 10,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1970@10-CORE_META_MODEL-DEFINITION--define-entity-occurrent-execution.md",
+      "sha256": "5487cca096d1a8ea414b1e777cee5f005af315b465994ec3213cbf95a9dbca68"
+    },
+    {
+      "id": "CA-R-1971@12",
+      "version": 12,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1971@12-CORE_META_MODEL-DEFINITION--define-entity-occurrent-session.md",
+      "sha256": "9dd99cbb1acdf16fa4064c73d30cf30e58a361864947eb3ac6e7bc96397f7bd8"
+    },
+    {
+      "id": "CA-R-2194@6",
+      "version": 6,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2194@6-CORE_META_MODEL-DEFINITION--define-runtime.md",
+      "sha256": "feb0febc2b6ddf2c31d3227b85d0378802938204cf40707ac7c54e5113294cf1"
+    },
+    {
+      "id": "CA-R-2245",
+      "version": 8,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae"
+    },
+    {
+      "id": "CA-R-2246",
+      "version": 8,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+      "sha256": "5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03"
+    },
+    {
+      "id": "CA-R-2255",
+      "version": 9,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2255-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a"
+    },
+    {
+      "id": "CA-R-2417",
+      "version": 5,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+      "sha256": "e50b96e2a066c11c7deee1f31ef85197b74d09aaa93c12579648e7c9ef8bd691"
+    },
+    {
+      "id": "CA-R-2462",
+      "version": 4,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c"
+    },
+    {
+      "id": "CA-R-2557",
+      "version": 4,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2557-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "sha256": "0357e59cb3366ebbb2e13d0ef139d29e8fd24a449729014686c438555e535dcb"
+    },
+    {
+      "id": "CA-R-2588",
+      "version": 5,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c"
+    },
+    {
+      "id": "CA-R-2590",
+      "version": 2,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2590-CORE_META_MODEL-DECLARATION--declare-occurrent.md",
+      "sha256": "d730e7db828cee2963d00db6c596079ac5a98b796021fbcd2a7882b1ac70b8c2"
+    }
+  ],
+  "unresolved_endpoint_and_whitelist_checks": [
+    "CA-R-2462 sets instance outgoing wildcard to zero; each intended instance relation requires its own named permission for the written direction, host, target and applicable layer under CA-R-2588.",
+    "Workflow Run preview proposes exactly one outgoing IS_EXECUTION_OF Workflow, based on archived R1510 and Current R2245. The inverse Workflow HAS_EXECUTION requires separate applicable permission; its cardinality is not guessed.",
+    "Runtime EXECUTES Workflow Run, Event Record RECORDS Event or execution, and the inverses require each actual direction and applicable cardinality to be checked in the correct owner Declaration before any fact is admitted; relationship type declarations alone are not whitelist grants.",
+    "Step Run to Step or enclosing Workflow Run, Action Run to Action, and execution parentage require explicit governed endpoint and permission decisions. R2245 currently specifies Workflow Run to Workflow only; do not generalize it to other hosts.",
+    "Check all existing active R/M/E/D/O Subjects, references, archived defining histories, replacement lineage and existing IDs before admission. Do not infer actual runs, events, session or other instances.",
+    "Session NARROWER_THAN External Remote Runtime is explicit in the latest human decision, not derived from the archived Session slash-address. No separate containment or other typed Runtime–Session Relation is asserted.",
+    "The decision establishes the application and Operator-machine criteria; concrete identity resolution, host detection and deployment representation are not specified or proposed."
+  ],
+  "source_constraints": [
+    "Archived Definitions are semantic evidence, not Current Declaration authority.",
+    "No Substep Run or generic Run is proposed. Event Record remains a separate Current Continuant.",
+    "Placeholders are not canonical IDs. Prepare new-ID Drafts and lifecycle metadata under the authorized workflow; these text files do not adopt source.",
+    "Four Runtime kinds and Session parent reflect the latest human decision, not Current source evidence; their Declaration candidates and classification boundaries remain review-only."
+  ]
+}

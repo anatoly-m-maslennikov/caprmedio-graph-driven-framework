@@ -149,43 +149,177 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
 
     def _currentize_requirement(self, path: Path) -> Path:
         raw = path.read_bytes()
-        raw = raw.replace(b"local_tier: Standard\n", b"tier: 14\n")
-        raw = raw.replace(b"global_tier: 14\n", b"")
-        if b"type: Rule\n" not in raw:
-            raw = raw.replace(b"content_role: Requirement\n", b"content_role: Requirement\ntype: Rule\n", 1)
-        path.write_bytes(raw)
+        self.assertIn(b"role: Requirement\nform: Rule\n", raw)
+        self.assertNotIn(b"author:", raw)
+        self.assertIn(b"  active: Atom/Test\n", raw)
         return path
 
-    def _plan(self, status: str, *, number: int = 501, folder: str | None = None) -> Path:
+    def _plan(
+        self,
+        status: str,
+        *,
+        number: int = 501,
+        folder: str | None = None,
+        containment: str | None = None,
+        version: int | None = None,
+    ) -> Path:
         directory = self.fixture.requirements.parent / "03_plan"
-        status_folder = {"Active": "", "Backlog": "001_backlog", "Done": "done", "Canceled": "canceled", "Archived": "archived"}
+        scope_id = self.fixture.declarations[lifecycle_fixture._FIXTURE_SCOPE]["scope_id"]
+        status_folder = {"Draft": "draft", "Active": "", "Backlog": "001_backlog", "Done": "done", "Canceled": "canceled", "Archived": "archived"}
         directory /= status_folder[status] if folder is None else folder
         directory.mkdir(parents=True, exist_ok=True)
-        path = directory / f"CA-P-{number}--subject-fixture.md"
+        version = (1 if status == "Draft" else 7) if version is None else version
+        atom_id_line = f"atom_id: CA-P-{number}\r\n"
+        filename = (
+            f"CA-P-{number}@{version}-draft--subject-fixture.md"
+            if status == "Draft" else f"CA-P-{number}--subject-fixture.md"
+        )
+        path = directory / filename
+        containment_line = f"    {containment}\r\n" if containment is not None else f"    scope_unit: {scope_id}\r\n"
         path.write_bytes((
             "---\r\n"
-            f"atom_id: CA-P-{number}\r\n"
-            "content_role: Plan\r\n"
-            "type: Plan\r\n"
-            "current_scope_unit: LIFECYCLE_FIXTURE\r\n"
-            "claim_target_scope_unit: LIFECYCLE_FIXTURE\r\n"
+            f"{atom_id_line}"
+            "role: Plan\r\n"
+            "form: Plan\r\n"
             "tier: 14\r\n"
             "# Preserve this unrelated café comment exactly.\r\n"
-            "author: Anatoly Maslennikov\r\n"
             f"status: {status}\r\n"
-            "version: 7\r\n"
+            f"version: {version}\r\n"
             'updated_at: "2026-01-01 00:00:00 +0000"\r\n'
             "subjects:\r\n"
-            '  governs: "Atom/Status"\r\n'
-            '  depends_on: [Atom, "Atom/Revision"]\r\n'
-            "relations: {}\r\n"
-            "---\r\n"
+            '  active: "Atom/Status"\r\n'
+            "  passive: [Atom, \"Atom/Revision\"]\r\n"
+            "relations:\r\n"
+            "  IS_CONTAINED_BY:\r\n"
+            + containment_line
+            + "---\r\n"
             "# Summary\r\n\r\nSubject fixture\r\n\r\n"
             "## Objective\r\n\r\nKeep the carried Plan status.\r\n\r\n"
+            "## Claim\r\n\r\n### Prose Claim\r\n\r\nSubject fixture.\r\n\r\n"
             "## Details\r\n\r\nThe exact body mentions Atom/Status.\r\n\r\n"
             "### Definition of Done\r\n\r\nOnly the explicit Subjects change.\r\n"
         ).encode("utf-8"))
         return path
+
+    def test_current_direct_and_nested_plan_containment_pass_complete_admission(self) -> None:
+        parent = self._plan("Active", number=601)
+        child = self._plan(
+            "Active", number=602, folder=parent.stem, containment="atom: CA-P-601",
+        )
+
+        self._assert_complete_carrier(parent)
+        self._assert_complete_carrier(child)
+
+    def test_current_containment_sources_require_reviewed_exact_pins(self) -> None:
+        candidate = self._plan("Active", number=606)
+        registry = json.loads(
+            (TOOLS / "VALIDATE_ATOMS/validate_atoms_workers/registry.json").read_text(encoding="utf-8")
+        )["sources"]
+        for atom_id in ("CA-R-2508", "CA-R-2523", "CA-R-2511"):
+            source = self.fixture.declarations["CORE_META_MODEL"]["authority_path"] / "04_requirement" / Path(
+                registry[atom_id]["source_path"]
+            ).name
+            original = source.read_bytes()
+            source.write_bytes(original + b"\nRetained recognized containment clause.\n")
+            try:
+                with self.subTest(atom_id=atom_id), self.assertRaises(operations.ToolError) as invalid:
+                    self._assert_complete_carrier(candidate)
+                self.assertEqual("complete-carrier-invalid", invalid.exception.code)
+                self.assertIn(atom_id, str(invalid.exception.__cause__.__cause__))
+            finally:
+                source.write_bytes(original)
+
+    def test_current_nested_plan_containment_must_match_physical_parent(self) -> None:
+        physical_parent = self._plan("Active", number=611)
+        self._plan("Active", number=612)
+        direct_scope_nested = self._plan("Active", number=613, folder="not-a-plan")
+        wrong_parent = self._plan(
+            "Active", number=614, folder=physical_parent.stem, containment="atom: CA-P-612",
+        )
+
+        with self.assertRaises(operations.ToolError) as direct_scope_error:
+            self._assert_complete_carrier(direct_scope_nested)
+        self.assertRegex(
+            str(direct_scope_error.exception.__cause__),
+            "nested Current Plan requires a typed containment Atom parent",
+        )
+        with self.assertRaises(operations.ToolError) as wrong_parent_error:
+            self._assert_complete_carrier(wrong_parent)
+        self.assertRegex(
+            str(wrong_parent_error.exception.__cause__),
+            "nested Current Plan path does not use its typed containment Atom parent",
+        )
+
+    def test_current_containment_rejects_nonflat_draft_and_archive(self) -> None:
+        live_parent = self._plan("Active", number=621)
+        archived_parent = self._plan("Archived", number=622)
+        flat_draft = self._plan("Draft", number=623)
+        nested_archive = self._plan(
+            "Archived", number=624, folder=f"{live_parent.stem}/archived", containment="atom: CA-P-621",
+        )
+        nested_draft = self._plan(
+            "Draft", number=625, folder=f"{live_parent.stem}/draft", containment="atom: CA-P-621",
+        )
+        child_of_archived_parent = self._plan(
+            "Active", number=626, folder=archived_parent.stem, containment="atom: CA-P-622",
+        )
+
+        self._assert_complete_carrier(flat_draft)
+        with self.assertRaises(operations.ToolError) as nested_archive_error:
+            self._assert_complete_carrier(nested_archive)
+        self.assertRegex(
+            str(nested_archive_error.exception.__cause__),
+            "nested Current Draft or Archived Plan must use the shared Scope Unit placement",
+        )
+        with self.assertRaises(operations.ToolError) as nested_draft_error:
+            self._assert_complete_carrier(nested_draft)
+        self.assertRegex(
+            str(nested_draft_error.exception.__cause__),
+            "nested Current Draft or Archived Plan must use the shared Scope Unit placement",
+        )
+        with self.assertRaises(operations.ToolError) as archived_parent_error:
+            self._assert_complete_carrier(child_of_archived_parent)
+        self.assertRegex(
+            str(archived_parent_error.exception.__cause__),
+            "Current containment Atom is unavailable or ambiguous",
+        )
+
+    def test_current_draft_requires_canonical_id_and_versioned_filename(self) -> None:
+        missing_id = self._plan("Draft", number=627)
+        missing_id.write_bytes(missing_id.read_bytes().replace(b"atom_id: CA-P-627\r\n", b""))
+        malformed_name = self._plan("Draft", number=628)
+        malformed_name = malformed_name.rename(
+            malformed_name.with_name("CA-P-628--subject-fixture.md")
+        )
+        predecessor = self._plan("Active", number=630)
+        next_revision = self._plan("Draft", number=630, version=8)
+
+        for path in (missing_id, malformed_name):
+            with self.subTest(path=path.name), self.assertRaises(operations.ToolError) as invalid:
+                self._assert_complete_carrier(path)
+            self.assertEqual("complete-carrier-invalid", invalid.exception.code)
+        self._assert_complete_carrier(predecessor)
+        self._assert_complete_carrier(next_revision)
+
+    def test_current_assigned_identity_binds_every_admitted_role_letter(self) -> None:
+        from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
+
+        context = proposed_carrier.source_context_from_project(self.root)
+        roles = {
+            proposed_carrier.current_role_declaration(source)
+            for source in context.inputs["sources"]
+        } - {None}
+        self.assertEqual(8, len(roles))
+        for role in roles:
+            with self.subTest(role=role):
+                proposed_carrier._assigned_identity(
+                    context, {"atom_id": f"CA-{role[0]}-998", "role": role}
+                )
+                wrong_letter = "M" if role != "Method" else "R"
+                with self.assertRaises(proposed_carrier.ProposedCarrierError):
+                    proposed_carrier._assigned_identity(
+                        context, {"atom_id": f"CA-{wrong_letter}-998", "role": role}
+                    )
 
     def _payload(self, path: Path, *, patches: bool = True) -> list[dict[str, object]]:
         parsed = operations.parse_carrier(path.read_bytes(), path)
@@ -227,11 +361,11 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
         self.assertTrue(all(set(patch["span"]) == {"start", "end"} for patch in atom["patches"]))
         self.assertEqual(patches, atom["subject_intent"]["subject_patches"])
         proposed = operations.parse_carrier(atom["proposed_carrier"].encode(), path)
-        self.assertEqual(["Atom/Revision", "Atom/Revision/Status"], proposed.metadata["subjects"]["depends_on"])
+        self.assertEqual(["Atom/Revision", "Atom/Revision/Status"], proposed.metadata["subjects"]["passive"])
         self.assertEqual("Backlog", proposed.metadata["status"])
         prepared = subject_patch.prepare_subject_intent(self.root, atom["subject_intent"]["target"], patches)
         materialized = subject_patch.materialize_subject_intent(self.root, prepared, "2026-10-14 00:40:00 +0400")
-        self.assertEqual(["Atom/Revision", "Atom/Revision/Status"], operations.parse_carrier(materialized["carrier_bytes"], path).metadata["subjects"]["depends_on"])
+        self.assertEqual(["Atom/Revision", "Atom/Revision/Status"], operations.parse_carrier(materialized["carrier_bytes"], path).metadata["subjects"]["passive"])
         self.assertEqual(before, self._snapshot())
 
     def _installed_copy(self, path: Path, *, collection: str | None = None) -> Path:
@@ -259,7 +393,7 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
                 original = path.read_bytes()
                 preview = self._preview(self._payload(path))
                 atom = preview["atoms"][0]
-                expected = original.replace(b'governs: "Atom/Status"', b'governs: "Atom/State"')
+                expected = original.replace(b'active: "Atom/Status"', b'active: "Atom/State"')
                 expected = expected.replace(b"version: 7\r\n", b"version: 8\r\n")
                 expected = expected.replace(b'updated_at: "2026-01-01 00:00:00 +0000"', b'updated_at: "2026-10-12 10:20:30 +0400"')
                 self.assertEqual(expected, atom["proposed_carrier"].encode("utf-8"))
@@ -300,8 +434,9 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
         draft_payload = self._payload(draft, patches=False)
         draft_folder = draft.parent / "draft"
         draft_folder.mkdir()
-        draft = draft.rename(draft_folder / "CA-R--draft-fixture.md")
-        draft.write_bytes(draft.read_bytes().replace(b"atom_id: CA-R-501\n", b""))
+        draft = draft.rename(draft_folder / "CA-R-501@1-draft--draft-fixture.md")
+        draft_bytes = draft.read_bytes()
+        self.assertIn(b"version: 1\n", draft_bytes)
         self._assert_complete_carrier(draft)
         draft_payload[0]["selector"] = draft.relative_to(self.root).as_posix()
         draft_payload[0]["expected"]["sha256"] = hashlib.sha256(draft.read_bytes()).hexdigest()
@@ -515,7 +650,10 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
             self._assert_complete_carrier(selected)
             self._assert_complete_carrier(competitor)
             self._installed_copy(selected)
-            raw = competitor.read_bytes().replace(b'  governs: "Atom/Status"', b"  governs: [unfinished")
+            original = competitor.read_bytes()
+            self.assertIn(b'  active: "Atom/Status"', original)
+            raw = original.replace(b'  active: "Atom/Status"', b"  active: [unfinished", 1)
+            self.assertNotEqual(original, raw)
             if claim == "frontmatter":
                 raw = raw.replace(f"atom_id: CA-P-{number + 100}\r\n".encode(),
                                   f"atom_id: CA-P-{number}\r\n".encode())

@@ -1,0 +1,35 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Project.Settings
+  passive:
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project.Settings.Interaction.Reporting Mode
+version: 31
+updated_at: 2026-11-02 00:18:22 +0400
+relations:
+  child_of:
+  - CA-D-361
+  depends_on:
+  - CA-R-1628
+atom_id: CA-D-383
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 6
+role: Delivery
+form: Decision
+---
+## Summary
+
+Serialize Interaction Reporting Mode
+
+## Claim
+
+### Prose Claim
+
+
+an explicit instance reporting default **in** the Project's existing `caprmedio_framework_settings.toml` Carrier.
+
+
+an explicit instance reporting default **in** the Project's existing `caprmedio_framework_settings.toml` Carrier **must** use `reporting_mode` **in** the `[interaction]` section, using an allowed value governed by CA-R-1628-CORE_META_MODEL-RULE--allow-silent-and-verbose-reporting-modes.

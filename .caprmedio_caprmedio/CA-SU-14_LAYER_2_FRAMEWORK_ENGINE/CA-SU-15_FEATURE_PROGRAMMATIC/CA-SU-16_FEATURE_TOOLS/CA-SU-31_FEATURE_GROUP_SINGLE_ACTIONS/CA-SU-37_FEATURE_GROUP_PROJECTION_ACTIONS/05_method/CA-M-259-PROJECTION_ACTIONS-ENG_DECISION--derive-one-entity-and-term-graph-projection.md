@@ -7,8 +7,8 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-version: 17
-updated_at: 2026-11-02 19:44:26 +0400
+version: 18
+updated_at: 2026-11-03 23:17:14 +0400
 relations:
   method_for:
   - CA-R-1387
@@ -40,4 +40,4 @@ The source-bound construction and optional derived-output persistence of one cal
 
 ### Outcome
 
-the result is reproducible as-is graph data that `GRAPH_SERVER` **may** consume read-only **and** `GRAPH_UI` **may** present; it is neither an Atom nor an analysis **and** has no authority.
+the result is reproducible as-is graph data that `WORKBENCH` **may** consume read-only **and** `GRAPH_UI` **may** present; it is neither an Atom nor an analysis **and** has no authority.

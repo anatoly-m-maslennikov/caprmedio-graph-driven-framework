@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "test_path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py",
+  "test_sha256": "b380b1b79dd324410e4449b311630c1125afeb75519a0a4dc76efe8312550ef5",
+  "checks": [
+    "Setup materializes the 36 distinct D276-profile authority IDs from the frozen fixture corpus into declared CORE_META_MODEL role directories; `frozen_authority_fixture_bytes` verifies each byte digest against its frozen manifest.",
+    "Search uses the real Project context and production resolver, with D276 present and D657 absent. The new negative removes D276 and checks limited coverage with zero occurrences rather than inferring a legacy profile.",
+    "The selected `subject_profile` controls lexical grammar independently of authority encoding. The existing approved-profile under-selection predates this diff; the repair does not narrow previously whole-frontier assertions.",
+    "Existing exact/prefix/partial/malformed-source assertions and fixture bytes are not relaxed by this diff; added Project settings and operator identity enable the actual source closure.",
+    "No production code changed in this fixture repair."
+  ],
+  "qualification": "The legacy frozen corpus does not generally match current registry-row SHA pins. The existing `_verified` implementation verifies observed source binding/text consistency rather than comparing registry digest; therefore do not claim this fixture tests strict equality to Current registry bytes. It tests the explicitly pinned historical corpus and real legacy resolution, not Current D657 authority.",
+  "reported_tests": "Worker reports 16 lookup tests plus 10 provider tests passing, then one added missing-D276 negative passed; reviewer did not rerun them.",
+  "limits": "Bounded static review, not Current admission, production policy modification, full suite, or deployment proof."
+}

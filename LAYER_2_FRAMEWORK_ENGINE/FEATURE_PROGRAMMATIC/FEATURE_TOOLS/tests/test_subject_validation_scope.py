@@ -162,7 +162,8 @@ class SubjectValidationScopeTests(unittest.TestCase):
 
     def test_invalid_original_and_proposed_carriers_still_fail_complete_validation(self):
         original = self.path.read_bytes()
-        self.path.write_bytes(original.replace(b"author: Anatoly Maslennikov", b"author: Unknown"))
+        self.assertEqual(original.count(b"tier: 14"), 1)
+        self.path.write_bytes(original.replace(b"tier: 14", b"tier: invalid", 1))
         self.items = self.fixture._payload(self.path)
         with self.assertRaises(operations.ToolError) as raised:
             self.preview()
@@ -172,9 +173,9 @@ class SubjectValidationScopeTests(unittest.TestCase):
         real = subjects._apply_replacements
 
         def invalid_proposal(frontmatter, replacements):
-            return real(frontmatter, replacements).replace(
-                "author: Anatoly Maslennikov", "author: Unknown"
-            )
+            proposed = real(frontmatter, replacements)
+            self.assertEqual(proposed.count("tier: 14"), 1)
+            return proposed.replace("tier: 14", "tier: invalid", 1)
 
         with patch.object(subjects, "_apply_replacements", side_effect=invalid_proposal):
             with self.assertRaises(operations.ToolError) as raised:

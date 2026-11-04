@@ -1,0 +1,31 @@
+{
+  "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1981-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-identifier.md",
+  "source_sha256": "dc82e9f6d7d2f5fccd6dba94aa5f2654a571940ea889560eab3e0301d14044ca",
+  "preview": null,
+  "preview_sha256": null,
+  "status": "WITHDRAWN_REPLACED_BY_RETIREMENT_PLAN",
+  "notes": "Do not apply the withdrawn same-ID preview. Retire R1981 as duplicate physical identifier after verifying D358 authority and all consumers.",
+  "evidence": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-RULE--gate-atomic-admission-and-promotion.md",
+      "sha256": "b04b475be16eac265df9ecc4af54bf1ecf6024e8cb4dd5b0367833aaba148ac7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2632-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes.md",
+      "sha256": "7c8d9f295f35dbba9b64b6e3e8873731c92d4ce1e2198e02cf735bcff0b69078"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-387-CORE_META_MODEL-ENG_DECISION--serialize-atomic-admission-strictness.md",
+      "sha256": "5e90f0151371d8c6280d2d00ec56d796b59c66279a51a75ab07216b215b2a8ea"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL-ENG_DECISION--identify-framework-settings-artifact.md",
+      "sha256": "2d5f06a8b5ce2be078c71336a10c77086ffe4167718c3fa00f0dfbb09385ba1e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-R-ALLOCATE-settings-non-atom.txt",
+      "sha256": "ff9c549e88542c0a63bc4b540c845e47feacd52855ea270bad06e3ddd1488e24"
+    }
+  ],
+  "withdrawn_preview_sha256": "c85ce27cf305891494fd27713012af2787bc0428d0f124932115183de538fbbe"
+}

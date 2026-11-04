@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "tests": 42,
+  "seconds": 186.914,
+  "command": "python -m unittest test_atom_move_lifecycle test_definition_move_continuation test_flat_plan_archive test_update_version_history_independent -q",
+  "python": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.venv/bin/python",
+  "working_directory": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests",
+  "test_sources": [
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_atom_move_lifecycle.py",
+      "sha256": "86ed8f1f47584f25b2ff7e5f38ef59fca563b06cf369e4b56f68e65f6d8824be"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_definition_move_continuation.py",
+      "sha256": "b71438db4d4475d8b418b68337119fc1aa97e57b2c5a84b0ba1a69c9a823fc22"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_flat_plan_archive.py",
+      "sha256": "89384ce0d5c91126f195dabda1f924c55cc2ef6db04f7e70151fba6a2929eb11"
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_update_version_history_independent.py",
+      "sha256": "1b6f46a2e95f138a448de17155e574906608b0ae88ad6b04f0a898c9f253fe6e"
+    }
+  ],
+  "evidence": "Observed unittest output: Ran 42 tests in 186.914s; OK",
+  "scope": "Four owned fixture modules only; full F2 gate not run."
+}

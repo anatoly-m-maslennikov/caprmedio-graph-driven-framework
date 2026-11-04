@@ -1,0 +1,36 @@
+---
+subjects:
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  passive:
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project.Settings.AI Agent Confidence Threshold
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+version: 29
+updated_at: 2026-11-02 18:35:20 +0400
+relations:
+  child_of:
+  - CA-R-1428
+atom_id: CA-M-271
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 3
+role: Method
+form: Implementation Method
+---
+## Summary
+Resolve confidence thresholds by source precedence
+
+## Claim
+
+### Prose Claim
+
+To resolve the effective AI Agent Confidence Threshold for a Plan, select the first present value in this order:
+
+1. The current Plan's explicit Header AI Agent Confidence Threshold.
+2. The nearest enclosing Plan's explicit Header AI Agent Confidence Threshold, walking `IS_CONTAINED_BY` recursively from nearest to farthest.
+3. The required `Project.Settings.AI Agent Confidence Threshold` value.
+
+An omitted Plan Property continues lookup; it does not copy a value into that Plan. Use current Plan Revisions and the containment Relation, not a Label, folder proximity, an unrelated file, or an invented Hub Property. Preserve an explicit value even when it equals the inherited value. A missing, invalid, ambiguous, or cyclic reached source requires Operator disposition before the affected autonomous action; do not silently fall through or invent a value. Resolution creates no Atom, settings file, or execution permission. Encode an explicit Plan value under CA-D-ALLOCATE.

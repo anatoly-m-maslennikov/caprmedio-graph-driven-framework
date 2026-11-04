@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "kind": "f2_two_current_base_diagnostic",
+  "status": "read_only",
+  "log": "f2-focused.log",
+  "first_shared_root_cause": {
+    "classification": "stale_synthetic_Current_carrier_shape",
+    "not_a_production_writer_mismatch": true,
+    "evidence": [
+      {
+        "base": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py",
+        "locations": [
+          "setUp() target/successor materialization",
+          "_atom()",
+          "_carrier()"
+        ],
+        "synthetic_shape": [
+          "content_role/type",
+          "author",
+          "subjects.governs/depends_on",
+          "direct prose ## Claim"
+        ]
+      },
+      {
+        "base": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py",
+        "locations": [
+          "_currentize_requirement()",
+          "_plan()"
+        ],
+        "synthetic_shape": [
+          "only tier/type adjustment on inherited old carrier",
+          "content_role/type",
+          "author",
+          "subjects.governs/depends_on",
+          "direct prose ## Claim"
+        ]
+      },
+      {
+        "stack_boundary": "test-created frontmatter enters atom_operations._validate_complete_carrier and is rejected by validate_proposed_carrier before publication."
+      }
+    ],
+    "current_d657_conflict": [
+      "role/form are canonical",
+      "Atom author is forbidden",
+      "Subjects use active/passive",
+      "Claim is a container with Prose Claim and/or Formal Claim children"
+    ]
+  },
+  "minimum_future_fixture_repair": [
+    {
+      "base": "test_selected_atom_lifecycle.py",
+      "change": "Add one Current D657 carrier builder and use it for ordinary target/successor/create carriers (_atom and _carrier); retain an explicitly named historical builder only for legacy-identity tests.",
+      "representative_test": "test_authorized_create_uses_a_complete_carrier_and_rejects_occupied_destination"
+    },
+    {
+      "base": "ATOM_UPDATE/tests/test_nonarchived_subject_preview.py",
+      "change": "Make _currentize_requirement and _plan emit the same Current D657 shape, including author removal, role/form, active/passive Subjects, and nested Prose Claim while preserving the deliberate CRLF assertions.",
+      "representative_test": "test_real_complete_validator_accepts_the_status_fixtures"
+    }
+  ],
+  "guardrails": [
+    "Do not weaken D657 or route these Current bases through D276.",
+    "No edit was made from this diagnostic."
+  ]
+}
+

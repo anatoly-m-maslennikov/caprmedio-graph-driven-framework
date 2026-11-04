@@ -1,0 +1,10 @@
+{
+  "atom_id": "CA-R-2424",
+  "current_version": 2,
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2424-CORE_META_MODEL-RULE--define-local-scope-contract-tier-zero.md",
+  "source_sha256": "70969971670326b0a1c707b218e524e7b29751730ff1420fa38ae5b0538619e2",
+  "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2424.preview.txt",
+  "preview_sha256": "1052685b92ea033717f3b2c6295518b40f9eac65412d5ddd78fac8b1ebb9e624",
+  "change_count": 1,
+  "change_summary": "remove owner phrase and state exact Goal Form plus Project-root predicate for Tier -1"
+}

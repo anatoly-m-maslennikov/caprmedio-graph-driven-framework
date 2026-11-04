@@ -1,0 +1,475 @@
+{
+  "schema": "settings-capability-reference-summary/1",
+  "scan": "all Markdown under .caprmedio_caprmedio; see reference-inventory.json for every occurrence",
+  "targets": [
+    {
+      "atom_id": "CA-R-1421",
+      "unversioned_all_markdown_occurrences": 240,
+      "frozen_at_version_occurrences": 166,
+      "active_canonical_source_occurrences": 5,
+      "active_examples": [
+        {
+          "owner_id": "CA-R-029",
+          "owner_version": "29",
+          "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/restore-project-principles-core-20261031/historical/CA-R-029.md",
+          "line": 11,
+          "snippet": "- CA-R-1421"
+        },
+        {
+          "owner_id": "CA-R-831",
+          "owner_version": "21",
+          "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/restore-project-principles-core-20261031/historical/CA-R-831.md",
+          "line": 8,
+          "snippet": "- CA-R-1421"
+        },
+        {
+          "owner_id": "CA-R-831",
+          "owner_version": "28",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-831-RULE--add-reusable-capabilities-through-extensions.md",
+          "line": 8,
+          "snippet": "- CA-R-1421"
+        },
+        {
+          "owner_id": "CA-R-832",
+          "owner_version": "35",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-832-GOAL--select-optional-capabilities-through-configuration.md",
+          "line": 8,
+          "snippet": "- CA-R-1421"
+        },
+        {
+          "owner_id": "CA-R-622",
+          "owner_version": "34",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-622-PROJECT_CONFIGURATION-RULE--keep-selected-settings-in-their-authoritative-settings-artifact.md",
+          "line": 14,
+          "snippet": "- CA-R-1421"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-832",
+      "unversioned_all_markdown_occurrences": 156,
+      "frozen_at_version_occurrences": 187,
+      "active_canonical_source_occurrences": 1,
+      "active_examples": [
+        {
+          "owner_id": "CA-R-1052",
+          "owner_version": "41",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-RULE--separate-project-settings-from-the-project-scope-unit-graph.md",
+          "line": 13,
+          "snippet": "- CA-R-832"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1207",
+      "unversioned_all_markdown_occurrences": 399,
+      "frozen_at_version_occurrences": 159,
+      "active_canonical_source_occurrences": 4,
+      "active_examples": [
+        {
+          "owner_id": "CA-R-832",
+          "owner_version": "35",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-832-GOAL--select-optional-capabilities-through-configuration.md",
+          "line": 39,
+          "snippet": "current Extension activation **and** selected Extension revisions use their authoritative Framework Instance Settings under CA-R-1207; this capability does **not** make Project Con"
+        },
+        {
+          "owner_id": "CA-P-972",
+          "owner_version": "14",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/03_plan/04-CA-Epic-008-FRAMEWORK_METHODOLOGY-review-core-meta-model-responsibility-boundaries/01-CA-P-972-TASK--inventory-core-meta-model-ownership-review.md",
+          "line": 48,
+          "snippet": "start boundary discovery from CA-R-1207, CA-R-1402, CA-R-1429, CA-R-1375, CA-R-1434, CAPRMEDIO-META-REQU-619, CAPRMEDIO-META-REQU-675, **and** CAPRMEDIO-META-REQU-688. these refere"
+        },
+        {
+          "owner_id": "CA-R-1375",
+          "owner_version": "33",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL--restrict-methodology-source-expansion-to-core-permission.md",
+          "line": 37,
+          "snippet": "current Extension activation **and** selected Extension Revisions remain owned by Framework Instance Settings under CA-R-1207. permission **to** add a rule does **not** duplicate *"
+        },
+        {
+          "owner_id": "CA-O-054",
+          "owner_version": "20",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-054-PROJECT_CONFIGURATION-ACTION--admit-methodology-expansion-mappings.md",
+          "line": 36,
+          "snippet": "the admission boundary preserves CA-R-1375. CA-R-1207 continues **to** separate expansion rules from current Settings selections."
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1375",
+      "unversioned_all_markdown_occurrences": 313,
+      "frozen_at_version_occurrences": 162,
+      "active_canonical_source_occurrences": 7,
+      "active_examples": [
+        {
+          "owner_id": "CA-P-966",
+          "owner_version": "15",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/03_plan/03-CA-Epic-007-FRAMEWORK_METHODOLOGY-complete-applicable-methodology-compilation-rmed/01-CA-P-966-TASK--inventory-existing-compilation-rmed-authority.md",
+          "line": 46,
+          "snippet": "start from the current CORE_META_MODEL Carriers for CA-R-1434, CA-R-1228, CA-R-1314 through CA-R-1317, CA-R-1375, CA-M-224, CA-E-379, CA-D-253, CA-D-305, CA-D-306, **and** CA-D-313"
+        },
+        {
+          "owner_id": "CA-P-967",
+          "owner_version": "13",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/03_plan/03-CA-Epic-007-FRAMEWORK_METHODOLOGY-complete-applicable-methodology-compilation-rmed/02-CA-P-967-TASK--complete-compilation-requirement-atoms.md",
+          "line": 43,
+          "snippet": "start from CA-R-1434, CA-R-1228, CA-R-1314 through CA-R-1317, **and** CA-R-1375 as already-existing authority. refresh their current Carriers **before** editing; do **not** recreat"
+        },
+        {
+          "owner_id": "CA-P-972",
+          "owner_version": "14",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/03_plan/04-CA-Epic-008-FRAMEWORK_METHODOLOGY-review-core-meta-model-responsibility-boundaries/01-CA-P-972-TASK--inventory-core-meta-model-ownership-review.md",
+          "line": 48,
+          "snippet": "start boundary discovery from CA-R-1207, CA-R-1402, CA-R-1429, CA-R-1375, CA-R-1434, CAPRMEDIO-META-REQU-619, CAPRMEDIO-META-REQU-675, **and** CAPRMEDIO-META-REQU-688. these refere"
+        },
+        {
+          "owner_id": "CA-M-298",
+          "owner_version": "26",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-298-CORE_META_MODEL-IMPLEMENTATION_METHOD--describe-methodology-expansion-mappings.md",
+          "line": 14,
+          "snippet": "- CA-R-1375"
+        },
+        {
+          "owner_id": "CA-E-249",
+          "owner_version": "36",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-POLICY--evaluate-methodology-expansion-mappings.md",
+          "line": 9,
+          "snippet": "- CA-R-1375"
+        },
+        {
+          "owner_id": "CA-E-379",
+          "owner_version": "46",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md",
+          "line": 25,
+          "snippet": "- CA-R-1375"
+        },
+        {
+          "owner_id": "CA-O-054",
+          "owner_version": "20",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-054-PROJECT_CONFIGURATION-ACTION--admit-methodology-expansion-mappings.md",
+          "line": 36,
+          "snippet": "the admission boundary preserves CA-R-1375. CA-R-1207 continues **to** separate expansion rules from current Settings selections."
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1724",
+      "unversioned_all_markdown_occurrences": 60,
+      "frozen_at_version_occurrences": 167,
+      "active_canonical_source_occurrences": 1,
+      "active_examples": [
+        {
+          "owner_id": "CA-R-2277",
+          "owner_version": "4",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-2277-PROJECT_CONFIGURATION-RULE--define-extension-sources-selection.md",
+          "line": 35,
+          "snippet": "CA-R-1175 requires preservation of installed source versions as candidate inputs. CA-R-1228 governs the applicable Methodology subset, and CA-R-1724 separates installed availabilit"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-2271",
+      "unversioned_all_markdown_occurrences": 9,
+      "frozen_at_version_occurrences": 120,
+      "active_canonical_source_occurrences": 0,
+      "active_examples": []
+    },
+    {
+      "atom_id": "CA-R-1228",
+      "unversioned_all_markdown_occurrences": 224,
+      "frozen_at_version_occurrences": 169,
+      "active_canonical_source_occurrences": 5,
+      "active_examples": [
+        {
+          "owner_id": "CA-P-966",
+          "owner_version": "15",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/03_plan/03-CA-Epic-007-FRAMEWORK_METHODOLOGY-complete-applicable-methodology-compilation-rmed/01-CA-P-966-TASK--inventory-existing-compilation-rmed-authority.md",
+          "line": 46,
+          "snippet": "start from the current CORE_META_MODEL Carriers for CA-R-1434, CA-R-1228, CA-R-1314 through CA-R-1317, CA-R-1375, CA-M-224, CA-E-379, CA-D-253, CA-D-305, CA-D-306, **and** CA-D-313"
+        },
+        {
+          "owner_id": "CA-P-967",
+          "owner_version": "13",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/03_plan/03-CA-Epic-007-FRAMEWORK_METHODOLOGY-complete-applicable-methodology-compilation-rmed/02-CA-P-967-TASK--complete-compilation-requirement-atoms.md",
+          "line": 43,
+          "snippet": "start from CA-R-1434, CA-R-1228, CA-R-1314 through CA-R-1317, **and** CA-R-1375 as already-existing authority. refresh their current Carriers **before** editing; do **not** recreat"
+        },
+        {
+          "owner_id": "CA-R-2277",
+          "owner_version": "4",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-2277-PROJECT_CONFIGURATION-RULE--define-extension-sources-selection.md",
+          "line": 35,
+          "snippet": "CA-R-1175 requires preservation of installed source versions as candidate inputs. CA-R-1228 governs the applicable Methodology subset, and CA-R-1724 separates installed availabilit"
+        },
+        {
+          "owner_id": "CA-E-379",
+          "owner_version": "46",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md",
+          "line": 24,
+          "snippet": "- CA-R-1228"
+        },
+        {
+          "owner_id": "CA-E-379",
+          "owner_version": "46",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md",
+          "line": 48,
+          "snippet": "- CORE_META_MODEL, PROJECT_CONFIGURATION, **or** an applicable installed Extension Source under CA-R-1228 is omitted; an unselected **or** inactive Extension revision contributes."
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-E-379",
+      "unversioned_all_markdown_occurrences": 253,
+      "frozen_at_version_occurrences": 240,
+      "active_canonical_source_occurrences": 6,
+      "active_examples": [
+        {
+          "owner_id": "CA-P-1086",
+          "owner_version": "24",
+          "path": ".caprmedio_caprmedio/03_plan/12-CA-Epic-009-caprmedio-new-ops-migration/01-CA-Epic-010-caprmedio-update-meta-model/05-CA-Epic-015-caprmedio-define-derived-model-graph-views/05-CA-Epic-016-caprmedio-establish-projection-and-journal-model/02-CA-P-1086-TASK--separate-source-authority-from-derived-projections.md",
+          "line": 80,
+          "snippet": "RMEDO Evaluation-target partial-stage evidence: [independent target-range expansion](../../../execution_evidence/CA-P-1086-rmedo-evaluation-targets-partial-stage.md) **and** [order"
+        },
+        {
+          "owner_id": "CA-P-1086",
+          "owner_version": "24",
+          "path": ".caprmedio_caprmedio/03_plan/12-CA-Epic-009-caprmedio-new-ops-migration/01-CA-Epic-010-caprmedio-update-meta-model/05-CA-Epic-015-caprmedio-define-derived-model-graph-views/05-CA-Epic-016-caprmedio-establish-projection-and-journal-model/02-CA-P-1086-TASK--separate-source-authority-from-derived-projections.md",
+          "line": 82,
+          "snippet": "Source Reconciliation extraction evidence: [source extraction **and** replacement-event support](../../../execution_evidence/CA-P-1086-source-reconciliation-partial-stage.md) **and"
+        },
+        {
+          "owner_id": "CA-P-1106",
+          "owner_version": "16",
+          "path": ".caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/01-CA-P-1106-TASK--build-the-atom-carrier-validator.md",
+          "line": 50,
+          "snippet": "- recognize `projection.source_carrier_path` **only** as admitted metadata on Applicable Methodology projected Carriers. validate its relative resolution, selected source identity/"
+        },
+        {
+          "owner_id": "CA-P-966",
+          "owner_version": "15",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/03_plan/03-CA-Epic-007-FRAMEWORK_METHODOLOGY-complete-applicable-methodology-compilation-rmed/01-CA-P-966-TASK--inventory-existing-compilation-rmed-authority.md",
+          "line": 46,
+          "snippet": "start from the current CORE_META_MODEL Carriers for CA-R-1434, CA-R-1228, CA-R-1314 through CA-R-1317, CA-R-1375, CA-M-224, CA-E-379, CA-D-253, CA-D-305, CA-D-306, **and** CA-D-313"
+        },
+        {
+          "owner_id": "CA-P-970",
+          "owner_version": "11",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/03_plan/03-CA-Epic-007-FRAMEWORK_METHODOLOGY-complete-applicable-methodology-compilation-rmed/05-CA-P-970-TASK--complete-compilation-evaluation-atoms.md",
+          "line": 45,
+          "snippet": "reuse CA-E-379 **and** connect additional independent cases to their exact checked authority through evaluation_for. keep Er, Em, **and** Ed as ordinary E Atoms grouped by checked "
+        },
+        {
+          "owner_id": "CA-D-305",
+          "owner_version": "32",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-305-PROJECT_CONFIGURATION-DECISION--carry-projected-atoms-without-new-identity.md",
+          "line": 34,
+          "snippet": "- retain the source Atom ID **and** Version; together with the source binding, they identify the selected source Revision. verify source fidelity under CA-E-379 rather than assumin"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-D-372",
+      "unversioned_all_markdown_occurrences": 50,
+      "frozen_at_version_occurrences": 182,
+      "active_canonical_source_occurrences": 1,
+      "active_examples": [
+        {
+          "owner_id": "CA-R-2271",
+          "owner_version": "3",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md",
+          "line": 38,
+          "snippet": "CA-D-368, CA-D-369, CA-D-372 and CA-D-373 retain their serialization requirements. No current Settings value changes, unknown field migration, Tool catalog or Extension object is i"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-D-373",
+      "unversioned_all_markdown_occurrences": 48,
+      "frozen_at_version_occurrences": 158,
+      "active_canonical_source_occurrences": 1,
+      "active_examples": [
+        {
+          "owner_id": "CA-R-2271",
+          "owner_version": "3",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md",
+          "line": 38,
+          "snippet": "CA-D-368, CA-D-369, CA-D-372 and CA-D-373 retain their serialization requirements. No current Settings value changes, unknown field migration, Tool catalog or Extension object is i"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-1979",
+      "unversioned_all_markdown_occurrences": 41,
+      "frozen_at_version_occurrences": 219,
+      "active_canonical_source_occurrences": 0,
+      "active_examples": []
+    },
+    {
+      "atom_id": "CA-R-2624",
+      "unversioned_all_markdown_occurrences": 24,
+      "frozen_at_version_occurrences": 175,
+      "active_canonical_source_occurrences": 0,
+      "active_examples": []
+    },
+    {
+      "atom_id": "CA-R-2625",
+      "unversioned_all_markdown_occurrences": 24,
+      "frozen_at_version_occurrences": 175,
+      "active_canonical_source_occurrences": 0,
+      "active_examples": []
+    },
+    {
+      "atom_id": "CA-R-1652",
+      "unversioned_all_markdown_occurrences": 77,
+      "frozen_at_version_occurrences": 193,
+      "active_canonical_source_occurrences": 2,
+      "active_examples": [
+        {
+          "owner_id": "CA-R-1979",
+          "owner_version": "16",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1979-CORE_META_MODEL-DECLARATION--define-project-framework-settings-confidence.md",
+          "line": 43,
+          "snippet": "Evidence: CA-R-1652 defines the necessary-information threshold default; CA-R-380 defines the semantic-resolution threshold default. These define the child settings, not the parent"
+        },
+        {
+          "owner_id": "CA-R-2271",
+          "owner_version": "3",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md",
+          "line": 24,
+          "snippet": "Framework Settings may explicitly override the necessary-information and semantic-resolution confidence defaults as integer percentages. Their effective defaults remain Operator-co"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-380",
+      "unversioned_all_markdown_occurrences": 114,
+      "frozen_at_version_occurrences": 194,
+      "active_canonical_source_occurrences": 3,
+      "active_examples": [
+        {
+          "owner_id": "CA-R-1979",
+          "owner_version": "16",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1979-CORE_META_MODEL-DECLARATION--define-project-framework-settings-confidence.md",
+          "line": 43,
+          "snippet": "Evidence: CA-R-1652 defines the necessary-information threshold default; CA-R-380 defines the semantic-resolution threshold default. These define the child settings, not the parent"
+        },
+        {
+          "owner_id": "CA-R-2271",
+          "owner_version": "3",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md",
+          "line": 24,
+          "snippet": "Framework Settings may explicitly override the necessary-information and semantic-resolution confidence defaults as integer percentages. Their effective defaults remain Operator-co"
+        },
+        {
+          "owner_id": "CA-O-053",
+          "owner_version": "21",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-053-PROJECT_CONFIGURATION-ACTION--migrate-atoms-to-a-current-cce-version.md",
+          "line": 19,
+          "snippet": "- CA-R-380"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-D-368",
+      "unversioned_all_markdown_occurrences": 151,
+      "frozen_at_version_occurrences": 186,
+      "active_canonical_source_occurrences": 1,
+      "active_examples": [
+        {
+          "owner_id": "CA-R-2271",
+          "owner_version": "3",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md",
+          "line": 38,
+          "snippet": "CA-D-368, CA-D-369, CA-D-372 and CA-D-373 retain their serialization requirements. No current Settings value changes, unknown field migration, Tool catalog or Extension object is i"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-D-369",
+      "unversioned_all_markdown_occurrences": 65,
+      "frozen_at_version_occurrences": 179,
+      "active_canonical_source_occurrences": 1,
+      "active_examples": [
+        {
+          "owner_id": "CA-R-2271",
+          "owner_version": "3",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md",
+          "line": 38,
+          "snippet": "CA-D-368, CA-D-369, CA-D-372 and CA-D-373 retain their serialization requirements. No current Settings value changes, unknown field migration, Tool catalog or Extension object is i"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-2277",
+      "unversioned_all_markdown_occurrences": 2,
+      "frozen_at_version_occurrences": 108,
+      "active_canonical_source_occurrences": 0,
+      "active_examples": []
+    },
+    {
+      "atom_id": "CA-R-831",
+      "unversioned_all_markdown_occurrences": 161,
+      "frozen_at_version_occurrences": 143,
+      "active_canonical_source_occurrences": 1,
+      "active_examples": [
+        {
+          "owner_id": "CA-R-1722",
+          "owner_version": "31",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL--govern-extension-semantics.md",
+          "line": 12,
+          "snippet": "- CA-R-831"
+        }
+      ]
+    },
+    {
+      "atom_id": "CA-R-2408",
+      "unversioned_all_markdown_occurrences": 2,
+      "frozen_at_version_occurrences": 4,
+      "active_canonical_source_occurrences": 0,
+      "active_examples": []
+    },
+    {
+      "atom_id": "CA-R-2411",
+      "unversioned_all_markdown_occurrences": 2,
+      "frozen_at_version_occurrences": 4,
+      "active_canonical_source_occurrences": 0,
+      "active_examples": []
+    },
+    {
+      "atom_id": "CA-R-2532",
+      "unversioned_all_markdown_occurrences": 35,
+      "frozen_at_version_occurrences": 182,
+      "active_canonical_source_occurrences": 3,
+      "active_examples": [
+        {
+          "owner_id": "CA-E-459",
+          "owner_version": "39",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md",
+          "line": 13,
+          "snippet": "- CA-R-2532"
+        },
+        {
+          "owner_id": "CA-D-362",
+          "owner_version": "26",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL-ENG_DECISION--identify-project-settings-artifact.md",
+          "line": 10,
+          "snippet": "- CA-R-2532"
+        },
+        {
+          "owner_id": "CA-R-622",
+          "owner_version": "34",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-622-PROJECT_CONFIGURATION-RULE--keep-selected-settings-in-their-authoritative-settings-artifact.md",
+          "line": 10,
+          "snippet": "- CA-R-2532"
+        }
+      ]
+    }
+  ],
+  "address_usage": {
+    "extension_sources_active_source_occurrences": 37,
+    "tool_selection_active_source_occurrences": 6,
+    "extension_selection_active_source_occurrences": 6,
+    "active_address_references_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/active-address-references.json"
+  }
+}

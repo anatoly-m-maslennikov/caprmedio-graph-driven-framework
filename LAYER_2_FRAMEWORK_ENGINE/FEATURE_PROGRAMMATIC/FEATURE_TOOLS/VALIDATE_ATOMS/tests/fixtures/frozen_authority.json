@@ -374,8 +374,8 @@
       },
       "CA-D-378": {
         "fixture": "schema_authority/CA-D-378.md",
-        "sha256": "d4e6f0569f81a54f434d060ea6e2a271dea51611a66a1afd0f6a10ca127c7562",
-        "version": 16
+        "sha256": "1ba640384cf4a2d582b1131a6d745cef961519f1c6e58b3a41c40e35c2fea083",
+        "version": 29
       },
       "CA-D-288": {
         "fixture": "schema_authority/CA-D-288.md",

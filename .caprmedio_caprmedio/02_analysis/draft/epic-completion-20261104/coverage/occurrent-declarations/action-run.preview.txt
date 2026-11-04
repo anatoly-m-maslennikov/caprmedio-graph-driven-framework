@@ -1,0 +1,30 @@
+---
+atom_id: "<UNALLOCATED-action-run>"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Action Run
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare Action Run
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Action Run ((NARROWER_THAN)) Execution
+```
+
+## Semantics
+
+An Action Run is one actual execution of one Action, distinct from its reusable Action definition and from records describing it.

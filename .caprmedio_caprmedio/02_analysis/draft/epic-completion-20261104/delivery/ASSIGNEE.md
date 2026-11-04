@@ -1,0 +1,9 @@
+# Plan Assignee: conflicting authority requires a decision
+
+CA-R-2380@1, “Define Plan Assignee”, previously described an optional local string override. It is actually Archived. The node-declaration migration's `publication-receipt.json` records its archive; `reference-dispositions-candidate.json` labels it `removed_no_equivalent` with no successor. The latter is a candidate disposition, not independent proof of a human decision to remove the operational concept. Nonetheless this is not a case of an undiscovered, never-defined property and the migration record explicitly opposes a successor.
+
+Current CA-R-1584 still requires an effective Assignee for a Plan with its own work. Current CA-R-1585 defaults that work to an AI Agent when no explicit Assignee is selected. Current CA-D-473 admits one explicit `assignee` value in a Plan File Carrier. No applicable Current Plan Header Assignee Requirement/Form Declaration was established. A Delivery encoding does not by itself declare the model Property.
+
+**Decision:** Should the model explicitly declare a Plan Header Assignee while preserving the existing explicit/default assignment behavior, or should the current Assignee consumers be retired or rewritten? The former needs a new Declaration and alignment of the Header name whitelist, role-qualified Subjects, serialization and tests; the latter affects work assignment and the AI Agent default. Do not restore CA-R-2380 or create a successor automatically while its explicit no-successor disposition and surviving Current behavior conflict.
+
+Evidence: Current CA-R-1584@23, CA-R-1585@23, CA-D-473@25; archived CA-R-2380@1; `node-declaration-20261031/migration-20261101/publication-receipt.json` and `reference-dispositions-candidate.json`. The current property-declaration inventory scan is bounded; no runtime or whole-repository absence claim is made.

@@ -1,0 +1,48 @@
+---
+atom_id: CA-E-677
+current_scope_unit: WORKBENCH
+claim_target_scope_unit: WORKBENCH
+status: Archived
+author: Anatoly Maslennikov
+subjects:
+  active: CAPRMEDIO_MODEL <+ Projection
+version: 4
+role: Evaluation
+form: Eval Case
+tier: 5
+carrier_destination:
+  file:
+    name: CA-E-677-WORKBENCH-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation
+relations:
+  evaluation_for: [CA-R-2723, CA-R-2725, CA-M-465, CA-D-672, CA-D-675]
+updated_at: 2026-11-04 07:39:08 +0400
+---
+## Summary
+
+Reconcile source lifecycle changes and repaired validity
+
+## Claim scope
+
+Atomic in-memory refresh of governed sources and Current declarations.
+
+## Claim
+
+### Prose Claim
+
+The indexer atomically replaces in-memory `atoms` and `scope_units` state from selected governed sources and Current declarations. Current and Draft Atom carriers are included, including Done and Canceled Current statuses; Archived carriers are excluded. Only Current Scope Unit Declarations establish `scope_units`; Draft Declarations remain Atom rows. No reader schema is compiled. Each public row hash is SHA-256 of deterministic canonical row JSON excluding `hash`, with materialized relations in the Atom payload. Failures go to stderr, are skipped, and are not retried. No database file, temporary spill, or intermediate file exists.
+
+## Details
+
+| Fixture | Expected outcome |
+| --- | --- |
+| Current Active, Done, Canceled; Draft; and Archived carrier | The first four have Current/Draft `atoms` rows; Archived is absent. |
+| Current and Draft Scope Unit Declarations | Only Current produces Scope Unit structure; Drafts remain queryable Atom rows. No reader-schema state is created. |
+| Valid Task edit adding or removing `IS_CONTAINED_BY Epic` | One published state refreshes the Task row, Epic outgoing derived Relations, their hashes, and DuckPGQ mappings. The unchanged Epic source bytes and Version stay unchanged. |
+| Direct-fact source becomes invalid or is removed | Its row and every supported derived counterpart disappear or refresh together; unrelated valid rows remain queryable. |
+| Current Scope Unit Declaration becomes invalid | The invalid structural input is reported to stderr and does not establish Current structure; no reader-schema fallback or automatic retry is introduced. |
+| Index or graph refresh fails | The owner reports stderr and becomes unavailable; it does not retry, restore old rows, swap databases, or run application rollback. |
+| Current Scope Unit or literal Relation-inverse Declaration changes | Relevant structural/materialized rows and their hashes refresh with the graph; no generic CFEL or schema compilation occurs. |
+| Invalid, unreadable, or unstable source | Its rows are absent; stderr identifies it; unrelated valid rows remain; no retry is queued. |
+| Move, deletion, or later repair | A later refresh reflects observed selected state without prescribing fingerprint algorithm or event workflow classification. |
+| Filesystem observation during indexing | No database file, temporary spill, or intermediate file exists. |

@@ -1,0 +1,42 @@
+---
+subjects:
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  passive:
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+version: 29
+updated_at: 2026-11-02 18:35:20 +0400
+relations:
+  child_of:
+  - CA-R-1428
+atom_id: CA-M-271
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 3
+role: Method
+form: Implementation Method
+---
+## Summary
+Resolve confidence thresholds by source precedence
+
+## Claim
+
+### Prose Claim
+
+Resolution of a Confidence Threshold.
+
+For a decision executing a Plan, resolve its AI Agent Confidence Threshold from the first present source in this order:
+
+1. The current Plan's explicit Header AI Agent Confidence Threshold.
+2. The nearest enclosing Plan's explicit value for the same Property, walking `IS_CONTAINED_BY` recursively from nearest to farthest. Every enclosing Plan is eligible; a Hub Label or a folder is not required.
+3. The required `Project.Settings.AI Agent Confidence Threshold` value.
+
+For any other Confidence Threshold, and for a decision outside Plan execution, retain the existing applicable source order: direct Operator input in its stated context, an explicit value on an applicable current Plan, the nearest enclosing Hub Plan with an explicit applicable value, then the applicable Project.Settings default for that threshold. A source that is not applicable is skipped; do not infer another Plan Property or equate a different threshold to the AI Agent Confidence Threshold.
+
+For each threshold, determine presence independently: an omitted optional field continues lookup and another explicit field does not stop it. Use current Plan Revisions and the actual Relation, not historical Carrier copies or unrelated nearby files. A missing mandatory Plan Carrier is invalid, not an inherited value.
+
+If a reached source is invalid, ambiguous, or cyclic, or no applicable required source supplies a value, request Operator disposition before the affected autonomous action; do not invent a value or silently fall through. Record the selected source and context. Do not copy inherited values into Plan overrides; preserve an explicit selection even when it equals the inherited value. Resolution does not create another Atom, settings file, or execution permission. Explicit Plan values use the applicable Plan Carrier encoding.

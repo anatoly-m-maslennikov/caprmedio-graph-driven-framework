@@ -1,0 +1,33 @@
+---
+atom_id: "<UNALLOCATED-produces>"
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//PRODUCES
+version: 1
+relations: {}
+tier: 1
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare PRODUCES
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Relation//PRODUCES ((HAS_INVERSE)) Relation//IS_PRODUCED_BY;
+
+Relation//PRODUCES ((HAS_CLASSIFICATION)) Derivation == Direct;
+
+# instances
+Execution//$execution((PRODUCES)) Event//$event
+```
+
+## Semantics
+
+PRODUCES is the stored Relation from an Execution to an Event produced by that Execution.

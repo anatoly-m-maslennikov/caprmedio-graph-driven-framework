@@ -3,8 +3,8 @@ cce_version: cce_1
 cce_form: obligation
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-version: 20
-updated_at: 2026-11-02 19:44:26 +0400
+version: 21
+updated_at: 2026-11-03 23:17:14 +0400
 relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -25,4 +25,4 @@ Identical readable source bytes **and** settings **must** produce byte-identical
 
 Description **and** ordinary generation are mutation-free. Persistence occurs **only** **when** the caller supplies an explicit output path **or** a registered Project setting resolves one unambiguous Projection destination. One output Carrier represents exactly one source frontier **and** is replaced atomically. The Tool **must** reject destinations inside governed Atom **or** Journal authority, path traversal, symlink escape, ambiguous configured destinations, **and** **any** request that would make the Projection authoritative.
 
-the persisted Projection is suitable for strictly read-only consumption by `GRAPH_SERVER` and optional presentation by `GRAPH_UI`, but it has no authority of its own: current Atoms, Journals, authoritative Settings Artifacts, **and** **any** other authority admitted by the applicable methodology remain authoritative independently of the Projection.
+the persisted Projection is suitable for strictly read-only consumption by `WORKBENCH` and optional presentation by `GRAPH_UI`, but it has no authority of its own: current Atoms, Journals, authoritative Settings Artifacts, **and** **any** other authority admitted by the applicable methodology remain authoritative independently of the Projection.

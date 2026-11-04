@@ -1,0 +1,37 @@
+{
+  "status": "COMPLETE",
+  "exit_code": 1,
+  "timed_out": false,
+  "elapsed_seconds": 113.58,
+  "selected_modules": [
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_atom_move_lifecycle.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_definition_move_continuation.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_flat_plan_archive.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_lifecycle_complete_carrier_preflight.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_update_version_history_independent.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_SEARCH/tests/test_instance_subject_flow.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_direct_preparation_guards.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_direct_subject_preparation_provider.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_subject_intent_materialization.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_subject_patch_by_value_independent.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_subject_replace_set.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_subject_stage_preview.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_subject_identity_parse_reuse.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_subject_identity_reuse_independent.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_subject_validation_scope.py",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/tests/test_direct_subject_preparation_protocol.py"
+  ],
+  "log_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/f2-current-fixture-checks/f2-root-captured.log",
+  "log_sha256": "bea5de593e3912b4ef703dbd0351ce2f981e7760760df3dc46fcbafb9a5f1504",
+  "summary": {
+    "modules": 18,
+    "tests": 208,
+    "skipped": 0,
+    "failed_modules": 17
+  },
+  "implementation_commit": "a02ac7b83bf4561c7ad18b69ce9b6436dcbb02bf",
+  "uncommitted_owner_patch": true,
+  "full_project_suite": false
+}

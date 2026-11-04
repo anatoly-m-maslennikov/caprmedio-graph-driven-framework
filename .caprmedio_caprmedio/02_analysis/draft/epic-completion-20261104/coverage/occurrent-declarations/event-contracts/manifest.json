@@ -1,0 +1,118 @@
+{
+  "status": "REVIEW_ONLY_FIELD_MOVE_WITHDRAWN",
+  "decision": "Event Record records exactly one Event. Existing Event Record fields stay. Events are produced by Execution; Execution operates in Runtime.",
+  "candidates": [
+    {
+      "id": "CA-R-2246",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+      "source_sha256": "5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/CA-R-2246.preview.txt",
+      "candidate_sha256": "5e043538450f47e34cae5f0ac23635e22bc7b619516137d3ac03844d15eb023b",
+      "source_kind": "Current"
+    },
+    {
+      "id": "CA-R-2421",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2421-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+      "source_sha256": "1e6ddc6a60e24a613c8ea03be2c11b4dc452bb94d5e1fa2bd652123295b82277",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/CA-R-2421.preview.txt",
+      "candidate_sha256": "b814ffe50e4a5121fecc02330e01916f2e2be50e3ea157346338b86a043c69ba",
+      "source_kind": "Current"
+    },
+    {
+      "id": "CA-R-2557",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2557-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "source_sha256": "0357e59cb3366ebbb2e13d0ef139d29e8fd24a449729014686c438555e535dcb",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/CA-R-2557.preview.txt",
+      "candidate_sha256": "beb27e9784851ca050828d25f5595f4a17b0f92760cb367b360a34ebbd63ce72",
+      "source_kind": "Current"
+    },
+    {
+      "id": "CA-R-2255",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2255-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "source_sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/CA-R-2255.preview.txt",
+      "candidate_sha256": "0f5cedb290153066728f1a7c9b6a433360d78cf25f09112941130697aba70ce6",
+      "source_kind": "Current"
+    },
+    {
+      "id": "CA-R-2420",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2420-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+      "source_sha256": "52e09f067858fcaa9c26bfd100227b9c7866058482054e0fca93331cdc238263",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/CA-R-2420.preview.txt",
+      "candidate_sha256": "44ce846919e6c42e0df3ef5fad2646ddd9a7b25b6499027280aaf2f357e1bbe8",
+      "source_kind": "Current"
+    },
+    {
+      "id": "event",
+      "source_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event.preview.txt",
+      "source_sha256": "972f9f006a723b8391cb9f844cf1f37b67e57e6b365b039a49844706614329da",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/event.preview.txt",
+      "candidate_sha256": "c80dcad89c791b818b7fd822c2616d50aa0ea76f5d4a21f060bb1befb9422b6e",
+      "source_kind": "unallocated Draft predecessor"
+    },
+    {
+      "id": "runtime",
+      "source_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/runtime.preview.txt",
+      "source_sha256": "5ca3e9e8f35c04bd2e84a1a6ea1285c0667e0842eabb924452763d1c667e75bf",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/runtime.preview.txt",
+      "candidate_sha256": "796460895b6b40a1d733b3f4582ccea07dfaf7ed703f46dd388aa8c6501ab63c",
+      "source_kind": "unallocated Draft predecessor"
+    },
+    {
+      "id": "execution",
+      "source_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution.preview.txt",
+      "source_sha256": "a2e917f5a8c652acd82cdc131d03962d364915fde47e73ceee2eac37e2708b43",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/execution.preview.txt",
+      "candidate_sha256": "71eb7a2be4fa8a8eea2c612e84c056cc2538fc4c984203145818ca12077ce44a",
+      "source_kind": "unallocated Draft predecessor"
+    }
+  ],
+  "authority": [
+    {
+      "id": "CA-R-2470",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2470-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+      "sha256": "4538f6da853f355069f985f84354a421b15ac7c792aa10859550f5486dbcf8fe"
+    },
+    {
+      "id": "CA-R-2590",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2590-CORE_META_MODEL-DECLARATION--declare-occurrent.md",
+      "sha256": "d730e7db828cee2963d00db6c596079ac5a98b796021fbcd2a7882b1ac70b8c2"
+    },
+    {
+      "id": "CA-R-2613",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md",
+      "sha256": "deb55e82a43174ac74898393143ff987ae64141e5d8f5c80aea5bc7f7fa6e5ae"
+    }
+  ],
+  "endpoint_and_direction": [
+    "Event Record -> Event: direct RECORDS; reverse IS_RECORDED_BY explicitly Derived.",
+    "Runtime -> Execution: direct EXECUTES; reverse IS_EXECUTED_BY explicitly Derived; Workflow Run inherits Execution endpoint.",
+    "Execution -> Event: new direct PRODUCES; reverse IS_PRODUCED_BY explicitly Derived, per root direction decision."
+  ],
+  "unresolved": [
+    "The count on Event Record to Event is exactly one per record; no inverse uniqueness or requirement that every Event be recorded is inferred.",
+    "Event-to-Execution and Execution-to-Runtime remain 1+ with no inferred upper bound; producers and Runtimes have 0+ outgoing permission.",
+    "No field relocation is proposed. Other model details and actual consumer/data migration remain outside this packet."
+  ],
+  "dependencies": [
+    "Event, Execution, Runtime, PRODUCES and IS_PRODUCED_BY declarations are unallocated and remain Draft; no IDs assigned.",
+    "Execution preview overlaps lane A work; root must merge exact declaration contents before promotion.",
+    "Changes to existing R2246 narrow previous generic occurrence/execution endpoint per latest explicit user decision. Existing Workflow Run records must be reconciled via Event, not silently retargeted.",
+    "No data migration or runtime behavior inferred."
+  ],
+  "new_declarations": [
+    {
+      "id": "<UNALLOCATED-produces>",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/produces.preview.txt",
+      "candidate_sha256": "c47b4ef5bf56280da0a7dd2f6db7ec4e32b56c26f6cf8d3dc6952605da9b218c",
+      "source_kind": "new Draft, ID not allocated"
+    },
+    {
+      "id": "<UNALLOCATED-is-produced-by>",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/is-produced-by.preview.txt",
+      "candidate_sha256": "589fa7cee8630286988150295d81499fec65d27801919549a638e5edeb5d3f3b",
+      "source_kind": "new Draft, ID not allocated"
+    }
+  ],
+  "relation_count_policy": "Relation-object Declarations identify endpoint patterns without count slots; Node endpoint Declarations own actual counts."
+}

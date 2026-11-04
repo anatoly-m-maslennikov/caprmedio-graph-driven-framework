@@ -13,16 +13,42 @@ from .authority import Record, _verified
 from .check_support import Check, _integer, _string, _strings
 
 
+_LEGACY_D378_SOURCES = frozenset({
+    "d4e6f0569f81a54f434d060ea6e2a271dea51611a66a1afd0f6a10ca127c7562",
+})
+
+
+def _legacy_draft_identity_source(check: Check) -> Record | None:
+    """Select the reviewed historical D378 revision required by D276 only."""
+    rows = [
+        row for row in check.inputs.get("sources", [])
+        if row.get("binding", {}).get("atom_id") == "CA-D-378"
+    ]
+    if len(rows) != 1 or not _verified(rows[0], {}):
+        check.gap("authority", "Missing or changed historical CA-D-378 authority for the D276 profile.")
+        return None
+    binding = rows[0]["binding"]
+    if binding.get("sha256") not in _LEGACY_D378_SOURCES or binding.get("version") != 16:
+        check.gap("authority", "The D276 profile requires its reviewed historical CA-D-378 revision.")
+        return None
+    return rows[0]
+
+
 def _draft_identity_context(metadata: Record, check: Check) -> tuple[str, str] | None:
     """Resolve the exact Project prefix and D378 role letter for Draft markers."""
-    from .support_authority import exact_source, require_sources
+    from .support_authority import exact_source
 
-    if not require_sources(check, ("CA-D-378",)):
-        return None
     project = check.inputs.get("_project_identity", {})
     identity = project.get("identity", {}) if isinstance(project, dict) else {}
     prefix = identity.get("project_prefix") if isinstance(identity, dict) else None
-    source = exact_source(check.inputs, "CA-D-378")
+    source = (
+        _legacy_draft_identity_source(check)
+        if _selected_encoding_profile(check) == "legacy"
+        else exact_source(check.inputs, "CA-D-378")
+    )
+    if source is None:
+        check.gap("authority", "Missing or changed supporting authority: CA-D-378.")
+        return None
     text = source.get("text") if isinstance(source, dict) else None
     letters = dict(re.findall(r"([A-Za-z]+): ([A-Z])(?:,|\))", text)) if isinstance(text, str) else {}
     letter = letters.get(metadata.get("content_role"))
@@ -54,6 +80,80 @@ def _draft_value(metadata: Record, check: Check) -> object | None:
     return value
 
 
+def _selected_encoding_profile(check: Check) -> str | None:
+    rows = [
+        row for row in check.inputs.get("sources", [])
+        if row.get("binding", {}).get("atom_id") in {"CA-D-276", "CA-D-657"}
+    ]
+    if len(rows) != 1 or not _verified(rows[0], {}):
+        return None
+    return reviewed_encoding_profile(rows[0])
+
+
+def _current_draft_contract(check: Check) -> bool:
+    from .support_authority import exact_source, matches_source_pin, require_sources, support_sources
+
+    if not require_sources(check, ("CA-D-378",)):
+        return False
+    source = exact_source(check.inputs, "CA-D-378")
+    if source is None or not matches_source_pin(source, support_sources().get("CA-D-378", {})):
+        check.gap("authority", "Missing or changed supporting authority: CA-D-378.")
+        return False
+    text = source.get("text") if isinstance(source, dict) else None
+    if not isinstance(text, str) or (
+        "Every Draft carries its base canonical ID in the Header" not in text
+        or "<canonical-ID>@<version>-draft" not in text
+    ):
+        check.gap("atom_id", "Selected Draft identity authority does not settle the Current canonical-ID contract.")
+        return False
+    return True
+
+
+def _check_current_draft_identity(metadata: Record, check: Check) -> None:
+    """Apply D378's ordinary Current Draft identity; packet drafts stay external."""
+    if not _current_draft_contract(check):
+        return
+    value = metadata.get("atom_id")
+    check.require(metadata, "atom_id", _string)
+    if not _string(value):
+        return
+    project = check.inputs.get("_project_identity", {})
+    identity = project.get("identity", {}) if isinstance(project, dict) else {}
+    prefix = identity.get("project_prefix") if isinstance(identity, dict) else None
+    role = metadata.get("role")
+    try:
+        from atom_operations import parse_draft_marker
+    except ImportError:
+        check.gap("atom_id", "Current Draft canonical-ID parser is unavailable.")
+        return
+    if (
+        not _string(prefix)
+        or not _string(role)
+        or prefix != prefix.upper()
+    ):
+        check.fail(
+            "DRAFT_ID_INVALID",
+            "atom_id",
+            "An ordinary Current Draft must carry one canonical allocated Atom ID.",
+        )
+        return
+    try:
+        # The shared marker parser owns the project-prefix-aware canonical
+        # identity grammar.  A Current Header carries its base ID, so parse
+        # the equivalent version-qualified marker only for grammar checking.
+        marker = parse_draft_marker(
+            f"{value}@1-draft", project_prefix=prefix, role_letter=role[0].upper()
+        )
+    except ValueError:
+        marker = None
+    if marker is None or marker.canonical_id != value:
+        check.fail(
+            "DRAFT_ID_INVALID",
+            "atom_id",
+            "An ordinary Current Draft must carry one canonical allocated Atom ID.",
+        )
+
+
 def _parse_draft_marker(
     value: object, context: tuple[str, str] | None, check: Check
 ) -> tuple[object | None, bool]:
@@ -70,6 +170,18 @@ def _parse_draft_marker(
 
 
 def _check_draft_identity(metadata: Record, check: Check) -> None:
+    profile = _selected_encoding_profile(check)
+    if profile == "current":
+        # D657's Subjects-only marker is admitted by its separately pinned
+        # batch-review flow, never by a standalone carrier.
+        _check_current_draft_identity(metadata, check)
+        return
+    if profile != "legacy":
+        check.gap(
+            "atom_id",
+            "Draft identity requires exactly one reviewed Current or legacy encoding profile.",
+        )
+        return
     value = _draft_value(metadata, check)
     if value is None:
         return

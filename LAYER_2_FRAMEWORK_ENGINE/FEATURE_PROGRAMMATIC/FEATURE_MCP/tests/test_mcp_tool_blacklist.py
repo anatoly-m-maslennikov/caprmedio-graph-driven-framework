@@ -142,12 +142,18 @@ class GatewayBlacklistTests(unittest.IsolatedAsyncioTestCase):
         control.mkdir()
         (control / "caprmedio_project_settings.toml").write_text(
             '[paths]\ncontrol_root = ".caprmedio_fixture"\n'
-            '[project_mcp]\ntool_blacklist = ["echo", "reload_mcp_implementation", "get_mcp_reload_status"]\n'
+            '[project_mcp]\ntool_blacklist = ["echo", "reload_mcp_implementation", "get_mcp_reload_status", "query_run", "query_check"]\n'
         )
         async with Client(self.params(), cache=None) as client:
             self.assertEqual([], (await client.list_tools()).tools)
-            for name in ("echo", CONTROL.name, STATUS.name):
-                response = await client.call_tool(name, {"request": {}})
+            for name, arguments in (
+                ("echo", {"request": {}}),
+                (CONTROL.name, {"request": {}}),
+                (STATUS.name, {"request": {}}),
+                ("query_run", {"sql": "SELECT 1"}),
+                ("query_check", {"sql": "SELECT 1"}),
+            ):
+                response = await client.call_tool(name, arguments)
                 self.assertTrue(response.is_error)
                 self.assertEqual(["Unknown Tool"], response.structured_content["diagnostics"])
 

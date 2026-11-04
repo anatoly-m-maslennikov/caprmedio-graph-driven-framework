@@ -1,0 +1,49 @@
+---
+version: 35
+updated_at: 2026-11-02 18:35:20 +0400
+relations:
+  child_of:
+  - CA-E-001
+  evaluation_for:
+  - CA-O-024
+  - CA-O-016
+  - CA-R-1559
+subjects:
+  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Implementation Retry Control'
+  passive:
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Failure Handling
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Autonomous Confidence Threshold'
+  - CAPRMEDIO_MODEL <+ Project
+atom_id: CA-E-441
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 6
+role: Evaluation
+form: Eval Policy
+---
+## Summary
+
+Evaluate retry budget **and** escalation
+
+## Claim
+
+### Prose Claim
+
+
+the retry-policy Evaluation.
+
+
+the retry-policy Evaluation **must** return `fail` **if** **any** of the following occurs:
+
+- the initial failed Evaluation consumes a retry.
+- an automatic retry exceeds the applicable Workflow retry allowance **or** violates governing permissions enforced by CA-O-024-PROJECT_CONFIGURATION-ACTION--control-implementation-retries.
+- starting a permitted fix-and-evaluate round is **not** counted once, **or** checking its permission again consumes another retry.
+- a changed failure set **or** automatic next loop silently resets the budget.
+- the last permitted retry fails **without** pausing **and** reporting remaining failures **to** the Operator.
+- retrying bypasses a confidence gate, governing-Atom approval rule, **or** additional Operator constraint.
+- successful completion under CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior still triggers another automatic repair retry.
+
+earlier escalation required by governing authority **must not** be rejected merely because retries remain.

@@ -38,6 +38,7 @@ from rmed_workflow_mcp_support import (  # noqa: E402
     _forward_startup_telemetry,
     bounded_server_client,
 )
+from workbench_tools import CHECK as WORKBENCH_CHECK, RUN as WORKBENCH_RUN  # noqa: E402
 
 
 class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
@@ -126,7 +127,7 @@ class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
             self.assertTrue(next(tool for tool in tools.tools if tool.name == 'find_and_fetch_journal_events').annotations.read_only_hint)
             self.assertEqual(
                 D548_REQUIRED_TOOLS | set(SELECTED_ROUTE_NAMES) | D547_SELECTED_CONTROL_TOOLS |
-                D547_DIRECT_RELEASE_TOOLS,
+                D547_DIRECT_RELEASE_TOOLS | {WORKBENCH_RUN, WORKBENCH_CHECK},
                 actual_tool_names,
             )
             schema = next(tool for tool in tools.tools if tool.name == 'workflow_orchestrator').input_schema

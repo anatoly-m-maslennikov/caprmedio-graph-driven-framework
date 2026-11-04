@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "kind": "f2_current_owner_repair",
+  "status": "blocked_by_current_containment_permission_authority",
+  "current_profile": "CA-D-657 Current; no D276 fallback was used for Current carriers",
+  "changed_files": {
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py": "91d750c15a4a7a886d1576b8f23fbf2dbb00e6ddfa0c9b4df90d634eb2dd1db2",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py": "f8a7cce3a4b2b855de00d039424913dc49275363a7fbca17fcafeca73696bbff",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py": "c352cbc08b8855a11f87ab92e0ab75f1836063426958d3b9706c66aaf8c63d21"
+  },
+  "focused_checks": [
+    {
+      "command": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py SelectedAtomLifecycleTest.test_authorized_create_uses_a_complete_carrier_and_rejects_occupied_destination",
+      "result": "blocked_as_designed",
+      "tests": 1,
+      "seconds": 0.731,
+      "diagnostic": "Current containment relation permission is unresolved"
+    },
+    {
+      "command": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py NonarchivedSubjectPreviewTests.test_real_complete_validator_accepts_the_status_fixtures",
+      "result": "blocked_as_designed",
+      "tests": 1,
+      "seconds": 0.741,
+      "diagnostic": "Current containment relation permission is unresolved"
+    },
+    {
+      "command": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py SelectedAtomLifecycleTest.test_current_containment_fails_closed_without_direct_or_atom_permission",
+      "result": "passed",
+      "tests": 1,
+      "seconds": 6.888
+    },
+    {
+      "command": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_carrier_admission_regressions.py ProposedCarrierAdmissionRegressions.test_current_and_legacy_encoding_profiles_are_disjoint",
+      "result": "passed",
+      "tests": 1,
+      "seconds": 0.241
+    }
+  ],
+  "f2_gate": {
+    "scope": "single required run before the subsequently identified atom-parent and direct-scope permission source gaps; no second F2 run was made",
+    "runner": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/run_full_test_suite.py",
+    "selection": "the ordered 18 modules in f2-focused-result.json command.selected_modules",
+    "log": {
+      "path": "f2-owner-repair.log",
+      "sha256": "964362c570b74069210772b22860bd7d9429d2fceb2499dbd193fbdee0009148",
+      "lines": 5665
+    },
+    "result": {
+      "modules": 18,
+      "tests": 207,
+      "skipped": 0,
+      "failed_modules": 17
+    }
+  },
+  "first_shared_post_repair_blocker": {
+    "consumer": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_subject_patch.py:827-845",
+    "observed": "Current fixtures use the adopted subjects.active/passive shape, but the subject-patch consumer requires subjects.governs and subjects.depends_on before the test's intended condition.",
+    "evidence": "f2-owner-repair.log:69-77 records subject-shape-invalid at _subject_scalars; the same error then masks intended lifecycle assertions across the affected consumers.",
+    "scope_decision": "No atom_subject_patch or other production-consumer change was made; it is outside the authorized proposed_carrier owner-resolution lane."
+  },
+  "additional_bounded_fixture_root": {
+    "consumer": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py",
+    "observed": "Six current-context tests intentionally construct historical legacy carriers. They now fail the required Current containment check before their intended identity-history assertions.",
+    "evidence": "f2-owner-repair.log:2050-2317 records Current containment relation lacks one canonical containment relation for the explicit legacy-history and recovery cases.",
+    "next_test_only_repair": "Bind only those historical scenarios to the explicit D276 fixture profile; preserve their legacy bytes and do not add a Current fallback. This was not applied after the single F2 gate because the instruction was to stop at new shared failures."
+  },
+  "containment_boundary": {
+    "implemented": "Current IS_CONTAINED_BY requires exactly one populated scope_unit stable ID or atom stable ID. Scope Unit IDs are resolved through the selected Scope Unit Declarations before failing explicitly because the outgoing relation permission is unproven. Atom chains use CurrentAtomLocator and reject missing, ambiguous, malformed, self, and cyclic paths before failing explicitly because parent eligibility cannot be proved.",
+    "preserved": "D276 uses its explicit historical owner field path unchanged. The raw typed containment remains available in carrier_inputs; only the legacy relation-adapter view excludes it because that adapter cannot parse the adopted typed, non-runtime relation encoding.",
+    "not_claimed": "No generic Container eligibility or CFEL policy was inferred. The reviewed Current declaration sources establish relation shape and target types, but Current Container=yes assignments cover only ScopeUnit, Project, Package, Journal, MODEL, and STRUCTURE; no reusable Plan/Workflow/Step eligibility authority was available."
+  },
+  "unresolved_source_authority": {
+    "direct_scope_permission": "The Current direct Scope Unit branch proves the selected Scope Unit identity and its Container classification, but not an outgoing IS_CONTAINED_BY permission for arbitrary Atom Header relation data.",
+    "evidence": "CA-R-2698/2699/2700 declare header shape and target types; CA-R-2478 states immediate containment targets Container=yes; CA-R-2588 supplies default outgoing cardinality zero absent a matching named exception; CA-R-2462 does not supply that exception.",
+    "status": "Do not represent the direct branch as complete relation conformance. Await the source-bound selector audit or an adopted named permission; do not infer one or build a generic CFEL evaluator."
+  }
+}

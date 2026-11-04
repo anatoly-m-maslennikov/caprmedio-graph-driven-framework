@@ -131,6 +131,10 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
             destination = core_authority / role_directories[identifier.split("-", 2)[1]] / f"{identifier}.md"
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(frozen_authority_fixture_bytes(identifier))
+        for identifier in proposed_carrier._LEGACY_REGISTRY_IDS:
+            destination = core_authority / role_directories[identifier.split("-", 2)[1]] / f"{identifier}.md"
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(frozen_authority_fixture_bytes(identifier))
         plan_status_entry = _frozen_entry("CA-R-1539")
         plan_status_path = self.frozen_authority / "CA-R-1539.md"
         self.assertIsInstance(plan_status_entry["source_path"], str)
@@ -386,10 +390,10 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
 
         graph_entry = self.graph_entries["CA-R-1018"]
         graph_path = self.root / graph_entry["source_path"]
-        graph_path.write_text(graph_path.read_text(encoding="utf-8") + "\n", encoding="utf-8")
         path, _, atom_id = self._prepare(proposal)
         self.assertEqual("CA-E-950002", atom_id)
         self.assertFalse(path.exists())
+        graph_path.write_text(graph_path.read_text(encoding="utf-8") + "\n", encoding="utf-8")
         original_read = proposed_carrier.ReadContext.read
         authority_changed = False
 

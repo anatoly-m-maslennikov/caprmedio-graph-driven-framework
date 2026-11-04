@@ -248,8 +248,8 @@
         "CA-R-2588",
         "CA-R-2511"
       ],
-      "finding": "The Atom carrier requires one IS_CONTAINED_BY endpoint group and permits atom or scope_unit encoding, but that does not itself grant per-layer outgoing Relation whitelist entries or both directions for every allowed endpoint. R1590 permits no enclosing Plan, not a containerless Atom.",
-      "minimum_source_change": "For each actual fixture, check its direct Atom-to-Scope Unit and inverse Scope Unit-to-Atom permissions under the selected effective model; if absent, identify the proper existing Declaration and separately propose the minimum supported named direction and target domain. Do not treat R2698 encoding alone as whitelist authority or invent a blanket relation permission."
+      "finding": "CA-R-2508 Atom Declaration has no named instance outgoing IS_CONTAINED_BY permission to Scope Unit or an Atom container. CA-R-2523 Scope Unit Declaration permits CONTAINS Scope Unit but has no named CONTAINS Atom permission. The mandatory R2698 carrier endpoint group does not itself grant either graph direction. R2588 requires each direction and model/instance layer to be granted explicitly.",
+      "minimum_source_change": "In CA-R-2508 add the minimal instance-level IS_CONTAINED_BY permissions for an Atom to its one Scope Unit or qualified Container=yes Atom. In CA-R-2523 add the instance-level Scope Unit CONTAINS Atom permission. For an Atom parent add only the separately justified CONTAINS counterpart for declared Container=yes parent kinds; Plan, Workflow and Step each require correct independent permissions. Keep one total immediate container across endpoint domains under R2698, not one independently per target domain. Preserve all Step RUNS/decomposition conditions."
     },
     {
       "id": "F5",
@@ -269,7 +269,11 @@
     "plan_direct": "Atom/(.Header.Role: Plan)//$child {:0..1}((IS_CONTAINED_BY)) Atom/(.Header.Role: Plan)//$plan;",
     "workflow_model": "Atom/(.Header.Role: Operations)/Workflow >| (Container == yes);",
     "step_model": "Atom/(.Header.Role: Operations)/Step >| (Container == yes);",
-    "caveat": "Illustrative proposed clauses only, not parser-validated, admitted, applied or proof of data conformance. Counts for matching endpoint domains do not alone enforce one total immediate container across domains."
+    "caveat": "Illustrative proposed clauses only, not parser-validated, admitted, applied or proof of data conformance. Counts for matching endpoint domains do not alone enforce one total immediate container across domains.",
+    "atom_to_scope_unit": "Atom//$atom {:0..1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit;",
+    "scope_unit_contains_atom": "Scope Unit//$scope_unit {:0+}((CONTAINS)) Atom//$atom;",
+    "atom_to_atom_domain": "Atom instance IS_CONTAINED_BY an Atom instance whose selected Kind is Container=yes, at most one for that domain; encode the target qualification in admitted CFEL without broadening it to every Atom.",
+    "cross_domain": "R2698 requires one endpoint across Atom and Scope Unit fields; separate per-domain bounds alone cannot enforce the aggregate one-container requirement."
   },
   "limits": [
     "No canonical sources, code, Git or main Workflow WIP modified.",

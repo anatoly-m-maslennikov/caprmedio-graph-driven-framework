@@ -24,11 +24,16 @@ _VALIDATE_WORKERS = TOOLS / "VALIDATE_ATOMS" / "validate_atoms_workers"
 _VALIDATE_TESTS = _VALIDATE_WORKERS.parent / "tests"
 _CURRENT_ENCODING_FIXTURE = _VALIDATE_TESTS / "fixtures" / "current_encoding_authority.json"
 _CURRENT_TYPE_FIXTURE = _VALIDATE_TESTS / "fixtures" / "current_type_authorities.json"
+_CURRENT_CONTAINMENT_FIXTURES = _VALIDATE_TESTS / "fixtures" / "current_containment_authority"
 sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(APP_ROOT))
 sys.path.insert(0, str(APP_TESTS))
 sys.path.insert(0, str(_VALIDATE_TESTS))
 _FIXTURE_SCOPE = "LIFECYCLE_FIXTURE"
+
+
+def _current_scope_relations(scope_id: str) -> str:
+    return "relations:\n  IS_CONTAINED_BY:\n" f"    scope_unit: {scope_id}"
 
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier  # noqa: E402
 from frozen_selected_workflows import (  # noqa: E402
@@ -88,6 +93,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             "[artifact_timestamps]\ntimezone = \"UTC\"\n", encoding="utf-8"
         )
         self._copy_complete_carrier_authority()
+        self._write_current_role_declarations()
         write_frozen_authority(self.root, Path(".caprmedio_caprmedio"), ("CA-R-793",))
         frozen_793_entry = frozen_entry("CA-R-793")
         frozen_793 = self.root / frozen_793_entry["source_path"]
@@ -234,6 +240,13 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         ).name
         current_destination.parent.mkdir(parents=True, exist_ok=True)
         current_destination.write_bytes(current_payload)
+        registry = json.loads((_VALIDATE_WORKERS / "registry.json").read_text(encoding="utf-8"))["sources"]
+        for atom_id in ("CA-R-2508", "CA-R-2523", "CA-R-2511"):
+            entry = registry[atom_id]
+            payload = (_CURRENT_CONTAINMENT_FIXTURES / f"{atom_id}.md").read_bytes()
+            self.assertEqual(entry["sha256"], hashlib.sha256(payload).hexdigest())
+            destination = core_authority / "04_requirement" / Path(entry["source_path"]).name
+            destination.write_bytes(payload)
         for type_authority in json.loads(_CURRENT_TYPE_FIXTURE.read_text(encoding="utf-8")):
             if "atom_id: CA-R-2000\n" not in type_authority["text"]:
                 continue
@@ -260,6 +273,32 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             '[[operators]]\nname = "Anatoly Maslennikov"\n'
             'role = "project owner"\njournal_author = "anatoly-m-maslennikov"\n', encoding="utf-8",
         )
+
+    def _write_current_role_declarations(self) -> None:
+        """Materialize the finite Current Role declarations required by D657."""
+        roles = (
+            "Concern", "Analysis & Advisory", "Plan", "Requirement", "Method", "Evaluation", "Delivery",
+            "Operations",
+        )
+        directory = self.declarations["CORE_META_MODEL"]["authority_path"] / "04_requirement"
+        for index, role in enumerate(roles):
+            atom_id = f"CA-R-{61001 + index}"
+            path = directory / f"{atom_id}--fixture-current-role-declaration.md"
+            path.write_text(
+                "---\n"
+                f"atom_id: {atom_id}\n"
+                "role: Requirement\nform: Declaration\ntier: 3\nstatus: Active\nversion: 1\n"
+                'updated_at: "2026-01-01 00:00:00 +0000"\n'
+                "subjects:\n"
+                f"  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := {json.dumps(role)})\n"
+                "  passive: []\nrelations:\n  IS_CONTAINED_BY:\n"
+                f"    scope_unit: {self.declarations['CORE_META_MODEL']['scope_id']}\n---\n"
+                "# Summary\n\nDeclare Atom Role\n\n"
+                "## Scope\n\nAtom Header Role.\n\n"
+                "## Claim\n\n### Prose Claim\n\nDeclare one current Atom Role.\n\n"
+                "## Details\n\nFixture declaration.\n",
+                encoding="utf-8",
+            )
 
     def _copy_frozen_goal_admission_authority(self) -> None:
         """Materialize the finite checked Goal-admission closure at its pinned locators."""
@@ -319,25 +358,23 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         *,
         status: str = "Active",
         version: int = 1,
-        relations: str = "relations: {}",
+        relations: str | None = None,
         include_type: bool = True,
     ) -> Path:
         path = self.requirements / f"{atom_id}--{slug}.md"
+        relations = relations or _current_scope_relations(self.declarations[_FIXTURE_SCOPE]["scope_id"])
         payload = (
             "---\n"
             + f"atom_id: {atom_id}\n"
-            + "content_role: Requirement\n"
-            + ("type: Rule\n" if include_type else "")
-            + f"current_scope_unit: {_FIXTURE_SCOPE}\n"
-            + f"claim_target_scope_unit: {_FIXTURE_SCOPE}\n"
+            + "role: Requirement\n"
+            + ("form: Rule\n" if include_type else "")
             + "tier: 14\n"
-            + "author: Anatoly Maslennikov\n"
             + f"status: {status}\n"
             + f"version: {version}\n"
             + "updated_at: \"2026-01-01 00:00:00 +0000\"\n"
             + "subjects:\n"
-            + "  governs: Atom/Test\n"
-            + "  depends_on: []\n"
+            + "  active: Atom/Test\n"
+            + "  passive: []\n"
             + f"{relations}\n"
             + "---\n"
             + "# Summary\n\n"
@@ -345,6 +382,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             + "## Scope\n\n"
             + "Fixture scope.\n\n"
             + "## Claim\n\n"
+            + "### Prose Claim\n\n"
             + "Fixture claim.\n"
             + "\n## Details\n\n"
             + "Fixture details.\n"
@@ -352,16 +390,34 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         path.write_text(payload, encoding="utf-8")
         return path
 
+    def _plan_containment_atom(
+        self, atom_id: str, slug: str, *, relations: str, status: str = "Active",
+    ) -> Path:
+        path = self.requirements.parent / "03_plan" / f"{atom_id}--{slug}.md"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(
+            "---\n"
+            f"atom_id: {atom_id}\nrole: Plan\nform: Plan\ntier: 14\n"
+            f"status: {status}\nversion: 1\n"
+            "updated_at: \"2026-01-01 00:00:00 +0000\"\n"
+            "subjects:\n  active: Atom/Test\n  passive: []\n"
+            f"{relations}\n---\n# Summary\n\nFixture Plan\n\n## Claim\n\n"
+            "### Prose Claim\n\nFixture claim.\n",
+            encoding="utf-8",
+        )
+        return path
+
     def _concern(self, body: str) -> Path:
         directory = self.requirements.parent / "01_concern"
         directory.mkdir(parents=True, exist_ok=True)
         path = directory / "CA-C-221--fixture-concern.md"
         path.write_text(
-            "---\natom_id: CA-C-221\ncontent_role: Concern\ntype: Question\nstatus: Active\n"
+            "---\natom_id: CA-C-221\nrole: Concern\nform: Question\nstatus: Active\n"
             "version: 1\nupdated_at: \"2026-01-01 00:00:00 +0000\"\n"
-            f"current_scope_unit: {_FIXTURE_SCOPE}\nclaim_target_scope_unit: {_FIXTURE_SCOPE}\n"
-            "tier: 14\nauthor: Anatoly Maslennikov\npriority: medium\n"
-            "subjects:\n  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n" + body,
+            "tier: 14\npriority: medium\n"
+            "subjects:\n  active: Atom/Test\n  passive: []\n"
+            + _current_scope_relations(self.declarations[_FIXTURE_SCOPE]["scope_id"])
+            + "\n---\n" + body,
             encoding="utf-8",
         )
         return path
@@ -381,13 +437,21 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         return {
             "path": path.relative_to(self.root).as_posix(),
             "frontmatter": (
-                f"atom_id: {atom_id}\ncontent_role: Requirement\ntype: Rule\ncurrent_scope_unit: {_FIXTURE_SCOPE}\n"
-                f"claim_target_scope_unit: {_FIXTURE_SCOPE}\ntier: 14\n"
-                "author: Anatoly Maslennikov\nstatus: Active\nsubjects:\n"
-                "  governs: Atom/Test\n  depends_on: []\nrelations: {}"
+                f"atom_id: {atom_id}\nrole: Requirement\nform: Rule\ntier: 14\n"
+                "status: Active\nsubjects:\n  active: Atom/Test\n  passive: []\n"
+                + _current_scope_relations(self.declarations[_FIXTURE_SCOPE]["scope_id"])
             ),
-            "content": f"# Summary\n\n{summary}\n\n## Scope\n\nFixture.\n\n## Claim\n\nFixture claim.\n\n## Details\n\nFixture details.\n",
+            "content": f"# Summary\n\n{summary}\n\n## Scope\n\nFixture.\n\n## Claim\n\n### Prose Claim\n\nFixture claim.\n\n## Details\n\nFixture details.\n",
         }
+
+    def _validate_current(self, path: Path) -> None:
+        parsed = proposed_carrier.parse_carrier(path.read_bytes(), path)
+        proposed_carrier.validate_proposed_carrier(
+            parsed.metadata,
+            parsed.body,
+            proposed_carrier.source_context_from_project(self.root),
+            path.relative_to(self.root / ".caprmedio_caprmedio"),
+        )
 
     @staticmethod
     def _proposal(path: Path, *, summary: str, body_suffix: str = "") -> dict[str, str]:
@@ -424,6 +488,129 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         mismatch["frontmatter"] = "atom_id: CA-R-106\ncontent_role: Requirement\nstatus: Active"
         with self.assertRaisesRegex(LifecycleError, "atom-frontmatter-id-mismatch"):
             create_atom_action(self.root, {"carrier": mismatch}, execute=True, authorized=True)
+
+    def test_current_containment_admits_only_proven_direct_scope_and_plan_chain(self) -> None:
+        scope_id = self.declarations[_FIXTURE_SCOPE]["scope_id"]
+        direct = self._atom("CA-R-110", "direct-owner", "Direct owner")
+        self.assertIn(f"scope_unit: {scope_id}\n", direct.read_text(encoding="utf-8"))
+        self.assertNotIn("current_scope_unit:", direct.read_text(encoding="utf-8"))
+        self._validate_current(direct)
+
+        root_plan = self._plan_containment_atom(
+            "CA-P-111", "container", relations=_current_scope_relations(scope_id),
+        )
+        middle_plan = self._plan_containment_atom(
+            "CA-P-112", "middle", relations="relations:\n  IS_CONTAINED_BY:\n    atom: CA-P-111",
+        )
+        nested_plan = self._plan_containment_atom(
+            "CA-P-113", "nested",
+            relations="relations:\n  IS_CONTAINED_BY:\n    atom: CA-P-112",
+        )
+        context = proposed_carrier.source_context_from_project(self.root)
+        parsed_nested = proposed_carrier.parse_carrier(nested_plan.read_bytes(), nested_plan)
+        self.assertEqual(
+            _FIXTURE_SCOPE,
+            proposed_carrier._current_containment_owner(context, parsed_nested.metadata),
+        )
+        self.assertTrue(root_plan.is_file())
+        self.assertTrue(middle_plan.is_file())
+
+        parent = self._atom("CA-R-111", "not-plan-container", "Container")
+        nested = self._plan_containment_atom(
+            "CA-P-114", "wrong-parent",
+            relations="relations:\n  IS_CONTAINED_BY:\n    atom: CA-R-111",
+        )
+        self.assertTrue(parent.is_file())
+        with self.assertRaisesRegex(proposed_carrier.ProposedCarrierError, "Atom eligibility is unresolved"):
+            proposed_carrier._current_containment_owner(
+                context, proposed_carrier.parse_carrier(nested.read_bytes(), nested).metadata,
+            )
+
+        invalid = (
+            ("CA-R-115", "missing", "relations: {}", "lacks one canonical containment relation"),
+            ("CA-R-116", "name", "relations:\n  IS_CONTAINED_BY:\n    scope_unit: LIFECYCLE_FIXTURE", "Scope Unit is unresolved"),
+            ("CA-R-117", "mixed", "relations:\n  IS_CONTAINED_BY:\n    scope_unit: " + scope_id + "\n    atom: CA-R-111", "unresolved or ambiguous"),
+            ("CA-R-118", "mixed-null", "relations:\n  IS_CONTAINED_BY:\n    scope_unit: " + scope_id + "\n    atom: null", "unresolved or ambiguous"),
+        )
+        for atom_id, slug, relations, error in invalid:
+            with self.subTest(atom_id=atom_id):
+                path = self._atom(atom_id, slug, "Invalid owner", relations=relations)
+                with self.assertRaisesRegex(proposed_carrier.ProposedCarrierError, error):
+                    self._validate_current(path)
+
+        missing_plan = self._plan_containment_atom(
+            "CA-P-119", "missing-atom", relations="relations:\n  IS_CONTAINED_BY:\n    atom: CA-P-999999",
+        )
+        with self.assertRaisesRegex(proposed_carrier.ProposedCarrierError, "Atom is unavailable or ambiguous"):
+            proposed_carrier._current_containment_owner(
+                context, proposed_carrier.parse_carrier(missing_plan.read_bytes(), missing_plan).metadata,
+            )
+
+        for atom_id, status, error in (
+            ("CA-P-130", "Unknown", "status is unavailable or unadmitted"),
+        ):
+            with self.subTest(atom_id=atom_id):
+                parent = self._plan_containment_atom(
+                    atom_id, "inactive-parent", relations=_current_scope_relations(scope_id), status=status,
+                )
+                child = self._plan_containment_atom(
+                    atom_id + "1", "status-child", relations=f"relations:\n  IS_CONTAINED_BY:\n    atom: {atom_id}",
+                )
+                with self.assertRaisesRegex(proposed_carrier.ProposedCarrierError, error):
+                    proposed_carrier._current_containment_owner(
+                        context, proposed_carrier.parse_carrier(child.read_bytes(), child).metadata,
+                    )
+
+        current_parent = self._plan_containment_atom(
+            "CA-P-131", "current-parent", relations=_current_scope_relations(scope_id), status="Canceled",
+        )
+        current_child = self._plan_containment_atom(
+            "CA-P-1311", "current-child", relations="relations:\n  IS_CONTAINED_BY:\n    atom: CA-P-131",
+        )
+        current_context = proposed_carrier.source_context_from_project(self.root)
+        self.assertEqual(
+            _FIXTURE_SCOPE,
+            proposed_carrier._current_containment_owner(
+                current_context, proposed_carrier.parse_carrier(current_child.read_bytes(), current_child).metadata,
+            ),
+        )
+        self.assertTrue(current_parent.is_file())
+
+        for atom_id, status in (("CA-P-132", "Draft"), ("CA-P-133", "Archived")):
+            with self.subTest(atom_id=atom_id):
+                self._plan_containment_atom(
+                    atom_id, "noncurrent-parent", relations=_current_scope_relations(scope_id), status=status,
+                )
+                child = self._plan_containment_atom(
+                    atom_id + "1", "noncurrent-child", relations=f"relations:\n  IS_CONTAINED_BY:\n    atom: {atom_id}",
+                )
+                with self.assertRaises(proposed_carrier.ProposedCarrierError):
+                    proposed_carrier._current_containment_owner(
+                        context, proposed_carrier.parse_carrier(child.read_bytes(), child).metadata,
+                    )
+
+        first = self._plan_containment_atom("CA-P-120", "cycle-first", relations="relations:\n  IS_CONTAINED_BY:\n    atom: CA-P-121")
+        self._plan_containment_atom("CA-P-121", "cycle-second", relations="relations:\n  IS_CONTAINED_BY:\n    atom: CA-P-120")
+        with self.assertRaisesRegex(proposed_carrier.ProposedCarrierError, "containment graph is cyclic"):
+            proposed_carrier._current_containment_owner(
+                context, proposed_carrier.parse_carrier(first.read_bytes(), first).metadata,
+            )
+
+        for number in range(200, 265):
+            self._plan_containment_atom(
+                f"CA-P-{number}", "depth",
+                relations=(
+                    _current_scope_relations(scope_id) if number == 264
+                    else f"relations:\n  IS_CONTAINED_BY:\n    atom: CA-P-{number + 1}"
+                ),
+            )
+        depth = self._plan_containment_atom(
+            "CA-P-199", "depth-candidate", relations="relations:\n  IS_CONTAINED_BY:\n    atom: CA-P-200",
+        )
+        with self.assertRaisesRegex(proposed_carrier.ProposedCarrierError, "supported depth"):
+            proposed_carrier._current_containment_owner(
+                context, proposed_carrier.parse_carrier(depth.read_bytes(), depth).metadata,
+            )
 
     def test_changed_summary_is_a_terminal_non_effect_replace_handoff(self) -> None:
         before = self.target.read_bytes()
@@ -633,12 +820,13 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         current = self.requirements.parent / "03_plan/done/01-CA-P-200-TASK--completed-fixture-plan.md"
         current.parent.mkdir(parents=True)
         current.write_text(
-            "---\natom_id: CA-P-200\ncontent_role: Plan\ntype: Plan\nlabel: Task\n"
-            f"current_scope_unit: {_FIXTURE_SCOPE}\nclaim_target_scope_unit: {_FIXTURE_SCOPE}\n"
+            "---\natom_id: CA-P-200\nrole: Plan\nform: Plan\nlabel: Task\n"
             "work_sequence_number: 1\ntier: 14\n"
-            "author: Anatoly Maslennikov\nstatus: Done\nversion: 3\n"
+            "status: Done\nversion: 3\n"
             "updated_at: \"2026-01-01 00:00:00 +0000\"\nsubjects:\n"
-            "  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n"
+            "  active: Atom/Test\n  passive: []\n"
+            + _current_scope_relations(self.declarations[_FIXTURE_SCOPE]["scope_id"])
+            + "\n---\n"
             "# Summary\n\nCompleted fixture Plan\n\n## Objective\n\nRetain fixture evidence.\n"
             "\n## Details\n\n### Definition of Done\n\nFixture evidence is retained.\n",
             encoding="utf-8",
@@ -1047,6 +1235,15 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual(parameters["target"]["version"] + 1, result["observed"]["version"])
         self.assertEqual(before, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
 
+    def _use_historical_goal_recovery_profile(self) -> None:
+        core_delivery = self.declarations["CORE_META_MODEL"]["authority_path"] / "07_delivery"
+        current = json.loads(_CURRENT_ENCODING_FIXTURE.read_text(encoding="utf-8"))
+        (core_delivery / Path(current["source_path"]).name).unlink()
+        historical = frozen_complete_carrier_authority()["CA-D-276"]
+        payload = frozen_source_bytes(historical["source_path"], historical["sha256"])
+        self.assertEqual(historical["sha256"], hashlib.sha256(payload).hexdigest())
+        (core_delivery / Path(historical["source_path"]).name).write_bytes(payload)
+
     def _goal_type_recovery_parameters(
         self,
         atom_id: str,
@@ -1071,9 +1268,8 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             "content_role: Requirement",
             "current_scope_unit: PROGRAMMATIC" if not legacy else "",
             f"claim_target_scope_unit: {claim_scope}" if not legacy else "",
-            # Only legacy recovery inputs retain their historical tier fields.
-            "tier: 8" if not legacy else ("local_tier: Standard" if not missing_tier else ""),
-            "global_tier: 8" if legacy and not missing_tier else "",
+            "local_tier: Standard" if not missing_tier else "",
+            "global_tier: 8" if not missing_tier else "",
             "author: Anatoly Maslennikov" if not (legacy and missing_author) else "",
             f"status: {source_status or 'Active'}" if (not legacy or source_status is not None) else "",
             "version: 1",
@@ -1113,8 +1309,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             target = carrier_descriptor(self.root, atom)
             proposal_frontmatter = "\n".join(
                 line for line in source_frontmatter.splitlines()
-                if not line.startswith(("cce_version:", "cce_form:", "llm_session_ids:",
-                                        "local_tier:", "global_tier:"))
+                if not line.startswith(("cce_version:", "cce_form:", "llm_session_ids:"))
                 and (not remove_unretired_metadata or not line.startswith("cce_untrusted:"))
             )
             additions = [
@@ -1133,7 +1328,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             }
         else:
             target = carrier_descriptor(self.root, atom_id)
-            proposal_frontmatter = source_frontmatter + "\ntype: Goal"
+            proposal_frontmatter = source_frontmatter + "\ntype: Goal\ntier: 8"
             proof = {}
 
         proposal = {
@@ -1164,6 +1359,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         return parameters, original.encode(), path
 
     def test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history(self) -> None:
+        self._use_historical_goal_recovery_profile()
         for atom_id, legacy, stale_projection in (
             ("CA-R-710", False, False),
             ("CA-R-711", True, True),
@@ -1225,6 +1421,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             raise AssertionError(f"unknown Goal recovery mutation: {kind}")
 
     def test_goal_type_recovery_refuses_non_carrier_deltas(self) -> None:
+        self._use_historical_goal_recovery_profile()
         cases = (
             ("changed-claim", False, {}, "claim"),
             ("changed-summary", False, {}, "summary"),
@@ -1253,6 +1450,10 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
                 parameters, before, path = self._goal_type_recovery_parameters(
                     f"CA-R-{index}", legacy=legacy, **options,
                 )
+                if not options and mutation not in {"none", "stale-report", "stale-authority"}:
+                    baseline = update_atom_action(self.root, parameters)
+                    self.assertEqual("preview", baseline["outcome"])
+                    self.assertEqual("carrier_only", baseline["assessment_evidence"]["admitted_change_class"])
                 if mutation != "none":
                     self._mutate_goal_recovery_case(mutation, parameters)
                 try:
@@ -1264,6 +1465,14 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
                     self.assertTrue(all(effect["state"] == "unchanged" for effect in result["effects"]))
                 self.assertEqual(before, path.read_bytes())
                 self.assertFalse((path.parent / "archive").exists())
+
+    def test_current_profile_rejects_historical_goal_recovery_without_effect(self) -> None:
+        parameters, before, path = self._goal_type_recovery_parameters("CA-R-710", legacy=False)
+        self.assertIn("content_role: Requirement", parameters["proposed"]["frontmatter"])
+        with self.assertRaisesRegex(LifecycleError, "complete-carrier-invalid"):
+            update_atom_action(self.root, parameters, execute=True, authorized=True)
+        self.assertEqual(before, path.read_bytes())
+        self.assertFalse((path.parent / "archive").exists())
 
     def test_historical_migration_rejects_forged_stale_or_nonhistorical_identity(self) -> None:
         parameters, before = self._legacy_update()
@@ -1300,7 +1509,10 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         canonical_source = self._atom(
             "CA-R-9903", "define-evaluation-approach-as-a-type-value-for-evaluation-atoms",
             "Define Evaluation Approach as a Type Value for Evaluation Atoms", version=22,
-            relations="relations: {depends_on: [CA-R-1503, CA-R-1506]}",
+            relations=(
+                _current_scope_relations(self.declarations[_FIXTURE_SCOPE]["scope_id"])
+                + "\n  depends_on: [CA-R-1503, CA-R-1506]"
+            ),
         )
         source = self.requirements / (
             old_id + "-LIFECYCLE_FIXTURE--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md"
@@ -1344,13 +1556,14 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         old_id = "CAPRMEDIO-FRAMEWORK-ENGINE-DELV-005"
         source = role / (old_id + "-GRAPH_UI-DELIVERY--stable-delivery.md")
         original = (
-            f"---\natom_id: {old_id}\ncontent_role: Delivery\ntype: Decision\n"
-            f"current_scope_unit: {_FIXTURE_SCOPE}\nclaim_target_scope_unit: {_FIXTURE_SCOPE}\n"
-            "tier: 14\nauthor: Anatoly Maslennikov\nstatus: Active\nversion: 8\n"
+            f"---\natom_id: {old_id}\nrole: Delivery\nform: Decision\n"
+            "tier: 14\nstatus: Active\nversion: 8\n"
             "updated_at: \"2026-01-01 00:00:00 +0000\"\nsubjects:\n"
-            "  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n"
+            "  active: Atom/Test\n  passive: []\n"
+            + _current_scope_relations(self.declarations[_FIXTURE_SCOPE]["scope_id"])
+            + "\n---\n"
             "# Summary\n\nStable delivery\n\n## Scope\n\nFixture scope.\n\n## Claim\n\n"
-            "Deliver the browser locally.\n\n## Details\n\nFixture details.\n"
+            "### Prose Claim\n\nDeliver the browser locally.\n\n## Details\n\nFixture details.\n"
         ).encode()
         source.write_bytes(original)
         for args in (("init",), ("add", "--", source.relative_to(self.root).as_posix()),
@@ -1450,8 +1663,9 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
                 if field == "body":
                     invalid["proposed"]["content"] += "\nExtra prose.\n"
                 else:
+                    self.assertIn("tier: 14", invalid["proposed"]["frontmatter"])
                     invalid["proposed"]["frontmatter"] = invalid["proposed"]["frontmatter"].replace(
-                        "author: Anatoly Maslennikov", "author: changed author")
+                        "tier: 14", "tier: 13", 1)
                 preview = update_atom_action(self.root, invalid)
                 self.assertEqual("preview", preview["outcome"])
                 self.assertIsNone(preview.get("assessment_evidence"))
@@ -1701,11 +1915,19 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
 
     def test_source_model_status_noop_and_archive_relation_diagnostics(self) -> None:
         self.target.write_text(
-            self.target.read_text(encoding="utf-8").replace("relations: {}", "relations:\n  depends_on: [CA-R-101]"),
+            self.target.read_text(encoding="utf-8").replace(
+                _current_scope_relations(self.declarations[_FIXTURE_SCOPE]["scope_id"]),
+                _current_scope_relations(self.declarations[_FIXTURE_SCOPE]["scope_id"])
+                + "\n  depends_on: [CA-R-101]",
+            ),
             encoding="utf-8",
         )
-        self._atom("CA-R-104", "inbound", "Inbound", relations="relations:\n  depends_on: [CA-R-100]")
-        self.assertIn("type: Rule\n", self.target.read_text(encoding="utf-8"))
+        self._atom(
+            "CA-R-104", "inbound", "Inbound",
+            relations=_current_scope_relations(self.declarations[_FIXTURE_SCOPE]["scope_id"])
+            + "\n  depends_on: [CA-R-100]",
+        )
+        self.assertIn("form: Rule\n", self.target.read_text(encoding="utf-8"))
 
         noop = change_status_atom_action(
             self.root,

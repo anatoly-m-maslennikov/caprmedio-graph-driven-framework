@@ -40,8 +40,17 @@ class DefinitionMoveContinuationTest(unittest.TestCase):
         )
         source = self.root / pin["source_path"]
         frontmatter, body = split_frontmatter(source.read_text(encoding="utf-8"))
-        for field in ("local_tier", "global_tier"):
+        for field in ("local_tier", "global_tier", "author", "current_scope_unit", "claim_target_scope_unit"):
             frontmatter = remove_frontmatter_scalar(frontmatter, field)
+        frontmatter = frontmatter.replace("content_role: Operations", "role: Operations")
+        frontmatter = frontmatter.replace("type: Workflow", "form: Workflow")
+        frontmatter = frontmatter.replace("  governs:", "  active:").replace("  depends_on:", "  passive:")
+        frontmatter = frontmatter.replace(
+            "relations:\n",
+            "relations:\n  IS_CONTAINED_BY:\n"
+            f"    scope_unit: {self.fixture.declarations['CORE_META_MODEL']['scope_id']}\n",
+            1,
+        )
         frontmatter = replace_frontmatter_scalar(frontmatter, "tier", "14")
         source.write_text("---\n" + frontmatter + "\n---\n" + body, encoding="utf-8")
         destination = self.project_operations / source.name.replace(

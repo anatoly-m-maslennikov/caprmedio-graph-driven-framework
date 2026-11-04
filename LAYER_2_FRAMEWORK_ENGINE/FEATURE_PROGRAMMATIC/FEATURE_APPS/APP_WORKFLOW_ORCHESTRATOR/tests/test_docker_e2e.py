@@ -5,7 +5,6 @@ the test never silently downloads an image or starts a real Project's worker.
 """
 
 import asyncio
-import json
 import os
 from pathlib import Path
 import socket
@@ -23,10 +22,12 @@ APP = Path(__file__).resolve().parents[1]
 ROOT = APP.parents[3]
 sys.path.insert(0, str(APP))
 sys.path.insert(0, str(APP / "docker"))
+sys.path.insert(0, str(APP / "tests"))
 sys.path.insert(0, str(APP.parents[1] / "FEATURE_TOOLS"))
 from runtime import Runtime  # noqa: E402
 from current_code_e2e_context import load_test_context  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
+from workflow_fixture import write_workflow_fixture  # noqa: E402
 
 E2E_CONTEXT = load_test_context(os.environ, ROOT / ".caprmedio_tmp")
 
@@ -52,14 +53,7 @@ class DockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         (control / "operators_registry.toml").write_text(
             '[[operators]]\nname="mock-operator"\nrole="project owner"\n'
         )
-        prompts = (
-            ROOT / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW"
-        )
-        bindings = json.loads((prompts / "source_bindings.json").read_text())
-        workflow = next(row["path"] for row in bindings["sources"] if row["atom_id"] == "CA-O-104")
-        target = self.root / workflow
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes((ROOT / workflow).read_bytes())
+        write_workflow_fixture(self.root)
         self.atom = control / "atom.md"
         self.atom.write_text(
             "---\natom_id: MOCK-R-1\ncontent_role: Requirement\nversion: 1\nstatus: Active\n"

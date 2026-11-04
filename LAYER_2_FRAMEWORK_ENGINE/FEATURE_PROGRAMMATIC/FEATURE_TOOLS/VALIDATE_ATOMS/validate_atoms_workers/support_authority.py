@@ -50,6 +50,19 @@ def exact_source(inputs: dict[str, Any], identifier: str) -> dict[str, Any] | No
     return row
 
 
+def matches_source_pin(source: dict[str, Any], entry: dict[str, Any]) -> bool:
+    """Require the installed reviewed revision, not merely self-consistent bytes."""
+    binding = source.get("binding")
+    return (
+        _verified(source, entry)
+        and isinstance(binding, dict)
+        and type(entry.get("version")) is int
+        and isinstance(entry.get("sha256"), str)
+        and binding.get("version") == entry["version"]
+        and binding.get("sha256") == entry["sha256"]
+    )
+
+
 def require_sources(check: Check, identifiers: tuple[str, ...]) -> bool:
     missing = [
         identifier for identifier in identifiers if exact_source(check.inputs, identifier) is None

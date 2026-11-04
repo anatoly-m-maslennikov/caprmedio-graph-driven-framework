@@ -45,7 +45,7 @@ class FlatPlanArchiveTests(unittest.TestCase):
         parent: Path | None = None,
         status: str = "Active",
         version: int = 3,
-        relations: str = "relations: {}\n",
+        relations: str | None = None,
         folder: str | None = None,
         filename_id: str | None = None,
     ) -> Path:
@@ -55,15 +55,16 @@ class FlatPlanArchiveTests(unittest.TestCase):
         directory.mkdir(parents=True, exist_ok=True)
         path = directory / f"{filename_id or atom_id or 'CA-P'}--{slug}.md"
         identity = f"atom_id: {atom_id}\n" if atom_id is not None else ""
+        if relations is None:
+            scope_id = self.fixture.declarations["LIFECYCLE_FIXTURE"]["scope_id"]
+            relations = f"relations:\n  IS_CONTAINED_BY:\n    scope_unit: {scope_id}\n"
         path.write_text(
             "---\n"
-            f"{identity}content_role: Plan\ntype: Plan\nlabel: Task\n"
-            "current_scope_unit: LIFECYCLE_FIXTURE\nclaim_target_scope_unit: LIFECYCLE_FIXTURE\n"
+            f"{identity}role: Plan\nform: Plan\nlabel: Task\n"
             "tier: 14\nwork_sequence_number: 1\n"
-            "author: Anatoly Maslennikov\n"
             f"status: {status}\nversion: {version}\n"
             'updated_at: "2026-01-01 00:00:00 +0000"\n'
-            "subjects:\n  governs: Atom/Test\n  depends_on: []\n"
+            "subjects:\n  active: Atom/Test\n  passive: []\n"
             f"{relations}"
             "---\n"
             f"# Summary\n\n{slug} summary\n\n"
@@ -131,7 +132,8 @@ class FlatPlanArchiveTests(unittest.TestCase):
         plan = self._plan(
             "CA-P-701",
             "root",
-            relations="relations:\n  depends_on: [CA-R-100]\n",
+            relations=("relations:\n  depends_on: [CA-R-100]\n  IS_CONTAINED_BY:\n"
+                       f"    scope_unit: {self.fixture.declarations['LIFECYCLE_FIXTURE']['scope_id']}\n"),
         )
         predecessor = plan.read_bytes()
 
@@ -247,7 +249,7 @@ class FlatPlanArchiveTests(unittest.TestCase):
             "CA-P-715",
             "nested",
             parent=parent,
-            relations="relations:\n  is_decomposition_of: [CA-P-714]\n",
+            relations="relations:\n  IS_CONTAINED_BY:\n    atom: CA-P-714\n",
         )
         predecessor = leaf.read_bytes()
         draft = self._marker_draft(leaf, version=4, parent=leaf.parent / "draft")
@@ -335,7 +337,7 @@ class FlatPlanArchiveTests(unittest.TestCase):
             "CA-P-703",
             "leaf",
             parent=parent,
-            relations="relations:\n  is_decomposition_of: [CA-P-702]\n  depends_on: [CA-R-100]\n",
+            relations="relations:\n  IS_CONTAINED_BY:\n    atom: CA-P-702\n  depends_on: [CA-R-100]\n",
         )
         parent_before = parent.read_bytes()
         leaf_before = leaf.read_bytes()
@@ -346,7 +348,7 @@ class FlatPlanArchiveTests(unittest.TestCase):
         history = self.plan_root / "archived" / "CA-P-703--leaf@3.md"
         self.assertEqual(destination.relative_to(self.root).as_posix(), result["observed"]["path"])
         self.assertEqual(leaf_before, history.read_bytes())
-        self.assertIn(b"is_decomposition_of: [CA-P-702]", destination.read_bytes())
+        self.assertIn(b"IS_CONTAINED_BY:\n    atom: CA-P-702", destination.read_bytes())
         self.assertIn(b"depends_on: [CA-R-100]", destination.read_bytes())
         self.assertEqual(parent_before, parent.read_bytes())
         self.assertFalse(leaf.exists())
@@ -357,7 +359,7 @@ class FlatPlanArchiveTests(unittest.TestCase):
             "CA-P-712",
             "guard-child",
             parent=parent,
-            relations="relations:\n  is_decomposition_of: [CA-P-711]\n",
+            relations="relations:\n  IS_CONTAINED_BY:\n    atom: CA-P-711\n",
         )
         before = self._files()
 

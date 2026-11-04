@@ -1,15 +1,15 @@
 ---
 atom_id: CA-P-2694
 label: Epic
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
 status: Active
 tier: 3
-version: 57
-updated_at: 2026-11-04 09:38:36 +0400
+version: 58
+updated_at: 2026-11-04 14:56:07 +0400
 subjects:
   active: CAPRMEDIO_MODEL
-relations: {}
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: caprmedio
 role: Plan
 form: Plan
 carrier_destination:
@@ -49,33 +49,39 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 - The previous Epic version preserves the detailed checkpoint history. The acceptance matrix retains all 23 requirement groups and their evidence. These baselines do not close the remaining gates.
 
 - The Goal/Tier batch has 15 verified source contributions and exact predecessors. Seventeen reviewed Settings contributions merge logical ownership under Project.Settings; 25 ambiguous Settings sources remain held. R2747 and R2748 use fresh IDs because their Summaries changed.
-- Checkpoint dd90a1132 was pushed to amm/dev. It includes Goal/Tier changes, refreshed views and 48 passing connector/fixture tests.
+- Source checkpoint a02ac7b83bf4561c7ad18b69ce9b6436dcbb02bf is reported pushed to amm/dev. It includes Goal/Tier, Settings, capability-deferral, containment-permission and refreshed-view source batches. Later code/runtime and fixture repairs remain uncommitted; this checkpoint is not final integration evidence.
 
 - The capability deferral batch preserves confidence constraints in two revised Declarations and retires three redundant Tool/Extension Settings sources. Exact archives and frozen references remain. The refreshed audit reports 56 missing and 23 unresolved Declaration-coverage cases.
+
+## Responsibility and external dependencies
+
+This Epic's source lane owns MODEL, CFEL, Declaration and Atom source decisions, edits, preservation and source-level review. CA #3 owns implementation and runtime changes, fixtures, regression work, and execution of the test and integration gates named below. Those are mandatory external dependencies for closure: do not count source receipts, focused source checks or unrun tests as completed gates, and do not remove them from the Definition of Done. Root coordinates source adoption, projection refresh and acceptance evidence. This plan authorizes no implementation or test execution in the source lane.
+
+The current 11 Occurrent Declaration proposals reflect the settled Operator decisions: retain Execution, Workflow Run, Step Run, Action Run, Runtime, Session and Event; Runtime's four Internal/External Local/Remote variants are relative to the CAPRMEDIO application, and Local means on the Operator's machine; Session is narrower than External Remote Runtime; no Substep Run is added. The remaining source gates are the reviewed execution endpoint/inverse-permission and Event Record Relation decisions, followed by source adoption and faithful projections. Runtime candidates remain unpromoted until those gates pass.
 
 ## Remaining work
 
 1. **Relation permissions.** Verify the adopted outgoing permissions, model/instance scope, endpoint bounds and qualifications against final sources. Retain separate direct/inverse permissions and source-linked unary bounds in projections.
 2. **Property contracts.** Resolve the six conditional cases from applicable Declarations. Keep Relations populated by the containment Relation. Repair the optional Subjects grouping without weakening Current Active-subject requirements.
-3. **MODEL coverage.** Disposition every remaining flag in the refreshed coverage audit: source correction, declared authority, valid scope, authorized retirement or an Operator decision. Resolve used endpoint kinds and Settings ownership. Preserve operative Claims and exact history.
+3. **MODEL coverage.** Disposition every remaining flag in the latest pinned coverage audit: source correction, declared authority, valid scope, authorized retirement or an Operator decision. The Occurrent hierarchy is settled by the latest Operator decision; finish the reviewed endpoint/inverse-permission and Event Record Relation source gates rather than reopening that decision. Reconcile Settings ownership, preserve operative Claims and exact history, and retain only explicitly authorized deferrals.
 4. **Projection identity.** Verify the adopted Form + Scope Unit constraints, required Scope Unit reference and distinct Forms across Delivery, readers, identity checks and published instances. Keep all seven views at the Project root. Preserve versioned source references and the explicit Terms Graph deferral.
 5. **CFEL and faithful projections.** Repair declared narrowing and namespace binding, supported qualified selectors and bindings. Classify remaining opaque expressions; retain their complete source and diagnostics. Rebuild all seven MODEL-only views from actual Current Declarations. Formats, cardinalities and Formal Claims come only from Declarations.
-6. **Current carrier admission.** Align live Delivery authority, source closure, registry and validators. Remove dependencies on retired D274; preserve fail-closed checks. Reconcile Header/Claim, role/form, Author removal and required fields with their Current authority before enabling admission.
-7. **P2707.** Verify current Scope Declaration counts and identities, explain source-digest changes, verify absence of TOML dependencies, pass live Project admission, required fresh Docker query/status and lifecycle checks, the complete current-source suite and launcher. Capture one authoritative final result after changes.
+6. **Current carrier admission.** The source lane reconciles live Delivery authority, source closure and Current Atom requirements. CA #3 owns the corresponding registry, validator and runtime implementation, fixtures and execution. Remove dependencies on retired D274 using Current authority; preserve fail-closed checks. Reconcile Header/Claim, role/form, Author removal and required fields with their Current authority before enabling admission. Live admission remains a required external gate.
+7. **P2707.** The source lane verifies Current Scope Declaration counts, identities and hashes and explains source-set drift. CA #3 owns code/runtime changes, fixtures and execution of the live Project admission, complete current-source suite, launcher, fresh Docker query/status and W10 lifecycle checks. These required external gates must pass on one stable candidate, with one authoritative result tied to its source, implementation and image identities; focused or mixed-state results do not close them.
 8. **Independent closure.** Audit every requirement in the acceptance matrix against live evidence. Verify exact predecessors, metadata/identity rules, actual published projections and the requested remote checkpoint. Mark the Epic Done only after every required item passes or the Operator explicitly changes its scope.
 
 ## Decisions and execution
 
 - Ask one question at a time when confidence is below 90%. Record each answer and its affected sources.
 - Prepare and review source changes, commit the declaration checkpoint to amm/dev before a dependent mechanical migration, apply the accepted migration in place, then check it. Preserve disabled hooks and concurrent work.
-- Root owns canonical source integration and Git. Workers own the separate evidence and preview lanes in the completion packet. No release is required. The requested amm/dev checkpoint and final pushes, plus local integration tests, remain required.
+- Root owns canonical source integration and source commits. CA #3 owns code and test execution. Workers prepare separate source previews and evidence. No release is required. The amm/dev checkpoint, final source push and external verification evidence remain required.
 
 ## Definition of Done
 
 1. Every acceptance-matrix requirement has current authoritative evidence. Required MODEL decisions and migration defects are closed.
 2. Current Declarations, Relations, Property contracts, Projection identity and affected R/M/E/D are coherent with the latest Operator decisions. Each retained model entity has its applicable defining authority. History is preserved.
 3. No live project_structure.toml or production read/write dependency remains. No retired binding or compatibility registry replaces Declaration authority. The 44 Scope Declarations and their current identities are verified.
-4. Required source, reader, validator, script, Docker and launcher checks pass on the final candidate. P2707 is Done; the separately owned P2708 disposition is explicit. Focused tests alone do not satisfy this gate.
+4. Required source, reader, validator, script, Docker and launcher checks pass on the final candidate. CA #3 owns implementation/runtime changes, fixture and test work, and execution of its P2707 gates; those results remain mandatory external dependencies and are not marked Done by this plan. P2707 must reach Done; the separately owned P2708 disposition is explicit. Focused tests alone do not satisfy this gate.
 5. All seven published MODEL views match the final source frontier and their governing Declarations. Unsupported expressions remain complete and explicitly classified.
 6. The declaration checkpoint and checked final changes are committed and pushed to amm/dev, with matching local/remote evidence.
 
@@ -89,4 +95,4 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 
 ## Status
 
-Active. Plan review found stale checkpoint wording, retired carrier authority and incomplete MODEL and integration gates. The remaining-work list retains the complete scope and gives each gap a concrete closure check.
+Active. Current source and integration gates remain open. Implementation and test execution are external CA #3 dependencies; the 11 Occurrent kind choices are settled, while the reviewed endpoint/Relation source gates and adoption remain open.

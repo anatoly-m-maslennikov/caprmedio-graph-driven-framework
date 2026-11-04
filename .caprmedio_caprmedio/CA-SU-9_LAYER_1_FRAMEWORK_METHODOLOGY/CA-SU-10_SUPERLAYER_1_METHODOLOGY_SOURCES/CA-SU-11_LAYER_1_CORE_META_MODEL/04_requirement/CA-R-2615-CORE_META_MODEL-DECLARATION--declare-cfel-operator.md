@@ -28,4 +28,4 @@ Operator//SubjectValueSelection == ":="
 
 ## Semantics
 
-In a Subject, combine an admitted Property value with selection; it is not assignment.
+In a Subject or a filtered Node expression in a Formal Claim, combine an admitted Property value with selection; for example, `Workflow/(.Purpose := Runtime)`. It is not assignment.

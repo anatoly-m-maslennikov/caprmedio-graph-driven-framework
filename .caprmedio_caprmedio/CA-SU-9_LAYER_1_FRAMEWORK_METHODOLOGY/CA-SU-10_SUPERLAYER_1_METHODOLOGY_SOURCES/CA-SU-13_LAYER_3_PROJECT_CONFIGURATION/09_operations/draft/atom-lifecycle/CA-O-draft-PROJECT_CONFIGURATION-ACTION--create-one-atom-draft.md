@@ -19,22 +19,13 @@ Create one Atom Draft
 
 ## Claim scope
 
-PROJECT_CONFIGURATION
+One non-container Draft materialization under its applicable model.
 
 ## Claim
 
-This reusable Action materializes one complete Draft carrier for one exact, admitted non-container Atom request. The caller supplies the complete proposed content/changes, Summary, Role, destination, applicable model, permission, and expected source; the Action validates and writes that proposal as `status: Draft`, without selecting a Workflow continuation, implementation/provider, or hidden edit.
+This Action creates one validated `status: Draft` carrier from either `newAtom` properties or one exact `sourceCurrent` selector with changed properties. For a Current, read its full Header and Content, apply only supplied properties, preserve omitted properties, and evaluate Summary and Role after the merge; `newAtom` uses its supplied properties. Copied content is ordinary proposed content.
 
-### Source cases
+Validate permissions, model, mandatory fields, exact currentness, non-container Draft name/location, collision and no-overwrite. Derive Draft Status, marker and Version, and initialize Updated At to its creation time. Same Summary/Role keeps the Current ID and proposes Version N+1. A new Atom or Summary/Role change becomes a role-only Draft with fresh `targetID` and `targetVersion` 1. Select that operation context before any later Archive or publication; it is not a carrier field.
 
-- Missing or null source creates a new role-only Draft with initial proposed Version 1 and no allocated canonical identity.
-- An explicit Current source resolves exactly once. When proposed Summary and Role are unchanged from Current version N, the Draft uses `canonical-ID@N+1-draft` and proposedVersion N+1. When either Summary or Role changes, the Draft uses a new role-only marker with initial proposed Version 1 and reports an explicit `replacementSummaryRole` old-to-new mapping; it never overwrites the Current.
-- An explicit Draft source may be copied only to an explicitly distinct Draft destination. The source remains unchanged, and an existing-Atom marker's proposed Version stays fixed and synchronized with its filename.
-- An explicit Archived source may seed a NEW role-only Draft with initial proposed Version 1. The Action never infers or restores the Archived Atom's canonical identity.
-
-### Validation and outcomes
-
-Resolve an existing source once: invalid source input returns attributable diagnostics, and an ambiguous source returns the available choices; neither writes. Validate the complete proposal's admitted fields, Draft status, placement, destination absence, and collision/overwrite conditions. Reject a container, including semantic containment without a folder, and never select descendants or cascade. There is no history gate: Journal lineage or an archive search is not required to create a valid Draft.
-
-After a verified write, return the exact Draft path/carrier, marker, status, proposed Version, and any replacementSummaryRole mapping. Input or artifact failures return attributable diagnostics; if work is partial, preserve the actual completed results and identify the remainder. Do not automatically retry or roll back. Journal records actual business events only and does not prove permission, completeness, or success.
+Save and validate the Draft by readback, then return it with `targetID`, `targetVersion` and completed outputs. On failure return an explicit error with completed outputs and stop; no retry, repair, rollback or replay. Journal append is an independent, nonblocking business observation.
 

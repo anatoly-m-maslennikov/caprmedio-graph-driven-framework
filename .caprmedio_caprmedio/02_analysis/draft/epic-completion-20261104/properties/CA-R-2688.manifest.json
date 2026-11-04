@@ -1,0 +1,10 @@
+{
+  "atom_id": "CA-R-2688",
+  "current_version": 1,
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+  "source_sha256": "990a293220b3528ce4afbdd43b34fa831aee0b98b15102fe2fe81b1874b39824",
+  "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2688.preview.txt",
+  "preview_sha256": "46853a16d07b97d89f08d3f74439ab448e3df8f08ced0f80afed69b04f85d204",
+  "change_count": 1,
+  "change_summary": "remove only the Project Goal ownership analogy; preserve Project Declaration ownership"
+}

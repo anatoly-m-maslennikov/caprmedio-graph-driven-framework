@@ -1,0 +1,14 @@
+# Retire duplicate physical identifier rule CA-R-1981
+
+Propose retiring Current CA-R-1981@17 under the established lifecycle and retaining CA-D-358@26. Both Current Claims assign the Project's authoritative Framework Settings carrier identifier `caprmedio_framework_settings`. CA-D-358's already-prepared settings-carrier preview retains that exact constant and clarifies that it identifies the physical Carrier. No successor Requirement or Project.Settings.Identifier Property is proposed. The prior CA-R-1981 same-ID preview is withdrawn and deleted; its digest is retained in `manifest.json` for traceability.
+
+## Inbound reference inventory
+
+`retirement-reference-inventory.json` pins the native source and CA-D-358 plus search results. A search of readable `.caprmedio_caprmedio` Markdown and NDJSON excluding archive, archived, draft, analysis, plan and generated framework copies found **zero other native Current source files** naming CA-R-1981. Therefore there are no operative references in that searched scope to rewrite to CA-D-358. Do not replace historical version-qualified references or rewrite the Journal. The search found 19 derived Projection files and 11 Journal files mentioning the ID; rebuild applicable Projections from the adopted Current source after retirement, and retain Journal evidence. Other generated source/applicable-methodology copies outside the native root require the normal publication workflow, not direct editing.
+
+## Preservation and adoption checks
+
+- Capture the exact pinned Current CA-R-1981@17 predecessor, archive it and retire it through the established lifecycle. Preserve frozen references and actual history. Recheck hashes, native references and concurrent source changes immediately before the transaction.
+- Retain CA-D-358 and review its carrier-targeted settings preview alongside this retirement. Its Claim preserves the physical identifier; do not infer a new MODEL Property or Atom ID. The existing CA-D-377 protects the physical carrier from Atom metadata. CA-R-1404's separate non-Atom Property successor is unchanged by this retirement.
+- CA-R-1981 belongs to PROJECT_CONFIGURATION while CA-D-358 belongs to CORE_META_MODEL. Both Claims state the same constant, but integration must verify the retained Core rule is applicable to the Project Configuration use before claiming full semantic coverage. CA-R-1981's Details contain older candidate/provenance commentary rather than an independently stated identifier constraint; do not copy that bookkeeping into Current content.
+- This inventory does not establish the absence of external consumers, runtime readers or unselected copies. Validate applicable scope and consumer references, then regenerate and validate selected Projections. Nothing here applies the retirement, changes a physical file, or proves runtime behavior.

@@ -1,0 +1,21 @@
+{
+  "status": "HOLD_COMBINED_PLAN_CONTRACT",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-endpoint-frontier.json",
+  "frontier_sha256": "f4362cdf1b1c94923caebe403c76489a37a23cf78d904d1a5a340e2e2a8495c7",
+  "frontier_count": 1162,
+  "previews": [
+    {
+      "id": "CA-M-306",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md",
+      "source_sha256": "e3b360c6269adba675a83f9b971c0af7609cb2f30b31eb38fd92e27c330d7877",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-M-306-safe.txt",
+      "candidate_sha256": "261bdf6a9ddd0b5b3fdfa2842ae04df36e84332fd8656c9f4fc5291c6528e67d"
+    }
+  ],
+  "limitations": [
+    "Removing this one stale authoring instruction does not reconcile the other Current retry authorities.",
+    "No retirements or confidence-precedence replacement are authorized by this subset.",
+    "The earlier 11-preview manifest is exploratory and not an adoption packet.",
+    "CA-M-306 still requires combined disposition of the latest Author removal and unresolved Assignee and Claim Target Scope Unit behavior; do not adopt this partial preview."
+  ]
+}

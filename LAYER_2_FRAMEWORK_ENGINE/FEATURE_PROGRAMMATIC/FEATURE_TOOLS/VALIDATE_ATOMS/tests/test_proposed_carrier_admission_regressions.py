@@ -42,6 +42,8 @@ TARGET = b"---\natom_id: CA-O-701\ncontent_role: Operations\ncurrent_scope_unit:
 CURRENT_GRAPH_R1947 = Path(__file__).with_name("fixtures") / "current_graph_authority/CA-R-1947.md"
 CURRENT_GRAPH_R1539 = Path(__file__).with_name("fixtures") / "current_graph_authority/CA-R-1539.md"
 CURRENT_ENCODING = Path(__file__).with_name("fixtures") / "current_encoding_authority.json"
+CURRENT_CONTAINMENT = Path(__file__).with_name("fixtures") / "current_containment_authority"
+CURRENT_CONTAINMENT_IDS = ("CA-R-2508", "CA-R-2523", "CA-R-2511")
 
 
 def snapshot(root):
@@ -52,6 +54,14 @@ def snapshot(root):
 def authority_fixture_bytes(identifier, entry=None, *, graph=False):
     del entry
     return frozen_authority_fixture_bytes(identifier, graph=graph)
+
+
+def current_containment_bytes(identifier: str) -> bytes:
+    raw = (CURRENT_CONTAINMENT / f"{identifier}.md").read_bytes()
+    entry = json.loads(Path(admission.__file__).with_name("registry.json").read_text(encoding="utf-8"))["sources"][identifier]
+    if hashlib.sha256(raw).hexdigest() != entry["sha256"]:
+        raise AssertionError("current containment fixture digest changed: " + identifier)
+    return raw
 
 
 class ProposedCarrierAdmissionRegressions(unittest.TestCase):
@@ -66,11 +76,15 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         self.root = Path(self.directory.name)
 
     def selected_entry(self, identifier, *, graph=False):
-        if identifier == "CA-D-657":
+        if identifier == "CA-D-657" or identifier in CURRENT_CONTAINMENT_IDS:
             entry = dict(json.loads(
                 Path(admission.__file__).with_name("registry.json").read_text(encoding="utf-8")
             )["sources"][identifier])
-            raw = json.loads(CURRENT_ENCODING.read_text(encoding="utf-8"))["text"].encode("utf-8")
+            raw = (
+                json.loads(CURRENT_ENCODING.read_text(encoding="utf-8"))["text"].encode("utf-8")
+                if identifier == "CA-D-657"
+                else current_containment_bytes(identifier)
+            )
         else:
             entry = dict(frozen_entry(identifier, graph=graph))
             raw = frozen_authority_fixture_bytes(identifier, graph=graph)
@@ -186,7 +200,10 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         if encoding_profile == "current":
             if {"CA-D-276", *_LEGACY_REGISTRY_IDS} & set(source_ids):
                 raise ValueError("current fixture cannot materialize historical encoding authority")
-            encoding_ids = ("CA-D-657", *(identifier for identifier in _REGISTRY_IDS if identifier != "CA-D-276"))
+            encoding_ids = (
+                "CA-D-657", *(identifier for identifier in _REGISTRY_IDS if identifier != "CA-D-276"),
+                *CURRENT_CONTAINMENT_IDS,
+            )
         elif encoding_profile == "legacy":
             if "CA-D-657" in source_ids:
                 raise ValueError("legacy fixture cannot materialize Current encoding authority")
@@ -218,6 +235,8 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
                 else CURRENT_GRAPH_R1539.read_bytes() if identifier == "CA-R-1539"
                 else json.loads(CURRENT_ENCODING.read_text(encoding="utf-8"))["text"].encode("utf-8")
                 if identifier == "CA-D-657"
+                else current_containment_bytes(identifier)
+                if identifier in CURRENT_CONTAINMENT_IDS
                 else frozen_authority_fixture_bytes(identifier)
             )
             metadata = parse_carrier(raw, Path(identifier + ".md")).metadata
@@ -264,6 +283,11 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         self.assertEqual(declarations.as_structure()["scope_units"],
                          [dict(row) for row in context.inputs["structure"]["scope_units"]])
         self.assertEqual(declarations.root.name, "amber")
+
+    def test_explicit_legacy_profile_keeps_deep_plan_decomposition_guard(self):
+        selection = self.legacy_project()
+        with self.assertRaisesRegex(ProposedCarrierError, "deep Plan placement requires an admitted decomposition parent"):
+            self.validate_plan(selection, relative=Path("03_plan/parent/CA-P-701--independent-plan.md"))
 
     def test_current_and_legacy_encoding_profiles_are_disjoint(self):
         current = self.project()

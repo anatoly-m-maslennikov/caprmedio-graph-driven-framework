@@ -1,0 +1,29 @@
+---
+version: 1
+updated_at: 2026-11-02 00:18:22 +0400
+relations:
+  child_of:
+  - CA-R-1488@21
+subjects:
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Failure Handling
+  passive:
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+atom_id: CA-R-ALLOCATE-retry
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+tier: 4
+role: Requirement
+form: Rule
+---
+## Summary
+
+Require a valid Workflow retry allowance
+
+## Claim
+
+### Prose Claim
+
+Before an automatic fix-and-evaluate retry, the applicable Workflow must have one valid retry allowance under its governing authority. Zero permits no retry after the initial failure. A missing, invalid, or ambiguous allowance stops the retry and requires Operator disposition; it does not permit a fallback past an invalid selected source.
+
+An allowance does not grant repair permission or bypass a confidence gate, governing approval, or an additional Operator constraint. Resolution does not reset consumed retry accounting. This Requirement does not declare a Plan or Hub retry Property, a Workflow Run Property, a settings key, a default source, or a Workflow instance.

@@ -13,9 +13,11 @@ from unittest.mock import patch
 
 APP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(APP))
+sys.path.insert(0, str(APP / 'tests'))
 from contracts import Enqueue  # noqa: E402
 from engine import Coordinator, Interrupted  # noqa: E402
 from orchestrator import _worker_paths, run  # noqa: E402
+from workflow_fixture import write_workflow_fixture  # noqa: E402
 
 
 def report(context, issues=False):
@@ -57,12 +59,7 @@ class OrchestratorTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         control = self.root / '.caprmedio_caprmedio'
         control.mkdir()
-        from engine import PROMPTS
-        bindings = json.loads((PROMPTS / 'source_bindings.json').read_text())
-        definition = next(row['path'] for row in bindings['sources'] if row['atom_id'] == 'CA-O-104')
-        self.definition = self.root / definition
-        self.definition.parent.mkdir(parents=True, exist_ok=True)
-        self.definition.write_bytes((APP.parents[3] / definition).read_bytes())
+        self.definition = write_workflow_fixture(self.root)
         (control / 'caprmedio_project_settings.toml').write_text(
             '[paths]\ncontrol_root=".caprmedio_caprmedio"\njournal_root=".caprmedio_caprmedio/_journal"\n')
         (self.root / 'atom.md').write_text(
@@ -105,15 +102,24 @@ class OrchestratorTests(unittest.TestCase):
         invoke_docker.assert_not_called()
         enqueue_native.assert_called_once_with(self.root, self.request)
 
-    def test_runtime_binding_uses_selected_project_definition(self):
-        from engine import runtime_fingerprint
+    def test_workflow_binding_uses_selected_project_definition(self):
+        from engine import workflow_fingerprint
         engine = Coordinator(self.root, MockAgent())
         engine.freeze(self.request)
-        original = runtime_fingerprint(self.root)
+        original = workflow_fingerprint(self.root)
         self.definition.write_text(self.definition.read_text() + '\nChanged mock Workflow\n')
-        self.assertNotEqual(original, runtime_fingerprint(self.root))
+        self.assertNotEqual(original, workflow_fingerprint(self.root))
         with self.assertRaisesRegex(Interrupted, 'changed after enqueue'):
             engine.request(self.request.run_id)
+
+    def test_missing_workflow_does_not_block_readiness_but_rejects_freeze(self):
+        from current_atom_locator import CurrentAtomLocatorError
+        from engine import runtime_fingerprint
+
+        self.definition.unlink()
+        self.assertRegex(runtime_fingerprint(self.root), r'^[0-9a-f]{64}$')
+        with self.assertRaisesRegex(CurrentAtomLocatorError, 'Atom identity'):
+            Coordinator(self.root, MockAgent()).freeze(self.request)
 
     def test_prompt_instructions_and_typed_report_use_the_production_contract(self):
         from engine import PROMPTS, validate_report

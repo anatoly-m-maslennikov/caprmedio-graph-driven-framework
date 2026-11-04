@@ -23,14 +23,10 @@ One exactly selected non-container Atom and its requested changes.
 
 ## Claim
 
-Resolve the selected Atom once, validate the requested change against its model, and apply the case determined by its Status:
+Resolve the exact non-container target once. Validate requested fields against the applicable model/schema, mandatory fields, expected source/currentness, permissions, identity, collision, and placement; never overwrite another target; read back the saved carrier.
 
-| Source | Update |
-| --- | --- |
-| Draft | Edit the proposal in place, including semantic content. Leave Current untouched. An existing-Atom proposal with unchanged Summary and Role retains its intended canonical marker and proposed Version. A Summary or Role replacement becomes a role-only Draft marker at Version 1 without allocating a canonical ID. Keep the filename and placement consistent with the edited proposal. |
-| Current | Admit only technical changes that preserve governed meaning, Summary and Role. Apply the normal same-ID update: archive predecessor N, then publish Current N+1 with the actual edit time under CA-R-1432 and CA-R-1788. No Draft staging is needed. |
-| Archived | Apply the requested technical repair directly to the selected carrier. Metadata is editable under the normal applicable rules, and the result must agree with its filename and placement. Git retains the previous carrier revision; do not impose a separate requirement to freeze historical metadata. This repair does not implicitly publish Current or promote a Draft. |
+- **Draft:** edit content in place, preserve Version and Updated At, and leave Current untouched. Unchanged Summary/Role retains the canonical intent marker and proposed Version. A Summary/Role change switches to a role-only marker and filename, keeps Draft Version/time, assigns no stable canonical ID, and publishes the canonical Atom at Version 1.
+- **Current:** allow only technical in-place edits preserving meaning, identity, Summary, Role, Status, Version, and Updated At; synchronize filename/location. A semantic request is an explicit error; the caller may separately select Update. Create no archive or successor.
+- **Archived:** allow only technical in-place edits preserving identity, meaning, Status, Version, and Updated At; synchronize filename/location. Do not publish Current or promote a Draft; semantic or identity changes are explicit errors.
 
-Validate the result's fields, Markdown structure, identity, Status and carrier consistency, and do not overwrite another target. An unchanged result is a no-op. A valid semantic Current change returns a handoff to Update Atom via Draft without executing it; an Archived request outside the technical boundary returns diagnostics and may point to separate Create Atom Draft use.
-
-Return actual completed changes and any diagnostics or partial outcome. Reject containers and descendant expansion. Do not automatically retry or roll back. Journal only actual business events, without requiring Journal history as permission or success proof.
+Return the saved result or an explicit error with completed partial outputs. Do not retry, replay, or roll back. Journal records business events only and is nonblocking. Reject containers, descendants, and cascades; Workflow flow and Step bindings remain outside this Action.

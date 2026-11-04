@@ -1,0 +1,177 @@
+{
+  "basis": "Latest user: remove Project Goal Operator-owner requirement; Project Goal Tier -1 when active Subject resolves Project; no additional Goal-only Tier constraint for other Goals; mandatory immediate containment is separate. No canonical or Git mutations.",
+  "scope": "Read Current native canonical plus listed previews, exclude archive/draft/projections as governing sources. Other agents may update Current; recheck pins.",
+  "items": [
+    {
+      "id": "CA-R-2132",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2132-CORE_META_MODEL-RULE--assign-project-goal-tier-minus-one.md",
+      "observed_source_sha256": "f7f843d0a0b42653ab59557785d40e7b8aab904f23eab8b169abce7d79429a3b",
+      "manifest_source_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2132.preview.txt",
+      "preview_sha256": "e713909c1cf3e088bee2602e25232f53955619ce1c165b3dc325cf9682df8e53",
+      "manifest_preview_matches": true,
+      "id_preserved": true,
+      "summary_preserved": true,
+      "verdict": "HOLD: still requires Type Project Goal and Target Project; does not explicitly constrain Goal whose active Subject resolves to Project. Superseded Type terminology. Preserve ID and Summary; amend Claim to latest condition. No owner or containment inference."
+    },
+    {
+      "id": "CA-R-927",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL--let-operators-define-project-goals.md",
+      "observed_source_sha256": "9b123292769eb01dc23fe6eda64b212d3e2d13fc36e52364e663650026218807",
+      "manifest_source_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-927.preview.txt",
+      "preview_sha256": "63088bda02ba9250812bee0d5b640161e3fcb52809a669747ab2c44759e65a3f",
+      "manifest_preview_matches": true,
+      "id_preserved": true,
+      "summary_preserved": true,
+      "verdict": "HOLD: retains other Goals must target non-Project Scope Units and use ordinary ownership; distinguish Target from active Subject and confirm this unrelated restriction is authorized. Summary Let Operators Define Project Goals no longer describes the Claim after Operator sentence removal; a changed Summary requires a fresh ID, retirement of the old identity, and rewriting Current unversioned references while preserving frozen references; alternatively fold the covered Claim into an existing Atom and retire the duplicate."
+    },
+    {
+      "id": "CA-R-2149",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2149-CORE_META_MODEL-RULE--constrain-governing-rmed-relation-targets-by-numeric-tier-and-scope-ancestry.md",
+      "observed_source_sha256": "3e9bd5cc7b72dc851cd958c741302c2fe8c798bc144375013a130d9c1db6e708",
+      "manifest_source_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2149.preview.txt",
+      "preview_sha256": "5b97c541a2c166ea04b3c05a99aad63522464d4f1fed14dcfcd5cc1bc330873b",
+      "manifest_preview_matches": true,
+      "id_preserved": true,
+      "summary_preserved": true,
+      "verdict": "PASS owner phrase removed; ordering tests and Project context retained. Depends on up-to-date verified Project Goal identity; no owner inferred."
+    },
+    {
+      "id": "CA-R-2424",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2424-CORE_META_MODEL-RULE--define-local-scope-contract-tier-zero.md",
+      "observed_source_sha256": "70969971670326b0a1c707b218e524e7b29751730ff1420fa38ae5b0538619e2",
+      "manifest_source_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2424.preview.txt",
+      "preview_sha256": "502ed2aacbac7dd434485e46c3f0b56729caaf67880ff9704a5ca8ac32a624aa",
+      "manifest_preview_matches": true,
+      "id_preserved": true,
+      "summary_preserved": true,
+      "verdict": "PASS removes owner premise; retains independent scope Tier zero and project-goal Tier minus one."
+    },
+    {
+      "id": "CA-R-808",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-808-CORE_META_MODEL-RULE--apply-relation-direction-within-its-ordering-domain.md",
+      "observed_source_sha256": "b6fe1ed0788cf3d2ea2dad5e86051bb6d6f998dd5a1025e776f9b1d6ccc1e592",
+      "manifest_source_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-808.preview.txt",
+      "preview_sha256": "f2cd449fc7621cb083fb10d6e35be16efa26df535801073cf12d2c5bfa352c95",
+      "manifest_preview_matches": true,
+      "id_preserved": true,
+      "summary_preserved": true,
+      "verdict": "PASS removes owner premise and preserves ordering-domain and prerequisite constraints."
+    },
+    {
+      "id": "CA-R-2688",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+      "observed_source_sha256": "990a293220b3528ce4afbdd43b34fa831aee0b98b15102fe2fe81b1874b39824",
+      "manifest_source_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2688.preview.txt",
+      "preview_sha256": "46853a16d07b97d89f08d3f74439ab448e3df8f08ced0f80afed69b04f85d204",
+      "manifest_preview_matches": true,
+      "id_preserved": true,
+      "summary_preserved": true,
+      "verdict": "PASS removes Project Goal analogy only; preserves independent Project Declaration Operator ownership."
+    },
+    {
+      "id": "CA-R-2706",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2706-CORE_META_MODEL-DECLARATION--declare-atom-header-tier.md",
+      "observed_source_sha256": "9cbbd70ffbd2dba975184c3ad9bfed4584cefd431068d714e68901a519efa4c2",
+      "manifest_source_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2706.preview.txt",
+      "preview_sha256": "7d6cac4728935276f61b5f3fa08ef53a39349925c62c0cc55be8b2b0022ea157",
+      "manifest_preview_matches": true,
+      "id_preserved": true,
+      "summary_preserved": true,
+      "verdict": "PASS removes unsupported goal-specific tier range from this property declaration; preserves int, exact value, optional Label child, and >= -1. General Scope Unit rules remain independently governed."
+    },
+    {
+      "id": "CA-M-438",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-438-CORE_META_MODEL-ENG-DECISION--derive-current-rmed-atom-ordering-tier.md",
+      "observed_source_sha256": "760f7d3bed6c59304259728776bdd7e282a7de6b33eca6f07d34ec1a124a5f3b",
+      "manifest_source_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-M-438.preview.txt",
+      "preview_sha256": "375db6e191ab560358457615927383e4ed07c58042a7ceb14da670e1fa336841",
+      "manifest_preview_matches": true,
+      "id_preserved": true,
+      "summary_preserved": true,
+      "verdict": "PASS subject to corrected Project Goal predicate; preserves ordering graph, ordinary tier constraints and target-project ordering. No owner inferred."
+    },
+    {
+      "id": "CA-M-461",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "observed_source_sha256": "96076568c22e88e25f0a80dca363ea0f5bd9f41fbdbdb5f7c141756b5cbc9db5",
+      "manifest_source_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-M-461.preview.txt",
+      "preview_sha256": "2155a96d06b4bedc5f03f7f9795a7e10219b2d75a0c1391067867fd0b07613a8",
+      "manifest_preview_matches": true,
+      "id_preserved": true,
+      "summary_preserved": true,
+      "verdict": "PASS removes analogy only; keeps independent Project Declaration ownership."
+    },
+    {
+      "id": "CA-D-283",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md",
+      "observed_source_sha256": "072b84f3f969200fbf321313aeb0c0a2841b58435a87518cc616bccdd606fd50",
+      "manifest_source_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-D-283.preview.txt",
+      "preview_sha256": "2d4ed024f184c8fed8187b65b2ed9d3d47e8464f450a6d93c48fd3ca454f66de",
+      "manifest_preview_matches": true,
+      "id_preserved": true,
+      "summary_preserved": true,
+      "verdict": "HOLD: replaces Operator-owned with external without evidence latest choice retains external placement; external-only reference may leave project-contained Goal filenames without a defined matching carve-out. Preserve Summary/ID and consult D292/D651."
+    },
+    {
+      "id": "CA-E-654",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-654-CORE_META_MODEL-EVAL-CASE--validate-integer-tier-ordering-and-scope-constraints.md",
+      "observed_source_sha256": "834ccbe92b8414d7cf360a74bceea8c6a526c794f9ca453674fbf6880278bacc",
+      "manifest_source_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-E-654.preview.txt",
+      "preview_sha256": "6efeb5398ee14512e763b8bc8b733b3bbf134207751b1c0d8a24897c4f7a7fb5",
+      "manifest_preview_matches": true,
+      "id_preserved": true,
+      "summary_preserved": true,
+      "verdict": "HOLD pending corrected active-Subject predicate and coherent Goal identity cases; tests still say verified Project Goal and do not test direct Project-resolved active Subject vs non-Project Goals. Remaining ordering checks preserved."
+    }
+  ],
+  "remaining_consumers": [
+    {
+      "id": "CA-R-2125",
+      "issue": "Non-Project-Goal cardinality and ordinary Scope Unit-owned >=0; verify identity condition and keep unrelated Atom rule."
+    },
+    {
+      "id": "CA-R-2131",
+      "issue": "Non-Project Scope Unit tier range; retain unrelated general rule."
+    },
+    {
+      "id": "CA-R-2428",
+      "issue": "Scope Unit ordinary tier range, references Project Goal Tier -1; verify no conflict with actual ownership after resolution."
+    },
+    {
+      "id": "CA-D-292",
+      "issue": "External-only Project Goal filename grammar and required Operator name token; token is not itself ownership, but placement/coverage needs confirmation."
+    },
+    {
+      "id": "CA-D-651",
+      "issue": "External Project Goal filename grammar recognized before ordinary default; same scope coverage check."
+    },
+    {
+      "id": "CA-D-342",
+      "issue": "External Project Goal references; check coverage if external status not established."
+    },
+    {
+      "id": "CA-E-511",
+      "issue": "Mentions explicit target and external Project Goals; no direct Operator-owner assertion, placement relevance needs verification."
+    },
+    {
+      "id": "CA-R-037",
+      "issue": "Project-owned Tier 0 Atom parent coverage points to active Project Goal Atom; check after identity correction."
+    }
+  ],
+  "limitations": [
+    "No runtime/test/projection/migration verification.",
+    "No conclusion that all remaining external-placement terms are invalid; ask for source-supported placement scope.",
+    "Candidate Source hashes may drift during concurrent work."
+  ]
+}

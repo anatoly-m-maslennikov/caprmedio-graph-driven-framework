@@ -1,0 +1,10 @@
+{
+  "atom_id": "CA-M-461",
+  "current_version": 1,
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+  "source_sha256": "96076568c22e88e25f0a80dca363ea0f5bd9f41fbdbdb5f7c141756b5cbc9db5",
+  "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-M-461.preview.txt",
+  "preview_sha256": "2155a96d06b4bedc5f03f7f9795a7e10219b2d75a0c1391067867fd0b07613a8",
+  "change_count": 1,
+  "change_summary": "remove only the Project Goal ownership analogy; preserve Project Declaration ownership"
+}

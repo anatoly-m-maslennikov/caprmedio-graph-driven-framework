@@ -1,3 +1,7 @@
+# CA-R-2729@2
+# CA-M-463@2
+# CA-D-673@4
+
 """Explicit process generations and connected Subject publication; no automatic replay."""
 import asyncio
 from concurrent.futures import CancelledError as FutureCancelledError
@@ -30,6 +34,7 @@ from project_settings_schema import mcp_tool_blacklist
 from health_observations import HealthObservations
 from operation_error_boundary import FailureRecord, operation_error_boundary
 from runtime_failure_diagnostics import report_failure
+from workbench_tools import CHECK as WORKBENCH_CHECK, RUN as WORKBENCH_RUN, WorkbenchTools, native_tools as workbench_native_tools
 
 
 def startup_selection(root, control_root=None, instance_id=None, host_root=None):
@@ -338,6 +343,7 @@ class Gateway:
         self.implementation = Path(implementation or Path(__file__).with_name('implementation_server.py'))
         self.active, self.generations = None, []
         self.health_observations = HealthObservations()
+        self.workbench = WorkbenchTools(self.root)
         self.subject_stages = {}
         self.reload_lock, self.receipts = asyncio.Lock(), {}
         self.generation_fence = threading.Lock()
@@ -400,7 +406,9 @@ class Gateway:
             _startup_timing(_startup_telemetry_enabled(), phase, started)
             phase, started = 'schema_validation', time.monotonic()
             names = [t.name for t in generation.tools]
-            if len(set(names)) != len(names) or {CONTROL.name, STATUS.name}.intersection(names):
+            if len(set(names)) != len(names) or {
+                CONTROL.name, STATUS.name, WORKBENCH_RUN, WORKBENCH_CHECK,
+            }.intersection(names):
                 raise ValueError('Duplicate or reserved Tool name')
             for tool in generation.tools:
                 if not re.fullmatch(r'[A-Za-z0-9_.-]{1,128}', tool.name):
@@ -732,6 +740,8 @@ class Gateway:
             return result(self.status())
         if params.name == CONTROL.name:
             return await self.control(context, params.arguments or {})
+        if params.name in (WORKBENCH_RUN, WORKBENCH_CHECK):
+            return result(await self.workbench.call(params.name, params.arguments))
         generation = self.active
         generation.in_flight += 1
         try:
@@ -811,15 +821,18 @@ class Gateway:
             await asyncio.gather(*done, *pending, return_exceptions=True)
         finally:
             try:
-                self._release_singleton_fence()
+                await self.workbench.close()
             finally:
-                self.generation_fence.release()
+                try:
+                    self._release_singleton_fence()
+                finally:
+                    self.generation_fence.release()
 
     def build_server(self):
 
         async def list_tools(context, params):
             return types.ListToolsResult(tools=[
-                tool for tool in (CONTROL, STATUS, *self.active.tools)
+                tool for tool in (CONTROL, STATUS, *workbench_native_tools(), *self.active.tools)
                 if tool.name not in self.tool_blacklist
             ])
 

@@ -1,0 +1,9 @@
+{
+  "atom_id": "CA-R-2428",
+  "current_version": 2,
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2428-CORE_META_MODEL-RULE--admit-numeric-tiers-in-scope-units.md",
+  "source_sha256": "1b4b4dff074b9cd2e1bb19d314ea33858f875a0d03d37f0fc2ae8869d0e60697",
+  "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2428.preview.txt",
+  "preview_sha256": "6d2b45e2af1be2791fd1f46f1ad06101008a8842ab2e7ed9a2a05ee3061a1ce8",
+  "change_summary": "exclude only the Form Goal whose active Subject resolves to Project root from ordinary >=0 min bounds, regardless of Container or owner; preserve other ordinary ranges"
+}

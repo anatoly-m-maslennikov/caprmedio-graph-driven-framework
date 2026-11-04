@@ -1,0 +1,51 @@
+---
+subjects:
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  passive:
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Carrier
+version: 34
+updated_at: 2026-11-02 18:35:20 +0400
+relations:
+  evaluation_for:
+  - CA-R-1587
+  - CA-R-1044
+  - CA-R-1045
+  - CA-R-1427@17
+  - CA-R-1428
+  - CA-M-271
+  - CA-R-1591
+  - CA-D-ALLOCATE
+  - CA-D-485
+  - CA-R-1713
+atom_id: CA-E-443
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 4
+role: Evaluation
+form: Eval Case
+---
+## Summary
+
+Validate confidence-threshold precedence **and** inheritance
+
+## Claim
+
+### Prose Claim
+
+The confidence-threshold Evaluation.
+
+The Evaluation **must** test CA-M-271 precedence and the CA-R-1591 Plan execution authorization gate:
+
+- For a decision executing a Plan, supply distinct valid AI Agent Confidence Threshold values on the current Plan, its nearest and more distant enclosing Plans, and Project.Settings. Omit each value in turn and require the first present value along `IS_CONTAINED_BY`, without requiring an enclosing Hub Label. Use a Scope Unit chain where applicable to reach Project.Settings.
+- Reject an invalid, ambiguous, or cyclic reached source without silently falling through. An omitted optional override inherits without copying; an explicit override remains selected even when equal to the inherited value and after the upstream value changes.
+- For other Confidence Thresholds, and for a decision outside Plan execution, check the existing applicable order: context-limited direct Operator input, an applicable current Plan, the nearest applicable enclosing Hub, and the applicable Project.Settings default. Resolve each threshold independently; do not infer a Plan Property for another threshold or equate it with the AI Agent Confidence Threshold. Supply direct Operator input for one execution and verify that an unrelated execution retains its own setting.
+- Accept permitted integer values including **`=0`**, **`=87`**, **`=99`**, and **`=100`**; reject out-of-range, non-integer, missing effective, or ambiguous values. Check explicit Plan confidence serialization under CA-D-ALLOCATE; do not require a per-Plan retry-limit field.
+- Use current Plan Revisions, not Archived copies or unrelated files. A missing mandatory Plan Carrier is invalid. Confidence below the effective value requests Operator disposition; a value at or above the threshold grants no additional authority.
+
+Report the selected source, context, expected value, and failed condition without mutating source values.

@@ -3,8 +3,8 @@ cce_version: cce_1
 cce_form: method
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-version: 20
-updated_at: 2026-11-02 19:44:26 +0400
+version: 21
+updated_at: 2026-11-03 23:17:14 +0400
 relations:
   method_for:
   - CA-R-1100
@@ -29,9 +29,9 @@ Use this Method **when** registering **or** changing an immediate APPS Scope Uni
 ## Procedure
 
 1. Resolve the active APPS authority **and** the current immediate-child Scope Unit declarations.
-2. Register `GRAPH_SERVER`, `GRAPH_UI`, `WORKFLOW_ORCHESTRATOR`, **and** `AGENT_HOST_PLUGINS` as distinct immediate unordered APPS children.
-3. Assign the headless read model **and** service to `GRAPH_SERVER`; assign the optional human interface to `GRAPH_UI`; assign Workflow Run state **and** continuation to `WORKFLOW_ORCHESTRATOR`; **and** retain host-specific packaging in `AGENT_HOST_PLUGINS`.
-4. Verify that `GRAPH_SERVER` exposes the complete headless boundary required by Tools **and** MCP without depending on `GRAPH_UI`.
+2. Register `WORKBENCH`, `GRAPH_UI`, `WORKFLOW_ORCHESTRATOR`, **and** `AGENT_HOST_PLUGINS` as distinct immediate unordered APPS children.
+3. Assign the headless read model **and** service to `WORKBENCH`; assign the optional human interface to `GRAPH_UI`; assign Workflow Run state **and** continuation to `WORKFLOW_ORCHESTRATOR`; **and** retain host-specific packaging in `AGENT_HOST_PLUGINS`.
+4. Verify that `WORKBENCH` exposes the complete headless boundary required by Tools **and** MCP without depending on `GRAPH_UI`.
 5. State that every read model, interface, **and** Projection is derived support **and** does **not** become project authority.
 6. Confirm that each declaration has one immediate typed owner, one identity, **and** no conflicting owner **or** responsibility claim.
 

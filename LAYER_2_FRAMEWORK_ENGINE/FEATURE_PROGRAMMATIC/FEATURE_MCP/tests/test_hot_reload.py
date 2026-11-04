@@ -17,6 +17,7 @@ ROOT = APP.parents[2]
 sys.path.insert(0, str(APP))
 from hot_reload import (Gateway, Generation, digest, GENERATION_READY_TIMEOUT_SECONDS,
                         IMPLEMENTATION_CALL_TIMEOUT_SECONDS)  # noqa: E402
+from workbench_tools import CHECK as WORKBENCH_CHECK, RUN as WORKBENCH_RUN  # noqa: E402
 
 
 class HotReload(unittest.IsolatedAsyncioTestCase):
@@ -95,7 +96,8 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
             self.assertTrue(response.structured_content['registry_changed'])
             self.assertEqual(response.structured_content['client_refresh_status'], 'unconfirmed')
             self.assertEqual({t.name for t in (await client.list_tools()).tools},
-                             {'echo_new', 'reload_mcp_implementation', 'get_mcp_reload_status'})
+                             {'echo_new', 'reload_mcp_implementation', 'get_mcp_reload_status',
+                              WORKBENCH_RUN, WORKBENCH_CHECK})
             self.assertEqual((await client.call_tool('echo_new')).structured_content['version'], 'B')
             duplicate = await self.reload(client, 'change')
             self.assertEqual(response.structured_content, duplicate.structured_content)
@@ -174,7 +176,8 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
             response = await self.reload(client, 'legacy-change')
             self.assertEqual(response.structured_content['notification_status'], 'sent')
             self.assertEqual({t.name for t in (await client.list_tools()).tools},
-                             {'new_echo', 'reload_mcp_implementation', 'get_mcp_reload_status'})
+                             {'new_echo', 'reload_mcp_implementation', 'get_mcp_reload_status',
+                              WORKBENCH_RUN, WORKBENCH_CHECK})
 
     async def test_status_is_read_only_and_reload_is_separate(self):
         storage = Gateway(self.root, self.source).storage

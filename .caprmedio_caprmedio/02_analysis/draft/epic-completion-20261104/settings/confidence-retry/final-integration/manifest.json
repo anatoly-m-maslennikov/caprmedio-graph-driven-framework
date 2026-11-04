@@ -1,0 +1,162 @@
+{
+  "status": "DRAFT_REVIEW_ONLY",
+  "frontier_sha256": "b40245922796d93282ec704c0a9900cf02e88dccdd56cb751ba42edbf8e46b5c",
+  "previews": {
+    "CA-M-271": {
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-M-271.txt",
+      "candidate_sha256": "795c7e307ca80ff69c04d052a5a2fea0575149b5dbc3aa9fe99673ca889aad01",
+      "source": {
+        "id": "CA-M-271",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md",
+        "sha256": "c3fee4fb0f4f733a805b5122b2e38da7af8c8eb39ac5208912b1e00f05663c1a"
+      },
+      "base_preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/previews/CA-M-271.txt",
+      "base_preview_sha256": "795c7e307ca80ff69c04d052a5a2fea0575149b5dbc3aa9fe99673ca889aad01"
+    },
+    "CA-E-443": {
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-E-443.txt",
+      "candidate_sha256": "60d3548848d6fb73226a09c1ad7d532a91a7eb15beed0ecbe1421a054519ef53",
+      "source": {
+        "id": "CA-E-443",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-EVAL_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+        "sha256": "8242efa9ffd4494184d19f7bd667b20537b363c4ca69336cd8f3be3e8c59a1dd"
+      },
+      "base_preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/previews/CA-E-443.txt",
+      "base_preview_sha256": "60d3548848d6fb73226a09c1ad7d532a91a7eb15beed0ecbe1421a054519ef53"
+    },
+    "CA-E-473": {
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-E-473.txt",
+      "candidate_sha256": "d7b4fc58830ab89275b165b10982ec32b9aab32a99ef2276dfc8430e8767780b",
+      "source": {
+        "id": "CA-E-473",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-473-PROJECT_CONFIGURATION-EVAL_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+        "sha256": "235347ad6f66735c2e03a057243a697d051e7bc52f0e2e6407d91877ef4cffae"
+      },
+      "base_preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/previews/CA-E-473.txt",
+      "base_preview_sha256": "d7b4fc58830ab89275b165b10982ec32b9aab32a99ef2276dfc8430e8767780b"
+    },
+    "CA-R-ALLOCATE-retry": {
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-R-ALLOCATE-retry.txt",
+      "candidate_sha256": "ed4a8ae3afe79344b1ad7cdee158620598e6a50112d68ca2fd31165ea4d574cd",
+      "source": {
+        "id": "CA-R-1489",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1489-CORE_META_MODEL-RULE--permit-implementation-retry-limit-defaults-and-overrides.md",
+        "sha256": "72bfe645888cf06c14471da14f137aa18f5d943685aa30daea7b62f17fa47731"
+      },
+      "base_preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/previews/CA-R-ALLOCATE-retry.txt",
+      "base_preview_sha256": "ed4a8ae3afe79344b1ad7cdee158620598e6a50112d68ca2fd31165ea4d574cd"
+    },
+    "CA-R-1428": {
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-R-1428.txt",
+      "candidate_sha256": "cd72abb985c39b716fb50a1fd5428244a1c1376ac434df1f28828609c1e111f7",
+      "source": {
+        "id": "CA-R-1428",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL--permit-confidence-threshold-defaults-and-overrides.md",
+        "sha256": "4fd0a513d98f08920fbcfde8aacf54f9ecbc7f92fab2d2861d54471e0d566980"
+      },
+      "base_preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-R-1428.txt",
+      "base_preview_sha256": "3cc0eba745aae772f214cdd21c6b8910142dfecfe05f4ea8421f28643cc185e9"
+    },
+    "CA-E-241": {
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-E-241.txt",
+      "candidate_sha256": "9d34d0dbbf95bdf1660e2d8291e552ad2945ef5ca57f1dc8a0340166a82184e7",
+      "source": {
+        "id": "CA-E-241",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md",
+        "sha256": "0f2673ddf610763e72e15de7d45bee76392d9d173d504e6246f03697f108f487"
+      },
+      "base_preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/previews/CA-E-241.txt",
+      "base_preview_sha256": "e4acaa370ad7244abc9254b54f03c7eeb341874ffb54d255a72f77102f55c4b9"
+    },
+    "CA-M-306": {
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-M-306.txt",
+      "candidate_sha256": "8dfda2fe8024de19b03fcf4d457dd45c84651c9a8f212b5bee07727b78896f55",
+      "source": {
+        "id": "CA-M-306",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md",
+        "sha256": "e3b360c6269adba675a83f9b971c0af7609cb2f30b31eb38fd92e27c330d7877"
+      },
+      "base_preview": null
+    },
+    "CA-E-502": {
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-E-502.txt",
+      "candidate_sha256": "1c8ce7b2e859ad5d712f4f563474d01cc5780e15b3a0112cf7d707f954335302",
+      "source": {
+        "id": "CA-E-502",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-EVAL_CASE--validate-plan-carrier-identity-and-placement.md",
+        "sha256": "301ab49972531f92c79c6aeffa6cc8399d12879b0d19d87ece84dddd0a275d5a"
+      },
+      "base_preview": null
+    },
+    "CA-E-441": {
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-E-441.txt",
+      "candidate_sha256": "7babf5a7f766c58fe26bc17b26f2b88b20ba6c76b66ac6788e7d87defa58c7e3",
+      "source": {
+        "id": "CA-E-441",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-441-PROJECT_CONFIGURATION-POLICY--evaluate-retry-budget-and-escalation.md",
+        "sha256": "74779476a7ecf98826b7c52ddea0af93f70759c1787e353e30b12edd3058bad8"
+      },
+      "base_preview": null
+    },
+    "CA-D-447": {
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-D-447.txt",
+      "candidate_sha256": "fede0c2d73d99493616e817b1d507f1714b74a8da15eafafbd65ad252a73b7f7",
+      "source": {
+        "id": "CA-D-447",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-ENG_DECISION--serialize-the-implementation-retry-limit-setting.md",
+        "sha256": "4334b7cadc76ac932c59355d01ff395345a6beb1c1ab33cac68b0235188dbfb3"
+      },
+      "base_preview": null
+    },
+    "CA-O-024": {
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-O-024.txt",
+      "candidate_sha256": "08e63fcddaad77a1a57a0b8acfb998bac9049c3ea7e245cf5700115e6e834492",
+      "source": {
+        "id": "CA-O-024",
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-024-PROJECT_CONFIGURATION-ACTION--control-implementation-retries.md",
+        "sha256": "50908c4c40c541a886e80013a1bd2917267449df45fe61a2681edc2a194818ea",
+        "outside_selected_frontier": true
+      },
+      "base_preview": null
+    }
+  },
+  "preserve_pending_decision": [
+    "CA-R-2635",
+    "CA-R-2532"
+  ],
+  "proposed_retire_after_atomic_reference_reconciliation": [
+    "CA-R-1489",
+    "CA-M-295",
+    "CA-D-472"
+  ],
+  "note": "O024 source placement/authority and Project.Settings retry source and TOML migration remain unverified; placeholders are not publishable.",
+  "retirement_pins": [
+    {
+      "id": "CA-R-1489",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1489-CORE_META_MODEL-RULE--permit-implementation-retry-limit-defaults-and-overrides.md",
+      "sha256": "72bfe645888cf06c14471da14f137aa18f5d943685aa30daea7b62f17fa47731"
+    },
+    {
+      "id": "CA-M-295",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md",
+      "sha256": "e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa"
+    },
+    {
+      "id": "CA-D-472",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "sha256": "161c952b42de6a0f6a2fc560bbb14addd2c0aed16f2f7d7bcb8e66720ad92e3d"
+    }
+  ],
+  "preserved_declaration_pins": [
+    {
+      "id": "CA-R-2635",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2635-CORE_META_MODEL-DECLARATION--declare-project-settings-implementation-retry-limit.md",
+      "sha256": "d0eae12b9d3813e8dc65b40a46e5cf689d6db0d693b8890079833f8cd35e1e7b"
+    },
+    {
+      "id": "CA-R-2532",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+    }
+  ]
+}

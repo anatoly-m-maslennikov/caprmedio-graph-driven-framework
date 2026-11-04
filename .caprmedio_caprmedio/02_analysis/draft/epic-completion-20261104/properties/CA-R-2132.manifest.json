@@ -1,0 +1,23 @@
+{
+  "status": "PREVIEW_ONLY_REQUIRES_REVIEW",
+  "atom_id": "CA-R-2132",
+  "source_version": "12",
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2132-CORE_META_MODEL-RULE--assign-project-goal-tier-minus-one.md",
+  "source_sha256": "f7f843d0a0b42653ab59557785d40e7b8aab904f23eab8b169abce7d79429a3b",
+  "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2132.preview.txt",
+  "candidate_sha256": "0eab01c7399ca3906446373d514779fff7f797623097941c19d6325125d031af",
+  "decision_basis": "Latest explicit user decision: Project-root Goal identity is Form Goal whose active Subject resolves to the Project Scope Unit root; Tier -1 applies to that predicate only. Remove Operator ownership; no Type Project Goal condition.",
+  "change": "Use any Atom of Form Goal whose active Subject resolves to Project root as the exact Tier -1 case; remove old Type Project Goal and Operator ownership predicates.",
+  "summary_identity": "Retained. Summary still describes the Tier -1 rule and project-root Goal class.",
+  "related_current_rules": {
+    "CA-R-927@41": "9b123292769eb01dc23fe6eda64b212d3e2d13fc36e52364e663650026218807",
+    "CA-R-808@34": "b6fe1ed0788cf3d2ea2dad5e86051bb6d6f998dd5a1025e776f9b1d6ccc1e592",
+    "CA-R-2149@14": "3e9bd5cc7b72dc851cd958c741302c2fe8c798bc144375013a130d9c1db6e708",
+    "CA-R-2424@2": "70969971670326b0a1c707b218e524e7b29751730ff1420fa38ae5b0538619e2",
+    "CA-R-2688@1": "990a293220b3528ce4afbdd43b34fa831aee0b98b15102fe2fe81b1874b39824",
+    "CA-R-2125@10": "4a17046edd8f632ecc3b326dca36e6fe837536831d5368a647ff01af54a84e51"
+  },
+  "scope_note": "Connected RMED requirement, method, delivery and evaluation wording is previewed in the corresponding pinned property-folder manifests. External-only delivery rules are assessed separately and are not expanded to all Project-root Goals.",
+  "preview_sha256": "0eab01c7399ca3906446373d514779fff7f797623097941c19d6325125d031af",
+  "change_summary": "apply Tier -1 to any explicit Goal Form whose active Subject resolves to Project root; remove Type and owner predicates"
+}

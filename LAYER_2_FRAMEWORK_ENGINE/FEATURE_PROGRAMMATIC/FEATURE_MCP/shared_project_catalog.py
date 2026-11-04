@@ -1,3 +1,6 @@
+# CA-R-2729@2
+# CA-D-673@4
+
 """A bounded, startup-time public Tool frontier for the shared MCP."""
 
 from __future__ import annotations
@@ -17,6 +20,7 @@ from operation_error_boundary import FailureRecord
 from project_selection import ProjectSelection
 from runtime_failure_diagnostics import report_failure
 from shared_tool_contract import ToolContract, contract_digest, public_tool
+from workbench_tools import native_tools as workbench_native_tools
 
 MAX_PROJECT_CANDIDATES = 256
 
@@ -56,7 +60,7 @@ def native_tools(gateway: Any) -> list[types.Tool]:
     if active is None:
         raise RuntimeError("Project Gateway has no active generation")
     blocked = getattr(gateway, "tool_blacklist", frozenset())
-    return [tool for tool in (CONTROL, STATUS, *active.tools) if tool.name not in blocked]
+    return [tool for tool in (CONTROL, STATUS, *workbench_native_tools(), *active.tools) if tool.name not in blocked]
 
 
 def _has_marker(root: Path, frontier: SharedToolFrontier) -> bool:

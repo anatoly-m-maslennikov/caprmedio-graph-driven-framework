@@ -1,0 +1,30 @@
+---
+atom_id: "<UNALLOCATED-external-local-runtime>"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ External Local Runtime
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare External Local Runtime
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+External Local Runtime ((NARROWER_THAN)) Runtime
+```
+
+## Semantics
+
+An External Local Runtime is a Runtime external to our application on the Operator’s machine.

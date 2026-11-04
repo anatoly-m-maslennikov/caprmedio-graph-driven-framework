@@ -4,16 +4,18 @@ role: Plan
 form: Plan
 label: Task
 status: Active
-version: 4
-updated_at: 2026-11-04 09:32:27 +0400
+version: 5
+updated_at: 2026-11-04 14:56:07 +0400
 tier: 4
-current_scope_unit: caprmedio
 subjects:
   active: CAPRMEDIO_MODEL <+ Scope Unit
 relations:
   IS_CONTAINED_BY:
-  - CA-P-2694
-author: Anatoly Maslennikov
+    atom: CA-P-2694
+carrier_destination:
+  file:
+    name: 12-CA-P-2707-TASK--verify-declaration-source-cutover.md
+    path: .caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing
 ---
 ## Summary
 
@@ -21,7 +23,7 @@ Verify the Declaration source cutover
 
 ## Objective
 
-Verify the final Current Declaration sources, their consumers and carrier admission. Pass the complete suite, launcher and required Docker checks before Epic completion.
+Verify the final Current Declaration sources and their source consumers. Reconcile source-side authority and identity before carrier admission. CA #3 owns engine implementation/runtime changes, fixtures, regression work and execution of carrier-admission, complete-suite, launcher, Docker and lifecycle checks. Those remain required external dependencies before P2707 or the Epic can be Done.
 
 ## Recorded evidence
 
@@ -34,11 +36,11 @@ Verify the final Current Declaration sources, their consumers and carrier admiss
 
 ## Remaining checks
 
-1. Verify final Declaration counts, identities, derived paths and source hashes. Explain each digest change from preserved source evidence.
-2. Close the legacy scope-field disposition and any missing Current execution bindings. A retired carrier is not a Current replacement.
-3. Verify live Project admission and fresh Docker query/status and lifecycle checks, including the W10 result/timestamp comparison.
-4. Run the complete current-source suite and launcher on a stable candidate. Record the exact implementation, source and image identities, results and cleanup.
-5. Preserve the explicit O016 expected-failure disposition under P2708. It does not waive unrelated failures.
+1. The source lane verifies final Declaration counts, identities, derived paths and source hashes. Explain every digest change from preserved source evidence.
+2. Reconcile the legacy scope-field disposition from Current authority and identify a valid Current execution binding for every required operation. CA #3 owns matching implementation, registry/fixture changes and tests; a retired or archived carrier is not a Current replacement. The missing actual CA-O-104 Review Workflow remains a distinct source-authority issue and cannot be filled by a projection or installed copy.
+3. CA #3 verifies live Project admission and fresh Docker query/status and lifecycle checks, including the W10 result/timestamp comparison, on the stable candidate.
+4. CA #3 runs the complete current-source suite and launcher on that same stable candidate. Record exact implementation, source and image identities, results and cleanup. These checks remain pending until an actual terminal result is recorded; focused or mixed-state runs do not satisfy them.
+5. Preserve the explicit O016 expected-failure disposition under P2708. It does not waive unrelated failures. Actual Workflow-instance migration remains separately deferred; do not conflate it with the missing CA-O-104 source or with the settled Occurrent kind decisions.
 
 ## Status
 

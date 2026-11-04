@@ -1,0 +1,33 @@
+---
+atom_id: "<UNALLOCATED-is-produced-by>"
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PRODUCED_BY
+version: 1
+relations: {}
+tier: 1
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare IS_PRODUCED_BY
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Relation//IS_PRODUCED_BY <((HAS_INVERSE)) Relation//PRODUCES;
+
+Relation//IS_PRODUCED_BY ((HAS_CLASSIFICATION)) Derivation == Derived;
+
+# instances
+Event//$event((IS_PRODUCED_BY)) Execution//$execution
+```
+
+## Semantics
+
+IS_PRODUCED_BY is the derived view from an Event to the Execution that produced it; it is not a second stored fact.

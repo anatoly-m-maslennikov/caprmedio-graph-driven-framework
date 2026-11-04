@@ -1,0 +1,30 @@
+---
+atom_id: "<UNALLOCATED-session>"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Session
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare Session
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Session ((NARROWER_THAN)) External Remote Runtime
+```
+
+## Semantics
+
+A Session is actual ongoing interaction, distinct from its log and any stored session-state envelope.

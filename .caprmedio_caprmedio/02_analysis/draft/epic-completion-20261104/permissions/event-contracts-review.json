@@ -1,0 +1,135 @@
+{
+  "status": "REVIEW_WITH_ONE_COUNT_OWNERSHIP_FINDING",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/manifest.json",
+  "manifest_sha256": "c6326f149e63872aa8bc400c6a66ab9f66015685f5cb0b105e67fa5dfacef114",
+  "candidates": [
+    {
+      "id": "CA-R-2246",
+      "source_sha256": "5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03",
+      "candidate_sha256": "71bac07e7d4749ac0219531fe4a982438cd2ce7cdd317dfd71277921bd816c95",
+      "pins_match": true,
+      "same_id_version": true,
+      "summary_unchanged": true,
+      "metadata_deltas": [
+        "subjects"
+      ]
+    },
+    {
+      "id": "CA-R-2421",
+      "source_sha256": "1e6ddc6a60e24a613c8ea03be2c11b4dc452bb94d5e1fa2bd652123295b82277",
+      "candidate_sha256": "3665cf8d67f0adc6fbb8da49d1977382e68c57f3e35219eceeae7e48db8848d4",
+      "pins_match": true,
+      "same_id_version": true,
+      "summary_unchanged": true,
+      "metadata_deltas": []
+    },
+    {
+      "id": "CA-R-2557",
+      "source_sha256": "0357e59cb3366ebbb2e13d0ef139d29e8fd24a449729014686c438555e535dcb",
+      "candidate_sha256": "beb27e9784851ca050828d25f5595f4a17b0f92760cb367b360a34ebbd63ce72",
+      "pins_match": true,
+      "same_id_version": true,
+      "summary_unchanged": true,
+      "metadata_deltas": []
+    },
+    {
+      "id": "CA-R-2255",
+      "source_sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a",
+      "candidate_sha256": "9f07d2a358687669551dd4381a4806e9b8738a1e0da90f151877d48cc47cf198",
+      "pins_match": true,
+      "same_id_version": true,
+      "summary_unchanged": true,
+      "metadata_deltas": [
+        "subjects"
+      ]
+    },
+    {
+      "id": "CA-R-2420",
+      "source_sha256": "52e09f067858fcaa9c26bfd100227b9c7866058482054e0fca93331cdc238263",
+      "candidate_sha256": "a396e7f63126a7fb962b87dedd0985809e2305248f63f826b561d1902b241e2d",
+      "pins_match": true,
+      "same_id_version": true,
+      "summary_unchanged": true,
+      "metadata_deltas": []
+    },
+    {
+      "id": "event",
+      "source_sha256": "972f9f006a723b8391cb9f844cf1f37b67e57e6b365b039a49844706614329da",
+      "candidate_sha256": "c80dcad89c791b818b7fd822c2616d50aa0ea76f5d4a21f060bb1befb9422b6e",
+      "pins_match": true,
+      "same_id_version": true,
+      "summary_unchanged": true,
+      "metadata_deltas": []
+    },
+    {
+      "id": "runtime",
+      "source_sha256": "5ca3e9e8f35c04bd2e84a1a6ea1285c0667e0842eabb924452763d1c667e75bf",
+      "candidate_sha256": "796460895b6b40a1d733b3f4582ccea07dfaf7ed703f46dd388aa8c6501ab63c",
+      "pins_match": true,
+      "same_id_version": true,
+      "summary_unchanged": true,
+      "metadata_deltas": []
+    },
+    {
+      "id": "execution",
+      "source_sha256": "a2e917f5a8c652acd82cdc131d03962d364915fde47e73ceee2eac37e2708b43",
+      "candidate_sha256": "71eb7a2be4fa8a8eea2c612e84c056cc2538fc4c984203145818ca12077ce44a",
+      "pins_match": true,
+      "same_id_version": true,
+      "summary_unchanged": true,
+      "metadata_deltas": []
+    },
+    {
+      "id": "<UNALLOCATED-produces>",
+      "candidate_sha256": "bc1669e9857cc022edc7e518eade2a333169c0897f8d922ef8b5025842418efc",
+      "pin_match": true
+    },
+    {
+      "id": "<UNALLOCATED-is-produced-by>",
+      "candidate_sha256": "cd2dd69279211e4a00b3e50ca893388309f5938b670f361df8fb27cbecd3d308",
+      "pin_match": true
+    }
+  ],
+  "supporting_sources": [
+    {
+      "id": "CA-R-2486",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+      "sha256": "cb61532e44ab2a8d27487d2f05e4ae21c019aa9f72953028d7315b2563bc40b5"
+    },
+    {
+      "id": "CA-R-2588",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c"
+    }
+  ],
+  "checks": {
+    "typed_endpoints": "PASS: RECORDS Event Record→Event; EXECUTES Runtime→Execution; PRODUCES Execution→Event; derived inverse previews reverse each pair.",
+    "direct_derived": "PASS: all three direct and three inverse relation objects state inverse binding and Direct/Derived classifications.",
+    "permissions_default_zero": "PASS structurally: both outgoing directions are explicitly represented in endpoint previews; inheritance of Execution permissions to its kinds still needs complete selected MODEL validation.",
+    "counts": "PASS for stated minimums: one Event per Event Record; one or more producer Executions per Event and one or more Runtimes per Execution, with no inferred maximum one. Inverse permission 0+ does not require observations.",
+    "metadata_and_summary": "PASS: all 10 hashes match; five Current previews retain IDs, versions and Summary; R2246/R2255 change only approved Subject metadata, other metadata unchanged.",
+    "preserved_fields": "PASS: no Event Record field moves are included; R2557 keeps existing immutable Claim, Continuant and Journal containment.",
+    "source_scope": "PASS: obsolete generic occurrence/Workflow Run subject references and relation-Claim boilerplate are removed in R2246/R2255; corresponding exact historical facts are not automatically migrated."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "integration_convention",
+      "subject": "all six Relation-object preview Formal Claims",
+      "detail": "Each Relation-object typed endpoint signature repeats the same numeric count carried by the corresponding Event Record, Event, Execution or Runtime Declaration. The lane-A adjudication explicitly puts actual bounds in endpoint Declarations and leaves Relation-object signatures typed but uncounted. The duplicate constraints agree today but place the same authority in two Claims and create source-maintenance divergence.",
+      "recommended_fix": "Keep each typed signature and its inverse/Derivation definition; remove numeric cardinality slots only from six Relation-object signature expressions. Preserve exactly the endpoint Declarations’ 1, 1+, and 0+ permissions and counts."
+    }
+  ],
+  "integration_gates": [
+    "Root must merge Execution candidate with lane A as one pinned unallocated Declaration.",
+    "Allocate Event, Execution, Runtime and two new Relation Declaration IDs and validate the complete packet with current pins.",
+    "Reconcile existing records and consumers of narrowed RECORDS and expanded EXECUTES semantics; do not silently retarget historical facts.",
+    "Do not infer producer or Runtime maximum one, inverse uniqueness, extra fields, actual instances or completed runtime migration."
+  ],
+  "limits": [
+    "No integrated CFEL parser, graph test, Current source mutation or Git operation performed.",
+    "This is a source-preview review, not authority admission or a data migration."
+  ]
+}

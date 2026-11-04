@@ -1,0 +1,243 @@
+{
+  "status": "COMBINED_PROPOSAL_ONLY",
+  "new_count": 13,
+  "revision_count": 10,
+  "source_lane": "MODEL/CFEL/Declarations only; code and test execution CA #3",
+  "rows": [
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ Execution",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/execution.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare Execution",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-execution.preview.txt",
+      "candidate_sha256": "71eb7a2be4fa8a8eea2c612e84c056cc2538fc4c984203145818ca12077ce44a"
+    },
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ Workflow Run",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/workflow-run.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare Workflow Run",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-workflow-run.preview.txt",
+      "candidate_sha256": "a457268b460be793c9cad80d8ba083cda3fe3581b1f86320951bcd0e8e529e2a"
+    },
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ Step Run",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/step-run.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare Step Run",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-step-run.preview.txt",
+      "candidate_sha256": "107d9d01d95250af86c4a7b94511979af80e242dde4712833f058a18f303029a"
+    },
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ Action Run",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/action-run.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare Action Run",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-action-run.preview.txt",
+      "candidate_sha256": "771ffd7ade636c1d580c627ad71919a3d3458d60013b2331534ab4e6ec8ee0fd"
+    },
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ Runtime",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/runtime.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare Runtime",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-runtime.preview.txt",
+      "candidate_sha256": "796460895b6b40a1d733b3f4582ccea07dfaf7ed703f46dd388aa8c6501ab63c"
+    },
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ Session",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/session.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare Session",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-session.preview.txt",
+      "candidate_sha256": "a3a779b9ac889dbe6275d163977aa1fd7accb9d9f2dda516e307853bc6b0fb26"
+    },
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ Event",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/event.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare Event",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-event.preview.txt",
+      "candidate_sha256": "c80dcad89c791b818b7fd822c2616d50aa0ea76f5d4a21f060bb1befb9422b6e"
+    },
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ Internal Local Runtime",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/internal-local-runtime.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare Internal Local Runtime",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-internal-local-runtime.preview.txt",
+      "candidate_sha256": "668e2c5b8d1a908c38103af2af2b8f966b564ec68615ab1a981f332af62fb0c9"
+    },
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ Internal Remote Runtime",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/internal-remote-runtime.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare Internal Remote Runtime",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-internal-remote-runtime.preview.txt",
+      "candidate_sha256": "7e54a3904db737652af9056aea87f941513e26286b103d637cd7540a5df0f37f"
+    },
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ External Local Runtime",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/external-local-runtime.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare External Local Runtime",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-external-local-runtime.preview.txt",
+      "candidate_sha256": "8de3213723aeb722c00c4ab57f8cf4d7f647398e5130881058b6f86e6f7f0a9e"
+    },
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ External Remote Runtime",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/external-remote-runtime.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare External Remote Runtime",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-external-remote-runtime.preview.txt",
+      "candidate_sha256": "92fdab2c8dceffb46d4ec07dd660dc85e3082ab6a8b8cbf7550e155a6f204ab0"
+    },
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//PRODUCES",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/produces.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare PRODUCES",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-produces.preview.txt",
+      "candidate_sha256": "c47b4ef5bf56280da0a7dd2f6db7ec4e32b56c26f6cf8d3dc6952605da9b218c"
+    },
+    {
+      "kind": "new",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PRODUCED_BY",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/is-produced-by.preview.txt",
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare IS_PRODUCED_BY",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-is-produced-by.preview.txt",
+      "candidate_sha256": "589fa7cee8630286988150295d81499fec65d27801919549a638e5edeb5d3f3b"
+    },
+    {
+      "kind": "revise",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/CA-R-2464.preview.txt",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "source_sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a",
+      "summary": "Declare Workflow",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2464.preview.txt",
+      "candidate_sha256": "72011f29926273c3a370569e9b39f464b01b66d818761bb5c91a0248f0fa62f8"
+    },
+    {
+      "kind": "revise",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/CA-R-2465.preview.txt",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "source_sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf",
+      "summary": "Declare Step",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2465.preview.txt",
+      "candidate_sha256": "e7af12f7e8fb4ea04723c9dfedcc8da6763dddeb93a4210bde1b144a8fd4e854"
+    },
+    {
+      "kind": "revise",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/CA-R-2467.preview.txt",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "source_sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a",
+      "summary": "Declare Action",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2467.preview.txt",
+      "candidate_sha256": "98bbe7ca42fd62e95356aeba100a3af3c4a29189a463c53d92419d061e41c2ac"
+    },
+    {
+      "kind": "revise",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTION_OF",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/CA-R-2245.preview.txt",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "source_sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae",
+      "summary": "Define IS_EXECUTION_OF Relation",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2245.preview.txt",
+      "candidate_sha256": "bd730844fec693381c33e067ca5ae0ab4bbe4e0ebfca7d8b27abda22d51f2185"
+    },
+    {
+      "kind": "revise",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_EXECUTION",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/CA-R-2417.preview.txt",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+      "source_sha256": "e50b96e2a066c11c7deee1f31ef85197b74d09aaa93c12579648e7c9ef8bd691",
+      "summary": "Define HAS_EXECUTION Relation",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2417.preview.txt",
+      "candidate_sha256": "e446a96afbb89c1ee32acd0858c6f2b68880911cc84c8329f079d143ff051fb0"
+    },
+    {
+      "kind": "revise",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//RECORDS",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/CA-R-2246.preview.txt",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+      "source_sha256": "5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03",
+      "summary": "Define RECORDS Relation",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2246.preview.txt",
+      "candidate_sha256": "5e043538450f47e34cae5f0ac23635e22bc7b619516137d3ac03844d15eb023b"
+    },
+    {
+      "kind": "revise",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_RECORDED_BY",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/CA-R-2421.preview.txt",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2421-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+      "source_sha256": "1e6ddc6a60e24a613c8ea03be2c11b4dc452bb94d5e1fa2bd652123295b82277",
+      "summary": "Define IS_RECORDED_BY Relation",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2421.preview.txt",
+      "candidate_sha256": "b814ffe50e4a5121fecc02330e01916f2e2be50e3ea157346338b86a043c69ba"
+    },
+    {
+      "kind": "revise",
+      "active_subject": "CAPRMEDIO_MODEL <+ Event Record",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/CA-R-2557.preview.txt",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2557-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "source_sha256": "0357e59cb3366ebbb2e13d0ef139d29e8fd24a449729014686c438555e535dcb",
+      "summary": "Declare Event Record",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2557.preview.txt",
+      "candidate_sha256": "beb27e9784851ca050828d25f5595f4a17b0f92760cb367b360a34ebbd63ce72"
+    },
+    {
+      "kind": "revise",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//EXECUTES",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/CA-R-2255.preview.txt",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2255-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "source_sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a",
+      "summary": "Define EXECUTES Relation",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2255.preview.txt",
+      "candidate_sha256": "0f5cedb290153066728f1a7c9b6a433360d78cf25f09112941130697aba70ce6"
+    },
+    {
+      "kind": "revise",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTED_BY",
+      "preview_origin": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event-contracts/CA-R-2420.preview.txt",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2420-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+      "source_sha256": "52e09f067858fcaa9c26bfd100227b9c7866058482054e0fca93331cdc238263",
+      "summary": "Define IS_EXECUTED_BY Relation",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2420.preview.txt",
+      "candidate_sha256": "44ce846919e6c42e0df3ef5fad2646ddd9a7b25b6499027280aaf2f357e1bbe8"
+    }
+  ],
+  "limits": [
+    "No canonical source edits, ID allocation or promotion in this merge.",
+    "Existing Record fields remain; RECORDS targets exactly one Event.",
+    "Execution/Event/Runtime counts retain no inferred upper bound."
+  ]
+}

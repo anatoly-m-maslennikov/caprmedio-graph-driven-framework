@@ -1,0 +1,24 @@
+{
+  "scope": "F2 test-only Current fixture repair",
+  "status": "stopped-on-new-shared-production-root-cause",
+  "representative": {
+    "module": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py",
+    "test": "SelectedAtomLifecycleTest.test_authorized_create_uses_a_complete_carrier_and_rejects_occupied_destination",
+    "command": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py SelectedAtomLifecycleTest.test_authorized_create_uses_a_complete_carrier_and_rejects_occupied_destination",
+    "result": "error",
+    "error": "complete-carrier-invalid",
+    "root_cause": "validate_proposed_carrier reaches its placement check with no current_scope_unit and raises carrier owner authority is unresolved; it has no Current D657 active-Subject or containment-to-owner derivation."
+  },
+  "not_run": [
+    "NonarchivedSubjectPreviewTests.test_real_complete_validator_accepts_the_status_fixtures",
+    "18-module F2 focused suite"
+  ],
+  "changed_fixture_hashes": {
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py": "0983a93e013117a1df1df20e405ad31fa1dc2fa9c5dba5bf13a332b6ecb961a3",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py": "2182fefedb9c8da02726a7788a5ad2eac5e537e7b121f5c6bcfbfaf284140815"
+  },
+  "limits": [
+    "No production validator, source, registry, or Current Atom changes.",
+    "No legacy current_scope_unit fallback was added to the canonical Current fixture."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "verdict": "CONDITIONAL_NOT_UNQUALIFIED_PASS",
+  "current_claims": {
+    "CA-R-1404": "Framework Instance Settings Artifact must not be an Atom.",
+    "CA-R-1981": "Project authoritative Framework Instance Settings Carrier identifier is caprmedio_framework_settings.",
+    "CA-D-358": "Authoritative Framework Instance Settings Artifact identifier must be caprmedio_framework_settings."
+  },
+  "property_evidence": "R2532 declares Project.Settings as a Property; R2462 and R2473 supply Property/bearer and primary/dependent distinctions. This establishes the declared Property is not a primary Atom but does not by itself establish that its separately represented physical Artifact/Carrier is not an Atom.",
+  "operator_decision": "Latest user distinction says Artifact denotes files/folders and Object denotes a model-entity instance. If this disjointness is adopted as governing MODEL authority, it covers the Artifact-versus-Atom separation without R1404; check the actual new carrier/source rather than inferring adoption.",
+  "duplicate_evidence": "R1981 and D358 carry the same identifier spelling for the authoritative settings Carrier/Artifact. R1981 Details explains Project Configuration placement for CAPRMEDIO identity encodings; this is distinct from the concrete identifier Claim and should be evaluated before treating it as a separate normative obligation.",
+  "references": "Native Active role-directory scan: only R1981 Details cites R1404; no native Active source cites R1981. Retire both together, preserve historical versioned references, and verify archive/current reachability.",
+  "pins": [
+    {
+      "id": "CA-R-1404",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL--keep-framework-instance-settings-outside-the-atom-type.md",
+      "sha256": "c2312aa4988e589e6ac33c3a0adc801ae23644d5e90b0b12d947e5cc1c165e42"
+    },
+    {
+      "id": "CA-R-1981",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1981-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-identifier.md",
+      "sha256": "dc82e9f6d7d2f5fccd6dba94aa5f2654a571940ea889560eab3e0301d14044ca"
+    },
+    {
+      "id": "CA-R-2532",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+    },
+    {
+      "id": "CA-R-2462",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c"
+    },
+    {
+      "id": "CA-R-2473",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00"
+    },
+    {
+      "id": "CA-R-1958",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1958-CORE_META_MODEL--define-entity-carrier.md",
+      "sha256": "0a0074cc98230942772d96f790537e644d27b85837a3e08665c12fdde7b291ba"
+    },
+    {
+      "id": "CA-R-2508",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "875fb6a3a853dbbf24816f2684083311bd6e2791ed6d6e07c4227aed05cb8318"
+    },
+    {
+      "id": "CA-D-358",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL-ENG_DECISION--identify-framework-settings-artifact.md",
+      "sha256": "2d5f06a8b5ce2be078c71336a10c77086ffe4167718c3fa00f0dfbb09385ba1e"
+    }
+  ],
+  "limits": "Source-level review only; draft, archive and projections are excluded as Current authority; no Current, runtime or Git changes."
+}

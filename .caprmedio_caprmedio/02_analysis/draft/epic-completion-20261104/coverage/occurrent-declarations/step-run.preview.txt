@@ -1,0 +1,30 @@
+---
+atom_id: "<UNALLOCATED-step-run>"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Step Run
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare Step Run
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Step Run ((NARROWER_THAN)) Execution
+```
+
+## Semantics
+
+A Step Run is one actual execution of one Step within an enclosing Workflow Run. It is distinct from its reusable Step definition and from records describing it.

@@ -1,0 +1,24 @@
+{
+  "verdict": "PASS_BOUNDED_CONSUMER_REVIEW",
+  "manifest_sha256": "4104b5c51da7519cfd39d712c2297f61069261522009c33419edc63b8b64ec97",
+  "checks": {
+    "pins": "7 source/candidate and applicable base hashes and 7 authority hashes match",
+    "identity": "same-ID summaries and frozen versioned references preserved; D472 successor uses fresh placeholder ID",
+    "precedence": "AI Agent Plan threshold uses current Plan, nearest enclosing Plan by IS_CONTAINED_BY, then required Project Settings; generic threshold and non-Plan source order expressly retained",
+    "coupling": "E241 conditions AI Agent Plan precedence on AI threshold under test and retains independent CCE behavior",
+    "consumer_inventory": "current unversioned D472 uses identified in M271, E443, E502 are covered; D472 successor allocation and substitution must be atomic",
+    "context_isolation": "E443 explicitly checks direct Operator input for one execution does not alter an unrelated execution"
+  },
+  "findings": [],
+  "separate_holds": [
+    "R1591 Autonomous terminology and consumer meaning",
+    "R1489, M295, D447 per-Plan retry conflicts and Workflow behavior",
+    "M306 author, assignee and target decisions",
+    "physical settings Carrier, runtime schema and migration"
+  ],
+  "limitations": [
+    "no native admission, runtime evaluator, integration test or live Current changes",
+    "frontier is stale for five sources due concurrent work; no complete active-source census asserted"
+  ],
+  "recheck": "Only prior two consumer findings and their final candidate manifest hashes rechecked; other checks retained from earlier review."
+}

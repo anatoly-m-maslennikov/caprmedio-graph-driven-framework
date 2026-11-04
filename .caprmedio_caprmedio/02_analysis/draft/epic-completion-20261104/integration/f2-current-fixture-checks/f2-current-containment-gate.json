@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "kind": "f2_current_containment_gate",
+  "status": "completed_failed_out_of_scope_consumers",
+  "scope": "Current D657 F2 selected consumers before the final D461 shared-archive placement patch",
+  "command": {
+    "runner": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/run_full_test_suite.py",
+    "project_root": "$PWD",
+    "selected_module_count": 18,
+    "selected_modules_receipt": "f2-focused-result.json"
+  },
+  "execution": {
+    "captured_session_id": 72971,
+    "terminal_read": "completed",
+    "completion_claim": true,
+    "stable_gate": false,
+    "result": {
+      "modules": 18,
+      "tests": 209,
+      "skipped": 0,
+      "failed_modules": 10
+    }
+  },
+  "observed_failures_before_capture_closed": [
+    {
+      "module": "FEATURE_TOOLS/tests/test_atom_move_lifecycle.py",
+      "signature": "Current fixture lacks canonical typed containment"
+    },
+    {
+      "module": "FEATURE_TOOLS/tests/test_definition_move_continuation.py",
+      "signature": "Current fixture lacks canonical typed containment"
+    },
+    {
+      "shared_consumer": "ATOM_UPDATE/atom_subject_patch._subject_scalars",
+      "signature": "requires historical subjects.governs although Current carriers use active/passive"
+    }
+  ],
+  "guardrails": [
+    "No F2 consumer, source, registry, or production edits were made after these failures.",
+    "The completed F2 result is failing; do not infer a passing gate from this receipt.",
+    "This rerun overlapped active fixture-consumer work and is diagnostic evidence, not the final stable gate.",
+    "The final D461 shared-archive placement patch is covered by focused admission tests only; Root owns the later stable F2 gate.",
+    "Current direct/nested Plan admission and both physical-parent rejection cases pass within test_nonarchived_subject_preview.py.",
+    "The remaining failures are historical fixture and Subjects-profile consumers outside this ownership lane."
+  ]
+}

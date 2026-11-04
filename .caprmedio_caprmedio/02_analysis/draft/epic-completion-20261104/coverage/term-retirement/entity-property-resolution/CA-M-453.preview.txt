@@ -1,0 +1,30 @@
+---
+atom_id: CA-M-453
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+version: 3
+updated_at: 2026-11-02 00:18:22 +0400
+subjects:
+  active: CAPRMEDIO_MODEL <+ Term//Property
+  passive:
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_PROPERTY
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+relations: {}
+role: Method
+form: Term Definition
+---
+## Summary
+
+Define Property
+
+## Claim
+
+### Prose Claim
+
+Property means a Node Property in `Node.**` whose direct `IS_PROPERTY_OF` Relation identifies exactly one immediate bearer, which may be a Node or Node Property. The bearer-qualified Subject is written `Bearer.Property`; `HAS_PROPERTY` is the derived inverse view.
+
+This Claim defines the reusable lexical Term `Property` at `Term//Property`.

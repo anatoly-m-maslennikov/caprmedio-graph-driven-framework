@@ -1,0 +1,312 @@
+{
+  "status": "PASS_PARTIAL_REVIEW_WITH_INTEGRATION_GATES",
+  "errors": [],
+  "carrier_preview_count": 10,
+  "remaining_preview_count": 6,
+  "previews": [
+    {
+      "group": "carrier",
+      "id": "CA-E-458",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-POLICY--validate-authoritative-framework-settings-artifact.md",
+      "source_sha256": "0673486890ca4f0517debe3baee67fe872d0c04788af5d5e6efc2f3c7f44ac4e",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-E-458.txt",
+      "preview_sha256": "5857b75ae9017dc5d6851c853bc41e322a1fffd93b953cef1eced5b809e976c9",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "carrier",
+      "id": "CA-E-459",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md",
+      "source_sha256": "d50d425e46708cecd12c05accffdd9ac7174f670f0a9b65d0ad981182e3e5b38",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-E-459.txt",
+      "preview_sha256": "8a032fa323009d44ef48be2d88176c145fd2c15e85bdd713f1467874887ec9d0",
+      "metadata_deltas": [
+        "relations",
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "carrier",
+      "id": "CA-D-358",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL-ENG_DECISION--identify-framework-settings-artifact.md",
+      "source_sha256": "2d5f06a8b5ce2be078c71336a10c77086ffe4167718c3fa00f0dfbb09385ba1e",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-358.txt",
+      "preview_sha256": "898ba3308af994bed675908f905364c751af1a0e18231a4bc12df3470b891c1d",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "carrier",
+      "id": "CA-D-359",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL-ENG_DECISION--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+      "source_sha256": "eb11269ab9b7f71e354da1cf8390330a92183dd0495e2f9d8abe6e7d8b9f69da",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-359.txt",
+      "preview_sha256": "8b39feae44eb553b1b3846282ca755653b31374e16ca6e651de251da70168940",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "carrier",
+      "id": "CA-D-360",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL-ENG_DECISION--bind-framework-settings-revisions-to-journal-receipts.md",
+      "source_sha256": "f54f12b4b3464ed0572c9976f7d88c1877998cdc5ba2df511e6ded84e4105238",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-360.txt",
+      "preview_sha256": "211c126433ee60f5be7d97dc4e608846f6b3b452224c9520540fc4aa742004d5",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "carrier",
+      "id": "CA-D-361",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL-ENG_DECISION--serialize-framework-settings-content-in-toml.md",
+      "source_sha256": "ef9872d2e414ce9d88f3801278706ccb04fab2958c5e5dc3eb7a52410fd7973a",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-361.txt",
+      "preview_sha256": "cbfd7875ad83a6104cb8f516bfb7280132c2fc367db49487814e392ae519e0de",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "carrier",
+      "id": "CA-D-366",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md",
+      "source_sha256": "81060768aac09402e88887b772cd19e90856578352a15f5a3f087483a153530f",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-366.txt",
+      "preview_sha256": "39842e02fe40bf43494d4ccbf552d58943c8257b0b64227a30845afab12ff847",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "carrier",
+      "id": "CA-D-370",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-370-CORE_META_MODEL-ENG_DECISION--serialize-the-framework-control-root-locator.md",
+      "source_sha256": "65fb86919b668dd1292be381317c18796d9cf06058a51dcf1aacb9e1e5ac2f6c",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-370.txt",
+      "preview_sha256": "33122f4aa1c07ceaf74053f3f75f53f347166ab5edcb8755190a0ba6e1d8dc25",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "carrier",
+      "id": "CA-D-371",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-371-CORE_META_MODEL-ENG_DECISION--serialize-framework-code-root-locators.md",
+      "source_sha256": "bd8ab429f1c8b3f9595f3e88ed9a3fc220052c0a4faf6405751620065a87e5fa",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-371.txt",
+      "preview_sha256": "58e0465ccf513078885fc363f99fb733443b6c2dcd5acd9c423b6d31dc22f285",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "carrier",
+      "id": "CA-D-377",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL-ENG_DECISION--exclude-atom-metadata-from-framework-instance-settings.md",
+      "source_sha256": "39a9f4dce36bd65ed0f2a289ea6768b44aeaba68c67e4b3afd1b480397a17d51",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/carrier-reconciliation/previews/CA-D-377.txt",
+      "preview_sha256": "9b08d521d829012b79c5e11b558019082ca689e49d24007ed8041534ce98ddbb",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "remaining",
+      "id": "CA-R-1629",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-RULE--effective-priority-conflict-selection.md",
+      "source_sha256": "635e69b32631817296e72aa8912641e068c3a4f81acc56bdafcbb8614309bb11",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-R-1629.preview.txt",
+      "preview_sha256": "614d734bf241e14ea15cfe06544a79b7cd00cf1a57ec723467fcc6268917eadb",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "remaining",
+      "id": "CA-R-1631",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-RULE--configure-optional-projection-activation.md",
+      "source_sha256": "8d38aa78d67d72cc13ae9fbc999dd0029b6dd0e007a19226ba94c2d817396cde",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-R-1631.preview.txt",
+      "preview_sha256": "f1ee27d999fb0e938ae8440889e4f3ff374a918021a30dc36655bc45801755bd",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "remaining",
+      "id": "CA-M-279",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings.md",
+      "source_sha256": "a0eaf436f740ee68608eefa952d3dd46d6db7ae044d66995922225acf123a756",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-M-279.preview.txt",
+      "preview_sha256": "138497e6b2020ee352ce6fd594f2a3b2a247987515dad47c44dbc1de7da00b73",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "remaining",
+      "id": "CA-E-450",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md",
+      "source_sha256": "3f60f832dcb4b1e40193d9823ffb5c8facf0f5576a94ac0a864f1f4b1ab57e15",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-E-450.preview.txt",
+      "preview_sha256": "bee59328977e605bf2cbec5c8f4c557a4b78bcb0c48a25e4cf91e784afaeaa20",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "remaining",
+      "id": "CA-M-277",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-277-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-silent-mode.md",
+      "source_sha256": "18380d048dae6c357bb4071c33717272dcc574f28029b01daf71fe575fba67e1",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-M-277.preview.txt",
+      "preview_sha256": "34561566ba4780bddd19930e56ee881ddfdee65d4aad360f4343204e4e766bce",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    },
+    {
+      "group": "remaining",
+      "id": "CA-M-278",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-278-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-verbose-mode.md",
+      "source_sha256": "d204168180771af9d07f98225dc524fe1d77d8957a94c4fc90fbf3715cd704b8",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-M-278.preview.txt",
+      "preview_sha256": "8790c7c850205e71e41c8b75fde5ebc7a3f90f68894d69543381fc44651ff753",
+      "metadata_deltas": [
+        "subjects"
+      ],
+      "version_unchanged_in_preview": true,
+      "summary_unchanged": true,
+      "duplicate_subjects": false,
+      "pin_and_layout_pass": true
+    }
+  ],
+  "authority_pins": [
+    {
+      "id": "CA-R-1978",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1978-CORE_META_MODEL-DECLARATION--define-project-framework-settings-code-root-locators.md",
+      "sha256": "74a9fa8910dbfa12d1e6a969b6cc44c1e504236531906d0adbfe3b6b1f5c0943",
+      "pin_match": true
+    },
+    {
+      "id": "CA-R-1980",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1980-CORE_META_MODEL-DECLARATION--define-project-framework-settings-framework-control-root-locator.md",
+      "sha256": "6db52d1f6c7c2b2ed8100adc7420266bb4dcd7cf3637c7e0d7a65a48855f3459",
+      "pin_match": true
+    },
+    {
+      "id": "CA-R-2532",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464",
+      "pin_match": true
+    },
+    {
+      "id": "CA-D-317",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL-ENG_DECISION--place-each-project-framework-instance-inside-its-project.md",
+      "sha256": "a04618bf3329f28b7b75c43eafd3e20ac6ce1c5645f661f50fe504fc8c103f7a",
+      "pin_match": true
+    },
+    {
+      "id": "CA-D-364",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-364-CORE_META_MODEL-ENG_DECISION--bind-project-settings-to-its-authoritative-toml-carrier.md",
+      "sha256": "120a309fcd3782598fcdb5f35ec7fc42b589354e9593abb781bcc86e992b9a54",
+      "pin_match": true
+    },
+    {
+      "id": "CA-R-1750",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md",
+      "sha256": "5dbdc3487ccb8e9359c1b2702c5bb9b2031d758af9d20858974f6a719861768a",
+      "pin_match": true
+    }
+  ],
+  "non_atom_successor": {
+    "predecessor": "CA-R-1404@26",
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/remaining-properties/CA-R-ALLOCATE-settings-non-atom.txt",
+    "sha256": "ff9c549e88542c0a63bc4b540c845e47feacd52855ea270bad06e3ddd1488e24",
+    "pin_and_non_atom_check": true
+  },
+  "checks": [
+    "All 16 source and candidate pins, IDs, preview versions, unchanged Summaries, YAML Subject uniqueness and declared metadata deltas checked. New revisions must allocate versions during adoption.",
+    "D358 identifies the physical Carrier/File; no Project.Settings.Identifier is introduced. D359/D360 retain exact physical path and revision receipt; D361/D366 preserve physical partitions and closed signatures.",
+    "D370 and D371 conditional encoding reflects R1980 optional value and R1978 optional occurrence; effective-locator readiness remains separately governed.",
+    "M279/E450 retain invalid explicit/default errors, individual presence and Default Settings fallback; R1631 now uses Form for unknown-form rejection.",
+    "R1404 successor keeps Project.Settings non-Atom, with new identity and predecessor retirement and reference reconciliation required.",
+    "No Obsolete Names Property added; D387 remains exclusively with the carrier author and requires a combined preview."
+  ],
+  "integration_gates": [
+    "Replace E459 CA-R-ALLOCATE with allocated R1750 successor; atomically retire superseded rules and reconcile all affected Current references, retaining frozen evidence.",
+    "Allocate and normalize R1404 successor and reconcile R1981; do not overwrite separately owned combined D387 preview.",
+    "R2532 and R2635 are shared settings/retry authority dependencies; refresh pins and reconcile retry-lane results before source adoption.",
+    "Physical partition value conflict, runtime/schema compatibility, migration/loader behavior and locator operational readiness require separate evidence."
+  ],
+  "limitations": [
+    "Preview-only review; no Current or Git changes.",
+    "No physical file migration, runtime or broad data conformance was verified.",
+    "Review of prior settings 25 and held sources is in settings-review.json."
+  ]
+}

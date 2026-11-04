@@ -1,0 +1,154 @@
+{
+  "status": "SOURCE_PROPOSAL_ONLY",
+  "decision": "IS_BLOCKED_BY is Direct from dependent Plan to prerequisite Plan; BLOCKS is the derived inverse from prerequisite Plan to dependent Plan.",
+  "previews": [
+    {
+      "id": "CA-R-1580",
+      "action": "same_id_revision",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "source_version": 27,
+      "source_sha256": "19ecfd4058ac41328bd6d995963a8f3e6f6e3b10ed1bb5ce84834d4ff65a390f",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/CA-R-1580.preview.txt",
+      "candidate_sha256": "3ac61f04e72a40d515caa84db6075815063457376e479824e05f17fb9381f098",
+      "summary": "Define Plan blocking",
+      "metadata_changed": false
+    },
+    {
+      "id": "<UNALLOCATED-is-blocked-by>",
+      "action": "new_id_draft",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/is-blocked-by.preview.txt",
+      "candidate_sha256": "e88d15df338ee26a9e31ab037d4d8ba8a1af1621be8ddec3dbc75e4aab13e2f7",
+      "summary": "Declare IS_BLOCKED_BY"
+    }
+  ],
+  "sources": [
+    {
+      "id": "CA-R-1580",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "sha256": "19ecfd4058ac41328bd6d995963a8f3e6f6e3b10ed1bb5ce84834d4ff65a390f",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-2511",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "741bdb16b86ded6ef4c2034e96267b70ed3bd449f1ab116849ed4c92c651f3e2",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-2462",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-2588",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-2486",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+      "sha256": "cb61532e44ab2a8d27487d2f05e4ae21c019aa9f72953028d7315b2563bc40b5",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-2613",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md",
+      "sha256": "deb55e82a43174ac74898393143ff987ae64141e5d8f5c80aea5bc7f7fa6e5ae",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1592",
+      "version": 23,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1592-CORE_META_MODEL-RULE--keep-plan-completion-prerequisites-acyclic.md",
+      "sha256": "a4e8f93ba5f10e6e83c0dbea59155b943a35af967a87ca904d95504f53ab9074",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1026",
+      "version": 33,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md",
+      "sha256": "761422f7245c231d3c813eb8caf07f4fba2fc135563f88e7b3dc1780fa1c66e2",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1200",
+      "version": 41,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md",
+      "sha256": "136852e0bf5b4b4e015c8ea16f705dd0a1e916b12a18ece200f41c788795df4a",
+      "status": "Active"
+    },
+    {
+      "id": "CA-M-239",
+      "version": 25,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-dependency-order-from-explicit-edges.md",
+      "sha256": "7ee9aa7b786a867e3707a28a057cc13ffbb269548ebe19bd9a613ddf1ea2f176",
+      "status": "Active"
+    },
+    {
+      "id": "CA-M-306",
+      "version": 32,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md",
+      "sha256": "e3b360c6269adba675a83f9b971c0af7609cb2f30b31eb38fd92e27c330d7877",
+      "status": "Active"
+    },
+    {
+      "id": "CA-D-471",
+      "version": 24,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md",
+      "sha256": "638304bed3ff46a5b20e5577cffe735dcafd4c339b79fd36daf5fab9221ccd8a",
+      "status": "Active"
+    },
+    {
+      "id": "CA-E-404",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-POLICY--reject-invalid-dependency-order-derivations.md",
+      "sha256": "b9446d9d98014e65b29e14ed6f96e685a25f7e296b0a13021aab043ecebf2bcf",
+      "status": "Active"
+    },
+    {
+      "id": "CA-E-504",
+      "version": 22,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md",
+      "sha256": "2553d5552d8a8300b2c9a9c3f362c00421afbd96368d1426672da8a6773472d3",
+      "status": "Active"
+    },
+    {
+      "id": "CA-E-505",
+      "version": 22,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-505-CORE_META_MODEL-EVAL_CASE--validate-shared-label-semantics.md",
+      "sha256": "900192180fa76a8901aa2d423043460fdf0b8fb020a1457d887ff14cbcc2106f",
+      "status": "Active"
+    },
+    {
+      "id": "CA-E-622",
+      "version": 53,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "19aec4891a13dfd0f271c7cb8372e41fd60d1db02e58fe80b3d87b01e29d8311",
+      "status": "Active"
+    }
+  ],
+  "endpoint_domain": "Plan instances only, in both written directions, as in Current CA-R-1580. No endpoint numeric cardinalities are proposed.",
+  "endpoint_permissions_required": [
+    "CA-R-2511 effective Plan instance whitelist needs explicit outgoing IS_BLOCKED_BY to Plan and separate outgoing BLOCKS to Plan under CA-R-2462 and CA-R-2588; exact bounds must be sourced or decided separately.",
+    "A Relation signature and HAS_INVERSE binding neither create facts nor grant the other direction. Do not add unverified max or min counts."
+  ],
+  "integration_gates": [
+    "CA-D-471 currently requires storing direct BLOCKS on the prerequisite under relations.blocks; this directly conflicts with the new direct/derived choice. Reconcile serialization and existing Plan data as a separately reviewed source and migration change before adoption; do not silently reverse existing facts.",
+    "CA-M-306 directs authors to express dependencies with BLOCKS; reconcile authoring direction. CA-E-504, CA-E-404, CA-E-622, CA-M-239 and CA-R-1592 consume BLOCKS semantics; retain derived views and review how assertions/observations are interpreted.",
+    "CA-R-1026 and CA-R-1200 distinguish scheduling from Subject DEPENDS_ON; preserve that separation.",
+    "Recheck all live source pins, frozen versioned references, exact preimages, selected effective MODEL permissions and all applicable source/consumer references before adoption; allocate new ID through governed workflow."
+  ],
+  "limitations": [
+    "Latest direct/derived choice is an explicit human decision supplied by root, not a statement about current adopted authority.",
+    "No canonical sources, code, fixtures, Git, runtime, graph facts or migration changed.",
+    "No general endpoint, numeric bound, alias or extra relation was invented; Current semantics is bounded to Plan Graph prerequisites."
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "status": "SOURCE_PREVIEW_FROZEN_FOR_INDEPENDENT_REVIEW",
+  "source_decision": "Use IS_EXECUTION_OF/HAS_EXECUTION for three matching Run/definition pairs. Root accepts explicit 0+ outgoing HAS_EXECUTION allowances for reusable Workflow, Step and Action definitions; these do not infer or create facts.",
+  "entries": [
+    {
+      "id": "CA-R-2464",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "source_version": 5,
+      "source_sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/CA-R-2464.preview.txt",
+      "preview_sha256": "72011f29926273c3a370569e9b39f464b01b66d818761bb5c91a0248f0fa62f8",
+      "change": "Preserve Current Purpose and instance constraints; combine Workflow Container=yes with 0+ HAS_EXECUTION Workflow Run."
+    },
+    {
+      "id": "CA-R-2465",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "source_version": 4,
+      "source_sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/CA-R-2465.preview.txt",
+      "preview_sha256": "e7af12f7e8fb4ea04723c9dfedcc8da6763dddeb93a4210bde1b144a8fd4e854",
+      "change": "Preserve Current Step RUNS/decomposition conditions; add Step Container=yes and 0+ HAS_EXECUTION Step Run."
+    },
+    {
+      "id": "CA-R-2467",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "source_version": 2,
+      "source_sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/CA-R-2467.preview.txt",
+      "preview_sha256": "98bbe7ca42fd62e95356aeba100a3af3c4a29189a463c53d92419d061e41c2ac",
+      "change": "Action instance permits 0+ outgoing derived HAS_EXECUTION links to Action Run instances; no run required"
+    },
+    {
+      "id": "CA-R-2245",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "source_version": 8,
+      "source_sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/CA-R-2245.preview.txt",
+      "preview_sha256": "bd730844fec693381c33e067ca5ae0ab4bbe4e0ebfca7d8b27abda22d51f2185",
+      "change": "Extend existing direct Relation to three matching Run/definition pairs; retain declared inverse and classification; counts remain with endpoint Declarations."
+    },
+    {
+      "id": "UNALLOCATED-workflow-run",
+      "source_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/workflow-run.preview.txt",
+      "source_sha256": "f686f26232d8f1704eaecd9f083d13cd59c9484efca48f31d71cbfd484455432",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/workflow-run.preview.txt",
+      "preview_sha256": "a457268b460be793c9cad80d8ba083cda3fe3581b1f86320951bcd0e8e529e2a",
+      "change": "Add one outgoing IS_EXECUTION_OF Workflow permission for each Workflow Run instance; not an actual relation fact."
+    },
+    {
+      "id": "UNALLOCATED-step-run",
+      "source_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/step-run.preview.txt",
+      "source_sha256": "779d9a7dd1c7eb848721c2ad3cc66c8a4eac6fa53a206310e7c30315966ff26a",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/step-run.preview.txt",
+      "preview_sha256": "107d9d01d95250af86c4a7b94511979af80e242dde4712833f058a18f303029a",
+      "change": "Add one outgoing IS_EXECUTION_OF Step permission for each Step Run instance; not an actual relation fact."
+    },
+    {
+      "id": "UNALLOCATED-action-run",
+      "source_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/action-run.preview.txt",
+      "source_sha256": "f4aa049ad557a57bfcd1bed32762d8e8ba46d07d7fbd159aae3d13ad9ff38302",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/action-run.preview.txt",
+      "preview_sha256": "771ffd7ade636c1d580c627ad71919a3d3458d60013b2331534ab4e6ec8ee0fd",
+      "change": "Add one outgoing IS_EXECUTION_OF Action permission for each Action Run instance; not an actual relation fact."
+    },
+    {
+      "id": "CA-R-2417",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+      "source_version": 5,
+      "source_sha256": "e50b96e2a066c11c7deee1f31ef85197b74d09aaa93c12579648e7c9ef8bd691",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/CA-R-2417.preview.txt",
+      "preview_sha256": "e446a96afbb89c1ee32acd0858c6f2b68880911cc84c8329f079d143ff051fb0",
+      "change": "Keep inverse binding and state derived classification and matching three endpoint patterns; counts remain in endpoint Declarations."
+    }
+  ],
+  "supporting_current_sources": [
+    {
+      "id": "CA-R-2245",
+      "version": 8,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae"
+    },
+    {
+      "id": "CA-R-2417",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+      "sha256": "e50b96e2a066c11c7deee1f31ef85197b74d09aaa93c12579648e7c9ef8bd691"
+    },
+    {
+      "id": "CA-R-2464",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a"
+    },
+    {
+      "id": "CA-R-2465",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf"
+    },
+    {
+      "id": "CA-R-2467",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a"
+    },
+    {
+      "id": "CA-R-2588",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c"
+    }
+  ],
+  "run_semantics_sources": [
+    {
+      "id": "CA-R-1510@18",
+      "version": 18,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1510@18-CORE_META_MODEL-DEFINITION--define-workflow-run.md",
+      "sha256": "e70a8d3a80b3d22b40701bbb84fb97f3a432b9ad3881cd35b9690c6798050a44"
+    },
+    {
+      "id": "CA-R-1511@22",
+      "version": 22,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1511@22-CORE_META_MODEL--define-step-run.md",
+      "sha256": "5f65da33915d10e670dd0d965b789d747fec1ea026b430b779b8d1013b71d4dc"
+    },
+    {
+      "id": "CA-R-1528",
+      "version": 22,
+      "status": "Active",
+      "class": "current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f"
+    },
+    {
+      "id": "CA-R-1969@11",
+      "version": 11,
+      "status": "Archived",
+      "class": "historical_not_current_authority",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1969@11-CORE_META_MODEL-DEFINITION--define-entity-occurrent-execution-action-run.md",
+      "sha256": "11541a9d347bf81aa010d51c1d372517471e4d0c808a52a58e95a16c263b31d5"
+    }
+  ],
+  "unchanged_counterpart": {
+    "id": "CA-R-2417",
+    "status": "now has an explicit matching inverse preview; Current remains unchanged"
+  },
+  "held_decisions": [
+    "Current CA-R-2245 permits only Workflow Run; extending its endpoint pairs is a proposed source change, not evidence that Step/Action execution facts are currently admitted.",
+    "Resolve endpoint target canonical names and source hashes in final selected MODEL. Do not infer Substep Run, Step Run ownership/containment, Runtime execution or other relations.",
+    "Synchronize CA-R-2464 Workflow preview with root’s concurrent Workflow/container WIP; merge both approved changes into one current-source successor without overwriting either.",
+    "Allocate three new Run Declaration IDs with the other eight Occurrent previews; apply source revisions atomically after full independent source validation and live pin recheck.",
+    "Explicit 0+ inverse allowances were accepted by the coordinating root as authored permission, not inferred inverse facts; verify these against the final selected effective MODEL.",
+    "Workflow Container=yes is combined with its preserved live Purpose and RUNS constraints; reconcile against any later source WIP before adoption."
+  ],
+  "frozen_references": "Do not rewrite version-qualified historical references.",
+  "limits": [
+    "Previews only; no canonical sources, Git, runtime or instances changed.",
+    "No integrated CFEL parser, native admission, carrier, runtime or graph test performed."
+  ]
+}

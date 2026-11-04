@@ -37,7 +37,8 @@ class SubjectPatchByValueIndependentTests(unittest.TestCase):
         values = b'["Atom/Revision", Atom]' if reverse else b'[Atom, "Atom/Revision"]'
         if duplicate:
             values = b'["Atom/Revision", "Atom/Revision"]'
-        raw = self.base.replace(b"  depends_on: []", b"  depends_on: " + values + b" # preserve dependency comment")
+        self.assertEqual(self.base.count(b"  passive: []"), 1)
+        raw = self.base.replace(b"  passive: []", b"  passive: " + values + b" # preserve dependency comment")
         raw = raw.replace(b"version: 1\n", b"# preserve metadata order\nversion: 1\n\n")
         raw = raw.replace(b"Fixture details.\n", "Fixture details.  \n\nLiteral Atom/Revision and café stay unchanged.\n\n".encode())
         self.path.write_bytes(raw.replace(b"\n", newline))

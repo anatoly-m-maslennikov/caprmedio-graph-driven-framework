@@ -19,18 +19,12 @@ Promote one Atom Draft
 
 ## Claim scope
 
-This Action publishes one exact selected Draft for one non-container Atom under the applicable model. It rejects semantic containers, descendants, and cascades, and it never archives a Current as an implicit promotion precondition.
+This Action publishes one exact selected Draft for one non-container Atom under the applicable model. It rejects containers, descendants, cascades, implicit archival, and overwrites.
 
 ## Claim
 
-Promote One Atom Draft **means** the reusable Action that validates and publishes one selected Draft into its canonical Current destination. It preserves the proposal's content, Role, and meaning, requires an explicit target Status admitted as Current by the applicable qualified model, and removes the Draft surface only after publication is verified.
+**Preconditions:** Read the exact Draft and validate its complete content/Role, mandatory fields, Draft status, applicable model, explicit Current Status, destination, expected saved-source/currentness, permission, schema, `targetID`, `targetVersion`, collision, and no-overwrite. In a composed Update use the prepared ID/version and original Current Status captured before archival; no archive receipt, history recovery, implicit archive, ID replacement, or second ID is admitted. Never default the Status to `Active`.
 
-## Details
+**Intended effect:** Publish the exact selected ID with the proposal's content/meaning, explicit Current Status, and publication-time Updated At. Existing-Atom intent uses its exact proposed Version, normally N+1; new-Atom or Summary/Role replacement uses the selected ID at canonical Version 1 even when Draft Version is greater than 1.
 
-1. Validate the exact selected Draft, complete proposed content/Role/meaning, destination placement, and explicit target Status. Reject missing, ambiguous, stale, invalid, or container targets with attributable diagnostics; do not select descendants.
-2. Keep the identity chosen by the proposal. A new role-only marker receives a fresh, never-reused canonical ID. An existing-Atom Draft retains its exact target ID and proposed Version already selected before any archive step. An explicitly bound already-archived predecessor may validate the expected `N -> N+1` relationship; never restore an ID by searching history or inferring lineage.
-3. Require the canonical Current destination to be empty before publication. An existing Current, destination collision, or conflicting placement returns a collision/handoff to the composed Update Workflow without invoking it and never overwrites another target.
-4. Materialize the Current with the proposal's content, Role, meaning, exact identity, proposed Version, explicit model-admitted Current Status, and the actual Project-time publication instant as Updated At. Do not hardcode `Active`, upgrade tier or scope, or perform archival here; any predecessor archival is a separate selected Workflow whose verified result may be checked.
-5. Verify the published Current and only then remove the selected Draft surface. If verification or cleanup is incomplete, retain the actual completed effects and report partial or unknown evidence; do not retry or roll back automatically.
-6. A Journal or history record is not a permission, completeness, or success gate. Any Journal attempt records the actual business event only. Return the actual publication, collision/handoff, diagnostic, partial, or unknown result and preserve its evidence.
-
+**Returned evidence:** Save and read back the Current carrier, destination, identity/version, collision state, and equality to the supplied Status; only then delete the Draft. Return the publication or an explicit error/partial result with actual completed outputs. Do not retry, replay, repair, or perform a rollback. Journal business-event append is independent and nonblocking.

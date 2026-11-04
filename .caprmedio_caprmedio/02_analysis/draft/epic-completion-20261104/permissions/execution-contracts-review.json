@@ -1,0 +1,87 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "packet_manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution-contracts/manifest.json",
+  "packet_manifest_sha256": "06044c116fa2e3d8e59a4d85984cd6a46481fe159e53123a9e991e545936413b",
+  "entries": [
+    {
+      "id": "CA-R-2464",
+      "source_hash_match": true,
+      "preview_hash_match": true,
+      "summary_preserved": true,
+      "frozen_references_preserved": true
+    },
+    {
+      "id": "CA-R-2465",
+      "source_hash_match": true,
+      "preview_hash_match": true,
+      "summary_preserved": true,
+      "frozen_references_preserved": true
+    },
+    {
+      "id": "CA-R-2467",
+      "source_hash_match": true,
+      "preview_hash_match": true,
+      "summary_preserved": true,
+      "frozen_references_preserved": true
+    },
+    {
+      "id": "CA-R-2245",
+      "source_hash_match": true,
+      "preview_hash_match": true,
+      "summary_preserved": true,
+      "frozen_references_preserved": true
+    },
+    {
+      "id": "UNALLOCATED-workflow-run",
+      "source_hash_match": true,
+      "preview_hash_match": true,
+      "summary_preserved": true,
+      "frozen_references_preserved": true
+    },
+    {
+      "id": "UNALLOCATED-step-run",
+      "source_hash_match": true,
+      "preview_hash_match": true,
+      "summary_preserved": true,
+      "frozen_references_preserved": true
+    },
+    {
+      "id": "UNALLOCATED-action-run",
+      "source_hash_match": true,
+      "preview_hash_match": true,
+      "summary_preserved": true,
+      "frozen_references_preserved": true
+    },
+    {
+      "id": "CA-R-2417",
+      "source_hash_match": true,
+      "preview_hash_match": true,
+      "summary_preserved": true,
+      "frozen_references_preserved": true
+    }
+  ],
+  "checks": {
+    "three_step_conditions_unchanged": true,
+    "workflow_purpose_semantics_exact": true,
+    "container_workflow": true,
+    "container_step": true,
+    "direct_inverse_binding": true,
+    "inverse_derived_binding": true,
+    "Workflow_direct_one": true,
+    "Workflow_inverse_permission": true,
+    "Workflow_relation_pair": true,
+    "Step_direct_one": true,
+    "Step_inverse_permission": true,
+    "Step_relation_pair": true,
+    "Action_direct_one": true,
+    "Action_inverse_permission": true,
+    "Action_relation_pair": true
+  },
+  "findings": [],
+  "limits": [
+    "Source previews and pinned evidence only; no integrated CFEL, admission, runtime, registry, projection, or instance test.",
+    "Archived Run semantics are historical evidence, not Current authority; 1 bounds and 0+ permissions rely on explicitly relayed human/root decisions.",
+    "Execution preview from Event/Runtime lane is a separate overlapping source Draft and requires root integration.",
+    "The three Run declarations remain unallocated; apply this packet only with their atomic adoption and a fresh live frontier check."
+  ]
+}

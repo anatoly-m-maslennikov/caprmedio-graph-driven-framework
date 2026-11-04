@@ -1,0 +1,95 @@
+{
+  "status": "BOUNDED_CURRENT_ENCODING_PLAN_AUTHORITY_PIN_HOLD",
+  "evidence": [
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py",
+      "sha256": "0aa75b09def0435032e2c2dfe2176a3fd2b1e2c1cb3e715e25edb647f93e076b"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/carrier_aliases.py",
+      "sha256": "1fee5a5b5931471a572f19e9cc7edf4abee182ea6a18ca3f3a031f21eed308ad"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/scope_declaration_parse.py",
+      "sha256": "3927b0641fba90ee11ae3fae85be826bcffedc32b5e0f5dd0364543eecd0dea6"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py",
+      "sha256": "9a0fbf1b8f4c6fe92daae86a1a78f55c46e6464b9e3ce1ed8cfea7687d2bb6b0"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py",
+      "sha256": "f1a97f997da7e2d528c0151f9e7980cba372326c54f5ae916e613453681e5ac5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/f2-current-fixture-checks/f2-local-identity-final.log",
+      "sha256": "5643345436a2bc2d811fe7f52c9ae35e2a87a01d93feb88927aade2bcf97c90e"
+    }
+  ],
+  "sources": [
+    {
+      "id": "CA-D-657",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f"
+    },
+    {
+      "id": "CA-R-2508",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d"
+    },
+    {
+      "id": "CA-R-2702",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2702-CORE_META_MODEL-DECLARATION--declare-atom-header-role.md",
+      "sha256": "761c8aa0a967e458a2b4299aa8c426e22895ea3864d61515c4bd9fe12be4c068"
+    },
+    {
+      "id": "CA-R-2703",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2703-CORE_META_MODEL-DECLARATION--declare-atom-header-form.md",
+      "sha256": "89877026539d6a015237e01cc61b3d321061be9b4333476db0cf2288320ad443"
+    },
+    {
+      "id": "CA-R-947",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-RULE--validate-goal-claim-scope.md",
+      "sha256": "5f003496c43bb35e9e7c949d0f1e264ae08530d6353529b2e94b1f943f65859d"
+    },
+    {
+      "id": "CA-R-2747",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2747-CORE_META_MODEL-RULE--require-goal-coverage-for-every-project.md",
+      "sha256": "c38c9d341d86a34b043a847922b8728bdb0289efc31079bb8a9b70308f6a0335"
+    },
+    {
+      "id": "CA-R-1596",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1596-CORE_META_MODEL--give-every-claim-one-target-scope-unit.md",
+      "sha256": "e98aa1ac9899c540857e69723151c2d3c80beb227948a69b48fcdc5959f53114"
+    },
+    {
+      "id": "CA-D-531",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/07_delivery/CA-D-531-ENG_DECISION--deliver-sealed-lifecycle-dispatch-interface.md",
+      "sha256": "e96a63e2a4fce35caa3a667cb9fade2e67950146a9a54297506811798a4a10b9"
+    }
+  ],
+  "reproduced": {
+    "test": "test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history",
+    "result": "two subcase errors",
+    "failure": "both old-style proposed carriers lack Current IS_CONTAINED_BY; complete-carrier admission rejects them",
+    "detail": "The checked-in goal helper still constructs content_role/type, current_scope_unit/claim_target_scope_unit, author, governs/depends_on and empty relations; its source and legacy input are intentionally historical. The legacy output must be changed, not the sealed input."
+  },
+  "diagnosis": [
+    "The legacy-only recovery predicate recognizes source values and requires the obsolete fields in the proposed output. A Current-conformant proposal will not satisfy its raw-key equality, target-field and empty-relations checks. Both fixture output and recovery comparison therefore need coordinated change.",
+    "carrier_aliases.carrier_read_view exposes role/form and active/passive under historical read names while rejecting conflicting aliases; it does not establish semantic equivalence between different Subject expressions. Use it for read compatibility only, never to write old names.",
+    "Current owner is resolved from the proposed direct IS_CONTAINED_BY via proposed_carrier._current_containment_owner with source_context_from_project; separately corroborate the sealed predecessor direct owner and exact historical source evidence against native Project Structure. Do not use a legacy scalar or filename as a Current owner fallback.",
+    "A Current Goal target must come from its active Subject; CA-R-947 constrains its relationship to the owner. Do not set the target equal to the owner, infer it from the carrier directory, or accept a caller-supplied field as fallback. Limit initially to an exact resolvable structural Project/Scope Unit instance, and fail closed when the current active Subject cannot be resolved uniquely."
+  ],
+  "bounded_plan": [
+    "Retain the existing sealed legacy descriptor/Git byte proof and currentness, identity, status, target corroboration and exact-predecessor preservation checks. Do not mutate the legacy input.",
+    "Build the proposed fixture Current output with role Requirement, form Goal, active/passive Subjects and exactly one canonical containment relation targeting the declared containing Scope Unit ID; omit author, content_role, type, current_scope_unit and claim_target_scope_unit. Preserve source Atom ID, Summary, Claim, status, and all other governed facts; apply existing type/role/version rules and avoid an invented equality rule for unrelated metadata.",
+    "For the historic MCP/Goal expression, require an explicit evidence-backed migration to the Current structural active Subject identifying the same declared MCP Scope Unit. Resolve that Current Subject using the approved notation parser and native unique declaration set; cross-check the predecessor Goal Claim, previously carried scope or historical Subject, and D531 filename as corroborating evidence only. Ambiguous or conflicting mappings fail closed. Do not generically treat all similarly named Subjects as aliases.",
+    "Update _goal_type_recovery and _recovery_metadata to compare logical Role/Form and applicable Subjects using existing read views and the explicitly admitted mapping, rather than demanding or writing obsolete property names. Remove the requirement for Atom Author; Event Record authorship remains separate. Retain exact same-Claim/Summary and carrier-only assessment boundaries rather than treating an actual Form or semantic change as recovery.",
+    "Validate the complete proposed output with existing prepare_create_atom_revision / Current admission and require the resolved containment owner and active-Subject target separately; do not suppress admission gaps. Validate both legacy identity proof and already-identified recovery, plus changed claim/subject/owner/target, conflicting aliases, stale evidence and exact predecessor bytes."
+  ],
+  "authority_pin_hold": {
+    "problem": "_recovery_authority_pins requires Current CA-R-1766 plus CA-D-531. No native Current CA-R-1766 was found in the methodology or Engine roots; it is absent from the selected 1,159-source frontier. Its archived sources and a derived applicable-methodology copy are not Current authority. The test fixture materializes a CA-R-1766-like source, so the reproduced fixture does not prove production lineage availability.",
+    "safe_action": "Do not silently substitute an archive, projection, or another Atom ID, and do not remove this evidence requirement merely to pass the test. Verify the selected migration\u2019s authority disposition and update the pinned recovery lineage only with an explicitly source-authorized replacement; until then recovery must fail closed in production."
+  },
+  "scope": "Read-only diagnosis. No production, fixture, Current source or Git modifications. Earlier log is retained as historic evidence; this turn reproduced two subcase errors against current local code."
+}

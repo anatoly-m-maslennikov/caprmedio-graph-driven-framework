@@ -165,8 +165,10 @@ class DirectSubjectPreparationProtocolTests(unittest.IsolatedAsyncioTestCase):
         if noop:
             return original
         newline = b"\r\n" if b"\r\n" in original else b"\n"
-        return (original.replace(b'  governs: "Atom/Status"', b'  governs: "Atom.State"', 1)
-                .replace(b'  depends_on: [Atom, "Atom/Revision"]', b'  depends_on: ["Atom.State"]', 1)
+        self.assertEqual(1, original.count(b'  active: "Atom/Status"'))
+        self.assertEqual(1, original.count(b'  passive: [Atom, "Atom/Revision"]'))
+        return (original.replace(b'  active: "Atom/Status"', b'  active: "Atom.State"', 1)
+                .replace(b'  passive: [Atom, "Atom/Revision"]', b'  passive: ["Atom.State"]', 1)
                 .replace(b"version: 7" + newline, b"version: 8" + newline, 1)
                 .replace(b'updated_at: "2026-01-01 00:00:00 +0000"',
                          f'updated_at: "{preview["illustrative_updated_at"]}"'.encode(), 1))

@@ -1,0 +1,9 @@
+{
+  "atom_id": "CA-R-2125",
+  "current_version": 10,
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2125-CORE_META_MODEL-RULE--give-every-non-project-goal-atom-one-numeric-tier.md",
+  "source_sha256": "4a17046edd8f632ecc3b326dca36e6fe837536831d5368a647ff01af54a84e51",
+  "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2125.preview.txt",
+  "preview_sha256": "823a6b0ccad1e10baf8eaf78c9ad750afba56355cc0b3d4fa9e751b4085b0c40",
+  "change_summary": "exclude only the Form Goal whose active Subject resolves to Project root from ordinary >=0 min bounds, regardless of Container or owner; preserve other ordinary ranges"
+}

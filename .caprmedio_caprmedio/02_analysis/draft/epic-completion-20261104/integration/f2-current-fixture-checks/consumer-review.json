@@ -1,0 +1,37 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "files": [
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py",
+      "sha256": "066b7b6748bc4da3e8be9c25d754355815bd2545482ae492d344c8237d787453"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py",
+      "sha256": "216901e6872d928b2fd6d364e0a4fe65c35f2f03935c9488f3417e5ea06ff046"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_subject_patch.py",
+      "sha256": "d0389e3332be1c016f2d0c54131e3fd5a1b0603f94870b24c975341abb484e49"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_subject_alias_patches.py",
+      "sha256": "d96e4f7f50dff26cd0032829a6a47d8e465a836b14ac5678ac2bc0f36cabe2df"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_current_move_scope_refusal.py",
+      "sha256": "45d6a546e72d9c08e22b816195c2adb38ede24dacf5eee4443f0c13c7ecf0cd3"
+    }
+  ],
+  "findings": [
+    {
+      "id": "ARCHIVE-HISTORY-01",
+      "severity": "verification-boundary",
+      "issue": "Separate standalone Current Plan archive from preserved predecessor history when checking carrier_destination. R1788 requires predecessor retention; never rewrite exact predecessor bytes solely to reflect archival location. Worker asked for focused standalone case."
+    }
+  ],
+  "other_review": "Subject patch resolves Current active/passive and explicit historical aliases, fails conflicting alias reads, preserves both equivalent aliases, and retains duplicate dependency rejection in the focused tests. Current Move resolves the owner from canonical containment, leaves active Subject untouched, and refuses atom-contained reparenting; legacy fields remain in the explicitly legacy branch. No new target resolver is requested.",
+  "reported_checks": "Worker reports three dedicated Current move tests, five Subject alias tests and 14 flat Archive tests passing. Four-module wider rerun remains in progress; reviewer did not independently run tests.",
+  "limits": "Bounded diff review; no whole-suite, runtime release, source migration or concurrency verification.",
+  "prior_move_finding_resolution": "Current move now updates existing carrier_destination.file.name/path from the validated destination, retains absent fields as absent, and checks that only those fields plus IS_CONTAINED_BY change. Dedicated Current move test checks successor destination, unchanged active Subject, and byte-exact predecessor history. This resolves MOVE-DEST-01.",
+  "legacy_compatibility": "Current preflight check_fields emits a gap for present current_scope_unit or claim_target_scope_unit, and complete-carrier admission rejects gaps; no legacy owner fallback is inferred. A focused cross-scope regression with legacy fields would improve evidence."
+}

@@ -1,0 +1,435 @@
+{
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/post-application-frontier.json",
+  "frontier_sha256": "b40245922796d93282ec704c0a9900cf02e88dccdd56cb751ba42edbf8e46b5c",
+  "source_pins": [
+    {
+      "id": "CA-M-271",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md",
+      "source_sha256": "c3fee4fb0f4f733a805b5122b2e38da7af8c8eb39ac5208912b1e00f05663c1a"
+    },
+    {
+      "id": "CA-E-443",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-EVAL_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+      "source_sha256": "8242efa9ffd4494184d19f7bd667b20537b363c4ca69336cd8f3be3e8c59a1dd"
+    },
+    {
+      "id": "CA-E-473",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-473-PROJECT_CONFIGURATION-EVAL_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+      "source_sha256": "235347ad6f66735c2e03a057243a697d051e7bc52f0e2e6407d91877ef4cffae"
+    },
+    {
+      "id": "CA-R-1489",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1489-CORE_META_MODEL-RULE--permit-implementation-retry-limit-defaults-and-overrides.md",
+      "source_sha256": "72bfe645888cf06c14471da14f137aa18f5d943685aa30daea7b62f17fa47731"
+    },
+    {
+      "id": "CA-M-295",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md",
+      "source_sha256": "e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa"
+    },
+    {
+      "id": "CA-D-447",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-ENG_DECISION--serialize-the-implementation-retry-limit-setting.md",
+      "source_sha256": "4334b7cadc76ac932c59355d01ff395345a6beb1c1ab33cac68b0235188dbfb3"
+    },
+    {
+      "id": "CA-D-472",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "source_sha256": "161c952b42de6a0f6a2fc560bbb14addd2c0aed16f2f7d7bcb8e66720ad92e3d"
+    }
+  ],
+  "previews": [
+    {
+      "id": "CA-E-443",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/previews/CA-E-443.txt",
+      "sha256": "60d3548848d6fb73226a09c1ad7d532a91a7eb15beed0ecbe1421a054519ef53"
+    },
+    {
+      "id": "CA-E-473",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/previews/CA-E-473.txt",
+      "sha256": "d7b4fc58830ab89275b165b10982ec32b9aab32a99ef2276dfc8430e8767780b"
+    },
+    {
+      "id": "CA-M-271",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/previews/CA-M-271.txt",
+      "sha256": "795c7e307ca80ff69c04d052a5a2fea0575149b5dbc3aa9fe99673ca889aad01"
+    },
+    {
+      "id": "CA-R-ALLOCATE-retry",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/previews/CA-R-ALLOCATE-retry.txt",
+      "sha256": "ed4a8ae3afe79344b1ad7cdee158620598e6a50112d68ca2fd31165ea4d574cd"
+    }
+  ],
+  "reference_scan": [
+    {
+      "id": "CA-R-035",
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-035-CAPRMEDIO-RULE--identify-necessary-information-by-confidence.md",
+      "sha256": "2a570feb315823259802120bfc7a84bf385f91d3af574823d27332057474f94d",
+      "matches": [
+        {
+          "line": 38,
+          "text": "the information is necessary **when** its omission would leave the AI Agent below the effective Confidence Threshold resolved under CA-M-271. the confidence **and** threshold remain operational heuristics, **not** comparable probabilities across configurations."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1045",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1045-CORE_META_MODEL-RULE--restrict-autonomous-confidence-threshold-values.md",
+      "sha256": "4792a08baa8cdc7c8e6fa9192df3812d25fdaa29ed3a35ede1037855ac74fc9a",
+      "matches": [
+        {
+          "line": 29,
+          "text": "**every** Autonomous Confidence Threshold **must** be an integer percentage **`>=0`** **and** **`<=100`**. resolve its effective value from the applicable source under CA-M-271; the methodology **must not** restrict that value **to** a closed list of preferred percentages."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1489",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1489-CORE_META_MODEL-RULE--permit-implementation-retry-limit-defaults-and-overrides.md",
+      "sha256": "72bfe645888cf06c14471da14f137aa18f5d943685aa30daea7b62f17fa47731",
+      "matches": [
+        {
+          "line": 8,
+          "text": "active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan).Implementation Retry Limit'"
+        },
+        {
+          "line": 10,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit"
+        },
+        {
+          "line": 15,
+          "text": "atom_id: CA-R-1489"
+        },
+        {
+          "line": 32,
+          "text": "effective Implementation Retry Limit selection for a Plan or Framework Instance Settings."
+        },
+        {
+          "line": 35,
+          "text": "an Implementation Retry Limit **must** take its effective value from applicable direct Operator input, an explicit Property on the current Plan, the nearest enclosing Hub Plan with an explicit Property, **or** Framework Instance Settings."
+        },
+        {
+          "line": 37,
+          "text": "- a Plan **may** have **<=1** explicit Implementation Retry Limit override, regardless of Label."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1587",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-RULE--require-an-effective-confidence-threshold-for-plan-execution.md",
+      "sha256": "d0dcffc6432058f1fbd40d9403c4a621b233040827206a85907a057daa0f5cbc",
+      "matches": [
+        {
+          "line": 32,
+          "text": "**every** autonomous Plan execution decision **must** resolve **=1** effective Autonomous Confidence Threshold from its applicable explicit **or** inherited source under CA-M-271."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1591",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1591-CORE_META_MODEL-RULE--apply-autonomous-confidence-thresholds-to-plan-execution.md",
+      "sha256": "2bf0af1b02316b85fdf64693bf9bfc188f6eb7d4b66ebebb976efda0e015acad",
+      "matches": [
+        {
+          "line": 34,
+          "text": "- resolve the value under CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2532",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464",
+      "matches": [
+        {
+          "line": 27,
+          "text": "Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Implementation Retry Limit, RMED Review)]{:3..11}"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2635",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2635-CORE_META_MODEL-DECLARATION--declare-project-settings-implementation-retry-limit.md",
+      "sha256": "d0eae12b9d3813e8dc65b40a46e5cf689d6db0d693b8890079833f8cd35e1e7b",
+      "matches": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ Project.Settings.Implementation Retry Limit"
+        },
+        {
+          "line": 18,
+          "text": "Declare Project.Settings.Implementation Retry Limit"
+        },
+        {
+          "line": 26,
+          "text": "Project.Settings.Implementation Retry Limit: [int]{:0..1};"
+        },
+        {
+          "line": 28,
+          "text": "Project.Settings.Implementation Retry Limit.*[]{:0}"
+        }
+      ]
+    },
+    {
+      "id": "CA-M-271",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md",
+      "sha256": "c3fee4fb0f4f733a805b5122b2e38da7af8c8eb39ac5208912b1e00f05663c1a",
+      "matches": [
+        {
+          "line": 15,
+          "text": "atom_id: CA-M-271"
+        },
+        {
+          "line": 36,
+          "text": "3. the nearest Hub with an explicit value, walking `IS_CONTAINED_BY` from nearest **to** farthest; read its own current Plan File Carrier under `CA-D-472-CORE_META_MODEL-DELIVERY--serialize-explicit-plan-confidence-overrides`, **not** a separate Objective targeting a folder."
+        }
+      ]
+    },
+    {
+      "id": "CA-M-295",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md",
+      "sha256": "e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa",
+      "matches": [
+        {
+          "line": 6,
+          "text": "- CA-R-1489"
+        },
+        {
+          "line": 10,
+          "text": "active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit"
+        },
+        {
+          "line": 13,
+          "text": "- 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Implementation Retry Limit'"
+        },
+        {
+          "line": 18,
+          "text": "atom_id: CA-M-295"
+        },
+        {
+          "line": 28,
+          "text": "Resolve implementation retry limits by source precedence"
+        },
+        {
+          "line": 35,
+          "text": "an effective Implementation Retry Limit resolved from direct Operator input, a Plan, the nearest Hub, Framework Instance Settings, **or** Default Settings."
+        },
+        {
+          "line": 38,
+          "text": "**to** resolve an effective Implementation Retry Limit, select the first applicable explicit source **in** this precedence:"
+        },
+        {
+          "line": 41,
+          "text": "2. the current Plan's explicit Implementation Retry Limit."
+        },
+        {
+          "line": 42,
+          "text": "3. the nearest Hub with an explicit limit, walking `IS_CONTAINED_BY` from nearest **to** farthest **and** reading its own current Plan File Carrier under CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting."
+        }
+      ]
+    },
+    {
+      "id": "CA-M-306",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md",
+      "sha256": "e3b360c6269adba675a83f9b971c0af7609cb2f30b31eb38fd92e27c330d7877",
+      "matches": [
+        {
+          "line": 13,
+          "text": "- 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Implementation Retry Limit'"
+        }
+      ]
+    },
+    {
+      "id": "CA-E-241",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md",
+      "sha256": "0f2673ddf610763e72e15de7d45bee76392d9d173d504e6246f03697f108f487",
+      "matches": [
+        {
+          "line": 19,
+          "text": "- CA-M-271"
+        },
+        {
+          "line": 48,
+          "text": "create valid active **and** draft Atom Claims for **every** admitted Content Role. include fixtures with no requested Translation **or** terminology Projection **and** fixtures with requested Projections. derive a candidate Summary during Atom creation, **then** retain it for checks of subsequent Revisions under CA-E-463-CORE_META_MODEL-EVAL_CASE--validate-summary-identity-preservation. derive requested Translation **and** terminology Projections twice **without** regenerating the existing Atom's Summary. **then** introduce ambiguity, an unstated participant, two independent Claims, an added Projection meaning, an independent vocabulary entry, **and** a confidence result below the effective Confidence Threshold resolved according **to** CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence."
+        },
+        {
+          "line": 52,
+          "text": "**every** valid fixture has **`=1`** precise interpretation, a source-faithful Summary, **and** reproducible Projections **when** requested. no fixture fails merely because an optional Projection was **not** requested. **every** invalid fixture fails. a confidence result below the effective Confidence Threshold leaves the Atom unchanged **and** requests Operator disposition. changing the applicable Operator input, Plan override, enclosing Hub override, **or** Framework Instance Settings default changes the checked threshold according **to** CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence **without** retaining a fixed percentage gate."
+        }
+      ]
+    },
+    {
+      "id": "CA-E-443",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-EVAL_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+      "sha256": "8242efa9ffd4494184d19f7bd667b20537b363c4ca69336cd8f3be3e8c59a1dd",
+      "matches": [
+        {
+          "line": 20,
+          "text": "- CA-M-271"
+        },
+        {
+          "line": 22,
+          "text": "- CA-D-472"
+        },
+        {
+          "line": 25,
+          "text": "atom_id: CA-E-443"
+        },
+        {
+          "line": 45,
+          "text": "the confidence-threshold Evaluation **must** preserve CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence precedence **and** CA-R-1591-CORE_META_MODEL-RULE--apply-autonomous-confidence-thresholds-to-plan-execution authorization gates."
+        }
+      ]
+    },
+    {
+      "id": "CA-E-502",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-EVAL_CASE--validate-plan-carrier-identity-and-placement.md",
+      "sha256": "301ab49972531f92c79c6aeffa6cc8399d12879b0d19d87ece84dddd0a275d5a",
+      "matches": [
+        {
+          "line": 22,
+          "text": "- CA-D-472"
+        }
+      ]
+    },
+    {
+      "id": "CA-D-447",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-ENG_DECISION--serialize-the-implementation-retry-limit-setting.md",
+      "sha256": "4334b7cadc76ac932c59355d01ff395345a6beb1c1ab33cac68b0235188dbfb3",
+      "matches": [
+        {
+          "line": 6,
+          "text": "active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit"
+        },
+        {
+          "line": 10,
+          "text": "- 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Implementation Retry Limit'"
+        },
+        {
+          "line": 13,
+          "text": "atom_id: CA-D-447"
+        },
+        {
+          "line": 30,
+          "text": "explicitly selected Implementation Retry Limits."
+        },
+        {
+          "line": 33,
+          "text": "an explicitly selected Implementation Retry Limit **must** use the integer field assigned **to** its owning source Carrier:"
+        },
+        {
+          "line": 37,
+          "text": "- a Plan Atom's own File Carrier frontmatter: `implementation_retry_limit`, including a Hub's mandatory Markdown File Carrier."
+        },
+        {
+          "line": 44,
+          "text": "- omitted instance values resolve under CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings; omitted Plan fields inherit under CA-M-295-CORE_META_MODEL-METHOD--resolve-implementation-retry-limits-by-source-precedence@7 **without** copied values. preserve explicit **=0**."
+        }
+      ]
+    },
+    {
+      "id": "CA-D-472",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "sha256": "161c952b42de6a0f6a2fc560bbb14addd2c0aed16f2f7d7bcb8e66720ad92e3d",
+      "matches": [
+        {
+          "line": 12,
+          "text": "atom_id: CA-D-472"
+        }
+      ]
+    },
+    {
+      "id": "CA-D-485",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-ENG_DECISION--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+      "sha256": "5e4f75cef43a1d37d2111aaa176fb2abe0d5d132165f4eab7cf9fe5d78c511f8",
+      "matches": [
+        {
+          "line": 7,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit"
+        }
+      ]
+    },
+    {
+      "id": "CA-D-657",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "b11e8b9d3323d8b10d8632a2495ef44c75e9528d4fd03df5e043fab2aef8f65b",
+      "matches": [
+        {
+          "line": 50,
+          "text": "- A Plan Header AI Agent Confidence Threshold has zero or one integer values. Encode an explicit value as the top-level integer frontmatter field `ai_agent_confidence_threshold`; an unselected override remains omitted, and self-sufficiency does **not** copy an inherited value. A Plan Header has no Implementation Retry Limit Property; the retry limit is governed by the Workflow."
+        }
+      ]
+    },
+    {
+      "id": "CA-E-441",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-441-PROJECT_CONFIGURATION-POLICY--evaluate-retry-budget-and-escalation.md",
+      "sha256": "74779476a7ecf98826b7c52ddea0af93f70759c1787e353e30b12edd3058bad8",
+      "matches": [
+        {
+          "line": 11,
+          "text": "- CA-M-295"
+        },
+        {
+          "line": 20,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit"
+        },
+        {
+          "line": 44,
+          "text": "- an automatic retry exceeds the effective Implementation Retry Limit resolved under CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence **and** enforced by CA-O-024-PROJECT_CONFIGURATION-ACTION--control-implementation-retries."
+        }
+      ]
+    },
+    {
+      "id": "CA-E-473",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-473-PROJECT_CONFIGURATION-EVAL_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+      "sha256": "235347ad6f66735c2e03a057243a697d051e7bc52f0e2e6407d91877ef4cffae",
+      "matches": [
+        {
+          "line": 7,
+          "text": "- CA-R-1489"
+        },
+        {
+          "line": 8,
+          "text": "- CA-M-295"
+        },
+        {
+          "line": 9,
+          "text": "- CA-D-447"
+        },
+        {
+          "line": 12,
+          "text": "active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit"
+        },
+        {
+          "line": 20,
+          "text": "atom_id: CA-E-473"
+        },
+        {
+          "line": 46,
+          "text": "1. provide distinct valid limits through direct Operator input, a Plan, nested Hubs, Framework Instance Settings, **and** Default Settings. successively omit higher-precedence values; check CA-M-295's precedence **and** nearest-Hub selection."
+        },
+        {
+          "line": 57,
+          "text": "- store explicit Hub limits **only** **in** the matching File Carrier of that same Plan under CA-D-447; a supplied file requires DoD."
+        }
+      ]
+    },
+    {
+      "id": "CA-E-652",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-652-PROJECT_CONFIGURATION-EVAL_CASE--check-shared-context-test-first-implementation-and-method-learning.md",
+      "sha256": "cf73f5fd53fd0fafb815a68cf9dbd88702d311e0be65621be570fe1525c8cf96",
+      "matches": [
+        {
+          "line": 18,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit"
+        }
+      ]
+    }
+  ],
+  "outside_frontier_operations_evidence": {
+    "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-024-PROJECT_CONFIGURATION-ACTION--control-implementation-retries.md",
+    "sha256": "50908c4c40c541a886e80013a1bd2917267449df45fe61a2681edc2a194818ea"
+  },
+  "confidence_delivery_candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/delivery/previews/CA-D-ALLOCATE-confidence.txt",
+  "status": "DRAFT_REVIEW_ONLY"
+}

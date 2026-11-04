@@ -1,0 +1,49 @@
+---
+subjects:
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  passive:
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project.Settings.AI Agent Confidence Threshold
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Carrier
+version: 34
+updated_at: 2026-11-02 18:35:20 +0400
+relations:
+  evaluation_for:
+  - CA-R-1587
+  - CA-R-1044
+  - CA-R-1045
+  - CA-R-1427@17
+  - CA-R-1428
+  - CA-M-271
+  - CA-R-1591
+  - CA-D-ALLOCATE
+  - CA-D-485
+  - CA-R-1713
+atom_id: CA-E-443
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 4
+role: Evaluation
+form: Eval Case
+---
+## Summary
+
+Validate confidence-threshold precedence **and** inheritance
+
+## Claim
+
+### Prose Claim
+
+Validate the effective Plan AI Agent Confidence Threshold under CA-M-271 and the authorization gates under CA-R-1591.
+
+- Supply distinct valid values on the current Plan, several enclosing Plans, and Project.Settings; omit each in turn and verify the nearest present value in the `IS_CONTAINED_BY` chain, then the required Project value.
+- With no explicit Plan value, confirm that a later upstream change is followed without writing a local value. An explicit value equal to the inherited value remains explicit when the upstream value changes.
+- Use current Plan Revisions and the actual containment chain. Reject cycles, ambiguous or invalid reached sources, missing required Project values, unrelated files, historical Revisions, and a missing mandatory Plan Carrier without silently falling through.
+- Accept valid integer percentages 0, 87, 99, and 100; reject non-integers and values outside the applicable bounds.
+- Preserve the selected source, context, and value without changing any source. A result below the effective threshold requests Operator disposition; meeting the threshold grants no additional authority.
+
+Check the explicit Plan Carrier encoding under CA-D-ALLOCATE. No Plan retry Property or separate Hub Property is required.

@@ -1,0 +1,19 @@
+{
+  "verdict": "PASS_BOUNDED_FIXTURE_ROUTE",
+  "evidence_sha256": {
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py": "f1a97f997da7e2d528c0151f9e7980cba372326c54f5ae916e613453681e5ac5",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py": "0aa75b09def0435032e2c2dfe2176a3fd2b1e2c1cb3e715e25edb647f93e076b",
+    ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/f2-current-fixture-checks/goal-recovery-diagnosis.json": "8a772d569f48837ab59cea9a8373cc032318bae846c10f65a34d41b782309847"
+  },
+  "assessment": "Both recovery test variants use historical content_role/type, target/owner and Subject grammar, including the variant labelled legacy=False. The recovery predicate and comparison explicitly require those fields. Their shared fixture now selects D657, so old-format proposed output is rejected at Current complete-carrier admission before the intended recovery behavior is proved.",
+  "recommended_repair": [
+    "Run these recovery cases in an explicitly isolated disposable D276 historical-profile Project with a complete reviewed historical authority closure, using the existing profile fixture machinery. Keep both source variants, sealed evidence and exact predecessor-byte assertions.",
+    "Preserve negative cases and demonstrate they reach the intended carrier-only/evidence checks rather than merely rejecting the encoding profile. Add a separate Current-profile rejection case for the historical proposed carrier, with no effects and unchanged predecessor.",
+    "Keep the production R1766 and D531 lineage checks intact. A synthetic R1766 in the disposable historical fixture is test evidence only; it does not establish that the actual Current Project has that authority."
+  ],
+  "boundaries": [
+    "No new Current recovery mapping or cross-profile migration is established by this fixture repair. Current source selection and actual workflow instances remain separate.",
+    "The diagnosis reports that native Current R1766 is absent; do not replace it with an archive or projection or infer production recovery availability.",
+    "Read-only review; no tests were run in this lane."
+  ]
+}

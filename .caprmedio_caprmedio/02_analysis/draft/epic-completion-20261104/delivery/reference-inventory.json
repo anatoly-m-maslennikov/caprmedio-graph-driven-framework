@@ -1,0 +1,123 @@
+{
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/post-application-frontier.json",
+  "frontier_sha256": "b40245922796d93282ec704c0a9900cf02e88dccdd56cb751ba42edbf8e46b5c",
+  "scope": "selected active source paths only; frozen archives and non-selected consumers not searched",
+  "items": [
+    {
+      "id": "CA-M-271",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md",
+      "version": 29,
+      "sha256": "c3fee4fb0f4f733a805b5122b2e38da7af8c8eb39ac5208912b1e00f05663c1a",
+      "frontier_match": true,
+      "references": [
+        {
+          "line": 36,
+          "text": "3. the nearest Hub with an explicit value, walking `IS_CONTAINED_BY` from nearest **to** farthest; read its own current Plan File Carrier under `CA-D-472-CORE_META_MODEL-DELIVERY--serialize-explicit-plan-confidence-overrides`, **not** a separate Objective targeting a folder."
+        }
+      ]
+    },
+    {
+      "id": "CA-M-295",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md",
+      "version": 32,
+      "sha256": "e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa",
+      "frontier_match": true,
+      "references": [
+        {
+          "line": 42,
+          "text": "3. the nearest Hub with an explicit limit, walking `IS_CONTAINED_BY` from nearest **to** farthest **and** reading its own current Plan File Carrier under CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting."
+        }
+      ]
+    },
+    {
+      "id": "CA-E-443",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-EVAL_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+      "version": 34,
+      "sha256": "8242efa9ffd4494184d19f7bd667b20537b363c4ca69336cd8f3be3e8c59a1dd",
+      "frontier_match": true,
+      "references": [
+        {
+          "line": 22,
+          "text": "- CA-D-472"
+        }
+      ]
+    },
+    {
+      "id": "CA-E-502",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-EVAL_CASE--validate-plan-carrier-identity-and-placement.md",
+      "version": 29,
+      "sha256": "301ab49972531f92c79c6aeffa6cc8399d12879b0d19d87ece84dddd0a275d5a",
+      "frontier_match": true,
+      "references": [
+        {
+          "line": 22,
+          "text": "- CA-D-472"
+        }
+      ]
+    },
+    {
+      "id": "CA-D-447",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-ENG_DECISION--serialize-the-implementation-retry-limit-setting.md",
+      "version": 30,
+      "sha256": "4334b7cadc76ac932c59355d01ff395345a6beb1c1ab33cac68b0235188dbfb3",
+      "frontier_match": true,
+      "references": [
+        {
+          "line": 13,
+          "text": "atom_id: CA-D-447"
+        },
+        {
+          "line": 37,
+          "text": "- a Plan Atom's own File Carrier frontmatter: `implementation_retry_limit`, including a Hub's mandatory Markdown File Carrier."
+        }
+      ]
+    },
+    {
+      "id": "CA-D-472",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "version": 29,
+      "sha256": "161c952b42de6a0f6a2fc560bbb14addd2c0aed16f2f7d7bcb8e66720ad92e3d",
+      "frontier_match": true,
+      "references": [
+        {
+          "line": 12,
+          "text": "atom_id: CA-D-472"
+        },
+        {
+          "line": 32,
+          "text": "an explicit Plan Autonomous Confidence Threshold override **must** use the top-level integer frontmatter field `autonomous_confidence_threshold` **in** that Plan Atom's own mandatory Markdown File Carrier."
+        }
+      ]
+    },
+    {
+      "id": "CA-D-657",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "version": 3,
+      "sha256": "b11e8b9d3323d8b10d8632a2495ef44c75e9528d4fd03df5e043fab2aef8f65b",
+      "frontier_match": true,
+      "references": [
+        {
+          "line": 50,
+          "text": "- A Plan's explicit `assignee` uses **<=1** String identifying an admitted Actor under the Plan Assignee encoding. `autonomous_confidence_threshold` **and** `implementation_retry_limit` use their integer encodings under the Plan confidence override and retry limit encodings. inherited values remain omitted unless explicitly selected; self-sufficiency does **not** copy them."
+        }
+      ]
+    },
+    {
+      "id": "CA-E-473",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-473-PROJECT_CONFIGURATION-EVAL_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+      "version": 26,
+      "sha256": "235347ad6f66735c2e03a057243a697d051e7bc52f0e2e6407d91877ef4cffae",
+      "frontier_match": true,
+      "references": [
+        {
+          "line": 9,
+          "text": "- CA-D-447"
+        },
+        {
+          "line": 57,
+          "text": "- store explicit Hub limits **only** **in** the matching File Carrier of that same Plan under CA-D-447; a supplied file requires DoD."
+        }
+      ]
+    }
+  ]
+}

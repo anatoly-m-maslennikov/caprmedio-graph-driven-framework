@@ -29,7 +29,7 @@ class IndependentStatusBundlePublicationTests(unittest.TestCase):
         self.addCleanup(self.fixture.tearDown)
         self.root, self.authority = self.fixture.root, self.fixture.authority
         (self.root / ".git").mkdir()
-        write_frozen_authority(self.root, fixtures.CONTROL, ("CA-D-289", "CA-D-378"))
+        write_frozen_authority(self.root, fixtures.CONTROL, ("CA-D-289",))
 
     def put(self, relative, identity, *, role="Plan", kind="Plan", parent=None, status="Active", version=3):
         path = self.authority / relative

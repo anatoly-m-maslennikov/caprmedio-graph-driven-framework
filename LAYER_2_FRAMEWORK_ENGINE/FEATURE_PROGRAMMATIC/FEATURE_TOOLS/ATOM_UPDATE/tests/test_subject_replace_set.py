@@ -43,23 +43,24 @@ class SubjectReplaceSetTests(unittest.TestCase):
         return result
 
     def test_changed_sets_use_explicit_membership_and_preserve_comments_crlf_body(self):
+        self.assertEqual(self.original.count(b'  passive: [Atom, "Atom/Revision"]\r\n'), 1)
         layouts = [
-            '  depends_on: [Atom, # café first\r\n    "Atom/Revision"] # trailing\r\n',
-            '  depends_on:\r\n    - Atom # café first\r\n    # middle\r\n    - "Atom/Revision" # trailing\r\n',
+            '  passive: [Atom, # café first\r\n    "Atom/Revision"] # trailing\r\n',
+            '  passive:\r\n    - Atom # café first\r\n    # middle\r\n    - "Atom/Revision" # trailing\r\n',
         ]
         for layout in layouts:
             for new in (["Atom"], ["Atom", "Atom/Status", "Atom/Scope"], []):
                 with self.subTest(layout=layout, new=new):
-                    self.path.write_bytes(self.original.replace(b'  depends_on: [Atom, "Atom/Revision"]\r\n', layout.encode()))
+                    self.path.write_bytes(self.original.replace(b'  passive: [Atom, "Atom/Revision"]\r\n', layout.encode()))
                     source = self.path.read_bytes()
                     preview = self.preview([self.patch(new)])
                     atom = preview["atoms"][0]
                     proposed = atom["proposed_carrier"].encode()
                     metadata = operations.parse_carrier(proposed, self.path).metadata
-                    self.assertEqual(new, metadata["subjects"]["depends_on"])
+                    self.assertEqual(new, metadata["subjects"]["passive"])
                     self.assertEqual(8, metadata["version"])
                     self.assertEqual(source.split(b"---\r\n", 2)[2], proposed.split(b"---\r\n", 2)[2])
-                    self.assertEqual(source[:source.index(b"  depends_on:")], proposed[:proposed.index(b"  depends_on:")].replace(
+                    self.assertEqual(source[:source.index(b"  passive:")], proposed[:proposed.index(b"  passive:")].replace(
                         b"version: 8\r\n", b"version: 7\r\n").replace(
                         b'updated_at: "2026-10-14 10:20:30 +0400"', b'updated_at: "2026-01-01 00:00:00 +0000"'))
                     for comment in ("# café first", "# trailing"):
@@ -84,7 +85,7 @@ class SubjectReplaceSetTests(unittest.TestCase):
         self.path.write_bytes(self.original.replace(b'[Atom, "Atom/Revision"]', b'[]'))
         result = self.preview([self.patch(["Atom"], old=[])])
         proposed = result["atoms"][0]["proposed_carrier"].encode()
-        self.assertEqual(["Atom"], operations.parse_carrier(proposed, self.path).metadata["subjects"]["depends_on"])
+        self.assertEqual(["Atom"], operations.parse_carrier(proposed, self.path).metadata["subjects"]["passive"])
 
     def test_independent_governs_patch_and_intent_materialization_retain_operation(self):
         patches = [self.patch(["Atom.Status", "Atom"]), {"field": "governs", "old": "Atom/Status", "new": "Atom.Status"}]
@@ -128,7 +129,8 @@ class SubjectReplaceSetTests(unittest.TestCase):
             self.assertEqual("subject-occurrence-duplicate", caught.exception.code)
 
     def test_missing_list_is_not_implicitly_added(self):
-        self.path.write_bytes(self.original.replace(b'  depends_on: [Atom, "Atom/Revision"]\r\n', b''))
+        self.assertEqual(self.original.count(b'  passive: [Atom, "Atom/Revision"]\r\n'), 1)
+        self.path.write_bytes(self.original.replace(b'  passive: [Atom, "Atom/Revision"]\r\n', b''))
         with self.assertRaises(operations.ToolError) as caught:
             self.preview([self.patch(["Atom"], old=[])])
         self.assertEqual("subject-shape-invalid", caught.exception.code)

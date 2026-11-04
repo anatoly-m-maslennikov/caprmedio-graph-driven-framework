@@ -1,0 +1,30 @@
+---
+atom_id: "<UNALLOCATED-execution>"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Execution
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare Execution
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Execution ((NARROWER_THAN)) Occurrent
+```
+
+## Semantics
+
+Execution is the actual performance of work, distinct from its reusable definition and from records describing it.

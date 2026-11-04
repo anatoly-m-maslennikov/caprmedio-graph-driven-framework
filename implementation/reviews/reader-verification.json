@@ -1,0 +1,70 @@
+{
+  "scope": "Live code and current declared methodology sources, before later packets",
+  "checks": [
+    {
+      "command": ".venv/bin/python -m unittest discover -s LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/tests",
+      "tests": 411,
+      "result": "passed"
+    },
+    {
+      "command": ".venv/bin/python -m unittest discover -s LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests -p 'test_scope*declar*.py'",
+      "tests": 25,
+      "result": "passed"
+    },
+    {
+      "command": ".venv/bin/python -m unittest discover -s LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests -p test_authoritative_status_models.py",
+      "tests": 12,
+      "result": "passed"
+    },
+    {
+      "command": ".venv/bin/python -m unittest discover -s LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/tests -p test_projection_source_preservation.py",
+      "tests": 3,
+      "result": "passed"
+    }
+  ],
+  "live": {
+    "scope_declarations": 44,
+    "domains": {
+      "Requirement": {
+        "statuses": [
+          "Draft",
+          "Active",
+          "Archived"
+        ],
+        "sources": [
+          "CA-R-1309"
+        ]
+      },
+      "Plan": {
+        "statuses": [
+          "Draft",
+          "Active",
+          "Archived",
+          "Backlog",
+          "Done",
+          "Canceled"
+        ],
+        "sources": [
+          "CA-R-1947",
+          "CA-R-1539"
+        ]
+      },
+      "Analysis & Advisory": {
+        "statuses": [
+          "Draft",
+          "Active",
+          "Archived",
+          "Done"
+        ],
+        "sources": [
+          "CA-R-1947",
+          "CA-R-1875"
+        ]
+      }
+    }
+  },
+  "limits": [
+    "Results precede later source packets; rerun relevant checks after those packets.",
+    "These focused checks do not establish full validation, runtime activation, or release."
+  ]
+}

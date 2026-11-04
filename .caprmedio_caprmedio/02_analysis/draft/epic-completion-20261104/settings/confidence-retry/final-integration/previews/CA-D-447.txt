@@ -1,0 +1,29 @@
+---
+version: 30
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+subjects:
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Implementation Retry Limit
+  passive:
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - CAPRMEDIO_MODEL <+ Carrier
+atom_id: CA-D-447
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 3
+role: Delivery
+form: Decision
+---
+## Summary
+
+Serialize the implementation retry-limit setting
+
+## Claim
+
+### Prose Claim
+
+An explicitly selected Project.Settings Implementation Retry Limit uses the registered integer TOML field `implementation.retry_limit`. The Default Settings TOML uses the same field under CA-D-408 and owns the default. An omitted explicit setting follows CA-M-279; do not copy an inherited value as an explicit selection. Allowed values follow CA-R-1488@21; zero is an explicit value.
+
+This Decision specifies serialization only. It does not authorize a Plan or Hub retry Property, a Workflow Run Property, or a particular Workflow retry source. The physical settings Carrier migration remains subject to the applicable Carrier authority.

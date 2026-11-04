@@ -26,6 +26,11 @@ class FullSuiteDockerTests(unittest.TestCase):
         self.root = Path(directory.name)
         self.output, self.errors = io.StringIO(), io.StringIO()
 
+    def test_workbench_container_proof_uses_the_shared_image_lane(self):
+        workbench = self.root / docker.APP.parent / "APP_WORKBENCH/tests"
+        self.assertTrue(full._docker_module(self.root, workbench / "test_workbench_docker_e2e.py"))
+        self.assertFalse(full._docker_module(self.root, workbench / "test_query_store.py"))
+
     def test_builds_current_source_once_without_cached_resolution(self):
         with (
             patch.object(docker, "ImageManager", autospec=True) as factory,

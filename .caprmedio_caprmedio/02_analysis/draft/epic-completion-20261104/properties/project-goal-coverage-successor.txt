@@ -1,0 +1,22 @@
+Fresh-ID successor content proposal — root allocation required
+
+Proposed new Atom ID: UNALLOCATED_BY_ROOT
+Role: Requirement
+Form: Rule
+Status: Draft until separately adopted
+
+## Summary
+
+Require Goal Coverage for Every Project
+
+## Claim scope
+
+Project Scope Units.
+
+## Claim
+
+Every Project **must** be the Scope Unit resolved by the active Subject of at least one accepted Requirement Atom of Form Goal.
+
+## Preserved qualification
+
+The coverage condition remains `>=1` accepted Requirement Atom per Project, as in CA-R-927@41. It adds no ownership condition, no restriction on other Goals, and no Tier condition. The active-Subject Project-root predicate is stated using the latest user terminology. Frontmatter Subject metadata is intentionally not finalized until the fresh Atom ID and full successor source are prepared; preserve the active Project Subject, add the Form Goal and Active Subject references needed by the Claim, and remove superseded Operator, Target Scope Unit and Local Scope Unit passives.

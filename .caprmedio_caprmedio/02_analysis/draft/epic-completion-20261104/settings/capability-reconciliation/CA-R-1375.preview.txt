@@ -1,0 +1,35 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Scope Unit
+  passive:
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_MODEL <+ Atom.Content
+version: 33
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1375
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Restrict Methodology Source Expansion to Core Permission
+
+## Claim
+
+### Prose Claim
+
+
+Methodology source expansion by Project Configuration or an additional source admitted under Core authority.
+
+
+A Project Configuration or additional selected source **must** add Claims, Terms, allowed values, Types, Methods, Evaluations, Deliveries, Operations, activation rules, compatibility rules, **or** priority rules **only** **where** one active CORE_META_MODEL Atom permits the addition **and** **must not** redefine, replace, shadow, weaken, delete, contradict, reinterpret, **or** mutate Core Meta-Model authority at **any** numeric Tier; an Atom's numeric Tier alone grants no exception **to** this source authority boundary.
+
+## Details
+
+Current capability selections and selected revisions, where applicable, remain owned by their governing Framework Instance Settings under CA-R-1207. Permission **to** add a rule does **not** duplicate **or** transfer ownership of a current selection.

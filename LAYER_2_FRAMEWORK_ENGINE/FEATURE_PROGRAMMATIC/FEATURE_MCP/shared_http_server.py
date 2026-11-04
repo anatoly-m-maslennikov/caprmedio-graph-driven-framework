@@ -1,3 +1,6 @@
+# CA-R-2727@2
+# CA-D-674@2
+
 """Shared host Streamable HTTP transport for multiple Project gateways."""
 
 from __future__ import annotations
@@ -26,6 +29,7 @@ from http_server import (
 from operation_error_boundary import FailureRecord
 from runtime_failure_diagnostics import report_failure
 from runtime_process_boundary import run_process
+from workbench_web import routes as workbench_routes
 
 from shared_gateway import SharedGateway
 
@@ -105,7 +109,7 @@ def create_app(config: Any, *, gateway_factory: Callable[..., Any] = SharedGatew
         transport_security=SECURITY,
         max_request_body_size=MAX_REQUEST_BODY_SIZE,
         host="127.0.0.1",
-        custom_starlette_routes=[Route("/health", health_endpoint)],
+        custom_starlette_routes=[Route("/health", health_endpoint), *workbench_routes(gateway, shared=True)],
     )
     inner_lifespan = app.router.lifespan_context
 

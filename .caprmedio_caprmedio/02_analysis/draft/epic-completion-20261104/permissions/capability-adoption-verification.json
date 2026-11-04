@@ -1,6 +1,6 @@
 {
   "schema": "capability-adoption-verification/1",
-  "status": "APPLIED_VERIFIED_WITH_PLAN_STATUS_MISMATCH",
+  "status": "APPLIED_VERIFIED",
   "verified_at": "2026-11-04",
   "result": "All 10 planned filesystem operations match the adoption receipt and current filesystem: two declaration revisions, three exact archives, and three source removals. No successor was created. The receipt plan hash matches the plan file hash.",
   "plan_receipt": {
@@ -11,8 +11,8 @@
     "receipt_status": "APPLIED_VERIFIED",
     "receipt_operation_count": 10,
     "receipt_output_count": 2,
-    "plan_status_text": "PREPARED_NOT_ADOPTED",
-    "mismatch": "The plan still labels itself PREPARED_NOT_ADOPTED although the hash-matched receipt reports APPLIED_VERIFIED and every recorded after-state matches the filesystem. Treat the plan status label as stale; no canonical source change is needed to reconcile this review."
+    "plan_status_text": "PREPARED_NOT_ADOPTED (intentional immutable pre-application snapshot)",
+    "status_interpretation": "The adoption plan is frozen input whose hash is recorded by the receipt. Its pre-application label remains intact by design; adoption status is established by the matching APPLIED_VERIFIED receipt and exact post-state checks, not by editing the plan."
   },
   "operation_checks": {
     "CA-R-2624": {

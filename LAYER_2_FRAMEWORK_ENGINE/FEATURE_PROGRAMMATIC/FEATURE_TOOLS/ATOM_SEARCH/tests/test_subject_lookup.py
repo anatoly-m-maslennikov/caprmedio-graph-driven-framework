@@ -15,6 +15,9 @@ from atom_operations import ToolError, describe, parser  # noqa: E402
 from atom_subject_lookup import run_subject_search  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
+from VALIDATE_ATOMS.tests.golden_authority import frozen_authority_fixture_bytes  # noqa: E402
+from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier  # noqa: E402
+from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier as admission  # noqa: E402
 
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
@@ -49,11 +52,27 @@ class SubjectLookupTest(unittest.TestCase):
         control = self.root / ".caprmedio_caprmedio"
         control.mkdir()
         (control / "caprmedio_project_settings.toml").write_text(
-            "[project]\nname = \"fixture\"\n[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n"
+            "[project]\nname = \"fixture\"\nkey = \"fixture\"\nrepository_slug = \"fixture-repo\"\n"
+            "[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n[artifacts.identity]\nproject_prefix = \"CA\"\n"
         )
         rows = write_scope_unit_declarations(
-            self.root, ({"scope_unit_name": "CORE", "parent": "PROJECT"},), control_root=control,
+            self.root, ({"scope_unit_name": "CORE", "parent": "PROJECT"},
+                        {"scope_unit_name": "CORE_META_MODEL", "parent": "PROJECT"}), control_root=control,
         )
+        (control / "operators_registry.toml").write_text('[[operators]]\nname = "Fixture Operator"\nrole = "project owner"\n')
+        authority = rows["CORE_META_MODEL"]["authority_path"]
+        identifiers = dict.fromkeys((*admission._REGISTRY_IDS, *admission._LEGACY_REGISTRY_IDS,
+                                    *(item for item in admission._SUPPORT_IDS if item not in admission._DEFERRED_SUPPORT_IDS)))
+        for identifier in identifiers:
+            raw = frozen_authority_fixture_bytes(identifier)
+            role = parse_carrier(raw, Path(identifier + '.md')).metadata['content_role']
+            folder = {'Requirement': '04_requirement', 'Method': '05_method', 'Evaluation': '06_evaluation',
+                      'Delivery': '07_delivery', 'Operations': '09_operations'}[role]
+            target = authority / folder / (identifier + '.md')
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(raw)
+            if identifier == "CA-D-276":
+                self.legacy_encoding_path = target
         self.role = rows["CORE"]["authority_path"] / "04_requirement"
         self.role.mkdir(parents=True)
         self._write("CA-R-1", "Core/Atom", ["Core/Dependency", "Core/Atom/child"])
@@ -98,6 +117,13 @@ class SubjectLookupTest(unittest.TestCase):
         prefix = run_subject_search(self.root, self._args(subject_match="prefix"))
         self.assertEqual(prefix["count"], 2)
         self.assertEqual([item["index"] for item in prefix["occurrences"]], [None, 1])
+
+    def test_missing_encoding_authority_is_not_treated_as_legacy(self) -> None:
+        self.legacy_encoding_path.unlink()
+        result = run_subject_search(self.root, self._args())
+        self.assertEqual([], result["occurrences"])
+        self.assertEqual("limited", result["coverage"])
+        self.assertTrue(any(row["code"] == "source-invalid" for row in result["diagnostics"]))
 
     def test_literal_suffix_and_contains_accept_fragments_without_case_folding(self) -> None:
         suffix = run_subject_search(self.root, self._args(subject="/child", subject_match="suffix"))

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import re
@@ -15,6 +16,11 @@ from typing import Any
 
 import yaml
 from VALIDATE_ATOMS.validate_atoms_workers.check_sections import _headings
+from VALIDATE_ATOMS.validate_atoms_workers.check_fields import reviewed_encoding_profile
+from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
+    ProposedCarrierError, _current_containment_owner, source_context_from_project,
+)
+from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError, parse_carrier
 
 from authoritative_status_models import StatusModelError, resolve_status_model
 from artifact_metadata import current_timestamp, project_identity
@@ -549,6 +555,37 @@ def _typed_relation_snapshot(frontmatter: str) -> str:
     if not isinstance(metadata, dict):
         raise LifecycleError("carrier-frontmatter-invalid", "Atom frontmatter must be a mapping")
     return canonical_json(metadata.get("relations", {}))
+
+
+def _update_current_destination(frontmatter: str, content: str, carrier_path: Path, destination: Path) -> str:
+    """Update only destination fields already present on an emitted Current representation."""
+    try:
+        metadata = parse_carrier(render(frontmatter, content), carrier_path).metadata
+        carrier = metadata.get("carrier_destination", {})
+        if not isinstance(carrier, dict) or not isinstance(carrier.get("file", {}), dict):
+            raise ValueError("malformed carrier destination")
+        fields = carrier.get("file", {})
+        expected = copy.deepcopy(metadata)
+        for key, value in (("name", destination.name), ("path", destination.parent.as_posix())):
+            if key not in fields:
+                continue
+            if not isinstance(fields[key], str):
+                raise ValueError("malformed carrier destination")
+            node = yaml.compose(frontmatter)
+            for part in ("carrier_destination", "file", key):
+                matches = [child for name, child in node.value if name.value == part]
+                if len(matches) != 1:
+                    raise ValueError("ambiguous carrier destination")
+                node = matches[0]
+            if not isinstance(node, yaml.ScalarNode):
+                raise ValueError("malformed carrier destination")
+            frontmatter = frontmatter[:node.start_mark.index] + json.dumps(value) + frontmatter[node.end_mark.index:]
+            expected["carrier_destination"]["file"][key] = value
+        if parse_carrier(render(frontmatter, content), carrier_path).metadata != expected:
+            raise ValueError("destination edit affected other metadata")
+        return frontmatter
+    except (AttributeError, CarrierError, KeyError, TypeError, ValueError, yaml.YAMLError) as error:
+        raise LifecycleError("placement-invalid", "Current carrier destination cannot be updated safely") from error
 
 
 def _move_link_evidence(outward: str) -> dict[str, Any]:
@@ -1564,14 +1601,77 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
     destination_path = placement["destination_path"]
     current_owner = frontmatter_scalar(target.frontmatter, "current_scope_unit")
     current_claim_target = frontmatter_scalar(target.frontmatter, "claim_target_scope_unit")
-    if current_owner is None or current_claim_target is None:
-        raise LifecycleError("placement-invalid", "current Atom must carry both Scope Unit fields")
+    try:
+        context = source_context_from_project(root)
+        profiles = {
+            reviewed_encoding_profile(row)
+            for row in context.inputs["sources"]
+            if row.get("binding", {}).get("atom_id") in {"CA-D-276", "CA-D-657"}
+        }
+        if profiles == {"current"}:
+            metadata = parse_carrier(render(target.frontmatter, target.content), target.path).metadata
+            current_owner = _current_containment_owner(context, metadata)
+        elif profiles != {"legacy"}:
+            raise LifecycleError("placement-invalid", "Atom encoding authority is unresolved")
+    except (CarrierError, ProposedCarrierError, ValueError) as error:
+        raise LifecycleError("placement-invalid", "Atom containment or encoding authority is unresolved") from error
+    current_profile = profiles == {"current"}
     outward_links = _typed_relation_snapshot(target.frontmatter)
+    if current_profile:
+        current_claim_target = None
+        containment = metadata["relations"]["IS_CONTAINED_BY"]
+        if "atom" in containment and (placement["owning_scope_unit"] != current_owner
+                                       or root / destination_path != target.path):
+            raise LifecycleError("placement-invalid", "moving an Atom-contained Plan requires an explicit parent-aware operation")
+        proposed_frontmatter = target.frontmatter
+        changes: list[tuple[tuple[str, ...], str]] = []
+        if placement["owning_scope_unit"] != current_owner:
+            rows = context.inputs["structure"]["scope_units"]
+            matches = [row for row in rows if row.get("scope_unit_name") == placement["owning_scope_unit"]]
+            if len(matches) != 1:
+                raise LifecycleError("placement-invalid", "destination Scope Unit is unresolved or ambiguous")
+            project = context.inputs["_project_identity"]["project"]["name"]
+            destination_id = matches[0].get("scope_unit_id") or (project if placement["owning_scope_unit"] == project else None)
+            if not isinstance(destination_id, str) or not destination_id:
+                raise LifecycleError("placement-invalid", "destination Scope Unit reference is unresolved")
+            changes.append((("relations", "IS_CONTAINED_BY", "scope_unit"), destination_id))
+        if root / destination_path != target.path:
+            try:
+                approved_path = safe_path(root, destination_path).relative_to(root)
+            except AtomToolError as error:
+                raise _translate(error) from error
+            proposed_frontmatter = _update_current_destination(
+                proposed_frontmatter, target.content, target.path, approved_path,
+            )
+        try:
+            expected_metadata = parse_carrier(render(proposed_frontmatter, target.content), target.path).metadata
+            for keys, value in changes:
+                node = yaml.compose(proposed_frontmatter)
+                expected = expected_metadata
+                for key in keys:
+                    matches = [child for name, child in node.value if name.value == key]
+                    if len(matches) != 1:
+                        raise ValueError("ambiguous metadata")
+                    node = matches[0]
+                if not isinstance(node, yaml.ScalarNode):
+                    raise ValueError("invalid metadata value")
+                proposed_frontmatter = (proposed_frontmatter[:node.start_mark.index] + json.dumps(value)
+                                        + proposed_frontmatter[node.end_mark.index:])
+                for key in keys[:-1]:
+                    expected = expected[key]
+                expected[keys[-1]] = value
+            if parse_carrier(render(proposed_frontmatter, target.content), target.path).metadata != expected_metadata:
+                raise ValueError("move edit affected other metadata")
+        except (AttributeError, CarrierError, KeyError, TypeError, ValueError, yaml.YAMLError) as error:
+            raise LifecycleError("placement-invalid", "Current move metadata cannot be updated safely") from error
 
-    proposed_frontmatter = replace_frontmatter_scalar(
-        replace_frontmatter_scalar(target.frontmatter, "current_scope_unit", placement["owning_scope_unit"]),
-        "claim_target_scope_unit", placement["claim_target_scope_unit"],
-    )
+    else:
+        if current_owner is None or current_claim_target is None:
+            raise LifecycleError("placement-invalid", "legacy Atom must carry both Scope Unit fields")
+        proposed_frontmatter = replace_frontmatter_scalar(
+            replace_frontmatter_scalar(target.frontmatter, "current_scope_unit", placement["owning_scope_unit"]),
+            "claim_target_scope_unit", placement["claim_target_scope_unit"],
+        )
     # prepare_create_atom_revision performs the complete destination, filename,
     # owner/path, status, relation, and collision preflight without mutation.
     try:
@@ -1587,7 +1687,7 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
     same_placement = (
         destination == target.path
         and placement["owning_scope_unit"] == current_owner
-        and placement["claim_target_scope_unit"] == current_claim_target
+        and (current_profile or placement["claim_target_scope_unit"] == current_claim_target)
     )
     if not same_placement:
         _validate_move_filename_scope(root, destination, target.atom_id, placement["owning_scope_unit"])
@@ -1602,13 +1702,17 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
     destination_bundle = destination.with_suffix("")
     if destination != target.path and (destination_bundle.exists() or destination_bundle.is_symlink()):
         raise LifecycleError("destination-collision", "matching destination directory already exists")
+    link_evidence = _move_link_evidence(outward_links)
+    if current_profile:
+        link_evidence["outward"]["after"] = _typed_relation_snapshot(normalized)
+        link_evidence["outward"]["changed"] = link_evidence["outward"]["after"] != outward_links
     if same_placement:
         return {"operation": "move", "outcome": "no-op", "observed": prior,
                 "placement": {"before": {"path": prior["path"], "owner": current_owner,
                                             "claim_target_scope_unit": current_claim_target},
                                "after": {"path": prior["path"], "owner": current_owner,
                                           "claim_target_scope_unit": current_claim_target}},
-                "typed_links": _move_link_evidence(outward_links),
+                "typed_links": link_evidence,
                 "effects": [_effect("unchanged", carrier=prior, reason="placement-already-current")],
                 "history": {"prior": prior, "preserved": True}}
     if not _execute_allowed(execute=execute, authorized=authorized):
@@ -1617,8 +1721,8 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
                                             "claim_target_scope_unit": current_claim_target},
                                "after": {"path": destination.relative_to(root).as_posix(),
                                           "owner": placement["owning_scope_unit"],
-                                          "claim_target_scope_unit": placement["claim_target_scope_unit"]}},
-                "typed_links": _move_link_evidence(outward_links),
+                                          "claim_target_scope_unit": None if current_profile else placement["claim_target_scope_unit"]}},
+                "typed_links": link_evidence,
                 "effects": [_effect("unchanged", carrier=prior, reason="preview")],
                 "history": {"prior": prior}}
 
@@ -1652,9 +1756,13 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
                 or observed["atom_id"] != prior["atom_id"] or observed["version"] != prior["version"] + 1
                 or observed["status"] != prior["status"] or observed["content_role"] != prior["content_role"]
                 or observed["type"] != prior["type"] or observed_atom.content != target.content
-                or _typed_relation_snapshot(observed_atom.frontmatter) != outward_links
-                or frontmatter_scalar(observed_atom.frontmatter, "current_scope_unit") != placement["owning_scope_unit"]
-                or frontmatter_scalar(observed_atom.frontmatter, "claim_target_scope_unit") != placement["claim_target_scope_unit"]
+                or _typed_relation_snapshot(observed_atom.frontmatter) != _typed_relation_snapshot(normalized)
+                or (current_profile and _current_containment_owner(
+                    source_context_from_project(root),
+                    parse_carrier(render(observed_atom.frontmatter, observed_atom.content), observed_atom.path).metadata,
+                ) != placement["owning_scope_unit"])
+                or (not current_profile and frontmatter_scalar(observed_atom.frontmatter, "current_scope_unit") != placement["owning_scope_unit"])
+                or (not current_profile and frontmatter_scalar(observed_atom.frontmatter, "claim_target_scope_unit") != placement["claim_target_scope_unit"])
                 or (destination != target.path and target.path.exists())
                 or destination.read_bytes() != attempted_destination_bytes
                 or _raw_carrier_body(destination.read_bytes()) != raw_body
@@ -1789,8 +1897,8 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
             "placement": {"before": {"path": prior["path"], "owner": current_owner,
                                         "claim_target_scope_unit": current_claim_target},
                            "after": {"path": observed["path"], "owner": placement["owning_scope_unit"],
-                                      "claim_target_scope_unit": placement["claim_target_scope_unit"]}},
-            "typed_links": _move_link_evidence(outward_links),
+                                      "claim_target_scope_unit": None if current_profile else placement["claim_target_scope_unit"]}},
+            "typed_links": link_evidence,
             "effects": effects,
             "history": history}
 
@@ -1831,6 +1939,21 @@ def change_status_atom_action(root: Path, parameters: Mapping[str, Any], *, exec
     else:
         frontmatter = replace_frontmatter_scalar(target.frontmatter, "status", requested)
         frontmatter = _refresh_frontmatter(root, frontmatter, version=atom_version(target) + 1)
+        if archive and target.atom_id is not None:
+            try:
+                context = source_context_from_project(root)
+                profiles = {
+                    reviewed_encoding_profile(row)
+                    for row in context.inputs["sources"]
+                    if row.get("binding", {}).get("atom_id") in {"CA-D-276", "CA-D-657"}
+                }
+                if profiles == {"current"}:
+                    destination = safe_path(root, _status_destination(root, target, requested)).relative_to(root)
+                    frontmatter = _update_current_destination(frontmatter, target.content, target.path, destination)
+                elif profiles != {"legacy"}:
+                    raise LifecycleError("placement-invalid", "Atom encoding authority is unresolved")
+            except (AtomToolError, ProposedCarrierError) as error:
+                raise LifecycleError("placement-invalid", "Archive destination authority is unresolved") from error
     observed_atom, prior_revision, publication_no_op = _publish_status_change(root, target, requested, frontmatter, target.content,
                                                          expected_bundle=bundle, existing_promotion=existing_promotion,
                                                          expected_draft_digest=prior["digest"],

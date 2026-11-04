@@ -19,6 +19,8 @@ COPY pyproject.toml uv.lock version.toml ./
 ENV UV_PROJECT_ENVIRONMENT=/opt/venv UV_CACHE_DIR=/tmp/uv-cache
 RUN uv sync --locked --no-dev --group rmed-workflow-mcp --group workflow-orchestrator \
     --group validate-atoms --group validate-atoms-dev
+RUN /opt/venv/bin/python -c "import duckdb; c=duckdb.connect(':memory:',config={'extension_directory':'/home/caprmedio/.duckdb/extensions'}); c.execute('INSTALL duckpgq FROM community'); c.close()" \
+    && chown -R ${RUNTIME_UID}:${RUNTIME_GID} /home/caprmedio/.duckdb
 COPY LAYER_2_FRAMEWORK_ENGINE ./LAYER_2_FRAMEWORK_ENGINE
 RUN mkdir -p /home/caprmedio/.codex /workspace/.caprmedio_install \
     /workspace/.caprmedio_tmp /workspace/tmp /workspace/.caprmedio_caprmedio \

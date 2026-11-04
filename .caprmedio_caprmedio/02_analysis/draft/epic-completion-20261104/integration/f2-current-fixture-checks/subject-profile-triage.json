@@ -1,0 +1,25 @@
+{
+  "status": "READ_ONLY_DIAGNOSTIC",
+  "test": "test_default_lookup_still_filters_nonactive_plan_statuses",
+  "prior_log": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/f2-current-fixture-checks/f2-root-captured.log",
+  "pins": {
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_subject_lookup.py": "611bd1c8746dadd66819778659a80eb7de4123746bb71b3925aba301e8544390",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/carrier_aliases.py": "1fee5a5b5931471a572f19e9cc7edf4abee182ea6a18ca3f3a031f21eed308ad",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/subject_notation.py": "8becdbd26ccfefaaa2fa5e1664382d1136e1bb1618e963a176e7bf6f388e4dcf",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py": "1a1f46fe767362a1a9ed8e4d98c7bec11ceb820a8a2a0a20d4fd664f6e8bab7c",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f"
+  },
+  "findings": [
+    "The captured log predates the Subject scalar fix; the later nine-failure report is not a captured log here. Reproduced the lookup failure against the current shared fixture.",
+    "Without current_scope_unit, implicit legacy, explicit legacy and explicit approved each returned zero occurrences, limited coverage, and source-invalid: Atom metadata is incomplete or invalid.",
+    "In a fresh disposable fixture only, injecting a matching current_scope_unit made implicit legacy and explicit approved both return one match, full coverage and no diagnostics. This was a diagnostic, not a proposed carrier migration.",
+    "atom_subject_lookup._request explicitly defaults to legacy. The test fixture get_profile patch preserves the requested name; it supplies fixture grammar pins and does not force an explicitly approved request to legacy. The profiles describe Subject expression grammar, not carrier-key schema.",
+    "carrier_read_view supplies read-only legacy aliases from active/passive; _structured_subjects uses them. The failing lookup rejects the source earlier because it requires metadata current_scope_unit in owners; the Current Plan fixture intentionally omits the legacy field. Approved profile alone does not resolve it."
+  ],
+  "repair_boundary": [
+    "Review atom_subject_lookup.run_subject_search source traversal metadata validation and owning-scope resolution with existing shared scope/target resolvers and applicable authority. Distinguish physical owner, Target Scope Unit and Subject; D657 forbids legacy fields or directory as an unverified target fallback. Preserve mismatch/security diagnostics and limited coverage.",
+    "Do not hardcode owner from directory or restore legacy fields to Current production carriers. A test-only explicit compatibility-field case may exercise historical behavior but must not replace the Current field-absent test.",
+    "The named default-lookup test must retain a no-profile request to verify the real production default; another explicit approved request can independently test current grammar. Profile-default migration requires separately reviewed authority and consumers.",
+    "Rerun single lookup case, full fixture module, Subject lookup suite and owner mismatch/symlink/ambiguity/conflict tests, then stable F2. Do not assume all nine other failures share this cause."
+  ]
+}

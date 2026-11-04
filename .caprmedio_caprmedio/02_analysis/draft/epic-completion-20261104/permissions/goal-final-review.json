@@ -1,0 +1,122 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "basis": "Review limited to prior Goal ownership/Tier holds, source/candidate pins, and R927 successor identity. No Current/Git mutation.",
+  "finding": "R2125, R2131, R2428, M438 and E654 now exclude the exact Project-root Form Goal predicate from the ordinary >=0 rule; fixed -1 applies regardless of owner or Container and cannot be raised. R2132 uses the active-Subject Project-root predicate; no additional Goal-only Tier rule for other Goals is introduced.",
+  "identity": "All same-ID previews preserve exact Summary. R927 is marked SUPERSEDED: the changed-Summary coverage successor explicitly requires an unallocated fresh ID, native metadata, retirement of R927, and Current unversioned reference updates. Preserve frozen historical references. The successor body is not a full promotion-ready Atom.",
+  "pins": [
+    {
+      "id": "CA-D-283",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-E-654",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-M-438",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-M-461",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-R-2125",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-R-2131",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-R-2132",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-R-2149",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-R-2424",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-R-2428",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-R-2688",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-R-2698",
+      "status": "historical applied",
+      "source_sha256_matches_predecessor": false,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": null
+    },
+    {
+      "id": "CA-R-2706",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-R-2713",
+      "status": "historical applied",
+      "source_sha256_matches_predecessor": false,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": null
+    },
+    {
+      "id": "CA-R-808",
+      "status": "preview",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": true
+    },
+    {
+      "id": "CA-R-927",
+      "status": "fresh ID successor",
+      "source_sha256_matches_predecessor": true,
+      "candidate_sha256_matches": true,
+      "same_id_summary_preserved": null
+    }
+  ],
+  "historical_note": "R2698 and R2713 are marked HISTORICAL_PREVIEW_APPLIED; predecessor hashes appropriately differ from live Current and their historical candidate hashes match. Do not reapply them.",
+  "limits": "This is source-level bounded review, not verification of actual admission, runtime, projections, or reference migration. Recheck source hashes immediately before adoption."
+}

@@ -1,0 +1,15 @@
+{
+  "atom_id": "CA-R-927",
+  "current_version": 41,
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL--let-operators-define-project-goals.md",
+  "source_sha256": "9b123292769eb01dc23fe6eda64b212d3e2d13fc36e52364e663650026218807",
+  "change_summary": "superseded same-ID preview; valid candidate_path is a fresh-ID successor body proposal pending root allocation",
+  "status": "SUPERSEDED",
+  "superseded_preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-927.superseded.preview.txt",
+  "superseded_preview_sha256": "63088bda02ba9250812bee0d5b640161e3fcb52809a669747ab2c44759e65a3f",
+  "current_path_not_candidate": "The previous same-ID preview changed the Summary-compatible Claim incompletely and retained an unauthorized other-Goal ownership condition. It must not be adopted.",
+  "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/project-goal-coverage-successor.txt",
+  "candidate_sha256": "72cf0bb0c54db9e8dfe5bd9d7dd28b9affffa4f6f22b581a44e090c170547623",
+  "decision_needed_from_root": "Allocate a fresh Atom ID for the retained coverage rule before integration.",
+  "successor_id": "UNALLOCATED_BY_ROOT"
+}

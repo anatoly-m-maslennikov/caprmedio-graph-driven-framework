@@ -1,0 +1,121 @@
+{
+  "status": "READ_ONLY_FIXTURE_PATCH_PLAN",
+  "latest_test_run": {
+    "module": "test_nonarchived_subject_preview",
+    "log": "/private/tmp/nonarchived-subject-fixture-review.log",
+    "state": "completed",
+    "tests": 25,
+    "failures": 8,
+    "errors": 1,
+    "seconds": 153.298,
+    "log_sha256": "97993d5422482a3abfa4e48b8ae3bc09db50033173576c01b1311c0fef54bcfe",
+    "evidence": "Four malformed-competitor subtests, four byte-expectation status subtests, one raw metadata-key error; fixture had canonical keys when test process started."
+  },
+  "entries": [
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py",
+      "sha256_at_review": "1a1f46fe767362a1a9ed8e4d98c7bec11ceb820a8a2a0a20d4fd664f6e8bab7c",
+      "lines": [
+        303,
+        307
+      ],
+      "action": "Raw proposed/materialized Subjects metadata is Current; assert passive for dependency contents. Keep logical request depends_on."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py",
+      "sha256_at_review": "1a1f46fe767362a1a9ed8e4d98c7bec11ceb820a8a2a0a20d4fd664f6e8bab7c",
+      "lines": [
+        335
+      ],
+      "action": "Expected byte replacement must transform active not governs, preserving CRLF/version/timestamp/body checks."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py",
+      "sha256_at_review": "1a1f46fe767362a1a9ed8e4d98c7bec11ceb820a8a2a0a20d4fd664f6e8bab7c",
+      "lines": [
+        591
+      ],
+      "action": "Mutate present active Subject into malformed YAML, assert exact needle and resulting bytes changed; preserve both filename and frontmatter identity competitor cases, both changed/no-op previews and inventory-unavailable/no-write expectations."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_subject_replace_set.py",
+      "sha256_at_review": "c9f2fbbd945970531623097a785e0ee5b5c355ce872f41f99ac26739fce8c312",
+      "lines": [
+        47,
+        48,
+        53,
+        59,
+        62,
+        87,
+        131
+      ],
+      "action": "Use passive in raw fixture layouts, byte needles, metadata and missing-list mutation; preserve CRLF, comments, exact replay, stale and shape error tests; ensure replacement matched."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_subject_intent_materialization.py",
+      "sha256_at_review": "4ca834a644103d4ebd00574223a2e4f37cc1b61d8fa283f9c4a6bcdb8001b624",
+      "lines": [
+        55,
+        111,
+        112,
+        115
+      ],
+      "action": "Use active/passive for literal carrier replacement and raw parsed metadata; retain logical patch names and independent replay checks."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_subject_stage_preview.py",
+      "sha256_at_review": "b70d3958dd3345a9f9854a5ba979000352b615471591590175746bb8d1505ba1",
+      "lines": [
+        70,
+        75
+      ],
+      "action": "Expected byte ledger must assert and replace active while retaining one-match, CRLF, timestamp, version, fingerprint and unrelated bytes checks."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_subject_patch_by_value_independent.py",
+      "sha256_at_review": "6ff57b70093d411206e2191d8bb8ab05192f273222b440e024821e8d3883f233",
+      "lines": [
+        40
+      ],
+      "action": "Shared Current Requirement fixture has passive: []; construct list by replacing that existing key, assert replacement changed bytes; retain duplicate/stale/comment/CRLF tests."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_subject_validation_scope.py",
+      "sha256_at_review": "cf022c50e0b8529de799d92a7cd4386fb3ad65e010bd1171c6354524463d489a",
+      "lines": [
+        165,
+        175,
+        176,
+        177
+      ],
+      "action": "Both original/proposal mutations target removed author and are no-ops; mutate an existing valid scalar into a genuinely invalid value, assert mutation, retain complete-carrier-invalid and no-write assertions."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_SEARCH/tests/test_instance_subject_flow.py",
+      "sha256_at_review": "d817ba732587e56f11e182649568f4db53f962601c328e8beadd7a9ff320b486",
+      "lines": [
+        39,
+        95,
+        96,
+        109,
+        110
+      ],
+      "action": "Use active/passive for Current raw byte mutations, proposal and metadata; semantic search result fields and logical patch API may remain governs/depends_on."
+    },
+    {
+      "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/tests/test_direct_subject_preparation_protocol.py",
+      "sha256_at_review": "49f27868e8453a3e27ed2e523b76a9b191e4e8f3ebb76e4f2036912c07d79b66",
+      "lines": [
+        168,
+        169
+      ],
+      "action": "Update literal Current carrier-byte expectation to active/passive; keep logical Subject patch request semantics."
+    }
+  ],
+  "boundaries": [
+    "No production changes or fixture test edits were made in this lane.",
+    "Do not rewrite intentional historical carriers, compatibility tests or semantic API fields.",
+    "Do not change expected failure classes, no-write assertions, or event/history behavior to make tests pass.",
+    "Concurrent owners may change source bytes; line numbers and hashes pin the review snapshot."
+  ]
+}

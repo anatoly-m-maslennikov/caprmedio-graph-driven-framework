@@ -1,0 +1,638 @@
+{
+  "schema": "model-coverage-remaining-disposition/1",
+  "status": "REVIEWED",
+  "scope": "MODEL declaration targets only; concrete instances, instance properties and instance selections excluded.",
+  "checkpoint": {
+    "audit_path": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/audit-data.json",
+    "audit_sha256": "83c188e1f8eb9959adcbae0237ba6e7b801287917b09d83242d08dda4d286e1d",
+    "manifest_path": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/generation-manifest.json",
+    "manifest_sha256": "f8c5ca35f4461f4901cd574f55487dc821ef6a081b78ae372a597a9895d55225",
+    "frontier_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-endpoint-frontier.json",
+    "frontier_sha256": "6c0bb38609dc950afd89a0daf4beab634f8cebdb3472f013de527f1897eb88fb",
+    "selected_sources": 1159,
+    "counts": {
+      "known_missing": 56,
+      "unresolved": 23
+    },
+    "changed_current_carriers": [
+      {
+        "id": "CA-R-2464",
+        "published_pin": "CA-R-2464@5",
+        "current_file_version": 5,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+        "published_sha256": "70222545ca403b3b704862bb8cbd4972a664021368100fa1f90e9634240112be",
+        "current_sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a",
+        "current_claim_summary": "Current Claim says Workflow defines a graph of Steps, distinguishes Runtime vs Project Purpose selections, and describes Purpose ownership semantics. Rebase before guarded write; this meaning differs materially from earlier basis."
+      },
+      {
+        "id": "CA-R-2471",
+        "published_pin": "CA-R-2471@7",
+        "current_file_version": 7,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+        "published_sha256": "0ce43d4894327333df92636ec6319db8629bac57a084d789ed35c041386af076",
+        "current_sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf",
+        "current_claim_summary": "Current prose explicitly specifies endpoint-local Relation bounds, Node-specific claims, and := as allowed-value plus condition syntax."
+      },
+      {
+        "id": "CA-R-2615",
+        "published_pin": "CA-R-2615@1",
+        "current_file_version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2615-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "published_sha256": "f3a7c463f631e1cf5e1e8a0ebfe7a487b8d00fda1db084379a6bcda25a120043",
+        "current_sha256": "31da9c3927f1e8bd2bfab42511c7b80fcffd3547022ef5a18bdd3984dc0259ef",
+        "current_claim_summary": "Current Formal Claim defines CFEL Operator//SubjectValueSelection as := and says this combines admitted Property value with selection."
+      },
+      {
+        "id": "CA-R-2734",
+        "published_pin": "CA-R-2734@1",
+        "current_file_version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2734-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+        "published_sha256": "8e2acd9d85f653714060150ccac6d1fa884c17c5de09de4d637083cca6082cc0",
+        "current_sha256": "c044105caf865661419725b2ca2e9ae2bd3c8aaf1cd9bd54d910ec99b5eb511c",
+        "current_claim_summary": "Current Declaration defines Workflow/(.Purpose := Runtime) as a Runtime Workflow and records inheritance from Workflow."
+      },
+      {
+        "id": "CA-R-2735",
+        "published_pin": "CA-R-2735@1",
+        "current_file_version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2735-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+        "published_sha256": "4bb3d141ed3bbc5fca44f6e3e52710b8b4d18ed69cd4d1343f6d976ba1d54738",
+        "current_sha256": "c5d223f5de5d92bfcf97e982c34cc968210e9c6f5d2c01a6d290c67886ae0637",
+        "current_claim_summary": "Current Declaration defines Workflow/(.Purpose := Project) as a Project Workflow and records inheritance from Workflow."
+      }
+    ],
+    "note": "Disposition is against the latest published 1,159-source seven-view checkpoint; named current carriers are pinned directly. No all-live conformance claim."
+  },
+  "classification_counts": {
+    "excluded|excluded": 51,
+    "in_scope|genuineOperatorchoice": 7,
+    "in_scope|actualmissingDeclaration": 8,
+    "in_scope|sameentityoldaddress-safe mechanical remap": 1,
+    "in_scope|addressedbyproposal": 7,
+    "in_scope|coveredlive": 5
+  },
+  "rows": [
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Atom.Enabled Relations.Contains",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Atom.Governance Origin",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Atom.Local Scope Unit",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Atom.Target Scope Unit",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Plan).Implementation Retry Limit",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity",
+      "scope_status": "in_scope",
+      "category": "genuineOperatorchoice",
+      "disposition": "Legacy Entity root conflicts with Current Node model."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent",
+      "scope_status": "in_scope",
+      "category": "actualmissingDeclaration",
+      "disposition": "No Current direct declaration for AI Agent."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator",
+      "scope_status": "in_scope",
+      "category": "actualmissingDeclaration",
+      "disposition": "No Current direct declaration for Operator."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration",
+      "scope_status": "in_scope",
+      "category": "genuineOperatorchoice",
+      "disposition": "No safe identity mapping to another governing/configuration entity."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History",
+      "scope_status": "in_scope",
+      "category": "genuineOperatorchoice",
+      "disposition": "Current Journal and Event Record do not establish History identity or parentage."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release",
+      "scope_status": "in_scope",
+      "category": "actualmissingDeclaration",
+      "disposition": "Live Goal targets Release; no direct model Declaration."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release.ID",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Eval Package",
+      "scope_status": "in_scope",
+      "category": "actualmissingDeclaration",
+      "disposition": "Current evidence treats Eval Package as a distinct complete entity expression."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Runtime Package",
+      "scope_status": "in_scope",
+      "category": "actualmissingDeclaration",
+      "disposition": "Current evidence treats Runtime Package as a distinct complete entity expression."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Applicable Methodology)",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Atom Subjects Graph)",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Entities Graph)",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Implementation Overview)",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Scope Unit Graph)",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Subject Graph)",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Terms Graph)",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection",
+      "scope_status": "in_scope",
+      "category": "genuineOperatorchoice",
+      "disposition": "Current Named Selection is narrower; equivalence/parentage to Selection is unproven."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Semantic Resolution Threshold",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Identifier",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete Names",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term",
+      "scope_status": "in_scope",
+      "category": "sameentityoldaddress-safe mechanical remap",
+      "disposition": "Current CA-R-1318 directly declares Term."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Dependent Entity",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//ID",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Property",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution",
+      "scope_status": "in_scope",
+      "category": "addressedbyproposal",
+      "disposition": "Covered by the 11-preview Occurrent proposal; proposal-only."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run",
+      "scope_status": "in_scope",
+      "category": "addressedbyproposal",
+      "disposition": "Covered by the Step Run proposal; proposal-only."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Invocation Context",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run",
+      "scope_status": "in_scope",
+      "category": "addressedbyproposal",
+      "disposition": "Covered by the Workflow Run proposal; proposal-only."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime",
+      "scope_status": "in_scope",
+      "category": "addressedbyproposal",
+      "disposition": "Covered by Runtime proposal; proposal-only."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime/Session",
+      "scope_status": "in_scope",
+      "category": "addressedbyproposal",
+      "disposition": "Covered by Session proposal and explicit narrower-than decision; proposal-only."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Property",
+      "scope_status": "in_scope",
+      "category": "genuineOperatorchoice",
+      "disposition": "Legacy Entity/Property term conflicts with Current Node/Node.**."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ History",
+      "scope_status": "in_scope",
+      "category": "genuineOperatorchoice",
+      "disposition": "History identity/hierarchy relative to Journal and Event Record is not established."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology.Member)",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Scope Unit/Project",
+      "scope_status": "in_scope",
+      "category": "coveredlive",
+      "disposition": "Current CA-R-2524 declares Scope Unit/Project."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Step Run",
+      "scope_status": "in_scope",
+      "category": "addressedbyproposal",
+      "disposition": "Covered by Step Run proposal; proposal-only."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Term//Type",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "known_missing",
+      "subject": "CAPRMEDIO_MODEL <+ Workflow Run",
+      "scope_status": "in_scope",
+      "category": "addressedbyproposal",
+      "disposition": "Covered by Workflow Run proposal; proposal-only."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+      "scope_status": "in_scope",
+      "category": "coveredlive",
+      "disposition": "Workflow and Step are live declarations; relation/permission meaning stays with Occurrent review."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow) {:1+}<+ Atom/(.Header.Role: Operations)/(.Header.Form: Step)",
+      "scope_status": "in_scope",
+      "category": "coveredlive",
+      "disposition": "Workflow and Step are live declarations; relation/permission meaning stays with Occurrent review."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "Entity/Object/Continuant/Actor/Operator",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "Entity/Object/Continuant/Governing Objects/Governing Configuration",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "Entity/Object/Continuant/History",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "Entity/Object/Continuant/Structural Unit/Scope Unit.Children",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "Entity/Object/Continuant/Structural Unit/Scope Unit.Parent",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "Project.Framework Settings",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "{'Entity/Object/Continuant/Projection/Type': 'Scope Unit Graph'}",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL",
+      "scope_status": "in_scope",
+      "category": "coveredlive",
+      "disposition": "Namespace only, not a declaration target."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ (Node,Node.**)",
+      "scope_status": "in_scope",
+      "category": "coveredlive",
+      "disposition": "Current CA-R-2462 supports Node and Node.** union scope."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record",
+      "scope_status": "in_scope",
+      "category": "genuineOperatorchoice",
+      "disposition": "Components are live; the compound entity/composition meaning is unresolved."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module",
+      "scope_status": "in_scope",
+      "category": "actualmissingDeclaration",
+      "disposition": "CA-E-382 treats this as a distinct complete expression requiring direct declaration."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit",
+      "scope_status": "in_scope",
+      "category": "actualmissingDeclaration",
+      "disposition": "CA-E-382 treats this full chain as a distinct complete expression requiring direct declaration."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Prompt",
+      "scope_status": "in_scope",
+      "category": "actualmissingDeclaration",
+      "disposition": "Current CA-R-1560 references Package<+Prompt; no direct Declaration found."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Applicable Methodology",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Artifact Change Log",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Canonical Scope Signature",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Process Log",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Realization Graph",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Reconciled Projection",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Scope Unit Graph",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    },
+    {
+      "audit_group": "unresolved",
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Terms Graph",
+      "scope_status": "excluded",
+      "category": null,
+      "disposition": "Instance property, instance value, or named selection: outside this MODEL-only disposition."
+    }
+  ],
+  "safe_actions": [
+    "Mechanically remap only the legacy Term subject to the Current Term address (CA-R-1318@33).",
+    "Keep flagged Execution, Workflow Run, Step Run, Runtime and Session on the 11-preview proposal path; respect the existing relation/permission gates.",
+    "Prepare direct declarations for the unambiguous missing kinds and Package compositions listed in rows; preserve each distinct identity.",
+    "Keep Terms Graph deferred and all instance/property findings outside scope."
+  ],
+  "blocking_question": "Should the legacy Entity root and Entity/Property be mechanically replaced by Current Node and Node.**, or remain distinct? CA-M-451@4 and CA-M-453@3 retain Entity definitions while CA-R-2462@4 declares Node; no mapping is inferred.",
+  "relation_review": "../occurrent-declarations/review.json",
+  "settings_review": "../settings/capability-reconciliation/manifest.json"
+}

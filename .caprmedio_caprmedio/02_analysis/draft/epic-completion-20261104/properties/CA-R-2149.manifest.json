@@ -1,0 +1,10 @@
+{
+  "atom_id": "CA-R-2149",
+  "current_version": 14,
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2149-CORE_META_MODEL-RULE--constrain-governing-rmed-relation-targets-by-numeric-tier-and-scope-ancestry.md",
+  "source_sha256": "3e9bd5cc7b72dc851cd958c741302c2fe8c798bc144375013a130d9c1db6e708",
+  "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2149.preview.txt",
+  "preview_sha256": "d86f466eb11f6966da9d25ce02780e6de57da917a2161404c83306820ccfeb2a",
+  "change_count": 2,
+  "change_summary": "remove Operator-owner assertions and state exact Form Goal plus Project-root Active Subject ordering predicate"
+}

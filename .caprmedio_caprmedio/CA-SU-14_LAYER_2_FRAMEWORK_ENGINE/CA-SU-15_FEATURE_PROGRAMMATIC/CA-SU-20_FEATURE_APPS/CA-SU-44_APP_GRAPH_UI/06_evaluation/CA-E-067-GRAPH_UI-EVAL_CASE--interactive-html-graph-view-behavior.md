@@ -1,8 +1,8 @@
 ---
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
-version: 26
-updated_at: 2026-11-02 19:44:26 +0400
+version: 27
+updated_at: 2026-11-03 23:17:14 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -44,7 +44,7 @@ the single generated MRT renders current active Requirement Subject **and** line
 5. **in** `short` mode, require `<Atom ID> <Summary>` from the exact authored Summary value in the governed Atom carrier format, body **without** frontmatter **in** a panel above the node on first click, **and** complete raw Atom source including frontmatter on second click.
 6. **in** `detailed` mode, require the same label plus the actual full body **without** frontmatter above the node **and** complete raw Atom source including frontmatter on one click.
 7. Change one STG file **and** one Atom independently **after** MRT generation; require the embedded JavaScript **to** retrieve the current sources **and** visibly distinguish stale STG, stale MRT, **and** changed-Atom digest states.
-8. Preserve filter **and** focused-node state **in** the URL, keep **every** identity linked **to** its canonical Atom path, **and** prove deleting `mrt_atoms.html` changes no Atom, STG Projection, Journal, `GRAPH_SERVER`, Tool, **or** MCP capability.
+8. Preserve filter **and** focused-node state **in** the URL, keep **every** identity linked **to** its canonical Atom path, **and** prove deleting `mrt_atoms.html` changes no Atom, STG Projection, Journal, `WORKBENCH`, Tool, **or** MCP capability.
 
 ## Acceptance criteria
 

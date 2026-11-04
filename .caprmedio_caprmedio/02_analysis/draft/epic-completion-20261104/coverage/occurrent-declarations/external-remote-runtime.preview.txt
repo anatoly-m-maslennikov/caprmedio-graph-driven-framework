@@ -1,0 +1,30 @@
+---
+atom_id: "<UNALLOCATED-external-remote-runtime>"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ External Remote Runtime
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare External Remote Runtime
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+External Remote Runtime ((NARROWER_THAN)) Runtime
+```
+
+## Semantics
+
+An External Remote Runtime is a Runtime external to our application on a machine other than the Operator’s.

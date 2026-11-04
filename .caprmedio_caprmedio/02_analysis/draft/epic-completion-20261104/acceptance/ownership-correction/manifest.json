@@ -1,0 +1,99 @@
+{
+  "schema": "epic-plan-ownership-correction-preview/1",
+  "status": "PREVIEW_ONLY_ROOT_REVIEW_REQUIRED",
+  "as_of": "2026-11-04",
+  "authority_note": "No Current Atom or plan was edited. Source pins and frontmatter metadata are unchanged in previews; Root applies any accepted revision manually.",
+  "responsibility_correction": {
+    "source_lane": "MODEL, CFEL, Declarations and Atom source decisions, edits, preservation and source-level review.",
+    "external_dependency": "CA #3 owns code/runtime implementation, fixture and regression work, and test/integration execution. All P2707 gates remain required external dependencies; none is asserted complete or removed.",
+    "integration": "Root owns canonical source adoption, Git, projection refresh and closure evidence."
+  },
+  "latest_decisions": {
+    "operator_answer_source": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/current-state.md",
+    "current_state_sha256": "950fe64c25715bd860a5d46aefcba74ed6a3a465a0aec0856f76de2d7d75ccd5",
+    "occurrent": "Eleven proposal-only Declarations reflect settled decisions: Execution; Workflow Run, Step Run, Action Run; Runtime with four Internal/External Local/Remote variants; Session narrower than External Remote Runtime; Event; no Substep Run. Internal/External are relative to the CAPRMEDIO application; Local means on the Operator machine. No human answer is pending.",
+    "remaining_source_gates": "Reviewed execution endpoint/inverse-permission and Event-record Relation decisions, then source adoption and faithful projections. Runtime candidates remain unpromoted until those gates pass."
+  },
+  "source_pins": {
+    "P2694_current": {
+      "version": 57,
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "sha256": "07516e2c7fb034ea1265c8e290a85a319ef321c911f66e8d793422a56408462f",
+      "status": "Active"
+    },
+    "P2707_current": {
+      "version": 4,
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+      "sha256": "8c8ed4d16b231fc83ff8c6239344bb27f438b35becce6a077e599433dea78ce9",
+      "status": "Active"
+    },
+    "acceptance_matrix": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/acceptance/matrix.json",
+      "sha256": "94910772e0bce26b865cdc96ec06213db60dc272968702e2fdbef2d0f5e8ac2f",
+      "group_count": 23
+    },
+    "reported_published_checkpoint": "a02ac7b83bf4561c7ad18b69ce9b6436dcbb02bf (amm/dev; later runtime/fixture work remains uncommitted and requires final evidence)"
+  },
+  "previews": [
+    {
+      "source_id": "CA-P-2694",
+      "source_path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "source_sha256": "07516e2c7fb034ea1265c8e290a85a319ef321c911f66e8d793422a56408462f",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/acceptance/ownership-correction/CA-P-2694.preview.txt",
+      "preview_sha256": "fceaba3468e309b0d017ffae689845ef4a33d622748e612bde2ffb32a48ecb30",
+      "summary_unchanged": true,
+      "frontmatter_unchanged": true,
+      "status": "SOURCE_PINNED_PREVIEW_ONLY"
+    },
+    {
+      "source_id": "CA-P-2707",
+      "source_path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+      "source_sha256": "8c8ed4d16b231fc83ff8c6239344bb27f438b35becce6a077e599433dea78ce9",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/acceptance/ownership-correction/CA-P-2707.preview.txt",
+      "preview_sha256": "6e264041533f416219a4341d40b708e9c1ce74bb899db8390274b474994cdf8f",
+      "summary_unchanged": true,
+      "frontmatter_unchanged": true,
+      "status": "SOURCE_PINNED_PREVIEW_ONLY"
+    }
+  ],
+  "acceptance_retention_check": {
+    "matrix_changed": false,
+    "all_23_groups_present": true,
+    "group_count": 23,
+    "groups": [
+      "P2695",
+      "P2696",
+      "P2697",
+      "P2698",
+      "P2699",
+      "P2700",
+      "P2701",
+      "P2703",
+      "P2694: declaration model",
+      "P2704",
+      "P2694: folder derivation",
+      "P2694/P2706: TOML retirement",
+      "P2694: workflow/API boundary",
+      "P2694: Claim/model notation",
+      "P2694: CFEL groups and bindings",
+      "P2694: CFEL semantic preservation",
+      "P2694: Carrier boundary",
+      "P2709",
+      "P2707: Current declaration cutover",
+      "P2707: Engine runtime cutover",
+      "P2707: carrier admission",
+      "P2694: source history/publication",
+      "P2704–P2709: status and closure boundary"
+    ],
+    "no_new_acceptance_evidence_created": true,
+    "full_epic_definition_of_done_preserved": true,
+    "full_p2707_gates_preserved_as_mandatory_external_dependencies": true,
+    "status_fields_unchanged": true
+  },
+  "review_constraints": [
+    "Do not mark P2707 or the Epic Done from these previews or from source receipts.",
+    "Do not replace, remove or soften the full suite, launcher, live admission, Docker query/status or W10 lifecycle gates.",
+    "Do not ask the settled Occurrent Local/Internal/External decision again; source promotion remains gated by endpoint/inverse-permission and Event Record Relation review.",
+    "No implementation, runtime, fixture, regression, or test execution was performed or authorized in this source-only lane."
+  ]
+}

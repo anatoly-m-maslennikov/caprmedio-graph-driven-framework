@@ -1,0 +1,299 @@
+{
+  "schema": "occurrent-declaration-independent-review/1",
+  "status": "REVIEWED_WITH_RELATION_AND_PERMISSION_GATES",
+  "packet": "../occurrent-declarations/manifest.json",
+  "scope": "Read-only review; no Current source, runtime, code, or Git changes.",
+  "pin_check": {
+    "manifest_entries_checked": 11,
+    "sources_checked": 17,
+    "additional_current_sources": 14,
+    "mismatches": []
+  },
+  "human_decision_preserved": "Runtime has four narrower kinds: Internal Local Runtime, Internal Remote Runtime, External Local Runtime and External Remote Runtime. Internal/external refers to our application. Local is on the Operator’s machine; Remote is elsewhere. Session is NARROWER_THAN External Remote Runtime. Retain Execution with Workflow Run, Step Run and Action Run, plus Event.",
+  "aligned": [
+    {
+      "finding": "The 11 candidate kinds match the latest explicit inventory. Workflow Run, Step Run and Action Run narrow to Execution; Execution, Runtime and Event narrow to Occurrent; four named Runtime kinds narrow to Runtime; Session narrows to External Remote Runtime.",
+      "evidence": [
+        "CA-R-2590@2",
+        "CA-R-2557@4",
+        "CA-R-1510@18",
+        "CA-R-1511@22",
+        "CA-R-1969@11",
+        "CA-R-2194@6",
+        "CA-R-1971@12",
+        "CA-R-1968@12",
+        "latest explicit human decision"
+      ]
+    },
+    {
+      "finding": "Session as a subtype of External Remote Runtime follows the latest human decision. It asserts no containment or separate typed Runtime–Session Relation. Do not use the old slash path as evidence for this chosen parent.",
+      "evidence": [
+        "latest explicit human decision"
+      ]
+    },
+    {
+      "finding": "Formal Claim narrowing expressions use current CFEL syntax. The general Node model NARROWER_THAN and HAS_NARROWER permissions can inherit to these Nodes under current Relation-cardinality rules; no additional hierarchy relation or subtype-specific taxonomy permission is needed.",
+      "evidence": [
+        "CA-R-2462@4",
+        "CA-R-2475@5",
+        "CA-R-2620@2",
+        "CA-R-2588@5"
+      ]
+    },
+    {
+      "finding": "Workflow Run to Workflow uses current IS_EXECUTION_OF endpoints; the exact-one binding is supported by archived CA-R-1510@18. No actual run or other instance field is proposed.",
+      "evidence": [
+        "CA-R-2245@8",
+        "CA-R-2417@5",
+        "CA-R-1510@18"
+      ]
+    },
+    {
+      "finding": "The four Runtime labels and Semantics match the explicit criteria: Internal/External means of our application vs outside it; Local means on the Operator’s machine and Remote means elsewhere. No concrete Runtime instances are inferred.",
+      "evidence": [
+        "CA-R-2194@6",
+        "latest explicit human decision"
+      ]
+    }
+  ],
+  "blocking_findings": [
+    {
+      "id": "REL-STEP-ACTION-ENDPOINTS",
+      "severity": "blocking_before_admission",
+      "finding": "The Step Run and Action Run Semantics say each is an execution of one Step or Action, but Current CA-R-2245 scopes IS_EXECUTION_OF to Workflow Run -> Workflow. Do not apply that relation to Step/Action endpoints as written. Either add separately named relation definitions and inverse counterparts or review a scoped extension of the existing endpoint signature; do not silently broaden it.",
+      "required_review": [
+        "Step Run -> Step and inverse counterpart",
+        "Action Run -> Action and inverse counterpart",
+        "endpoint signatures and per-direction permissions"
+      ]
+    },
+    {
+      "id": "PERMISSION-DEFAULT-ZERO",
+      "severity": "blocking_for_any_instance_relation",
+      "finding": "Current Node instance wildcard defaults outgoing relations to zero. CA-R-2588 requires each intended direction to have an applicable named permission; derived inverse does not itself grant permission. The Workflow Run binding in its preview supplies the forward :1 constraint, but the Workflow HAS_EXECUTION view needs its own outgoing permission. Any Runtime EXECUTES Workflow Run or Event Record RECORDS Event use likewise needs permissions scoped to both endpoints/directions.",
+      "required_review": [
+        "Workflow// HAS_EXECUTION permission; no inverse count inferred",
+        "Runtime// EXECUTES permission and Workflow Run// IS_EXECUTED_BY permission if relation is in accepted scope",
+        "Event Record// RECORDS and Event// IS_RECORDED_BY permissions if event recording is in accepted scope"
+      ]
+    },
+    {
+      "id": "REL-EVENT-ENDPOINT",
+      "severity": "blocking_before_event-recording",
+      "finding": "Current CA-R-2246 describes Event Record RECORDS actual Event or execution and has a Workflow Run example, but its active endpoint Subjects specifically name Event Record and Workflow Run. If the new Event kind must be recordable, update the relation declaration endpoint scope and IS_RECORDED_BY counterpart together; do not infer a cardinality.",
+      "required_review": [
+        "CA-R-2246 endpoint scope",
+        "CA-R-2421 counterpart binding",
+        "explicit per-direction whitelist permissions only if admitted"
+      ]
+    }
+  ],
+  "smallest_atomic_canonical_change_set": [
+    "Promote the 11 declarations through canonical ID/lifecycle workflow only; preserve the selected parent hierarchy. Add no actual instances or new fields.",
+    "For Workflow Run binding, retain the current IS_EXECUTION_OF/HAS_EXECUTION pair and add the missing Workflow-side outgoing permission; exact-one remains only on Workflow Run -> Workflow.",
+    "Resolve Step Run -> Step and Action Run -> Action signatures with declared Relation counterparts and per-direction permissions; current IS_EXECUTION_OF does not authorize these endpoints.",
+    "If accepted scope includes Runtime executing Workflow Run, use current EXECUTES/IS_EXECUTED_BY declarations with explicit scoped permission on both directions; otherwise leave the Relation absent.",
+    "If Event must be related to Event Records, reconcile RECORDS/IS_RECORDED_BY endpoint definitions and permissions together; do not infer counts or Event/Record instances.",
+    "Keep Node subtype hierarchy permissions inherited from CA-R-2462; do not add redundant hierarchy Relations or subtype-specific taxonomy grants."
+  ],
+  "source_pins": {
+    "CA-R-1510@18": {
+      "version": 18,
+      "sha256": "e70a8d3a80b3d22b40701bbb84fb97f3a432b9ad3881cd35b9690c6798050a44",
+      "status": "historical_not_current_authority"
+    },
+    "CA-R-1511@22": {
+      "version": 22,
+      "sha256": "5f65da33915d10e670dd0d965b789d747fec1ea026b430b779b8d1013b71d4dc",
+      "status": "historical_not_current_authority"
+    },
+    "CA-R-1528": {
+      "version": 22,
+      "sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f",
+      "status": "current"
+    },
+    "CA-R-1650": {
+      "version": 34,
+      "sha256": "05eb1ad5b975fb5c071e6f83533195b51fb3cf43b9540c1b3a9e0bd34ee33ddd",
+      "status": "current"
+    },
+    "CA-R-1968@12": {
+      "version": 12,
+      "sha256": "5af3761f4bdfbaa740a326f470dae52e9e9b46e6a91d4c54e13fa3934bffd224",
+      "status": "historical_not_current_authority"
+    },
+    "CA-R-1969@11": {
+      "version": 11,
+      "sha256": "11541a9d347bf81aa010d51c1d372517471e4d0c808a52a58e95a16c263b31d5",
+      "status": "historical_not_current_authority"
+    },
+    "CA-R-1970@10": {
+      "version": 10,
+      "sha256": "5487cca096d1a8ea414b1e777cee5f005af315b465994ec3213cbf95a9dbca68",
+      "status": "historical_not_current_authority"
+    },
+    "CA-R-1971@12": {
+      "version": 12,
+      "sha256": "9dd99cbb1acdf16fa4064c73d30cf30e58a361864947eb3ac6e7bc96397f7bd8",
+      "status": "historical_not_current_authority"
+    },
+    "CA-R-2194@6": {
+      "version": 6,
+      "sha256": "feb0febc2b6ddf2c31d3227b85d0378802938204cf40707ac7c54e5113294cf1",
+      "status": "historical_not_current_authority"
+    },
+    "CA-R-2245": {
+      "version": 8,
+      "sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae",
+      "status": "current"
+    },
+    "CA-R-2246": {
+      "version": 8,
+      "sha256": "5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03",
+      "status": "current"
+    },
+    "CA-R-2255": {
+      "version": 9,
+      "sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a",
+      "status": "current"
+    },
+    "CA-R-2417": {
+      "version": 5,
+      "sha256": "e50b96e2a066c11c7deee1f31ef85197b74d09aaa93c12579648e7c9ef8bd691",
+      "status": "current"
+    },
+    "CA-R-2462": {
+      "version": 4,
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c",
+      "status": "current"
+    },
+    "CA-R-2557": {
+      "version": 4,
+      "sha256": "0357e59cb3366ebbb2e13d0ef139d29e8fd24a449729014686c438555e535dcb",
+      "status": "current"
+    },
+    "CA-R-2588": {
+      "version": 5,
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c",
+      "status": "current"
+    },
+    "CA-R-2590": {
+      "version": 2,
+      "sha256": "d730e7db828cee2963d00db6c596079ac5a98b796021fbcd2a7882b1ac70b8c2",
+      "status": "current"
+    },
+    "CA-R-2475": {
+      "version": 5,
+      "sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c",
+      "status": "current"
+    },
+    "CA-R-2620": {
+      "version": 2,
+      "sha256": "92dbcc2aa54b613c6a43c437ad0beedd632bc9ccb7d9905638f9e31472948d19",
+      "status": "current"
+    },
+    "CA-R-2420": {
+      "version": 5,
+      "sha256": "52e09f067858fcaa9c26bfd100227b9c7866058482054e0fca93331cdc238263",
+      "status": "current"
+    },
+    "CA-R-2421": {
+      "version": 5,
+      "sha256": "1e6ddc6a60e24a613c8ea03be2c11b4dc452bb94d5e1fa2bd652123295b82277",
+      "status": "current"
+    }
+  },
+  "no_instances_or_new_fields": true,
+  "preview_pins": [
+    {
+      "name": "Execution",
+      "parent": "Occurrent",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/execution.preview.txt",
+      "sha256": "a2e917f5a8c652acd82cdc131d03962d364915fde47e73ceee2eac37e2708b43",
+      "manifest_sha256": "a2e917f5a8c652acd82cdc131d03962d364915fde47e73ceee2eac37e2708b43",
+      "verified": true
+    },
+    {
+      "name": "Workflow Run",
+      "parent": "Execution",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/workflow-run.preview.txt",
+      "sha256": "f686f26232d8f1704eaecd9f083d13cd59c9484efca48f31d71cbfd484455432",
+      "manifest_sha256": "f686f26232d8f1704eaecd9f083d13cd59c9484efca48f31d71cbfd484455432",
+      "verified": true
+    },
+    {
+      "name": "Step Run",
+      "parent": "Execution",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/step-run.preview.txt",
+      "sha256": "779d9a7dd1c7eb848721c2ad3cc66c8a4eac6fa53a206310e7c30315966ff26a",
+      "manifest_sha256": "779d9a7dd1c7eb848721c2ad3cc66c8a4eac6fa53a206310e7c30315966ff26a",
+      "verified": true
+    },
+    {
+      "name": "Action Run",
+      "parent": "Execution",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/action-run.preview.txt",
+      "sha256": "f4aa049ad557a57bfcd1bed32762d8e8ba46d07d7fbd159aae3d13ad9ff38302",
+      "manifest_sha256": "f4aa049ad557a57bfcd1bed32762d8e8ba46d07d7fbd159aae3d13ad9ff38302",
+      "verified": true
+    },
+    {
+      "name": "Runtime",
+      "parent": "Occurrent",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/runtime.preview.txt",
+      "sha256": "5ca3e9e8f35c04bd2e84a1a6ea1285c0667e0842eabb924452763d1c667e75bf",
+      "manifest_sha256": "5ca3e9e8f35c04bd2e84a1a6ea1285c0667e0842eabb924452763d1c667e75bf",
+      "verified": true
+    },
+    {
+      "name": "Session",
+      "parent": "External Remote Runtime",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/session.preview.txt",
+      "sha256": "a3a779b9ac889dbe6275d163977aa1fd7accb9d9f2dda516e307853bc6b0fb26",
+      "manifest_sha256": "a3a779b9ac889dbe6275d163977aa1fd7accb9d9f2dda516e307853bc6b0fb26",
+      "verified": true
+    },
+    {
+      "name": "Event",
+      "parent": "Occurrent",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/event.preview.txt",
+      "sha256": "972f9f006a723b8391cb9f844cf1f37b67e57e6b365b039a49844706614329da",
+      "manifest_sha256": "972f9f006a723b8391cb9f844cf1f37b67e57e6b365b039a49844706614329da",
+      "verified": true
+    },
+    {
+      "name": "Internal Local Runtime",
+      "parent": "Runtime",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/internal-local-runtime.preview.txt",
+      "sha256": "668e2c5b8d1a908c38103af2af2b8f966b564ec68615ab1a981f332af62fb0c9",
+      "manifest_sha256": "668e2c5b8d1a908c38103af2af2b8f966b564ec68615ab1a981f332af62fb0c9",
+      "verified": true
+    },
+    {
+      "name": "Internal Remote Runtime",
+      "parent": "Runtime",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/internal-remote-runtime.preview.txt",
+      "sha256": "7e54a3904db737652af9056aea87f941513e26286b103d637cd7540a5df0f37f",
+      "manifest_sha256": "7e54a3904db737652af9056aea87f941513e26286b103d637cd7540a5df0f37f",
+      "verified": true
+    },
+    {
+      "name": "External Local Runtime",
+      "parent": "Runtime",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/external-local-runtime.preview.txt",
+      "sha256": "8de3213723aeb722c00c4ab57f8cf4d7f647398e5130881058b6f86e6f7f0a9e",
+      "manifest_sha256": "8de3213723aeb722c00c4ab57f8cf4d7f647398e5130881058b6f86e6f7f0a9e",
+      "verified": true
+    },
+    {
+      "name": "External Remote Runtime",
+      "parent": "Runtime",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/external-remote-runtime.preview.txt",
+      "sha256": "92fdab2c8dceffb46d4ec07dd660dc85e3082ab6a8b8cbf7550e155a6f204ab0",
+      "manifest_sha256": "92fdab2c8dceffb46d4ec07dd660dc85e3082ab6a8b8cbf7550e155a6f204ab0",
+      "verified": true
+    }
+  ],
+  "human_choice_pending": false,
+  "session_containment_assumption": false
+}

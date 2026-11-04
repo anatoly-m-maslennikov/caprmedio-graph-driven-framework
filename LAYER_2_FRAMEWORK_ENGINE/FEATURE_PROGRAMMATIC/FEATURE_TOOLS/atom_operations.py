@@ -31,12 +31,14 @@ from operation_error_boundary import (
 from technical_diagnostics import make_technical_logger
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
     CarrierValidationScope,
+    _current_containment_owner,
     ProposedCarrierError,
     source_context_from_project,
     validate_proposed_carrier,
 )
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError, parse_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.check_sections import _headings
+from VALIDATE_ATOMS.validate_atoms_workers.check_fields import reviewed_encoding_profile
 
 SCHEMA_VERSION = 1
 SETTINGS_PATH = Path(".caprmedio_caprmedio/caprmedio_project_settings.toml")
@@ -221,8 +223,20 @@ def _role_directory(path: Path, control: Path) -> str | None:
 
 
 def _plan_archive_directory(root: Path, atom: Atom) -> Path:
-    scope = frontmatter_scalar(atom.frontmatter, "current_scope_unit")
     try:
+        context = source_context_from_project(root)
+        profiles = {
+            reviewed_encoding_profile(row)
+            for row in context.inputs["sources"]
+            if row.get("binding", {}).get("atom_id") in {"CA-D-276", "CA-D-657"}
+        }
+        if profiles == {"current"}:
+            metadata = parse_carrier(render(atom.frontmatter, atom.content), atom.path).metadata
+            scope = _current_containment_owner(context, metadata)
+        elif profiles == {"legacy"}:
+            scope = frontmatter_scalar(atom.frontmatter, "current_scope_unit")
+        else:
+            raise ValueError("Atom encoding authority is unresolved")
         selection = bound_selection(root) or active_selection(root)
         rows = selection.structure["scope_units"]
         matches = [row for row in rows if row["scope_unit_name"] == scope]
@@ -230,7 +244,7 @@ def _plan_archive_directory(root: Path, atom: Atom) -> Path:
         if not isinstance(authority, str):
             raise ValueError("Plan scope authority is unavailable")
         plan_root = selection.root / authority / "03_plan"
-    except (KeyError, ProjectSelectionError, TypeError, ValueError) as error:
+    except (CarrierError, KeyError, ProjectSelectionError, ProposedCarrierError, TypeError, ValueError) as error:
         raise ToolError("status-location-missing", "Plan has no exact owning Scope Unit plan location") from error
     if not _inside(atom.path, plan_root):
         raise ToolError("status-location-missing", "Plan is outside its owning Scope Unit plan location")

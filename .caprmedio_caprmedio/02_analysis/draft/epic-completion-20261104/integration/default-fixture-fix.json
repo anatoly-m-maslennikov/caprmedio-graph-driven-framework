@@ -1,0 +1,10 @@
+{
+  "scope": "test fixture path only",
+  "test_file": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py",
+  "test_sha256": "c55a7efee707daf281e35b563c14bff9397b8aef58701026ebc072cb9114cb4f",
+  "settings_source": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/caprmedio_framework_default_settings.toml",
+  "settings_sha256": "f8fda1107671ad6c3fd02653ada4f16ffe01ce0a3f57b4a732d7eac39d4e3851",
+  "command": "PYTHONPATH=LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS .venv/bin/python -m unittest discover -s LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests -p test_find_and_fetch_artifacts.py",
+  "result": "16 passed, zero skipped",
+  "limitations": "Focused test result only; full stable-candidate suite remains outstanding."
+}

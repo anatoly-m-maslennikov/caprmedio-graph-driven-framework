@@ -1,0 +1,36 @@
+---
+subjects:
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  passive:
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Project.Settings
+version: 32
+updated_at: 2026-11-02 18:35:20 +0400
+relations:
+  child_of:
+  - CA-R-1427@17
+atom_id: CA-R-1428
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 2
+role: Requirement
+form: Rule
+---
+## Summary
+
+Permit confidence-threshold defaults and overrides
+
+## Claim
+
+### Prose Claim
+
+
+the source of a Confidence Threshold value.
+
+
+For a decision executing a Plan, the AI Agent Confidence Threshold **must** resolve from the current Plan's explicit Header value, otherwise the nearest explicit value on an enclosing Plan reached recursively through `IS_CONTAINED_BY`, otherwise the required `Project.Settings.AI Agent Confidence Threshold`. An enclosing Plan does not need a Hub Label.
+
+For any other Confidence Threshold, and for a decision outside Plan execution, retain the applicable order of direct Operator input in its stated context, an explicit value on an applicable current Plan, the nearest enclosing Hub Plan with an explicit applicable value, and the applicable Project.Settings default for that threshold. Do not infer another Plan Property or equate different thresholds. Resolve each threshold independently. An omitted Plan value is not copied locally; an invalid or ambiguous reached source requires Operator disposition without silent fallback.

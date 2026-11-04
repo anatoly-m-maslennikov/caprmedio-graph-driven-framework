@@ -1,0 +1,47 @@
+{
+  "verdict": "HOLD_ATOMIC_CONSUMERS_AND_SCOPE",
+  "entries": [
+    {
+      "id": "CA-M-271",
+      "source_matches": true,
+      "base_matches": true,
+      "candidate_matches": true
+    },
+    {
+      "id": "CA-R-1428",
+      "source_matches": true,
+      "base_matches": true,
+      "candidate_matches": true
+    },
+    {
+      "id": "CA-E-241",
+      "source_matches": true,
+      "base_matches": true,
+      "candidate_matches": true
+    }
+  ],
+  "accepted": "Plan AI Agent lookup follows current Plan, recursively nearest enclosing Plan and required Project.Settings threshold. M271 preserves independent field presence, contextual direct input for outside-Plan, invalid/ambiguous/cyclic stop, source/context capture and no copying inherited overrides.",
+  "findings": [
+    {
+      "id": "encoding",
+      "issue": "Current CA-D-472 explicitly mandates old Autonomous Confidence Threshold / autonomous_confidence_threshold; reconcile its fresh-ID successor and actual carrier/readers/tests together with adoption. M271 replacement only defers to applicable Plan Carrier encoding."
+    },
+    {
+      "id": "evaluation",
+      "issue": "Current CA-E-443 tests Operator input, nested Hubs and Framework Instance Settings under old M271 precedence. Reconcile Plan vs non-Plan cases and test non-Hub enclosing Plan, invalid and omitted field independently."
+    },
+    {
+      "id": "other-thresholds",
+      "issue": "M271/R1428 specify AI Agent threshold when executing a Plan and define general fallback only outside Plan execution; they do not establish lookup for other threshold kinds during Plan execution. CA-E-241 consumes an effective CCE threshold. Check existing distinct authority and preserve it; do not equate it to the AI Agent threshold or invent fallback."
+    },
+    {
+      "id": "non-plan",
+      "issue": "Direct Operator input/context and applicable Project.Settings default retained outside Plan execution; prior M271 also considered current Plan and enclosing Hub without an explicit Plan-execution condition. Determine whether a non-executing context can have such an applicable Plan before declaring full preservation."
+    },
+    {
+      "id": "terminology",
+      "issue": "CA-R-1587 still calls the Plan threshold Autonomous Confidence Threshold; assess whether naming/consumer references require a combined correction."
+    }
+  ],
+  "limits": "Current/sources compared with three candidate pins; no Current/Git/runtime edits or evaluator execution."
+}

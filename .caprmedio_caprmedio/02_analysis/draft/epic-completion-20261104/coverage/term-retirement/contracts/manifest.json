@@ -1,0 +1,390 @@
+{
+  "schema": "term-retirement-contract-impact/v1",
+  "state": "PREVIEW_ONLY_HELD_PENDING_HUMAN_CONFIRMATION",
+  "scope": "native Current source contract impact; no canonical changes",
+  "source_boundary": {
+    "included": [
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY",
+      ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE"
+    ],
+    "excluded": [
+      "archive/archived sources as operative evidence",
+      "draft/integration previews as operative evidence",
+      "ordinary prose or CFEL grammar uses of the word term",
+      "runtime/code/test/Git changes"
+    ]
+  },
+  "decision_boundary": "Human has proposed dropping the Term branch, Term Definition Atoms, and registration rules while retaining CCE naming and Declaration Semantics; confirmation is pending. All removal/revision plans remain held until confirmation.",
+  "pins": {
+    "R-1321": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+      "sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698",
+      "version": 35,
+      "summary": "Define Subject Expression"
+    },
+    "R-1324": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-RULE--reserve-subject-expression-separators.md",
+      "sha256": "8aa49a033b156ccccb60b64e56cde574ab2e734a311f0990335088b7a078c698",
+      "version": 27,
+      "summary": "Reserve Subject Expression Separators"
+    },
+    "R-1931": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "version": 18,
+      "summary": "Use Subject Path Separators for Broader-to-Narrower and Bearer-to-Dependent"
+    },
+    "R-1345": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1345-CORE_META_MODEL-RULE--keep-the-narrower-than-graph-acyclic.md",
+      "sha256": "f39df22cca9398efb859b357a14a2ff0b36eab8017bc2a9f8fbaa570fc85b540",
+      "version": 29,
+      "summary": "Keep the NARROWER_THAN graph acyclic"
+    },
+    "R-2276": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "sha256": "305ea99fee46090bffe1df0d58e49bf6bdc2ad292d964e8e8a646d31d277d633",
+      "version": 6,
+      "summary": "Require one-to-one canonical entity names with reusable Terms"
+    },
+    "R-1346": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+      "sha256": "803ebe3f727ac959afe20ce369e6d4f643dbc98b93a8380bf18e764cdb3f7313",
+      "version": 28,
+      "summary": "Permit reused Terms **in** qualified value domains"
+    },
+    "R-1348": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1348-CORE_META_MODEL-RULE--reuse-type-in-qualified-subjects.md",
+      "sha256": "71846be029a58bba48cdc962f1321c3a0925e70867ef8e6dad37ceb4f2364182",
+      "version": 25,
+      "summary": "Reuse Type in Qualified Subjects"
+    },
+    "R-1284": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md",
+      "sha256": "47048137a76a2cb71acc40277f94fb59f4d619af5c498ab7349bf55da7fe1d36",
+      "version": 27,
+      "summary": "Define Type"
+    },
+    "R-1318": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+      "sha256": "35014effa7d6d7ab7f57e2b5dddae8523f151b2208842d0e97bfe1661107e273",
+      "version": 33,
+      "summary": "Define Term"
+    },
+    "R-1319": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md",
+      "sha256": "4be252149f4ba5a0466f51fbe71236f12c0001af625da18aab906ae806480f3b",
+      "version": 28,
+      "summary": "Define Governed Term"
+    },
+    "R-1279": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1279-CORE_META_MODEL-RULE--govern-every-defined-term.md",
+      "sha256": "1d7e9c68aa2119f9edb8bda5476bce6db471fd3a6d57d6098646a962af3f8585",
+      "version": 32,
+      "summary": "Govern Every Defined Term"
+    },
+    "R-1347": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1347-CORE_META_MODEL-DEFINITION--define-root-term.md",
+      "sha256": "d68625245525eae22c35ff16e79d4a8cfbe6de10bb89f06fe820033503dd8f46",
+      "version": 29,
+      "summary": "Define Root Term"
+    },
+    "R-1244": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1244-CORE_META_MODEL-RULE--allow-multiple-direct-term-hierarchy-parents.md",
+      "sha256": "1652a8ee39a253aa26aa491011b91a83580799262e5cadda817914ab9f6010fe",
+      "version": 33,
+      "summary": "Allow multiple direct Term hierarchy parents"
+    },
+    "R-1325": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-RULE--keep-composite-subject-expressions-out-of-terminology.md",
+      "sha256": "72eac2d8bc848fbe26491a1211539910c82f2f83cbd1a98be0c1c76392d6f903",
+      "version": 24,
+      "summary": "Keep Composite Subject Expressions out of Terminology"
+    },
+    "R-1454": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL--derive-governed-terms-views-from-selected-authority.md",
+      "sha256": "fcb5de2427dd003ac6d18a49268e3594a5263d9d1442eeaf3efd60560810c642",
+      "version": 32,
+      "summary": "Derive governed Terms views from selected authority"
+    },
+    "R-1455": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+      "sha256": "d5b1dd27d7a818967c35dbfd13d11863dde799cc51513e9c467b235061f37284",
+      "version": 27,
+      "summary": "Preserve evidence and uncertainty in vocabulary diagnostic indexes"
+    },
+    "E-382": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md",
+      "sha256": "540f7bca8553b45adbedf7d94c922ab614d8434f077155d496b164a66132dd6e",
+      "version": 49,
+      "summary": "Validate Terms Graph"
+    },
+    "E-659": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-659-CORE_META_MODEL-EVAL_CASE--check-term-definition-well-formedness.md",
+      "sha256": "fe1f7e9d82f5585c59a1eaeafe3f88db1120ba0f23db79ea1a3870d175a24374",
+      "version": 3,
+      "summary": "Check Term Definition well-formedness"
+    },
+    "M-439": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-439-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-term-definition-content.md",
+      "sha256": "dd56486e5ce0fca06a4ff9a417e1b89924cdaae63cab74f2359403eeb31e3f91",
+      "version": 3,
+      "summary": "Write Term Definition Content"
+    },
+    "M-449": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-449-CORE_META_MODEL-TERM_DEFINITION--define-empty.md",
+      "sha256": "cc95fa03fbfaa27e8fe235aa214b5979a06a1062ccc2a7c028efd395339d1b9e",
+      "version": 3,
+      "summary": "Define Empty"
+    },
+    "M-450": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-450-CORE_META_MODEL-TERM_DEFINITION--define-id.md",
+      "sha256": "419fdb8b83d9df113d27b3472fb26d345063961e9a3a8d2164ea4c6ce6627b2f",
+      "version": 4,
+      "summary": "Define ID"
+    },
+    "M-451": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+      "sha256": "eb7a86a6a60e74c43f0f1f9a1cb990c3e3e0b8eed7c27701067596ec3ad4c253",
+      "version": 4,
+      "summary": "Define Entity"
+    },
+    "M-452": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-452-CORE_META_MODEL-TERM_DEFINITION--define-term.md",
+      "sha256": "11eab649754bb6e5767fb7b3847e8304892f28cc78d1d1ddfa8b01e1268afa9e",
+      "version": 3,
+      "summary": "Define Term"
+    },
+    "M-453": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "sha256": "dd60c8d121d9d8cd62a91aaaa85531012a829bcdac6a106715297f29459c4238",
+      "version": 3,
+      "summary": "Define Property"
+    },
+    "M-454": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md",
+      "sha256": "db1436c8bde02ae8ffd65c4909a6e54f068982fd763a28892afea74df554419a",
+      "version": 5,
+      "summary": "Define Artifact"
+    },
+    "M-455": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-455-CORE_META_MODEL-TERM_DEFINITION--define-change-content-roles.md",
+      "sha256": "c5407e4225dc48cfc01e741d906404ba26245afd1ef6f89174274efcbe731f4c",
+      "version": 4,
+      "summary": "Define Change Content Roles"
+    },
+    "M-458": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-458-CORE_META_MODEL-TERM_DEFINITION--define-object.md",
+      "sha256": "215e7de7b44844a1303f7ebb2785bbd65d9b6ebda75c7db31eb69dbf3e584d92",
+      "version": 3,
+      "summary": "Define Object"
+    },
+    "R-1387": {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/CA-SU-37_FEATURE_GROUP_PROJECTION_ACTIONS/04_requirement/CA-R-1387-PROJECTION_ACTIONS-RULE--persist-reproducible-non-authoritative-entity-and-term-graph-projections.md",
+      "sha256": "6d45a1b7f6573460e059685eb857b0b3c9d921b9bb30d57f8d671deec8eb6a4e",
+      "version": 21,
+      "summary": null
+    },
+    "M-259": {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/CA-SU-37_FEATURE_GROUP_PROJECTION_ACTIONS/05_method/CA-M-259-PROJECTION_ACTIONS-ENG_DECISION--derive-one-entity-and-term-graph-projection.md",
+      "sha256": "1c1f5eb9ac94be3261aea357c24417ac6742573b32ab79136b12b454d672ded3",
+      "version": 18,
+      "summary": "Derive one Entity and Term graph Projection"
+    },
+    "E-433": {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/CA-SU-37_FEATURE_GROUP_PROJECTION_ACTIONS/06_evaluation/CA-E-433-PROJECTION_ACTIONS-EVAL_CASE--persist-one-projection-without-mutating-authority.md",
+      "sha256": "043a53c0b3765111258c77ba6b5b8128ec3aa75a4ca8ad46e78920d8521c42e9",
+      "version": 21,
+      "summary": null
+    },
+    "R-1838": {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/04_requirement/CA-R-1838-RULE--retain-source-and-shared-run-boundaries.md",
+      "sha256": "56a093b73854d922136d88ec2cae1a1e4f387e7dae2a97cc7552e8365fec7a42",
+      "version": 10,
+      "summary": "Retain source and shared Run boundaries"
+    },
+    "R-1405": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-RULE--register-core-artifact-type-values.md",
+      "sha256": "3cf75410940a71d7357a8c701a2d182f9aa503665bddff7034902415cd48a5c5",
+      "version": 29,
+      "summary": "Register Core Artifact Type Values"
+    },
+    "R-1747": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL--distinguish-native-targets-from-governed-artifacts.md",
+      "sha256": "7ad5abdfdfab6465bb5c3cb79cbb7abb7cc510eeb47ad329485869f41717ab19",
+      "version": 29,
+      "summary": "Distinguish native targets from governed Artifacts"
+    },
+    "R-1558": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-RULE--route-questions-and-ideas-through-exploration-mode.md",
+      "sha256": "764d49bb5447647d3353cdf9e0b91ebd15f9573dde95b28bd4ad89c9ac0a6f17",
+      "version": 23,
+      "summary": "Route questions and ideas through Exploration Mode"
+    },
+    "R-1765": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL--prohibit-artifact-type-admission-through-narrower-than.md",
+      "sha256": "46e9c3b5ae07f4aeb2463ff31fb58cd5aa04c57e990dc012f908006a586e5dbb",
+      "version": 35,
+      "summary": "Prohibit Artifact Type admission through NARROWER_THAN"
+    },
+    "M-125": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md",
+      "sha256": "f260c13b9cdbca25cdae58b2f177180eb9ebadbf88cb1a34fe4ca5a9978748fd",
+      "version": 47,
+      "summary": "Assign Subjects from the Claim"
+    },
+    "R-2475": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c",
+      "version": 5,
+      "summary": "Define NARROWER_THAN"
+    },
+    "R-2487": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
+      "version": 11,
+      "summary": "Define CFEL"
+    },
+    "R-1194": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+      "sha256": "f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57",
+      "version": 32,
+      "summary": "Define Subject Path"
+    },
+    "R-2476": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "sha256": "0815c5de37042caf4d3f76777f7358c5509bf0f360f5d540f8c548ec9b677d9e",
+      "version": 6,
+      "summary": "Define INSTANCE_OF"
+    },
+    "R-1837": {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/04_requirement/CA-R-1837-RULE--enforce-projection-quality-and-truthful-outcomes.md",
+      "sha256": "78ecabd76839131162b9aa25250b98b47b397643fdfdd82bd88d5793f64fccd8",
+      "version": 9,
+      "summary": "Enforce projection quality and truthful outcomes"
+    },
+    "D-539": {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/07_delivery/CA-D-539-ENG_DECISION--bind-strict-graph-request-and-result-contract.md",
+      "sha256": "d0f185fbb29c2535a78bfbdc648d087f6ac03aba66fe585f3b496ab84c64f3d6",
+      "version": 15,
+      "summary": "Bind strict graph request and result contract"
+    }
+  },
+  "actions": [
+    {
+      "id": "preserve_entity_subject_expression",
+      "target": "CA-R-1321",
+      "disposition": "Same-ID body + Subject revision",
+      "preview": "previews/preserve_entity_subject_expression.preview.md"
+    },
+    {
+      "id": "preserve_separator_grammar",
+      "target": "CA-R-1324",
+      "disposition": "Same-ID body + Subject revision",
+      "preview": "previews/preserve_separator_grammar.preview.md"
+    },
+    {
+      "id": "preserve_subject_path_semantics",
+      "target": "CA-R-1931",
+      "disposition": "Same-ID body + Subject revision",
+      "preview": "previews/preserve_subject_path_semantics.preview.md"
+    },
+    {
+      "id": "keep_narrower_than_acyclic",
+      "target": "CA-R-1345",
+      "disposition": "Same-ID Subject-only revision",
+      "preview": "previews/keep_narrower_than_acyclic.preview.md"
+    },
+    {
+      "id": "canonical_entity_names",
+      "target": "CA-R-2276",
+      "disposition": "Fresh-ID successor required: Summary changes",
+      "preview": "previews/canonical_entity_names.preview.md"
+    },
+    {
+      "id": "qualified_value_reuse",
+      "target": "CA-R-1346",
+      "disposition": "Fresh-ID successor required: Summary changes",
+      "preview": "previews/qualified_value_reuse.preview.md"
+    },
+    {
+      "id": "projection_requirement",
+      "target": "CA-R-1387",
+      "disposition": "Fresh-ID successor required: Summary changes",
+      "preview": "previews/projection_requirement.preview.md"
+    },
+    {
+      "id": "projection_method",
+      "target": "CA-M-259",
+      "disposition": "Fresh-ID successor required: Summary changes",
+      "preview": "previews/projection_method.preview.md"
+    },
+    {
+      "id": "run_boundary",
+      "target": "CA-R-1838",
+      "disposition": "Same-ID Subject-only revision",
+      "preview": "previews/run_boundary.preview.md"
+    },
+    {
+      "id": "generic_projection_eval",
+      "target": "CA-E-433",
+      "disposition": "Keep Claim; update evaluation_for after new IDs allocated",
+      "preview": "previews/generic_projection_eval.preview.md"
+    },
+    {
+      "id": "type_subject_address",
+      "target": "CA-R-1284",
+      "disposition": "Held: target-address decision required",
+      "preview": "previews/type_subject_address.preview.md"
+    },
+    {
+      "id": "type_reuse_rule",
+      "target": "CA-R-1348",
+      "disposition": "Held: target-address decision required",
+      "preview": "previews/type_reuse_rule.preview.md"
+    },
+    {
+      "id": "vocabulary_diagnostic_index",
+      "target": "CA-R-1455",
+      "disposition": "Held: semantic successor likely; no current revision preview",
+      "preview": "previews/vocabulary_diagnostic_index.preview.md"
+    },
+    {
+      "id": "term_branch_retirements",
+      "target": "CA-R-1318, CA-R-1319, CA-R-1279, CA-R-1347, CA-R-1244, CA-R-1325, CA-R-1454, CA-E-382, CA-E-659, CA-M-439, CA-M-449, CA-M-450, CA-M-451, CA-M-452, CA-M-453, CA-M-454, CA-M-455, CA-M-458",
+      "disposition": "Held: retire only after confirmation",
+      "preview": "previews/term_branch_retirements.preview.md"
+    },
+    {
+      "id": "artifact_type_subjects",
+      "target": "CA-R-1405, CA-R-1747, CA-R-1558, CA-R-1765",
+      "disposition": "Held/outside this lane: overlapping contract inventory",
+      "preview": "previews/artifact_type_subjects.preview.md"
+    },
+    {
+      "id": "claim_subject_resolution",
+      "target": "CA-M-125",
+      "disposition": "Held: verify resolver contract after confirmation",
+      "preview": "previews/claim_subject_resolution.preview.md"
+    }
+  ],
+  "preserve": {
+    "CCE": "Retain slash/dot/colon/relation/containment operators, direct Relation registry, path grammar, exact Subject target selection, and native-fact admission boundary.",
+    "naming": "Retain complete qualified entity names and one-to-one identity; no spelling-based identity, alias, or registration.",
+    "declarations": "Retain Declaration semantics, independently admitted Relations, Property/allowed-value semantics, EntityGraph/Scope behavior, and source authority.",
+    "hierarchy": "Retain NARROWER_THAN acyclicity (R1345) because NARROWER_THAN remains applicable to non-Term model kinds (R2475).",
+    "archives": "All exact archived revisions, frozen links, IDs, and summaries remain untouched."
+  },
+  "fresh_id_required": [
+    "CA-R-2276 successor because Summary changes",
+    "CA-R-1346 successor because Summary changes",
+    "CA-R-1387 successor because Summary changes",
+    "CA-M-259 successor because Summary changes",
+    "Potential CA-R-1455 successor only if the non-authoritative evidence/uncertainty index is retained under a newly scoped non-Term concept"
+  ],
+  "dependency_follow_up": [
+    "Retain CA-E-433; after root assigns successor IDs, update only evaluation_for references CA-R-1387 and CA-M-259 while keeping CA-R-1076.",
+    "Do not globally redirect frozen references or rewrite archive history.",
+    "Artifact/Type path cleanup belongs to the separate overlapping inventory/contract owner; preserve current claims and values."
+  ],
+  "inventory_limit": "This lane covers Core CCE/Term Definition contract impacts and the explicit projection pair. It does not claim exhaustive inventory of every Term-rooted Subject in the repository."
+}

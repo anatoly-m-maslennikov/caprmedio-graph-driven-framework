@@ -1,0 +1,58 @@
+{
+  "classification": "diagnostic_followup_not_final_candidate",
+  "boundary": "Read-only triage; no production edits or new Docker run. Concurrent source changes can invalidate reruns.",
+  "items": [
+    {
+      "module": "VALIDATE_ATOMS/tests/test_authority_checks.py",
+      "mixed_observation": "frontmatter.subjects not_checked instead of passed",
+      "current_observation": "15 passed on focused rerun",
+      "classification": "concurrent validator work; historical failure no longer reproduces; exact intermediate cause not established",
+      "minimal_scope": "no change based on this diagnostic; rerun after stabilization",
+      "command": "PYTHONPATH=LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS .venv/bin/python -m unittest discover -s LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests -p test_authority_checks.py"
+    },
+    {
+      "module": "VALIDATE_ATOMS/tests/test_current_frontmatter_encoding.py",
+      "mixed_observation": "four failures including AUTHORITY_UNSUPPORTED",
+      "current_observation": "8 passed on focused rerun",
+      "classification": "concurrent validator and authority work; intermediate root not established",
+      "minimal_scope": "no change based on this diagnostic; rerun after stabilization",
+      "command": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_current_frontmatter_encoding.py"
+    },
+    {
+      "module": "tests/test_carrier_aliases.py",
+      "mixed_observation": "test double Check lacks inputs after _subjects calls encoding_authority",
+      "current_observation": "7 passed on focused rerun",
+      "classification": "transient mismatch between validator and test double during concurrent work; no longer reproduces",
+      "minimal_scope": "no change based on this diagnostic; rerun after stabilization",
+      "command": "PYTHONPATH=LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS .venv/bin/python -m unittest discover -s LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests -p test_carrier_aliases.py"
+    },
+    {
+      "module": "tests/test_connector_atom_receiver.py",
+      "mixed_observation": "query result subjects differed",
+      "current_observation": "10 passed, 1 failed; result contains active, passive, governs, depends_on, expected active and governs",
+      "classification": "Scope Unit declaration cutover integration; source-preservation versus compatibility-output contract needs adjudication",
+      "root_cause": "renderer writes active plus passive empty; connector_atom_read._sources replaces parsed metadata with carrier_read_view, adding governs and depends_on. query_atoms uses parsed.metadata for subjects, but that object already holds derived aliases. Test expects a hybrid view. Query doc says without defaults; test expectation alone does not establish correct output.",
+      "minimal_scope": "Review output contract and consumers; if source-faithful, retain raw parsed subjects separately while using read view for selection, with tests proving no extra keys and alias conflict handling. If aliases are expressly required, adjust test to exact authorized contract instead.",
+      "command": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_connector_atom_receiver.py"
+    },
+    {
+      "module": "FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py",
+      "mixed_observation": "import FileNotFoundError for unprefixed LAYER_1_CORE_META_MODEL default settings",
+      "current_observation": "same import failure on focused rerun; existing delivered file is CA-SU-11_LAYER_1_CORE_META_MODEL/caprmedio_framework_default_settings.toml",
+      "classification": "namespace/source-layout migration impacts cutover verification; test fixture path, not proof of runtime lookup failure",
+      "root_cause": "module-level DEFAULT_BYTES hardcodes old delivered methodology path. Runtime find_and_fetch_artifacts.py resolves CORE_META_MODEL through selected Scope Unit declarations.",
+      "minimal_scope": "After confirming intended source binding, update exact fixture path or bind via existing declaration-aware test fixture; run this entire module and relevant source/currentness tests. Do not copy or invent settings.",
+      "command": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py"
+    }
+  ],
+  "current_file_pins": {
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/connector_atom_read.py": "21e5c2e40a483a5dd1243ee5c5cf20762b8cd3331268a19c7d3f2e0910d49082",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/carrier_aliases.py": "1fee5a5b5931471a572f19e9cc7edf4abee182ea6a18ca3f3a031f21eed308ad",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/scope_declaration_render.py": "91f4815188c43afda47b56e784c489e88f18920ae7cdc2ee6cf0156d0673c40f",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_connector_atom_receiver.py": "f4d0d38e52d5e4c182e316d9be4dec17f8f797b0322843fa5d4fdfffbf67227e",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py": "c68fa27569215b3270c9fa76d9b0a32777ba1de187a9f00c04f5da02806d7048",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/FIND_AND_FETCH_ARTIFACTS/tests/test_find_and_fetch_artifacts.py": "21f5b5b669e913c05982a940571d14a1e1eb915a9fdae765f7d9c34394912c5f",
+    "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/caprmedio_framework_default_settings.toml": "f8fda1107671ad6c3fd02653ada4f16ffe01ce0a3f57b4a732d7eac39d4e3851"
+  },
+  "other_boundary": "CA-O-104 Current workflow resolution remains with Main; no archive restored."
+}

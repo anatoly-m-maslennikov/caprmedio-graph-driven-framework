@@ -1,0 +1,10 @@
+{
+  "status": "STOPPED_AT_OPERATOR_SCOPE_CORRECTION",
+  "exit_code": 130,
+  "reason": "Code and regression work belongs to CA #3; this chat is MODEL/CFEL/Declaration/source work.",
+  "complete_gate_result": false,
+  "remaining_test_processes_after_stop": 0,
+  "code_edits": "uncommitted; retained for CA #3 review",
+  "log": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/f2-current-fixture-checks/f2-stable-remainder.log",
+  "log_sha256": "af9e45b5e4bf9e10c3c2787b3d39fc9d46497acbd350ba2720ada803bd6fe98e"
+}

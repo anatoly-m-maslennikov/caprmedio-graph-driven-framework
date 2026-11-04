@@ -1,0 +1,33 @@
+---
+atom_id: "<UNALLOCATED-runtime>"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Runtime
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare Runtime
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Runtime ((NARROWER_THAN)) Occurrent;
+
+# instances
+Runtime//$runtime {:0+}((EXECUTES)) Execution//$execution
+```
+
+## Semantics
+
+A Runtime is a live technical execution context for an Implementation. It can exist while its process is idle or waiting; it is distinct from work performed and from records.

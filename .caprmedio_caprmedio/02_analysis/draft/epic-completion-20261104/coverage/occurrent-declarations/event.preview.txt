@@ -1,0 +1,30 @@
+---
+atom_id: "<UNALLOCATED-event>"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Event
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare Event
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Event ((NARROWER_THAN)) Occurrent
+```
+
+## Semantics
+
+An Event is an actual occurrence, distinct from an Event Record describing it.

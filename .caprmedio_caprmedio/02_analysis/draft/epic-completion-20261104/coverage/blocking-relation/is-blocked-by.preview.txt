@@ -1,0 +1,35 @@
+---
+atom_id: "<UNALLOCATED-is-blocked-by>"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_BLOCKED_BY
+version: 1
+relations: {}
+tier: 1
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare IS_BLOCKED_BY
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Relation//IS_BLOCKED_BY ((HAS_INVERSE)) Relation//BLOCKS;
+
+Relation//IS_BLOCKED_BY ((HAS_CLASSIFICATION)) Derivation == Direct;
+
+# instances
+Plan//$dependent ((IS_BLOCKED_BY)) Plan//$prerequisite
+```
+
+## Semantics
+
+IS_BLOCKED_BY relates a dependent Plan to a prerequisite Plan that must be Done before the dependent may start.

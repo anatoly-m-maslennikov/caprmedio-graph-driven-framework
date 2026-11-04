@@ -9,8 +9,8 @@ subjects:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 priority: medium
-version: 7
-updated_at: 2026-10-30 03:11:57 +0400
+version: 8
+updated_at: 2026-11-03 23:17:14 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
@@ -34,7 +34,7 @@ relations:
   - CA-R-1523
   - CA-R-1524
   - CA-R-1603
-  - CA-R-2443
+  - CA-R-2731
   - CA-R-819
   - CAPRMEDIO-META-REQU-158
 atom_id: CA-C-283

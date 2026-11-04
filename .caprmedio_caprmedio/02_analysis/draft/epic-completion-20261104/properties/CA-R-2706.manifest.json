@@ -1,0 +1,10 @@
+{
+  "atom_id": "CA-R-2706",
+  "current_version": 1,
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2706-CORE_META_MODEL-DECLARATION--declare-atom-header-tier.md",
+  "source_sha256": "9cbbd70ffbd2dba975184c3ad9bfed4584cefd431068d714e68901a519efa4c2",
+  "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2706.preview.txt",
+  "preview_sha256": "7d6cac4728935276f61b5f3fa08ef53a39349925c62c0cc55be8b2b0022ea157",
+  "change_count": 1,
+  "change_summary": "remove duplicate/broad owner-relative range prose; retain a concise schema description and unchanged formal int/optional-label/>=-1 contract"
+}

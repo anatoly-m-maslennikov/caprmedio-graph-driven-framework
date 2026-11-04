@@ -1,0 +1,38 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "sources": [
+    {
+      "id": "CA-P-2694",
+      "current": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "version": 58,
+      "sha256": "4b429dae675ec71b0755eb62cb30a235dc26510c88b71079b922ec0f51bea46b",
+      "archive": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing@57.md",
+      "predecessor_version": 57,
+      "predecessor_sha256": "07516e2c7fb034ea1265c8e290a85a319ef321c911f66e8d793422a56408462f",
+      "exact_predecessor": true,
+      "summary_unchanged": true
+    },
+    {
+      "id": "CA-P-2707",
+      "current": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+      "version": 5,
+      "sha256": "2f9b533db8391bb100983d6d24f0dd3a9840d0cdf4029b5320c3d0f5b62f9c36",
+      "archive": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/archive/12-CA-P-2707-TASK--verify-declaration-source-cutover@4.md",
+      "predecessor_version": 4,
+      "predecessor_sha256": "8c8ed4d16b231fc83ff8c6239344bb27f438b35becce6a077e599433dea78ce9",
+      "exact_predecessor": true,
+      "summary_unchanged": true
+    }
+  ],
+  "checks": [
+    "Four live operation outputs match plan hashes; archives exactly match the plan-recorded predecessor bytes. Each ID appears once in the native non-archive, non-draft Plan tree.",
+    "Both summaries are unchanged; versions advance 57 to 58 and 4 to 5. Both remain Active.",
+    "Canonical containment retains caprmedio Scope Unit and CA-P-2694 Atom respectively; obsolete scope/author fields are absent and destination file name and directory match actual location.",
+    "Source bodies assign code, runtime, fixtures and execution to CA #3; every acceptance matrix requirement remains required and all 23 groups remain present. Remaining integration gates are explicitly pending.",
+    "Receipt matches plan digest and records four operations, no native Workflow admission, and no Journal append; the plan specifies only these source writes."
+  ],
+  "limits": [
+    "The no-Workflow and no-Journal statements are supported by the adoption plan and receipt; no independent external execution or Journal audit was performed.",
+    "Acceptance matrix still identifies the predecessor Epic version; root is updating tracking separately. No code or tests were reviewed."
+  ]
+}

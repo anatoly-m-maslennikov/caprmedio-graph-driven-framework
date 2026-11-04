@@ -263,6 +263,10 @@ def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> 
         _capture_grammar, _capture_identity_layout, _captured_profile_evidence,
         _assert_grammar_current, _assert_identity_layout_current,
     )
+    from VALIDATE_ATOMS.validate_atoms_workers.check_fields import reviewed_encoding_profile
+    from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
+        ProposedCarrierError, _current_containment_owner, source_context_from_project,
+    )
     if direct_subject_only or profile.name == "approved":
         grammar = _capture_grammar(operations, root, profile)
         evidence = _captured_profile_evidence(operations, profile, grammar)
@@ -272,6 +276,9 @@ def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> 
     frontier = reader.inventory(control if direct_subject_only else base)
     candidates = [path for path in frontier if path == base or (base.is_dir() and path.is_relative_to(base))]
     valid: list[tuple[Path, dict[str, Any], str, str, str]] = []
+    owner_context = None
+    owner_profile = None
+    owner_context_checked = False
     for path in candidates:
         if ("_projection" in path.relative_to(control).parts
                 or (layout is not None and path.is_relative_to(layout[0]))):
@@ -310,7 +317,7 @@ def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> 
         if "projection" in metadata:
             continue
         atom_id, version, status = metadata.get("atom_id"), metadata.get("version"), metadata.get("status")
-        role, owner, updated_at = metadata.get("content_role"), metadata.get("current_scope_unit"), metadata.get("updated_at")
+        role, updated_at = metadata.get("content_role"), metadata.get("updated_at")
         # A Markdown document without an Atom identity is simply outside this
         # tool's domain.  Once an identity is asserted, incomplete metadata is
         # an invalid selected source and must not disappear silently.
@@ -321,12 +328,35 @@ def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> 
             diagnostics.append(_diagnostic("source-invalid", path, "filename and atom_id disagree"))
             continue
         if (type(version) is not int or version < 1 or not isinstance(status, str) or not status
-                or not isinstance(role, str) or role not in _ROLES or not isinstance(owner, str) or owner not in owners):
+                or not isinstance(role, str) or role not in _ROLES):
             diagnostics.append(_diagnostic("source-invalid", path, "Atom metadata is incomplete or invalid"))
             continue
         if role != filename_role:
             diagnostics.append(_diagnostic("source-invalid", path, "filename Atom ID kind and content_role disagree"))
             continue
+        if not owner_context_checked:
+            owner_context_checked = True
+            try:
+                owner_context = source_context_from_project(root)
+                profiles = {reviewed_encoding_profile(row) for row in owner_context.inputs["sources"]
+                            if row.get("binding", {}).get("atom_id") in {"CA-D-276", "CA-D-657"}}
+                owner_profile = next(iter(profiles)) if len(profiles) == 1 else None
+            except (OSError, RuntimeError, ValueError):
+                owner_context = None
+        try:
+            if owner_profile == "current":
+                owner = _current_containment_owner(owner_context, parsed.metadata)
+            elif owner_profile == "legacy":
+                owner = metadata.get("current_scope_unit")
+            else:
+                raise ProposedCarrierError("Atom encoding authority is unresolved")
+        except (OSError, RuntimeError, ValueError):
+            diagnostics.append(_diagnostic("source-invalid", path, "Atom containment owner is unresolved"))
+            continue
+        if not isinstance(owner, str) or owner not in owners:
+            diagnostics.append(_diagnostic("source-invalid", path, "Atom containment owner is unresolved"))
+            continue
+        metadata["current_scope_unit"] = owner
         expected_owner = _owner_for(path.resolve(), owners)
         if expected_owner != owner:
             diagnostics.append(_diagnostic("owner-path-mismatch", path, "current_scope_unit disagrees with authority_path"))
@@ -356,6 +386,8 @@ def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> 
     _assert_identity_layout_current(operations, root, layout)
     if reader.currentness()["state"] != "unchanged":
         raise ToolError("subject-source-changed", "Subject source bytes or frontier changed during lookup")
+    if owner_context is not None and owner_context._reader.currentness()["state"] != "unchanged":
+        raise ToolError("subject-source-changed", "Subject owner authority changed during lookup")
     original_counts = Counter(
         metadata["atom_id"] for path, metadata, *_ in valid if _lifecycle(path, control) not in {"archived", "draft"}
     )

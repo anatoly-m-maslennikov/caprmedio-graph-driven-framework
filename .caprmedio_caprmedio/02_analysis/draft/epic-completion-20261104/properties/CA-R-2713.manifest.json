@@ -1,0 +1,13 @@
+{
+  "status": "HISTORICAL_PREVIEW_APPLIED",
+  "atom_id": "CA-R-2713",
+  "source_version": "1",
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects.md",
+  "source_sha256": "591e15533a771e77beeb38749e6fcaa33fb9da540003448e08d58260d86dd30f",
+  "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2713.preview.txt",
+  "candidate_sha256": "f96027edb5b9784f0566b48740617a0dbc62192af41016cd4a9845f73e416604",
+  "applied_current_version": "2",
+  "applied_current_sha256": "7e323b6351c24efd8480224237de77c32b4675ea65c84f65e7b5081f095332c3",
+  "application_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/first-model-batch/adoption-receipt.json",
+  "change": "Optionalize Subjects occurrence {:0..1}; preview subsequently applied in Current v2. Do not reapply."
+}

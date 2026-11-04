@@ -147,7 +147,7 @@ class UpdateVersionHistoryIndependentTests(unittest.TestCase):
                     prepared = prepare_property_carrier(
                         raw, [{"field": "Dependencies", "operation": "add", "value": "Atom"}],
                         expected_sha256=hashlib.sha256(raw).hexdigest(),
-                        field_paths={"Dependencies": ("subjects", "depends_on")},
+                        field_paths={"Dependencies": ("subjects", "passive")},
                         list_fields={"Dependencies"}, list_entry_edit=lambda _edit: True,
                         validate_final=validate)
                     change_class = "semantic_revision"

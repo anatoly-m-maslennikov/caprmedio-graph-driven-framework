@@ -1,0 +1,10 @@
+{
+  "atom_id": "CA-M-438",
+  "current_version": 17,
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-438-CORE_META_MODEL-ENG-DECISION--derive-current-rmed-atom-ordering-tier.md",
+  "source_sha256": "760f7d3bed6c59304259728776bdd7e282a7de6b33eca6f07d34ec1a124a5f3b",
+  "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-M-438.preview.txt",
+  "preview_sha256": "1e9d68d772bfd4e328a8c9ccc2fc355084ebb43c602e7c171b4c0ad216f57528",
+  "change_count": 1,
+  "change_summary": "remove owner resolution and align context/Tier to Project-root Goal predicate; do not raise the fixed -1 tier"
+}

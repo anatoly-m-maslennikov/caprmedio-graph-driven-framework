@@ -1,0 +1,10 @@
+{
+  "atom_id": "CA-R-808",
+  "current_version": 34,
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-808-CORE_META_MODEL-RULE--apply-relation-direction-within-its-ordering-domain.md",
+  "source_sha256": "b6fe1ed0788cf3d2ea2dad5e86051bb6d6f998dd5a1025e776f9b1d6ccc1e592",
+  "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-808.preview.txt",
+  "preview_sha256": "d1c89d605d38e829b225a37d6770ee117e84e88bdbdb2db546f4a74436e27007",
+  "change_count": 1,
+  "change_summary": "state exact Form Goal plus Project-root Active Subject ordering context"
+}

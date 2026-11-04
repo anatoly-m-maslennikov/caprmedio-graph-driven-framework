@@ -1,0 +1,52 @@
+{
+  "status": "DESTINATION_FIXED_VERSION_WORKFLOW_REVIEW_DEFERRED",
+  "test": {
+    "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_current_standalone_archive_destination.py",
+    "sha256": "40c0e4cccba2661e469e163df192fd409e116c332355a3f0a6f9b73ee758e0ca",
+    "result": "2 focused tests passed; version/timestamp observation is not authority-conformance approval"
+  },
+  "sources": [
+    {
+      "id": "CA-R-1788",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md",
+      "sha256": "fe1ea3b238d02e50c90dfe8d9454ba5c6dabc5e7017833928110f7feb224a2d1"
+    },
+    {
+      "id": "CA-D-461",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-ENG_DECISION--place-plan-carriers-by-status.md",
+      "sha256": "cac8ddb6e9a7dfa759e3b35e386cce2486406bf8ded702b34de8bf30e0339fba"
+    },
+    {
+      "id": "CA-R-2717",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2717-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-name.md",
+      "sha256": "73c5fa928f9ebe44fe23d5be8b54f41dca966846fd31ae0bd9329cfde36b8b56"
+    },
+    {
+      "id": "CA-R-2718",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2718-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-path.md",
+      "sha256": "ac9aad835888181866e491a6efcd3e8e7c0240a7199d7b46d33ea39127ea9c04"
+    }
+  ],
+  "interpretation": "Destination encoding now follows actual archive name and path for fields already present; historical predecessor remains exact. The public status action still increments version and refreshes timestamp; classification against CA-R-1788 standalone archival is deferred.",
+  "pre_fix_observed": {
+    "initial_version": 3,
+    "archived_version": 4,
+    "updated_at_refreshed": true,
+    "current_archived_body_preserved": true,
+    "exact_predecessor_history_preserved": true,
+    "stored_name": "CA-P-796--destination.md",
+    "actual_name": "CA-P-796--destination@4.md",
+    "stored_path": "owning Scope Unit / 03_plan",
+    "actual_path": "owning Scope Unit / 03_plan / archived"
+  },
+  "post_fix": {
+    "archived_destination_matches_actual": true,
+    "no_absent_field_backfill": true,
+    "predecessor_exact_bytes": true,
+    "body_exact": true,
+    "version_before": 3,
+    "version_after": 4,
+    "updated_at_refreshed": true,
+    "remaining_review": "CA-R-1788 standalone archival version and timestamp boundary remains deferred."
+  }
+}

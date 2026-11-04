@@ -20,14 +20,15 @@ from .checks import validate_carrier
 from .context import load_source
 from .read_io import ReadContext
 from .settings import CEILINGS
-from .support_authority import support_sources
+from .support_authority import matches_source_pin, support_sources
 from .check_support import Check
 from .check_graph_extended import relations_resolution, plan_resolution
 from .check_schema_extended import TYPE_CONTRIBUTIONS, declared_type_coordinate
 from .check_fields import reviewed_encoding_profile
 from .check_sections import GRAPH_RULE_SOURCES, is_graph_rule
 from .proposed_references import (
-    ProposedReferenceError, ProposedReferenceInventory, _container_id, inventory_proposed_references,
+    ProposedReferenceError, ProposedReferenceInventory, _container_id, _plan_container,
+    inventory_proposed_references,
 )
 from .parsing import CarrierError, parse_carrier
 from .graph_authority_refresh import APPROVED_GRAPH_AUTHORITY_IDS
@@ -53,6 +54,8 @@ _SUPPORT_IDS = (
     "CA-R-1283", "CA-R-1700", "CA-R-1506",
 )
 _DEFERRED_SUPPORT_IDS = frozenset({"CA-D-378"})
+_CURRENT_CONTAINMENT_SOURCE_IDS = ("CA-R-2508", "CA-R-2523", "CA-R-2511")
+_EXACT_PIN_SOURCE_IDS = frozenset({"CA-D-378", *_CURRENT_CONTAINMENT_SOURCE_IDS})
 _GRAPH_IDS = tuple(sorted(APPROVED_GRAPH_AUTHORITY_IDS))
 _FRONTIER_STATUS_IDS = {
     "Concern": "CA-R-1608", "Analysis": "CA-R-1875", "Plan": "CA-R-1539",
@@ -142,6 +145,7 @@ def _source(
     *,
     graph: bool = False,
     locator: Any | None = None,
+    exact_pin: bool = True,
 ) -> Record:
     entry = _entry(identifier, graph=graph)
     path = entry.get("source_path") if isinstance(entry, dict) else None
@@ -159,8 +163,9 @@ def _source(
         absolute = root / path
     item = load_source(absolute, None, reader, report)
     if (item is None or item["metadata"].get("atom_id") != identifier
-            or not _verified(item, entry)):
-        raise ProposedCarrierError("required source is unreadable, changed, or inactive")
+            or not _verified(item, entry)
+            or (exact_pin and identifier in _EXACT_PIN_SOURCE_IDS and not matches_source_pin(item, entry))):
+        raise ProposedCarrierError("required source is unreadable, changed, or inactive: " + identifier)
     return item
 
 
@@ -231,6 +236,7 @@ def _current_role_sources(
     for path, _, carried, _ in locator._index("04_requirement"):
         if (
             not isinstance(carried, dict)
+            or carried.get("atom_id") in _CURRENT_CONTAINMENT_SOURCE_IDS
             or carried.get("role") != "Requirement"
             or carried.get("form") != "Declaration"
         ):
@@ -284,7 +290,8 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
             )
             registry_ids = _REGISTRY_IDS if current_encoding else (*_REGISTRY_IDS, *_LEGACY_REGISTRY_IDS)
             source_ids = (*(identifier for identifier in registry_ids if identifier != "CA-D-276"),
-                          *(identifier for identifier in support_ids if identifier not in _DEFERRED_SUPPORT_IDS))
+                          *(identifier for identifier in support_ids if identifier not in _DEFERRED_SUPPORT_IDS),
+                          *(_CURRENT_CONTAINMENT_SOURCE_IDS if current_encoding else ()))
             sources = [encoding, *[_source(root, identifier, reader, report, locator=locator)
                                    for identifier in source_ids]]
             if current_encoding:
@@ -302,7 +309,12 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
             reader,
         ),
     }
-    authority = resolve_context(sources)
+    # These three exact records prove Current containment only.  R2511's
+    # Plan selector is not an additional Role-domain declaration.
+    authority = resolve_context([
+        source for source in sources
+        if source["binding"]["atom_id"] not in _CURRENT_CONTAINMENT_SOURCE_IDS
+    ])
     try:
         selection._revalidate_boundary(reader=reader)
         locator.revalidate()
@@ -350,10 +362,30 @@ def _assigned_identity(context: VerifiedSourceContext, metadata: Record) -> None
         source = _source(context.root, "CA-D-378", context._reader, report)
     letters = dict(re.findall(r"([A-Za-z]+): ([A-Z])(?:,|\))", source["text"]))
     prefix = context.inputs["_project_identity"]["identity"]["project_prefix"]
-    letter = letters.get(metadata.get("content_role"))
     identity = metadata.get("atom_id")
-    if (not isinstance(letter, str) or not isinstance(identity, str)
-            or re.fullmatch(rf"{re.escape(prefix)}-{re.escape(letter)}-[0-9]+", identity) is None):
+    role = metadata.get("role", metadata.get("content_role"))
+    if letters:
+        letter = letters.get(role)
+        matches = (
+            isinstance(letter, str)
+            and isinstance(identity, str)
+            and re.fullmatch(rf"{re.escape(prefix)}-{re.escape(letter)}-[0-9]+", identity) is not None
+        )
+    else:
+        admitted = set(re.findall(r"`([A-Z])`", source["text"]))
+        match = (
+            re.fullmatch(rf"{re.escape(prefix)}-([A-Z])-[0-9]+", identity)
+            if isinstance(identity, str) else None
+        )
+        matches = (
+            match is not None
+            and match.group(1) in admitted
+            and isinstance(role, str)
+            and bool(role)
+            and any(current_role_declaration(item) == role for item in context.inputs["sources"])
+            and match.group(1) == role[0].upper()
+        )
+    if not matches:
         raise ProposedCarrierError("assigned Atom identity disagrees with its Project prefix or carried content role")
 
 
@@ -472,8 +504,13 @@ def _validation_inputs(context: VerifiedSourceContext, metadata: Record) -> Reco
     """Load identity authority at validation time, after initial context selection."""
     inputs = _type_inputs(context, metadata)
     report: Record = {"bindings": {}, "coverage": {"gaps": []}}
+    current_profile = any(
+        reviewed_encoding_profile(source) == "current" for source in inputs["sources"]
+    )
     with bind_selection(context._selection):
-        identity_source = _source(context.root, "CA-D-378", context._reader, report)
+        identity_source = _source(
+            context.root, "CA-D-378", context._reader, report, exact_pin=current_profile,
+        )
     known = {item["binding"]["atom_id"] for item in inputs["sources"]}
     if identity_source["binding"]["atom_id"] in known:
         return inputs
@@ -495,6 +532,231 @@ def _target_type_sources(
                 sources.append(source)
                 known.add(identifier)
     return sources
+
+
+def _current_containment_target(metadata: Mapping[str, Any], *, label: str) -> tuple[str, str]:
+    """Return one literal Current containment target without creating legacy aliases."""
+    relations = metadata.get("relations")
+    if not isinstance(relations, Mapping):
+        raise ProposedCarrierError(label + " relation is malformed")
+    containment = relations.get("IS_CONTAINED_BY")
+    if not isinstance(containment, Mapping):
+        raise ProposedCarrierError(label + " lacks one canonical containment relation")
+    fields = set(containment)
+    if fields not in ({"scope_unit"}, {"atom"}):
+        raise ProposedCarrierError(label + " is unresolved or ambiguous")
+    field = next(iter(fields))
+    value = containment.get(field)
+    if not isinstance(value, str) or not value:
+        raise ProposedCarrierError(label + " is unresolved or ambiguous")
+    return field, value
+
+
+def _current_containment_owner(
+    context: VerifiedSourceContext, raw_metadata: Record, *, status_index: StatusModelIndex | None = None,
+) -> str:
+    """Resolve one Current carrier's structural owner from its direct containment."""
+    from GENERATE_ENTITY_GRAPH.cfel_claim_constraints import extract_claim_constraints
+
+    selected = [
+        source for source in context.inputs["sources"]
+        if source.get("binding", {}).get("atom_id") in _CURRENT_CONTAINMENT_SOURCE_IDS
+    ]
+    sources = {source["binding"]["atom_id"]: source for source in selected}
+    if (set(sources) != set(_CURRENT_CONTAINMENT_SOURCE_IDS)
+            or len(selected) != len(_CURRENT_CONTAINMENT_SOURCE_IDS)):
+        raise ProposedCarrierError("Current containment authority is unavailable")
+
+    def records(identifier: str) -> list[Record]:
+        source = sources[identifier]
+        binding = source.get("binding")
+        text = source.get("text")
+        if not isinstance(binding, Mapping) or not isinstance(text, str):
+            raise ProposedCarrierError("Current containment authority is unavailable")
+        try:
+            body = parse_carrier(text.encode("utf-8"), Path(binding["path"])).body
+        except (CarrierError, KeyError, TypeError, UnicodeError) as error:
+            raise ProposedCarrierError("Current containment authority is unavailable") from error
+        extracted, _ = extract_claim_constraints({"source": binding, "body": body})
+        return extracted
+
+    def exactly_one(identifier: str, **expected: object) -> None:
+        matches = [
+            record for record in records(identifier)
+            if all(record.get(key) == value for key, value in expected.items())
+        ]
+        if len(matches) != 1:
+            raise ProposedCarrierError("Current containment authority is unresolved")
+
+    exactly_one(
+        "CA-R-2508",
+        kind="relation_cardinality",
+        source_selector="Atom//$atom",
+        relation="IS_CONTAINED_BY",
+        target_selector=None,
+        source_cardinality={"minimum": 1, "maximum": 1},
+        selection="named_relation",
+    )
+    exactly_one(
+        "CA-R-2523",
+        kind="classification_condition",
+        subject_selector="Scope Unit",
+        axis="Container",
+        operator="==",
+        value="yes",
+    )
+    exactly_one(
+        "CA-R-2523",
+        kind="relation_cardinality",
+        source_selector="Scope Unit//$scope_unit",
+        relation="CONTAINS",
+        target_selector="Atom//$atom",
+        source_cardinality={"minimum": 0, "maximum": None},
+    )
+    exactly_one(
+        "CA-R-2511",
+        kind="classification_condition",
+        subject_selector="Atom/(.Header.Role: Plan)",
+        axis="Container",
+        operator="==",
+        value="yes",
+    )
+    exactly_one(
+        "CA-R-2511",
+        kind="relation_cardinality",
+        source_selector="Atom/(.Header.Role: Plan)//$plan",
+        relation="CONTAINS",
+        target_selector="Atom/(.Header.Role: Plan)//$contained_plan",
+        source_cardinality={"minimum": 0, "maximum": None},
+    )
+
+    def scope_owner(identifier: str) -> str:
+        rows = context.inputs.get("structure", {}).get("scope_units", [])
+        id_matches = [
+            row for row in rows
+            if isinstance(row, Mapping) and row.get("scope_unit_id") == identifier
+        ]
+        project = context.inputs.get("_project_identity", {}).get("project", {})
+        project_name = project.get("name") if isinstance(project, Mapping) else None
+        roots = [
+            row for row in rows
+            if isinstance(row, Mapping) and row.get("scope_unit_name") == project_name
+        ]
+        if identifier == project_name and len(roots) == 1:
+            selected = {id(row) for row in (*id_matches, *roots)}
+            if len(selected) != 1:
+                raise ProposedCarrierError("Current containment Scope Unit is ambiguous")
+            return identifier
+        if len(id_matches) == 1 and isinstance(id_matches[0].get("scope_unit_name"), str):
+            return id_matches[0]["scope_unit_name"]
+        raise ProposedCarrierError("Current containment Scope Unit is unresolved")
+
+    field, target = _current_containment_target(raw_metadata, label="Current containment relation")
+    if field == "scope_unit":
+        return scope_owner(target)
+
+    if re.fullmatch(r"CA-[CAPRMEDO]-[0-9]+", target) is None:
+        raise ProposedCarrierError("Current containment Atom identity is invalid")
+    identity = raw_metadata.get("atom_id")
+    if target == identity:
+        raise ProposedCarrierError("Current containment cannot target the carrier itself")
+    from current_atom_locator import CurrentAtomLocator, CurrentAtomLocatorError
+
+    locator = CurrentAtomLocator(context.root, reader=context._reader)
+    seen = {identity} if isinstance(identity, str) else set()
+
+    if raw_metadata.get("role") != "Plan" or raw_metadata.get("form") != "Plan":
+        raise ProposedCarrierError("Current containment Atom eligibility is unresolved")
+
+    if status_index is None:
+        try:
+            status_index = capture_status_models(context.root, context._reader)
+        except StatusModelError as error:
+            raise ProposedCarrierError("Current containment Atom status is unavailable or unadmitted") from error
+
+    def resolve_atom(atom_id: str) -> str:
+        current = atom_id
+        for _ in range(64):
+            if current in seen:
+                raise ProposedCarrierError("Current containment graph is cyclic")
+            seen.add(current)
+            try:
+                path = locator.locate(current, Path(".current-containment") / f"{current}.md")
+                absolute = context.root / path
+                metadata = parse_carrier(context._reader.read(absolute), absolute).metadata
+            except (CurrentAtomLocatorError, OSError, RuntimeError, CarrierError) as error:
+                raise ProposedCarrierError("Current containment Atom is unavailable or ambiguous") from error
+            if metadata.get("role") != "Plan" or metadata.get("form") != "Plan":
+                raise ProposedCarrierError("Current containment Atom eligibility is unresolved")
+            try:
+                resolve_status_model(context.root, metadata, metadata.get("status"), _index=status_index)
+            except StatusModelError as error:
+                raise ProposedCarrierError("Current containment Atom status is unavailable or unadmitted") from error
+            field, nested = _current_containment_target(metadata, label="Current containment Atom")
+            if field == "scope_unit":
+                return scope_owner(nested)
+            if re.fullmatch(r"CA-[CAPRMEDO]-[0-9]+", nested) is None:
+                raise ProposedCarrierError("Current containment Atom identity is invalid")
+            current = nested
+        raise ProposedCarrierError("Current containment graph exceeds the supported depth")
+
+    try:
+        owner = resolve_atom(target)
+        locator.revalidate()
+        return owner
+    except CurrentAtomLocatorError as error:
+        raise ProposedCarrierError("Current containment Atom is unavailable or ambiguous") from error
+
+
+def _current_plan_parent_placement(
+    context: VerifiedSourceContext,
+    *,
+    parent_id: str,
+    child_status: object,
+    relative_path: Path,
+    plan_status_folders: Mapping[str, str],
+) -> None:
+    """Bind a nested Current Plan directory to its typed containment Atom."""
+    from current_atom_locator import CurrentAtomLocator, CurrentAtomLocatorError
+
+    if child_status in {"Draft", "Archived"}:
+        raise ProposedCarrierError(
+            "nested Current Draft or Archived Plan must use the shared Scope Unit placement"
+        )
+    try:
+        locator = CurrentAtomLocator(context.root, reader=context._reader)
+        parent_relative = Path(locator.locate(parent_id, Path(".current-plan-parent") / f"{parent_id}.md"))
+        expected_parent = _plan_container(
+            context.root / parent_relative, child_status, plan_status_folders,
+        )
+        candidate = context.root / context._selection.control_relative / relative_path
+        if candidate.parent != expected_parent:
+            raise ProposedCarrierError(
+                "nested Current Plan path does not use its typed containment Atom parent"
+            )
+        locator.revalidate()
+    except ProposedCarrierError:
+        raise
+    except (CurrentAtomLocatorError, ProposedReferenceError, OSError, RuntimeError, ValueError) as error:
+        raise ProposedCarrierError("Current Plan containment parent placement is unresolved") from error
+
+
+def _current_draft_filename(metadata: Mapping[str, Any], relative_path: Path) -> None:
+    """Bind an ordinary Current Draft filename to its canonical ID and Version."""
+    if metadata.get("status") != "Draft":
+        return
+    identity = metadata.get("atom_id")
+    version = metadata.get("version")
+    if not isinstance(identity, str) or type(version) is not int or version < 1:
+        raise ProposedCarrierError("Current Draft identity or Version is unresolved")
+    from atom_operations import CURRENT_FILENAME
+
+    if CURRENT_FILENAME.fullmatch(relative_path.name) is None:
+        raise ProposedCarrierError("Current Draft filename is malformed")
+    head = re.sub(r"^[0-9]+-", "", relative_path.stem.split("--", 1)[0])
+    expected = f"{identity}@{version}-draft"
+    if head.count("@") != 1 or (head != expected and not head.startswith(expected + "-")):
+        raise ProposedCarrierError("Current Draft filename must carry its exact canonical ID and Version marker")
 
 
 def validate_proposed_carrier(
@@ -553,11 +815,29 @@ def validate_proposed_carrier(
         domains=domains,
         unclassified_sources=False,
     )
+    current_profile = profiles == {"current"}
     relations = metadata.get("relations", {})
     if not isinstance(relations, dict):
         raise ProposedCarrierError("relations are malformed")
+    current_containment = (
+        _current_containment_target(raw_metadata, label="Current containment relation")
+        if current_profile else None
+    )
+    owner = (
+        _current_containment_owner(verified_source_context, raw_metadata, status_index=_status_index)
+        if current_profile else metadata.get("current_scope_unit")
+    )
+    if current_profile:
+        metadata = dict(metadata)
+        # The typed containment's shape and resolved owner were checked above.
+        # It remains in raw metadata; legacy adapters cannot parse this
+        # non-runtime Current encoding, while they still receive every other relation.
+        relations = {kind: targets for kind, targets in relations.items() if kind != "IS_CONTAINED_BY"}
+        metadata["relations"] = relations
     role = metadata.get("content_role")
     status = metadata.get("status")
+    if current_profile:
+        _current_draft_filename(raw_metadata, relative_path)
     plan_parts = relative_path.parts
     plan_tail = plan_parts[plan_parts.index("03_plan") + 1 : -1] if "03_plan" in plan_parts else ()
     plan_deep = (
@@ -565,13 +845,23 @@ def validate_proposed_carrier(
         and "03_plan" in plan_parts
         and len(plan_tail) > (0 if status == "Active" else 1)
     )
-    if plan_deep and not relations.get("is_decomposition_of"):
+    if plan_deep and not current_profile and not relations.get("is_decomposition_of"):
         raise ProposedCarrierError("deep Plan placement requires an admitted decomposition parent")
     plan_source = next(
         (item for item in verified_source_context.inputs["sources"] if item["binding"]["atom_id"] == "CA-D-461"),
         None,
     )
     plan_mapping = _plan_mapping(plan_source["text"]) if plan_source is not None else {}
+    if current_profile and plan_deep:
+        if current_containment is None or current_containment[0] != "atom":
+            raise ProposedCarrierError("nested Current Plan requires a typed containment Atom parent")
+        _current_plan_parent_placement(
+            verified_source_context,
+            parent_id=current_containment[1],
+            child_status=status,
+            relative_path=relative_path,
+            plan_status_folders=plan_mapping,
+        )
     source = next((row for row in verified_source_context.inputs["sources"] if row["binding"]["atom_id"] == "CA-D-324"), None)
     if source is None or not isinstance(role, str):
         raise ProposedCarrierError("role-directory authority is unavailable")
@@ -696,7 +986,6 @@ def validate_proposed_carrier(
     expected_role_directory = mapping.get(role)
     if expected_role_directory is None or expected_role_directory not in relative_path.parts[:-1]:
         raise ProposedCarrierError("carrier path disagrees with its carried content role")
-    owner = metadata.get("current_scope_unit")
     rows = verified_source_context.inputs.get("structure", {}).get("scope_units", [])
     row = next((item for item in rows if item.get("scope_unit_name") == owner), None)
     project_relative_path = control / relative_path

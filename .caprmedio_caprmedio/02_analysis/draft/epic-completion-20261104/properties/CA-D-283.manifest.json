@@ -1,0 +1,10 @@
+{
+  "atom_id": "CA-D-283",
+  "current_version": 33,
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md",
+  "source_sha256": "072b84f3f969200fbf321313aeb0c0a2841b58435a87518cc616bccdd606fd50",
+  "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-D-283.preview.txt",
+  "preview_sha256": "800097f61b23a5ea00d49c0c87dc2bd21927d39fec2bdb0f9e294f40ad104a9a",
+  "change_count": 1,
+  "change_summary": "remove the stale Operator-owned Project Goal carve-out without asserting external placement; retain generic Project-owned grammar and independent external rules where applicable"
+}

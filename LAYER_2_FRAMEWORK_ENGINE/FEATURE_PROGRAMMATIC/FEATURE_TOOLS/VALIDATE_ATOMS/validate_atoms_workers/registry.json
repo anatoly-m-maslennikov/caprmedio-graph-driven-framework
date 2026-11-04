@@ -313,6 +313,27 @@
         "model.domains",
         "tier.resolution"
       ]
+    },
+    "CA-R-2508": {
+      "version": 6,
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "required": false,
+      "obligations": []
+    },
+    "CA-R-2523": {
+      "version": 3,
+      "sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "required": false,
+      "obligations": []
+    },
+    "CA-R-2511": {
+      "version": 3,
+      "sha256": "741bdb16b86ded6ef4c2034e96267b70ed3bd449f1ab116849ed4c92c651f3e2",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "required": false,
+      "obligations": []
     }
   }
 }

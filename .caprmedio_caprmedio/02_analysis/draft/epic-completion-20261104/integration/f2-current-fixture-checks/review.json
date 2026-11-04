@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "review_scope": "Frozen Current identity and owner candidate; source and code review only.",
+  "sha256": {
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py": "9a0fbf1b8f4c6fe92daae86a1a78f55c46e6464b9e3ce1ed8cfea7687d2bb6b0",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/check_fields.py": "4e5329c133ab19ecc959cc567943b704c5adb20af0b3808ebae716963336bfa4",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/support_authority.py": "dd3eb1b45dd3fa01197693cc018b765d0f60938297d5a0fb16e05deb315ee3e0",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/registry.json": "9d7aa721b54861ac19c2f206f069135492dcdfb485bcde5777b6f2881feb891d",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/schema_authority.json": "4990a185e15c9d8646a47cd86bc54570c3c41f806ae3a03439607363f5e3d316",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_draft_identity_markers.py": "6879d7fd32236484f064c2412238900607522816f16c243776ec010495438cd4",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py": "4515120ce3809629a0b698d3545e13a78e2242d39dab2a797c9bca9db1a14a88"
+  },
+  "evidence": [
+    "D378 Current exact version and digest checked locally; Current Draft Header requires canonical role-bound ID, numeric positive Version and matching qualified filename.",
+    "D657 Subjects-only marker remains separate; missing, mixed or unreviewed encoding profile does not fall through to legacy. Historical D276 selects its pinned D378 revision explicitly.",
+    "Current containment declarations are exact-pinned; direct Scope Unit or supported Plan chain resolves owner, rejects unresolved or cyclic links, and nested Plan placement binds to its physical parent. Draft and Archived Plans use flat placement.",
+    "Assigned Current parent/reference identity matches each declared Role letter; the regression exercises all eight roles and mismatches."
+  ],
+  "limits": [
+    "Draft allocation and version assignment are Workflow responsibilities, not guaranteed by this validator.",
+    "Unsupported Atom parent kinds and chains beyond the bounded depth fail closed; this is not full graph conformance.",
+    "Non-CA project prefixes are exercised at Draft field-validation level only; Current parent locator has narrower support.",
+    "Final integrated test gate pending; this review does not claim it passed."
+  ]
+}

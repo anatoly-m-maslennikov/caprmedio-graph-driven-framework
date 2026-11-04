@@ -5,8 +5,8 @@ current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: 2026-10-27 20:00:04 +0400
+version: 10
+updated_at: 2026-11-03 23:17:14 +0400
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   depends_on:
@@ -43,7 +43,7 @@ Terminal recording follows the actual effects. A construction result or confirme
 
 Source correction, vocabulary admission, Relation-kind admission, scope declaration, retry, or regeneration is not authorized by an incomplete or failed build. A separately admitted retry retains the prior effects and recording state rather than erasing them.
 
-Projection consumers, including GRAPH_SERVER and optional UI, are read-only consumers of derived output. No builder, consumer, or output may modify source authority to make a graph pass, use a Projection to establish missing source completeness, or silently substitute current files for the admitted frontier.
+Projection consumers, including WORKBENCH and optional UI, are read-only consumers of derived output. No builder, consumer, or output may modify source authority to make a graph pass, use a Projection to establish missing source completeness, or silently substitute current files for the admitted frontier.
 
 ### Sources
 

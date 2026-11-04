@@ -42,9 +42,11 @@ class SubjectReplaceSetIndependentTests(unittest.TestCase):
     def source(self, *, newline=b"\n", block=False):
         original = self.fixture.source()
         if block:
+            self.assertEqual(original.count(
+                b'  passive: [Atom, "Atom/Revision"] # preserve dependency comment'), 1)
             original = original.replace(
-                b'  depends_on: [Atom, "Atom/Revision"] # preserve dependency comment',
-                b'  # preserve dependency comment\n  depends_on:\n    - Atom\n    - "Atom/Revision"')
+                b'  passive: [Atom, "Atom/Revision"] # preserve dependency comment',
+                b'  # preserve dependency comment\n  passive:\n    - Atom\n    - "Atom/Revision"')
         original = original.replace(b"\n", newline)
         self.path.write_bytes(original)
         return original
@@ -72,8 +74,8 @@ class SubjectReplaceSetIndependentTests(unittest.TestCase):
                            .replace(b'updated_at: "2026-01-01 00:00:00 +0000"',
                                     f'updated_at: "{timestamp}"'.encode(), 1))
         self.assertEqual(expected_prefix, proposed.split(b"subjects:" + newline, 1)[0])
-        self.assertEqual(original.split(b"relations: {}" + newline, 1)[1],
-                         proposed.split(b"relations: {}" + newline, 1)[1])
+        self.assertEqual(original.split(b"relations:" + newline, 1)[1],
+                         proposed.split(b"relations:" + newline, 1)[1])
         self.assertEqual(1, proposed.count(b"# preserve dependency comment"))
         self.assertIn(b"# preserve metadata order" + newline, proposed)
         if newline == b"\r\n":
@@ -89,8 +91,8 @@ class SubjectReplaceSetIndependentTests(unittest.TestCase):
                         atom = self.preview([patch], profile=profile)["atoms"][0]
                         proposed = atom["proposed_carrier"].encode()
                         metadata = operations.parse_carrier(proposed, self.path).metadata
-                        self.assertEqual(patch["new"], metadata["subjects"]["depends_on"])
-                        self.assertEqual("Atom/Test", metadata["subjects"]["governs"])
+                        self.assertEqual(patch["new"], metadata["subjects"]["passive"])
+                        self.assertEqual("Atom/Test", metadata["subjects"]["active"])
                         self.assertEqual(2, atom["after_version"])
                         self.assertFalse(atom["noop"])
                         self.assertEqual([patch], atom["subject_intent"]["subject_patches"])
@@ -119,7 +121,7 @@ class SubjectReplaceSetIndependentTests(unittest.TestCase):
         atom = self.preview(patches)["atoms"][0]
         proposed = atom["proposed_carrier"].encode()
         subjects = operations.parse_carrier(proposed, self.path).metadata["subjects"]
-        self.assertEqual({"governs": "Atom.State", "depends_on": []}, subjects)
+        self.assertEqual({"active": "Atom.State", "passive": []}, subjects)
         self.assertEqual(patches, atom["subject_intent"]["subject_patches"])
         self.assert_preserved(original, proposed)
 

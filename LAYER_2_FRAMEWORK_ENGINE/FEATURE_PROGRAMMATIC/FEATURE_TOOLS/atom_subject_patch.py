@@ -595,6 +595,11 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
         _fail(operations, "subject-shape-invalid", "Subject patch source frontmatter must be one mapping")
     subjects = _subjects_node(operations, document)
     governs_node, dependencies = _subject_scalars(operations, subjects)
+    entries = _mapping_entries(operations, subjects, "subjects")
+    mirror_governs = entries.get("governs") if "active" in entries else None
+    mirror_dependencies = entries.get("depends_on") if "passive" in entries else None
+    mirror_values = [node.value for node in mirror_dependencies.value] if isinstance(mirror_dependencies, SequenceNode) else []
+    mirror_occurrences: set[tuple[str, int | None]] = set()
     _validate_subject_values(
         operations,
         [governs_node.value, *(node.value for node in dependencies)],
@@ -636,6 +641,16 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
                 occurrences,
                 resulting_dependencies,
             )
+        if isinstance(patch, Mapping) and ((patch.get("field") == "governs" and mirror_governs is not None)
+                                         or (patch.get("field") == "depends_on" and mirror_dependencies is not None)):
+            if patch.get("operation") == "replace_set":
+                _, mirror = _plan_dependency_set(operations, patch, subjects, frontmatter, mirror_values, key="depends_on")
+            else:
+                _, mirror = _plan_patch(operations, patch, patch_ordinal, mirror_governs or governs_node,
+                                        mirror_dependencies.value if isinstance(mirror_dependencies, SequenceNode) else dependencies,
+                                        mirror_occurrences, mirror_values)
+            if mirror is not None:
+                subject_replacements.append(mirror)
         records.append(record)
         if record["field"] == "governs":
             resulting_governs = record["new"]
@@ -826,11 +841,15 @@ def _subjects_node(operations: Any, document: MappingNode) -> MappingNode:
 
 def _subject_scalars(operations: Any, subjects: MappingNode) -> tuple[ScalarNode, list[ScalarNode]]:
     entries = _mapping_entries(operations, subjects, "subjects")
-    governs = entries.get("governs")
+    try:
+        carrier_read_view({"subjects": yaml.safe_load(yaml.serialize(subjects))})
+    except (ValueError, yaml.YAMLError) as error:
+        raise operations.ToolError("subject-shape-invalid", "Conflicting or invalid Subject aliases") from error
+    governs = entries.get("active", entries.get("governs"))
     if not isinstance(governs, ScalarNode):
         _fail(operations, "subject-shape-invalid", "subjects.governs must be one direct scalar")
     _valid_scalar_node(operations, governs, "subjects.governs")
-    dependencies_node = entries.get("depends_on")
+    dependencies_node = entries.get("passive", entries.get("depends_on"))
     if dependencies_node is None:
         return governs, []
     if not isinstance(dependencies_node, SequenceNode):
@@ -893,7 +912,7 @@ def _snapshot_identity(
 
 
 def _plan_dependency_set(operations: Any, patch: Mapping[str, Any], subjects: MappingNode,
-                         frontmatter: str, resulting_dependencies: list[str]) -> tuple[dict[str, Any], _Replacement | None]:
+                         frontmatter: str, resulting_dependencies: list[str], *, key: str | None = None) -> tuple[dict[str, Any], _Replacement | None]:
     if set(patch) != {"field", "operation", "old", "new"} or patch["field"] != "depends_on":
         _fail(operations, "subject-patch-invalid", "replace_set has exactly depends_on field, operation, old, and new")
     for name in ("old", "new"):
@@ -904,7 +923,8 @@ def _plan_dependency_set(operations: Any, patch: Mapping[str, Any], subjects: Ma
             _valid_patch_value(operations, value, name)
         if len(set(values)) != len(values):
             _fail(operations, "subject-dependency-duplicate", "Complete dependency sets must contain unique values")
-    node = _mapping_entries(operations, subjects, "subjects").get("depends_on")
+    entries = _mapping_entries(operations, subjects, "subjects")
+    node = entries.get(key or ("passive" if "passive" in entries else "depends_on"))
     if not isinstance(node, SequenceNode):
         _fail(operations, "subject-shape-invalid", "Complete dependency replacement requires an existing list")
     if set(patch["old"]) != set(resulting_dependencies):

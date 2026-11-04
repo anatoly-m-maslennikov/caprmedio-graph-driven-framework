@@ -1,0 +1,113 @@
+{
+  "status": "REVIEW_ONLY_PLACEHOLDER_NOT_PUBLISHABLE",
+  "candidates": [
+    {
+      "id": "CA-M-271",
+      "kind": "revision",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md",
+      "source_sha256": "c3fee4fb0f4f733a805b5122b2e38da7af8c8eb39ac5208912b1e00f05663c1a",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/plan-specific-previews/atomic-consumers/CA-M-271.txt",
+      "candidate_sha256": "dcb891755b77df0e21dfaf70c116b0ef6a7345b31ee135a0640dd390001924bb",
+      "base_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/plan-specific-previews/CA-M-271.txt",
+      "base_sha256": "6effbee74bd9c96b1e43ab44d288d49367bfb879c84464f75cf053d19044526b"
+    },
+    {
+      "id": "CA-R-1428",
+      "kind": "revision",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL--permit-confidence-threshold-defaults-and-overrides.md",
+      "source_sha256": "4fd0a513d98f08920fbcfde8aacf54f9ecbc7f92fab2d2861d54471e0d566980",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/plan-specific-previews/atomic-consumers/CA-R-1428.txt",
+      "candidate_sha256": "b7f0f3b790ffe6d9c82ad851f1bcfd3673697931e53d05200975790d661b4a1b",
+      "base_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/plan-specific-previews/CA-R-1428.txt",
+      "base_sha256": "c7d739e53aecb64241e33a7c6b9726379a9823ecb746d17beb9d3f374beb637c"
+    },
+    {
+      "id": "CA-E-241",
+      "kind": "revision",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md",
+      "source_sha256": "0f2673ddf610763e72e15de7d45bee76392d9d173d504e6246f03697f108f487",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/plan-specific-previews/atomic-consumers/CA-E-241.txt",
+      "candidate_sha256": "107b080ec5887f96457807d368dd4e25ef5039ceaef4e4697e953f26ea582558",
+      "base_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/plan-specific-previews/CA-E-241.txt",
+      "base_sha256": "9d2283e0f8d2b7cc6806a56736a4e19de3ee2601ce6ba7e2c5f9201398441eea"
+    },
+    {
+      "id": "CA-R-1587",
+      "kind": "revision",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-RULE--require-an-effective-confidence-threshold-for-plan-execution.md",
+      "source_sha256": "d0dcffc6432058f1fbd40d9403c4a621b233040827206a85907a057daa0f5cbc",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/plan-specific-previews/atomic-consumers/CA-R-1587.txt",
+      "candidate_sha256": "6b6186470b79e305e2d858e4afbdf34286b20bf0509fd647a28e8c14c87c9744"
+    },
+    {
+      "id": "CA-D-ALLOCATE",
+      "kind": "unallocated successor of CA-D-472",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "source_sha256": "161c952b42de6a0f6a2fc560bbb14addd2c0aed16f2f7d7bcb8e66720ad92e3d",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/plan-specific-previews/atomic-consumers/CA-D-ALLOCATE.txt",
+      "candidate_sha256": "415e88b8b000d541dde765a00751eb0a9b8d4fec679751414cfe454638a98cd2",
+      "new_identity_metadata": "New-ID successor: version 1, promotion-time timestamp placeholder, canonical IS_CONTAINED_BY CA-SU-11, no legacy scope fields. Not valid Current until ID/timestamp allocated and carrier admission passes."
+    },
+    {
+      "id": "CA-E-443",
+      "kind": "revision",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-EVAL_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+      "source_sha256": "8242efa9ffd4494184d19f7bd667b20537b363c4ca69336cd8f3be3e8c59a1dd",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/plan-specific-previews/atomic-consumers/CA-E-443.txt",
+      "candidate_sha256": "3d57d2b584df74eb11d38af668b3ea6b256125c21cffd3e4dc2c76d38b427e45"
+    },
+    {
+      "id": "CA-E-502",
+      "kind": "revision",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-EVAL_CASE--validate-plan-carrier-identity-and-placement.md",
+      "source_sha256": "301ab49972531f92c79c6aeffa6cc8399d12879b0d19d87ece84dddd0a275d5a",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/plan-specific-previews/atomic-consumers/CA-E-502.txt",
+      "candidate_sha256": "1c8ce7b2e859ad5d712f4f563474d01cc5780e15b3a0112cf7d707f954335302"
+    }
+  ],
+  "authority": [
+    {
+      "id": "CA-R-2711",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "sha256": "af3db8d7f4041a599002215975f96b3101e0f9383224b80eede75e93ffd24949"
+    },
+    {
+      "id": "CA-R-2564",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "sha256": "0eacaf33e1a417d4f3a965c3d81829df8f29b21cdb813f7cd2889433651bcedc"
+    },
+    {
+      "id": "CA-D-657",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f"
+    },
+    {
+      "id": "CA-R-2635",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2635-CORE_META_MODEL-DECLARATION--declare-project-settings-implementation-retry-limit.md",
+      "sha256": "d0eae12b9d3813e8dc65b40a46e5cf689d6db0d693b8890079833f8cd35e1e7b"
+    },
+    {
+      "id": "CA-R-2532",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+    },
+    {
+      "id": "CA-D-485",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-ENG_DECISION--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+      "sha256": "197b21393908781c448ff0713e38045e11fb244fe26511503989ad6db3073b6e"
+    },
+    {
+      "id": "CA-R-2650",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md",
+      "sha256": "d3de95bc060121e55c2f0a96928e759d5db4ab49433298fd1e07dcee5299e934"
+    }
+  ],
+  "placeholder": "CA-D-ALLOCATE is an unallocated successor to CA-D-472. Allocate only after approval; substitute in successor and E443/E502 references atomically; preserve all frozen versioned references and predecessor archive.",
+  "not_included": [
+    "CA-M-306: Author, Assignee and target uncertainties remain held",
+    "Per-Plan Retry Limit retirement and Workflow ownership remain a separate packet",
+    "Project.Settings retry limit CA-R-2635 and CA-R-2532 retained",
+    "No runtime, physical settings carrier, ID allocation or Current change"
+  ],
+  "caveat": "Generic confidence keeps applicable existing source order, without inventing additional Plan threshold Properties or equating AI Agent and CCE thresholds. Independent review required for applicable-source meaning."
+}

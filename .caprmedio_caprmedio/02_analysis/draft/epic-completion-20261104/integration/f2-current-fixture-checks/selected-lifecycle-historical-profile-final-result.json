@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "tests": 50,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 123.493,
+  "working_directory": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework",
+  "command": "PYTHONPATH=LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests .venv/bin/python -m unittest test_selected_atom_lifecycle -q",
+  "log": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/f2-current-fixture-checks/selected-lifecycle-historical-profile-final.log",
+  "log_sha256": "1f4981a6da67730275f923d7a656c7a53836d4acff10db1fc761f3593130aaf1",
+  "test_source": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py",
+  "test_source_sha256": "0a3f641dec67f25c9db0c3c441d3fe2856310a33eb936daf03665f0085b2949a",
+  "scope": "Disposable fixture only. D276 explicit historical Goal recovery and Current rejection. Does not establish live R1766 authority or full project suite."
+}

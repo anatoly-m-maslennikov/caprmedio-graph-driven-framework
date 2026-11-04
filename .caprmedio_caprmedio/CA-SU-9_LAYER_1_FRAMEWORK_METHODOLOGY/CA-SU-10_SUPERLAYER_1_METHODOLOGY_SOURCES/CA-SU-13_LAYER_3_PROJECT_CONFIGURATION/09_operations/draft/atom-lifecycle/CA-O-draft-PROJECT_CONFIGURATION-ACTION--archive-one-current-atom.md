@@ -19,14 +19,12 @@ Archive one Current Atom
 
 ## Claim scope
 
-This Action operates on one exact selected non-container Atom under its applicable model. It does not select a container, semantic containment, descendants, or an inferred historical replacement.
+This Action operates on one exact selected non-container Current Atom. Archived inputs, containers, descendants, inferred replacements, and overwrites are invalid.
 
 ## Claim
 
-The Archive one Current Atom Action **means** the following reusable archive behavior:
+**Preconditions:** Resolve the exact Current source and validate required fields, applicable model/status for `Archived`, currentness, placement, permissions, collision, and no-overwrite. An optional known `targetID` is business-observation context only and does not change the archive target or assert publication. Wrong input returns an explicit error before writing.
 
-- resolve the exact selected version and validate its admitted fields, placement and non-container boundary; an explicitly selected Archived version may return the no-op result below. An effect requires a Current source whose qualified Role/Form model admits Archived. Reject other statuses, ambiguity, missing or invalid artifacts, and any write that would overwrite another target with attributable diagnostics;
-- for Current version N, materialize the same canonical identity at ID@N with status Archived, preserving Version N, Updated At, the content body and unrelated metadata exactly. Use the applicable Status Delivery mapping; without a more-specific mapping, place it at the owning role's `archive/<canonical-ID>@<version>[-<remaining-filename-components>].md`;
-- create no new Version N+1 and do not alter inbound references, delete the Atom, promote a Draft, or cascade to descendants;
-- when the explicitly selected version is already Archived, return a truthful `already_archived` no-op and never reactivate it;
-- return the actual `archived`, `already_archived`, or diagnostic result, preserve completed results on partial work, and perform no automatic retry or rollback. Journal only the actual business event rather than using it as a permission, completeness, or success gate.
+**Intended effect:** For Current version N, write `ID@N` with status `Archived`, preserving Version, Updated At, content, and unrelated metadata, and synchronize the required filename/location.
+
+**Returned evidence:** Save/read back the Archived carrier and location before returning `archived`; include `targetID` only as business observation. Return explicit error or partial results with actual completed outputs on failure. Create no successor/N+1, promotion, reference retarget, deletion/reactivation, or descendant cascade. Do not retry, replay, repair, or perform a rollback. Journal append is independent and nonblocking.

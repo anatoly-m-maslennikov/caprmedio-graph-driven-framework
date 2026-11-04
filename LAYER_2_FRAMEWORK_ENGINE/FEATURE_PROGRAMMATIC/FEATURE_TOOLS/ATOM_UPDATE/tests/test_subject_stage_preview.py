@@ -67,12 +67,12 @@ class SubjectStagePreviewTests(unittest.TestCase):
         if noop:
             return original
         # Independent literal ledger: never use the producer's spans/proposal.
-        old_subject = b'  governs: "Atom/Status"'
+        old_subject = b'  active: "Atom/Status"'
         old_time = b'updated_at: "2026-01-01 00:00:00 +0000"'
         self.assertEqual(1, original.count(old_subject))
         self.assertEqual(1, original.count(old_time))
         newline = b"\r\n" if b"\r\n" in original else b"\n"
-        return (original.replace(old_subject, f'  governs: "{new}"'.encode())
+        return (original.replace(old_subject, f'  active: "{new}"'.encode())
                 .replace(b"version: 7" + newline, b"version: 8" + newline)
                 .replace(old_time, f'updated_at: "{ILLUSTRATIVE_TIME}"'.encode()))
 

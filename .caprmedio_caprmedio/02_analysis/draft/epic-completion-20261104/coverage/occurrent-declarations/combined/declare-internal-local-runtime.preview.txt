@@ -1,0 +1,30 @@
+---
+atom_id: "<UNALLOCATED-internal-local-runtime>"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Internal Local Runtime
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare Internal Local Runtime
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Internal Local Runtime ((NARROWER_THAN)) Runtime
+```
+
+## Semantics
+
+An Internal Local Runtime is a Runtime of our application on the Operator’s machine.

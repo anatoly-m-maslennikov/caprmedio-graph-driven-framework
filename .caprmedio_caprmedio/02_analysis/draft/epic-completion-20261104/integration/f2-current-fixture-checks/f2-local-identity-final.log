@@ -1,0 +1,353 @@
+Test scope: focused; selected modules: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_draft_identity_markers.py, LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py, LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_subject_batch_drafts.py, LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py
+Test module START: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_draft_identity_markers.py
+Test module START: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py
+Test module START: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_subject_batch_drafts.pyTest module FINISH: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_draft_identity_markers.py
+CAPRMEDIO_TEST_COUNTS {"tests": 7, "skipped": 0}
+test_current_draft_requires_a_canonical_header_id (test_draft_identity_markers.DraftIdentityMarkerTest.test_current_draft_requires_a_canonical_header_id) ... ok
+test_current_draft_requires_the_reviewed_d378_pin (test_draft_identity_markers.DraftIdentityMarkerTest.test_current_draft_requires_the_reviewed_d378_pin) ... ok
+test_draft_identity_rejects_missing_mixed_or_unreviewed_encoding_profiles (test_draft_identity_markers.DraftIdentityMarkerTest.test_draft_identity_rejects_missing_mixed_or_unreviewed_encoding_profiles) ... ok
+test_draft_marker_must_match_project_role_and_marker_grammar (test_draft_identity_markers.DraftIdentityMarkerTest.test_draft_marker_must_match_project_role_and_marker_grammar) ... ok
+test_id_free_and_all_admitted_draft_markers_pass (test_draft_identity_markers.DraftIdentityMarkerTest.test_id_free_and_all_admitted_draft_markers_pass) ... ok
+test_markers_are_draft_only_but_canonical_non_draft_identity_remains_admitted (test_draft_identity_markers.DraftIdentityMarkerTest.test_markers_are_draft_only_but_canonical_non_draft_identity_remains_admitted) ... ok
+test_qualified_marker_must_match_carried_version (test_draft_identity_markers.DraftIdentityMarkerTest.test_qualified_marker_must_match_carried_version) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.031s
+
+OK
+Module time: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_draft_identity_markers.py: 0.220s
+
+Test module START: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py
+Test module FINISH: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_subject_batch_drafts.py
+CAPRMEDIO_TEST_COUNTS {"tests": 13, "skipped": 0}
+test_changed_edit_draft_is_rejected_before_any_publication (test_subject_batch_drafts.SubjectBatchDraftTests.test_changed_edit_draft_is_rejected_before_any_publication) ... {"timestamp":"2026-11-04T10:02:05.554Z","severity":"WARNING","event":"operation_failure","component":"WORKFLOW_ORCHESTRATOR","environment":"host","version":"0.4.4.11","operation":"run_selected_operation","outcome":"failed","code":"internal_failure","relative_path":"","reason":"Operation failed: internal_failure (ConnectorBindingError)","project_prefix":"CA","correlation_id":"tampered-subject-edit-draft","exception_class":"ConnectorBindingError"}
+ok
+test_id_free_draft_version_must_match_materialized_candidate (test_subject_batch_drafts.SubjectBatchDraftTests.test_id_free_draft_version_must_match_materialized_candidate) ... ok
+test_id_free_reviewed_draft_rejects_wrong_filename_and_tampering (test_subject_batch_drafts.SubjectBatchDraftTests.test_id_free_reviewed_draft_rejects_wrong_filename_and_tampering) ... ok
+test_id_free_reviewed_draft_roundtrip_preserves_candidate_and_archive (test_subject_batch_drafts.SubjectBatchDraftTests.test_id_free_reviewed_draft_roundtrip_preserves_candidate_and_archive) ... ok
+test_legacy_draft_marker_remains_accepted (test_subject_batch_drafts.SubjectBatchDraftTests.test_legacy_draft_marker_remains_accepted) ... ok
+test_legacy_draft_version_must_match_materialized_candidate (test_subject_batch_drafts.SubjectBatchDraftTests.test_legacy_draft_version_must_match_materialized_candidate) ... ok
+test_noop_draft_promotion_keeps_original_bytes_version_and_time (test_subject_batch_drafts.SubjectBatchDraftTests.test_noop_draft_promotion_keeps_original_bytes_version_and_time) ... ok
+test_promotion_restores_canonical_identity_and_done_status_with_exact_history (test_subject_batch_drafts.SubjectBatchDraftTests.test_promotion_restores_canonical_identity_and_done_status_with_exact_history) ... ok
+test_repinning_a_body_change_cannot_expand_the_subjects_only_patch (test_subject_batch_drafts.SubjectBatchDraftTests.test_repinning_a_body_change_cannot_expand_the_subjects_only_patch) ... ok
+test_staging_is_bounded_resumable_and_keeps_canonical_sources_untouched (test_subject_batch_drafts.SubjectBatchDraftTests.test_staging_is_bounded_resumable_and_keeps_canonical_sources_untouched) ... ok
+test_unadmitted_legacy_transition_refuses_before_staging_or_publication (test_subject_batch_drafts.SubjectBatchDraftTests.test_unadmitted_legacy_transition_refuses_before_staging_or_publication) ... ok
+test_versioned_draft_marker_must_match_candidate_version (test_subject_batch_drafts.SubjectBatchDraftTests.test_versioned_draft_marker_must_match_candidate_version) ... ok
+test_versioned_draft_marker_must_match_carried_yaml_version (test_subject_batch_drafts.SubjectBatchDraftTests.test_versioned_draft_marker_must_match_carried_yaml_version) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 61.455s
+
+OK
+Module time: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_subject_batch_drafts.py: 61.768s
+Test module FINISH: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py
+CAPRMEDIO_TEST_COUNTS {"tests": 28, "skipped": 0}
+test_absent_or_invalid_release_layout_grants_no_copy_exemption (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_absent_or_invalid_release_layout_grants_no_copy_exemption) ... ok
+test_archived_and_draft_sources_are_ineligible (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_archived_and_draft_sources_are_ineligible) ... ok
+test_archived_historical_revision_does_not_duplicate_the_original (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_archived_historical_revision_does_not_duplicate_the_original) ... ok
+test_bad_placement_and_role_status_are_rejected_by_complete_validation (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_bad_placement_and_role_status_are_rejected_by_complete_validation) ... ok
+test_by_value_dependency_replacements_bind_original_nodes_and_replay (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_by_value_dependency_replacements_bind_original_nodes_and_replay) ... ok
+test_current_assigned_identity_binds_every_admitted_role_letter (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_current_assigned_identity_binds_every_admitted_role_letter) ... ok
+test_current_containment_rejects_nonflat_draft_and_archive (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_current_containment_rejects_nonflat_draft_and_archive) ... ok
+test_current_containment_sources_require_reviewed_exact_pins (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_current_containment_sources_require_reviewed_exact_pins) ... ok
+test_current_direct_and_nested_plan_containment_pass_complete_admission (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_current_direct_and_nested_plan_containment_pass_complete_admission) ... ok
+test_current_draft_requires_canonical_id_and_versioned_filename (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_current_draft_requires_canonical_id_and_versioned_filename) ... ok
+test_current_nested_plan_containment_must_match_physical_parent (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_current_nested_plan_containment_must_match_physical_parent) ... ok
+test_declared_installed_source_copy_does_not_compete_with_original (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_declared_installed_source_copy_does_not_compete_with_original) ... ok
+test_default_lookup_still_filters_nonactive_plan_statuses (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_default_lookup_still_filters_nonactive_plan_statuses) ... ok
+test_duplicate_inserted_after_materialization_blocks_changed_and_noop_previews (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_duplicate_inserted_after_materialization_blocks_changed_and_noop_previews) ... ok
+test_duplicate_original_elsewhere_rejects_singleton_changed_and_noop_previews (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_duplicate_original_elsewhere_rejects_singleton_changed_and_noop_previews) ... ok
+test_each_stale_pin_is_rejected_without_mutation (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_each_stale_pin_is_rejected_without_mutation) ... ok
+test_existing_identityless_member_gaining_selected_id_during_final_read_blocks_preview (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_existing_identityless_member_gaining_selected_id_during_final_read_blocks_preview) ... ok
+test_identity_membership_change_during_real_read_blocks_changed_and_noop_previews (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_identity_membership_change_during_real_read_blocks_changed_and_noop_previews) ... ok
+test_installed_copy_read_remains_fingerprinted_and_currentness_checked (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_installed_copy_read_remains_fingerprinted_and_currentness_checked) ... ok
+test_installed_root_outside_declared_source_copy_collection_still_competes (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_installed_root_outside_declared_source_copy_collection_still_competes) ... ok
+test_installed_source_copy_cannot_be_selected_as_an_original (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_installed_source_copy_cannot_be_selected_as_an_original) ... ok
+test_installed_source_copy_file_and_collection_symlinks_are_not_exempt (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_installed_source_copy_file_and_collection_symlinks_are_not_exempt) ... ok
+test_layout_change_after_materialization_blocks_preview_and_intent_materialization (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_layout_change_after_materialization_blocks_preview_and_intent_materialization) ... ok
+test_malformed_competitor_claims_by_filename_or_frontmatter_block_preview (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_malformed_competitor_claims_by_filename_or_frontmatter_block_preview) ... ok
+test_nonarchived_plan_noop_keeps_the_full_carrier_and_version (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_nonarchived_plan_noop_keeps_the_full_carrier_and_version) ... ok
+test_nonarchived_plan_preview_preserves_status_and_all_unrelated_bytes (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_nonarchived_plan_preview_preserves_status_and_all_unrelated_bytes) ... ok
+test_original_role_directory_symlink_blocks_identity_inventory (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_original_role_directory_symlink_blocks_identity_inventory) ... ok
+test_real_complete_validator_accepts_the_status_fixtures (test_nonarchived_subject_preview.NonarchivedSubjectPreviewTests.test_real_complete_validator_accepts_the_status_fixtures) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 196.635s
+
+OK
+Module time: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py: 196.875s
+Test module FINISH: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py
+CAPRMEDIO_TEST_COUNTS {"tests": 49, "skipped": 0}
+test_admitted_equivalent_refinement_increments_and_preserves_exact_prior (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_admitted_equivalent_refinement_increments_and_preserves_exact_prior) ... ok
+test_approved_legacy_identity_encoding_preserves_exact_history_and_explicit_mapping (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_approved_legacy_identity_encoding_preserves_exact_history_and_explicit_mapping) ... ERROR
+test_authorized_create_uses_a_complete_carrier_and_rejects_occupied_destination (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_authorized_create_uses_a_complete_carrier_and_rejects_occupied_destination) ... ok
+test_changed_summary_is_a_terminal_non_effect_replace_handoff (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_changed_summary_is_a_terminal_non_effect_replace_handoff) ... ok
+test_concern_summary_change_hands_off_without_writing (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_concern_summary_change_hands_off_without_writing) ... ok
+test_concern_summary_source_refuses_ambiguous_and_proposal_requires_canonical_heading (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_concern_summary_source_refuses_ambiguous_and_proposal_requires_canonical_heading) ... ok
+test_current_containment_admits_only_proven_direct_scope_and_plan_chain (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_current_containment_admits_only_proven_direct_scope_and_plan_chain) ... ok
+test_exact_legacy_identity_encoding_has_sealed_carrier_only_evidence (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_exact_legacy_identity_encoding_has_sealed_carrier_only_evidence) ... ok
+test_explicit_historical_migration_is_preview_only_until_authorized_and_preserves_bytes (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_explicit_historical_migration_is_preview_only_until_authorized_and_preserves_bytes) ... ok
+test_explicit_legacy_mapping_rejects_duplicate_current_claim (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_explicit_legacy_mapping_rejects_duplicate_current_claim) ... ok
+test_explicit_legacy_requirement_header_maps_with_exact_history_and_ignores_noncurrent_copies (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_explicit_legacy_requirement_header_maps_with_exact_history_and_ignores_noncurrent_copies) ... ok
+test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history) ... 
+  test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history) (atom_id='CA-R-710', legacy=False) ... ERROR
+  test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history) (atom_id='CA-R-711', legacy=True) ... ERROR
+test_goal_type_recovery_refuses_non_carrier_deltas (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_goal_type_recovery_refuses_non_carrier_deltas) ... ok
+test_historical_migration_accepts_current_summary_layout_without_metadata (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_historical_migration_accepts_current_summary_layout_without_metadata) ... ok
+test_historical_migration_cannot_promote_a_draft (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_historical_migration_cannot_promote_a_draft) ... ok
+test_historical_migration_consumes_bound_semantic_assessment_evidence (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_historical_migration_consumes_bound_semantic_assessment_evidence) ... ok
+test_historical_migration_does_not_choose_between_duplicate_owners (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_historical_migration_does_not_choose_between_duplicate_owners) ... ok
+test_historical_migration_rejects_forged_stale_or_nonhistorical_identity (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_historical_migration_rejects_forged_stale_or_nonhistorical_identity) ... ok
+test_identified_concern_canonicalization_applies_with_exact_history_and_version (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_identified_concern_canonicalization_applies_with_exact_history_and_version) ... ok
+test_identified_concern_legacy_summary_is_fence_aware_and_exact (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_identified_concern_legacy_summary_is_fence_aware_and_exact) ... ok
+test_identified_nonactive_current_carrier_retains_exact_history (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_identified_nonactive_current_carrier_retains_exact_history) ... ERROR
+test_identity_encoding_migration_rolls_back_when_source_removal_fails (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_identity_encoding_migration_rolls_back_when_source_removal_fails) ... ERROR
+test_identity_mapping_cannot_renumber_a_current_ca_identity (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_identity_mapping_cannot_renumber_a_current_ca_identity) ... ok
+test_identity_mapping_rejects_missing_proof_scope_change_summary_change_and_reserved_ids (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_identity_mapping_rejects_missing_proof_scope_change_summary_change_and_reserved_ids) ... ok
+test_legacy_identity_encoding_seal_tampering_is_refused (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_legacy_identity_encoding_seal_tampering_is_refused) ... ok
+test_legacy_identity_mapping_requires_exact_body_and_other_metadata (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_legacy_identity_mapping_requires_exact_body_and_other_metadata) ... 
+  test_legacy_identity_mapping_requires_exact_body_and_other_metadata (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_legacy_identity_mapping_requires_exact_body_and_other_metadata) (field='metadata') ... FAIL
+test_replace_archive_collision_preserves_history_and_created_successor (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_replace_archive_collision_preserves_history_and_created_successor) ... ok
+test_replace_archive_verification_failure_restores_predecessor_without_replaying_successor (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_replace_archive_verification_failure_restores_predecessor_without_replaying_successor) ... ok
+test_replace_publishes_supplied_successors_then_archives_one_predecessor (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_replace_publishes_supplied_successors_then_archives_one_predecessor) ... ok
+test_replace_rejects_caller_model_that_contradicts_current_authority (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_replace_rejects_caller_model_that_contradicts_current_authority) ... ok
+test_replace_rejects_preexisting_successor_id_at_unused_destination (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_replace_rejects_preexisting_successor_id_at_unused_destination) ... ok
+test_replace_rejects_preexisting_successor_without_archiving_predecessor (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_replace_rejects_preexisting_successor_without_archiving_predecessor) ... ok
+test_replace_reports_partial_when_successor_or_archive_publication_fails (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_replace_reports_partial_when_successor_or_archive_publication_fails) ... ok
+test_replace_requires_prepared_new_successors_and_archives_only_after_all_are_active (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_replace_requires_prepared_new_successors_and_archives_only_after_all_are_active) ... ok
+test_replace_retains_exact_crlf_predecessor_history (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_replace_retains_exact_crlf_predecessor_history) ... ok
+test_same_id_update_history_cleanup_failure_retains_history_after_current_restoration (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_same_id_update_history_cleanup_failure_retains_history_after_current_restoration) ... ok
+test_same_id_update_ownership_unverified_history_remains_unknown_and_untouched (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_same_id_update_ownership_unverified_history_remains_unknown_and_untouched) ... ok
+test_same_id_update_postwrite_current_read_failure_restores_exact_bytes (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_same_id_update_postwrite_current_read_failure_restores_exact_bytes) ... ok
+test_same_id_update_postwrite_history_read_failure_restores_current (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_same_id_update_postwrite_history_read_failure_restores_current) ... ok
+test_same_id_update_postwrite_parse_failure_restores_current_and_preserves_other_history (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_same_id_update_postwrite_parse_failure_restores_current_and_preserves_other_history) ... ok
+test_same_id_update_preexisting_history_collision_does_not_remove_history (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_same_id_update_preexisting_history_collision_does_not_remove_history) ... ok
+test_same_id_update_publication_error_after_write_restores_current (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_same_id_update_publication_error_after_write_restores_current) ... ok
+test_same_id_update_unverified_rollback_retains_recoverable_prior_and_original_diagnostic (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_same_id_update_unverified_rollback_retains_recoverable_prior_and_original_diagnostic) ... ok
+test_semantic_update_requires_and_consumes_a_bound_done_analysis_report (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_semantic_update_requires_and_consumes_a_bound_done_analysis_report) ... ok
+test_source_model_status_noop_and_archive_relation_diagnostics (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_source_model_status_noop_and_archive_relation_diagnostics) ... FAIL
+test_stale_and_multi_target_requests_stop_before_an_effect (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_stale_and_multi_target_requests_stop_before_an_effect) ... ok
+test_update_honors_identity_revision_class_and_true_noop (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_update_honors_identity_revision_class_and_true_noop) ... ok
+test_update_rechecks_the_completed_assessment_comparison (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_update_rechecks_the_completed_assessment_comparison) ... ok
+test_update_rejects_unproven_equivalent_refinement (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_update_rejects_unproven_equivalent_refinement) ... ok
+
+======================================================================
+ERROR: test_approved_legacy_identity_encoding_preserves_exact_history_and_explicit_mapping (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_approved_legacy_identity_encoding_preserves_exact_history_and_explicit_mapping)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1189, in _validate_complete_carrier
+    validate_proposed_carrier(parsed.metadata, parsed.body, source_context_from_project(root), relative,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              allow_existing_relations=not creating)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py", line 823, in validate_proposed_carrier
+    _current_containment_target(raw_metadata, label="Current containment relation")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py", line 544, in _current_containment_target
+    raise ProposedCarrierError(label + " lacks one canonical containment relation")
+VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier.ProposedCarrierError: Current containment relation lacks one canonical containment relation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py", line 1460, in update_atom_action
+    observed_atom = migrate_atom_identity_revision(root, target, mapping["destination"], frontmatter, proposed["content"])
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1550, in migrate_atom_identity_revision
+    return _migrate_atom_identity_revision(root, atom, relative_path, frontmatter, content)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1562, in _migrate_atom_identity_revision
+    target, normalized, atom_id = prepare_create_atom_revision(
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        root, relative_path, frontmatter, content, creating=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1247, in prepare_create_atom_revision
+    _validate_complete_carrier(root, path, prepared, content, creating=creating)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1195, in _validate_complete_carrier
+    raise ToolError("complete-carrier-invalid", "new Atom carrier is incomplete, invalid, or unresolved") from error
+atom_operations.ToolError: new Atom carrier is incomplete, invalid, or unresolved
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py", line 1575, in test_approved_legacy_identity_encoding_preserves_exact_history_and_explicit_mapping
+    result = update_atom_action(self.root, parameters, execute=True, authorized=True)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py", line 1536, in update_atom_action
+    raise _translate(error) from error
+lifecycle_intents.LifecycleError: complete-carrier-invalid: new Atom carrier is incomplete, invalid, or unresolved
+
+======================================================================
+ERROR: test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history) (atom_id='CA-R-710', legacy=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1189, in _validate_complete_carrier
+    validate_proposed_carrier(parsed.metadata, parsed.body, source_context_from_project(root), relative,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              allow_existing_relations=not creating)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py", line 823, in validate_proposed_carrier
+    _current_containment_target(raw_metadata, label="Current containment relation")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py", line 544, in _current_containment_target
+    raise ProposedCarrierError(label + " lacks one canonical containment relation")
+VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier.ProposedCarrierError: Current containment relation lacks one canonical containment relation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py", line 528, in _require_recovery_carrier
+    prepare_create_atom_revision(root, target.relative, proposed["frontmatter"], proposed["content"], creating=False)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1247, in prepare_create_atom_revision
+    _validate_complete_carrier(root, path, prepared, content, creating=creating)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1195, in _validate_complete_carrier
+    raise ToolError("complete-carrier-invalid", "new Atom carrier is incomplete, invalid, or unresolved") from error
+atom_operations.ToolError: new Atom carrier is incomplete, invalid, or unresolved
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py", line 1362, in test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history
+    preview = update_atom_action(self.root, parameters)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py", line 1304, in update_atom_action
+    _require_recovery_carrier(root, target, proposed, required=type_recovery)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py", line 530, in _require_recovery_carrier
+    raise _translate(error) from error
+lifecycle_intents.LifecycleError: complete-carrier-invalid: new Atom carrier is incomplete, invalid, or unresolved
+
+======================================================================
+ERROR: test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history) (atom_id='CA-R-711', legacy=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1189, in _validate_complete_carrier
+    validate_proposed_carrier(parsed.metadata, parsed.body, source_context_from_project(root), relative,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              allow_existing_relations=not creating)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py", line 823, in validate_proposed_carrier
+    _current_containment_target(raw_metadata, label="Current containment relation")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py", line 544, in _current_containment_target
+    raise ProposedCarrierError(label + " lacks one canonical containment relation")
+VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier.ProposedCarrierError: Current containment relation lacks one canonical containment relation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py", line 528, in _require_recovery_carrier
+    prepare_create_atom_revision(root, target.relative, proposed["frontmatter"], proposed["content"], creating=False)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1247, in prepare_create_atom_revision
+    _validate_complete_carrier(root, path, prepared, content, creating=creating)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1195, in _validate_complete_carrier
+    raise ToolError("complete-carrier-invalid", "new Atom carrier is incomplete, invalid, or unresolved") from error
+atom_operations.ToolError: new Atom carrier is incomplete, invalid, or unresolved
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py", line 1362, in test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history
+    preview = update_atom_action(self.root, parameters)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py", line 1304, in update_atom_action
+    _require_recovery_carrier(root, target, proposed, required=type_recovery)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py", line 530, in _require_recovery_carrier
+    raise _translate(error) from error
+lifecycle_intents.LifecycleError: complete-carrier-invalid: new Atom carrier is incomplete, invalid, or unresolved
+
+======================================================================
+ERROR: test_identified_nonactive_current_carrier_retains_exact_history (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_identified_nonactive_current_carrier_retains_exact_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py", line 834, in test_identified_nonactive_current_carrier_retains_exact_history
+    proposed_carrier.validate_proposed_carrier(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        parsed.metadata, parsed.body, proposed_carrier.source_context_from_project(self.root),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        current.relative_to(self.root / ".caprmedio_caprmedio"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py", line 823, in validate_proposed_carrier
+    _current_containment_target(raw_metadata, label="Current containment relation")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py", line 544, in _current_containment_target
+    raise ProposedCarrierError(label + " lacks one canonical containment relation")
+VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier.ProposedCarrierError: Current containment relation lacks one canonical containment relation
+
+======================================================================
+ERROR: test_identity_encoding_migration_rolls_back_when_source_removal_fails (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_identity_encoding_migration_rolls_back_when_source_removal_fails)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1189, in _validate_complete_carrier
+    validate_proposed_carrier(parsed.metadata, parsed.body, source_context_from_project(root), relative,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              allow_existing_relations=not creating)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py", line 823, in validate_proposed_carrier
+    _current_containment_target(raw_metadata, label="Current containment relation")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py", line 544, in _current_containment_target
+    raise ProposedCarrierError(label + " lacks one canonical containment relation")
+VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier.ProposedCarrierError: Current containment relation lacks one canonical containment relation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py", line 1460, in update_atom_action
+    observed_atom = migrate_atom_identity_revision(root, target, mapping["destination"], frontmatter, proposed["content"])
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1550, in migrate_atom_identity_revision
+    return _migrate_atom_identity_revision(root, atom, relative_path, frontmatter, content)
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1562, in _migrate_atom_identity_revision
+    target, normalized, atom_id = prepare_create_atom_revision(
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        root, relative_path, frontmatter, content, creating=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1247, in prepare_create_atom_revision
+    _validate_complete_carrier(root, path, prepared, content, creating=creating)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py", line 1195, in _validate_complete_carrier
+    raise ToolError("complete-carrier-invalid", "new Atom carrier is incomplete, invalid, or unresolved") from error
+atom_operations.ToolError: new Atom carrier is incomplete, invalid, or unresolved
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py", line 1714, in test_identity_encoding_migration_rolls_back_when_source_removal_fails
+    update_atom_action(self.root, parameters, execute=True, authorized=True)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py", line 1536, in update_atom_action
+    raise _translate(error) from error
+lifecycle_intents.LifecycleError: complete-carrier-invalid: new Atom carrier is incomplete, invalid, or unresolved
+
+======================================================================
+FAIL: test_legacy_identity_mapping_requires_exact_body_and_other_metadata (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_legacy_identity_mapping_requires_exact_body_and_other_metadata) (field='metadata')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py", line 1647, in test_legacy_identity_mapping_requires_exact_body_and_other_metadata
+    self.assertIsNone(preview.get("assessment_evidence"))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'admitted_change_class': 'carrier_only', 'comparison': {'target': {'atom_id': 'CAPRMEDIO-R-9903', 'path': '.caprmedio_caprmedio/TEST-SU-6_ENGINE_ENGINE/TEST-SU-7_FEATURE_PROGRAMMATIC/TEST-SU-9_TOOL_TOOLS/TEST-SU-10_TOOL_LIFECYCLE_FIXTURE/04_requirement/CAPRMEDIO-R-9903-LIFECYCLE_FIXTURE--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md', 'digest': '563ba075a27a20aaf8d806aba99e2e9dd2e98d2a4aa53181750f942308b9ec4a'}, 'proposal': {'frontmatter_digest': '035a3ec53a401f5f3c812da98d2bbbb22b529813c40d5afe85ec3866bce9db75', 'content_digest': '1087913b6927e605feb795c8af70c9106d54cbd4f5ed9910929dd338fa7ec5d0'}, 'summary': {'target': '5ae760443cbe32a745c4439ba5ea3fbd29ba356c5be137a07f266ec04b0f8495', 'proposed': '5ae760443cbe32a745c4439ba5ea3fbd29ba356c5be137a07f266ec04b0f8495', 'equal': True}, 'properties': {'target': '79a636e0fbf4746667e2961bcf35f2722cfb41d58e9e096e525a28f2e14afb56', 'proposed': '035a3ec53a401f5f3c812da98d2bbbb22b529813c40d5afe85ec3866bce9db75', 'equal': False}, 'claim': {'target': 'f9a36fc2cfff65a3ea0d323e8da68d986c6309f7e96ca48307c2857d44be1127', 'proposed': 'f9a36fc2cfff65a3ea0d323e8da68d986c6309f7e96ca48307c2857d44be1127', 'kind': 'claim-section', 'equal': True}, 'carrier_normalization': 'identity-encoding-only', 'metadata_equal_except_identity': True, 'identity_mapping': {'legacy_atom_id': 'CAPRMEDIO-R-9903', 'atom_id': 'CA-R-9903', 'destination': '.caprmedio_caprmedio/TEST-SU-6_ENGINE_ENGINE/TEST-SU-7_FEATURE_PROGRAMMATIC/TEST-SU-9_TOOL_TOOLS/TEST-SU-10_TOOL_LIFECYCLE_FIXTURE/04_requirement/CA-R-9903-LIFECYCLE_FIXTURE--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md'}}} is not None
+
+======================================================================
+FAIL: test_source_model_status_noop_and_archive_relation_diagnostics (test_selected_atom_lifecycle.SelectedAtomLifecycleTest.test_source_model_status_noop_and_archive_relation_diagnostics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py", line 1906, in test_source_model_status_noop_and_archive_relation_diagnostics
+    self.assertIn("type: Rule\n", self.target.read_text(encoding="utf-8"))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'type: Rule\n' not found in '---\natom_id: CA-R-100\nrole: Requirement\nform: Rule\ntier: 14\nstatus: Active\nversion: 1\nupdated_at: "2026-01-01 00:00:00 +0000"\nsubjects:\n  active: Atom/Test\n  passive: []\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: TEST-SU-10\n  depends_on: [CA-R-101]\n---\n# Summary\n\nStable summary\n\n## Scope\n\nFixture scope.\n\n## Claim\n\n### Prose Claim\n\nFixture claim.\n\n## Details\n\nFixture details.\n'
+
+----------------------------------------------------------------------
+Ran 49 tests in 138.027s
+
+FAILED (failures=2, errors=5)
+Module time: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py: 138.277s
+Failed test modules: LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py
+Modules: 4; tests run: 97; skipped: 0; failed modules: 1

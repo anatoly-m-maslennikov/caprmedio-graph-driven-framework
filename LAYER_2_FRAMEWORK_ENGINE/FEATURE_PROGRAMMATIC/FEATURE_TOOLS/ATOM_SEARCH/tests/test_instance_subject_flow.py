@@ -34,9 +34,12 @@ class InstanceSubjectFlowTests(unittest.TestCase):
         self.dependency_subject = f"{self.kind_and_instance}.Version Number"
         self.new_governs_subject = f"{self.kind_and_instance}.Summary"
         self.new_dependency_subject = f"{self.kind_and_instance}.Updated At"
+        raw = self.path.read_bytes()
+        self.assertEqual(raw.count(b'active: "Atom/Status"'), 1)
+        self.assertEqual(raw.count(b'"Atom/Revision"'), 1)
         self.path.write_bytes(
-            self.path.read_bytes()
-            .replace(b'governs: "Atom/Status"', f'governs: "{self.governs_subject}"'.encode())
+            raw
+            .replace(b'active: "Atom/Status"', f'active: "{self.governs_subject}"'.encode())
             .replace(b'"Atom/Revision"', f'"{self.dependency_subject}"'.encode())
         )
         self.original = self.path.read_bytes()
@@ -92,8 +95,8 @@ class InstanceSubjectFlowTests(unittest.TestCase):
         self.assertEqual([], preview["errors"])
         proposal = preview["preview"]["atoms"][0]["proposed_carrier"].encode("utf-8")
         expected = self.original.replace(
-            f'governs: "{self.governs_subject}"'.encode(),
-            f'governs: "{self.new_governs_subject}"'.encode(),
+            f'active: "{self.governs_subject}"'.encode(),
+            f'active: "{self.new_governs_subject}"'.encode(),
         ).replace(
             f'"{self.dependency_subject}"'.encode(),
             f'"{self.new_dependency_subject}"'.encode(),
@@ -106,8 +109,8 @@ class InstanceSubjectFlowTests(unittest.TestCase):
         self.assertEqual(expected, proposal)
         parsed = operations.parse_carrier(proposal, self.path)
         self.assertEqual("CA-P-7901", parsed.metadata["atom_id"])
-        self.assertEqual(self.new_governs_subject, parsed.metadata["subjects"]["governs"])
-        self.assertEqual(["Atom", self.new_dependency_subject], parsed.metadata["subjects"]["depends_on"])
+        self.assertEqual(self.new_governs_subject, parsed.metadata["subjects"]["active"])
+        self.assertEqual(["Atom", self.new_dependency_subject], parsed.metadata["subjects"]["passive"])
         self.assertEqual("Done", parsed.metadata["status"])
         self.assertIn(b"The exact body mentions Atom/Status.", proposal)
         self.assertEqual(self.original, self.path.read_bytes())

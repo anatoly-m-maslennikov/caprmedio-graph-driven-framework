@@ -7,6 +7,8 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+import yaml
+
 
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
@@ -49,9 +51,8 @@ class AtomMoveLifecycleTest(unittest.TestCase):
 
     def _move_fixture_atom(self, source: Path, relative: Path, owner: str) -> Path:
         payload = source.read_text(encoding="utf-8").replace(
-            "current_scope_unit: LIFECYCLE_FIXTURE", f"current_scope_unit: {owner}"
-        ).replace(
-            "claim_target_scope_unit: LIFECYCLE_FIXTURE", f"claim_target_scope_unit: {owner}"
+            f"scope_unit: {self.fixture.declarations['LIFECYCLE_FIXTURE']['scope_id']}",
+            f"scope_unit: {self.fixture.declarations[owner]['scope_id']}",
         )
         source.unlink()
         destination = self.root / relative
@@ -91,11 +92,12 @@ class AtomMoveLifecycleTest(unittest.TestCase):
         source = self.core_operations / "CA-O-010-CORE_META_MODEL-WORKFLOW--bundle-move.md"
         source.parent.mkdir(parents=True, exist_ok=True)
         source.write_text(
-            "---\natom_id: CA-O-010\ncontent_role: Operations\ntype: Workflow\n"
-            "current_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n"
-            "tier: 11\nauthor: Anatoly Maslennikov\n"
+            "---\natom_id: CA-O-010\nrole: Operations\nform: Workflow\n"
+            "tier: 11\n"
             "status: Active\nversion: 1\nupdated_at: \"2026-01-01 00:00:00 +0000\"\n"
-            "subjects:\n  governs: Tool\n  depends_on: [Plan]\nrelations: {}\n---\n"
+            "subjects:\n  active: Tool\n  passive: [Plan]\n"
+            "relations:\n  IS_CONTAINED_BY:\n"
+            f"    scope_unit: {self.fixture.declarations['CORE_META_MODEL']['scope_id']}\n---\n"
             "# Summary\n\nBundle move fixture\n\n## Scope\n\nOne explicitly selected Workflow.\n\n"
             "## Operation\n\nKeep this workflow unchanged.\n\n## Details\n\nMove only this carrier.\n",
             encoding="utf-8",
@@ -161,8 +163,10 @@ class AtomMoveLifecycleTest(unittest.TestCase):
         self.assertEqual(moved.content, before.content)
         self.assertEqual(self._raw_body(destination.read_bytes()), self._raw_body(before_bytes))
         self.assertEqual(atom_operations.frontmatter_scalar(moved.frontmatter, "status"), "Active")
-        self.assertEqual(atom_operations.frontmatter_scalar(moved.frontmatter, "current_scope_unit"), "PROJECT_CONFIGURATION")
-        self.assertEqual(atom_operations.frontmatter_scalar(moved.frontmatter, "claim_target_scope_unit"), "PROJECT_CONFIGURATION")
+        metadata = yaml.safe_load(moved.frontmatter)
+        self.assertEqual(metadata["relations"]["IS_CONTAINED_BY"]["scope_unit"],
+                         self.fixture.declarations["PROJECT_CONFIGURATION"]["scope_id"])
+        self.assertEqual(metadata["subjects"]["active"], "Atom/Test")
         self.assertRegex(moved.frontmatter, r'(?m)^updated_at: "\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} \+0000"$')
 
     def test_execute_project_to_core_preserves_same_identity_and_typed_relations(self) -> None:
@@ -170,7 +174,10 @@ class AtomMoveLifecycleTest(unittest.TestCase):
         source.parent.mkdir(parents=True, exist_ok=True)
         source.write_bytes(self.core_path.read_bytes())
         source.write_text(
-            source.read_text(encoding="utf-8").replace("CORE_META_MODEL", "PROJECT_CONFIGURATION"),
+            source.read_text(encoding="utf-8").replace(
+                f"scope_unit: {self.fixture.declarations['CORE_META_MODEL']['scope_id']}",
+                f"scope_unit: {self.fixture.declarations['PROJECT_CONFIGURATION']['scope_id']}",
+            ),
             encoding="utf-8",
         )
         self.core_path.unlink()
@@ -187,9 +194,10 @@ class AtomMoveLifecycleTest(unittest.TestCase):
         self.assertFalse(source.exists())
         moved = atom_operations.atom_from_path(self.root, destination)
         self.assertEqual(moved.atom_id, self.move_id)
-        self.assertEqual(atom_operations.frontmatter_scalar(moved.frontmatter, "current_scope_unit"), "CORE_META_MODEL")
-        self.assertEqual(atom_operations.frontmatter_scalar(moved.frontmatter, "claim_target_scope_unit"), "CORE_META_MODEL")
-        self.assertIn("relations: {}", moved.frontmatter)
+        metadata = yaml.safe_load(moved.frontmatter)
+        self.assertEqual(metadata["relations"]["IS_CONTAINED_BY"]["scope_unit"],
+                         self.fixture.declarations["CORE_META_MODEL"]["scope_id"])
+        self.assertEqual(metadata["subjects"]["active"], "Atom/Test")
         self.assertEqual(moved.content, before.content)
         self.assertEqual(self._raw_body(destination.read_bytes()), self._raw_body(before_bytes))
 
@@ -214,12 +222,12 @@ class AtomMoveLifecycleTest(unittest.TestCase):
                 source = self.core_plans / folder / f"CA-P-200-CORE_META_MODEL--{status.lower()}.md"
                 source.parent.mkdir(parents=True, exist_ok=True)
                 payload = (
-                    "---\natom_id: CA-P-200\ncontent_role: Plan\ntype: Plan\nlabel: Task\n"
-                    "current_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n"
+                    "---\natom_id: CA-P-200\nrole: Plan\nform: Plan\nlabel: Task\n"
                     "work_sequence_number: 1\ntier: 14\n"
-                    f"author: Anatoly Maslennikov\nstatus: {status}\nversion: 1\n"
+                    f"status: {status}\nversion: 1\n"
                     'updated_at: "2026-01-01 00:00:00 +0000"\nsubjects:\n'
-                    "  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n"
+                    "  active: Atom/Test\n  passive: []\nrelations:\n  IS_CONTAINED_BY:\n"
+                    f"    scope_unit: {self.fixture.declarations['CORE_META_MODEL']['scope_id']}\n---\n"
                     "# Summary\n\nStatus fixture plan\n\n## Objective\n\nMove one plan.\n"
                     "\n## Details\n\n### Definition of Done\n\nThe plan remains complete.\n"
                 )
@@ -341,9 +349,9 @@ class AtomMoveLifecycleTest(unittest.TestCase):
             nonlocal foreign_bytes
             real_atom_write(path, content)
             if Path(path).resolve() == destination.resolve():
-                foreign_bytes = destination.read_bytes().replace(
-                    b"author: Anatoly Maslennikov", b"author: External Operator", 1
-                )
+                actual_bytes = destination.read_bytes()
+                self.assertEqual(actual_bytes.count(b"tier: 14"), 1)
+                foreign_bytes = actual_bytes.replace(b"tier: 14", b"tier: 13", 1)
                 destination.write_bytes(foreign_bytes)
 
         with patch.object(atom_operations, "_atomic_write", side_effect=inject_foreign_metadata):
@@ -396,7 +404,10 @@ class AtomMoveLifecycleTest(unittest.TestCase):
         )
         moved = atom_operations.atom_from_path(self.root, destination)
         self.assertEqual(atom_operations.atom_version(moved), atom_operations.atom_version(before) + 1)
-        self.assertEqual(atom_operations.frontmatter_scalar(moved.frontmatter, "current_scope_unit"), "PROJECT_CONFIGURATION")
+        metadata = yaml.safe_load(moved.frontmatter)
+        self.assertEqual(metadata["relations"]["IS_CONTAINED_BY"]["scope_unit"],
+                         self.fixture.declarations["PROJECT_CONFIGURATION"]["scope_id"])
+        self.assertEqual(metadata["subjects"]["active"], "Tool")
         self.assertEqual(
             (moved_bundle / "CA-O-146-CORE_META_MODEL-STEP--child.md").read_bytes(),
             contents["CA-O-146-CORE_META_MODEL-STEP--child.md"],

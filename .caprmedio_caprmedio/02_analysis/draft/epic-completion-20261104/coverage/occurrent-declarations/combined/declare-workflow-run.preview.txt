@@ -1,0 +1,33 @@
+---
+atom_id: "<UNALLOCATED-workflow-run>"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Workflow Run
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare Workflow Run
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Workflow Run ((NARROWER_THAN)) Execution;
+
+# instances
+Workflow Run//$run {:1}((IS_EXECUTION_OF)) Workflow//$definition
+```
+
+## Semantics
+
+A Workflow Run is one actual execution of one Workflow against its supplied inputs and parameters. It is distinct from the reusable Workflow and from records describing the run.
