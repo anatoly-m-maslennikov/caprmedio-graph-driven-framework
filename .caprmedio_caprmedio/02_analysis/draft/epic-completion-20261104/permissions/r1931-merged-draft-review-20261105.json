@@ -1,0 +1,34 @@
+{
+  "verdict": "PASS_BOUNDED_MERGE_HOLD_ADOPTION",
+  "pins": {
+    "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+    "current_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+    "consumer_preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-consumers-20261105/previews/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.preview.md",
+    "consumer_preview_sha256": "96d95f620ab4251db57fae0ddc6e2327a61ee61b81eae11a40c9a107021b6c1b",
+    "existing_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1931@19-draft-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+    "existing_draft_sha256": "8c90ec568c3913d915f17c37e0e3356b3d32dc11c91cd58f62bb86ae172e335e",
+    "merged_preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-existing-draft-rebase-20261105/CA-R-1931@19.merged.preview.txt",
+    "merged_preview_sha256": "8e41c736cd15fea5af628c67cdb02681698fe9788d0a8c2c100c2b9f5f6d5241",
+    "draft_to_merged_diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-existing-draft-rebase-20261105/draft-to-merged.diff",
+    "draft_to_merged_diff_sha256": "1b2bf4fcc80a233d307165639dddea77a6e5aec1beabca9a79b15ea9822877a7"
+  },
+  "checks": {
+    "current_path": true,
+    "consumer_preview_path": true,
+    "existing_draft_path": true,
+    "merged_preview_path": true,
+    "draft_to_merged_diff_path": true,
+    "frontmatter_unchanged": true,
+    "summary_unchanged": true,
+    "assignment_selector_present": true,
+    "allowed_value_and_counts_present": true,
+    "substep_example_still_present": true
+  },
+  "assessment": "The merge retains the existing Draft header and Summary and its prior content while applying the reviewed allowed-value/count and qualified-selector spelling changes. The historical bare spelling is explicitly identified as historical. This is a bounded merge review, not approval of all inherited examples or semantics.",
+  "adoption_gates": [
+    "Merge the Step/Sub-step example with the recursive Step source packet; do not retain the retired Substep kind as an operative example.",
+    "Resolve the separately recorded Entity/cross-subject and other inherited example issues before adoption; do not infer their resolution from this notation merge.",
+    "Coordinate governing :: notation and dependent source migration, and allocate any actual Draft version without overwriting existing Draft."
+  ],
+  "no_mutation": "No native Draft, Current, code, tests, Workflow, Workbench or Git mutation."
+}

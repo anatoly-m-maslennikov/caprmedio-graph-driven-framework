@@ -229,7 +229,7 @@
     "Physical Step Carrier/folder policy in E500/D467 remains held for an Operator decision; do not infer a layout from the recursive model."
   ],
   "unresolved": [
-    "Current inspected IS_CONTAINED_BY authority does not explicitly establish acyclicity for recursive Step containment. Do not infer a new cycle rule; decide whether self/indirect containment must be forbidden.",
+    "Exactly one Step Container is settled. Whether every Step Container chain must terminate at a Workflow remains a pending user decision; do not infer acyclicity or permit multiple parents.",
     "R1528 preserves Run parentage/evidence but does not name the Relation that binds parent and child Runs; do not assume containment or grant inverse permissions until its source meaning is established."
   ],
   "limits": [
@@ -262,5 +262,11 @@
     "CA-R-2734": "contracts: shared Step and Action",
     "CA-R-2735": "contracts: shared Step and Action",
     "rule": "one source candidate per ID; do not apply duplicate consumer previews"
+  },
+  "containment_decision_ledger": {
+    "settled": "Each Step has exactly one immediate Container; multiple parents are not permitted.",
+    "prior_discussion": "The user initially allowed containment cycles and then reaffirmed exactly one Container for each Step when shown an example with two parents.",
+    "pending_question": "Must every Step Container chain terminate at a Workflow, thereby excluding detached cycles such as A→B→A?",
+    "boundary": "Do not assume rootedness or acyclicity; exactly one parent alone does not exclude a detached cycle."
   }
 }
