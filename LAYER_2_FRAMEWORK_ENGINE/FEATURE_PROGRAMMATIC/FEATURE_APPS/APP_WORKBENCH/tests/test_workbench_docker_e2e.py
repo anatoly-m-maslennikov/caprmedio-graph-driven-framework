@@ -236,17 +236,17 @@ class WorkbenchDockerE2E(unittest.TestCase):
         self.assertEqual({"atoms", "scope_units"}, set(schema["tables"]))
         self.assertEqual([[2]], ran["rows"])
         self.assertIsInstance(ran.get("query_id"), str)
-        self.assert_saved(ran, kind="query", sql="SELECT 2")
+        self.assert_saved(ran, kind="query", sql=" SELECT 2")
         self.assertEqual(ran["query_id"], page["query_id"])
         self.assertEqual(ran["saved_query_id"], page["saved_query_id"])
-        self.assert_saved(page, kind="query", sql="SELECT 2")
+        self.assert_saved(page, kind="query", sql=" SELECT 2")
         self.assertTrue(checked["valid"])
-        self.assert_saved(checked, kind="query", sql="SELECT 2")
+        self.assert_saved(checked, kind="query", sql=" SELECT 2")
         self.assertNotIn("query_id", saved)
-        self.assert_saved(saved, kind="query", sql="SELECT 2")
+        self.assert_saved(saved, kind="query", sql=" SELECT 2")
         self.assertNotIn("query_id", worksheet)
         self.assert_saved(worksheet, kind="worksheet", sql=worksheet_sql)
-        self.assert_saved(loaded_by_id, kind="query", sql="SELECT 2")
+        self.assert_saved(loaded_by_id, kind="query", sql=" SELECT 2")
         self.assert_saved(loaded_by_url, kind="worksheet", sql=worksheet_sql)
         self.assertTrue({saved["saved_query_id"], worksheet["saved_query_id"]} <= {
             item["saved_query_id"] for item in recent["items"]
@@ -281,21 +281,21 @@ class WorkbenchDockerE2E(unittest.TestCase):
         )
         self.assertEqual(200, status, ran)
         self.assertEqual([[2]], ran["rows"])
-        self.assert_saved(ran, kind="query", sql="SELECT 2")
+        self.assert_saved(ran, kind="query", sql=" SELECT 2")
         status, checked = _request(
             self.url + f"{self.workbench_path}/check", method="POST",
             payload={"sql": worksheet_sql, "cursor_position": cursor_position},
         )
         self.assertEqual(200, status, checked)
         self.assertTrue(checked["valid"])
-        self.assert_saved(checked, kind="query", sql="SELECT 2")
+        self.assert_saved(checked, kind="query", sql=" SELECT 2")
         status, saved = _request(
             self.url + f"{self.workbench_path}/save", method="POST",
             payload={"sql": worksheet_sql, "cursor_position": cursor_position},
         )
         self.assertEqual(200, status, saved)
         self.assertNotIn("query_id", saved)
-        self.assert_saved(saved, kind="query", sql="SELECT 2")
+        self.assert_saved(saved, kind="query", sql=" SELECT 2")
         status, worksheet = _request(
             self.url + f"{self.workbench_path}/worksheet-save", method="POST",
             payload={"sql": worksheet_sql},
@@ -308,7 +308,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
             payload={"reference": saved["saved_query_id"]},
         )
         self.assertEqual(200, status, loaded_by_id)
-        self.assert_saved(loaded_by_id, kind="query", sql="SELECT 2")
+        self.assert_saved(loaded_by_id, kind="query", sql=" SELECT 2")
         status, loaded_by_url = _request(
             self.url + f"{self.workbench_path}/load", method="POST",
             payload={"reference": worksheet["saved_query_url"]},

@@ -1,3 +1,4 @@
+// CA-E-678@1
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { cleanAfterSave, persistable, restore } from './workspace.js';

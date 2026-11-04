@@ -5,7 +5,7 @@
   import { syntaxHighlighting } from '@codemirror/language';
   import { classHighlighter } from '@lezer/highlight';
   import { sql } from '@codemirror/lang-sql';
-  import { Compartment, EditorState } from '@codemirror/state';
+  import { Compartment, EditorState, Prec } from '@codemirror/state';
   import { EditorView, keymap } from '@codemirror/view';
   import { onMount } from 'svelte';
   import type { Schema } from './types';
@@ -35,9 +35,10 @@
   }
   const position = () => view?.state.selection.main.head ?? cursor;
   function shortcut(event: KeyboardEvent) {
-    if (disabled || event.repeat || !event.metaKey || event.ctrlKey || event.altKey || event.key !== 'Enter') return;
+    if (disabled || event.repeat || !event.metaKey || event.ctrlKey || event.altKey || event.key !== 'Enter') return false;
     event.preventDefault();
     onaction?.(event.shiftKey ? 'check' : 'run', position());
+    return true;
   }
 
   onMount(() => {
@@ -50,7 +51,7 @@
           editable.of(EditorView.editable.of(!disabled)),
           completion.of(autocompletion({ override: [source] })),
           EditorView.contentAttributes.of({ 'aria-label': 'SQL editor' }),
-          EditorView.domEventHandlers({ keydown: shortcut }),
+          Prec.highest(EditorView.domEventHandlers({ keydown: shortcut })),
           EditorView.updateListener.of((update) => {
             if (update.docChanged || update.selectionSet) onchange?.(update.state.doc.toString(), update.state.selection.main.head);
           }),
