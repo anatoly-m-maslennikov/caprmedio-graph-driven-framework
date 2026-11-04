@@ -1,6 +1,8 @@
-# CA-R-2728@4
-# CA-R-2729@5
-# CA-D-673@9
+# CA-R-2728@5
+# CA-R-2729@6
+# CA-R-2776@3
+# CA-M-470@3
+# CA-D-673@10
 
 """Native MCP adapters for the Project-owned Workbench service."""
 
@@ -38,7 +40,7 @@ def native_tools() -> tuple[types.Tool, ...]:
     schemas = {RUN: _RUN_SCHEMA, PAGE: _PAGE_SCHEMA, CHECK: _CHECK_SCHEMA, SCHEMA: _EMPTY_SCHEMA,
                SAVE: _SAVE_SCHEMA, SAVE_WORKSHEET: _WORKSHEET_SCHEMA, LOAD: _LOAD_SCHEMA,
                SAVED_LIST: _LIST_SCHEMA}
-    writes = {RUN, CHECK, SAVE, SAVE_WORKSHEET}
+    writes = {SAVE, SAVE_WORKSHEET}
     return tuple(types.Tool(
         name=name, description=f"Workbench {name}.",
         annotations=types.ToolAnnotations(read_only_hint=name not in writes, destructive_hint=False,
@@ -93,9 +95,6 @@ class WorkbenchTools:
 
     @staticmethod
     def _raise_known(error: Exception) -> None:
-        saved, original = getattr(error, "saved_query", None), getattr(error, "original_error", error)
-        if isinstance(saved, dict):
-            raise ExplicitBlockingRuntimeFailure("query_error", str(original), {"saved_query": saved}) from error
         if isinstance(error, ValueError):
             raise ExplicitBlockingRuntimeFailure("query_error", str(error)) from error
         if isinstance(error, RuntimeError):

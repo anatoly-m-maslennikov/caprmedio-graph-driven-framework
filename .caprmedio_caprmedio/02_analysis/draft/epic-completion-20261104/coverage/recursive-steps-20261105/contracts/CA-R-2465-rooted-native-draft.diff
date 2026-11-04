@@ -1,0 +1,13 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2465-rooted-native-draft.preview.txt
+@@ -45,6 +45,10 @@
+ Step//$definition {::0+}((HAS_EXECUTION)) Step Run//$run
+ ```
+ 
++### Prose Claim
++
++Every Step’s Container chain ends at a Workflow.
++
+ ## Semantics
+ 
+ A Step is a unit of work within a Workflow. It either runs exactly one Action or Workflow, or contains one or more Steps.

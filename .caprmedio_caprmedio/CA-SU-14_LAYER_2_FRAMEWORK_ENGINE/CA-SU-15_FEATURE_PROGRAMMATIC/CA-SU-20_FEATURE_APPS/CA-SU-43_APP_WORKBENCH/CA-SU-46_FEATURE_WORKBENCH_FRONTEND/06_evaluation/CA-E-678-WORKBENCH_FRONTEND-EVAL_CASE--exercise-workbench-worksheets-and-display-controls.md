@@ -3,7 +3,7 @@ atom_id: CA-E-678
 current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 status: Active
-version: 4
+version: 5
 author: Anatoly Maslennikov
 role: Evaluation
 form: Eval Case
@@ -22,7 +22,7 @@ carrier_destination:
   file:
     name: CA-E-678-WORKBENCH_FRONTEND-EVAL_CASE--exercise-workbench-worksheets-and-display-controls.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation
-updated_at: 2026-11-05 02:30:51 +0400
+updated_at: 2026-11-05 02:58:37 +0400
 ---
 
 ## Summary
@@ -40,7 +40,7 @@ The Workbench interface preserves Worksheet input and uses the shared backend co
 | Fixture | Expected outcome |
 | --- | --- |
 | Light, Dark and System | Each mode is selectable; the choice is remembered; focus and result text remain readable. |
-| Compact navigation | `Settings` is the first top-left utility tab; `Saved Queries and Worksheets` is immediately to its right; current Worksheet tabs follow. Theme and Zoom work while the Settings panel is hidden. |
+| Compact navigation | The top header shows Workbench and the selected Project name. `Settings` and `Saved Queries and Worksheets` are at its right, on the same level as Workbench; current Worksheet tabs are below. Theme and Zoom work while the Settings panel is hidden. |
 | Text zoom | Editor, buttons, tabs, menus, headings, result and status text change size. Layout dimensions and icons are not multiplied. |
 | Two Worksheets | Inputs and displayed results stay with their own tabs. Closing unsaved input asks first. |
 | Five-second autosave and reload | Whole scripts, current Worksheet names and open-tab state restore without clicking Save. Browser unload flushing is best effort; storage failures are visible and are not false success. |
@@ -49,6 +49,9 @@ The Workbench interface preserves Worksheet input and uses the shared backend co
 | Hide editor | One `Hide editor` control hides and reopens the same input while preserving its script and cursor in the current page. |
 | Open Saved modal | The one top-left `Open Saved` button and `Cmd+Option+O` open a modal with an autofocus ID/URL input. Native `Cmd+V` paste is accepted; Enter opens without execution; Escape and Cancel close it; no inline open form is shown. |
 | Completion | Actual tables and columns are offered, including quoted dotted/spaced content columns. A prefix such as `status = 'Act` offers and inserts `Active` with correct quoting. The editor does not execute SQL or create a saved record for suggestions. |
+| Hotkey hints | Each known shortcut appears inside its action button or immediately beside it, including Run and Check. |
+| Explicit saves | Run, Check, pagination and query errors create no saved Journal entries and do not mark local edits saved. Explicit Save and Save Worksheet create entries. Browser draft autosave continues. |
+| Query editor heading | The title is `Query editor`. A saved ID link is at the right of that same heading row, not below the editor. |
 | Cursor actions | Run and Cmd+Enter execute the current statement; Check and Shift+Cmd+Enter check it; Save saves it; Save Worksheet saves the entire script. |
 | Saved resource links | Show ID, optional creation name and full URL, open an ID or URL without execution, and show recent queries and Worksheets in one tab. App-owned links reuse the current Workbench browser context; saved items are not renamed. |
 | Save during a multi-statement Worksheet | Preserve the complete local draft; saving only one statement does not falsely mark the whole Worksheet saved. |

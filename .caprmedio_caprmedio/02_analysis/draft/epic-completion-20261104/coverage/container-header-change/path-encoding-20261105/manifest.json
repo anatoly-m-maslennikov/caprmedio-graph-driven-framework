@@ -1,0 +1,124 @@
+{
+  "schema": "scope-unit-name-path-encoding-previews/1",
+  "status": "READ_ONLY_EVIDENCE_AND_SOURCE_PREVIEWS_ONLY_NO_DRAFT_OR_CURRENT_MUTATION",
+  "decision": "Encode a canonical Scope Unit path as one scalar string made from exact Current Scope Unit.Name values along the declared containment chain. Project//caprmedio root path is `/`; do not include its Name as a path segment. Do not use Atom IDs, carrier-folder names, aliases, or scope IDs as path segments.",
+  "paths": {
+    "engine": {
+      "path": "/FRAMEWORK_ENGINE",
+      "chain": [
+        {
+          "atom_id": "CA-R-2653",
+          "scope_unit_id": "CA-SU-14",
+          "name": "FRAMEWORK_ENGINE"
+        }
+      ],
+      "root_project_atom_id": "CA-R-2640"
+    },
+    "core_meta_model": {
+      "path": "/FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/CORE_META_MODEL",
+      "chain": [
+        {
+          "atom_id": "CA-R-2648",
+          "scope_unit_id": "CA-SU-9",
+          "name": "FRAMEWORK_METHODOLOGY"
+        },
+        {
+          "atom_id": "CA-R-2649",
+          "scope_unit_id": "CA-SU-10",
+          "name": "METHODOLOGY_SOURCES"
+        },
+        {
+          "atom_id": "CA-R-2650",
+          "scope_unit_id": "CA-SU-11",
+          "name": "CORE_META_MODEL"
+        }
+      ],
+      "root_project_atom_id": "CA-R-2640"
+    }
+  },
+  "source_census": {
+    "inventory_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/scope-declaration-check-20261105/inventory.json",
+    "inventory_sha256": "c3409c927f4427a9e6ffea7eb9fec764caed37867fa245d6332f654b0ace81ee",
+    "review_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/scope-declaration-source-review-20261105.json",
+    "review_sha256": "828ff8e7e2e49c94d28554433f91f876baf63ee66463ca7142990827780b910a",
+    "review_verdict": "PASS_BOUNDED_CURRENT_SOURCE_CENSUS",
+    "counts": {
+      "active_declarations": 46,
+      "nonroot": 45,
+      "nonroot_with_exactly_one_id": 45,
+      "ordered_nonroot": 9,
+      "unordered_nonroot": 36,
+      "root_count": 1,
+      "duplicate_atom_ids": [],
+      "duplicate_scope_ids": [],
+      "source_issue_count": 0
+    },
+    "re_read_all_sources": true,
+    "native_active_declaration_count": 46,
+    "scope_names_with_slash": [],
+    "duplicate_sibling_names": [],
+    "conclusion": "All 46 native active declaration pins matched the live source. All 45 nonroot direct parents were parsed from their formal claims; none of the declared names contains `/`, and no sibling names are ambiguous."
+  },
+  "source_previews": [
+    {
+      "id": "CA-R-2530",
+      "source_version": 2,
+      "source_status": "Active",
+      "source_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/CA-R-2530.v3.path-string.preview.md",
+      "source_sha256": "9abd4823d07e60b55d674823274fef480205f39e0eb5e193ac30d06c4f59a075",
+      "candidate_version": 3,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/CA-R-2530.v3.path-string.preview.md",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/CA-R-2530.v3.path-string.preview.md",
+      "preview_sha256": "a7def2fe4a91eb61b4b9a7786f5a117dede3588eec70cb32be525546aac82d9d",
+      "change": "Replace one-or-more-string ordered chain with exactly one scalar path string; define `/` root and actual Name-chain syntax and examples."
+    },
+    {
+      "id": "CA-R-2779@1",
+      "source_status": "Draft",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "source_sha256": "64741ac4fab3996fa585aebfb04efbc5bdab3d2826b4dba26eed6184a67b448f",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/CA-R-2779@1.path-integrated.preview.md",
+      "preview_sha256": "0f0521a431fd333ae7f325f14692efb03ee0fb7eb39ab3a0d214f8a17598263a",
+      "change": "Integrate canonical full Scope Unit path definition and actual Engine/Core Meta Model examples under allowed Header.Container values; existing base Atom ID and root world-default behavior remain intact."
+    }
+  ],
+  "root_and_format_authority": {
+    "scope_root": {
+      "id": "CA-R-2524",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db",
+      "meaning": "Project root has no Scope Unit parent; user decision maps its path to `/`."
+    },
+    "string_format_authorities": [
+      {
+        "id": "CA-R-2248",
+        "version": 5,
+        "status": "Active",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+        "sha256": "e10f65588d725a5463ba1f257aa2d5e5a6eb97fd9c848e1e7184952efd9d193e"
+      },
+      {
+        "id": "CA-R-2253",
+        "version": 6,
+        "status": "Active",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2253-CORE_META_MODEL-ENTITY_DEFINITION--define-string-value-format.md",
+        "sha256": "f5c86c8e98ef8fc92f822c8dad2c4824577f51d4b38c4f257774f3d5c9efaece"
+      }
+    ],
+    "root_project_declaration": {
+      "id": "CA-R-2640",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+      "sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9",
+      "name": "caprmedio",
+      "meaning": "Project//caprmedio is the root whose path is `/`; its Name is not appended as another segment."
+    }
+  },
+  "evidence_limits": [
+    "The 46-source census is bounded to native Current Scope Unit Declaration carriers; mirrors, archive, Draft and projection copies are excluded.",
+    "No Current names contain `/`; no escaping policy is invented. If future declared names contain `/`, this packet does not define escaping.",
+    "No Scope Unit ID, source filename, physical carrier-folder token, ENGINE alias or Scope Unit rename is introduced.",
+    "R2779@1 and R2530 Current sources remain unchanged; previews only."
+  ]
+}

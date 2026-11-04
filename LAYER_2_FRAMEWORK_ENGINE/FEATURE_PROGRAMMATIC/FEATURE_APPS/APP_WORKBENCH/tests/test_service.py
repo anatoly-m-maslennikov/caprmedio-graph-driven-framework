@@ -1,4 +1,4 @@
-# CA-E-676@8
+# CA-E-676@9
 # CA-E-677@8
 # CA-M-472@1
 
@@ -21,12 +21,8 @@ class ServiceTests(unittest.TestCase):
         with (
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"),
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.QueryStore", side_effect=RuntimeError("extension unavailable")) as connect,
-            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SavedQueryStore") as saved,
             redirect_stderr(StringIO()) as errors,
         ):
-            saved.return_value.save_query.return_value = {
-                "saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1",
-            }
             service = WorkbenchService(Path.cwd())
             for _ in range(2):
                 with self.assertRaisesRegex(RuntimeError, "restart required"):
@@ -65,13 +61,13 @@ class ServiceTests(unittest.TestCase):
             watch.assert_not_called()
             reader.capture.assert_not_called()
 
-    def test_save_failure_does_not_start_or_execute(self):
+    def test_explicit_save_failure_does_not_start_or_execute(self):
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
             service = WorkbenchService(Path("/project"))
         service._saved_queries = unittest.mock.Mock(save_query=unittest.mock.Mock(side_effect=ValueError("disk full")))
         service._start = unittest.mock.Mock()
 
         with self.assertRaisesRegex(ValueError, "disk full"):
-            service.run("SELECT 1")
+            service.save("SELECT 1")
 
         service._start.assert_not_called()

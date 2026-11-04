@@ -1,4 +1,4 @@
-# CA-E-673@3
+# CA-E-676@9
 
 from __future__ import annotations
 
@@ -71,7 +71,9 @@ class WorkbenchToolsTests(unittest.TestCase):
     def test_native_descriptors_and_one_owner_handle_all_calls_and_close(self):
         self.assertEqual(list(NATIVE_TOOLS), [tool.name for tool in native_tools()])
         tools = {tool.name: tool for tool in native_tools()}
-        self.assertFalse(tools[RUN].annotations.read_only_hint)
+        self.assertTrue(tools[RUN].annotations.read_only_hint)
+        self.assertTrue(tools[CHECK].annotations.read_only_hint)
+        self.assertFalse(tools[SAVE].annotations.read_only_hint)
         self.assertTrue(tools[SCHEMA].annotations.read_only_hint)
         owner = WorkbenchTools(Path("/project"))
         fake = FakeService()

@@ -1,6 +1,7 @@
-# CA-R-2728@3
-# CA-R-2729@4
-# CA-D-673@8
+# CA-R-2728@5
+# CA-R-2729@6
+# CA-R-2776@3
+# CA-D-673@10
 
 """Explicit process generations and connected Subject publication; no automatic replay."""
 import asyncio
@@ -626,13 +627,6 @@ class Gateway:
 
     def _public_call_failure(self, error, context, params):
         _INNER_CALL_ERROR.set(error)
-        saved = getattr(error, 'details', {}).get('saved_query') if isinstance(getattr(error, 'details', None), dict) else None
-        request = getattr(context, 'request', None)
-        if params.name in WORKBENCH_TOOLS and isinstance(saved, dict):
-            value = saved if request is None else public_saved(
-                saved, request, self.selection, context_project_root(context),
-            )
-            return result({'error': getattr(error, 'message', str(error)), **value}, True)
         return _failure_result(
             self.root, error, component='MCP_GATEWAY', operation=params.name,
         )

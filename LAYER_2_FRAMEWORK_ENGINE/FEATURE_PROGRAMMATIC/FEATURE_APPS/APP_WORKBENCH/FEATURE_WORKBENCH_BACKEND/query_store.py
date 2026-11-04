@@ -1,6 +1,6 @@
-# CA-R-2728@4
-# CA-R-2729@5
-# CA-D-673@9
+# CA-R-2728@5
+# CA-R-2729@6
+# CA-D-673@10
 
 """The DuckDB and DuckPGQ owner for disk-backed, paged Workbench queries."""
 
@@ -123,7 +123,7 @@ class QueryStore:
         self._connection = _connect(extension_directory, database_path)
         self._available = True
         self._initialized = False
-        self._results: dict[str, tuple[list[dict[str, Any]], int, dict[str, str] | None]] = {}
+        self._results: dict[str, tuple[list[dict[str, Any]], int, str]] = {}
         self._clear_startup_projection()
         self.replace([], [])
 
@@ -232,7 +232,7 @@ class QueryStore:
 
     def _read_page(
         self, query_id: str, columns: list[dict[str, Any]], row_count: int,
-        offset: int, page_size: int, saved_query: dict[str, str] | None,
+        offset: int, page_size: int, sql: str,
     ) -> dict[str, Any]:
         try:
             table = quote_identifier(f"query_{query_id}")
@@ -251,6 +251,7 @@ class QueryStore:
             raise RuntimeError("query store unavailable; Workbench restart required") from exc
         result = {
             "query_id": query_id,
+            "sql": sql,
             "columns": columns,
             "rows": shaped_rows,
             "row_count": row_count,
@@ -259,18 +260,14 @@ class QueryStore:
             "page_size": page_size,
             "has_more": offset + len(shaped_rows) < row_count,
         }
-        if saved_query is not None:
-            result.update(saved_query)
         return result
 
-    def run(
-        self, sql: str, page_size: int = 100, saved_query: dict[str, str] | None = None,
-    ) -> dict[str, Any]:
+    def run(self, sql: str, page_size: int = 100) -> dict[str, Any]:
         page_size = self._page_size(page_size)
         with self._lock:
             query_id, columns, row_count = self._materialize(sql)
-            self._results[query_id] = (columns, row_count, saved_query)
-            return self._read_page(query_id, columns, row_count, 0, page_size, saved_query)
+            self._results[query_id] = (columns, row_count, sql)
+            return self._read_page(query_id, columns, row_count, 0, page_size, sql)
 
     def page(self, query_id: str, offset: int, page_size: int = 100) -> dict[str, Any]:
         offset = self._offset(offset)
@@ -280,10 +277,10 @@ class QueryStore:
                 raise RuntimeError("query store unavailable; Workbench restart required")
             if not isinstance(query_id, str) or query_id not in self._results:
                 raise ValueError("unknown query_id")
-            columns, row_count, saved_query = self._results[query_id]
-            return self._read_page(query_id, columns, row_count, offset, page_size, saved_query)
+            columns, row_count, sql = self._results[query_id]
+            return self._read_page(query_id, columns, row_count, offset, page_size, sql)
 
-    def check(self, sql: str, saved_query: dict[str, str] | None = None) -> dict[str, Any]:
+    def check(self, sql: str) -> dict[str, Any]:
         with self._lock:
             query_id, columns, row_count = self._materialize(sql)
             table = quote_identifier(f"query_{query_id}")
@@ -293,10 +290,7 @@ class QueryStore:
                 self._available = False
                 print(f"query store unavailable: {exc}", file=sys.stderr)
                 raise RuntimeError("query store unavailable; Workbench restart required") from exc
-        result = {"valid": True, "row_count": row_count, "column_count": len(columns)}
-        if saved_query is not None:
-            result.update(saved_query)
-        return result
+        return {"valid": True, "row_count": row_count, "column_count": len(columns), "sql": sql}
 
     def schema(self) -> dict[str, dict[str, list[dict[str, Any]]]]:
         with self._lock:

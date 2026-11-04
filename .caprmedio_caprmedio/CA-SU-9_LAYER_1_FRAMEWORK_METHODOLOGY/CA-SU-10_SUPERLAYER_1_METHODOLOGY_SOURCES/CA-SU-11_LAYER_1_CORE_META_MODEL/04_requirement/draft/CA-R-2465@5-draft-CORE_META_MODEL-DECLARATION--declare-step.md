@@ -4,7 +4,7 @@ status: Draft
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
 version: 5
-updated_at: 2026-11-05 02:11:07 +0400
+updated_at: 2026-11-05 02:41:45 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
@@ -45,6 +45,10 @@ IF $step {=0}((CONTAINS)) THEN $step {::1}((RUNS)) (in (Action, Workflow))//$sel
 Step//$definition {::0+}((HAS_EXECUTION)) Step Run//$run
 ```
 
+### Prose Claim
+
+Every Step’s Container chain ends at a Workflow.
+
 ## Semantics
 
-A Step is a unit of work within a Workflow. It either runs exactly one Action or Workflow, or contains one or more Steps.
+A Step prescribes work within a Workflow.

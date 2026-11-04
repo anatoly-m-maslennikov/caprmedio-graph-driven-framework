@@ -1,0 +1,22 @@
+{
+  "status": "PREPARED_EXPLICIT_WORKFLOW_ROOTED_STEP",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2465",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "f1ad2cb139361d59d0447f8ae01ae47d392168d78f337f2563201b6509b2780e"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "before": "---\natom_id: CA-R-2465\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step\nversion: 5\nupdated_at: 2026-11-05 02:11:07 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Step\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role := Operations)/Step;\n\nAtom/(.Header.Role := Operations)/Step >| (Container == yes);\n\n# instances\nStep//$step;\n\n$step{::1}((IS_CONTAINED_BY)) (in (Workflow, Step))//$parent;\n\nIF $step {=0}((RUNS)) THEN $step {::1+}((CONTAINS)) Step//$nested_step;\n\nIF $step {>0}((RUNS)) THEN $step {::0}((CONTAINS));\n\nIF $step {=0}((CONTAINS)) THEN $step {::1}((RUNS)) (in (Action, Workflow))//$selected;\n\nStep//$definition {::0+}((HAS_EXECUTION)) Step Run//$run\n```\n\n## Semantics\n\nA Step is a unit of work within a Workflow. It either runs exactly one Action or Workflow, or contains one or more Steps.\n",
+      "before_sha256": "236a2c9f46c5fe5b88ae556cefc8f1fb967dad915f85e133ea8f780d791176a5",
+      "after": "---\natom_id: CA-R-2465\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step\nversion: 5\nupdated_at: 2026-11-05 02:41:45 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Step\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role := Operations)/Step;\n\nAtom/(.Header.Role := Operations)/Step >| (Container == yes);\n\n# instances\nStep//$step;\n\n$step{::1}((IS_CONTAINED_BY)) (in (Workflow, Step))//$parent;\n\nIF $step {=0}((RUNS)) THEN $step {::1+}((CONTAINS)) Step//$nested_step;\n\nIF $step {>0}((RUNS)) THEN $step {::0}((CONTAINS));\n\nIF $step {=0}((CONTAINS)) THEN $step {::1}((RUNS)) (in (Action, Workflow))//$selected;\n\nStep//$definition {::0+}((HAS_EXECUTION)) Step Run//$run\n```\n\n### Prose Claim\n\nEvery Step\u2019s Container chain ends at a Workflow.\n\n## Semantics\n\nA Step prescribes work within a Workflow.\n",
+      "after_sha256": "f1ad2cb139361d59d0447f8ae01ae47d392168d78f337f2563201b6509b2780e"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ author: Anatoly Maslennikov
 role: Requirement
 form: Rule
 tier: 3
-version: 7
+version: 8
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
 relations: {}
@@ -15,7 +15,7 @@ carrier_destination:
   file:
     name: CA-R-2727-WORKBENCH-RULE--provide-a-simple-web-query-interface-over-the-shared-query-capability.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement
-updated_at: 2026-11-05 01:48:39 +0400
+updated_at: 2026-11-05 02:58:37 +0400
 ---
 ## Summary
 
@@ -34,12 +34,13 @@ The web interface **must**:
 - provide a Worksheet editor with synchronous Run, Check, Save and Save Worksheet actions.
 - allow multiple SQL statements in one Worksheet, using semicolons as delimiters while preserving quoted strings, comments and dollar-quoted strings. Run, Check and Save target the statement at the cursor; a cursor exactly on a semicolon selects the statement to its left; Save Worksheet saves the whole script.
 - use a compact, modern, minimal technical interface with light and dark themes, including a remembered System theme choice.
-- provide two top-left utility tabs: `Settings`, followed immediately by `Saved Queries and Worksheets`. The current Worksheet tabs follow these utility tabs. The `Settings` panel is hidden initially; Theme and Zoom preferences apply on page load even while it is hidden.
+- show Workbench and the selected Project name in the top header. Put `Settings` and `Saved Queries and Worksheets` at the top-right of that header, on the same level as Workbench. Keep current Worksheet tabs in the workspace below. The `Settings` panel is hidden initially; Theme and Zoom preferences apply on page load even while it is hidden.
 - provide one `Hide editor` control for the active Worksheet. Keep the whole script for every open Worksheet in browser local storage every 5 seconds and restore it on the next page load.
-- keep current Worksheet tabs beside the utility tabs.
+- title the input area `Query editor`. Show `Saved: <ID>` at the right of that title, on the same header row, when a saved resource is available.
 - provide one top-left `Open Saved` button, not an inline open form. `Cmd+Option+O` opens a modal with an autofocus ID/URL input; native paste with `Cmd+V` is allowed, Enter opens the saved item without executing its SQL, and Escape or Cancel closes the modal.
 - ask before closing an unsaved tab or window. The standard browser `beforeunload` warning is allowed; flush the latest local draft on `pagehide` and `beforeunload` when possible.
 - use text-only zoom presets `80`, `90`, `100`, `110`, `125`, `150` and `200` percent, and remember the selected preset.
+- show each available hotkey inside its action button or immediately beside it.
 - bind `Cmd+Enter` to Run and `Shift+Cmd+Enter` to Check. These shortcuts must invoke different operations and target the statement at the cursor. Buttons Run, Check and Save target the same active statement; Save Worksheet targets the whole script.
 - show ordinary result rows in navigable pages, exact total row and column counts, and query errors.
 - use a small reusable component palette for consistent controls and result presentation.
@@ -50,8 +51,8 @@ The web interface **must**:
 - load a saved query or Worksheet from `?query=<saved_query_id>` without executing it, while preserving the existing `project_root` URL parameter. Open Saved accepts an ID or URL and opens it in the current Workbench browser context. Show a recent combined query/Worksheet list from `query_saved_list` in one `Saved Queries and Worksheets` tab.
 - keep presentation, formatting, page navigation and UI state in the frontend; SQL filtering, sorting and aggregation remain in the database.
 - use the same query capability as MCP.
-- include `saved_query_id`, `saved_query_url`, `kind` and the actual selected SQL in Run, Check and Save answers, including query errors. Page returns the original saved identity and URL. Construct the saved URL from the actual request context; do not invent a port.
-- allow the Operator to rename a current Worksheet and keep its optional name in browser autosave. `Save Worksheet` may persist an optional name; explicit Save may take an optional query name. Run and Check save unnamed. Do not rename saved Queries or saved Worksheets after creation; their IDs and URLs do not change.
+- save queries only through explicit Save and Save Worksheet actions. Run, Check, Page and their errors do not create saved entries or return a new saved identity. Run and Check still return the selected SQL and their results or errors. Explicit save answers include the saved ID, kind and full URL, constructed from the actual request context.
+- allow the Operator to rename a current Worksheet and keep its optional name in browser autosave. `Save Worksheet` may persist an optional name; explicit Save may take an optional query name. Run and Check do not save queries. Do not rename saved Queries or saved Worksheets after creation; their IDs and URLs do not change.
 - identify the selected Project by its declared name in the Workbench URL.
 - reject a Project name that does not match the selected Project.
 - remain within the existing local application boundary.

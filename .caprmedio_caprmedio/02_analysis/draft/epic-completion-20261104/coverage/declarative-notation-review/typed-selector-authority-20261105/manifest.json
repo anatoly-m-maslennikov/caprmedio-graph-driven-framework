@@ -22,9 +22,9 @@
       "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
       "basis_sha256": "f2b03e857aa8bc2e30beba8bac5f4b9b78d12af35061ab865d3c8e3ff07bdc5d",
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/typed-selector-authority-20261105/CA-R-2604.preview.txt",
-      "candidate_sha256": "8d6cf94e996dd2e36c25ff0243954057a90a2f2e1a53a7dd41249eb77e6bb11e",
+      "candidate_sha256": "9e9179d2f36dc05f751f9793161d6d3996b248c5c343c0e2769e645643a06c5c",
       "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/typed-selector-authority-20261105/CA-R-2604.diff",
-      "diff_sha256": "721de0204176c978179c78a70408218dcd82c678cf9f524e76b92a5b00bf93f5",
+      "diff_sha256": "e9702a73adb4cb2be2b489703d36efde95d2353ecdef86aa03c8139442c4e9f0",
       "status": "PREVIEW_DEPENDENT_ON_TYPED_GRAMMAR_INTEGRATION",
       "active_subject": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding",
       "note": "Existing single-subject authority retained; metadata unchanged."
@@ -36,9 +36,9 @@
       "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
       "basis_sha256": "c444f0ccbd62bd0bf53bc9be4b7597ca0b1612c62a78319cd836ce723a3b5f2e",
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/typed-selector-authority-20261105/CA-R-2487.preview.txt",
-      "candidate_sha256": "37088771f4f217267d7ffaab3617dd443ba8926bfd46ecd4006a4380dff446f9",
+      "candidate_sha256": "36e9b5b4f56a57776b658d7b7488fbb4a1329b5343534071ae0cbf530f599512",
       "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/typed-selector-authority-20261105/CA-R-2487.diff",
-      "diff_sha256": "e11cacc5646b1f6bfa4581917fc5c5d7ef635c91ac3d6386c826fb7f46a8ebe3",
+      "diff_sha256": "bcd395df83903c53097c24a8c4898c6bcb1510cb1da6e519b17ceaeb921d7df1",
       "status": "PREVIEW_DEPENDENT_ON_TYPED_GRAMMAR_INTEGRATION",
       "active_subject": "active: CAPRMEDIO_MODEL <+ CFEL",
       "note": "R2487 uses actual @14 Draft as basis; no actual Draft overwritten."
@@ -46,26 +46,29 @@
   ],
   "dependencies": {
     "analysis_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
-    "analysis_draft_sha256": "0553dcb7520a9c0867d15f8f121b66a83aed796c31318ca9d3995f9aaa649b11",
+    "analysis_draft_sha256": "1bed215aa7389ee86b8ade32b5708119c23ace295ca8f29cd747be252279b616",
     "for_each_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-universal-quantification.md",
-    "for_each_draft_sha256": "1562a014a018cc42a30468ead86a326037cacb79e1695732906a6704d9a6027d"
+    "for_each_draft_sha256": "1562a014a018cc42a30468ead86a326037cacb79e1695732906a6704d9a6027d",
+    "previous_analysis_draft_sha256": "0553dcb7520a9c0867d15f8f121b66a83aed796c31318ca9d3995f9aaa649b11",
+    "analysis_draft_review": "Reopened current A1321: named Relation uses $relation[<Relation>, (.Name = IS_PROPERTY_OF)]; IF membership remains authoritative, no WITH/IN header. Updated pin after semantic review."
   },
   "settled_decisions": [
     "Paired <Kind> denotes declared Model kind; bracketed named participant uses `$x[<Kind>, (conditions)]`; $<Node> remains proposed anonymous selector.",
     "FOR EACH uses selector plus colon and body; no WITH/IN. IF binding remains; no shadowing; active Subject is focus, not hidden participant.",
-    "No / or // direction change in these candidates. Values do not become graph Nodes merely from Format notation."
+    "No / or // direction change in these candidates. Values do not become graph Nodes merely from Format notation.",
+    "Typed instance forms preserve Kind//$x and Kind// meaning; anonymous repeated selections assert neither same nor different referent, and named participants express identity."
   ],
   "integration_gates": [
     "R2487 preview rebases exact actual Draft@14 including :: allowed-value and {::n} bounds; do not adopt separately from any concurrent modifications of that Draft.",
     "FOR EACH Declaration R2778 is an actual Draft, not Current; adopt governing source revisions in a coordinated batch after review.",
     "R2248 states primitive and object Format domains; define and review exact admissible syntax and condition operators without assuming that all objects are direct values on all Properties.",
-    "Each Claim must establish whether selectors address model entities or instance data. Relation Type descriptors are model entities; `$x[<Relation>, (.Name = IS_PROPERTY_OF)]` selects by the declared kind and property, without asserting uniqueness or creating a graph fact.",
-    "Anonymous and named participant scoping, no-shadowing and standalone binding coexist with Current R2604 semantics; exact selection/cardinality attachment requires separate source-supported grammar.",
-    "No independent new operator Declaration was invented: candidate extends existing Format and $ binding authority. Assess whether its formal operator inventory requires additional descriptor under the eventual complete grammar."
+    "No independent new operator Declaration was invented: candidate extends existing Format and $ binding authority. Assess whether its formal operator inventory requires additional descriptor under the eventual complete grammar.",
+    "Bare Node is its model entity; new typed participant syntax is an instance selector equivalent to old Kind//$x, not a new layer keyword. Existing IF membership over explicit model selectors remains.",
+    "Repeated anonymous selectors share a domain but do not assert equal or unequal referents; use a named participant to express the same selected identity. Selection/cardinality attachment still needs source-backed grammar.",
+    "A named Relation descriptor selected by `$x[<Relation>, (.Name = IS_PROPERTY_OF)]` has the same domain as Current Relation//IS_PROPERTY_OF and does not create or infer a data-graph fact."
   ],
   "questions": [
-    "How should a typed selector state the model layer versus the instance-data layer when kind and local syntax alone do not determine it?",
-    "Does an unqualified repeated anonymous `$<Kind>` occurrence denote an independent selection or the same participant, and where do selection cardinality bounds attach?"
+    "Where do cardinality bounds attach to selected populations versus each selected participant?"
   ],
   "boundary": "Proposals only. No actual Draft, Current, code, test, Workflow/Workbench, or Git changes; this packet does not claim implementation."
 }

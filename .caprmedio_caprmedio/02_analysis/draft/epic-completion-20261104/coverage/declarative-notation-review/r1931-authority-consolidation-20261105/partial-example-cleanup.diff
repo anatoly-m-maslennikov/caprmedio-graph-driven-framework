@@ -1,0 +1,12 @@
+--- .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-existing-draft-rebase-20261105/CA-R-1931@19.merged.preview.txt
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-authority-consolidation-20261105/CA-R-1931@19.partial-example-cleanup.preview.txt
+@@ -79,9 +79,7 @@
+ 
+ 
+ ```text
+-Entity/Object/Continuant/Package <+ Module <+ Code Unit
+ Atom/(.Header.Role := Operations)/(.Header.Form := Step) {::1}+>{::1+} Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)
+-Atom/(.Header.Role := Operations)/(.Header.Form := Sub-step) {::1}+>{::0+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)
+ Atom/(.Header.Role := Method)
+ Atom.Header.Status >| Status Group:: Draft <+ Draft
+ Atom.Header.Status >| Status Group:: Archived <+ Archived

@@ -1,0 +1,125 @@
+{
+  "schema": "recursive-step-carrier-delivery-previews/1",
+  "status": "SOURCE_PREVIEWS_ONLY_NO_CURRENT_DRAFT_OR_INSTANCE_MUTATION",
+  "decision": "Recursive Step model: each Step runs exactly one Action or Workflow, or contains one or more Steps; each Step has exactly one immediate whole and its chain ends at one root Workflow. Optional same-stem Step directories are allowed recursively; separately placed resolving Carriers remain allowed. Carrier folder placement does not create Model entities, Relations or control flow.",
+  "source_frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-passive-frontier-20261105.json",
+  "source_frontier_sha256": "bef85838ebb379caad05707e20b178aa37b100786436dd6e3a762bb3ce5168d7",
+  "previews": [
+    {
+      "id": "CA-D-467",
+      "version": 28,
+      "status": "Active",
+      "role": "Delivery",
+      "form": "Decision",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "current_sha256": "ed46335c87661b1caa6ca3c6fc3f042f50a54de7dd0014e2b68877b1833a0b66",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/delivery/CA-D-467.preview.md",
+      "preview_sha256": "a820a95ab65ef3ec753fd84df7798026bff0a8dba27cad652b7f7b174a13d93e",
+      "summary_preserved": true,
+      "metadata_preserved": true,
+      "clause_map": [
+        {
+          "before": "folder-backed Workflows, Step Carriers, **and** their leaf Substep Carriers.",
+          "after": "folder-backed Workflows and optional recursive Step Carriers."
+        },
+        {
+          "before": "the Workflow Atom's main content carries the graph scheme; a leaf Step Atom's main content carries its Action or Workflow reference **and** parameter/input bindings, while a containing Step carries its leaf Substep structure without RUNS.",
+          "after": "the Workflow Atom's main content carries the graph scheme. Each Step Atom carries its own definition: a leaf Step carries its single Action or Workflow reference and parameter/input bindings; a containing Step carries references to its direct contained Steps and has no RUNS target."
+        },
+        {
+          "before": "a containing Step Markdown Carrier **may** have **`<=1`** optional sibling Directory Carrier with the same filename stem containing its leaf Substep Markdown Carriers. this one-level Workflow-to-Step-to-Substep layout retains every folder-backed Step and Substep in its own Markdown Carrier; a Substep directory or another nested Step directory is not admitted.",
+          "after": "A Step Markdown Carrier **may** have **`<=1`** optional sibling Directory Carrier with the same filename stem containing its direct contained Step Carriers. This same-stem grouping rule applies recursively at every Step level. Grouping remains optional: Workflow and Step Carriers may be separately placed when references resolve unambiguously. When a directory is used, its matching Step Markdown Carrier remains separately addressable."
+        },
+        {
+          "before": "folder nesting organizes Carriers; it **must not** establish a Step/Substep Relation, execution inheritance, **or** execution order. the Workflow graph defines control flow; **every** leaf Step retains its own invocation of **`=1`** referenced Action or Workflow, and a containing Step has **`1+`** Substeps and no RUNS relation.",
+          "after": "Carrier placement organizes files; it **must not** establish a formal Step containment Relation, execution inheritance, **or** execution order. The declared Workflow graph and Step relations define control flow. Each Step has exactly one declared composition form: it RUNS one Action, RUNS one Workflow, or contains one or more Steps and RUNS neither target. Every Step has exactly one immediate whole, and its containment chain ends at exactly one root Workflow."
+        },
+        {
+          "before": "**every** admitted Workflow **or** containing Step parent Status change requires the containment cascade under CA-R-1521: compose independent single-Atom Actions for the latest Revision of the Workflow's direct Steps and their direct leaf Substeps, or the Step's direct leaf Substeps, requesting the same Status under each Atom's own model. separately placed referenced Steps **and** Actions outside the Carrier tree are **not** cascade targets; older archived Revisions retain their exact bytes, Version **and** Status.",
+          "after": "**Every** admitted Workflow or containing-Step Status change follows CA-R-1521. Its selected descendants are the latest Revisions of all recursively contained Steps in that parent Carrier tree; separately placed referenced Steps and Actions outside the tree are not selected. Older archived Revisions retain their exact bytes, Version and Status. CA-R-1521 governs the required per-Atom Actions, admitted target Status values and same-Status cascade."
+        },
+        {
+          "before": "apply CA-D-466's Status placement inside each local Workflow **or** Step container. Workflow-to-Step-to-Substep descendants remain inside the parent Carrier tree for **every** Status, including Archived; apply CA-D-289's Version suffixes **to** Archive Carrier basenames. this rule does **not** migrate noncanonical legacy `archive/` trees.",
+          "after": "Apply CA-D-466 Status placement inside each local Workflow or Step container. All recursively contained Step descendants remain inside their parent Carrier tree for every Status, including Archived. Apply CA-D-289 Version suffixes to Archive Carrier basenames. This rule does not migrate noncanonical legacy `archive/` trees."
+        },
+        {
+          "before": "read each Step and Substep's Status from its own Markdown Carrier under CA-D-483; containing Status directories **or** parents **must not** override it. the cascade writes the changed latest Revisions; it **does not** infer execution order **or** execution inheritance.",
+          "after": "Read each Step's Status from its own Markdown Carrier under CA-D-483; containing Status directories or parents must not override it. The cascade writes selected latest Revisions as governed by CA-R-1521; it does not infer execution order or execution inheritance."
+        }
+      ]
+    },
+    {
+      "id": "CA-E-500",
+      "version": 28,
+      "status": "Active",
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "current_sha256": "ceb0fdcccff0972ecb3e6b2aba27f6565ecd7cc05cea21bd9c8b072b4ce61edf",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/delivery/CA-E-500.preview.md",
+      "preview_sha256": "7f5ff8d74bb53fedaedf3a470c8dc0fe53041fb09e1f57b14eaaa03f29c942cf",
+      "summary_preserved": true,
+      "metadata_preserved": true,
+      "clause_map": [
+        {
+          "before": "- a graph references separate Step Atoms; **every** leaf Step RUNS **`=1`** Action **or** Workflow. A referenced Action is carried outside the entire Workflow **and** Step directory tree; a called Workflow retains its separate identity and reference. A containing Step contains **`1+`** leaf Substeps and RUNS neither an Action nor a Workflow. A leaf Step's bindings use only previous Step outputs, enclosing Workflow Run input, or values fixed by that Step. Two leaf Steps may reuse the same Action with different inputs **without** copying its behavior: accept.",
+          "after": "- a graph references separate Step Atoms. Each Step has exactly one form: it RUNS **`=1`** Action, RUNS **`=1`** Workflow, or contains **`1+`** Steps and RUNS neither target. Each Step has exactly one immediate whole, either its Workflow or a containing Step, and the containment chain ends at exactly one root Workflow. A referenced Action remains outside the entire Workflow and nested Step directory tree; a called Workflow retains its separate identity and reference. A leaf Step's bindings use only previous Step outputs, enclosing Workflow Run input, or values fixed by that Step. Two Steps may reuse the same Action with different inputs without copying its behavior: accept."
+        },
+        {
+          "before": "- place a Step Markdown Carrier beside its optional same-stem Directory Carrier containing its leaf Substep Markdown Carriers: accept. require the matching sibling Markdown Carrier for **every** Step directory; reject a missing **or** mismatched sibling. A Substep directory or another nested Step directory is not admitted by this layout.",
+          "after": "- place a Step Markdown Carrier beside an optional same-stem Directory Carrier containing its directly contained Step Carriers: accept. Apply this rule recursively at every Step level. When a Step directory is present, require its matching Step Markdown Carrier; reject a missing or mismatched sibling. Also accept separately placed resolving Step Carriers without a grouping directory. Do not derive a formal containment Relation or execution order from directory nesting."
+        },
+        {
+          "before": "- move a Workflow **or** Step Directory Carrier **without** a Status-change request: retain the graph **and** carried Step and Substep Status values. read each Step and Substep's own Status; reject read-time inference from its parent **or** path.",
+          "after": "- move a Workflow or Step Directory Carrier without a Status-change request: retain the graph and each carried Step Status. Read each Step's own Status under CA-D-483; reject read-time inference from its parent or path."
+        },
+        {
+          "before": "- change a Workflow **or** containing Step parent's Status to an admitted value: require independent single-Atom Actions for that parent **and** the latest Revision of every contained Step and Substep under CA-R-1521: a Workflow's direct Steps and their direct leaf Substeps, or a Step's direct leaf Substeps. check each Atom's own model; reject an invented target value **or** a multi-target Action.",
+          "after": "- change a Workflow or containing Step parent's Status to an admitted value: select the latest Revision of every recursively contained Step under CA-R-1521 and apply the requested Status under each Atom's own model. Compose separately admitted single-Atom Actions for the parent and each selected Step. Reject an invented target value or a multi-target Action. Separately placed referenced Steps and Actions outside the parent Carrier tree are not cascade targets."
+        },
+        {
+          "before": "- include Draft, Active **and** Archived transitions admitted by the selected model; require the same requested Status for **all** contained latest Step and Substep Revisions. leave separately placed referenced Steps **and** Actions outside the tree unchanged.",
+          "after": "- include Draft, Active and Archived transitions admitted by each applicable Status model; require the same requested Status for all recursively contained latest Step Revisions. Leave separately placed referenced Steps and Actions outside the tree unchanged."
+        },
+        {
+          "before": "- retain the Workflow-to-Step-to-Substep descendants inside the parent Carrier tree, including Archived placement under CA-D-466 **and** CA-D-289. preserve exact bytes, Version **and** Status of older archived Revisions; reject their inclusion as cascade targets **or** their metadata rewrite. no migration of legacy `archive/` trees is implied.",
+          "after": "- retain all recursively contained Step descendants inside the parent Carrier tree for every Status, including Archived placement under CA-D-466 and CA-D-289. Preserve exact bytes, Version and Status of older archived Revisions; reject their inclusion as cascade targets or metadata rewrite. No migration of legacy `archive/` trees is implied."
+        }
+      ]
+    }
+  ],
+  "operative_authority_pins": [
+    {
+      "id": "CA-D-466",
+      "version": 22,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-466-CORE_META_MODEL-ENG_DECISION--place-carriers-by-applicable-status-delivery.md",
+      "sha256": "dcd0762c4a64841de241ab40163b435eeaef9d6cbc8f6c8c467eee31b8260e31"
+    },
+    {
+      "id": "CA-D-483",
+      "version": 24,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "sha256": "5a5bd5e2afa431e45a068ff6110bed60e04660c2598de5fe257b77bdc60f164a"
+    },
+    {
+      "id": "CA-R-1521",
+      "version": 32,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1521-CORE_META_MODEL-RULE--resolve-lifecycle-changes-from-applicable-status-models.md",
+      "sha256": "62a7e1b25e71a913ed95061e0d74faee8e2c7c5f91afa04519d2374a4f047e72"
+    }
+  ],
+  "status_clause_map": {
+    "D467_cascade_reference": "For folder-backed Workflow or containing-Step parents, the D467 carrier-specific clause identifies recursively contained latest Steps and outside-tree references; CA-R-1521 owns per-Atom Action construction, admitted Status values, same-Status selection and own-model checks.",
+    "E500_cascade_evaluation": "E500 retains explicit parent/descendant Action and Status validation cases and extends the selected descendant set recursively to all contained latest Steps.",
+    "placement_and_status_source": "D466 placement applies; D483 requires each Atom Revision own explicit Status and rejects parent/path overrides; R1521 selects latest recursive descendants and preserves older archived revisions."
+  },
+  "scope_limits": [
+    "Actual Workflow/Step instances are excluded.",
+    "No source implementation, code, tests, Git, parser or runtime work.",
+    "D467/E500 retain their summaries, frontmatter metadata, unrelated constraints and complete content."
+  ],
+  "unresolved_policy_questions": []
+}

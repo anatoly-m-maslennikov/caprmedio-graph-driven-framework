@@ -1,7 +1,9 @@
-# CA-R-2728@4
-# CA-R-2729@5
-# CA-D-673@9
-# CA-D-674@11
+# CA-R-2728@5
+# CA-R-2729@6
+# CA-R-2776@3
+# CA-D-673@10
+# CA-D-674@12
+# CA-D-674@12
 
 """Small HTTP representation of the shared Project Workbench connector."""
 
@@ -71,11 +73,7 @@ def _error(gateway: Any, request: Request, selection: Any, arguments: dict[str, 
         getattr(gateway, "root", None), error,
         component="MCP_HTTP", operation="workbench",
     )
-    value: dict[str, Any] = {"error": failure.message}
-    saved = getattr(error, "details", {}).get("saved_query") if isinstance(getattr(error, "details", None), dict) else None
-    if isinstance(saved, dict):
-        value.update(public_saved(saved, request, selection, arguments.get("project_root")))
-    return JSONResponse(value, status_code=400)
+    return JSONResponse({"error": failure.message}, status_code=400)
 
 
 def _json_stream(value: dict[str, Any]):
@@ -103,14 +101,10 @@ async def _execute(gateway: Any, name: str, arguments: dict[str, Any], shared: b
     )
     value = response.structured_content
     if response.is_error:
-        saved = ({key: value[key] for key in ("saved_query_id", "kind", "sql")}
-                 if isinstance(value, dict) and all(isinstance(value.get(key), str)
-                                                    for key in ("saved_query_id", "kind", "sql")) else None)
         raise ExplicitBlockingRuntimeFailure(
             "query_error",
             value.get("error") if isinstance(value, dict) and isinstance(value.get("error"), str)
             else value.get("diagnostics", ["query failed"])[0] if isinstance(value, dict) else "query failed",
-            {"saved_query": saved} if saved is not None else None,
         )
     if not isinstance(value, dict):
         raise RuntimeError("Workbench returned an invalid result")

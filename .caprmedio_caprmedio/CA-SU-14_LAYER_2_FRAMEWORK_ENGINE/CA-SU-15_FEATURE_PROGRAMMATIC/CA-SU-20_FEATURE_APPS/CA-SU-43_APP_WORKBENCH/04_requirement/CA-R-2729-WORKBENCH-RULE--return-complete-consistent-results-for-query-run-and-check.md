@@ -3,11 +3,11 @@ atom_id: CA-R-2729
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
+version: 6
 author: Anatoly Maslennikov
 role: Requirement
 form: Rule
 tier: 3
-version: 5
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
 relations: {}
@@ -15,7 +15,6 @@ carrier_destination:
   file:
     name: CA-R-2729-WORKBENCH-RULE--return-complete-consistent-results-for-query-run-and-check.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement
-updated_at: 2026-11-05 01:40:28 +0400
 ---
 ## Summary
 
@@ -32,14 +31,13 @@ The public Run and Check operations for a query over the query Projection.
 The query interface **must**:
 
 - provide synchronous MCP Run and Check operations.
-- select the statement at the supplied optional UTF-16 `cursor_position` using native SQL tokenization, save that exact selected SQL without a name before executing each Run or Check, and return its `saved_query_id`, `saved_query_url` and `kind` separately from the materialized result `query_id`. The save appends a saved-item record to the configured Project Journal; it does not change Atom or Scope Unit sources.
-- make Run materialize the complete query result once and return its first bounded page, query ID, column information and exact total row and column counts.
-- provide Page to retrieve subsequent portions of that same materialized result without re-executing the query.
+- select the statement at the supplied optional UTF-16 `cursor_position` using native SQL tokenization. Run and Check do not persist the selected SQL or return a saved-item identity.
+- make Run materialize the complete query result once and return its first bounded page, query ID, column information, actual selected SQL and exact total row and column counts.
+- provide Page to retrieve subsequent portions of that same materialized result without re-executing the query or persisting a saved item.
 - keep those pages stable if source files are refreshed after Run.
-- make Check return whether the query is valid and, when valid, the result's exact row and column counts.
+- make Check return whether the query is valid and, when valid, the actual selected SQL and exact row and column counts.
 - make the counts and rows of one Run describe the same query execution.
 - return query errors to the caller through both Run and Check.
-- include `saved_query_id`, `saved_query_url`, `kind` and the actual selected `sql` in successful and query-error Run and Check answers. Page returns the original saved identity and URL for its result.
-- if saving the SQL fails, return an explicit save error, do not execute the query, and do not promise a saved-query ID. Explicit Save may receive an optional name; Run and Check never prompt for or persist a name.
+- keep explicit Save separate: it may receive an optional name, while Run and Check never prompt for or persist a name.
 - expose pagination explicitly without adding a hidden SQL limit or dropping selected rows. The complete result remains available through its pages until restart.
 - keep Check free of source and source-Projection modifications; temporary internal result materialization is derived cache work.

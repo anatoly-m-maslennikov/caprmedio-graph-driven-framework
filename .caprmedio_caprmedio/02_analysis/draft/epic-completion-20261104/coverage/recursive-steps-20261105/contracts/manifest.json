@@ -229,7 +229,6 @@
     "Physical Step Carrier/folder policy in E500/D467 remains held for an Operator decision; do not infer a layout from the recursive model."
   ],
   "unresolved": [
-    "Exactly one Step Container is settled. Whether every Step Container chain must terminate at a Workflow remains a pending user decision; do not infer acyclicity or permit multiple parents.",
     "R1528 preserves Run parentage/evidence but does not name the Relation that binds parent and child Runs; do not assume containment or grant inverse permissions until its source meaning is established."
   ],
   "limits": [
@@ -261,12 +260,24 @@
     "CA-R-2638": "contracts: explicit Action/Workflow target",
     "CA-R-2734": "contracts: shared Step and Action",
     "CA-R-2735": "contracts: shared Step and Action",
-    "rule": "one source candidate per ID; do not apply duplicate consumer previews"
+    "rule": "one source candidate per ID; do not apply duplicate consumer previews",
+    "CA-R-2465": "CA-R-2465-rooted-native-draft.preview.txt, based on actual @5 Draft; supersedes earlier contracts preview"
   },
   "containment_decision_ledger": {
-    "settled": "Each Step has exactly one immediate Container; multiple parents are not permitted.",
-    "prior_discussion": "The user initially allowed containment cycles and then reaffirmed exactly one Container for each Step when shown an example with two parents.",
-    "pending_question": "Must every Step Container chain terminate at a Workflow, thereby excluding detached cycles such as A→B→A?",
-    "boundary": "Do not assume rootedness or acyclicity; exactly one parent alone does not exclude a detached cycle."
+    "status": "RESOLVED",
+    "user_structure_example": "Workflow/Step/Step/**",
+    "interpretation": "Workflow is the root; Steps nest to any depth; every Step has exactly one immediate Container and its Container chain ends at a Workflow. Detached containment cycles are excluded.",
+    "notation_boundary": "The user example describes structure and is not asserted to be current CFEL NARROWER syntax.",
+    "supersession": "This settled rooted structure supersedes the earlier tentative allowance for containment cycles."
+  },
+  "rooted_native_draft_preview": {
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+    "source_sha256": "236a2c9f46c5fe5b88ae556cefc8f1fb967dad915f85e133ea8f780d791176a5",
+    "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2465-rooted-native-draft.preview.txt",
+    "preview_sha256": "b928371754b348614119508e00800d4873c71369c72dc144bdca16a84edeb6a8",
+    "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2465-rooted-native-draft.diff",
+    "diff_sha256": "65d43d7cddc9fa1846384c2541356cb5d664b9c64a6433fe3a0c03bc9a7bb23f",
+    "change": "Add one Claim Prose sentence requiring the Container chain to end at a Workflow. All existing Draft text and formal expressions remain byte-identical.",
+    "integration": "Apply to actual native Draft under owner control; the older R2465 contract preview is superseded by this rooted native-Draft preview. Preserve independently owned Workflow Purpose overlay. No invented acyclicity operator, StructuralLevel property, or formal path syntax."
   }
 }

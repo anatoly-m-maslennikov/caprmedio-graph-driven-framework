@@ -1,0 +1,290 @@
+{
+  "status": "RETIREMENT_NOT_SUPPORTED_CLAUSE_CLOSURE_INCOMPLETE",
+  "current_and_authority_pins": [
+    {
+      "id": "CA-R-1931",
+      "version": 18,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b"
+    },
+    {
+      "id": "CA-R-2471",
+      "version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf"
+    },
+    {
+      "id": "CA-R-2487",
+      "version": 13,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045"
+    },
+    {
+      "id": "CA-R-1321",
+      "version": 35,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+      "sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698"
+    },
+    {
+      "id": "CA-R-1194",
+      "version": 32,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+      "sha256": "f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57"
+    },
+    {
+      "id": "CA-R-2243",
+      "version": 12,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4"
+    },
+    {
+      "id": "CA-R-1324",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-RULE--reserve-subject-expression-separators.md",
+      "sha256": "8aa49a033b156ccccb60b64e56cde574ab2e734a311f0990335088b7a078c698"
+    },
+    {
+      "id": "CA-R-2276",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "sha256": "305ea99fee46090bffe1df0d58e49bf6bdc2ad292d964e8e8a646d31d277d633"
+    },
+    {
+      "id": "CA-R-2473",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00"
+    },
+    {
+      "id": "CA-R-2478",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8"
+    },
+    {
+      "id": "CA-R-2476",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "sha256": "0815c5de37042caf4d3f76777f7358c5509bf0f360f5d540f8c548ec9b677d9e"
+    },
+    {
+      "id": "CA-R-2525",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2525-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "sha256": "1ae9d6f130dff0df4335ba0dac0be6f009b6c269043990da6b6d92906d4542b6"
+    },
+    {
+      "id": "CA-R-2553",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2553-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+      "sha256": "95277e91faeffdfa209190a16070768bfd3e4690b04695c543d0b30f124dd090"
+    }
+  ],
+  "merged_predecessor": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-existing-draft-rebase-20261105/CA-R-1931@19.merged.preview.txt",
+    "sha256": "8e41c736cd15fea5af628c67cdb02681698fe9788d0a8c2c100c2b9f5f6d5241"
+  },
+  "partial_preview": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-authority-consolidation-20261105/CA-R-1931@19.partial-example-cleanup.preview.txt",
+    "sha256": "79090491ec007772987682930d96fc9aa1c02eddb7f5f9b98d63f2bfc93ef698",
+    "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-authority-consolidation-20261105/partial-example-cleanup.diff",
+    "diff_sha256": "34a6d4bf3dbfe59b1316b5729ab9e9c6edd07045ad13844caf5b664f612979e9",
+    "status": "CONDITIONAL_TWO_EXAMPLE_REMOVALS_ONLY",
+    "limit": "This is not an adoption-ready replacement: other stale Subjects, normative content and cross-source dependencies remain."
+  },
+  "clause_map": [
+    {
+      "clause": "current path tokens / // . : and grouping",
+      "authority": "R2471, R2487 and R1321 restate Current semantics; R2471/R2487/2243 prepared previews contain :: revisions.",
+      "coverage": "covered_current_but_future_syntax_atomic",
+      "qualification": "Operator has proposed reversing / and // separately; no replacement direction is adopted in these source previews. Current named-instance spelling needs its own successor."
+    },
+    {
+      "clause": "bare address references existing target and does not create alias/identity",
+      "authority": "R1194, R1321, R2471 and R2487",
+      "coverage": "covered_current",
+      "qualification": "Do not assume every bare path is valid without declaration."
+    },
+    {
+      "clause": "containment +>/<+ direct IS_CONTAINED_BY and derived CONTAINS; not inheritance",
+      "authority": "R2471, R2487, R2478",
+      "coverage": "covered_current",
+      "qualification": "Future glyph reversal is a separate coordinated migration."
+    },
+    {
+      "clause": "classification >|/|< same HAS_CLASSIFICATION fact, no automatically invented inverse",
+      "authority": "R2471, R2487 and R1321 cover same fact; direct/derived permission in R2487",
+      "coverage": "partially_covered_current",
+      "qualification": "The exact no-inverse-type sentence is not proven by those general rules alone; check relation declaration before deletion."
+    },
+    {
+      "clause": "relative property qualification inherits bearer kind; no intermediate kind",
+      "authority": "R2471 and R2487 for := selection, R1194 for no intermediate kind",
+      "coverage": "covered_current_with_conflict",
+      "qualification": "R1931 old (.Y: Z) is stale against admitted := selection and planned ::; keep distinction between Property value admission and filtered kind."
+    },
+    {
+      "clause": "named relation syntax and only one authored direct fact",
+      "authority": "R2487 and R2478; R2473 for Property-bearing direction",
+      "coverage": "covered_current",
+      "qualification": "Do not discard endpoint-specific authority or imply an inverse is automatically permitted."
+    },
+    {
+      "clause": "syntax does not create identity/native fact; defining Atom may introduce governed target",
+      "authority": "R1194, R1321, R2487",
+      "coverage": "covered_current",
+      "qualification": "A defining Atom can introduce target, not any bare syntax."
+    },
+    {
+      "clause": "allowed cardinality n,n+,n..m, two independent relation slots and omission unspecified",
+      "authority": "R2243, R2471 and R2487",
+      "coverage": "covered_current_plus_future_spelling",
+      "qualification": "Prepared R2243/R2471/R2487 :: previews are not Current; coordinate before replacing old spellings."
+    },
+    {
+      "clause": "relation slots count relation instances not distinct targets or binary arity",
+      "authority": "R2243 explicitly distinguishes relation instances, target counts and arity; R2487 states independent bounds",
+      "coverage": "covered_current",
+      "qualification": "Preserve specificity in any reference-based reduction."
+    },
+    {
+      "clause": "advanced functions/formulas/interpolation/bracketed conditions out of scope",
+      "authority": "R2487 admits COUNT MAX LOOKUP and other constructs, R2771/R2772 support bracketed value constraints",
+      "coverage": "stale_or_overbroad",
+      "qualification": "Remove blanket prohibition only as an explicit contradiction repair; do not invent or prohibit unreviewed syntax."
+    },
+    {
+      "clause": "Status Group Draft/Archived/Current wildcard mapping",
+      "authority": "R1931 is only inspected exact defining use of Current = admitted statuses excluding Draft/Archived",
+      "coverage": "unique_uncovered",
+      "qualification": "Other Current sources use Status Group but do not by themselves prove full mapping. Preserve or establish separate authority before removing examples/Semantics."
+    },
+    {
+      "clause": "Module exactly one Package; root Implementation and nested Package parent",
+      "authority": "R2553 defines root Implementation; R2525 defines non-root Package parent",
+      "coverage": "partially_covered_current",
+      "qualification": "No equivalent Module-exactly-one-Package constraint found in inspected native Requirements; do not retire this part without a pinned matching authority or approved supersession."
+    },
+    {
+      "clause": "Step under Workflow and distinct Sub-step",
+      "authority": "Recursive Step contract previews revise R2465 and retirement of R2466 is planned",
+      "coverage": "future_draft_or_superseded",
+      "qualification": "Current still reflects old composition. Remove only in atomic recursive-Step adoption; do not invent cycle policy."
+    },
+    {
+      "clause": "Scope Unit has Scope Unit, Atom and Projection structural parts",
+      "authority": "R2523/R2508 and Projection declarations provide partial relation/type evidence",
+      "coverage": "partially_covered_current",
+      "qualification": "Exact combined three-way constraint not established in this bounded mapping; resolve per-direction permissions and Scope Unit authority."
+    },
+    {
+      "clause": "backslash escapes next literal name character",
+      "authority": "R1324 explicitly scopes backslash escape to literal operator characters in Term names; R2487 limits quoted text escapes",
+      "coverage": "partially_covered_conflict",
+      "qualification": "R1931 is broader than R1324 and conflicts with R2487 if treated as quoted-value grammar. Do not silently choose general escape rules."
+    },
+    {
+      "clause": "single/double quotes carrier serialization only; no Entity delimiters",
+      "authority": "R2487 Current explicitly admits double-quoted CFEL text; merged R1931 preview retains blanket text",
+      "coverage": "conflict",
+      "qualification": "Clarify literal values versus names; remove misleading blanket denial only with coordinated consumer changes."
+    },
+    {
+      "clause": "one globally unique primary kind name and one canonical declaration path; no migration aliases",
+      "authority": "R2276 requires complete canonical names map one-to-one; no separately proven global bare primary-name rule in inspected authorities",
+      "coverage": "unique_or_stronger_uncovered",
+      "qualification": "Do not replace bare-name uniqueness with qualified-name uniqueness by assumption. Keep as unresolved source-policy distinction; preserve no-alias authority where independently established."
+    },
+    {
+      "clause": "Term-path reconciliation subject to C605",
+      "authority": "C605 referenced as concern, no substitute closure verified",
+      "coverage": "open_dependency",
+      "qualification": "Retain tracking or disposition with owner; concern is not proof of a current grammar rule."
+    },
+    {
+      "clause": "examples legacy Entity Package/Module, Sub-step, status and Method-as-Form",
+      "authority": "examples are not standalone evidence of admitted targets; current declarations govern each",
+      "coverage": "obsolete_or_partly_normative",
+      "qualification": "Remove only two obsolete Package/Sub-step example lines in conditional preview; status mapping and structured Details need separate authority; R1931 passive Entity paths remain held."
+    }
+  ],
+  "current_references_scoped": [
+    {
+      "id": "CA-E-659",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-659-CORE_META_MODEL-EVAL_CASE--check-term-definition-well-formedness.md",
+      "sha256": "ab8f02d75db389d6750182df8cc242e325be5c0d6b11e6f3866de42b3d87e265",
+      "reference_forms": [
+        "CA-R-1931"
+      ]
+    },
+    {
+      "id": "CA-E-383",
+      "version": 46,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "sha256": "8503b8391a73bfae63174a5c414f5be4b1d23fac8403951be0cbb4272817c78c",
+      "reference_forms": [
+        "CA-R-1931"
+      ]
+    },
+    {
+      "id": "CA-M-294",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-294-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-simpler-words-without-losing-meaning.md",
+      "sha256": "e382d6c60182c818801870fd57297a1a55514be844eeb78e5656386bfc84a909",
+      "reference_forms": [
+        "CA-R-1931"
+      ]
+    },
+    {
+      "id": "CA-M-113",
+      "version": 42,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-claims-in-caprmedio-controlled-english.md",
+      "sha256": "ff7e78240900d22c49ece88a40ed92213f258b5b1f687607d12c99e2ef9413b3",
+      "reference_forms": [
+        "CA-R-1931"
+      ]
+    },
+    {
+      "id": "CA-R-1194",
+      "version": 32,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+      "sha256": "f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57",
+      "reference_forms": [
+        "CA-R-1931"
+      ]
+    },
+    {
+      "id": "CA-R-2276",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "sha256": "305ea99fee46090bffe1df0d58e49bf6bdc2ad292d964e8e8a646d31d277d633",
+      "reference_forms": [
+        "CA-R-1931"
+      ]
+    },
+    {
+      "id": "CA-R-1321",
+      "version": 35,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+      "sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698",
+      "reference_forms": [
+        "CA-R-1931"
+      ]
+    },
+    {
+      "id": "CA-R-1319",
+      "version": 31,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md",
+      "sha256": "f8a7f93b97040bde26c2202cd48166a35d840508b6810544f4ffe1f2f58211f4",
+      "reference_forms": [
+        "CA-R-1931"
+      ]
+    }
+  ],
+  "recommendation": "Retain R1931 until its unique/stronger constraints and exact consumers are dispositioned. Integrate the two example deletions with recursive-Step/source-syntax work; separately reconcile outdated Terms, quote semantics, status-group definition, Package/Module rules, naming and primary Entity passive paths. Remove stale staging if still present in the chosen base; the merged preview already removed it. Retire only after each operative clause has a valid Current successor or approved explicit withdrawal and inbound references have an atomic disposition.",
+  "limits": [
+    "Bounded Core methodology search; no Workflow instances, code, tests or Git examined or modified.",
+    "Prepared preview sources are proposals, not Current authority; no blind Entity to Node mapping."
+  ]
+}

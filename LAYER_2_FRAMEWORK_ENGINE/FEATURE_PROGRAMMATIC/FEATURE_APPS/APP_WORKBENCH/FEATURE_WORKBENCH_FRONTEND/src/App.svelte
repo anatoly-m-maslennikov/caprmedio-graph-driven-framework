@@ -1,6 +1,6 @@
-<!-- CA-R-2727@7 -->
-<!-- CA-D-674@11 -->
-<!-- CA-M-470@2 -->
+<!-- CA-R-2727@8 -->
+<!-- CA-D-674@12 -->
+<!-- CA-M-470@3 -->
 <script lang="ts">
   import { onMount } from 'svelte';
   import Button from './lib/Button.svelte';
@@ -12,7 +12,7 @@
   import SavedPanel from './lib/SavedPanel.svelte';
   import SqlEditor from './lib/SqlEditor.svelte';
   import WorksheetTabs from './lib/WorksheetTabs.svelte';
-  import { ApiError, WorkbenchApi } from './lib/api';
+  import { WorkbenchApi } from './lib/api';
   import type { CheckResult, QueryResult, SavedIdentity, SavedItem, Schema } from './lib/types';
   import { cleanAfterSave, newWorksheet, persistable, restore, storageKey } from './lib/workspace.js';
 
@@ -46,24 +46,26 @@
     const tab = tabById(id); if (!tab || (tab.dirty && !confirm(`Close unsaved ${tabName(tab)}?`))) return;
     const remaining = tabs.filter((item) => item.id !== id); if (remaining.length) { tabs = remaining; showWorksheet(remaining[0].id); } else addWorksheet();
   }
-  function acceptSaved(id: string, saved: SavedIdentity, result?: QueryResult, check?: CheckResult) {
+  function acceptSaved(id: string, saved: SavedIdentity) {
     const current = tabById(id); if (!current) return;
     const changes: Partial<Tab> = { ...(cleanAfterSave(current, saved.sql) as Tab), saved, busy: false, error: '' };
-    if (result) changes.result = result; if (check) changes.check = check; updateTab(id, changes);
+    updateTab(id, changes);
+  }
+  function acceptResult(id: string, changes: Pick<Tab, 'result' | 'check'>) {
+    updateTab(id, { ...changes, busy: false, error: '' });
   }
   function savedError(id: string, error: unknown) {
-    const details = error instanceof ApiError ? error.details : {};
-    updateTab(id, { busy: false, error: error instanceof Error ? error.message : 'Request failed', saved: typeof details.saved_query_id === 'string' ? details as unknown as SavedIdentity : undefined });
+    updateTab(id, { busy: false, error: error instanceof Error ? error.message : 'Request failed' });
   }
   async function action(kind: 'run' | 'check' | 'save', cursor = active?.cursor ?? 0, name?: string) {
     const tab = active; if (!tab || tab.busy || savedBusy) return;
     updateTab(tab.id, { busy: true, error: '' });
     try {
-      if (kind === 'run') { const result = await api.run(tab.sql, cursor); acceptSaved(tab.id, result, result); }
-      else if (kind === 'check') { const check = await api.check(tab.sql, cursor); acceptSaved(tab.id, check, undefined, check); }
+      if (kind === 'run') acceptResult(tab.id, { result: await api.run(tab.sql, cursor) });
+      else if (kind === 'check') acceptResult(tab.id, { check: await api.check(tab.sql, cursor) });
       else acceptSaved(tab.id, await api.save(tab.sql, cursor, name));
-      await refreshSaved();
-    } catch (error) { savedError(tab.id, error); if (error instanceof ApiError && typeof error.details.saved_query_id === 'string') await refreshSaved(); }
+      if (kind === 'save') await refreshSaved();
+    } catch (error) { savedError(tab.id, error); }
   }
   function requestSave() { if (active && !active.busy) nameDialog = true; }
   async function saveWorksheet(name = active?.name) {
@@ -87,7 +89,7 @@
     const busy = !active || active.busy || savedBusy; const result = active?.result;
     return [
       { id: 'settings', label: 'Settings', enabled: true, run: () => showUtility('settings') }, { id: 'saved', label: 'Saved Queries and Worksheets', enabled: true, run: () => showUtility('saved') },
-      { id: 'open', label: 'Open Saved', shortcut: 'Cmd+Option+O', enabled: !savedBusy, run: () => openSavedDialog = true }, { id: 'focus-sql', label: 'Focus SQL', enabled: !!active, run: focusSql }, { id: 'focus-results', label: 'Focus Results', enabled: !!result, run: focusResults },
+      { id: 'open', label: 'Open Saved', shortcut: 'Cmd+Option+O', enabled: !savedBusy, run: () => openSavedDialog = true }, { id: 'focus-sql', label: 'Focus Query editor', enabled: !!active, run: focusSql }, { id: 'focus-results', label: 'Focus Results', enabled: !!result, run: focusResults },
       ...tabs.map((tab) => ({ id: `worksheet-${tab.id}`, label: `Worksheet: ${tabName(tab)}`, enabled: true, run: () => showWorksheet(tab.id) })), { id: 'new', label: 'New Worksheet', enabled: true, run: addWorksheet },
       { id: 'rename', label: 'Rename Worksheet', enabled: !!active, run: renameActiveWorksheet }, { id: 'close', label: 'Close Worksheet', enabled: !!active, run: () => active && closeWorksheet(active.id) },
       { id: 'run', label: 'Run', shortcut: 'Cmd+Enter', enabled: !busy, run: () => action('run') }, { id: 'check', label: 'Check', shortcut: 'Shift+Cmd+Enter', enabled: !busy, run: () => action('check') }, { id: 'save', label: 'Save', enabled: !busy, run: requestSave }, { id: 'save-worksheet', label: 'Save Worksheet', enabled: !busy, run: () => saveWorksheet() },
@@ -105,11 +107,11 @@
   });
 </script>
 
-<main class="workbench"><header class="app-header"><span class="brand-mark">CA</span><span class="project-label">{projectName}</span><span class="app-name">Workbench</span></header><section class="workspace">
-  <div class="workspace-toolbar"><div class="toolbar-main"><WorksheetTabs {tabs} {activeId} utility={view} {renaming} onutility={showUtility} onselect={showWorksheet} onclose={closeWorksheet} onadd={addWorksheet} onrename={renameWorksheet} /></div><div class="toolbar-actions"><Button onclick={() => openSavedDialog = true}>Open Saved <span class="shortcut">Cmd+Option+O</span></Button><Button onclick={() => commandOpen = true}>Commands <span class="shortcut">Cmd+P</span></Button></div></div>
+<main class="workbench"><header class="app-header"><span class="brand-mark">CA</span><span class="app-name">Workbench</span><span class="project-label">Project: {projectName}</span><div class="header-utilities" role="tablist" aria-label="Workbench views"><button class:active={view === 'settings'} type="button" role="tab" aria-selected={view === 'settings'} onclick={() => showUtility('settings')}>Settings</button><button class:active={view === 'saved'} type="button" role="tab" aria-label="Saved Queries and Worksheets" title="Saved Queries and Worksheets" aria-selected={view === 'saved'} onclick={() => showUtility('saved')}>Saved</button></div></header><section class="workspace">
+  <div class="workspace-toolbar"><div class="toolbar-main"><Button onclick={() => openSavedDialog = true}>Open Saved <span class="shortcut">Cmd+Option+O</span></Button><WorksheetTabs {tabs} {activeId} utility={view} {renaming} onselect={showWorksheet} onclose={closeWorksheet} onadd={addWorksheet} onrename={renameWorksheet} /></div><div class="toolbar-actions"><Button onclick={() => commandOpen = true}>Commands <span class="shortcut">Cmd+P</span></Button></div></div>
   <Preferences storageKey={namespace} visible={view === 'settings'} oncommands={(items) => preferenceCommands = items} />
   {#if view === 'saved'}<SavedPanel items={savedItems} busy={savedBusy} onopen={openSaved} />{/if}
-  {#if view === 'worksheet' && active}<section class="editor-panel"><div class="editor-content" hidden={collapsed}>{#key active.id}<SqlEditor value={active.sql} cursor={active.cursor} disabled={active.busy} {schema} onchange={edit} onaction={(kind, cursor) => action(kind, cursor)} />{/key}</div><div class="query-actions"><Button disabled={active.busy || savedBusy} onclick={() => action('run')}>Run</Button><Button disabled={active.busy || savedBusy} onclick={() => action('check')}>Check</Button><Button disabled={active.busy || savedBusy} onclick={requestSave}>Save</Button><Button disabled={active.busy || savedBusy} onclick={() => saveWorksheet()}>Save Worksheet</Button><Button class="editor-toggle" onclick={() => collapsed = !collapsed}>{collapsed ? 'Show editor' : 'Hide editor'}</Button><span class="shortcut">Cmd+Enter Run · Shift+Cmd+Enter Check</span></div>{#if active.error}<p class="error" role="alert">{active.error}</p>{/if}{#if active.saved}<p class="notice">Saved: <a href={active.saved.saved_query_url}>{active.saved.saved_query_id}</a></p>{/if}</section>
+  {#if view === 'worksheet' && active}<section class="editor-panel"><div class="panel-heading" role="group" aria-label="Query editor header"><span>Query editor</span>{#if active.saved}<span class="saved-reference">Saved: <a href={active.saved.saved_query_url}>{active.saved.saved_query_id}</a></span>{/if}</div><div class="editor-content" hidden={collapsed}>{#key active.id}<SqlEditor value={active.sql} cursor={active.cursor} disabled={active.busy} {schema} onchange={edit} onaction={(kind, cursor) => action(kind, cursor)} />{/key}</div><div class="query-actions"><Button disabled={active.busy || savedBusy} onclick={() => action('run')}>Run <span class="shortcut">Cmd+Enter</span></Button><Button disabled={active.busy || savedBusy} onclick={() => action('check')}>Check <span class="shortcut">Shift+Cmd+Enter</span></Button><Button disabled={active.busy || savedBusy} onclick={requestSave}>Save</Button><Button disabled={active.busy || savedBusy} onclick={() => saveWorksheet()}>Save Worksheet</Button><Button class="editor-toggle" onclick={() => collapsed = !collapsed}>{collapsed ? 'Show editor' : 'Hide editor'}</Button></div>{#if active.error}<p class="error" role="alert">{active.error}</p>{/if}</section>
     <section class="results-panel" tabindex="-1"><div class="status-line"><span class="status-badge">{active.busy ? 'Working' : 'Ready'}</span>{#if active.check}<span class="notice">Valid: {active.check.row_count} rows, {active.check.column_count} columns.</span>{/if}</div>{#if active.result}<ResultsTable result={active.result} /><nav class="query-actions" aria-label="Result pages"><Button disabled={active.busy || active.result.offset === 0} onclick={() => page(Math.max(0, active.result!.offset - active.result!.page_size))}>Previous</Button><Button disabled={active.busy || !active.result.has_more} onclick={() => page(active.result!.offset + active.result!.rows.length)}>Next</Button></nav>{/if}</section>{/if}
   {#if storageError}<p class="error" role="alert">{storageError}</p>{/if}
 </section></main>

@@ -1,4 +1,4 @@
-// CA-D-674@11
+// CA-D-674@12
 export type Column = { name: string; type: string; has_values?: boolean };
 
 export type SavedIdentity = {
@@ -9,7 +9,7 @@ export type SavedIdentity = {
   name?: string;
 };
 
-export type QueryResult = SavedIdentity & {
+export type QueryResult = {
   query_id: string;
   columns: Column[];
   rows: unknown[][];
@@ -20,7 +20,7 @@ export type QueryResult = SavedIdentity & {
   has_more: boolean;
 };
 
-export type CheckResult = SavedIdentity & { valid: boolean; row_count: number; column_count: number };
+export type CheckResult = { valid: boolean; row_count: number; column_count: number };
 export type Schema = { tables: Record<string, Array<{ name: string; type: string; values?: string[] }>> };
 export type SavedItem = {
   saved_query_id: string;

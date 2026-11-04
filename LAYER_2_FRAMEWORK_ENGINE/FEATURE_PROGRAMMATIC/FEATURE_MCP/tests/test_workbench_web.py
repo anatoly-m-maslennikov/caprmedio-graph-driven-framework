@@ -1,4 +1,4 @@
-# CA-E-673@3
+# CA-E-676@9
 
 from __future__ import annotations
 
@@ -55,10 +55,6 @@ class FakeWorkbench:
             if arguments.get("name", "").strip():
                 value["name"] = arguments["name"]
             return value
-        if arguments.get("sql") == "saved-bad":
-            raise ExplicitBlockingRuntimeFailure(
-                "query_error", "bad query", {"saved_query": {"saved_query_id": "q_2", "kind": "query", "sql": "saved-bad"}},
-            )
         if arguments["sql"] == "bad":
             raise ExplicitBlockingRuntimeFailure("query_error", "bad query")
         if arguments["sql"] == "crash":
@@ -106,9 +102,9 @@ class FakeGateway:
             value = await self.workbench.call(params.name, params.arguments)
             return types.CallToolResult(content=[], structured_content=value)
         except ExplicitBlockingRuntimeFailure as error:
-            saved = error.details.get("saved_query")
-            value = {"error": error.message, **saved} if isinstance(saved, dict) else {"diagnostics": [str(error)]}
-            return types.CallToolResult(content=[], structured_content=value, is_error=True)
+            return types.CallToolResult(
+                content=[], structured_content={"error": error.message}, is_error=True,
+            )
 
 
 class WorkbenchWebTests(unittest.TestCase):
@@ -204,7 +200,7 @@ class WorkbenchWebTests(unittest.TestCase):
                     client.post(f"{PROJECT_PATH}/check", json={"sql": "SELECT 1"}).json()["row_count"],
                 )
 
-    def test_saved_values_and_errors_have_request_derived_urls(self):
+    def test_saved_values_have_request_derived_urls_and_query_errors_do_not(self):
         with TestClient(Starlette(routes=routes(FakeGateway())), base_url="http://workbench.test") as client:
             saved = client.post(f"{PROJECT_PATH}/save", json={"sql": "SELECT 1"}).json()
             self.assertEqual(
@@ -214,13 +210,9 @@ class WorkbenchWebTests(unittest.TestCase):
             self.assertEqual("named", named["name"])
             unnamed = client.post(f"{PROJECT_PATH}/save", json={"sql": "SELECT 1", "name": "   "}).json()
             self.assertNotIn("name", unnamed)
-            failed = client.post(f"{PROJECT_PATH}/run", json={"sql": "saved-bad"})
+            failed = client.post(f"{PROJECT_PATH}/run", json={"sql": "bad"})
             self.assertEqual(400, failed.status_code)
-            self.assertEqual("bad query", failed.json()["error"])
-            self.assertEqual(
-                "http://workbench.test/caprmedio/workbench/caprmedio?query=q_2",
-                failed.json()["saved_query_url"],
-            )
+            self.assertEqual({"error": "bad query"}, failed.json())
 
     def test_built_assets_follow_the_workbench_route_when_available(self):
         frontend = FRONTEND_ROOT / "dist"
@@ -249,13 +241,9 @@ class WorkbenchWebTests(unittest.TestCase):
             self.assertEqual(1, client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "SELECT 1"}).json()["row_count"])
             named = client.post(f"{PROJECT_PATH}/save", json={"project_root": "/project", "sql": "SELECT 1", "name": "shared"}).json()
             self.assertEqual("shared", named["name"])
-            failure = client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "saved-bad"})
+            failure = client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "bad"})
             self.assertEqual(400, failure.status_code)
-            self.assertEqual("bad query", failure.json()["error"])
-            self.assertEqual(
-                "http://testserver/caprmedio/workbench/caprmedio?query=q_2&project_root=%2Fproject",
-                failure.json()["saved_query_url"],
-            )
+            self.assertEqual({"error": "bad query"}, failure.json())
         self.assertEqual(["/project", "/project", "/project"], gateway.roots)
 
 

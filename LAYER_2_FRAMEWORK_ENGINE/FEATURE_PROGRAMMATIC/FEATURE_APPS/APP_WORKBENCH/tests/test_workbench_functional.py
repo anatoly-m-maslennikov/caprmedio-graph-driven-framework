@@ -1,5 +1,5 @@
 # CA-E-675@5
-# CA-E-676@8
+# CA-E-676@9
 # CA-E-677@8
 
 from __future__ import annotations
@@ -11,7 +11,6 @@ import sys
 import tempfile
 import time
 import unittest
-import uuid
 
 
 APP_ROOT = Path(__file__).resolve().parents[2]
@@ -61,12 +60,18 @@ class WorkbenchFunctionalTests(unittest.TestCase):
             [["CA-R-501", "Current", "Short requirement.", "Atom.id[string]{1}", "An Atom has one ID."]],
             result["rows"],
         )
+        self.assertEqual(
+            'SELECT id, status_group, "content.summary", "content.claim.formal claim", '
+            '"content.claim.prose claim" FROM atoms WHERE id = \'CA-R-501\'',
+            result["sql"],
+        )
+        self.assertEqual(result["sql"], self.service.page(result["query_id"], 0)["sql"])
         checked = self.service.check("SELECT id FROM atoms WHERE id = 'CA-R-501'")
-        self.assertEqual({"valid": True, "row_count": 1, "column_count": 1}, {
-            key: checked[key] for key in ("valid", "row_count", "column_count")
-        })
-        self.assertEqual("query", checked["kind"])
-        self.assertEqual(7, uuid.UUID(checked["saved_query_id"]).version)
+        self.assertEqual(
+            {"valid": True, "row_count": 1, "column_count": 1, "sql": "SELECT id FROM atoms WHERE id = 'CA-R-501'"},
+            checked,
+        )
+        self.assertEqual({"items": []}, self.service.saved_list())
 
     def test_background_scan_indexes_new_sources_without_a_manual_refresh(self) -> None:
         self.service.run("SELECT 1")

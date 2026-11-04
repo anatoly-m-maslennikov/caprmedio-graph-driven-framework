@@ -7,21 +7,19 @@ The MCP endpoint is `/caprmedio/mcp`; health is `/caprmedio/health`.
 
 MCP tools:
 
-- `query_run(sql, page_size=100, cursor_position?)` returns a `query_id`, original column metadata,
+- `query_run(sql, page_size=100, cursor_position?)` returns selected `sql`, a `query_id`, original column metadata,
   positional rows, total counts, offset and `has_more`.
 - `query_page(query_id, offset, page_size=100)` reads the same result without
   re-executing SQL. The maximum page size is 1,000.
-- `query_check(sql, cursor_position?)` returns validity and exact counts without transferring all rows.
+- `query_check(sql, cursor_position?)` returns selected `sql`, validity and exact counts without transferring all rows.
 - `query_schema()` returns table/column names and types for completion.
 - `query_save(sql, cursor_position?, name?)` saves SQL with an optional creation name.
 - `worksheet_save(sql, name?)` saves a whole multi-query script with an optional name.
 - `query_load(reference)` opens a saved ID or full URL without executing it.
 - `query_saved_list(limit=20)` lists the most recent saved queries and Worksheets.
 
-Run and Check save before execution. Their answers, including SQL errors, return
-`saved_query_id`, `saved_query_url`, `kind` and the selected `sql`. The saved ID is
-separate from the materialized result's pagination `query_id`. New saves are
-immutable entries in the configured Project Journal, in date-partitioned
+Run and Check do not persist SQL or create saved IDs. Explicit Save and Save Worksheet
+create immutable entries in the configured Project Journal, in date-partitioned
 `workbench-saved-items-…-part-N.ndjson` files. Each entry has a canonical UUIDv7,
 kind, exact SQL, optional name and save timestamp. Parts hold about 1,000 entries
 under concurrent appends. Existing runtime `q_….sql` and `w_….json` files remain
@@ -47,7 +45,7 @@ without execution. Light, Dark and System themes and text-only zoom cover all UI
 text, including buttons, tabs and result cells.
 
 Rename current Worksheets locally. Save Worksheet copies that optional name;
-explicit Save can take a query name. Run and Check save unnamed.
+explicit Save can take a query name.
 
 The UI hides columns containing only NULL, empty strings or empty collections
 across the whole result. Zero and false remain visible. `columns[].has_values`

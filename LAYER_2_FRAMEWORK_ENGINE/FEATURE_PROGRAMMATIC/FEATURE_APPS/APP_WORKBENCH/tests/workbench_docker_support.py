@@ -1,5 +1,4 @@
-# CA-E-676@8
-# CA-E-677@8
+# CA-E-676@9
 
 """Small standard-library helpers shared by Workbench Docker E2E tests."""
 
@@ -111,6 +110,22 @@ def assert_saved_journal(case: unittest.TestCase, journal_state: Path, *saved: d
         case.assertEqual(value["sql"], record["sql"])
         case.assertEqual(value.get("name"), record.get("name"))
         case.assertIsInstance(record["saved_at"], str)
+
+
+def journal_snapshot(journal_state: Path) -> dict[str, str]:
+    return {
+        path.name: hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in journal_state.glob("workbench-saved-items-*-part-*.ndjson")
+    }
+
+
+def assert_journal_unchanged(case: unittest.TestCase, journal_state: Path, before: dict[str, str]) -> None:
+    case.assertEqual(before, journal_snapshot(journal_state))
+
+
+def assert_not_saved(case: unittest.TestCase, value: dict[str, Any]) -> None:
+    for key in ("saved_query_id", "saved_query_url", "saved_at"):
+        case.assertNotIn(key, value)
 
 
 def assert_legacy_files_unchanged(

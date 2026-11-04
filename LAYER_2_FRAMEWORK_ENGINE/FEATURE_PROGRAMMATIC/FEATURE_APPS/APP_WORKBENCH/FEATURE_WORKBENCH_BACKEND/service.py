@@ -1,7 +1,8 @@
-# CA-R-2728@4
-# CA-R-2729@5
-# CA-R-2776@2
-# CA-D-673@9
+# CA-R-2728@5
+# CA-R-2729@6
+# CA-R-2776@3
+# CA-M-470@3
+# CA-D-673@10
 
 """One Project's direct file reader, background indexer, and SQL capability."""
 
@@ -17,7 +18,7 @@ from watchfiles import watch
 
 from .query_store import QueryStore
 from .relations import canonical, materialize
-from .saved_queries import SavedQueryError, SavedQueryStore
+from .saved_queries import SavedQueryStore
 from .source_reader import SourceReader
 from .statements import select_statement
 
@@ -128,19 +129,13 @@ class WorkbenchService:
                 print(self._failure, file=sys.stderr)
                 raise RuntimeError(self._failure) from error
 
-    def _saved(self, sql: str, cursor_position: int | None) -> dict[str, str]:
-        return self._saved_queries.save_query(select_statement(sql, cursor_position))
-
     def run(
         self, sql: str, page_size: int = 100, cursor_position: int | None = None,
     ) -> dict[str, Any]:
-        saved_query = self._saved(sql, cursor_position)
-        try:
-            self._start()
-            assert self._store is not None
-            return self._store.run(saved_query["sql"], page_size=page_size, saved_query=saved_query)
-        except (ValueError, RuntimeError) as error:
-            raise SavedQueryError(saved_query, error) from error
+        selected = select_statement(sql, cursor_position)
+        self._start()
+        assert self._store is not None
+        return self._store.run(selected, page_size=page_size)
 
     def page(self, query_id: str, offset: int, page_size: int = 100) -> dict[str, Any]:
         self._start()
@@ -148,13 +143,10 @@ class WorkbenchService:
         return self._store.page(query_id, offset, page_size=page_size)
 
     def check(self, sql: str, cursor_position: int | None = None) -> dict[str, Any]:
-        saved_query = self._saved(sql, cursor_position)
-        try:
-            self._start()
-            assert self._store is not None
-            return self._store.check(saved_query["sql"], saved_query=saved_query)
-        except (ValueError, RuntimeError) as error:
-            raise SavedQueryError(saved_query, error) from error
+        selected = select_statement(sql, cursor_position)
+        self._start()
+        assert self._store is not None
+        return self._store.check(selected)
 
     def save(
         self, sql: str, cursor_position: int | None = None, name: str | None = None,

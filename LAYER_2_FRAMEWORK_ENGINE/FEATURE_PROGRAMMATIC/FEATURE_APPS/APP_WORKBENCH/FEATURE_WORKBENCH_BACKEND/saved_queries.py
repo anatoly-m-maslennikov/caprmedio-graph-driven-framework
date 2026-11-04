@@ -1,6 +1,6 @@
-# CA-M-470@2
-# CA-R-2776@2
-# CA-D-673@9
+# CA-M-470@3
+# CA-R-2776@3
+# CA-D-673@10
 
 """Project-Journal saved SQL with read-only legacy-file fallback."""
 
@@ -26,15 +26,6 @@ from work_journal import append_sealed_events, configured_journal_root  # noqa: 
 _LEGACY_ID = re.compile(r"^(?P<kind>[qw])_(?P<token>[0-9a-f]{32})$")
 _LEGACY_FILE = re.compile(r"^(?P<id>[qw]_[0-9a-f]{32})\.(?P<extension>sql|json)$")
 _JOURNAL_AUTHOR = "workbench-saved-items"
-
-
-class SavedQueryError(RuntimeError):
-    """Expose a completed save alongside the later execution failure."""
-
-    def __init__(self, saved_query: dict[str, Any], original_error: Exception) -> None:
-        super().__init__(str(original_error))
-        self.saved_query = saved_query
-        self.original_error = original_error
 
 
 class SavedQueryStore:

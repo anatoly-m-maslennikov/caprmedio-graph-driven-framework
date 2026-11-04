@@ -1,9 +1,5 @@
-// CA-D-673@9
+// CA-D-673@10
 import type { CheckResult, QueryResult, SavedIdentity, SavedItem, Schema } from './types';
-
-export class ApiError extends Error {
-  constructor(message: string, readonly details: Record<string, unknown>) { super(message); }
-}
 
 export class WorkbenchApi {
   constructor(private readonly base: string, private readonly projectRoot: string | null) {}
@@ -16,7 +12,7 @@ export class WorkbenchApi {
     const value = await response.json() as T | Record<string, unknown>;
     if (!response.ok) {
       const details = value as Record<string, unknown>;
-      throw new ApiError(typeof details.error === 'string' ? details.error : 'Request failed', details);
+      throw new Error(typeof details.error === 'string' ? details.error : 'Request failed');
     }
     return value as T;
   }

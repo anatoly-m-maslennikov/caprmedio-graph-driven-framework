@@ -1,10 +1,10 @@
 ---
 atom_id: CA-P-2710
 label: Epic
-status: Done
+status: Active
 tier: 3
-version: 13
-updated_at: 2026-11-05 02:50:12 +0400
+version: 14
+updated_at: 2026-11-05 03:04:20 +0400
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
 relations:
@@ -15,7 +15,7 @@ form: Plan
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
-    path: .caprmedio_caprmedio/03_plan/done
+    path: .caprmedio_caprmedio/03_plan
 ---
 
 ## Summary
@@ -30,7 +30,7 @@ Improve Workbench usability and saved queries/Worksheets according to the review
 
 Workbench RMEDO, implementation, tests, documentation and local deployment. Unrelated Engine and methodology migrations remain outside this Epic.
 
-## Tasks
+## Completed work (0.4.4.19)
 
 - [x] Update RMEDO for the approved Workbench changes.
 - [x] Review the RMEDO against the latest Operator input and related Current sources; fix issues.
@@ -44,11 +44,19 @@ Workbench RMEDO, implementation, tests, documentation and local deployment. Unre
 - [x] Verify the released Workbench in the browser and through MCP.
 - [x] Record completion.
 
+## Tasks
+
+- [ ] Update and review RMEDO for the requested Workbench refinements.
+- [ ] Implement the reviewed RMEDO.
+- [ ] Update behavior-focused tests and run the relevant checks.
+- [ ] Release locally and verify the deployed result.
+- [ ] Record completion.
+
 ## Sources
 
 Design is in CA-R-2727, CA-R-2728, CA-R-2729, CA-R-2763, CA-R-2776, CA-M-468, CA-M-469, CA-M-470, CA-M-472, CA-D-673, CA-D-674, CA-E-676, CA-E-678 and CA-O-240.
 
-## Status
+## Previous verification
 
 Done. Workbench 0.4.4.19 is deployed at `http://127.0.0.1:56317/caprmedio/workbench/caprmedio`. Its eight MCP operations and live command-palette Ctrl+P/Ctrl+N navigation were verified.
 
@@ -63,3 +71,7 @@ Verification:
 Receipts: `.caprmedio_runtime/simple_local_release/reports/workbench-20261105-compact-journal-final.md`, `.caprmedio_tmp/workbench/compact-names/live-proof.json` and `.caprmedio_tmp/workbench/compact-names/docker-browser-verified.log`.
 
 The final test refinement changes test/development files and its RMED, not deployed application behavior. The full repository suite was not rerun for this Workbench-only iteration. Unrelated methodology and Engine work remains outside this Epic.
+
+## Status
+
+Active. Reopened for the latest Operator refinements. The prior 0.4.4.19 result above remains verified. The new RMEDO is being prepared and reviewed before implementation.

@@ -55,7 +55,7 @@
           sql(), syntaxHighlighting(classHighlighter), history(), keymap.of([...defaultKeymap, ...historyKeymap]),
           editable.of(EditorView.editable.of(!disabled)),
           completion.of(autocompletion({ override: [source] })),
-          EditorView.contentAttributes.of({ 'aria-label': 'SQL editor' }),
+          EditorView.contentAttributes.of({ 'aria-label': 'Query editor' }),
           Prec.highest(EditorView.domEventHandlers({ keydown: shortcut })),
           EditorView.updateListener.of((update) => {
             if (update.docChanged || update.selectionSet) onchange?.(update.state.doc.toString(), update.state.selection.main.head);
@@ -83,5 +83,4 @@
   });
 </script>
 
-<span>SQL</span>
 <div id="sql-editor" class="sql-editor" bind:this={host}></div>

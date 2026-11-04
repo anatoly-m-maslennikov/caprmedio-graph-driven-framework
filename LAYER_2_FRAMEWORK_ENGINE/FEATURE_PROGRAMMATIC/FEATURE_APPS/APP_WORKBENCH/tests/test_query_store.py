@@ -1,4 +1,4 @@
-# CA-E-676@8
+# CA-E-676@9
 # CA-E-677@8
 # CA-M-472@1
 
@@ -120,7 +120,12 @@ class QueryStoreTest(unittest.TestCase):
         self.store.replace([], [])
         self.assertIs(connection, self.store._connection)
         self.assertEqual(
-            {"valid": True, "row_count": 0, "column_count": len(ATOM_FIELDS)},
+            {
+                "valid": True,
+                "row_count": 0,
+                "column_count": len(ATOM_FIELDS),
+                "sql": "SELECT * FROM atoms",
+            },
             self.store.check("SELECT * FROM atoms"),
         )
 
@@ -201,7 +206,12 @@ class QueryStoreTest(unittest.TestCase):
                     [[1], [2]], store.page(result["query_id"], offset=0, page_size=2)["rows"],
                 )
                 self.assertEqual(
-                    {"valid": True, "row_count": 3, "column_count": 1},
+                    {
+                        "valid": True,
+                        "row_count": 3,
+                        "column_count": 1,
+                        "sql": "SELECT value FROM (VALUES (1), (2), (3)) AS source(value)",
+                    },
                     store.check("SELECT value FROM (VALUES (1), (2), (3)) AS source(value)"),
                 )
                 with self.assertRaisesRegex(ValueError, "page_size"):
