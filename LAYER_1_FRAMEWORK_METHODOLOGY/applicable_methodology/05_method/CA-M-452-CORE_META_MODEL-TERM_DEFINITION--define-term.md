@@ -1,0 +1,82 @@
+---
+atom_id: CA-M-452
+status: Active
+subjects:
+  active: CAPRMEDIO_MODEL <+ Term//Term
+  passive:
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
+version: 4
+updated_at: 2026-11-04 18:28:33 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+tier: 1
+role: Method
+form: Term Definition
+carrier_destination:
+  file:
+    name: CA-M-452-CORE_META_MODEL-TERM_DEFINITION--define-term.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
+projection:
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-452-CORE_META_MODEL-TERM_DEFINITION--define-term.md
+  source_atom_id: CA-M-452
+  source_atom_revision: 4
+  source_sha256: 20430a47370fae6ba05bf584f9401310e5f541767c522336214d821bd6083269
+  original_relations_sha256: e367927d209b7bdecd9da53dd0dc693193d074370738c97b4bc15988d6240196
+---
+## Summary
+
+Define Term
+
+## Claim
+
+### Prose Claim
+
+
+The reusable lexical Term `Term` used in complete or qualified entity names and
+authored content.
+
+
+Term **means** a reusable word **or** phrase component of complete **or**
+qualified entity names **and** authored content whose approved Project-specific
+meaning remains consistent across **all** its uses. This Claim explicitly
+introduces the lexical Term instance named Term at `Term//Term`.
+
+## Semantics
+
+This Method governs the lexical word `Term`. The R / Entity Definition at
+`Term` governs the Term kind and its inherited structure. The matching
+word does not merge those distinct targets.
+
+Self-reference does not require an infinite sequence of lexical instances such
+as `Term Term`, `Term Term Term`, or further repetitions. This one explicit
+Method Atom of Type Term Definition governs `Term//Term`; using the word `Term` in this
+Claim or elsewhere does not introduce another instance.
+
+An Entity outside `Term` uses its full source-admitted expression as its
+complete canonical name. It cannot use one registered Term alone as that name,
+except for the Subject root `Entity`. The target of this Method is within the
+Term branch, so it is not an additional exception.
+
+`Atom/(.Header.Role: X)/(.Header.Form: X)` is a qualified expression that reuses the Term
+`X` in separately qualified value contexts. Each context still requires its
+own governing admission; repeated components neither introduce `X` nor
+transfer an admission.
+
+## Details
+
+This role-only Draft allocates no canonical Method identity and performs no
+promotion, runtime change, Terms Graph implementation, dictionary extraction,
+or inferred Term creation. A lexical occurrence, parser result, or entity-name
+component is not a replacement for this explicit governing Claim.
+
+### Pending governing declarations
+
+- [Entity root with the Term branch](../../04_requirement/draft/CA-R-1248@24-draft-CORE_META_MODEL-DEFINITION--define-entity.md).
+- [Term kind and inherited structure](../../04_requirement/draft/CA-R-1318@30-draft-CORE_META_MODEL-DEFINITION--define-term.md).
+- [Method Type Term Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-method-type-term-definition.md).
+- [Dedicated Method meaning owner](../../04_requirement/draft/CA-R-1319@26-draft-CORE_META_MODEL--define-governed-term.md).
+
+These links identify pending Draft dependencies, not Current admission.

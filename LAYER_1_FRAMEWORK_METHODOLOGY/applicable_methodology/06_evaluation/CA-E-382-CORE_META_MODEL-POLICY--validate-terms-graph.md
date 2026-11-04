@@ -1,0 +1,112 @@
+---
+subjects:
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
+  passive:
+  - CAPRMEDIO_MODEL <+ Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Eval Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Runtime Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Projection
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Requirement)/(.Header.Form: Entity Definition)'
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Entity
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
+  - CAPRMEDIO_MODEL <+ Atom
+version: 50
+updated_at: 2026-11-04 18:28:33 +0400
+relations:
+  evaluation_for:
+  - CA-R-1335@31
+  - CA-R-1246
+  - CA-R-2475
+  - CA-R-1244
+  - CA-R-1345
+  - CA-R-1347
+  - CA-R-1319
+  - CA-R-1454
+  - CA-R-1437
+  - CA-R-1472
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+atom_id: CA-E-382
+status: Active
+tier: 3
+role: Evaluation
+form: Eval Policy
+carrier_destination:
+  file:
+    name: CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+projection:
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md
+  source_atom_id: CA-E-382
+  source_atom_revision: 50
+  source_sha256: c015529a32546da7407d9a592c715deebf945b628ba7a0ded588c84ca4ca484b
+  original_relations_sha256: 88e6667b5e1bcc93c75dac32182179d3f7bfda60821f72209d68de96f84e54d1
+---
+## Summary
+
+Validate Terms Graph
+
+## Claim
+
+### Prose Claim
+
+
+Terms Graph validity **and** Terms Graph Projections **when** that native graph Evaluation is separately selected. This graph-specific Evaluation is optional **and** is **not** a prerequisite for directly checking Term Definitions **and** authored occurrences under CA-E-444.
+
+
+The selected native Terms Graph Evaluation **must** preserve the following graph-validity, source-authority **and** Projection-fidelity boundaries.
+
+### Graph validity
+
+the Evaluation **must** reject a Terms Graph **if** **any** of:
+
+- a native node is **not** a Term under its governing explicit authoritative Method Atom of Type Term Definition.
+- source evidence binds two distinct complete canonical entity names to the same entity **or** one complete canonical entity name to two distinct entities, including synonymous full names registered in different qualified contexts.
+- a native Relation Type has no defining source Claim under CA-R-1246, **or** an external reference violates its selected governing Entity Definition endpoint classes **or** graph contexts.
+- a NARROWER_THAN Relation lacks an explicit authoritative source declaration **or** its governing Term definitions do **not** establish the implication under CA-R-2475. absence of Entity instances does **not** establish this implication.
+- the NARROWER_THAN hierarchy **contains** a directed cycle, including a self-loop.
+- a Root Term classification differs from the **`=0`** direct NARROWER_THAN-parent criterion under CA-R-1347.
+
+the Evaluation **must** accept an acyclic hierarchy with multiple direct parents **or** an isolated Root Term **when** the remaining applicable authority is satisfied. A Relation Type's applicable Entity Definition constraints, when selected, **must not** change Root Term classification **when** the Terms Graph hierarchy is unchanged. the checks **must** distinguish an unknown Type from missing or unresolved governing constraint evidence without inventing a default or treating the known Type as unregistered.
+
+for a governed-only view under CA-R-1454, the Evaluation **must** reject graph validity **if** a displayed native Term node lacks **`=1`** active dedicated Term Definition under CA-R-1319. missing **or** conflicting definitions **and** uncertain Relation or constraint evidence **must** be reported with their affected source references **without** inventing a definition **or** an edge.
+
+filtering out a parent **must not** establish **or** change canonical Root Term classification. **if** the available source evidence is insufficient **to** establish the CA-R-1347 criterion, the classification **must** remain unresolved **without** silently importing source nodes **or** edges from outside the requested selection.
+
+the same NARROWER_THAN implication check applies **when** the Terms name Actions **or** Workflows. those operational Atoms already are Entities; the Evaluation **must not** require **or** create separate Entity identities for them **or** infer a Terms Graph edge merely from their classification. an empty set of observed instances does **not** prove a hierarchy Relation; acceptance requires the governing Term definitions **and** explicit Relation authority.
+
+### Projection fidelity and source traceability
+
+an admitted source-Atom **or** cross-graph reference under CA-R-1472 **must not** fail **only** because its external endpoint is **not** a Term; that endpoint is **not** a native Terms Graph node. reject a view that imports that endpoint as a Term, erases its graph context, uses an unregistered Relation Type, **or** lets the external reference alter NARROWER_THAN hierarchy **or** Root Term classification.
+
+for a governed-only view under CA-R-1454, the Evaluation **must** reject the view **if** an eligible Term **or** Relation required by CA-R-1454 is omitted, an ineligible node **or** edge is displayed, a displayed native Term node's Term Definition Atom **or** a displayed internal edge's source declaration is outside the requested source selection, a displayed native Term node **or** internal edge lacks exact source Claim **and** Artifact Revision traceability, **or** an internal Term Relation edge is inferred **only** from spelling, capitalization, shared Subject use, **or** compatible endpoints.
+
+the Evaluation **must** reject a graph **or** governed-only view **if** its rendered content is treated as independent vocabulary authority, an upstream Projection substitutes for exact defining **or** Relation-source authority, a Projection chain loses its upstream identity **or** ultimate source traceability, **or** an arbitrary filter is treated as another admitted Projection Type. a source-faithful view derived through an upstream Terms Graph Projection **must** pass these Projection-specific checks **when** the applicable fidelity, selection **and** source-traceability requirements are satisfied; graph validity is assessed separately.
+
+### Optional source-bound naming checks
+
+the Evaluation **must** check complete canonical entity name-to-entity **and** entity-to-complete-name uniqueness using exact source-backed identity evidence. Repeated references to one established full-name binding are **not** duplicate entities. A valid one-to-one complete-name mapping satisfies only the naming check; the existing hierarchy, authority **and** reference checks still apply. Unknown identity, incomplete required entity-population **or** naming-source coverage, **or** ambiguous target binding **must** remain unresolved, **not** be accepted through spelling, graph position **or** qualification alone. The view **must** preserve **and** expose conflicting bindings with their source Claims **and** Revisions; silently merging entities **or** accepting alternate full names as synonyms fails fidelity. A faithful display of a naming collision **may** pass fidelity while the source graph fails naming validity. A known entity with zero complete canonical entity names under complete evidenced coverage fails missing naming; absence of a required active Definition is a separate defining-authority failure. The Evaluation **must not** invent an entity distinction, equivalence, full name **or** Term to produce a pass.
+
+component Terms are reusable words **or** phrases whose meaning is owned by an explicit dedicated Method Atom of Type Term Definition, **not** inferred from agreement between Semantics sections. They are not complete Entity expressions outside the Term branch, except for the root `Entity`. Consistent use of the Term `Package` in `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package/Eval Package`, and `Entity/Object/Continuant/Package/Runtime Package`, and of the Term `Unit` in `Entity/Object/Continuant/Structural Unit/Scope Unit` and `Entity/Object/Continuant/Package <+ Module <+ Code Unit`, passes the component-meaning check. A different complete expression identifies each separately defined entity. Conflicting component meanings fail; unknown component meaning **or** segmentation remains unresolved. No Unit entity **or** synthetic Term node is created merely by splitting an entity's name.
+
+the complete-name check covers **every** named canonical Subject-graph entity: full expressions in admitted `/`, `//`, `.`, `:`, `+>`, `<+`, `>|` **and** `|<` constructs, qualified references to already declared Entities, plus registered direct Relation tokens inside `((...))`. A qualified reference refers to an already declared Entity **without** declaring another target; parsing alone admits no target or Relation. A registered Relation token resolves to one admitted Relation Type under the registered notation, but its bare spelling is not that entity's complete canonical expression; complete-name comparison uses the full qualified expression separately. `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module`, and `Entity/Object/Continuant/Package <+ Module <+ Code Unit` connect three entities with three full expressions; a component label, the operators, or the chain must not be introduced as another entity node. Operators, delimiters **and** selector syntax are not Terms. Under CA-R-1325, a complete composite Subject Expression is not one lexical Term; parsing arbitrary composite syntax does not automatically establish a complete entity expression or another entity. An Atom expression with independently admitted Role and Form values remains valid only with its full admitted canonical prefix. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names. Authored Subjects use their full admitted expressions. The three-target chain introduces no fourth entity or fourth complete expression. Check **all** authored mentions against those full-expression bindings: `component` used as a stylistic substitute for the same Module fails naming, while a separately defined Component entity remains distinct. Repeated references to the same entity are not collisions; distinct property, value or bearer-qualified entities using the same complete expression are collisions despite their context. A Relation token must not become an admitted Relation without its governing authority and endpoint permissions. Preserve existing separation of source naming, native Terms Graph membership and Projection fidelity.
+
+### Result boundary
+
+the Evaluation **must** distinguish Projection fidelity from graph validity **and** keep the two outcomes visible, including **any** unresolved source conditions **and** checked-coverage limits. a graph that faithfully represents a source conflict **may** pass fidelity while failing an applicable graph-validity condition **or** leaving that condition unresolved. a composite acceptance result **must not** pass **if** an applicable check fails **or** remains unresolved; faithful reproduction alone does **not** establish a valid source model.
+
+connectivity **and** cycle checks apply **only** as required by the governing graph authority; the NARROWER_THAN cycle prohibition **and** the admitted isolated Root Term cases above remain distinct. passing graph-structure checks does **not** establish Project-specific meaning **or** consistency of source use **without** the required governing definitions **and** source context.
+
+## Details
+
+The contextual topic/code spellings `atom.id` **and** `projection.id` distinguish their respective ID Properties using the explicitly defined ID meaning; the dot remains syntax. They are not alternative complete canonical Subject names; an authored Subject uses its full admitted expression. Apply ID uniqueness **only** within matching prefixes; `CA-P-123`, `CA-P-123@1-draft` **and** `CA-P-123@3` introduce no version-identity **or** case-folding rules. Source consistency, well-formedness, checked coverage **and** optional Projection fidelity remain separate.
+
