@@ -1,0 +1,72 @@
+{
+  "verdict": "HOLD_TWO_TEXT_CLARIFICATIONS",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/delivery/manifest.json",
+  "manifest_sha256": "786d18ed59dcd6303cb5e6faf5a3f546f3b3a9f48d06e2455f0b75de372f6ebe",
+  "previews": [
+    {
+      "id": "CA-D-467",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "source_sha256": "ed46335c87661b1caa6ca3c6fc3f042f50a54de7dd0014e2b68877b1833a0b66",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/delivery/CA-D-467.preview.md",
+      "preview_sha256": "a820a95ab65ef3ec753fd84df7798026bff0a8dba27cad652b7f7b174a13d93e"
+    },
+    {
+      "id": "CA-E-500",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "source_sha256": "ceb0fdcccff0972ecb3e6b2aba27f6565ecd7cc05cea21bd9c8b072b4ce61edf",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/delivery/CA-E-500.preview.md",
+      "preview_sha256": "7f5ff8d74bb53fedaedf3a470c8dc0fe53041fb09e1f57b14eaaa03f29c942cf"
+    }
+  ],
+  "authority_pins": [
+    {
+      "id": "CA-D-466",
+      "version": 22,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-466-CORE_META_MODEL-ENG_DECISION--place-carriers-by-applicable-status-delivery.md",
+      "sha256": "dcd0762c4a64841de241ab40163b435eeaef9d6cbc8f6c8c467eee31b8260e31"
+    },
+    {
+      "id": "CA-D-483",
+      "version": 24,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "sha256": "5a5bd5e2afa431e45a068ff6110bed60e04660c2598de5fe257b77bdc60f164a"
+    },
+    {
+      "id": "CA-R-1521",
+      "version": 32,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1521-CORE_META_MODEL-RULE--resolve-lifecycle-changes-from-applicable-status-models.md",
+      "sha256": "62a7e1b25e71a913ed95061e0d74faee8e2c7c5f91afa04519d2374a4f047e72"
+    },
+    {
+      "id": "CA-D-289",
+      "version": 25,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-289-CORE_META_MODEL-ENG_DECISION--serialize-archive-revision-version-suffixes.md",
+      "sha256": "bc3bca6d64669800aab3c661cbc2cc6e1756fa84db0438617d6f09dd3f0314e0"
+    }
+  ],
+  "checks": [
+    "Both source/preview and operative authority hashes match; both previews preserve full metadata and Summary.",
+    "Optional same-stem sibling directories extend recursively, while separately placed resolving Steps remain explicitly permitted; Actions remain outside Workflow/Step trees; existing filename/frontmatter and same-stem rules retained.",
+    "D467 retains Status placement under D466, explicit own status under D483, archived basename under D289, exact old archive bytes and no archive-tree migration. R1521 explicitly owns per-Atom model validation, same requested Status, recursive latest descendant selection and non-targets outside Carrier tree. E500 retains those concrete cases and tests.",
+    "Rooted Workflow/Step composition and exactly one immediate whole match stated user decisions; no model entity or Relation is derived from folder structure."
+  ],
+  "findings": [
+    {
+      "id": "D467_and_E500",
+      "issue": "Both previews also say all recursively contained Step descendants remain inside their parent Carrier tree for every Status. Read over logical containment, this conflicts with their expressly permitted separately placed resolving Step Carriers.",
+      "fix": "Restrict the placement statement to descendants actually carried within the parent tree; do not require independently placed logical Steps to move into it. Keep the R1521 cascade selection bounded to the actual parent Carrier tree, including recursively nested carried Steps."
+    },
+    {
+      "id": "CA-D-467",
+      "issue": "The new phrase \u201cdeclared Workflow graph and Step relations define control flow\u201d can imply containment relations create execution order; Current says the Workflow graph defines control flow.",
+      "fix": "Keep control flow owned by the declared Workflow graph; describe Step relations as composition only and retain no folder-inferred execution order."
+    }
+  ],
+  "limits": [
+    "No physical instance or runtime validation was performed; source previews only.",
+    "No Current, actual Draft, code, tests, Workflow/Workbench or Git mutation."
+  ]
+}

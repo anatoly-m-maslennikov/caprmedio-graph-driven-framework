@@ -1,72 +1,55 @@
 {
-  "verdict": "HOLD_FOR_WORDED_UNIVERSE_CLARIFICATION_AND_INTEGRATION",
-  "manifest_sha256": "1f9763d1d5807f3c12b3de80296a83c82aaddfc03a90e8c8f89544278ec1e372",
+  "verdict": "PASS_BOUNDED_PREVIEW_REVIEW",
+  "manifest_sha256": "47fd0ef06ff353ce1e91da62ffacfdbae115603fd26d80501145a932994e2c18",
   "candidates": [
     {
       "id": "CA-R-2248",
-      "current_pin_matches": true,
-      "basis_pin_matches": true,
-      "candidate_pin_matches": true,
-      "diff_pin_matches": true,
+      "current_pin": true,
+      "basis_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
       "metadata_unchanged": true,
-      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format",
-      "candidate_sha256": "da89d39db30e97946a16dd38b0f35d2396fa476294d909d3def57a17ea22f232"
+      "candidate_sha256": "da89d39db30e97946a16dd38b0f35d2396fa476294d909d3def57a17ea22f232",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format"
     },
     {
       "id": "CA-R-2604",
-      "current_pin_matches": true,
-      "basis_pin_matches": true,
-      "candidate_pin_matches": true,
-      "diff_pin_matches": true,
+      "current_pin": true,
+      "basis_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
       "metadata_unchanged": true,
-      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding",
-      "candidate_sha256": "8d6cf94e996dd2e36c25ff0243954057a90a2f2e1a53a7dd41249eb77e6bb11e"
+      "candidate_sha256": "9e9179d2f36dc05f751f9793161d6d3996b248c5c343c0e2769e645643a06c5c",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding"
     },
     {
       "id": "CA-R-2487",
-      "current_pin_matches": true,
-      "basis_pin_matches": true,
-      "candidate_pin_matches": true,
-      "diff_pin_matches": true,
+      "current_pin": true,
+      "basis_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
       "metadata_unchanged": true,
-      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
-      "candidate_sha256": "37088771f4f217267d7ffaab3617dd443ba8926bfd46ecd4006a4380dff446f9"
+      "candidate_sha256": "36e9b5b4f56a57776b658d7b7488fbb4a1329b5343534071ae0cbf530f599512",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
     }
   ],
   "dependency_pins_match": {
-    "analysis_draft_path": false,
+    "analysis_draft_path": true,
     "for_each_draft_path": true
   },
-  "preserved": [
-    "R2487 retains @14 double-colon syntax and Subject := filtering; IF binding and grouping remain; FOR EACH refers to its own declaration and active Subject is focus only.",
-    "R2604 retains existing IF scope and no-shadowing; R2778 separately owns FOR EACH scope.",
-    "R2248 preserves Format cardinality separation and does not create an object by notation."
+  "resolved_prior_findings": [
+    "A1321 proposal pin refreshed and reviewed; current dependency bytes match.",
+    "Universe wording now preserves existing Kind//$x and Kind// domains; bare Model kind denotes model entity and explicit IF model membership is retained.",
+    "Repeated anonymous selectors assert neither identical nor distinct referents; named binding retains identity."
   ],
-  "findings": [
-    {
-      "id": "CA-R-2487",
-      "severity": "correction",
-      "evidence": "The unchanged sentence \u201cA typed selector supplies its universe\u201d is immediately followed by \u201cThe Claim states whether its selection concerns model entities or instance data.\u201d The kind syntax alone cannot determine that layer under the explicitly pending decision.",
-      "minimal_fix": "Replace the old sentence with wording that the Claim establishes the selection universe; do not specify a new layer syntax or decide the pending question."
-    },
-    {
-      "id": "CA-R-2487 and CA-R-2604",
-      "severity": "clarify",
-      "evidence": "Both describe $<Kind> as selecting an anonymous instance, while the packet leaves the model versus data layer question open and otherwise permits model entities as selector targets. The meaning of instance here may be read as data-only.",
-      "minimal_fix": "Use neutral selected participant wording unless the anonymous form is intentionally data-only; do not resolve repeated anonymous selector identity or cardinality."
-    },
-    {
-      "id": "CA-A-1321@1",
-      "severity": "dependency drift",
-      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
-      "expected_sha256": "0553dcb7520a9c0867d15f8f121b66a83aed796c31318ca9d3995f9aaa649b11",
-      "actual_sha256": "1bed215aa7389ee86b8ade32b5708119c23ace295ca8f29cd747be252279b616",
-      "minimal_fix": "Reopen the changed proposal and re-pin only after semantic review; do not silently overwrite or assume drift is immaterial."
-    }
+  "preservation": [
+    "R2487 @14 merge retains ::, :=, IF membership and FOR EACH separate logical quantification with active Subject as focus.",
+    "R2604 retains IF binding, no shadowing and standalone scope.",
+    "Object Format does not itself create an instance or graph fact."
   ],
-  "gates": [
-    "R2487 candidate must merge into actual @14 Draft without losing simultaneous edits and retain ::, IF and existing operator contracts.",
-    "R2778 FOR EACH remains Draft; coordinated source adoption and full syntax/selector layer, anonymous identity and cardinality decisions remain pending.",
-    "No parser, runtime, native workflow, or Current adoption is asserted."
+  "remaining_gates": [
+    "Selection cardinality attachment remains unresolved; no rule invented.",
+    "Coordinated Draft integration and eventual source adoption required; R2778 remains Draft.",
+    "No Current or runtime/parser adoption asserted."
   ]
 }

@@ -1,0 +1,59 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_READBACK",
+  "plan_sha256": "5fcb15460318d5f0c44374d7d58acd8e1bf07946bbf0394b63581ff305df1d67",
+  "receipt_plan_pin_matches": true,
+  "rows": [
+    {
+      "id": "CA-M-305",
+      "actual_sha256": "79fdacdeb95d7e86c67f3103b14bb2dbc7c1f28bdcff0c84cd1d124665d61529",
+      "actual_pin": true,
+      "operation_exact": true,
+      "status": "Draft",
+      "version": 23,
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow",
+      "native_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-305@23-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-workflow-schemes-using-step-references.md"
+      ],
+      "destination_correct": true,
+      "current_unchanged": true,
+      "preview_pinned": true,
+      "body_matches_reviewed": true,
+      "subject_matches_preview": true
+    },
+    {
+      "id": "CA-M-444",
+      "actual_sha256": "cb165c4cbfbee55c490390e55d17f1acbac82051d1f79508d22802cc4081e23f",
+      "actual_pin": true,
+      "operation_exact": true,
+      "status": "Draft",
+      "version": 6,
+      "subject": "CAPRMEDIO_MODEL <+ Atom.Content",
+      "native_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-444@6-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly.md"
+      ],
+      "destination_correct": true,
+      "current_unchanged": true,
+      "preview_pinned": true,
+      "body_matches_reviewed": true,
+      "subject_matches_preview": true
+    },
+    {
+      "id": "CA-E-669",
+      "actual_sha256": "e639b84b637761e711bdf359665f70c6103cf0d99e2deba9117bc27e0cfe777f",
+      "actual_pin": true,
+      "operation_exact": true,
+      "status": "Draft",
+      "version": 5,
+      "subject": "CAPRMEDIO_MODEL <+ Node",
+      "native_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-669@5-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md"
+      ],
+      "destination_correct": true,
+      "current_unchanged": true,
+      "preview_pinned": true,
+      "body_matches_reviewed": true,
+      "subject_matches_preview": true
+    }
+  ],
+  "boundary": "Draft only; no Current adoption, migration, runtime, parser, workflow or carrier-layout conformance asserted."
+}

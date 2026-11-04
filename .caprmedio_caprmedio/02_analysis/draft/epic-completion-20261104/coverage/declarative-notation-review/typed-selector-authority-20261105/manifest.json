@@ -8,9 +8,9 @@
       "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
       "basis_sha256": "e10f65588d725a5463ba1f257aa2d5e5a6eb97fd9c848e1e7184952efd9d193e",
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/typed-selector-authority-20261105/CA-R-2248.preview.txt",
-      "candidate_sha256": "da89d39db30e97946a16dd38b0f35d2396fa476294d909d3def57a17ea22f232",
+      "candidate_sha256": "fc659a3f7a548667bc754ec27c5d2956dd2df3c59832ec6f9e3fd15189ffca70",
       "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/typed-selector-authority-20261105/CA-R-2248.diff",
-      "diff_sha256": "a7e07dc1949abf4b0f76ab90b64ce2ae0002dcdbde27e739b91a90197f6e4fce",
+      "diff_sha256": "246f2b825b7b8c9e8cdc06a9203d75968bdbd6f9de52b719d984910187e065d4",
       "status": "PREVIEW_DEPENDENT_ON_TYPED_GRAMMAR_INTEGRATION",
       "active_subject": "active: CAPRMEDIO_MODEL <+ CFEL <+ Format",
       "note": "Existing single-subject authority retained; metadata unchanged."
@@ -22,9 +22,9 @@
       "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
       "basis_sha256": "f2b03e857aa8bc2e30beba8bac5f4b9b78d12af35061ab865d3c8e3ff07bdc5d",
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/typed-selector-authority-20261105/CA-R-2604.preview.txt",
-      "candidate_sha256": "9e9179d2f36dc05f751f9793161d6d3996b248c5c343c0e2769e645643a06c5c",
+      "candidate_sha256": "3196564240a961b03d315bbe581543c832b4c1d1df1c92a1cc7e3e7f1e87c02f",
       "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/typed-selector-authority-20261105/CA-R-2604.diff",
-      "diff_sha256": "e9702a73adb4cb2be2b489703d36efde95d2353ecdef86aa03c8139442c4e9f0",
+      "diff_sha256": "284e3b578370794e750440f4db06b383753b1b97487f075bb93499879c8d5666",
       "status": "PREVIEW_DEPENDENT_ON_TYPED_GRAMMAR_INTEGRATION",
       "active_subject": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding",
       "note": "Existing single-subject authority retained; metadata unchanged."
@@ -36,9 +36,9 @@
       "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
       "basis_sha256": "c444f0ccbd62bd0bf53bc9be4b7597ca0b1612c62a78319cd836ce723a3b5f2e",
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/typed-selector-authority-20261105/CA-R-2487.preview.txt",
-      "candidate_sha256": "36e9b5b4f56a57776b658d7b7488fbb4a1329b5343534071ae0cbf530f599512",
+      "candidate_sha256": "896a10369c368ecc8d2b352b0554175cc71bc355fb5cf06c8003d62bcc470df2",
       "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/typed-selector-authority-20261105/CA-R-2487.diff",
-      "diff_sha256": "bcd395df83903c53097c24a8c4898c6bcb1510cb1da6e519b17ceaeb921d7df1",
+      "diff_sha256": "091d39352dfaccecacc027ea6432ebc66c0e92ba0d5bf4f530d49137bd7f4262",
       "status": "PREVIEW_DEPENDENT_ON_TYPED_GRAMMAR_INTEGRATION",
       "active_subject": "active: CAPRMEDIO_MODEL <+ CFEL",
       "note": "R2487 uses actual @14 Draft as basis; no actual Draft overwritten."
@@ -50,13 +50,16 @@
     "for_each_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-universal-quantification.md",
     "for_each_draft_sha256": "1562a014a018cc42a30468ead86a326037cacb79e1695732906a6704d9a6027d",
     "previous_analysis_draft_sha256": "0553dcb7520a9c0867d15f8f121b66a83aed796c31318ca9d3995f9aaa649b11",
-    "analysis_draft_review": "Reopened current A1321: named Relation uses $relation[<Relation>, (.Name = IS_PROPERTY_OF)]; IF membership remains authoritative, no WITH/IN header. Updated pin after semantic review."
+    "analysis_draft_review": "Reopened current A1321: named Relation uses $relation[<Relation>, (.Name = IS_PROPERTY_OF)]; IF membership remains authoritative, no WITH/IN header. Updated pin after semantic review.",
+    "cardinality_authority_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+    "cardinality_authority_sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4"
   },
   "settled_decisions": [
     "Paired <Kind> denotes declared Model kind; bracketed named participant uses `$x[<Kind>, (conditions)]`; $<Node> remains proposed anonymous selector.",
     "FOR EACH uses selector plus colon and body; no WITH/IN. IF binding remains; no shadowing; active Subject is focus, not hidden participant.",
     "No / or // direction change in these candidates. Values do not become graph Nodes merely from Format notation.",
-    "Typed instance forms preserve Kind//$x and Kind// meaning; anonymous repeated selections assert neither same nor different referent, and named participants express identity."
+    "Typed instance forms preserve Kind//$x and Kind// meaning; anonymous repeated selections assert neither same nor different referent, and named participants express identity.",
+    "Existing population, property-occurrence, direct-value and Relation-per-endpoint counts remain distinct; Journal//{:1} maps to $<Journal>{::1} or $journal[<Journal>]{::1}."
   ],
   "integration_gates": [
     "R2487 preview rebases exact actual Draft@14 including :: allowed-value and {::n} bounds; do not adopt separately from any concurrent modifications of that Draft.",
@@ -64,11 +67,15 @@
     "R2248 states primitive and object Format domains; define and review exact admissible syntax and condition operators without assuming that all objects are direct values on all Properties.",
     "No independent new operator Declaration was invented: candidate extends existing Format and $ binding authority. Assess whether its formal operator inventory requires additional descriptor under the eventual complete grammar.",
     "Bare Node is its model entity; new typed participant syntax is an instance selector equivalent to old Kind//$x, not a new layer keyword. Existing IF membership over explicit model selectors remains.",
-    "Repeated anonymous selectors share a domain but do not assert equal or unequal referents; use a named participant to express the same selected identity. Selection/cardinality attachment still needs source-backed grammar.",
+    "Repeated anonymous selectors share a domain but do not assert equal or unequal referents; use a named participant to express the same selected identity. Existing count contexts remain distinct; no new FOR EACH header cardinality syntax is assumed.",
     "A named Relation descriptor selected by `$x[<Relation>, (.Name = IS_PROPERTY_OF)]` has the same domain as Current Relation//IS_PROPERTY_OF and does not create or infer a data-graph fact."
   ],
-  "questions": [
-    "Where do cardinality bounds attach to selected populations versus each selected participant?"
-  ],
-  "boundary": "Proposals only. No actual Draft, Current, code, test, Workflow/Workbench, or Git changes; this packet does not claim implementation."
+  "questions": [],
+  "boundary": "Proposals only. No actual Draft, Current, code, test, Workflow/Workbench, or Git changes; this packet does not claim implementation.",
+  "cardinality_mapping": {
+    "population": "Journal//{:1} -> $<Journal>{::1} or $journal[<Journal>]{::1}: one selected logical instance in Current Project",
+    "property": "$x.p{::n} counts occurrences of p on bearer; p{::occ} :: [<Kind>]{::valuecount} counts occurrences and direct values separately",
+    "relation": "Before/after ((RELATION)) slots constrain Relation instances per respective endpoint; do not count distinct targets or Relation arity.",
+    "scope": "Only existing contexts; no new count-test syntax in FOR EACH headers."
+  }
 }

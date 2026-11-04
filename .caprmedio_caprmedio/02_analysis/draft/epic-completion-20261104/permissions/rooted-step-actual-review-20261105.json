@@ -1,0 +1,26 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_READBACK",
+  "plan_sha256": "02c8043ab79054eceb5239a63d5279c066c221b9402e55087de648166168d64f",
+  "receipt_plan_pin_matches": true,
+  "rows": [
+    {
+      "id": "CA-R-2465",
+      "actual_sha256": "f1ad2cb139361d59d0447f8ae01ae47d392168d78f337f2563201b6509b2780e",
+      "actual_pin": true,
+      "operation_exact": true,
+      "status": "Draft",
+      "version": 5,
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step",
+      "native_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md"
+      ],
+      "destination_correct": true,
+      "current_unchanged": true,
+      "formal_claim_unchanged": true,
+      "positive_chain": true,
+      "semantics": true,
+      "only_body_addition_and_semantics": true
+    }
+  ],
+  "boundary": "Draft only; no Current adoption, migration, runtime, parser, workflow or carrier-layout conformance asserted."
+}
