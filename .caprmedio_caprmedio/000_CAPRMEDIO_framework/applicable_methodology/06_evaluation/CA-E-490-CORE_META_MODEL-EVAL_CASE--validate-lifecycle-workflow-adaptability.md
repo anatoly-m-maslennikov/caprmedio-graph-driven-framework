@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Role
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.ordered
-  - CAPRMEDIO <+ MODEL <+ Atom.Status
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Scope Unit.order.ordered
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 24
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -22,21 +22,23 @@ tier: 3
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-490-CORE_META_MODEL-EVAL_CASE--validate-lifecycle-workflow-adaptability.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-490-CORE_META_MODEL-EVAL_CASE--validate-lifecycle-workflow-adaptability.md
   source_atom_id: CA-E-490
   source_atom_revision: 24
-  source_sha256: 881d62c71da31070348d3409fef370e0ef53f624e85de14ad4d8c8bd5ea925fd
+  source_sha256: 1f40dcb1c9d267f1180e1178e15db189fc3cf438c44520f1a947e38a177a8725
   original_relations_sha256: 535748283daec9e9470aa5758cb1714fa6f3dc0bcbab21b02d0044285bbb6a5b
 ---
 ## Summary
 
 Validate lifecycle Workflow adaptability
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a status-change Workflow **and** its target Entity's applicable model.
 
-## Claim
 
 the Evaluation **must** check that a status-change Workflow follows the target Entity's applicable model under CA-R-1521.
 

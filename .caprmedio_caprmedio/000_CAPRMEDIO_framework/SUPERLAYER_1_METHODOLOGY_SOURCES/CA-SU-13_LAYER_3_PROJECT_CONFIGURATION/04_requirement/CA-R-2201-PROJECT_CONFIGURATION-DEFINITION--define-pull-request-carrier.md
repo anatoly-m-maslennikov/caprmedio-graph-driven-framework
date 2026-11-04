@@ -4,13 +4,13 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/Pull Request
-version: 5
-updated_at: 2026-11-02 00:18:22 +0400
+  active: CAPRMEDIO_MODEL <+ Carrier/Pull Request
+version: 6
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 tier: 1
 role: Requirement
-form: Entity Definition
+form: Declaration
 ---
 ## Summary
 
@@ -18,4 +18,13 @@ Define Pull Request Carrier
 
 ## Claim
 
-A Pull Request **means** a repository-hosted Carrier of a proposed change and its review state.
+### Formal Claim
+
+```CFEL
+# model
+Carrier/Pull Request
+```
+
+### Prose Claim
+
+A Pull Request is a repository-hosted Carrier of a proposed change and its review state.

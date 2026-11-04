@@ -1,12 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Status:Archived
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Status:Archived
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Status
-  - CAPRMEDIO <+ MODEL <+ Atom.Status:Archived
-  - CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
-version: 20
-updated_at: 2026-11-02 08:06:47 +0400
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Carrier
+version: 21
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-565
 current_scope_unit: CORE_META_MODEL
@@ -20,11 +19,13 @@ form: Decision
 
 Bind new archived Revision Markdown Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The single Markdown Archive Carrier created for an Atom Revision newly placed in Archived status.
 
-## Claim
 
 **when** an Atom Revision newly attains its model-admitted `Archived` Status **and** no more-specific applicable Delivery mapping exists for its Artifact Type, its **`=1`** Markdown Archive Carrier **must** be classified as that Revision's Archive Carrier **and** be placed at `archive/<canonical-ID>@<version>[-<remaining-filename-components>].md`: the owning Content Role's existing `archive/` directory is retained, and the single `@<version>` marker occupies the Atom-ID segment under CA-D-283/CA-D-289. Preserve the archived Atom's numeric Version and prior Updated At; its new Archive Carrier carries `status: Archived`.
 

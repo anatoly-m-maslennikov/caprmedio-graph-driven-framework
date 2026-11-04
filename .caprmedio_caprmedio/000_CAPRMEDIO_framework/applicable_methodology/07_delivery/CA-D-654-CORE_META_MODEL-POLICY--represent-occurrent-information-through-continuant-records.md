@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Node/Occurrent
+  active: CAPRMEDIO_MODEL <+ Node/Occurrent
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//CARRIES
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//CARRIES
 version: 3
 relations: {}
 tier: 1
@@ -16,21 +16,23 @@ updated_at: 2026-11-02 00:18:22 +0400
 role: Delivery
 form: Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-654-CORE_META_MODEL-POLICY--represent-occurrent-information-through-continuant-records.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-654-CORE_META_MODEL-POLICY--represent-occurrent-information-through-continuant-records.md
   source_atom_id: CA-D-654
   source_atom_revision: 3
-  source_sha256: 806b9143fff18465c8340f46ea75c74da75012949925434270e2ad7391175c9d
+  source_sha256: 38f80d0fb6780332a63477153a4fe90cf43dd9dadccd3fb1d7904a85abe8f1ca
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Represent Occurrent information through Continuant records
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 representation of an Occurrent's recorded information.
 
-## Claim
 
 An Occurrent is not carried or stored as the occurrence itself. When
 information about an Occurrent is retained, a Continuant record represents

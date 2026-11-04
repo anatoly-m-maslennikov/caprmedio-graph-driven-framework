@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Scope Unit
-  depends_on:
+  active: CAPRMEDIO_MODEL <+ Scope Unit
+  passive:
   - Entity/Object/Continuant/History
-  - Journal
-  - Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}
@@ -14,10 +14,10 @@ tier: 3
 role: Delivery
 form: Eng Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-670-CORE_META_MODEL-ENG_DECISION--bind-scope-unit-declarations-to-source-evidence.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-670-CORE_META_MODEL-ENG_DECISION--bind-scope-unit-declarations-to-source-evidence.md
   source_atom_id: CA-D-670
   source_atom_revision: 1
-  source_sha256: 2e41b30289f7d5dbb21484daec70d353420673da59c38e722ec52c8c081a4c0b
+  source_sha256: f18f6aa29ae095def1a50796a771f795f745db0c1fb3b987c7406fd7792d6d2d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

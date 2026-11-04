@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form := Applicable Methodology)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Applicable Methodology)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//DERIVED_FROM
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DERIVED_FROM
 version: 34
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Preserve Source Atom Revision Identity in Applicable Methodology
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The direct source relation of each projected Applicable Methodology member.
 
-## Claim
 
 Applicable Methodology **must** retain each member’s **`=1`** direct DERIVED_FROM relation **to** that member’s exact source Atom Revision.

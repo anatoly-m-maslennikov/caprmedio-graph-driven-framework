@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Package
+  active: CAPRMEDIO_MODEL <+ Package
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -30,11 +30,13 @@ form: Eval Case
 
 Validate Tool Action bindings and Evaluation ownership
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a CAPRMEDIO Tool's methodology binding **and** Evaluation responsibility.
 
-## Claim
 
 the Evaluation of a CAPRMEDIO Tool's methodology binding **must** check the canonical Action owner, binding cardinality, **and** division of Evaluation responsibility under CA-R-1515-PROJECT_CONFIGURATION-RULE--keep-canonical-actions-and-workflows-in-methodology, CA-R-1800-PROJECT_CONFIGURATION-RULE--bind-every-tool-to-one-methodology-action, CA-R-1517-PROJECT_CONFIGURATION-RULE--keep-tool-operational-authority-outside-its-own-subtree, **and** CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.
 

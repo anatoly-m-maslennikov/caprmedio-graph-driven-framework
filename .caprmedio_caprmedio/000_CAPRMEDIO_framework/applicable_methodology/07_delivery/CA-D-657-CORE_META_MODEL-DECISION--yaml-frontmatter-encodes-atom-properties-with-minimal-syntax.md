@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.YAML Frontmatter
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Actor
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Actor
+version: 4
+updated_at: 2026-11-04 07:56:15 +0400
 relations: {}
 atom_id: CA-D-657
 current_scope_unit: CORE_META_MODEL
@@ -16,21 +16,23 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md
   source_atom_id: CA-D-657
-  source_atom_revision: 2
-  source_sha256: 02327c45b87afe621299f690b2428c9c45b6244d4911a46cee916addc06eff0c
+  source_atom_revision: 4
+  source_sha256: 6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 YAML Frontmatter encodes Atom Properties with minimal syntax
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 YAML frontmatter of Markdown Atom carriers.
 
-## Claim
 
 Encode each key once and use a YAML sequence for multiple values. Use a nonempty string for each required string; null and collections do not satisfy a scalar requirement. Integers exclude booleans.
 
@@ -41,7 +43,7 @@ For Markdown Atom carriers:
 - Encode Subjects under `subjects` using the Subjects serialization rule. Encode direct Node-instance Relation facts under `relations`; use each Relation's own representation and do not author inverse facts separately.
 - Do not encode an Atom Author. Event authorship is governed by the Event Record model.
 - Derive Target Scope Unit from the active Subject using the applicable model authority. During carrier migration, `current_scope_unit` and `claim_target_scope_unit`, if present, are legacy compatibility data; they do not establish Atom Properties or override the resolved Scope. Their retention, removal and consistency validation require the selected migration's explicit disposition. Do not infer a target from the carrier directory or use either field as an unverified fallback.
-- Place a complete RMED Claim in its `## Claim` section. Its direct Markdown value may contain CFEL and need not contain prose; do not create a `Formal claim` child.
+- Place an ordinary RMED Claim in `## Claim` as a container with no direct value. It has one or both `### Formal Claim` and `### Prose Claim` children with unique names. Each child has zero or one direct Markdown value; a Formal Claim value contains a CFEL-labelled code fence. Headings inside a Prose Claim value are not Properties unless an applicable Declaration admits them.
 
 Legacy `content_role`, `type`, `subjects.governs` and `subjects.depends_on` remain readable during migration. Conflicting old and new names for the same Property are invalid in any carrier; equal pairs are readable during transition and do not create duplicate logical values. Compatibility does not make the old names canonical in the migrated model.
 
@@ -51,8 +53,8 @@ The remaining applicable Status, Version, identity, Tier, Label, Summary, condit
 
 ### Conditional fields and expansion
 
-- A Plan's explicit `assignee` uses **<=1** String identifying an admitted Actor under the Plan Assignee encoding. `autonomous_confidence_threshold` **and** `implementation_retry_limit` use their integer encodings under the Plan confidence override and retry limit encodings. inherited values remain omitted unless explicitly selected; self-sufficiency does **not** copy them.
-- `priority` follows the applicable Concern Priority authority for Concern Atoms **only**. additional Plan, Operations, proof, **or** other Type-specific fields require their applicable Delivery declarations; their occurrence **in** old Carriers does **not** admit them.
+- A Plan Header AI Agent Confidence Threshold has zero or one integer values. Encode an explicit value as the top-level integer frontmatter field `ai_agent_confidence_threshold`; an unselected override remains omitted, and self-sufficiency does **not** copy an inherited value. A Plan Header has no Implementation Retry Limit Property; the retry limit is governed by the Workflow.
+- `priority` follows the applicable Concern Priority authority for Concern Atoms **only**. Additional Plan, Operations, proof, **or** other Role-specific fields require an applicable Property Declaration and Delivery encoding; their occurrence **in** old Carriers does **not** admit them.
 - The generated `projection` block is admitted **only** **in** a projected representation under the projection source-binding encoding, with **only** its defined `source_carrier_path` String. It is **not** an authored source Atom Property.
 - A new field **or** nested key requires applicable authority that settles its canonical location, value type, cardinality, admission condition, **and** permitted values **or** reference resolution. unadmitted fields are invalid; an admitted Property with an unsettled encoding is a schema gap, **not** permission **to** guess **or** report full conformance.
 - Apply explicitly governed migration exceptions **only** within their declared boundary. legacy presence alone is **not** an exception; retired fields under the canonical Property location rules remain rejected.

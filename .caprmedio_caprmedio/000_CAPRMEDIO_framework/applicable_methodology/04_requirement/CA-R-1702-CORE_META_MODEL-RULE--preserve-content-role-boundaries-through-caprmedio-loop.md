@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Role
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Role
-  - CAPRMEDIO <+ MODEL <+ Package/Implementation
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Action
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - CAPRMEDIO <+ MODEL <+ Actor
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 49
 updated_at: 2026-11-02 15:49:28 +0400
 relations:
@@ -23,21 +23,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md
   source_atom_id: CA-R-1702
   source_atom_revision: 49
-  source_sha256: 4b9973046971ade72fe5559b2f1f9a347db23e5845e1ebd9c6ffa6ac46d46122
+  source_sha256: d3ddebf0f7f78567434a6950d6ff3933dee32e5af027be9323c6fb3e53a28088
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary
 
 Preserve content role boundaries through CAPRMEDIO loop
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 transitions through the CAPRMEDIO loop across Content Roles.
 
-## Claim
 
 **every** transition through Concern, Analysis & Advisory, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Operations produces **or** updates the meaning owned by the receiving Content Role **without** converting the source meaning into that role **or** implying completion of a later role.
 

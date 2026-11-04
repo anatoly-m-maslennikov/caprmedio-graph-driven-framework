@@ -21,7 +21,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-180-PROJECT_CONFIGURATION-ACTION--initialize-the-first-framework-runtime-and-project-local-ca-skill.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-180-PROJECT_CONFIGURATION-ACTION--initialize-the-first-framework-runtime-and-project-local-ca-skill.md
   source_atom_id: CA-O-180
   source_atom_revision: 14
   source_sha256: b80bc2474d2f04900345527e77213bbef5624d93e7460cb186fddb0a5532abea

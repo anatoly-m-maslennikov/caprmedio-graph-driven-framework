@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Release.ID
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release.ID
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Release.ID
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release.ID
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 38
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -24,21 +24,23 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1692-PROJECT_CONFIGURATION-RULE--requirement-freeze-a-version-only-at-release.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1692-PROJECT_CONFIGURATION-RULE--requirement-freeze-a-version-only-at-release.md
   source_atom_id: CA-R-1692
   source_atom_revision: 38
-  source_sha256: d8e79e9177348861e6b682dab9b784e542b5d5c9987a6cd7f8e8c917da37a293
+  source_sha256: 857d7c8d389491a247b9a6c8bedd9f168ba998efcf66f9f48ff0c90cf4e254bd
   original_relations_sha256: 9524423f93502e18e8ae3356212fbe4edc2c2d857c1cf4b20d69da517033d424
 ---
 ## Summary
 
 Requirement — Freeze a version only at release
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 target Versions and their selected authorized release events.
 
-## Claim
 
 a target Version **must** remain mutable **until** its selected authorized release event succeeds **and** the shared Journal records that outcome for the exact released candidate.
 

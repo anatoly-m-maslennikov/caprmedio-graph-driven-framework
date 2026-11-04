@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - CAPRMEDIO <+ MODEL <+ Package
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - CAPRMEDIO_MODEL <+ Package
 version: 27
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -28,11 +28,13 @@ form: Rule
 
 Keep Implementation specifications independent of production Workflows
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the CAPRMEDIO Project's governing RMED for an Implementation.
 
-## Claim
 
 **in** the CAPRMEDIO Project, governing RMED **must** fully specify the required Implementation independently of the Workflow used **to** produce it.
 

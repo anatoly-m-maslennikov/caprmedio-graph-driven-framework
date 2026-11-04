@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Aspect
+  active: CAPRMEDIO_MODEL <+ Aspect
 version: 4
 updated_at: 2026-11-02 18:21:51 +0400
 relations: {}
@@ -18,10 +18,18 @@ Declare Aspect
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Aspect;
-Aspect ((NARROWER_THAN)) @Node
+
+Aspect ((NARROWER_THAN)) Node
 ```
+
+### Prose Claim
+
+
 
 - MODEL declares the generic Aspect.
 - All concrete Aspects are instances in the applicable PROJECT STRUCTURE tree.

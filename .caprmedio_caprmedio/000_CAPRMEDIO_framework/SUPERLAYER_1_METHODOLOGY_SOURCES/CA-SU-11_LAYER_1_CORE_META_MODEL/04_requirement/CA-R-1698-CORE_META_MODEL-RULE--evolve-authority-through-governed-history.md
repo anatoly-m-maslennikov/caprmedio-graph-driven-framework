@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Evolve authority through governed history
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 governed authority in CAPRMEDIO.
 
-## Claim
 
 CAPRMEDIO evolves governed authority through recoverable revisions that preserve the exact historical meaning on which accepted downstream work relied.

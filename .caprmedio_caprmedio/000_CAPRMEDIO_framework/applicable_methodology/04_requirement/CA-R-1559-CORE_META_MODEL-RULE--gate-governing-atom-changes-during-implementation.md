@@ -1,19 +1,19 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Autonomous Confidence Threshold'
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
-  - CAPRMEDIO <+ MODEL <+ Project
-  - 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Autonomous Confidence Threshold'
+  - CAPRMEDIO_MODEL <+ Atom
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Project
+  - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Implementation Workflow'
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -27,21 +27,23 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-RULE--gate-governing-atom-changes-during-implementation.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-RULE--gate-governing-atom-changes-during-implementation.md
   source_atom_id: CA-R-1559
   source_atom_revision: 26
-  source_sha256: 57a015476a250c6544b76dfa8e3711244e28d19bba4215c41a4616794ab43e62
+  source_sha256: 9fa28ec46e58ca59d5683b5302029595d8b8d8969e964886cd6a7c9f1dcff16d
   original_relations_sha256: 94899af1df3add3533bb824b693365050895abf0a071adfe4339109a042cf4cb
 ---
 ## Summary
 
 Gate governing Atom changes during implementation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 changes to governing RMED Atoms during implementation.
 
-## Claim
 
 authorization **to** change a governing RMED Atom during implementation **must** satisfy the following Actor policy:
 

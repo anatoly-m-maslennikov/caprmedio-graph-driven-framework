@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
 version: 42
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -16,21 +16,23 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1635-PROJECT_CONFIGURATION-RULE--require-production-evaluation-checklists.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1635-PROJECT_CONFIGURATION-RULE--require-production-evaluation-checklists.md
   source_atom_id: CA-R-1635
   source_atom_revision: 42
-  source_sha256: ad5ea57ccfe63c0eb38840cb6b092a5d70937db8402198e7fe67bf8beba098e4
+  source_sha256: 60f54dbebce830e6b36f6fb61c4a74a4fc6c977d142c008a263e8de8215ea074
   original_relations_sha256: 6c50a8bd5dcb74eec5e6c55456dfc8dbae9842ad53ff8b9e24e70a74798e8908
 ---
 ## Summary
 
 Require production evaluation checklists
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production-relevant components and governed scopes.
 
-## Claim
 
 **every** production-relevant component **or** governed scope **must** define a Production Evaluation Checklist **before** it can pass a production-readiness gate. the checklist states how operators will know that the realized system remains healthy, correct, supportable, **and** within its accepted operating boundaries during real work.
 

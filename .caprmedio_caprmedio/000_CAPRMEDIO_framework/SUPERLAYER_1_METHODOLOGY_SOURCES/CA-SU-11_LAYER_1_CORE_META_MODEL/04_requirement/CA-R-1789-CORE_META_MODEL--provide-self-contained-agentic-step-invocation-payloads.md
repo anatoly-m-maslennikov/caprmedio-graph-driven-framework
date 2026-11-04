@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Invocation Context
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Invocation Context
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Step Run
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind'
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action).Execution Kind'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Journal
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -26,11 +26,13 @@ form: Rule
 
 Provide self-contained Agentic Step Invocation payloads
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an executor dispatching **or** resuming an Agentic Step.
 
-## Claim
 
 the executor **must** provide a self-contained Invocation sufficient for the receiving context **to** perform the admitted Action **without** remembering the Workflow procedure from earlier conversation.
 

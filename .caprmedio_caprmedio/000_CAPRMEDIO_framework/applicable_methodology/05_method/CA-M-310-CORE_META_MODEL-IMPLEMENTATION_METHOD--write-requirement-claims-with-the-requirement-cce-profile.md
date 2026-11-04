@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement.Content.Claim'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement).Content.Claim'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -18,21 +18,23 @@ tier: 6
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-310-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-requirement-claims-with-the-requirement-cce-profile.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-310-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-requirement-claims-with-the-requirement-cce-profile.md
   source_atom_id: CA-M-310
   source_atom_revision: 25
-  source_sha256: bb96c56f6323693988abc0b9413dec45ebac796eda0360840aca05edd97c9135
+  source_sha256: 90337094ae39b709629fb508860a69cd9972111f1dd43996060ec029299740b4
   original_relations_sha256: 1037ec3e9bee824bbe0013d533c233bc31238f593358d3400af78e5150b7d7f4
 ---
 ## Summary
 
 Write Requirement Claims with the Requirement CCE Profile
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Requirement Claims with the Requirement CCE Role Profile.
 
-## Claim
 
 **to** write a Requirement Claim with the Requirement CCE Role Profile, the Author **must** perform **all** of:
 

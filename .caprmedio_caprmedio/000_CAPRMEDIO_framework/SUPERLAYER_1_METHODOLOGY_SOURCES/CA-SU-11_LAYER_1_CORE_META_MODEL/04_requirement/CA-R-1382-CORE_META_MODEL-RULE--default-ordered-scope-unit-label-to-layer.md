@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Label
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Label
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 25
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Default Ordered Scope Unit Label to Layer
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Ordered Scope Unit Labels.
 
-## Claim
 
 **every** Ordered Scope Unit **must** use Layer as its default Label.

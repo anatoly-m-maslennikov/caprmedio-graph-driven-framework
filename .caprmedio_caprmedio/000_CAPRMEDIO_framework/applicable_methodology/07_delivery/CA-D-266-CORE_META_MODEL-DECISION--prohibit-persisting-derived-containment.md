@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 29
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -15,21 +15,23 @@ tier: 1
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md
   source_atom_id: CA-D-266
   source_atom_revision: 29
-  source_sha256: 9e8a486633ba614c85275205e05bd40c3823350d8c51a89c283ee2c587d15317
+  source_sha256: 4e72593f7c399b72dd910efdc1b492d8f777e563af836997f57a346086a39d60
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Prohibit Persisting Derived Containment
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 `CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting.
 
-## Claim
 
 `CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting **must not** be persisted as independent relation declarations.
 

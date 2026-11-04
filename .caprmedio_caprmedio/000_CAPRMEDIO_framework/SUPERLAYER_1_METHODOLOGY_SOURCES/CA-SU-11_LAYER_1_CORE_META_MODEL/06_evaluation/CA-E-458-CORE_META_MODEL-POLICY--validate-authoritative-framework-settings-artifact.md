@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
 version: 35
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -30,11 +30,13 @@ form: Eval Policy
 
 Validate Authoritative Framework Settings Artifact
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Framework Instance Settings.
 
-## Claim
 
 the Evaluation **must** reject Framework Instance Settings **if**
 

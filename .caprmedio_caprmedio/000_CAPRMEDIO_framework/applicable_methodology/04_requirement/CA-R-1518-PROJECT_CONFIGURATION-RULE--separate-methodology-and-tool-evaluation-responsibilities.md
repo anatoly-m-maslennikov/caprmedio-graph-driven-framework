@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - CAPRMEDIO <+ MODEL <+ Package
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Verification
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//evaluation_for
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - CAPRMEDIO_MODEL <+ Package
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//evaluation_for
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -25,21 +25,23 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.md
   source_atom_id: CA-R-1518
   source_atom_revision: 25
-  source_sha256: 7ff4a09eaeaa774b6ebcdd6017bb0df5b5006b2132e22a163764385d2b12778f
+  source_sha256: a9a6736286df475fc2c63e800a57e683212aa720845c0435fef12108f1c8ced5
   original_relations_sha256: a160656a5227133f915358025dba2043d381de3a00738d92f5015d7253981f14
 ---
 ## Summary
 
 Separate methodology and Tool Evaluation responsibilities
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Evaluation responsibility for operational definitions and their Tool implementations.
 
-## Claim
 
 **in** the CAPRMEDIO Project, Evaluation responsibility for operational definitions **and** their Tool implementations **must** follow this allocation:
 

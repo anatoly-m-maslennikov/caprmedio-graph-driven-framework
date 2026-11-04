@@ -30,7 +30,7 @@ updated_at: 2026-10-30 03:11:58 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-079-PROJECT_CONFIGURATION-ACTION--reconcile-unfinished-operative-work.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-079-PROJECT_CONFIGURATION-ACTION--reconcile-unfinished-operative-work.md
   source_atom_id: CA-O-079
   source_atom_revision: 22
   source_sha256: dab594fe4ad7e25dd817c17c67126af4bfd95c6c1a6fac5c12bc6ef5d26f0971

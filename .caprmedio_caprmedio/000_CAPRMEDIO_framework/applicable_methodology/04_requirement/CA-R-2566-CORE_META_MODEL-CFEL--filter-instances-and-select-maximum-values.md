@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2566-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2566-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md
   source_atom_id: CA-R-2566
   source_atom_revision: 2
-  source_sha256: 8f8693e6c6f62038a4a098e20d0359b4c127d78d169373bf53eaa083240d8a99
+  source_sha256: 4b8a0ac45864cfc21a3d01b0f64f1be73d3ff7ae186e3e188144249c1f836d00
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
@@ -23,6 +23,9 @@ projection:
 Filter instances and select maximum values
 
 ## Claim
+
+### Prose Claim
+
 
 `Kind//(c1, ...).p` selects p from matching instances of Kind and its narrower kinds in one explicit current-Project instance snapshot.
 

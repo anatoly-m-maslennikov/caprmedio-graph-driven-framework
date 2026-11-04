@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Name
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Name
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project.Settings
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom
 version: 30
 updated_at: 2026-11-02 19:46:47 +0400
 relations:
@@ -23,11 +23,13 @@ form: Decision
 
 Serialize Project initialization identity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Operator-selected Project Name in the Project Settings TOML Carrier.
 
-## Claim
 
 the Project Settings TOML Carrier **must** encode the Operator-selected Project Name as its exact nonempty lowercase TOML string value **in** `project.name`, **before** the first Project Atom **or** Implementation is created.
 

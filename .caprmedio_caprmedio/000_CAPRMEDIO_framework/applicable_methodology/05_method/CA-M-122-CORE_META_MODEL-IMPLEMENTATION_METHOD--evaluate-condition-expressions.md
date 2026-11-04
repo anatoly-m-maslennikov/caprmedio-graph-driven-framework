@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Parsing
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Parsing
 version: 30
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -17,21 +17,23 @@ tier: 5
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-IMPLEMENTATION_METHOD--evaluate-condition-expressions.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-IMPLEMENTATION_METHOD--evaluate-condition-expressions.md
   source_atom_id: CA-M-122
   source_atom_revision: 30
-  source_sha256: ef1e30422e023ff41c4f5a97083a7958b27345f532f518a6b06dedb5c57712c5
+  source_sha256: d4c73206eb8b1338159f11da4cf8f40bb64c91094b6e6722298d6e63f731695b
   original_relations_sha256: 5f066d0d540764c9ad10d23356476187cf16ff2f1371455cc960087fa7d5e467
 ---
 ## Summary
 
 Evaluate Condition Expressions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 evaluation of CCE Condition Expressions.
 
-## Claim
 
 **to** evaluate one CCE condition expression, the Resolver **must** perform **all** of:
 

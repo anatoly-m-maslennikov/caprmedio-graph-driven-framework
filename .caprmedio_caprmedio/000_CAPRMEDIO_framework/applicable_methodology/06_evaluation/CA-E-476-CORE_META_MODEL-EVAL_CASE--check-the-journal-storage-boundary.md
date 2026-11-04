@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Journal
+  active: CAPRMEDIO_MODEL <+ Journal
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Project
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -22,21 +22,23 @@ tier: 3
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-EVAL_CASE--check-the-journal-storage-boundary.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-EVAL_CASE--check-the-journal-storage-boundary.md
   source_atom_id: CA-E-476
   source_atom_revision: 23
-  source_sha256: 70ff922da497ba397247423543a8abbb5a2e94e123d97ad73fe460ae51a35155
+  source_sha256: e75e878569f91ddf6c60f3a47c6bab8132a2827a1d6482269b14de7e716447f4
   original_relations_sha256: ffdfbec293b61abb943375d9536d42f3b95ab616320c695fb67279d2b30f2dd2
 ---
 ## Summary
 
 Check the Journal storage boundary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Journal admission checks event **and** storage integrity **without** becoming a Project-conformance gate.
 
-## Claim
 
 report a failed Evaluation **if** the Journal loses recordable evidence because of Project defects, accepts corrupted **or** unauthorized writes, silently changes observations, **or** rewrites accepted history.
 

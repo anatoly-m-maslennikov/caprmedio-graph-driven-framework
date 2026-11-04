@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
+  - CAPRMEDIO_MODEL <+ Event Record
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -17,21 +17,23 @@ tier: 6
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL-ENG_DECISION--bind-project-settings-revisions-to-journal-receipts.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL-ENG_DECISION--bind-project-settings-revisions-to-journal-receipts.md
   source_atom_id: CA-D-365
   source_atom_revision: 26
-  source_sha256: 92ef8039f3903f7d394c078c5ba72daba404d5613eaeff89af91a652432a9afb
+  source_sha256: 3b2578acb20ec10dbbf560e81d351325017d2bdcd5721a90619d88a0a70f10b4
   original_relations_sha256: 3fcf822d878922d4be67c2267faaa6398d32fdd7466a688a1586dcff08ebfc0d
 ---
 ## Summary
 
 Bind Project Settings Revisions to Journal Receipts
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the current Project Settings Revision and SHA-256 Digest.
 
-## Claim
 
 the current Project Settings Revision **and** SHA-256 Digest **must** bind **to** its authoritative TOML Carrier through a canonical completed governed-change Work Journal receipt **or** an explicitly authorized canonical recovered-state Work Journal receipt registering its observed baseline; the receipt **must** match the selected Project, exact Carrier path, logical Artifact Revision, **and** Digest. absence, ambiguity, **or** mismatch **must** leave its currentness unknown.
 

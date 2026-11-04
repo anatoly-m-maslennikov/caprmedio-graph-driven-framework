@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Projection
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -19,21 +19,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1470-CORE_META_MODEL--define-single-source-of-truth.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1470-CORE_META_MODEL--define-single-source-of-truth.md
   source_atom_id: CA-R-1470
   source_atom_revision: 27
-  source_sha256: d231379112c52caab00192f9d1a747cc65158b01c8f49c3f1e68ae8076cdb5af
+  source_sha256: 74ac52b01c83d7f5045141bdd2e14fdddb5dd74489f58b96908c57f11776da71
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Single Source of Truth
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the authority of independently maintained facts.
 
-## Claim
 
 Single Source of Truth **means** **`=1`** canonical authoritative source for **every** independently maintained fact **in** the same applicable context. another representation of that fact references **or** derives from its source **without** becoming an independently maintained authority.
 

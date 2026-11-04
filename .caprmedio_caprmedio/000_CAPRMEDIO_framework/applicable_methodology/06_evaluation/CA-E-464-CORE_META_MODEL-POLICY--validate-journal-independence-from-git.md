@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Journal
+  active: CAPRMEDIO_MODEL <+ Journal
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log'
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log'
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log'
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -23,21 +23,23 @@ tier: 4
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-POLICY--validate-journal-independence-from-git.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-POLICY--validate-journal-independence-from-git.md
   source_atom_id: CA-E-464
   source_atom_revision: 24
-  source_sha256: 0e0f32648541b8eddccdc953bc6c291de0d76f0c45a4af9ff892090773837713
+  source_sha256: 3ec93c268712b295db59ea022e06b132b3a8c0baa877b005ac59d66fe2c54d0a
   original_relations_sha256: 9df3c2ead8f13c90ef6760757de1f2b5279c95b90ff24ea559bbfb7ab2082444
 ---
 ## Summary
 
 Validate Journal independence from Git
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Core Meta-Model rules concerning Journal recording, replacement evidence, and canonical log Projections.
 
-## Claim
 
 the Evaluation **must** reject a Core Meta-Model rule that makes Journal recording, replacement evidence, **or** either canonical log Projection depend on Git installation, commit topology, hooks, **or** commit messages.
 

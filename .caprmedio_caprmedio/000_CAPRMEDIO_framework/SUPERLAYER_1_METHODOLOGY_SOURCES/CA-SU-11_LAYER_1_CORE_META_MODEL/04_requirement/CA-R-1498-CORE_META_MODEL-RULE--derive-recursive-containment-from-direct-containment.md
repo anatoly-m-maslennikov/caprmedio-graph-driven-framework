@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//CONTAINS
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//CONTAINS
 version: 17
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Derive Recursive Containment from Direct Containment
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 recursive Structural Entity containment.
 
-## Claim
 
 recursive Structural Entity containment **must** **`=`** the transitive closure of direct Structural Entity containment.

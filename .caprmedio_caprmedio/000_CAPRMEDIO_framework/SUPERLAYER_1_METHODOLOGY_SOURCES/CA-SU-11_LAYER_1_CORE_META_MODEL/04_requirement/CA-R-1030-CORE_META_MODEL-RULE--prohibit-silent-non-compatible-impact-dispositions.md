@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,10 +15,12 @@ form: Rule
 ## Summary
 Prohibit silent non-compatible Impact dispositions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the selection of non-compatible Impact dispositions.
 
-## Claim
 
 TOOLING **must not** select `update_required`, `replacement_required`, **or** `uncertain` **without** an explicit governed disposition.

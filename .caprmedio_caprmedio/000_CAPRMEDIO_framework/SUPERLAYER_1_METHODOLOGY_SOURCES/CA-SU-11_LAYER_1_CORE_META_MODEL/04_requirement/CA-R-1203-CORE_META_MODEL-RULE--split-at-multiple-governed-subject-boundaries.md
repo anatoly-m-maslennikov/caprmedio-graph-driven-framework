@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//GOVERNS
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
+  - CAPRMEDIO_MODEL <+ Entity
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Split at Multiple Governed Subject Boundaries
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an Atom Claim governing canonical Entities through GOVERNS Subject Relations.
 
-## Claim
 
 an Atom **must** be split **if** its Claim governs **`>1`** canonical Entities through GOVERNS Subject Relations.

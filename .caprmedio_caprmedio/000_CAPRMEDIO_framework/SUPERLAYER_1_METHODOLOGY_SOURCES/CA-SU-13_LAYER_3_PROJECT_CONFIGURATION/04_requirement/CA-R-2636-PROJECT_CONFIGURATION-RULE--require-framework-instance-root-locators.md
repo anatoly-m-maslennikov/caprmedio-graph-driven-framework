@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
 version: 1
 relations: {}
 tier: 3
@@ -17,10 +17,12 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Require framework instance root locators
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The caprmedio Project’s Framework Instance Settings.
 
-## Claim
 
 The Settings contain at least one framework code-root locator and exactly one framework control-root locator.

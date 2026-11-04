@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Action
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 23
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -21,21 +21,23 @@ tier: 3
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-EVAL_CASE--validate-workflow-execution-and-handoff-definitions.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-EVAL_CASE--validate-workflow-execution-and-handoff-definitions.md
   source_atom_id: CA-E-489
   source_atom_revision: 23
-  source_sha256: 9bf98cb42212fe2bd72c35252b75052e22bf12a3b207869cd731c7607b0a6b88
+  source_sha256: 7a66268d2ee580274be7ca7e111bf8daad6b8e192e5e5594a598f835d53646bb
   original_relations_sha256: 0102f19294d46f92e70f4ced01eb0886d175700ad499ae88801edb6e86df9647
 ---
 ## Summary
 
 Validate Workflow execution and handoff definitions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a Workflow's declared execution **and** handoff behavior.
 
-## Claim
 
 the Evaluation **must** check whether a Workflow's declared execution **and** handoff behavior is well formed under CA-R-1519 **and** CA-R-1520, independently of current executor availability.
 

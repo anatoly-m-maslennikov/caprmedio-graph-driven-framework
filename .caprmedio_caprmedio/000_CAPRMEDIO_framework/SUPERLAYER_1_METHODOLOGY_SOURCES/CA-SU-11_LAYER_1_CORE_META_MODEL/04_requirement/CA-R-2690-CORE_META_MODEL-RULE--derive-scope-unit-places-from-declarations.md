@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: Scope Unit
-  depends_on:
-  - Carrier/Directory
-  - Atom/(.Role := Delivery)
+  active: CAPRMEDIO_MODEL <+ Scope Unit
+  passive:
+  - CAPRMEDIO_MODEL <+ Carrier/Directory
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}

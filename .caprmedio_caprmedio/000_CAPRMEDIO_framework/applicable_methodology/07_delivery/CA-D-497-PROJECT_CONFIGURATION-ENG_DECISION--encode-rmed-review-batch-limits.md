@@ -6,32 +6,34 @@ status: Active
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom
 relations: {}
 tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-497-PROJECT_CONFIGURATION-ENG_DECISION--encode-rmed-review-batch-limits.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-497-PROJECT_CONFIGURATION-ENG_DECISION--encode-rmed-review-batch-limits.md
   source_atom_id: CA-D-497
   source_atom_revision: 18
-  source_sha256: 5565d16e2188e6bc4833434a84ab72dd69b27043c34399c4871bfe56a5d74614
+  source_sha256: 8941258e7b5c85835ae71d8f18b6ee21af39c40f64f52ea5212048b9dbbbc227
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Encode RMED review batch limits
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the `rmed_review` parameter group **in** Framework Instance Settings **and** Default Settings.
 
-## Claim
 
 RMED review batch limits **must** use these TOML parameters:
 

@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 42
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -26,21 +26,23 @@ tier: 3
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-384-CORE_META_MODEL-POLICY--validate-composite-claims-and-derived-summaries.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-384-CORE_META_MODEL-POLICY--validate-composite-claims-and-derived-summaries.md
   source_atom_id: CA-E-384
   source_atom_revision: 42
-  source_sha256: e3626328a0d2157b641d5dde2793ae07bdbc39876991bad7f10f0c199a918ad0
+  source_sha256: 21bc10330516a3ce473f249d0acf8bd8d7825ed1be9cfbd4b371909c37b409cf
   original_relations_sha256: 683edb070640fcebfd5b6aafbc8687ede3548fd2b5d1cd90dcd386920c548780
 ---
 ## Summary
 
 Validate Composite Claims and Derived Summaries
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Claim boundary, applicability, supporting Details, **and** Summary of an Atom.
 
-## Claim
 
 the Evaluation **must** reject an Atom **if** **any** applicable content-boundary condition fails:
 

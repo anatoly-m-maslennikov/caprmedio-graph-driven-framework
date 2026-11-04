@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
 relations: {}
 version: 9
 updated_at: 2026-11-02 00:18:22 +0400
@@ -16,11 +16,13 @@ form: Rule
 
 Limit PROGRAMMATIC Method and Delivery Types
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Method and Delivery Atoms whose Local Scope Unit is PROGRAMMATIC or one of its declared descendants.
 
-## Claim
 
 Each Current Method Atom in this Scope must use Eng Policy or Eng Decision. Each Current Delivery Atom uses Policy or Decision under the general Delivery Type definitions.
 

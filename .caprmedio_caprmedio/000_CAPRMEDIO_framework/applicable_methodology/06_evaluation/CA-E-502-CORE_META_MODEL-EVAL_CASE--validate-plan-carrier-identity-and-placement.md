@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
-  - CAPRMEDIO <+ MODEL <+ Carrier/File
-  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
-  - CAPRMEDIO <+ MODEL <+ Atom.ID
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Carrier/Directory
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Work Sequence Number
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -32,19 +32,21 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-EVAL_CASE--validate-plan-carrier-identity-and-placement.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-EVAL_CASE--validate-plan-carrier-identity-and-placement.md
   source_atom_id: CA-E-502
   source_atom_revision: 29
-  source_sha256: 680fad5c2f892e0d3f28e57587b98a6b4a67a67672fed9120ca41dbface4b041
+  source_sha256: 301ab49972531f92c79c6aeffa6cc8399d12879b0d19d87ece84dddd0a275d5a
   original_relations_sha256: bf90816df00b59069b3c595f2da2b619dc2eb4bddbf6bd7ec7b7c4ad64551ed9
 ---
 ## Summary
 Validate Plan Carrier identity **and** placement
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Plan Carrier identity **and** placement.
 
-## Claim
 the Plan Carrier Evaluation **must** reject Carrier facts that create duplicate identity **or** contradict the shared Plan model.
 
 - accept a mandatory Markdown file **with** **or** **without** a matching optional Hub directory under `CA-D-460-CORE_META_MODEL-CORE-DELIVERY--serialize-plan-atom-carrier-bundles`; reject a directory **without** that file.

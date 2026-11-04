@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO <+ MODEL <+ Atom.Status
-  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Actor
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -20,10 +20,12 @@ form: Implementation Method
 
 Use spec as an Alias for Active RMED Subtree-targeting Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Active RMED Subtree-targeting Atom references.
 
-## Claim
 
 **to** refer **to** Subtree-targeting Atoms filtered **to** Active Revisions **and** Content Role **in** (Requirement, Method, Evaluation, Delivery), an Author **may** use `spec` as a non-authoritative alias for that same filtered set.

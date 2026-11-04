@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 24
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -14,21 +14,23 @@ tier: 3
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL-IMPLEMENTATION_METHOD--register-expandable-canonical-cce-operator-list.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL-IMPLEMENTATION_METHOD--register-expandable-canonical-cce-operator-list.md
   source_atom_id: CA-M-234
   source_atom_revision: 24
-  source_sha256: 3a2fbb2cc83db313de5402451a0459c2c1bcb87046d6ae534a84e73de20f59ff
+  source_sha256: 9858f63cb1fb0f6ea24de25922f3087554c8901c91705e9ec913acf95e841f50
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Register Expandable Canonical CCE Operator List
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the canonical CCE Operator Registry.
 
-## Claim
 
 the current canonical CCE Operator Registry **must** contain this expandable set:
 

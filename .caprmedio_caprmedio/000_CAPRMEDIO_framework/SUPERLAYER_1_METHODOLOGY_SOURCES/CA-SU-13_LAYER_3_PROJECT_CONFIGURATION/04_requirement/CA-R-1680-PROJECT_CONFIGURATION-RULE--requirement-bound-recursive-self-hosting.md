@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project
+  active: CAPRMEDIO_MODEL <+ Project
 version: 31
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -20,11 +20,13 @@ form: Rule
 
 Requirement — Bound recursive self-hosting
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO's own repository.
 
-## Claim
 
 CAPRMEDIO applies the same structural constitution **and** governance semantics **to** its own repository while keeping native reusable framework source, project authority, **and** non-authoritative convenience locators under distinct owners.
 

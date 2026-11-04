@@ -4,10 +4,10 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 20
 updated_at: 2026-11-02 19:33:47 +0400
 relations:
@@ -17,21 +17,23 @@ tier: 3
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-345-PROJECT_CONFIGURATION--author-fpf-analysis-reports.md
   source_atom_id: CA-M-345
   source_atom_revision: 20
-  source_sha256: 03cde371f004ac3dc3d9c0e34aa637800dc5a3bbf0d23cec0f036a5573133e33
+  source_sha256: 84c425c18f1e442a650ec836737e763c29eba77a39d88fdf3eae3fd7997e5ec7
   original_relations_sha256: b70967c5352152ca9b72848a50e82082d932847305b9d8a76594bf66fcb60243
 ---
 ## Summary
 
 Author FPF Analysis Reports
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoring and content-preserving import of FPF Analysis Report Atoms.
 
-## Claim
 
 **to** author an FPF Analysis Report, use the common Analysis & Advisory structure under CA-D-479 and retain the report's bounded question, scope, approach, results, provenance and evidence limits without treating its recommendations as accepted specification.
 

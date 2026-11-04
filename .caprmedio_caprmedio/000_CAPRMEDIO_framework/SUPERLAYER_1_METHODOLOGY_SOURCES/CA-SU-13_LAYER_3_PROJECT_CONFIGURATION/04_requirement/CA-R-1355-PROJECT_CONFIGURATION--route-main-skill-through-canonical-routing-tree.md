@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ UX <+ Discovery and Navigation
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ UX <+ Discovery and Navigation
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ UX <+ Entry
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ UX <+ Entry
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering
 version: 24
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Route Main Skill Through Canonical Routing Tree
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 requested registered branches **or** leaves handled by the CAPRMEDIO Main Skill.
 
-## Claim
 
 the CAPRMEDIO Main Skill **must** route **every** requested registered branch **or** leaf through the CAPRMEDIO Routing Tree.

@@ -4,13 +4,13 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings.RMED Review.Max Atoms
-version: 1
+  active: CAPRMEDIO_MODEL <+ Project.Settings.RMED Review.Max Atoms
+version: 2
 relations: {}
 tier: 3
 role: Requirement
 form: Declaration
-updated_at: 2026-11-02 08:06:47 +0400
+updated_at: 2026-11-04 05:21:15 +0400
 ---
 
 ## Summary
@@ -19,9 +19,17 @@ Declare Project.Settings.RMED Review.Max Atoms
 
 ## Claim
 
-When present, the value is positive. Its absence supplies no default.
+### Formal Claim
 
 ```CFEL
-Project.Settings.RMED Review.Max Atoms{:0..1}: [int]{:1};
+# model
+Project.Settings.RMED Review.Max Atoms: [int]{:0..1};
+
 Project.Settings.RMED Review.Max Atoms.*[]{:0}
 ```
+
+### Prose Claim
+
+
+When present, the value is positive. Its absence supplies no default.
+

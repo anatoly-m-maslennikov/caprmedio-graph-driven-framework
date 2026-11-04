@@ -21,7 +21,7 @@ relations:
   - CA-O-198
 tier: 3
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-197-PROJECT_CONFIGURATION-STEP--finalize-the-actual-public-history-link.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-197-PROJECT_CONFIGURATION-STEP--finalize-the-actual-public-history-link.md
   source_atom_id: CA-O-197
   source_atom_revision: 12
   source_sha256: 46e538aa4f1a3668b18c7e92a6cd2b8961f80fb2c1206022de508d6b1280baa2

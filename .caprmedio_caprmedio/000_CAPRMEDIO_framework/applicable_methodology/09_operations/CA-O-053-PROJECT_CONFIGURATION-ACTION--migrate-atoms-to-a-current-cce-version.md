@@ -26,7 +26,7 @@ author: Anatoly Maslennikov
 type: Action
 tier: 3
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-053-PROJECT_CONFIGURATION-ACTION--migrate-atoms-to-a-current-cce-version.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-053-PROJECT_CONFIGURATION-ACTION--migrate-atoms-to-a-current-cce-version.md
   source_atom_id: CA-O-053
   source_atom_revision: 21
   source_sha256: 288cdff640b4ef6d048330b43eedccc79f9c124597cd1295c6c56b7bcf3cba61

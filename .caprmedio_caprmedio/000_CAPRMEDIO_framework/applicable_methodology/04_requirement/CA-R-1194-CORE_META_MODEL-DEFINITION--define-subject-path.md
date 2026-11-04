@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Term
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,21 +16,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md
   source_atom_id: CA-R-1194
   source_atom_revision: 32
-  source_sha256: e1043919015c0157a2ef8cb3283f179265e684359e4d55640791c5dace22441c
+  source_sha256: f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Subject Path
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 A canonical Subject path identifying a governed or dependency target.
 
-## Claim
 
 
 
@@ -42,4 +44,4 @@ The target is selected by the meaning addressed, not by the Atom's Local Scope U
 
 ## Semantics
 
-A path may address classification without declaring an Entity kind. `Atom.Content Role` addresses the relative Property, while `Atom/(.Content Role: Plan)` identifies a qualified Atom inheriting applicable Atom features and constraints. Neither form invents an intermediate Entity kind. The root and operators follow the adopted Entity syntax under CA-R-1931; no Project-name namespace layer is introduced.
+A path may address classification without declaring an Entity kind. `Atom.Header.Role` addresses the relative Property, while `Atom/(.Header.Role: Plan)` identifies a qualified Atom inheriting applicable Atom features and constraints. Neither form invents an intermediate Entity kind. The root and operators follow the adopted Entity syntax under CA-R-1931; no Project-name namespace layer is introduced.

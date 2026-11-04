@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_MODEL <+ Entity
 relations:
   depends_on:
   - CA-R-2150@15
@@ -23,6 +23,9 @@ form: Rule
 Select Subject Graph views by Scope Units and branches
 
 ## Claim
+
+### Prose Claim
+
 
 Each focused Subject Graph Projection **must** state and use one declared selection. Scope Unit criteria select Current RMEDO source Atoms by their Local Scope Unit, with an explicit option to include descendants declared in Project Structure. Folder nesting does not determine the selected Scope Units. Subject-branch criteria select canonical target branches while retaining ancestor context and the source-backed properties needed for inheritance within the selected source set.
 

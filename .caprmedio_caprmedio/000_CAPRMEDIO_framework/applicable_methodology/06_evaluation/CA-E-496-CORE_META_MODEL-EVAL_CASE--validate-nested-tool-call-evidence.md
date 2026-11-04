@@ -1,17 +1,17 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ Step Run
-  - CAPRMEDIO <+ MODEL <+ Workflow Run
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Workflow
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Step
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Action
-  - CAPRMEDIO <+ MODEL <+ Projection
-version: 22
-updated_at: 2026-11-02 08:06:47 +0400
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Step Run
+  - CAPRMEDIO_MODEL <+ Workflow Run
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action
+  - CAPRMEDIO_MODEL <+ Projection
+version: 23
+updated_at: 2026-11-03 23:25:51 +0400
 relations:
   evaluation_for:
   - CA-R-1528
@@ -24,21 +24,23 @@ tier: 3
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-496-CORE_META_MODEL-EVAL_CASE--validate-nested-tool-call-evidence.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-496-CORE_META_MODEL-EVAL_CASE--validate-nested-tool-call-evidence.md
   source_atom_id: CA-E-496
-  source_atom_revision: 22
-  source_sha256: d4950029f4f12a6bdafdbf08ea6dc603574fb60f0d5d426302d267195bdaa814
+  source_atom_revision: 23
+  source_sha256: 4d1d58cbd8a5eac8d196a3cc7f88aac02b64214852f4f230d59c9f7c3bf770cd
   original_relations_sha256: 2dde8ea9685247f7085155ccd836cc6ed9705f9aa6cd78755d6134dfe5795c12
 ---
 ## Summary
 
 Validate nested Tool-call evidence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 serialized Tool-call evidence within a Step Run.
 
-## Claim
 
 the Main Content of a Journal Carrier that encodes Tool-call evidence within a Step Run **must** undergo an actual Evaluation under CA-R-1528. Available wire evidence alone is **not** a passing result.
 

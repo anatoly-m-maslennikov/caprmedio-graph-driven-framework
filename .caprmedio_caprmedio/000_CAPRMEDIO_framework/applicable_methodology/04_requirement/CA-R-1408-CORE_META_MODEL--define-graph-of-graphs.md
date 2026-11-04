@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,21 +16,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1408-CORE_META_MODEL--define-graph-of-graphs.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1408-CORE_META_MODEL--define-graph-of-graphs.md
   source_atom_id: CA-R-1408
   source_atom_revision: 25
-  source_sha256: 6cd72e8f4f1604c75774b366ffc19ba8140436e1f9b26d78e004f2701a6dd0bf
+  source_sha256: cd8b86c2e7f9ffdd159a2745e64d102289d80cf7f3d7e5709f76a4fe62b4a057
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Graph of Graphs
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Graph of Graphs compositions and any generated overview Artifact.
 
-## Claim
 
 
 

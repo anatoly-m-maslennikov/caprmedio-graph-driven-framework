@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Journal
+  active: CAPRMEDIO_MODEL <+ Journal
 version: 29
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Rule
 
 Separate Analysis from factual execution records
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 factual execution Records, interpretive Analysis.
 
-## Claim
 
 factual Journal Records carry what occurred, was measured, **or** was reported during execution **or** operation, with available provenance **and** context. their evidence **may** include logs, complaints, tickets, errors, execution outputs, measurements, delivery outcomes, **and** externally received operational reports.
 

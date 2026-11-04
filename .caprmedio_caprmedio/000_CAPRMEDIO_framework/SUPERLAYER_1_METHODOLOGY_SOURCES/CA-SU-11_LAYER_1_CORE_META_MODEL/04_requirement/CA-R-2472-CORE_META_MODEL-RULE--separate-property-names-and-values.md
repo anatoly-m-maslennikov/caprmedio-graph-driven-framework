@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
-version: 8
-updated_at: 2026-11-02 14:59:48 +0400
+  active: CAPRMEDIO_MODEL <+ CFEL
+version: 9
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -18,6 +18,9 @@ form: Rule
 Separate Property names and values
 
 ## Claim
+
+### Prose Claim
+
 
 - `p{:occurrence}` constrains occurrences of the named Property.
 - `p{:occurrence}: [value format]{:value count}` constrains its direct values.
@@ -40,8 +43,7 @@ undeclared dependent entities are forbidden. An explicit applicable child-name
 selector, including an explicit wildcard selector, is the stated exception;
 it permits only the names and counts that it declares.
 
-Missing occurrence, direct-value, Format, and non-default count annotations
-remain unspecified. For `p.**`, the recursive count aggregates the selected
+Each applicable named Property occurs at most once per corresponding bearer. A leaf with a positive applicable value minimum is required; a zero minimum by itself does not require presence. Explicit occurrence and other applicable constraints still apply. A present Property has a value; nonempty child structure can provide a structural parent value when direct-value count is zero. `p: {:0..1}` specifies direct-value count while using the applicable inherited format. Missing direct-value, Format, and other count annotations remain unspecified. For `p.**`, the recursive count aggregates the selected
 distinct descendant Property identities below p within each selected bearer.
 It counts each selected descendant once regardless of depth; it neither counts
 direct values nor combines descendants from different bearers. Sibling names
@@ -50,6 +52,7 @@ remain unique within that bearer.
 ## Details
 
 ```CFEL
+# model
 Atom.Content.**[string]{:0+}: [markdown]{:1}
 ```
 

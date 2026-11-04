@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Runtime/Session
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime/Session
 version: 34
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Define the bounded session-state envelope
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the bounded session-state envelope.
 
-## Claim
 
 the bounded session-state envelope **must** contain **only** routing invariants, current scope, applicable settings, compact session state, **and** references needed **to** load active authority on demand.

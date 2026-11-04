@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
+  active: CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 25
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Decision
 
 Place Project-Owned Persistent Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 persistent Carriers of Project governing Artifacts and project-control evidence.
 
-## Claim
 
 **every** governed Project **must** place its governing Artifacts **and** project-control evidence under `.caprmedio_<project_name>/`, **where** `<project_name>` is that Project's exact lowercase name.
 

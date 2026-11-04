@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Journal
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Decision
 
 Place the CAPRMEDIO Project Journal
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the shared Work Journal of the CAPRMEDIO Project.
 
-## Claim
 
 the CAPRMEDIO Project **must** place its shared Work Journal **in** `.caprmedio_caprmedio/_journal/`.

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Journal
+  active: CAPRMEDIO_MODEL <+ Journal
 version: 29
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,21 +12,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL--separate-analysis-from-factual-execution-records.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL--separate-analysis-from-factual-execution-records.md
   source_atom_id: CA-R-1684
   source_atom_revision: 29
-  source_sha256: 8066a275bd28f4363e0a43ccb5100d8b4d7c7b0a5a7039671a5ef9941d9178a4
+  source_sha256: 0d0da98ef3dbe6fdda19d319f0b22b86e7940be5c6c24cead90acc6cbb8ffb32
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Separate Analysis from factual execution records
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 factual execution Records, interpretive Analysis.
 
-## Claim
 
 factual Journal Records carry what occurred, was measured, **or** was reported during execution **or** operation, with available provenance **and** context. their evidence **may** include logs, complaints, tickets, errors, execution outputs, measurements, delivery outcomes, **and** externally received operational reports.
 

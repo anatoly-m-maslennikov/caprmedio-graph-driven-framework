@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern).Priority
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Header.Priority
 version: 30
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -15,17 +15,20 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-623-CORE_META_MODEL-EVAL_CASE--effective-priority-selection.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-623-CORE_META_MODEL-EVAL_CASE--effective-priority-selection.md
   source_atom_id: CA-E-623
   source_atom_revision: 30
-  source_sha256: c41e0c309d9775240705d7a2ff4f1af92c6dc4e519644ef1ca5da49c593778a0
+  source_sha256: 973451e5740f6a074d18c82c81763f20cea034d3675eaecd0e736499251d14df
   original_relations_sha256: 482ac75541dbf35df7976298b4551596eac5e1a3d27b3579c5d272536b9bd1ee
 ---
 ## Summary
 
 Effective-priority selection
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the following effective-priority selection conditions:
 
@@ -38,7 +41,6 @@ the following effective-priority selection conditions:
 7. confirm `auto_by_effective_priority` selects **`=1`** unique eligible winner **and** asks on ties, incomparable scopes, uncertainty, **or** multiple winners.
 8. confirm unsatisfiable external obligations stop rather than auto-resolve.
 
-## Claim
 
 conflict selection follows the admissible Operator-selected priority model **without** an implicit ancestry bonus **and** never chooses through a tie, incomparable scope, uncertainty, **or** ineligible external obligation.
 

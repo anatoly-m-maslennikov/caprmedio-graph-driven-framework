@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 32
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -14,20 +14,22 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-RULE--register-child-of-and-parent-of-relation-pair.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-RULE--register-child-of-and-parent-of-relation-pair.md
   source_atom_id: CA-R-879
   source_atom_revision: 32
-  source_sha256: 58cfa4d49e500c104d29046c6e8df07834c7aaf02cfd0e396346294baa4208f1
+  source_sha256: 170518ff269c74daa1c53a7d8385e790377fb116889bb25f6df49df6eb2d8ee3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Register child_of and parent_of relation pair
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the `child_of` and `parent_of` relation pair.
 
-## Claim
 
 `child_of` **must** be registered as the declared upstream relation **and** `parent_of` as its inverse-derived downstream relation **in** the normative-authority ordering domain.

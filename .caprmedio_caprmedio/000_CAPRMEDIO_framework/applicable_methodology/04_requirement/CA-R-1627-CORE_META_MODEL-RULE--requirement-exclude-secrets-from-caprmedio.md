@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -12,21 +12,23 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1627-CORE_META_MODEL-RULE--requirement-exclude-secrets-from-caprmedio.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1627-CORE_META_MODEL-RULE--requirement-exclude-secrets-from-caprmedio.md
   source_atom_id: CA-R-1627
   source_atom_revision: 31
-  source_sha256: 503a0115f640e93bba580bb6fb2cf9ca4135bbd8691b1cabc9254f609420f2e7
+  source_sha256: fa5d5f7d4a1f5fd6be3e11d468173e43db130726a0ca54d89956325962242082
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Requirement — Exclude secrets from CAPRMEDIO
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 secret values and their use across CAPRMEDIO surfaces.
 
-## Claim
 
 secret values **must** remain **in** the permitted secret storage defined by CA-D-452. secrets include passwords, API keys, access **or** refresh tokens, session cookies, private keys, signing **or** encryption keys, authentication certificates, one-time **or** recovery codes, **and** connection strings **or** URLs containing credentials.
 

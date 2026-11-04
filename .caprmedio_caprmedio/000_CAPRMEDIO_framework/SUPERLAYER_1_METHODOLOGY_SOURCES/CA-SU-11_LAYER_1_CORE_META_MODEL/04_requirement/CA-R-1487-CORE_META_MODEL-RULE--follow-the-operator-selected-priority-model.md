@@ -5,11 +5,11 @@ relations:
   child_of:
   - CA-R-815
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  active: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
 atom_id: CA-R-1487
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -22,11 +22,13 @@ form: Rule
 
 Follow the Operator-selected priority model
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 priority-model selection by the CAPRMEDIO Framework Instance for an affected Scope and Project stage.
 
-## Claim
 
 the CAPRMEDIO Framework Instance **must** support the admissible priority model established by the Operator for the affected Scope **and** Project stage. **every** resulting alternative selection **must** satisfy **all** of the following:
 

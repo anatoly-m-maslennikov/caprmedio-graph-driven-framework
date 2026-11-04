@@ -4,21 +4,25 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//RECORDS
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//RECORDS
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
-version: 7
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+version: 8
 relations: {}
 tier: 1
-updated_at: 2026-11-02 08:06:47 +0400
+updated_at: 2026-11-03 20:00:05 +0400
 role: Requirement
 form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md
   source_atom_id: CA-R-2246
-  source_atom_revision: 7
-  source_sha256: 953c84f76636100afe50e6f0a638b9f82396ed94009a24fd14a824f2a13f7861
+  source_atom_revision: 8
+  source_sha256: 5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
@@ -27,21 +31,23 @@ Define RECORDS Relation
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+# model
+Relation//RECORDS ((HAS_INVERSE)) Relation//IS_RECORDED_BY;
+
+Relation//RECORDS ((HAS_CLASSIFICATION)) Derivation == Direct;
+
+# instances
+Event Record//$event_record ((RECORDS)) $occurrence
+```
+
+### Prose Claim
+
 RECORDS connects an Event Record to the actual occurrence described by that
 record. The stored direction is Event Record to the actual Event or execution it records. IS_RECORDED_BY
 is its declared derived inverse, not a second stored fact.
-
-```CFEL
-((RECORDS)) ((HAS_INVERSE)) ((IS_RECORDED_BY));
-
-((RECORDS)) >| Derivation == Direct;
-
-Event Record// ((RECORDS)) $occurrence
-```
-
-## Semantics
-
-
 
 The Target is the actual Event or execution described by the Event Record.
 Forward `Host ((RECORDS)) Target` and reverse `Target <((RECORDS)) Host` are views of the same Relation fact.
@@ -51,6 +57,5 @@ A Workflow Run is one recorded occurrence kind, not the only one. The Event
 Record persists independently of that Occurrent. This Definition imposes no
 record-count constraint.
 
-## Details
-
+#### Details
 This named Type uses the general `((RELATION_TYPE))` form. It defines the reusable Type and creates no occurrence or actual endpoint tuple.

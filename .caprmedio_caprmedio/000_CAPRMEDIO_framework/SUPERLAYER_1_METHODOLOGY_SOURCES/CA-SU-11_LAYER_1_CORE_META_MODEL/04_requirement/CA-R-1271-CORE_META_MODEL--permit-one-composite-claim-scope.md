@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Permit One Composite Claim Scope
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 composite applicability of **`=1`** Atom Claim.
 
-## Claim
 
 one Claim **may** express composite applicability restrictions as its Claim Scope through an explicitly grouped deterministic Scope Expression. the restrictions qualify the same Claim, **not** additional Claims **or** additional Claim Target Scope Units.

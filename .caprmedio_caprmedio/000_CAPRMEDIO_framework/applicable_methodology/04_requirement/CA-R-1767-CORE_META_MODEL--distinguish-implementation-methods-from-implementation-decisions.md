@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
 version: 35
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -14,21 +14,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL--distinguish-implementation-methods-from-implementation-decisions.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL--distinguish-implementation-methods-from-implementation-decisions.md
   source_atom_id: CA-R-1767
   source_atom_revision: 35
-  source_sha256: 1faff80db1cdbf768a41b5657e25516c27ff89f02daf8054b22d224a2b44b92a
+  source_sha256: d0e2bbf50312b707627a49652e690252bf6280907141b73dcf102e30306a2c8e
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary
 
 Distinguish Implementation Methods from Implementation Decisions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Method Eng Policy/Eng Decision and Delivery Policy/Decision Types.
 
-## Claim
 
 A Method Eng Policy governs reusable engineering policy and an Eng Decision selects a bounded engineering approach. A Delivery Policy governs a reusable representation or delivery family, while a Delivery Decision selects a bounded representation or delivery choice. **neither** Eng Policy **nor** Eng Decision is an execution Plan **or** native Implementation.
 

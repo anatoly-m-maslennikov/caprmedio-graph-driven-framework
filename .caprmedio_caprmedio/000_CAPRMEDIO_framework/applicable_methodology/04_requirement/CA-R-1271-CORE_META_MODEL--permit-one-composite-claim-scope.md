@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,20 +15,22 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL--permit-one-composite-claim-scope.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL--permit-one-composite-claim-scope.md
   source_atom_id: CA-R-1271
   source_atom_revision: 29
-  source_sha256: 1acf6c268465adc4a36d068384d8ae78c090ddd1168a2b76ebfc9e539ef50d19
+  source_sha256: b03af127be7331edbd14fc2b52d2ce399c23aff2be45874f5dba46cd6afe021c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Permit One Composite Claim Scope
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 composite applicability of **`=1`** Atom Claim.
 
-## Claim
 
 one Claim **may** express composite applicability restrictions as its Claim Scope through an explicitly grouped deterministic Scope Expression. the restrictions qualify the same Claim, **not** additional Claims **or** additional Claim Target Scope Units.

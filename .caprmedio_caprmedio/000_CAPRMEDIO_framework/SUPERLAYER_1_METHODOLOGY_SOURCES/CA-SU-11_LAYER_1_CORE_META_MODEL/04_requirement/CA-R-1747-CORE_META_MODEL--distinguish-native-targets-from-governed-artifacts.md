@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//Artifact
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
 version: 29
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Distinguish native targets from governed Artifacts
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 native project targets **and** governed Artifacts.
 
-## Claim
 
 a native project target is Implementation rather than a governed Artifact **unless** CAPRMEDIO separately admits an Artifact identity that represents **or** binds it.

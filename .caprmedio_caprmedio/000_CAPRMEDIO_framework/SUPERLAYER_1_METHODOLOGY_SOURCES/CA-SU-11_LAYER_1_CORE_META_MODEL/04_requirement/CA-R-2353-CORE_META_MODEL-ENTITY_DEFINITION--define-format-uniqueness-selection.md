@@ -4,13 +4,13 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Format.Uniqueness Selection
-version: 4
-updated_at: 2026-11-02 08:06:47 +0400
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Format.Uniqueness Selection
+version: 6
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 1
 role: Requirement
-form: Entity Definition
+form: Declaration
 ---
 ## Summary
 
@@ -18,17 +18,21 @@ Define Format Uniqueness Selection
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+# model
+Format.Uniqueness Selection: [string]{:0..1};
+
+Format.Uniqueness Selection.*[]{:0}
+```
+
+### Prose Claim
+
+
 Format Uniqueness Selection identifies the comparison population for a
 Property uniqueness check. It is optional and does not itself impose
 uniqueness. It does not define a notation.
 
 
-```CFEL
-Format.Uniqueness Selection{:0..1}: [string]{:1};
-Format.Uniqueness Selection.*[]{:0}
-```
 
-## Details
-
-Source meaning: CA-R-2248. Scope-specific constraints remain in the governing
-Format Definition.

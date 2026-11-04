@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Give each governed Claim one authoritative Atom owner
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 governed Claims.
 
-## Claim
 
 **every** governed Claim **must** have **`=1`** authoritative Atom owner.

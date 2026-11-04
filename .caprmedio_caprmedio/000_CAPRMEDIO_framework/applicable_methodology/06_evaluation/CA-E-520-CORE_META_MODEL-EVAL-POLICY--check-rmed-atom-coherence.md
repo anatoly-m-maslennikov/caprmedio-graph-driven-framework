@@ -6,20 +6,20 @@ status: Active
 version: 32
 updated_at: 2026-11-02 18:35:20 +0400
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Details
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Content Role
-  - CAPRMEDIO <+ MODEL <+ Term//Property
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Product
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Content.Details
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
 relations:
   evaluation_for:
   - CA-D-269
@@ -38,21 +38,23 @@ tier: 5
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVAL-POLICY--check-rmed-atom-coherence.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVAL-POLICY--check-rmed-atom-coherence.md
   source_atom_id: CA-E-520
   source_atom_revision: 32
-  source_sha256: a8bc3f6f29c5f5dd49752e8045929d0dd75ee3e972fa3c77cc4f1575b5f670e2
+  source_sha256: a0f36f66a067921ad716a4ce5d3be9ffdc53b99ca2c0bf5627bc0998bec859f7
   original_relations_sha256: 216745b2d9615d7395b419d7b8e1843d9163e6bafeaaf74fdf1adfb6a455cf32
 ---
 ## Summary
 
 Check RMED Atom coherence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 individual active RMED Atoms reviewed locally against their exact carried text **and** applicable local authoring rules.
 
-## Claim
 
 an RMED Atom passes this local Evaluation **only** **when** **all** of these checks pass with source evidence:
 

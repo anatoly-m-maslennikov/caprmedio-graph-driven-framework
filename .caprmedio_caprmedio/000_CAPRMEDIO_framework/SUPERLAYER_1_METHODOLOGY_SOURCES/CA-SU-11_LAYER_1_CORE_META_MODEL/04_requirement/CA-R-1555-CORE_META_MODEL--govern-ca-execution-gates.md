@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -22,10 +22,12 @@ form: Rule
 ## Summary
 Govern CA execution gates
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 identified AI Agents considering clarification omission under applicable configured confidence requirements.
 
-## Claim
 
 an identified AI Agent **may** omit clarification **only** **when** confidence **in** **every** following item meets its applicable configured requirement:
 

@@ -1,17 +1,17 @@
 ---
 atom_id: CA-D-498
-version: 13
-updated_at: 2026-11-02 00:18:22 +0400
+version: 14
+updated_at: 2026-11-03 23:25:51 +0400
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Filename
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit.Name
 relations:
   depends_on:
   - CA-D-284
@@ -24,11 +24,13 @@ form: Decision
 
 Use full Scope Unit names in filenames
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit references serialized **in** Atom filenames **in** the CAPRMEDIO Project.
 
-## Claim
 
 **every** filename token representing a Scope Unit **must** use its complete Scope Unit Name, rendered **in** uppercase with underscores under `CA-D-284-CORE_META_MODEL-DELIVERY--serialize-filename-token-case`, **without** abbreviation **or** a separately maintained alias.
 

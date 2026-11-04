@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,6 +17,9 @@ form: Rule
 Require unique Property tuples
 
 ## Claim
+
+### Prose Claim
+
 
 `UNIQUE(selector, (.p, .q))` requires unique tuples of the selected Properties across the selected logical instances in the explicit Project evaluation context. An optional third argument, `condition`, restricts the population: `UNIQUE(selector, (.p, .q), condition)`.
 

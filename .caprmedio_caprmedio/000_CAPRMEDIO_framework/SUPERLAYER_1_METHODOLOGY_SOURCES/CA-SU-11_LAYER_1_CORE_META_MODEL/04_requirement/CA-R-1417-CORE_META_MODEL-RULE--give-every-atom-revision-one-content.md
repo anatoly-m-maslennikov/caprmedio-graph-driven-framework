@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-version: 31
-updated_at: 2026-11-02 00:55:09 +0400
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+version: 33
+updated_at: 2026-11-03 20:00:05 +0400
 relations: {}
 atom_id: CA-R-1417
 current_scope_unit: CORE_META_MODEL
@@ -14,21 +14,26 @@ status: Active
 tier: 1
 role: Requirement
 form: Rule
+carrier_destination:
+  file:
+    name: CA-R-1417-CORE_META_MODEL-RULE--give-every-atom-revision-one-content.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 
 Give Every Atom Revision One Content
 
-## Claim scope
-
-The Content of each Atom version.
-
 ## Claim
+
+### Prose Claim
+
+Applicability: The Content of each Atom version.
 
 Each Atom version **must** have exactly one Content portion.
 
 ## Semantics
 
-Content is the Markdown portion whose natural-language meaning generally needs interpretation. Metadata properties use YAML. A complete RMED Content portion has its Claim as a direct Markdown value. A fenced CFEL expression may provide that value without prose. Do not create a separate Formal Claim child. Tools can extract sections or parse the supported formal syntax without proving all prose meaning.
+Content is the Markdown portion whose natural-language meaning generally needs interpretation. Header properties use YAML. A complete ordinary RMED Content portion has a Claim grouping with no direct value and one or both declared Formal Claim and Prose Claim children. Formal Claim contains a CFEL-labelled code fence; Prose Claim contains ordinary Markdown. Tools can extract declared Properties or parse supported formal syntax without proving all prose meaning.
 
-One Content portion is a structured group with zero direct scalar values and independently counted child properties. This introduces no generic Substance field. The retained Summary's word Revision means an Atom version, not a separate Revision entity.
+One Content portion is a structured group with zero direct scalar values and independently counted child Properties. This introduces no generic Substance field. The retained Summary's word Revision means an Atom version, not a separate Revision entity.
+

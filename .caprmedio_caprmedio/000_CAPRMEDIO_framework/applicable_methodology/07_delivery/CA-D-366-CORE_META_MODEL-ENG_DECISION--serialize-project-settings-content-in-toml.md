@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Project.Settings.Name
-  - CAPRMEDIO <+ MODEL <+ Project.Settings.Prefix
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - CAPRMEDIO <+ MODEL <+ Projection
-version: 30
-updated_at: 2026-11-02 19:46:47 +0400
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Project.Settings.Name
+  - CAPRMEDIO_MODEL <+ Project.Settings.Prefix
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Projection
+version: 31
+updated_at: 2026-11-04 09:30:21 +0400
 relations:
   child_of:
   - CA-D-364
@@ -19,24 +19,30 @@ status: Active
 tier: 6
 role: Delivery
 form: Decision
+carrier_destination:
+  file:
+    name: CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md
   source_atom_id: CA-D-366
-  source_atom_revision: 30
-  source_sha256: 716da35bde69ed179540312ebb7651992ab9d2bc78bfec9e1f0dc3cf14d2193e
+  source_atom_revision: 31
+  source_sha256: 500d5d321b8271c57ba902e77a1ca7799b58aa8581a1c3845ef2c3b8b9a2ede1
   original_relations_sha256: 3fcf822d878922d4be67c2267faaa6398d32fdd7466a688a1586dcff08ebfc0d
 ---
 ## Summary
 
 Serialize Project Settings Content in TOML
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Project Settings TOML Carrier.
 
-## Claim
 
-the Project Settings TOML Carrier **must** encode Operator-editable Project initialization inputs through sections **and** fields specified by concrete settings-specification Atoms under its foundational content **and** authority boundaries **and** applicable shared settings specifications; it **must not** store Framework Instance choices **or** authoritative Project Structure declarations **or** derived structural values as independently editable settings.
+the Project Settings TOML Carrier **must** encode Operator-editable Project initialization inputs through sections **and** fields specified by concrete settings-specification Atoms under its foundational content **and** authority boundaries **and** applicable shared settings specifications; it **must not** store authoritative Project Structure declarations **or** derived structural values as independently editable settings; its closed field signature below applies to this physical Carrier.
 
 ## Details
 

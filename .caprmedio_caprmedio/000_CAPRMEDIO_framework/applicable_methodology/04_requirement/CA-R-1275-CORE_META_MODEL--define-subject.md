@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Term
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,24 +17,26 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1275-CORE_META_MODEL--define-subject.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1275-CORE_META_MODEL--define-subject.md
   source_atom_id: CA-R-1275
   source_atom_revision: 32
-  source_sha256: 95f4d1b119e1289460082a31558bdb4097b2dabd801154ade9c68a03ca707fb8
+  source_sha256: 92933014b7346038ab25966e2a71b06791feb5eddf5e3a2c7445e54347253407
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Subject
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Things or topics an Atom governs or depends on.
 
-## Claim
 
 
-An Atom.Subjects target must name the thing or topic the Atom governs or depends on; it is not a copied target, intermediate Subject object, or a requirement for a separate entity kind.
+An Atom.Header.Subjects target must name the thing or topic the Atom governs or depends on; it is not a copied target, intermediate Subject object, or a requirement for a separate entity kind.
 
 ## Details
 

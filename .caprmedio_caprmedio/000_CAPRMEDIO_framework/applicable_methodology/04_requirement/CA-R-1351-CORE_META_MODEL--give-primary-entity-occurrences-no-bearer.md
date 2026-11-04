@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Entity
 version: 23
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -15,21 +15,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL--give-primary-entity-occurrences-no-bearer.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL--give-primary-entity-occurrences-no-bearer.md
   source_atom_id: CA-R-1351
   source_atom_revision: 23
-  source_sha256: 134fcf2f0419cb870e308f13fbf26e887cb88dd198efdd1988dfad07e5e8e723
+  source_sha256: a647fa0d775df3838eaf0e09ad471544461b4573e2896f80d08ff88d6897c904
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Give Primary Entity Occurrences No Bearer
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Primary Entity occurrences referenced by a Subject.
 
-## Claim
 
 a Primary Entity referenced by a Subject **must** have **`=0`** outgoing IS_PROPERTY_OF Relations.
 

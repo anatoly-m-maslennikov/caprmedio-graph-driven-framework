@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//Property
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Property
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//Dependent Entity
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Dependent Entity
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Classify Property as a Dependent Entity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the classification of Property as a Dependent Entity.
 
-## Claim
 
 the Term Property **must** be NARROWER_THAN Dependent Entity.

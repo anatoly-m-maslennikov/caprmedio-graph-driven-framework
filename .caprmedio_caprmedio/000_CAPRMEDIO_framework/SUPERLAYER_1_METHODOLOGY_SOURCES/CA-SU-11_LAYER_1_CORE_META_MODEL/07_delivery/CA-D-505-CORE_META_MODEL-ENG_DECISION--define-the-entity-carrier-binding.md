@@ -6,12 +6,12 @@ status: Active
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//CARRIES
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//CARRIES
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Term//Property
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 relations: {}
 tier: 1
 role: Delivery
@@ -21,11 +21,13 @@ form: Decision
 
 Define the Entity Carrier binding
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Carrier bindings of Entities.
 
-## Claim
 
 the Carrier Property of an Entity **means** its binding **to** the Carrier that stores **or** represents it.
 

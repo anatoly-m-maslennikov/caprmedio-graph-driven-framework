@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
 version: 30
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,21 +12,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1768-CORE_META_MODEL--absorb-implementation-decisions-without-semantic-loss.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1768-CORE_META_MODEL--absorb-implementation-decisions-without-semantic-loss.md
   source_atom_id: CA-R-1768
   source_atom_revision: 30
-  source_sha256: d817f22463b4926cb223790abc4339d0aab4a8b8fb563a5130751056dc57ca5a
+  source_sha256: 8d78e32f08a91b78a3b9d8328ea6f20e74a79e7fcae500e4bea669f0bf5bf4aa
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Absorb Implementation Decisions without semantic loss
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Eng Decisions.
 
-## Claim
 
 an Eng Decision **may** be archived as absorbed **only** **after** **`>=1`** active Eng Policies preserve **every** part of its still-necessary governed meaning for the affected realization scope.
 

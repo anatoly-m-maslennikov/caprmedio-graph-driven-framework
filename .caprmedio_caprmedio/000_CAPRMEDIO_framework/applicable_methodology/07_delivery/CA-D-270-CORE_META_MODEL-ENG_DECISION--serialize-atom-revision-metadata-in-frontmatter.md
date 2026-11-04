@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - CAPRMEDIO <+ MODEL <+ Atom.Updated At
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - CAPRMEDIO_MODEL <+ Atom.Header.Updated At
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,21 +15,23 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-ENG_DECISION--serialize-atom-revision-metadata-in-frontmatter.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-ENG_DECISION--serialize-atom-revision-metadata-in-frontmatter.md
   source_atom_id: CA-D-270
   source_atom_revision: 27
-  source_sha256: cd26983b1c7d1ac915a6b1dc6e954496e1fefddd2bd9ae75e26736f2c076e9e7
+  source_sha256: 1d1f216820b9e88e0184dc1d9d2d6f3f16eb20d45bfe10d16ad34b95ce16aa75
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Serialize Atom Revision Metadata **in** Frontmatter
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Markdown Atom Revision Carriers.
 
-## Claim
 
 **every** Markdown Atom Revision Carrier **must** serialize its positive integer Version as `version` **and** its Project-time Updated At value as `updated_at` **in** YAML frontmatter.
 

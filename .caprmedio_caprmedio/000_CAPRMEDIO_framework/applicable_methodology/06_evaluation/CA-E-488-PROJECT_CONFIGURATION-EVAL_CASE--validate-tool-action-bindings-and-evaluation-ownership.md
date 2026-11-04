@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Package
+  active: CAPRMEDIO_MODEL <+ Package
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -26,21 +26,23 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-488-PROJECT_CONFIGURATION-EVAL_CASE--validate-tool-action-bindings-and-evaluation-ownership.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-488-PROJECT_CONFIGURATION-EVAL_CASE--validate-tool-action-bindings-and-evaluation-ownership.md
   source_atom_id: CA-E-488
   source_atom_revision: 25
-  source_sha256: 95d69093f079e28c4070d4d2f66af5a7d8e2cef448300d2f40feea60ef16fd1d
+  source_sha256: 69d82c42ab4b75442de68a78f71c3c5497beb7196ef5d9feca64b47d73698901
   original_relations_sha256: e06ebb6b9927438ff6a5af45051efe79945ea1a9a4585f67c5bf0d4ba08e6062
 ---
 ## Summary
 
 Validate Tool Action bindings and Evaluation ownership
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a CAPRMEDIO Tool's methodology binding **and** Evaluation responsibility.
 
-## Claim
 
 the Evaluation of a CAPRMEDIO Tool's methodology binding **must** check the canonical Action owner, binding cardinality, **and** division of Evaluation responsibility under CA-R-1515-PROJECT_CONFIGURATION-RULE--keep-canonical-actions-and-workflows-in-methodology, CA-R-1800-PROJECT_CONFIGURATION-RULE--bind-every-tool-to-one-methodology-action, CA-R-1517-PROJECT_CONFIGURATION-RULE--keep-tool-operational-authority-outside-its-own-subtree, **and** CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.
 

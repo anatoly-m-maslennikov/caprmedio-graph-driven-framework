@@ -1,18 +1,18 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Catalog)'
+  active: 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Entity Definition)'
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Actor
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
+  - CAPRMEDIO_MODEL <+ Term
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Requirement)/(.Header.Form: Entity Definition)'
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -29,21 +29,23 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md
   source_atom_id: CA-R-1455
   source_atom_revision: 27
-  source_sha256: 8306e55f166bb49d6b76ae06b8460ad70396b271e4497df27063858e7eb4ac5b
+  source_sha256: d5b1dd27d7a818967c35dbfd13d11863dde799cc51513e9c467b235061f37284
   original_relations_sha256: 2984945151e45b08c6ca4b41431785d793749c638b74ee241a840c0ddd28478a
 ---
 ## Summary
 
 Preserve evidence and uncertainty in vocabulary diagnostic indexes
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Catalogs used as vocabulary diagnostic indexes.
 
-## Claim
 
 a Catalog used as a vocabulary diagnostic index **must** distinguish ordinary English use under CA-R-1320 from evidence of unresolved Project-specific use, with **every** entry bound **to** its exact source occurrence, surrounding Claim **or** reference context, **and** Artifact Revision. the index **must** declare the source selection **and** checked definition coverage that bound its judgments. capitalization, consistent use, occurrence **in** GOVERNS **or** DEPENDS_ON, **or** the appearance of a Scope Unit name, Actor name, identifier, path, **or** syntax token alone **must not** establish Project-specific Term status **or** a missing definition.
 

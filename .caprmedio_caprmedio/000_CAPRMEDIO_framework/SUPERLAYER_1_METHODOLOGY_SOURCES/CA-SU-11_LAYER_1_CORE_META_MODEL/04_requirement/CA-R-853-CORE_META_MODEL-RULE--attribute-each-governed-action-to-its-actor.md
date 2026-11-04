@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Attribute each governed action to its Actor
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 governed actions.
 
-## Claim
 
 **every** governed action **must** identify its initiating Actor **and** the approval **or** active delegation that authorized it.

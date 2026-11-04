@@ -4,10 +4,10 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := Analysis Report)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := Analysis Report)
 version: 20
 relations:
   depends_on:
@@ -23,11 +23,13 @@ updated_at: 2026-11-02 19:33:47 +0400
 
 Define FPF Analysis Report
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the registered FPF Analysis Report Form under Role Analysis & Advisory.
 
-## Claim
 
 an FPF Analysis Report **means** a specialized Analysis Report whose bounded inquiry **or** interpretation product records an FPF analytical command, composition, **or** directly related analytical follow-up, retaining its findings **and** stated evidence limits as reporting content rather than adopting them as normative authority.
 

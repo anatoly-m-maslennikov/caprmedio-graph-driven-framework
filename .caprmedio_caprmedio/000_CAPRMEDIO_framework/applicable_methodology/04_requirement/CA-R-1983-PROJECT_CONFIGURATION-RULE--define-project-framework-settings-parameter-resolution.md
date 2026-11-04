@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
 relations:
   child_of:
   - CA-R-1176
@@ -14,21 +14,23 @@ role: Requirement
 form: Rule
 updated_at: 2026-11-02 08:06:47 +0400
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1983-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-parameter-resolution.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1983-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-parameter-resolution.md
   source_atom_id: CA-R-1983
   source_atom_revision: 15
-  source_sha256: e803d64a1285b4a0dc75c75c0dca05bb6515bb99d575b721b2d0df5355a455c5
+  source_sha256: d274204e13a7a6c117916a9107af85eaf868a1fe865477007db3f0eb27b0ff5c
   original_relations_sha256: 9e3e53a370b31aee7f492cc3fbaba3b8b30f92b5773698d221265754db5d0402
 ---
 ## Summary
 
 Define Project.Framework Settings.Parameter Resolution
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 resolution of an effective framework parameter.
 
-## Claim
 
 Resolve each effective framework parameter from explicit Framework Settings or Default Settings under the applicable precedence. The result is derived; do not store it as a new Project.Settings Property.
 

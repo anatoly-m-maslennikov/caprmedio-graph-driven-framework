@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Governance Origin
+  active: CAPRMEDIO_MODEL <+ Atom.Governance Origin
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//Artifact
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Product
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 39
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Rule
 
 Define self-hosted Governance origins
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Governance Origin for the self-hosted caprmedio Project and its distributed CAPRMEDIO sources.
 
-## Claim
 
 Governance Origin for the self-hosted caprmedio Project **and** its distributed CAPRMEDIO sources follows the ownership distinction **in** CA-R-1709@38-CORE_META_MODEL-DEFINITION--define-two-governance-origins:
 

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Canonical Scope Signature)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Canonical Scope Signature)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Canonical Scope Signature)
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Canonical Scope Signature)
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 29
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -21,10 +21,12 @@ form: Decision
 
 Deliver Canonical Scope Signatures as External Report Projections
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 external report Projections that deliver Canonical Scope Signatures.
 
-## Claim
 
 **every** Canonical Scope Signature Projection **must** be delivered as **`=1`** non-authoritative JSON report under its Project's `.caprmedio_<project_name>/_projection/` Directory Carrier with the selected source frontier digest, **every** source Atom identity **and** revision, source Carrier digest, source Scope Expression occurrence, Canonical Scope Signature, **and** exclusion diagnostic; the Projection **must not** become an Atom Carrier, modify a selected source Carrier, establish Claim equivalence, **or** create a dependency relation.

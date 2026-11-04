@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.number
+  - CAPRMEDIO_MODEL <+ Scope Unit.order.number
 version: 39
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -22,21 +22,23 @@ tier: 7
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-243-CORE_META_MODEL-EVAL_CASE--validate-a-demand-atom.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-243-CORE_META_MODEL-EVAL_CASE--validate-a-demand-atom.md
   source_atom_id: CA-E-243
   source_atom_revision: 39
-  source_sha256: 133d13896d7882aedcc7bed01bed4b7d477896512b582b3dc905d8d9c106be27
+  source_sha256: a12eca1c9cb25bdace33fee22d9ca91222bc07c90f0b003660f7703d7fbd0d70
   original_relations_sha256: 815de8c826a60a1221779cd6cf15000fe9db13138a370fabc2cca19fa9055478
 ---
 ## Summary
 
 Validate a Demand Atom
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Demand Atoms and their Consumer-owned Producer-result constraints.
 
-## Claim
 
 a Demand is owned by its Consumer **and** constrains **only** one Producer result authorized by the Consumer's accepted Goal.
 

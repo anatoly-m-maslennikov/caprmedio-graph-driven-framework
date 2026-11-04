@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 33
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Require acyclic structural ownership
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the directed graph formed by active `structural_parent` relations.
 
-## Claim
 
 the directed graph formed by active `structural_parent` relations **must** be acyclic.

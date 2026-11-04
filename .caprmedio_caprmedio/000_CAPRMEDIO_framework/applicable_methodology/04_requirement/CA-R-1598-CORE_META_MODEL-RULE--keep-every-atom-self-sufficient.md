@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Carrier/File
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,21 +17,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1598-CORE_META_MODEL-RULE--keep-every-atom-self-sufficient.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1598-CORE_META_MODEL-RULE--keep-every-atom-self-sufficient.md
   source_atom_id: CA-R-1598
   source_atom_revision: 25
-  source_sha256: 4d5d9421cc2f9415df819fb367ef0a9cec2d33eac4b9df6eceb22b8f98bc7639
+  source_sha256: a062b4eb657d890a42a4b74c59a87d19bc87796e8e80b1830d20ca3905e43f02
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Keep every Atom self-sufficient
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom Revisions and their applicable Properties.
 
-## Claim
 
 **every** Atom Revision **must** carry its applicable Properties within its own Markdown Carrier so that its own declared content can be read **without** reconstructing it from a filename **or** directory placement.
 

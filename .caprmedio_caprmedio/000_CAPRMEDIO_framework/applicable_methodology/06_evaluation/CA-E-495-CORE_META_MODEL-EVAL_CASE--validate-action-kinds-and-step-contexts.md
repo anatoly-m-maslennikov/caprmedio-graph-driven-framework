@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Step Run
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action).Execution Kind'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 19
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -23,21 +23,23 @@ tier: 3
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-EVAL_CASE--validate-action-kinds-and-step-contexts.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-EVAL_CASE--validate-action-kinds-and-step-contexts.md
   source_atom_id: CA-E-495
   source_atom_revision: 19
-  source_sha256: a343098e310dc00eeb2b73d03d9884c2aa134b66fccd78c428863f590269232d
+  source_sha256: bd67de991dfb53e31b0c79499ad79bad07d2bf83b41845e4c0c20ebb4569dedc
   original_relations_sha256: 0e037e86c7c29169ac144d5338987d631ee62c6dcfc5849c80d229423350217f
 ---
 ## Summary
 
 Validate Action kinds and Step contexts
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Action Execution Kind **and** Agentic Step Execution Context.
 
-## Claim
 
 the Evaluation **must** check that Action Execution Kind **and** Agentic Step Execution Context remain distinct **and** support reuse **without** duplicate definitions.
 

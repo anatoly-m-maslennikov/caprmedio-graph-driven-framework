@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Node/Continuant
+  active: CAPRMEDIO_MODEL <+ Node/Continuant
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ MODEL <+ Term//Property
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -24,20 +24,22 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1502-CORE_META_MODEL--keep-authority-applicability-and-currentness-distinct.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1502-CORE_META_MODEL--keep-authority-applicability-and-currentness-distinct.md
   source_atom_id: CA-R-1502
   source_atom_revision: 25
-  source_sha256: 71d4dabc63790d9be0f67f929ddc49a30156af1f7a27c2ba0b1e1ffa1b90b882
+  source_sha256: a3417af8fd026a9cbf731104e9d6c33354300e1012e58df1edce726429a77e98
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary
 Keep Authority, Applicability, and Currentness distinct
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an Artifact's Authority, Applicability, and Currentness Properties.
 
-## Claim
 
 an Artifact's Authority, Applicability, **and** Currentness **must** remain distinct Properties under CA-R-1499, CA-R-1500, **and** CA-R-1501.
 

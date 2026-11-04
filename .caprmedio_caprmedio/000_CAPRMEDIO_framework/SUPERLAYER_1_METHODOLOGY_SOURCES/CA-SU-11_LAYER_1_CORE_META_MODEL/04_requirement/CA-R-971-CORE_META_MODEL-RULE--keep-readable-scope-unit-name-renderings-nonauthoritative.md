@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Name
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Name
 version: 31
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -18,10 +18,12 @@ form: Rule
 
 Keep Readable Scope Unit Name Renderings Nonauthoritative
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 readable renderings derived from Scope Unit Names.
 
-## Claim
 
 a readable rendering derived from a Scope Unit Name **must not** become an independent Scope Unit property **or** authority.

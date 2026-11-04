@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Term
+  active: CAPRMEDIO_MODEL <+ Term
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Term//Empty
-  - CAPRMEDIO <+ MODEL <+ Term//ID
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Term//Empty
+  - CAPRMEDIO_MODEL <+ Term//ID
 version: 28
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Rule
 
 Define Governed Term
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Reusable lexical Terms whose Project-specific meanings are owned by active dedicated Term Definition Method Atoms.
 
-## Claim
 
 a Governed Term **means** a reusable Term whose approved Project-specific meaning is owned by **`=1`** active Method Atom of Type Term Definition.
 

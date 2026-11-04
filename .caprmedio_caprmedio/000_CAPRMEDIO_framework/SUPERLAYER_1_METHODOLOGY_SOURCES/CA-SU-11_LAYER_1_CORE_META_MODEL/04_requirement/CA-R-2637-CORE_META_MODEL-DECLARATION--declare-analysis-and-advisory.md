@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
 version: 1
 relations: {}
 tier: 3
@@ -18,8 +18,11 @@ Declare Analysis & Advisory
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
-Atom/(.Role: "Analysis & Advisory")
+# model
+Atom/(.Header.Role: "Analysis & Advisory")
 ```
 
 ## Semantics

@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
 version: 27
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,21 +18,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1505-CORE_META_MODEL-RULE--keep-evaluation-realization-chains-distinct.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1505-CORE_META_MODEL-RULE--keep-evaluation-realization-chains-distinct.md
   source_atom_id: CA-R-1505
   source_atom_revision: 27
-  source_sha256: 8d3ea8c703f491a879109d7f2d2bc0f6a70301cc551d0dd6dc0897ae15d29e84
+  source_sha256: 47aa3ddb73724a586511890c402fb8c1786dd07f08ea482710bea4af89678fa1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Keep Evaluation realization chains distinct
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Evaluation realization chains and their associated implementation, evidence, and operational contributions.
 
-## Claim
 
 an Evaluation Atom's realization chains **must** remain distinct between deterministic test implementations **and** qualitative, probabilistic, statistical, rubric-based, **or** model-judged evaluation implementations.
 

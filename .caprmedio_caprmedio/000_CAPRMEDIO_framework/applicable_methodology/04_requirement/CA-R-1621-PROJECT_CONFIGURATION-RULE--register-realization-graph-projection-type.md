@@ -4,12 +4,12 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Realization Graph)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Realization Graph)
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
 version: 19
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -21,21 +21,23 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1621-PROJECT_CONFIGURATION-RULE--register-realization-graph-projection-type.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1621-PROJECT_CONFIGURATION-RULE--register-realization-graph-projection-type.md
   source_atom_id: CA-R-1621
   source_atom_revision: 19
-  source_sha256: dee4b3d282d93440864f6c7c403b164c9a6d71af836f05180bab659e3ebd408e
+  source_sha256: 1334cdb95e465531f7bd392ab3a150a798a2a533f606256c6389a53c56d48413
   original_relations_sha256: ca4f19a04ef603d0119ba0e2515933c7f693ac2b776d27f253b80e34776cb913
 ---
 ## Summary
 
 Register Realization Graph Projection Type
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the caprmedio Project Configuration registration of the `realization_graph` Projection Type.
 
-## Claim
 
 the caprmedio Project Configuration **must** register `realization_graph` as a specialized non-authoritative Projection Type for understanding existing Implementation **and** supporting reverse engineering into proposed RMED.
 

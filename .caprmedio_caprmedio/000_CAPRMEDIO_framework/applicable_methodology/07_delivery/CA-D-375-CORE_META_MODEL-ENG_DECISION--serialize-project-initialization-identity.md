@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Name
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Name
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project.Settings
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom
 version: 30
 updated_at: 2026-11-02 19:46:47 +0400
 relations:
@@ -19,21 +19,23 @@ tier: 7
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL-ENG_DECISION--serialize-project-initialization-identity.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL-ENG_DECISION--serialize-project-initialization-identity.md
   source_atom_id: CA-D-375
   source_atom_revision: 30
-  source_sha256: 283f86f4859e9ac53d1bb74535f1bd78072f4f37f1ef205d58c9124259de518a
+  source_sha256: 2955cef079e10f8640090dacbd77562c59d5e03e850f9fca586dc91be2fa30b2
   original_relations_sha256: 2a948e2a8ca98f226a4515239fa376af18890f07ccdd2ef7a0521257d70b6a6a
 ---
 ## Summary
 
 Serialize Project initialization identity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Operator-selected Project Name in the Project Settings TOML Carrier.
 
-## Claim
 
 the Project Settings TOML Carrier **must** encode the Operator-selected Project Name as its exact nonempty lowercase TOML string value **in** `project.name`, **before** the first Project Atom **or** Implementation is created.
 

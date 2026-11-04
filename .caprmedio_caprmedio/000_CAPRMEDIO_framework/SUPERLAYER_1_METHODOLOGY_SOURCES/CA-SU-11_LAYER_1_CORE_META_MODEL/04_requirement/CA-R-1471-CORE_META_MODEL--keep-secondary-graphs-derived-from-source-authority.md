@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -23,11 +23,13 @@ form: Rule
 
 Keep secondary graphs derived from source authority
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 secondary CAPRMEDIO Graphs.
 
-## Claim
 
 secondary CAPRMEDIO Graphs **must** be Projections derived from their selected authoritative sources **or** source-traceable upstream Projections. their nodes **and** Relations **must** preserve source identities **and** traceability **to** the governing derivation authority **and** source facts.
 

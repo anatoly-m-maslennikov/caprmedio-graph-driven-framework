@@ -20,7 +20,7 @@ updated_at: 2026-10-27 19:59:46 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-123-PROJECT_CONFIGURATION-ACTION--calibrate-evaluator-evidence.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-123-PROJECT_CONFIGURATION-ACTION--calibrate-evaluator-evidence.md
   source_atom_id: CA-O-123
   source_atom_revision: 15
   source_sha256: 6cb60454384d0bc9062102ce0ac0bdcb93c9c50e218e3f8606a283b110e25e9d

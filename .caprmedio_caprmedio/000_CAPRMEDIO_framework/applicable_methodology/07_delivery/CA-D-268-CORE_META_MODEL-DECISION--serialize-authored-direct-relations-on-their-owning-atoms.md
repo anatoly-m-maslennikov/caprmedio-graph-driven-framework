@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 30
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -14,21 +14,23 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md
   source_atom_id: CA-D-268
   source_atom_revision: 30
-  source_sha256: b7825b67a0517a2e727e70fe70ba608f12e16df886c2cd34c79833f6e55302f1
+  source_sha256: c301ef453ae1fa2a82f6deb2e12332bc7b340fd289d56ceeeb935e9e6f7bfb52
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Serialize Authored Direct Relations on Their Owning Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Authored direct semantic relations.
 
-## Claim
 
 **every** authored direct semantic relation **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns its declared direction as a nonempty unordered collection of unique canonical target references; target position **must not** add, remove, **or** alter a direct relation **or** dependency. source-file target order is nonsemantic; validation **must not** require canonical sorting **or** order normalization. each Relation Kind's direction, endpoint validity **and** other declared semantics remain applicable.
 

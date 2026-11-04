@@ -4,16 +4,16 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Term
+  active: CAPRMEDIO_MODEL <+ Term
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern)
-  - CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content.CCE Operator
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
-version: 27
-updated_at: 2026-11-02 18:35:20 +0400
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Scope Unit.Name
+version: 28
+updated_at: 2026-11-03 23:25:51 +0400
 relations:
   evaluation_for:
   - CA-D-280
@@ -23,20 +23,22 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-EVAL_CASE--validate-cce-lexical-case.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-EVAL_CASE--validate-cce-lexical-case.md
   source_atom_id: CA-E-512
-  source_atom_revision: 27
-  source_sha256: c2c6e0d51254e7d984a41ac50df967ad6c6d21aa3079235552051ad2b4129c5a
+  source_atom_revision: 28
+  source_sha256: 04cc97826807b443e8802d7f22d7d0f52811385d44de3ceb5f7240ee4a42c21c
   original_relations_sha256: 143f71e7ff7db540b42f007e3cf765db4eb060cd493e3ff603ec74d9d6184078
 ---
 ## Summary
 
 Validate CCE lexical case
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 CCE Claims evaluated for lexical case and Markdown operator representation.
 
-## Claim
 
 **Claim checked.**
 

@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,21 +17,23 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL--classify-admitted-atom-changes-by-semantic-effect.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL--classify-admitted-atom-changes-by-semantic-effect.md
   source_atom_id: CA-R-1432
   source_atom_revision: 27
-  source_sha256: 48daca5dfaa73fe26f86c8c035ec1a46ee272a57c579e7c80f9e15ec92325a5e
+  source_sha256: 17d1d9de7dd80e0a616eada79093a10d805704e176d310eecafdc232e052e47b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Classify admitted Atom changes by semantic effect
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the classification of admitted Atom changes by semantic effect.
 
-## Claim
 
 **before** changing an admitted Atom, CAPRMEDIO **must** assign **`=1`** change class using these boundaries, identity results, **and** required reviews:
 

@@ -3,13 +3,13 @@ version: 30
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Implementation Retry Limit'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  - CAPRMEDIO_MODEL <+ Carrier
 atom_id: CA-D-447
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -22,11 +22,13 @@ form: Decision
 
 Serialize the implementation retry-limit setting
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 explicitly selected Implementation Retry Limits.
 
-## Claim
 
 an explicitly selected Implementation Retry Limit **must** use the integer field assigned **to** its owning source Carrier:
 

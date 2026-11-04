@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
 version: 41
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,21 +19,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-RULE--requirement-keep-requirements-realization-agnostic.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-RULE--requirement-keep-requirements-realization-agnostic.md
   source_atom_id: CA-R-1694
   source_atom_revision: 41
-  source_sha256: 046050052a8d13c16b6f00bd4335330c3185f38213b1957cbe0fe70b7bad6d96
+  source_sha256: 66fd377e70ef2dcb35c793568b25a27b01eccf795a39315c7abad9d41ec6ab13
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Requirement — Keep Requirements realization-agnostic
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Requirement claims and their internal realization.
 
-## Claim
 
 **every** Requirement **must** state its required outcome, obligation, permission, prohibition, **or** accepted external boundary **without** prescribing internal code **or** code organization merely as a construction choice.
 

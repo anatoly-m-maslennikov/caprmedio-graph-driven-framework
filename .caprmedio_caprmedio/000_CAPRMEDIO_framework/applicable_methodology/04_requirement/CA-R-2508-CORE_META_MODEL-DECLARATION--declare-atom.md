@@ -1,22 +1,26 @@
 ---
 atom_id: CA-R-2508
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
-version: 2
-relations: {}
+  active: CAPRMEDIO_MODEL <+ Atom
+version: 6
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 tier: 3
-updated_at: 2026-11-02 00:18:22 +0400
+updated_at: 2026-11-04 11:00:07 +0400
 role: Requirement
 form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md
   source_atom_id: CA-R-2508
-  source_atom_revision: 2
-  source_sha256: 271a7f8e7b290415b885ab5b32b7edda46471e28f0bcc7aa3dc1e647dbf2cfbf
-  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  source_atom_revision: 6
+  source_sha256: 5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d
+  original_relations_sha256: e367927d209b7bdecd9da53dd0dc693193d074370738c97b4bc15988d6240196
 ---
 ## Summary
 
@@ -24,12 +28,34 @@ Declare Atom
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Atom;
-UNIQUE(Atom//, (.ID, .Version));
-Atom ((NARROWER_THAN)) @Continuant
+
+Atom.*[string,in(Header,Content)]{:2};
+
+Atom ((NARROWER_THAN)) Continuant;
+
+# instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
+Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
+
+Atom//$atom {:0..1}((GOVERNS));
+
+UNIQUE(Atom//$atom, (.Header.ID, .Header.Version));
 ```
+
+### Prose Claim
+
+For each Atom instance, the outgoing HAS_ACTIVE_SUBJECT Relation has cardinality 0..1 and targets only the declared entity or instance resolved from its active Subject field. When the applicable Current-status rule requires that field, its resolved target supplies the one link; an unresolved field remains a diagnostic.
+
+For each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom’s outgoing links within each Relation Declaration’s admissible endpoint domain; they do not create links.
+
+Each Atom instance's outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance selected by its Header.Relations.IS_CONTAINED_BY.
 
 ## Semantics
 
-An Atom is the smallest independently governed Artifact.
+An Atom is the smallest independently governed Object.

@@ -3,7 +3,7 @@ atom_id: CA-E-670
 form: Eval Policy
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
 version: 1
 relations: {}
 tier: 3
@@ -15,6 +15,9 @@ role: Evaluation
 Check Scope Unit Declarations, Goals and Contracts
 
 ## Claim
+
+### Prose Claim
+
 
 Identify Scope Unit Declaration Atoms by Role Requirement, Form Scope Unit Declaration and active Subject (`subjects.active`) naming the specific Scope Unit. Count exactly one matching Declaration for each Scope Unit; do not count other Requirements about that Scope Unit as Declarations.
 

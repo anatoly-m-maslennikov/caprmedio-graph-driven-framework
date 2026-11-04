@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Actor
+  active: CAPRMEDIO_MODEL <+ Actor
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Entity
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Classify Actor as a Primary Entity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the classification of Actor as a Primary Entity.
 
-## Claim
 
 the Term Actor **must** be NARROWER_THAN Primary Entity.

@@ -4,10 +4,10 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Term
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
 version: 3
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,21 +15,23 @@ tier: 3
 role: Delivery
 form: Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-655-CORE_META_MODEL-POLICY--carry-term-definition-and-staged-review-evidence.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-655-CORE_META_MODEL-POLICY--carry-term-definition-and-staged-review-evidence.md
   source_atom_id: CA-D-655
   source_atom_revision: 3
-  source_sha256: 3ee158c039d14332909dc3ac1076527f4067dbd37354b1229e6740bf0103d655
+  source_sha256: e7ad4330af9abddec4bf26381d529ab6759d6e86c427f160c9f2d68919936d9a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Carry Term Definition and staged review evidence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Content of M/Term Definition Atoms and evidence returned by their well-formedness and staged usage checks.
 
-## Claim
 
 an M/Term Definition **must** carry its Term spelling **and** authoritative meaning **in** its registered Claim section, **and** its applicable meaning boundary **in** Claim scope **when** required by the existing applicability authority. carry supporting distinctions **and** examples **in** Semantics **or** Details **when** applicable under the registered body layout. a review result **must** identify the selected Term Definition Atom **and** revision, checked source boundary **and** coverage, checked stage, affected Atom **and** revision, exact field occurrence **and** relevant context, assessed condition **and** result, **and** any conflict **or** uncertainty. distinct results for definition well-formedness, meaning ownership, occurrence consistency **and** coverage **must not** be collapsed **into** an unqualified pass. this evidence **must not** require a dictionary Projection, lookup index, new storage format **or** synthetic graph entity.
 

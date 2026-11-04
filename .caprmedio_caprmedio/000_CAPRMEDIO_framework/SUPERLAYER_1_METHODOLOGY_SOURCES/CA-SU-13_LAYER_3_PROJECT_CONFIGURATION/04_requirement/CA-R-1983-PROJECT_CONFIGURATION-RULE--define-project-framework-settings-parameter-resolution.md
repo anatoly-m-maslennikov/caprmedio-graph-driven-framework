@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
 relations:
   child_of:
   - CA-R-1176
@@ -18,11 +18,13 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Define Project.Framework Settings.Parameter Resolution
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 resolution of an effective framework parameter.
 
-## Claim
 
 Resolve each effective framework parameter from explicit Framework Settings or Default Settings under the applicable precedence. The result is derived; do not store it as a new Project.Settings Property.
 

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Scope Unit Graph)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Scope Unit Graph)'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project.Settings
-  - CAPRMEDIO <+ MODEL <+ Project.Settings.Name
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete Names
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Project.Settings.Name
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete Names
 version: 27
 updated_at: 2026-11-02 19:46:47 +0400
 relations:
@@ -22,11 +22,13 @@ form: Decision
 
 Register obsolete project names
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project identity in Project Scope Unit Graph Projections.
 
-## Claim
 
 the Project Scope Unit Graph Projections **must** expose Project identity from the Project Settings Artifact with `project.name` as the canonical name **and** `project.obsolete_names` as the registered prior names **without** becoming authority for (Project Settings Name **or** Obsolete Project Name).
 

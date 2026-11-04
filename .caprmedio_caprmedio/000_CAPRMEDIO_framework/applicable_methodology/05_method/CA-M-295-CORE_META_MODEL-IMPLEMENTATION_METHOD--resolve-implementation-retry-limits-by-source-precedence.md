@@ -7,14 +7,14 @@ relations:
   depends_on:
   - CA-M-279
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Implementation Retry Limit'
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
-  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Implementation Retry Limit'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - CAPRMEDIO_MODEL <+ Carrier/File
 atom_id: CA-M-295
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -23,21 +23,23 @@ tier: 5
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md
   source_atom_id: CA-M-295
   source_atom_revision: 32
-  source_sha256: b1e48f810787500452ceb0f3bd27654660ea6de12a002d3d2475958441bb51ac
+  source_sha256: e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa
   original_relations_sha256: af9265e195c1136864429621ff445e736ff343e267c5ed7ec1b4671a862e6364
 ---
 ## Summary
 
 Resolve implementation retry limits by source precedence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an effective Implementation Retry Limit resolved from direct Operator input, a Plan, the nearest Hub, Framework Instance Settings, **or** Default Settings.
 
-## Claim
 
 **to** resolve an effective Implementation Retry Limit, select the first applicable explicit source **in** this precedence:
 

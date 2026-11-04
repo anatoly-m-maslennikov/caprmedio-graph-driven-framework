@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Membership
+  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Membership
 version: 1
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,8 +19,11 @@ Declare CFEL operator in / not in
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
-@Operator//Membership == "in / not in"
+# model
+Operator//Membership == "in / not in"
 ```
 
 ## Semantics

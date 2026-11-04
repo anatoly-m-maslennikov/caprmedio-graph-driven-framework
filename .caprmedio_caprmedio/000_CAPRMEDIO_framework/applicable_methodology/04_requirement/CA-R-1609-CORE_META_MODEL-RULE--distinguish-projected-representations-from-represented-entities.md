@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,21 +16,23 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-RULE--distinguish-projected-representations-from-represented-entities.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-RULE--distinguish-projected-representations-from-represented-entities.md
   source_atom_id: CA-R-1609
   source_atom_revision: 22
-  source_sha256: 8e263ca9c8844c9abc35171e28f63bc28d82d81176587467af97ea0b96e52cbb
+  source_sha256: f2d88a0ede203533b85c53bcea2419f0c95f66a95b93a6a6ea3a790f8f5a0875
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Distinguish projected representations from represented Entities
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Representations inside a Projection and the Entities they represent.
 
-## Claim
 
 a representation inside a Projection **must** remain distinct from the Entity it represents.
 

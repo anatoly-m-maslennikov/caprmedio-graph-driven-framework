@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 26
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}
@@ -17,6 +17,9 @@ role: Delivery
 Encode Scope Unit declaration fields
 
 ## Claim
+
+### Prose Claim
+
 
 Carry a Scope Unit Declaration as a Markdown Atom. Its frontmatter carries Role = Requirement, Form = Scope Unit Declaration and the specific Scope Unit as `subjects.active`. Its Claim carries the declared structural facts in CFEL.
 

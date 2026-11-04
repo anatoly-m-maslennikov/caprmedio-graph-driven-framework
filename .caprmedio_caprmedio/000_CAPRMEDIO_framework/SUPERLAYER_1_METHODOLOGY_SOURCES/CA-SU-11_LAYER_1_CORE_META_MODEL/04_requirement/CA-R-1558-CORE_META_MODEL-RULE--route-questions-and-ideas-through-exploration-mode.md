@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Rule
 
 Route questions and ideas through Exploration Mode
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 exploratory Operator input and its promotion from Exploration Mode.
 
-## Claim
 
 an AI Agent **must** handle exploratory Operator input **in** Exploration Mode under the following participation policy:
 

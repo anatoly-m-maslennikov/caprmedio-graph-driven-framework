@@ -7,33 +7,35 @@ tier: 1
 version: 3
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Term//Property
+  active: CAPRMEDIO_MODEL <+ Term//Property
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term
-  - CAPRMEDIO <+ MODEL <+ Entity/Property
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_PROPERTY
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Entity/Property
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_PROPERTY
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
 relations: {}
 role: Method
 form: Term Definition
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md
   source_atom_id: CA-M-453
   source_atom_revision: 3
-  source_sha256: fc564a0db3a181833daa40edc8c0599cccabcb4cb4134e39ac82036301b883d3
+  source_sha256: dd60c8d121d9d8cd62a91aaaa85531012a829bcdac6a106715297f29459c4238
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Property
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The reusable lexical Term `Property` in Entity definitions, immediate-bearer
 Relations, qualified Subject Paths, and authored content.
 
-## Claim
 
 Property **means** an Entity whose identity depends on its immediate bearer and
 whose direct bearer Relation is IS_PROPERTY_OF from that Property to the

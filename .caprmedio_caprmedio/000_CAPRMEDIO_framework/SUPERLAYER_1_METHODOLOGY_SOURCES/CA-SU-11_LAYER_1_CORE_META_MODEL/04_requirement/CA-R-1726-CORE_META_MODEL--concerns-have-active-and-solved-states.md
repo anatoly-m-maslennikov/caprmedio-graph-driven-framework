@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Status'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Header.Status'
 version: 30
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Concerns have active and solved states
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 admitted Concerns **and** their lifecycle dispositions.
 
-## Claim
 
 an admitted Concern is active while its independently resolvable matter still requires disposition **and** solved **after** that matter receives its terminal disposition. archival preserves a Concern that is obsolete, invalidated, duplicated, **or** absorbed **without** representing it as solved.

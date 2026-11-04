@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  active: CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
 version: 37
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -15,21 +15,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-RULE--keep-the-core-meta-model-implementation-neutral.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-RULE--keep-the-core-meta-model-implementation-neutral.md
   source_atom_id: CA-R-1696
   source_atom_revision: 37
-  source_sha256: e2085bc2596f1ac34b6dc0c27ede5e9f73bfd36d13f24f55bb381041a576ced4
+  source_sha256: c8071541c3b59cb6ed50a542bc9d665d4d4300d54e1d3275dd4aa1e12a98e570
   original_relations_sha256: daa221ee3824742de82fc1e74c79b2e49ba96d8d13faef8080c702793c699583
 ---
 ## Summary
 
 Keep the Core Meta-Model implementation neutral
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CORE_META_MODEL authority and its reusable model invariants and expansion boundaries.
 
-## Claim
 
 CORE_META_MODEL authority **must** define reusable model invariants **and** expansion boundaries **without** hidden dependence on a programming language, LLM provider **or** model, agent host, operating system, repository host, package manager, database, deployment platform, **or** other replaceable implementation mechanism.
 

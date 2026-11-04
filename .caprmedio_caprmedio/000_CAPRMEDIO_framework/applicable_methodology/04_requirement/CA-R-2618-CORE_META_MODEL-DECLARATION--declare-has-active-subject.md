@@ -4,18 +4,22 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_ACTIVE_SUBJECT
-version: 1
-updated_at: 2026-11-02 08:06:47 +0400
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_ACTIVE_SUBJECT
+version: 3
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 tier: 3
 role: Requirement
 form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md
   source_atom_id: CA-R-2618
-  source_atom_revision: 1
-  source_sha256: a23cf27671ff02ce6dc053a147a6484090f638ddc359b5b7820e1065c4ee1466
+  source_atom_revision: 3
+  source_sha256: 3dbe86364921d2cf506ab40a264a4499484f21f629d88627854e37b1f9bdf4c0
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
@@ -24,21 +28,20 @@ Declare HAS_ACTIVE_SUBJECT
 
 ## Claim
 
-HAS_ACTIVE_SUBJECT links an Atom to the thing or topic named by its active Subject. Its value is derived from subjects.active; it is a canonical Relation, not a derived view of another Relation. A Declaration addresses a Node; other Atoms are not restricted to the Node branch.
+### Formal Claim
 
 ```CFEL
-Atom/(.Role: Requirement)/(.Form: Declaration)// ((HAS_ACTIVE_SUBJECT)) (Node, Node.**);
+# model
+Relation//HAS_ACTIVE_SUBJECT ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-((HAS_ACTIVE_SUBJECT)) >| Derivation == Direct;
-
-Atom// ((HAS_ACTIVE_SUBJECT)) $active_subject
+# instances
+Atom//$atom ((HAS_ACTIVE_SUBJECT)) $active_subject
 ```
 
-## Semantics
+### Prose Claim
 
+HAS_ACTIVE_SUBJECT links an Atom to the declared model entity or instance named by its active Subject. This includes a Requirement/Form Declaration's target and is not restricted to the Node branch. Carrier entities, CFEL operator descriptors, graph Relation types and their declared instances are admitted when selected by the active Subject. Literal values and operator glyphs are not endpoints.
 
+The Host is an Atom and the Target is the entity or instance resolved from its dedicated active Subject field. The field's source supplies the canonical HAS_ACTIVE_SUBJECT fact; obtaining that value from the field does not make this Relation a derived view of another Relation. An unresolved Subject remains a diagnostic, not an empty or automatically valid target population.
 
-The Target is the thing or topic named by subjects.active; for a Declaration it is a Node, while other Atoms may name non-Node entities.
-Forward `Host ((HAS_ACTIVE_SUBJECT)) Target` and reverse `Target <((HAS_ACTIVE_SUBJECT)) Host` are views of the same Relation fact.
-HAS_ACTIVE_SUBJECT relates Atom to its active Subject target. It is canonical even though its value is obtained from subjects.active.
-
+Forward `Host ((HAS_ACTIVE_SUBJECT)) Target` and reverse `Target <((HAS_ACTIVE_SUBJECT)) Host` are written views of the same fact. Ownership cardinalities are supplied by their applicable rules; this endpoint signature does not itself create an ownership count.

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
-  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
 version: 33
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Implementation Method
 
 Retrieve Applicable Methodology Mechanically
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Applicable Methodology retrieval for one Subject **or** Workflow query.
 
-## Claim
 
 **to** retrieve Applicable Methodology for one Subject **or** Workflow query, the Retriever **must** derive GOVERNS **and** DEPENDS_ON indexes on demand from projected Atom Subjects, select matching GOVERNS paths, add DEPENDS_ON authority **only** through transitive prerequisite closure, retain Applicable Methodology membership order, make no inference, **and** return no Atom **if** no matching GOVERNS path exists.

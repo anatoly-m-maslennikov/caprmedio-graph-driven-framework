@@ -28,7 +28,7 @@ relations:
   - CA-O-169
 tier: 3
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-178-PROJECT_CONFIGURATION-STEP--install-the-runtime-and-project-local-ca-skill.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-178-PROJECT_CONFIGURATION-STEP--install-the-runtime-and-project-local-ca-skill.md
   source_atom_id: CA-O-178
   source_atom_revision: 16
   source_sha256: 7ca54995ae680625005e81990274a29af3a954c8f11993544dbc369de1dd40b6

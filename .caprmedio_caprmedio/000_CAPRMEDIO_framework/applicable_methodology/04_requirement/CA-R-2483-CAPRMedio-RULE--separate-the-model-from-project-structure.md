@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE
+  active: CAPRMEDIO_STRUCTURE
 version: 6
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md
   source_atom_id: CA-R-2483
   source_atom_revision: 6
-  source_sha256: 442d80a544291dec2604c71c97728580718819a1a14c9edf3347c477131cacd5
+  source_sha256: 81946ceaa3228ea86007c2d4ee1c7d90fd131d87c2f1959cdc1e99318b209d70
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
@@ -24,15 +24,22 @@ Separate the CAPRMEDIO model from Project structure
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+# model
+Aspects <+ Product
+```
+
+### Prose Claim
+
+
 CAPRMEDIO's PROJECT STRUCTURE has:
 
 - Scope Structure.
 - Aspect instances, including Product.
 - Other declared components.
 
-```CFEL
-Aspects <+ Product
-```
 
 Its Scope Structure retains the proposed ordered Units:
 

@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
 version: 20
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -21,10 +21,12 @@ form: Rule
 
 Separate Subject Paths from Scope Coordinates
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an Atom's Subject Paths.
 
-## Claim
 
 an Atom's Subject Paths **must** identify the Subject Targets of its Subject Relations **without** substituting those paths for its owning Scope Unit **or** its Claim Target Scope Unit.

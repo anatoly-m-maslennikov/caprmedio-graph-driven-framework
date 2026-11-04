@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ MODEL <+ Actor
-  - CAPRMEDIO <+ MODEL <+ Term//Property
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
 version: 33
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -23,11 +23,13 @@ form: Implementation Method
 
 Author Claim Value Sets
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Claim Value Set authoring.
 
-## Claim
 
 **to** author one Claim Value Set, the Author **must**:
 

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Project Goal)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier/File.Filename
-version: 28
-updated_at: 2026-11-02 00:18:22 +0400
+  - CAPRMEDIO_MODEL <+ Carrier/File
+version: 29
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-342
 current_scope_unit: CORE_META_MODEL
@@ -18,11 +18,13 @@ form: Decision
 
 Serialize External Project Goal References
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 references to Current and historical external Project Goal Atoms.
 
-## Claim
 
 **every** Reference **to** a Current external Project Goal Atom **must** use its canonical Current Atom ID, not its current Carrier filename stem.
 

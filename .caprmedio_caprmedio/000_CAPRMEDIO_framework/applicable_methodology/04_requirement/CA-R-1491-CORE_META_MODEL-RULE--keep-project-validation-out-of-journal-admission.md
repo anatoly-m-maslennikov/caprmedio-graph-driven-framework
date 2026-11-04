@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Journal
+  active: CAPRMEDIO_MODEL <+ Journal
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Project
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,21 +21,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md
   source_atom_id: CA-R-1491
   source_atom_revision: 29
-  source_sha256: aecc37297700040c4e2ef638fdf57d3e4f64dd34f9284bf1d75171b2e72db18e
+  source_sha256: c5085cf95922e012bc55a57fcaaeb4a0a536ded9ea21296e59090a07a16547d8
   original_relations_sha256: 1c8dbdb6ec99acae043d53724c2c907d16b11cbb375710999addae41b4be44c8
 ---
 ## Summary
 
 Keep Project validation out of Journal admission
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plain append/read of observable Project events.
 
-## Claim
 
 the Journal **must** preserve observable Project events independently of whether the recorded Project state conforms **to** Applicable Methodology.
 

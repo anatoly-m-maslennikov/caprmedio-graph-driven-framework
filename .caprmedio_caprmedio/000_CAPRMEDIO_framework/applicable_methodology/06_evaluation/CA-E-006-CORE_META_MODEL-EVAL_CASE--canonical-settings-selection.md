@@ -1,8 +1,8 @@
 ---
 subjects:
-  governs: Project.Settings
-  depends_on:
-  - Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
+  passive:
+  - CAPRMEDIO_MODEL <+ Project.Settings
   - Entity/Object/Continuant/Governing Objects/Governing Configuration
 version: 40
 updated_at: 2026-11-02 20:07:03 +0400
@@ -13,10 +13,10 @@ tier: 7
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md
   source_atom_id: CA-E-006
   source_atom_revision: 40
-  source_sha256: 48bedc3fbbe4ccbbb07559fcb2c7a541b1d72f3ce13efaf36423a9c956956f29
+  source_sha256: 909749d12b6dc525dfa6ed8e315d5717040632ec86c77e89c137d163e7e77263
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Projection
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,10 +21,12 @@ form: Rule
 
 Keep Entity Identity Independent of Graph Materialization
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Entity identity while a Graph Projection is materialized, refreshed, or deleted.
 
-## Claim
 
 materializing, refreshing, **or** deleting a Graph Projection **must not** establish, change, **or** remove Entity identity.

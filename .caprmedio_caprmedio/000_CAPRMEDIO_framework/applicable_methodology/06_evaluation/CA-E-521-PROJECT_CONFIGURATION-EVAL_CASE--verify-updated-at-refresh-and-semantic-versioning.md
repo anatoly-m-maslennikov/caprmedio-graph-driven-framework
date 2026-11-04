@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Updated At
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Atom.Status
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO <+ MODEL <+ Atom.ID
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Entity
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -26,21 +26,23 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-521-PROJECT_CONFIGURATION-EVAL_CASE--verify-updated-at-refresh-and-semantic-versioning.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-521-PROJECT_CONFIGURATION-EVAL_CASE--verify-updated-at-refresh-and-semantic-versioning.md
   source_atom_id: CA-E-521
   source_atom_revision: 22
-  source_sha256: c497bcc424bf451aab271e9d121200081e63076d5938d6b8fa3e179c267ee642
+  source_sha256: d3496278269510307387f0814347480fc10e32aa899c5a5f93f35bb52216f5ee
   original_relations_sha256: c623ba9a228b435f122f3a3bbfe731c3c55aa738665beb67f9045b3edfca684f
 ---
 ## Summary
 
 Verify Updated At refresh and semantic Versioning
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 accepted Markdown Atom Carrier edits classified by governed meaning.
 
-## Claim
 
 the Evaluation **must** accept **only** an actual same-ID edit that refreshes `updated_at` **and** increments Version by exactly **`1`**, regardless of semantic change class. an exact no-op retains Version **and** Updated At; required predecessor history retains its exact prior bytes.
 

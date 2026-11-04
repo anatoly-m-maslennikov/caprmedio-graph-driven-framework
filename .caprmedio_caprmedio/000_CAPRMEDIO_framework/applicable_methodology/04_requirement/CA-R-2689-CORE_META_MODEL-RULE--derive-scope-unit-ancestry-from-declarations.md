@@ -1,8 +1,8 @@
 ---
 subjects:
-  governs: Scope Unit.Path
-  depends_on:
-  - Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Path
+  passive:
+  - CAPRMEDIO_MODEL <+ Scope Unit
   - Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
   - Entity/Object/Continuant/Structural Unit/Scope Unit.Children
 version: 1
@@ -14,10 +14,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2689-CORE_META_MODEL-RULE--derive-scope-unit-ancestry-from-declarations.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2689-CORE_META_MODEL-RULE--derive-scope-unit-ancestry-from-declarations.md
   source_atom_id: CA-R-2689
   source_atom_revision: 1
-  source_sha256: b77e6ae03e270f9efaf8ab1c8f7296ce4df14c034c1ecdf2753279118544604e
+  source_sha256: 231b696a82ee2de48e57234e4bdcf981e2638bc44eb8a39e69ebece84dd8b6bd
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

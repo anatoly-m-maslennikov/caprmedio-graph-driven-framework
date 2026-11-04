@@ -22,7 +22,7 @@ updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-166-PROJECT_CONFIGURATION-ACTION--deliver-and-compile-candidate-methodology.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-166-PROJECT_CONFIGURATION-ACTION--deliver-and-compile-candidate-methodology.md
   source_atom_id: CA-O-166
   source_atom_revision: 15
   source_sha256: e837cbd3fb22fed742cb5eedf497aa65370a13af7a2119bbfd558cf9f3059fbb

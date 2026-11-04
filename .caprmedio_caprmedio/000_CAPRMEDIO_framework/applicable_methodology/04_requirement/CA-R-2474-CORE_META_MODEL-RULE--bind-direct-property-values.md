@@ -4,18 +4,18 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Node
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+  active: CAPRMEDIO_MODEL <+ Node
+version: 3
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2474-CORE_META_MODEL-RULE--bind-direct-property-values.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2474-CORE_META_MODEL-RULE--bind-direct-property-values.md
   source_atom_id: CA-R-2474
-  source_atom_revision: 2
-  source_sha256: abeca3700d50742d1cf496da1f54cbc02e3eb59c664a3aa9c48e693a6e21d50a
+  source_atom_revision: 3
+  source_sha256: 2d7f6b7aebdbd0a69e6584abfaf643257fa87adc63f3df3b484b7691434df324
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
@@ -24,6 +24,9 @@ Bind direct Property values on instances
 
 ## Claim
 
+### Prose Claim
+
+
 HAS_VALUE binds a Property on an instance to its admitted literal value. For example, the version Property of Atom instance CA-P-123 has value 1. The Property declaration supplies its value format, admitted domain and cardinality; the literal 1 is not a separately declared graph Node and requires no Declaration Atom.
 
-HAS_VALUE is a value binding rather than an ordinary Node-to-Node graph Relation. It must not create graph endpoints or independently authored inverse facts for literals. A Primary Node has no direct value. A Property on a Primary Node instance may hold direct values where its effective declaration permits them, including inherited Property declarations. Applying a declared Property to an instance does not instantiate that Property through HAS_INSTANCE or give its declaration another bearer.
+HAS_VALUE is a value binding rather than an ordinary Node-to-Node graph Relation. It must not create graph endpoints or independently authored inverse facts for literals. A Primary Node has no direct value. A Property instance may hold direct values where its effective declaration permits them, including inherited Property declarations. A Property occurrence on an instance is an instance of its effective declared Property and is borne by its data bearer. The declaration remains borne by its original model bearer. HAS_VALUE binds its admitted literal values and does not create an independent Carrier or graph endpoint for a value.

@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Term//Artifact
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -14,21 +14,23 @@ tier: 1
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-ENG_DECISION--bind-materialized-representations-to-regeneration-sources.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-ENG_DECISION--bind-materialized-representations-to-regeneration-sources.md
   source_atom_id: CA-D-309
   source_atom_revision: 27
-  source_sha256: a1d2528cf30896e2ca802f45c0ba277aff3af286c6509d60ddaacce6a961a812
+  source_sha256: 9852eaffd23abcfe01f512bec7fb0d5d8dcb536b030508c82177e387763c8133
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Bind Materialized Representations to Regeneration Sources
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 admitted materialized representation Carriers.
 
-## Claim
 
 **every** admitted materialized representation Carrier **must** have a recoverable binding **to** its exact canonical source Revision **and** **`=1`** deterministic regeneration **or** reconciliation rule.
 

@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Status
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Status
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Give Every Atom Revision One Status
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atoms.
 
-## Claim
 
 **every** Atom **must** have **`=1`** Status.

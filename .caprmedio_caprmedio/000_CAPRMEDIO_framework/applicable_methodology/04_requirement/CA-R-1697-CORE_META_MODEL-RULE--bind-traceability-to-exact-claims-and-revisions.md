@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 36
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -14,21 +14,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1697-CORE_META_MODEL-RULE--bind-traceability-to-exact-claims-and-revisions.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1697-CORE_META_MODEL-RULE--bind-traceability-to-exact-claims-and-revisions.md
   source_atom_id: CA-R-1697
   source_atom_revision: 36
-  source_sha256: c693a4c2af6c410cd3e9aabdc347b0c7f9247970e82500a38cc7de7639effad0
+  source_sha256: b2a64f2a4a87fa506af5ebf58e297ecec92795de70f132f290cd12c9a0c8ec37
   original_relations_sha256: edef9085fddd1e905afd02423e8d88f5300a99b1f0a711703db5055e0c42a859
 ---
 ## Summary
 
 Bind traceability to exact claims and revisions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO traceability assertions.
 
-## Claim
 
 **every** CAPRMEDIO traceability assertion **must** identify the exact governed claim revision on which a receiving artifact, implementation target, evaluation use, delivery action, operational observation, **or** other governed result relies.
 

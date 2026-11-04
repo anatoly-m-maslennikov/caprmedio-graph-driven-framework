@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Project
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Decision
 
 Bind Convenience Symlink Carriers **to** One Native Source
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 convenience symlink Carriers.
 
-## Claim
 
 a convenience symlink Carrier **must** expose the one native reusable framework source governed by project-local authority **without** creating copied authority, an additional governance owner, **or** a live authority cycle.

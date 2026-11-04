@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ Event Record
-  - CAPRMEDIO <+ MODEL <+ Atom.ID
-version: 26
-updated_at: 2026-11-02 19:44:26 +0400
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+version: 27
+updated_at: 2026-11-03 23:25:51 +0400
 relations:
   evaluation_for:
   - CA-D-435
@@ -20,21 +20,23 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-465-PROJECT_CONFIGURATION-EVAL_CASE--validate-replacement-event-schema-encoding.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-465-PROJECT_CONFIGURATION-EVAL_CASE--validate-replacement-event-schema-encoding.md
   source_atom_id: CA-E-465
-  source_atom_revision: 26
-  source_sha256: ec1bbb5eb5770b3176e9e04fef2848da6ec14e69b3eb4bdf89548629a0a4a43f
+  source_atom_revision: 27
+  source_sha256: 5d1c1f15422e53fa5612cb2cd6924dd85869d80cf02e29f75f5d0a44807ca2f0
   original_relations_sha256: ab954123eb0e5c59cf4240bd5fc1eff515c3df6541497c0bfdef1e8385c68df3
 ---
 ## Summary
 
 Validate replacement Event schema encoding
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Main Content of the selected schema-version `3` replacement Journal Event Carrier.
 
-## Claim
 
 the Main Content of the selected schema-version `3` replacement Journal Event Carrier **must** support evaluation of CA-D-435-PROJECT_CONFIGURATION-DELIVERY--serialize-atom-replacement-event-references without treating Project conformance as storage integrity.
 

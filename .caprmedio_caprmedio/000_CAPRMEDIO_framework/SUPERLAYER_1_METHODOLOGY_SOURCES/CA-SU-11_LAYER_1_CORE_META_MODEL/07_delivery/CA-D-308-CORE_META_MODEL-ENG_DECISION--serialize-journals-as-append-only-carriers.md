@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Journal
+  active: CAPRMEDIO_MODEL <+ Journal
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Event Record
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Decision
 
 Serialize Journals as Append-Only Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Journal Carriers.
 
-## Claim
 
 **every** Journal Carrier **must** serialize its ordered Records append-only **in** its registered format **and** **must not** rewrite an admitted Record.

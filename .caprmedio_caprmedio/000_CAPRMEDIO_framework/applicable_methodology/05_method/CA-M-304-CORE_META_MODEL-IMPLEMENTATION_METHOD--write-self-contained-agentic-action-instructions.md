@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action.Execution Kind: Agentic'
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action).Execution Kind: Agentic'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -26,19 +26,21 @@ tier: 3
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-self-contained-agentic-action-instructions.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-self-contained-agentic-action-instructions.md
   source_atom_id: CA-M-304
   source_atom_revision: 26
-  source_sha256: 61224314e8898b0e8bd12ebbfc71e004115cb59630ca79a0158002cdf1211b50
+  source_sha256: 081a5ae9da41ab1dac998c83d57cd13bee00d416dbe21e8ed03fed097741db7c
   original_relations_sha256: ceef5e63cc9186cd1d148d48d109fb2ea95b5218115154d6dc01d0b80abda777
 ---
 ## Summary
 Write self-contained agentic Action instructions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 derived instructions that present an Agentic Action for execution.
 
-## Claim
 
 **to** present an Agentic Action for execution, organize its derived instruction around the declared responsibility rather than assumed session memory.
 

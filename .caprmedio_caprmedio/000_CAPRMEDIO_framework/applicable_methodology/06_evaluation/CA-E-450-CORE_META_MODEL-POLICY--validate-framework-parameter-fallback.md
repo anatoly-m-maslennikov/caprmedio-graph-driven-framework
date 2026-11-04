@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -23,19 +23,21 @@ tier: 5
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md
   source_atom_id: CA-E-450
   source_atom_revision: 27
-  source_sha256: 8df5a2dca118556516581459c309f2bfb05119ae7fd22740b073c2f0824ba3a7
+  source_sha256: 3f60f832dcb4b1e40193d9823ffb5c8facf0f5576a94ac0a864f1f4b1ab57e15
   original_relations_sha256: 65faded9bfe83c5b2b2d5e7359ce3fd2faf6195be2f2ede8ed1cbfde518b2f43
 ---
 ## Summary
 Validate framework parameter fallback
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Framework parameter resolution across explicit parameters, Framework Instance Settings, **and** Default Settings.
 
-## Claim
 
 the Evaluation **must** reject framework parameter resolution **if** **any** of the following falsifying conditions holds:
 

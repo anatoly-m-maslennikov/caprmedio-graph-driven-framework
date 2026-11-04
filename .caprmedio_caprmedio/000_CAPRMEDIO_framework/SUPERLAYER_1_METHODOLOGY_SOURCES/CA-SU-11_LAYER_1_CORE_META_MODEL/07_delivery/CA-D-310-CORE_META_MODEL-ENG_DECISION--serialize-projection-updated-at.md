@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection.Updated At
+  active: CAPRMEDIO_MODEL <+ Projection.Updated At
 version: 26
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Decision
 
 Serialize Projection Updated At
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection Carrier latest completed rebuild times.
 
-## Claim
 
 **every** Projection Carrier **must** serialize the time of its latest completed rebuild as `updated_at` **in** Project time **without** treating that value alone as proof of currentness.

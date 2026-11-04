@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
 version: 27
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -22,11 +22,13 @@ form: Rule
 
 Keep Evaluation realization chains distinct
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Evaluation realization chains and their associated implementation, evidence, and operational contributions.
 
-## Claim
 
 an Evaluation Atom's realization chains **must** remain distinct between deterministic test implementations **and** qualitative, probabilistic, statistical, rubric-based, **or** model-judged evaluation implementations.
 

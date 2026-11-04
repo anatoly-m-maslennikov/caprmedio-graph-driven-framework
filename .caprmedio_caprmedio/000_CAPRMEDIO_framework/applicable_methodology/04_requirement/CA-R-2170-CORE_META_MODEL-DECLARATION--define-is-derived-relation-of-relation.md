@@ -4,52 +4,41 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_DERIVED_RELATION_OF
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_DERIVED_RELATION_OF
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
-version: 9
-updated_at: 2026-11-02 08:06:47 +0400
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+version: 10
+updated_at: 2026-11-03 20:00:05 +0400
 relations: {}
 tier: 1
 role: Requirement
 form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md
   source_atom_id: CA-R-2170
-  source_atom_revision: 9
-  source_sha256: b74c4e147f527c7a063c5de8d897062d57d1685c170bf00ece424eda6cca277c
+  source_atom_revision: 10
+  source_sha256: cce56d07fa656084df11f1bf77aab9e0e357a74ac1ca2281cead891cc1d37510
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define is derived relation of relation
 
-## Claim scope
-
-Type-level derivation between Relation Type instances.
-
 ## Claim
 
-`IS_DERIVED_RELATION_OF` **means** a direct relation from one derived Relation
-Type instance to one source Relation Type instance from which its relation
-meaning is derived.
+### Formal Claim
 
 ```CFEL
-Relation// ((IS_DERIVED_RELATION_OF)) Relation//;
+# model
+Relation//$relation ((IS_DERIVED_RELATION_OF)) Relation//$relation_2;
 
-((IS_DERIVED_RELATION_OF)) >| Derivation == Direct
+Relation//IS_DERIVED_RELATION_OF ((HAS_CLASSIFICATION)) Derivation == Direct
 ```
 
-## Semantics
+### Prose Claim
 
-
-Forward `Host ((IS_DERIVED_RELATION_OF)) Target` and reverse `Target <((IS_DERIVED_RELATION_OF)) Host` are views of the same Relation fact.
-IS_DERIVED_RELATION_OF relates derived Relation Type instance to source Relation Type instance.
-
-## Details
-
-This relation does not itself define an endpoint transformation, source-storage
-direction, mandatory evidence, provenance, or inference behavior. A
-pair-specific definition states any such meaning. `IS_DERIVED_RELATION_OF` is
-not `DERIVED_FROM`, which links a derived Artifact Revision to an exact source
-Artifact Revision.
+IS_DERIVED_RELATION_OF relates a derived Relation Type instance to its source Relation Type instance. It does not itself specify the endpoint transformation or any qualification. A direct Declaration's inverse binding entails the bound inverse's IS_DERIVED_RELATION_OF link to the direct Relation. This inferred metadata is not repeated in the minimal derived Declaration. A qualified derivation must retain its explicit qualification; it must not be normalized to an unconditional inverse. This Relation is distinct from DERIVED_FROM between Artifact Revisions.

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -20,10 +20,12 @@ form: Rule
 
 Define Plan authoring Subtypes
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan authoring Subtypes.
 
-## Claim
 
 a Plan Subtype **means** an explicitly governed specialization of Plan authoring rules; a Label **must not** imply that specialization **without** its own applicable authority.

@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -21,21 +21,23 @@ tier: 6
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md
   source_atom_id: CA-M-309
   source_atom_revision: 23
-  source_sha256: 33c8accc08a7cd6d88f9445d9bea03bba9fcfc4deb640de7c086b2d5621285e4
+  source_sha256: 5f2722ff6e8d23423244ff9d2eeceedde8f58f3d37ec05d8a5898e68fc0d8dd9
   original_relations_sha256: a1630976c55baee2df66eec1a8564dbfdda162656cba6354e2f480b01eac7d0d
 ---
 ## Summary
 
 Write Plan Claims with the Plan CCE Profile
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan Claims written with the Plan CCE Role Profile.
 
-## Claim
 
 **to** write a Plan Claim with the Plan CCE Role Profile, the Author **must** perform **all** of:
 

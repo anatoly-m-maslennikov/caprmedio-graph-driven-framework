@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Role
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.ordered
-  - CAPRMEDIO <+ MODEL <+ Atom.Status
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Scope Unit.order.ordered
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 24
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -26,11 +26,13 @@ form: Eval Case
 
 Validate lifecycle Workflow adaptability
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a status-change Workflow **and** its target Entity's applicable model.
 
-## Claim
 
 the Evaluation **must** check that a status-change Workflow follows the target Entity's applicable model under CA-R-1521.
 

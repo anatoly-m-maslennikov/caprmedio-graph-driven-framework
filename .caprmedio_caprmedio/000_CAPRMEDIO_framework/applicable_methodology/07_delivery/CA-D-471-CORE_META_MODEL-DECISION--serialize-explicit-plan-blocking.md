@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Atom.ID
-  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
 version: 24
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -19,21 +19,23 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md
   source_atom_id: CA-D-471
   source_atom_revision: 24
-  source_sha256: 2fe7e38589dd83a192ddd08e0ab394d44edb2a8a90cf798bfd6370bd74a538ff
+  source_sha256: 638304bed3ff46a5b20e5577cffe735dcafd4c339b79fd36daf5fab9221ccd8a
   original_relations_sha256: b9827eecea8416db112a5056a7c7def708d6483cae4e2b7f7bfaec9981959427
 ---
 ## Summary
 
 Serialize explicit Plan blocking
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 explicit `A BLOCKS B` facts, including their storage on Plan `A` under `relations.blocks` for Plan `B`.
 
-## Claim
 
 **every** explicit `A BLOCKS B` fact **must** be stored once on Plan `A` under `relations.blocks`, as a unique canonical Atom ID for Plan `B`; an omitted list encodes **`=0`** outgoing blocking Relations.
 

@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Journal
-version: 40
-updated_at: 2026-11-02 08:06:47 +0400
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+version: 41
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-R-1643
 current_scope_unit: CORE_META_MODEL
@@ -15,21 +15,23 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-RULE--register-type-values-for-work-journal-events.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-RULE--register-type-values-for-work-journal-events.md
   source_atom_id: CA-R-1643
-  source_atom_revision: 40
-  source_sha256: 0d9253a3ecdb85f101c378ff2e7d3ce4a010476900c79141c4fb985065d7d914
+  source_atom_revision: 41
+  source_sha256: 77eb76f156c671e13eef5b7417582e4aee7ec8eed4cee1d2af6125440dbc114b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Register Type Values for Work Journal Events
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 legacy Work Journal execution-observation category labels in serialized Journal Carrier Main Content.
 
-## Claim
 
 the Main Content of a serialized Journal Carrier **must** preserve a supplied legacy Work Journal execution-observation category label as one of (Started, Progressed, Completed, Failed, Interrupted, Abandoned, Recovered).
 

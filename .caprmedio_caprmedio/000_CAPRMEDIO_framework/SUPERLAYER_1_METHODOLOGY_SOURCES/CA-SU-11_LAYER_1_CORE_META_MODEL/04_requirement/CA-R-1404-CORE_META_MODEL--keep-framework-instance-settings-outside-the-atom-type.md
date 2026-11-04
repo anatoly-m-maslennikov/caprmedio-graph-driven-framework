@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,10 +20,12 @@ form: Rule
 
 Keep Framework Instance Settings Outside the Atom Type
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Framework Instance Settings Artifact.
 
-## Claim
 
 the Framework Instance Settings Artifact **must not** be an Atom.

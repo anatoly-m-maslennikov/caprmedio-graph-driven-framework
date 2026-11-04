@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//DEPENDS_ON
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Allow Zero or More Dependency Subjects
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 direct DEPENDS_ON targets in an Atom's Subjects Property.
 
-## Claim
 
 **every** Atom **may** declare **`>=0`** distinct direct DEPENDS_ON targets **in** its Subjects Property.

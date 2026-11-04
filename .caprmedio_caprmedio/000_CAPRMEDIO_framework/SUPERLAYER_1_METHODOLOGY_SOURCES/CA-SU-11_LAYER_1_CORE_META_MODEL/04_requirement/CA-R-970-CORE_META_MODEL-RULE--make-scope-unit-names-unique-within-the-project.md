@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Name
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Name
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Project
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,10 +21,12 @@ form: Rule
 
 Make Scope Unit Names Unique within the Project
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit Names within one Project.
 
-## Claim
 
 **every** Scope Unit Name **must** be unique within its Project.

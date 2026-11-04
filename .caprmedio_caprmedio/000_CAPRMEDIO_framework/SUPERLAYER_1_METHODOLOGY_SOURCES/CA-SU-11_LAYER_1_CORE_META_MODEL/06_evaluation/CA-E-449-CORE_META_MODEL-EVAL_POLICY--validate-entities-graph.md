@@ -1,26 +1,26 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Property
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Term//Property
-  - CAPRMEDIO <+ MODEL <+ Term
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_PROPERTY
-  - CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Entity/Property
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_PROPERTY
+  - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Projection
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 44
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -47,10 +47,12 @@ form: Eval Policy
 ## Summary
 Validate Entities Graph
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Entities Graphs **and** selected views, including source selection, display selection, **and** governing source constraints.
 
-## Claim
 
 the Evaluation **must** reject an Entities Graph **if** **any** of:
 

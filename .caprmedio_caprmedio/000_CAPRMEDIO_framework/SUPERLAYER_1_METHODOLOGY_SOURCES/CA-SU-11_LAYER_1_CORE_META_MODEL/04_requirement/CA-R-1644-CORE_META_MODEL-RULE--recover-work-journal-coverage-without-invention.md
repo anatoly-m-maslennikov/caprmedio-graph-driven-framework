@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Journal
+  active: CAPRMEDIO_MODEL <+ Journal
   passive:
-  - CAPRMEDIO <+ MODEL <+ Event Record
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ History
-  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ History
+  - CAPRMEDIO_MODEL <+ Actor
 version: 37
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Rule
 
 Recover Work Journal coverage without invention
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 recovered observations retained by a Journal.
 
-## Claim
 
 a Journal **may** retain an Event Record recovered from evidence **only** for facts established by **any** of:
 

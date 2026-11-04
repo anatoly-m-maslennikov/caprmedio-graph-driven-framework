@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
 version: 33
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -14,21 +14,23 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1642-PROJECT_CONFIGURATION-RULE--register-generated-data-stages.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1642-PROJECT_CONFIGURATION-RULE--register-generated-data-stages.md
   source_atom_id: CA-R-1642
   source_atom_revision: 33
-  source_sha256: 4de0006388306b71a129c516d88837c29a74249b47b76bee17722de4aff711bf
+  source_sha256: 9bf1a71fe2a6b83bf9d6e9a3def489961ce7bfed2822c7c7146ad0380bc52473
   original_relations_sha256: f326d4ddaa9bdeea1aa820492e47e3b4c4bd09a8286a8f577571a43d47043668
 ---
 ## Summary
 
 Register generated-data stages
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the ordered generated-data pipeline stages.
 
-## Claim
 
 the following ordered generated-data pipeline stages **must** be registered, referenced by their Carrier prefixes governed by CA-D-388-PROJECT_CONFIGURATION-ENG_DECISION--serialize-generated-data-stage-prefixes-and-formats:
 

@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Actor
+  active: CAPRMEDIO_MODEL <+ Actor
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
 version: 4
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -24,11 +24,13 @@ form: Rule
 
 Reserve Project-wide invariant conflict resolution to the Operator
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 conflicts between active Project-wide foundational invariants **and** an AI Agent's delegated conflict resolution.
 
-## Claim
 
 - **only** an Operator **may** resolve a conflict between active Project-wide foundational invariants, **and** an Operator's decision to resolve that conflict is non-delegable.
 - an AI Agent **may** detect, analyze, **and** propose resolutions for a conflict between active Project-wide foundational invariants but **must not** choose a resolution for a conflict between active Project-wide foundational invariants.

@@ -4,9 +4,9 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Journal
 version: 14
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -14,21 +14,23 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-504-PROJECT_CONFIGURATION-ENG_DECISION--use-the-governed-production-logging-platform.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-504-PROJECT_CONFIGURATION-ENG_DECISION--use-the-governed-production-logging-platform.md
   source_atom_id: CA-D-504
   source_atom_revision: 14
-  source_sha256: ab0c224608af17e1d17fa81412e09e57318a9e9610c6c8b08c46dfef7db8f854
+  source_sha256: c7337bfd3b2ed8b5c73b46efd1a36ca8fe14c98fb47d3168e67b074cabf013a2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Use the governed production logging platform
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production technical and business runtime log Journal Carriers.
 
-## Claim
 
 production technical **and** business runtime log Journals **must** use the deployment environment's governed logging sink. governed CAPRMEDIO workflow **and** local project-control Journals **are not** substitutes for the production system's log platform.
 

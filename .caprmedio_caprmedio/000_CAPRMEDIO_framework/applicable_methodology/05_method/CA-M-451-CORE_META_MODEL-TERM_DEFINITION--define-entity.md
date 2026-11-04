@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Term//Entity
+  active: CAPRMEDIO_MODEL <+ Term//Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Entity/Property
-  - CAPRMEDIO <+ MODEL <+ Term
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Entity/Property
+  - CAPRMEDIO_MODEL <+ Term
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
 version: 4
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -17,21 +17,23 @@ tier: 1
 role: Method
 form: Term Definition
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md
   source_atom_id: CA-M-451
   source_atom_revision: 4
-  source_sha256: 10a9feb5ec52df4cd418ccf1834bf60f06ac104b1abddf8d7438bbc97d66494d
+  source_sha256: eb7a86a6a60e74c43f0f1f9a1cb990c3e3e0b8eed7c27701067596ec3ad4c253
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Entity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The reusable lexical Term `Entity` in canonical entity names and authored model statements.
 
-## Claim
 
 Entity **means** the common category for every primary graph node and every dependent property in the framework, as structurally defined by CA-R-2462. This Claim explicitly introduces the lexical Term instance named Entity at `Term//Entity`.
 

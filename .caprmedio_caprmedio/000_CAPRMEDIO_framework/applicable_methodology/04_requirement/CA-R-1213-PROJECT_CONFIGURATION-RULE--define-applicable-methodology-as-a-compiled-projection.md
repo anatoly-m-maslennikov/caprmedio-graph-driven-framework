@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form := Applicable Methodology)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Applicable Methodology)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Reconciled Projection'
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Projection
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Reconciled Projection'
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
 version: 40
 relations: {}
 atom_id: CA-R-1213
@@ -21,21 +21,23 @@ role: Requirement
 form: Rule
 updated_at: 2026-11-02 08:06:47 +0400
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1213-PROJECT_CONFIGURATION-RULE--define-applicable-methodology-as-a-compiled-projection.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1213-PROJECT_CONFIGURATION-RULE--define-applicable-methodology-as-a-compiled-projection.md
   source_atom_id: CA-R-1213
   source_atom_revision: 40
-  source_sha256: 83428a48c60e4945804581a15f6d78c2cf104b32aef243ac9e8f4642da98af8a
+  source_sha256: 78ce37e2a37232355b5dce990ff5ee9853e75eeb4f70295da44e34b7f3294572
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Applicable Methodology as a Compiled Projection
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Compilation of Applicable Methodology from selected Methodology Source Scope Units.
 
-## Claim
 
 Member identifies a projected Atom member by its source identity and Version; these references identify the members without changing their content or making the Projection authoritative. Each projected member retains the exact source relation required by CA-R-1314.
 

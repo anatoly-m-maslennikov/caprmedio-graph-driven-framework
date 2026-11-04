@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern)
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -27,10 +27,12 @@ form: Rule
 
 Let AI Agents resolve Concerns under bounded authority
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 AI Agent resolution of Concerns under active delegated authority.
 
-## Claim
 
 an identified AI Agent **may** resolve a Concern from active Atoms **when** its active Operator delegation permits **every** required action **and** resolution confidence meets the configured semantic-resolution threshold; the resolution **may** create **or** change Atoms **in** other Content Roles **only** within that same delegated authority.

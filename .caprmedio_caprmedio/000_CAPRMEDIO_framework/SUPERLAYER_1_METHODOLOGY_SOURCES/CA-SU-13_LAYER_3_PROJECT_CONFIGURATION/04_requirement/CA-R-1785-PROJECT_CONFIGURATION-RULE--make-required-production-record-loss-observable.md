@@ -4,9 +4,9 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
 version: 14
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,11 +18,13 @@ form: Rule
 
 Make required production-record loss observable
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 logging Implementation **when** required records are lost **or** suppressed under production Logging Policies.
 
-## Claim
 
 logging Implementation **must** produce an observable failure signal **when** required records are lost **or** suppressed.
 

@@ -1,8 +1,8 @@
 ---
 subjects:
-  governs: Scope Unit
-  depends_on:
-  - Carrier/Directory
+  active: CAPRMEDIO_MODEL <+ Scope Unit
+  passive:
+  - CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 3
 role: Delivery
 form: Eng Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-671-CORE_META_MODEL-ENG_DECISION--carry-materialized-scope-units-with-directory-carriers.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-671-CORE_META_MODEL-ENG_DECISION--carry-materialized-scope-units-with-directory-carriers.md
   source_atom_id: CA-D-671
   source_atom_revision: 1
-  source_sha256: 2e6fd842be10279b31175075f2b9f0c33056bd4b5463871e4481df81eee542c6
+  source_sha256: 4b159eea8047bd208a13cace2be4ffc732b9f2706eb32bc8f2eb17b965e74224
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

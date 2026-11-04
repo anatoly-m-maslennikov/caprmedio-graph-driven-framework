@@ -4,10 +4,10 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Term//ID
+  active: CAPRMEDIO_MODEL <+ Term//ID
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Term
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
 version: 4
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -15,21 +15,23 @@ tier: 1
 role: Method
 form: Term Definition
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-450-CORE_META_MODEL-TERM_DEFINITION--define-id.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-450-CORE_META_MODEL-TERM_DEFINITION--define-id.md
   source_atom_id: CA-M-450
   source_atom_revision: 4
-  source_sha256: 7a4d720c61fb905a7503424b471ddeb68ceec39fd47865a7d10a9bb9da3878a4
+  source_sha256: 419fdb8b83d9df113d27b3472fb26d345063961e9a3a8d2164ea4c6ce6627b2f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define ID
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The reusable lexical Term `ID` as used for identifiers of Continuant and Occurrent entity instances within a matching prefix namespace.
 
-## Claim
 
 ID **means** a unique identifier used **to** find **`=1`** entity instance, whether Continuant **or** Occurrent, whose uniqueness is bounded **to** its matching prefix namespace. This Claim explicitly introduces the lexical Term instance named ID at `Term//ID`.
 

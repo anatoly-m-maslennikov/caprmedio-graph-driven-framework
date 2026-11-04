@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Projection
 version: 38
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -23,10 +23,12 @@ form: Eval Policy
 
 Validate Generated-Only Provenance Boundary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 generated-only provenance validation.
 
-## Claim
 
 generated-only provenance validation **must not** pass **if** an update **only** **to** generated Projections contributes an Implementation Relation **or** a generated Projection cites itself as its semantic input. the same boundary applies with **or** **without** a version-control integration.

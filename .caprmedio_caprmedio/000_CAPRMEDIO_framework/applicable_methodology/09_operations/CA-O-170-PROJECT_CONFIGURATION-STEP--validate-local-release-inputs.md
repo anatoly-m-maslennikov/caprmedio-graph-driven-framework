@@ -21,7 +21,7 @@ relations:
   - CA-O-165
 tier: 3
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-170-PROJECT_CONFIGURATION-STEP--validate-local-release-inputs.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-170-PROJECT_CONFIGURATION-STEP--validate-local-release-inputs.md
   source_atom_id: CA-O-170
   source_atom_revision: 10
   source_sha256: 77b8524fac909ec3f49874cb3d46d09e4d9f848b465d1e976fb628ab36b95751

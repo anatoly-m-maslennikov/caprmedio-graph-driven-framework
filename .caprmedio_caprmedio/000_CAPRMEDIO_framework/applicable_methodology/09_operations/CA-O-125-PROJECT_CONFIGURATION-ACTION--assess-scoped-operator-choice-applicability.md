@@ -20,7 +20,7 @@ updated_at: 2026-10-29 22:26:57 +0400
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-125-PROJECT_CONFIGURATION-ACTION--assess-scoped-operator-choice-applicability.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-125-PROJECT_CONFIGURATION-ACTION--assess-scoped-operator-choice-applicability.md
   source_atom_id: CA-O-125
   source_atom_revision: 14
   source_sha256: e5c0a0ca80eae47aea915928069575c923c204c08bb5cd6fd37205c052492f81

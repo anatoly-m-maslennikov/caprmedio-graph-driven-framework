@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 41
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -20,11 +20,13 @@ form: Rule
 
 Bind proof records to dependency frontiers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 governed proof records, their applicable inputs, and all selected Workflows, release policies, and version-control mechanisms.
 
-## Claim
 
 **every** governed proof record **must** bind its observation **to** the exact applicable inputs under which it was produced.
 

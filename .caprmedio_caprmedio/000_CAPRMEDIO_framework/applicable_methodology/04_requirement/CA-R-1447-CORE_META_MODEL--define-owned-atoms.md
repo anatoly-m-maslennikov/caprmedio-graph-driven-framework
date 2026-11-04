@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,21 +16,23 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1447-CORE_META_MODEL--define-owned-atoms.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1447-CORE_META_MODEL--define-owned-atoms.md
   source_atom_id: CA-R-1447
   source_atom_revision: 25
-  source_sha256: 25a03c26d3216dcf145ad8e4d34a59ef213e6cdd2734cbf10c2b0727f133d436
+  source_sha256: 270899a764f27fa14ba2bd21ef39b85bdd707961514c3b29b7b8a7a35c654ece
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Owned Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the ownership of Atoms by Scope Units.
 
-## Claim
 
 Owned Atoms **means** the set of **all** Atoms whose internally carried current Scope Unit **`=`** the selected Scope Unit.
 

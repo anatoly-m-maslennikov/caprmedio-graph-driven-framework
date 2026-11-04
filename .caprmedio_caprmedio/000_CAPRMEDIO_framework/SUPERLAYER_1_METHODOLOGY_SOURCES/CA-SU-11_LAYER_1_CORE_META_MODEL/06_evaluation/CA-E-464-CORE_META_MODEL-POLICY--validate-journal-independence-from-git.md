@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Journal
+  active: CAPRMEDIO_MODEL <+ Journal
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log'
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log'
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log'
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -27,11 +27,13 @@ form: Eval Policy
 
 Validate Journal independence from Git
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Core Meta-Model rules concerning Journal recording, replacement evidence, and canonical log Projections.
 
-## Claim
 
 the Evaluation **must** reject a Core Meta-Model rule that makes Journal recording, replacement evidence, **or** either canonical log Projection depend on Git installation, commit topology, hooks, **or** commit messages.
 

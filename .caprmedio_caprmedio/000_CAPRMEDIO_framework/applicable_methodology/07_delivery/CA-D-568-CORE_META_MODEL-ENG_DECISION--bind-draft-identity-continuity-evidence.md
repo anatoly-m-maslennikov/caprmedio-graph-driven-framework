@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.ID
+  active: CAPRMEDIO_MODEL <+ Atom.Header.ID
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Status: Draft'
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Draft'
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - CAPRMEDIO_MODEL <+ Atom
 version: 19
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,21 +20,23 @@ tier: 4
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-ENG_DECISION--bind-draft-identity-continuity-evidence.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-ENG_DECISION--bind-draft-identity-continuity-evidence.md
   source_atom_id: CA-D-568
   source_atom_revision: 19
-  source_sha256: 5e55b79d00c8f8c508f298b915641d4aafb29eb50c5d63bbda40bbfb168f3c68
+  source_sha256: b813a30d481be03bad3d4af1f8f0ad6d88ac7c4199c9967645a0cb84ae040bf6
   original_relations_sha256: 6aef9f445368f29b2bb5f4a7f1db2761c20ac826e6a1e8020f727585712627d4
 ---
 ## Summary
 
 Bind Draft Identity Continuity Evidence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 identity continuity when a Draft Atom is created, updated or admitted to a non-Draft Status.
 
-## Claim
 
 Draft identity continuity **must** follow the exact admitted target and the applicable identity rules; retained Draft history **must not** be a prerequisite for Create, Update, promotion, another admitted Status change or their success.
 

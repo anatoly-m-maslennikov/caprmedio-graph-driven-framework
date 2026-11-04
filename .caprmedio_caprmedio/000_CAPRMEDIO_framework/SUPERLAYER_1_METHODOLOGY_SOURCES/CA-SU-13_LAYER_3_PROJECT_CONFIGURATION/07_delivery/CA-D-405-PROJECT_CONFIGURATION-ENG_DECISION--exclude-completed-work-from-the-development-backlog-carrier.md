@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Decision
 
 Exclude Completed Work from the Development Backlog Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the completed-work section of a Development Backlog Carrier.
 
-## Claim
 
 the Development Backlog Carrier **must not** retain a completed-work section.

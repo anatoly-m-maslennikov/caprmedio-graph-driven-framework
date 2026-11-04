@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,20 +15,22 @@ tier: 1
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-ENG_DECISION--give-each-scope-unit-authority-and-delivery-carrier-places.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-ENG_DECISION--give-each-scope-unit-authority-and-delivery-carrier-places.md
   source_atom_id: CA-D-312
   source_atom_revision: 28
-  source_sha256: dd60a7a073e9b581467b1cb08337309d4893a7fbcfa668ec5ed7e715f0fd2bde
+  source_sha256: 49a05238931813f026090c69db79ab600ea2d9ac9c4d70fa15ac0ab0b22ea16d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Give Each Scope Unit Authority and Delivery Carrier Places
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit authority and Delivery Carrier places.
 
-## Claim
 
 **every** Scope Unit **must** have one authority Carrier place **and** one Delivery Carrier place **without** treating its Delivery place as another Scope Unit.

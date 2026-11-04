@@ -1,27 +1,27 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Demand)'
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//GOVERNS
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
-  - CAPRMEDIO <+ MODEL <+ Term
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Atom Subjects Graph)'
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern)
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//evaluation_for
-  - CAPRMEDIO <+ MODEL <+ Term//Property
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Entity/Property
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Requirement)/(.Header.Form: Demand)'
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
+  - CAPRMEDIO_MODEL <+ Term
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Atom Subjects Graph)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//evaluation_for
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Entity/Property
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
 version: 47
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -56,11 +56,13 @@ form: Eval Case
 
 Validate Atom Subjects
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Subject Relations of an Atom evaluated against its complete Markdown Main Content.
 
-## Claim
 
 **every** valid Atom has zero **or** one GOVERNS Subject Target matching its Claim **and** DEPENDS_ON for **every** other Subject Target independently mentioned **in** its complete Markdown Main Content; an Atom citation label is **not** a Subject Target mention **or** Subject target, and the distinct target set **`=`** that mention inventory **without** an intermediate Subject object.
 
@@ -72,7 +74,7 @@ create valid flat Carrier fixtures with zero **or** one scalar GOVERNS target an
 
 a Method Content Role Atom may GOVERNS a Domain, Engineering or Graph Subject and DEPENDS_ON a Subject in another branch; its Content Role does not select the Subject branch. reject a separate `Method` Subject root or admitting a method topic from its Scope Unit, folder, language name or Carrier path.
 
-introduce **in** the source Subjects encoding multiple GOVERNS targets, an unresolved **or** ambiguous target, a nested Subject/Entity **or** Subject/Reference wrapper, a repeated source target-kind field, a stored copy of a target definition, a duplicate dependency, a missing mentioned Subject Target, an invalid qualified path, a Term's spelling used **without** its canonical target, and a separate Entity identity invented for an existing Action **or** Workflow Atom. a definition whose GOVERNS reference identifies the wrong target or omits its defined terminal Term **must** fail. add `Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Demand)` as **`=1`** complete target path. Its qualified Atom segment reuses **`=5`** Term references: `Atom`, `Content Role`, `Requirement`, `Type`, and `Demand`; the Entity-rooted prefix remains part of the complete expression. its source Atom has **`=1`** GOVERNS Subject Relation **to** that target, **not** one Subject per lexical component. reject confusing the Relation with its target or treating the referencing Atom as defining **all** referenced Terms.
+introduce **in** the source Subjects encoding multiple GOVERNS targets, an unresolved **or** ambiguous target, a nested Subject/Entity **or** Subject/Reference wrapper, a repeated source target-kind field, a stored copy of a target definition, a duplicate dependency, a missing mentioned Subject Target, an invalid qualified path, a Term's spelling used **without** its canonical target, and a separate Entity identity invented for an existing Action **or** Workflow Atom. a definition whose GOVERNS reference identifies the wrong target or omits its defined terminal Term **must** fail. add `Atom/(.Header.Role: Requirement)/(.Header.Form: Demand)` as **`=1`** complete target path. Its qualified Atom segment reuses **`=5`** Term references: `Atom`, `Content Role`, `Requirement`, `Type`, and `Demand`; the Entity-rooted prefix remains part of the complete expression. its source Atom has **`=1`** GOVERNS Subject Relation **to** that target, **not** one Subject per lexical component. reject confusing the Relation with its target or treating the referencing Atom as defining **all** referenced Terms.
 
 add conformance-check Evaluation fixtures whose direct GOVERNS Subject Relations identify the checked targets and whose `evaluation_for` relations separately identify the checked authority under `CA-R-1018-CORE_META_MODEL--register-evaluation-targets`. reject a generic Evaluation label or check execution substituted for the checked target and a missing or invalid `evaluation_for` target. reject treating an Atom's Subject DEPENDS_ON reference or dependency-list position as Workflow execution order; preserve the separately governed Plan `BLOCKS` completion gate.
 

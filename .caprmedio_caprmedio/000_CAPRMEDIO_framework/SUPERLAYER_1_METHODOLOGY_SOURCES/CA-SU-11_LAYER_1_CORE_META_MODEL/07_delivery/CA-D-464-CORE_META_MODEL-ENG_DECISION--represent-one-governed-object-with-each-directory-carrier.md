@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
+  active: CAPRMEDIO_MODEL <+ Carrier/Directory
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -20,10 +20,12 @@ form: Decision
 
 Represent One Governed Object with Each Directory Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 represented Directory Carriers and their governed object Revisions.
 
-## Claim
 
 **every** represented Directory Carrier **must** carry **`=1`** governed object Revision: either one Structural Entity Revision **or**, **where** an applicable Delivery rule permits it, one Atom Revision; it **must not** establish a second object merely because it contains subordinate Carriers.

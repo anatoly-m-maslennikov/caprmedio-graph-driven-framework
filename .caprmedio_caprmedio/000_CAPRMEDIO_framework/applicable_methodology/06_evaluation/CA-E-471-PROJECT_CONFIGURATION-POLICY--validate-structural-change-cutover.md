@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -26,19 +26,21 @@ tier: 4
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-471-PROJECT_CONFIGURATION-POLICY--validate-structural-change-cutover.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-471-PROJECT_CONFIGURATION-POLICY--validate-structural-change-cutover.md
   source_atom_id: CA-E-471
   source_atom_revision: 28
-  source_sha256: 884fb38e721dfdbf87a3c2e54f06886d766e1ab3719fd8b2b818c3bd46a77590
+  source_sha256: c99f028b3461e18e978796e5085f313d5316b9f9ba2eeef7f6640aa17ec4cc58
   original_relations_sha256: 962f30ce52da49629429dc0c407210d6b9455d5e453471c4cfec3f524c018581
 ---
 ## Summary
 Validate structural change cutover
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 structural changes **and** no-change repeats, including create, rename, reparent, reorder, rebind, reconciliation, **and** declaration removal.
 
-## Claim
 
 the Evaluation **must** fail a structural change **if** it:
 

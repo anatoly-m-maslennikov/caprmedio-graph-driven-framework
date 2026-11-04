@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File
+  active: CAPRMEDIO_MODEL <+ Carrier/File
 version: 21
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,20 +12,22 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-337-PROJECT_CONFIGURATION-ENG_DECISION--place-legal-file-carriers-outside-caprmedio-roots.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-337-PROJECT_CONFIGURATION-ENG_DECISION--place-legal-file-carriers-outside-caprmedio-roots.md
   source_atom_id: CA-D-337
   source_atom_revision: 21
-  source_sha256: 2f7da5ada7aab41c15f065d444e1e22de032bc068533288b66dde7d64ba2f20a
+  source_sha256: 45eb06c24772fdad8b1c9d71c403fe48d7f3f158d7c4fd51d110080b1eef9513
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Place Legal File Carriers outside CAPRMEDIO Roots
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 legal File Carrier placement for the CAPRMEDIO Project.
 
-## Claim
 
 the CAPRMEDIO Project **must** place its own license at root `LICENSE` **and** retained third-party legal File Carriers under root `LICENSES/` outside CAPRMEDIO authority, installation, **and** Runtime State roots.

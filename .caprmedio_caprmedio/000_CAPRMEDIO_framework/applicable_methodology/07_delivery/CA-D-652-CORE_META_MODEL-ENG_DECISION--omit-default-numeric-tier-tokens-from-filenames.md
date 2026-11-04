@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Tier
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Tier
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  - CAPRMEDIO_MODEL <+ Projection
 version: 13
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
   delivery_for:
-  - CA-R-2504
+  - CA-R-2706
   depends_on:
   - CA-D-651
   - CA-D-478
@@ -21,20 +21,22 @@ status: Active
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-652-CORE_META_MODEL-ENG_DECISION--omit-default-numeric-tier-tokens-from-filenames.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-652-CORE_META_MODEL-ENG_DECISION--omit-default-numeric-tier-tokens-from-filenames.md
   source_atom_id: CA-D-652
   source_atom_revision: 13
-  source_sha256: 78fb080d9a8afbb9a38135583cce5c8abd0abadb1280842d50dd850f0777cb0d
-  original_relations_sha256: 61d5d9b3b6559fc0663226667f6ffe52e28f3fc7ab432e1a8dbd1b1c3bdf782d
+  source_sha256: 0be530436df5356e3ddd9a8a1f8ea162a350ed491b3560429d29722f00aae0d9
+  original_relations_sha256: 349725a2fbf93b6eaa9d1fe14df2742e7ef0bb18d523c105b8ed7cb76d2f7f23
 ---
 ## Summary
 
 Omit Default Numeric Tier Tokens from Filenames
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom filenames whose registered grammar omits the default numeric Tier token.
 
-## Claim
 
-an Atom filename **may** omit the default Tier `3` token only where the registered filename grammar explicitly defines that omission. The Atom **must** still carry its numeric Tier internally under CA-R-2504; omission **must not** add, remove, or alter an Atom Property, infer a Content Role or Type restriction, or change the represented source Properties in a Projection or other non-Atom Artifact. A Project Goal's explicit Tier `-1` grammar is evaluated before any ordinary default omission.
+an Atom filename **may** omit the default Tier `3` token only where the registered filename grammar explicitly defines that omission. The Atom **must** still carry its numeric Tier internally under CA-R-2706; omission **must not** add, remove, or alter an Atom Property, infer a Content Role or Type restriction, or change the represented source Properties in a Projection or other non-Atom Artifact. A Project Goal's explicit Tier `-1` grammar is evaluated before any ordinary default omission.

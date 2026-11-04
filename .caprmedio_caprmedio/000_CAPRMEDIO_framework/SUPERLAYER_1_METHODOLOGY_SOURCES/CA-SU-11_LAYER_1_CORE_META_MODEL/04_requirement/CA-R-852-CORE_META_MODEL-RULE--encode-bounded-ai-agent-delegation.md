@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Encode Bounded AI Agent Delegation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 AI Agent Delegations.
 
-## Claim
 
 **every** AI Agent Delegation **must** identify its Operator, AI Agent, allowed actions, allowed target Scopes, constraints, validity boundary, **and** revocation state.

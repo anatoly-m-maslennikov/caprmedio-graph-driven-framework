@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Type
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Form
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -21,21 +21,23 @@ tier: 7
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-315-CORE_META_MODEL--validate-claims-against-effective-cce-role-profiles.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-315-CORE_META_MODEL--validate-claims-against-effective-cce-role-profiles.md
   source_atom_id: CA-M-315
   source_atom_revision: 26
-  source_sha256: 949a1284ae479cc2c94810b982698a0ce99570fca2c2fd6d268b0869c36395c7
+  source_sha256: 1c44c74651c0ff237cb0e182503b9f194b6639fb2a4d4f7b817bbe2ebe598295
   original_relations_sha256: cce5365b461cbd3dbc2378bf4574c500418c6d2157ddda95835141a2896efdef
 ---
 ## Summary
 
 Validate Claims against Effective CCE Role Profiles
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom Claims against effective CCE Role Profiles.
 
-## Claim
 
 **to** validate one Atom Claim against its effective CCE Role Profile, the Validator **must** perform **all** of:
 

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File
+  active: CAPRMEDIO_MODEL <+ Carrier/File
 version: 21
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Decision
 
 Place Legal File Carriers outside CAPRMEDIO Roots
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 legal File Carrier placement for the CAPRMEDIO Project.
 
-## Claim
 
 the CAPRMEDIO Project **must** place its own license at root `LICENSE` **and** retained third-party legal File Carriers under root `LICENSES/` outside CAPRMEDIO authority, installation, **and** Runtime State roots.

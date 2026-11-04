@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -15,21 +15,23 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1691-CORE_META_MODEL-RULE--requirement-promote-active-backlog-candidates-into-atoms.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1691-CORE_META_MODEL-RULE--requirement-promote-active-backlog-candidates-into-atoms.md
   source_atom_id: CA-R-1691
   source_atom_revision: 32
-  source_sha256: bfe1b99c7fac3e8c3f2060a3eb2cee155af9c59cfced0b2109640c046cfc1cef
+  source_sha256: 23ef42295ea57072aafd6d061531f03714369a82a27c7e449f6693b655af198d
   original_relations_sha256: be92ea46e7c0624624be489e5359ed84dc27ef5c9d86897e368c45609f9cf496
 ---
 ## Summary
 
 Requirement — Promote active backlog candidates into Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Development Backlog candidates selected into active work.
 
-## Claim
 
 assigning a Development Backlog candidate **to** a current **or** future version does **not** establish governed truth. the candidate becomes active work **only** **when** the operator selects it **and** CAPRMEDIO creates **`=1`** bounded Task Atom for its action. execution **then** materializes the minimum Requirement, Method, Evaluation, Delivery, **or** future Operations Atoms needed **to** govern that work.
 

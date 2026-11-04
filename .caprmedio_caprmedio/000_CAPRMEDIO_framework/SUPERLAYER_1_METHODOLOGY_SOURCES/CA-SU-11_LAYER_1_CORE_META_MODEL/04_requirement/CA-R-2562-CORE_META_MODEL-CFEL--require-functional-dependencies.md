@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,6 +17,9 @@ form: Rule
 Require functional dependencies between Property tuples
 
 ## Claim
+
+### Prose Claim
+
 
 `DETERMINES(selector, (.key, ...), (.dependent, ...))` requires equal ordered key tuples to have equal ordered dependent tuples. An optional fourth argument, `condition`, restricts the state population: `DETERMINES(selector, (.key, ...), (.dependent, ...), condition)`.
 

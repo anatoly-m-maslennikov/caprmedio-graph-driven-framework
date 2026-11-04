@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Invocation Context
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Invocation Context
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Step Run
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom
 version: 20
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -26,21 +26,23 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-EVAL_CASE--validate-self-contained-agentic-invocations.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-EVAL_CASE--validate-self-contained-agentic-invocations.md
   source_atom_id: CA-E-497
   source_atom_revision: 20
-  source_sha256: f0718b58168b5a638b2898ded0c86d6e935c37a953255a6001ccee165748caae
+  source_sha256: 5a5557971a727e5401e526442aee1cebeeec6152999743d3c27e849938e715f8
   original_relations_sha256: 366893286c3985484d37d66642c5d3340e0a06712ca1974528d35e46227e81a3
 ---
 ## Summary
 
 Validate self-contained agentic invocations
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an Agentic Step invocation from its supplied context.
 
-## Claim
 
 the Evaluation **must** check that an Agentic Step invocation can be understood **and** resumed from its supplied context **without** remembered Workflow procedure.
 

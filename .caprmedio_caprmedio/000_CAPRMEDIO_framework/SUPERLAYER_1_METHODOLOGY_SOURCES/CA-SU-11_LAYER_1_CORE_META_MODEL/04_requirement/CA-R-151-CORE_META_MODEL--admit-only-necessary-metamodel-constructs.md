@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -18,10 +18,12 @@ form: Rule
 
 Admit only necessary Metamodel constructs
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO Metamodel constructs.
 
-## Claim
 
 the CAPRMEDIO Metamodel **must** admit a durable construct **only** **when** the existing Metamodel cannot preserve the required operational distinction.

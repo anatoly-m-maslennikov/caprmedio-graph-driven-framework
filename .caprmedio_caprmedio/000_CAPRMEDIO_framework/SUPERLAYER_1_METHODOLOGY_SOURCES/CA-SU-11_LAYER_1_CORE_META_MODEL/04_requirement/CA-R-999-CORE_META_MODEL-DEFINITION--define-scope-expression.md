@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Entity
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Define Scope Expression
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Expressions.
 
-## Claim
 
 a Scope Expression **means** one deterministic expression that identifies Governed Entities through atomic references, explicit Atom IDs, parentheses, registered set **or** logical operators, **and** field predicates including **where**.

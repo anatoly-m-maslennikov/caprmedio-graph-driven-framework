@@ -1,24 +1,24 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Package
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Eval Package
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Runtime Package
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package <+ Module
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
-  - CAPRMEDIO <+ MODEL <+ Term
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//NARROWER_THAN
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)/(.Type: Entity Definition)'
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Eval Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Runtime Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Projection
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Requirement)/(.Header.Form: Entity Definition)'
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Entity
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
+  - CAPRMEDIO_MODEL <+ Atom
 version: 49
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -41,21 +41,23 @@ tier: 3
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md
   source_atom_id: CA-E-382
   source_atom_revision: 49
-  source_sha256: e64e9b75305fd8eba20ea59b5d6c946fc1889fb2bc9fee73459bee72c84b319c
+  source_sha256: 540f7bca8553b45adbedf7d94c922ab614d8434f077155d496b164a66132dd6e
   original_relations_sha256: d52b070da8a7cae462b5fa65b49d26bb5561e395bc327a8642490181142fabc3
 ---
 ## Summary
 
 Validate Terms Graph
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Terms Graph validity **and** Terms Graph Projections **when** that native graph Evaluation is separately selected. This graph-specific Evaluation is optional **and** is **not** a prerequisite for directly checking Term Definitions **and** authored occurrences under CA-E-444.
 
-## Claim
 
 The selected native Terms Graph Evaluation **must** preserve the following graph-validity, source-authority **and** Projection-fidelity boundaries.
 
@@ -92,7 +94,7 @@ the Evaluation **must** check complete canonical entity name-to-entity **and** e
 
 component Terms are reusable words **or** phrases whose meaning is owned by an explicit dedicated Method Atom of Type Term Definition, **not** inferred from agreement between Semantics sections. They are not complete Entity expressions outside the Term branch, except for the root `Entity`. Consistent use of the Term `Package` in `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package/Eval Package`, and `Entity/Object/Continuant/Package/Runtime Package`, and of the Term `Unit` in `Entity/Object/Continuant/Structural Unit/Scope Unit` and `Entity/Object/Continuant/Package <+ Module <+ Code Unit`, passes the component-meaning check. A different complete expression identifies each separately defined entity. Conflicting component meanings fail; unknown component meaning **or** segmentation remains unresolved. No Unit entity **or** synthetic Term node is created merely by splitting an entity's name.
 
-the complete-name check covers **every** named canonical Subject-graph entity: full expressions in admitted `/`, `//`, `.`, `:`, `+>`, `<+`, `>|` **and** `|<` constructs, calls `@(...)` to already declared Entities, plus registered direct Relation tokens inside `((...))`. The reference marker refers to an already declared Entity **without** declaring another target; parsing alone admits no target or Relation. A registered Relation token resolves to one admitted Relation Type under the registered notation, but its bare spelling is not that entity's complete canonical expression; complete-name comparison uses the full qualified expression separately. `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module`, and `Entity/Object/Continuant/Package <+ Module <+ Code Unit` connect three entities with three full expressions; a component label, the operators, or the chain must not be introduced as another entity node. Operators, delimiters **and** selector syntax are not Terms. Under CA-R-1325, a complete composite Subject Expression is not one lexical Term; parsing arbitrary composite syntax does not automatically establish a complete entity expression or another entity. An Atom expression with independently admitted Content Role and Type values remains valid only with its full admitted canonical prefix. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names. Authored Subjects use their full admitted expressions. The three-target chain introduces no fourth entity or fourth complete expression. Check **all** authored mentions against those full-expression bindings: `component` used as a stylistic substitute for the same Module fails naming, while a separately defined Component entity remains distinct. Repeated references to the same entity are not collisions; distinct property, value or bearer-qualified entities using the same complete expression are collisions despite their context. A Relation token must not become an admitted Relation without its governing authority and endpoint permissions. Preserve existing separation of source naming, native Terms Graph membership and Projection fidelity.
+the complete-name check covers **every** named canonical Subject-graph entity: full expressions in admitted `/`, `//`, `.`, `:`, `+>`, `<+`, `>|` **and** `|<` constructs, qualified references to already declared Entities, plus registered direct Relation tokens inside `((...))`. A qualified reference refers to an already declared Entity **without** declaring another target; parsing alone admits no target or Relation. A registered Relation token resolves to one admitted Relation Type under the registered notation, but its bare spelling is not that entity's complete canonical expression; complete-name comparison uses the full qualified expression separately. `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module`, and `Entity/Object/Continuant/Package <+ Module <+ Code Unit` connect three entities with three full expressions; a component label, the operators, or the chain must not be introduced as another entity node. Operators, delimiters **and** selector syntax are not Terms. Under CA-R-1325, a complete composite Subject Expression is not one lexical Term; parsing arbitrary composite syntax does not automatically establish a complete entity expression or another entity. An Atom expression with independently admitted Role and Form values remains valid only with its full admitted canonical prefix. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names. Authored Subjects use their full admitted expressions. The three-target chain introduces no fourth entity or fourth complete expression. Check **all** authored mentions against those full-expression bindings: `component` used as a stylistic substitute for the same Module fails naming, while a separately defined Component entity remains distinct. Repeated references to the same entity are not collisions; distinct property, value or bearer-qualified entities using the same complete expression are collisions despite their context. A Relation token must not become an admitted Relation without its governing authority and endpoint permissions. Preserve existing separation of source naming, native Terms Graph membership and Projection fidelity.
 
 ### Result boundary
 

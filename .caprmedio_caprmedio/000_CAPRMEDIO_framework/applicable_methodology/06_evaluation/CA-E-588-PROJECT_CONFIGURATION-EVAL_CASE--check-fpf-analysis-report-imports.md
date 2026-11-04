@@ -4,10 +4,10 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 20
 updated_at: 2026-11-02 19:33:47 +0400
 relations:
@@ -17,21 +17,23 @@ tier: 3
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md
   source_atom_id: CA-E-588
   source_atom_revision: 20
-  source_sha256: 3ae1d5388795d9b3c3b9d2062af1fa2e77411dbf5fb81816c93fd4bfcbbb1d4e
+  source_sha256: b2d79f543d497d137fad9e5dece53af9c30c6abb06a88e272f34eb432733d43b
   original_relations_sha256: 319b8af55fb6c03567c36c1203a52816016c2fd2da2bac1e8db6878e5893c0ba
 ---
 ## Summary
 
 Check FPF Analysis Report Imports
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 content-preserving migration of existing reports into FPF Analysis Report Carriers.
 
-## Claim
 
 an FPF Analysis Report import **must** pass all of the following checks before the original Carrier is retired:
 

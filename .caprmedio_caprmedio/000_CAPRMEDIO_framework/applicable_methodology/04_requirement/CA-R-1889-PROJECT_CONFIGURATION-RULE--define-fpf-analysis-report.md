@@ -4,10 +4,10 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := FPF Analysis Report)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")/(.Form := Analysis Report)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := Analysis Report)
 version: 20
 relations:
   depends_on:
@@ -19,21 +19,23 @@ role: Requirement
 form: Rule
 updated_at: 2026-11-02 19:33:47 +0400
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md
   source_atom_id: CA-R-1889
   source_atom_revision: 20
-  source_sha256: 24e8f0d8607f8b53debb96b3114c62b60ddd41b207347b019e02dc08d4838315
+  source_sha256: 772e86a9d053f3795dc9da11abeaeaa5880eb967e59b7d5f336e6ce75a764cb0
   original_relations_sha256: 3435f8757c90dd20c1ec967f027979b866b3148b4ae7ae12df23a154ee1990fd
 ---
 ## Summary
 
 Define FPF Analysis Report
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the registered FPF Analysis Report Form under Role Analysis & Advisory.
 
-## Claim
 
 an FPF Analysis Report **means** a specialized Analysis Report whose bounded inquiry **or** interpretation product records an FPF analytical command, composition, **or** directly related analytical follow-up, retaining its findings **and** stated evidence limits as reporting content rather than adopting them as normative authority.
 

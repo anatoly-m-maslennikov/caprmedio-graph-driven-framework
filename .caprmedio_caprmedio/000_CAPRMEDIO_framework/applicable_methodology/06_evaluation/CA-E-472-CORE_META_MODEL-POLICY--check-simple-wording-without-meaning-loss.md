@@ -5,20 +5,20 @@ relations:
   evaluation_for:
   - CA-M-294
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ MODEL <+ Package
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Eval Package
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Runtime Package
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package <+ Module
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
-  - CAPRMEDIO <+ MODEL <+ Actor
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO <+ MODEL <+ Term
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Eval Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Runtime Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 atom_id: CA-E-472
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -27,32 +27,34 @@ tier: 4
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-472-CORE_META_MODEL-POLICY--check-simple-wording-without-meaning-loss.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-472-CORE_META_MODEL-POLICY--check-simple-wording-without-meaning-loss.md
   source_atom_id: CA-E-472
   source_atom_revision: 30
-  source_sha256: 2291f2f4b1d830ed777664cb2ba4896c4f8af9b91b630de6a3a8c2904d84ca76
+  source_sha256: 82409d4e5150738e45b8929a2fef3a1f4140e2d4bcbef7ee09724d3e4d76015e
   original_relations_sha256: 8b9c3063afc923eb63345ee7aeb90194560f91eb0438e1f2c7351bbae8d424cd
 ---
 ## Summary
 
 Check simple wording without meaning loss
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 wording evaluated under CA-M-294 against explicit authoritative Term Definitions **and** source-backed complete canonical entity names.
 
-## Claim
 
 wording evaluated under CA-M-294 fails **if** **any** of the following holds:
 
 - a demonstrated simpler, more familiar alternative preserves the intended meaning, but unnecessary jargon **or** specialized wording is retained.
 - a simplification removes **or** changes a necessary participant, obligation, permission, quantity, condition, boundary, **or** logical distinction.
 - a simplification adds ambiguity, substitutes a synonymous full name for an entity's complete canonical entity name, changes a component Term's declared meaning, **or** substitutes a synonym for a canonical CCE Operator **or** reference.
-- a simplified Summary adds **to**, broadens, narrows, **or** contradicts its source Claim **or** Claim Scope.
+- a simplified Summary adds **to**, broadens, narrows, **or** contradicts its source Claim including its applicability in Prose Claim.
 
 ## Details
 
-necessary specialized wording **must not** fail merely because it is technical. shorter wording **must not** pass merely because it uses fewer words. uncertain meaning preservation remains unevaluated, **not** passed. Read the dedicated Method Atom of Type Term Definition for a Term before comparing a rewrite; an Entity Definition **or** agreement among Semantics sections does **not** substitute for that meaning authority. Check entity names, Claim, Claim Scope, Semantics, Details **and** other authored fields **in** that order, using actual carried fields **without** inventing optional sections. No dictionary, lookup service **or** generated Projection is required.
+necessary specialized wording **must not** fail merely because it is technical. shorter wording **must not** pass merely because it uses fewer words. uncertain meaning preservation remains unevaluated, **not** passed. Read the dedicated Method Atom of Type Term Definition for a Term before comparing a rewrite; an Entity Definition **or** agreement among Semantics sections does **not** substitute for that meaning authority. Check entity names, Claim including applicability in Prose Claim, Semantics, Details **and** other authored fields **in** that order, using actual carried fields **without** inventing optional sections. No dictionary, lookup service **or** generated Projection is required.
 
 ### Term and entity-name preservation cases
 
@@ -62,7 +64,7 @@ reuse of component Term `Package` in `Entity/Object/Continuant/Package`, `Entity
 
 ### Canonical entity naming in prose
 
-for `Entity/Object/Continuant/Package <+ Module <+ Code Unit`, verify that the three entities retain their complete canonical expressions `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module` **and** `Entity/Object/Continuant/Package <+ Module <+ Code Unit` **in** graph Subjects **and** **all** authored mentions. The name strings **must not** become additional graph nodes, **and** the chain **must not** become another entity. Replacing the same Module entity's name with `component` to vary prose fails, even outside a selector. A separately defined Component entity retains its own full name **and** **must not** be merged with Module. Apply the same check to entity names in admitted `/`, `//`, `.`, `:`, `+>`, `<+`, `>|` **and** `|<` constructs, calls `@(...)` to already declared Entities, **and** registered direct Relation tokens inside `((...))`. Check a token's registry resolution separately from the Relation Type entity's full canonical expression; its bare token is not that complete expression. An alternate token asserted to name the same Relation Type fails naming. The reference marker refers to an already declared Entity **without** declaring another target; syntax recognition alone grants no target **or** Relation admission. Operators, delimiters **and** selector syntax are **not** Terms. Under CA-R-1325, a complete composite Subject Expression is **not** one lexical Term; parsing alone **does not** establish a complete entity name **or** another entity. The contextual topic/code spellings `atom.id` **and** `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names. Authored Subjects use their full admitted expressions. The three-target chain introduces no fourth entity **or** fourth complete name. Repeated references to one entity remain one binding; property, value, bearer **or** context qualification does **not** permit the same complete canonical name to identify a different entity.
+for `Entity/Object/Continuant/Package <+ Module <+ Code Unit`, verify that the three entities retain their complete canonical expressions `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module` **and** `Entity/Object/Continuant/Package <+ Module <+ Code Unit` **in** graph Subjects **and** **all** authored mentions. The name strings **must not** become additional graph nodes, **and** the chain **must not** become another entity. Replacing the same Module entity's name with `component` to vary prose fails, even outside a selector. A separately defined Component entity retains its own full name **and** **must not** be merged with Module. Apply the same check to entity names in admitted `/`, `//`, `.`, `:`, `+>`, `<+`, `>|` **and** `|<` constructs, qualified references to already declared Entities, **and** registered direct Relation tokens inside `((...))`. Check a token's registry resolution separately from the Relation Type entity's full canonical expression; its bare token is not that complete expression. An alternate token asserted to name the same Relation Type fails naming. A qualified reference refers to an already declared Entity **without** declaring another target; syntax recognition alone grants no target **or** Relation admission. Operators, delimiters **and** selector syntax are **not** Terms. Under CA-R-1325, a complete composite Subject Expression is **not** one lexical Term; parsing alone **does not** establish a complete entity name **or** another entity. The contextual topic/code spellings `atom.id` **and** `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names. Authored Subjects use their full admitted expressions. The three-target chain introduces no fourth entity **or** fourth complete name. Repeated references to one entity remain one binding; property, value, bearer **or** context qualification does **not** permit the same complete canonical name to identify a different entity.
 
 ### Explicit Term Definition and qualified property cases
 

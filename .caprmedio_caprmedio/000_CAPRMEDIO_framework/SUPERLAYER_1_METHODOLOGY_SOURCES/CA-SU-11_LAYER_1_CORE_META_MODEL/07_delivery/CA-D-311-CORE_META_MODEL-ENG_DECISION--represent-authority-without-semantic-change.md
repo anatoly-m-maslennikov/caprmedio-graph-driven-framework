@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Decision
 
 Represent Authority without Semantic Change
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 governed Carrier representations.
 
-## Claim
 
 **every** governed Carrier **must** represent its carried Artifact Revision deterministically **and** human-readably **without** adding, removing, duplicating, **or** changing authoritative content.

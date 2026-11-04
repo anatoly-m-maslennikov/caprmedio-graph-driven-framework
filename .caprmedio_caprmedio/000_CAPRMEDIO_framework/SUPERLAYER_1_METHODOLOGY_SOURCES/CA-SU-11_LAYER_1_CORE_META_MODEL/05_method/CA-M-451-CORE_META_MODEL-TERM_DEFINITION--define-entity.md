@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Term//Entity
+  active: CAPRMEDIO_MODEL <+ Term//Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Entity/Property
-  - CAPRMEDIO <+ MODEL <+ Term
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Entity/Property
+  - CAPRMEDIO_MODEL <+ Term
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
 version: 4
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Term Definition
 
 Define Entity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The reusable lexical Term `Entity` in canonical entity names and authored model statements.
 
-## Claim
 
 Entity **means** the common category for every primary graph node and every dependent property in the framework, as structurally defined by CA-R-2462. This Claim explicitly introduces the lexical Term instance named Entity at `Term//Entity`.
 

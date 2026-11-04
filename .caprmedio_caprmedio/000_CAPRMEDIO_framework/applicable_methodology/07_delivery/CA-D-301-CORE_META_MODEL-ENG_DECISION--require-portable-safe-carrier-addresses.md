@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address.Segment
-version: 29
-updated_at: 2026-11-02 19:44:26 +0400
+  active: CAPRMEDIO_MODEL <+ Carrier
+version: 30
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-301
 current_scope_unit: CORE_META_MODEL
@@ -12,21 +12,23 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL-ENG_DECISION--require-portable-safe-carrier-addresses.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL-ENG_DECISION--require-portable-safe-carrier-addresses.md
   source_atom_id: CA-D-301
-  source_atom_revision: 29
-  source_sha256: 656d0311427c7586503dcea2e9a2be81ae33804e3e4783cb5c51629582bb9677
+  source_atom_revision: 30
+  source_sha256: 568ce1b02357751b76871c32c6ce6d78c0d615b16c257d2de81d4b5d3f2bd7a2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Require Portable-Safe Carrier Addresses
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project-owned Carrier address segments.
 
-## Claim
 
 **every** Project-owned Carrier address segment
 

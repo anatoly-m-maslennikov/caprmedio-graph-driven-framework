@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Projection
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -17,21 +17,23 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1611-CORE_META_MODEL-RULE--separate-legacy-observations-from-refactoring-decisions.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1611-CORE_META_MODEL-RULE--separate-legacy-observations-from-refactoring-decisions.md
   source_atom_id: CA-R-1611
   source_atom_revision: 28
-  source_sha256: bb64cd266650c5b4c28b2ea987e2e10c7ea375552cdcf1040a212ef0100d4069
+  source_sha256: fb9b2979dba44a765a6aa2f33d7a12f153f43a44115ca39ccd5fbb11ecd4cd9a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Separate legacy observations from refactoring decisions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Reverse-engineering results, including observed Implementation facts and proposed decisions about the intended refactored result.
 
-## Claim
 
 reverse-engineering results **must** distinguish observed Implementation facts from proposed decisions about the intended refactored result.
 

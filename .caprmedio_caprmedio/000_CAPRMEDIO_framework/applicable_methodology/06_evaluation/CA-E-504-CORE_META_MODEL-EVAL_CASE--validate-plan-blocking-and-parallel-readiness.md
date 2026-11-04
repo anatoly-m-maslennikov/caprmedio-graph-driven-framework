@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status: Done'
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status: Done'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Work Sequence Number
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,21 +21,23 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md
   source_atom_id: CA-E-504
   source_atom_revision: 22
-  source_sha256: 8b1cb7a74dbed09855407875b5434ddf731a9da38327981410034461647a1cf8
+  source_sha256: 2553d5552d8a8300b2c9a9c3f362c00421afbd96368d1426672da8a6773472d3
   original_relations_sha256: 16439a02e9b16e78cd3237b12f6c8445cc5504208a38a44ce29a9dad5973c4ed
 ---
 ## Summary
 
 Validate Plan blocking and parallel readiness
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan blocking **and** parallel readiness.
 
-## Claim
 
 the blocking Evaluation **must** reject a start **unless** **all** explicit blockers are Done **and** the applicable execution permissions hold.
 

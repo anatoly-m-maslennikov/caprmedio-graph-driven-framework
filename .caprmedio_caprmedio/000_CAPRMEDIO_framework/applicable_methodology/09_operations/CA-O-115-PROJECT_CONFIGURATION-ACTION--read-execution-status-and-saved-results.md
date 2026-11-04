@@ -20,7 +20,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-115-PROJECT_CONFIGURATION-ACTION--read-execution-status-and-saved-results.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-115-PROJECT_CONFIGURATION-ACTION--read-execution-status-and-saved-results.md
   source_atom_id: CA-O-115
   source_atom_revision: 13
   source_sha256: ce8a22922299c05373b19177f93015d0bdde2308025af4ccf8e4aab4efa2be5b

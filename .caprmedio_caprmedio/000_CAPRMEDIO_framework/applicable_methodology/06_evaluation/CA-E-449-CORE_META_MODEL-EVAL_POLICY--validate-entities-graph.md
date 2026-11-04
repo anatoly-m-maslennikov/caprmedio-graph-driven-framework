@@ -1,26 +1,26 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Property
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Term//Property
-  - CAPRMEDIO <+ MODEL <+ Term
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_PROPERTY
-  - CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Action)'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Entity/Property
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_PROPERTY
+  - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Projection
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 44
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -44,19 +44,21 @@ tier: 4
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md
   source_atom_id: CA-E-449
   source_atom_revision: 44
-  source_sha256: 3f99cefc97873b8ba46d22a7b082552d11476e8b4bcd46fa0a00c9e16e3cb982
+  source_sha256: caca33e72e9b323d2570792e5cff4b1f1e8cb77adceb2fda24c0cbb4473cb6e5
   original_relations_sha256: 93619101184db2632b57dc671d182cef4285c427276f8a2661db47f03027837b
 ---
 ## Summary
 Validate Entities Graph
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Entities Graphs **and** selected views, including source selection, display selection, **and** governing source constraints.
 
-## Claim
 
 the Evaluation **must** reject an Entities Graph **if** **any** of:
 

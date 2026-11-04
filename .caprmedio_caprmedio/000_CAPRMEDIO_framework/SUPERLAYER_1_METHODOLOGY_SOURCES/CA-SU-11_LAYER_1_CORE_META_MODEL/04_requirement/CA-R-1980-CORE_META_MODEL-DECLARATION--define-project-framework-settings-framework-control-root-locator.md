@@ -4,30 +4,37 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Framework Control-Root Locator
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Framework Control-Root Locator
 relations:
   child_of:
   - CA-R-1176
-version: 15
+version: 16
 tier: 3
 role: Requirement
 form: Declaration
-updated_at: 2026-11-02 08:06:47 +0400
+updated_at: 2026-11-04 05:21:15 +0400
 ---
 ## Summary
 
 Define Project.Framework Settings.Framework Control-Root Locator
 
-## Claim scope
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Project.Settings.Framework Control-Root Locator: [string]{:0..1};
+
+Project.Settings.Framework Control-Root Locator.*[]{:0}
+```
+
+### Prose Claim
+
 
 the Project's framework control-root reference in Framework Settings.
 
-## Claim
 
-```CFEL
-Project.Settings.Framework Control-Root Locator{:0..1}: [string]{:1};
-Project.Settings.Framework Control-Root Locator.*[]{:0}
-```
 
 ## Details
 

@@ -4,14 +4,14 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form := Realization Graph)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Realization Graph)
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Realization Graph'
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Entity
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Realization Graph'
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 25
 relations:
   depends_on:
@@ -23,21 +23,23 @@ role: Requirement
 form: Rule
 updated_at: 2026-11-02 18:35:20 +0400
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1616-PROJECT_CONFIGURATION-RULE--define-realization-graph.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1616-PROJECT_CONFIGURATION-RULE--define-realization-graph.md
   source_atom_id: CA-R-1616
   source_atom_revision: 25
-  source_sha256: 71929ca1f8c241156c23435b84c8cb039b56b8c34ecfa61badce96b937fb8180
+  source_sha256: 0dc0173bcc9eb13c61ac6862779d46cc828908d5627222bebeb9e3e65bc7de16
   original_relations_sha256: 36b983a251288c7a82a8b58fc531b8512945c90ac25c124f675a82cc4c0b0732
 ---
 ## Summary
 
 Define Realization Graph
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Realization Graphs derived from a declared selection of existing Implementation sources and available evidence.
 
-## Claim
 
 Realization Graph **means** a non-authoritative Projection of Entities **and** typed Relations derived from a declared selection of existing Implementation sources **and** available evidence, used **to** understand that Implementation **and** support reverse engineering into proposed RMED.
 

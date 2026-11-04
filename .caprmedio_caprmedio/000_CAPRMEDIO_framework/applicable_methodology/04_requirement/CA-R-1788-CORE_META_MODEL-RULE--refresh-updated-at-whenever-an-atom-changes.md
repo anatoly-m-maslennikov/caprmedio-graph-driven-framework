@@ -1,13 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Updated At
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Status
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
-version: 18
-updated_at: 2026-11-02 00:18:22 +0400
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Carrier
+version: 20
+updated_at: 2026-11-03 23:25:51 +0400
 claim_target_scope_unit: CORE_META_MODEL
 relations:
   child_of:
@@ -19,21 +18,23 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md
   source_atom_id: CA-R-1788
-  source_atom_revision: 18
-  source_sha256: f8870a511f7000375b40f549379b68d799c244dc56971301989e3d408ef54fbf
+  source_atom_revision: 20
+  source_sha256: fe1ea3b238d02e50c90dfe8d9454ba5c6dabc5e7017833928110f7feb224a2d1
   original_relations_sha256: f928d2096b701aa0e7852bc6d06e4620a81315e585b6a1074e66973879d77cf5
 ---
 ## Summary
 
 Refresh Updated At whenever an Atom changes
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 accepted Markdown Atom Carrier edits.
 
-## Claim
 
 **every** actual accepted edit **to** an Atom Carrier **must** refresh that Current Atom's `updated_at` **to** the actual Project-time edit instant, including a formatting, lossless serialization, Entity-name, admitted Current Status, direct-owner, **or** current-Atom local-placement edit. an exact no-op **must** retain Updated At. When a real update publishes a successor and archives its predecessor, the Archive Carrier **must** retain the predecessor's prior Updated At, numeric Version, and unrelated content while carrying the Archived status and version-qualified identity; Git history preserves the exact pre-archive bytes. Standalone archival is not an edit to the Current Atom's content: it only materializes the Archived representation with its version-qualified identity, filename and location, so it does not create a successor or refresh Updated At.
 

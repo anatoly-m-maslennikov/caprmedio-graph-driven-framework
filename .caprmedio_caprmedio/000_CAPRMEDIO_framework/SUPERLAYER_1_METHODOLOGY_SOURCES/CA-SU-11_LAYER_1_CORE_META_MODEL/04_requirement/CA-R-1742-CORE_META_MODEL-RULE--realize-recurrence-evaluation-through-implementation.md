@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
 version: 30
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,10 +18,12 @@ form: Rule
 
 Realize recurrence Evaluation through Implementation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Implementation of a recurrence Evaluation Atom.
 
-## Claim
 
 Implementation **must** realize a recurrence Evaluation Atom through an executable test, evaluation, monitor, alert, **or** other conforming mechanism.

@@ -4,9 +4,9 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
 version: 15
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,11 +18,13 @@ form: Rule
 
 Control production DEBUG enablement
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 logging Implementation for production DEBUG logging under Logging Policies.
 
-## Claim
 
 logging Implementation **must** keep production DEBUG logging disabled by default. temporary enablement **must** be scoped by component, subject, run, entity, **or** another bounded selector, have an automatic expiry, **and** preserve the same redaction rules as **every** other level.
 

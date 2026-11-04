@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 41
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -18,20 +18,22 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL--configure-necessary-information-confidence-threshold.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL--configure-necessary-information-confidence-threshold.md
   source_atom_id: CA-R-1652
   source_atom_revision: 41
-  source_sha256: fc473fcf50187a24be8bd14c4509d49312b01986fd1e5edd0521b061764f6911
+  source_sha256: 825efc5dec8b194d7c44c2401b68d7f6fcf19b62d227489d959af5a3b66307f7
   original_relations_sha256: 1fddf648d483acf640290c72e718548429caae656717f81bf15fc5a4a4df29e9
 ---
 ## Summary
 
 Configure necessary-information confidence threshold
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the necessary-information Confidence Threshold.
 
-## Claim
 
 the necessary-information Confidence Threshold **must** have an Operator-configurable integer-percentage instance default.

@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Action
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action//Assess Atom Update Identity'
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Assess Atom Update Identity'
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 25
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -26,21 +26,23 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-491-PROJECT_CONFIGURATION-EVAL_CASE--validate-update-to-replacement-routing.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-491-PROJECT_CONFIGURATION-EVAL_CASE--validate-update-to-replacement-routing.md
   source_atom_id: CA-E-491
   source_atom_revision: 25
-  source_sha256: 79eae8d7af7293434902e3eaef8661ebbb36646dcce563c21124b17a6c3a369b
+  source_sha256: a6c77217ae40f2355c53f460a42d8733906ade203d1893b79fea4d459562b4c7
   original_relations_sha256: 6e6d3a471477ab476cf4857eae5daac93e2ec1d8486362a6e4215397d13154e7
 ---
 ## Summary
 
 Validate update-to-replacement routing
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an update Workflow's routing of CA-O-067 assessment results.
 
-## Claim
 
 the Evaluation **must** check that an update Workflow owns the routing of CA-O-067 assessment results under CA-M-303.
 

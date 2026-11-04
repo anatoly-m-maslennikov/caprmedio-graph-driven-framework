@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Projection
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -29,21 +29,23 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-EVAL_CASE--journal-view-integrity.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-EVAL_CASE--journal-view-integrity.md
   source_atom_id: CA-E-523
   source_atom_revision: 18
-  source_sha256: f0369e2fe2708544a2fb0863af4a453c7293590c83cb0aeb6482f0e5196c5c3b
+  source_sha256: 7f393fdf82c695be630bf1bd352085f753137ddbb04c6641740cf2db099f09b2
   original_relations_sha256: 52070712db2bf0eb2d3df60c08582a01b89afa40850ef6755aff70799e6d9cee
 ---
 ## Summary
 
 Journal-view integrity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an Artifact-change view **and** a Workflow-execution view derived from the same declared Journal selection.
 
-## Claim
 
 the Evaluation **must** assess Journal-view integrity using the following fixtures **and** result conditions.
 

@@ -6,10 +6,10 @@ status: Active
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Term//Property
 relations: {}
 tier: 1
 role: Delivery
@@ -19,11 +19,13 @@ form: Policy
 
 Give every non-ephemeral Entity a Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 non-ephemeral Entities.
 
-## Claim
 
 Every represented non-ephemeral Entity has at least one declared Carrier or a location within a shared Carrier. Reusable D Policies may define that binding for an entire Object kind and its dependent properties; individual D Decisions govern bounded exceptions. The governed Subject names the represented entity, not an extra representation node.
 

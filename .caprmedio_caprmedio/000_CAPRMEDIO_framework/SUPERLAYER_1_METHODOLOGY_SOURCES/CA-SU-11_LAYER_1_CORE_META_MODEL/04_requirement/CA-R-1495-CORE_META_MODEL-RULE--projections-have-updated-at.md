@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection.Updated At
+  active: CAPRMEDIO_MODEL <+ Projection.Updated At
   passive:
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Projection
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,10 +20,12 @@ form: Rule
 
 Projections have updated at
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection revisions after completed rebuilds.
 
-## Claim
 
 **every** Projection has **`=1`** unambiguous Updated At date-time identifying its latest completed rebuild.

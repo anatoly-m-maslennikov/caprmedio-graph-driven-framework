@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Atom
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Rule
 
 Permit Projections as Implementation outputs
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 non-authoritative view Projections delivered as Implementation outputs.
 
-## Claim
 
 a view Projection **may** be delivered as an Implementation output of its governing RMED **without** becoming an Atom **or** another source of truth for the facts it represents.
 

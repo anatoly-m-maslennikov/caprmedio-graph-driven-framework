@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Applicable Methodology)'
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Term//Type
-  - CAPRMEDIO <+ MODEL <+ CFEL
-  - CAPRMEDIO <+ MODEL <+ Entity/Property
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Applicable Methodology)'
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Term//Type
+  - CAPRMEDIO_MODEL <+ CFEL
+  - CAPRMEDIO_MODEL <+ Entity/Property
 version: 27
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -18,22 +18,24 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md
   source_atom_id: CA-R-1284
   source_atom_revision: 27
-  source_sha256: 8bb9cac40eecedf3b9abca9c9a15c0f051ab3814ff4e0f5dae4abbc2ed735030
+  source_sha256: 47048137a76a2cb71acc40277f94fb59f4d619af5c498ab7349bf55da7fe1d36
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Type
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Type Properties and their use in qualified Entity kinds. A Type Property is
 optional generally; an applicable governing rule may require it in its context.
 
-## Claim
 
 Type is a single-valued Property when an Entity admits that Property. It can
 be used for classification: `X/(.Type: Z)` identifies a kind narrower than X,
@@ -55,7 +57,7 @@ become a narrower kind of X, and no intermediate X/Y kind is declared. Neither f
 value to an existing instance merely by appearing in an expression.
 
 Atom Form is represented by the YAML `form` key; Atom Role is represented by `role`. Legacy `type` and `content_role` are readable only under the transition rules in CA-D-657. These encodings do not create separate Property kinds.
-For example, `Atom/(.Content Role: Method)` concerns Atoms classified by Content
+For example, `Atom/(.Header.Role: Method)` concerns Atoms classified by Content
 Role Method; Method is not used as a Type value in this example.
 
 ## Details

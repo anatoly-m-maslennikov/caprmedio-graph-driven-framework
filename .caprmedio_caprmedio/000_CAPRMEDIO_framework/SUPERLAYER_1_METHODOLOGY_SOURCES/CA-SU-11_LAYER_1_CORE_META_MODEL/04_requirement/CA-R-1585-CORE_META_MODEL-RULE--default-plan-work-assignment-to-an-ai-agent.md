@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Default Plan work assignment to an AI Agent
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a Plan Atom with its own work and no explicit Assignee.
 
-## Claim
 
 **if** a Plan Atom has its own work **and** no explicit Assignee, **then** its effective Assignee **must** be **=1** AI Agent selected **to** execute that work.

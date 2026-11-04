@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Governance Origin
+  active: CAPRMEDIO_MODEL <+ Atom.Governance Origin
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//Artifact
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Product
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 39
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -17,21 +17,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1645-PROJECT_CONFIGURATION-RULE--define-self-hosted-governance-origins.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1645-PROJECT_CONFIGURATION-RULE--define-self-hosted-governance-origins.md
   source_atom_id: CA-R-1645
   source_atom_revision: 39
-  source_sha256: 1916163e7268ed521d88aba0adc305b59d0284db1eb1762f5d3ac5c93acb4e68
+  source_sha256: bc03be5ab06b03fb47c5c315b4ca0c248ccf7df9e4a9244e95220b80dccf7f37
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define self-hosted Governance origins
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Governance Origin for the self-hosted caprmedio Project and its distributed CAPRMEDIO sources.
 
-## Claim
 
 Governance Origin for the self-hosted caprmedio Project **and** its distributed CAPRMEDIO sources follows the ownership distinction **in** CA-R-1709@38-CORE_META_MODEL-DEFINITION--define-two-governance-origins:
 

@@ -4,10 +4,10 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Realization Graph)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Projection
 version: 21
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,11 +19,13 @@ form: Rule
 
 Define the Realization Graph dependency view
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 optional dependency views of Realization Graphs.
 
-## Claim
 
 the dependency view of a Realization Graph **means** an optional derived view of the selected declarations, resources, internal dependency targets, external dependency targets, **and** admitted typed Relations among them.
 

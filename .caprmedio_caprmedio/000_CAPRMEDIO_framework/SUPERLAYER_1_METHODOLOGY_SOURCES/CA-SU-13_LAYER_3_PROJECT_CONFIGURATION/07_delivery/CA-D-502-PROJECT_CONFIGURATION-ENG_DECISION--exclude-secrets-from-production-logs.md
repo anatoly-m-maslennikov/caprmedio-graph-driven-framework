@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
 version: 13
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Decision
 
 Exclude secrets from production logs
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production logs that can contain credentials **or** secret-bearing payloads.
 
-## Claim
 
 production logs **must not** contain passwords, API keys, access tokens, session secrets, cookies, private keys, complete credentials, **or** unredacted secret-bearing payloads.
 

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
+  active: CAPRMEDIO_MODEL <+ Carrier/Directory
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
-  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,21 +15,23 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md
   source_atom_id: CA-D-264
   source_atom_revision: 29
-  source_sha256: f2f43c816e8ad2ecb659c8ba140d2c553369c562ac4b710e9137d06c6b4c2faa
+  source_sha256: e12a30e551afc95a332d40b1f467231d68edf974bd753d54d5d1e6d2e9336e1e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Derive Direct Containment from the Nearest Directory Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifact Revisions whose canonical Carriers are nested below Directory Carriers.
 
-## Claim
 
 an Artifact Revision whose canonical Carrier is nested below a Directory Carrier **must** derive **`=1`** direct `IS_CONTAINED_BY` connection to the Structural Entity Revision carried by its nearest ancestor Directory Carrier **and** the reverse `CONTAINS` view from that connection.
 

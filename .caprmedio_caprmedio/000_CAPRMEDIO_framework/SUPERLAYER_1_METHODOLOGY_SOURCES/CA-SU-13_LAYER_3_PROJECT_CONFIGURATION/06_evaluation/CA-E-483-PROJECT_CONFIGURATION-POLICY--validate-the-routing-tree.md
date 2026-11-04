@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Communication
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Communication
 version: 21
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,11 +18,13 @@ form: Eval Policy
 
 Validate the routing tree
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the CAPRMEDIO Routing Tree.
 
-## Claim
 
 the Evaluation of the CAPRMEDIO Routing Tree registered under CA-R-1640-PROJECT_CONFIGURATION-RULE--register-one-canonical-routing-tree **must** reject a routing tree **when** **any** of the following is present:
 

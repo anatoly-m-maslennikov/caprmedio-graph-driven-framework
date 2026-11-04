@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement).Form
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement).Header.Form
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2468-CORE_META_MODEL-RULE--declaration-form-registration.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2468-CORE_META_MODEL-RULE--declaration-form-registration.md
   source_atom_id: CA-R-2468
   source_atom_revision: 2
-  source_sha256: 882936929c11a11ef6e7115bae25a54a3597ff1b8307be7c9cde08f049716c1c
+  source_sha256: 73d3a8c103cd2d7e8ad75c630b79ec06f2bb4c96ff0d5471e898451ca69d625c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
@@ -24,6 +24,9 @@ projection:
 Register Declaration as a Requirement Form
 
 ## Claim
+
+### Prose Claim
+
 
 Declaration is a Requirement Form.
 

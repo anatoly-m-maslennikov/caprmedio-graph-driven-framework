@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -19,10 +19,12 @@ form: Rule
 ## Summary
 Apply the same Scope Unit governance recursively
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Structural levels of the CAPRMEDIO Metamodel.
 
-## Claim
 
 the CAPRMEDIO Metamodel **must** be fractal by applying the same Scope Unit governance pattern recursively at **every** Structural level.

@@ -20,7 +20,7 @@ subjects:
 relations: {}
 tier: 3
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-126-PROJECT_CONFIGURATION-ACTION--assess-prepared-result-conformance.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-126-PROJECT_CONFIGURATION-ACTION--assess-prepared-result-conformance.md
   source_atom_id: CA-O-126
   source_atom_revision: 15
   source_sha256: 1cec4cc7b0458b5d96e64162e5ab7d98d28685b82df2bade57c9d048a896ed70

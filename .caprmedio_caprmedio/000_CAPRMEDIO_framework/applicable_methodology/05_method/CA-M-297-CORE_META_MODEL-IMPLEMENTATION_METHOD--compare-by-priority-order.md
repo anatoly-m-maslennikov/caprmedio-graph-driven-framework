@@ -7,11 +7,11 @@ relations:
   method_for:
   - CA-R-1487
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
+  active: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Method)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
 atom_id: CA-M-297
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -20,21 +20,23 @@ tier: 4
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-297-CORE_META_MODEL-IMPLEMENTATION_METHOD--compare-by-priority-order.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-297-CORE_META_MODEL-IMPLEMENTATION_METHOD--compare-by-priority-order.md
   source_atom_id: CA-M-297
   source_atom_revision: 21
-  source_sha256: 13693784f0c99875a5682b1c459d4ac80c7b88d40e1f9dbe166f1a7c3ed332cf
+  source_sha256: 00d9d5705208f95abaaaf788f379a17c84e7d7e020afbb7d634a3a50864e1da5
   original_relations_sha256: ae04acb88297daa974bd08169ba33dbc88019ff0c09b2e9daea0eccf21fc1cb8
 ---
 ## Summary
 
 Compare by priority order
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 priority-order comparison of admissible alternatives.
 
-## Claim
 
 **when** the Operator selects comparison by priority order, the comparison of admissible alternatives **must** use the resolved order of active, applicable criteria as follows:
 

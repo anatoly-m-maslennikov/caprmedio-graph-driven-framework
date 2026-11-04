@@ -1,17 +1,17 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//RMEDO Conflict Resolution'
+  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//RMEDO Conflict Resolution'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - CAPRMEDIO <+ MODEL <+ Atom.Tier
-  - CAPRMEDIO <+ MODEL <+ Atom.Updated At
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Tier.Label: Scope Contract'
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Updated At
+  - 'CAPRMEDIO_MODEL <+ Atom.Header.Tier.Label: Scope Contract'
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO_MODEL <+ Event Record
 version: 4
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -28,21 +28,23 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-666-PROJECT_CONFIGURATION-EVAL_CASE--check-gap-free-rmedo-conflict-resolution.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-666-PROJECT_CONFIGURATION-EVAL_CASE--check-gap-free-rmedo-conflict-resolution.md
   source_atom_id: CA-E-666
   source_atom_revision: 4
-  source_sha256: d4859110a218ac9d8add3ca3c0b61ccff7d78bd55d93fe5b8b2115bb03b280c6
+  source_sha256: c81f97dd587998507e9d099c21b083e42d2d8614b20ab2350e61127f69e9fd44
   original_relations_sha256: 0cecd19a21d5691fcd7dd41da7255a71b2ca140c377c5f048aacd3758388e8eb
 ---
 ## Summary
 
 Check gap-free RMEDO conflict resolution
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 RMEDO Conflict Resolution **and** its reused Actions.
 
-## Claim
 
 The Evaluation **must** check whether RMEDO Conflict Resolution follows CA-O-028-PROJECT_CONFIGURATION-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps **and** its reused Actions **without** losing required authority.
 

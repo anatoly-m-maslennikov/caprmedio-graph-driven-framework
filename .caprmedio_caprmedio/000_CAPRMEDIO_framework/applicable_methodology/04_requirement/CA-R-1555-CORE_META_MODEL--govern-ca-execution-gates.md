@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -19,19 +19,21 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL--govern-ca-execution-gates.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL--govern-ca-execution-gates.md
   source_atom_id: CA-R-1555
   source_atom_revision: 23
-  source_sha256: a7eff139e31b3f72f032cbfced81be2dd2b8ca9f0ad4c41fecf6da885f9d5418
+  source_sha256: f6b0aa5f63aefab903e249d9e923b7bd2fae09b890f9554df1202b35627930a9
   original_relations_sha256: 47a017ddc25d777e9a3d23993aebbd24381f2642f26fda3d06692854c0d4808a
 ---
 ## Summary
 Govern CA execution gates
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 identified AI Agents considering clarification omission under applicable configured confidence requirements.
 
-## Claim
 
 an identified AI Agent **may** omit clarification **only** **when** confidence **in** **every** following item meets its applicable configured requirement:
 

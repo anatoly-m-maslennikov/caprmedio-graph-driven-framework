@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Status:Draft
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Status:Draft
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.ID
-  - CAPRMEDIO <+ MODEL <+ Atom.Version
-  - CAPRMEDIO <+ MODEL <+ Atom.Status:Draft
-  - CAPRMEDIO <+ MODEL <+ Atom.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status:Draft
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
 version: 24
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Decision
 
 Serialize Draft Revision Lineage
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the recorded lineage metadata of a Project-owned Draft Atom Carrier, when it already exists.
 
-## Claim
 
 A Draft Atom **must not** require `revision_lineage`, a retained Draft-history entry or a trusted Draft head for Create, Update, promotion, another admitted Status change or their success. Every Draft Carrier carries the mandatory Draft `atom_id` marker under CA-D-378/CA-D-446; its filename follows CA-D-650.
 

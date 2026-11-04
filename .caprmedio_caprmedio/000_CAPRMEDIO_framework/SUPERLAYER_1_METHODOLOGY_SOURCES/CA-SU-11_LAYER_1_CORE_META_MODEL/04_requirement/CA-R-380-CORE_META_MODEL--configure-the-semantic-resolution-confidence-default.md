@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Semantic Resolution Threshold
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Semantic Resolution Threshold
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 44
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -22,10 +22,12 @@ form: Rule
 
 Configure the semantic-resolution confidence default
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 semantic-resolution Confidence Threshold instance defaults.
 
-## Claim
 
 the semantic-resolution Confidence Threshold **must** have an Operator-configurable instance default.

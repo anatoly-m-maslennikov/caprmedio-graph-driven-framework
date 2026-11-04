@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Carrier/File
-  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Project
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,21 +21,23 @@ tier: 4
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-457-CORE_META_MODEL-POLICY--validate-authoritative-markdown-atom-carriers.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-457-CORE_META_MODEL-POLICY--validate-authoritative-markdown-atom-carriers.md
   source_atom_id: CA-E-457
   source_atom_revision: 34
-  source_sha256: 3c30717afa9a9e0d709a849cfbc297b4e3a1a9cdc9f094b828c3044db2eef3b1
+  source_sha256: d0587947892921aca1723ed24d15418076254cf0961d5b94c983deabe06ad961
   original_relations_sha256: 3010e1fb6eceadf25e7534e0f721b09bbdf95653f79b6bee243373f24408a11d
 ---
 ## Summary
 
 Validate Authoritative Markdown Atom Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the authoritative Markdown Carrier **and** body structure of an Atom Revision.
 
-## Claim
 
 the Evaluation **must** reject an Atom Revision **if** it has other than **`=1`** authoritative Markdown Atom Carrier on the Project filesystem, its authoritative Carrier does **not** contain YAML Frontmatter followed by the Content-Role-specific structured Main Content under CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties, **or** a TOML, YAML, JSON, database, **or** projected copy is treated as authoritative for that Atom Revision.
 

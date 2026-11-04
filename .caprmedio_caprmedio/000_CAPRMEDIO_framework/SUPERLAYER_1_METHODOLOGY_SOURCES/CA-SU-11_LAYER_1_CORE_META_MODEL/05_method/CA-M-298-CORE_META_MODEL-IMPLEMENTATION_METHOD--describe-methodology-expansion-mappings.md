@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -24,11 +24,13 @@ form: Implementation Method
 
 Describe methodology expansion mappings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Methodology Source expansion mappings.
 
-## Claim
 
 **to** describe a Methodology Source expansion mapping, use **`=1`** explicit mapping description that identifies:
 

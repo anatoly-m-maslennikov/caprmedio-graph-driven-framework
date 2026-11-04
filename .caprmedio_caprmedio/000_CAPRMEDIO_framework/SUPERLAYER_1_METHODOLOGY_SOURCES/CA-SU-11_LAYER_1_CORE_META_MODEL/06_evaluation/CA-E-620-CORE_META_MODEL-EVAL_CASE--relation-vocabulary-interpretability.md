@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 34
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Eval Case
 
 Relation-vocabulary interpretability
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the case covers lineage, implementation, checking, evidence, resolution, conflict solution, override, replacement, recurrence, **and** generic relation.
 
-## Claim
 
 the registered relation vocabulary lets an independent assessor select the governed relation for representative artifact pairs **without** inventing another kind.
 

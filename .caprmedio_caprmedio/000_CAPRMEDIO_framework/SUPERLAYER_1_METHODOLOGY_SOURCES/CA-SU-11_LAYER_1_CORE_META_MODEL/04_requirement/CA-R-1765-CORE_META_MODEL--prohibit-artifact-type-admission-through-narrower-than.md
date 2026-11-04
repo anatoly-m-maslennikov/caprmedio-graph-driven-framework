@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//NARROWER_THAN
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
 version: 35
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Prohibit Artifact Type admission through NARROWER_THAN
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifact Type values.
 
-## Claim
 
 an Artifact Type value **must not** use NARROWER_THAN **to** establish its admission as an Artifact.

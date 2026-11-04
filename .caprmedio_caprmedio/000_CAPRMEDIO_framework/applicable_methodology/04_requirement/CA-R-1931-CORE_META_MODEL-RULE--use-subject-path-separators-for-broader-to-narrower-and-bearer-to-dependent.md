@@ -4,14 +4,14 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Property
-  - CAPRMEDIO <+ MODEL <+ Entity/Property
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_CLASSIFICATION
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Entity/Property
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_CLASSIFICATION
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
 version: 18
 relations: {}
 tier: 3
@@ -19,27 +19,28 @@ updated_at: 2026-11-02 00:18:22 +0400
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md
   source_atom_id: CA-R-1931
   source_atom_revision: 18
-  source_sha256: a1e1dbc8d1059572895c06df664f1d881ab7d24c7a2de9bee344b0dfc357b9ed
+  source_sha256: cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Use Subject Path Separators for Broader-to-Narrower and Bearer-to-Dependent
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a Entity Path.
 
-## Claim
 
 In an Entity Path, `/` separates a broader kind from its narrower kind; `//`
 separates an Entity kind from a named instance; `.` separates a bearer from a
 dependent Property; and `:` separates any `X` from its allowed literal value
-`Y`, irrespective of X's kind or path. `@` calls an already declared Entity;
-it is not limited to kinds and declares no target. Parentheses provide logical
+`Y`, irrespective of X's kind or path. A bare qualified address refers to its declared target and declares no target. Parentheses provide logical
 grouping.
 
 `Part +> Whole` and `Whole <+ Part` are opposite writings of the same
@@ -66,9 +67,9 @@ their post-Property notation, for example `X.Y[format]{n}`. A Relation has two
 independent directional slots: `Source {forward-count}RELATION{reverse-count}
 Target`. The pre-operator slot constrains Relation instances in the written
 Source-to-Target direction per Source; the post-operator slot independently
-constrains the reverse count per Target. These are not distinct-target counts. For example, `Step {1}+>{1+} Workflow` requires one Workflow per
+constrains the reverse count per Target. These are not distinct-target counts. For example, `Step {:1}+>{:1+} Workflow` requires one Workflow per
 Step and one or more Steps per Workflow; its reverse writing is
-`Workflow {1+}<+{1} Step`. `Property {1}((IS_PROPERTY_OF)) Bearer` requires
+`Workflow {:1+}<+{:1} Step`. `Property {:1}((IS_PROPERTY_OF)) Bearer` requires
 exactly one outgoing IS_PROPERTY_OF Relation for each Property occurrence;
 postfix-only `{1}` would instead constrain the reverse count per Bearer.
 Each Relation is binary and connects two endpoint nodes or node instances.
@@ -78,16 +79,15 @@ direct-value Format and cardinality.
 Advanced functions, formulas, interpolation, and bracketed conditions are out
 of scope.
 
-### Formal claim
 
 ```text
 Entity/Object/Continuant/Package <+ Module <+ Code Unit
-Atom/(.Content Role: Operations)/(.Type: Step) {1}+>{1+} Atom/(.Content Role: Operations)/(.Type: Workflow)
-Atom/(.Content Role: Operations)/(.Type: Sub-step) {1}+>{0+} Atom/(.Content Role: Operations)/(.Type: Step)
-Atom/(.Content Role: Method)
-Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Draft <+ Draft
-Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Archived <+ Archived
-Entity/Object/Continuant/Governing Objects/Atom.Status >| Status Group: Current <+ * not in (Draft, Archived)
+Atom/(.Header.Role: Operations)/(.Header.Form: Step) {:1}+>{:1+} Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)
+Atom/(.Header.Role: Operations)/(.Header.Form: Sub-step) {:1}+>{:0+} Atom/(.Header.Role: Operations)/(.Header.Form: Step)
+Atom/(.Header.Role: Method)
+Atom.Header.Status >| Status Group: Draft <+ Draft
+Atom.Header.Status >| Status Group: Archived <+ Archived
+Atom.Header.Status >| Status Group: Current <+ * not in (Draft, Archived)
 Source ((RELATION_TYPE)) Target
 ```
 
@@ -96,20 +96,19 @@ Source ((RELATION_TYPE)) Target
 `/` is specialization and supplies inheritance. `+>` and `<+` are containment
 and do not supply inheritance, sequence, or a property relation. `//` names
 an instance of a kind; `.` addresses a dependent Property; and `:` declares
-an allowed value rather than assigning one. A reference marker calls an
-already declared Entity and creates neither an alias nor a duplicate.
+an allowed value rather than assigning one. A bare qualified address refers to its declared target and creates neither an alias nor a duplicate.
 
 `X.Y` addresses Property Y, and `X.Y: Z` expresses its allowed value.
 `X/(.Y: Z)` instead identifies qualified X entities. For example,
-`Atom/(.Type: Method)` means an Atom with the stated Type qualification, not
-the Type Property inheriting Atom's features. This syntax example alone does
-not admit Method as a Type value; the existing Content Role use is written
-`Atom/(.Content Role: Method)`. Every qualification still requires its own
+`Atom/(.Header.Form: Method)` means an Atom with the stated Form qualification, not
+the Form Property inheriting Atom's features. This syntax example alone does
+not admit Method as a Form value; the existing Role use is written
+`Atom/(.Header.Role: Method)`. Every qualification still requires its own
 admitted Property and allowed value. Existing Carrier keys and encodings
 remain governed separately by Delivery; the notation adds no nested object.
 
 Status Group classifies Atom Statuses through
-`Atom.Status >| Status Group`. The following `<+` expressions describe each
+`Atom.Header.Status >| Status Group`. The following `<+` expressions describe each
 group's Status parts. In this
 mapping, `* not in (Draft, Archived)` selects admitted Atom Status values
 other than Draft and Archived. It does not admit new Status values, missing
@@ -121,8 +120,8 @@ inheritance; the Property-qualified Atom kind inherits through `/`.
 Each Module belongs to exactly one Package; Project Implementation is the
 parentless root Package and a nested Package belongs to another Package. Step
 belongs to Workflow; Step and Sub-step are distinct. Scope Unit has structural
-parts expressed as `Scope Unit <+ @(Scope Unit)`, `Scope Unit <+ @(Atom)`, and
-`Scope Unit <+ @(Projection)`.
+parts expressed as `Scope Unit <+ Scope Unit`, `Scope Unit <+ Atom`, and
+`Scope Unit <+ Projection`.
 
 Backslash escapes the next literal name character. Single/double quotes are
 carrier serialization, not Entity delimiters. One globally unique primary

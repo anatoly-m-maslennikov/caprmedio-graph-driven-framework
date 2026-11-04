@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.ID
+  active: CAPRMEDIO_MODEL <+ Atom.Header.ID
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Status: Draft'
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Draft'
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,21 +15,23 @@ tier: 1
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md
   source_atom_id: CA-D-446
   source_atom_revision: 28
-  source_sha256: a364257a7ff40d31aa675ec6aeb64191dada692461b95af8207efe057cd7bd3b
+  source_sha256: d467359ea2145496525d682ed31b213c8bc3ff5ba60f3b18275e349af4481bb3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Give Every Non-Draft Atom Revision One Identifier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Current Atom sources, Archived Atom versions and Draft Atom sources.
 
-## Claim
 
 For each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with `status: Archived` and its prior Updated At retained; Git history preserves exact pre-archive bytes.
 

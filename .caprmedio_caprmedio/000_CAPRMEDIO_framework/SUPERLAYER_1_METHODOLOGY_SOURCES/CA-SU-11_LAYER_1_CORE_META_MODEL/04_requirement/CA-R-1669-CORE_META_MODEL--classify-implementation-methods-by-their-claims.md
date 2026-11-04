@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Tier
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,10 +21,12 @@ form: Rule
 
 Classify implementation methods by their claims
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Implementation Method numeric Tier and governing-graph ordering.
 
-## Claim
 
 an Implementation Method qualified under CA-R-1767 **must** receive its numeric Tier from its complete Claim and current Scope Unit under CA-M-438; reusability alone **must not** force a particular Tier. Tier admission **must not** impose a Content-Role or Type-to-Tier restriction.

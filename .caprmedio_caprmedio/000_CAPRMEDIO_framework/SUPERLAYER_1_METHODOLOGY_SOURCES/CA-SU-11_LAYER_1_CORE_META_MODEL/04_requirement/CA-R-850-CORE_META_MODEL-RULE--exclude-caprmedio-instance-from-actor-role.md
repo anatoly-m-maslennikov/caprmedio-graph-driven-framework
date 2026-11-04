@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - CAPRMEDIO <+ MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Actor
 version: 30
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,10 +20,12 @@ form: Rule
 
 Exclude CAPRMEDIO instance from Actor role
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the CAPRMEDIO Framework Instance.
 
-## Claim
 
 the CAPRMEDIO Framework Instance **must not** be classified as an Actor.

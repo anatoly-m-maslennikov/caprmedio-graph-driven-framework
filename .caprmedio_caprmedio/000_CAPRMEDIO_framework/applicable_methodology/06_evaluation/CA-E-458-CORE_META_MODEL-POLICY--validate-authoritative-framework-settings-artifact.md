@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
 version: 35
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -26,21 +26,23 @@ tier: 6
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-POLICY--validate-authoritative-framework-settings-artifact.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-POLICY--validate-authoritative-framework-settings-artifact.md
   source_atom_id: CA-E-458
   source_atom_revision: 35
-  source_sha256: 4661ec3ed3ab8f2a1b277026c99d78dcba6127e3b63eea112d0b275f31462584
+  source_sha256: 0673486890ca4f0517debe3baee67fe872d0c04788af5d5e6efc2f3c7f44ac4e
   original_relations_sha256: a95c38f963c816aed35c6d71c7ade4a56593d3be5fcbf8d9fd18ada3566f785b
 ---
 ## Summary
 
 Validate Authoritative Framework Settings Artifact
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Framework Instance Settings.
 
-## Claim
 
 the Evaluation **must** reject Framework Instance Settings **if**
 

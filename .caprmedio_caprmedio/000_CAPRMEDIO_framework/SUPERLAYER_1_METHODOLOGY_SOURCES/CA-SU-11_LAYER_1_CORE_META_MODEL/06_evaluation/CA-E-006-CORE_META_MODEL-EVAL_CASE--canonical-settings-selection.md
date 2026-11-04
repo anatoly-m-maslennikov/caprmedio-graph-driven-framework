@@ -1,8 +1,8 @@
 ---
 subjects:
-  governs: Project.Settings
-  depends_on:
-  - Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
+  passive:
+  - CAPRMEDIO_MODEL <+ Project.Settings
   - Entity/Object/Continuant/Governing Objects/Governing Configuration
 version: 40
 updated_at: 2026-11-02 20:07:03 +0400

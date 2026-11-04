@@ -26,7 +26,7 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 relations: {}
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-164-PROJECT_CONFIGURATION-WORKFLOW--release-a-selected-framework-version.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-164-PROJECT_CONFIGURATION-WORKFLOW--release-a-selected-framework-version.md
   source_atom_id: CA-O-164
   source_atom_revision: 34
   source_sha256: 2dc1b57cbcbadb6b170d1734bffb36add290dc1279822e9e9a11c9514019e656

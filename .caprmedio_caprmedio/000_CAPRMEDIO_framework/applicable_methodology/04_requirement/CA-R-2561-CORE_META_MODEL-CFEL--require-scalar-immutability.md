@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2561-CORE_META_MODEL-CFEL--require-scalar-immutability.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2561-CORE_META_MODEL-CFEL--require-scalar-immutability.md
   source_atom_id: CA-R-2561
   source_atom_revision: 2
-  source_sha256: 896dc31c28185ee1e9d7a42ac82c1b89b1990f4cae53413ce6e5f56102ae00e2
+  source_sha256: 83bff367f0813031c98a833e5bc41dd93d245c1bfdee19de3cdcd9dfa4b188d8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
@@ -23,6 +23,9 @@ projection:
 Require scalar Property immutability
 
 ## Claim
+
+### Prose Claim
+
 
 `IMMUTABLE(p)` requires the same valid scalar Property value for one logical bearer from the first point when the surrounding scope selects that Property onward.
 

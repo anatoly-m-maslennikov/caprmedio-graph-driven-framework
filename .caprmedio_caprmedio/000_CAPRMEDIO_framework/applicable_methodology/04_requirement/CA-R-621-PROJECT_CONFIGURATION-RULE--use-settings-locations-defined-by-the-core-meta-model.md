@@ -17,20 +17,23 @@ status: Active
 atom_id: CA-R-621
 tier: 2
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File
+  active: CAPRMEDIO_MODEL <+ Carrier/File
 claim_target_scope_unit: caprmedio
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-621-PROJECT_CONFIGURATION-RULE--use-settings-locations-defined-by-the-core-meta-model.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-621-PROJECT_CONFIGURATION-RULE--use-settings-locations-defined-by-the-core-meta-model.md
   source_atom_id: CA-R-621
   source_atom_revision: 17
-  source_sha256: 3ec13e80635ea66b1355cbdd24f494ee510678be7888c2ab9690e28ade0e039f
+  source_sha256: 3f09ffa9cfb8f22f011c8c130fc0986f35a35f5413cae9b47e3f785b32dab983
   original_relations_sha256: b8cbb30ffabe4fcbb8a02dc0d203a78072d64c00f7f4b788e477136b73ff28f7
 ---
 ## Summary
 Use settings locations defined by the Core Meta-Model
 
 ## Claim
+
+### Prose Claim
+
 
 the caprmedio Implementation **must** resolve both Settings Artifacts through the Core Meta-Model Carrier rules CA-D-359 **and** CA-D-364 **without** defining a Project-specific competing location.

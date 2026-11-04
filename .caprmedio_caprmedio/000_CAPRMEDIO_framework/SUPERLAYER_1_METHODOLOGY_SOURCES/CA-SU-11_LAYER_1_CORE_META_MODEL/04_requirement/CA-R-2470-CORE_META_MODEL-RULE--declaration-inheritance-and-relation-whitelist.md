@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ (Node, Node/**, .**)
+  active: CAPRMEDIO_MODEL <+ (Node, Node.**)
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,6 +18,9 @@ form: Rule
 Inherit Declaration constraints and enforce Relation whitelists
 
 ## Claim
+
+### Prose Claim
+
 
 For Node1/Node2, Node2's instances receive Node1's applicable:
 

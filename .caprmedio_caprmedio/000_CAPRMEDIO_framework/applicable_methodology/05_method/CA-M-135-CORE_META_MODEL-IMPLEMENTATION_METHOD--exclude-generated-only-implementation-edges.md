@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,21 +12,23 @@ tier: 3
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-135-CORE_META_MODEL-IMPLEMENTATION_METHOD--exclude-generated-only-implementation-edges.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-135-CORE_META_MODEL-IMPLEMENTATION_METHOD--exclude-generated-only-implementation-edges.md
   source_atom_id: CA-M-135
   source_atom_revision: 32
-  source_sha256: 89573028932caef789945ee82fe5bc978b02127f6e9703738a0fe30d3d1922a6
+  source_sha256: 4ad73c415b0b4425baae87aca7ac20b49ea221be0d7245bad026991d2ee4505a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Exclude generated-only implementation edges
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 provenance validation of recorded changes in the governed selection.
 
-## Claim
 
 provenance validation inspects **every** recorded change **in** the governed selection. a change contributes an Implementation Relation, implementation coverage, **or** semantic traceability edge **only** **when** it changes **`>=1`** non-generated governed source.
 

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 33
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -14,19 +14,21 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-915-CORE_META_MODEL-RULE--prohibit-order-derived-dependencies.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-915-CORE_META_MODEL-RULE--prohibit-order-derived-dependencies.md
   source_atom_id: CA-R-915
   source_atom_revision: 33
-  source_sha256: 1eef37265166660f54abac064e6b29243b4ed20ab0dd0c2b1c37f545c135a5c9
+  source_sha256: bdc159c25b814a1885bb7bfcffc1f9397781c469222f6f18ab427688e6ef1c15
   original_relations_sha256: 37bddd092dba1e824684b18eaeff64ca705f32a1fc76143ef62013a5fb7fafc8
 ---
 ## Summary
 Prohibit order-derived dependencies
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Dependencies between related Governed Entities.
 
-## Claim
 
 the Local Order of two Scope Units **or** the position of one canonical target reference **in** `relations.<RELATION_KIND>` **must not** establish **or** alter a dependency between related Governed Entities.

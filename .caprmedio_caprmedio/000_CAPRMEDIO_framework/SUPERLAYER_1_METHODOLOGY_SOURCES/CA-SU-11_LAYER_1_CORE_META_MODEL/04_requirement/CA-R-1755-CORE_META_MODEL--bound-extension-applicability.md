@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
 version: 30
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Bound Extension applicability
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Extensions and their declared applicability boundaries.
 
-## Claim
 
 **every** Extension **must** affect **only** its declared applicability boundary.

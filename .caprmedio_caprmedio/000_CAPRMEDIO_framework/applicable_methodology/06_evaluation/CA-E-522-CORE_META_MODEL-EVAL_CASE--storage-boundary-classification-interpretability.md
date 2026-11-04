@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Operations)/(.Type: Workflow)'
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Content Role
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Projection
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 19
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -30,21 +30,23 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-EVAL_CASE--storage-boundary-classification-interpretability.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-EVAL_CASE--storage-boundary-classification-interpretability.md
   source_atom_id: CA-E-522
   source_atom_revision: 19
-  source_sha256: 5941a7518ea65cdda9ad0445e75b9e4f71638d42b351376628f9f7b390b369d6
+  source_sha256: 5550f842418739f0947a1e4cef3e0f71b1c1313494e262f144f4d7e34e9b8b28
   original_relations_sha256: 52070712db2bf0eb2d3df60c08582a01b89afa40850ef6755aff70799e6d9cee
 ---
 ## Summary
 
 Storage-boundary classification interpretability
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an Operator's placement **and** retention classifications for Atoms, Journal Records, resumable checkpoints, generated caches, **and** disposable workspaces. the available boundaries are the applicable Project authority root, Framework control root, Runtime State, **and** host temporary root.
 
-## Claim
 
 the Evaluation **must** assess storage-boundary interpretability using the following evidence **and** result conditions.
 

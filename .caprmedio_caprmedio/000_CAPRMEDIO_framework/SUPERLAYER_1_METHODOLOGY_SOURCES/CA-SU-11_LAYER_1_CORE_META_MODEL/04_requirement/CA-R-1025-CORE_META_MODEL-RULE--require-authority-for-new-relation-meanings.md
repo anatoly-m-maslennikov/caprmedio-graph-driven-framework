@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Require authority for new relation meanings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 additional direct relation meanings.
 
-## Claim
 
 **every** additional direct relation meaning **must** have separate owning Requirement authority instead of reusing a registered relation with a different meaning.

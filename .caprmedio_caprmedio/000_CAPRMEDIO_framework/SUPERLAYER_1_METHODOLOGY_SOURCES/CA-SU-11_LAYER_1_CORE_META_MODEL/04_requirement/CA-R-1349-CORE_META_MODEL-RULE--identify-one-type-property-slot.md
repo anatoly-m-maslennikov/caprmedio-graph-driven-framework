@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Entity
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Identify One Type Property Slot
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 qualified Type Subjects of an Entity occurrence.
 
-## Claim
 
 **all** qualified Type Subjects of **`=1`** Entity occurrence **must** identify the same Type Property.

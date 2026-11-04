@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Term
+  active: CAPRMEDIO_MODEL <+ Term
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Term//Empty
-  - CAPRMEDIO <+ MODEL <+ Term//ID
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Term//Empty
+  - CAPRMEDIO_MODEL <+ Term//ID
 version: 28
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -17,21 +17,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md
   source_atom_id: CA-R-1319
   source_atom_revision: 28
-  source_sha256: aeb9c1917142895ad6a7e98f68213f2f8310f509871ff223188bf4bef0f4a956
+  source_sha256: 4be252149f4ba5a0466f51fbe71236f12c0001af625da18aab906ae806480f3b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Governed Term
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Reusable lexical Terms whose Project-specific meanings are owned by active dedicated Term Definition Method Atoms.
 
-## Claim
 
 a Governed Term **means** a reusable Term whose approved Project-specific meaning is owned by **`=1`** active Method Atom of Type Term Definition.
 

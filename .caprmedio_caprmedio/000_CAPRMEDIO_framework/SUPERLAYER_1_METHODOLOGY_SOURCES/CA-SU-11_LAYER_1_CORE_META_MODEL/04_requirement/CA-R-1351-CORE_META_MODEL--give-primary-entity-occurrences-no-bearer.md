@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Entity
 version: 23
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -19,11 +19,13 @@ form: Rule
 
 Give Primary Entity Occurrences No Bearer
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Primary Entity occurrences referenced by a Subject.
 
-## Claim
 
 a Primary Entity referenced by a Subject **must** have **`=0`** outgoing IS_PROPERTY_OF Relations.
 

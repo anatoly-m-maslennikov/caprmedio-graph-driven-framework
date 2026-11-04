@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Evaluation/Type'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Header.Form'
 version: 39
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,13 +18,15 @@ form: Rule
 
 Register Type Values for Evaluation Atoms
 
-## Claim scope
-
-internal values of `Atom/Content Role: Evaluation/Type`.
-
 ## Claim
 
-Policy, Eval Case, QA Case, **and** Evaluation Control **must** be registered as internal values of `Atom/Content Role: Evaluation/Type`.
+### Prose Claim
+
+
+internal values of `Atom/(.Header.Role := Evaluation).Header.Form`.
+
+
+Policy, Eval Case, QA Case, **and** Evaluation Control **must** be registered as internal values of `Atom/(.Header.Role := Evaluation).Header.Form`.
 
 ## Details
 

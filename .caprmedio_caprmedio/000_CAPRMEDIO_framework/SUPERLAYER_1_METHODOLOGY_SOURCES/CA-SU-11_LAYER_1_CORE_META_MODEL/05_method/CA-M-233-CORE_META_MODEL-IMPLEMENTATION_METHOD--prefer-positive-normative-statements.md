@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -20,11 +20,13 @@ form: Implementation Method
 
 Prefer Positive Normative Statements
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 normative Atom prose authored **in** CCE.
 
-## Claim
 
 **to** author normative Atom prose, state applicable conditions **and** required behavior positively **when** this preserves the complete Claim; an explicit prohibition is warranted **only** **when** it prevents a real ambiguity **or** protects an important boundary.
 

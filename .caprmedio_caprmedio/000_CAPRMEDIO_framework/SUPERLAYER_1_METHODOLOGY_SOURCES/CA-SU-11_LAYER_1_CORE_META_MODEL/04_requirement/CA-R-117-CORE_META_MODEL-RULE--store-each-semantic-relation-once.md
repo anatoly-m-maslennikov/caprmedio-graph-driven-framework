@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 31
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Store each semantic relation once
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 semantic relations.
 
-## Claim
 
 **every** semantic relation **must** have **`=1`** authoritative declaration.

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier/File
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//NARROWER_THAN
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,9 +19,11 @@ form: Decision
 ## Summary
 Classify Markdown Atom Carrier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 the Term Markdown Atom Carrier.
 
-## Claim
 
 the Term Markdown Atom Carrier **must** be **NARROWER_THAN** File Carrier.

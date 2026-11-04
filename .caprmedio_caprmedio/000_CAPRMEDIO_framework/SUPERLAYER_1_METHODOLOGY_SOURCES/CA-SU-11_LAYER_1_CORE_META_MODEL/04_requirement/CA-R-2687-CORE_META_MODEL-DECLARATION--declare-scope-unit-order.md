@@ -7,9 +7,9 @@ version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 tier: 3
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit.order
+  active: CAPRMEDIO_MODEL <+ Scope Unit.order
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
 relations: {}
 ---
 ## Summary
@@ -18,8 +18,12 @@ Declare Scope Unit.order
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Scope Unit.order: []{:0};
+
 Scope Unit.order.*[in (ordered, number)]{:1..2}
 ```
 

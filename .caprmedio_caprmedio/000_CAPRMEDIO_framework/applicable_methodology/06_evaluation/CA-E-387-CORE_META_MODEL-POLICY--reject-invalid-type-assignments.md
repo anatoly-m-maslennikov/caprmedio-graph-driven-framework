@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Entity
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -18,21 +18,23 @@ tier: 3
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-387-CORE_META_MODEL-POLICY--reject-invalid-type-assignments.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-387-CORE_META_MODEL-POLICY--reject-invalid-type-assignments.md
   source_atom_id: CA-E-387
   source_atom_revision: 27
-  source_sha256: c50b7d4a1fba21ed947d7886f6247190a63c7969e9a1658497f696734dfdc064
+  source_sha256: 47018a2f255d7b07fa5b14ace7150b74def55f43f0c42fd5ead8b9c431f54a80
   original_relations_sha256: 957da0285972aed757b9d4f108d4be4aefeefc7f5f7a2ed7ac90dc6bae3aa9ed
 ---
 ## Summary
 
 Reject Invalid Type Assignments
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Type assignments on Entity occurrences.
 
-## Claim
 
 the Evaluation **must** reject a Type assignment **if** **any** of the following holds:
 

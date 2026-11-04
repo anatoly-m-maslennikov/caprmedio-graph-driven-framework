@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL<+Operator//Addition
+  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Addition
 version: 1
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,8 +19,11 @@ Declare CFEL operator +
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
-@Operator//Addition == "+"
+# model
+Operator//Addition == "+"
 ```
 
 ## Semantics

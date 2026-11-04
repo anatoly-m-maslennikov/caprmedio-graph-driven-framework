@@ -1,17 +1,17 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project.Settings.Name
-  - CAPRMEDIO <+ MODEL <+ Project.Settings.Prefix
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-version: 39
-updated_at: 2026-11-02 19:46:47 +0400
+  - CAPRMEDIO_MODEL <+ Project.Settings.Name
+  - CAPRMEDIO_MODEL <+ Project.Settings.Prefix
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Scope Unit
+version: 40
+updated_at: 2026-11-04 09:30:21 +0400
 relations:
   evaluation_for:
   - CA-R-2532
-  - CA-R-1750
+  - CA-R-2748
   - CA-R-1429
   - CA-D-318
   - CA-D-362
@@ -28,36 +28,42 @@ status: Active
 tier: 8
 role: Evaluation
 form: Eval Policy
+carrier_destination:
+  file:
+    name: CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md
   source_atom_id: CA-E-459
-  source_atom_revision: 39
-  source_sha256: 15d608b801a2f0504aa015829cc475b99dd0e37a2298e993a68b1430f9cab9d6
-  original_relations_sha256: 9b8ec930086c35ecbfae2762e780b35b7dbf5b87136c5e657b568946762e7cd7
+  source_atom_revision: 40
+  source_sha256: f8772712515bb95f5559bd9d9ac8986e11df070ad14ca4d1ccae58286b3b0787
+  original_relations_sha256: 6ef89d85c843309b0205093227ff9731e62c55520bdc667fb00a0e5d14da6474
 ---
 ## Summary
 
 Validate Authoritative Project Settings Artifact
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoritative Project Settings Artifacts.
 
-## Claim
 
-the Evaluation **must** reject Project Settings **if**
+the Evaluation **must** reject the Project-root Settings TOML Carrier **if**
 
 - it is treated as an Atom **or** Projection,
 - has an Atom ID **or** Atom Content Role,
 - is **not** available independently of Project Atoms **and** Implementation,
 - violates its registered Project-root placement **or** filename,
-- has other than **`=1`** authoritative TOML Carrier,
-- **contains** Framework Instance choices **or** independently editable Project Structure,
+- has other than **`=1`** authoritative Project-root TOML Carrier for its registered fields,
+- **contains** independently editable Project Structure,
 - violates its foundational content boundary, applicable shared settings specifications, applicable concrete field specifications, **or** the complete closed current field signature under CA-D-366,
 - lacks a required CORE_META_MODEL definition **or** storage rule for Project Settings Name **or** Project Settings Prefix,
 - lacks an Operator-selected Project Settings Name,
 - lacks an Operator-selected Project Settings Prefix,
-- treats a Methodology Atom, Framework Instance Settings, **or** a Projection as an independent authoritative source of either selected value,
+- treats a Methodology Atom, an unadmitted Carrier, **or** a Projection as an independent authoritative source of either selected value,
 - **or**, for history-binding evaluation under CA-D-365, lacks an exact current Revision, SHA-256 Digest, **and** admitted Work Journal receipt.
 
 ## Details

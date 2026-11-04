@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 35
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -20,10 +20,12 @@ form: Rule
 
 Let the dependent Atom own the relation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 direct semantic relations owned by dependent Atoms.
 
-## Claim
 
 the dependent Atom **must** own the **`=1`** authoritative declaration of its direct semantic relation.

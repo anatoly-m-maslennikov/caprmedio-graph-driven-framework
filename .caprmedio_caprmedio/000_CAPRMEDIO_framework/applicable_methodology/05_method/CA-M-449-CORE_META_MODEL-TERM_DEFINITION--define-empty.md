@@ -4,10 +4,10 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Term//Empty
+  active: CAPRMEDIO_MODEL <+ Term//Empty
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Term
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
 version: 3
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,21 +15,23 @@ tier: 1
 role: Method
 form: Term Definition
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-449-CORE_META_MODEL-TERM_DEFINITION--define-empty.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-449-CORE_META_MODEL-TERM_DEFINITION--define-empty.md
   source_atom_id: CA-M-449
   source_atom_revision: 3
-  source_sha256: 89edee95fe5de10201d1b213ada66dcfa34ed2069e01b54ad9d88d707fcd2601
+  source_sha256: cc95fa03fbfaa27e8fe235aa214b5979a06a1062ccc2a7c028efd395339d1b9e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Empty
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The reusable lexical Term `Empty` for Workflow input values and ID routing.
 
-## Claim
 
 Empty **means** an omitted input, null, **or** the empty string `""`. This Claim explicitly introduces the lexical Term instance named Empty at `Term//Empty`.
 

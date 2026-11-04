@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Entities Graph)'
+  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Projection
 version: 25
 updated_at: 2026-11-02 19:46:47 +0400
 relations:
@@ -19,21 +19,23 @@ tier: 4
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md
   source_atom_id: CA-M-385
   source_atom_revision: 25
-  source_sha256: 49430b8501ce05abaa1827510a00097f5e3abc99a90b472918694b09cbfb39f7
+  source_sha256: 113ca9b8f8e6992dbce1b8e12b49e035ec75ebc9f945c86763572ec3d6fd7a95
   original_relations_sha256: 7733f3e3021e6be18516933e27e8835adbc33729eb63b7a4e716166b11e30c93
 ---
 ## Summary
 
 Generate readable Entities Graph trees programmatically
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The readable structural Inherency and named declaration views of an Entities Graph.
 
-## Claim
 
 Generate the structural Inherency and selected named declaration views with deterministic code from their selected sources and explicit governing evidence. **Do not** use an LLM to choose nodes, classify edges, invent relations or arrange the output.
 

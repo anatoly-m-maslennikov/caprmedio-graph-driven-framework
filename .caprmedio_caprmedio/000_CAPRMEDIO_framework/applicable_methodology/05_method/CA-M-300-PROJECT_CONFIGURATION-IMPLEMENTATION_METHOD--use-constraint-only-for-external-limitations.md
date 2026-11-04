@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Constraint'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Constraint)'
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type'
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Actor
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement).Header.Form'
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Actor
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -18,18 +18,20 @@ tier: 3
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-300-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--use-constraint-only-for-external-limitations.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-300-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--use-constraint-only-for-external-limitations.md
   source_atom_id: CA-M-300
   source_atom_revision: 18
-  source_sha256: 9a199192ffbed5b7513c43c273b4a3d8bfe847fd7c4ade9d7dd2de6754fc9951
+  source_sha256: 9e71eb6fc148a275b124b634e97e7f84c50ae057ae6d19fab0ec459627857818
   original_relations_sha256: 2c1c0858a21e550a5bc21389ae2921541c58a9fe96c2481c42537051156a5e2f
 ---
 ## Summary
 Use Constraint only for external limitations
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 selection of a Requirement Type.
 
-## Claim
 
 **to** select a Requirement Type, the Author **must** use Constraint **only** for a limitation imposed from outside the Project choice boundary.

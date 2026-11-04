@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering
 version: 15
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,10 +18,12 @@ form: Rule
 ## Summary
 Reconcile Development Backlog candidates **after** release
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Development Backlog candidates **after** a Release Record is accepted.
 
-## Claim
 
 CAPRMEDIO **must** reconcile the Development Backlog against its exact released manifest as follows:
 

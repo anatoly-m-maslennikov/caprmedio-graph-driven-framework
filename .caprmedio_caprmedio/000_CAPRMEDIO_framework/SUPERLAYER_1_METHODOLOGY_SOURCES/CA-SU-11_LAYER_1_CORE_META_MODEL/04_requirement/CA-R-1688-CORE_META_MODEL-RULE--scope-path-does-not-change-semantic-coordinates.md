@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Path
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Path
 version: 39
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -19,11 +19,13 @@ form: Rule
 
 Scope path does not change semantic coordinates
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope paths in the current project.
 
-## Claim
 
 Scope path is a project-relative address containing **`>=0`** operator-labeled structural scopes ordered from broader parent **to** narrower child.
 

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation'
+  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Applicable Methodology Compilation'
 version: 31
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,20 +12,22 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1753-PROJECT_CONFIGURATION--keep-project-adaptation-authority-out-of-settings.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1753-PROJECT_CONFIGURATION--keep-project-adaptation-authority-out-of-settings.md
   source_atom_id: CA-R-1753
   source_atom_revision: 31
-  source_sha256: 16f2e1171890040d5bf949a474b8769a0b083492b41fdbfc1ed4191432b22c93
+  source_sha256: a393ad31fd66602e9b9379da4cf38f09df54c9c18a418bc6d09e730a2a99051d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Keep Project Adaptation authority out of settings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project Adaptation **and** Extension definitions, Framework Instance Settings Artifacts, **and** Project Scope Unit Graph Projections.
 
-## Claim
 
 the governed definitions of Project Adaptation **and** Extension **must** be owned by their applicable Atoms. the Framework Instance Settings Artifact **may** select, disable, **and** parameterize them, **and** Project Scope Unit Graph Projections **may** expose the effective result, but Framework Instance Settings **and** Project Scope Unit Graph Projection **must not** redefine **or** amend those governed definitions.

@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Property
+  active: CAPRMEDIO_MODEL <+ Entity/Property
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Property
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
-  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Property Occurrences
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Property Occurrences
 relations: {}
 version: 16
 updated_at: 2026-11-02 19:46:47 +0400
@@ -20,11 +20,13 @@ form: Rule
 
 Require exactly one immediate bearer for each dependent Entity occurrence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Declared Property occurrences and their direct IS_PROPERTY_OF connections.
 
-## Claim
 
 Every declared Property occurrence must have exactly one immediate bearer, identified by one outgoing direct IS_PROPERTY_OF connection to that bearer. A source establishes dependence independently of whether the edge is present, so a missing edge fails this requirement. The named Selection “Property Occurrences” selects those declared occurrences; it does not infer dependence from edges or create a bearer connection.
 

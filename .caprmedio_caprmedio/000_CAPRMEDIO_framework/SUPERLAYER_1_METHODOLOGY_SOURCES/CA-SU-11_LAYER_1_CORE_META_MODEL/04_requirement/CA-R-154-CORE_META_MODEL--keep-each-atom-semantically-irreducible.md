@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,9 +17,11 @@ form: Rule
 ## Summary
 Keep each Atom semantically irreducible
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Atoms.
 
-## Claim
 
 **every** Atom **must** contain **only** content necessary for its one independently replaceable Claim.

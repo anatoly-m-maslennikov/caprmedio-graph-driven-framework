@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Node/Occurrent
+  active: CAPRMEDIO_MODEL <+ Node/Occurrent
 version: 2
 relations: {}
 tier: 3
@@ -12,10 +12,10 @@ role: Requirement
 form: Declaration
 updated_at: 2026-11-02 00:18:22 +0400
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2590-CORE_META_MODEL-DECLARATION--declare-occurrent.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2590-CORE_META_MODEL-DECLARATION--declare-occurrent.md
   source_atom_id: CA-R-2590
   source_atom_revision: 2
-  source_sha256: a7dc754106d701861ba6e9bf98c5ac1720f6bc69a58d695cf334cffd6343dfd8
+  source_sha256: d730e7db828cee2963d00db6c596079ac5a98b796021fbcd2a7882b1ac70b8c2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
@@ -25,7 +25,10 @@ Declare Occurrent
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Node/Occurrent
 ```
 

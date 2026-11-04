@@ -5,9 +5,9 @@ relations:
   child_of:
   - CA-R-2426
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project
+  active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Project
 atom_id: CA-R-2427
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -20,10 +20,12 @@ form: Rule
 
 Give each Project-wide invariant canonical authority
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project-wide foundational invariants.
 
-## Claim
 
 Every Project-wide foundational invariant must have exactly one active Project-owned Tier `0` Atom as its canonical authority owner. One such Atom may own several related invariants; this does not require one Atom per invariant or one Tier `0` Atom for the Project. Faithful specialization does not create independent duplicate authority.

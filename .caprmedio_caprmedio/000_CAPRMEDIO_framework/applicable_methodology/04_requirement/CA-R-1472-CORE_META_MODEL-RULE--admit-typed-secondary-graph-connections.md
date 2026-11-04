@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 28
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -18,21 +18,23 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-RULE--admit-typed-secondary-graph-connections.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-RULE--admit-typed-secondary-graph-connections.md
   source_atom_id: CA-R-1472
   source_atom_revision: 28
-  source_sha256: 2e568adc65c75b696283a48b7140a9ab3a5be8a5696545f14d1054b2979e6043
+  source_sha256: 51da2f7620f45e65c6a603bc266e3241cc3328f3c8cb0c8df02bd75b41ed5aee
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Admit typed secondary graph connections
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 connections represented by a secondary CAPRMEDIO Graph.
 
-## Claim
 
 a secondary CAPRMEDIO Graph **may** represent typed Relations between its own nodes, **to** another secondary graph **or** its nodes, **and** **to** source Atoms **or** other admitted authoritative sources.
 

@@ -6,32 +6,34 @@ status: Active
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ MODEL <+ Carrier/File
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Projection
 relations: {}
 tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-496-PROJECT_CONFIGURATION-ENG_DECISION--store-one-review-report-per-source-atom.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-496-PROJECT_CONFIGURATION-ENG_DECISION--store-one-review-report-per-source-atom.md
   source_atom_id: CA-D-496
   source_atom_revision: 24
-  source_sha256: f639392dc258e3f9be90d884630c52ee8852c8e94d5928c1abcda5fff55e38fc
+  source_sha256: 7a4301033ee5b6c0e6cbe96c61da343d13e294fce508ff297236507cdeadd47a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Store one review report per source Atom
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 temporary evidence Carriers of a local RMED Atom review Run.
 
-## Claim
 
 the Run **must** store its temporary evidence under **`=1`** caller-admitted directory using this layout:
 

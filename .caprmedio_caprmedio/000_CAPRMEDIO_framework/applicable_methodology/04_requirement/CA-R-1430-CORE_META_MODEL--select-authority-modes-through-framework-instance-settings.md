@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Project.Settings.Authority Modes
-  depends_on:
-  - Project.Settings
-  - Project
-  - Scope Unit
-  - Atom
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes
+  passive:
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Scope Unit/Project
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom
 version: 27
 updated_at: 2026-11-02 20:07:03 +0400
 relations: {}
@@ -15,10 +15,10 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL--select-authority-modes-through-framework-instance-settings.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL--select-authority-modes-through-framework-instance-settings.md
   source_atom_id: CA-R-1430
   source_atom_revision: 27
-  source_sha256: 690388b6719ccc200c2852110b7563674699d27b1d173192991d8a56b5bdd095
+  source_sha256: ca69bfc14eb35f5f715ab8388c750c815bdcbff0f5833a610d0de285c467fc4f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

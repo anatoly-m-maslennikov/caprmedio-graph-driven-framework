@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
-  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Register Core Plan Status Values
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Core Plan Status values.
 
-## Claim
 
-the Core Plan Status model **must** inherit the allowed values of Atom.Status and add (Backlog, Done, Canceled). Planned **must not** be a distinct Plan Status.
+the Core Plan Status model **must** inherit the allowed values of Atom.Header.Status and add (Backlog, Done, Canceled). Planned **must not** be a distinct Plan Status.

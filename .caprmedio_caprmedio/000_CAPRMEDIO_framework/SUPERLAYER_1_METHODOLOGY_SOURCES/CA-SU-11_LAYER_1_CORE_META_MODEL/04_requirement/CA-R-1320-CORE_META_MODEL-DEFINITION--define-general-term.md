@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Term
+  active: CAPRMEDIO_MODEL <+ Term
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Project
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Define General Term
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 words or phrases used with their ordinary English meaning rather than a Project-specific meaning.
 
-## Claim
 
 a General Term **means** a word **or** phrase used with its ordinary English meaning rather than a Project-specific meaning.

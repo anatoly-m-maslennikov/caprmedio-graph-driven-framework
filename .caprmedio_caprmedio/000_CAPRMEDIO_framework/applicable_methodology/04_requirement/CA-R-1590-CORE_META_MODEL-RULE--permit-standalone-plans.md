@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,20 +15,22 @@ tier: 2
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1590-CORE_META_MODEL-RULE--permit-standalone-plans.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1590-CORE_META_MODEL-RULE--permit-standalone-plans.md
   source_atom_id: CA-R-1590
   source_atom_revision: 22
-  source_sha256: 318a568fbdc0bb65c9159da2bd1347a08c60fa5810a770e66b19dec811a56b6b
+  source_sha256: 4efb5e02c91d26db17764a719d1f310424ab8829152380946a233b118e6018fb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Permit standalone Plans
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan Atoms.
 
-## Claim
 
 a Plan Atom **may** exist **without** an `IS_CONTAINED_BY` connection to a containing Plan; its Label **must not** require a containing Plan.

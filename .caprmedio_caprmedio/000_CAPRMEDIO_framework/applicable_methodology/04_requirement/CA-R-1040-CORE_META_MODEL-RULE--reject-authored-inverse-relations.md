@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 31
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,21 +12,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-RULE--reject-authored-inverse-relations.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-RULE--reject-authored-inverse-relations.md
   source_atom_id: CA-R-1040
   source_atom_revision: 31
-  source_sha256: 19cc5339d1e5c80a17a17fa38b259b8ec8fb5596f3dd0aefc2d0fbc1319270e3
+  source_sha256: bd821e802387393d1bd3ddd21e35a5bcb000b76cbaefb41f0dee80cd3b5a1123
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Reject authored inverse relations
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authored inverse typed relations.
 
-## Claim
 
 validators **must** reject **every** inverse typed relation authored **in** an Atom Carrier.
 

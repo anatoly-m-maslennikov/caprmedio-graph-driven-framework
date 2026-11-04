@@ -4,24 +4,29 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/Database
+  active: CAPRMEDIO_MODEL <+ Carrier/Database
 relations:
   child_of:
   - CA-R-1174
-version: 11
-updated_at: 2026-11-02 00:18:22 +0400
+version: 12
+updated_at: 2026-11-03 23:25:51 +0400
 tier: 3
 role: Requirement
-form: Entity Definition
+form: Declaration
 ---
 ## Summary
 
 Define Entity/Carrier/Database Carrier
 
-## Claim scope
-
-Database Carriers.
-
 ## Claim
 
-A Database Carrier **means** a Carrier that represents content in a database.
+### Formal Claim
+
+```CFEL
+# model
+Carrier/Database
+```
+
+### Prose Claim
+
+A Database Carrier represents content in a database.

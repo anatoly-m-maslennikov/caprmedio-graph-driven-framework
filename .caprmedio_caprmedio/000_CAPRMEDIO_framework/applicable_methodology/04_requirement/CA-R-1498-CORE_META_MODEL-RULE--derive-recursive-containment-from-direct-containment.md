@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//CONTAINS
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//CONTAINS
 version: 17
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -14,20 +14,22 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1498-CORE_META_MODEL-RULE--derive-recursive-containment-from-direct-containment.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1498-CORE_META_MODEL-RULE--derive-recursive-containment-from-direct-containment.md
   source_atom_id: CA-R-1498
   source_atom_revision: 17
-  source_sha256: aefbc342d80d404d0998c932724ae2b67432016cd696d5e23b0d17f5f87be5f9
+  source_sha256: 924cfc50137eff50c8329b3c90cf6e7b8a3e8a4a03f6ac31453d2e98ce222854
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Derive Recursive Containment from Direct Containment
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 recursive Structural Entity containment.
 
-## Claim
 
 recursive Structural Entity containment **must** **`=`** the transitive closure of direct Structural Entity containment.

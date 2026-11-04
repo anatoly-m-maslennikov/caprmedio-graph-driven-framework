@@ -4,13 +4,13 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Method)/(.Type: Term Definition)'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//ID
-  - CAPRMEDIO <+ MODEL <+ Term
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  - CAPRMEDIO_MODEL <+ Term//ID
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
 version: 3
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,21 +18,23 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-659-CORE_META_MODEL-EVAL_CASE--check-term-definition-well-formedness.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-659-CORE_META_MODEL-EVAL_CASE--check-term-definition-well-formedness.md
   source_atom_id: CA-E-659
   source_atom_revision: 3
-  source_sha256: c3158990eb229d5a595f36f0ca417083fd1b6998796cfdbc532b59c793fee2d1
+  source_sha256: fe1f7e9d82f5585c59a1eaeafe3f88db1120ba0f23db79ea1a3870d175a24374
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Check Term Definition well-formedness
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 One selected Method Atom of Type Term Definition reviewed against its exact carried text **and** applicable Atom-shape rules. Cross-source authority uniqueness **and** authored occurrence consistency are checked separately under CA-E-444.
 
-## Claim
 
 a Term Definition passes well-formedness **only** **when** it is explicitly classified as a Method Atom of Type Term Definition, identifies **`=1`** reusable word **or** phrase as its Term, carries **`=1`** independently replaceable Claim that establishes that Term's meaning within its stated Scope, **and** satisfies the applicable metadata, Subject-binding **and** body-layout rules. An Entity Definition, recurring descriptive wording **or** agreement among Semantics sections **must not** substitute for this dedicated Method Type. Missing **or** unresolved required evidence **must** remain visible **and** **must not** pass; local well-formedness alone **does not** establish unique defining authority **or** consistency of other authored sources.
 

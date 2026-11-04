@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -22,11 +22,13 @@ form: Eval Policy
 
 Validate Restricted CCE Canonical Signature Boundary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Canonical Signature derivations evaluated against the restricted CCE boundary.
 
-## Claim
 
 the Evaluation **must** reject a Canonical Signature derivation **if** any of the following is true:
 

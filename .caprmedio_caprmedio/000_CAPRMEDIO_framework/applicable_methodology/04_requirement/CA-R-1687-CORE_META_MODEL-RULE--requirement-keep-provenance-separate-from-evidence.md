@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 34
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,21 +12,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1687-CORE_META_MODEL-RULE--requirement-keep-provenance-separate-from-evidence.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1687-CORE_META_MODEL-RULE--requirement-keep-provenance-separate-from-evidence.md
   source_atom_id: CA-R-1687
   source_atom_revision: 34
-  source_sha256: e3b5d0c36e819d48fd4be98700214e4ceb071a5a6225d773bc9a76209ffeb61e
+  source_sha256: c744c940db81de200b2333d0f70a3011754853db43dfd7c055c41e9ea500d468
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Requirement — Keep provenance separate from evidence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 provenance and Evidence for governed claims and Implementations.
 
-## Claim
 
 provenance establishes the origin, carrier identity, revision, sequence, **and** transformation history of a governed claim **or** Implementation. it does **not** by itself establish that the claim is correct, accepted, current, applicable, **or** sufficiently assured.
 

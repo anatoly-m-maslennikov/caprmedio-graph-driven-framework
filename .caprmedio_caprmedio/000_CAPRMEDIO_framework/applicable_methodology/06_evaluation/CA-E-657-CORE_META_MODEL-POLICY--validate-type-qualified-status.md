@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
 version: 8
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,21 +16,23 @@ tier: 2
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-657-CORE_META_MODEL-POLICY--validate-type-qualified-status.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-657-CORE_META_MODEL-POLICY--validate-type-qualified-status.md
   source_atom_id: CA-E-657
   source_atom_revision: 8
-  source_sha256: e97eab3ef56b854be1b50fb824a1329c4770619549fedf06ed604ad7231f8a11
+  source_sha256: 545c1e8de9a2a39cc137e74e84687e436c060dd116c299af64f12d5335c58e98
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Validate Type-Qualified Status
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifacts and their applicable qualified Status model.
 
-## Claim
 
 the Evaluation **must** reject an Artifact **if** **any** applicable condition holds:
 

@@ -4,15 +4,15 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Format/datetime
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Format/datetime
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Format
-version: 5
-updated_at: 2026-11-02 08:06:47 +0400
+  - CAPRMEDIO_MODEL <+ CFEL <+ Format
+version: 6
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 tier: 1
 role: Requirement
-form: Entity Definition
+form: Declaration
 ---
 ## Summary
 
@@ -20,14 +20,21 @@ Define datetime Value Format
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+# model
+CFEL <+ Format/datetime
+```
+
+### Prose Claim
+
+
 The datetime Value Format admits date-and-time values. It does not set a
 timezone convention, precision, cardinality, uniqueness, or carrier
 representation.
 
 
-```CFEL
-CFEL <+ Format/datetime
-```
 
 ## Semantics
 

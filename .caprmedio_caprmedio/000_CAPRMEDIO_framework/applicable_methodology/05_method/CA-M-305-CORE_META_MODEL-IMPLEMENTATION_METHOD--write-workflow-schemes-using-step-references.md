@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Action
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
 version: 22
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -17,21 +17,23 @@ tier: 3
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-305-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-workflow-schemes-using-step-references.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-305-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-workflow-schemes-using-step-references.md
   source_atom_id: CA-M-305
   source_atom_revision: 22
-  source_sha256: 140d66b3f77279aba1f1a12e2d8b18fe02966b9326c1479375094fa522892312
+  source_sha256: ae15e8389fa1417f1d5b820e14558c0adaf9409a4333ddff6d21801745c1a4f3
   original_relations_sha256: c0cf2b4b80c401bd0e2e83ae0bd314905914842bc400d929bd6a07428aa6da4d
 ---
 ## Summary
 
 Write Workflow schemes using Step references
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Workflow schemes using Step references.
 
-## Claim
 
 **to** write a Workflow scheme, express the graph through references **to** its Step Atoms:
 

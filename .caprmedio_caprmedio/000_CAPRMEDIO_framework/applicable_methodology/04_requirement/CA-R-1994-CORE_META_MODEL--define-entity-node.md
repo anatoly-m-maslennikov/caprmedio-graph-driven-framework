@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Node/Continuant
+  - CAPRMEDIO_MODEL <+ Node/Continuant
 relations: {}
 version: 15
 updated_at: 2026-11-02 00:18:22 +0400
@@ -14,21 +14,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1994-CORE_META_MODEL--define-entity-node.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1994-CORE_META_MODEL--define-entity-node.md
   source_atom_id: CA-R-1994
   source_atom_revision: 15
-  source_sha256: 867747c2d004f48aa986edeb00a6ced84e9e2804d891ebdc776779deb81eee5d
+  source_sha256: daf5b426d708893c865ef6394b3a3ea5d0e71f01367f8208d49694e92225f06f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Entity/Node
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Nodes in the Subject graph.
 
-## Claim
 
 
 An Entity used as a Subject-graph node must identify a thing or topic addressed by the graph; its description and Carrier remain separate.

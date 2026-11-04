@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
 version: 8
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -20,11 +20,13 @@ form: Eval Policy
 
 Validate Type-Qualified Status
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifacts and their applicable qualified Status model.
 
-## Claim
 
 the Evaluation **must** reject an Artifact **if** **any** applicable condition holds:
 

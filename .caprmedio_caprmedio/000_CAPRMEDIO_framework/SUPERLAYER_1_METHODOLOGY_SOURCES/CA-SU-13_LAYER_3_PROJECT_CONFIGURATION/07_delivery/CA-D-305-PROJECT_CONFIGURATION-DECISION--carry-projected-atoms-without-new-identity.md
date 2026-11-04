@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form := Applicable Methodology)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Applicable Methodology)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Carrier/File
 version: 32
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,11 +19,13 @@ form: Decision
 
 Carry Projected Atoms without New Identity
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The source binding and representation of each Atom Carrier projected as an Applicable Methodology member.
 
-## Claim
 
 Applicable Methodology **must** represent each projected Atom Carrier with a one-way source binding **to** its selected authoritative Atom Revision **without** creating another Atom identity:
 

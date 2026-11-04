@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ UX <+ Entry
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ UX <+ Entry
 version: 33
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Define CAPRMEDIO Main Skill
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the CAPRMEDIO Main Skill.
 
-## Claim
 
 The CAPRMEDIO Main Skill **must** be the canonical Skill with identity `ca`.

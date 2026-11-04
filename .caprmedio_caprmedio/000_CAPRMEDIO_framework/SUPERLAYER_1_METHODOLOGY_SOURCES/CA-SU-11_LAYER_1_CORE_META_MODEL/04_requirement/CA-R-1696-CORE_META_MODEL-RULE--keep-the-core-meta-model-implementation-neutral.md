@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  active: CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
 version: 37
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -19,11 +19,13 @@ form: Rule
 
 Keep the Core Meta-Model implementation neutral
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CORE_META_MODEL authority and its reusable model invariants and expansion boundaries.
 
-## Claim
 
 CORE_META_MODEL authority **must** define reusable model invariants **and** expansion boundaries **without** hidden dependence on a programming language, LLM provider **or** model, agent host, operating system, repository host, package manager, database, deployment platform, **or** other replaceable implementation mechanism.
 

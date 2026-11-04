@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Event Record
+  active: CAPRMEDIO_MODEL <+ Event Record
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,6 +17,9 @@ form: Rule
 Capture Projection input and output metadata
 
 ## Claim
+
+### Prose Claim
+
 
 An Event Record for Projection creation or update has object_output. An update record also has object_input; creation input is optional.
 

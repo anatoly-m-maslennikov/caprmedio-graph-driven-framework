@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Package/Implementation
+  active: CAPRMEDIO_MODEL <+ Package/Implementation
 version: 9
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,10 +12,10 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2173-CORE_META_MODEL-RULE--define-implementation.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2173-CORE_META_MODEL-RULE--define-implementation.md
   source_atom_id: CA-R-2173
   source_atom_revision: 9
-  source_sha256: c7c997cc8615516bb274f370476e5b3b0a9f42135a66713deeabc25e169f42f4
+  source_sha256: abf4e7d36a1538fc809efe8cea12a0609a297980a63610aae193f56e74d2b9e6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
@@ -23,6 +23,9 @@ projection:
 Define Implementation
 
 ## Claim
+
+### Prose Claim
+
 
 Implementation **means** the actual Code, Prompts, Documentation and Resources that realize RMED for a Project. Directly edited Implementation can be authoritative for what is actually implemented.
 

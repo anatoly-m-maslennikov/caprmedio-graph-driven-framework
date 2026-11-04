@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO <+ MODEL <+ Actor
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
 version: 4
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -23,11 +23,13 @@ form: Implementation Method
 
 Each Atom expresses one coherent meaning covered by its Summary.
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoring the boundary of **`=1`** coherent prose CCE Atom contribution. The same Claim may contain readable prose and an optional R-only nested Formal claim under the Claim definition.
 
-## Claim
 
 **to** author an Atom, the Author **must** perform **all** of:
 

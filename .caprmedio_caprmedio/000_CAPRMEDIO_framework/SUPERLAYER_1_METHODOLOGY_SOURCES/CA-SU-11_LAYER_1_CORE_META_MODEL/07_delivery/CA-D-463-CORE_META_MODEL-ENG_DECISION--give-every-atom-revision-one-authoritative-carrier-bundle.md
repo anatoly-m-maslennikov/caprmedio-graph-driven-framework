@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Carrier/File
-  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Project
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Decision
 
 Give Every Atom Revision One Authoritative Carrier Bundle
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom Revision Authoritative Carrier Bundles.
 
-## Claim
 
 **every** Atom Revision **must** have **`=1`** authoritative Carrier Bundle on the Project filesystem containing **`=1`** Markdown File Carrier **and** **`>=0`** additional Carriers admitted by its applicable Delivery authority.
 

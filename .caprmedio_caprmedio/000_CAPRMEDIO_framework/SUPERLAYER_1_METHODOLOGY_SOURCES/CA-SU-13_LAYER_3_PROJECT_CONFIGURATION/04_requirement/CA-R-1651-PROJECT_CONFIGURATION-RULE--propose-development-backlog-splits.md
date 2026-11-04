@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,10 +21,12 @@ form: Rule
 
 Propose Development Backlog splits
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a Development Backlog Epic that **contains** **`>50`** Task Atoms.
 
-## Claim
 
 Governance **must** propose narrower ordered Epics **and** **may** apply the split **only** **after** Operator approval.

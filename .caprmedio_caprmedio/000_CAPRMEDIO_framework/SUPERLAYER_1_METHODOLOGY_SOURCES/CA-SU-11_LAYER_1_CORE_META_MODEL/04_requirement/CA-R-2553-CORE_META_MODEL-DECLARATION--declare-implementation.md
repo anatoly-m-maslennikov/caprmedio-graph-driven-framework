@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Package/Implementation
+  active: CAPRMEDIO_MODEL <+ Package/Implementation
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,16 @@ Declare Implementation
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Package/Implementation;
-Package/Implementation//{:1};
-Package/Implementation// {:0}((IS_CONTAINED_BY)) Package//
+
+# instances
+Package/Implementation//$package{:1};
+
+Package/Implementation//$package_2 {:0}((IS_CONTAINED_BY)) Package//$package_3
 ```
 
 ## Semantics

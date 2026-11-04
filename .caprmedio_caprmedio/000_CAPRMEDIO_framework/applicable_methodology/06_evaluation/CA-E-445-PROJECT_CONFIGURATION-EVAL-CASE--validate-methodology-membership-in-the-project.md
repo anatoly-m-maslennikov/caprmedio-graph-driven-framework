@@ -2,12 +2,12 @@
 cce_version: cce_1
 cce_form: evaluation
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -25,10 +25,10 @@ claim_target_scope_unit: caprmedio
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-445-PROJECT_CONFIGURATION-EVAL-CASE--validate-methodology-membership-in-the-project.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-445-PROJECT_CONFIGURATION-EVAL-CASE--validate-methodology-membership-in-the-project.md
   source_atom_id: CA-E-445
   source_atom_revision: 28
-  source_sha256: 7fa6147044481c975baabe69fd94173e8ee61f27c5907343f4d7435f60d1d354
+  source_sha256: a7e6dcc7d0d7c824d061bb12fd1f9fca46773254cf25354e1bd475cacba46f99
   original_relations_sha256: b44b20e012b4a11fdeca3e65c5d30f54989f67003fcb6939e46e32716dfd3cfb
 ---
 ## Summary
@@ -36,6 +36,9 @@ projection:
 Validate Methodology membership in the Project
 
 ## Claim
+
+### Prose Claim
+
 
 the Methodology Scope Units belong **to** the caprmedio Project Scope Unit tree **and** remain governed by its active Project-owned Tier 0 Atoms.
 

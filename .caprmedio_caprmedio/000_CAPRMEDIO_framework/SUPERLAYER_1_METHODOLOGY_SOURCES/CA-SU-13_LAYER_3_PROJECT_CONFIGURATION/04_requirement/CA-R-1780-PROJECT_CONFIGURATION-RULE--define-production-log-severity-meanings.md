@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
 version: 14
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Rule
 
 Define production log severity meanings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Logging Policies for production-relevant components.
 
-## Claim
 
 a Logging Policy **must** use these four operational levels:
 

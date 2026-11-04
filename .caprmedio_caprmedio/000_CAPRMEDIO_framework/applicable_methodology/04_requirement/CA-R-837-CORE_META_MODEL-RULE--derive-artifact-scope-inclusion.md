@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
 version: 36
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,21 +12,23 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-837-CORE_META_MODEL-RULE--derive-artifact-scope-inclusion.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-837-CORE_META_MODEL-RULE--derive-artifact-scope-inclusion.md
   source_atom_id: CA-R-837
   source_atom_revision: 36
-  source_sha256: 37cdbc96952ebd5b01bf6464f89db258bca320b4277175ea6de0782a78358412
+  source_sha256: d6205234c4bacc1e57bc25f9226ce9c6c8225b0db68588de536ce3e8b0d5c70c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Derive Artifact scope inclusion
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifacts contained **in** a Scope Unit.
 
-## Claim
 
 the resolver **must** resolve **`=1`** direct Scope Unit from the Atom's internally carried ownership, checked against its canonical Carrier address, **or** from the registered canonical Carrier authority for a non-Atom Artifact **and** include that Artifact **in** **every** Scope Unit on the direct Unit's complete ancestor path; missing, multiple, unknown, **or** cyclic scope ownership is invalid.
 

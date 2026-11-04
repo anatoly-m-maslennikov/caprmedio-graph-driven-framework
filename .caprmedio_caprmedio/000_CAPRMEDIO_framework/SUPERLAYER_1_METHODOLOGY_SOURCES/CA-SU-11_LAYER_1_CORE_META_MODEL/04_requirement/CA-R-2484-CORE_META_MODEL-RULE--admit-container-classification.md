@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Node >| Container
+  active: CAPRMEDIO_MODEL <+ Node >| Container
 version: 2
 relations: {}
 tier: 3
@@ -18,12 +18,20 @@ Classify permission to have parts as Container
 
 ## Claim
 
-Container is a classification whose admitted value cases are yes and no:
+### Formal Claim
 
 ```CFEL
+# model
 Node >| Container: yes;
+
 Node >| Container: no
 ```
+
+### Prose Claim
+
+
+Container is a classification whose admitted value cases are yes and no:
+
 
 The yes case permits the Node to be the whole endpoint of CONTAINS, subject to its effective Relation whitelist and cardinalities. It does not by itself require a part. The no case forbids that endpoint role. Whether a part may belong to a whole is distinct from whether that part may itself have parts.
 

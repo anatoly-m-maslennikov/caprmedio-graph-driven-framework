@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//GOVERNS
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//DEPENDS_ON
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,21 +18,23 @@ tier: 3
 role: Delivery
 form: Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md
   source_atom_id: CA-D-269
   source_atom_revision: 28
-  source_sha256: 633805f2dcb9bb95e958f2b70be2deecac9a9861da07594d5a4e95d9ddb13485
+  source_sha256: 83d60a51cbf261a8446fb2299c737c5b794e4bee814b1a1e419cb9a355698886
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Serialize Atom Subjects in Frontmatter
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 New or migrated Markdown Atom carriers.
 
-## Claim
 
 For Markdown Atom carriers, encode `subjects` as a mapping with one scalar nonempty Entity path under `active` and zero or more unique nonempty Entity paths as a YAML sequence under `passive`. An omitted `passive` means zero. The grouping mapping has no direct value; its child values are counted separately. A Draft may be incomplete before promotion.
 

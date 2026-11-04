@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)/(.Form := Declaration)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -20,15 +20,26 @@ Encode Node Declarations in YAML
 
 ## Claim
 
-Node Declaration carriers require role, form and subjects.active. Encode passive Subjects as subjects.passive when present. Omit the author field.
+### Formal Claim
 
 ```CFEL
-Atom.Role >> @Carrier//Markdown file.frontmatter.role;
-Atom.Form >> @Carrier//Markdown file.frontmatter.form;
-Atom.Subjects.Active >> @Carrier//Markdown file.frontmatter.subjects.active;
-Atom.Subjects.Passive >> @Carrier//Markdown file.frontmatter.subjects.passive;
-Atom.Relations >> @Carrier//Markdown file.frontmatter.relations
+# instances
+Atom.Header.Role >> Carrier//Markdown file.frontmatter.role;
+
+Atom.Header.Form >> Carrier//Markdown file.frontmatter.form;
+
+Atom.Header.Subjects.Active >> Carrier//Markdown file.frontmatter.subjects.active;
+
+Atom.Header.Subjects.Passive >> Carrier//Markdown file.frontmatter.subjects.passive;
+
+Atom.Header.Relations >> Carrier//Markdown file.frontmatter.relations
 ```
+
+### Prose Claim
+
+
+Node Declaration carriers require role, form and subjects.active. Encode passive Subjects as subjects.passive when present. Omit the author field.
+
 
 - Encode subjects.active as one scalar path and subjects.passive as zero or more unique paths.
 - Obtain the canonical HAS_ACTIVE_SUBJECT link from subjects.active. It is not a derived view of another Relation; do not store the same fact twice.

@@ -22,7 +22,7 @@ relations:
   - CA-D-513
 tier: 3
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-113-PROJECT_CONFIGURATION-ACTION--find-workflows-and-actions-by-outcome.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-113-PROJECT_CONFIGURATION-ACTION--find-workflows-and-actions-by-outcome.md
   source_atom_id: CA-O-113
   source_atom_revision: 13
   source_sha256: 30b31d670931ee8ee13a6db920815bb394c4447ad3e7b76c21d3c3d219f5223f

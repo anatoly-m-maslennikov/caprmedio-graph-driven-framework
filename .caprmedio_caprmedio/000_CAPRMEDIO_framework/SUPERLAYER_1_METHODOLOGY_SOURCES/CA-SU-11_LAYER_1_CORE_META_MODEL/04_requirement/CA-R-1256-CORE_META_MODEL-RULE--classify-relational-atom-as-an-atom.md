@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Classify Relational Atom as an Atom
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Term Relational Atom.
 
-## Claim
 
 the Term Relational Atom **must** be NARROWER_THAN Atom.

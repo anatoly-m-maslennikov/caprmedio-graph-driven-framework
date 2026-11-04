@@ -1,10 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.YAML Frontmatter.Scalar
-  passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
-version: 24
-updated_at: 2026-11-02 00:18:22 +0400
+  active: CAPRMEDIO_MODEL <+ Carrier/File
+version: 25
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-277
 current_scope_unit: CORE_META_MODEL
@@ -14,20 +12,22 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-277-CORE_META_MODEL-ENG_DECISION--serialize-safe-frontmatter-scalars.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-277-CORE_META_MODEL-ENG_DECISION--serialize-safe-frontmatter-scalars.md
   source_atom_id: CA-D-277
-  source_atom_revision: 24
-  source_sha256: 46d5fd8b7baa12811f026ff7bed6d9f0a2fd96fcc98721f60f16b808add9802b
+  source_atom_revision: 25
+  source_sha256: eaaacf8e72142b052b929088042655013a8cb1a3d0fc527e9e56146475673fb1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Serialize Safe Frontmatter Scalars
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 YAML Frontmatter of Markdown Atom Carriers.
 
-## Claim
 
 the YAML Frontmatter of a Markdown Atom Carrier **must** serialize registered YAML-safe controlled string values as plain scalars **and** **must** place uncontrolled human prose **in** Main Content.

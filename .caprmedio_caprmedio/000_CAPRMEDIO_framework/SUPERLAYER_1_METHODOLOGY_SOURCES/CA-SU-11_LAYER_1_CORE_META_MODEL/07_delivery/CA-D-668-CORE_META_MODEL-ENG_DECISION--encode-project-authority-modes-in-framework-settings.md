@@ -1,6 +1,6 @@
 ---
 subjects:
-  governs: Project.Settings.Authority Modes
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes
 version: 2
 updated_at: 2026-11-02 20:07:03 +0400
 relations: {}

@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Step
+  - CAPRMEDIO_MODEL <+ Carrier/Directory
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
 version: 28
 updated_at: 2026-11-02 17:54:42 +0400
 relations:
@@ -20,21 +20,23 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md
   source_atom_id: CA-D-467
   source_atom_revision: 28
-  source_sha256: ede897a3fcd79d0f1ccb07c9011b1c6fcb4fcb10272146b405d520d7b1610e69
+  source_sha256: ed46335c87661b1caa6ca3c6fc3f042f50a54de7dd0014e2b68877b1833a0b66
   original_relations_sha256: d0044d401c04912541104905ec20e3fe8aa446a6e50f04a28e8754696dfdaf01
 ---
 ## Summary
 
 Store Workflow graphs **and** Steps in separate carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 folder-backed Workflows, Step Carriers, **and** their leaf Substep Carriers.
 
-## Claim
 
 a folder-backed Workflow **must** use **`=1`** Workflow Atom Markdown Carrier **and** **`<=1`** optional sibling Directory Carrier with the same filename stem. the Directory Carrier contains separate Markdown Carriers for its Step Atoms; it **must not** contain a second Workflow definition.
 

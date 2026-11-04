@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Subjects
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//GOVERNS
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
 atom_id: CA-R-2100
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -14,21 +14,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2100-CORE_META_MODEL-RULE--limit-each-atom-to-one-governed-subject.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2100-CORE_META_MODEL-RULE--limit-each-atom-to-one-governed-subject.md
   source_atom_id: CA-R-2100
   source_atom_revision: 8
-  source_sha256: b2ffead2ad37816a6e3d08874b643be9fa284779606c3e84afa801f68d9ecc43
+  source_sha256: 1be97cd99a829eb3a4bb809c9e1e4c8a54c8329b6c6125ae2dc67604f3a5f08c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Limit each Atom to one governed Subject
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The direct GOVERNS Subject Relations recorded in an Atom's Subjects.
 
-## Claim
 
 An Atom **may** have zero or one direct GOVERNS Subject Relation. No Atom's Subjects **may** contain more than one direct GOVERNS Subject Relation.
 

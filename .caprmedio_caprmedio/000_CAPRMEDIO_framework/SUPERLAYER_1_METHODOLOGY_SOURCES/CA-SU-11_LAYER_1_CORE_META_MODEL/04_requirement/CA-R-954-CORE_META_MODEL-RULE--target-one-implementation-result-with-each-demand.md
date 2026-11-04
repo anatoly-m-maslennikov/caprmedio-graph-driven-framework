@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Package/Implementation
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -19,10 +19,12 @@ form: Rule
 ## Summary
 Target one Implementation result with each Demand
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Demand Atoms.
 
-## Claim
 
 **every** Demand Atom **must** constrain **`=1`** Implementation result produced by its Claim Scope.

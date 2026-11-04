@@ -4,10 +4,10 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 6
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -15,21 +15,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md
   source_atom_id: CA-R-2276
   source_atom_revision: 6
-  source_sha256: f355973159d2f4af86051621af865529017d29274d2c14ba69ef1adbf77d2eae
+  source_sha256: 305ea99fee46090bffe1df0d58e49bf6bdc2ad292d964e8e8a646d31d277d633
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Require one-to-one canonical entity names with reusable Terms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Every entity represented in the Subject Graph, every declared Relation Type entity, and every authored occurrence mentioning one of those entities in CAPRMEDIO Controlled English.
 
-## Claim
 
 **every** entity represented **in** the Subject Graph **and** **every** declared Relation Type entity **must** have **`=1`** complete canonical name formed from reusable Terms **and** any applicable registered qualification syntax **and** used exactly **in** **every** authored occurrence that mentions it. **every** such complete name **must** identify **`=1`** entity, distinct complete names **must not** identify the same entity, **and** the same complete name **must not** identify distinct entities. Outside `Term`, the complete canonical name **must** be the full admitted expression, **not** a single registered Term; the Subject root `Entity` is the sole exception.
 
@@ -41,7 +43,7 @@ The naming domain includes all graph entities, including property, allowed-value
 
 `Package <+ Module <+ Code Unit` connects three entities. Its labels are not assertions of the complete canonical names of entities outside `Term`; an authored reference to one specific entity uses that entity's full qualified expression admitted by its defining authority. The complete chain is not one Term or one entity name. Component reuse does not introduce a second entity named by each component or a separate `Unit` node.
 
-Qualification belongs to the full admitted expression used for entity-name collision checks. The contextual spellings `atom.id` and `projection.id` remain unchanged; they are not renamed to `atom.atom_id` or other invented spellings. The dot remains an operator. `Atom/(.Content Role: X)/(.Type: X)` is a possible qualified expression: it reuses the registered Term `X` in separately qualified value contexts, and governing authority must admit `X` separately in each context. This does not make `X` the complete canonical name of an entity outside `Term` or transfer admission between contexts. Likewise, identical local instance labels under distinct source-established kind qualification do not imply identical complete names. An arbitrary composite expression is not automatically one entity name or one Term. This rule does not register grammar: operators, reference markers, cardinality, and relation notation retain the meanings adopted under CA-R-1931 and CA-R-2487.
+Qualification belongs to the full admitted expression used for entity-name collision checks. The contextual spellings `atom.id` and `projection.id` remain unchanged; they are not renamed to `atom.atom_id` or other invented spellings. The dot remains an operator. `Atom/(.Header.Role: X)/(.Header.Form: X)` is a possible qualified expression: it reuses the registered Term `X` in separately qualified value contexts, and governing authority must admit `X` separately in each context. This does not make `X` the complete canonical name of an entity outside `Term` or transfer admission between contexts. Likewise, identical local instance labels under distinct source-established kind qualification do not imply identical complete names. An arbitrary composite expression is not automatically one entity name or one Term. This rule does not register grammar: operators, reference markers, cardinality, and relation notation retain the meanings adopted under CA-R-1931 and CA-R-2487.
 
 Canonical identity is established by governing authority rather than spelling, path position, context, or display placement. Repeated references use the same complete canonical name and do not create duplicate entities. Literal source quotations and code identifiers are distinguishable from authored entity mentions and are not automatically renamed. Arbitrary instance names and IDs outside this modeled-entity naming role do not automatically become lexical definitions.
 

@@ -4,14 +4,16 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Projection.ID
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-version: 16
-updated_at: 2026-11-02 00:18:22 +0400
+  - CAPRMEDIO_MODEL <+ Projection.ID
+  - CAPRMEDIO_MODEL <+ Projection.Form
+  - CAPRMEDIO_MODEL <+ Projection.Scope Unit
+  - CAPRMEDIO_MODEL <+ Projection.Source.Named Selection
+  - CAPRMEDIO_MODEL <+ Projection.Source.Atoms
+  - CAPRMEDIO_MODEL <+ Scope Unit
+version: 17
+updated_at: 2026-11-04 07:51:19 +0400
 relations:
   depends_on:
   - CA-R-1943
@@ -25,15 +27,17 @@ form: Decision
 
 Serialize Projection identity and filenames
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection Markdown File Carriers.
 
-## Claim
 
 Use this filename:
 
-`<PROJECT_PREFIX>-PROJ-<ID>-<CURRENT_SCOPE_NAME>--<PROJECTION_TYPE>--<NAMED_SELECTION>.md`
+`<PROJECT_PREFIX>-PROJ-<ID>-<CURRENT_SCOPE_NAME>--<PROJECTION_FORM>--<NAMED_SELECTION>.md`
 
 Store the full Projection ID as `projection_id` in YAML frontmatter. The filename and frontmatter must identify the same Projection.
 
@@ -49,12 +53,12 @@ The YAML frontmatter carries:
 
 - `artifact_form: Projection`
 - `projection_id`: the full Projection ID.
-- `type`: Projection Type.
-- `named_selection`: the named source selection.
-- `source_of_truth`: an unambiguous reference to the authoritative source set.
+- `form`: Projection Form.
+- `scope_unit`: the reference to the one Scope Unit of the Projection; for a Project-root Projection in caprmedio, `Project//caprmedio`.
+- `source.named_selection`: the named source selection.
+- `source.atoms`: contributing Atom references with explicit Versions, such as `CA-R-123@3`, when recorded. Identify contributing non-Atom sources separately; do not invent Atom IDs for them.
 - `updated_at`: the latest completed rebuild time under CA-D-310.
-- `sources`: contributing Atom references with Versions, such as `CA-R-123@3`. Identify contributing non-Atom sources separately; do not invent Atom IDs for them.
 
-Keep the ID under CA-R-1943 when rebuilding or changing only the Scope Unit name or Carrier path. Filename changes do not by themselves create a new Projection.
+Keep the ID under CA-R-1943 when rebuilding or changing only the Scope Unit name or Carrier path. Filename changes, including changes to the Named Selection, do not by themselves create a new Projection. Form and Scope Unit determine identity under CA-R-1943.
 
-Type-specific Delivery rules define the body and any additional source evidence. Store the Carrier under the applicable Projection root under CA-D-550.
+Form-specific Delivery rules define the body and any additional source evidence. Store the Carrier under the applicable Projection root under CA-D-550.

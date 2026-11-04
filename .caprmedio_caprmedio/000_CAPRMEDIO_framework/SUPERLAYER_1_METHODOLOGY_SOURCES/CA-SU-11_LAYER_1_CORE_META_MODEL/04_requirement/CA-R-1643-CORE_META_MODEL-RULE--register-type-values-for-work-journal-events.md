@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Journal
-version: 40
-updated_at: 2026-11-02 08:06:47 +0400
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+version: 41
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-R-1643
 current_scope_unit: CORE_META_MODEL
@@ -19,11 +19,13 @@ form: Rule
 
 Register Type Values for Work Journal Events
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 legacy Work Journal execution-observation category labels in serialized Journal Carrier Main Content.
 
-## Claim
 
 the Main Content of a serialized Journal Carrier **must** preserve a supplied legacy Work Journal execution-observation category label as one of (Started, Progressed, Completed, Failed, Interrupted, Abandoned, Recovered).
 

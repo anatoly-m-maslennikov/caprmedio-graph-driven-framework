@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -15,10 +15,12 @@ form: Implementation Method
 ## Summary
 Evaluate Scope Expressions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 evaluation of a Scope Expression.
 
-## Claim
 **to** evaluate one Scope Expression, the Resolver **must** perform **all** of:
 
 1. resolve **every** exact Atom ID **or** other atomic identity **to** **`=1`** Governed Entity.

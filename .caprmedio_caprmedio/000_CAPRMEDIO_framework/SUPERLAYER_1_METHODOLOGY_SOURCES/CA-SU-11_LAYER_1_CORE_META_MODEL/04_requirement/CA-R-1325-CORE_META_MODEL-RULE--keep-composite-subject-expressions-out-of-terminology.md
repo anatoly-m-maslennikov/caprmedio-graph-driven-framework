@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Catalog)'
+  active: 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Keep Composite Subject Expressions out of Terminology
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Catalogs used as terminology lists or vocabulary diagnostic indexes.
 
-## Claim
 
 a Catalog used as a terminology list **or** vocabulary diagnostic index **must not** classify one complete composite Subject Expression as one Term.

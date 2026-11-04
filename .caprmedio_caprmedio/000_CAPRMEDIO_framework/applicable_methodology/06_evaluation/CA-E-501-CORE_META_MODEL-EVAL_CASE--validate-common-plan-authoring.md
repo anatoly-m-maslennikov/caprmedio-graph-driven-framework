@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Assignee'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Definition of Done'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Content.Details'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Label'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Details'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
 version: 30
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -36,21 +36,23 @@ tier: 4
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-EVAL_CASE--validate-common-plan-authoring.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-EVAL_CASE--validate-common-plan-authoring.md
   source_atom_id: CA-E-501
   source_atom_revision: 30
-  source_sha256: fdf3a1d22f7e33834fff8a6112bef08e9f816b24f263ba1eb1e54a2538f78921
+  source_sha256: 94862ea70f6e340d59a04f29a377c9e3ce47e88348ca6b807a1552d3e8c06285
   original_relations_sha256: d74d6c67905f8978e335a96c2236f190cf7fc40fe29f88dee7d98b4bad6b5140
 ---
 ## Summary
 
 Validate common Plan authoring
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan authoring under the common model.
 
-## Claim
 
 the Plan authoring Evaluation **must** reject **any** Plan that violates the common model.
 

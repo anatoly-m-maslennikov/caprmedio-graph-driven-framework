@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Status:Draft
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Status:Draft
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.ID
-  - CAPRMEDIO <+ MODEL <+ Atom.Version
-  - CAPRMEDIO <+ MODEL <+ Atom.Status:Draft
-  - CAPRMEDIO <+ MODEL <+ Atom.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status:Draft
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
 version: 24
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -17,21 +17,23 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DECISION--serialize-draft-revision-lineage.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DECISION--serialize-draft-revision-lineage.md
   source_atom_id: CA-D-570
   source_atom_revision: 24
-  source_sha256: a8e995694ec5c3378181200f2655e5cbff521ed06ab6959c3840bbec73a3ca9e
+  source_sha256: 715eb79b2400ea349304277666b8368aa6ac1a42bbce3d769660c16b254fc7a1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Serialize Draft Revision Lineage
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the recorded lineage metadata of a Project-owned Draft Atom Carrier, when it already exists.
 
-## Claim
 
 A Draft Atom **must not** require `revision_lineage`, a retained Draft-history entry or a trusted Draft head for Create, Update, promotion, another admitted Status change or their success. Every Draft Carrier carries the mandatory Draft `atom_id` marker under CA-D-378/CA-D-446; its filename follows CA-D-650.
 

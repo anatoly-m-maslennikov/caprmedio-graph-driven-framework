@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_MODEL <+ Entity
 relations:
   depends_on:
   - CA-R-2150@15
@@ -18,10 +18,10 @@ updated_at: 2026-11-02 00:18:22 +0400
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2225-CORE_META_MODEL-RULE--select-subject-graph-views-by-scope-units-and-branches.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2225-CORE_META_MODEL-RULE--select-subject-graph-views-by-scope-units-and-branches.md
   source_atom_id: CA-R-2225
   source_atom_revision: 4
-  source_sha256: ce7743d4060822447707f192afc7b1ec21d993864c9bd0304659bbb07a5fb582
+  source_sha256: aebd0fee87c89750833158e5f03a9be4abbee797e7b32d9dd8f62d5643f538a6
   original_relations_sha256: e5ed80c802b42a75a70b2cec6a262ed7c2e007d5530dfdb1f2db24403c6b3cb2
 ---
 ## Summary
@@ -29,6 +29,9 @@ projection:
 Select Subject Graph views by Scope Units and branches
 
 ## Claim
+
+### Prose Claim
+
 
 Each focused Subject Graph Projection **must** state and use one declared selection. Scope Unit criteria select Current RMEDO source Atoms by their Local Scope Unit, with an explicit option to include descendants declared in Project Structure. Folder nesting does not determine the selected Scope Units. Subject-branch criteria select canonical target branches while retaining ancestor context and the source-backed properties needed for inheritance within the selected source set.
 

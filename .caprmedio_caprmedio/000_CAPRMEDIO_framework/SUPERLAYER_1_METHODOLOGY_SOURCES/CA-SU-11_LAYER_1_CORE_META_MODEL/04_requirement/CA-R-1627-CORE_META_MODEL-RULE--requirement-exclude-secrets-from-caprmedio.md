@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Rule
 
 Requirement — Exclude secrets from CAPRMEDIO
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 secret values and their use across CAPRMEDIO surfaces.
 
-## Claim
 
 secret values **must** remain **in** the permitted secret storage defined by CA-D-452. secrets include passwords, API keys, access **or** refresh tokens, session cookies, private keys, signing **or** encryption keys, authentication certificates, one-time **or** recovery codes, **and** connection strings **or** URLs containing credentials.
 

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Define Child Composition
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the classification of direct children of a Scope Unit.
 
-## Claim
 
 Child Composition **means** the classification of one Scope Unit's direct children as **none**, LAYERS, FEATURES, **or** MIXED.

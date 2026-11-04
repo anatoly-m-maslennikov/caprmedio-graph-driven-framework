@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Entity
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -17,21 +17,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1500-CORE_META_MODEL-DEFINITION--define-artifact-applicability.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1500-CORE_META_MODEL-DEFINITION--define-artifact-applicability.md
   source_atom_id: CA-R-1500
   source_atom_revision: 21
-  source_sha256: 583209f01ae8b6a100f254479b5c9381365d8f2d55dc08cb913d86bdb7da75dc
+  source_sha256: ad7e34102afd1331da71acca6b338158b1ec446f1e8b2d17665d4e592c939c8b
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary
 
 Define Artifact Applicability
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifact governed meaning in a declared context.
 
-## Claim
 
 
 

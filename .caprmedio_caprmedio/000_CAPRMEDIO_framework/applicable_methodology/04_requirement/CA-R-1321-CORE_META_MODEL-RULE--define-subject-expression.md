@@ -1,14 +1,14 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Term
-  - CAPRMEDIO <+ MODEL <+ Term//Property
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Package
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package <+ Module
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Package
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
 version: 35
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -20,33 +20,35 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md
   source_atom_id: CA-R-1321
   source_atom_revision: 35
-  source_sha256: fea9f35141d26ccb00bb4e41a1432159e33669e478f626c9b38eb2ba363159c8
+  source_sha256: 119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define Subject Expression
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Subject Expressions formed from entity names, reusable Term components, and registered relation syntax.
 
-## Claim
 
 
 
 The following interpretation is required when this governed concept is used:
 
-a Subject Expression **means** a reference **to** **`=1`** canonical Subject Target formed from entity names, registered relation syntax, **and** an optional registered Atom-owner selector. The case-significant lexical component `Atom` occurs **in** the full canonical Entity expression `Entity/Object/Continuant/Governing Objects/Atom`; lowercase `atom(...)` is a distinct case-significant selector keyword, **not** an alias **or** spelling of `Atom` **and not** another Entity kind. Only an approved-profile expression **may** begin with `atom(content_role="<exact Content Role>")` **or** `atom(content_role="<exact Content Role>",type="<exact Atom Type>")`; `type` has no standalone form. Selector literals are non-empty, double-quoted exact literals with no escaping, evaluation, wildcard, alias, or case folding. The reserved selector form is initial `atom(...)`; this does not reserve an ordinary noninitial Name `atom`.
+a Subject Expression **means** a reference **to** **`=1`** canonical Subject Target formed from entity names and registered relation syntax. A qualified Atom expression uses the admitted Role and Form Properties, for example `Atom/(.Header.Role := Plan)/(.Header.Form := Epic)` when both values are admitted.
 
-Outside the Term branch, an Entity reference **must** use its exact complete canonical expression with every source-established qualifier; a bare Term is not that expression. The sole one-Term exception is the Subject root `Entity`. Ordinary lexical components **may** reuse Terms with consistent approved meanings; an instance's name is **not** automatically a lexical Term. Inside `((...))`, a registered direct Relation token resolves to **`=1`** admitted Relation Type under the named-Relation notation. Its bare spelling is not that Relation Type entity's complete canonical expression; naming comparison uses the full qualified expression separately. The selector keyword, keys, punctuation, **and** literals remain syntax, **not** entities **or** additional canonical names merely because they occur **in** an expression. A qualified Atom expression such as `Atom/(.Content Role: <exact Content Role>)/(.Type: <exact Atom Type>)` is available only when both exact values have independent source admission; its segments do not become admitted merely by appearing in selector syntax.
+Outside the Term branch, an Entity reference **must** use its exact complete canonical expression with every source-established qualifier; a bare Term is not that expression. The sole one-Term exception is the Subject root `Entity`. Ordinary lexical components **may** reuse Terms with consistent approved meanings; an instance's name is **not** automatically a lexical Term. Inside `((...))`, a registered direct Relation token resolves to **`=1`** admitted Relation Type under the named-Relation notation. Its bare spelling is not that Relation Type entity's complete canonical expression; naming comparison uses the full qualified expression separately. A qualified Atom expression such as `Atom/(.Header.Role := <exact Role>)/(.Header.Form := <exact Form>)` is available only when both exact values have independent source admission; its segments do not become admitted merely by appearing in an expression.
 
-`/`, `//`, `.`, `:`, `+>`, `<+`, `>|`, `|<`, `@`, parentheses, the named-relation form `Source ((RELATION_TYPE)) Target`, **and** cardinality follow CA-R-1931 **and** CA-R-2487. `//` is one separator token between a kind **and** a named instance; its right operand is the instance's name, **not** an Atom ID. `@` calls an already declared Entity; it is **not** an Atom-version selector or kind-only reference. Parentheses provide logical grouping. `Part +> Whole` and `Whole <+ Part` are containment, not inheritance or sequence. `X >| Y` and `Y |< X` express the same HAS_CLASSIFICATION fact with Entity Y used as an applicable Classification axis, not membership or a new Entity kind. Relation counts use `Source {:forward}((RELATION)){:reverse} Target`; direct values use `Property{:occurrence}: [format]{:value count}`. Operators, calls, grouping, relation delimiters, Formats, **and** cardinality are **not** Terms.
+`/`, `//`, `.`, `:`, `+>`, `<+`, `>|`, `|<`, parentheses, the named-relation form `Source ((RELATION_TYPE)) Target`, **and** cardinality follow CA-R-1931 **and** CA-R-2487. `//` is one separator token between a kind **and** a named instance; its right operand is the instance's name, **not** an Atom ID. A bare qualified address refers to its declared target; Atom version tags retain their separate meaning. Parentheses provide logical grouping. `Part +> Whole` and `Whole <+ Part` are containment, not inheritance or sequence. `X >| Y` and `Y |< X` express the same HAS_CLASSIFICATION fact with Entity Y used as an applicable Classification axis, not membership or a new Entity kind. Relation counts use `Source {:forward}((RELATION)){:reverse} Target`; direct values use `Property{:occurrence}: [format]{:value count}`. Operators, grouping, relation delimiters, Formats, **and** cardinality are **not** Terms.
 
-The complete expression **must** resolve **to** **`=1`** canonical Subject Target that already exists **or** is explicitly introduced by applicable defining authority under CA-R-1194 **and** CA-R-1931. Syntax alone neither creates **nor** admits a target **or** native EntityGraph fact. Selector syntax neither enumerates Atom rows **nor** admits an Entity endpoint. The expression identifies the target, **not** the Atom's Subject Relation **to** it. An arbitrary composite expression is **not** one Term **or** automatically one entity name; an admitted qualified property name **may** identify **`=1`** entity.
+The complete expression **must** resolve **to** **`=1`** canonical Subject Target that already exists **or** is explicitly introduced by applicable defining authority under CA-R-1194 **and** CA-R-1931. Syntax alone neither creates **nor** admits a target **or** native EntityGraph fact. The expression identifies the target, **not** the Atom's Subject Relation **to** it. An arbitrary composite expression is **not** one Term **or** automatically one entity name; an admitted qualified property name **may** identify **`=1`** entity.
 
 ## Details
 

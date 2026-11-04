@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection.Form
+  active: CAPRMEDIO_MODEL <+ Projection.Form
   passive:
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ Projection.Form
-  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Catalog)
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Map'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Hub'
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Projection.Form
+  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)
+  - 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Map)'
+  - 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Hub)'
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 45
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -23,11 +23,13 @@ form: Rule
 
 Register Catalog, Map, and Hub as Type Values under Projection
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection Type values and derived terminology lists or vocabulary diagnostic indexes.
 
-## Claim
 
 Catalog, Map, **and** Hub **must** be distinct Type values under Projection with no authority over linked Artifact Claims.
 

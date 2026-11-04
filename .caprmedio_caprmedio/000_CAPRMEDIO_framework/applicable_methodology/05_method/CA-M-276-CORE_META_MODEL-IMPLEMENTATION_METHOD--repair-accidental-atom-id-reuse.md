@@ -1,24 +1,23 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.ID
+  active: CAPRMEDIO_MODEL <+ Atom.Header.ID
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.ID
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Local Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Version Number
-  - CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/AI Agent
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - CAPRMEDIO <+ MODEL <+ Journal
-version: 31
-updated_at: 2026-11-02 18:35:20 +0400
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - CAPRMEDIO_MODEL <+ Journal
+version: 32
+updated_at: 2026-11-03 23:25:51 +0400
 relations:
   method_for:
-  - CA-R-2493
+  - CA-R-2701
 atom_id: CA-M-276
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -27,21 +26,23 @@ tier: 4
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-IMPLEMENTATION_METHOD--repair-accidental-atom-id-reuse.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-IMPLEMENTATION_METHOD--repair-accidental-atom-id-reuse.md
   source_atom_id: CA-M-276
-  source_atom_revision: 31
-  source_sha256: 0f39bfc102c76f8a92a2fd4a63b8cfd2f265785401ad1e354d265e25a1e2705a
-  original_relations_sha256: e34eb399209772e69c9e83607058eeacd9f02b5fab47517d59060b76f37de2af
+  source_atom_revision: 32
+  source_sha256: 38b0baa8171d96db35249196085266dd25dfbec28d941f955cb13d710abdaa23
+  original_relations_sha256: c97e8b2b86ca5e437ab55e65bbfcc5e303f2caa3defea58e72e703e497de98a3
 ---
 ## Summary
 
 Repair accidental Atom ID reuse
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 repair of accidental reuse of assigned Project Atom IDs.
 
-## Claim
 
 **to** repair accidental reuse of an assigned Project Atom ID, an AI Agent **must** perform **all** of:
 

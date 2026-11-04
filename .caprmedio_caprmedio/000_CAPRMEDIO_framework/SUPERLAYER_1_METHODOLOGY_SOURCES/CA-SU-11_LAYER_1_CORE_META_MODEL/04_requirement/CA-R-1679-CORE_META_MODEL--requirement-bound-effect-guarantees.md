@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
 version: 31
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Requirement — Bound effect guarantees
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO effect guarantees.
 
-## Claim
 
 CAPRMEDIO permits an effect guarantee **only** **when** its scope, assumptions, owner, temporal boundary, **and** enforcement conditions are explicit. a bounded local guarantee **must** never be presented as universal exactly-once execution.

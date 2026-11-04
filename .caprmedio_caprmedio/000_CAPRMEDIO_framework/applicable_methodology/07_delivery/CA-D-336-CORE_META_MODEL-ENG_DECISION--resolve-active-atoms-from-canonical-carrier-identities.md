@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.ID
-  - CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
-version: 30
-updated_at: 2026-11-02 00:18:22 +0400
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Carrier
+version: 31
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-336
 current_scope_unit: CORE_META_MODEL
@@ -15,21 +15,23 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL-ENG_DECISION--resolve-active-atoms-from-canonical-carrier-identities.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL-ENG_DECISION--resolve-active-atoms-from-canonical-carrier-identities.md
   source_atom_id: CA-D-336
-  source_atom_revision: 30
-  source_sha256: 0aa69be6c8480818a70617952027b182d9b4c79e9f505282f176e28a91cfb84d
+  source_atom_revision: 31
+  source_sha256: 37728152e6ed58aa2e703b52edf01c4a7d445803b3f003f2939f3cacd8e56554
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Resolve Active Atoms from Canonical Carrier Identities
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Active Atom Carrier discovery from selected Project-owned Markdown source frontiers.
 
-## Claim
 
 Active Atom Carrier discovery **must** resolve requested Atom IDs from the identities carried inside the selected Project-owned Markdown source frontier **and** select carried Status Active.
 

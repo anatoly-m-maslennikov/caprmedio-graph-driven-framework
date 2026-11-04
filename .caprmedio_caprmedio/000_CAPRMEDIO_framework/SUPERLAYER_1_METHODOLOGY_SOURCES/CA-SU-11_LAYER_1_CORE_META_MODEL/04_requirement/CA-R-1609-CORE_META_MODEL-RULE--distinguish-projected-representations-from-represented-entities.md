@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -20,11 +20,13 @@ form: Rule
 
 Distinguish projected representations from represented Entities
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Representations inside a Projection and the Entities they represent.
 
-## Claim
 
 a representation inside a Projection **must** remain distinct from the Entity it represents.
 

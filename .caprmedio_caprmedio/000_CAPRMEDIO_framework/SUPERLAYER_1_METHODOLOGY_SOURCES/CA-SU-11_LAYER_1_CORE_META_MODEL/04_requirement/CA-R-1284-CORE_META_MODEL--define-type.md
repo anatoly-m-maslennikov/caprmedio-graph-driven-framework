@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Applicable Methodology)'
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Term//Type
-  - CAPRMEDIO <+ MODEL <+ CFEL
-  - CAPRMEDIO <+ MODEL <+ Entity/Property
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Applicable Methodology)'
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Term//Type
+  - CAPRMEDIO_MODEL <+ CFEL
+  - CAPRMEDIO_MODEL <+ Entity/Property
 version: 27
 updated_at: 2026-11-02 19:46:47 +0400
 relations: {}
@@ -22,12 +22,14 @@ form: Rule
 
 Define Type
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Type Properties and their use in qualified Entity kinds. A Type Property is
 optional generally; an applicable governing rule may require it in its context.
 
-## Claim
 
 Type is a single-valued Property when an Entity admits that Property. It can
 be used for classification: `X/(.Type: Z)` identifies a kind narrower than X,
@@ -49,7 +51,7 @@ become a narrower kind of X, and no intermediate X/Y kind is declared. Neither f
 value to an existing instance merely by appearing in an expression.
 
 Atom Form is represented by the YAML `form` key; Atom Role is represented by `role`. Legacy `type` and `content_role` are readable only under the transition rules in CA-D-657. These encodings do not create separate Property kinds.
-For example, `Atom/(.Content Role: Method)` concerns Atoms classified by Content
+For example, `Atom/(.Header.Role: Method)` concerns Atoms classified by Content
 Role Method; Method is not used as a Type value in this example.
 
 ## Details

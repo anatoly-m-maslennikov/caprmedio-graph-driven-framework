@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Actor
+  active: CAPRMEDIO_MODEL <+ Actor
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,9 +18,13 @@ Declare Actor
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Actor;
-Actor ((NARROWER_THAN)) @Continuant
+
+Actor ((NARROWER_THAN)) Continuant
 ```
 
 ## Semantics

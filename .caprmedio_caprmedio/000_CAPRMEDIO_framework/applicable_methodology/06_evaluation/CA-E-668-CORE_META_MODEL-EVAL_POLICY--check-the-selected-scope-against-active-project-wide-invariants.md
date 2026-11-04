@@ -10,11 +10,11 @@ relations:
   - CA-R-706
   - CA-R-2425
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -26,10 +26,10 @@ tier: 3
 role: Evaluation
 form: Eval Policy
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-668-CORE_META_MODEL-EVAL_POLICY--check-the-selected-scope-against-active-project-wide-invariants.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-668-CORE_META_MODEL-EVAL_POLICY--check-the-selected-scope-against-active-project-wide-invariants.md
   source_atom_id: CA-E-668
   source_atom_revision: 2
-  source_sha256: a2dd8583d8c5484cba82162b31d4e7ca59d324c95ec7fa5bddb71e597523c512
+  source_sha256: a58622d1f96e2e926da5c3142c793960a4cb83f125aa4247e45841bd4ec3566f
   original_relations_sha256: 2b188f62feb322f2869bf3a79743b4520e1e3d3338b37cbbfe450f1eb7db7b03
 ---
 ## Summary
@@ -37,6 +37,9 @@ projection:
 Check the selected Scope against active Project-wide invariants
 
 ## Claim
+
+### Prose Claim
+
 
 For **every** selected Scope, the complete set of active Atoms **must** align with **every** active Project-wide foundational invariant.
 

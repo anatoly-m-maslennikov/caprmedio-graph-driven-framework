@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Applicable Methodology)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 32
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Forbid Claim Synthesis and Merge During Compilation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Applicable Methodology compilation of source Claims.
 
-## Claim
 
 Applicable Methodology compilation **must not** synthesize **or** merge source Claims.

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Parsing
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Parsing
+  - CAPRMEDIO_MODEL <+ Entity
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -21,10 +21,12 @@ form: Rule
 ## Summary
 Define Restricted CCE Canonical Signature
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 parenthesized restricted Boolean expression occurrences **in** Atom Claims.
 
-## Claim
 
 Where a Canonical Signature is interpreted for a parenthesized restricted Boolean expression occurrence in one Atom Claim, the interpretation **must** produce **`=1`** derived non-authoritative comparison value, subject to the following constraints:
 

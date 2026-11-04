@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  active: CAPRMEDIO_MODEL <+ Atom.Content.Summary
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Decision
 
 Serialize Filename Summary Slug from Summary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom Filenames and their Summary Slugs.
 
-## Claim
 
 **every** Atom Filename Summary Slug **must** be the lowercase ASCII kebab-case serialization of the complete Atom Summary.

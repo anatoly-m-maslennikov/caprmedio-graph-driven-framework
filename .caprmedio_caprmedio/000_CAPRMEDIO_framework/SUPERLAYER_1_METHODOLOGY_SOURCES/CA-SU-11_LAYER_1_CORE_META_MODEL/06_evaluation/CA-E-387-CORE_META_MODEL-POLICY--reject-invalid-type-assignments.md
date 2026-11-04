@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Entity
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -22,11 +22,13 @@ form: Eval Policy
 
 Reject Invalid Type Assignments
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Type assignments on Entity occurrences.
 
-## Claim
 
 the Evaluation **must** reject a Type assignment **if** **any** of the following holds:
 

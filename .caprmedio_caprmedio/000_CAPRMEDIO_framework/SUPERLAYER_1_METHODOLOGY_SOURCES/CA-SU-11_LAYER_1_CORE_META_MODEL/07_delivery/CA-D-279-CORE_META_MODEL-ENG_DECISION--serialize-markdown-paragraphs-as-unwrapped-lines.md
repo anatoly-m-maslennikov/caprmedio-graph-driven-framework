@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content.Paragraph
-version: 25
-updated_at: 2026-11-02 19:44:26 +0400
+  active: CAPRMEDIO_MODEL <+ Carrier/File
+version: 26
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-279
 current_scope_unit: CORE_META_MODEL
@@ -16,10 +16,12 @@ form: Decision
 
 Serialize Markdown Paragraphs as Unwrapped Lines
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Markdown Atom Carrier Main Content prose paragraphs.
 
-## Claim
 
 **every** Markdown Atom Carrier Main Content prose paragraph **must** use one unwrapped source line **and** one blank line between adjacent paragraphs.

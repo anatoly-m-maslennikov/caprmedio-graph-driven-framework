@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory").Form
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory").Header.Form
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 27
 updated_at: 2026-11-02 19:33:47 +0400
 relations: {}
@@ -14,21 +14,23 @@ tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-389-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-389-CORE_META_MODEL-ENG_DECISION--serialize-analysis-type-tokens.md
   source_atom_id: CA-D-389
   source_atom_revision: 27
-  source_sha256: 5ae311e1763c70b2d35d1eada0a3c03ef27003d030e549eab0e076c65204e39e
+  source_sha256: 2a699ea13225a3ff723b7a395ae7e7dd65756a33d4589e71d40715bdebff755c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Serialize Analysis Type Tokens
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the serialization of Analysis & Advisory Form tokens in an Analysis & Advisory Atom File Carrier filename.
 
-## Claim
 
 an Analysis & Advisory Atom File Carrier **must** serialize the following Form components within the Atom filename grammar governed by CA-D-283 **and** CA-D-284:
 

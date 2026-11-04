@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -20,10 +20,12 @@ form: Rule
 
 Bind Each Project Customization to One Source Revision
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project Customizations and their customized Core Meta-Model or Extension revisions.
 
-## Claim
 
 **every** Project Customization **must** identify **`=1`** customized Core Meta-Model **or** Extension revision **without** modifying that revision.

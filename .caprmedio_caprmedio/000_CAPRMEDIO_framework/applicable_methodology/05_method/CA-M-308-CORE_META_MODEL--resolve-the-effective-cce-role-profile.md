@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Type
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Form
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -19,21 +19,23 @@ tier: 6
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL--resolve-the-effective-cce-role-profile.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL--resolve-the-effective-cce-role-profile.md
   source_atom_id: CA-M-308
   source_atom_revision: 25
-  source_sha256: ea30f61d6184abaffc75021497b1c9b3d4772bdb95167a060ef4a09f95f5565e
+  source_sha256: 79acdc3c7ae3eb7cc5267ad4454e5d8bcbbac7dd12b9b9c912411427a158f32b
   original_relations_sha256: 1037ec3e9bee824bbe0013d533c233bc31238f593358d3400af78e5150b7d7f4
 ---
 ## Summary
 
 Resolve the Effective CCE Role Profile
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 effective CCE Role Profiles for Atom Claims.
 
-## Claim
 
 **to** resolve one effective CCE Role Profile for one Atom Claim, the Author **must** perform **all** of:
 

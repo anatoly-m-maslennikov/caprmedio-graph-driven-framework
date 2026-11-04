@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Type
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Form
 version: 33
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -12,21 +12,23 @@ tier: 1
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1700-CORE_META_MODEL-RULE--admit-atoms-only-where-a-role-has-an-atomic-unit.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1700-CORE_META_MODEL-RULE--admit-atoms-only-where-a-role-has-an-atomic-unit.md
   source_atom_id: CA-R-1700
   source_atom_revision: 33
-  source_sha256: fc9779f9fcf3832b37ace4459e1a7fbd9926aaada4cf88f821a6353c90675365
+  source_sha256: 38ed35ba1e6d78262c38d8c7467990af5cc83ef615d944ffdc8e0ce7f31c7e4b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Admit Atoms only where a role has an atomic unit
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Content Role Type admission.
 
-## Claim
 
 a Role admits a Form value for an Atom **only** **when** that role has an independently governed atomic unit that benefits from stable identity, admission, **and** whole-unit lifecycle.
 

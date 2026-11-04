@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -20,11 +20,13 @@ form: Rule
 
 Define Graph of Graphs
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Graph of Graphs compositions and any generated overview Artifact.
 
-## Claim
 
 
 

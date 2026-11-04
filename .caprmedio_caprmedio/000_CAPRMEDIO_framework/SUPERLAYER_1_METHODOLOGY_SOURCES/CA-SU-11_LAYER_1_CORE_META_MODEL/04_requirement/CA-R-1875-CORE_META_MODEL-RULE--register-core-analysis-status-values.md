@@ -4,13 +4,13 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory").Status
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory").Header.Status
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory").Form
-  - CAPRMEDIO <+ MODEL <+ Atom.Status
-  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory").Header.Form
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 22
 updated_at: 2026-11-02 19:33:47 +0400
 relations: {}
@@ -22,13 +22,15 @@ form: Rule
 
 Register Core Analysis Status Values
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the default Status value domain of Analysis & Advisory Atoms with Form Analysis Report or Rationale.
 
-## Claim
 
-the Core Analysis & Advisory Status model **must** inherit the allowed values of Atom.Status and add Done. That Role Status model applies to Analysis & Advisory Atoms with Form Analysis Report or Rationale. An admitted Extension or Project Configuration **may** add values under the applicable complete Role and Form path; it **must not** remove inherited values.
+the Core Analysis & Advisory Status model **must** inherit the allowed values of Atom.Header.Status and add Done. That Role Status model applies to Analysis & Advisory Atoms with Form Analysis Report or Rationale. An admitted Extension or Project Configuration **may** add values under the applicable complete Role and Form path; it **must not** remove inherited values.
 
 ## Details
 

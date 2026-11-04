@@ -1,16 +1,16 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - CAPRMEDIO <+ MODEL <+ Package
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package/Project Implementation
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Requirement)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - CAPRMEDIO_MODEL <+ Package
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -24,21 +24,23 @@ tier: 3
 role: Evaluation
 form: Eval Case
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-487-PROJECT_CONFIGURATION-EVAL_CASE--validate-workflow-independent-implementation-specifications.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-487-PROJECT_CONFIGURATION-EVAL_CASE--validate-workflow-independent-implementation-specifications.md
   source_atom_id: CA-E-487
   source_atom_revision: 28
-  source_sha256: 4ef5d3071af5f4f8cf9adb3f681922f7c6796ced0548ad52acd3473a08e78fda
+  source_sha256: b4a181680b2ed280e7d566a10d10f0dcb67553e8ebc5619d4f3177e15a94457e
   original_relations_sha256: ad46b65bf1f2ebb680933375c6a0e610a4e11544805253277316d1e163e72787
 ---
 ## Summary
 
 Validate Workflow-independent Implementation specifications
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Evaluation of a CAPRMEDIO implementation Spec.
 
-## Claim
 
 the Evaluation of a CAPRMEDIO implementation Spec **must** reject dependence on a production Workflow under CA-R-1514-PROJECT_CONFIGURATION-RULE--keep-implementation-specifications-independent-of-production-workflows.
 

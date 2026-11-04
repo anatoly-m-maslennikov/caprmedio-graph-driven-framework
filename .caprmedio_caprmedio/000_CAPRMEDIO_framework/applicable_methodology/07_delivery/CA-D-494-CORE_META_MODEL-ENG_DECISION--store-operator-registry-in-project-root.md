@@ -6,31 +6,33 @@ status: Active
 version: 17
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Journal
 relations: {}
 tier: 3
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-494-CORE_META_MODEL-ENG_DECISION--store-operator-registry-in-project-root.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-494-CORE_META_MODEL-ENG_DECISION--store-operator-registry-in-project-root.md
   source_atom_id: CA-D-494
   source_atom_revision: 17
-  source_sha256: ee110137512ec3010103d4a153bb0a462b860305e3bc49da46e44c3899312502
+  source_sha256: aa3aca414d163ac7ead82f39827362a2cb7fd1315f33c9a9f1e35047231c9cc1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Store Operator Registry in Project Root
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the authoritative Operator registry of a Project.
 
-## Claim
 
 the authoritative Operator registry **must** use **`=1`** `operators_registry.toml` file **in** the Project authority root, alongside Project Settings.
 

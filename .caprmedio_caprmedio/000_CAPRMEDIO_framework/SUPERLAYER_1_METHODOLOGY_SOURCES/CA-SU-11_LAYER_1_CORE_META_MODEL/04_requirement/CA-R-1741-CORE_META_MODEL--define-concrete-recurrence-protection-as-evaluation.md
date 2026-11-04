@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
 version: 30
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,10 +18,12 @@ form: Rule
 
 Define concrete recurrence protection as Evaluation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 concrete recurrence protection.
 
-## Claim
 
 **every** concrete recurrence protection **must** be represented by an Evaluation Atom that defines one mechanism-neutral bounded check for the corrected failure class.

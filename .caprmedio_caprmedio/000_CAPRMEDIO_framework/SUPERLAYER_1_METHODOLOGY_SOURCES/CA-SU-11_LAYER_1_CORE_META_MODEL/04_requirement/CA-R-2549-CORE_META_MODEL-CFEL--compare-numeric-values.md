@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,6 +17,9 @@ form: Rule
 Compare and add numeric values in CFEL
 
 ## Claim
+
+### Prose Claim
+
 
 - `x > y`: x is greater than y.
 - `x >= y`: x is greater than or equal to y.
@@ -37,8 +40,14 @@ Compare and add numeric values in CFEL
 ## Details
 
 ```CFEL
-Atom.Version >= 1;
-IF (Atom/(.Role: Plan).Work Sequence Number{=1})
-THEN (Atom/(.Role: Plan).Work Sequence Number > 0);
-Atom.Tier >= -1
+# model
+Atom.Header.Version >= 1;
+
+Atom.Header.Tier >= -1;
+
+# instances
+Atom/(.Header.Role: Plan)//$atom;
+
+IF ($atom.Header.Work Sequence Number{=1})
+THEN ($atom.Header.Work Sequence Number > 0);
 ```

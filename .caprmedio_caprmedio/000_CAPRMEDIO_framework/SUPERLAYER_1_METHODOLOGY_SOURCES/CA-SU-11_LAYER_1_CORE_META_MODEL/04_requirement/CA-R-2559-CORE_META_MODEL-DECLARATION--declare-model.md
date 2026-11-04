@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL
+  active: CAPRMEDIO_MODEL
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,11 +19,20 @@ Declare MODEL
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 MODEL {:0}((IS_PROPERTY_OF));
+
 MODEL >| (Container == yes);
-MODEL ((NARROWER_THAN)) @Node
+
+MODEL ((NARROWER_THAN)) Node
 ```
+
+### Prose Claim
+
+
 
 - A local MODEL inherits CAPRMEDIO's MODEL.
 - MODEL inheritance is distinct from Node narrowing.

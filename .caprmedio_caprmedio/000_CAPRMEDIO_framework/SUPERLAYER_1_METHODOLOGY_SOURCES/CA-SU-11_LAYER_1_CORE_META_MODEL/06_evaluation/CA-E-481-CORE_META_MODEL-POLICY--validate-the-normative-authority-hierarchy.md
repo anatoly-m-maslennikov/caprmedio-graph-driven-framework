@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -23,11 +23,13 @@ form: Eval Policy
 
 Validate the normative-authority hierarchy
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the active normative-authority subgraph.
 
-## Claim
 
 the Evaluation of the active normative-authority subgraph **must** fail **when** **any** declared authority-bearing direct edge lacks its registered typing **or** the directed subgraph **contains** a cycle under CA-R-833.
 

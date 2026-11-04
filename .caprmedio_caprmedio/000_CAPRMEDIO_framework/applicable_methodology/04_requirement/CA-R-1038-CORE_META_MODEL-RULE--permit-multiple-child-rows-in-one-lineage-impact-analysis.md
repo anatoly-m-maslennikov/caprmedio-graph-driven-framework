@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -14,20 +14,22 @@ tier: 3
 role: Requirement
 form: Rule
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL-RULE--permit-multiple-child-rows-in-one-lineage-impact-analysis.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL-RULE--permit-multiple-child-rows-in-one-lineage-impact-analysis.md
   source_atom_id: CA-R-1038
   source_atom_revision: 28
-  source_sha256: 37418f57d12a2ef3a3cc3522bd2ae10dc6aec92035c4de72fdc89a52e98db281
+  source_sha256: 2aef6cf8468a9adc8ac86c77d3eb2d161b03db4ad483a1c857d7b089bd02c232
   original_relations_sha256: 7ebdb9b425b2dd0260c108974f4577998b125ec90d8080910111b3b61e830967
 ---
 ## Summary
 
 Permit multiple child rows in one Lineage Impact Analysis
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 child rows in a Lineage Impact Analysis Atom.
 
-## Claim
 
 **`=1`** Lineage Impact Analysis Atom **may** contain multiple child rows **when** **every** row supports its one primary conclusion that the changed parent Revision's Impact Review is complete **or** blocked.

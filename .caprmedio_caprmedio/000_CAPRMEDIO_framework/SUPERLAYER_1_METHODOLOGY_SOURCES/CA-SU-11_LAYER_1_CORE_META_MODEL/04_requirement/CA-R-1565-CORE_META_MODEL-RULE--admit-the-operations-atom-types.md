@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Header.Form'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow >{1+} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -21,13 +21,15 @@ form: Rule
 
 Admit the Operations Atom Types
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 internal Type values of Operations Atoms.
 
-## Claim
 
-the admitted internal values of `Atom/Content Role: Operations/Type` **must** include (Action, Workflow, Step).
+the admitted internal values of `Atom/(.Header.Role := Operations).Header.Form` **must** include (Action, Workflow, Step).
 
 ## Details
 

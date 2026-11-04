@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan.Status'
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -15,21 +15,23 @@ tier: 1
 role: Delivery
 form: Decision
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-ENG_DECISION--place-plan-carriers-by-status.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-ENG_DECISION--place-plan-carriers-by-status.md
   source_atom_id: CA-D-461
   source_atom_revision: 29
-  source_sha256: 1ed5d13a0d6904ee27feba9be0c9898d57da7196cf799631f2a1238999a19607
+  source_sha256: cac8ddb6e9a7dfa759e3b35e386cce2486406bf8ded702b34de8bf30e0339fba
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Place Plan Carriers by Status
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Plan Carrier Bundle placement by carried Status.
 
-## Claim
 
 **every** Plan Carrier Bundle **must** represent its carried Status **in** the following locations:
 

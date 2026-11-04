@@ -5,9 +5,9 @@ relations:
   child_of:
   - CA-R-1407
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Project
 atom_id: CA-R-833
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -20,10 +20,12 @@ form: Rule
 
 Organize normative authority as an acyclic hierarchy
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the normative-authority subgraph.
 
-## Claim
 
 the normative-authority subgraph **must** form an explicit, typed, **and** acyclic hierarchy.

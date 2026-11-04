@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Preserve unfinished operative work as Plan
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 still-valid unfinished operative actions.
 
-## Claim
 
 still-valid operative actions left unfinished by deferral, blocking, topic change, compaction, session end, **or** partial completion **must** be reconciled into the applicable governed Plan.

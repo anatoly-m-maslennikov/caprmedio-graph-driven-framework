@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ MODEL <+ Actor
-  - CAPRMEDIO <+ MODEL <+ Term//Property
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ CFEL<+Operator//AllowedValue
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
 version: 33
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -19,21 +19,23 @@ tier: 4
 role: Method
 form: Implementation Method
 projection:
-  source_carrier_path: ../../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL-IMPLEMENTATION_METHOD--author-claim-value-sets.md
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL-IMPLEMENTATION_METHOD--author-claim-value-sets.md
   source_atom_id: CA-M-237
   source_atom_revision: 33
-  source_sha256: 80a5fac14369d7a86063c866921af0a48f0fa10147cbebc4eca645dd09fbdfef
+  source_sha256: 5e82230031bb8c0a08fae9cb63dde23b4889f00d37c61e0e78c6d61b2002202a
   original_relations_sha256: 41eea2b549fddac86f9ca945ab8fd8e81217096be0d79454a214399a75af697d
 ---
 ## Summary
 
 Author Claim Value Sets
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Claim Value Set authoring.
 
-## Claim
 
 **to** author one Claim Value Set, the Author **must**:
 

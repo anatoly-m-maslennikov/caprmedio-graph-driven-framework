@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content.Claim
+  active: CAPRMEDIO_MODEL <+ Atom.Content.Claim
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,6 +17,9 @@ form: Implementation Method
 Write positive Claims about the active Subject
 
 ## Claim
+
+### Prose Claim
+
 
 - Keep the Claim on its active Subject.
 - Prefer positive statements that preserve the constraint.
