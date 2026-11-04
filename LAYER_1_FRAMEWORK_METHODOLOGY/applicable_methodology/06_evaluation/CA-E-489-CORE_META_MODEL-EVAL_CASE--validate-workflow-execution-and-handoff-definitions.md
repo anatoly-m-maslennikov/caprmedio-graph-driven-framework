@@ -1,0 +1,56 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  passive:
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+version: 23
+updated_at: 2026-11-02 08:06:47 +0400
+relations:
+  evaluation_for:
+  - CA-R-1519
+  - CA-R-1520
+atom_id: CA-E-489
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 3
+role: Evaluation
+form: Eval Case
+projection:
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-EVAL_CASE--validate-workflow-execution-and-handoff-definitions.md
+  source_atom_id: CA-E-489
+  source_atom_revision: 23
+  source_sha256: 7a66268d2ee580274be7ca7e111bf8daad6b8e192e5e5594a598f835d53646bb
+  original_relations_sha256: 0102f19294d46f92e70f4ced01eb0886d175700ad499ae88801edb6e86df9647
+---
+## Summary
+
+Validate Workflow execution and handoff definitions
+
+## Claim
+
+### Prose Claim
+
+
+a Workflow's declared execution **and** handoff behavior.
+
+
+the Evaluation **must** check whether a Workflow's declared execution **and** handoff behavior is well formed under CA-R-1519 **and** CA-R-1520, independently of current executor availability.
+
+## Details
+
+### Cases and expected results
+
+- complete input declarations, resolvable Action references, admitted transitions, explicit terminal outcomes, **and** declared capability requirements: pass this definition check **without** requiring a running executor.
+- a missing required input declaration, unresolved definition reference, missing continuation-selection rule, **or** absent applicable approval condition: reject the affected definition.
+- a well-formed definition whose selected executor lacks a declared capability, worker, **or** current permission: the definition remains valid; execution admission is blocked under CA-R-1519. do **not** report unavailable execution as malformed authority.
+- a missing invocation input **or** runtime resource is an execution-admission problem rather than a definition defect **when** its required binding is correctly declared.
+- a terminal handoff declares the target Revision, complete continuation inputs, reason, check evidence, **and** performed-effect account: accept its declared continuation boundary.
+- a handoff definition resumes predecessor Steps, claims successor success **before** execution, bypasses approval, resets retries, **or** admits an unbounded continuation cycle: reject.
+- a cross-Workflow Step route offered as a Run handoff: reject; the two boundaries have different endpoints **and** responsibilities.
+
+report the exact failing source **and** condition. definition validity **must not** be reported as permission, execution readiness, successful execution, **or** evidence that a Run occurred.
