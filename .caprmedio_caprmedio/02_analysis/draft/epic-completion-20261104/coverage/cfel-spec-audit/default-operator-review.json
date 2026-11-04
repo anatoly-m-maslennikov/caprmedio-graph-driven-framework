@@ -1,7 +1,7 @@
 {
-  "verdict": "HOLD_IDENTITY_RANGE_AND_BOOLEAN_OVERLAP",
-  "default_manifest_sha256": "92d929a64c01bbd538aaefd6e3dd2f38f07f03cd4e2fa5152bdc9401cd787486",
-  "operator_manifest_sha256": "8cbff5bc92eb58cc31525cb6ea283e1ffa4333aba0f89544bf74b3bb5de52232",
+  "verdict": "HOLD_FORMAT_DECLARATION_IDENTITY_AND_LOOKUP_FOCUS",
+  "default_manifest_sha256": "2195bc0719271e0f7e90677341834acfe3bbcb713fa762bdc3bae4c9e7928f2e",
+  "operator_manifest_sha256": "0583715e5f7be15d6ef6fc666421c6c9dba14e1845136f6f0be7c9964aa76f1a",
   "entries": [
     {
       "id": "CA-R-2550",
@@ -87,7 +87,35 @@
   "r2487_merge": "One source candidate must include the ?= to ?== replacement plus a precise Subject-expression-in-Formal-Claim clarification. Exclude mixed-AND/OR precedence sentence pending decision; do not apply the two R2487 previews independently.",
   "separate_hold": "New AND and OR descriptor previews are held for user precedence decision; not part of default readiness.",
   "limits": [
-    "Source-only review; no parser, evaluator, Carrier or runtime behavior established.",
-    "No Current, code, test, Git, Workbench or Workflow modifications."
-  ]
+    "source-only review; no Current, code, test, Git, Workflow or Workbench changes",
+    "no runtime, evaluator or Carrier migration verified"
+  ],
+  "previous_verdict": "HOLD_IDENTITY_RANGE_AND_BOOLEAN_OVERLAP",
+  "resolved_history": [
+    "R2550 and R2598 now have fresh-ID successor previews and inbound inventory; execution still needs atomic retirement and reference disposition.",
+    "User approved [int, 0..100] and new range/intersection proposals define the syntax.",
+    "R2487 is one merged candidate, and mixed AND/OR parentheses now explicitly user-approved."
+  ],
+  "findings": [
+    {
+      "id": "duplicate-format-declarations",
+      "action": "Both new range and format-intersection previews use Declaration for the already-defined CFEL Format entity. Use Rule form or consolidate into CA-R-2248 rather than create duplicate defining Declarations."
+    },
+    {
+      "id": "fallback-predecessor-retirement",
+      "action": "Allocate successors and retire/replace Current R2550 and R2598 atomically; Current R2598 and its successor otherwise define the same Operator//Fallback with conflicting tokens. Disposition Current inbound CA-A-1315 without changing frozen historical references."
+    },
+    {
+      "id": "lookup-focus",
+      "action": "The R2550 successor also defines LOOKUP traversal/applicability/errors, a separate operator focus. Preserve those rules in a LOOKUP-focused Rule before separating them from conditional assignment; avoid losing or duplicating semantics."
+    }
+  ],
+  "checks": {
+    "pins": "all six default and five operator/format candidate hashes plus source pins checked",
+    "subjects": "each candidate has exactly one active Subject; Format parent CA-R-2248 and Operator parent CA-R-2616 already declared",
+    "conditional_assignment": "present valid 0, false and other values retained; invalid present value errors; assignment only on absence, required effective cardinality satisfied, no implicit Carrier write",
+    "r2487": "combined preview limits := to Subject-selection expressions, including when embedded in a Formal Claim; no general assignment; approved mixed AND/OR parenthesization included",
+    "r2605": "declared-kind instance includes bearer-bound Property instances without inventing new kinds",
+    "threshold": "existing Project.Settings.AI Agent Confidence Threshold name retained; required effective int value and default 90, range 0 through 100 inclusive"
+  }
 }

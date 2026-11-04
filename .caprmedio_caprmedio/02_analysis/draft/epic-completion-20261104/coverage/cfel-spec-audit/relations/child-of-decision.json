@@ -1,0 +1,44 @@
+{
+  "status": "DECISION_REQUIRED",
+  "sources": [
+    {
+      "id": "CA-R-796",
+      "version": 44,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-DECLARATION--keep-tier-parent-relations-within-atom-scope.md",
+      "sha256": "607e22a1220107c29659a90a98f80dd9b0477dfb21c00229426a3a45a12ffa86"
+    },
+    {
+      "id": "CA-R-879",
+      "version": 32,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-RULE--register-child-of-and-parent-of-relation-pair.md",
+      "sha256": "170518ff269c74daa1c53a7d8385e790377fb116889bb25f6df49df6eb2d8ee3"
+    },
+    {
+      "id": "CA-R-2149",
+      "version": 15,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2149-CORE_META_MODEL-RULE--constrain-governing-rmed-relation-targets-by-numeric-tier-and-scope-ancestry.md",
+      "sha256": "928bd5b44590c661cb470c2105c79bf636f8ecca41d904785f03619724106fff"
+    },
+    {
+      "id": "CA-R-2478",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8"
+    },
+    {
+      "id": "CA-R-2508",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d"
+    }
+  ],
+  "consumer_inventory": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/child-of-consumers.json",
+  "domain": "R796 defines child_of as a directed child Atom \u2192 governing parent Atom whose Claim governs the child contribution; R879 requires parent_of as the derived reverse in normative authority ordering. R2149 imposes separate applicable governing RMED ordering constraints. R2508 defines containment separately.",
+  "comparison": "R2478 defines IS_CONTAINED_BY as immediate structural containment with a Container target. R796 explicitly distinguishes child_of from containment, dependency and source-layer membership. There is no source basis for claiming their equivalence or mechanically converting these facts.",
+  "bounded_blast_radius": "Live reread of previous selected 1,160 sources, excluding 41 Workbench/Workflow-named sources or active Subjects: 274 Current carriers have nonempty relations.child_of, zero have nonempty relations.parent_of, and two source bodies explicitly mention these names (R796 and R879). This is not an all-Project or runtime census. Frozen/versioned references must be preserved; separately scoped workflow/Workbench sources were not inspected.",
+  "question": "Should we retain child_of as the distinct governing-Claim relation and declare its derived parent_of view, or retire the pair in favor of a different explicitly identified governance relation?",
+  "limits": [
+    "No containment remapping or relation declaration preview: equivalence is disproved by Current R796 and replacement meaning is not settled.",
+    "No source, Workflow, Workbench, code or Git mutations."
+  ]
+}
