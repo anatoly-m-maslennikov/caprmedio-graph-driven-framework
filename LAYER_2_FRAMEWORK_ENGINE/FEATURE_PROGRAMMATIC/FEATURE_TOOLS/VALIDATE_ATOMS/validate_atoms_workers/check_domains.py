@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from .authority import Record
+from .check_fields import encoding_authority
 from .check_support import Check, _integer, _plan, _string, _strings
 
 
@@ -20,8 +21,16 @@ def _plan_override(metadata: Record, body: str, check: Check) -> None:
     del body
     if not _plan(metadata, check):
         return
+    encoding = encoding_authority(check)
+    if encoding is None:
+        return
     fields = {
-        "plan.confidence_override": ("autonomous_confidence_threshold", _integer),
+        "plan.confidence_override": (
+            "ai_agent_confidence_threshold"
+            if encoding[0] == "current"
+            else "autonomous_confidence_threshold",
+            _integer,
+        ),
         "plan.assignee": ("assignee", _string),
         "plan.retry_limit": ("implementation_retry_limit", _integer),
     }

@@ -22,7 +22,8 @@ from VALIDATE_ATOMS.validate_atoms_workers.check_structure_extended import ADAPT
 from VALIDATE_ATOMS.validate_atoms_workers.check_support import Check
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier as admission
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
-    ProposedCarrierError, _FRONTIER_IDS, _FRONTIER_STATUS_IDS, _GRAPH_IDS, _REGISTRY_IDS, _SUPPORT_IDS,
+    ProposedCarrierError, _FRONTIER_IDS, _FRONTIER_STATUS_IDS, _GRAPH_IDS, _LEGACY_REGISTRY_IDS,
+    _REGISTRY_IDS, _SUPPORT_IDS,
     source_context_from_project, validate_proposed_carrier,
 )
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_references import (
@@ -169,7 +170,8 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
             "Concern": "01_concern", "Analysis": "02_analysis",
         }
         identifiers = tuple(dict.fromkeys((
-            *_REGISTRY_IDS, *_SUPPORT_IDS, *_FRONTIER_STATUS_IDS.values(), "CA-R-1947", *source_ids,
+            *_REGISTRY_IDS, *_LEGACY_REGISTRY_IDS, *_SUPPORT_IDS, *_FRONTIER_STATUS_IDS.values(),
+            "CA-R-1947", *source_ids,
         )))
         self.materialize_authority(core, identifiers)
         self.entry_patch.stop()

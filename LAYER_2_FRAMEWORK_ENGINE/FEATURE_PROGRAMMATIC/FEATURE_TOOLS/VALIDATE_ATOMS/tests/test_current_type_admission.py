@@ -12,8 +12,12 @@ from unittest.mock import patch
 import yaml
 
 sys.path[:0] = [str(Path(__file__).resolve().parents[2]), str(Path(__file__).resolve().parents[1])]
-from validate_atoms_workers.authority import resolve_context  # noqa: E402
+from validate_atoms_workers.authority import current_role_declaration, resolve_context  # noqa: E402
+from validate_atoms_workers.check_domains import _domain_check  # noqa: E402
 from validate_atoms_workers.check_schema_extended import declared_type_coordinate  # noqa: E402
+from validate_atoms_workers.check_schema_extended import ADAPTERS as schema_adapters  # noqa: E402
+from validate_atoms_workers.check_support import Check  # noqa: E402
+from validate_atoms_workers.authority import Obligation  # noqa: E402
 from test_current_frontmatter_encoding import current_source  # noqa: E402
 from test_schema_extended import run  # noqa: E402
 import test_proposed_carrier_admission_regressions as fixture_projects  # noqa: E402
@@ -45,6 +49,55 @@ def fresh_owner(identifier="CA-R-55555", role="Method", kind="Term Definition"):
     return source_row("---\n" + yaml.safe_dump(metadata) + "---\n## Summary\n\nDefine Type\n\n## Claim\n\nA Type definition.\n")
 
 
+def role_declaration(
+    identifier, role, *, source_role="Requirement", form="Declaration", active=None,
+    status="Active", projection=False,
+):
+    literal = role if role.replace("_", "").isalnum() else json.dumps(role)
+    metadata = {
+        "atom_id": identifier,
+        "role": source_role,
+        "form": form,
+        "version": 1,
+        "status": status,
+        "subjects": {"active": active or f"CAPRMEDIO_MODEL <+ Atom/(.Header.Role := {literal})"},
+        "relations": {},
+        "tier": 3,
+    }
+    if projection:
+        metadata["projection"] = {"source_carrier_path": "/fixture/source.md"}
+    return source_row(
+        "---\n" + yaml.safe_dump(metadata) + "---\n## Summary\n\nDeclare Role\n\n## Claim\n\nA Role declaration.\n",
+        f"/fixture/{identifier}.md",
+    )
+
+
+def role_declarations():
+    roles = (
+        "Concern", "Analysis & Advisory", "Plan", "Requirement", "Method", "Evaluation", "Delivery",
+        "Operations",
+    )
+    return [role_declaration(f"CA-R-{61001 + index}", role) for index, role in enumerate(roles)]
+
+
+def current_model_check(metadata, rows):
+    check = Check(
+        Obligation("model.domains", [], True, "test"),
+        resolve_context(rows),
+        {"sources": rows},
+    )
+    schema_adapters["model.domains"](metadata, "", check)
+    return check
+
+
+def current_role_check(value, rows):
+    context = resolve_context(rows)
+    obligation = next(item for item in context.obligations if item.code == "domain.content_role")
+    check = Check(obligation, context, {"sources": rows})
+    _domain_check({"content_role": value}, "", check)
+    return check
+
+
 def declared_authority(selection, scope_unit):
     return selection.root / next(
         Path(row["authority_path"])
@@ -59,7 +112,7 @@ def current_path(selection, identifier):
 
 
 class CurrentTypeAdmissionTests(unittest.TestCase):
-    def test_shared_validation_scope_resolves_each_role_type_and_retains_source_freshness(self):
+    def test_current_scope_compatibility_cannot_certify_full_admission(self):
         fixture = fixture_projects.ProposedCarrierAdmissionRegressions("test_root_and_foreign_project_names_use_real_selected_settings_not_folder_name")
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
@@ -76,27 +129,28 @@ class CurrentTypeAdmissionTests(unittest.TestCase):
             encoding_path.write_text(encoding["text"])
             authority = declared_authority(selection, "CORE_META_MODEL") / "04_requirement"
             authority.mkdir(parents=True, exist_ok=True)
-            for source in (captured_sources()[1], fresh_owner()):
+            for source in (captured_sources()[1], fresh_owner(), *role_declarations()):
                 (authority / (source["binding"]["atom_id"] + "--type.md")).write_text(source["text"])
             body = "# Summary\n\nA scoped candidate\n\n## Scope\n\nOne candidate.\n\n## Claim\n\nA readable Claim.\n\n## Details\n"
             scope = admission.CarrierValidationScope(selection.root)
             before = fixture_projects.snapshot(selection.root)
             with bind_selection(selection):
-                for role, kind, identity, directory, owner in (
-                    ("Requirement", "Rule", "CA-R-701", "04_requirement", "CA-R-2000"),
-                    ("Method", "Term Definition", "CA-M-701", "05_method", "CA-R-55555"),
-                ):
-                    metadata = fixture.metadata(content_role=role, type=kind, atom_id=identity, tier=1)
-                    metadata.pop("local_tier")
-                    metadata.pop("global_tier")
-                    result = scope.validate(selection.root, metadata, body, Path(directory) / (identity + "--candidate.md"),
-                                            allow_existing_relations=True)
-                    self.assertEqual(result["findings"] + result["gaps"], [])
-                    domain = next(row for row in result["outcomes"] if row["code"] == "model.domains")
-                    self.assertIn(owner, [row["atom_id"] for row in domain["authority"]])
+                metadata = fixture.metadata(
+                    content_role="Method", type="Term Definition", atom_id="CA-M-701", tier=1,
+                )
+                metadata.update(role=metadata.pop("content_role"), form=metadata.pop("type"))
+                metadata["subjects"] = {
+                    "active": metadata["subjects"].pop("governs"),
+                    "passive": metadata["subjects"].pop("depends_on"),
+                }
+                metadata.pop("current_scope_unit")
+                metadata.pop("local_tier")
+                metadata.pop("global_tier")
+                with self.assertRaisesRegex(admission.ProposedCarrierError, "failed or is unresolved|owner authority"):
+                    scope.validate(selection.root, metadata, body, Path("05_method/CA-M-701--candidate.md"),
+                                   allow_existing_relations=True)
                 scope.revalidate()
                 self.assertEqual(fixture_projects.snapshot(selection.root), before)
-                self.assertNotIn("CA-R-2000", [row["binding"]["atom_id"] for row in scope._context.inputs["sources"]])
                 owner_path = authority / "CA-R-55555--type.md"
                 owner_path.write_text(owner_path.read_text() + "\nChanged source.\n")
                 with self.assertRaisesRegex(admission.ProposedCarrierError, "changed|unavailable"):
@@ -107,27 +161,58 @@ class CurrentTypeAdmissionTests(unittest.TestCase):
         constraint_metadata = {**owner["metadata"], "atom_id": "CA-R-55556", "type": "Rule"}
         constraint = source_row("---\n" + yaml.safe_dump(constraint_metadata)
                                 + "---\n## Summary\n\nConstrain Type\n\n## Claim\n\nA Type constraint.\n")
-        rows = [current_source(), captured_sources()[0], constraint]
+        rows = [current_source(), captured_sources()[0], *role_declarations(), constraint]
         metadata = {"content_role": "Method", "type": "Term Definition"}
-        self.assertTrue(run("model.domains", metadata, source_rows=rows).gaps)
-        result = run("model.domains", metadata, source_rows=[*rows, owner])
+        self.assertTrue(current_model_check(metadata, rows).gaps)
+        result = current_model_check(metadata, [*rows, owner])
         self.assertEqual(result.findings + result.gaps, [])
-        self.assertEqual([row["atom_id"] for row in result.obligation.authority], ["CA-R-55555"])
+        self.assertEqual(result.obligation.authority[-1]["atom_id"], "CA-R-55555")
+        self.assertEqual(9, len(result.obligation.authority))
 
     def test_current_domain_uses_source_coordinate_and_carries_definition_provenance(self):
-        rows = [current_source(), *captured_sources()]
-        result = run("model.domains", {"content_role": "Requirement", "type": "Rule"}, source_rows=rows)
+        rows = [current_source(), *captured_sources(), *role_declarations()]
+        result = current_model_check({"content_role": "Requirement", "type": "Rule"}, rows)
         self.assertEqual(result.findings + result.gaps, [])
         self.assertIn("CA-R-2000", [row["atom_id"] for row in result.obligation.authority])
-        unknown = run("model.domains", {"content_role": "Method", "type": "Term Definition"}, source_rows=rows)
+        unknown = current_model_check({"content_role": "Method", "type": "Term Definition"}, rows)
         self.assertTrue(unknown.gaps)  # R2229 still declares the Requirement coordinate.
         rows.append(fresh_owner())
-        result = run("model.domains", {"content_role": "Method", "type": "Term Definition"}, source_rows=rows)
+        result = current_model_check({"content_role": "Method", "type": "Term Definition"}, rows)
         self.assertEqual(result.findings + result.gaps, [])
         self.assertIn("CA-R-55555", [row["atom_id"] for row in result.obligation.authority])
 
+    def test_current_role_domain_uses_exact_role_declarations_not_a_duplicate_enum(self):
+        rows = [current_source(), captured_sources()[0], *role_declarations()]
+        context = resolve_context(rows)
+        obligation = next(item for item in context.obligations if item.code == "domain.content_role")
+        self.assertTrue(obligation.supported)
+        self.assertEqual(8, len(obligation.authority))
+        self.assertEqual([], current_role_check("Method", rows).findings)
+        self.assertTrue(current_role_check("Unadmitted", rows).findings)
+        for invalid in (
+            role_declaration("CA-R-61990", "Ignored", source_role="Analysis"),
+            role_declaration("CA-R-61991", "Ignored", form="Rule"),
+            role_declaration("CA-R-61992", "Ignored", active="CAPRMEDIO_MODEL <+ Atom.Header.Role"),
+            role_declaration("CA-R-61993", "Ignored", active="CAPRMEDIO_MODEL <+ Scope Unit/(.Header.Role := Ignored)"),
+            role_declaration("CA-R-61994", "Ignored", status="Draft"),
+            role_declaration("CA-R-61995", "Ignored", projection=True),
+        ):
+            self.assertIsNone(current_role_declaration(invalid))
+
+    def test_current_role_domain_fails_closed_for_missing_changed_or_duplicate_authority(self):
+        rows = [current_source(), captured_sources()[0], *role_declarations()]
+        changed = copy.deepcopy(rows[-1])
+        changed["text"] += "\nChanged after capture.\n"
+        duplicate = role_declaration("CA-R-61999", "Concern")
+        for incomplete in (rows[:-1], [*rows[:-1], changed], [*rows, duplicate]):
+            with self.subTest(size=len(incomplete)):
+                context = resolve_context(incomplete)
+                obligation = next(item for item in context.obligations if item.code == "domain.content_role")
+                self.assertFalse(obligation.supported)
+                self.assertTrue(context.gaps)
+
     def test_missing_duplicate_inactive_forged_and_reference_only_sources_do_not_admit_type(self):
-        base = [current_source(), captured_sources()[0]]
+        base = [current_source(), captured_sources()[0], *role_declarations()]
         owner = fresh_owner()
         wrong_role = fresh_owner(role="Requirement")
         reference = copy.deepcopy(owner)
@@ -140,10 +225,13 @@ class CurrentTypeAdmissionTests(unittest.TestCase):
         stale["text"] += "\nChanged bytes.\n"
         for additions in ([], [wrong_role], [reference], [owner, fresh_owner("CA-R-55556")], [inactive], [stale]):
             with self.subTest(additions=additions):
-                result = run("model.domains", {"content_role": "Method", "type": "Term Definition"},
-                             source_rows=base + additions)
+                result = current_model_check(
+                    {"content_role": "Method", "type": "Term Definition"}, base + additions,
+                )
                 self.assertTrue(result.gaps)
-        result = run("model.domains", {"content_role": "Method", "type": "Forged"}, source_rows=base + [forged])
+        result = current_model_check(
+            {"content_role": "Method", "type": "Forged"}, base + [forged],
+        )
         self.assertTrue(result.gaps)
 
     def test_whole_qualified_coordinate_is_required(self):
@@ -188,10 +276,15 @@ class CurrentTypeAdmissionTests(unittest.TestCase):
             owner_path = declared_authority(selection, "CORE_META_MODEL") / "04_requirement/CA-R-55555--type.md"
             owner_path.parent.mkdir(parents=True, exist_ok=True)
             owner_path.write_text(fresh_owner()["text"])
+            for declaration in role_declarations():
+                (owner_path.parent / (declaration["binding"]["atom_id"] + "--role.md")).write_text(
+                    declaration["text"],
+                )
             with bind_selection(selection):
                 context = admission.source_context_from_project(selection.root)
                 ids = [row["binding"]["atom_id"] for row in context.inputs["sources"]]
                 self.assertNotIn("CA-D-276", ids)
+                self.assertNotIn("CA-D-274", ids)
                 self.assertNotIn("CA-D-288", ids)
                 self.assertNotIn("CA-R-793", ids)
                 inputs = admission._type_inputs(context, {"content_role": "Method", "type": "Term Definition"})

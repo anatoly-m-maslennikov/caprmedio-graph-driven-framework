@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "checks": {
+    "first-model-batch": {
+      "outputs": 4,
+      "operations": 8,
+      "archives": 4
+    },
+    "projection-model": {
+      "outputs": 15,
+      "operations": 19,
+      "archives": 4
+    },
+    "current-encoding": {
+      "outputs": 1,
+      "operations": 2,
+      "archives": 1
+    },
+    "sources": {
+      "count": 1162,
+      "unique": 1162,
+      "new_ids": [
+        "CA-R-2736",
+        "CA-R-2737",
+        "CA-R-2738",
+        "CA-R-2739",
+        "CA-R-2740",
+        "CA-R-2741",
+        "CA-R-2742",
+        "CA-R-2743",
+        "CA-R-2744",
+        "CA-R-2745",
+        "CA-R-2746"
+      ]
+    },
+    "migration": {
+      "outputs": 7,
+      "operations": 14,
+      "distinct_forms": 7,
+      "prior_projections_checked": 6
+    },
+    "source_backed_view_contracts": {
+      "entities": 64,
+      "formal_claims": 666,
+      "contracts": 1291
+    }
+  },
+  "failures": [],
+  "plan_sha256": {
+    "first_model_batch": "cf93675d150e68274263388ea10a5764b74d2a1878cc2ea380031c170ab24afe",
+    "projection_model": "4cd976d1a9465208d5cd4bbda2e8729bc8bf40bdba3d4e7bf97a7e63005d46e5",
+    "current_encoding": "894fac63af6aa5ff0669d3f33930af849bd8922baace251587b3d339a544dc10",
+    "projection_migration": "28f836d216c0c46622986782b392712e30138da37e40ae5513d6a1370bb37916"
+  },
+  "frontier_sha256": "14e2c90cfeeeeb1e93f29bfb2e4d03c1c8179a54b5e01d3546de7c64d3321e79",
+  "generation_manifest_sha256": "6b50ee64becf3ca060050846451bc13515f018da0e0e5e81c2af06cc5dc90407",
+  "limitations": [
+    "Manual application receipts report native workflow admission and journal append did not occur.",
+    "Verification is read-only and time-bound. No runtime or global data conformance was established; Scope Legacy Gap 2 remains pending.",
+    "Re-render compared four primary source-backed views; three audit views were checked by byte/hash and source metadata, not independently recomputed."
+  ]
+}

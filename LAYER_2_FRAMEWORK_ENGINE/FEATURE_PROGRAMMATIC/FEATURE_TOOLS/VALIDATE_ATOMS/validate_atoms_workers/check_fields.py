@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import re
 from datetime import datetime
 from typing import Any
@@ -116,17 +117,33 @@ def _check_non_draft_identity(metadata: Record, check: Check) -> None:
 
 _ENCODING_PROFILES = {
     "CA-D-276": "legacy",
-    "CA-D-657": "current",
 }
+
+# This is the reviewed D657 Claim from the proposed Current carrier, not a
+# source-file pin.  The locator binds the observed bytes and this marker keeps
+# a changed governing Claim from inheriting a historical adapter.
+_D657_CURRENT_CLAIM = "5d4d963bc139bb72920e04272b2f019687bf0d1f13e9021792c989dc0c609ae4"
+
+
+def _claim_digest(text: object) -> str | None:
+    if not isinstance(text, str):
+        return None
+    body = text.split("---", 2)[-1]
+    match = re.search(r"(?ms)^## Claim\n(.*?)(?=^## |\Z)", body)
+    if match is None:
+        return None
+    return hashlib.sha256(match[1].strip().encode("utf-8")).hexdigest()
 
 
 def reviewed_encoding_profile(row: Record) -> str | None:
     if not _verified(row, {}):
         return None
-    # The locator verifies the Current carrier.  Its body, Subjects and other
-    # non-identity metadata may evolve; an embedded historical body hash must
-    # not turn a valid Current D657 source into an unreviewed authority.
-    return _ENCODING_PROFILES.get(row["binding"]["atom_id"])
+    # The locator verifies observed source bytes; this additional reviewed
+    # Claim marker prevents an evolved governing contract from reusing this adapter.
+    identifier = row["binding"]["atom_id"]
+    if identifier == "CA-D-657" and _claim_digest(row.get("text")) == _D657_CURRENT_CLAIM:
+        return "current"
+    return _ENCODING_PROFILES.get(identifier)
 
 
 def encoding_authority(check: Check) -> tuple[str, Record] | None:
@@ -147,20 +164,31 @@ def encoding_authority(check: Check) -> tuple[str, Record] | None:
 
 
 def _current_common(metadata: Record, check: Check) -> None:
-    for field in ("content_role", "current_scope_unit", "type"):
-        check.require(metadata, field, _string)
-    check.require(metadata, "tier", _integer)
-    if metadata.get("type") == "Project Goal":
+    raw = check.inputs.get("_raw_metadata", metadata)
+    raw = raw if isinstance(raw, dict) else metadata
+    for field in ("role", "form"):
+        check.require(raw, field, _string)
+    check.require(raw, "tier", _integer)
+    if raw.get("form") == "Project Goal":
         check.gap("tier", "Current Project Goal Tier needs its verified ownership and Tier authority.")
-    elif _integer(metadata.get("tier")) and metadata["tier"] < 0:
+    elif _integer(raw.get("tier")) and raw["tier"] < 0:
         check.fail("PROPERTY_DOMAIN", "tier", "An ordinary Current Atom Tier must be nonnegative.")
     for field in ("label", "tier_label"):
-        if field in metadata:
-            check.require(metadata, field, _string)
-    if "tier_label" in metadata:
+        if field in raw:
+            check.require(raw, field, _string)
+    if "tier_label" in raw:
         check.gap("tier_label", "An explicit Tier Label requires its current governed numeric-to-label mapping.")
-    for field in ("local_tier", "global_tier", "operators", "identifier", "summary", "claim"):
-        check.forbid(metadata, field)
+    for field in (
+        "author", "local_tier", "global_tier", "operators", "identifier", "summary", "claim",
+        "autonomous_confidence_threshold", "implementation_retry_limit",
+    ):
+        check.forbid(raw, field)
+    for field in ("current_scope_unit", "claim_target_scope_unit"):
+        if field in raw:
+            check.gap(
+                field,
+                "Current scope compatibility data needs an explicit selected migration disposition.",
+            )
 
 
 def _common(metadata: Record, body: str, check: Check) -> None:
@@ -243,11 +271,44 @@ def _retired(metadata: Record, body: str, check: Check) -> None:
             )
 
 
+def _current_subjects(subjects: Record, check: Check) -> None:
+    check.require(subjects, "active", _string)
+    if not _strings(subjects.get("passive", [])):
+        check.fail(
+            "PROPERTY_TYPE",
+            "subjects.passive",
+            "Subject dependencies must be unique nonempty strings.",
+        )
+    values = [("subjects.active", subjects.get("active"))]
+    passive = subjects.get("passive", [])
+    if isinstance(passive, list):
+        values.extend(("subjects.passive", value) for value in passive)
+    for field, value in values:
+        if _string(value):
+            try:
+                parse_subject_expression(value, subject_profile="approved")
+            except SubjectNotationError as error:
+                check.fail("SUBJECT_INVALID", field, str(error))
+    if set(subjects) - {"active", "passive", "governs", "depends_on"}:
+        check.fail("PROPERTY_UNADMITTED", "subjects", "Subjects contains an unadmitted nested key.")
+
+
 def _subjects(metadata: Record, body: str, check: Check) -> None:
     del body
-    check.require(metadata, "subjects", lambda value: isinstance(value, dict))
-    subjects = metadata.get("subjects")
+    inputs = getattr(check, "inputs", {})
+    current = (
+        isinstance(inputs, dict)
+        and any(row.get("binding", {}).get("atom_id") == "CA-D-657" for row in inputs.get("sources", []))
+    )
+    authority = encoding_authority(check) if current else None
+    raw = inputs.get("_raw_metadata", metadata) if isinstance(inputs, dict) else metadata
+    raw = raw if isinstance(raw, dict) else metadata
+    check.require(raw, "subjects", lambda value: isinstance(value, dict))
+    subjects = raw.get("subjects")
     if not isinstance(subjects, dict):
+        return
+    if authority is not None and authority[0] == "current":
+        _current_subjects(subjects, check)
         return
     if isinstance(subjects.get("governs"), dict):
         check.gap(

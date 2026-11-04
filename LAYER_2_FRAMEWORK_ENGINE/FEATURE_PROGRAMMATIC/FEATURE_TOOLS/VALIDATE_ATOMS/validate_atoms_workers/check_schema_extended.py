@@ -18,7 +18,7 @@ from yaml.nodes import MappingNode, ScalarNode
 
 import subject_notation as notation
 
-from .authority import Record, _verified, _domain
+from .authority import Record, _verified
 from .check_fields import encoding_authority
 from .parsing import CarrierError, parse_carrier
 from .check_sections import _claim_model_headings, _headings, _sections, body_layout, role_sections, plan_definition
@@ -42,11 +42,14 @@ COMMON_FIELDS = frozenset(
         "relations",
     }
 )
-CURRENT_COMMON_FIELDS = (COMMON_FIELDS - {"local_tier", "global_tier"}) | {"tier", "tier_label", "label"}
+CURRENT_COMMON_FIELDS = (COMMON_FIELDS - {"local_tier", "global_tier"}) | {
+    "role", "form", "tier", "tier_label", "label",
+}
 
 PLAN_FIELDS = {
     "assignee": ("CA-D-473", _string),
     "autonomous_confidence_threshold": ("CA-D-472", _integer),
+    "ai_agent_confidence_threshold": ("CA-D-472", _integer),
     "implementation_retry_limit": ("CA-D-447", _integer),
 }
 BODY_FIELDS = {
@@ -262,6 +265,21 @@ def _admit_plan_field(metadata: Record, field: str, check: Check) -> None:
     elif kind != "Plan":
         check.gap(field, "This Plan Type needs its own applicable field declaration.")
     else:
+        encoding = encoding_authority(check)
+        if encoding is None:
+            return
+        if (
+            (encoding[0] == "current" and field in {
+                "autonomous_confidence_threshold", "implementation_retry_limit",
+            })
+            or (encoding[0] == "legacy" and field == "ai_agent_confidence_threshold")
+        ):
+            check.fail(
+                "PROPERTY_UNADMITTED",
+                field,
+                "This Plan field is not admitted by the selected frontmatter encoding.",
+            )
+            return
         source_id, predicate = PLAN_FIELDS[field]
         if _source(check, source_id, field):
             check.require(metadata, field, predicate)
@@ -350,6 +368,12 @@ def _property_admission(metadata: Record, body: str, check: Check) -> None:
             _admit_projection(metadata, check)
         else:
             _unknown_property(metadata, field, check)
+    if encoding[0] == "current":
+        # D657 owns the canonical active/passive Subjects serialization.
+        # ``carrier_read_view`` retains legacy aliases for downstream readers,
+        # but that compatibility view must not turn canonical keys into
+        # unadmitted properties.
+        return
     _admit_subject_keys(metadata, check)
     # Relation kinds and target semantics have their own source-bound resolver.
 
@@ -500,14 +524,27 @@ def _type_values(check: Check, role: str) -> tuple[set[str], bool]:
 
 
 def _current_model_domains(metadata: Record, check: Check) -> None:
-    roles = _source(check, "CA-R-1283", "content_role")
-    values = _domain(roles["text"]) if roles is not None else ()
+    if _source(check, "CA-R-1283", "content_role") is None:
+        return
+    values = check.context.domains.get("domain.content_role", ())
     if not values:
-        check.gap("content_role", "Current Content Role requires its verified finite domain declaration.")
+        check.gap(
+            "content_role",
+            "Current Content Role requires exactly eight distinct verified Current R/Declaration sources.",
+        )
         return
     check.require(metadata, "content_role", lambda value: value in values)
     if metadata.get("content_role") not in values:
         return
+    role_obligation = next(
+        (item for item in check.context.obligations if item.code == "domain.content_role"), None,
+    )
+    if role_obligation is not None:
+        for binding in role_obligation.authority:
+            if binding not in check.obligation.authority:
+                check.obligation = replace(
+                    check.obligation, authority=[*check.obligation.authority, binding],
+                )
     if not _string(metadata.get("type")):
         check.fail("PROPERTY_TYPE", "type", "Current Type must be exactly one nonempty string.")
         return

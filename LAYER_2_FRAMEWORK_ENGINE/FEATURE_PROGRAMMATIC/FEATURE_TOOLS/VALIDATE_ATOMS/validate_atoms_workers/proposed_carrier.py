@@ -10,7 +10,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from .authority import AuthorityContext, Obligation, Record, _verified, resolve_context
+from carrier_aliases import carrier_read_view
+
+from .authority import (
+    AuthorityContext, Obligation, Record, _verified, current_role_declaration, resolve_context,
+)
 from .check_operators import load_operators_registry
 from .checks import validate_carrier
 from .context import load_source
@@ -37,9 +41,10 @@ from scope_unit_declarations import read_scope_unit_declarations
 
 
 _REGISTRY_IDS = (
-    "CA-D-276", "CA-D-269", "CA-D-268", "CA-D-270", "CA-D-274", "CA-D-446",
-    "CA-D-479", "CA-D-482", "CA-D-483",
+    "CA-D-276", "CA-D-269", "CA-D-268", "CA-D-270", "CA-D-446",
+    "CA-D-479", "CA-D-483",
 )
+_LEGACY_REGISTRY_IDS = ("CA-D-274", "CA-D-482")
 _SUPPORT_IDS = (
     "CA-D-494", "CA-D-442", "CA-R-1308", "CA-R-1313",
     "CA-D-324", "CA-D-466", "CA-D-461",
@@ -55,7 +60,7 @@ _FRONTIER_STATUS_IDS = {
     "Delivery": "CA-R-1399", "Operations": "CA-R-1874",
 }
 _FRONTIER_IDS = ("CA-D-434", "CA-D-467", "CA-D-460", "CA-D-481", *_FRONTIER_STATUS_IDS.values())
-_CODES = frozenset(
+_LEGACY_CODES = frozenset(
     {
         "frontmatter.common_encoding", "frontmatter.version", "frontmatter.updated_at",
         "frontmatter.author", "author.resolution", "frontmatter.atom_id",
@@ -64,6 +69,9 @@ _CODES = frozenset(
         "body.sections", "model.domains",
     }
 )
+_CURRENT_CODES = _LEGACY_CODES - {
+    "frontmatter.author", "author.resolution", "frontmatter.claim_target_scope_unit", "target.resolution",
+} | {"domain.content_role"}
 
 
 class ProposedCarrierError(ValueError):
@@ -215,6 +223,26 @@ def _encoding_source(root: Path, reader: ReadContext, report: Record, locator: A
     return source
 
 
+def _current_role_sources(
+    root: Path, reader: ReadContext, report: Record, locator: Any,
+) -> list[Record]:
+    """Bind the finite Current Role cases from their own active Declarations."""
+    sources = []
+    for path, _, carried, _ in locator._index("04_requirement"):
+        if (
+            not isinstance(carried, dict)
+            or carried.get("role") != "Requirement"
+            or carried.get("form") != "Declaration"
+        ):
+            continue
+        source = load_source(path, None, reader, report)
+        if source is None or current_role_declaration(source) is None:
+            continue
+        locator.assert_unique_current_claim(source["binding"]["atom_id"], path)
+        sources.append(source)
+    return sources
+
+
 def source_context_from_project(root: Path) -> VerifiedSourceContext:
     """Load just the finite checked authority closure and selected Project inputs."""
 
@@ -254,10 +282,13 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
                  "CA-D-324", "CA-D-466", "CA-D-461", "CA-R-1283")
                 if current_encoding else _SUPPORT_IDS
             )
-            source_ids = (*(identifier for identifier in _REGISTRY_IDS if identifier != "CA-D-276"),
+            registry_ids = _REGISTRY_IDS if current_encoding else (*_REGISTRY_IDS, *_LEGACY_REGISTRY_IDS)
+            source_ids = (*(identifier for identifier in registry_ids if identifier != "CA-D-276"),
                           *(identifier for identifier in support_ids if identifier not in _DEFERRED_SUPPORT_IDS))
             sources = [encoding, *[_source(root, identifier, reader, report, locator=locator)
                                    for identifier in source_ids]]
+            if current_encoding:
+                sources.extend(_current_role_sources(root, reader, report, locator))
     except (OSError, RuntimeError, UnicodeError, ValueError) as error:
         raise ProposedCarrierError("required Project context is unreadable") from error
     inputs: Record = {
@@ -479,10 +510,27 @@ def validate_proposed_carrier(
 
     if relative_path.is_absolute() or ".." in relative_path.parts:
         raise ProposedCarrierError("carrier path is outside the selected Project")
+    raw_metadata = metadata
+    try:
+        metadata = carrier_read_view(metadata)
+    except ValueError as error:
+        raise ProposedCarrierError("carrier aliases conflict") from error
     _current(verified_source_context._reader, verified_source_context._selection)
     owns_status_index = _status_index is None
-    selected = tuple(item for item in verified_source_context.authority.obligations if item.code in _CODES)
-    if {item.code for item in selected} != _CODES or any(not item.supported for item in selected):
+    profiles = {
+        reviewed_encoding_profile(row)
+        for row in verified_source_context.inputs["sources"]
+        if row.get("binding", {}).get("atom_id") in {"CA-D-276", "CA-D-657"}
+    }
+    required_codes = (
+        _CURRENT_CODES
+        if profiles == {"current"}
+        else _LEGACY_CODES if profiles == {"legacy"} else None
+    )
+    if required_codes is None:
+        raise ProposedCarrierError("complete-carrier frontmatter authority is unsupported or ambiguous")
+    selected = tuple(item for item in verified_source_context.authority.obligations if item.code in required_codes)
+    if {item.code for item in selected} != required_codes or any(not item.supported for item in selected):
         raise ProposedCarrierError("complete-carrier authority is unsupported or incomplete")
     try:
         with bind_selection(verified_source_context._selection):
@@ -539,6 +587,7 @@ def validate_proposed_carrier(
         reference_mapping = {key: value for key, value in mapping.items() if key in reference_roles}
     control = verified_source_context._selection.control_relative
     carrier_inputs = _validation_inputs(verified_source_context, metadata)
+    carrier_inputs["_raw_metadata"] = raw_metadata
     result = validate_carrier(metadata, body, context, carrier_inputs)
     if result["findings"] or result["gaps"] or any(item["outcome"] != "passed" for item in result["outcomes"]):
         raise ProposedCarrierError("complete-carrier validation failed or is unresolved")

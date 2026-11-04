@@ -21,6 +21,7 @@ APPROVED_REFRESH_IDS = frozenset(
         "CA-D-268",
         "CA-D-270",
         "CA-D-274",
+        "CA-D-657",
         "CA-D-446",
         "CA-D-479",
         "CA-D-482",

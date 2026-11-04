@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from carrier_aliases import carrier_read_view
+import subject_notation as notation
 
 Record = dict[str, Any]
 _SOURCE_ROLES = {
@@ -117,9 +118,86 @@ def _domain(text: str) -> tuple[str, ...]:
     return tuple(value.strip().strip("`") for value in raw.split(","))
 
 
+def current_role_declaration(source: Record) -> str | None:
+    """Return the one Role admitted by an exact Current R/Declaration source."""
+    if not _verified(source, {}):
+        return None
+    metadata = source.get("metadata")
+    if (
+        not isinstance(metadata, dict)
+        or metadata.get("role") != "Requirement"
+        or metadata.get("form") != "Declaration"
+    ):
+        return None
+    subjects = metadata.get("subjects")
+    active = subjects.get("active") if isinstance(subjects, dict) else None
+    if not isinstance(active, str):
+        return None
+    try:
+        expression = notation.parse_subject_expression(active, subject_profile="approved").expression
+    except notation.SubjectNotationError:
+        return None
+    if not isinstance(expression, notation.RelationChain) or len(expression.endpoints) != 2:
+        return None
+    source_model, target = expression.endpoints
+    if (
+        len(expression.links) != 1
+        or expression.links[0].operator != "<+"
+        or not isinstance(source_model, notation.Path)
+        or not isinstance(source_model.head, notation.Name)
+        or source_model.head.value != "CAPRMEDIO_MODEL"
+        or source_model.steps
+        or source_model.value_format
+        or source_model.value_cardinality
+        or not isinstance(target, notation.Path)
+        or not isinstance(target.head, notation.Name)
+        or target.head.value != "Atom"
+        or len(target.steps) != 1
+        or target.value_format
+        or target.value_cardinality
+    ):
+        return None
+    step = target.steps[0]
+    if step.operator != "/" or not isinstance(step.operand, notation.Qualification):
+        return None
+    path = step.operand.relative_path
+    if (
+        not isinstance(path.head, notation.Name)
+        or path.head.value != "Header"
+        or len(path.steps) != 2
+        or path.value_format
+        or path.value_cardinality
+    ):
+        return None
+    property_step, value_step = path.steps
+    if (
+        property_step.operator != "."
+        or not isinstance(property_step.operand, notation.Name)
+        or property_step.operand.value != "Role"
+        or value_step.operator != ":="
+        or not isinstance(value_step.operand, notation.ValueLiteral)
+        or not isinstance(value_step.operand.value, str)
+        or not value_step.operand.value
+    ):
+        return None
+    return value_step.operand.value
+
+
+def _current_role_domain(sources: list[Record]) -> tuple[tuple[str, ...], list[Record], bool]:
+    declarations = [(current_role_declaration(source), source) for source in sources]
+    declarations = [(role, source) for role, source in declarations if role is not None]
+    declarations.sort(key=lambda item: _binding_key(item[1]["binding"]))
+    values = tuple(role for role, _ in declarations)
+    bindings = [source["binding"] for _, source in declarations]
+    # The adopted role model declares eight cases individually.  This bound is
+    # a cardinality check, not a duplicate enumeration of their role names.
+    complete = len(values) == 8 and len(set(values)) == 8
+    return values if complete else (), bindings, complete
+
+
 def _source_obligations(
     atom_id: str, entry: Record, candidates: list[Record], adapters: frozenset[str],
-    sources: list[Record],
+    sources: list[Record], current_role_domain: tuple[tuple[str, ...], list[Record], bool] | None,
 ) -> tuple[list[Obligation], list[Record], dict[str, tuple[str, ...]]]:
     bindings = sorted((s["binding"] for s in candidates), key=_binding_key)
     verified = len(candidates) == 1 and _verified(candidates[0], entry)
@@ -129,7 +207,12 @@ def _source_obligations(
     for code in entry["obligations"]:
         supported = verified and code in adapters
         if supported and code.startswith("domain."):
-            values = _domain(candidates[0]["text"])
+            if code == "domain.content_role" and current_role_domain is not None:
+                values, role_bindings, complete = current_role_domain
+                bindings = sorted(role_bindings, key=_binding_key)
+                supported = complete
+            else:
+                values = _domain(candidates[0]["text"])
             if not values and code.startswith("domain.status."):
                 from authoritative_status_models import (
                     StatusModelError, declarations_from_sources, resolve_status_domain,
@@ -145,11 +228,15 @@ def _source_obligations(
                     bindings = sorted(domain["model_sources"], key=_binding_key)
                 except StatusModelError:
                     values = ()
-            supported = bool(values)
+            supported = supported and bool(values)
             domains[code] = values
         why = "Verified exact source-bound adapter." if supported else reason
         if verified and not supported:
-            why = "No source-bound adapter supports obligation: " + code + "."
+            why = (
+                "Current Role domain requires exactly eight distinct verified Current R/Declaration sources."
+                if code == "domain.content_role" and current_role_domain is not None
+                else "No source-bound adapter supports obligation: " + code + "."
+            )
         obligations.append(Obligation(code, bindings, supported, why))
     missing = [o.code for o in obligations if not o.supported]
     gaps = []
@@ -176,15 +263,28 @@ def resolve_context(sources: list[Record]) -> AuthorityContext:
     obligations: list[Obligation] = []
     gaps: list[Record] = []
     domains: dict[str, tuple[str, ...]] = {}
+    current_encoding = "CA-D-657" in grouped
+    role_domain = _current_role_domain(sources) if current_encoding else None
+    # D657 makes the remaining Plan-, projection-, priority-, address-, and
+    # retired-field rules conditional on the carried property.  A base Current
+    # context cannot manufacture those conditions, so an omitted conditional
+    # source is checked when its property is encountered rather than reported
+    # as a missing universal closure member.  D276/D482 remain historical
+    # contracts and are never successors of D657.
+    current_deferred = frozenset({
+        "CA-D-276", "CA-D-482", "CA-D-478", "CA-D-480", "CA-D-481",
+        "CA-D-470", "CA-D-471", "CA-D-472", "CA-D-473", "CA-D-386",
+        "CA-D-305", "CA-D-447",
+    })
     for atom_id, entry in registry["sources"].items():
         candidates = grouped.pop(atom_id, [])
-        # D657 owns the Current encoding contract; D276 remains the explicit
-        # historical contract, never an identity alias for its successor.
-        if atom_id == "CA-D-276" and not candidates and "CA-D-657" in grouped:
+        if current_encoding and atom_id in current_deferred and not candidates:
             continue
         if not candidates and not entry["required"]:
             continue
-        items, missing, values = _source_obligations(atom_id, entry, candidates, ADAPTER_CODES, sources)
+        items, missing, values = _source_obligations(
+            atom_id, entry, candidates, ADAPTER_CODES, sources, role_domain,
+        )
         obligations.extend(items)
         gaps.extend(missing)
         domains.update(values)
@@ -194,6 +294,10 @@ def resolve_context(sources: list[Record]) -> AuthorityContext:
         candidates = grouped.get(atom_id, [])
         if len(candidates) == 1 and _verified(candidates[0], entry):
             grouped.pop(atom_id)
+    if current_encoding:
+        for source in sources:
+            if current_role_declaration(source) is not None:
+                grouped.pop(source["binding"]["atom_id"], None)
     # A composed Status domain has already classified its verified base source.
     domain_dependencies = {
         binding["atom_id"] for obligation in obligations

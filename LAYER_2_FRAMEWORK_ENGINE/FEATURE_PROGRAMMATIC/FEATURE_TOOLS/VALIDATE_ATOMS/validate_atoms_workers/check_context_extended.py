@@ -10,6 +10,17 @@ from .settings import bound_file
 from .support_authority import require_sources
 
 
+def _confidence_field(check: Check) -> str:
+    return (
+        "ai_agent_confidence_threshold"
+        if any(
+            row.get("binding", {}).get("atom_id") == "CA-D-657"
+            for row in check.inputs.get("sources", [])
+        )
+        else "autonomous_confidence_threshold"
+    )
+
+
 def retry_domain(metadata: dict[str, Any], body: str, check: Check) -> None:
     del body
     if not _plan(metadata, check):
@@ -127,7 +138,7 @@ def confidence_selection(metadata: dict[str, Any], body: str, check: Check) -> N
     del body
     if not _plan(metadata, check) or not require_sources(check, ("CA-M-271", "CA-R-1427")):
         return
-    field = "autonomous_confidence_threshold"
+    field = _confidence_field(check)
     current = metadata
     seen: set[str] = set()
     for _ in range(len(check.inputs.get("references", [])) + 2):
