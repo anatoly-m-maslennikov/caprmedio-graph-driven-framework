@@ -3,30 +3,32 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Term
   passive:
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term//Entity
   - CAPRMEDIO_MODEL <+ Term.Name
   - CAPRMEDIO_MODEL <+ Term//Term
   - CAPRMEDIO_MODEL <+ Term//Empty
   - CAPRMEDIO_MODEL <+ Term//ID
-  - CAPRMEDIO_MODEL <+ Term//Entity
-  - CAPRMEDIO_MODEL <+ Entity/Property
   - CAPRMEDIO_MODEL <+ Term//Property
-version: 33
-updated_at: 2026-11-03 23:25:51 +0400
-relations: {}
+version: 37
+updated_at: 2026-11-04 22:22:34 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 atom_id: CA-R-1318
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 role: Requirement
 form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md
   source_atom_id: CA-R-1318
-  source_atom_revision: 33
-  source_sha256: 35014effa7d6d7ab7f57e2b5dddae8523f151b2208842d0e97bfe1661107e273
-  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  source_atom_revision: 37
+  source_sha256: 8902cdffb5f5afab784c57cea141019daa65d60b168521fbcb660cb4f282acdd
+  original_relations_sha256: e367927d209b7bdecd9da53dd0dc693193d074370738c97b4bc15988d6240196
 ---
 ## Summary
 
@@ -38,7 +40,15 @@ Define Term
 
 ```CFEL
 # model
-Term.*[in (Name)]{:1}
+Term.*[in (Name)]{:1};
+
+Term.** {:1}((IS_PROPERTY_OF)) (Term, Term.**);
+(Term, Term.**) {:0+}((HAS_PROPERTY)) Term.**;
+
+# instances
+Term//$term;
+$term.** {:1}((IS_PROPERTY_OF)) ($term, $term.**);
+($term, $term.**) {:0+}((HAS_PROPERTY)) $term.**;
 ```
 
 ### Prose Claim

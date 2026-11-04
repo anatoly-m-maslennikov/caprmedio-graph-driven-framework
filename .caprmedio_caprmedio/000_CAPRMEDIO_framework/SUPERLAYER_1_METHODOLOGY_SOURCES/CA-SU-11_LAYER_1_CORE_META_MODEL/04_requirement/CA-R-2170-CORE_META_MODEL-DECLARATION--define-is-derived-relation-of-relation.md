@@ -1,15 +1,15 @@
 ---
 atom_id: CA-R-2170
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_DERIVED_RELATION_OF
   passive:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 10
-updated_at: 2026-11-03 20:00:05 +0400
-relations: {}
+version: 12
+updated_at: 2026-11-04 23:01:11 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 tier: 1
 role: Requirement
 form: Declaration
@@ -35,4 +35,4 @@ Relation//IS_DERIVED_RELATION_OF ((HAS_CLASSIFICATION)) Derivation == Direct
 
 ### Prose Claim
 
-IS_DERIVED_RELATION_OF relates a derived Relation Type instance to its source Relation Type instance. It does not itself specify the endpoint transformation or any qualification. A direct Declaration's inverse binding entails the bound inverse's IS_DERIVED_RELATION_OF link to the direct Relation. This inferred metadata is not repeated in the minimal derived Declaration. A qualified derivation must retain its explicit qualification; it must not be normalized to an unconditional inverse. This Relation is distinct from DERIVED_FROM between Artifact Revisions.
+IS_DERIVED_RELATION_OF relates a derived Relation Type instance to its source Relation Type instance. It does not itself specify the endpoint transformation or any qualification. A direct Declaration's inverse binding entails the bound inverse's IS_DERIVED_RELATION_OF link to the direct Relation. A qualified derivation must retain its explicit qualification; it must not be normalized to an unconditional inverse.
