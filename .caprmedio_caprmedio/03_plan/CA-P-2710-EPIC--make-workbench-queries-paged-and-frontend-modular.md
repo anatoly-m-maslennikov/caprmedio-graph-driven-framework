@@ -1,10 +1,10 @@
 ---
 atom_id: CA-P-2710
 label: Epic
-status: Active
+status: Done
 tier: 3
-version: 9
-updated_at: 2026-11-04 22:47:14 +0400
+version: 10
+updated_at: 2026-11-05 00:22:22 +0400
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
 relations:
@@ -56,9 +56,9 @@ Workbench only. No repair of unrelated lifecycle or model migrations, custom SQL
 
 ## Status
 
-Active. Workbench 0.4.4.16 remains the verified released baseline. The following interactive-workspace iteration is now in progress.
+Done. Workbench 0.4.4.18 is installed and verified at the existing Project URL. The earlier checkpoints below are historical; the interactive-workspace result is recorded at the end.
 
-## Verification checkpoint
+## Earlier verification checkpoint
 
 - 61 focused Workbench tests passed, including native file watching, timestamp delivery, stable result pages, shared MCP/web behavior and frontend asset handling.
 - 27 affected HTTP/MCP/health checks and the added native SDK page-dispatch regression passed.
@@ -77,7 +77,7 @@ Docker Desktop is now configured and verified at 32 GiB, as requested. Old unuse
 
 The 0.4.4.14 live API and browser returned 4,592 rows and 17 columns through 100-row pages. Run, Check, Next, Previous, visible query errors and a subsequent valid query all passed. The final follow-up must not be counted as deployed until separately released.
 
-## Final result
+## Earlier released baseline
 
 - Local release `workbench-20261104-project-url` completed as 0.4.4.15. Its final gate passed nine tests with zero skips or failures, plus all launcher Docker groups. Earlier focused gates passed 61 Workbench tests, 27 HTTP checks, the SDK page-dispatch regression and 29 packaging tests.
 - Live page: `http://127.0.0.1:56317/caprmedio/workbench/caprmedio`. MCP remains `/caprmedio/mcp`; health remains `/caprmedio/health`. Unqualified or mismatched Project pages return 404.
@@ -120,7 +120,7 @@ Follow this cycle: prepare RMEDO → review the RMEDO packet against itself, rel
 
 ## Interactive workspace stage status
 
-Planning and research. The earlier shortcut-only code candidate is not released; no new implementation is adopted until the RMEDO review and Method prompt gates pass. The rest of the framework, lifecycle migration and unrelated methodology remain outside this iteration.
+Complete. Eighteen reviewed sources were adopted, active PROGRAMMATIC Method Policies were compiled into one implementation prompt, and that prompt guided the Workbench implementation. The rest of the framework, lifecycle migration and unrelated methodology remain outside this iteration.
 
 ## Worksheet actions and backend parity
 
@@ -135,3 +135,17 @@ These latest decisions refine the interactive-workspace tasks above.
 - Owned module headers contain only Atom IDs with versions in comments. List the M decisions and R/E/D claims the module actually implements, not merely called contracts or applied general coding policies.
 
 Review and fix the complete RMEDO packet before promotion. Ask the Operator only for material unresolved decisions below 90 percent confidence. Compile the related active PROGRAMMATIC Method Policies into one implementation prompt only after that review. Implement the reviewed sources with the prompt, keep files small and add no unrelated behavior.
+
+
+## Interactive workspace result
+
+- Workbench 0.4.4.18 is installed at `http://127.0.0.1:56317/caprmedio/workbench/caprmedio`. MCP and health keep their established URLs and port.
+- Light, Dark and System themes, all-text zoom, CodeMirror highlighting/completion, tabs, cursor-based Run/Check/Save and whole-script Save Worksheet are complete. Text scaling includes buttons, tabs, menus, headings, editor, completion and results. Browser checks measured button text at 14, 17.5 and 28 pixels for 100, 125 and 200 percent.
+- Browser drafts autosave every five seconds and restore scripts and active tabs. Closing unsaved work asks first. Hiding and reopening the editor preserves its script and cursor. A new empty Worksheet is clean, and editor Undo state is separated between tabs.
+- Eight native MCP operations share the HTTP contract, including schema, saved queries and Worksheets. Every Run/Check saves before execution; saved IDs and full URLs survive successful queries, errors and paging. Open Saved accepts IDs or full URLs without execution; recent items distinguish queries and Worksheets. Web-saved SQL was loaded through the live MCP.
+- Validation passed: 77 host Workbench tests; 57 selected release tests plus all launcher groups; three frontend workspace tests, TypeScript and production build; final Docker/web pass of nine tests plus all launcher groups. The Docker proof reported zero OOM kills. The unrelated repository-wide suite was not run.
+- The final image build completed, but the release wrapper rejected its temporary context afterward. The candidate image was independently admitted through the existing ImageManager. The remaining copy/install/start/cleanup steps used the existing release helpers; passed gates were not bypassed. This installation continuation is recorded separately from the failed wrapper report.
+- Final image: `sha256:174088aa85afce23eefc533805a5f7c035f8bbcabcd1706dc0acc3cdb65052cb`. The previous proven Project image was removed after replacement.
+- Receipt: `.caprmedio_runtime/simple_local_release/reports/workbench-20261105-text-tabs-install.md`. Browser evidence: `.caprmedio_tmp/workbench/live-workspace-ui-verification.json`. MCP evidence: `.caprmedio_tmp/workbench/live-worksheet-mcp-verification.json`. Adopted sources and the compiled Method prompt are recorded under `.caprmedio_tmp/workbench/ux-iteration` and `.caprmedio_tmp/workbench/ux-implementation-method-prompt.md`.
+
+External links still follow the browser's tab-opening behavior. Browser-only preferences and local drafts are not backend capabilities. Complex semantic SQL completion, cross-browser synchronization and unrelated Engine work were not added.
