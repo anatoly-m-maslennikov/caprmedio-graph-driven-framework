@@ -112,3 +112,22 @@ uv sync --group rmed-workflow-mcp
 
 Run the repository's full test suite to build one disposable image and run the
 host and Docker tests. The tests do not replace the running Project MCP.
+
+
+Browser E2E tests use Playwright with Chromium against the same owned container
+as the MCP/HTTP tests. They use the production frontend and real backend, with
+no Vite server, mock backend or retries. Tests assert visible results and user
+flows; duplicate constructor/call-order unit checks are removed. Focused unit
+tests remain where the E2E flows do not cover the behavior.
+
+Install the development browser once from `FEATURE_WORKBENCH_FRONTEND`:
+
+```sh
+npm ci
+PLAYWRIGHT_BROWSERS_PATH="$(git rev-parse --show-toplevel)/.caprmedio_tmp/workbench/playwright-browsers" npx playwright install chromium
+```
+
+The Docker E2E test sets the browser URL and uses that cache automatically.
+A standalone browser run requires an explicit `WORKBENCH_E2E_URL` and the same
+`PLAYWRIGHT_BROWSERS_PATH`, then `npm run test:e2e`. It creates saved-item Journal
+entries in the selected test Project. No live-server URL is assumed.

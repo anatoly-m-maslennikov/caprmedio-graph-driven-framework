@@ -5,11 +5,14 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 import socket
 import subprocess
 import tomllib
+from typing import Any
+import unittest
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 from uuid import UUID
@@ -73,3 +76,48 @@ def is_uuid7(value: object) -> bool:
     except ValueError:
         return False
     return parsed.version == 7 and str(parsed) == value
+
+
+def assert_saved(
+    case: unittest.TestCase, value: dict[str, Any], *, url: str, workbench_path: str, kind: str, sql: str,
+) -> None:
+    identifier = value.get("saved_query_id")
+    case.assertTrue(is_uuid7(identifier), identifier)
+    case.assertEqual(kind, value.get("kind"))
+    case.assertEqual(sql, value.get("sql"))
+    case.assertIsInstance(value.get("saved_at"), str)
+    case.assertEqual(f"{url}{workbench_path}?query={identifier}", value.get("saved_query_url"))
+
+
+def assert_legacy_saved(
+    case: unittest.TestCase, value: dict[str, Any], *, url: str, workbench_path: str,
+    identifier: str, kind: str, sql: str,
+) -> None:
+    case.assertEqual(identifier, value.get("saved_query_id"))
+    case.assertEqual(kind, value.get("kind"))
+    case.assertEqual(sql, value.get("sql"))
+    case.assertEqual(f"{url}{workbench_path}?query={identifier}", value.get("saved_query_url"))
+
+
+def assert_saved_journal(case: unittest.TestCase, journal_state: Path, *saved: dict[str, Any]) -> None:
+    paths = sorted(journal_state.glob("workbench-saved-items-*-part-*.ndjson"))
+    case.assertTrue(paths, "saved items must use the configured Journal root")
+    records = [json.loads(line) for path in paths for line in path.read_text(encoding="utf-8").splitlines()]
+    for value in saved:
+        matching = [record for record in records if record["saved_query_id"] == value["saved_query_id"]]
+        case.assertEqual(1, len(matching), value)
+        record = matching[0]
+        case.assertEqual(value["kind"], record["kind"])
+        case.assertEqual(value["sql"], record["sql"])
+        case.assertEqual(value.get("name"), record.get("name"))
+        case.assertIsInstance(record["saved_at"], str)
+
+
+def assert_legacy_files_unchanged(
+    case: unittest.TestCase, workbench_state: Path, legacy_hashes: dict[str, str],
+) -> None:
+    directory = workbench_state / "saved_queries"
+    case.assertEqual(
+        legacy_hashes,
+        {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in directory.iterdir()},
+    )

@@ -1,7 +1,7 @@
 ---
 atom_id: CA-P-2710
 label: Epic
-status: Active
+status: Archived
 tier: 3
 version: 12
 updated_at: 2026-11-05 00:47:18 +0400
@@ -14,8 +14,8 @@ role: Plan
 form: Plan
 carrier_destination:
   file:
-    name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
-    path: .caprmedio_caprmedio/03_plan
+    name: CA-P-2710@12-EPIC--make-workbench-queries-paged-and-frontend-modular.md
+    path: .caprmedio_caprmedio/03_plan/archive
 ---
 
 ## Summary

@@ -1,5 +1,6 @@
 # CA-E-676@8
 # CA-E-677@8
+# CA-M-472@1
 
 from __future__ import annotations
 
@@ -122,19 +123,6 @@ class QueryStoreTest(unittest.TestCase):
             {"valid": True, "row_count": 0, "column_count": len(ATOM_FIELDS)},
             self.store.check("SELECT * FROM atoms"),
         )
-
-    def test_schema_and_saved_metadata_follow_one_materialized_result(self) -> None:
-        saved = {"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1"}
-        result = self.store.run("SELECT 1", saved_query=saved)
-
-        self.assertEqual(saved, {key: result[key] for key in saved})
-        page = self.store.page(result["query_id"], 0)
-        self.assertEqual(saved, {key: page[key] for key in saved})
-        checked = self.store.check("SELECT 1", saved_query=saved)
-        self.assertEqual(saved, {key: checked[key] for key in saved})
-        schema = self.store.schema()["tables"]
-        self.assertEqual([field for field in ATOM_FIELDS], [column["name"] for column in schema["atoms"]])
-        self.assertEqual([field for field in SCOPE_FIELDS], [column["name"] for column in schema["scope_units"]])
 
     def test_schema_exposes_actual_status_literals_without_running_a_query(self) -> None:
         done = self.atom("B")

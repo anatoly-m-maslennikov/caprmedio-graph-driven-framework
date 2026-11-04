@@ -3,7 +3,7 @@ atom_id: CA-E-678
 current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 status: Active
-version: 3
+version: 4
 author: Anatoly Maslennikov
 role: Evaluation
 form: Eval Case
@@ -22,7 +22,7 @@ carrier_destination:
   file:
     name: CA-E-678-WORKBENCH_FRONTEND-EVAL_CASE--exercise-workbench-worksheets-and-display-controls.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation
-updated_at: 2026-11-05 01:48:39 +0400
+updated_at: 2026-11-05 02:30:51 +0400
 ---
 
 ## Summary
@@ -33,7 +33,7 @@ Exercise Workbench worksheets and display controls
 
 ### Prose Claim
 
-The Workbench interface preserves Worksheet input and uses the shared backend contracts for its query and saved-resource actions. Exercise the accepted controls through the built frontend and focused component or state checks.
+The Workbench interface preserves Worksheet input and uses the shared backend contracts for its query and saved-resource actions. Exercise the accepted controls through the built frontend and real backend. Prefer complete browser flows over checks of component internals. Keep focused tests only for behavior not covered end-to-end.
 
 ## Details
 
@@ -56,3 +56,5 @@ The Workbench interface preserves Worksheet input and uses the shared backend co
 
 | Command palette | Cmd+P opens from the editor and other Workbench controls with search focused. Search covers every current user action; Arrow Up/Ctrl+P and Arrow Down/Ctrl+N move selection, Enter invokes the same available action as its control, and Escape closes. Settings, focus changes, Worksheet switching and query actions work without a mouse. |
 | Current settings | Theme, Zoom and workspace preferences restore from local storage on reload. |
+
+Browser end-to-end checks cover SQL editing and execution with visible results; current Worksheet rename, autosave/reload, Save Worksheet and Open Saved without execution; and command-palette keyboard navigation, including Ctrl+P and Ctrl+N. Assertions use visible controls and outputs, not private Svelte or CodeMirror state.
