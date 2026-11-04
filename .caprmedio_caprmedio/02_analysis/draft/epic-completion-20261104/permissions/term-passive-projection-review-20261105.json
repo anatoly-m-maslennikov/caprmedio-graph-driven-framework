@@ -1,0 +1,19 @@
+{
+  "verdict": "PASS_BOUNDED_PUBLICATION_READBACK",
+  "generation_manifest_sha256": "b9043c234e1b2f6b7291e920a22c0c650291c40f936328ef023d3c3f0b716b64",
+  "previous_frontier_sha256": "2012589551941b8ea1c08140cdf0ae4f72d39026805f78b0194b78b7b7eeed15",
+  "current_frontier_sha256": "bef85838ebb379caad05707e20b178aa37b100786436dd6e3a762bb3ce5168d7",
+  "checks": {
+    "source_frontier": "1167 selected supplier identities remain the same; only CA-M-006, CA-M-138 and CA-M-139 version/subject/hash entries change; all 1167 current source hashes match",
+    "published": "7 published projections and 7 staged copies match generation-manifest hashes",
+    "frozen": "6 frozen projections 014\u2013019 retain pinned hashes",
+    "formal_claims": "829 CFEL blocks in published 023 match previous term-repair staged 023 blocks exactly and in order; this is a bounded continuity check, not proof all possible sources were rendered",
+    "audit": "generation manifest reports 55 missing and 23 unresolved coverage cases",
+    "design_update": "A1321 example uses Atom.Header.ID :: [string]{::1}; Current R2701 declares Atom.Header.ID string with one value. Four listed syntax Drafts exist, remain unadmitted."
+  },
+  "limits": [
+    "No rerender, code, tests or runtime changes by reviewer.",
+    "The selected supplier and Formal Claim continuity checks do not establish full semantic correctness or all migrations complete.",
+    "Native workflow admission and Journal append are not evidenced by these receipts."
+  ]
+}

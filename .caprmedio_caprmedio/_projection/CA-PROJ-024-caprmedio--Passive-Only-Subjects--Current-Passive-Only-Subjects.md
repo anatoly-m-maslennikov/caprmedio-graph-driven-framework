@@ -276,7 +276,7 @@ source:
   - CA-E-671@1
   - CA-E-672@1
   - CA-M-005@28
-  - CA-M-006@31
+  - CA-M-006@33
   - CA-M-091@27
   - CA-M-093@23
   - CA-M-094@25
@@ -298,8 +298,8 @@ source:
   - CA-M-125@47
   - CA-M-127@31
   - CA-M-135@32
-  - CA-M-138@29
-  - CA-M-139@28
+  - CA-M-138@31
+  - CA-M-139@30
   - CA-M-225@33
   - CA-M-228@37
   - CA-M-229@34
@@ -1173,7 +1173,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 23:15:53 +0400
+updated_at: 2026-11-05 01:27:48 +0400
 ---
 
 # Subjects Used Only Passively
@@ -1224,7 +1224,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes` — pins: CA-R-1655@45; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode` — pins: CA-D-383@31, CA-R-1440@24; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete Names` — pins: CA-D-392@27; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term` — pins: CA-D-416@29, CA-M-006@31, CA-M-138@29, CA-M-139@28, CA-R-1267@24; keys: passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term` — pins: CA-D-416@29, CA-R-1267@24; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime` — pins: CA-R-2255@9; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime/Session` — pins: CA-R-1650@34; keys: passive
 - `CAPRMEDIO_MODEL <+ History` — pins: CA-R-1644@37; keys: passive

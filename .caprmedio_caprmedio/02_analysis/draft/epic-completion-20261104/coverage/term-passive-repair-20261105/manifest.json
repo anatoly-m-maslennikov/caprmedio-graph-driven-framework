@@ -1,0 +1,55 @@
+{
+  "status": "SOURCE_ONLY_PREVIEWS",
+  "scope": "Three explicit Term passive Subjects; no other Entity-root mappings",
+  "authority": {
+    "id": "CA-R-1318@37",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+    "sha256": "8902cdffb5f5afab784c57cea141019daa65d60b168521fbcb660cb4f282acdd"
+  },
+  "candidates": [
+    {
+      "id": "CA-M-006",
+      "version": 31,
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-006-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--keep-the-whole-project-coherent.md",
+      "source_sha256": "57777a88746b31d16e60ddf8adc2c87441333a1b422f1db77567134c10522736",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/CA-M-006.preview.txt",
+      "preview_sha256": "196436db127dc5455cadcae934106f1e2214bac8efbca965587a2ee98bef19aa",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/CA-M-006.diff",
+      "diff_sha256": "bb83648ab07f207807022d1119dd3e8642b3d90607f4ba422e27b965220298b1",
+      "active_subject": "CAPRMEDIO_MODEL <+ Project",
+      "scope": "one exact passive Subject replacement; no body, lifecycle or other metadata change"
+    },
+    {
+      "id": "CA-M-138",
+      "version": 29,
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-138-IMPLEMENTATION_METHOD--author-in-canonical-framework-language.md",
+      "source_sha256": "e3d69dcf63c1bd0952e927b5d186fa8a1a2662fee3a89e8e95e15da55f3d294a",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/CA-M-138.preview.txt",
+      "preview_sha256": "d5f005cbdd30f0cb73675343eb897deaf777c1cc6a5761db2aea8e8c1fc33cfc",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/CA-M-138.diff",
+      "diff_sha256": "20ba9a04cdc802e12b12e1591e54ae6c2c83e2d3f3cf5130401b6c08099de965",
+      "active_subject": "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring",
+      "scope": "one exact passive Subject replacement; no body, lifecycle or other metadata change"
+    },
+    {
+      "id": "CA-M-139",
+      "version": 28,
+      "source_path": ".caprmedio_caprmedio/05_method/CA-M-139-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md",
+      "source_sha256": "566d2f2d25b58020a051be22883c4a71419c2a93fe0996f605a666c049886607",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/CA-M-139.preview.txt",
+      "preview_sha256": "51fb2e3c44f172253f67d3c9881181a752edf304e68244772e4f80235cd2f56e",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/CA-M-139.diff",
+      "diff_sha256": "7cb86e1e9171025fd8d3e634d225f64bd647190d9e9b5076fe93bd9e409ef7bc",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator",
+      "scope": "one exact passive Subject replacement; no body, lifecycle or other metadata change"
+    }
+  ],
+  "evidence": [
+    "M006 keeps Project Terms and Claims coherent; M138 uses canonical vocabulary and Term meanings in authoring; M139 introduces canonical Terms when communicating to an Operator.",
+    "Current R1318 declares Term as a reusable word or phrase component with Project-specific meaning; each original passive Subject points to that same Term topic.",
+    "Every candidate differs by exactly one passive Subject line; all Claim text, active Subject, Summary, version and timestamp remain byte-for-byte unchanged."
+  ],
+  "limits": [
+    "Previews are not Drafts, Current promotion, runtime migration or graph refresh."
+  ]
+}

@@ -10,7 +10,7 @@ subjects:
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
-updated_at: 2026-11-05 00:00:18 +0400
+updated_at: 2026-11-05 01:31:24 +0400
 carrier_destination:
   file:
     name: CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md
@@ -32,7 +32,9 @@ CFEL declares constraints, relationships and required values. Workflows and adap
 - `[format, conditions]` constrains a value. Primitive formats include `int`; Model kinds also supply object Formats.
 - `<Node>` explicitly refers to a Model-defined object kind. This spelling is accepted.
 - `$<Node>` selects an anonymous instance; `$x[<Node>]` names an instance participant.
+- A specific Model Relation uses the same filtered form: `$x[<Relation>, .Name = IS_PROPERTY_OF]`. The final user correction rejects `IS_PROPERTY_OF[<Relation>]`; the old `Relation//IS_PROPERTY_OF` instance meaning is not retained in the proposed syntax.
 - CFEL consists of declarative statements, rather than a program with mutable variables or procedural calls.
+- Allowed-value `:` becomes `::` everywhere in CFEL, including `{::1}` and `{::0+}`. Subject `:=` remains unchanged. YAML separators and literal colons retain their meanings.
 
 ## Current and proposed notation
 
@@ -46,19 +48,22 @@ CFEL declares constraints, relationships and required values. Workflows and adap
 | Reference to an object kind used as a Format | Bare kind in existing selector syntax | `<Node>` |
 | Property access | `.` | Retain |
 | Logical grouping | `()` | Retain |
+| Allowed value / domain | `:` | `::` |
+| Allowed cardinality | `{:n}` | `{::n}` |
+| Qualified Subject selection | `:=` | Retain |
 | Predicate test | `=` | Retain as a condition |
 | Required value / definition | `==` described as assignment | Clarify as a declarative definition, without an action |
 | Default | `?==` | Conditional definition for omission, with existing validation and no implicit Carrier write |
 
-`Node//Atom` keeps the current path orientation: Atom is narrower than Node. The reverse notation and named-instance reference form remain review questions, not accepted additions.
+`Node//Atom` keeps the current path orientation: Atom is narrower than Node. The reverse notation remains a review question. Specific named Model instances are selected by Format and conditions.
 
 ## Declarative reading
 
 - `$x` is a bound logical name, rather than a mutable program variable.
 - A typed participant denotes an existing selected value or instance; it creates nothing.
 - Universal quantification states that a constraint holds for every matching participant. `FOR EACH` is a candidate ASCII spelling, not an execution loop.
-- `IF ... THEN ...` expresses implication. It should not substitute for quantification by silently introducing a participant.
-- Mathematical terms describe values and invariants; they perform no I/O or business action.
+- `IF ... THEN ...` expresses implication. Current bounded-name introduction in IF remains authoritative until a reviewed quantifier successor is selected; the declarative direction alone does not revoke that earlier decision.
+- Mathematical terms describe values and invariants; they perform no I/O or business action. A conflicting supplied value fails its required-value constraint; the statement does not overwrite it. An authorized Workflow can separately change the supplied data.
 - Existing explicit grouping for mixed AND/OR and quote/backslash rules remain applicable.
 
 Illustrative successor expressions:
@@ -70,14 +75,23 @@ CAPRMEDIO_MODEL/Node//Continuant//Atom;
 # instances
 $x[<Node>];
 $atom[<Atom>, .Header.Status = Active];
+$relation[<Relation>, .Name = IS_PROPERTY_OF];
 $n[int, 1+];
 ```
 
-## Allowed-value candidate
+## Allowed-value decision
 
-The Operator questioned `:` because YAML uses it for a stored value binding. `~` is a candidate for “allows”; it is not yet adopted. Keep the distinction between admitting a value, testing a value and defining a required value.
+The Operator selected `::` for allowed values and allowed cardinalities. `:=` remains the Subject qualification operator.
 
-The decision must also cover value Formats, wildcard Property names versus values, and cardinality markers. No blanket replacement of `:` is authorized by this proposal.
+```CFEL
+# model
+Atom.Header.Role :: Method;
+Atom.Header.ID :: [string]{::1};
+```
+
+These expressions declare allowed values, rather than test or replace a stored value. `=` tests a condition; `==` states a required or derived value; `?==` supplies a default when the effective value is missing. Preserve validation and absence rules. Separate allowed-value Declarations contribute the admitted alternatives.
+
+The accepted migration includes Formats, Property-name constraints and `{::n}` bounds. It preserves `:=`, conditions, required values, YAML separators, quoted text and literal path strings. The four defining source previews are in the Epic packet's `coverage/declarative-notation-review/allowed-value-double-colon-20261105/` directory. Their actual Drafts are listed below and have passed bounded readback; source-consumer integration and review remain required before admission.
 
 ## Related reference decisions
 
@@ -98,10 +112,8 @@ The decision must also cover value Formats, wildcard Property names versus value
 
 ## Open design questions
 
-- New spelling for existing named instances such as Relation//IS_PROPERTY_OF; `//` is being reassigned to narrowing.
 - Reverse containment and narrowing traversal notation.
-- Exact declarative meaning of `==` and `?==`, including conflicting or omitted supplied values.
-- Allowed-value spelling, including inside cardinality bounds.
+- Definitions and default cases must retain absence, validation and conflict safeguards in the revised operator sources.
 - Explicit universal quantification and scope, preserving participant identity and the no-shadowing decision.
 - Complete Scope Unit path encoding, including the Project root, segment Names and the `~` marker.
 
@@ -111,4 +123,11 @@ Containment paths resemble folder paths. Narrowing uses a separate separator. Fo
 
 ## Draft packet
 
-This Analysis Draft records the design. No Requirement Draft for the proposed notation has been created or promoted yet. Existing source-repair Drafts remain separately tracked in CA-A-1318.
+Actual allowed-value notation Drafts:
+
+- CA-R-2777@1-draft: `::` operator; replaces R2592 on adoption because its Summary changes.
+- CA-R-2243@13-draft: allowed cardinalities.
+- CA-R-2471@8-draft: notation distinctions.
+- CA-R-2487@14-draft: CFEL overview.
+
+These Drafts require source-consumer integration and review before promotion and contextual migration. Other proposed path and instance changes have no admitted successor yet. Existing source-repair Drafts remain separately tracked in CA-A-1318.

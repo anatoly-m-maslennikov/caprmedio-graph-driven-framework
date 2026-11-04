@@ -1,0 +1,41 @@
+{
+  "verdict": "PASS_BOUNDED_READY_FOR_PROMOTION",
+  "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/term-passive-drafts-20261105/adoption-plan.json",
+  "plan_sha256": "4115987ac6ef5ff9d58a1853d7c82fd1f75ebcaeb44956156105038780dac023",
+  "rows": [
+    {
+      "id": "CA-M-006",
+      "version": 32,
+      "draft_path": ".caprmedio_caprmedio/05_method/draft/CA-M-006@32-draft-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--keep-the-whole-project-coherent.md",
+      "draft_sha256": "32ec2e4cabaf3f17c63de5e353a4a9cfb516e997d81474222a7940527ce8179b",
+      "current_sha256": "57777a88746b31d16e60ddf8adc2c87441333a1b422f1db77567134c10522736",
+      "preview_sha256": "196436db127dc5455cadcae934106f1e2214bac8efbca965587a2ee98bef19aa"
+    },
+    {
+      "id": "CA-M-138",
+      "version": 30,
+      "draft_path": ".caprmedio_caprmedio/05_method/draft/CA-M-138@30-draft-IMPLEMENTATION_METHOD--author-in-canonical-framework-language.md",
+      "draft_sha256": "03a9d9da2ebe8e61af8a1647012c1fce07d087388ba26caea87068991a0837cb",
+      "current_sha256": "e3d69dcf63c1bd0952e927b5d186fa8a1a2662fee3a89e8e95e15da55f3d294a",
+      "preview_sha256": "d5f005cbdd30f0cb73675343eb897deaf777c1cc6a5761db2aea8e8c1fc33cfc"
+    },
+    {
+      "id": "CA-M-139",
+      "version": 29,
+      "draft_path": ".caprmedio_caprmedio/05_method/draft/CA-M-139@29-draft-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md",
+      "draft_sha256": "2981d93682d7c0b3eee23d1edfbba0dabaf1cfe12fb1860509730c7d7d7c0ed7",
+      "current_sha256": "566d2f2d25b58020a051be22883c4a71419c2a93fe0996f605a666c049886607",
+      "preview_sha256": "51fb2e3c44f172253f67d3c9881181a752edf304e68244772e4f80235cd2f56e"
+    }
+  ],
+  "checks": [
+    "All three actual Draft and Current predecessor hashes and operation payloads match.",
+    "Each Draft body and Subjects exactly match reviewed preview; only status/version/timestamp and correct Draft carrier destination differ in metadata.",
+    "Each (Atom ID, Draft version) appears once in native carriers, including archives; analysis, projections and legacy duplicate framework trees excluded.",
+    "Term authority R1318@37 and three preview pins were independently checked in prior review."
+  ],
+  "limits": [
+    "M139 legacy Actor/Operator active Subject is intentionally unchanged and outside this bounded repair.",
+    "Native admission and Journal append are false; Draft readiness is not promotion or runtime migration."
+  ]
+}

@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/05_method/CA-M-006-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--keep-the-whole-project-coherent.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/CA-M-006.preview.txt
+@@ -4,7 +4,7 @@
+ subjects:
+   active: CAPRMEDIO_MODEL <+ Project
+   passive:
+-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
++  - CAPRMEDIO_MODEL <+ Term
+   - CAPRMEDIO_MODEL <+ Atom.Content
+   - CAPRMEDIO_MODEL <+ Package/Implementation
+ version: 31

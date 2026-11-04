@@ -10,7 +10,7 @@ subjects:
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
-updated_at: 2026-11-04 22:24:06 +0400
+updated_at: 2026-11-05 00:12:31 +0400
 carrier_destination:
   file:
     name: CA-A-1318@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--consolidate-cfel-syntax-and-precise-relations.md
@@ -92,8 +92,11 @@ These Drafts were created and reviewed before their accepted source promotions. 
 - CA-M-451@6-draft
 - CA-R-2247@10-draft
 - CA-R-1318@36-draft
+- CA-R-2170@11-draft
+- CA-R-2485@6-draft
+- CA-R-2765@4-draft
 
-Updated and reviewed existing Draft: CA-R-1318@34-draft.
+Updated and reviewed existing Drafts: CA-R-1318@34-draft and CA-M-453@4-draft. The Property Draft was rebased on Current before promotion.
 
 ## Remaining work
 
@@ -104,3 +107,7 @@ Updated and reviewed existing Draft: CA-R-1318@34-draft.
 - Obtain parser, runtime and integration evidence from their owners.
 
 Workbench and Workflow definitions remain owned by their other agents. This proposal does not supply their runtime verification.
+
+## Successor design proposal
+
+CA-A-1321@1-draft records the separate declarative notation proposal. Its new glyph meanings and named-instance grammar are not Current syntax yet.

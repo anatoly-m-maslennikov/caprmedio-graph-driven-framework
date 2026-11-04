@@ -1,0 +1,32 @@
+{
+  "verdict": "PASS_BOUNDED_DESIGN_READBACK",
+  "design_update_plan_sha256": "7d48a1b29bad8424ea20c16ced3b488caa2584d111d44aa73b575d079e98300e",
+  "design_update_receipt_sha256": "66eb19557ee467f3847e56f8822896ccaf921c30c84a3551a239d0aa70de24be",
+  "example_repair_plan_sha256": "2f919db2ea24d45c4afb64817cdb7bc46516ac1fba3346a60d40c6ba0af60063",
+  "example_repair_receipt_sha256": "dec9eca1e36cf04aaa8f4eee46746bd6d415d2877478459c91df11642fbbadf6",
+  "matrix_sha256": "7386c6590a206c8e17f0a92d4433fbc7ccc4d8cbb41a419ccc893aecea160497",
+  "checks": {
+    "history": "Epic @64 predecessor archived exactly; @65 Summary, Objective, Scope, external responsibility and Definition of Done unchanged; no removed external gates",
+    "acceptance": "matrix currently has 23 requirement groups; plan remains Active and required implementation gates external",
+    "decisions": "A1321/P65 carry :: and {::n}, unchanged :=, filtered specific Relation participant, and scalar Container path proposal; changes remain design decisions, not admitted notation",
+    "drafts": "A1319/A1321 remain Drafts; first invalid Header.Summary example corrected in a separate Draft-only operation",
+    "references": "No stale named-instance-unresolved or ~ allowed-value candidate found in the updated design; retained old // references are migration-context evidence"
+  },
+  "limits": [
+    "No Source/Current/Git/code/test mutation by reviewer.",
+    "Receipts state native workflow admission and Journal append did not occur.",
+    "No declaration adoption or completed migration inferred.",
+    "The four named syntax candidates exist as Drafts; they remain unadmitted and require source-consumer integration and review."
+  ],
+  "previous_verdict": "HOLD_EXAMPLE_FORMAT",
+  "resolved_finding": "A1321 example now uses Atom.Header.ID :: [string]{::1}, corresponding to Current R2701 string single-value declaration.",
+  "latest_draft_list_plan_sha256": "04aa27ca5b6b4b5ec7c0c3bbf1cb58a7b7a465503cf1146b6784335a2b9f4519",
+  "latest_draft_list_receipt_sha256": "87fd26c494eae4a599cc1dd127f9aad8842af1acc0057fa299db7ad5df74240e",
+  "latest_A1321_sha256": "c5c217e5b8af80d1ae4961f1e5fedfba31783a38da888554cee03e43f107767b",
+  "actual_drafts": [
+    "CA-R-2777@1-draft",
+    "CA-R-2243@13-draft",
+    "CA-R-2471@8-draft",
+    "CA-R-2487@14-draft"
+  ]
+}

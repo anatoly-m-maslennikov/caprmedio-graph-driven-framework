@@ -3,8 +3,8 @@ atom_id: CA-P-2694
 label: Epic
 status: Active
 tier: 3
-version: 63
-updated_at: 2026-11-04 22:52:16 +0400
+version: 65
+updated_at: 2026-11-05 00:47:12 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations:
@@ -58,14 +58,14 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 
 This Epic's source lane owns MODEL, CFEL, Declaration and Atom source decisions, edits, preservation and source-level review. CA #3 owns implementation and runtime changes, fixtures, regression work, and execution of the test and integration gates named below. Those are mandatory external dependencies for closure: do not count source receipts, focused source checks or unrun tests as completed gates, and do not remove them from the Definition of Done. Root coordinates source adoption, projection refresh and acceptance evidence. This plan authorizes no implementation or test execution in the source lane.
 
-The current 11 Occurrent Declaration proposals reflect the settled Operator decisions: retain Execution, Workflow Run, Step Run, Action Run, Runtime, Session and Event; Runtime's four Internal/External Local/Remote variants are relative to the CAPRMEDIO application, and Local means on the Operator's machine; Session is narrower than External Remote Runtime; no Substep Run is added. The remaining source gates are the reviewed execution endpoint/inverse-permission and Event Record Relation decisions, followed by source adoption and faithful projections. Runtime candidates remain unpromoted until those gates pass.
+The current 11 Occurrent Declaration proposals reflect the settled Operator decisions: retain Execution, Workflow Run, Step Run, Action Run, Runtime, Session and Event; Runtime's four Internal/External Local/Remote variants are relative to the CAPRMEDIO application, and Local means on the Operator's machine; Session is narrower than External Remote Runtime; no Substep Run is added. The remaining source gates are Current pin and consumer reconciliation, endpoint/inverse-permission review, source adoption and faithful projections. Event Record direction and cardinality choices are already recorded; preserve those decisions. Runtime candidates remain unpromoted until those gates pass.
 
 
 The blocking Relation pair is explicit: IS_BLOCKED_BY is Direct from the dependent Plan to its prerequisite; BLOCKS is the Derived inverse. Store the Direct fact on the dependent Plan. The six-Atom source batch includes endpoint permissions, Delivery, authoring and Evaluation. CA #3 owns conversion of existing prerequisite-side relations.blocks facts to dependent-side relations.IS_BLOCKED_BY facts, preserving their meaning and history.
 
-The Operator excludes Workbench and Workflows from this source lane: their agents own that work. Keep their required Epic gates as external dependencies. The prepared Occurrent/Workflow packet remains unpromoted here.
+The Operator excludes Workbench and Workflows from this source lane: their agents own that work. Keep their required Epic gates as external dependencies. Core Occurrent and Relation Declaration sources remain this lane’s responsibility; their prepared Drafts are unpromoted pending source review. Actual Workflow definitions, execution instances and runtime behavior remain with their owners.
 
-Term Definition is now an admitted Method Form under R2765. M450 is the sole Current ID Term meaning owner; exact R2275@2 is retired. Eleven of the twelve Entity/Property Drafts remain held for Subject and scope repairs. R1318 is promoted with Term Property-bearing permissions. M451 defines Entity as anything represented in the Subject graph. Relation and Term remain separate from Node and declare their own Property-bearing rules; narrower entities inherit those rules.
+Term Definition is now an admitted Method Form under R2765. M450 is the sole Current ID Term meaning owner; exact R2275@2 is retired. Ten of the twelve Entity/Property Drafts remain held for Subject and scope repairs. R1318 is promoted with Term Property-bearing permissions. M451 defines Entity as anything represented in the Subject graph. Relation and Term remain separate from Node and declare their own Property-bearing rules; narrower entities inherit those rules.
 
 ## CFEL specification audit
 
@@ -73,12 +73,26 @@ Term Definition is now an admitted Method Form under R2765. M450 is the sole Cur
 2. Each Atom governs one actual active Subject; its normative Claims stay within that Subject.
 3. Vocabulary and notation are coherent. Keep necessary meaning, constraints and brief Relation Semantics; remove staging notes and redundant rules.
 4. Use simple explicit syntax. Resolve ambiguity with the Operator before admission.
-5. `?==` assigns a missing Property value, `=` tests a condition, and `==` assigns a value. The Project confidence default is 90 in the integer range 0..100. Do not infer a Property rename.
+5. The Operator selected `::` for allowed values and `{::n}` for allowed cardinalities; Subject `:=` remains unchanged. Review source successors and contextual migration before declaring the new syntax active. `?==` defines a missing effective Property value, `=` tests a condition, and `==` states a required or derived value. The Project confidence default is 90 in the integer range 0..100. Do not infer a Property rename.
 6. IF bindings last through the condition and matching THEN group; standalone typed bindings last through the CFEL block. A new binding uses another name.
 7. Mixed AND/OR uses parentheses. Quote text when needed; use escaped double quotes and backslashes.
 8. Review the full Current CFEL specification census semantically; operator-use scans and hash checks alone do not prove this audit complete.
 
 Workbench and Workflow definitions remain owned by other agents. Their illustrative use in a CFEL example does not exclude the CFEL specification itself from this audit.
+
+## Declarative notation proposal
+
+CA-A-1321@1-draft records the latest design and its open grammar questions. Keep Current syntax until reviewed successor Declarations and migration are ready.
+
+- CFEL states constraints, relationships and required values; Workflows perform changes.
+- The Operator accepted `<Node>` for a Model-defined object kind used as a Format.
+- The proposed instance forms are anonymous `$<Node>` and named `$x[<Node>]`.
+- The proposed `/` means containment and `//` means narrowing. Preserve relationship direction, inherited rules and endpoint count meaning during review.
+- Formats combine value domains and conditions, including primitive values. Bound names and quantifiers are logical notation.
+- Allowed values use `::`, including `{::n}` bounds; `:=` stays unchanged. A specific Relation participant uses `$x[<Relation>, .Name = IS_PROPERTY_OF]`. These Operator decisions are settled; their defining source revisions and migration remain open.
+- Explicit quantifier spelling and reverse traversal remain unresolved. Do not treat candidate spellings as adopted.
+- Scope Unit paths use one string, illustrated by `/~ENGINE/PROGRAMMATIC/...`; canonical segment and Project-root handling still need source authority.
+- Put Project Settings defaults on their Property Declarations with `?==`. Preserve sourced values and validation; retire the old Default Settings Artifact requirements only after dependent source reconciliation. Runtime files stay with their owners.
 
 ## Remaining work
 
@@ -86,7 +100,7 @@ Workbench and Workflow definitions remain owned by other agents. Their illustrat
 2. **Property contracts and containment.** Resolve the conditional cases from applicable Declarations. Update source and schema authority for the required Atom.Header.Container, optional Header.Relations and retained formal containment Relations; do not duplicate containment in Header.Relations. Verify one formal Container per non-Project Scope Unit and none for the Project root, separately from the mandatory Container of its Declaration Atom. Repair the optional Subjects grouping without weakening Current Active-subject requirements.
 3. **MODEL coverage.** Disposition every remaining flag in the latest pinned coverage audit: source correction, declared authority, valid scope, authorized retirement or an Operator decision. The Occurrent hierarchy is settled by the latest Operator decision; finish the reviewed endpoint/inverse-permission and Event Record Relation source gates rather than reopening that decision. Reconcile Settings ownership, preserve operative Claims and exact history, and retain only explicitly authorized deferrals.
 4. **Projection identity.** Verify the adopted Form + Scope Unit constraints, required Scope Unit reference and distinct Forms across Delivery, readers, identity checks and published instances. Keep all seven views at the Project root. Preserve versioned source references and the explicit Terms Graph deferral.
-5. **CFEL and faithful projections.** Repair declared narrowing and namespace binding, supported qualified selectors and bindings. Classify remaining opaque expressions; retain their complete source and diagnostics. Rebuild all seven MODEL-only views from actual Current Declarations. Formats, cardinalities and Formal Claims come only from Declarations.
+5. **CFEL and faithful projections.** Create and review the `::` and `{::n}` source successors, commit their checkpoint, then migrate allowed-value expressions by context while preserving `:=`, YAML and literals. Repair declared narrowing and namespace binding, supported qualified selectors and bindings. Classify remaining opaque expressions; retain their complete source and diagnostics. Rebuild all seven MODEL-only views from actual Current Declarations. Formats, cardinalities and Formal Claims come only from Declarations.
 6. **Current carrier admission.** The source lane reconciles live Delivery authority, source closure and Current Atom requirements. CA #3 owns the corresponding registry, validator and runtime implementation, fixtures and execution. Remove dependencies on retired D274 using Current authority; preserve fail-closed checks. Reconcile Header/Claim, role/form, Author removal and required fields with their Current authority before enabling admission. Live admission remains a required external gate.
 7. **P2707.** The source lane verifies Current Scope Declaration counts, identities and hashes and explains source-set drift. CA #3 owns code/runtime changes, fixtures and execution of the live Project admission, complete current-source suite, launcher, fresh Docker query/status and W10 lifecycle checks. These required external gates must pass on one stable candidate, with one authoritative result tied to its source, implementation and image identities; focused or mixed-state results do not close them.
 8. **Independent closure.** Audit every requirement in the acceptance matrix against live evidence. Verify exact predecessors, metadata/identity rules, actual published projections and the requested remote checkpoint. Mark the Epic Done only after every required item passes or the Operator explicitly changes its scope.

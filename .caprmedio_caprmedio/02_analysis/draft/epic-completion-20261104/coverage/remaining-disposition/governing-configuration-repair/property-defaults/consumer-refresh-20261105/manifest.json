@@ -1,0 +1,211 @@
+{
+  "status": "SOURCE_REVIEW_PARTIAL_PREVIEWS_HELD_ATOMIC",
+  "source_pins": [
+    {
+      "id": "CA-R-1441",
+      "version": 26,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL--define-default-settings.md",
+      "sha256": "4e8fb187de61707999f26e1d24c2a1b7e0afb67634e3a3ebf72ce4793cd637ac",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+    },
+    {
+      "id": "CA-R-1429",
+      "version": 28,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL--separate-settings-boundaries-from-field-specifications.md",
+      "sha256": "1a654b8bb84dd6f0de6d0c06ae55f976da93289072542fcea0eeb40c22613ef5",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+    },
+    {
+      "id": "CA-M-279",
+      "version": 24,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings.md",
+      "sha256": "a0eaf436f740ee68608eefa952d3dd46d6db7ae044d66995922225acf123a756",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution"
+    },
+    {
+      "id": "CA-E-450",
+      "version": 27,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md",
+      "sha256": "3f60f832dcb4b1e40193d9823ffb5c8facf0f5576a94ac0a864f1f4b1ab57e15",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution"
+    },
+    {
+      "id": "CA-R-2635",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2635-CORE_META_MODEL-DECLARATION--declare-project-settings-implementation-retry-limit.md",
+      "sha256": "d0eae12b9d3813e8dc65b40a46e5cf689d6db0d693b8890079833f8cd35e1e7b",
+      "active_subject": "CAPRMEDIO_MODEL <+ Project.Settings.Implementation Retry Limit"
+    },
+    {
+      "id": "CA-R-2748",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2748-CORE_META_MODEL-RULE--unify-operator-selected-project-settings.md",
+      "sha256": "aee50dd9308c89d6ff68605aa4e1c643071be28bb5da1ec3dd362f8ea6a70cef",
+      "active_subject": "CAPRMEDIO_MODEL <+ Project.Settings"
+    },
+    {
+      "id": "CA-D-407",
+      "version": 25,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL-ENG_DECISION--store-default-settings-with-the-core-meta-model-source.md",
+      "sha256": "43ec6968f9c2eb75c4d451d91fc2249ff93ee374a747935d00907cbac064b1f8",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+    },
+    {
+      "id": "CA-D-408",
+      "version": 24,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL-ENG_DECISION--reuse-framework-parameter-fields-in-default-settings.md",
+      "sha256": "e30baa661f56fb069b4650e23e34d63bd1b7d11c7130116cfacb352b105e3d86",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+    },
+    {
+      "id": "CA-R-1983",
+      "version": 15,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1983-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-parameter-resolution.md",
+      "sha256": "d274204e13a7a6c117916a9107af85eaf868a1fe865477007db3f0eb27b0ff5c",
+      "active_subject": "CAPRMEDIO_MODEL <+ Project.Settings"
+    },
+    {
+      "id": "CA-D-447",
+      "version": 30,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-ENG_DECISION--serialize-the-implementation-retry-limit-setting.md",
+      "sha256": "4334b7cadc76ac932c59355d01ff395345a6beb1c1ab33cac68b0235188dbfb3",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit"
+    },
+    {
+      "id": "CA-E-458",
+      "version": 35,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-POLICY--validate-authoritative-framework-settings-artifact.md",
+      "sha256": "0673486890ca4f0517debe3baee67fe872d0c04788af5d5e6efc2f3c7f44ac4e",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings"
+    },
+    {
+      "id": "CA-E-459",
+      "version": 40,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md",
+      "sha256": "f8772712515bb95f5559bd9d9ac8986e11df070ad14ca4d1ccae58286b3b0787",
+      "active_subject": "CAPRMEDIO_MODEL <+ Project.Settings"
+    },
+    {
+      "id": "CA-E-006",
+      "version": 40,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md",
+      "sha256": "909749d12b6dc525dfa6ed8e315d5717040632ec86c77e89c137d163e7e77263",
+      "active_subject": "CAPRMEDIO_MODEL <+ Project.Settings"
+    },
+    {
+      "id": "CA-R-1405",
+      "version": 29,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-RULE--register-core-artifact-type-values.md",
+      "sha256": "3cf75410940a71d7357a8c701a2d182f9aa503665bddff7034902415cd48a5c5",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity"
+    },
+    {
+      "id": "CA-M-295",
+      "version": 32,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md",
+      "sha256": "e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit"
+    },
+    {
+      "id": "CA-D-366",
+      "version": 31,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md",
+      "sha256": "500d5d321b8271c57ba902e77a1ca7799b58aa8581a1c3845ef2c3b8b9a2ede1",
+      "active_subject": "CAPRMEDIO_MODEL <+ Project.Settings"
+    },
+    {
+      "id": "CA-D-657",
+      "version": 4,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f",
+      "active_subject": "CAPRMEDIO_MODEL <+ Carrier/File"
+    },
+    {
+      "id": "CA-R-2564",
+      "version": 4,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "sha256": "6c1dc5f3c6f0d1f6aec7380c769824760da4de9497f46122fa45e660055e69b9",
+      "active_subject": "CAPRMEDIO_MODEL <+ Project.Settings.AI Agent Confidence Threshold"
+    }
+  ],
+  "existing_candidate_revalidation": {
+    "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/fresh-manifest.json",
+    "sha256": "ae2b91ab6aeab40ba48c9d8a7426860ae91767e8fd286d40c6958b46943525ba",
+    "result": "Five R1441/R1429/M279/E450/R2635 Current and candidate hashes rechecked live; conditional R2748 preview remains in consumers packet. Independent review required before adoption.",
+    "retry_default": {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/caprmedio_framework_default_settings.toml",
+      "sha256": "f8fda1107671ad6c3fd02653ada4f16ffe01ce0a3f57b4a732d7eac39d4e3851",
+      "key": "implementation.retry_limit",
+      "value": 3
+    },
+    "ai_agent_confidence_default": {
+      "source": "CA-R-2564@4",
+      "value": 90,
+      "note": "Existing Property Declaration; do not create a duplicate default."
+    }
+  },
+  "partial_previews": [
+    {
+      "id": "CA-R-1405",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/consumer-refresh-20261105/CA-R-1405.partial-preview.txt",
+      "candidate_sha256": "54d9d3293732d49c47ae2ea3d6eff1105c8308e56159d4699baff4ac71baa328",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/consumer-refresh-20261105/CA-R-1405.partial.diff.txt",
+      "diff_sha256": "f2fe29a2427c59793b4f113464759201a0b83e5015ddaee9a2179c3af05ed2f2",
+      "status": "PARTIAL_ONLY_NOT_ADOPTION_READY"
+    },
+    {
+      "id": "CA-E-006",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/consumer-refresh-20261105/CA-E-006.partial-preview.txt",
+      "candidate_sha256": "13b0ba562cec10f470df9e4157704597a22230b99b5659d54e7d46ac6e21c7ac",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/consumer-refresh-20261105/CA-E-006.partial.diff.txt",
+      "diff_sha256": "444c96812404940b4a9e7f125d649d4d98d1fdf5ce50f0350472ea3fe4677b0d",
+      "status": "PARTIAL_ONLY_NOT_ADOPTION_READY"
+    }
+  ],
+  "new_id_successor": {
+    "prior_id": "CA-R-1983",
+    "content": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/consumer-refresh-20261105/R1983-unallocated-successor.content.txt",
+    "sha256": "edefc62dd0bf2f369f2d45b6534c108e9ff427f7a3eeb1fb6577c869431b0d67",
+    "status": "UNALLOCATED_PROPOSAL",
+    "reason": "Its Current Summary names Project.Framework Settings.Parameter Resolution. Changed Summary requires fresh ID; root/identity owner must allocate, preserve governing relation and retire exact predecessor only with consumer repairs."
+  },
+  "dispositions": {
+    "CA-R-1983": {
+      "preserve": "Effective parameter is explicit selection or applicable default; derived result is not separately authored. M279 supplies applicable precedence and invalid handling.",
+      "supersede": "Separate Framework Settings and Default Settings configuration sources; historical Candidate #6 commentary.",
+      "hold": "Unallocated successor and dependencies require review; do not silently change Summary under the same ID."
+    },
+    "CA-D-447": {
+      "preserve": "Explicit Project-level limit including zero; Project setting authority and applicable physical encoding.",
+      "supersede": "Separate Default Settings TOML; Plan/Hub retry overrides are superseded, not carried forward.",
+      "hold": "Current D366 closed Project TOML schema does not admit a retry-limit field; D447 names implementation.retry_limit only in old Framework Instance TOML. Exact Project.Settings serialization and necessary D366 schema migration need an approved source; no field or data migration invented."
+    },
+    "CA-E-458": {
+      "preserve": "Applicable selected-Project ownership, validation, isolation and history/evidence checks must survive under their actual Current authority.",
+      "supersede": "Separate Framework Instance Settings artifact and exclusion of Project initialization values no longer reflect unified Project.Settings.",
+      "hold": "Summary refers to retired artifact, and history/receipt checks bind D360; review applicability against E459/D365 and allocate a new identity if a new Summary is needed. No automatic transfer or retirement."
+    },
+    "CA-E-006": {
+      "preserve": "Enabled value admission, closed-key validation, deterministic parsing, fail-closed diagnostics and Project Structure separation, as still admitted.",
+      "supersede": "Requirement to resolve a separate Default Settings Artifact; Property-declared defaults replace it.",
+      "hold": "Partial preview fixes only first condition; remaining Framework-versus-Project authority and reporting assumptions require source-by-source review."
+    },
+    "CA-R-1405": {
+      "preserve": "All other existing Artifact Type values unchanged in partial preview.",
+      "supersede": "Default Settings as a separate Artifact type.",
+      "hold": "Old generic Entity active Subject and other legacy Artifact Type values require reconciliation before promotion; no inferred Artifact.Type target."
+    },
+    "CA-M-295": {
+      "preserve": "Record as existing historical/Current source only; its Workflow Run execution policy belongs to the Workflow owner.",
+      "supersede": "Plan/Hub retry-limit overrides and old Default Settings source are no longer accepted user intent.",
+      "hold": "Do not edit Workflow-owned source in this lane; route to its owner and preserve other applicable direct-input, zero and failure behavior only where independently authorized."
+    }
+  },
+  "atomic_boundary": [
+    "R1441/R1429/M279/E450/R2635 and R2748 are review candidates, not an independently safe partial promotion while old D407/D408 and consumers remain.",
+    "E006/R1405 partial candidates are not complete successors. R1983 new-ID proposal is unallocated. D447/E458 and M295 remain held for the reasons above.",
+    "No file deletion, runtime adapter update, Current or actual Draft mutation is authorized by this packet."
+  ],
+  "first_real_question": "Where should an explicitly selected Project.Settings Implementation Retry Limit be serialized within the closed Project Settings TOML schema, and which source authorizes that key?",
+  "notation_migration": "Latest Operator adopted allowed-value : to ::, including {:n} to {::n}; := remains unchanged. Existing semantic previews intentionally retain Current syntax and must be integrated with the separately reviewed syntax migration before adoption; do not alter defaults or mix changes into this source packet."
+}

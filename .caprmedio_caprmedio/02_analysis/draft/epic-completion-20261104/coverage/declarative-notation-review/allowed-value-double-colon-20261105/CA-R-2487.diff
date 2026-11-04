@@ -1,0 +1,55 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-double-colon-20261105/CA-R-2487.preview.txt
+@@ -26,13 +26,13 @@
+ 
+ ```CFEL
+ # model
+-p{:occurrence}: [value format]{:value count};
++p{::occurrence}:: [value format]{::value count};
+ 
+-p.*[name format]{:immediate name count};
++p.*[name format]{::immediate name count};
+ 
+-p.**[name format]{:recursive name count};
++p.**[name format]{::recursive name count};
+ 
+-p.*[name format]{:immediate name count}: [value format]{:value count}
++p.*[name format]{::immediate name count}:: [value format]{::value count}
+ ```
+ 
+ ### Prose Claim
+@@ -63,7 +63,7 @@
+ 
+ Text values use double quotes when needed to distinguish literal text from CFEL syntax; otherwise an unambiguous value may remain bare, including a multiword value such as `Scope Contract`. For example, `"A/B"` is text containing a slash. A name or path used as a reference retains its declared identity; a text value does not become a model reference. Within double-quoted text, `\"` represents a literal double quote and `\\` represents a literal backslash. Reject every other escape and any incomplete trailing backslash; JSON escape rules are not imported. This applies to values in Formal Claims and Subject selectors.
+ 
+-In Formal Claims, `X: Y` admits Y as an allowed value of X regardless of X's
++In Formal Claims, `X:: Y` admits Y as an allowed value of X regardless of X's
+ kind or preceding path; it is not assignment. `=` and `!=` test conditions,
+ and `==` states a required or derived conclusion. `in` and `not in` are the
+ admitted membership tests. Numeric comparison and addition use the separately
+@@ -71,13 +71,13 @@
+ operators. Property occurrence, direct-value, immediate-name
+ and recursive-name counts are distinct:
+ 
+-`{:n}`, `{:n+}` and `{:n..m}` state allowed cardinality bounds on their
++`{::n}`, `{::n+}` and `{::n..m}` state allowed cardinality bounds on their
+ qualified selection; `{=n}` tests a count condition, `{>n}` tests whether the
+ actual count is greater than n using the existing numeric `>`, and `{==n}`
+ concludes a required or derived count. These test/conclusion forms are not
+ allowed bounds. A Relation has independent outgoing and
+-reverse cardinalities: `Source {:forward}((RELATION)){:reverse} Target`.
+-A named Property has at most one occurrence per corresponding bearer; its applicable value constraints determine whether it is required. A present Property has a value, including nonempty child structure for a structural parent. `p: {:0..1}` specifies a direct-value count with its applicable inherited format. Other omitted annotations are unspecified, not zero. `[format]` applies to direct
++reverse cardinalities: `Source {::forward}((RELATION)){::reverse} Target`.
++A named Property has at most one occurrence per corresponding bearer; its applicable value constraints determine whether it is required. A present Property has a value, including nonempty child structure for a structural parent. `p:: {::0..1}` specifies a direct-value count with its applicable inherited format. Other omitted annotations are unspecified, not zero. `[format]` applies to direct
+ values; a name selector is not a value selector. A `p.**` count aggregates
+ selected distinct descendant Property identities below p within each selected
+ bearer, independently of direct values and other bearers.
+@@ -85,7 +85,7 @@
+ The named constructs `IF`/`THEN`, `UNIQUE`, `DETERMINES`, `COUNT`, `MAX`,
+ and `FENCED_LABELS` are admitted with the semantics in their own CFEL Rules.
+ `LOOKUP(R, q)` and `?==` are admitted CFEL operators with their own operator
+-Declarations; the `?==` ordered-assignment Rule supplies its chain semantics.
++Declarations; the `?==` ordered-default Rule supplies its chain semantics.
+ Boolean `AND` and `OR` combine conditions; parenthesize mixed AND/OR
+ expressions to state their grouping explicitly. `>>` is delivery notation with the
+ semantics of the delivery Rule; `!(selectors)` excludes branches from a

@@ -1,0 +1,54 @@
+{
+  "status": "PREPARED_REVIEWED_DRAFTS",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-M-006",
+      "version": 32,
+      "path": ".caprmedio_caprmedio/05_method/draft/CA-M-006@32-draft-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--keep-the-whole-project-coherent.md",
+      "sha256": "32ec2e4cabaf3f17c63de5e353a4a9cfb516e997d81474222a7940527ce8179b",
+      "current_path": ".caprmedio_caprmedio/05_method/CA-M-006-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--keep-the-whole-project-coherent.md",
+      "current_sha256": "57777a88746b31d16e60ddf8adc2c87441333a1b422f1db77567134c10522736"
+    },
+    {
+      "atom_id": "CA-M-138",
+      "version": 30,
+      "path": ".caprmedio_caprmedio/05_method/draft/CA-M-138@30-draft-IMPLEMENTATION_METHOD--author-in-canonical-framework-language.md",
+      "sha256": "03a9d9da2ebe8e61af8a1647012c1fce07d087388ba26caea87068991a0837cb",
+      "current_path": ".caprmedio_caprmedio/05_method/CA-M-138-IMPLEMENTATION_METHOD--author-in-canonical-framework-language.md",
+      "current_sha256": "e3d69dcf63c1bd0952e927b5d186fa8a1a2662fee3a89e8e95e15da55f3d294a"
+    },
+    {
+      "atom_id": "CA-M-139",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/05_method/draft/CA-M-139@29-draft-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md",
+      "sha256": "2981d93682d7c0b3eee23d1edfbba0dabaf1cfe12fb1860509730c7d7d7c0ed7",
+      "current_path": ".caprmedio_caprmedio/05_method/CA-M-139-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md",
+      "current_sha256": "566d2f2d25b58020a051be22883c4a71419c2a93fe0996f605a666c049886607"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/05_method/draft/CA-M-006@32-draft-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--keep-the-whole-project-coherent.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\ncce_version: cce_1\ncce_form: method\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Project\n  passive:\n  - CAPRMEDIO_MODEL <+ Term\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Package/Implementation\nversion: 32\nupdated_at: 2026-11-05 00:47:39 +0400\nrelations:\n  child_of:\n  - CA-R-2452\natom_id: CA-M-006\nstatus: Draft\ncurrent_scope_unit: caprmedio\ntier: 0\nrole: Method\nform: Eng Policy\ncarrier_destination:\n  file:\n    name: CA-M-006@32-draft-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--keep-the-whole-project-coherent.md\n    path: .caprmedio_caprmedio/05_method/draft\n---\n## Summary\n\nKeep the whole project coherent\n\n## Claim\n\n### Prose Claim\n\n\n**to** govern the Project, keep its Terms, Claims, rules, structure, **and** Implementation mutually coherent **where** they share authority **or** interact.\n",
+      "after_sha256": "32ec2e4cabaf3f17c63de5e353a4a9cfb516e997d81474222a7940527ce8179b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/05_method/draft/CA-M-138@30-draft-IMPLEMENTATION_METHOD--author-in-canonical-framework-language.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nversion: 30\nupdated_at: 2026-11-05 00:47:39 +0400\nrelations:\n  child_of:\n  - CA-M-006\nsubjects:\n  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring\n  passive:\n  - CAPRMEDIO_MODEL <+ Term//Artifact\n  - CAPRMEDIO_MODEL <+ Term\n  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product\ncce_version: cce_1\ncce_form: method\nllm_session_ids:\n- codex:01a02650-eff7-7453-8c37-0699b36773c6\natom_id: CA-M-138\nstatus: Draft\ncurrent_scope_unit: caprmedio\ntier: 1\nrole: Method\nform: Implementation Method\ncarrier_destination:\n  file:\n    name: CA-M-138@30-draft-IMPLEMENTATION_METHOD--author-in-canonical-framework-language.md\n    path: .caprmedio_caprmedio/05_method/draft\n---\n## Summary\n\nAuthor in canonical framework language\n\n## Claim\n\n### Prose Claim\n\n\n**to** author CAPRMEDIO-internal Artifacts, use the exact canonical CAPRMEDIO vocabulary, coherent Term meanings, **and** the strictest syntax needed **to** preserve the governed distinctions; treat FPF as a derivation source rather than external authority.\n",
+      "after_sha256": "03a9d9da2ebe8e61af8a1647012c1fce07d087388ba26caea87068991a0837cb"
+    },
+    {
+      "path": ".caprmedio_caprmedio/05_method/draft/CA-M-139@29-draft-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nversion: 29\nupdated_at: 2026-11-05 00:47:39 +0400\nrelations:\n  child_of:\n  - CA-M-005\n  method_for:\n  - CA-R-1057\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator\n  passive:\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator\n  - CAPRMEDIO_MODEL <+ Term\n  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product\ncce_version: cce_1\ncce_form: method\nllm_session_ids:\n- codex:01a02650-eff7-7453-8c37-0699b36773c6\natom_id: CA-M-139\nstatus: Draft\ncurrent_scope_unit: caprmedio\ntier: 3\nrole: Method\nform: Implementation Method\ncarrier_destination:\n  file:\n    name: CA-M-139@29-draft-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md\n    path: .caprmedio_caprmedio/05_method/draft\n---\n## Summary\nTranslate framework language for the operator\n\n## Claim\n\n### Prose Claim\n\n\n**to** address the Operator, use ordinary language by default; introduce **only** the canonical CAPRMEDIO Terms needed **when** ordinary language would make a material distinction ambiguous **or** incorrect, **and** explain **every** introduced Term **in** ordinary language.\n",
+      "after_sha256": "2981d93682d7c0b3eee23d1edfbba0dabaf1cfe12fb1860509730c7d7d7c0ed7"
+    }
+  ]
+}

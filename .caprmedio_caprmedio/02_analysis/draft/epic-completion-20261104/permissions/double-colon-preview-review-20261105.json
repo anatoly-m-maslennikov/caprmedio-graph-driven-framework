@@ -1,0 +1,62 @@
+{
+  "verdict": "PASS_BOUNDED_PREVIEW_REVIEW",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-double-colon-20261105/manifest.json",
+  "manifest_sha256": "19473aa3a9c42f2da99b3155f37b747090586d5582ac952d01d18f0dd064617a",
+  "entries": [
+    {
+      "id": "CA-R-2592",
+      "status": "PASS_CONDITIONAL_FRESH_ID",
+      "all_pins_match": true,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2592-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "15d757b8c771d83ec24a431d28d5ee0728bbc3240a827b214839da8c765de792",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-double-colon-20261105/CA-R-2592.preview.txt",
+      "preview_sha256": "1e694eb6ecd7e036bf7c98499cad918361aac051ff3ff1b53fd955c25db138f9",
+      "action": "Allocate a history-unique new Requirement ID because Summary changes; plan exact old-source retirement and Current unversioned reference redirection, preserving frozen references. Placeholder is not an actual Draft."
+    },
+    {
+      "id": "CA-R-2243",
+      "status": "PASS_BOUNDED",
+      "all_pins_match": true,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "source_sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-double-colon-20261105/CA-R-2243.preview.txt",
+      "preview_sha256": "cb63d183ff44a829997b444ef35451610edfb74fda2e8a9475a1e69a70b97bd2",
+      "action": "No additional local defect identified. Keep directional endpoint counts, unchanged numeric bounds and count-test syntax; adopt with coordinated grammar and contextual migration."
+    },
+    {
+      "id": "CA-R-2471",
+      "status": "PASS_BOUNDED_AFTER_REPAIR",
+      "all_pins_match": true,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "source_sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-double-colon-20261105/CA-R-2471.preview.txt",
+      "preview_sha256": "c45e18a9f0e9c41a498d5839bc28682f68f94deb26e8967458aa5f3c90fca423",
+      "action": "The identified declarative wording correction is present; retain the existing source-integration gates."
+    },
+    {
+      "id": "CA-R-2487",
+      "status": "PASS_BOUNDED_AFTER_REPAIR",
+      "all_pins_match": true,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "source_sha256": "d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-double-colon-20261105/CA-R-2487.preview.txt",
+      "preview_sha256": "4a1ff167660dcb6b9d5c6cd00c5a9deddc66ff7ed2d06913679eb61b79cb4647",
+      "action": "The identified declarative wording correction is present; retain the existing source-integration gates."
+    }
+  ],
+  "common_checks": [
+    "All four source/candidate/diff pins match Current; each candidate retains one active Subject. R2592 changes Summary and must use a new ID; the other three preserve Summary and ID.",
+    "The proposed allowed-value and allowed-cardinality annotations use ::/{::n}; :=, condition and count-test forms remain unchanged in the reviewed examples. R2471 removes its existing assertion that :: has no meaning.",
+    "R1360 uses ::= as notation in a separate CCE grammar; :: migration must be context-sensitive and must not rewrite that literal or assume grammar unification.",
+    "R2471 now says == states a required or derived value; R2487 names the ?== ordered-default Rule without changing its chain constraints."
+  ],
+  "source_integration_gate": [
+    "Current R1931, R1321, R2588 and other source consumers still describe :/{:n}; reconcile in the coordinated source batch and context-aware migration rather than treating four Drafts as full adoption.",
+    "Current R2768/R2769 still use conditional-assignment/set wording. Their own source reconciliation is required to align with the adopted declarative/no-mutation model while preserving their exact selection, error and no-Carrier-write behavior. If a Summary changes, allocate a fresh ID.",
+    "A1321 remains an Analysis Draft; the report flags its stale pending syntax. Refresh proposal separately; do not silently adopt unrelated / or // changes."
+  ],
+  "creation_decision": "Four actual Drafts can be prepared after normal pin/version validation; R2592 successor requires a fresh ID. Draft creation alone does not adopt syntax or authorize mechanical migration.",
+  "limits": [
+    "No code/parser/runtime verification, whole-source migration, Current/Draft/Git mutation or test execution."
+  ]
+}

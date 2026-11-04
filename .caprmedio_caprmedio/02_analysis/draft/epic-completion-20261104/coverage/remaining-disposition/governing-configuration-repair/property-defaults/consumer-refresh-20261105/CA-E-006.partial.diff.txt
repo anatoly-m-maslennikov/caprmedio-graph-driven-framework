@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/consumer-refresh-20261105/CA-E-006.partial-preview.txt
+@@ -23,7 +23,7 @@
+ 
+ ### Applicable conditions
+ 
+-1. Resolve the exact current Framework Instance Settings, Project Settings, and Default Settings Artifacts.
++1. Resolve current Project.Settings and the applicable defaults declared by its Properties.
+ 2. Accept only enabled catalog Artifact Types, Atom Content Roles and qualified Types, and Governance Origins.
+ 3. Accept only `medium` or `high` Artifact creation strictness.
+ 4. Accept only `silent` or `verbose` interaction reporting, and confirm that its effective default follows Framework Instance Settings without changing source Atoms or using Project Settings as reporting authority.

@@ -1,0 +1,27 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2592-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-double-colon-20261105/CA-R-2592.preview.txt
+@@ -1,5 +1,5 @@
+ ---
+-atom_id: CA-R-2592
++atom_id: UNALLOCATED_SUCCESSOR
+ current_scope_unit: CORE_META_MODEL
+ claim_target_scope_unit: CORE_META_MODEL
+ status: Active
+@@ -15,7 +15,7 @@
+ 
+ ## Summary
+ 
+-Declare CFEL operator :
++Declare CFEL operator ::
+ 
+ ## Claim
+ 
+@@ -23,7 +23,7 @@
+ 
+ ```CFEL
+ # model
+-Operator//AllowedValue == ":"
++Operator//AllowedValue == "::"
+ ```
+ 
+ ## Semantics

@@ -276,7 +276,7 @@ source:
   - CA-E-671@1
   - CA-E-672@1
   - CA-M-005@28
-  - CA-M-006@31
+  - CA-M-006@33
   - CA-M-091@27
   - CA-M-093@23
   - CA-M-094@25
@@ -298,8 +298,8 @@ source:
   - CA-M-125@47
   - CA-M-127@31
   - CA-M-135@32
-  - CA-M-138@29
-  - CA-M-139@28
+  - CA-M-138@31
+  - CA-M-139@30
   - CA-M-225@33
   - CA-M-228@37
   - CA-M-229@34
@@ -1173,7 +1173,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 23:15:53 +0400
+updated_at: 2026-11-05 01:27:48 +0400
 ---
 
 # Entity Definition Summary
@@ -1191,7 +1191,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 | `Code Unit` | primary_node | missing | missing |
 | `Entity` | primary_node | missing | CA-D-506@18, CA-D-507@17, CA-E-383@46, CA-E-387@27, CA-E-466@28, CA-E-505@22, CA-E-657@8, CA-M-105@27, CA-R-1245@28, CA-R-1259@24, CA-R-1261@24, CA-R-1284@27, CA-R-1285@25, CA-R-1286@25, CA-R-1349@21, CA-R-1350@20, CA-R-1405@29, CA-R-1470@27, CA-R-1471@27, CA-R-1498@17, CA-R-151@32, CA-R-1655@45, CA-R-1683@45, CA-R-1701@34, CA-R-1708@39, CA-R-1719@33, CA-R-1765@35, CA-R-1994@15, CA-R-2276@6, CA-R-2278@3 |
 | `Entity/Object/Continuant/Actor/AI Agent` | primary_node | missing | CA-E-440@36, CA-R-1552@22, CA-R-1554@23, CA-R-1555@23, CA-R-1556@26, CA-R-1557@21, CA-R-1558@23, CA-R-1559@26, CA-R-1561@28, CA-R-2158@12 |
-| `Entity/Object/Continuant/Actor/Operator` | primary_node | missing | CA-E-209@25, CA-M-139@28, CA-M-263@23, CA-R-1057@34, CA-R-1420@27, CA-R-2157@10 |
+| `Entity/Object/Continuant/Actor/Operator` | primary_node | missing | CA-E-209@25, CA-M-139@30, CA-M-263@23, CA-R-1057@34, CA-R-1420@27, CA-R-2157@10 |
 | `Entity/Object/Continuant/Governing Objects/Governing Configuration` | primary_node | missing | CA-D-407@25, CA-D-408@24, CA-R-1226@25, CA-R-1421@23, CA-R-1429@28, CA-R-1441@26, CA-R-1640@32, CA-R-1641@33, CA-R-832@35 |
 | `Entity/Object/Continuant/History` | primary_node | missing | CA-D-329@27, CA-R-1051@35, CA-R-1698@32 |
 | `Entity/Object/Continuant/History/Release` | primary_node | missing | CA-R-1181@30 |

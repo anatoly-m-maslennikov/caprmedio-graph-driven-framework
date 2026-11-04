@@ -1,0 +1,82 @@
+{
+  "verdict": "ACTION_LEAF_PREVIEW_AND_NESTED_RUN_DECISION_REQUIRED",
+  "sources": [
+    {
+      "id": "CA-R-1528",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f"
+    },
+    {
+      "id": "CA-R-1525",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1525-CORE_META_MODEL-RULE--bind-workflow-runs-to-exact-definition-revisions.md",
+      "sha256": "f1c5bad655bebbb6226f1c1546174ac1a15eb494fd6217c41c67315f6496dfed"
+    },
+    {
+      "id": "CA-R-2465",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf"
+    },
+    {
+      "id": "CA-R-2466",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "sha256": "f2a40705628b526539a0422901b2e5032ffaec8f0900072fb9c4d8d89b20bd11"
+    },
+    {
+      "id": "CA-E-486",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-486-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+      "sha256": "05975fc46ce47e6bd7001cb410f16c34a44969c54685f29ad3a99159ec1ecfdf"
+    },
+    {
+      "id": "CA-E-495",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-EVAL_CASE--validate-action-kinds-and-step-contexts.md",
+      "sha256": "bd67de991dfb53e31b0c79499ad79bad07d2bf83b41845e4c0c20ebb4569dedc"
+    },
+    {
+      "id": "CA-R-2638",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3"
+    }
+  ],
+  "drafts": [
+    {
+      "id": "CA-R-2245",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2245@9-draft-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "sha256": "10d74afc56acca0fa69e3b980cd697fbb7b28abe55a3521a129f479c6030d622"
+    },
+    {
+      "id": "CA-R-2751",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md",
+      "sha256": "3881cd3ef1fa4a78d630a0338ba23f09fdee46ab18700e0c22fd471fa2d0006a"
+    },
+    {
+      "id": "CA-R-2752",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md",
+      "sha256": "13db41bbc0cd48f58e26d14bf6c54a08013e5625e7aa713063161e62f55ca43c"
+    }
+  ],
+  "safe_preview": {
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+    "source_sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f",
+    "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/relation-review-20261105/CA-R-1528.corrected.preview.txt",
+    "sha256": "9283cee604661e86eb89d9ef489a113b8c51a3010e008a57ed031908f888442a",
+    "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/relation-review-20261105/CA-R-1528.diff",
+    "diff_sha256": "9afb7b21f6353c016c110a2392b616cac62191228bcfea026d73a6b42d945642",
+    "scope": "Qualify exactly-one Action Run condition to leaf Steps that run an Action; preserve Summary, metadata and other Claim/Details. R2465 permits a leaf Step to run a Workflow instead.",
+    "workflow_leaf": "The qualification does not require an Action or Action Run for a Step whose selected executable is a Workflow; it does not define a new Workflow-run execution rule."
+  },
+  "finding": "R1528 requires an Action Run for each Action-running leaf and describes containing Step Runs and nested Step Runs; E486 says each executed nested Substep receives its own Step Run. Proposed R2751/R2245 bind Step Run only to Step, whereas Current R2466 declares Substep as a distinct kind. Settled no Substep Run does not itself choose whether Step Run may execute a Substep. No source identified which names the Run-parent relation or supplies required outgoing direct and derived allowances, so merely adding IS_CONTAINED_BY or a whitelist would assume an unapproved binding.",
+  "question": "When a Substep executes, should its execution use a Step Run that can bind to a Substep, or should its Action Run be recorded without a separate per-Substep Step Run?",
+  "gates": [
+    "Resolve nested-run representation before changing R2751/R2245 or E486, and specify the actual Run-parent relation and both outgoing permissions independently before writing formal cardinalities.",
+    "If choosing Action-only leaf qualification, review R1528 preview against E486/E495 and update dependent source authority consistently; this preview does not authorize changing actual Workflow instances.",
+    "Integrate the approved :: notation only in a reviewed common source/syntax pass; do not change existing bounds.",
+    "No Current, actual Draft, Workflow, Workbench, code, runtime, Git or Journal mutation."
+  ],
+  "decision_context": {
+    "settled": "A distinct Substep Run kind is not admitted. Step can contain Substeps or run an Action/Workflow; a Substep runs an Action.",
+    "not_settled": "Whether an existing Step Run can identify a Substep versus no separate per-Substep Step Run; which modeled Relation represents parentage and its direction/count.",
+    "impact_if_step_run_binds_substep": "Requires reviewing the typed Step Run definition and R2245/R2417 endpoint signatures, parentage and permissions, plus preserving E486/R1528 execution evidence. It does not create a Substep Run kind.",
+    "impact_if_no_per_substep_step_run": "Requires reviewed disposition of E486 and other claims requiring distinct Step Runs for executed nested Substeps and of R1528/R1525 parentage wording; Action Run association must use separately admitted authority.",
+    "review_scope": "These are source design consequences only; no actual Workflow instance or runtime inspection was performed."
+  }
+}

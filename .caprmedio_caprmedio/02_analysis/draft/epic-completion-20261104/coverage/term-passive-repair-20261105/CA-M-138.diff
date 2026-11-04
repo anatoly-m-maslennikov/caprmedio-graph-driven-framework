@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/05_method/CA-M-138-IMPLEMENTATION_METHOD--author-in-canonical-framework-language.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/CA-M-138.preview.txt
+@@ -8,7 +8,7 @@
+   active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
+   passive:
+   - CAPRMEDIO_MODEL <+ Term//Artifact
+-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
++  - CAPRMEDIO_MODEL <+ Term
+   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+ cce_version: cce_1
+ cce_form: method

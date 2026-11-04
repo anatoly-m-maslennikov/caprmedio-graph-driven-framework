@@ -1,6 +1,6 @@
 ---
-version: 28
-updated_at: 2026-11-02 18:35:20 +0400
+version: 30
+updated_at: 2026-11-05 00:48:56 +0400
 relations:
   child_of:
   - CA-M-005
@@ -10,7 +10,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
+  - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 cce_version: cce_1
 cce_form: method
@@ -22,6 +22,10 @@ current_scope_unit: caprmedio
 tier: 3
 role: Method
 form: Implementation Method
+carrier_destination:
+  file:
+    name: CA-M-139-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md
+    path: .caprmedio_caprmedio/05_method
 ---
 ## Summary
 Translate framework language for the operator

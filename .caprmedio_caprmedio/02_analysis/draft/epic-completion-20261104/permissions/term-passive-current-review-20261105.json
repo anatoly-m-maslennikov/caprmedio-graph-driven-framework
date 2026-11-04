@@ -1,0 +1,35 @@
+{
+  "verdict": "PASS_BOUNDED_CURRENT_SOURCE_VERIFICATION",
+  "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/term-passive-promotion-20261105/adoption-plan.json",
+  "plan_sha256": "c64662197940b3dd20e42868494def16f113cc938347cd0af64a741f64be17af",
+  "receipt_sha256": "cbdde81d6f9e81ac674acdedcb284daa61de578bca9eda8298e0c525c1661367",
+  "operation_count": 9,
+  "rows": [
+    {
+      "id": "CA-M-006",
+      "version": 33,
+      "current_sha256": "a2158934ac083bcf792bfe5be2e9a4e849e1c1556f2c5ef4117a6550009b1ea9",
+      "predecessor_sha256": "57777a88746b31d16e60ddf8adc2c87441333a1b422f1db77567134c10522736"
+    },
+    {
+      "id": "CA-M-138",
+      "version": 31,
+      "current_sha256": "9c2037ec0ab75e1898b9f552945cec71d090acad2be8fd08e0eefc6743f6fc7a",
+      "predecessor_sha256": "e3d69dcf63c1bd0952e927b5d186fa8a1a2662fee3a89e8e95e15da55f3d294a"
+    },
+    {
+      "id": "CA-M-139",
+      "version": 30,
+      "current_sha256": "09c8780a7f459b90780289efcb57cd6775e798c6e0955b214644c89f34d29896",
+      "predecessor_sha256": "566d2f2d25b58020a051be22883c4a71419c2a93fe0996f605a666c049886607"
+    }
+  ],
+  "checks": [
+    "All nine before/after payload hashes and final readbacks match; three exact Current predecessor snapshots preserved and three Drafts consumed.",
+    "Each successor preserves Summary and entire body; sole Subject change is the reviewed Term passive replacement. Active Subject remains identical. Other metadata changes are authorized version, timestamp and Current carrier destination."
+  ],
+  "limits": [
+    "M139 legacy Actor/Operator active Subject remains unchanged and outside this bounded review.",
+    "Native admission and Journal append false; no runtime, graph refresh or broader migration established."
+  ]
+}

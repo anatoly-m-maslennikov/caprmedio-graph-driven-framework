@@ -1,0 +1,9 @@
+## Summary
+
+Resolve Project Settings parameters
+
+## Claim
+
+### Prose Claim
+
+Resolve each effective Project.Settings parameter from its explicit selected value or its applicable Property-declared default, according to the governing Method. The result is derived; do not write it as an explicit selection or a separate Project.Settings Property.

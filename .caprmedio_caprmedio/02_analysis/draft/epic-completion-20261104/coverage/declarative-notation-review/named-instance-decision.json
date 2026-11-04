@@ -1,0 +1,9 @@
+{
+  "status": "RESOLVED_BY_LATEST_USER_CORRECTION",
+  "accepted": "$x[<Relation>, .Name = IS_PROPERTY_OF]",
+  "rejected": "IS_PROPERTY_OF[<Relation>]",
+  "superseded_alternative": "Relation//IS_PROPERTY_OF as named-instance syntax",
+  "retained_proposed_meaning": "// narrowing",
+  "current_syntax": "Unchanged until reviewed migration",
+  "IF_scope": "Preserve Current decision until a specific replacement is accepted."
+}

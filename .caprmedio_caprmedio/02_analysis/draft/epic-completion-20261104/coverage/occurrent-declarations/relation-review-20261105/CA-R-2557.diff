@@ -1,0 +1,13 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/relation-review-20261105/CA-R-2557.corrected.preview.txt
+@@ -33,7 +33,9 @@
+ # instances
+ Event Record//$event_record {:1}((IS_CONTAINED_BY)) Journal//$journal;
+ 
+-Event Record//$record {:1}((RECORDS)) Event//$event
++Event Record//$record {:1}((RECORDS)) Event//$event;
++
++Event Record//$record {:1}((HAS_EVENT_AUTHOR)) Actor//$actor
+ ```
+ 
+ ### Prose Claim

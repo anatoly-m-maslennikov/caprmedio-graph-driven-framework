@@ -1,9 +1,9 @@
 {
   "schema": "caprmedio-epic-acceptance-matrix/1",
-  "epic": "CA-P-2694@61",
-  "as_of": "2026-11-04",
+  "epic": "CA-P-2694@65",
+  "as_of": "2026-11-05",
   "purpose": "Read-only completeness assessment; not authority to change Current or transition status.",
-  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-dependency-frontier.json",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-passive-frontier-20261105.json",
   "current_frontier_note": "Seven published MODEL views match the bounded selected 1,167-source frontier; audit reports 55 missing and 23 unresolved. This is not final model, runtime or data conformance.",
   "requirements": [
     {
@@ -64,7 +64,8 @@
         ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/definition-polishing-result.md",
         ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/REPORT.md",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/projection-refresh-verification.json",
-        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json"
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-passive-20261105/generation-manifest.json"
       ]
     },
     {
@@ -245,7 +246,8 @@
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-operators-current-verification.json",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-binding-range-current-verification.json",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/five-relation-current-verification.json",
-        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json"
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-passive-20261105/generation-manifest.json"
       ]
     },
     {
@@ -270,7 +272,8 @@
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-binding-range-current-verification.json",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/specialization-current-verification.json",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-projections-review.json",
-        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json"
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-passive-20261105/generation-manifest.json"
       ],
       "latest_operator_requirements": [
         "Complete Current CFEL spec review: every operator, Relation and expression syntax declared.",
@@ -305,7 +308,8 @@
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/REPORT.md",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/method-term-current-verification.json",
-        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/entity-term-current-verification.json"
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/entity-term-current-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-passive-20261105/generation-manifest.json"
       ]
     },
     {
@@ -420,7 +424,8 @@
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/projection-refresh-verification.json",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-permissions-plan-proposal/adoption-receipt.json",
-        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json"
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-passive-20261105/generation-manifest.json"
       ]
     },
     {
@@ -441,22 +446,16 @@
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/settings-adoption-verification.json",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-permissions-plan-proposal/adoption-receipt.json",
-        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json"
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-passive-20261105/generation-manifest.json"
       ]
     }
   ],
   "reviewed_plan_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
   "reviewed_plan_quality": "P2694@62 and P2707@5 remain Active; the 23 original acceptance groups and required external gates remain in force.",
-  "latest_projection_checkpoint": {
-    "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-dependency-frontier.json",
-    "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json",
-    "selected_sources": 1167,
-    "known_missing": 55,
-    "unresolved": 23,
-    "status": "PUBLISHED_SOURCE_PINNED_NOT_ALL_MODEL_CONFORMANT"
-  },
-  "current_epic_version": 62,
-  "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-permissions-plan-proposal/adoption-receipt.json",
+  "latest_projection_checkpoint": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-passive-20261105/generation-manifest.json",
+  "current_epic_version": 65,
+  "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/double-colon-design-update/adoption-receipt.json",
   "current_verification_task_version": 5,
   "execution_responsibility": {
     "this_chat": "MODEL, CFEL, Declarations, Atom sources and source projections",
@@ -478,5 +477,17 @@
     "epic": "CA-P-2694@63",
     "state": "SOURCE_CONTRACT_AND_MIGRATION_PENDING",
     "container": "One ordinary Header.Container value: full Scope Unit path or base Atom ID; Relations optional; retained formal IS_CONTAINED_BY/CONTAINS; no duplicate stored containment."
+  },
+  "latest_notation_decision": {
+    "allowed_value": "::",
+    "allowed_cardinality": "{::n}",
+    "subject_qualification": ":= unchanged",
+    "actual_drafts": [
+      "CA-R-2777@1",
+      "CA-R-2243@13",
+      "CA-R-2471@8",
+      "CA-R-2487@14"
+    ],
+    "adoption": "pending consumer integration, review and contextual migration"
   }
 }

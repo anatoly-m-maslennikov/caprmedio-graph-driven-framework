@@ -1,0 +1,51 @@
+{
+  "verdict": "PASS_BOUNDED_THREE_PREVIEWS",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/manifest.json",
+  "manifest_sha256": "fb274decea000a52558969213b075949ee7988ca799be819a2a3a33a122d32f2",
+  "term_authority": {
+    "id": "CA-R-1318@37",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+    "sha256": "8902cdffb5f5afab784c57cea141019daa65d60b168521fbcb660cb4f282acdd"
+  },
+  "checks": [
+    "All Current, preview, diff and R1318@37 pins match.",
+    "Each candidate is exactly one passive line replacement; body, active Subject, Summary, version, timestamp and all other bytes unchanged.",
+    "Each Claim explicitly refers to reusable Terms consistent with Current Term Declaration."
+  ],
+  "rows": [
+    {
+      "id": "CA-M-006",
+      "source": ".caprmedio_caprmedio/05_method/CA-M-006-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--keep-the-whole-project-coherent.md",
+      "source_sha256": "57777a88746b31d16e60ddf8adc2c87441333a1b422f1db77567134c10522736",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/CA-M-006.preview.txt",
+      "preview_sha256": "196436db127dc5455cadcae934106f1e2214bac8efbca965587a2ee98bef19aa",
+      "old_passive": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term",
+      "new_passive": "CAPRMEDIO_MODEL <+ Term",
+      "rationale": "Project coherence explicitly includes Terms."
+    },
+    {
+      "id": "CA-M-138",
+      "source": ".caprmedio_caprmedio/05_method/CA-M-138-IMPLEMENTATION_METHOD--author-in-canonical-framework-language.md",
+      "source_sha256": "e3d69dcf63c1bd0952e927b5d186fa8a1a2662fee3a89e8e95e15da55f3d294a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/CA-M-138.preview.txt",
+      "preview_sha256": "d5f005cbdd30f0cb73675343eb897deaf777c1cc6a5761db2aea8e8c1fc33cfc",
+      "old_passive": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term",
+      "new_passive": "CAPRMEDIO_MODEL <+ Term",
+      "rationale": "Authoring explicitly requires coherent Term meanings."
+    },
+    {
+      "id": "CA-M-139",
+      "source": ".caprmedio_caprmedio/05_method/CA-M-139-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md",
+      "source_sha256": "566d2f2d25b58020a051be22883c4a71419c2a93fe0996f605a666c049886607",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/CA-M-139.preview.txt",
+      "preview_sha256": "51fb2e3c44f172253f67d3c9881181a752edf304e68244772e4f80235cd2f56e",
+      "old_passive": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term",
+      "new_passive": "CAPRMEDIO_MODEL <+ Term",
+      "rationale": "Operator communication explicitly discusses introduced canonical Terms."
+    }
+  ],
+  "limits": [
+    "M139 retains the legacy Actor/Operator active Subject; this bounded review does not validate or change it.",
+    "No general Entity-root mapping, native Draft, promotion or runtime migration established."
+  ]
+}

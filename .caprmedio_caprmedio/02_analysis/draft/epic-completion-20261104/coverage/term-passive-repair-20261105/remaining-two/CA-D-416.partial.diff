@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-416-CORE_META_MODEL-ENG_DECISION--classify-markdown-atom-carrier.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/remaining-two/CA-D-416.partial-preview.txt
+@@ -3,7 +3,7 @@
+   active: CAPRMEDIO_MODEL <+ Carrier/File
+   passive:
+   - CAPRMEDIO_MODEL <+ Carrier/File
+-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
++  - CAPRMEDIO_MODEL <+ Term
+   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
+ version: 29
+ updated_at: 2026-11-02 00:18:22 +0400

@@ -1,0 +1,61 @@
+{
+  "status": "BOTH_HELD_NO_PROMOTION_READY",
+  "source_pins": [
+    {
+      "id": "CA-D-416",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-416-CORE_META_MODEL-ENG_DECISION--classify-markdown-atom-carrier.md",
+      "sha256": "5cfcda668adf8e01cb5b0ab4e262bbc2de85e4b4c4e1a4e7cc77303a85239fab",
+      "active_subject": "CAPRMEDIO_MODEL <+ Carrier/File"
+    },
+    {
+      "id": "CA-R-1267",
+      "version": 24,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1267-CORE_META_MODEL-RULE--classify-dependent-entity-as-an-entity.md",
+      "sha256": "2177edde1fb619c49d0fdd8b7711c4cf9b6015267528b1e36bee262dd5fa3e15",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Dependent Entity"
+    },
+    {
+      "id": "CA-R-1318",
+      "version": 37,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+      "sha256": "8902cdffb5f5afab784c57cea141019daa65d60b168521fbcb660cb4f282acdd",
+      "active_subject": "CAPRMEDIO_MODEL <+ Term"
+    },
+    {
+      "id": "CA-M-453",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "sha256": "05aa611f0737b1abd55cde20d63328d12bbfec4d105a7b333cdf8472c5c5fa90",
+      "active_subject": "CAPRMEDIO_MODEL <+ Term//Property"
+    },
+    {
+      "id": "CA-M-451",
+      "version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+      "sha256": "cc83380cc43391664968b27b812f799030e57e9c7d88baa2ba329912e0d7a998",
+      "active_subject": "CAPRMEDIO_MODEL <+ Term//Entity"
+    }
+  ],
+  "dispositions": [
+    {
+      "id": "CA-D-416",
+      "passive_finding": "The explicit phrase Term Markdown Atom Carrier is lexical Term context, so replacing the generic old Term passive with Current Term is narrowly supported.",
+      "partial_preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/remaining-two/CA-D-416.partial-preview.txt",
+      "candidate_sha256": "c8e1671cb94e21af2ba7a24fcc5d6472a252f5461ebd1c47a8d2bfb128c9a424",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-passive-repair-20261105/remaining-two/CA-D-416.partial.diff",
+      "diff_sha256": "9a1b439f497d02dbc451f62c84decc3230bfbd9e6d08c124d22dee99344e6043",
+      "hold": "The Claim says a Term is NARROWER_THAN a File Carrier, while R1318 distinguishes lexical Terms from graph Nodes. Its active Subject is Carrier/File rather than the narrower purported Claim target. Determine whether the intended fact classifies the Carrier kind or a lexical Term, then reconcile active Subject and Claim using existing authority. Do not promote the isolated header edit as a fully coherent successor."
+    },
+    {
+      "id": "CA-R-1267",
+      "passive_finding": "Old generic Term passive is lexical by spelling, but it is attached to an obsolete governed Term//Dependent Entity and an obsolete narrowing claim.",
+      "hold": "M453@6 defines the accepted Property meaning and M451@7 defines lexical Entity; these do not authorize reviving Dependent Entity as a separate Term/kind or mapping it mechanically to Property. Determine retirement or an explicitly authorized substantive replacement; no passive-only preview or universal Entity Subject mapping."
+    }
+  ],
+  "limits": [
+    "Both Current Claims and active Subjects remain unchanged.",
+    "Partial D416 preview is for exact Subject review, not a Draft or promotion-ready proposal. No global Entity-root mapping.",
+    "No Current, actual Draft, code, test, Workflow/Workbench or Git mutation."
+  ]
+}

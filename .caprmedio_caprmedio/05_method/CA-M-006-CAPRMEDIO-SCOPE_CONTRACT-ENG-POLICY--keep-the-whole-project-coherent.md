@@ -4,11 +4,11 @@ cce_form: method
 subjects:
   active: CAPRMEDIO_MODEL <+ Project
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
+  - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Package/Implementation
-version: 31
-updated_at: 2026-11-02 00:18:22 +0400
+version: 33
+updated_at: 2026-11-05 00:48:56 +0400
 relations:
   child_of:
   - CA-R-2452
@@ -18,6 +18,10 @@ current_scope_unit: caprmedio
 tier: 0
 role: Method
 form: Eng Policy
+carrier_destination:
+  file:
+    name: CA-M-006-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--keep-the-whole-project-coherent.md
+    path: .caprmedio_caprmedio/05_method
 ---
 ## Summary
 
