@@ -1,0 +1,99 @@
+{
+  "status": "PASS_SELECTED_SCOPE_WITH_RELATION_CLAIM_COVERAGE_LIMIT",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-blocking/generation-manifest.json",
+  "manifest_sha256": "6290865ffcd7d35d8a31075c621230f338483476fa4f83826b2a2ec5d7a93550",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-blocking-frontier.json",
+  "frontier_sha256": "4f68a8199afd55fc893088455e38fb07dce1bbef6965f420b3ed02d9f751dc6c",
+  "selected_source_count": 1160,
+  "view_evidence": [
+    {
+      "id": "CA-PROJ-020",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-020-caprmedio--Primary-Entities-Tree--Current-Primary-Entities-Tree.md",
+      "sha256": "54086cf26d080b7799e590d859ea66464290a9a6e9fba40b2a1a7d752e3bf7e6",
+      "predecessor_sha256": "2961c053afb4f0874e1db59980c43d6f83178ebe4fc3e38416c5f37e3ebaa0aa",
+      "form": "Primary Entities Tree",
+      "scope_unit": "Project//caprmedio",
+      "source_refs": 1160
+    },
+    {
+      "id": "CA-PROJ-021",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-021-caprmedio--Primary-Entities-with-Direct-Properties--Current-Primary-Entities-with-Direct-Properties.md",
+      "sha256": "decb91886ae926828103af07fd3aebc3915ce87c33a718acb19bbdeab60d3faa",
+      "predecessor_sha256": "7bd649bcd6ede17494d55516353c842262322b3d35921a83f52d76dd44cf6e7e",
+      "form": "Primary Entities with Direct Properties",
+      "scope_unit": "Project//caprmedio",
+      "source_refs": 1160
+    },
+    {
+      "id": "CA-PROJ-022",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-022-caprmedio--Primary-Entities-with-Inherited-Property-Contracts--Current-Primary-Entities-with-Inherited-Property-Contracts.md",
+      "sha256": "85105ebcbeb82f4069f071abed3efc2bacd280f495e8e5c73f2de60db2b3bde2",
+      "predecessor_sha256": "b7a418b65f20c336b2f620a03ff69be90f829af9ef78b877e36e3fc633419178",
+      "form": "Primary Entities with Inherited Property Contracts",
+      "scope_unit": "Project//caprmedio",
+      "source_refs": 1160
+    },
+    {
+      "id": "CA-PROJ-023",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-023-caprmedio--Primary-Entities-with-Inherited-Formal-Claims--Current-Primary-Entities-with-Inherited-Formal-Claims.md",
+      "sha256": "2ee9c8e9f42539b825827e4ceec8fd27b2149fca9dfcf4848c80784cf44fe3ee",
+      "predecessor_sha256": "e8584a7be2fba7888f971869862057199308d8625bd49abf9275eb383ae119ef",
+      "form": "Primary Entities with Inherited Formal Claims",
+      "scope_unit": "Project//caprmedio",
+      "source_refs": 1160
+    },
+    {
+      "id": "CA-PROJ-024",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-024-caprmedio--Passive-Only-Subjects--Current-Passive-Only-Subjects.md",
+      "sha256": "ac44d58a0ce2715cc232e4a013dd14b74a1f7fdd3732dfc6754034da5e5f9e46",
+      "predecessor_sha256": "796d78e958e76bc18e7adff079d1a3d603a023464993a5c58f12039a769b8559",
+      "form": "Passive Only Subjects",
+      "scope_unit": "Project//caprmedio",
+      "source_refs": 1160
+    },
+    {
+      "id": "CA-PROJ-025",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-025-caprmedio--Subjects-without-Requirement-Declarations--Current-Subjects-without-Requirement-Declarations.md",
+      "sha256": "db5c02a2967a74db48835f6bde9d4b97135dd37d8f30d98e76b1f0bb1b726403",
+      "predecessor_sha256": "d2820835f8687746f1e48ca296deb78508c724ec689c05fcbd738e35ef3d2c73",
+      "form": "Subjects without Requirement Declarations",
+      "scope_unit": "Project//caprmedio",
+      "source_refs": 1160
+    },
+    {
+      "id": "CA-PROJ-026",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-026-caprmedio--Entity-Definition-and-Active-Subject-Coverage--Current-Entity-Definition-and-Active-Subject-Coverage.md",
+      "sha256": "f744baef83347c56fa40683664c52583797d78c2a8d02616d48f70265391e0b9",
+      "predecessor_sha256": "a48e6cc35faa7a6686f9023497f1b3fb6f2d620b53b957e99a667420207545db",
+      "form": "Entity Definition and Active Subject Coverage",
+      "scope_unit": "Project//caprmedio",
+      "source_refs": 1160
+    }
+  ],
+  "frozen_projection_count": 6,
+  "source_backed_contracts": {
+    "formal_claims": 666,
+    "contracts": 1291,
+    "entities": 64
+  },
+  "audit_counts": {
+    "known_missing": 56,
+    "unresolved": 23
+  },
+  "failures": [],
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "consumer_coverage_limitation",
+      "detail": "CA-PROJ-023 is Primary Entities with Inherited Formal Claims. Its body matches a fresh render for that scope and includes R2511 Plan permissions, but does not render the IS_BLOCKED_BY and BLOCKS Relation-object Claims or their Direct/Derived classifications. R2762@2 and R1580@29 in frontmatter are supplier provenance only. Relation-object Claim coverage requires separate consumer disposition under CA #3; do not claim this view rendered them.",
+      "direct_relation_claim_rendered": false,
+      "derived_relation_claim_rendered": false,
+      "plan_permissions_rendered": true
+    }
+  ],
+  "limits": [
+    "Bounded verification of the selected 1160-source snapshot; this is not an all-live-source census.",
+    "No source, code, tests, Git, data or runtime changes; no global data conformance asserted.",
+    "Relation-object Claims are outside this primary-entity view and need separate consumer disposition under CA #3; source pins in headers are not rendered Claim evidence."
+  ]
+}

@@ -30,6 +30,10 @@ Relation//IS_BLOCKED_BY ((HAS_CLASSIFICATION)) Derivation == Direct;
 Atom/(.Header.Role: Plan)//$dependent ((IS_BLOCKED_BY)) Atom/(.Header.Role: Plan)//$prerequisite
 ```
 
+### Prose Claim
+
+A dependent Plan may start only after each Plan it is blocked by is Done.
+
 ## Semantics
 
-IS_BLOCKED_BY relates a dependent Plan to a prerequisite Plan that must be Done before the dependent may start.
+IS_BLOCKED_BY relates a dependent Plan to a prerequisite Plan.

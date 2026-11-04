@@ -3,8 +3,8 @@ atom_id: CA-P-2694
 label: Epic
 status: Active
 tier: 3
-version: 58
-updated_at: 2026-11-04 14:56:07 +0400
+version: 59
+updated_at: 2026-11-04 16:52:59 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations:
@@ -58,6 +58,9 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 This Epic's source lane owns MODEL, CFEL, Declaration and Atom source decisions, edits, preservation and source-level review. CA #3 owns implementation and runtime changes, fixtures, regression work, and execution of the test and integration gates named below. Those are mandatory external dependencies for closure: do not count source receipts, focused source checks or unrun tests as completed gates, and do not remove them from the Definition of Done. Root coordinates source adoption, projection refresh and acceptance evidence. This plan authorizes no implementation or test execution in the source lane.
 
 The current 11 Occurrent Declaration proposals reflect the settled Operator decisions: retain Execution, Workflow Run, Step Run, Action Run, Runtime, Session and Event; Runtime's four Internal/External Local/Remote variants are relative to the CAPRMEDIO application, and Local means on the Operator's machine; Session is narrower than External Remote Runtime; no Substep Run is added. The remaining source gates are the reviewed execution endpoint/inverse-permission and Event Record Relation decisions, followed by source adoption and faithful projections. Runtime candidates remain unpromoted until those gates pass.
+
+
+The blocking Relation pair is explicit: IS_BLOCKED_BY is Direct from the dependent Plan to its prerequisite; BLOCKS is the Derived inverse. Store the Direct fact on the dependent Plan. The six-Atom source batch includes endpoint permissions, Delivery, authoring and Evaluation. CA #3 owns conversion of existing prerequisite-side relations.blocks facts to dependent-side relations.IS_BLOCKED_BY facts, preserving their meaning and history.
 
 ## Remaining work
 

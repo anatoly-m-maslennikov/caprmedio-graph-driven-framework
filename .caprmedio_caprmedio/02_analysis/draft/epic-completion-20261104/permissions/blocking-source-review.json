@@ -1,0 +1,76 @@
+{
+  "verdict": "PASS_BOUNDED_REVIEW",
+  "packet_manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/manifest.json",
+  "packet_manifest_sha256": "650f461fae53230258989f66700e0356c2fc93bbd152b2c4aeb28a6a1d097b1b",
+  "previews": [
+    {
+      "id": "CA-R-1580",
+      "candidate_hash": "8f767911439c4aa975ec98c15f08bb9d55a6167a2cbfc4ac8a85b4694b35698c",
+      "candidate_matches_pin": true,
+      "source_hash": "19ecfd4058ac41328bd6d995963a8f3e6f6e3b10ed1bb5ce84834d4ff65a390f",
+      "source_matches_pin": true,
+      "summary_preserved": true,
+      "frozen_refs_preserved": true
+    },
+    {
+      "id": "<UNALLOCATED-is-blocked-by>",
+      "candidate_hash": "6ad2fc6868b8f65693602cbe531e8961f9caeef5679c6a58a649ae823425bcc2",
+      "candidate_matches_pin": true
+    },
+    {
+      "id": "CA-R-2511",
+      "candidate_hash": "97e03a63422052e1c5797f4eb6b641e37d7028d0c807ce7b966c6f1b688f3129",
+      "candidate_matches_pin": true,
+      "source_hash": "741bdb16b86ded6ef4c2034e96267b70ed3bd449f1ab116849ed4c92c651f3e2",
+      "source_matches_pin": true,
+      "summary_preserved": true,
+      "frozen_refs_preserved": true
+    },
+    {
+      "id": "CA-D-471",
+      "candidate_hash": "8655f7bf163b92491912ff575d617efe62fa656c76e36753c63dfe5608be46d8",
+      "candidate_matches_pin": true,
+      "source_hash": "638304bed3ff46a5b20e5577cffe735dcafd4c339b79fd36daf5fab9221ccd8a",
+      "source_matches_pin": true,
+      "summary_preserved": true,
+      "frozen_refs_preserved": true
+    },
+    {
+      "id": "CA-M-306",
+      "candidate_hash": "5f94d36661dae6c9ff0615d32d73f7f381e91ed295459ff0a49fed21875c7ada",
+      "candidate_matches_pin": true,
+      "source_hash": "e3b360c6269adba675a83f9b971c0af7609cb2f30b31eb38fd92e27c330d7877",
+      "source_matches_pin": true,
+      "summary_preserved": true,
+      "frozen_refs_preserved": true
+    }
+  ],
+  "checks": {
+    "full_plan_endpoints": true,
+    "direct_inverse_pair": true,
+    "both_plan_permissions": true,
+    "direct_sequence_encoding": true,
+    "no_authored_inverse": true,
+    "active_subject_scope": true,
+    "confidence_source_rule": true,
+    "safe_wip_pin": true,
+    "m306_terminal_child_condition_restored": true,
+    "direct_relation_claim_requires_prerequisite_done": true
+  },
+  "findings": [],
+  "authority_analysis": [
+    "R2709 admits a dynamic Atom.Header.Relations member keyed by Relation instances; D657 allows direct Node-instance relation encoding under relations and requires a per-Relation representation. D471 preview proposes the key, YAML sequence, unique IDs and Plan resolution; source compatibility is established as a proposal, not schema or runtime support.",
+    "R2635 and R2532 are not modified by this packet; removal of a per-Plan retry override does not retire Project retry settings or resolve non-Plan retry consumers."
+  ],
+  "separate_migration_hold": "Existing authored prerequisite-side relations.blocks and any related readers, writers, fixtures, historical records and data require separately approved CA #3 conversion; no runtime or instance migration is claimed.",
+  "limits": [
+    "Current source and safe WIP pins checked; no integrated CFEL validation, source application, native admission, code, tests, or Git.",
+    "Unallocated relation must receive canonical ID and Current carrier metadata through adoption."
+  ],
+  "resolved_prior_finding": "CA-M-306 now retains the exact directly contained Plan terminal-status instruction, including mixed statuses and no forced match. IS_BLOCKED_BY Prose Claim now retains prerequisite-Done-before-start.",
+  "additional_authority": {
+    "id": "CA-D-461",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-ENG_DECISION--place-plan-carriers-by-status.md",
+    "sha256": "cac8ddb6e9a7dfa759e3b35e386cce2486406bf8ded702b34de8bf30e0339fba"
+  }
+}

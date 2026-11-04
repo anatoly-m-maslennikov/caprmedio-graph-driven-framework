@@ -1,0 +1,203 @@
+{
+  "status": "PASS_WITH_ONE_WORDING_AMBIGUITY",
+  "decision_reviewed": "IS_BLOCKED_BY Direct and BLOCKS Derived; independently authored inverse facts are not stored.",
+  "sources": [
+    {
+      "id": "CA-E-504",
+      "version": 22,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md",
+      "sha256": "2553d5552d8a8300b2c9a9c3f362c00421afbd96368d1426672da8a6773472d3",
+      "lines": [
+        36,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        48
+      ],
+      "classification": "logical derived read/validation",
+      "finding": "Examples describe prerequisite-to-dependent BLOCKS views and Done-gated readiness; no named persisted BLOCKS encoding is required. The phrase “inverse declaration” is ambiguous under the new direct/derived orientation and does not explicitly distinguish an authored inverse fact from a valid computed inverse.",
+      "preserve": "Preserve all-blockers-Done, parallel readiness, no inferred edges, duplicate/inverse-fact rejection, status constraints, combined containment/blocking cycle and endpoint diagnostics.",
+      "line_evidence": [
+        {
+          "line": 36,
+          "text": "the blocking Evaluation **must** reject a start **unless** **all** explicit blockers are Done **and** the applicable execution permissions hold."
+        },
+        {
+          "line": 40,
+          "text": "- `A BLOCKS B`, `B BLOCKS C`: permit `A`, **then** `B`, **then** `C` **only** **after** the preceding Plan is Done."
+        },
+        {
+          "line": 41,
+          "text": "- `A BLOCKS C`, `B BLOCKS C`: allow `A` **and** `B` **to** be ready concurrently; `C` waits for both."
+        },
+        {
+          "line": 42,
+          "text": "- reorder leading navigation numbers **or** give two Plans the same Hub: do **not** invent another blocking edge."
+        },
+        {
+          "line": 43,
+          "text": "- reject a self-edge, cycle, unresolved **or** non-Plan target, duplicate direct declaration, inverse declaration, **or** Plan scheduling encoded as `depends_on`."
+        },
+        {
+          "line": 44,
+          "text": "- accept a Done blocker; Backlog, Active, Canceled, **and** Archived **must not** satisfy its completion gate."
+        },
+        {
+          "line": 45,
+          "text": "- combine contained-Plan terminal prerequisites (Done **or** Canceled; mixed statuses allowed) with blocking for deadlock detection: **if** containing Plan `H` contains Plan `A` **and** `H BLOCKS A`, reject the unsatisfiable cycle even though the blocking graph alone is acyclic. `IS_CONTAINED_BY`/derived `CONTAINS` does **not** establish `BLOCKS` by itself."
+        },
+        {
+          "line": 46,
+          "text": "- distinguish readiness from forced execution: a deterministic display order does **not** prohibit concurrent independent work **or** grant execution authority."
+        },
+        {
+          "line": 48,
+          "text": "report the failing endpoints **and**, for a cycle, its complete prerequisite chain."
+        }
+      ],
+      "recommended_clarification": "If this source is revised, say independently authored inverse fact is rejected while a valid derived BLOCKS view is accepted; preserve the existing duplicate and cycle checks."
+    },
+    {
+      "id": "CA-E-404",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-POLICY--reject-invalid-dependency-order-derivations.md",
+      "sha256": "b9446d9d98014e65b29e14ed6f96e685a25f7e296b0a13021aab043ecebf2bcf",
+      "lines": [
+        37,
+        41
+      ],
+      "classification": "logical derived read / independent dependency domain",
+      "finding": "BLOCKS is discussed only as a separate Plan blocking fact which need not occur in relations.depends_on; it does not require BLOCKS to be stored or authored.",
+      "preserve": "Keep Plan blocking separate from non-Plan dependency ordering and retain the no-depends_on requirement.",
+      "line_evidence": [
+        {
+          "line": 37,
+          "text": "the Evaluation **must** reject one derived non-Plan Artifact dependency order **if** a relation endpoint is **not** an admitted non-Plan Artifact, one `relations.depends_on` target reference repeats, a permutation of target-list positions changes its direct-edge set **or** derived order, an edge is absent from `relations.depends_on`, `relations.derived_from` contributes an edge, **or** the direct dependency graph **contains** a cycle."
+        },
+        {
+          "line": 41,
+          "text": "Plan blocking **must** be checked separately under CA-E-504-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness; a Plan `BLOCKS` fact **must not** fail merely because it is absent from `relations.depends_on`."
+        }
+      ]
+    },
+    {
+      "id": "CA-E-622",
+      "version": 53,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "19aec4891a13dfd0f271c7cb8372e41fd60d1db02e58fe80b3d87b01e29d8311",
+      "lines": [
+        51,
+        52,
+        54,
+        62
+      ],
+      "classification": "logical derived example and generic direct/derived validation",
+      "finding": "A BLOCKS B is an unqualified logical example, not a demand to persist BLOCKS. The same Claim explicitly requires every inverse to remain derived and validates computed facts from their admitted source.",
+      "preserve": "Keep Done-only blocker gate, scoped RMED direct-target lifecycle checks, registered direct storage and rejection of independently authored inverse facts.",
+      "line_evidence": [
+        {
+          "line": 51,
+          "text": "- reject a non-Active RMED target of a direct Relation authored by an Active RMED Atom; read target Status from its own Markdown frontmatter under CA-D-483 **and** check lifecycle placement under CA-D-466. this Active-target restriction applies **only** **when** the source is Active **and** both source **and** target have Content Role **in** (Requirement, Method, Evaluation, Delivery). a source **or** target outside that boundary **must not** fail because of this restriction alone; its own applicable Relation constraints still apply."
+        },
+        {
+          "line": 52,
+          "text": "- accept `A BLOCKS B` with Done Plan `A`; confirm that Backlog, Active, Canceled, **or** Archived blockers do **not** satisfy the Done start gate for `B`."
+        },
+        {
+          "line": 54,
+          "text": "- confirm that **every** independently authored direct Relation is persisted **only** **in** its registered declaration Carrier **and** that **every** inverse remains derived; validate a computed Relation against its admitted derivation authority **and** input facts **without** requiring an invented source declaration."
+        },
+        {
+          "line": 62,
+          "text": "- accept a source-traceable reference **or** derived graph view of a Relation fact; reject another independently maintained source declaration of the same fact **or** admission of a foreign Relation Type as native through that view."
+        }
+      ]
+    },
+    {
+      "id": "CA-M-239",
+      "version": 25,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-dependency-order-from-explicit-edges.md",
+      "sha256": "7ee9aa7b786a867e3707a28a057cc13ffbb269548ebe19bd9a613ddf1ea2f176",
+      "lines": [
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        41,
+        45
+      ],
+      "classification": "logical derived readiness read",
+      "finding": "Plan readiness follows the BLOCKS view; it does not require authoring or storing that view. The direct relations.depends_on algorithm is explicitly scoped to non-Plan Artifacts.",
+      "preserve": "Keep all blockers Done, concurrent independent readiness, no order inferred from navigation, and preserve non-Plan dependency algorithm.",
+      "line_evidence": [
+        {
+          "line": 34,
+          "text": "**to** derive one non-Plan Artifact dependency order, the resolver **must**:"
+        },
+        {
+          "line": 35,
+          "text": ""
+        },
+        {
+          "line": 36,
+          "text": "1. construct one directed graph from direct `relations.depends_on` edges from **every** dependent Artifact **to** **every** prerequisite Artifact;"
+        },
+        {
+          "line": 37,
+          "text": "2. derive its `required_by` inverse view **without** authoring inverse edges;"
+        },
+        {
+          "line": 38,
+          "text": "3. calculate one deterministic prerequisite-first topological order with canonical identity **only** as a tie-breaker; **and**"
+        },
+        {
+          "line": 39,
+          "text": "4. reject a cycle."
+        },
+        {
+          "line": 41,
+          "text": "the resolver **must not** use target-list position, Local Order, **or** `relations.derived_from` as a dependency edge."
+        },
+        {
+          "line": 45,
+          "text": "Plan readiness follows `BLOCKS` under CA-R-1580: **all** blockers **must** be Done, **and** independent ready Plans **may** execute concurrently subject **to** their permissions; navigation order **must not** add blocking."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1592",
+      "version": 23,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1592-CORE_META_MODEL-RULE--keep-plan-completion-prerequisites-acyclic.md",
+      "sha256": "a4e8f93ba5f10e6e83c0dbea59155b943a35af967a87ca904d95504f53ab9074",
+      "lines": [
+        27,
+        30
+      ],
+      "classification": "logical derived cycle constraint",
+      "finding": "The acyclicity rule references BLOCKS as one source of completion prerequisites; it specifies neither directness nor storage.",
+      "preserve": "Keep cycle detection across the combined blocking and contained-Plan terminal prerequisite graph.",
+      "line_evidence": [
+        {
+          "line": 27,
+          "text": "Plan execution."
+        },
+        {
+          "line": 30,
+          "text": "Plan execution **must not** contain a cycle of completion prerequisites, including one formed jointly by `BLOCKS` **and** the requirement **to** complete directly contained Plan work **before** its containing Plan can be Done **or** Canceled."
+        }
+      ]
+    }
+  ],
+  "result": "None of the five reviewed Current Claims or Details requires BLOCKS to be persisted. Four consume a compatible logical view. E504’s “inverse declaration” wording needs interpretation or a small clarification so a valid derived view is not rejected along with an independently authored inverse fact.",
+  "limitations": [
+    "Review is confined to five specified Current source Claims and Details.",
+    "CA-D-471 and CA-M-306 authoring/serialization revisions are separately proposed; no complete consumer inventory, Plan instances, code, fixtures, runtime tests, Journal or Git state were inspected or changed.",
+    "The result does not prove implementation can derive or query BLOCKS."
+  ]
+}

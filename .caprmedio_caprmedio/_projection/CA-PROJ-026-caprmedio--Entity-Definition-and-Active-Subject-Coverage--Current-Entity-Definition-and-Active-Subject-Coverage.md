@@ -123,7 +123,7 @@ source:
   - CA-D-467@28
   - CA-D-469@25
   - CA-D-470@29
-  - CA-D-471@24
+  - CA-D-471@26
   - CA-D-472@29
   - CA-D-473@25
   - CA-D-475@24
@@ -245,7 +245,7 @@ source:
   - CA-E-500@28
   - CA-E-501@30
   - CA-E-502@29
-  - CA-E-504@22
+  - CA-E-504@24
   - CA-E-505@22
   - CA-E-506@28
   - CA-E-511@23
@@ -341,7 +341,7 @@ source:
   - CA-M-303@26
   - CA-M-304@26
   - CA-M-305@22
-  - CA-M-306@32
+  - CA-M-306@34
   - CA-M-307@29
   - CA-M-308@25
   - CA-M-309@23
@@ -598,7 +598,7 @@ source:
   - CA-R-1575@25
   - CA-R-1577@23
   - CA-R-1578@25
-  - CA-R-1580@27
+  - CA-R-1580@29
   - CA-R-1584@23
   - CA-R-1585@23
   - CA-R-1587@26
@@ -877,7 +877,7 @@ source:
   - CA-R-2503@5
   - CA-R-2508@6
   - CA-R-2509@2
-  - CA-R-2511@3
+  - CA-R-2511@5
   - CA-R-2512@2
   - CA-R-2513@2
   - CA-R-2514@2
@@ -1091,6 +1091,7 @@ source:
   - CA-R-2746@1
   - CA-R-2747@1
   - CA-R-2748@1
+  - CA-R-2762@2
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1165,12 +1166,12 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 11:07:12 +0400
+updated_at: 2026-11-04 16:54:30 +0400
 ---
 
 # Entity Definition Summary
 
-Selected sources: 1159 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
+Selected sources: 1160 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
 
 Cardinalities, formats and Formal Claims come only from Current Requirement / Declaration Atoms. Unsupported CFEL remains visible with diagnostics.
 

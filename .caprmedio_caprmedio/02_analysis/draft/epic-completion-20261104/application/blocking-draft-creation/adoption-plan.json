@@ -1,0 +1,128 @@
+{
+  "status": "PREPARED_DRAFT_CREATION",
+  "route": "user-authorized manual source Draft creation",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "prepared_at": "2026-11-04 16:50:26 +0400",
+  "manifest_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/manifest.json",
+  "manifest_sha256": "677a0c8f33f03c1f1a6684faad371e7d28ea07baa1645406d287725b4911eb21",
+  "outputs": [
+    {
+      "atom_id": "CA-R-1580",
+      "version": 28,
+      "kind": "revision",
+      "summary": "Define Plan blocking",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1580@28-draft-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "sha256": "dac706697cc565599e9eb63f6bcae5dfc076e2d869e0283e5739cdc3c6cb4678",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "source_sha256": "19ecfd4058ac41328bd6d995963a8f3e6f6e3b10ed1bb5ce84834d4ff65a390f",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/CA-R-1580.preview.txt",
+      "candidate_sha256": "8f767911439c4aa975ec98c15f08bb9d55a6167a2cbfc4ac8a85b4694b35698c"
+    },
+    {
+      "atom_id": "CA-R-2762",
+      "version": 1,
+      "kind": "new",
+      "summary": "Declare IS_BLOCKED_BY",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2762@1-draft-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "sha256": "deabb78faed98900da6efd9c87cc70fc509f69ebb166af704c603f447404db5d",
+      "source_path": null,
+      "source_sha256": null,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/is-blocked-by.preview.txt",
+      "candidate_sha256": "6ad2fc6868b8f65693602cbe531e8961f9caeef5679c6a58a649ae823425bcc2"
+    },
+    {
+      "atom_id": "CA-R-2511",
+      "version": 4,
+      "kind": "revision",
+      "summary": "Declare Atom/(.Role := Plan)",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2511@4-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "0b5f8c3c7a5e89fe846ce5cba0bfeaa2ac7411eb5222d33e7f38397d53b92085",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "source_sha256": "741bdb16b86ded6ef4c2034e96267b70ed3bd449f1ab116849ed4c92c651f3e2",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/CA-R-2511.preview.txt",
+      "candidate_sha256": "97e03a63422052e1c5797f4eb6b641e37d7028d0c807ce7b966c6f1b688f3129"
+    },
+    {
+      "atom_id": "CA-D-471",
+      "version": 25,
+      "kind": "revision",
+      "summary": "Serialize explicit Plan blocking",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-471@25-draft-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md",
+      "sha256": "5f20f8417654520379eeb622483777f701896fd7ac126a94a8e490b188572801",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md",
+      "source_sha256": "638304bed3ff46a5b20e5577cffe735dcafd4c339b79fd36daf5fab9221ccd8a",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/CA-D-471.preview.txt",
+      "candidate_sha256": "8655f7bf163b92491912ff575d617efe62fa656c76e36753c63dfe5608be46d8"
+    },
+    {
+      "atom_id": "CA-M-306",
+      "version": 33,
+      "kind": "revision",
+      "summary": "Author Plan Atoms",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-306@33-draft-CORE_META_MODEL--author-plan-atoms.md",
+      "sha256": "c8a833c73896da1e0ca80a5f9f5619f34005d126d89dbcf8b7942f398ed3b362",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md",
+      "source_sha256": "e3b360c6269adba675a83f9b971c0af7609cb2f30b31eb38fd92e27c330d7877",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/CA-M-306.preview.txt",
+      "candidate_sha256": "5f94d36661dae6c9ff0615d32d73f7f381e91ed295459ff0a49fed21875c7ada"
+    },
+    {
+      "atom_id": "CA-E-504",
+      "version": 23,
+      "kind": "revision",
+      "summary": "Validate Plan blocking and parallel readiness",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-504@23-draft-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md",
+      "sha256": "3159b8c7dac1b82180df73549d18f5f7f9a542c2a83ff3709719f7dca1c23200",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md",
+      "source_sha256": "2553d5552d8a8300b2c9a9c3f362c00421afbd96368d1426672da8a6773472d3",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/CA-E-504.preview.txt",
+      "candidate_sha256": "7bf01988381ea2ca52f1c3063ce686eb9ee45d85d35f330eacfaf1404868e0a5"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1580@28-draft-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//BLOCKS\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)\n  - CAPRMEDIO_MODEL <+ Projection\n  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status: Done'\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON\nversion: 28\nupdated_at: 2026-11-04 16:50:26 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-R-1580\nstatus: Draft\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-1580@28-draft-CORE_META_MODEL-DECLARATION--define-plan-blocking.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Plan blocking\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//BLOCKS <((HAS_INVERSE)) Relation//IS_BLOCKED_BY;\n\nRelation//BLOCKS ((HAS_CLASSIFICATION)) Derivation == Derived;\n\n# instances\nAtom/(.Header.Role: Plan)//$prerequisite ((BLOCKS)) Atom/(.Header.Role: Plan)//$dependent\n```\n\n## Semantics\n\nBLOCKS relates a prerequisite Plan to a dependent Plan that may start only after that prerequisite is Done.\n",
+      "after_sha256": "dac706697cc565599e9eb63f6bcae5dfc076e2d869e0283e5739cdc3c6cb4678"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2762@1-draft-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2762\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_BLOCKED_BY\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 1\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 16:50:26 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2762@1-draft-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare IS_BLOCKED_BY\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//IS_BLOCKED_BY ((HAS_INVERSE)) Relation//BLOCKS;\n\nRelation//IS_BLOCKED_BY ((HAS_CLASSIFICATION)) Derivation == Direct;\n\n# instances\nAtom/(.Header.Role: Plan)//$dependent ((IS_BLOCKED_BY)) Atom/(.Header.Role: Plan)//$prerequisite\n```\n\n### Prose Claim\n\nA dependent Plan may start only after each Plan it is blocked by is Done.\n\n## Semantics\n\nIS_BLOCKED_BY relates a dependent Plan to a prerequisite Plan.\n",
+      "after_sha256": "deabb78faed98900da6efd9c87cc70fc509f69ebb166af704c603f447404db5d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2511@4-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2511\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\nversion: 4\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nupdated_at: 2026-11-04 16:50:26 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2511@4-draft-CORE_META_MODEL-DECLARATION--declare-plan.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom/(.Role := Plan)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Plan) >| (Container == yes);\n\nAtom/(.Header.Role: Plan);\n\n# instances\nAtom/(.Header.Role: Plan)//$plan {:0+}((CONTAINS)) Atom/(.Header.Role: Plan)//$contained_plan;\n\nAtom/(.Header.Role: Plan)//$dependent {:0+}((IS_BLOCKED_BY)) Atom/(.Header.Role: Plan)//$prerequisite;\n\nAtom/(.Header.Role: Plan)//$prerequisite_2 {:0+}((BLOCKS)) Atom/(.Header.Role: Plan)//$dependent_2;\n\nAtom/(.Header.Role: Plan)//$atom;\n\nIF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))\nTHEN ($atom.Header.Relations.IS_CONTAINED_BY{==1})\n```\n\n## Semantics\n\nA Plan describes bounded intended work or an intended outcome.\n",
+      "after_sha256": "0b5f8c3c7a5e89fe846ce5cba0bfeaa2ac7411eb5222d33e7f38397d53b92085"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-471@25-draft-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\n  - CAPRMEDIO_MODEL <+ Atom.Header.ID\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects\nversion: 25\nupdated_at: 2026-11-04 16:50:26 +0400\nrelations:\n  delivery_for:\n  - CA-R-2762\n  - CA-R-1580\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-D-471\nstatus: Draft\ntier: 3\nrole: Delivery\nform: Decision\ncarrier_destination:\n  file:\n    name: CA-D-471@25-draft-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\n---\n## Summary\n\nSerialize explicit Plan blocking\n\n## Claim\n\n### Prose Claim\n\nFor each direct `B IS_BLOCKED_BY A` fact, encode the prerequisite Plan `A` once as a canonical Atom ID in the dependent Plan `B` under `relations.IS_BLOCKED_BY`. Use a YAML sequence of unique Plan Atom IDs; an omitted list encodes no outgoing blocking Relations. Resolve each referenced ID to its intended Plan under applicable authority.\n\nDo not store the derived `A BLOCKS B` view as a second fact. Do not encode Plan scheduling with `relations.depends_on` or `subjects.depends_on`. Store Plan containment separately under `IS_CONTAINED_BY`; do not derive blocking from containment or directory order.\n",
+      "after_sha256": "5f20f8417654520379eeb622483777f701896fd7ac126a94a8e490b188572801"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-306@33-draft-CORE_META_MODEL--author-plan-atoms.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_BLOCKED_BY\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY\n  - CAPRMEDIO_MODEL <+ Scope Unit\n  - CAPRMEDIO_MODEL <+ Carrier/File\nversion: 33\nupdated_at: 2026-11-04 16:50:26 +0400\nrelations:\n  depends_on:\n  - CA-R-1588\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-M-306\nstatus: Draft\ntier: 2\nrole: Method\nform: Implementation Method\ncarrier_destination:\n  file:\n    name: CA-M-306@33-draft-CORE_META_MODEL--author-plan-atoms.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft\n---\n## Summary\n\nAuthor Plan Atoms\n\n## Claim\n\n### Prose Claim\n\nTo author a Plan Atom, apply the common Plan rules independently of Label:\n\n1. State the intended work or outcome and provide own work, direct Plan decomposition, or both under CA-R-1575. Apply the executable leaf-work bound under CA-R-1589.\n2. Resolve the active Subject and its target Scope under CA-R-1588. Apply the applicable completion and verification rules, including CA-R-1599, and use Labels only under their governing rules. For a containing Plan whose Status is Done or Canceled, require every directly contained Plan to be Done or Canceled; mixed terminal statuses are allowed, and containment does not force a child Status to match the parent.\n3. Express required start dependencies as direct `IS_BLOCKED_BY` Relations on the dependent Plan and derive `BLOCKS`. For Plan containment, declare `IS_CONTAINED_BY` on the child and derive `CONTAINS`. Do not infer dependencies from numbers or folder placement.\n4. Resolve confidence from its applicable sources and store only an explicitly selected confidence override under its admitted encoding.\n5. Review the finalized intended contribution against its supporting content and completion criteria, then derive Summary under CA-R-1418 and CA-R-2499. Preserve Summary across Revisions; a changed Summary requires the applicable replacement identity under CA-R-1464.\n",
+      "after_sha256": "c8a833c73896da1e0ca80a5f9f5619f34005d126d89dbcf8b7942f398ed3b362"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-504@23-draft-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status: Done'\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Work Sequence Number\nversion: 23\nupdated_at: 2026-11-04 16:50:26 +0400\nrelations:\n  evaluation_for:\n  - CA-R-1580\n  - CA-R-1583@26\n  - CA-R-1592\n  - CA-D-471\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-E-504\nstatus: Draft\ntier: 4\nrole: Evaluation\nform: Eval Case\ncarrier_destination:\n  file:\n    name: CA-E-504@23-draft-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft\n---\n## Summary\n\nValidate Plan blocking and parallel readiness\n\n## Claim\n\n### Prose Claim\n\n\nPlan blocking **and** parallel readiness.\n\n\nthe blocking Evaluation **must** reject a start **unless** **all** explicit blockers are Done **and** the applicable execution permissions hold.\n\n## Details\n\n- `A BLOCKS B`, `B BLOCKS C`: permit `A`, **then** `B`, **then** `C` **only** **after** the preceding Plan is Done.\n- `A BLOCKS C`, `B BLOCKS C`: allow `A` **and** `B` **to** be ready concurrently; `C` waits for both.\n- reorder leading navigation numbers **or** give two Plans the same Hub: do **not** invent another blocking edge.\n- reject a self-edge, cycle, unresolved **or** non-Plan target, duplicate direct declaration, independently authored `BLOCKS` inverse fact, **or** Plan scheduling encoded as `depends_on`; accept a valid derived `BLOCKS` view from a direct `IS_BLOCKED_BY` fact authored on the dependent Plan.\n- accept a Done blocker; Backlog, Active, Canceled, **and** Archived **must not** satisfy its completion gate.\n- combine contained-Plan terminal prerequisites (Done **or** Canceled; mixed statuses allowed) with blocking for deadlock detection: **if** containing Plan `H` contains Plan `A` **and** `H BLOCKS A`, reject the unsatisfiable cycle even though the blocking graph alone is acyclic. `IS_CONTAINED_BY`/derived `CONTAINS` does **not** establish `BLOCKS` by itself.\n- distinguish readiness from forced execution: a deterministic display order does **not** prohibit concurrent independent work **or** grant execution authority.\n\nreport the failing endpoints **and**, for a cycle, its complete prerequisite chain.\n",
+      "after_sha256": "3159b8c7dac1b82180df73549d18f5f7f9a542c2a83ff3709719f7dca1c23200"
+    }
+  ],
+  "current_sources_unchanged": true
+}

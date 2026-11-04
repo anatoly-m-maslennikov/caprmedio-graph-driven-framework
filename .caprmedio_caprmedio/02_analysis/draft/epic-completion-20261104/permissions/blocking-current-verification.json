@@ -1,0 +1,244 @@
+{
+  "status": "PASS_BOUNDED_PROMOTION",
+  "plan_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/blocking-promotion/adoption-plan.json",
+  "plan_sha256": "a4de208920e2c0dfb06f68c4ec1fab1d5299cfe845fc7ed5b2449e2c48d5b532",
+  "receipt_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/blocking-promotion/adoption-receipt.json",
+  "receipt_sha256": "a24fc1b30580698c700f31c670f1a9b72780a8c81fb43d419c1b6a80c688fb22",
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1580@27-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "expected": "19ecfd4058ac41328bd6d995963a8f3e6f6e3b10ed1bb5ce84834d4ff65a390f",
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "expected": "25e9d08d3851209230e686a23c42d7819f3fddd4b163d3e18947c6b6eedb8ae5",
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1580@28-draft-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "expected": null,
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2762-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "expected": "6620239782cc317abe88ee6d70794e60727a197cfbb9dc959327b7483283cbc9",
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2762@1-draft-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "expected": null,
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2511@3-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "expected": "741bdb16b86ded6ef4c2034e96267b70ed3bd449f1ab116849ed4c92c651f3e2",
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "expected": "ca9869c1ae916ae02af6112a4a6cba61cd0474aae0734098b7226db52abbc40f",
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2511@4-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "expected": null,
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-471@24-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md",
+      "expected": "638304bed3ff46a5b20e5577cffe735dcafd4c339b79fd36daf5fab9221ccd8a",
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md",
+      "expected": "ae5f999a3547c1a8644ea9dfa434b8f7770e3772e15ac192b755de07d3a18993",
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-471@25-draft-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md",
+      "expected": null,
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/archive/CA-M-306@32-CORE_META_MODEL--author-plan-atoms.md",
+      "expected": "e3b360c6269adba675a83f9b971c0af7609cb2f30b31eb38fd92e27c330d7877",
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md",
+      "expected": "4a4888cc1dc2fd66c5318a3e52dd3dc5480024b936876da556e272b47619f576",
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-306@33-draft-CORE_META_MODEL--author-plan-atoms.md",
+      "expected": null,
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/archive/CA-E-504@22-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md",
+      "expected": "2553d5552d8a8300b2c9a9c3f362c00421afbd96368d1426672da8a6773472d3",
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md",
+      "expected": "b3621864df3860e830f721906e0f05aa63dfaca3a7f19663387e07fb11c1fc83",
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-504@23-draft-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md",
+      "expected": null,
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694@58-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "expected": "4b429dae675ec71b0755eb62cb30a235dc26510c88b71079b922ec0f51bea46b",
+      "readback_matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "expected": "15a0106d309e2187351379db1592df9ee11c3b60fd2d9fd8688c68d004f61c54",
+      "readback_matches": true
+    }
+  ],
+  "outputs": {
+    "CA-R-1580": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "sha256": "25e9d08d3851209230e686a23c42d7819f3fddd4b163d3e18947c6b6eedb8ae5",
+      "checks": {
+        "hash": true,
+        "id": true,
+        "version": true,
+        "active": true,
+        "summary": true,
+        "draft_consumed": true,
+        "current_above_draft": true,
+        "reviewed_body_preserved": true,
+        "predecessor_exact": true,
+        "frozen_refs_preserved": true,
+        "unique_current": true
+      }
+    },
+    "CA-R-2762": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2762-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "sha256": "6620239782cc317abe88ee6d70794e60727a197cfbb9dc959327b7483283cbc9",
+      "checks": {
+        "hash": true,
+        "id": true,
+        "version": true,
+        "active": true,
+        "summary": true,
+        "draft_consumed": true,
+        "current_above_draft": true,
+        "reviewed_body_preserved": true,
+        "unique_current": true
+      }
+    },
+    "CA-R-2511": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "ca9869c1ae916ae02af6112a4a6cba61cd0474aae0734098b7226db52abbc40f",
+      "checks": {
+        "hash": true,
+        "id": true,
+        "version": true,
+        "active": true,
+        "summary": true,
+        "draft_consumed": true,
+        "current_above_draft": true,
+        "reviewed_body_preserved": true,
+        "predecessor_exact": true,
+        "frozen_refs_preserved": true,
+        "unique_current": true
+      }
+    },
+    "CA-D-471": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md",
+      "sha256": "ae5f999a3547c1a8644ea9dfa434b8f7770e3772e15ac192b755de07d3a18993",
+      "checks": {
+        "hash": true,
+        "id": true,
+        "version": true,
+        "active": true,
+        "summary": true,
+        "draft_consumed": true,
+        "current_above_draft": true,
+        "reviewed_body_preserved": true,
+        "predecessor_exact": true,
+        "frozen_refs_preserved": true,
+        "unique_current": true
+      }
+    },
+    "CA-M-306": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md",
+      "sha256": "4a4888cc1dc2fd66c5318a3e52dd3dc5480024b936876da556e272b47619f576",
+      "checks": {
+        "hash": true,
+        "id": true,
+        "version": true,
+        "active": true,
+        "summary": true,
+        "draft_consumed": true,
+        "current_above_draft": true,
+        "reviewed_body_preserved": true,
+        "predecessor_exact": true,
+        "frozen_refs_preserved": true,
+        "unique_current": true
+      }
+    },
+    "CA-E-504": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md",
+      "sha256": "b3621864df3860e830f721906e0f05aa63dfaca3a7f19663387e07fb11c1fc83",
+      "checks": {
+        "hash": true,
+        "id": true,
+        "version": true,
+        "active": true,
+        "summary": true,
+        "draft_consumed": true,
+        "current_above_draft": true,
+        "reviewed_body_preserved": true,
+        "predecessor_exact": true,
+        "frozen_refs_preserved": true,
+        "unique_current": true
+      }
+    },
+    "CA-P-2694": {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "sha256": "15a0106d309e2187351379db1592df9ee11c3b60fd2d9fd8688c68d004f61c54",
+      "checks": {
+        "hash": true,
+        "id": true,
+        "version": true,
+        "active": true,
+        "summary": true,
+        "epic_predecessor_exact": true,
+        "unique_current": true
+      }
+    }
+  },
+  "checks": {
+    "direct": true,
+    "inverse": true,
+    "plan_permissions": true,
+    "full_plan_endpoints": true,
+    "delivery_for": true,
+    "delivery_storage": true,
+    "method_safeguards": true,
+    "evaluation": true,
+    "scope_counts": true,
+    "no_native_admission": true
+  },
+  "blockers": [],
+  "other_selected_frontier_drift": [
+    "CA-R-2464",
+    "CA-R-2471",
+    "CA-R-2615",
+    "CA-R-2734",
+    "CA-R-2735"
+  ],
+  "limits": [
+    "The 19-operation promotion scope contains the approved 7 Current outputs, 6 exact predecessors and 6 consumed Drafts; this alone does not prove absence of unrelated workspace writes.",
+    "Other selected frontier drift is reported without attribution; source, instance and code state outside this plan was not globally frozen or independently proven unchanged.",
+    "Manual source promotion only; native Workflow admission and Journal append are false; runtime/data/code migration and activation remain separate."
+  ]
+}

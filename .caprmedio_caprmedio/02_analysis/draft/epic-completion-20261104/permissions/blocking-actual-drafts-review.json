@@ -1,0 +1,137 @@
+{
+  "verdict": "PASS_BOUNDED_DRAFT_REVIEW",
+  "plan_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/blocking-draft-creation/adoption-plan.json",
+  "plan_sha256": "b0daf108f411783f984698c121294b9afdc6f6e22d464d4b58bfa1d390ff658f",
+  "receipt_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/blocking-draft-creation/adoption-receipt.json",
+  "receipt_sha256": "7659f2cceb79b61db69d45c83f404dd01d90f224d20ae9292446ab1d3718e6e5",
+  "drafts": [
+    {
+      "id": "CA-R-1580",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1580@28-draft-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "sha256": "dac706697cc565599e9eb63f6bcae5dfc076e2d869e0283e5739cdc3c6cb4678",
+      "checks": {
+        "draft_hash": true,
+        "operation_exact": true,
+        "preview_pin": true,
+        "same_reviewed_body": true,
+        "id_version_status": true,
+        "role_form_preserved": true,
+        "summary": true,
+        "destination": true,
+        "canonical_containment": true,
+        "current_preimage": true,
+        "current_active": true,
+        "frozen_refs": true
+      }
+    },
+    {
+      "id": "CA-R-2762",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2762@1-draft-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "sha256": "deabb78faed98900da6efd9c87cc70fc509f69ebb166af704c603f447404db5d",
+      "checks": {
+        "draft_hash": true,
+        "operation_exact": true,
+        "preview_pin": true,
+        "same_reviewed_body": true,
+        "id_version_status": true,
+        "role_form_preserved": true,
+        "summary": true,
+        "destination": true,
+        "canonical_containment": true,
+        "new_revision_one": true
+      }
+    },
+    {
+      "id": "CA-R-2511",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2511@4-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "0b5f8c3c7a5e89fe846ce5cba0bfeaa2ac7411eb5222d33e7f38397d53b92085",
+      "checks": {
+        "draft_hash": true,
+        "operation_exact": true,
+        "preview_pin": true,
+        "same_reviewed_body": true,
+        "id_version_status": true,
+        "role_form_preserved": true,
+        "summary": true,
+        "destination": true,
+        "canonical_containment": true,
+        "current_preimage": true,
+        "current_active": true,
+        "frozen_refs": true
+      }
+    },
+    {
+      "id": "CA-D-471",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-471@25-draft-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md",
+      "sha256": "5f20f8417654520379eeb622483777f701896fd7ac126a94a8e490b188572801",
+      "checks": {
+        "draft_hash": true,
+        "operation_exact": true,
+        "preview_pin": true,
+        "same_reviewed_body": true,
+        "id_version_status": true,
+        "role_form_preserved": true,
+        "summary": true,
+        "destination": true,
+        "canonical_containment": true,
+        "current_preimage": true,
+        "current_active": true,
+        "frozen_refs": true
+      }
+    },
+    {
+      "id": "CA-M-306",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-306@33-draft-CORE_META_MODEL--author-plan-atoms.md",
+      "sha256": "c8a833c73896da1e0ca80a5f9f5619f34005d126d89dbcf8b7942f398ed3b362",
+      "checks": {
+        "draft_hash": true,
+        "operation_exact": true,
+        "preview_pin": true,
+        "same_reviewed_body": true,
+        "id_version_status": true,
+        "role_form_preserved": true,
+        "summary": true,
+        "destination": true,
+        "canonical_containment": true,
+        "current_preimage": true,
+        "current_active": true,
+        "frozen_refs": true
+      }
+    },
+    {
+      "id": "CA-E-504",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-504@23-draft-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md",
+      "sha256": "3159b8c7dac1b82180df73549d18f5f7f9a542c2a83ff3709719f7dca1c23200",
+      "checks": {
+        "draft_hash": true,
+        "operation_exact": true,
+        "preview_pin": true,
+        "same_reviewed_body": true,
+        "id_version_status": true,
+        "role_form_preserved": true,
+        "summary": true,
+        "destination": true,
+        "canonical_containment": true,
+        "current_preimage": true,
+        "current_active": true,
+        "frozen_refs": true
+      }
+    }
+  ],
+  "checks": {
+    "direct_definition": true,
+    "derived_definition": true,
+    "full_endpoints": true,
+    "both_0_plus": true,
+    "delivery_bindings": true,
+    "delivery_direct_sequence": true,
+    "m306_terminal_and_confidence": true,
+    "e504_direct_and_inverse": true
+  },
+  "blockers": [],
+  "limits": [
+    "Draft creation receipt is not native workflow admission, Current promotion, runtime activation, or Journal append.",
+    "Existing prerequisite-side blocks data, code, tests and consumers require separately authorized CA #3 migration.",
+    "No code, regression tests, Git, Journal or Current Atom was modified by this review."
+  ]
+}

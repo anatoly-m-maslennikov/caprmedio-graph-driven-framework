@@ -1,5 +1,5 @@
 {
-  "status": "SOURCE_PROPOSAL_ONLY",
+  "status": "SOURCE_PROPOSAL_FROZEN_FOR_REVIEW",
   "decision": "IS_BLOCKED_BY is Direct from dependent Plan to prerequisite Plan; BLOCKS is the derived inverse from prerequisite Plan to dependent Plan.",
   "previews": [
     {
@@ -17,7 +17,7 @@
       "id": "<UNALLOCATED-is-blocked-by>",
       "action": "new_id_draft",
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/is-blocked-by.preview.txt",
-      "candidate_sha256": "9e4fcc4716852a1501510865908c7d605827acb81801f0b7a7f44e5d3b7e2967",
+      "candidate_sha256": "6ad2fc6868b8f65693602cbe531e8961f9caeef5679c6a58a649ae823425bcc2",
       "summary": "Declare IS_BLOCKED_BY"
     },
     {
@@ -49,12 +49,24 @@
       "source_version": 32,
       "source_sha256": "e3b360c6269adba675a83f9b971c0af7609cb2f30b31eb38fd92e27c330d7877",
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/CA-M-306.preview.txt",
-      "candidate_sha256": "fcea562c1bc284af4a1459d72684c41c57064e60d7c27e4ad74c3d4add20e515",
+      "candidate_sha256": "5f94d36661dae6c9ff0615d32d73f7f381e91ed295459ff0a49fed21875c7ada",
       "summary": "Author Plan Atoms",
       "metadata_changed": true,
       "combined_wip_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-M-306-safe.txt",
       "combined_wip_sha256": "261bdf6a9ddd0b5b3fdfa2842ae04df36e84332fd8656c9f4fc5291c6528e67d",
-      "note": "Preserves safe WIP intent: confidence under applicable sources, only explicit override; removes unadmitted author/scope/assignee/retry Property enumeration and integrates direct blocking orientation."
+      "note": "Preserves safe WIP intent: confidence under applicable sources, only explicit override; removes unadmitted author/scope/assignee/retry Property enumeration and integrates direct blocking orientation. The existing Done/Canceled direct-child condition, mixed-terminal allowance and no forced status match are retained."
+    },
+    {
+      "id": "CA-E-504",
+      "action": "same_id_revision",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md",
+      "source_version": 22,
+      "source_sha256": "2553d5552d8a8300b2c9a9c3f362c00421afbd96368d1426672da8a6773472d3",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/CA-E-504.preview.txt",
+      "candidate_sha256": "7bf01988381ea2ca52f1c3063ce686eb9ee45d85d35f330eacfaf1404868e0a5",
+      "summary": "Validate Plan blocking and parallel readiness",
+      "metadata_changed": false,
+      "change": "Clarify direct IS_BLOCKED_BY authored on dependent, derived BLOCKS accepted and independently authored inverse rejected; preserve all other criteria."
     }
   ],
   "sources": [
@@ -240,7 +252,7 @@
     "Check dynamic Relation representation against the selected CA-R-2709 and CA-D-657 authority; D471 preview specifies the direct key, IDs and sequence but does not by itself establish runtime/schema support."
   ],
   "integration_gates": [
-    "Apply the five reviewed current/new source proposals as one coordinated source packet after full validation, allocation and frozen-reference checks.",
+    "Apply the six reviewed current/new source proposals as one coordinated source packet after full validation, allocation and frozen-reference checks.",
     "The D471 direct storage encoding replaces existing relations.blocks on the prerequisite with relations.IS_BLOCKED_BY on the dependent. Data, fixture and code migration, including collision handling and exact old-to-new orientation, belongs to CA #3; this packet changes none.",
     "Merge the CA-M-306 proposal with the separately owned confidence-retry WIP before any source application, and preserve any later accepted changes.",
     "Review Current CA-E-504, CA-E-404, CA-E-622, CA-M-239 and CA-R-1592 consumers as logical BLOCKS views; keep their semantics unless they explicitly author or treat the derived view as a stored fact.",
