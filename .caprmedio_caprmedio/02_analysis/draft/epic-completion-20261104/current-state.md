@@ -1,10 +1,10 @@
 # Completion state
 
-P2694@59 and P2707@5 are Active. All 23 acceptance groups remain required. Ask one real question at a time below 90% confidence. No question is pending.
+P2694@60 and P2707@5 are Active. All 23 acceptance groups remain required. Ask one real question at a time below 90% confidence. No question is pending.
 
 ## Ownership
 
-- This chat owns MODEL, CFEL, Declarations, Atom source changes, source review and projections.
+- This chat owns MODEL, CFEL, Declarations, Atom source changes, source review and projections. The latest Operator instruction excludes Workbench and Workflows, including their Declarations and instances; other agents own them.
 - CA #3 owns implementation, fixtures, regression tests and runtime/integration gate execution. Preserve existing code work; this chat stopped its regression process and has no running tests.
 - Further messages to CA #8: SELECT are paused. No authorization to message CA #3 has been given.
 - Root owns canonical source adoption and scoped Git. Manual source receipts record native Workflow admission and Journal append as false. No release or memory write is authorized.
@@ -20,17 +20,17 @@ P2694@59 and P2707@5 are Active. All 23 acceptance groups remain required. Ask o
 
 ## Published projections
 
-- Seven views 020–026 were rebuilt from 1,160 freshly pinned selected suppliers: the prior 1,159 plus R2762. This is a bounded selected-source snapshot, not an all-live census.
-- Project-root ownership and distinct Form + Scope Unit identities remain. Frozen 014–019 remain unchanged. Exact seven predecessors are in projections-blocking/predecessors/.
-- Coverage remains 56 missing / 23 unresolved cases. Full-claims view023 covers Primary Entities and their Properties; supplier metadata does not imply every Relation object Claim is rendered.
+- Seven views 020–026 were rebuilt from 1,160 freshly pinned selected suppliers: retire R2275 and add R2765 after the blocking checkpoint. This is a bounded selected-source snapshot, not an all-live census.
+- Project-root ownership and distinct Form + Scope Unit identities remain. Frozen 014–019 remain unchanged. Exact seven predecessors are in projections-term/predecessors/.
+- Coverage remains 55 missing / 23 unresolved cases. Full-claims view023 covers Primary Entities and their Properties; supplier metadata does not imply every Relation object Claim is rendered.
 
 ## Settled queued source work
 
 - Occurrent packet: 23 actual Requirement Drafts, including 13 new Declarations and 10 revisions, listed by A1317; independent source review passed. They are not Current yet.
 - Session is narrower than External Remote Runtime. Local means on the Operator's machine. Internal means part of the Project application.
 - Execution runs in Runtime and produces Event. Each Event Record records exactly one Event; existing fields stay on Event Record. No Substep Run.
-- Keep Term registry. Retire Entity Term M451 with its reference repairs; update Property Term M453. Twelve reviewed Entity/Property proposals are being made into actual Drafts.
-- Duplicate ID owner: preserve M450's approved meaning; retire exact R2275@2 only after the Method/Form Term Definition prerequisite is declared and E659 is aligned. Source previews are under independent review; no retirement occurred.
+- Keep Term registry. Retire Entity Term M451 with its reference repairs; update Property Term M453. Twelve actual Drafts exist but remain held: an integrity review passed, then adoption readiness found legacy Header fields and old Subject paths. Partial cleanup previews exist; no Current source or M451 retirement occurred.
+- Duplicate ID owner: preserve M450's approved meaning; retire exact R2275@2 only after the Method/Form Term Definition prerequisite is declared and E659 is aligned. The four-Atom Form/ID batch is Current and verified; R2765@2 admits the Form, E659@5/R1319@30 align its authority, M450@6 preserves ID meaning, exact R2275@2 is retired.
 
 ## Lanes
 
@@ -45,3 +45,7 @@ P2694@59 and P2707@5 are Active. All 23 acceptance groups remain required. Ask o
 ## Closure gates
 
 The Epic remains Active. Remaining MODEL coverage decisions, coherent Current Declarations, faithful final projections, final source push and P2707 external checks are open. Actual Current O104 and R1766 authority gaps remain; archives or disposable fixtures do not restore them. Keep all acceptance gates. Focused checks, Drafts, source receipts and historical snapshots do not establish final integration.
+
+Current continuation: prior turn was progress (blocking source adoption and pushed8452c933f). One question is pending about retaining Governing Configuration versus assigning its seven Rules to specific Subjects. Workbench and Workflow sources are excluded.
+
+The twelve held Drafts now have canonical containment Headers with obsolete scope fields removed. Their bodies and Current predecessors are unchanged; remaining Subject/prose repairs are still held.

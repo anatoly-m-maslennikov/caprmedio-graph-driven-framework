@@ -187,7 +187,7 @@ that exact loopback port. JSON is the default; successful output includes these
 fields, alongside Project, image, and container identities:
 
 ```json
-{"disposition":"started","condition":"READY_STARTED","readiness":true,"url":"http://127.0.0.1:56317/mcp","port":56317}
+{"disposition":"started","condition":"READY_STARTED","readiness":true,"url":"http://127.0.0.1:56317/caprmedio/mcp","port":56317}
 ```
 
 The port is fixed by Project Settings. A healthy repeat returns `reused` and
@@ -248,7 +248,7 @@ uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-e
   --project-root "$PWD" mcp-http-start
 ```
 
-On success the command returns `http://127.0.0.1:<port>/mcp`. The listener
+On success the command returns `http://127.0.0.1:<port>/caprmedio/mcp`. The listener
 rejects non-local Host or Origin values. Startup fails closed unless Compose
 reports one healthy `mcp-http` service with the requested loopback TCP
 publication. Inspect or stop that endpoint explicitly with `mcp-http-status` or

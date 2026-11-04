@@ -8,6 +8,8 @@ from pathlib import Path
 import re
 from typing import Any, Callable, Mapping
 
+from mcp_paths import HEALTH_PATH
+
 
 ROOT = Path(__file__).resolve().parents[5]
 TOOLS = ROOT / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS"
@@ -189,7 +191,7 @@ def health_ready(opener, port, deadline, clock: Callable[[], float]):
     if remaining <= 0:
         return False
     try:
-        response = opener(f"http://127.0.0.1:{port}/health", timeout=min(2, remaining))
+        response = opener(f"http://127.0.0.1:{port}{HEALTH_PATH}", timeout=min(2, remaining))
         try:
             return json.load(response).get("ready") is True
         finally:

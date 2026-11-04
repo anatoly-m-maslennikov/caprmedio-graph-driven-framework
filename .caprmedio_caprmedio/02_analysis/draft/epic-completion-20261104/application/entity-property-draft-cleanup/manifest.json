@@ -1,0 +1,287 @@
+{
+  "status": "PREPARED_PARTIAL_CLEANUP_NOT_ADOPTION_READY",
+  "draft_creation_plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-creation/adoption-plan.json",
+  "draft_creation_plan_sha256": "1bba17c47c56f05300d72cc15c6f656174cd5cc2086f732b89b580cc4cff4278",
+  "selection_rule": "Exact header removal and explicit Node.** staging wording only; no invented mappings, no Current or Draft edits.",
+  "rows": [
+    {
+      "id": "CA-M-453",
+      "source_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-453@4-draft-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "source_sha256": "1cce4514fc0752c31dd5f6a0ffd006a358d794edaf565e876cfa1ea2c77a332d",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-cleanup/CA-M-453.preview.txt",
+      "candidate_sha256": "bfc8b758bf575f5d32314b2000c22eeb14b636bb54757837f8553c08394c17c2",
+      "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "current_sha256": "dd60c8d121d9d8cd62a91aaaa85531012a829bcdac6a106715297f29459c4238",
+      "changes": [
+        "Remove obsolete current_scope_unit and claim_target_scope_unit; preserve IS_CONTAINED_BY."
+      ],
+      "held": [],
+      "readiness": "PARTIAL_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CA-R-1247",
+      "source_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1247@25-draft-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "source_sha256": "db8a1432051b5eaf823b937ed68166b5a59e09707b4e1f3841608aa13de4c9e9",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-cleanup/CA-R-1247.preview.txt",
+      "candidate_sha256": "f96de0e7745b543ac59f2a2cbddc8c94ea5ed13f996815fed923387b61a262ca",
+      "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1247-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "current_sha256": "3a1847ad88f2cee8615db4b45c931746771e4508fcccb2ccd22a2967edf1c3f4",
+      "changes": [
+        "Remove obsolete current_scope_unit and claim_target_scope_unit; preserve IS_CONTAINED_BY."
+      ],
+      "held": [
+        {
+          "issue": "Old Subject target requires proof of exact current equivalent; no mapping inferred.",
+          "subjects": [
+            "CAPRMEDIO_MODEL <+ Entity"
+          ]
+        }
+      ],
+      "readiness": "PARTIAL_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CA-R-2003",
+      "source_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2003@17-draft-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "source_sha256": "b630d6c2bdf16aeeb2086d2cdb90286feb273c3b53572ac538c9cb952728706d",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-cleanup/CA-R-2003.preview.txt",
+      "candidate_sha256": "2f21a5586265048e4691cf53ad1699495b33bd26330cf2711ae027370eb6b727",
+      "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "current_sha256": "6b83ec62b5d30960febc3dbcaadee3d5504be4ff3caa95356745a91f8952b4c0",
+      "changes": [
+        "Remove obsolete current_scope_unit and claim_target_scope_unit; preserve IS_CONTAINED_BY.",
+        "Remove proposal-status wording from Node.** property definition."
+      ],
+      "held": [
+        {
+          "issue": "Old Subject target requires proof of exact current equivalent; no mapping inferred.",
+          "subjects": [
+            "CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Property Occurrences"
+          ]
+        }
+      ],
+      "readiness": "PARTIAL_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CA-R-1318",
+      "source_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1318@34-draft-CORE_META_MODEL-DEFINITION--define-term.md",
+      "source_sha256": "d744b5d7a45fe5aac9873719faafc36540d03327240dba28926ab63fc459e564",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-cleanup/CA-R-1318.preview.txt",
+      "candidate_sha256": "719a070bc15e3e05f6e547857dda04b9e813527fcc9c78d2ba946258eca35f45",
+      "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+      "current_sha256": "35014effa7d6d7ab7f57e2b5dddae8523f151b2208842d0e97bfe1661107e273",
+      "changes": [
+        "Remove obsolete current_scope_unit and claim_target_scope_unit; preserve IS_CONTAINED_BY."
+      ],
+      "held": [
+        {
+          "issue": "Old Subject target requires proof of exact current equivalent; no mapping inferred.",
+          "subjects": [
+            "CAPRMEDIO_MODEL <+ Entity"
+          ]
+        }
+      ],
+      "readiness": "PARTIAL_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CA-E-444",
+      "source_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-444@35-draft-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "source_sha256": "c936f73724d6e27720b57308fdaedf15dc6f1f9591505cdc18b6a9c12821542d",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-cleanup/CA-E-444.preview.txt",
+      "candidate_sha256": "2374b6c5e1abc19aba306c328fd1a554f693615c3bc45f01273a440bf710a13e",
+      "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "current_sha256": "7e851a7da148d0e524705426d81cfb0d45b645110e54bc0b2f1869412538a071",
+      "changes": [
+        "Remove obsolete current_scope_unit and claim_target_scope_unit; preserve IS_CONTAINED_BY."
+      ],
+      "held": [
+        {
+          "issue": "Old Subject target requires proof of exact current equivalent; no mapping inferred.",
+          "subjects": [
+            "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Eval Package",
+            "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Runtime Package",
+            "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module",
+            "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit",
+            "CAPRMEDIO_MODEL <+ Entity",
+            "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)"
+          ]
+        },
+        {
+          "issue": "Review GOVERNS/DEPENDS_ON and Content Role wording against current direct Subject/Role authority; do not substitute mechanically."
+        }
+      ],
+      "readiness": "PARTIAL_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CA-R-2276",
+      "source_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2276@7-draft-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "source_sha256": "82232ea47cbbd1b8c9bd7a8f13f05c8f25be2fed02fa299c5284f4ee51ead648",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-cleanup/CA-R-2276.preview.txt",
+      "candidate_sha256": "2f4878e3728bf14885b2afbf18bee6f23cfdcc9ff41f5bdeca742d6015ed8ab9",
+      "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "current_sha256": "305ea99fee46090bffe1df0d58e49bf6bdc2ad292d964e8e8a646d31d277d633",
+      "changes": [
+        "Remove obsolete current_scope_unit and claim_target_scope_unit; preserve IS_CONTAINED_BY."
+      ],
+      "held": [
+        {
+          "issue": "Review references to deferred Terms Graph and retain general Term/naming rules."
+        }
+      ],
+      "readiness": "PARTIAL_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CA-E-246",
+      "source_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-246@48-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md",
+      "source_sha256": "93e09bffb4832175b3d1ac3c8136f4787dfe04abf60dc8fe9de1d61189e2f3c3",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-cleanup/CA-E-246.preview.txt",
+      "candidate_sha256": "8a7495e1f06e18c68653de12ef495d51d12433ebd6cb26d50b683a379625769d",
+      "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md",
+      "current_sha256": "9f6fdb1f34591e398edb050628ae52679dc9e6a3a7aafbc28d6356e6451ecf52",
+      "changes": [
+        "Remove obsolete current_scope_unit and claim_target_scope_unit; preserve IS_CONTAINED_BY."
+      ],
+      "held": [
+        {
+          "issue": "Old Subject target requires proof of exact current equivalent; no mapping inferred.",
+          "subjects": [
+            "CAPRMEDIO_MODEL <+ Entity",
+            "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Atom Subjects Graph)"
+          ]
+        },
+        {
+          "issue": "Review GOVERNS/DEPENDS_ON and Content Role wording against current direct Subject/Role authority; do not substitute mechanically."
+        }
+      ],
+      "readiness": "PARTIAL_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CA-E-449",
+      "source_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-449@45-draft-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md",
+      "source_sha256": "f31e1fd9e74ddf7a23dad1e2111372e04da10b8856825fee4356e6ba8ad92641",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-cleanup/CA-E-449.preview.txt",
+      "candidate_sha256": "5ae9d73da1991006e4fb04a3ea507fdf5685b7a13b26fbf289a60224a32ad3f8",
+      "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md",
+      "current_sha256": "caca33e72e9b323d2570792e5cff4b1f1e8cb77adceb2fda24c0cbb4473cb6e5",
+      "changes": [
+        "Remove obsolete current_scope_unit and claim_target_scope_unit; preserve IS_CONTAINED_BY."
+      ],
+      "held": [
+        {
+          "issue": "Old Subject target requires proof of exact current equivalent; no mapping inferred.",
+          "subjects": [
+            "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)",
+            "CAPRMEDIO_MODEL <+ Entity"
+          ]
+        },
+        {
+          "issue": "Review GOVERNS/DEPENDS_ON and Content Role wording against current direct Subject/Role authority; do not substitute mechanically."
+        },
+        {
+          "issue": "Deferred construction projection sentence remains; verify its current applicability before removing."
+        }
+      ],
+      "readiness": "PARTIAL_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CA-M-125",
+      "source_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-125@48-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md",
+      "source_sha256": "55257b17e22e473b7f1d657726e7680a41797a3c06bbdd5e493c2e91820cacfa",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-cleanup/CA-M-125.preview.txt",
+      "candidate_sha256": "40913d54ec3a5c1c4ee709e2ee786017106fd16ad45c9a664e6d76a8a44c796a",
+      "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md",
+      "current_sha256": "f260c13b9cdbca25cdae58b2f177180eb9ebadbf88cb1a34fe4ca5a9978748fd",
+      "changes": [
+        "Remove obsolete current_scope_unit and claim_target_scope_unit; preserve IS_CONTAINED_BY."
+      ],
+      "held": [
+        {
+          "issue": "Old Subject target requires proof of exact current equivalent; no mapping inferred.",
+          "subjects": [
+            "CAPRMEDIO_MODEL <+ Entity"
+          ]
+        },
+        {
+          "issue": "Review GOVERNS/DEPENDS_ON and Content Role wording against current direct Subject/Role authority; do not substitute mechanically."
+        }
+      ],
+      "readiness": "PARTIAL_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CA-R-1259",
+      "source_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1259@25-draft-CORE_META_MODEL-RULE--permit-zero-or-more-properties-on-every-entity.md",
+      "source_sha256": "74beff2d3d23ff97ddb22b4323c87897ce5861b9d04fb556439f866c0c92d571",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-cleanup/CA-R-1259.preview.txt",
+      "candidate_sha256": "a912917e28b9a47a135270eb893ffdb3c4cd277b51b7274274141ea694515a99",
+      "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-RULE--permit-zero-or-more-properties-on-every-entity.md",
+      "current_sha256": "55d09143de8f3e5fdbfbdfed181eae80dc0da051993cd34bb2567019a52e4707",
+      "changes": [
+        "Remove obsolete current_scope_unit and claim_target_scope_unit; preserve IS_CONTAINED_BY."
+      ],
+      "held": [
+        {
+          "issue": "Old Subject target requires proof of exact current equivalent; no mapping inferred.",
+          "subjects": [
+            "CAPRMEDIO_MODEL <+ Entity"
+          ]
+        }
+      ],
+      "readiness": "PARTIAL_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CA-R-1284",
+      "source_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1284@28-draft-CORE_META_MODEL--define-type.md",
+      "source_sha256": "dd7635699b5fcba74d0a965031e13be9d9794d50aa81e46bb12fad76a72c169e",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-cleanup/CA-R-1284.preview.txt",
+      "candidate_sha256": "594e31dfa5e0f212bac6581caa400d15c9663959b6765f2f598f5e6bb2f29ef4",
+      "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md",
+      "current_sha256": "47048137a76a2cb71acc40277f94fb59f4d619af5c498ab7349bf55da7fe1d36",
+      "changes": [
+        "Remove obsolete current_scope_unit and claim_target_scope_unit; preserve IS_CONTAINED_BY."
+      ],
+      "held": [
+        {
+          "issue": "Old Subject target requires proof of exact current equivalent; no mapping inferred.",
+          "subjects": [
+            "CAPRMEDIO_MODEL <+ Entity",
+            "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Applicable Methodology)"
+          ]
+        },
+        {
+          "issue": "Review generic active Entity and historical Type/Content Role encoding and operator-history prose against current authority; preserve meaning until resolved."
+        }
+      ],
+      "readiness": "PARTIAL_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CA-R-1931",
+      "source_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1931@19-draft-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "source_sha256": "f73cb6f59e4a0ee7b26ab068a6006e1917545a4d7c45cc75868ff3e036377403",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-cleanup/CA-R-1931.preview.txt",
+      "candidate_sha256": "d98ddb523c186367efa299ec189661431ff8d132336c5463f6fc27b479ac847f",
+      "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "current_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "changes": [
+        "Remove obsolete current_scope_unit and claim_target_scope_unit; preserve IS_CONTAINED_BY."
+      ],
+      "held": [
+        {
+          "issue": "Old Subject target requires proof of exact current equivalent; no mapping inferred.",
+          "subjects": [
+            "CAPRMEDIO_MODEL <+ Entity",
+            "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit"
+          ]
+        },
+        {
+          "issue": "Review historical proposed-classification wording and legacy Package path; workflow examples are outside this lane."
+        }
+      ],
+      "readiness": "PARTIAL_PREVIEW_REVIEW_REQUIRED"
+    }
+  ],
+  "open_question": "For each held legacy Entity/Projection/Selection Subject, what exact already-declared target represents its Claim, or should the obsolete view reference be withdrawn? Treat Terms Graph as deferred.",
+  "limits": [
+    "Claim and Summary retained except removal of proposed-status wording in R2003; no generic Entity to Node or CFEL mapping.",
+    "All candidates require review; absent a hold entry does not certify all unrelated source coherence.",
+    "Workbench and Workflow sources and declarations excluded."
+  ]
+}

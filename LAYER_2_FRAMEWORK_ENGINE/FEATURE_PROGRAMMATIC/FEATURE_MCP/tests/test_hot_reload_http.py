@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import AsyncMock, patch
 
 import httpx2
 from mcp.client.session import ClientSession
@@ -15,6 +15,7 @@ from starlette.testclient import TestClient
 APP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(APP))
 from http_server import create_app  # noqa: E402
+from http_paths import HEALTH_PATH, MCP_PATH  # noqa: E402
 
 
 class HTTPGatewayTests(unittest.TestCase):
@@ -39,11 +40,12 @@ class HTTPGatewayTests(unittest.TestCase):
 
     def test_anonymous_loopback_health_is_ready_without_a_secret(self):
         for headers in ({}, self.headers(), {**self.headers(), 'authorization': 'Bearer ignored'}):
-            response = self.client.get('/health', headers=headers)
+            response = self.client.get(HEALTH_PATH, headers=headers)
             self.assertEqual(200, response.status_code)
-        self.assertEqual(200, self.client.get('/health', headers=self.headers()).status_code)
+        self.assertEqual(200, self.client.get(HEALTH_PATH, headers=self.headers()).status_code)
         self.client.app.gateway.active = None
-        self.assertEqual(503, self.client.get('/health', headers=self.headers()).status_code)
+        self.assertEqual(503, self.client.get(HEALTH_PATH, headers=self.headers()).status_code)
+        self.assertEqual(404, self.client.get('/health', headers=self.headers()).status_code)
 
     def test_gateway_construction_requires_no_token_environment_or_password_prompt(self):
         with patch.dict(os.environ, {}, clear=True):
@@ -51,13 +53,13 @@ class HTTPGatewayTests(unittest.TestCase):
         self.assertIsNotNone(app.gateway)
 
     def test_hostile_host_is_rejected_before_initialize(self):
-        response = self.client.post('/mcp', headers=self.headers(host='attacker.invalid'), json={})
+        response = self.client.post(MCP_PATH, headers=self.headers(host='attacker.invalid'), json={})
         self.assertEqual(421, response.status_code)
-        response = self.client.get('/health', headers=self.headers(origin='https://attacker.invalid'))
+        response = self.client.get(HEALTH_PATH, headers=self.headers(origin='https://attacker.invalid'))
         self.assertEqual(403, response.status_code)
 
     def test_initialization_uses_the_existing_gateway(self):
-        response = self.client.post('/mcp', headers={**self.headers(), 'accept': 'application/json, text/event-stream'},
+        response = self.client.post(MCP_PATH, headers={**self.headers(), 'accept': 'application/json, text/event-stream'},
             json={'jsonrpc': '2.0', 'id': 1, 'method': 'initialize', 'params': {
                 'protocolVersion': '2025-11-25', 'capabilities': {}, 'clientInfo': {'name': 'test', 'version': '1'}}})
         self.assertEqual(200, response.status_code)
@@ -102,7 +104,7 @@ class HTTPProtocolTests(unittest.IsolatedAsyncioTestCase):
             base_url='http://127.0.0.1:8092',
             headers={},
         )
-        transport = streamable_http_client('http://127.0.0.1:8092/mcp', http_client=client)
+        transport = streamable_http_client('http://127.0.0.1:8092' + MCP_PATH, http_client=client)
         streams = await transport.__aenter__()
         session = ClientSession(*streams)
         await session.__aenter__()
@@ -118,7 +120,7 @@ class HTTPProtocolTests(unittest.IsolatedAsyncioTestCase):
         async with self.app.starlette_app.router.lifespan_context(self.app.starlette_app):
             client, transport, session = await self.session()
             try:
-                self.assertEqual({'echo', 'query_run', 'query_check', 'reload_mcp_implementation', 'get_mcp_reload_status'},
+                self.assertEqual({'echo', 'query_run', 'query_check', 'query_page', 'reload_mcp_implementation', 'get_mcp_reload_status'},
                                  {tool.name for tool in (await session.list_tools()).tools})
                 self.assertEqual('A', (await session.call_tool('echo')).structured_content['version'])
                 old_call = asyncio.create_task(session.call_tool('echo', {'delay': 0.4}))
@@ -140,6 +142,21 @@ class HTTPProtocolTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual('A', (await session.call_tool('echo')).structured_content['version'])
             finally:
                 await self.close_session(client, transport, session)
+
+    async def test_workbench_page_reaches_the_native_owner(self):
+        async with self.app.starlette_app.router.lifespan_context(self.app.starlette_app):
+            arguments = {'query_id': 'existing-result', 'offset': 100, 'page_size': 20}
+            expected = {'query_id': 'existing-result', 'rows': [['next page']]}
+            with patch.object(self.app.gateway.workbench, 'call', new_callable=AsyncMock) as call:
+                call.return_value = expected
+                client, transport, session = await self.session()
+                try:
+                    response = await session.call_tool('query_page', arguments)
+                    self.assertFalse(response.is_error)
+                    self.assertEqual(expected, response.structured_content)
+                    call.assert_awaited_once_with('query_page', arguments)
+                finally:
+                    await self.close_session(client, transport, session)
 
     async def test_http_token_is_not_forwarded_to_implementation(self):
         self.write_environment()

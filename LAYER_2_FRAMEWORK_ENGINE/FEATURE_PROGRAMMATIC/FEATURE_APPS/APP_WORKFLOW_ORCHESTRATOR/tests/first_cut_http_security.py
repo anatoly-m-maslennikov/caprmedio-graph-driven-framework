@@ -4,9 +4,18 @@ from __future__ import annotations
 
 from collections.abc import Callable, Iterable, Mapping
 import json
+from pathlib import Path
+import sys
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
 from urllib.request import HTTPRedirectHandler, ProxyHandler, Request, build_opener
+
+
+_DOCKER = Path(__file__).resolve().parents[1] / "docker"
+if str(_DOCKER) not in sys.path:
+    sys.path.insert(0, str(_DOCKER))
+
+from mcp_paths import HEALTH_PATH, MCP_PATH  # noqa: E402
 
 
 REQUIRED_RETAINED_ROUTE_TOOLS = frozenset({
@@ -47,7 +56,7 @@ def _health_url(mcp_url: str) -> str:
             and parsed.hostname == "127.0.0.1"
             and parsed.port is not None
             and 1 <= parsed.port <= 65535
-            and parsed.path == "/mcp"
+            and parsed.path == MCP_PATH
             and not parsed.query
             and not parsed.fragment
             and parsed.username is None
@@ -56,8 +65,10 @@ def _health_url(mcp_url: str) -> str:
     except ValueError:
         valid = False
     if not valid:
-        raise FirstCutHttpSecurityError("HTTP MCP URL must be explicit loopback http://127.0.0.1:<port>/mcp")
-    return f"http://127.0.0.1:{parsed.port}/health"
+        raise FirstCutHttpSecurityError(
+            f"HTTP MCP URL must be explicit loopback http://127.0.0.1:<port>{MCP_PATH}"
+        )
+    return f"http://127.0.0.1:{parsed.port}{HEALTH_PATH}"
 
 
 def _urllib_status(

@@ -1,0 +1,123 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_REVIEW",
+  "plan_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-creation/adoption-plan.json",
+  "plan_sha256": "1bba17c47c56f05300d72cc15c6f656174cd5cc2086f732b89b580cc4cff4278",
+  "manifest_sha256": "4256d5a8196b318dd689f70159574fa61e3ad46908b73fe749b73bb20464bd0d",
+  "review_sha256": "790598917d01905cd9e3d2faa728a888ccec7432c2a02ee176977b7b14aaeeaa",
+  "draft_count": 12,
+  "checks": [
+    "All 12 Current, candidate, actual Draft and operation payload pins match; Draft bodies exactly match approved candidates.",
+    "IDs and Summaries preserved; each Draft version is Current plus one; status Draft.",
+    "R1247 and R2003 govern Node.**; M453 defines lexical Property as Node.** with one direct IS_PROPERTY_OF bearer and derived HAS_PROPERTY.",
+    "Packet-listed authored references to Term//Entity and Entity/Property are repaired in surviving Drafts; M451 is separately held for retirement with exact Current preimage. Term//Property remains.",
+    "Approved E449, R1284 and R1931 body repairs are present exactly as reviewed candidates."
+  ],
+  "retirement": {
+    "id": "CA-M-451",
+    "version": 4,
+    "current_and_preimage_sha256": "eb7a86a6a60e74c43f0f1f9a1cb990c3e3e0b8eed7c27701067596ec3ad4c253",
+    "status": "Current; retirement is separate"
+  },
+  "drafts": [
+    {
+      "id": "CA-M-453",
+      "current_version": 3,
+      "draft_version": 4,
+      "current_sha256": "dd60c8d121d9d8cd62a91aaaa85531012a829bcdac6a106715297f29459c4238",
+      "candidate_sha256": "ceb3cebed9331d8b23f0c5167607861acfdc04fcb43b71b7085373d177d665bd",
+      "draft_sha256": "1cce4514fc0752c31dd5f6a0ffd006a358d794edaf565e876cfa1ea2c77a332d"
+    },
+    {
+      "id": "CA-R-1247",
+      "current_version": 24,
+      "draft_version": 25,
+      "current_sha256": "3a1847ad88f2cee8615db4b45c931746771e4508fcccb2ccd22a2967edf1c3f4",
+      "candidate_sha256": "6c99633732a7cb3aa8c77a95dc1fc5f255a5c9fbe9bdbf57c2a8d82f00f0005a",
+      "draft_sha256": "db8a1432051b5eaf823b937ed68166b5a59e09707b4e1f3841608aa13de4c9e9"
+    },
+    {
+      "id": "CA-R-2003",
+      "current_version": 16,
+      "draft_version": 17,
+      "current_sha256": "6b83ec62b5d30960febc3dbcaadee3d5504be4ff3caa95356745a91f8952b4c0",
+      "candidate_sha256": "e10dfe745dd73d448f76fca215101219abbe252807906a70b6999557b9154343",
+      "draft_sha256": "b630d6c2bdf16aeeb2086d2cdb90286feb273c3b53572ac538c9cb952728706d"
+    },
+    {
+      "id": "CA-R-1318",
+      "current_version": 33,
+      "draft_version": 34,
+      "current_sha256": "35014effa7d6d7ab7f57e2b5dddae8523f151b2208842d0e97bfe1661107e273",
+      "candidate_sha256": "4019bdf47f107d8de75542947324bc527b7b8bb9901957063f3ca5d0d027bb39",
+      "draft_sha256": "d744b5d7a45fe5aac9873719faafc36540d03327240dba28926ab63fc459e564"
+    },
+    {
+      "id": "CA-E-444",
+      "current_version": 34,
+      "draft_version": 35,
+      "current_sha256": "7e851a7da148d0e524705426d81cfb0d45b645110e54bc0b2f1869412538a071",
+      "candidate_sha256": "56f2bfbe75303d5ffd5f165b694143de0082b751e9ebaa9313a4a3f87a866975",
+      "draft_sha256": "c936f73724d6e27720b57308fdaedf15dc6f1f9591505cdc18b6a9c12821542d"
+    },
+    {
+      "id": "CA-R-2276",
+      "current_version": 6,
+      "draft_version": 7,
+      "current_sha256": "305ea99fee46090bffe1df0d58e49bf6bdc2ad292d964e8e8a646d31d277d633",
+      "candidate_sha256": "e738ef78908a3646cf7862d182ca5f472bae1452a792998b37a32f6a2a913223",
+      "draft_sha256": "82232ea47cbbd1b8c9bd7a8f13f05c8f25be2fed02fa299c5284f4ee51ead648"
+    },
+    {
+      "id": "CA-E-246",
+      "current_version": 47,
+      "draft_version": 48,
+      "current_sha256": "9f6fdb1f34591e398edb050628ae52679dc9e6a3a7aafbc28d6356e6451ecf52",
+      "candidate_sha256": "029f639fd8fe69ce225831319cb3c6f26f0157b7b4d4eda609c4a044c2843dd7",
+      "draft_sha256": "93e09bffb4832175b3d1ac3c8136f4787dfe04abf60dc8fe9de1d61189e2f3c3"
+    },
+    {
+      "id": "CA-E-449",
+      "current_version": 44,
+      "draft_version": 45,
+      "current_sha256": "caca33e72e9b323d2570792e5cff4b1f1e8cb77adceb2fda24c0cbb4473cb6e5",
+      "candidate_sha256": "2d186cca881910bf0eca62aff10e420be12e3381420221454a9be082df7da482",
+      "draft_sha256": "f31e1fd9e74ddf7a23dad1e2111372e04da10b8856825fee4356e6ba8ad92641"
+    },
+    {
+      "id": "CA-M-125",
+      "current_version": 47,
+      "draft_version": 48,
+      "current_sha256": "f260c13b9cdbca25cdae58b2f177180eb9ebadbf88cb1a34fe4ca5a9978748fd",
+      "candidate_sha256": "e01e32be1616d3063e9feaab8a15665bb36b3baed48f1ff94dbea7dfee26539f",
+      "draft_sha256": "55257b17e22e473b7f1d657726e7680a41797a3c06bbdd5e493c2e91820cacfa"
+    },
+    {
+      "id": "CA-R-1259",
+      "current_version": 24,
+      "draft_version": 25,
+      "current_sha256": "55d09143de8f3e5fdbfbdfed181eae80dc0da051993cd34bb2567019a52e4707",
+      "candidate_sha256": "719c392ec5b873c3cc5fc09bfc49abd64372b4698983cfa5bd1f335e675317e2",
+      "draft_sha256": "74beff2d3d23ff97ddb22b4323c87897ce5861b9d04fb556439f866c0c92d571"
+    },
+    {
+      "id": "CA-R-1284",
+      "current_version": 27,
+      "draft_version": 28,
+      "current_sha256": "47048137a76a2cb71acc40277f94fb59f4d619af5c498ab7349bf55da7fe1d36",
+      "candidate_sha256": "d9ad5a46f63b2797cf9a27e3c82fdbb8cebb185822bed74f7e4a1e4293be41f0",
+      "draft_sha256": "dd7635699b5fcba74d0a965031e13be9d9794d50aa81e46bb12fad76a72c169e"
+    },
+    {
+      "id": "CA-R-1931",
+      "current_version": 18,
+      "draft_version": 19,
+      "current_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "candidate_sha256": "4950e465851c33a2cd10bff44ab07ebb6f3a39f0493661f099d00fb10c27bc8c",
+      "draft_sha256": "f73cb6f59e4a0ee7b26ab068a6006e1917545a4d7c45cc75868ff3e036377403"
+    }
+  ],
+  "limits": [
+    "No inventory expansion to Workbench or Workflows; no assertion about sources outside existing packet.",
+    "Drafts are not Current adoption; native admission and Journal append are not established."
+  ]
+}

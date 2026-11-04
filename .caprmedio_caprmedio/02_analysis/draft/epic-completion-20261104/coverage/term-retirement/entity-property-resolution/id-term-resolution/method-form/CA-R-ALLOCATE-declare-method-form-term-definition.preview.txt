@@ -1,0 +1,32 @@
+---
+atom_id: CA-R-<ROOT_ALLOCATES>
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+subjects:
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  passive:
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)'
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+version: 1
+---
+## Summary
+
+Declare Term Definition as a Method Form
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Atom/(.Header.Role: Method).Header.Form: Term Definition;
+Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)
+```
+
+### Prose Claim
+
+Term Definition is an admitted Form for Method-role Atoms. This qualified Method Form remains under the existing Method declaration CA-R-2513 and inherits its applicable Method structure. This Declaration admits the Form only; CA-R-1319 and CA-E-659 separately govern Term meaning ownership and well-formedness.

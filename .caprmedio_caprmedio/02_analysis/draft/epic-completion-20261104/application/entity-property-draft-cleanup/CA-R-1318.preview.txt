@@ -1,0 +1,49 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Term
+  passive:
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term.Name
+  - CAPRMEDIO_MODEL <+ Term//Term
+  - CAPRMEDIO_MODEL <+ Term//Empty
+  - CAPRMEDIO_MODEL <+ Term//ID
+  - CAPRMEDIO_MODEL <+ Node.**
+  - CAPRMEDIO_MODEL <+ Term//Property
+version: 34
+updated_at: 2026-11-04 17:00:58 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+atom_id: CA-R-1318
+status: Draft
+tier: 1
+role: Requirement
+form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-1318@34-draft-CORE_META_MODEL-DEFINITION--define-term.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
+---
+## Summary
+
+Define Term
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Term.*[in (Name)]{:1}
+```
+
+### Prose Claim
+
+A Term is a reusable word or phrase component of entity expressions and authored content. Its Project-specific meaning remains consistent across uses and is owned by its active Method/Form Term Definition. Vocabulary Terms are lexical items, not graph Nodes merely because they are used as words. A Term has one Name.
+
+Use the full admitted canonical expression when identifying or comparing an entity. Reusing a Term within distinct expressions neither makes those expressions synonymous nor establishes a Relation between their referents. Literal source quotations and code identifiers are not automatically renamed. A lexical Term and an Entity whose complete name uses that Term have distinct targets and meaning owners.
+
+## Semantics
+
+A Term provides a reusable word or phrase; its full context supplies the expression in which it appears.

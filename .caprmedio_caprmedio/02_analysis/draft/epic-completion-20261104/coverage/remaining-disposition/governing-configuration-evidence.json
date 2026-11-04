@@ -1,0 +1,335 @@
+{
+  "status": "NEEDS_DECISION_NO_SAFE_GENERAL_MAPPING",
+  "scope": "Active Current source files beneath Layer 1 methodology, excluding archived, analysis, Workbench and Workflow paths; D497 and E473 held as workflow-related. Subject references and body mentions containing the exact phrase Governing Configuration. This is not a census of other project layers or synonyms.",
+  "consumer_count": 19,
+  "sources": [
+    {
+      "id": "CA-D-361",
+      "version": "32",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL-ENG_DECISION--serialize-framework-settings-content-in-toml.md",
+      "sha256": "ef9872d2e414ce9d88f3801278706ccb04fab2958c5e5dc3eb7a52410fd7973a",
+      "references": [
+        {
+          "line": 7,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "passive subject"
+    },
+    {
+      "id": "CA-D-407",
+      "version": "25",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL-ENG_DECISION--store-default-settings-with-the-core-meta-model-source.md",
+      "sha256": "43ec6968f9c2eb75c4d451d91fc2249ff93ee374a747935d00907cbac064b1f8",
+      "references": [
+        {
+          "line": 3,
+          "text": "active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        },
+        {
+          "line": 5,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "active and passive subject"
+    },
+    {
+      "id": "CA-D-408",
+      "version": "24",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL-ENG_DECISION--reuse-framework-parameter-fields-in-default-settings.md",
+      "sha256": "e30baa661f56fb069b4650e23e34d63bd1b7d11c7130116cfacb352b105e3d86",
+      "references": [
+        {
+          "line": 3,
+          "text": "active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        },
+        {
+          "line": 5,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "active and passive subject"
+    },
+    {
+      "id": "CA-D-447",
+      "version": "30",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-ENG_DECISION--serialize-the-implementation-retry-limit-setting.md",
+      "sha256": "4334b7cadc76ac932c59355d01ff395345a6beb1c1ab33cac68b0235188dbfb3",
+      "references": [
+        {
+          "line": 9,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "passive subject"
+    },
+    {
+      "id": "CA-E-006",
+      "version": "40",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md",
+      "sha256": "909749d12b6dc525dfa6ed8e315d5717040632ec86c77e89c137d163e7e77263",
+      "references": [
+        {
+          "line": 6,
+          "text": "- Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "passive subject"
+    },
+    {
+      "id": "CA-E-450",
+      "version": "27",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md",
+      "sha256": "3f60f832dcb4b1e40193d9823ffb5c8facf0f5576a94ac0a864f1f4b1ab57e15",
+      "references": [
+        {
+          "line": 6,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "passive subject"
+    },
+    {
+      "id": "CA-E-458",
+      "version": "35",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-POLICY--validate-authoritative-framework-settings-artifact.md",
+      "sha256": "0673486890ca4f0517debe3baee67fe872d0c04788af5d5e6efc2f3c7f44ac4e",
+      "references": [
+        {
+          "line": 6,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "passive subject"
+    },
+    {
+      "id": "CA-M-279",
+      "version": "24",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings.md",
+      "sha256": "a0eaf436f740ee68608eefa952d3dd46d6db7ae044d66995922225acf123a756",
+      "references": [
+        {
+          "line": 6,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "passive subject"
+    },
+    {
+      "id": "CA-M-295",
+      "version": "32",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md",
+      "sha256": "e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa",
+      "references": [
+        {
+          "line": 16,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "passive subject"
+    },
+    {
+      "id": "CA-O-052",
+      "version": "18",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-052-PROJECT_CONFIGURATION-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+      "sha256": "0baf1ef2e875325a7e419443971e375d84fc18bd198217a631a6aca6587219e0",
+      "references": [
+        {
+          "line": 10,
+          "text": "- Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration"
+        }
+      ],
+      "kind": "passive subject"
+    },
+    {
+      "id": "CA-R-1200",
+      "version": "41",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md",
+      "sha256": "136852e0bf5b4b4e015c8ea16f705dd0a1e916b12a18ece200f41c788795df4a",
+      "references": [
+        {
+          "line": 49,
+          "text": "DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Subject entity or instance mentioned **in** its applicable role-specific content or other registered content, other than its GOVERNS target. this reference does **not** make the Atom's content\u2014or every Governing Configuration fact\u2014authoritative about that Subject entity or instance; formal authority depends on the applicable registered content form and role. a formal Claim may be carried in Markdown, structured YAML, or Governing Configuration, but Governing Configuration facts are not automatically Atom Claims."
+        },
+        {
+          "line": 56,
+          "text": "mentions **in** Summary, Scope, Claim, Details, other registered body sections, tables, **and** examples count, whether the logical Claim is carried in Markdown, structured YAML, or Governing Configuration. this Relation does **not** establish Workflow control flow **or** execution order; Plan start prerequisites remain separately governed by `BLOCKS` under CA-R-1580-CORE_META_MODEL-DEFINITION--define-plan-blocking."
+        }
+      ],
+      "kind": "body meaning evidence"
+    },
+    {
+      "id": "CA-R-1226",
+      "version": "25",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1226-PROJECT_CONFIGURATION-RULE--bind-each-project-customization-to-one-source-revision.md",
+      "sha256": "ae8975dcaffe05461b378f3de5e550fcb73f78b8b0bd8377e8794c63897b2e8c",
+      "references": [
+        {
+          "line": 3,
+          "text": "active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "active subject"
+    },
+    {
+      "id": "CA-R-1405",
+      "version": "29",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-RULE--register-core-artifact-type-values.md",
+      "sha256": "3cf75410940a71d7357a8c701a2d182f9aa503665bddff7034902415cd48a5c5",
+      "references": [
+        {
+          "line": 6,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "passive subject"
+    },
+    {
+      "id": "CA-R-1429",
+      "version": "28",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL--separate-settings-boundaries-from-field-specifications.md",
+      "sha256": "1a654b8bb84dd6f0de6d0c06ae55f976da93289072542fcea0eeb40c22613ef5",
+      "references": [
+        {
+          "line": 3,
+          "text": "active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "active subject"
+    },
+    {
+      "id": "CA-R-1441",
+      "version": "26",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL--define-default-settings.md",
+      "sha256": "4e8fb187de61707999f26e1d24c2a1b7e0afb67634e3a3ebf72ce4793cd637ac",
+      "references": [
+        {
+          "line": 3,
+          "text": "active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "active subject"
+    },
+    {
+      "id": "CA-R-1630",
+      "version": "41",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-RULE--gate-atomic-admission-and-promotion.md",
+      "sha256": "b04b475be16eac265df9ecc4af54bf1ecf6024e8cb4dd5b0367833aaba148ac7",
+      "references": [
+        {
+          "line": 6,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "passive subject"
+    },
+    {
+      "id": "CA-R-1640",
+      "version": "32",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1640-PROJECT_CONFIGURATION-RULE--register-one-canonical-routing-tree.md",
+      "sha256": "4bdad495af46d3011d7e7cf7bf4adf144486c23e3ffceae4a39e1fd73885862c",
+      "references": [
+        {
+          "line": 3,
+          "text": "active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "active subject"
+    },
+    {
+      "id": "CA-R-1641",
+      "version": "33",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1641-PROJECT_CONFIGURATION-RULE--resolve-skill-routing-precedence.md",
+      "sha256": "2d19363233c17a6402287a89c0f1ef9bc49c36be9c8de34fdf31a4b69ff9f1cb",
+      "references": [
+        {
+          "line": 3,
+          "text": "active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "active subject"
+    },
+    {
+      "id": "CA-R-1724",
+      "version": "36",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL--define-configuration-selection-and-precedence.md",
+      "sha256": "e26c1c32a1c1d26c07e1972c4639cb11a767013b25660d46f5ddba40c8740ae6",
+      "references": [
+        {
+          "line": 7,
+          "text": "- CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration"
+        }
+      ],
+      "kind": "passive subject"
+    }
+  ],
+  "meaning_evidence": [
+    {
+      "id": "CA-R-1200",
+      "lines": [
+        49,
+        56
+      ],
+      "finding": "A formal Claim can be carried in Governing Configuration, but configuration facts are not automatically Atom Claims; establishes carrier/authority distinction, not identity with Project.Settings."
+    },
+    {
+      "id": "CA-R-1441",
+      "lines": [
+        29,
+        32
+      ],
+      "finding": "Default Settings are baseline values and explicitly exclude project initialization inputs and operator selections."
+    },
+    {
+      "id": "CA-R-1429",
+      "lines": [
+        29,
+        32,
+        33,
+        34,
+        36
+      ],
+      "finding": "Distinguishes settings foundations, shared specifications and concrete carrier syntax."
+    },
+    {
+      "id": "CA-D-407",
+      "lines": [
+        30,
+        33
+      ],
+      "finding": "Distinguishes Default Settings Artifact and its authoritative TOML File Carrier."
+    },
+    {
+      "id": "CA-R-1226",
+      "lines": [
+        28,
+        31
+      ],
+      "finding": "Active target addresses customization bound to a source revision."
+    },
+    {
+      "id": "CA-R-1640",
+      "lines": [
+        24,
+        27
+      ],
+      "finding": "Active target addresses a canonical routing tree and its authority effects."
+    },
+    {
+      "id": "CA-R-1641",
+      "lines": [
+        26,
+        29
+      ],
+      "finding": "Active target addresses precedence between project, framework and provider-global skill routes."
+    }
+  ],
+  "decision": "No supported >=90% identity-preserving mapping for the whole Governing Configuration subject. Project.Settings and its carrier are distinct from default settings and may not encompass routing/customization or structured claim content. Current body evidence gives no unified definition or subtype relationships for the old label. Per-source Subject replacements require separate supported targets and scope review after the conceptual decision.",
+  "question": "Should Governing Configuration remain a distinct MODEL concept covering authoritative configuration beyond Project.Settings (including defaults, routing and customization), or should it be retired and each source governed by its specific existing target?",
+  "blast_radius": "Seven active-target sources (R1441, R1429, R1226, R1640, R1641, D407, D408), plus passive dependencies and R1200 Claim-carrier wording in the pinned non-Workbench/non-Workflow source list. Actual instance migration and other agents\u2019 Workbench/Workflow scopes are not assessed. Project.Settings merge remains intact; carrier/default/override precedence must be preserved.",
+  "exclusions": [
+    "Workbench and Workflow paths excluded; D497 and E473 excluded as workflow-related; not a claim about their contents or current migration.",
+    "The historical 1159-source disposition is not treated as a live exhaustive audit.",
+    "No implementation, source, test, Git, or instance changes."
+  ]
+}

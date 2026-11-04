@@ -8,7 +8,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parents[2]))
 
-from APP_WORKBENCH.markdown_content import parse_content
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import parse_content
 
 
 class ParseContentTest(unittest.TestCase):

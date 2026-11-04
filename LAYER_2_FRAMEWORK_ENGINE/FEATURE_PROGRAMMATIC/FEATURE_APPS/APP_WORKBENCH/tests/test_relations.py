@@ -1,5 +1,5 @@
-# CA-E-676@3
-# CA-E-677@6
+# CA-E-676@5
+# CA-E-677@7
 
 """Runtime facts and hashes, independent of the repository's Atom contents."""
 
@@ -10,7 +10,7 @@ import sys
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from APP_WORKBENCH.relations import canonical, materialize, relation_registry
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import canonical, materialize, relation_registry
 
 
 def atom(ref, *, relation=None, form="Rule", body="## Claim\nOne claim.\n"):

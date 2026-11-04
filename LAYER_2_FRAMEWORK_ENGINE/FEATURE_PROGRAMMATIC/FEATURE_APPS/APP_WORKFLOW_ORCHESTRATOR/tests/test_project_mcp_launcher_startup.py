@@ -159,10 +159,10 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.assertEqual("mcp-http", result["service"])
         self.assertEqual(56317, result["port"])
         self.assertTrue(result["readiness"])
-        self.assertEqual("http://127.0.0.1:56317/mcp", result["url"])
+        self.assertEqual("http://127.0.0.1:56317/caprmedio/mcp", result["url"])
         self.assertEqual(1, len(self.backend.health_calls))
         url, remaining_timeout = self.backend.health_calls[0]
-        self.assertEqual("http://127.0.0.1:56317/mcp", url)
+        self.assertEqual("http://127.0.0.1:56317/caprmedio/mcp", url)
         self.assertGreater(remaining_timeout, 0)
         self.assertLessEqual(remaining_timeout, 7)
 
@@ -199,7 +199,7 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.assertEqual("reused", result["disposition"])
         self.assertEqual("READY_REUSED", result["condition"])
         self.assertEqual(0, self.backend.start_calls)
-        self.assertEqual("http://127.0.0.1:56317/mcp", result["url"])
+        self.assertEqual("http://127.0.0.1:56317/caprmedio/mcp", result["url"])
 
     def test_cli_port_is_an_equality_assertion_for_the_configured_publication(self):
         self.backend.rows = [healthy_row(host_port="56317")]
@@ -221,7 +221,7 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.assertEqual("READY_STARTED", result["condition"])
         self.assertEqual([56317], self.backend.start_ports)
         self.assertEqual(56317, result["port"])
-        self.assertEqual("http://127.0.0.1:56317/mcp", result["url"])
+        self.assertEqual("http://127.0.0.1:56317/caprmedio/mcp", result["url"])
 
     def test_missing_or_invalid_project_settings_refuse_before_docker(self):
         invalid = ({}, {"project_mcp": {}}, {"project_mcp": {"http_port": True}},

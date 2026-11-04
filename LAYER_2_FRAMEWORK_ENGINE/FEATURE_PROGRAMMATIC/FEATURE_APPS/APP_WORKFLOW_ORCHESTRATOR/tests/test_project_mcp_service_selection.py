@@ -11,6 +11,7 @@ from unittest.mock import patch
 APP = Path(__file__).resolve().parents[1]
 
 sys.path.insert(0, str(APP / "docker"))
+from mcp_paths import MCP_PATH  # noqa: E402
 from project_mcp_backend import BackendError, ProjectMcpBackend  # noqa: E402
 
 
@@ -109,6 +110,18 @@ class ProjectMcpServiceSelectionTests(unittest.TestCase):
             with self.assertRaises(BackendError) as raised:
                 ProjectMcpBackend().inspect(selection)
         self.assertEqual("RUNTIME_MISMATCH", raised.exception.code)
+
+    def test_health_admits_only_the_canonical_mcp_path(self) -> None:
+        observed = []
+
+        async def initialize(url, timeout):
+            observed.append((url, timeout))
+
+        backend = ProjectMcpBackend()
+        with patch.object(ProjectMcpBackend, "_initialize", new=staticmethod(initialize)):
+            self.assertTrue(backend.health(f"http://127.0.0.1:8092{MCP_PATH}", 1))
+        self.assertEqual([(f"http://127.0.0.1:8092{MCP_PATH}", 1.0)], observed)
+        self.assertFalse(backend.health("http://127.0.0.1:8092/mcp", 1))
 
 
 if __name__ == "__main__":

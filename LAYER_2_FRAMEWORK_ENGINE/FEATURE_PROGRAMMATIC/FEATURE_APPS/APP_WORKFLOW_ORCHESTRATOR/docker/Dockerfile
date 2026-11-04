@@ -2,6 +2,14 @@ FROM node:22.20.0-bookworm-slim AS codex
 ARG CODEX_VERSION=0.156.1
 RUN npm install --global @openai/codex@${CODEX_VERSION}
 
+FROM node:22.20.0-bookworm-slim AS workbench_frontend
+WORKDIR /frontend
+COPY LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_FRONTEND/package.json \
+     LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_FRONTEND/package-lock.json ./
+RUN npm ci
+COPY LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_FRONTEND ./
+RUN npm run build
+
 FROM python:3.14.7-slim@sha256:51dafde81dbdb6ebde285137a295cf18a47ca95234fe388a343719cb97305b3d
 ARG RUNTIME_UID=1000
 ARG RUNTIME_GID=1000
@@ -18,10 +26,12 @@ WORKDIR /workspace
 COPY pyproject.toml uv.lock version.toml ./
 ENV UV_PROJECT_ENVIRONMENT=/opt/venv UV_CACHE_DIR=/tmp/uv-cache
 RUN uv sync --locked --no-dev --group rmed-workflow-mcp --group workflow-orchestrator \
-    --group validate-atoms --group validate-atoms-dev
+    --group validate-atoms --group validate-atoms-dev --group workbench
 RUN /opt/venv/bin/python -c "import duckdb; c=duckdb.connect(':memory:',config={'extension_directory':'/home/caprmedio/.duckdb/extensions'}); c.execute('INSTALL duckpgq FROM community'); c.close()" \
     && chown -R ${RUNTIME_UID}:${RUNTIME_GID} /home/caprmedio/.duckdb
 COPY LAYER_2_FRAMEWORK_ENGINE ./LAYER_2_FRAMEWORK_ENGINE
+COPY --from=workbench_frontend /frontend/dist \
+     ./LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_FRONTEND/dist
 RUN mkdir -p /home/caprmedio/.codex /workspace/.caprmedio_install \
     /workspace/.caprmedio_tmp /workspace/tmp /workspace/.caprmedio_caprmedio \
     && chown -R ${RUNTIME_UID}:${RUNTIME_GID} /home/caprmedio

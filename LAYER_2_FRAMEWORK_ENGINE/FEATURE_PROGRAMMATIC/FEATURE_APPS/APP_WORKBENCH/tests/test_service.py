@@ -1,4 +1,4 @@
-# CA-E-677@6
+# CA-E-677@7
 
 """Service failures stop this owner rather than retrying its startup."""
 
@@ -13,14 +13,73 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from watchfiles import Change  # noqa: E402
-from APP_WORKBENCH.service import WorkbenchService  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
 
 
 class ServiceTests(unittest.TestCase):
+    def test_start_uses_runtime_projection_path(self):
+        reader = unittest.mock.Mock()
+        reader.capture.return_value = ([], [])
+        reader.excluded_count = 0
+        store = unittest.mock.Mock()
+        extension_directory = Path("/extensions")
+
+        with (
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.QueryStore", return_value=store) as connect,
+        ):
+            service = WorkbenchService(Path("/project"), extension_directory=extension_directory)
+            service._index = lambda: service._watch_ready.set()
+            service._start()
+            self.addCleanup(service.close)
+
+        connect.assert_called_once_with(
+            extension_directory=extension_directory,
+            database_path=Path("/project") / ".caprmedio_runtime" / "workbench" / "projection.duckdb",
+        )
+
+    def test_query_methods_forward_page_size_and_start_once(self):
+        store = unittest.mock.Mock()
+        store.run.return_value = {"query_id": "q"}
+        store.page.return_value = {"query_id": "q", "offset": 3}
+        store.check.return_value = {"valid": True}
+
+        with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
+            service = WorkbenchService(Path("/project"))
+        service._store = store
+        service._start = unittest.mock.Mock()
+
+        self.assertEqual({"query_id": "q"}, service.run("SELECT 1", page_size=2))
+        self.assertEqual({"query_id": "q", "offset": 3}, service.page("q", 3, page_size=4))
+        self.assertEqual({"valid": True}, service.check("SELECT 1"))
+        self.assertEqual(3, service._start.call_count)
+        store.run.assert_called_once_with("SELECT 1", page_size=2)
+        store.page.assert_called_once_with("q", 3, page_size=4)
+        store.check.assert_called_once_with("SELECT 1")
+
+    def test_refresh_releases_reader_rows_only_after_store_replace(self):
+        reader = unittest.mock.Mock()
+        reader.capture.return_value = ([], [])
+        reader.excluded_count = 0
+        calls: list[str] = []
+        reader.release_cache.side_effect = lambda: calls.append("release")
+        store = unittest.mock.Mock()
+        store.replace.side_effect = lambda _atoms, _scopes: calls.append("replace")
+
+        with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader):
+            service = WorkbenchService(Path("/project"))
+        service._store = store
+
+        service._refresh()
+
+        self.assertEqual(calls, ["replace", "release"])
+        store.replace.assert_called_once_with([], [])
+        reader.release_cache.assert_called_once_with()
+
     def test_failed_startup_is_reported_once_and_not_retried(self):
         with (
-            patch("APP_WORKBENCH.service.SourceReader"),
-            patch("APP_WORKBENCH.service.QueryStore", side_effect=RuntimeError("extension unavailable")) as connect,
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.QueryStore", side_effect=RuntimeError("extension unavailable")) as connect,
             redirect_stderr(StringIO()) as errors,
         ):
             service = WorkbenchService(Path.cwd())
@@ -73,9 +132,9 @@ class ServiceTests(unittest.TestCase):
             return batches()
 
         with (
-            patch("APP_WORKBENCH.service.SourceReader", return_value=reader),
-            patch("APP_WORKBENCH.service.QueryStore", return_value=store),
-            patch("APP_WORKBENCH.service.watch", side_effect=fake_watch),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.QueryStore", return_value=store),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.watch", side_effect=fake_watch),
         ):
             service = WorkbenchService(Path("/project"))
             self.addCleanup(service.close)
@@ -98,8 +157,8 @@ class ServiceTests(unittest.TestCase):
         reader.root = Path("/mounted/current-repo")
         reader.control_root = Path("/mounted/another-repo/.caprmedio_another")
         with (
-            patch("APP_WORKBENCH.service.SourceReader", return_value=reader),
-            patch("APP_WORKBENCH.service.watch") as watch,
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.watch") as watch,
             redirect_stderr(StringIO()) as errors,
         ):
             service = WorkbenchService(reader.root)

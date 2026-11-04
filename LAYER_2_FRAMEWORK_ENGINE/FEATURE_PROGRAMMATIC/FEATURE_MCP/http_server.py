@@ -1,5 +1,5 @@
-# CA-R-2727@2
-# CA-D-674@2
+# CA-R-2727@3
+# CA-D-674@6
 
 """Loopback-only Streamable HTTP transport for the MCP gateway."""
 import argparse
@@ -15,13 +15,14 @@ from starlette.routing import Route
 
 from health_page import render_health_page
 from hot_reload import Gateway, startup_selection, bind_selection
+from http_paths import HEALTH_PATH, MCP_PATH
 from mcp.server.transport_security import TransportSecuritySettings
 from operation_error_boundary import FailureRecord
 from runtime_failure_diagnostics import report_failure
 from runtime_process_boundary import run_process
 from workbench_web import routes as workbench_routes
 
-PATH = "/mcp"
+PATH = MCP_PATH
 PORT = 8092
 # A sealed Release carries its complete source inventory in the request.  Keep
 # a finite transport bound while allowing that inventory and its authorization.
@@ -156,7 +157,7 @@ def create_app(root, implementation=None, *, selection=None):
         transport_security=SECURITY,
         max_request_body_size=MAX_REQUEST_BODY_SIZE,
         host="127.0.0.1",
-        custom_starlette_routes=[Route("/health", readiness), *workbench_routes(gateway)],
+        custom_starlette_routes=[Route(HEALTH_PATH, readiness), *workbench_routes(gateway)],
     )
     inner_lifespan = app.router.lifespan_context
 

@@ -1,14 +1,16 @@
-# CA-E-673@2
-# CA-E-674@4
-# CA-E-676@3
-# CA-E-677@6
+# CA-E-673@3
+# CA-E-674@5
+# CA-E-676@5
+# CA-E-677@7
 
 from __future__ import annotations
 
 from contextlib import redirect_stderr
+import datetime as dt
 import hashlib
 from io import StringIO
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -16,8 +18,8 @@ from pathlib import Path
 APP_ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(APP_ROOT), str(Path(__file__).parent)]
 
-from APP_WORKBENCH.query_store import QueryStore  # noqa: E402
-from APP_WORKBENCH.relations import canonical  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.query_store import QueryStore  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import canonical  # noqa: E402
 from smalltest_support import extension_directory  # noqa: E402
 
 
@@ -135,6 +137,77 @@ class QueryStoreTest(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             self.store.run("SELECT missing FROM atoms")
         self.assertEqual([[1]], self.store.run("SELECT 1")["rows"])
+
+    def test_file_backed_materialized_pages_preserve_duplicate_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as runtime:
+            database_path = Path(runtime) / "workbench" / "projection.duckdb"
+            store = QueryStore(
+                extension_directory=extension_directory(APP_ROOT.parents[2]), database_path=database_path,
+            )
+            try:
+                result = store.run(
+                    "SELECT value FROM (VALUES (1), (2), (3)) AS source(value)", page_size=2,
+                )
+                self.assertTrue(database_path.is_file())
+                self.assertEqual([[1], [2]], result["rows"])
+                self.assertEqual(3, result["row_count"])
+                self.assertEqual(1, result["column_count"])
+                self.assertEqual(0, result["offset"])
+                self.assertEqual(2, result["page_size"])
+                self.assertTrue(result["has_more"])
+                self.assertEqual(
+                    [[3]], store.page(result["query_id"], offset=2, page_size=2)["rows"],
+                )
+                self.assertFalse(store.page(result["query_id"], offset=2, page_size=2)["has_more"])
+                boundary = store.run("SELECT range AS value FROM range(101)", page_size=100)
+                self.assertEqual(100, len(boundary["rows"]))
+                self.assertEqual([[100]], store.page(boundary["query_id"], offset=100)["rows"])
+                duplicate = store.run("SELECT 1 AS duplicate, 2 AS duplicate")
+                self.assertEqual(
+                    [{"name": "duplicate", "type": "INTEGER"}, {"name": "duplicate", "type": "INTEGER"}],
+                    duplicate["columns"],
+                )
+                self.assertEqual([[1, 2]], duplicate["rows"])
+                store.replace([self.atom("refreshed")], [])
+                self.assertEqual(
+                    [[1], [2]], store.page(result["query_id"], offset=0, page_size=2)["rows"],
+                )
+                self.assertEqual(
+                    {"valid": True, "row_count": 3, "column_count": 1},
+                    store.check("SELECT value FROM (VALUES (1), (2), (3)) AS source(value)"),
+                )
+                with self.assertRaisesRegex(ValueError, "page_size"):
+                    store.run("SELECT 1", page_size=0)
+                with self.assertRaisesRegex(ValueError, "page_size"):
+                    store.page(result["query_id"], offset=0, page_size=1001)
+                with self.assertRaisesRegex(ValueError, "offset"):
+                    store.page(result["query_id"], offset=-1)
+            finally:
+                store.close()
+            restarted = QueryStore(
+                extension_directory=extension_directory(APP_ROOT.parents[2]), database_path=database_path,
+            )
+            try:
+                with self.assertRaisesRegex(ValueError, "unknown query_id"):
+                    restarted.page(result["query_id"], offset=0)
+                self.assertEqual(
+                    [[0]],
+                    restarted.run(
+                        "SELECT count(*) FROM information_schema.tables "
+                        "WHERE table_schema = 'workbench_results' "
+                        f"AND table_name = 'query_{result['query_id']}'"
+                    )["rows"],
+                )
+            finally:
+                restarted.close()
+
+    def test_timezone_aware_values_are_delivered_as_iso_strings(self) -> None:
+        result = self.store.run("SELECT TIMESTAMPTZ '2026-11-04 12:00:00+00' AS observed_at")
+        self.assertEqual(
+            dt.datetime(2026, 11, 4, 12, tzinfo=dt.UTC),
+            dt.datetime.fromisoformat(result["rows"][0][0]),
+        )
+        self.assertEqual("TIMESTAMP WITH TIME ZONE", result["columns"][0]["type"])
 
     def test_public_graph_table_direct_inverse_cycles_and_typed_identity(self) -> None:
         atoms = [
@@ -299,7 +372,7 @@ class QueryStoreTest(unittest.TestCase):
 
     def test_internal_management_failure_requires_restart(self) -> None:
         stderr = StringIO()
-        with redirect_stderr(stderr), self.assertRaisesRegex(RuntimeError, "query failed"):
+        with redirect_stderr(stderr), self.assertRaisesRegex(RuntimeError, "restart required"):
             self.store.run("SELECT * FROM drop_property_graph()")
         self.assertIn("query store unavailable", stderr.getvalue())
         with self.assertRaisesRegex(RuntimeError, "restart required"):

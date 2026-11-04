@@ -16,6 +16,8 @@ if str(TEST_ROOT) not in sys.path:
 
 from first_cut_http_security import (  # noqa: E402
     FirstCutHttpSecurityError,
+    HEALTH_PATH,
+    MCP_PATH,
     REQUIRED_TOOLS,
     _RejectRedirects,
     _urllib_status,
@@ -24,7 +26,7 @@ from first_cut_http_security import (  # noqa: E402
 
 
 class FirstCutHttpSecurityTests(unittest.TestCase):
-    url = "http://127.0.0.1:18092/mcp"
+    url = f"http://127.0.0.1:18092{MCP_PATH}"
     def _health(self, calls):
         def request(url, headers):
             calls.append((url, dict(headers)))
@@ -60,7 +62,7 @@ class FirstCutHttpSecurityTests(unittest.TestCase):
         self.assertEqual((421, 403), result["mcp_denied_statuses"])
         self.assertEqual(200, result["health_status"])
         self.assertTrue(REQUIRED_TOOLS <= set(result["tool_names"]))
-        self.assertEqual(f"{self.url[:-4]}/health", calls[-1][0])
+        self.assertEqual(f"http://127.0.0.1:18092{HEALTH_PATH}", calls[-1][0])
         self.assertEqual({}, calls[-1][1])
         self.assertEqual(self.url, mcp_calls[0][0])
         self.assertEqual("create_atom", mcp_calls[0][2]["params"]["name"])
@@ -111,7 +113,7 @@ class FirstCutHttpSecurityTests(unittest.TestCase):
 
         with self.assertRaises(FirstCutHttpSecurityError):
             probe_first_cut_http_security(
-                "http://attacker.invalid:18092/mcp",
+                f"http://attacker.invalid:18092{MCP_PATH}",
                 health_request=must_not_run,
                 list_tools=must_not_run,
             )
@@ -172,7 +174,7 @@ class FirstCutHttpSecurityTests(unittest.TestCase):
         with patch("first_cut_http_security.build_opener") as build_opener:
             build_opener.side_effect = RedirectingOpener
             status = _urllib_status(
-                "http://127.0.0.1:18092/health",
+                f"http://127.0.0.1:18092{HEALTH_PATH}",
                 {},
             )
 
@@ -182,7 +184,7 @@ class FirstCutHttpSecurityTests(unittest.TestCase):
         self.assertEqual({}, proxy_handler.proxies)
         self.assertIsInstance(redirect_handler, _RejectRedirects)
         self.assertEqual(
-            [("http://127.0.0.1:18092/health", {})],
+            [(f"http://127.0.0.1:18092{HEALTH_PATH}", {})],
             source_requests,
         )
         self.assertEqual([], remote_requests)

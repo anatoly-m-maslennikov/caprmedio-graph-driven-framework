@@ -1,0 +1,154 @@
+{
+  "verdict": "HOLD_ADOPTION_PENDING_CURRENT_ENCODING_AND_SUBJECT_REPAIRS",
+  "supersedes": "entity-property-actual-drafts-review.json PASS was pin/body-integrity only; it did not establish adoption readiness.",
+  "plan_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-property-draft-creation/adoption-plan.json",
+  "plan_sha256": "1bba17c47c56f05300d72cc15c6f656174cd5cc2086f732b89b580cc4cff4278",
+  "draft_and_current_pins": {
+    "CA-M-453": {
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-453@4-draft-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "draft_sha256": "1cce4514fc0752c31dd5f6a0ffd006a358d794edaf565e876cfa1ea2c77a332d",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "current_sha256": "dd60c8d121d9d8cd62a91aaaa85531012a829bcdac6a106715297f29459c4238"
+    },
+    "CA-R-1247": {
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1247@25-draft-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "draft_sha256": "db8a1432051b5eaf823b937ed68166b5a59e09707b4e1f3841608aa13de4c9e9",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1247-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "current_sha256": "3a1847ad88f2cee8615db4b45c931746771e4508fcccb2ccd22a2967edf1c3f4"
+    },
+    "CA-R-2003": {
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2003@17-draft-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "draft_sha256": "b630d6c2bdf16aeeb2086d2cdb90286feb273c3b53572ac538c9cb952728706d",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "current_sha256": "6b83ec62b5d30960febc3dbcaadee3d5504be4ff3caa95356745a91f8952b4c0"
+    },
+    "CA-R-1318": {
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1318@34-draft-CORE_META_MODEL-DEFINITION--define-term.md",
+      "draft_sha256": "d744b5d7a45fe5aac9873719faafc36540d03327240dba28926ab63fc459e564",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+      "current_sha256": "35014effa7d6d7ab7f57e2b5dddae8523f151b2208842d0e97bfe1661107e273"
+    },
+    "CA-E-444": {
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-444@35-draft-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "draft_sha256": "c936f73724d6e27720b57308fdaedf15dc6f1f9591505cdc18b6a9c12821542d",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "current_sha256": "7e851a7da148d0e524705426d81cfb0d45b645110e54bc0b2f1869412538a071"
+    },
+    "CA-R-2276": {
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2276@7-draft-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "draft_sha256": "82232ea47cbbd1b8c9bd7a8f13f05c8f25be2fed02fa299c5284f4ee51ead648",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "current_sha256": "305ea99fee46090bffe1df0d58e49bf6bdc2ad292d964e8e8a646d31d277d633"
+    },
+    "CA-E-246": {
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-246@48-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md",
+      "draft_sha256": "93e09bffb4832175b3d1ac3c8136f4787dfe04abf60dc8fe9de1d61189e2f3c3",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md",
+      "current_sha256": "9f6fdb1f34591e398edb050628ae52679dc9e6a3a7aafbc28d6356e6451ecf52"
+    },
+    "CA-E-449": {
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-449@45-draft-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md",
+      "draft_sha256": "f31e1fd9e74ddf7a23dad1e2111372e04da10b8856825fee4356e6ba8ad92641",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md",
+      "current_sha256": "caca33e72e9b323d2570792e5cff4b1f1e8cb77adceb2fda24c0cbb4473cb6e5"
+    },
+    "CA-M-125": {
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-125@48-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md",
+      "draft_sha256": "55257b17e22e473b7f1d657726e7680a41797a3c06bbdd5e493c2e91820cacfa",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md",
+      "current_sha256": "f260c13b9cdbca25cdae58b2f177180eb9ebadbf88cb1a34fe4ca5a9978748fd"
+    },
+    "CA-R-1259": {
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1259@25-draft-CORE_META_MODEL-RULE--permit-zero-or-more-properties-on-every-entity.md",
+      "draft_sha256": "74beff2d3d23ff97ddb22b4323c87897ce5861b9d04fb556439f866c0c92d571",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-RULE--permit-zero-or-more-properties-on-every-entity.md",
+      "current_sha256": "55d09143de8f3e5fdbfbdfed181eae80dc0da051993cd34bb2567019a52e4707"
+    },
+    "CA-R-1284": {
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1284@28-draft-CORE_META_MODEL--define-type.md",
+      "draft_sha256": "dd7635699b5fcba74d0a965031e13be9d9794d50aa81e46bb12fad76a72c169e",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md",
+      "current_sha256": "47048137a76a2cb71acc40277f94fb59f4d619af5c498ab7349bf55da7fe1d36"
+    },
+    "CA-R-1931": {
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1931@19-draft-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "draft_sha256": "f73cb6f59e4a0ee7b26ab068a6006e1917545a4d7c45cc75868ff3e036377403",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "current_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b"
+    }
+  },
+  "common_blocker": {
+    "ids": [
+      "CA-M-453",
+      "CA-R-1247",
+      "CA-R-2003",
+      "CA-R-1318",
+      "CA-E-444",
+      "CA-R-2276",
+      "CA-E-246",
+      "CA-E-449",
+      "CA-M-125",
+      "CA-R-1259",
+      "CA-R-1284",
+      "CA-R-1931"
+    ],
+    "finding": "Each Draft still carries current_scope_unit and claim_target_scope_unit, despite canonical containment relations. These are obsolete Current-carrier fields, so pin match does not make the successor Current-ready. Prepare and review canonical metadata for each before promotion; preserve actual active Subject and do not infer claim target from owner."
+  },
+  "additional_holds": [
+    {
+      "ids": [
+        "CA-R-1284"
+      ],
+      "finding": "Active Entity and passive Entity/Object/Continuant/Projection path persist; body carries Content Role and legacy encoding discussion. Current R1284 also retains Entity/Property typed Subject. Hold and repair to supported current authorities without guessed mappings."
+    },
+    {
+      "ids": [
+        "CA-R-2003",
+        "CA-E-444",
+        "CA-E-246",
+        "CA-E-449",
+        "CA-R-1931"
+      ],
+      "finding": "One or more Subjects still have legacy Entity/Object/... paths. E449 active target is old Entities Graph; E444 also references deferred Terms Graph. Resolve only proven source targets and defer ambiguous view semantics."
+    },
+    {
+      "ids": [
+        "CA-R-1259"
+      ],
+      "finding": "Active Subject still Entity. Review its exact current governed target before claiming readiness; do not guess a mapping."
+    },
+    {
+      "ids": [
+        "CA-E-444",
+        "CA-E-246",
+        "CA-E-449",
+        "CA-M-125"
+      ],
+      "finding": "Existing body contains GOVERNS/DEPENDS_ON or Content Role terminology; check against current subject/role authorities as applicable before promotion, not a blanket substitution."
+    }
+  ],
+  "m451_retirement": {
+    "status": "HOLD pending ready CA-R-1318 and CA-E-444 revisions and their combined adoption",
+    "evidence": "Packet inventory identifies those two Current typed Term//Entity dependents, alongside M451 itself. E444 is not ready. Holding R1284 does not by itself leave Term//Entity there, but its Current Entity/Property Subject remains unresolved, so a complete property-reference cutover cannot be asserted.",
+    "independent_retirement_authorization": "Not established by current review; preserve exact M451 Current preimage."
+  },
+  "method_form_packet_dependency": {
+    "R1284_current_version": 27,
+    "R1284_draft_version": 28,
+    "finding": "Current R1284 already states X/(.Y: Z) qualification, allowed-value context, form/role encodings, and the same substantive Claim and Semantics as the Draft; Draft removes an obsolete source-pin tail and changes Subject metadata. Current R1194 and R1931 also support qualified target addressing and defining Atom target introduction. Thus the qualification and target-binding reasoning does not require adopting R1284@28 itself; this is not admission of the Form, waiver of the other Method packet prerequisites, or an assertion that R1284 Current is clean.",
+    "authority_pins": {
+      "CA-R-1194": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+        "sha256": "f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57"
+      },
+      "CA-R-1931": {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+        "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b"
+      }
+    }
+  },
+  "limits": [
+    "No Workbench or Workflow sources or inventories examined.",
+    "No Current, Draft, code, test, Git, or Journal mutation. No alternative Subject mappings invented."
+  ]
+}

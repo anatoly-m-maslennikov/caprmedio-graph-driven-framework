@@ -11,8 +11,10 @@ import tempfile
 
 try:
     from .image_reference import IMMUTABLE_IMAGE, image_reference
+    from .mcp_paths import MCP_PATH
 except ImportError:  # direct execution: docker/ is the import root
     from image_reference import IMMUTABLE_IMAGE, image_reference
+    from mcp_paths import MCP_PATH
 
 DIRECTORY = Path(__file__).resolve().parent
 SOURCE_ROOT = DIRECTORY.parents[4]
@@ -244,7 +246,7 @@ class Runtime:
         if not self._http_publisher_admitted(self.mcp_http_status(), port):
             raise RuntimeError("HTTP MCP published listener admission failed")
         return {"runtime": "docker", "service": "mcp-http", "outcome": "ready",
-                "url": f"http://127.0.0.1:{port}/mcp"}
+                "url": f"http://127.0.0.1:{port}{MCP_PATH}"}
 
     def mcp_http_stop(self):
         self.call("stop", "mcp-http", http=True, timeout=60)
@@ -256,7 +258,7 @@ class Runtime:
         result = {"runtime": "docker", "service": "mcp-http", "project_name": self.project,
                   "services": services}
         try:
-            result["url"] = f"http://127.0.0.1:{self._http_port()}/mcp"
+            result["url"] = f"http://127.0.0.1:{self._http_port()}{MCP_PATH}"
         except ValueError:
             result["url"] = None
         return result

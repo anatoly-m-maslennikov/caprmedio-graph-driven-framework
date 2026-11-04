@@ -1,5 +1,5 @@
 # CA-E-675@4
-# CA-E-677@6
+# CA-E-677@7
 
 from __future__ import annotations
 
@@ -18,8 +18,8 @@ sys.path[:0] = [str(APP_ROOT), str(TOOLS_ROOT), str(TOOLS_ROOT / "VALIDATE_ATOMS
 
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from scope_unit_declarations import ScopeDeclarationError  # noqa: E402
-from APP_WORKBENCH import source_reader as source_reader_module  # noqa: E402
-from APP_WORKBENCH.source_reader import SourceReader  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND import source_reader as source_reader_module  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_reader import SourceReader  # noqa: E402
 
 
 ATOM_COLUMNS = (
@@ -349,6 +349,39 @@ class SourceReaderTests(unittest.TestCase):
         self.assertEqual(repaired_stderr, "")
         self.assertEqual(next(row["version"] for row in repaired_atoms if row["id"] == "CA-R-411"), 3)
         self.assertEqual(self.reader.excluded_count, 0)
+
+    def test_release_cache_reparses_successes_but_keeps_failed_signatures(self) -> None:
+        valid = self._write_atom("MAIN", "01_concern", "valid.md", atom_id="CA-R-415")
+        invalid = self._path("MAIN", "04_requirement", "CA-R-416-bad.md")
+        invalid.write_text(
+            "---\natom_id: CA-R-416\natom_id: CA-R-417\nrole: Requirement\n"
+            "form: Definition\nstatus: Active\nversion: 1\n---\n# Summary\nBad\n",
+            encoding="utf-8",
+        )
+
+        with patch.object(
+            source_reader_module,
+            "parse_carrier",
+            wraps=source_reader_module.parse_carrier,
+        ) as parse:
+            atoms, _scopes, first_stderr = self._capture()
+            first_call_count = len(parse.call_args_list)
+            self.assertIn(valid.relative_to(self.root).as_posix(), {row["source_path"] for row in atoms})
+            self.assertIn(invalid.relative_to(self.root).as_posix(), first_stderr)
+
+            self.reader.release_cache()
+            atoms_again, _scopes_again, second_stderr = self._capture()
+
+            second_parsed_paths = {
+                Path(call.args[1]).resolve()
+                for call in parse.call_args_list[first_call_count:]
+            }
+            self.assertIn(valid.resolve(), second_parsed_paths)
+            self.assertNotIn(invalid.resolve(), second_parsed_paths)
+            self.assertIn(valid.relative_to(self.root).as_posix(), {row["source_path"] for row in atoms_again})
+            self.assertNotIn(invalid.relative_to(self.root).as_posix(), {row["source_path"] for row in atoms_again})
+            self.assertEqual(second_stderr, "")
+            self.assertEqual(self.reader.excluded_count, 1)
 
     def test_unrepresentable_source_and_nonregular_source_only_exclude_themselves(self) -> None:
         valid = self._write_atom("CHILD", "06_evaluation", "valid.md", atom_id="CA-R-420")

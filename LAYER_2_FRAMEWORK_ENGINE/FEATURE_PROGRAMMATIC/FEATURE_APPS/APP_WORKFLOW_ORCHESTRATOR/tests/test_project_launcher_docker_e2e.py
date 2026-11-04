@@ -599,7 +599,7 @@ class ProjectLauncherFixtureTests(unittest.TestCase):
     def test_collision_refusal_rejects_a_wrong_code_or_url(self):
         with self.assertRaises(AssertionError):
             _assert_collision_refusal({"condition": "DOCKER_START_FAILED", "readiness": False,
-                                       "url": "http://127.0.0.1:1/mcp"}, "DOCKER_START_FAILED")
+                                       "url": "http://127.0.0.1:1/caprmedio/mcp"}, "DOCKER_START_FAILED")
         with self.assertRaises(AssertionError):
             _assert_collision_refusal({"condition": "DOCKER_START_FAILED", "readiness": False},
                                        "DOCKER_PUBLICATION_FAILED")

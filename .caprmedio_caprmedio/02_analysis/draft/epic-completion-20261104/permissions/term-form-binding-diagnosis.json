@@ -1,0 +1,15 @@
+{
+  "verdict": "SOURCE_SUBJECT_QUALIFICATION_MISMATCH",
+  "source_pins": {
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2765-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md": "e9b2fd6cf2f73a7c1848d17ff63c046ade85cc41e491fedc184e4d68f2d1c4b7",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2513-CORE_META_MODEL-DECLARATION--declare-method.md": "227b9bffb12923ffdd7d158e8c3f90604257c3f2dee3226d71f175004a483d78",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b"
+  },
+  "diagnosis": "R2765 Header active Subject selects Role: Method and Form: Term Definition; R2513 declares Method under Role := Method. Current graph retains these as different exact identities, deriving the colon-qualified parent which has no matching declared node. The second diagnostic follows when it attempts that absent parent to Atom. The graph uses exact endpoint lookup; this evidence identifies the immediate mismatch, not an independently proven renderer defect.",
+  "proposed_minimal_source_correction": "In R2765 Header Subjects only, change active Role and Form qualifiers to := and passive Method Role qualifier to :=. Preserve Claim CFEL colon notation, Summary and other content; increment version and preserve exact predecessor. Regenerate and verify both diagnostics clear; the result is not yet observed.",
+  "coordination": "The old full colon-qualified Method/Form Subject also occurs in native Current Subject headers of E659 (active), R1454, R1319, M453, M454, M449, M450, M439, M114, M451, M455, M452, E382, E444, E472 and D655 (passive). Those 16 consumer headers need coordinated identity alignment to maintain their intended references; retain their CFEL or prose colon uses unless separately warranted. Check held Drafts before applying.",
+  "limits": [
+    "Approved := Subject and : formula distinction is from latest operator input; live R1931 contains : examples, so the source notation alignment remains a wider reconciliation issue.",
+    "No graph regeneration, tests, source edits, Workbench or Workflow mutations performed."
+  ]
+}

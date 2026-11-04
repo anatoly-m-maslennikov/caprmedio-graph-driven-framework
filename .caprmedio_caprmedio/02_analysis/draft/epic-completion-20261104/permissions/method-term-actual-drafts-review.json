@@ -1,0 +1,90 @@
+{
+  "verdict": "PASS_BOUNDED_AFTER_POLISH",
+  "pins": {
+    "CA-R-2765": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2765@1-draft-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md",
+      "sha256": "ecc52b3579111f8d82f51ebf771e17e7fcc1b8db999cdfaade1053062456a673"
+    },
+    "CA-E-659": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-659@4-draft-CORE_META_MODEL-EVAL_CASE--check-term-definition-well-formedness.md",
+      "sha256": "7ff4a8cf087b1e05969d293a4cb4a47de35a43068b48683e0c6f1ac6a0f59c6a"
+    },
+    "CA-R-1319": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1319@29-draft-CORE_META_MODEL--define-governed-term.md",
+      "sha256": "d9da22cefdd705463de1d23266a6f5b14f17f0c19e2269cc3f1a4bdd65300e9f"
+    },
+    "CA-M-450": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-450@5-draft-CORE_META_MODEL-TERM_DEFINITION--define-id.md",
+      "sha256": "2120b0a8664d23c5571a2df3c76659353145bc7d0c587373741bbc834c5a7f91"
+    },
+    "CA-R-1318": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1318@34-draft-CORE_META_MODEL-DEFINITION--define-term.md",
+      "sha256": "d744b5d7a45fe5aac9873719faafc36540d03327240dba28926ab63fc459e564"
+    },
+    "CA-R-1284": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1284@28-draft-CORE_META_MODEL--define-type.md",
+      "sha256": "dd7635699b5fcba74d0a965031e13be9d9794d50aa81e46bb12fad76a72c169e"
+    },
+    "CA-R-1931": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1931@19-draft-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "f73cb6f59e4a0ee7b26ab068a6006e1917545a4d7c45cc75868ff3e036377403"
+    }
+  },
+  "integrity": "Four payload hashes, receipt plan hash, Core typed containment, canonical Draft IDs/versions/destinations and three pinned Current preimages match. E659 binds R2765; three revised bodies match previews, and R2765 omits the preview Prose Claim as specified. R2275@2 exact preimage remains intact. After polish, the other three Drafts and all three Current predecessors still match creation pins, and R2275 Current and retirement preimage remain exact.",
+  "m450_source_level_checklist": [
+    {
+      "criterion": "Explicit Method/Form and allowed form",
+      "finding": "M450 carries role Method and form Term Definition; proposed R2765 admits the exact qualified Form under the inherited Method role R2513. Conditional on atomic adoption."
+    },
+    {
+      "criterion": "Exactly one reusable word/phrase and one independently replaceable meaning Claim",
+      "finding": "One explicit Term ID and one Prose Claim; Claim defines identifier of one Continuant or Occurrent instance under its matching prefix. Summary and Claim match Current M450; R2275 gives the same ID meaning."
+    },
+    {
+      "criterion": "Scope and consistent details",
+      "finding": "Matching-prefix namespace is explicit. Examples and distinctions preserve version and prefix limits, without inferring lifecycle identity or creating entities from spelling."
+    },
+    {
+      "criterion": "Metadata, Subject binding and layout",
+      "finding": "M450 Draft has canonical ID/version, Core containment, Role/Form, active Term//ID and passive Term and qualified Method/Form; one Claim child and Details. Complete applicable shape requires source-level acceptance on promotion, not established by an executable validation here."
+    },
+    {
+      "criterion": "Target binding in intended combined candidate",
+      "finding": "Proposed R1318@34 retains Term kind; proposed R1319@29 admits flat Term//<Name> including Term//ID; Current R1194 and proposed R1931@19 allow a defining Atom to introduce its governed target. M450 explicitly introduces exactly Term//ID. Proposed R1284@28 distinguishes Atom Form and Role from legacy Type encoding. This binding is conditional on adopting the referenced sources together; C605 reconciliation remains separately applicable."
+    },
+    {
+      "criterion": "Authority uniqueness and negatives",
+      "finding": "R1319@29 requires one active Method owner. R2275 is a Requirement owner, and its exact retirement in the same accepted operation removes the duplicate ID meaning owner; the existing pinned inventory identified M450 as the only other operative Current literal reference. This is not a new whole-frontier rescan or execution of E659 negative fixtures/E444."
+    }
+  ],
+  "retirement_decision": "The bounded source evidence supports exact R2275@2 retirement atomically with the four accepted Term Drafts after application-time pin checks and preservation of predecessor/frozen references. The twelve Entity/Property Drafts are not prerequisites; broader source issues and executable evaluations remain open.",
+  "limits": [
+    "This is a source-level assessment, not execution of E659 test fixtures, E444, runtime, Workbench or native workflow.",
+    "No source, code, tests, Git or Journal changes."
+  ],
+  "polish": {
+    "plan_sha256": "a83e52d121a6c3d0f5991b3f1a031305f77d5c486ea6bd14cd375b462b22abcd",
+    "receipt_sha256": "465b617a0bf7ec96dc5fdce67501de880c110b213560c562f4525bedf73ca771",
+    "before_sha256": "726be776f84cec4df13a3c798889c2c6a6d6d02ade5dff623c0e1f6a6d4a7b61",
+    "after_sha256": "d9da22cefdd705463de1d23266a6f5b14f17f0c19e2269cc3f1a4bdd65300e9f",
+    "check": "Only updated_at changed in metadata and the obsolete Draft source pin tail was removed; ID, version, Summary, Claim and retained Details are unchanged. The before hash matches Draft creation, the actual after hash matches the polish plan and receipt pins the plan."
+  },
+  "dependency_addendum": {
+    "result": "FOUR_TERM_DRAFTS_PLUS_EXACT_R2275_RETIREMENT",
+    "smallest_atomic_change": [
+      "CA-R-2765@1",
+      "CA-E-659@4",
+      "CA-R-1319@29",
+      "CA-M-450@5",
+      "retire exact CA-R-2275@2"
+    ],
+    "existing_authority": [
+      "Current CA-R-1318@33 declares Term kind and Method/Form owner; its proposed @34 changes Subject metadata but not its Claim.",
+      "Current CA-R-1931@18 allows a defining Atom to introduce its governed Entity; its proposed @19 preserves that operative rule. Current CA-R-1194@32 separately permits a defining Atom to introduce its governed target.",
+      "Current CA-R-2513 declares Method; CA-R-2702/2703 declare Header Role/Form; Current CA-D-657 supplies the encoding. The new R2765 admits the specific Method Form.",
+      "Proposed R1319@29 admits flat Term//ID and one Method owner; M450@5 explicitly introduces that target and retains its meaning; proposed E659@4 checks this binding."
+    ],
+    "not_required": "The proposed twelve Entity/Property Drafts, including held CA-R-1284@28, are not prerequisites for this bounded four-source repair. Proposed R1318@34 and R1931@19 may be adopted separately after their own review; their relevant Claimed semantics already exist in Current versions.",
+    "remaining_boundary": "Current R1284 has separately stale Entity scope and legacy metadata/source prose. This packet does not repair that broader source debt or restore Entity, and this conclusion is not a claim of global model coherence. No E659 or E444 fixtures were executed."
+  }
+}

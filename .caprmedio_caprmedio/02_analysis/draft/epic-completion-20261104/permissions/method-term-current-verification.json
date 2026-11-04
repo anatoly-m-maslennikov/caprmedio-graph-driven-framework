@@ -1,0 +1,41 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "plan_sha256": "4697701a229d574ad0bbbf807f970893cf06d13b756f2660b098a48e30099f60",
+  "outputs": [
+    {
+      "atom_id": "CA-R-2765",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2765-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md",
+      "sha256": "e9b2fd6cf2f73a7c1848d17ff63c046ade85cc41e491fedc184e4d68f2d1c4b7"
+    },
+    {
+      "atom_id": "CA-E-659",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-659-CORE_META_MODEL-EVAL_CASE--check-term-definition-well-formedness.md",
+      "sha256": "c400a6c4e61401085e9a8cc9893e0390bce678cb5102ca9f6c1acda4c278d8e2"
+    },
+    {
+      "atom_id": "CA-R-1319",
+      "version": 30,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md",
+      "sha256": "21b684d174f9b450a7eae907ab50f2b213b02a9033d3695fda52188c450ecdbd"
+    },
+    {
+      "atom_id": "CA-M-450",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-450-CORE_META_MODEL-TERM_DEFINITION--define-id.md",
+      "sha256": "2e0317311d74521f26e7ca32e367e7c340013206e95a78ae4bc2d7065f00fb44"
+    }
+  ],
+  "checks": [
+    "All 13 operation results match plan bytes or expected absence, receipt pins plan, and the four consumed Drafts are absent. Four Current bodies match reviewed consumed Draft bodies; Active status, expected versions, CA-SU-11 containment and file destinations are correct.",
+    "Three predecessor archives match exact prior Current bytes. Retired R2275@2 is absent from Current and its archived bytes match the exact preserved preimage. The four previously pinned older archived sources are unchanged.",
+    "M450@6 preserves the ID meaning Claim and is the sole Active Method/Form Term Definition with exact Term//ID Subject in the native Core Method directory.",
+    "Source-level E659 assessment remains supported: one ID term and Claim, qualified Method Form admitted by R2765, matching-prefix scope, explicit Term//ID target, and retained binding and error constraints. No fixture execution is implied.",
+    "Every operation is confined to the native Core source tree; no Workbench, Workflow, implementation or fixture path occurs. Plan and receipt state no native Workflow admission or Journal append."
+  ],
+  "limits": [
+    "Old frozen reference preservation is bounded to pinned archived records and the operation set; other historical/generated files were not rescanned.",
+    "Manual source adoption and source-level review are not runtime or executable E659/E444 results; no tests or Git operations were run."
+  ]
+}

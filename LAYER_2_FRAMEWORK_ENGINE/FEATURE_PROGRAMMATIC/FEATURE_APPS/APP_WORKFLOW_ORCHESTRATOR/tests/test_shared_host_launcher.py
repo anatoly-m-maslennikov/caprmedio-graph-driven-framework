@@ -22,6 +22,7 @@ from shared_host_launcher_fixtures import (  # noqa: E402
     FakeRunner,
 )
 from shared_mcp_launcher import SharedMcpLauncher, main  # noqa: E402
+from mcp_paths import HEALTH_PATH  # noqa: E402
 
 
 class SharedHostLauncherTests(unittest.TestCase):
@@ -112,12 +113,19 @@ class SharedHostLauncherTests(unittest.TestCase):
 
         config = load_host_runtime_config(self.settings)
         runner = FakeRunner(config)
-        result = SharedMcpLauncher(
-            runner=runner, opener=lambda *_args, **_kwargs: FakeResponse(b'{"ready": true}')
-        ).apply(self.settings, IMAGE, readiness_timeout=1)
+        health_urls = []
+
+        def open_health(url, **_kwargs):
+            health_urls.append(url)
+            return FakeResponse(b'{"ready": true}')
+
+        result = SharedMcpLauncher(runner=runner, opener=open_health).apply(
+            self.settings, IMAGE, readiness_timeout=1
+        )
         self.assertEqual("started", result["outcome"])
         self.assertTrue(result["ready"])
         self.assertGreaterEqual(len(runner.commands), 3)
+        self.assertEqual([f"http://127.0.0.1:54321{HEALTH_PATH}"], health_urls)
 
     def test_readiness_budget_starts_after_successful_docker_start(self):
         from host_runtime_config import load_host_runtime_config

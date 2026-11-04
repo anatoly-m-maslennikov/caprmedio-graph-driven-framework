@@ -3,8 +3,8 @@ atom_id: CA-P-2694
 label: Epic
 status: Active
 tier: 3
-version: 59
-updated_at: 2026-11-04 16:52:59 +0400
+version: 60
+updated_at: 2026-11-04 18:23:51 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations:
@@ -61,6 +61,10 @@ The current 11 Occurrent Declaration proposals reflect the settled Operator deci
 
 
 The blocking Relation pair is explicit: IS_BLOCKED_BY is Direct from the dependent Plan to its prerequisite; BLOCKS is the Derived inverse. Store the Direct fact on the dependent Plan. The six-Atom source batch includes endpoint permissions, Delivery, authoring and Evaluation. CA #3 owns conversion of existing prerequisite-side relations.blocks facts to dependent-side relations.IS_BLOCKED_BY facts, preserving their meaning and history.
+
+The Operator excludes Workbench and Workflows from this source lane: their agents own that work. Keep their required Epic gates as external dependencies. The prepared Occurrent/Workflow packet remains unpromoted here.
+
+Term Definition is now an admitted Method Form under R2765. M450 is the sole Current ID Term meaning owner; exact R2275@2 is retired. Twelve Entity/Property Drafts remain held for obsolete scope fields and Subject paths.
 
 ## Remaining work
 

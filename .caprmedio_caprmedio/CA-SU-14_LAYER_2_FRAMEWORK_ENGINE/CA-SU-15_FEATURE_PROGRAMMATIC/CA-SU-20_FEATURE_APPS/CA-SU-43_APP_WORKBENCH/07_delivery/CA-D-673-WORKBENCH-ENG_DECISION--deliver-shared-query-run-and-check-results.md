@@ -3,7 +3,7 @@ atom_id: CA-D-673
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
-version: 4
+version: 6
 author: Anatoly Maslennikov
 role: Delivery
 form: Eng Decision
@@ -19,7 +19,7 @@ carrier_destination:
   file:
     name: CA-D-673-WORKBENCH-ENG_DECISION--deliver-shared-query-run-and-check-results.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery
-updated_at: 2026-11-04 07:39:08 +0400
+updated_at: 2026-11-04 16:59:55 +0400
 ---
 
 ## Summary
@@ -28,21 +28,16 @@ Deliver shared query Run and Check results
 
 ## Claim scope
 
-The synchronous native SQL connector, MCP Run and Check operations, and their shared Web representation.
+The synchronous SQL, MCP and web Run, Page and Check interfaces.
 
 ## Claim
 
 ### Prose Claim
 
-MCP and web Run and Check requests must invoke one shared native SQL connector directly and synchronously. They add no planner, scheduler, Workflow, queue, job, or second executor. The connector follows native DuckDB SQL semantics and adds no custom SQL-like or CFEL query parser.
+Use one shared synchronous native DuckDB and DuckPGQ connector. Serve MCP through `/caprmedio/mcp`. Public tools are `query_run`, `query_page` and `query_check`; the web uses the same capability. No queue, job, planner or second executor is required.
 
-The same connector accepts native DuckPGQ SQL/PGQ graph queries, including `GRAPH_TABLE` with `MATCH`, over the registered in-memory property graph. Ordinary SQL can combine graph results with CTEs, joins, filters, and aggregates. Graph queries read the materialized direct and declared-derived facts; they do not synthesize another inverse or change source files. No CAPRMEDIO `expand()` API or separate graph-query endpoint is required. The existing complete-result and read-only contracts apply to graph queries too.
+Run accepts `sql` and optional `page_size` (default 100, maximum 1,000). It returns `query_id`, ordered `columns` (name and native type), positional `rows`, exact total `row_count` and `column_count`, `offset`, `page_size` and `has_more`. Page accepts `query_id`, a non-negative integer `offset` and optional `page_size`, and returns the same result shape. Page reads the stable materialized result; it does not rerun SQL. Check accepts `sql` and returns validity and exact counts, or its query error, without sending all rows.
 
-Run must return the complete query result, column names and types, row count, and column count. Check must return validity and exact row and column counts, or the query error. Query errors are returned to the caller, never as an empty successful result. Neither operation silently adds a limit or truncates rows; if a transport cannot carry a complete result, it reports that limitation explicitly. Source-file errors remain a separate stderr channel with source path, error, and available line or column.
+Preserve duplicate column names positionally. Encode ordinary JSON values losslessly; encode integers outside JavaScript's safe range and Decimal values as strings, dates/times as ISO strings and binary values as `base64:` strings. Apply conversion recursively to lists and string-keyed mappings. Non-finite numbers, non-string mapping keys and unsupported values produce a delivery error. Counts remain integers. Do not add row hashes to arbitrary SQL results.
 
-Run and Check do not modify source files or the in-memory Projection. The web page presents ordinary rows through this connector and does not define a second result format, renderer, or custom result view.
-
-Projection row hashes belong to the indexed `atoms` and `scope_units` rows; Run and Check do not automatically hash arbitrary SQL result rows.
-
-
-Return ordered column names and native SQL types with positional row arrays, so duplicate column names remain distinct. Use ordinary JSON values where lossless. Encode integers outside JavaScript's safe range and Decimal values as decimal strings, dates/times as ISO strings, and binary values as `base64:` strings. Apply the same conversion recursively to lists and string-keyed mappings. Unsupported non-finite numbers, non-string mapping keys, or unrepresentable values produce an explicit delivery error rather than silent coercion. Row and column counts remain ordinary integers.
+Keep source-file errors on stderr with their source path. Return known query and page errors to their originating caller. Source files and source-derived facts remain unchanged by public queries; internal result tables are disposable cache, not a third public source table.

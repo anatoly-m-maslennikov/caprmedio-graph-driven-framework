@@ -266,7 +266,7 @@ source:
   - CA-E-656@21
   - CA-E-657@8
   - CA-E-658@14
-  - CA-E-659@3
+  - CA-E-659@5
   - CA-E-661@4
   - CA-E-666@4
   - CA-E-667@3
@@ -363,7 +363,7 @@ source:
   - CA-M-447@5
   - CA-M-448@4
   - CA-M-449@3
-  - CA-M-450@4
+  - CA-M-450@6
   - CA-M-451@4
   - CA-M-452@3
   - CA-M-453@3
@@ -482,7 +482,7 @@ source:
   - CA-R-1316@32
   - CA-R-1317@31
   - CA-R-1318@33
-  - CA-R-1319@28
+  - CA-R-1319@30
   - CA-R-1320@26
   - CA-R-1321@35
   - CA-R-1324@27
@@ -819,7 +819,6 @@ source:
   - CA-R-2256@4
   - CA-R-2257@5
   - CA-R-2272@5
-  - CA-R-2275@2
   - CA-R-2276@6
   - CA-R-2277@4
   - CA-R-2278@3
@@ -1092,6 +1091,7 @@ source:
   - CA-R-2747@1
   - CA-R-2748@1
   - CA-R-2762@2
+  - CA-R-2765@2
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1166,7 +1166,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 16:54:30 +0400
+updated_at: 2026-11-04 18:23:12 +0400
 ---
 
 ## Primary entities
@@ -1178,6 +1178,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 NARROWER_THAN: `/`
 
 ```text
+(.Header.Form:Term Definition)
 CFEL
 Cardinality
 Carrier
@@ -1344,3 +1345,5 @@ THEN ($atom.Header.Subjects.Active{==1}) — CA-R-2714@2
 - IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
 FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
 ) — CA-R-2721@2
+- CA-R-2765@2: NARROWER_THAN binding `Atom/(.Header.Role:Method)/(.Header.Form:Term Definition)` -> `Atom/(.Header.Role:Method)` has an undeclared endpoint.
+- CA-R-2765@2: NARROWER_THAN binding `Atom/(.Header.Role:Method)` -> `Atom` has an undeclared endpoint.

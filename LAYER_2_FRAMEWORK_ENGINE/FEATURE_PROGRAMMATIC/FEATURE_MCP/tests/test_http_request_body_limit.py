@@ -15,6 +15,7 @@ if str(MCP_ROOT) not in sys.path:
     sys.path.insert(0, str(MCP_ROOT))
 
 from http_server import MAX_REQUEST_BODY_SIZE, create_app  # noqa: E402
+from http_paths import MCP_PATH  # noqa: E402
 
 
 # The current execute JSON-RPC envelope measured 7,266,044 mostly ASCII
@@ -57,7 +58,7 @@ class HttpRequestBodyLimitTests(unittest.TestCase):
         self.assertEqual(len(body), CURRENT_RELEASE_ENVELOPE_BYTES)
         self.assertGreater(len(body), 4 * 1024 * 1024)
         self.assertLess(len(body), MAX_REQUEST_BODY_SIZE)
-        response = self.client.post("/mcp", headers=self.headers, content=body)
+        response = self.client.post(MCP_PATH, headers=self.headers, content=body)
         self.assertEqual(response.status_code, 200)
         self.assertIn("mcp-session-id", response.headers)
         self.assertIn("protocolVersion", response.text)
@@ -67,7 +68,7 @@ class HttpRequestBodyLimitTests(unittest.TestCase):
         oversized = b"x" * (MAX_REQUEST_BODY_SIZE + 1)
         for body in (oversized, iter((oversized[:4 * 1024 * 1024], oversized[4 * 1024 * 1024:]))):
             with self.subTest(streamed=not isinstance(body, bytes)):
-                response = self.client.post("/mcp", headers=self.headers, content=body)
+                response = self.client.post(MCP_PATH, headers=self.headers, content=body)
                 self.assertEqual(response.status_code, 413)
                 self.assertNotIn("mcp-session-id", response.headers)
 
@@ -76,7 +77,7 @@ class HttpRequestBodyLimitTests(unittest.TestCase):
         for extra, status in (({"host": "attacker.invalid"}, 421),
                               ({"origin": "https://attacker.invalid"}, 403)):
             with self.subTest(extra=extra):
-                response = self.client.post("/mcp", headers={**self.headers, **extra}, content=body)
+                response = self.client.post(MCP_PATH, headers={**self.headers, **extra}, content=body)
                 self.assertEqual(response.status_code, status)
                 self.assertNotIn("mcp-session-id", response.headers)
 

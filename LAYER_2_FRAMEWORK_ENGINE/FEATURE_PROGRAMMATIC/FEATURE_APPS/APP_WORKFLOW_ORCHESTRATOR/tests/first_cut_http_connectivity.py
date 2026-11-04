@@ -5,7 +5,16 @@ from __future__ import annotations
 import re
 import socket
 from collections.abc import Mapping
+from pathlib import Path
+import sys
 from urllib.parse import urlsplit
+
+
+_DOCKER = Path(__file__).resolve().parents[1] / "docker"
+if str(_DOCKER) not in sys.path:
+    sys.path.insert(0, str(_DOCKER))
+
+from mcp_paths import MCP_PATH  # noqa: E402
 
 
 _REDACTED = "[redacted]"
@@ -17,24 +26,24 @@ _PUBLISHER_FIELDS = ("URL", "TargetPort", "PublishedPort", "Protocol")
 def _advertised_loopback(url: str) -> tuple[str, int]:
     """Validate the sole admitted published endpoint before opening a socket."""
     if not isinstance(url, str):
-        raise ValueError("HTTP MCP URL must be explicit loopback http://127.0.0.1:<port>/mcp")
+        raise ValueError(f"HTTP MCP URL must be explicit loopback http://127.0.0.1:<port>{MCP_PATH}")
     try:
         parsed = urlsplit(url)
         port = parsed.port
     except ValueError as error:
-        raise ValueError("HTTP MCP URL must be explicit loopback http://127.0.0.1:<port>/mcp") from error
+        raise ValueError(f"HTTP MCP URL must be explicit loopback http://127.0.0.1:<port>{MCP_PATH}") from error
     if not (
         parsed.scheme == "http"
         and parsed.hostname == "127.0.0.1"
         and port is not None
         and 1 <= port <= 65535
-        and parsed.path == "/mcp"
+        and parsed.path == MCP_PATH
         and not parsed.query
         and not parsed.fragment
         and parsed.username is None
         and parsed.password is None
     ):
-        raise ValueError("HTTP MCP URL must be explicit loopback http://127.0.0.1:<port>/mcp")
+        raise ValueError(f"HTTP MCP URL must be explicit loopback http://127.0.0.1:<port>{MCP_PATH}")
     return "127.0.0.1", port
 
 

@@ -51,12 +51,12 @@ uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-e
 Append `--apply` only as an explicit operator start after the immutable image
 includes the intended source changes and the release gate has passed. Readiness
 is reported only after Docker readback verifies the image, mounts, loopback
-publication, and `/health`; a Docker error or unverified readiness is not a
+publication, and `/caprmedio/health`; a Docker error or unverified readiness is not a
 started/ready claim. No `--apply` invocation is implied by this document.
 
 The shared listener publishes one loopback host port configured by
-`shared_mcp.http_port` to container port `8092`, with MCP at `/mcp` and health
-at `/health`. Do not start it on the current production port `56317`; preserve
+`shared_mcp.http_port` to container port `8092`, with MCP at `/caprmedio/mcp` and health
+at `/caprmedio/health`. Do not start it on the current production port `56317`; preserve
 the legacy runtime there until a coordinated replacement is authorized. Tests
 use non-production ports and fakes.
 

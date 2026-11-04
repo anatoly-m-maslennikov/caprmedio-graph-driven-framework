@@ -26,7 +26,7 @@ class ProjectMcpCommandTests(unittest.TestCase):
 
     def test_json_ready_and_url_ready_outputs(self):
         result = {'disposition': 'started', 'condition': 'READY_STARTED',
-                  'readiness': True, 'url': 'http://127.0.0.1:8099/mcp'}
+                  'readiness': True, 'url': 'http://127.0.0.1:8099/caprmedio/mcp'}
         code, output, launch = self.invoke(result)
         self.assertEqual(0, code)
         self.assertEqual(result, json.loads(output))
@@ -59,7 +59,7 @@ class ProjectMcpCommandTests(unittest.TestCase):
 
     def test_explicit_port_is_forwarded_as_a_project_settings_equality_assertion(self):
         result = {'disposition': 'started', 'condition': 'READY_STARTED',
-                  'readiness': True, 'url': 'http://127.0.0.1:8123/mcp'}
+                  'readiness': True, 'url': 'http://127.0.0.1:8123/caprmedio/mcp'}
         code, output, launch = self.invoke(result, '--port', '8123')
         self.assertEqual(0, code)
         self.assertEqual(result, json.loads(output))

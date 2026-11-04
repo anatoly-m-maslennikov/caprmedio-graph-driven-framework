@@ -52,14 +52,6 @@
   },
   "authority_sources": [
     {
-      "id": "CA-R-2462",
-      "version": 4,
-      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
-      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c",
-      "published_sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c",
-      "matches_published_hash": true
-    },
-    {
       "id": "CA-R-1247",
       "version": 24,
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1247-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
@@ -77,11 +69,18 @@
     },
     {
       "id": "CA-R-2473",
-      "version": 5,
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
-      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00",
-      "published_sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00",
-      "matches_published_hash": true
+      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00"
+    },
+    {
+      "id": "CA-R-2621",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2621-CORE_META_MODEL-DECLARATION--declare-has-property.md",
+      "sha256": "c51142ed47d1f6a98da90b3a0f0708156c25c1b3bdc98b27a4a819b9bd3d9618"
+    },
+    {
+      "id": "CA-R-2462",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c"
     }
   ],
   "incoming_refs": {
@@ -940,7 +939,7 @@
         "published_sha256": "caca33e72e9b323d2570792e5cff4b1f1e8cb77adceb2fda24c0cbb4473cb6e5"
       },
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-E-449.preview.txt",
-      "candidate_sha256": "d160f728389c518c6f5d214403181f1d80fa70c4975d42d3b04559a07f547382",
+      "candidate_sha256": "2d186cca881910bf0eca62aff10e420be12e3381420221454a9be082df7da482",
       "candidate_version": 45,
       "notes": "Replace exact typed Entity/Property kind references with Node.**; ordinary Entity wording and Term//Property remain unchanged."
     },
@@ -979,7 +978,7 @@
         "published_sha256": "47048137a76a2cb71acc40277f94fb59f4d619af5c498ab7349bf55da7fe1d36"
       },
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-R-1284.preview.txt",
-      "candidate_sha256": "4b95a6b5b861af07aaa5e78a56dd0b6e8d4a40c26a0e5dbcb20b08e2cf627825",
+      "candidate_sha256": "d9ad5a46f63b2797cf9a27e3c82fdbb8cebb185822bed74f7e4a1e4293be41f0",
       "candidate_version": 28,
       "notes": "Replace exact typed Entity/Property kind references with Node.**; ordinary Entity wording and Term//Property remain unchanged."
     },
@@ -992,7 +991,7 @@
         "published_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b"
       },
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-R-1931.preview.txt",
-      "candidate_sha256": "f0a0cc8b2d8bdf11683fa81f7c0ef697493d3c445997b4a8227ea69e32ba681b",
+      "candidate_sha256": "4950e465851c33a2cd10bff44ab07ebb6f3a39f0493661f099d00fb10c27bc8c",
       "candidate_version": 19,
       "notes": "Replace exact typed Entity/Property kind references with Node.**; ordinary Entity wording and Term//Property remain unchanged."
     }
@@ -1663,5 +1662,5 @@
     }
   ],
   "unpreviewed_entity_property_refs": [],
-  "preview_metadata_note": "Candidates increment the existing source version and omit updated_at; root assigns the actual timestamp upon authorized application. No Current source changed."
+  "preview_metadata_note": "R1284 embedded obsolete version-23 self-source pin removed (live source pin retained here at v27). E449 now cites Current property relation and Node declarations instead of pending Drafts. R1931 no longer labels Current operator-approved notation rules as Draft proposals; no grammar was changed in this preview update."
 }

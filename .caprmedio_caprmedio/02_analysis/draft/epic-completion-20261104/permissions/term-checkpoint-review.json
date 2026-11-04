@@ -1,0 +1,20 @@
+{
+  "verdict": "PASS_INTEGRITY_WITH_OPEN_INHERITANCE_DIAGNOSTICS",
+  "frontier_sha256": "bb7f39d642e75bb88a65c0618688ceb88e1935a94d24771d6a38fc4e0af132d5",
+  "generation_manifest_sha256": "e47c6eb79d0141803fa99172eb47ce0e71ddf74bf1df53da0e0e5501feca9be3",
+  "planning_plan_sha256": "42fa9ba5cf4bf888c159cc01b937180f2b175a6c90f7d44bcb4002035ba5a462",
+  "checks": [
+    "All 1,160 selected Current suppliers match IDs, versions, Active status and bytes; relative to prior selection only R2765 is added and R2275 removed.",
+    "Seven published projections and staged copies match output hashes, exact predecessor snapshots match their pins, Form and Project scope match metadata, and each source reference set equals the frontier. Frozen projections 014\u2013019 match prior pins.",
+    "Rendered attribution pins checked in 021\u2013023 resolve only to Current Requirement/Declaration sources; named primary-entity headings do not enumerate Relation descriptor objects. This check does not purport to validate every possible renderer structure.",
+    "Audit data and manifest both report 55 missing and 23 unresolved.",
+    "P2694@60 and exact @59 predecessor match the two-operation plan and receipt; the 23-group acceptance matrix remains referenced and required, Workbench and Workflows are excluded from this lane and remain external gates. Operations touch only the Epic and its archive."
+  ],
+  "open_diagnostics": [
+    "The generator reports two inheritance diagnostics in CA-PROJ-023 for CA-R-2765@2: the Method/Form-to-Method and Method-to-Atom narrower bindings have undeclared endpoints in the generator output. They are retained visibly; do not present the refreshed projection as fully resolved.",
+    "Completed-baseline paragraphs retain earlier 1,159-source and 56/23 capability-batch numbers; the latest frontier and audit above are the current result."
+  ],
+  "limits": [
+    "Read-only source/data verification; no runtime or fixture execution, Git or Journal operations. No independent Journal/native Workflow audit beyond plan and receipt."
+  ]
+}

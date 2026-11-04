@@ -1,0 +1,157 @@
+{
+  "schema": "method-form-term-definition/1",
+  "status": "SOURCE_ONLY_PREVIEWS",
+  "canonical_mutation": false,
+  "decision_basis": {
+    "approved_decision": "Keep Term registry and Term//ID; authoritative Term Definitions are Method/Form (not Method Type).",
+    "gap": "Current M450 uses Method/Form Term Definition and exactly introduces Term//ID, while current R1319 Claim and Details still say Method Type. A narrow same-Summary Type-to-Form preview closes that wording conflict; a separate Form Declaration admits the Form and E659 evaluates it.",
+    "resolution": "Prepare one exact Method/Form Declaration and a minimal E659 terminology/prerequisite correction. Root allocates the declaration ID after checking full history. Do not restore archived CA-R-2453 as Current.",
+    "inherited_structure": "The qualified Method Form specializes and retains the existing Method role under CA-R-2513; declaration creates no alternate Method kind or new meaning-owner policy."
+  },
+  "sources": [
+    {
+      "id": "CA-R-1319",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md",
+      "sha256": "4be252149f4ba5a0466f51fbe71236f12c0001af625da18aab906ae806480f3b",
+      "version": 28,
+      "matches_pin": true
+    },
+    {
+      "id": "CA-R-2468",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2468-CORE_META_MODEL-RULE--declaration-form-registration.md",
+      "sha256": "73d3a8c103cd2d7e8ad75c630b79ec06f2bb4c96ff0d5471e898451ca69d625c",
+      "version": 2,
+      "matches_pin": true
+    },
+    {
+      "id": "CA-R-2513",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2513-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "sha256": "227b9bffb12923ffdd7d158e8c3f90604257c3f2dee3226d71f175004a483d78",
+      "version": 2,
+      "matches_pin": true
+    },
+    {
+      "id": "CA-E-659",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-659-CORE_META_MODEL-EVAL_CASE--check-term-definition-well-formedness.md",
+      "sha256": "fe1f7e9d82f5585c59a1eaeafe3f88db1120ba0f23db79ea1a3870d175a24374",
+      "version": 3,
+      "matches_pin": true
+    },
+    {
+      "id": "CA-M-450",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-450-CORE_META_MODEL-TERM_DEFINITION--define-id.md",
+      "sha256": "419fdb8b83d9df113d27b3472fb26d345063961e9a3a8d2164ea4c6ce6627b2f",
+      "version": 4,
+      "matches_pin": true
+    },
+    {
+      "id": "CA-R-2453@2 archived",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2453@2-CORE_META_MODEL-ENTITY_DEFINITION--define-method-type-term-definition.md",
+      "sha256": "8eb5787317d386f617bb0d5fa6a5b3323633388062ab445f46cc9163d5e39bf5",
+      "version": 2,
+      "matches_pin": true
+    },
+    {
+      "id": "id-term-source-review",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/id-term-source-review.json",
+      "sha256": "998c08e24001574d792aaaa64a07549b19e86c3f58f56bdb15e3b1e39f0a2603",
+      "matches_pin": true
+    },
+    {
+      "id": "CA-R-1194",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+      "sha256": "f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57",
+      "matches_pin": true,
+      "version": 32
+    },
+    {
+      "id": "CA-R-1931",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "matches_pin": true,
+      "version": 18
+    },
+    {
+      "id": "CA-R-1318",
+      "version": 33,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+      "sha256": "35014effa7d6d7ab7f57e2b5dddae8523f151b2208842d0e97bfe1661107e273",
+      "matches_pin": true
+    }
+  ],
+  "previews": [
+    {
+      "id": "CA-R-<ROOT_ALLOCATES>",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/id-term-resolution/method-form/CA-R-ALLOCATE-declare-method-form-term-definition.preview.txt",
+      "candidate_sha256": "95bd508700576262ca45f3c75be0701a90407fa53250e1ac394e3e0ce520f3b8",
+      "candidate_version": 1,
+      "summary": "Declare Term Definition as a Method Form",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)",
+      "allocation": "Unallocated placeholder; root chooses a new Requirement ID and path after complete-history check.",
+      "timestamp_assignment": "Root supplies adoption timestamp.",
+      "version_assignment": "New Declaration starts at version 1; root assigns ID, path and timestamp."
+    },
+    {
+      "id": "CA-E-659",
+      "base_version": 3,
+      "candidate_version_on_adoption": 4,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-659-CORE_META_MODEL-EVAL_CASE--check-term-definition-well-formedness.md",
+      "source_sha256": "fe1f7e9d82f5585c59a1eaeafe3f88db1120ba0f23db79ea1a3870d175a24374",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/id-term-resolution/method-form/CA-E-659.preview.txt",
+      "candidate_sha256": "9a47148e7e3d191329aff01a557b1b3dddaf6c6197cf4e1e03aa4edeacfec230",
+      "scope": "Replace obsolete Method Type prerequisite with the explicit Method Form declaration placeholder and existing CA-R-2513 Method-role declaration. State exact Term//ID binding under R1318/R1319 and explicit target admission under R1194/R1931. Preserve local well-formedness, uniqueness, uncertainty and failure constraints.",
+      "timestamp_assignment": "Root supplies adoption timestamp.",
+      "version_assignment": "Candidate next version 4; root assigns timestamp."
+    },
+    {
+      "id": "CA-R-1319",
+      "base_version": 28,
+      "candidate_version_on_adoption": 29,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md",
+      "source_sha256": "4be252149f4ba5a0466f51fbe71236f12c0001af625da18aab906ae806480f3b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/id-term-resolution/method-form/CA-R-1319.preview.txt",
+      "candidate_sha256": "e13b48d7f09fbbd4a81be8746a1aaa63293eecb06795570a00dbc8e26beb4a3a",
+      "summary_preserved": "Define Governed Term",
+      "scope": "Exact two Type-to-Form replacements in Claim and Details; all other bytes and constraints retained."
+    }
+  ],
+  "non_actions": [
+    "Do not restore archived CA-R-2453.",
+    "Do not retire R2275 until Method Form is admitted and M450 passes E659.",
+    "Do not change ID meaning, Term registry, parser, runtime, Current sources, or source history."
+  ],
+  "target_binding_review": {
+    "term_kind": {
+      "id": "CA-R-1318",
+      "version": 33,
+      "claim": "CA-R-1318@33 defines Term as a reusable lexical kind and references Term//ID; it does not by itself define ID meaning."
+    },
+    "governed_term_rule": {
+      "id": "CA-R-1319",
+      "current_version": 28,
+      "current_claim": "Current Claim still says Method Type; the pinned candidate changes only Type-to-Form wording.",
+      "candidate": "Exactly one active Method/Form Term Definition owns each governed Term.",
+      "current_target_family": "Term//<Name>",
+      "approved_target": "Term//ID"
+    },
+    "target_admission": {
+      "sources": [
+        {
+          "id": "CA-R-1194",
+          "version": 32
+        },
+        {
+          "id": "CA-R-1931",
+          "version": 18
+        }
+      ],
+      "rule": "A defining Claim may explicitly introduce its governed lexical Term target; lexical composition and type/form declaration alone do not create the target."
+    },
+    "m450": {
+      "active_subject": "CAPRMEDIO_MODEL <+ Term//ID",
+      "claim": "Explicitly introduces the lexical Term instance named ID at Term//ID."
+    },
+    "e659_fixture": "Explicit ID Term Definition fixture governs Term//ID and requires target binding evidence; the new Method Form declaration admits only the form and does not create or rename any Term target.",
+    "result": "M450 and E659 use the exact existing flat Term//ID target. CA-R-1318 defines Term, R1319 names the flat Term//Name family including Term//ID, and R1194/R1931 allow explicit claim introduction. New Form Declaration does not create or rename any target or namespace."
+  }
+}

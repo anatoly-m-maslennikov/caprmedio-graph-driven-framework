@@ -3,7 +3,7 @@ atom_id: CA-D-675
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
-version: 4
+version: 7
 author: Anatoly Maslennikov
 role: Delivery
 form: Eng Decision
@@ -18,7 +18,7 @@ carrier_destination:
   file:
     name: CA-D-675-WORKBENCH-ENG_DECISION--place-duckdb-projection-in-rebuildable-runtime-state.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery
-updated_at: 2026-11-04 07:39:08 +0400
+updated_at: 2026-11-04 18:14:51 +0400
 ---
 
 ## Summary
@@ -27,20 +27,20 @@ Place the DuckDB Projection in rebuildable runtime state
 
 ## Claim scope
 
-The in-memory placement, direct model parsing, and trusted-query boundary of the Workbench query Projection.
+The Project-local DuckDB runtime files, bundled dependencies and container delivery.
 
 ## Claim
 
 ### Prose Claim
 
-The existing application must own the rebuildable DuckDB Projection and direct Current-model reader in memory. Source files are read directly; no DuckDB database file, derived database path, on-disk schema, cache, stored intermediate source or materialized data, or spill file is delivered. The public table surface remains exactly the in-memory `atoms` and `scope_units` tables. Ordinary internal cache updates are runtime maintenance, not logical Projection mutations.
+Deliver the rebuildable DuckDB database at `.caprmedio_runtime/workbench/projection.duckdb` in the selected repository. Keep internal materialized query results and owned spill data in that runtime directory. Rebuild source tables and clear old results at startup. Do not store source-byte copies, intermediate schema files or a second source of truth.
 
-Deliver DuckDB `2.0.0` with an image-bundled DuckPGQ extension in the WORKBENCH Docker image. The image contains the selected pair; startup does not download an extension or require a separate database server. Trusted startup loads the extension, enables the selected version's native SQL/PGQ grammar, builds the in-memory graph, and only then accepts public queries.
+Expose only `main.atoms` and `main.scope_units` as public source tables. Internal graph mappings and generated result tables are disposable implementation state. Source files remain authoritative and unchanged by queries.
 
-The Trusted SQL MVP admits exactly one native `SELECT` and executes it inside a native `BEGIN TRANSACTION READ ONLY` boundary. External access is disabled and the relevant configuration is locked for public requests. The contract requires no spill to disk and no file-based read-only connection switch. DuckPGQ native graph queries remain available through the selected extension; no custom SQL parser or traversal API is added.
+Bundle DuckDB `2.0.0` and its compatible DuckPGQ extension in the existing application image. Load the extension and grammar at trusted startup without downloading it at runtime. Disable external access and lock public configuration after startup. Admit native read queries only; trusted internal source refresh and result materialization use native write transactions with COMMIT. Do not add application retries, rollback or automatic recovery.
 
-DuckPGQ internal management calls are unsupported for public requests. Even under a read-only transaction, an unsupported internal call may invalidate the connection. Report an explicit engine error that says restart is required; do not promise a capability sandbox or automatic query retry. An ordinary SQL error leaves the connection usable for the next request. Source files remain the authority, and a failed source or graph refresh is reported rather than repaired or hidden.
+Build Svelte + TypeScript + Vite assets during image construction and serve the static output through Python. No Node server is needed at runtime. Deliver `/caprmedio/workbench`, `/caprmedio/mcp` and `/caprmedio/health` on the configured listener.
 
-The in-memory Projection and property graph are rebuildable and do not edit, move, archive, promote, or replace source Atoms. Publish source rows, materialized outgoing Relations, row hashes, and graph mappings as one synchronized state. Restart WORKBENCH after code changes; hot-reload owner handoff is outside this MVP.
+The current Project container has a `1536m` memory budget. Keep query delivery bounded and let DuckDB spill within the owned runtime directory. Measure real-repository queries and refreshes against this budget; increasing RAM alone is not a substitute for paging. Report storage and engine errors explicitly. A failed owner requires an explicit restart.
 
-Use the single in-memory connection directly. Complete successful native transactions with COMMIT. Do not add application rollback, candidate-database swapping, retries, or automatic connection recovery. Report failures to stderr and the originating caller; a failed owner may require explicit restart.
+Include the locked `pytz` dependency in the Workbench runtime group so native DuckDB timestamp-with-time-zone results can be fetched and encoded as ISO strings.

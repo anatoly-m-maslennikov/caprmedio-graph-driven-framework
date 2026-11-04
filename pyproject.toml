@@ -29,7 +29,12 @@ cache-dir = ".caprmedio_tmp/cache/uv"
 validate-atoms = ["pydantic==2.13.5", "PyYAML==6.0.3"]
 validate-atoms-dev = ["ruff==0.16.8", "mypy==2.3.1", "types-PyYAML==6.0.12.20260906"]
 rmed-workflow-mcp = ["mcp==2.3.0", "PyYAML==6.0.3", "jsonschema>=4.23,<5", {include-group = "workbench"}]
-workbench = ["duckdb==2.0.0", "markdown-it-py==4.2.0", "watchfiles==1.3.0"]
+workbench = [
+    "duckdb==2.0.0",
+    "markdown-it-py==4.2.0",
+    "pytz>=2026.6",
+    "watchfiles==1.3.0",
+]
 workflow-orchestrator = ["dbos==2.31.1", "pydantic==2.13.5", "PyYAML==6.0.3"]
 connector-toml = ["tomlkit==0.15.1"]
 

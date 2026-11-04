@@ -12,6 +12,7 @@ from mcp.client.streamable_http import streamable_http_client
 APP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(APP))
 from http_server import create_app  # noqa: E402
+from http_paths import MCP_PATH  # noqa: E402
 
 
 SECRET = "HEALTH_FIXTURE_SECRET"
@@ -90,7 +91,7 @@ class HealthHTTPFixture(unittest.IsolatedAsyncioTestCase):
             base_url="http://127.0.0.1:18092",
         )
         transport = streamable_http_client(
-            "http://127.0.0.1:18092/mcp", http_client=client
+            "http://127.0.0.1:18092" + MCP_PATH, http_client=client
         )
         streams = await transport.__aenter__()
         session = ClientSession(*streams)

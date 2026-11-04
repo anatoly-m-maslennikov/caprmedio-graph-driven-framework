@@ -6,6 +6,7 @@ from types import SimpleNamespace
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from health_fixture import HealthHTTPFixture, PROVIDER_DIAGNOSTIC, SECRET
 from health_page import render_health_page
+from http_paths import HEALTH_PATH
 
 
 SAFE_OUTCOMES = {
@@ -39,35 +40,35 @@ class HTTPHealthPageTests(HealthHTTPFixture):
                     headers = self.headers()
                     if accept is not None:
                         headers["accept"] = accept
-                    response = await client.get("/health", headers=headers)
+                    response = await client.get(HEALTH_PATH, headers=headers)
                     self.assertEqual(200, response.status_code)
                     self.assertEqual({"ready": True}, response.json())
 
                 response = await client.get(
-                    "/health", headers=self.headers(accept="text/html;q=1,application/json;q=0.8")
+                    HEALTH_PATH, headers=self.headers(accept="text/html;q=1,application/json;q=0.8")
                 )
                 self.assertEqual(200, response.status_code)
                 self.assertTrue(response.headers["content-type"].startswith("text/html"))
                 self.assertIn("<html", response.text.lower())
 
                 response = await client.get(
-                    "/health", headers=self.headers(accept="text/html;q=0,application/json;q=1")
+                    HEALTH_PATH, headers=self.headers(accept="text/html;q=0,application/json;q=1")
                 )
                 self.assertEqual(200, response.status_code)
                 self.assertEqual({"ready": True}, response.json())
 
                 response = await client.get(
-                    "/health",
+                    HEALTH_PATH,
                     headers=self.headers(accept="text/html;q=.8,application/json;q=0,*/*;q=1"),
                 )
                 self.assertEqual(200, response.status_code)
                 self.assertTrue(response.headers["content-type"].startswith("text/html"))
 
                 self.app.gateway.active = None
-                response = await client.get("/health", headers=self.headers())
+                response = await client.get(HEALTH_PATH, headers=self.headers())
                 self.assertEqual(503, response.status_code)
                 self.assertEqual({"ready": False}, response.json())
-                response = await client.get("/health", headers=self.headers(accept="text/html;q=1"))
+                response = await client.get(HEALTH_PATH, headers=self.headers(accept="text/html;q=1"))
                 self.assertEqual(503, response.status_code)
                 self.assertTrue(response.headers["content-type"].startswith("text/html"))
 
@@ -100,7 +101,7 @@ class HTTPHealthPageTests(HealthHTTPFixture):
                 self.assertIn(row["disposition"], SAFE_DISPOSITIONS)
 
             async with self.raw_client() as client:
-                response = await client.get("/health", headers=self.headers(accept="text/html;q=1"))
+                response = await client.get(HEALTH_PATH, headers=self.headers(accept="text/html;q=1"))
             self.assertEqual(200, response.status_code)
             rendered = response.text.lower()
             self.assertIn("active gateway generation readiness", rendered)
@@ -127,16 +128,16 @@ class HTTPHealthPageTests(HealthHTTPFixture):
                 if path.is_file() and ("journal" in path.name.lower() or "dbos" in path.name.lower())
             )
             async with self.raw_client() as client:
-                response = await client.get("/health", headers=self.headers(accept="text/html;q=1"))
+                response = await client.get(HEALTH_PATH, headers=self.headers(accept="text/html;q=1"))
                 self.assertEqual(200, response.status_code)
                 self.assertNotIn("<script>alert", response.text)
                 for secret in (SECRET, "/private/request/path", PROVIDER_DIAGNOSTIC):
                     self.assertNotIn(secret, response.text)
                 self.assertEqual(421, (await client.get(
-                    "/health", headers=self.headers(host="attacker.invalid")
+                    HEALTH_PATH, headers=self.headers(host="attacker.invalid")
                 )).status_code)
                 self.assertEqual(403, (await client.get(
-                    "/health", headers=self.headers(origin="https://attacker.invalid")
+                    HEALTH_PATH, headers=self.headers(origin="https://attacker.invalid")
                 )).status_code)
             self.assertEqual(before, observations.snapshot())
             marker_after = self.marker.read_text(encoding="utf-8") if self.marker.exists() else ""

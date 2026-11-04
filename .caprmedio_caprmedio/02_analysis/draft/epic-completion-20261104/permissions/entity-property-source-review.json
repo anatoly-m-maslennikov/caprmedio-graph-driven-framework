@@ -1,0 +1,305 @@
+{
+  "verdict": "PASS_APPROVED_ENTITY_PROPERTY_PACKET_AFTER_REFRESH",
+  "scope": "Read-only review of the approved 12-preview Entity/Property resolution packet and CA-M-451 retirement preimage; no later R2275/M450 subsection review.",
+  "packet_manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/manifest.json",
+  "packet_manifest_sha256": "4256d5a8196b318dd689f70159574fa61e3ad46908b73fe749b73bb20464bd0d",
+  "user_decision_checked": "Keep global Term registry and reusable Terms; retire only CA-M-451 Term//Entity; define Property as Node.** with IS_PROPERTY_OF; revise exact typed Entity/Property references to Node.**; retain R2276 broad naming scope and source-admitted unambiguous short names.",
+  "integrity": {
+    "preview_count": 12,
+    "all_current_source_hashes_match": true,
+    "all_preview_hashes_match": true,
+    "all_summaries_preserved": true,
+    "m451_retirement_preimage_sha256": "eb7a86a6a60e74c43f0f1f9a1cb990c3e3e0b8eed7c27701067596ec3ad4c253",
+    "m451_preimage_byte_exact": true,
+    "note": "The preview bodies intentionally change only approved semantic scope: M453 Property meaning; R1247/R2003 Node.** classification and constraints; E444/R2276 the approved naming/root exception cases; remaining incoming-source bodies retain unrelated claims."
+  },
+  "approved_reference_repair": {
+    "Term//Entity_current_typed_subject_refs": {
+      "count": 3,
+      "ids": [
+        "CA-E-444",
+        "CA-M-451",
+        "CA-R-1318"
+      ],
+      "disposition": "M451 is byte-exact retirement preimage; E444 and R1318 previews remove the exact typed target; M451 has no other native Current literal Atom-ID references."
+    },
+    "Entity/Property_current_typed_subject_refs": {
+      "count": 11,
+      "ids": [
+        "CA-E-246",
+        "CA-E-449",
+        "CA-M-125",
+        "CA-M-451",
+        "CA-M-453",
+        "CA-R-1247",
+        "CA-R-1259",
+        "CA-R-1284",
+        "CA-R-1318",
+        "CA-R-1931",
+        "CA-R-2003"
+      ],
+      "disposition": "All ten surviving source carriers have Node.** previews; M451 is retired."
+    },
+    "Term//Property_refs_retained": {
+      "count": 30,
+      "disposition": "Term registry and reusable Property Term remain; no global Term/Property rewrite."
+    },
+    "no_new_Entity_Property_kind": true,
+    "no_unpreviewed_Entity_Property_refs": true
+  },
+  "semantic_checks": {
+    "property_node_scope": {
+      "result": "consistent",
+      "evidence": [
+        "CA-R-2462@4",
+        "CA-R-2473@5",
+        "CA-R-1247@24",
+        "CA-R-2003@16"
+      ],
+      "analysis": "Current R2462 defines Node.** properties and their one outgoing IS_PROPERTY_OF; R2473 defines Property-to-bearer direction and derived HAS_PROPERTY; R1247 retains complete bearer-qualified identity; R2003 retains exactly-one immediate-bearer and missing-edge failure. Primary Node remains distinct from Node.**."
+    },
+    "m453_definition": {
+      "result": "consistent",
+      "analysis": "Defines the reusable Term Property as a Node.** Property with exactly one immediate bearer; preserves Term//Property and relation names. Does not reintroduce Entity/Property."
+    },
+    "r2276_naming": {
+      "result": "consistent_with_approved_change",
+      "analysis": "Active scope remains CAPRMEDIO_MODEL; retains reusable Terms and one-to-one canonical identity; short names are accepted only for exact source-admitted, unambiguous complete expressions. The obsolete Entity-root exception is removed; no aliasing or spelling-only identity is added."
+    },
+    "package_module_code_unit": {
+      "result": "consistent",
+      "analysis": "The chain denotes three connected entities. Check each node/endpoint Package, Module, and Code Unit separately; the complete chain is not one entity and does not create a fourth."
+    }
+  },
+  "findings": [],
+  "carry_forward_limits": [
+    {
+      "id": "CA-E-449",
+      "source_version": 44,
+      "candidate_version": 45,
+      "source_sha256": "caca33e72e9b323d2570792e5cff4b1f1e8cb77adceb2fda24c0cbb4473cb6e5",
+      "issue": "The preview changes only the Subject and version. Its unchanged body still cites pending Draft R1193 and placeholder Draft IS_PROPERTY_OF/HAS_PROPERTY definitions, and explicitly says those Draft links are not Current admission. Current R2462/R2473 provide applicable source authority, but this preview does not reconcile the evaluation body to them.",
+      "effect": "Not a regression in this atomic Subject migration; do not claim E449 fully validates current Property constraints until this existing authority gap is reconciled."
+    },
+    {
+      "id": "CA-R-1931",
+      "source_version": 18,
+      "candidate_version": 19,
+      "source_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "issue": "The preview changes only the typed Subject and version. Its unchanged Details still call the active notation requirements Draft proposals and say no Current operator is changed.",
+      "effect": "Pre-existing source text, not introduced by the Node.** Subject migration; retain as a separately scoped source-coherence follow-up."
+    }
+  ],
+  "authority_pins": {
+    "CA-R-2462": {
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c"
+    },
+    "CA-R-1247": {
+      "version": 24,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1247-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "sha256": "3a1847ad88f2cee8615db4b45c931746771e4508fcccb2ccd22a2967edf1c3f4"
+    },
+    "CA-R-2003": {
+      "version": 16,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "sha256": "6b83ec62b5d30960febc3dbcaadee3d5504be4ff3caa95356745a91f8952b4c0"
+    },
+    "CA-R-2473": {
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00"
+    }
+  },
+  "limits": [
+    "No Current source, archive, Git, code, or tests changed.",
+    "Source hash and candidate hash checks establish packet integrity, not adoption or runtime/validator behavior."
+  ],
+  "previews": [
+    {
+      "id": "CA-M-453",
+      "source_version": 3,
+      "source_sha256": "dd60c8d121d9d8cd62a91aaaa85531012a829bcdac6a106715297f29459c4238",
+      "source_matches_pin": true,
+      "candidate_version": 4,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-M-453.preview.txt",
+      "candidate_sha256": "ceb3cebed9331d8b23f0c5167607861acfdc04fcb43b71b7085373d177d665bd",
+      "candidate_matches_pin": true,
+      "summary_preserved": true,
+      "change_scope": "Same Summary; defines reusable Property Term using Node.** and IS_PROPERTY_OF; no Entity/Property kind ref."
+    },
+    {
+      "id": "CA-R-1247",
+      "source_version": 24,
+      "source_sha256": "3a1847ad88f2cee8615db4b45c931746771e4508fcccb2ccd22a2967edf1c3f4",
+      "source_matches_pin": true,
+      "candidate_version": 25,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-R-1247.preview.txt",
+      "candidate_sha256": "6c99633732a7cb3aa8c77a95dc1fc5f255a5c9fbe9bdbf57c2a8d82f00f0005a",
+      "candidate_matches_pin": true,
+      "summary_preserved": true,
+      "change_scope": "Active scope Node.** for all Properties; complete bearer-qualified identity retained; stale Draft lineage removed."
+    },
+    {
+      "id": "CA-R-2003",
+      "source_version": 16,
+      "source_sha256": "6b83ec62b5d30960febc3dbcaadee3d5504be4ff3caa95356745a91f8952b4c0",
+      "source_matches_pin": true,
+      "candidate_version": 17,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-R-2003.preview.txt",
+      "candidate_sha256": "e10dfe745dd73d448f76fca215101219abbe252807906a70b6999557b9154343",
+      "candidate_matches_pin": true,
+      "summary_preserved": true,
+      "change_scope": "Active scope Node.**; exactly-one bearer and missing-edge behavior retained; stale N+1 boilerplate removed."
+    },
+    {
+      "id": "CA-R-1318",
+      "source_version": 33,
+      "source_sha256": "35014effa7d6d7ab7f57e2b5dddae8523f151b2208842d0e97bfe1661107e273",
+      "source_matches_pin": true,
+      "candidate_version": 34,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-R-1318.preview.txt",
+      "candidate_sha256": "4019bdf47f107d8de75542947324bc527b7b8bb9901957063f3ca5d0d027bb39",
+      "candidate_matches_pin": true,
+      "summary_preserved": true,
+      "change_scope": "Remove Term//Entity and old Entity/Property Subjects; retain global Term Declaration."
+    },
+    {
+      "id": "CA-E-444",
+      "source_version": 34,
+      "source_sha256": "7e851a7da148d0e524705426d81cfb0d45b645110e54bc0b2f1869412538a071",
+      "source_matches_pin": true,
+      "candidate_version": 35,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-E-444.preview.txt",
+      "candidate_sha256": "56f2bfbe75303d5ffd5f165b694143de0082b751e9ebaa9313a4a3f87a866975",
+      "candidate_matches_pin": true,
+      "summary_preserved": true,
+      "change_scope": "Remove Term//Entity and obsolete root-Entity exception fixture; preserve naming tests and the three-endpoint Package chain; short names require exact admitted unambiguous authority."
+    },
+    {
+      "id": "CA-R-2276",
+      "source_version": 6,
+      "source_sha256": "305ea99fee46090bffe1df0d58e49bf6bdc2ad292d964e8e8a646d31d277d633",
+      "source_matches_pin": true,
+      "candidate_version": 7,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-R-2276.preview.txt",
+      "candidate_sha256": "e738ef78908a3646cf7862d182ca5f472bae1452a792998b37a32f6a2a913223",
+      "candidate_matches_pin": true,
+      "summary_preserved": true,
+      "change_scope": "Active Subject CAPRMEDIO_MODEL; one-to-one naming and reusable Terms retained; exact source-admitted short names allowed; old root exception/history removed; Summary unchanged."
+    },
+    {
+      "id": "CA-E-246",
+      "source_version": 47,
+      "source_sha256": "9f6fdb1f34591e398edb050628ae52679dc9e6a3a7aafbc28d6356e6451ecf52",
+      "source_matches_pin": true,
+      "candidate_version": 48,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-E-246.preview.txt",
+      "candidate_sha256": "029f639fd8fe69ce225831319cb3c6f26f0157b7b4d4eda609c4a044c2843dd7",
+      "candidate_matches_pin": true,
+      "summary_preserved": true,
+      "change_scope": "Replace exact typed Entity/Property kind references with Node.**; ordinary Entity wording and Term//Property remain unchanged."
+    },
+    {
+      "id": "CA-E-449",
+      "source_version": 44,
+      "source_sha256": "caca33e72e9b323d2570792e5cff4b1f1e8cb77adceb2fda24c0cbb4473cb6e5",
+      "source_matches_pin": true,
+      "candidate_version": 45,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-E-449.preview.txt",
+      "candidate_sha256": "2d186cca881910bf0eca62aff10e420be12e3381420221454a9be082df7da482",
+      "candidate_matches_pin": true,
+      "summary_preserved": true,
+      "change_scope": "Replace exact typed Entity/Property kind references with Node.**; ordinary Entity wording and Term//Property remain unchanged."
+    },
+    {
+      "id": "CA-M-125",
+      "source_version": 47,
+      "source_sha256": "f260c13b9cdbca25cdae58b2f177180eb9ebadbf88cb1a34fe4ca5a9978748fd",
+      "source_matches_pin": true,
+      "candidate_version": 48,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-M-125.preview.txt",
+      "candidate_sha256": "e01e32be1616d3063e9feaab8a15665bb36b3baed48f1ff94dbea7dfee26539f",
+      "candidate_matches_pin": true,
+      "summary_preserved": true,
+      "change_scope": "Replace exact typed Entity/Property kind references with Node.**; ordinary Entity wording and Term//Property remain unchanged."
+    },
+    {
+      "id": "CA-R-1259",
+      "source_version": 24,
+      "source_sha256": "55d09143de8f3e5fdbfbdfed181eae80dc0da051993cd34bb2567019a52e4707",
+      "source_matches_pin": true,
+      "candidate_version": 25,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-R-1259.preview.txt",
+      "candidate_sha256": "719c392ec5b873c3cc5fc09bfc49abd64372b4698983cfa5bd1f335e675317e2",
+      "candidate_matches_pin": true,
+      "summary_preserved": true,
+      "change_scope": "Replace exact typed Entity/Property kind references with Node.**; ordinary Entity wording and Term//Property remain unchanged."
+    },
+    {
+      "id": "CA-R-1284",
+      "source_version": 27,
+      "source_sha256": "47048137a76a2cb71acc40277f94fb59f4d619af5c498ab7349bf55da7fe1d36",
+      "source_matches_pin": true,
+      "candidate_version": 28,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-R-1284.preview.txt",
+      "candidate_sha256": "d9ad5a46f63b2797cf9a27e3c82fdbb8cebb185822bed74f7e4a1e4293be41f0",
+      "candidate_matches_pin": true,
+      "summary_preserved": true,
+      "change_scope": "Replace exact typed Entity/Property kind references with Node.**; ordinary Entity wording and Term//Property remain unchanged."
+    },
+    {
+      "id": "CA-R-1931",
+      "source_version": 18,
+      "source_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "source_matches_pin": true,
+      "candidate_version": 19,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-retirement/entity-property-resolution/CA-R-1931.preview.txt",
+      "candidate_sha256": "4950e465851c33a2cd10bff44ab07ebb6f3a39f0493661f099d00fb10c27bc8c",
+      "candidate_matches_pin": true,
+      "summary_preserved": true,
+      "change_scope": "Replace exact typed Entity/Property kind references with Node.**; ordinary Entity wording and Term//Property remain unchanged."
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "CA-R-1284",
+      "resolution": "The stale embedded Version 23 pin is removed. Candidate R1284@28 retains the approved Node.** passive Subject and Claim."
+    },
+    {
+      "id": "CA-E-449",
+      "resolution": "Pending Draft relation/property links are replaced with current CA-R-2473/CA-R-2462/CA-R-1351/CA-R-2621 citations; the pending disclaimer is removed."
+    },
+    {
+      "id": "CA-R-1931",
+      "resolution": "The inaccurate Draft-proposal disclaimer is removed; its Current operator claims and Summary remain."
+    }
+  ],
+  "additional_authority_pins": [
+    {
+      "id": "CA-R-2473",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00"
+    },
+    {
+      "id": "CA-R-2462",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c"
+    },
+    {
+      "id": "CA-R-1351",
+      "version": 23,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL--give-primary-entity-occurrences-no-bearer.md",
+      "sha256": "a647fa0d775df3838eaf0e09ad471544461b4573e2896f80d08ff88d6897c904"
+    },
+    {
+      "id": "CA-R-2621",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2621-CORE_META_MODEL-DECLARATION--declare-has-property.md",
+      "sha256": "c51142ed47d1f6a98da90b3a0f0708156c25c1b3bdc98b27a4a819b9bd3d9618"
+    }
+  ]
+}

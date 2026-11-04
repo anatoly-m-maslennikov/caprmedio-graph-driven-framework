@@ -5,8 +5,8 @@ current_scope_unit: MCP
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-11-02 19:44:26 +0400
+version: 14
+updated_at: 2026-11-04 16:35:58 +0400
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation
 relations:
@@ -25,7 +25,7 @@ Delivery representation of the bounded health view in the existing MCP HTTP serv
 
 ## Claim
 
-Deliver the health browser view at /health on the same configured loopback-published MCP listener, preserving its machine JSON representation and status semantics. Deliver the implementation and safe fixed error labels with the existing MCP package/image and operational instructions, not as an independent server, frontend build or execution-history authority.
+Deliver the health browser view at /caprmedio/health on the same configured loopback-published MCP listener, preserving its machine JSON representation and status semantics. Deliver the implementation and safe fixed error labels with the existing MCP package/image and operational instructions, not as an independent server, frontend build or execution-history authority.
 
 ## Details
 

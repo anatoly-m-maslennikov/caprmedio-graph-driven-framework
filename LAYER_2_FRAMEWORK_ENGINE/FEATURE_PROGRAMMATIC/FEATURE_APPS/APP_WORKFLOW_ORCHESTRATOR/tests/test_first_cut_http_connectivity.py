@@ -15,11 +15,11 @@ TEST_ROOT = Path(__file__).resolve().parent
 if str(TEST_ROOT) not in sys.path:
     sys.path.insert(0, str(TEST_ROOT))
 
-from first_cut_http_connectivity import connectivity_report, safe_published_service_snapshot
+from first_cut_http_connectivity import MCP_PATH, connectivity_report, safe_published_service_snapshot
 
 
 class FirstCutHttpConnectivityTests(unittest.TestCase):
-    url = "http://127.0.0.1:18092/mcp"
+    url = f"http://127.0.0.1:18092{MCP_PATH}"
 
     @staticmethod
     def snapshot():
@@ -64,7 +64,7 @@ class FirstCutHttpConnectivityTests(unittest.TestCase):
     def test_unsafe_url_is_rejected_before_socket_connect(self):
         with patch("first_cut_http_connectivity.socket.create_connection") as connect:
             with self.assertRaisesRegex(ValueError, "explicit loopback"):
-                connectivity_report("http://attacker.invalid:18092/mcp", self.snapshot())
+                connectivity_report(f"http://attacker.invalid:18092{MCP_PATH}", self.snapshot())
         connect.assert_not_called()
 
     def test_bearer_like_service_values_are_redacted_and_structure_is_safe(self):

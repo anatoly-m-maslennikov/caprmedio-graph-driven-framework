@@ -121,6 +121,3 @@ carrier serialization, not Entity delimiters. One globally unique primary
 kind name and one canonical declaration path are required; migration does not
 retain aliases. Term-path reconciliation remains subject to C605.
 
-These Operator-approved notation changes are Draft proposals. The grammar,
-authoring and evaluation consumers need coordinated reconciliation before
-adoption; no Current operator or executable parser is changed here.

@@ -266,7 +266,7 @@ source:
   - CA-E-656@21
   - CA-E-657@8
   - CA-E-658@14
-  - CA-E-659@3
+  - CA-E-659@5
   - CA-E-661@4
   - CA-E-666@4
   - CA-E-667@3
@@ -363,7 +363,7 @@ source:
   - CA-M-447@5
   - CA-M-448@4
   - CA-M-449@3
-  - CA-M-450@4
+  - CA-M-450@6
   - CA-M-451@4
   - CA-M-452@3
   - CA-M-453@3
@@ -482,7 +482,7 @@ source:
   - CA-R-1316@32
   - CA-R-1317@31
   - CA-R-1318@33
-  - CA-R-1319@28
+  - CA-R-1319@30
   - CA-R-1320@26
   - CA-R-1321@35
   - CA-R-1324@27
@@ -819,7 +819,6 @@ source:
   - CA-R-2256@4
   - CA-R-2257@5
   - CA-R-2272@5
-  - CA-R-2275@2
   - CA-R-2276@6
   - CA-R-2277@4
   - CA-R-2278@3
@@ -1092,6 +1091,7 @@ source:
   - CA-R-2747@1
   - CA-R-2748@1
   - CA-R-2762@2
+  - CA-R-2765@2
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1166,7 +1166,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 16:54:30 +0400
+updated_at: 2026-11-04 18:23:12 +0400
 ---
 
 # Subjects Used Only Passively
@@ -1192,7 +1192,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Content.Details` — pins: CA-D-470@29, CA-E-501@30; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Header.Status:Done` — pins: CA-E-504@24, CA-R-1580@29, CA-R-1592@23; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Implementation Retry Limit` — pins: CA-D-447@30, CA-M-295@32; keys: passive
-- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Requirement)/(.Header.Form:=Term Definition)` — pins: CA-R-2275@2; keys: passive
+- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Method)` — pins: CA-R-2765@2; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Operations)/(.Header.Form:Action)` — pins: CA-E-246@47, CA-E-382@49, CA-E-449@44, CA-M-114@43, CA-M-444@5, CA-R-1720@38; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Operations)/(.Header.Form:Workflow)` — pins: CA-E-246@47, CA-E-382@49, CA-E-449@44, CA-E-520@32, CA-E-522@19, CA-M-114@43, CA-M-444@5, CA-R-1720@38; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Plan)/(.Header.Form:Plan)` — pins: CA-E-443@34, CA-E-505@22, CA-M-239@25, CA-M-271@29, CA-R-1428@32, CA-R-1489@25; keys: passive
@@ -1218,7 +1218,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes` — pins: CA-R-1655@45; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode` — pins: CA-D-383@31, CA-R-1440@24; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete Names` — pins: CA-D-392@27; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term` — pins: CA-D-416@29, CA-M-006@31, CA-M-138@29, CA-M-139@28, CA-R-1267@24, CA-R-2275@2; keys: passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term` — pins: CA-D-416@29, CA-M-006@31, CA-M-138@29, CA-M-139@28, CA-R-1267@24; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime` — pins: CA-R-2255@9; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime/Session` — pins: CA-R-1650@34; keys: passive
 - `CAPRMEDIO_MODEL <+ History` — pins: CA-R-1644@37; keys: passive

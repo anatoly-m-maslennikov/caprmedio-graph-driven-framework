@@ -1,0 +1,162 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "plan_sha256": "c60cd87bf317019527dba607cdad3f5155b19b9cf4ffa6db04ed7f6e673540fc",
+  "receipt_sha256": "0cd54da34434fd9571f10b5103687d6762819a0cb191ff539b399cf9e499c646",
+  "outputs": [
+    {
+      "atom_id": "CA-R-2749",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2749@1-draft-CORE_META_MODEL-DECLARATION--declare-execution.md",
+      "sha256": "e10c47f979e40c139172af9b343d0d9879fd0cbda88478327f77791dbd0d27ee"
+    },
+    {
+      "atom_id": "CA-R-2750",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md",
+      "sha256": "a6111eca0b42ab6438fdbf65049e979f9a21fda1de8fbf3583ba6259575ed152"
+    },
+    {
+      "atom_id": "CA-R-2751",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md",
+      "sha256": "3881cd3ef1fa4a78d630a0338ba23f09fdee46ab18700e0c22fd471fa2d0006a"
+    },
+    {
+      "atom_id": "CA-R-2752",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md",
+      "sha256": "13db41bbc0cd48f58e26d14bf6c54a08013e5625e7aa713063161e62f55ca43c"
+    },
+    {
+      "atom_id": "CA-R-2753",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2753@1-draft-CORE_META_MODEL-DECLARATION--declare-runtime.md",
+      "sha256": "2e26e0b5e8be38ab1fecee7f7dbf72cdd934fa7c854a4c8feb3000f243a9e2c0"
+    },
+    {
+      "atom_id": "CA-R-2754",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2754@1-draft-CORE_META_MODEL-DECLARATION--declare-session.md",
+      "sha256": "d6b8471d72e6cfccccf72ad8c4458aa9546606f4d79624e3c43a4c0e252bfede"
+    },
+    {
+      "atom_id": "CA-R-2755",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2755@1-draft-CORE_META_MODEL-DECLARATION--declare-event.md",
+      "sha256": "485a788b92206b08cd31821025c4400ea936692dabc68d9ac8d918cb5073c41a"
+    },
+    {
+      "atom_id": "CA-R-2756",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2756@1-draft-CORE_META_MODEL-DECLARATION--declare-internal-local-runtime.md",
+      "sha256": "fc54dd164b64fbb4eb4de90ed4816911c2d772ae7a77bd7ff7a3cfb0fcbddf02"
+    },
+    {
+      "atom_id": "CA-R-2757",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2757@1-draft-CORE_META_MODEL-DECLARATION--declare-internal-remote-runtime.md",
+      "sha256": "463dca105c2c20558438746626d0d4ad736204ad526923eb5eb6926038a1b311"
+    },
+    {
+      "atom_id": "CA-R-2758",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2758@1-draft-CORE_META_MODEL-DECLARATION--declare-external-local-runtime.md",
+      "sha256": "5714079751b3973f70ffbce1777f7a64cafa3fcb89df149b137a5c6768dff4d2"
+    },
+    {
+      "atom_id": "CA-R-2759",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2759@1-draft-CORE_META_MODEL-DECLARATION--declare-external-remote-runtime.md",
+      "sha256": "7c405e316821d44fc36b2617cec7bf7cb11eae0ad37fab54099a564e30dffc43"
+    },
+    {
+      "atom_id": "CA-R-2760",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2760@1-draft-CORE_META_MODEL-DECLARATION--declare-produces.md",
+      "sha256": "8cb9cdef19263df67e2baf20661ad7c90d18f39520703d701ad59f9c1b11a11f"
+    },
+    {
+      "atom_id": "CA-R-2761",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2761@1-draft-CORE_META_MODEL-DECLARATION--declare-is-produced-by.md",
+      "sha256": "6d576263c2e2c382e7cf9ed890f516b2b821ca4db12d2df4d82542e48ce3f09f"
+    },
+    {
+      "atom_id": "CA-R-2464",
+      "version": 6,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "e4a3d1c3b99990b99e1870c32f1acb533d3109770e3a4b271eeb2aeb82dece85"
+    },
+    {
+      "atom_id": "CA-R-2465",
+      "version": 5,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "41403056a38086987a3f7f12b277696e3c3db4cae8782680ac78e2a544d203ae"
+    },
+    {
+      "atom_id": "CA-R-2467",
+      "version": 3,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2467@3-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "75f3e750e4d243112532be060110fbd9a8d5d5a3ea263cb7575698bb84953620"
+    },
+    {
+      "atom_id": "CA-R-2245",
+      "version": 9,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2245@9-draft-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "sha256": "10d74afc56acca0fa69e3b980cd697fbb7b28abe55a3521a129f479c6030d622"
+    },
+    {
+      "atom_id": "CA-R-2417",
+      "version": 6,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2417@6-draft-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+      "sha256": "556978fd1a9e0ef9e3fade634835d064cd0a319f5fbe833419ab7b35a46b3d9b"
+    },
+    {
+      "atom_id": "CA-R-2246",
+      "version": 9,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2246@9-draft-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+      "sha256": "0b532831307cbac442ad827160d5003f21a697a210496ffb5f217cf7ab385d21"
+    },
+    {
+      "atom_id": "CA-R-2421",
+      "version": 6,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2421@6-draft-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+      "sha256": "61ac53d74d7fa2b4be9681581ab26827b6678685d7ee4340d95f5ee76d2fd73d"
+    },
+    {
+      "atom_id": "CA-R-2557",
+      "version": 5,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "sha256": "c8dbc4ed5ffd655eee068fe00559f7c5d52b58a1da6eda5d23df67b569134c32"
+    },
+    {
+      "atom_id": "CA-R-2255",
+      "version": 10,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2255@10-draft-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "sha256": "626cf342a1e70ddfdaef4523ab8eaaefc01a1a814fdf3199f461a130d88b0cee"
+    },
+    {
+      "atom_id": "CA-R-2420",
+      "version": 6,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2420@6-draft-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+      "sha256": "58e64b297650225d5074cf384b5e9742f143ea55595b8710786286f14c1dfa27"
+    },
+    {
+      "atom_id": "CA-A-1317",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1317@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-occurrent-nodes-and-execution-event-relations.md",
+      "sha256": "e99f5f08bd02eaecae027ec2e4551e3b45f05ffecab034e9a9ceaae46b4e9ff5"
+    }
+  ],
+  "checks": [
+    "All 24 Draft bytes match planned hashes and receipt pins the plan; 13 new R IDs, 10 same-ID R revisions, one new Analysis ID. Draft Header ID, positive version and filename marker agree; same-ID revisions advance one version and their ten Current preimages retain pinned bytes.",
+    "Each Draft has typed CA-SU-11 containment and its stored destination matches its file name and directory. The 23 Requirement Drafts have distinct active Subjects and Declaration forms; the 10 matching Current scopes are their same-ID predecessors.",
+    "The proposal lists exactly the 23 Draft IDs and versions. The new hierarchy, relation domains and direct/derived pairs are present; Execution, Event, Runtime and Event Record retain the intended source-side permissions and inheritance.",
+    "Each Event Record records exactly one Event; Event producers and Execution runtimes have minimum one and no upper bound. Workflow, Step and Action definitions allow their respective Runs and Step XOR is retained. Session is narrower than External Remote Runtime.",
+    "Draft creation plan and receipt record no native Workflow admission and no Journal append."
+  ],
+  "limits": [
+    "This reviews source Drafts, not promotion, runtime data or projection conformance. The no-Workflow/no-Journal statements are receipt and plan evidence, not an independent external audit.",
+    "Unique scopes were compared literally across the packet and with native Current same-ID predecessor Declarations; semantic overlap beyond those exact expressions was not exhaustively proved."
+  ]
+}

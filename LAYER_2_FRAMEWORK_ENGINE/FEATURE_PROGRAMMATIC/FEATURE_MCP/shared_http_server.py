@@ -1,5 +1,5 @@
-# CA-R-2727@2
-# CA-D-674@2
+# CA-R-2727@3
+# CA-D-674@6
 
 """Shared host Streamable HTTP transport for multiple Project gateways."""
 
@@ -18,6 +18,7 @@ from starlette.responses import HTMLResponse, JSONResponse
 from starlette.routing import Route
 
 from health_page import render_health_page
+from http_paths import HEALTH_PATH
 from http_server import (
     MAX_REQUEST_BODY_SIZE,
     PATH,
@@ -109,7 +110,7 @@ def create_app(config: Any, *, gateway_factory: Callable[..., Any] = SharedGatew
         transport_security=SECURITY,
         max_request_body_size=MAX_REQUEST_BODY_SIZE,
         host="127.0.0.1",
-        custom_starlette_routes=[Route("/health", health_endpoint), *workbench_routes(gateway, shared=True)],
+        custom_starlette_routes=[Route(HEALTH_PATH, health_endpoint), *workbench_routes(gateway, shared=True)],
     )
     inner_lifespan = app.router.lifespan_context
 

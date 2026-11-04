@@ -241,7 +241,7 @@ class DockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.addCleanup(self.restore_http_environment, previous)
         self.http_started = True
         started = await asyncio.to_thread(self.runtime.mcp_http_start)
-        self.assertEqual(f"http://127.0.0.1:{port}/mcp", started["url"])
+        self.assertEqual(f"http://127.0.0.1:{port}/caprmedio/mcp", started["url"])
         status = await asyncio.to_thread(self.runtime.mcp_http_status)
         services = {row.get("Service") for row in status["services"]}
         self.assertEqual({"mcp-http"}, services)
@@ -255,13 +255,13 @@ class DockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         finally:
             await self.close_http_session(client, transport, session)
         async with httpx2.AsyncClient() as raw:
-            health = await raw.get(f"http://127.0.0.1:{port}/health")
+            health = await raw.get(f"http://127.0.0.1:{port}/caprmedio/health")
             self.assertEqual(200, health.status_code)
             for headers, expected in (
                 ({"Host": "attacker.invalid"}, 421),
                 ({"Origin": "https://attacker.invalid"}, 403),
             ):
-                response = await raw.get(f"http://127.0.0.1:{port}/health", headers=headers)
+                response = await raw.get(f"http://127.0.0.1:{port}/caprmedio/health", headers=headers)
                 self.assertEqual(expected, response.status_code)
 
 

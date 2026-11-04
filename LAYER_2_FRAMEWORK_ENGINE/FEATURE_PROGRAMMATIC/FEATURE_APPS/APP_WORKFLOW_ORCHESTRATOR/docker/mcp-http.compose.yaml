@@ -37,7 +37,7 @@ services:
     ports:
       - "127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:?Set an explicit HTTP MCP port}:8092"
     healthcheck:
-      test: [CMD-SHELL, 'python -c "from urllib.request import urlopen; urlopen(\"http://127.0.0.1:8092/health\", timeout=3)"']
+      test: [CMD-SHELL, 'python -c "from urllib.request import urlopen; urlopen(\"http://127.0.0.1:8092/caprmedio/health\", timeout=3)"']
       interval: 2s
       timeout: 5s
       retries: 20

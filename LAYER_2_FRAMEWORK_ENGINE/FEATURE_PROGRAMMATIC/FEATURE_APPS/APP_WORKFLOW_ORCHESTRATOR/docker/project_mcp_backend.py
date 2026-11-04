@@ -13,6 +13,7 @@ import time
 from typing import Any, Mapping
 from urllib.parse import urlsplit
 
+from mcp_paths import MCP_PATH
 from runtime_images import ImageManager
 
 
@@ -312,7 +313,7 @@ class ProjectMcpBackend:
             address = urlsplit(full_mcp_url)
             valid = (address.scheme == 'http' and address.hostname == '127.0.0.1'
                      and address.port is not None and 1 <= address.port <= 65535
-                     and address.path == '/mcp' and not address.query and not address.fragment
+                     and address.path == MCP_PATH and not address.query and not address.fragment
                      and address.username is None and address.password is None
                      and address.netloc == f'127.0.0.1:{address.port}')
         except (TypeError, ValueError):

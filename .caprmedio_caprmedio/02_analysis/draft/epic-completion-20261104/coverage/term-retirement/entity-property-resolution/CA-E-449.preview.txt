@@ -62,12 +62,12 @@ the Evaluation **must** reject an Entities Graph **if** **any** of:
 - multiple governing Atoms are treated as multiple identities for one Entity, **or** the at-most-one GOVERNS target per Atom is treated as permitting **only** one governing Atom per Entity.
 - a tree display is treated as the full combined graph **without** satisfying its declared selection, **or** legitimate sharing is rejected, duplicated, **or** discarded **to** force a tree.
 - a Relation Type is unknown under CA-R-1246-CORE_META_MODEL-RULE--keep-relation-vocabularies-graph-specific.
-- an IS_PROPERTY_OF Relation has an invalid endpoint **or** direction under the pending [IS_PROPERTY_OF Relation Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-is-property-of.md), **or** violates the applicable immediate-bearer cardinality under the pending [Property kind and Formal Constraint](../../04_requirement/draft/CA-R-1193@23-draft-CORE_META_MODEL-DEFINITION--define-property.md) **or** CA-R-1351-CORE_META_MODEL-CORE-REQUIREMENT--give-primary-entity-occurrences-no-bearer.
-- the direct IS_PROPERTY_OF Relations contain a directed cycle, including a self-loop, under the [pending Property Definition](../../04_requirement/draft/CA-R-1193@23-draft-CORE_META_MODEL-DEFINITION--define-property.md).
+- an IS_PROPERTY_OF Relation has an invalid endpoint **or** direction under current CA-R-2473, or violates the applicable Node/Node.** endpoint and cardinality constraints in CA-R-2462 **or** the no-outgoing-bearer rule for primary Entity occurrences in CA-R-1351.
+- the direct IS_PROPERTY_OF Relations contain a directed cycle, including a self-loop, contrary to the acyclicity constraint in current CA-R-2473.
 - an allowed-value qualification admits a value **without** governing authority for its qualified target Entity context under CA-R-1245-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.
 - admission **in** one target Entity context is used **to** justify admission **in** another context **without** its applicable authority.
 - allowed-value admission is treated as assigning a value **to** a particular occurrence **or** determining direct-value cardinality.
-- HAS_PROPERTY is independently authored as another primitive Relation Type instead of being derived from IS_PROPERTY_OF under the pending [HAS_PROPERTY Relation Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-has-property.md).
+- HAS_PROPERTY is independently authored as another primitive Relation Type instead of being derived as the inverse of IS_PROPERTY_OF under current CA-R-2473 and CA-R-2621.
 
 the Evaluation **must not** reject the reuse of one Term as an allowed-value name **in** multiple qualified target Entity contexts **when** the value is separately admitted **in** **every** such context. the checks **must** cover valid **and** invalid bearer endpoints, applicable bearer cardinalities, independent value admission across target Entity contexts, derived inverse navigation, **and** a Relation Type used under another governing constraint context.
 
@@ -101,12 +101,6 @@ IS_PROPERTY_OF cycle. Repeated display of one Property is not a new node or
 a cycle by itself. This constraint does not reject cycles made only from
 value references or other Relation Types. Missing source facts remain an
 unresolved limitation; they do not prove either a cycle or acyclicity.
-
-### Pending relation authorities
-
-The operative IS_PROPERTY_OF and HAS_PROPERTY checks depend on the pending [IS_PROPERTY_OF Relation Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-is-property-of.md), [HAS_PROPERTY Relation Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-RELATION_DEFINITION--define-has-property.md), and [Property kind and Formal Constraint](../../04_requirement/draft/CA-R-1193@23-draft-CORE_META_MODEL-DEFINITION--define-property.md). These Draft links are pending dependencies, not Current admission.
-
-CA-R-1260@34-CORE_META_MODEL-DEFINITION--define-is-borne-by and CA-R-1243@27-CORE_META_MODEL-RULE--derive-bears-as-the-inverse-of-is-borne-by remain historical provenance for the superseded names only; neither authorizes IS_PROPERTY_OF or HAS_PROPERTY.
 
 ### Readable tree-view acceptance
 

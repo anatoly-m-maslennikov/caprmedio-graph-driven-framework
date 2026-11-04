@@ -32,3 +32,10 @@ Reference lines, paths and hashes are pinned in `manifest.json`. The source sele
 Exact preview and inbound-reference hashes are in `manifest.json`. All remaining typed legacy `Entity/Property` Subject refs are covered by versioned previews to `Node.**`; M451 is retired. Literal English “Entity” remains unchanged.
 
 The additional typed-reference previews cover CA-E-246, CA-E-449, CA-M-125, CA-R-1259, CA-R-1284, and CA-R-1931.
+
+## Independent source review updates
+
+- R1284 preview removes its obsolete embedded version-23 self-pin; the live v27 source pin remains in the manifest.
+- E449 pending relation-definition/Draft references are replaced with current CA-R-2473, CA-R-2621 and CA-R-2462 authority; no runtime activation is claimed.
+- R1931 no longer labels the current notation rules as Draft proposals. Its grammar text is unchanged.
+- The separate ID subsection uses exact CA-R-2275@2 preimage and the authorized manual retirement route; it proposes no new R2275 version or native archive workflow.

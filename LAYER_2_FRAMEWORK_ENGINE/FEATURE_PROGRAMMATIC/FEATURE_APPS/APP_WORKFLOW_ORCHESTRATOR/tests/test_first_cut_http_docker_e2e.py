@@ -260,7 +260,7 @@ class FirstCutCorpusTests(unittest.TestCase):
 
         harness = FirstCutHttpDockerEndToEnd("test_six_workflows_over_authenticated_http_mcp")
         with mock.patch.object(httpx2, "AsyncClient", side_effect=make_client):
-            async with harness._http_session("http://127.0.0.1:18092/mcp", "synthetic-token") as (session, metadata):
+            async with harness._http_session("http://127.0.0.1:18092/caprmedio/mcp", "synthetic-token") as (session, metadata):
                 self.assertEqual(session_id, metadata.session_id)
                 self.assertEqual([], (await session.list_tools()).tools)
         self.assertTrue(any(request.method == "DELETE" for request in requests))
@@ -587,7 +587,7 @@ class FirstCutHttpDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                     http_start_attempted = True
                     http_startup_task = asyncio.create_task(_start_http(runtime))
                     started = await asyncio.shield(http_startup_task)
-                    self.assertEqual(f"http://127.0.0.1:{port}/mcp", started["url"])
+                    self.assertEqual(f"http://127.0.0.1:{port}/caprmedio/mcp", started["url"])
                     running_status = await asyncio.to_thread(runtime.mcp_http_status)
                     self._assert_http_lifecycle_status(
                         running_status, token, expected_states={"running"}, expected_health="healthy",

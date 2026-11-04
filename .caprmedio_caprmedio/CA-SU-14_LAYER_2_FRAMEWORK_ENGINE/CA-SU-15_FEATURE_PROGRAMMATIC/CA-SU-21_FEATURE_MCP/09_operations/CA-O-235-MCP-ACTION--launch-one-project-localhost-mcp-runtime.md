@@ -15,8 +15,8 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   - Subject/CAPRMEDIO/Carrier/Docker Image
   - Subject/CAPRMEDIO/Carrier
-version: 11
-updated_at: 2026-10-27 19:59:48 +0400
+version: 12
+updated_at: 2026-11-04 16:35:58 +0400
 relations: {}
 tier: 1
 ---
@@ -38,7 +38,7 @@ an Operator invokes `project-mcp` for one Project-local HTTP MCP service with `-
 
 ## Outcome
 
-the default result is JSON with one structured `started`, `reused`, `refused`, `failed`, or `busy` disposition and exactly one safe condition code: `READY_STARTED`, `READY_REUSED`, `PROJECT_SELECTION_REFUSED`, `IMAGE_INPUT_UNAVAILABLE`, `IMAGE_REFUSED`, `PROJECT_LOCK_BUSY`, `RUNTIME_MISMATCH`, `RUNTIME_UNHEALTHY`, `BUILD_FAILED`, `DOCKER_START_FAILED`, `DOCKER_PUBLICATION_FAILED`, or `READINESS_FAILED`. It contains safe Project identity, immutable image digest/fingerprint, service disposition, bounded readiness disposition, and, on ready success only, `http://127.0.0.1:<assigned-port>/mcp`. `--output url` emits that URL only for a ready success; every non-success remains an attributable structured result and emits no URL. It never returns a password, bearer, authorization header, secret-bearing environment value, or success before Host/Origin-protected host readiness.
+the default result is JSON with one structured `started`, `reused`, `refused`, `failed`, or `busy` disposition and exactly one safe condition code: `READY_STARTED`, `READY_REUSED`, `PROJECT_SELECTION_REFUSED`, `IMAGE_INPUT_UNAVAILABLE`, `IMAGE_REFUSED`, `PROJECT_LOCK_BUSY`, `RUNTIME_MISMATCH`, `RUNTIME_UNHEALTHY`, `BUILD_FAILED`, `DOCKER_START_FAILED`, `DOCKER_PUBLICATION_FAILED`, or `READINESS_FAILED`. It contains safe Project identity, immutable image digest/fingerprint, service disposition, bounded readiness disposition, and, on ready success only, `http://127.0.0.1:<assigned-port>/caprmedio/mcp`. `--output url` emits that URL only for a ready success; every non-success remains an attributable structured result and emits no URL. It never returns a password, bearer, authorization header, secret-bearing environment value, or success before Host/Origin-protected host readiness.
 
 ## Failure or stop
 

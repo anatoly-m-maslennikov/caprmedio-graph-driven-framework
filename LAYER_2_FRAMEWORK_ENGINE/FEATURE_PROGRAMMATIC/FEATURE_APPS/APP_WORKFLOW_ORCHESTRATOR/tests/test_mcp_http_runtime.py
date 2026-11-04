@@ -10,6 +10,7 @@ from unittest.mock import patch
 APP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(APP / "docker"))
 from runtime import Runtime  # noqa: E402
+from mcp_paths import HEALTH_PATH, MCP_PATH  # noqa: E402
 
 IMAGE = "sha256:" + "a" * 64
 
@@ -48,7 +49,7 @@ class MCPHTTPRuntimeTests(unittest.TestCase):
             with patch.object(runtime, "call", return_value="") as call, \
                     patch.object(runtime, "mcp_http_status", return_value=self._published_status()):
                 result = runtime.mcp_http_start()
-        self.assertEqual("http://127.0.0.1:8099/mcp", result["url"])
+        self.assertEqual(f"http://127.0.0.1:8099{MCP_PATH}", result["url"])
         self.assertIn("mcp-http", call.call_args.args)
         self.assertTrue(call.call_args.kwargs["http"])
 
@@ -100,6 +101,7 @@ class MCPHTTPRuntimeTests(unittest.TestCase):
         self.assertNotIn("/var/run/docker.sock", text)
         self.assertNotIn("agent_auth", text)
         self.assertIn("no-new-privileges:true", text)
+        self.assertIn(f"http://127.0.0.1:8092{HEALTH_PATH}", text)
 
 
 if __name__ == "__main__":

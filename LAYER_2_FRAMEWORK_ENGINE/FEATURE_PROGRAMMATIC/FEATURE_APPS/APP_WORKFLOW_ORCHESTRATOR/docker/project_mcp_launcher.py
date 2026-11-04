@@ -18,6 +18,7 @@ if str(_TOOLS) not in sys.path:
 
 from project_selection import ProjectSelectionError, resolve_project
 
+from mcp_paths import MCP_PATH  # noqa: E402
 from runtime_images import ImageError
 
 
@@ -265,7 +266,7 @@ def _publisher(row: Mapping[str, Any]) -> tuple[str, int] | None:
     if publisher.get("HostIp") != "127.0.0.1" or not isinstance(value, str) or not value.isdecimal():
         return None
     port = int(value)
-    return ("http://127.0.0.1:" + value + "/mcp", port) if 1 <= port <= 65535 else None
+    return ("http://127.0.0.1:" + value + MCP_PATH, port) if 1 <= port <= 65535 else None
 
 
 def _attribution(selection: object | None, image_id: str | None = None,

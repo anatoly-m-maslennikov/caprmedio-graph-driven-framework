@@ -1,6 +1,6 @@
-# CA-R-2729@2
-# CA-M-463@2
-# CA-D-673@4
+# CA-R-2729@3
+# CA-M-463@4
+# CA-D-673@6
 
 """Explicit process generations and connected Subject publication; no automatic replay."""
 import asyncio
@@ -34,7 +34,7 @@ from project_settings_schema import mcp_tool_blacklist
 from health_observations import HealthObservations
 from operation_error_boundary import FailureRecord, operation_error_boundary
 from runtime_failure_diagnostics import report_failure
-from workbench_tools import CHECK as WORKBENCH_CHECK, RUN as WORKBENCH_RUN, WorkbenchTools, native_tools as workbench_native_tools
+from workbench_tools import CHECK as WORKBENCH_CHECK, PAGE as WORKBENCH_PAGE, RUN as WORKBENCH_RUN, WorkbenchTools, native_tools as workbench_native_tools
 
 
 def startup_selection(root, control_root=None, instance_id=None, host_root=None):
@@ -407,7 +407,7 @@ class Gateway:
             phase, started = 'schema_validation', time.monotonic()
             names = [t.name for t in generation.tools]
             if len(set(names)) != len(names) or {
-                CONTROL.name, STATUS.name, WORKBENCH_RUN, WORKBENCH_CHECK,
+                CONTROL.name, STATUS.name, WORKBENCH_RUN, WORKBENCH_CHECK, WORKBENCH_PAGE,
             }.intersection(names):
                 raise ValueError('Duplicate or reserved Tool name')
             for tool in generation.tools:
@@ -740,7 +740,7 @@ class Gateway:
             return result(self.status())
         if params.name == CONTROL.name:
             return await self.control(context, params.arguments or {})
-        if params.name in (WORKBENCH_RUN, WORKBENCH_CHECK):
+        if params.name in (WORKBENCH_RUN, WORKBENCH_CHECK, WORKBENCH_PAGE):
             return result(await self.workbench.call(params.name, params.arguments))
         generation = self.active
         generation.in_flight += 1

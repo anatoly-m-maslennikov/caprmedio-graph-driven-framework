@@ -6,7 +6,7 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
-version: 6
+version: 7
 role: Evaluation
 form: Eval Case
 tier: 5
@@ -16,7 +16,7 @@ carrier_destination:
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation
 relations:
   evaluation_for: [CA-R-2723, CA-R-2725, CA-M-465, CA-D-672, CA-D-675]
-updated_at: 2026-11-04 15:43:14 +0400
+updated_at: 2026-11-04 16:59:55 +0400
 ---
 ## Summary
 
@@ -24,13 +24,13 @@ Reconcile source lifecycle changes and repaired validity
 
 ## Claim scope
 
-Atomic in-memory refresh of governed sources and Current declarations.
+Atomic file-backed refresh of governed sources and Current declarations.
 
 ## Claim
 
 ### Prose Claim
 
-The indexer atomically replaces in-memory `atoms` and `scope_units` state from selected governed sources and Current declarations. Current and Draft Atom carriers are included, including Done and Canceled Current statuses; Archived carriers are excluded. Only Current Scope Unit Declarations establish `scope_units`; Draft Declarations remain Atom rows. No reader schema is compiled. Each public row hash is SHA-256 of deterministic canonical row JSON excluding `hash`, with materialized relations in the Atom payload. Failures go to stderr, are skipped, and are not retried. No database file, temporary spill, or intermediate file exists.
+The indexer atomically replaces `atoms` and `scope_units` state from selected governed sources and Current declarations. Current and Draft Atom carriers are included, including Done and Canceled Current statuses; Archived carriers are excluded. Only Current Scope Unit Declarations establish `scope_units`; Draft Declarations remain Atom rows. No reader schema is compiled. Each public row hash is SHA-256 of deterministic canonical row JSON excluding `hash`, with materialized relations in the Atom payload. Failures go to stderr, are skipped, and are not retried. The database, internal results and spill data stay under the owned Workbench runtime directory; no intermediate source or schema file is created.
 
 ## Details
 
@@ -48,4 +48,4 @@ The indexer atomically replaces in-memory `atoms` and `scope_units` state from s
 | Current Scope Unit or literal Relation-inverse Declaration changes | Relevant structural/materialized rows and their hashes refresh with the graph; no generic CFEL or schema compilation occurs. |
 | Invalid, unreadable, or unstable source | Its rows are absent; stderr identifies it; unrelated valid rows remain; no retry is queued. |
 | Move, deletion, or later repair | A later refresh reflects observed selected state without prescribing fingerprint algorithm or event workflow classification. |
-| Filesystem observation during indexing | No database file, temporary spill, or intermediate file exists. |
+| Filesystem observation during indexing | The database, internal results and spill data stay under the owned Workbench runtime directory; no intermediate source or schema file is created. |

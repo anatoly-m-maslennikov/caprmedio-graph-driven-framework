@@ -1,6 +1,6 @@
 # CA-E-675@4
-# CA-E-676@3
-# CA-E-677@6
+# CA-E-676@5
+# CA-E-677@7
 
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ APP_ROOT = Path(__file__).resolve().parents[2]
 TOOLS_ROOT = APP_ROOT.parent / "FEATURE_TOOLS"
 sys.path[:0] = [str(APP_ROOT), str(TOOLS_ROOT), str(TOOLS_ROOT / "VALIDATE_ATOMS"), str(Path(__file__).parent)]
 
-from APP_WORKBENCH.service import WorkbenchService  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from smalltest_support import extension_directory, source_path, write_atom, write_settings  # noqa: E402
 

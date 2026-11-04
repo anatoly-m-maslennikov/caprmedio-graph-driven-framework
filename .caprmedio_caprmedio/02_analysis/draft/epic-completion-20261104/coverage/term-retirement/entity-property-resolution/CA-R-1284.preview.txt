@@ -70,7 +70,3 @@ YAML structure from a display path. No new
 Property kind, intermediate classification object, Carrier per field or
 YAML-versus-frontmatter ontology is created. Generic grouping/continuation
 syntax and parser effects are not established by this interpretation.
-
-### Current source pin
-
-Proposed successor of `.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md`, Version 23, SHA-256 `ed846912a5858e8103dfb5189cf574379488dcfde81d52521fafe48a4c7d0622`. This interpretation changes no Current carrier, allocates no identity and performs no promotion.

@@ -21,6 +21,7 @@ TOOLS_ROOT = MCP_ROOT.parent / "FEATURE_TOOLS"
 sys.path[:0] = [str(MCP_ROOT), str(TOOLS_ROOT)]
 
 from shared_http_server import create_app  # noqa: E402
+from http_paths import HEALTH_PATH, MCP_PATH  # noqa: E402
 
 
 class FakeGateway:
@@ -82,7 +83,7 @@ class SharedHTTPTests(unittest.IsolatedAsyncioTestCase):
         self.app = create_app(self.config, gateway_factory=FakeGateway)
         self.gateway = FakeGateway.instances[-1]
 
-    async def request(self, method="GET", path="/health", **kwargs):
+    async def request(self, method="GET", path=HEALTH_PATH, **kwargs):
         async with httpx2.AsyncClient(
             transport=httpx2.ASGITransport(app=self.app),
             base_url="http://127.0.0.1:8092",
@@ -140,7 +141,7 @@ class SharedHTTPTests(unittest.IsolatedAsyncioTestCase):
                 transport=httpx2.ASGITransport(app=self.app),
                 base_url="http://127.0.0.1:8092",
             ) as client:
-                transport = streamable_http_client("http://127.0.0.1:8092/mcp", http_client=client)
+                transport = streamable_http_client("http://127.0.0.1:8092" + MCP_PATH, http_client=client)
                 streams = await transport.__aenter__()
                 session = ClientSession(*streams)
                 await session.__aenter__()
@@ -150,7 +151,7 @@ class SharedHTTPTests(unittest.IsolatedAsyncioTestCase):
                     second = await session.call_tool("echo_project", {"project_root": "/repos/beta"})
                     self.assertEqual("/repos/alpha", first.structured_content["project_root"])
                     self.assertEqual("/repos/beta", second.structured_content["project_root"])
-                    health = await client.get("/health")
+                    health = await client.get(HEALTH_PATH)
                     self.assertEqual({"ready": True}, health.json())
                 finally:
                     await session.__aexit__(None, None, None)
