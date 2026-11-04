@@ -1,0 +1,37 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_READBACK",
+  "plan_sha256": "7832fd7268912a9b3c018b8a038ab6759503ffca688f81b318120a9f1e1f7f04",
+  "receipt_plan_pin": true,
+  "rows": [
+    {
+      "id": "CA-R-2557",
+      "actual_sha256": "6c90badefbd3e26b7815471481dd3ef3cc7542e5d33bd37b22053db4900c76c3",
+      "actual_pin": true,
+      "operation_exact": true,
+      "preimage_pin": true,
+      "current_unchanged": true,
+      "reviewed_preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "status": "Draft",
+      "version": 5,
+      "active_subject": "CAPRMEDIO_MODEL <+ Event Record"
+    },
+    {
+      "id": "CA-R-2255",
+      "actual_sha256": "5297e956dcf489c91bd0edaecdc6181e8b54eb5639a04696b98f9f251423cecf",
+      "actual_pin": true,
+      "operation_exact": true,
+      "preimage_pin": true,
+      "current_unchanged": true,
+      "reviewed_preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "status": "Draft",
+      "version": 10,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//EXECUTES"
+    }
+  ],
+  "tracking_note": "Root independently reports all 23 matrix requirement rows exactly equal to HEAD before serializer rewrite; not rechecked in this lane.",
+  "boundary": "Actual Draft repair only; Current adoption, native workflow admission and runtime are not claimed."
+}

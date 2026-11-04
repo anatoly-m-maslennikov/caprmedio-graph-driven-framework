@@ -10,7 +10,7 @@ relations:
 atom_id: CA-A-1317
 version: 1
 status: Draft
-updated_at: 2026-11-05 01:59:03 +0400
+updated_at: 2026-11-05 03:40:01 +0400
 carrier_destination:
   file:
     name: CA-A-1317@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-occurrent-nodes-and-execution-event-relations.md
@@ -83,4 +83,22 @@ Review the complete source packet. Promote accepted Drafts atomically with their
 
 The Term registry remains. Entity is a general Term without an Entity root; Property has its reviewed Term meaning. IS_BLOCKED_BY / BLOCKS are already Current.
 
-The recursive Step source packet is prepared separately in the Epic evidence. Existing native Drafts must be merged rather than replaced. Containment-cycle policy, carrier recursion and all affected endpoint permissions remain review gates; no new recursive Step source is claimed Current here.
+The recursive Step source packet is prepared separately in the Epic evidence. Existing native Drafts must be merged rather than replaced. Every Step has one Container and its Container chain ends at a Workflow. Carrier recursion is prepared as an extension of existing optional grouping, preserving separately placed resolving Carriers. All affected endpoint permissions and consumer integration remain review gates; no new recursive Step source is claimed Current here.
+
+## Recursive Step Drafts
+
+The following additional native Drafts are created and reviewed. The existing Workflow, Step and Action Drafts listed above are rebased in place.
+
+- CA-R-2463@3-draft
+- CA-R-2638@4-draft
+- CA-R-2734@2-draft
+- CA-R-2735@2-draft
+- CA-R-1528@23-draft
+- CA-E-486@24-draft
+- CA-M-305@23-draft
+- CA-M-444@6-draft
+- CA-E-669@5-draft
+- CA-D-467@29-draft
+- CA-E-500@29-draft
+
+Retire R2466 only with the reviewed recursive Step sources and all operative Substep consumer repairs. Historical C627 records its earlier answer and remains preserved. M232 and E383 still need their legacy active Subjects resolved. Actual Workflow instances stay with their owners.

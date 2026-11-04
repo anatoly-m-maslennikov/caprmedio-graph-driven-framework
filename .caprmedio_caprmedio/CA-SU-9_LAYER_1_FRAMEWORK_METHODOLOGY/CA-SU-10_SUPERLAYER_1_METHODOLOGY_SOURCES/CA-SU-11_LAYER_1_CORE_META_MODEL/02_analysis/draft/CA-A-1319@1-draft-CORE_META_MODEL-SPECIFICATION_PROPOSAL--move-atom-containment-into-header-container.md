@@ -10,7 +10,7 @@ subjects:
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
-updated_at: 2026-11-05 01:59:03 +0400
+updated_at: 2026-11-05 03:40:01 +0400
 carrier_destination:
   file:
     name: CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md
@@ -25,7 +25,8 @@ Move Atom containment into Header.Container
 - Store one immediate Container in Atom.Header.Container.
 - Its ordinary value is a full Scope Unit path string or a base Atom ID.
 - For a root Project Declaration Atom, an omitted Container has the effective default `world`. An explicit valid value overrides that default.
-- The path example is `/~ENGINE/PROGRAMMATIC/...`; it does not rename current Scope Units or folders.
+- Build paths from exact declared Scope Unit Names along their containment chain. Project root is `/`. The earlier `/~ENGINE/...` was illustrative.
+- Current examples are `/FRAMEWORK_ENGINE` and `/FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/CORE_META_MODEL`. These are logical paths, independent of Carrier folder names.
 - A base Atom ID selects Current by default.
 - Header.Relations is optional. It stores other authored Relations.
 - Keep IS_CONTAINED_BY, CONTAINS and +>/<+ in Formal Claims and the MODEL.
@@ -45,9 +46,9 @@ One stored Property supplies an Atom's Container. Formal containment expressions
 5. Review and push the source checkpoint before the mechanical data migration.
 6. Verify migrated sources and refresh the seven MODEL views. Implementation and test gates remain with CA #3; Workbench and Workflow owners keep their files.
 
-## Open decisions
+## Remaining integration
 
-- Complete path encoding: Project root, canonical segment Names and the `~` marker.
+- Adopt the scalar Scope Unit.Path contract and merge the Header/Delivery consumers before mechanical migration.
 
 ## Prepared evidence
 
@@ -55,6 +56,7 @@ The Header, consumer, Delivery and planning previews are listed in the Epic pack
 
 ## Created Draft
 
-- CA-R-2779@1-draft declares Atom.Header.Container, including its root default.
+- CA-R-2779@1-draft declares Atom.Header.Container, including its root default and declared-Name paths.
+- CA-R-2530@3-draft defines the scalar logical Scope Unit path.
 
 The Draft is independently reviewed. Header, consumer, Delivery and schema integration remain prerequisites to promotion and mechanical migration.

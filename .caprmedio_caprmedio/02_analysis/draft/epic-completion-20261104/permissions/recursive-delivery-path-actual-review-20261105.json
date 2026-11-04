@@ -1,0 +1,91 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_REVIEW_AFTER_CONTAINMENT_FIX",
+  "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/recursive-delivery-path-drafts-20261105/adoption-plan.json",
+  "plan_sha256": "2b02f3c3ae6434e9d87a6221120fdcfbd48ad673ff25fd6058c13e161e453722",
+  "receipt_sha256": "17eaf9256016fa7574e85a9f3a53ee06641c506c659f104002ce4c63bc099f5e",
+  "rows": [
+    {
+      "id": "CA-D-467",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-467@29-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "sha256": "e617f5a9ce8f188e4de267919757a35c7308d8383fbb8ed62c9c44bb730123f3",
+      "source_sha256": "ed46335c87661b1caa6ca3c6fc3f042f50a54de7dd0014e2b68877b1833a0b66",
+      "preview_sha256": "27a44a6a1c153e2a993ea23d04f354ed22f0efe373379a9ad44037eb4181a72f",
+      "rebased_existing_draft": false,
+      "canonical_containment": null,
+      "status": "HOLD_MISSING_CONTAINMENT"
+    },
+    {
+      "id": "CA-E-500",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-500@29-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "sha256": "f24d213d5a67b8c0e4cb9e8a935c3f88e539b27b6d3e1f38ff09e535363f7d5b",
+      "source_sha256": "ceb0fdcccff0972ecb3e6b2aba27f6565ecd7cc05cea21bd9c8b072b4ce61edf",
+      "preview_sha256": "75dae62fd11f6e3ddc7cfb842e807d0e04988bdd47b2a09aaa167c62b1e11302",
+      "rebased_existing_draft": false,
+      "canonical_containment": null,
+      "status": "HOLD_MISSING_CONTAINMENT"
+    },
+    {
+      "id": "CA-R-2530",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2530@3-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "sha256": "8965c713c6b4bd3b7cb97c507f858bedc8f266154fa19aaa3e4159694b036183",
+      "source_sha256": "9abd4823d07e60b55d674823274fef480205f39e0eb5e193ac30d06c4f59a075",
+      "preview_sha256": "51876c8b0cdf5f6a7c097b7e76fefac93d6d24087de0c3a14ff9c9117704b44a",
+      "rebased_existing_draft": false,
+      "canonical_containment": {
+        "scope_unit": "CA-SU-11"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "CA-R-2779",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "f6addbf5d5a3bfbd6bc6694f788801cb5cebe1faf27acb9514bbad9cba636aec",
+      "source_sha256": "64741ac4fab3996fa585aebfb04efbc5bdab3d2826b4dba26eed6184a67b448f",
+      "preview_sha256": "0f0521a431fd333ae7f325f14692efb03ee0fb7eb39ab3a0d214f8a17598263a",
+      "rebased_existing_draft": true,
+      "canonical_containment": {
+        "scope_unit": "CA-SU-11"
+      },
+      "status": "PASS"
+    }
+  ],
+  "checks": [
+    "Four Draft payloads and recorded before hashes match; receipt pins plan. Three Current predecessors remain byte-identical; R2779 prior Draft is the exact recorded rebase before-image.",
+    "Each actual body equals its approved preview; correct IDs/versions/status, active Subjects and Draft destinations. R2779 rebased Draft metadata changes only timestamp.",
+    "Each ID/version occurs once in checked native carriers and archives; analysis, projections and legacy duplicate framework trees excluded.",
+    "D467 delivery_for and E500 evaluation_for are preserved exactly; R2530 and R2779 include canonical Core IS_CONTAINED_BY."
+  ],
+  "blocker": "D467@29 and E500@29 remove legacy current_scope_unit and claim_target_scope_unit while preserving delivery_for/evaluation_for, but do not add IS_CONTAINED_BY scope_unit CA-SU-11. Add that exact relation while retaining existing relation entries, then refresh pins and re-review.",
+  "limits": [
+    "Drafts remain source proposals; no Current adoption, data migration or executable validation.",
+    "Native admission and Journal append false. No Current, code, tests or Git mutation in this review."
+  ],
+  "containment_fix": {
+    "status": "RESOLVED",
+    "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/recursive-delivery-draft-container-fix-20261105/adoption-plan.json",
+    "plan_sha256": "48475ef493e47f4e255d50822e398420ff960536be0d46e40dd8039da3fcd812",
+    "receipt_sha256": "4ad718c8bef0df16d2681c83f1c95458708904bd9d48a0bac5ef3193149b4045",
+    "rows": [
+      {
+        "id": "CA-D-467",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-467@29-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+        "before_sha256": "e617f5a9ce8f188e4de267919757a35c7308d8383fbb8ed62c9c44bb730123f3",
+        "after_sha256": "d44b9a3c9ff3a86bcb1b442dbf41d55d27ba5f32ecc2a46ad1a0fd741971cb04",
+        "current_source_sha256": "ed46335c87661b1caa6ca3c6fc3f042f50a54de7dd0014e2b68877b1833a0b66"
+      },
+      {
+        "id": "CA-E-500",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-500@29-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+        "before_sha256": "f24d213d5a67b8c0e4cb9e8a935c3f88e539b27b6d3e1f38ff09e535363f7d5b",
+        "after_sha256": "ebc9ecc37dc1a885d4f36a872d97d9202b07f96a975898b643f9b1f90d64975c",
+        "current_source_sha256": "ceb0fdcccff0972ecb3e6b2aba27f6565ecd7cc05cea21bd9c8b072b4ce61edf"
+      }
+    ],
+    "check": "Both overlays add only canonical IS_CONTAINED_BY scope_unit CA-SU-11 and update timestamp; body, ID/version, active Subject, delivery_for/evaluation_for and all other metadata unchanged. Three Current predecessor pins and two unmodified Draft hashes remain exact."
+  },
+  "blocker_status": "Resolved by containment_fix; original blocker text retained for audit."
+}

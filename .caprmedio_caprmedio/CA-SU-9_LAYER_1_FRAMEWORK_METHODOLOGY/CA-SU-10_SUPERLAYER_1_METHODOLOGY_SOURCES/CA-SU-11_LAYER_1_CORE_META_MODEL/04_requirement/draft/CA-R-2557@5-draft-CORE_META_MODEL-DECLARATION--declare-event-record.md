@@ -4,7 +4,7 @@ status: Draft
 subjects:
   active: CAPRMEDIO_MODEL <+ Event Record
 version: 5
-updated_at: 2026-11-04 16:07:35 +0400
+updated_at: 2026-11-05 03:46:06 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
@@ -31,9 +31,11 @@ Event Record {:0}((IS_PROPERTY_OF));
 Event Record ((NARROWER_THAN)) Continuant;
 
 # instances
-Event Record//$event_record {:1}((IS_CONTAINED_BY)) Journal//$journal;
+Event Record//$event_record {::1}((IS_CONTAINED_BY)) Journal//$journal;
 
-Event Record//$record {:1}((RECORDS)) Event//$event
+Event Record//$record {::1}((RECORDS)) Event//$event;
+
+Event Record//$record {::1}((HAS_EVENT_AUTHOR)) Actor//$actor
 ```
 
 ### Prose Claim

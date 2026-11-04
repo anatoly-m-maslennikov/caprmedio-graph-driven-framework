@@ -1,0 +1,8 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2255@10-draft-CORE_META_MODEL-DECLARATION--define-executes-relation.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/relation-integration-20261105/CA-R-2255.preview.txt
+@@ -39,4 +39,4 @@
+ 
+ ## Semantics
+ 
+-EXECUTES is the stored Relation from a Runtime to an Execution. Its declared inverse IS_EXECUTED_BY is a derived view. A Workflow Run remains an Execution.
++EXECUTES is the stored Relation from a Runtime to an Execution. Its declared inverse IS_EXECUTED_BY is a derived view.

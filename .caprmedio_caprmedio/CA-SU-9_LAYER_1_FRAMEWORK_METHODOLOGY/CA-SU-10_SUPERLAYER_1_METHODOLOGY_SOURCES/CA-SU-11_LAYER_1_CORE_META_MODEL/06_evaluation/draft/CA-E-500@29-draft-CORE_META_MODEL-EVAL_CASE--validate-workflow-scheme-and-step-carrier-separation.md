@@ -7,13 +7,15 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
   - CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 29
-updated_at: 2026-11-05 03:32:34 +0400
+updated_at: 2026-11-05 03:44:44 +0400
 relations:
   evaluation_for:
   - CA-R-1570
   - CA-R-2465
   - CA-M-305
   - CA-D-467
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 atom_id: CA-E-500
 status: Draft
 tier: 4

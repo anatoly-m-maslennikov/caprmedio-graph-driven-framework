@@ -7,11 +7,13 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
 version: 29
-updated_at: 2026-11-05 03:32:34 +0400
+updated_at: 2026-11-05 03:44:44 +0400
 relations:
   delivery_for:
   - CA-R-1570
   - CA-R-2465
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 atom_id: CA-D-467
 status: Draft
 tier: 3

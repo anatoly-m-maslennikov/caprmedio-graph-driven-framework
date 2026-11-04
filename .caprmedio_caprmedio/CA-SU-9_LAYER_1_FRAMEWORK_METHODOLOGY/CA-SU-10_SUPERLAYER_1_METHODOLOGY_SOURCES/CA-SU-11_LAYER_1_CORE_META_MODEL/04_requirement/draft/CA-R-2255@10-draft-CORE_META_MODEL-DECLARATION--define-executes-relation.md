@@ -11,7 +11,7 @@ relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
 tier: 1
-updated_at: 2026-11-04 16:07:35 +0400
+updated_at: 2026-11-05 03:46:06 +0400
 role: Requirement
 form: Declaration
 carrier_destination:
@@ -39,4 +39,4 @@ Runtime//$runtime((EXECUTES)) Execution//$execution
 
 ## Semantics
 
-EXECUTES is the stored Relation from a Runtime to an Execution. Its declared inverse IS_EXECUTED_BY is a derived view. A Workflow Run remains an Execution.
+EXECUTES is the stored Relation from a Runtime to an Execution. Its declared inverse IS_EXECUTED_BY is a derived view.

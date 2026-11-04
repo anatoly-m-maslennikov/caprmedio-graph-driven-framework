@@ -10,7 +10,7 @@ subjects:
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
-updated_at: 2026-11-05 01:59:03 +0400
+updated_at: 2026-11-05 03:40:01 +0400
 carrier_destination:
   file:
     name: CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md
@@ -116,7 +116,7 @@ The accepted migration includes Formats, Property-name constraints and `{::n}` b
 
 - Reverse containment and narrowing traversal notation.
 - Definitions and default cases must retain absence, validation and conflict safeguards in the revised operator sources.
-- Complete Scope Unit path encoding, including the Project root, segment Names and the `~` marker.
+- Complete the reviewed Scope Unit path source adoption and migration. Paths use actual declared Names, with Project root `/`; the old `/~ENGINE/...` was illustrative.
 
 ## Rationale
 
@@ -133,8 +133,12 @@ Actual allowed-value notation Drafts:
 - CA-R-1321@36-draft: Subject expression consumers.
 - CA-R-2588@6-draft: default Relation cardinality consumers.
 - CA-R-2778@1-draft: FOR EACH universal quantification.
+- CA-R-2248@6-draft: object kinds as Formats.
+- CA-R-2604@4-draft: typed bindings, anonymous selection and scope.
 
-These Drafts require source-consumer integration and review before promotion and contextual migration. Typed object-Format and binding authority is being prepared; it is not admitted by the quantifier Draft alone. Other proposed path and instance changes have no admitted successor yet. Existing source-repair Drafts remain separately tracked in CA-A-1318.
+R2487@14-draft is rebased to include the typed-selector and FOR EACH changes while retaining the allowed-value changes.
+
+These Drafts require source-consumer integration and review before promotion and contextual migration. Typed object-Format and binding Drafts are created and independently reviewed as previews; final actual-Draft readback and coordinated adoption remain. The quantifier Draft alone does not admit those dependencies. Other proposed path and instance changes have no admitted successor yet. Existing source-repair Drafts remain separately tracked in CA-A-1318.
 
 ## Accepted quantifier shape
 

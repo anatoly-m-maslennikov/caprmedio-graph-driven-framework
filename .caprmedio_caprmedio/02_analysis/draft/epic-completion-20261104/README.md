@@ -2,7 +2,7 @@
 
 Complete the declaration-based Scope Unit authority and latest MODEL/CFEL changes, including sources, consumers, seven faithful projections and P2707 gates. Ask one real question at a time when confidence is below 90%.
 
-P2694@66 and P2707@6 remain Active. The [current state](current-state.md) records accepted decisions separately from applied sources. The [acceptance matrix](acceptance/matrix.json) retains all 23 requirements.
+P2694@67 and P2707@6 remain Active. The [current state](current-state.md) records accepted decisions separately from applied sources. The [acceptance matrix](acceptance/matrix.json) retains all 23 requirements.
 
 | Deliverable | Owner / exclusive edit scope | Dependencies | Acceptance | State |
 | --- | --- | --- | --- | --- |
@@ -19,6 +19,6 @@ Latest publication: seven MODEL views against 1,167 pinned Current suppliers. Co
 
 The `::` source Draft packet and parent path/instance proposal remain prospective. Current syntax, source decisions, implementation and runtime evidence are checked separately. Source receipts do not establish native Workflow admission or Journal append. No required Epic gate is removed.
 
-Latest source decisions: FOR EACH uses a typed/filtered selector with grouped conditions, no WITH or IN. Formal Claims are self-contained while subjects.active stays. Header.Container defaults effectively to `world` for a root Project Declaration. Substep is replaced by recursive Step. The approved cycle choice still needs reconciliation with the one-Container constraint. These are not Current adoption claims.
+Latest source decisions: FOR EACH uses a typed/filtered selector with grouped conditions, no WITH or IN. Formal Claims are self-contained while subjects.active stays. Header.Container defaults effectively to `world` for a root Project Declaration. Substep is replaced by recursive Step. Each Step has one Container and its chain ends at a Workflow. Paths use actual declared Scope Unit Names, with `/` for the Project root. Typed-selector and recursive Delivery successors are actual Drafts awaiting coordinated adoption. These are not Current adoption claims.
 
 Bounded Scope census: 46 Current Declarations, 45 unique non-root IDs, nine Ordered units. See [source census](coverage/scope-declaration-check-20261105/REPORT.md) and its independent review. Source checkpoint d7e38d8e4 is pushed; later work awaits the next scoped checkpoint.

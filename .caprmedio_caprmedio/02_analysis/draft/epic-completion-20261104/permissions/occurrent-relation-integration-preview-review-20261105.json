@@ -1,0 +1,75 @@
+{
+  "verdict": "PASS_BOUNDED_PREVIEWS",
+  "manifest_sha256": "a7e9ddaae01c9e4bbed42c0473b41e96cbefd67cd504842f3de3cd1a89f2cb95",
+  "rows": [
+    {
+      "id": "CA-R-2557",
+      "draft_pin": true,
+      "current_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Event Record",
+      "candidate_sha256": "dcd5f371006f2af5c75b33945d0b59e239aeaeb4cb265dbea1987d91fabfa079"
+    },
+    {
+      "id": "CA-R-2255",
+      "draft_pin": true,
+      "current_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//EXECUTES",
+      "candidate_sha256": "b1ad98a1353155a5b4ff0a5471c7d2a3581eefe3dd078816e48e8db452d2ed83"
+    }
+  ],
+  "author_authority_pins": {
+    "CA-R-2582": true,
+    "CA-R-2583": true
+  },
+  "parentage_evidence_pins": {
+    "CA-R-1525": true,
+    "CA-R-1528": true,
+    "CA-R-2588": true,
+    "CA-R-2751": true,
+    "CA-R-2752": true,
+    "CA-R-2465": true
+  },
+  "semantic_review": [
+    "R2582 requires exactly one Actor-valued HAS_EVENT_AUTHOR and R2583 declares the Event Record to Actor direction. R2557 adds one outgoing relation and retains all existing signatures; glyph changes are coordinated with :: Drafts.",
+    "R2255 removes only the Workflow Run inheritance sentence while retaining the stored Runtime-to-Execution relation and derived inverse; inheritance belongs to the kind definition.",
+    "No Actor-side inverse permission follows automatically; nested Run parent binding remains separate and open."
+  ],
+  "tracking_review": {
+    "matrix_rows": 23,
+    "unique_requirement_ids": 23,
+    "all_have_assessment": true,
+    "assessment_values": {
+      "P2695": "satisfied_for_scope",
+      "P2696": "satisfied_for_scope",
+      "P2697": "satisfied_for_scope",
+      "P2698": "partial",
+      "P2699": "satisfied_for_scope",
+      "P2700": "satisfied_for_scope",
+      "P2701": "satisfied_with_explicit_deferrals",
+      "P2703": "satisfied_with_explicit_deferrals",
+      "P2694: declaration model": "reported_satisfied_current_readback_needed",
+      "P2704": "reported_satisfied_live_scan_needed",
+      "P2694: folder derivation": "reported_satisfied_live_check_needed",
+      "P2694/P2706: TOML retirement": "partial_gate_open",
+      "P2694: workflow/API boundary": "open",
+      "P2694: Claim/model notation": "partial_identity_applied_final_coherence_open",
+      "P2694: CFEL groups and bindings": "source_repairs_applied_remaining_semantic_and_external_gates_open",
+      "P2694: CFEL semantic preservation": "partial_reader_focused_checks_passed",
+      "P2694: Carrier boundary": "partial_focused_admission_passed",
+      "P2709": "satisfied",
+      "P2707: Current declaration cutover": "partial_digest_drift_explained_in_part",
+      "P2707: Engine runtime cutover": "open_final_stable_suite_pending",
+      "P2707: carrier admission": "partial_scope_disposition_open",
+      "P2694: source history/publication": "partial_checkpoint_recorded_final_publication_open",
+      "P2704\u2013P2709: status and closure boundary": "open"
+    },
+    "notes": "README/current-state reflect P2694@67, actual declared Name paths, Workflow-rooted Step and three typed-selector Drafts; 23 acceptance entries retain explicit assessments. Without a pinned earlier matrix snapshot this quick check does not establish historical byte-for-byte state preservation."
+  },
+  "boundary": "Preview review only; no native Draft, Current, Workflow instance, runtime or test changes."
+}

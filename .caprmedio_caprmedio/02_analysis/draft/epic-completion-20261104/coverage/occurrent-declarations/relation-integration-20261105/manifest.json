@@ -1,0 +1,92 @@
+{
+  "status": "TWO_PINNED_DRAFT_REPAIR_PREVIEWS",
+  "candidates": [
+    {
+      "id": "CA-R-2557",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "draft_sha256": "c8dbc4ed5ffd655eee068fe00559f7c5d52b58a1da6eda5d23df67b569134c32",
+      "draft_matches_prior_review": true,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2557-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "current_sha256": "0357e59cb3366ebbb2e13d0ef139d29e8fd24a449729014686c438555e535dcb",
+      "current_matches_prior_review": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/relation-integration-20261105/CA-R-2557.preview.txt",
+      "candidate_sha256": "dcd5f371006f2af5c75b33945d0b59e239aeaeb4cb265dbea1987d91fabfa079",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/relation-integration-20261105/CA-R-2557.diff",
+      "diff_sha256": "c9969a7d447b015af9c1dad26a747a75f5b047708be37f296b032a3f31e50549",
+      "draft_header_exact": true,
+      "reason": "Preserve containment and records as exactly one; add exactly one outgoing author Actor, backed by R2582/R2583. Apply settled {::n} spelling to existing counts; no inverse allowance inferred."
+    },
+    {
+      "id": "CA-R-2255",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2255@10-draft-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "draft_sha256": "626cf342a1e70ddfdaef4523ab8eaaefc01a1a814fdf3199f461a130d88b0cee",
+      "draft_matches_prior_review": true,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2255-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "current_sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a",
+      "current_matches_prior_review": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/relation-integration-20261105/CA-R-2255.preview.txt",
+      "candidate_sha256": "b1ad98a1353155a5b4ff0a5471c7d2a3581eefe3dd078816e48e8db452d2ed83",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/relation-integration-20261105/CA-R-2255.diff",
+      "diff_sha256": "8d10eefd659aefcaee01f452b0c5a1b004891b714fb4127168f16b2c25310011",
+      "draft_header_exact": true,
+      "reason": "Remove cross-entity inheritance sentence; preserve Runtime-to-Execution typed signature and inverse meaning."
+    }
+  ],
+  "author_authorities": [
+    {
+      "id": "CA-R-2582",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2582-CORE_META_MODEL-DECLARATION--declare-event-record-event-author.md",
+      "sha256": "ea46fd6885fc0b8c07bb6e35e9c26ee6350b01459e914f5aa36b2892f6f5bfde"
+    },
+    {
+      "id": "CA-R-2583",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2583-CORE_META_MODEL-DECLARATION--define-has-event-author.md",
+      "sha256": "afbd2d65a6d8942764b91094b800fae52c2edff98e8e7cdee2950e212a81347c"
+    }
+  ],
+  "parentage_evidence": [
+    {
+      "id": "CA-R-1525",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1525-CORE_META_MODEL-RULE--bind-workflow-runs-to-exact-definition-revisions.md",
+      "sha256": "f1c5bad655bebbb6226f1c1546174ac1a15eb494fd6217c41c67315f6496dfed"
+    },
+    {
+      "id": "CA-R-1528",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1528@23-draft-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "sha256": "19160e7bf5b7544e88e481f3896d3a92ee3e6b805be0d51d10367c06d965cbfc"
+    },
+    {
+      "id": "CA-R-2588",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c"
+    },
+    {
+      "id": "CA-R-2751",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md",
+      "sha256": "43d807afd2283f9e23749730bbcf66a73bc82a1edc79b35b8477ec8d1bfe1b77"
+    },
+    {
+      "id": "CA-R-2752",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md",
+      "sha256": "cde409fc0870e58e118aa9e20a0b05f23e64bd046dfeec3a7f196a131b8374e8"
+    },
+    {
+      "id": "CA-R-2465",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "f1ad2cb139361d59d0447f8ae01ae47d392168d78f337f2563201b6509b2780e"
+    }
+  ],
+  "remaining_gap": {
+    "finding": "The current R1525 and R1528 and proposed R2751 describe Workflow Run / Step Run, nested Step Run parentage and Action Run association. Recursive Step Draft R2465 now uses Step contained by Workflow or Step; R2751 binds Step Run to Step. These sources do not by themselves identify the Relation Type and direct/derived endpoint permissions representing Run parentage. R2245/R2417 bind a Run to its definition, not to another Run. R2588 default zero makes independently declared outgoing permission necessary for each direction.",
+    "supersedes_old_question": "The older parentage review asks about a distinct Substep; the latest recursive Step Draft uses Step for nested Steps, so that old either/or is stale for this packet. No separate Substep Run kind is inferred.",
+    "question": "Which existing Relation represents a nested Step Run\u2019s parent Run, and which endpoint directions and counts are permitted for Workflow Run, Step Run and Action Run?",
+    "limits": "No proposed Relation, default bound, actual instance or reverse permission is invented. Evaluate Action Run association separately if its exact endpoint binding is not established."
+  },
+  "integration_gates": [
+    "Adopt any proposed Occurrent kind/endpoint and relation declarations together after current/draft source pin verification.",
+    "R2557 has no authority by itself to grant Actor-side inverse; inspect effective author permission separately.",
+    ":: bounds shown in R2557 preview require coordinated approved notation source adoption; no counts changed.",
+    "Preserve exact Draft@ versions/headers only as preimages; do not overwrite actual Draft without owner-controlled update."
+  ],
+  "scope": "Source-only; no canonical source, actual Draft, code, tests, Workflow instances, Workbench, or Git mutation."
+}

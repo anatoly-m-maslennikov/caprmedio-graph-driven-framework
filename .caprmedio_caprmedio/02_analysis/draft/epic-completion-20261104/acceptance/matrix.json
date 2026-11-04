@@ -1,6 +1,6 @@
 {
   "schema": "caprmedio-epic-acceptance-matrix/1",
-  "epic": "CA-P-2694@66",
+  "epic": "CA-P-2694@67",
   "as_of": "2026-11-05",
   "purpose": "Read-only completeness assessment; not authority to change Current or transition status.",
   "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-passive-frontier-20261105.json",
@@ -452,10 +452,10 @@
     }
   ],
   "reviewed_plan_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
-  "reviewed_plan_quality": "P2694@62 and P2707@5 remain Active; the 23 original acceptance groups and required external gates remain in force.",
+  "reviewed_plan_quality": "P2694@67 and P2707@6 remain Active; the 23 original acceptance groups and required external gates remain in force.",
   "latest_projection_checkpoint": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-passive-20261105/generation-manifest.json",
-  "current_epic_version": 66,
-  "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/recursive-step-quantifier-plan-update-20261105/adoption-receipt.json",
+  "current_epic_version": 67,
+  "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/rooted-path-source-plan-checkpoint-20261105/adoption-receipt.json",
   "current_verification_task_version": 6,
   "execution_responsibility": {
     "this_chat": "MODEL, CFEL, Declarations, Atom sources and source projections",
@@ -470,9 +470,14 @@
   },
   "historical_frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-cfel-frontier.json",
   "latest_container_decision": {
-    "epic": "CA-P-2694@63",
+    "epic": "CA-P-2694@67",
     "state": "SOURCE_CONTRACT_AND_MIGRATION_PENDING",
-    "container": "One ordinary Header.Container value: full Scope Unit path or base Atom ID; Relations optional; retained formal IS_CONTAINED_BY/CONTAINS; no duplicate stored containment."
+    "container": "One ordinary Header.Container value: full Scope Unit path or base Atom ID; Relations optional; retained formal IS_CONTAINED_BY/CONTAINS; no duplicate stored containment.",
+    "path_encoding": "Actual declared Scope Unit Names along the containment chain; Project root /. No ~ENGINE alias.",
+    "actual_drafts": [
+      "CA-R-2779@1",
+      "CA-R-2530@3"
+    ]
   },
   "latest_notation_decision": {
     "allowed_value": "::",
@@ -500,7 +505,12 @@
     "self_contained_claim": true,
     "subjects_active": "retained focus",
     "actual_draft": "CA-R-2778@1-draft",
-    "adoption": "pending typed Format/binding and overview source integration"
+    "adoption": "typed Format/binding and overview Drafts created and reviewed; Current admission and contextual migration pending",
+    "typed_drafts": [
+      "CA-R-2248@6",
+      "CA-R-2604@4",
+      "CA-R-2487@14"
+    ]
   },
   "latest_recursive_step_decision": {
     "retire": "Substep",
@@ -509,8 +519,8 @@
       "RUNS exactly one Workflow",
       "CONTAINS one or more Steps"
     ],
-    "cycles": "Operator allows containment cycles; one-Container reconciliation pending",
-    "carrier_layout": "D467/E500 pending",
+    "cycles": "Each Step has one Container; its Container chain ends at a Workflow.",
+    "carrier_layout": "D467@29 and E500@29 Drafts preserve separate carriers and optional grouping, with recursive Step directories; Current adoption pending",
     "actual_workflow_instances": "external owner"
   }
 }

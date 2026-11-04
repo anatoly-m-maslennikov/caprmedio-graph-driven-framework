@@ -1,0 +1,66 @@
+{
+  "verdict": "PASS_BOUNDED_SOURCE_PLAN",
+  "receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/rooted-path-source-plan-checkpoint-20261105/adoption-receipt.json",
+  "plan_sha_matches_receipt": true,
+  "outputs": [
+    {
+      "id": "CA-A-1317",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1317@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-occurrent-nodes-and-execution-event-relations.md",
+      "sha256": "08ac9814e2a6d6d5254f4cad84a9f4562d44a382b003d972e276d18821ef9d3a",
+      "live_hash_matches": true
+    },
+    {
+      "id": "CA-A-1321",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+      "sha256": "fc7f9586181607a0a509c7e192ae8c04640abb68cb477be6a91e5e52d901538c",
+      "live_hash_matches": true
+    },
+    {
+      "id": "CA-A-1319",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md",
+      "sha256": "b7fadfd80761b32c269eb319d4927a7fade93b4f3a4b277c7679f609ea0420e2",
+      "live_hash_matches": true
+    },
+    {
+      "id": "CA-P-2694",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "sha256": "f640496c5f63ebb2ce9db6692bba06a7ce608d7f27ffa47c9cc3372f0011a190",
+      "live_hash_matches": true
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1317@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-occurrent-nodes-and-execution-event-relations.md",
+      "after_matches_live": true,
+      "preimage_hash_valid": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+      "after_matches_live": true,
+      "preimage_hash_valid": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md",
+      "after_matches_live": true,
+      "preimage_hash_valid": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing@66.md",
+      "after_matches_live": true,
+      "preimage_hash_valid": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "after_matches_live": true,
+      "preimage_hash_valid": true
+    }
+  ],
+  "review": {
+    "recursive_step": "P2694 and A1317 record exactly one Action, one Workflow, or one or more nested Steps, one Container per Step, and chain ending at Workflow. Source adoption remains open.",
+    "paths": "A1319, A1321 and P2694 specify actual declared Scope Unit Names and Project root /; paths remain distinct from Carrier folder names.",
+    "typed_selectors": "P2694 and A1321 identify R2248@6, R2604@4 and rebased R2487@14 as coordinated Draft source work, pending review/readback/admission.",
+    "acceptance": "The matrix currently contains 23 requirements; P2694 links it and retains all 23 and mandatory external checks. The operation leaves the matrix outside the output set; this review does not certify each gate complete.",
+    "ownership": "CA #3 retains implementation, runtime, fixtures and test execution; Workflow and Workbench owners retain their files. The source Epic remains Active and does not assert recursive-Step or notation Drafts are Current.",
+    "scope": "Only recorded source-plan outputs checked; no test, runtime or final-adoption conclusion."
+  }
+}

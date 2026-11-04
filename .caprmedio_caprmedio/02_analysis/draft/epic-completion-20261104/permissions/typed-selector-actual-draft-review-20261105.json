@@ -1,0 +1,71 @@
+{
+  "verdict": "PASS_ACTUAL_DRAFT_READBACK",
+  "plan_sha256": "83c7f43ec948874efd6afa7e6fb08bfe581664ca09b170abf642e100997678fb",
+  "receipt_plan_pin": true,
+  "rows": [
+    {
+      "id": "CA-R-2248",
+      "actual_sha256": "4c155d2dc1e954a0c8f7e65ed10bfa8497118441f7e578ded6698df3ef14311b",
+      "actual_pin": true,
+      "operation_exact": true,
+      "current_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_allowed": true,
+      "containment_normalized": true,
+      "obsolete_fields_absent": true,
+      "destination_correct": true,
+      "status": "Draft",
+      "version": 6,
+      "native_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md"
+      ],
+      "rebased_preimage_matches": true
+    },
+    {
+      "id": "CA-R-2604",
+      "actual_sha256": "5943a9f239122d2cb79bc0136c30e59ec3ce78ca595c38c9750c3ae7382ecb50",
+      "actual_pin": true,
+      "operation_exact": true,
+      "current_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_allowed": true,
+      "containment_normalized": false,
+      "obsolete_fields_absent": true,
+      "destination_correct": true,
+      "status": "Draft",
+      "version": 4,
+      "native_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2604@4-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md"
+      ],
+      "rebased_preimage_matches": true
+    },
+    {
+      "id": "CA-R-2487",
+      "actual_sha256": "bcf9f4f21dc789909587a4fd008a727d1b612f51d2266086dc2a9a5c9e77ae17",
+      "actual_pin": true,
+      "operation_exact": true,
+      "current_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_allowed": true,
+      "containment_normalized": false,
+      "obsolete_fields_absent": true,
+      "destination_correct": true,
+      "status": "Draft",
+      "version": 14,
+      "native_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md"
+      ],
+      "rebased_preimage_matches": true
+    }
+  ],
+  "analysis_dependency": {
+    "reviewed_sha256": "1bed215aa7389ee86b8ade32b5708119c23ace295ca8f29cd747be252279b616",
+    "current_sha256": "fc7f9586181607a0a509c7e192ae8c04640abb68cb477be6a91e5e52d901538c",
+    "unchanged_since_preview": false,
+    "note": "A1321 received a subsequent planning update after creation; this readback confirms approved Draft payloads, not closure of later planning changes."
+  },
+  "boundary": "Actual Drafts only; no Current adoption, native workflow admission, parser or runtime claimed."
+}

@@ -3,8 +3,8 @@ atom_id: CA-P-2694
 label: Epic
 status: Active
 tier: 3
-version: 66
-updated_at: 2026-11-05 01:59:03 +0400
+version: 67
+updated_at: 2026-11-05 03:40:01 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations:
@@ -39,7 +39,7 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 - Keep MODEL entities distinct from their instances. Use the latest Operator decisions when earlier wording conflicts.
 - Keep Atom.Header and Atom.Content, an empty Claim container with one or two Formal Claim / Prose Claim children, declared heading interpretation, explicit counterpart identities, aliases, and the removal of the @ reference operator.
 - Carry each Atom’s one immediate Container in Atom.Header.Container, using a full Scope Unit path or a base Atom ID selecting its Current version by default. Atom.Header.Relations is optional and does not duplicate Container. IS_CONTAINED_BY, CONTAINS and their +>/<+ notation remain MODEL/Formal Claim relations. A non-Project Scope Unit has one formal Container; the Project root has none. Each Scope Unit Declaration Atom separately has one Header.Container. For a root Project Declaration Atom, an omitted value defaults effectively to `world`; an explicit valid value overrides the default.
-- Retire Substep and make Step recursive: exactly one Action, one Workflow, or one or more contained Steps. Step Run covers Step at every nesting level. Preserve the separate actual Workflow-owner migration boundary.
+- Retire Substep and make Step recursive: exactly one Action, one Workflow, or one or more contained Steps. Step Run covers Step at every nesting level. Each Step has one Container and its Container chain ends at a Workflow. Preserve the separate actual Workflow-owner migration boundary.
 - Keep # model / # instances groups and explicit $x bindings. Inherit declared formats without copying local value counts. A present Property has a value and has schema and bearer links.
 - Projection identity is Form + Scope Unit. Named Selection remains source information. Terms Graph is deferred by the latest Operator input; Term Definitions and historical projections remain.
 
@@ -92,9 +92,9 @@ CA-A-1321@1-draft records the latest design and its open grammar questions. Keep
 - The proposed `/` means containment and `//` means narrowing. Preserve relationship direction, inherited rules and endpoint count meaning during review.
 - Formats combine value domains and conditions, including primitive values. Bound names and quantifiers are logical notation.
 - Allowed values use `::`, including `{::n}` bounds; `:=` stays unchanged. A specific Relation participant uses `$x[<Relation>, .Name = IS_PROPERTY_OF]`. These Operator decisions are settled; their defining source revisions and migration remain open.
-- `FOR EACH $atom[<Atom>, (conditions)]: (...)` is accepted, without WITH or IN. Its participant is scoped to its selector and grouped body. Formal Claims are self-contained; subjects.active remains the declared focus. R2778@1-draft records the quantifier. Typed Format/binding source successors and the CFEL overview still require coordinated review and admission.
+- `FOR EACH $atom[<Atom>, (conditions)]: (...)` is accepted, without WITH or IN. Its participant is scoped to its selector and grouped body. Formal Claims are self-contained; subjects.active remains the declared focus. R2778@1-draft records the quantifier. Typed Format/binding successors R2248@6 and R2604@4 are created; R2487@14-draft is rebased. Their coordinated review, readback and admission remain required.
 - Reverse traversal remains unresolved. Do not treat candidate spellings as adopted.
-- Scope Unit paths use one string, illustrated by `/~ENGINE/PROGRAMMATIC/...`; canonical segment and Project-root handling still need source authority.
+- Scope Unit paths use one string made from actual declared Names along the containment chain; the Project root is `/`. R2530@3-draft and the rebased R2779@1-draft record this contract. `/FRAMEWORK_ENGINE` and `/FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/CORE_META_MODEL` are current examples. Preserve Carrier folder names independently.
 - Put Project Settings defaults on their Property Declarations with `?==`. Preserve sourced values and validation; retire the old Default Settings Artifact requirements only after dependent source reconciliation. Runtime files stay with their owners.
 
 ## Remaining work
