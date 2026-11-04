@@ -19,7 +19,7 @@ source:
   - CA-D-279@26
   - CA-D-280@28
   - CA-D-282@26
-  - CA-D-283@33
+  - CA-D-283@34
   - CA-D-284@26
   - CA-D-287@29
   - CA-D-289@25
@@ -265,7 +265,7 @@ source:
   - CA-E-623@30
   - CA-E-624@38
   - CA-E-652@22
-  - CA-E-654@12
+  - CA-E-654@13
   - CA-E-656@21
   - CA-E-657@8
   - CA-E-658@14
@@ -356,7 +356,7 @@ source:
   - CA-M-315@26
   - CA-M-345@20
   - CA-M-385@25
-  - CA-M-438@17
+  - CA-M-438@18
   - CA-M-439@3
   - CA-M-442@5
   - CA-M-443@4
@@ -377,7 +377,7 @@ source:
   - CA-M-458@3
   - CA-M-459@2
   - CA-M-460@2
-  - CA-M-461@1
+  - CA-M-461@2
   - CA-R-004@37
   - CA-R-007@33
   - CA-R-014@19
@@ -792,10 +792,10 @@ source:
   - CA-R-2100@8
   - CA-R-2102@17
   - CA-R-2123@9
-  - CA-R-2125@10
-  - CA-R-2131@10
-  - CA-R-2132@12
-  - CA-R-2149@14
+  - CA-R-2125@11
+  - CA-R-2131@11
+  - CA-R-2132@13
+  - CA-R-2149@15
   - CA-R-2156@10
   - CA-R-2157@10
   - CA-R-2158@12
@@ -839,11 +839,11 @@ source:
   - CA-R-2420@5
   - CA-R-2421@5
   - CA-R-2422@5
-  - CA-R-2424@2
+  - CA-R-2424@3
   - CA-R-2425@4
   - CA-R-2426@3
   - CA-R-2427@2
-  - CA-R-2428@2
+  - CA-R-2428@3
   - CA-R-2444@5
   - CA-R-2445@6
   - CA-R-2448@5
@@ -1047,7 +1047,7 @@ source:
   - CA-R-2685@1
   - CA-R-2686@1
   - CA-R-2687@1
-  - CA-R-2688@1
+  - CA-R-2688@2
   - CA-R-2689@1
   - CA-R-2690@1
   - CA-R-2691@1
@@ -1061,7 +1061,7 @@ source:
   - CA-R-2703@1
   - CA-R-2704@1
   - CA-R-2705@2
-  - CA-R-2706@1
+  - CA-R-2706@2
   - CA-R-2707@2
   - CA-R-2708@1
   - CA-R-2709@1
@@ -1094,6 +1094,7 @@ source:
   - CA-R-2744@1
   - CA-R-2745@1
   - CA-R-2746@1
+  - CA-R-2747@1
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1120,7 +1121,7 @@ source:
   - CA-R-796@44
   - CA-R-806@42
   - CA-R-807@34
-  - CA-R-808@34
+  - CA-R-808@35
   - CA-R-815@35
   - CA-R-818@28
   - CA-R-819@38
@@ -1147,7 +1148,6 @@ source:
   - CA-R-923@39
   - CA-R-924@37
   - CA-R-926@39
-  - CA-R-927@41
   - CA-R-933@33
   - CA-R-934@31
   - CA-R-935@37
@@ -1156,7 +1156,7 @@ source:
   - CA-R-942@32
   - CA-R-944@39
   - CA-R-945@38
-  - CA-R-947@40
+  - CA-R-947@41
   - CA-R-951@33
   - CA-R-954@33
   - CA-R-960@28
@@ -1169,7 +1169,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 09:00:21 +0400
+updated_at: 2026-11-04 09:26:01 +0400
 ---
 
 ## Primary entities
@@ -1922,24 +1922,24 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) — CA-R-2706@1
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) — CA-R-2706@2
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -2714,25 +2714,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -3545,25 +3545,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -4341,25 +4341,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -5137,25 +5137,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -5933,25 +5933,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -6729,25 +6729,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -7556,25 +7556,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -8352,25 +8352,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -9148,25 +9148,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -9957,25 +9957,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -10767,25 +10767,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -11577,25 +11577,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -12443,25 +12443,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -13239,25 +13239,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -14035,25 +14035,25 @@ Atom//$atom;
 
 COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)
 ```
-- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@1
+- property: `Atom.Header.Tier` (relative `Header.Tier`) [inherited] — CA-R-2706@2
   - origin: `Atom`
-  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier{:1}: [int]{:1}` — CA-R-2706@2
     - nesting: `property`
     - name format: `None`
     - occurrence cardinality: `1`
     - effective occurrence cardinality: `1`
     - value format: `int`
     - value cardinality: `1`
-  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@1
+  - contract: `Atom.Header.Tier.*[in(Label)]{:0..1}` — CA-R-2706@2
     - nesting: `immediate_dependents`
     - name format: `in(Label)`
     - occurrence cardinality: `0..1`
     - effective occurrence cardinality: `0..1`
     - value format: `None`
     - value cardinality: `missing`
-  - effective value format: `int` — CA-R-2706@1
+  - effective value format: `int` — CA-R-2706@2
   - Property Declaration CFEL:
-    - source: `CA-R-2706@1`
+    - source: `CA-R-2706@2`
 ```CFEL
 # model
 Atom.Header.Tier{:1}: [int]{:1};
@@ -21547,7 +21547,7 @@ THEN ($contained.structural_level = $container.structural_level + 1) — CA-R-25
 THEN (IMMUTABLE($atom.Header.ID)) — CA-R-2701@1
 - Atom.Header.Version >= 1 — CA-R-2704@1
 - Atom.Header.Label ?= Atom.Header.Form — CA-R-2705@2
-- Atom.Header.Tier >= -1 — CA-R-2706@1
+- Atom.Header.Tier >= -1 — CA-R-2706@2
 - IF (($atom.Header.Tier.Label{=1}) AND ($atom.Header.Tier = 0)) THEN ($atom.Header.Tier.Label == Scope Contract) — CA-R-2707@2
 - IF (($atom_2.Header.Tier.Label{=1}) AND ($atom_2.Header.Tier = 1)) THEN ($atom_2.Header.Tier.Label == Core) — CA-R-2707@2
 - IF (($atom_3.Header.Tier.Label{=1}) AND ($atom_3.Header.Tier = 2)) THEN ($atom_3.Header.Tier.Label == General) — CA-R-2707@2

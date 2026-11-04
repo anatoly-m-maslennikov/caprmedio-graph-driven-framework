@@ -1,0 +1,150 @@
+{
+  "verdict": "PASS",
+  "limitations": "Source-level verification only; no runtime, native workflow admission, journal, migration, test or release verification. Current role scan excludes drafts, archives, 000 projection, analysis and plans. Frozen refs were not changed by this verifier.",
+  "receipt_plan_hash_matches": true,
+  "receipt_counts": {
+    "outputs": 15,
+    "operations": 31,
+    "archive_writes": 15,
+    "deletions": 1
+  },
+  "all_operation_drift": [],
+  "outputs": [
+    {
+      "id": "CA-M-438",
+      "current_sha256_matches": true,
+      "archive_sha256": "760f7d3bed6c59304259728776bdd7e282a7de6b33eca6f07d34ec1a124a5f3b",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": []
+    },
+    {
+      "id": "CA-M-461",
+      "current_sha256_matches": true,
+      "archive_sha256": "96076568c22e88e25f0a80dca363ea0f5bd9f41fbdbdb5f7c141756b5cbc9db5",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": []
+    },
+    {
+      "id": "CA-R-2688",
+      "current_sha256_matches": true,
+      "archive_sha256": "990a293220b3528ce4afbdd43b34fa831aee0b98b15102fe2fe81b1874b39824",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": []
+    },
+    {
+      "id": "CA-R-2132",
+      "current_sha256_matches": true,
+      "archive_sha256": "f7f843d0a0b42653ab59557785d40e7b8aab904f23eab8b169abce7d79429a3b",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": [
+        "subjects"
+      ]
+    },
+    {
+      "id": "CA-R-2125",
+      "current_sha256_matches": true,
+      "archive_sha256": "4a17046edd8f632ecc3b326dca36e6fe837536831d5368a647ff01af54a84e51",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": [
+        "subjects"
+      ]
+    },
+    {
+      "id": "CA-R-2706",
+      "current_sha256_matches": true,
+      "archive_sha256": "9cbbd70ffbd2dba975184c3ad9bfed4584cefd431068d714e68901a519efa4c2",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": []
+    },
+    {
+      "id": "CA-R-2424",
+      "current_sha256_matches": true,
+      "archive_sha256": "70969971670326b0a1c707b218e524e7b29751730ff1420fa38ae5b0538619e2",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": []
+    },
+    {
+      "id": "CA-D-283",
+      "current_sha256_matches": true,
+      "archive_sha256": "072b84f3f969200fbf321313aeb0c0a2841b58435a87518cc616bccdd606fd50",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": []
+    },
+    {
+      "id": "CA-R-2131",
+      "current_sha256_matches": true,
+      "archive_sha256": "4e63799d5b7d5075328af96235cde93c6407ab9d314df08a6c138e7e40be4553",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": [
+        "subjects"
+      ]
+    },
+    {
+      "id": "CA-E-654",
+      "current_sha256_matches": true,
+      "archive_sha256": "834ccbe92b8414d7cf360a74bceea8c6a526c794f9ca453674fbf6880278bacc",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": []
+    },
+    {
+      "id": "CA-R-2149",
+      "current_sha256_matches": true,
+      "archive_sha256": "3e9bd5cc7b72dc851cd958c741302c2fe8c798bc144375013a130d9c1db6e708",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": []
+    },
+    {
+      "id": "CA-R-808",
+      "current_sha256_matches": true,
+      "archive_sha256": "b6fe1ed0788cf3d2ea2dad5e86051bb6d6f998dd5a1025e776f9b1d6ccc1e592",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": []
+    },
+    {
+      "id": "CA-R-2428",
+      "current_sha256_matches": true,
+      "archive_sha256": "1b4b4dff074b9cd2e1bb19d314ea33858f875a0d03d37f0fc2ae8869d0e60697",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": [
+        "subjects"
+      ]
+    },
+    {
+      "id": "CA-R-2747",
+      "current_sha256_matches": true
+    },
+    {
+      "id": "CA-R-947",
+      "current_sha256_matches": true,
+      "archive_sha256": "83767e426b4a6780633420a9ecbc9fa09755ee52f3898e6b8c6391f2a238f616",
+      "summary_unchanged": true,
+      "version_increments": true,
+      "other_metadata_changes": [
+        "relations"
+      ]
+    }
+  ],
+  "new_id_current_occurrences": [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2747-CORE_META_MODEL-RULE--require-goal-coverage-for-every-project.md"
+  ],
+  "retired_id_unversioned_current_refs": [],
+  "retired_id_frozen_current_refs": [],
+  "predicate": "CA-R-2132 applies to any Atom Form Goal with active Subject resolving Project Scope Unit root, requires Tier -1. CA-M-438 and CA-E-654 retain fixed -1 and prohibit raising; general >=0 rules exclude this predicate.",
+  "admission": {
+    "native_workflow_admission": false,
+    "journal_append": false
+  }
+}

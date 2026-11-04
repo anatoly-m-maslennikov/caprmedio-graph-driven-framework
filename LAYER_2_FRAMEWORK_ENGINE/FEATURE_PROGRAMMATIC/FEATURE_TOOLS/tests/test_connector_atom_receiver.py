@@ -14,7 +14,7 @@ TOOLS = Path(__file__).resolve().parents[1]
 PROJECT = TOOLS.parents[2]
 sys.path.insert(0, str(TOOLS))
 
-from connector_atom_read import AtomSourceView, query_atoms, read_atom
+from connector_atom_read import AtomReadError, AtomSourceView, query_atoms, read_atom
 from connector_atom_receiver import make_atom_receiver
 from connector_bindings import capture_source
 from project_selection import resolve_project
@@ -98,6 +98,18 @@ class AtomReceiverTests(unittest.TestCase):
                         'updated_at: "2026-10-13 00:00:00 +0000"\n'
                         f"subjects:\n  governs: {governs}\n  depends_on: {list(dependencies)!r}\n"
                         "custom: preserved\n---\n# Summary\n\nImmutable full body.\n", encoding="utf-8")
+        return path
+
+    def canonical_atom(self, identity, *, active="Thing", passive=(), owner="CORE"):
+        folder = self.owners[owner] / "04_requirement"
+        folder.mkdir(parents=True, exist_ok=True)
+        path = folder / f"{identity}--canonical.md"
+        path.write_text(f"---\natom_id: {identity}\nrole: Requirement\nform: Requirement\n"
+                        f"current_scope_unit: {owner}\nstatus: Active\nversion: 1\n"
+                        'updated_at: "2026-10-13 00:00:00 +0000"\n'
+                        f"subjects:\n  active: {active}\n  passive: {list(passive)!r}\n"
+                        "custom: preserved\n---\n# Summary\n\nImmutable full body.\n",
+                        encoding="utf-8")
         return path
 
     def frontier(self, paths=None):
@@ -255,8 +267,40 @@ class AtomReceiverTests(unittest.TestCase):
         queried = query_atoms(filters, self.view, bound_sources=self.frontier())
         self.assertEqual(queried["data"]["matches"], [{
             "atom_id": identity, "version": 1, "current_scope_unit": "CORE",
-            "subjects": {"active": "Scope Unit//LEAF", "governs": "Scope Unit//LEAF"}, "status": "Active",
+            "subjects": {"active": "Scope Unit//LEAF", "passive": []}, "status": "Active",
         }])
+
+    def test_query_subjects_preserve_source_keys_while_legacy_fields_stay_readable(self):
+        canonical = self.canonical_atom("CA-R-3", active="Current/Part")
+        cases = (
+            ("CA-R-1", "Thing/Part", {"governs": "Thing/Part", "depends_on": []}, []),
+            ("CA-R-3", "Current/Part", {"active": "Current/Part", "passive": []},
+             ["content_role", "type"]),
+        )
+        for identity, subject, expected_subjects, legacy_fields in cases:
+            with self.subTest(identity=identity):
+                filters = self.inner("query")["query"]["filters"]
+                filters.update(atom_ids=[identity], result_fields=[*legacy_fields, "subjects"])
+                filters["subjects"] = [{"fields": ["governs"], "match": "exact", "value": subject}]
+                matches = query_atoms(filters, self.view)["data"]["matches"]
+                expected = {"atom_id": identity, "version": 1 if identity == "CA-R-3" else 3,
+                            "current_scope_unit": "CORE", "subjects": expected_subjects}
+                if legacy_fields:
+                    expected.update(content_role="Requirement", type="Requirement")
+                self.assertEqual(matches, [expected])
+        self.assertTrue(canonical.exists())
+
+    def test_query_rejects_conflicting_subject_aliases(self):
+        path = self.owners["CORE"] / "04_requirement/CA-R-3--conflict.md"
+        path.write_text("---\natom_id: CA-R-3\ncontent_role: Requirement\ntype: Requirement\n"
+                        "current_scope_unit: CORE\nstatus: Active\nversion: 1\n"
+                        'updated_at: "2026-10-13 00:00:00 +0000"\n'
+                        "subjects:\n  governs: Legacy\n  active: Current\n  depends_on: []\n"
+                        "---\n# Summary\n",
+                        encoding="utf-8")
+        with self.assertRaises(AtomReadError) as error:
+            query_atoms(self.inner("query")["query"]["filters"], self.view)
+        self.assertEqual(error.exception.code, "schema_invalid")
 
     def test_query_requires_complete_explicit_frontier_criteria(self):
         for field in ("scope_units", "lifecycles", "subjects", "result_fields"):

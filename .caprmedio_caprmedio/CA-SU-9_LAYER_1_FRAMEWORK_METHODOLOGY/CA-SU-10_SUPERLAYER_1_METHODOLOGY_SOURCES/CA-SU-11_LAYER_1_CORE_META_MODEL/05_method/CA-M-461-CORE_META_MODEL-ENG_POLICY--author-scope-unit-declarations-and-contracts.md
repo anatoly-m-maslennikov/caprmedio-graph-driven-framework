@@ -4,10 +4,10 @@ form: Eng Policy
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Scope Unit
-version: 1
+version: 2
 relations: {}
 tier: 3
-updated_at: 2026-11-02 19:17:40 +0400
+updated_at: 2026-11-04 09:19:08 +0400
 role: Method
 ---
 ## Summary
@@ -27,7 +27,7 @@ Author Scope Unit Declarations and Contracts
 
 ## Details
 
-A Declaration states the Scope Unit ID where applicable, Name, ordered state, optional Label, conditional order.number and direct containment. Do not add Navigation Number to Scope Unit Declarations. Keep the Project Declaration outside the Project, like the Project Goal, with external Operator ownership.
+A Declaration states the Scope Unit ID where applicable, Name, ordered state, optional Label, conditional order.number and direct containment. Do not add Navigation Number to Scope Unit Declarations. Keep the Project Declaration outside the Project, with external Operator ownership.
 
 Authority and Delivery Folder names are derived. Only non-root Authority Folder names include the Scope Unit ID prefix. The Project Authority Folder is `.caprmedio_<project name>`, without an ID. Do not author derived paths in individual Scope Unit Declarations.
 

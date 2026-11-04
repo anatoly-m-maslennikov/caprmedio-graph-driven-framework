@@ -5,10 +5,10 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
-version: 1
+version: 2
 relations: {}
 tier: 3
-updated_at: 2026-11-03 20:00:05 +0400
+updated_at: 2026-11-04 09:19:08 +0400
 role: Requirement
 form: Declaration
 carrier_destination:
@@ -24,7 +24,7 @@ Declare Atom.Header.Tier
 
 ### Prose Claim
 
-Goals whose active Subject resolves to the Project use Tier -1. Ordinary Scope Unit-owned non-Goal Atoms use Tier 0 or higher.
+Atom.Header.Tier stores one integer value and an optional Tier Label; the Formal Claim defines their representation.
 
 ### Formal Claim
 

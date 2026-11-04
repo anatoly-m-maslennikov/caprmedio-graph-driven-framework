@@ -4,8 +4,8 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Scope Unit Declaration)
   - CAPRMEDIO_MODEL <+ Project
-version: 1
-updated_at: 2026-11-02 19:17:40 +0400
+version: 2
+updated_at: 2026-11-04 09:19:08 +0400
 relations: {}
 atom_id: CA-R-2688
 status: Active
@@ -33,4 +33,4 @@ Authority and Delivery folder names are derived from the Declaration. `project_s
 
 ## Details
 
-The Project Declaration is externally Operator-owned, like the Project Goal. The Operator is an Actor, not a Scope Unit.
+The Project Declaration is externally Operator-owned. The Operator is an Actor, not a Scope Unit.

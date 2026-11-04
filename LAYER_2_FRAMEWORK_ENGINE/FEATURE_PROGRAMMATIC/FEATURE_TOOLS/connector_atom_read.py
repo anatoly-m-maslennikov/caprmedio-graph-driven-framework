@@ -9,7 +9,7 @@ from __future__ import annotations
 import hashlib
 import re
 from collections import Counter
-from dataclasses import dataclass, replace
+from dataclasses import dataclass
 from pathlib import Path
 
 from atom_operations import ATOM_ID, _lifecycle, _role_directory
@@ -86,7 +86,6 @@ def _sources(view: AtomSourceView, bound_sources=None):
                     raise AtomReadError("schema_invalid", "An Atom source is unreadable or malformed.", "context") from error
                 continue
             properties = carrier_read_view(parsed.metadata)
-            parsed = replace(parsed, metadata=properties)
             if "projection" in properties:
                 continue
             declaration = _scope_unit_declaration(properties)
@@ -96,7 +95,6 @@ def _sources(view: AtomSourceView, bound_sources=None):
                 # A declaration's active Subject names its target, not its owner.
                 # Its owning Scope is the Authority carrier that physically contains it.
                 properties = {**properties, "current_scope_unit": owner}
-                parsed = replace(parsed, metadata=properties)
             elif not isinstance(properties.get("current_scope_unit"), str):
                 raise AtomReadError("schema_invalid", "Atom source has no canonical owning Scope Unit.", "context")
             filename_id = ATOM_ID.search(path.name)
@@ -111,7 +109,9 @@ def _sources(view: AtomSourceView, bound_sources=None):
                 continue
             state = {"identity": properties["atom_id"], "version": properties["version"],
                      "source_token": hashlib.sha256(raw).hexdigest(), "source_view": view.attribution}
-            observed.append((path, raw, parsed, state))
+            # Keep the parsed Carrier source-faithful.  ``properties`` is a
+            # compatibility view for selection and explicit legacy lookups.
+            observed.append((path, raw, parsed, properties, state))
         if any(count > 1 for count in Counter(originals).values()):
             raise AtomReadError("target_ambiguous", "The source inventory has competing original identities.", "context")
         if bound_sources is not None:
@@ -126,7 +126,7 @@ def _sources(view: AtomSourceView, bound_sources=None):
 
 
 def query_atoms(filters: dict, view: AtomSourceView, *, bound_sources=None) -> dict:
-    """Observe all matches, without full reads, defaults or mutation effects."""
+    """Observe matches without full reads, unrequested defaults, or mutation effects."""
     try:
         validate_filters(filters)
     except (ValueError, TypeError) as error:
@@ -134,16 +134,16 @@ def query_atoms(filters: dict, view: AtomSourceView, *, bound_sources=None) -> d
     if set(filters["scope_units"]) != set(view.scope_units) or set(filters["lifecycles"]) != set(view.lifecycles):
         raise AtomReadError("input_invalid", "Query frontier disagrees with its bound source view.", "query")
     data, states = [], []
-    for _, _, parsed, state in _sources(view, bound_sources):
+    for _, _, parsed, read_view, state in _sources(view, bound_sources):
         try:
-            read_view = carrier_read_view(parsed.metadata)
             selected = matches(read_view, filters, view.subject_profile)
         except (ValueError, SubjectNotationError) as error:
             raise AtomReadError("schema_invalid", "Source Subject syntax is unsupported by the supplied profile.", "context") from error
         if selected:
             row = {field: (parsed.metadata.get(field) if field == "subjects" else read_view.get(field))
                    for field in filters["result_fields"]}
-            row.update(atom_id=state["identity"], version=state["version"], current_scope_unit=parsed.metadata["current_scope_unit"])
+            row.update(atom_id=state["identity"], version=state["version"],
+                       current_scope_unit=read_view["current_scope_unit"])
             data.append(row)
             states.append(state)
     return {"data": {"matches": data, "complete": True, "source_view": view.attribution},
@@ -159,16 +159,18 @@ def read_atom(identity: str, view: AtomSourceView, expected_state: dict | None =
         raise AtomReadError("input_invalid", "Read pin must be exact observed state evidence.", "expected_state")
     if expected_state is not None and "version" in expected_state and (type(expected_state["version"]) is not int or expected_state["version"] < 1):
         raise AtomReadError("input_invalid", "Pinned Atom Version must be a positive integer.", "expected_state")
-    found = [entry for entry in _sources(view, bound_sources) if entry[3]["identity"] == identity]
+    found = [entry for entry in _sources(view, bound_sources) if entry[4]["identity"] == identity]
     if not found:
         raise AtomReadError("target_not_found", "The exact Atom is unavailable in the supplied source view.", "target")
     if expected_state is not None:
-        found = [entry for entry in found if all(entry[3][field] == value for field, value in expected_state.items())]
+        found = [entry for entry in found
+                 if all(entry[4][field] == value for field, value in expected_state.items())]
         if not found:
             raise AtomReadError("stale_state", "Observed Atom state differs from the supplied exact pin.", "expected_state")
     if len(found) != 1:
         raise AtomReadError("target_ambiguous", "The supplied source view does not identify one Atom revision.", "target")
-    _, _, parsed, state = found[0]
-    data = {"atom_id": identity, "version": state["version"], "current_scope_unit": parsed.metadata["current_scope_unit"],
+    _, _, parsed, read_view, state = found[0]
+    data = {"atom_id": identity, "version": state["version"],
+            "current_scope_unit": read_view["current_scope_unit"],
             "frontmatter": parsed.frontmatter, "content": parsed.body, "source": parsed.text}
     return {"data": data, "current_state": state, "effects": [], "errors": []}

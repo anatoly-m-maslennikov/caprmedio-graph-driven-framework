@@ -8,8 +8,8 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
   - CAPRMEDIO_MODEL <+ Atom.Header.Label
-version: 33
-updated_at: 2026-11-03 23:25:51 +0400
+version: 34
+updated_at: 2026-11-04 09:19:08 +0400
 relations: {}
 atom_id: CA-D-283
 current_scope_unit: CORE_META_MODEL
@@ -37,4 +37,4 @@ Identified Project-owned Markdown Atom filenames other than Plan filenames gover
 
 The `TIER` segment follows CA-D-651. It is mandatory for numeric Tier `0` and carries the registered `SCOPE_CONTRACT` token; for other Tiers its presence and numeric encoding follow the applicable filename grammar. Omitting an optional token does not omit, default or change the mandatory stored Tier. `SCOPE_CONTRACT` is the Tier representation, not the Atom's Form or effective Label. Do not restore `PRINCIPLE` or another unregistered legacy Tier token. A legacy filename remains nonconformant until its affected Carrier and references have an explicit migration disposition; old names are not grandfathered by this rule.
 
-This generic Project-owned Carrier rule does not replace the dedicated filename rules for an Operator-owned Project Goal. It does not invent a default numeric Tier or revive the retired named/default-Tier rules.
+This rule does not invent a default numeric Tier or revive the retired named/default-Tier rules.

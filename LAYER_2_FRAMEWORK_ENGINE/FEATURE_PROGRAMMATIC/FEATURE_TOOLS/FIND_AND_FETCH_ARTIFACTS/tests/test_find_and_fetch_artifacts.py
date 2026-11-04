@@ -18,7 +18,7 @@ from project_selection import bind_selection, resolve_project
 from scope_declaration_test_support import write_scope_unit_declarations
 
 DEFAULT_BYTES = (HERE.parents[3] / "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/"
-                 "LAYER_1_CORE_META_MODEL/caprmedio_framework_default_settings.toml").read_bytes()
+                 "CA-SU-11_LAYER_1_CORE_META_MODEL/caprmedio_framework_default_settings.toml").read_bytes()
 
 
 class ArtifactQueryGoldenTest(unittest.TestCase):

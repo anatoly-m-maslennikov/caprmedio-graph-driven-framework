@@ -3,11 +3,12 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
   passive:
   - CAPRMEDIO_MODEL <+ Atom
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Goal)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
-version: 10
-updated_at: 2026-11-02 00:18:22 +0400
+version: 11
+updated_at: 2026-11-04 09:19:08 +0400
 relations: {}
 atom_id: CA-R-2125
 current_scope_unit: CORE_META_MODEL
@@ -24,9 +25,9 @@ Give Every Non-Project-Goal Atom One Numeric Tier
 
 ### Prose Claim
 
-Atom other than a Project Goal Atom.
+Atom other than an Atom of Form Goal whose active Subject resolves to the Project Scope Unit root.
 
 
-**every** non-Project-Goal Atom **must** carry exactly one integer Tier. An ordinary Atom owned by a Scope Unit uses an integer Tier **>=0**. Project Goal is the separate explicit Tier `-1` case under CA-R-2132.
+**every** Atom other than an Atom of Form Goal whose active Subject resolves to the Project Scope Unit root **must** carry exactly one integer Tier. An ordinary Atom owned by a Scope Unit uses an integer Tier **>=0**, except for that exact Project-root Goal predicate. An Atom of Form Goal whose active Subject resolves to the Project Scope Unit root carries exactly Tier `-1` under CA-R-2132, regardless of its Container or owner.
 
 This rule defines owner-relative ranges, not a finite set of values. Higher integers remain admissible and may be assigned or raised when required by the approved governing-relation ordering. No Content-Role or Type-to-Tier restriction is imposed.

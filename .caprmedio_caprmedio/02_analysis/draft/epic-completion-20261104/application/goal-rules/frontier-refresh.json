@@ -1,0 +1,115 @@
+{
+  "frontier_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-endpoint-frontier.json",
+  "frontier_before_sha256": "b7f786e0d9db0820d9f1fffebd7aaf41b49f006cde25fc8104350c5bc97bf654",
+  "frontier_after_sha256": "febab6cb2218b79421c99d2578e6afdef20e8d2b02ea6195ea03210b124fed1a",
+  "output_count": 15,
+  "selected_sources": 1162,
+  "retired_id": "CA-R-927",
+  "changes": [
+    {
+      "id": "CA-M-438",
+      "old_id": "CA-M-438",
+      "old_sha256": "760f7d3bed6c59304259728776bdd7e282a7de6b33eca6f07d34ec1a124a5f3b",
+      "new_sha256": "bc090d304452fde62aa19f78a7ee365b12ba976e45ea91e31d0e5cc4d3ed4ee2",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-438-CORE_META_MODEL-ENG-DECISION--derive-current-rmed-atom-ordering-tier.md"
+    },
+    {
+      "id": "CA-M-461",
+      "old_id": "CA-M-461",
+      "old_sha256": "96076568c22e88e25f0a80dca363ea0f5bd9f41fbdbdb5f7c141756b5cbc9db5",
+      "new_sha256": "73b9c1c7925080f15c4cf72b97544522919eddda79fd2ef259265941ffc62932",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md"
+    },
+    {
+      "id": "CA-R-2688",
+      "old_id": "CA-R-2688",
+      "old_sha256": "990a293220b3528ce4afbdd43b34fa831aee0b98b15102fe2fe81b1874b39824",
+      "new_sha256": "f6d0af9f8d82ac2994c2c7be70659947eaf9baf48edab3d8c1f233c6f36b47ff",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md"
+    },
+    {
+      "id": "CA-R-2132",
+      "old_id": "CA-R-2132",
+      "old_sha256": "f7f843d0a0b42653ab59557785d40e7b8aab904f23eab8b169abce7d79429a3b",
+      "new_sha256": "295a00fb72259fc370a898ba2d28ea3fe8cfd10619ce609e3c690f40a6ad947a",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2132-CORE_META_MODEL-RULE--assign-project-goal-tier-minus-one.md"
+    },
+    {
+      "id": "CA-R-2125",
+      "old_id": "CA-R-2125",
+      "old_sha256": "4a17046edd8f632ecc3b326dca36e6fe837536831d5368a647ff01af54a84e51",
+      "new_sha256": "f87bc5460022a12f85e8e3e6f2ed0b5726058b671f195be4d5035144cc937ba0",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2125-CORE_META_MODEL-RULE--give-every-non-project-goal-atom-one-numeric-tier.md"
+    },
+    {
+      "id": "CA-R-2706",
+      "old_id": "CA-R-2706",
+      "old_sha256": "9cbbd70ffbd2dba975184c3ad9bfed4584cefd431068d714e68901a519efa4c2",
+      "new_sha256": "cc5e5e413ed0a323162f8a317f1b88baa1f068ed7c48dfa6b50a155685036d26",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2706-CORE_META_MODEL-DECLARATION--declare-atom-header-tier.md"
+    },
+    {
+      "id": "CA-R-2424",
+      "old_id": "CA-R-2424",
+      "old_sha256": "70969971670326b0a1c707b218e524e7b29751730ff1420fa38ae5b0538619e2",
+      "new_sha256": "f86db7c3804315dc4866944f55e7f1b67bc00b8cbbbcce2ee3a1d64d704f9743",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2424-CORE_META_MODEL-RULE--define-local-scope-contract-tier-zero.md"
+    },
+    {
+      "id": "CA-D-283",
+      "old_id": "CA-D-283",
+      "old_sha256": "072b84f3f969200fbf321313aeb0c0a2841b58435a87518cc616bccdd606fd50",
+      "new_sha256": "014728099a6fb976c46006ecd6e5b2a936b6ca54277c1ef26eb85dcadeb8e15c",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md"
+    },
+    {
+      "id": "CA-R-2131",
+      "old_id": "CA-R-2131",
+      "old_sha256": "4e63799d5b7d5075328af96235cde93c6407ab9d314df08a6c138e7e40be4553",
+      "new_sha256": "f4655c925426a600444cdde8a7bec0ce2d52b49a62cf90eda35caf9894c6f192",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2131-CORE_META_MODEL-RULE--admit-numeric-tiers-in-non-project-scope-units.md"
+    },
+    {
+      "id": "CA-E-654",
+      "old_id": "CA-E-654",
+      "old_sha256": "834ccbe92b8414d7cf360a74bceea8c6a526c794f9ca453674fbf6880278bacc",
+      "new_sha256": "4447daa6f5f22e1c5f0cc7c7ef3cc89ab4f9f1bc99ed1cb84b3a72aaa6a5b1c5",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-654-CORE_META_MODEL-EVAL-CASE--validate-integer-tier-ordering-and-scope-constraints.md"
+    },
+    {
+      "id": "CA-R-2149",
+      "old_id": "CA-R-2149",
+      "old_sha256": "3e9bd5cc7b72dc851cd958c741302c2fe8c798bc144375013a130d9c1db6e708",
+      "new_sha256": "928bd5b44590c661cb470c2105c79bf636f8ecca41d904785f03619724106fff",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2149-CORE_META_MODEL-RULE--constrain-governing-rmed-relation-targets-by-numeric-tier-and-scope-ancestry.md"
+    },
+    {
+      "id": "CA-R-808",
+      "old_id": "CA-R-808",
+      "old_sha256": "b6fe1ed0788cf3d2ea2dad5e86051bb6d6f998dd5a1025e776f9b1d6ccc1e592",
+      "new_sha256": "d1147e9cc4e02728a8885ada9b1768f338e02a64aa29baf543a13ec5dd9cc609",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-808-CORE_META_MODEL-RULE--apply-relation-direction-within-its-ordering-domain.md"
+    },
+    {
+      "id": "CA-R-2428",
+      "old_id": "CA-R-2428",
+      "old_sha256": "1b4b4dff074b9cd2e1bb19d314ea33858f875a0d03d37f0fc2ae8869d0e60697",
+      "new_sha256": "cafcbe78e7f2beffd2860105158a549109c9e8e45fe8622ae1c4954973fffe48",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2428-CORE_META_MODEL-RULE--admit-numeric-tiers-in-scope-units.md"
+    },
+    {
+      "id": "CA-R-2747",
+      "old_id": "CA-R-927",
+      "old_sha256": "9b123292769eb01dc23fe6eda64b212d3e2d13fc36e52364e663650026218807",
+      "new_sha256": "c38c9d341d86a34b043a847922b8728bdb0289efc31079bb8a9b70308f6a0335",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2747-CORE_META_MODEL-RULE--require-goal-coverage-for-every-project.md"
+    },
+    {
+      "id": "CA-R-947",
+      "old_id": "CA-R-947",
+      "old_sha256": "83767e426b4a6780633420a9ecbc9fa09755ee52f3898e6b8c6391f2a238f616",
+      "new_sha256": "5f003496c43bb35e9e7c949d0f1e264ae08530d6353529b2e94b1f943f65859d",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-RULE--validate-goal-claim-scope.md"
+    }
+  ]
+}

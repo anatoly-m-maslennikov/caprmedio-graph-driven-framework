@@ -5,8 +5,8 @@ subjects:
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
   - CAPRMEDIO_MODEL <+ Scope Unit
-version: 34
-updated_at: 2026-11-02 08:06:47 +0400
+version: 35
+updated_at: 2026-11-04 09:19:08 +0400
 relations: {}
 atom_id: CA-R-808
 current_scope_unit: CORE_META_MODEL
@@ -32,4 +32,4 @@ declared relations.
 
 ## Details
 
-For selected governing RMED occurrences, CA-R-2149 defines the ordering context of a verified Project Goal without treating its Operator owner as a Scope Unit. Ordinary endpoints still use their Local Scope Unit.
+For selected governing RMED occurrences, CA-R-2149 uses the Project Scope Unit resolved from the active Subject of an Atom with Form Goal as its ordering context. Ordinary endpoints still use their Local Scope Unit.
