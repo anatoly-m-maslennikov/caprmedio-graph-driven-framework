@@ -1,0 +1,97 @@
+{
+  "status": "DESIGN_REVIEW_BLOCKED_PENDING_NAMED_INSTANCE_AND_OTHER_DECISIONS",
+  "pins": {
+    "actual_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+    "actual_draft_sha256": "ef2c218926a807baf38ce486d075d2924971160f0e440e933de780b1a21fd490",
+    "matches_plan": true,
+    "plan_sha256": "b1b5b6fc227b420a3d5e6fa9bd4aacf95180dabafa4003f90b43d7d9ed39f64c",
+    "current_source_authorities": [
+      {
+        "id": "CA-R-1931",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+        "version": 18,
+        "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b"
+      },
+      {
+        "id": "CA-R-2243",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+        "version": 12,
+        "sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4"
+      },
+      {
+        "id": "CA-R-2471",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+        "version": 7,
+        "sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf"
+      },
+      {
+        "id": "CA-R-2487",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+        "version": 13,
+        "sha256": "d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045"
+      },
+      {
+        "id": "CA-R-2609",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2609-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+        "version": 2,
+        "sha256": "283b73c01297ffe141727a7007b77ea4a9d3508e5dc25059e0d66f6ab913d919"
+      }
+    ]
+  },
+  "acceptance_boundary": "<Node> is accepted. Other notation is a proposal in an Analysis Draft; Current CFEL remains authoritative until source revisions and migration. Named participants and anonymous instance selectors as described are proposals, not adopted syntax.",
+  "findings": [
+    {
+      "topic": "named-instance vs narrowing",
+      "severity": "BLOCKS_UNAMBIGUOUS_SOURCE_NOTATION",
+      "evidence": "Current R2471 reads `Relation//IS_PROPERTY_OF` as the named Relation instance; proposal reassigns // to broader-to-narrower inheritance. A1321 gives no named-instance form.",
+      "impact": "The same written expression can instead mean a narrower kind; exact IDs and Subject paths cannot be mapped or parsed safely until named-instance address syntax is chosen."
+    },
+    {
+      "topic": "containment, narrowing and reverse",
+      "severity": "BLOCKS_COMPLETE_BIDIRECTIONAL_TRAVERSAL",
+      "evidence": "Proposed Whole/Part and Broader//Narrower reverse the current / meaning; existing +>, <+, and R2609 reverse <((NAME)) have separate directional semantics. No reverse containment or narrower-to-broader spelling is proposed.",
+      "impact": "Both orientations and directional endpoint count positions must remain distinguishable; not a reason to change named Relation reverse syntax merely by analogy."
+    },
+    {
+      "topic": "anonymous instance selection and counts",
+      "severity": "NEEDS_SEMANTICS_BEFORE_CARDINALITY",
+      "evidence": "$<Node> is proposed for an anonymous instance and $x[<Node>] for a named participant; Current R2471/R2243 distinguish identity, instance population and per-bearer counts.",
+      "impact": "Specify whether a constraint applies per matching instance or to the selected set, what repeated anonymous occurrences denote, and where {:n} counts attach. Do not infer that an anonymous selector creates an instance."
+    },
+    {
+      "topic": "format brackets and angled kind",
+      "severity": "NEEDS_BOUNDED_GRAMMAR",
+      "evidence": "[int, 0..100], $x[<Node>, .Header.Status = Active] and $n[int, 1+] reuse brackets for type and conditions; <Node> denotes a model kind. Current < is also a comparison and starts <((RELATION)) reverse.",
+      "impact": "Specify bracket element order, separators and relative condition bearer; delimit kind wrapping context so it cannot swallow or be confused with comparison/reverse syntax. This is a scoping/grammar concern, not proof that <Node> collides when delimited."
+    },
+    {
+      "topic": "named reverse syntax and relational aliases",
+      "severity": "PRESERVE_EXISTING_CONTRACT_UNTIL_REVISED",
+      "evidence": "R2609 defines Target <((RELATION)) Source; R2487/R2471 retain cardinality swap and no inverse permission from a reverse view. Proposal leaves reverse traversal open.",
+      "impact": "Do not interpret <(( as <kind>, or equate display reversal with a new authored inverse. Verify existing glyph/alias declarations together if changed."
+    },
+    {
+      "topic": "colon and pending tilde",
+      "severity": "NEEDS_DECISION_NOT_AN_AUTOMATIC_REPLACEMENT",
+      "evidence": "Current : admits values and {:n} marks an allowed cardinality; A1321 only proposes ~ for allowed values and gives /~ENGINE/... as a full path example.",
+      "impact": "Changing a value operator does not by itself change {:n}, selector :=, quoted text or ~ within a path. Separate contexts and lexical boundaries, especially a /~ path segment versus ~ operator."
+    },
+    {
+      "topic": "IF binding and quantification",
+      "severity": "SUBSTANTIVE_CONTRACT_CHANGE",
+      "evidence": "A1321 proposes explicit quantification and says IF must not silently introduce a participant; Current R2487 permits binding by IF membership and R2604 has an IF-local scope rule.",
+      "impact": "Source and instances relying on Current IF binding need reviewed migration; FOR EACH is candidate only. No loop or mutable-variable semantics follows."
+    }
+  ],
+  "top_question": {
+    "question": "With `//` reserved for narrowing, how should we write a named instance such as the existing `Relation//IS_PROPERTY_OF` so it is distinguishable from a narrower kind?",
+    "example": "Current `Relation//IS_PROPERTY_OF` = the named Relation instance; proposed `Relation//IS_PROPERTY_OF` would read as a narrower kind. What should the named instance address become?",
+    "impact": "All authored named-instance references, relation declarations, Subject identity and migration depend on this choice; a guess can change the addressed Entity."
+  },
+  "routine_details": [
+    "Whitespace and line-break formatting can follow a subsequently specified grammar; do not block the conceptual choice.",
+    "Examples do not imply Runtime implementation, parsing, executable I/O, or automatic writes.",
+    "No assumption that every < character denotes a kind; token context must be specified."
+  ],
+  "boundary": "Read-only source analysis; no parser/code/tests, Current, actual Draft, Workflow/Workbench or Git mutations."
+}

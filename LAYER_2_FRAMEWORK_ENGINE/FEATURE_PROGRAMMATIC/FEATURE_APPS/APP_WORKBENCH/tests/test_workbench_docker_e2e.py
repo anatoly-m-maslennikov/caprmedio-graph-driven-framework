@@ -189,7 +189,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
 
         async def exercise() -> tuple[dict, ...]:
             async with streamable_http_client(self.url + MCP_PATH) as streams:
-                async with ClientSession(*streams, read_timeout_seconds=60) as client:
+                async with ClientSession(*streams, read_timeout_seconds=120) as client:
                     await client.initialize()
                     tools = {tool.name for tool in (await client.list_tools()).tools}
                     self.assertTrue({

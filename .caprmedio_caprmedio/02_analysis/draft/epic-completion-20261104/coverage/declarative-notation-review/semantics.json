@@ -1,0 +1,149 @@
+{
+  "status": "BOUNDED_DESIGN_ANALYSIS_NOT_ADOPTION",
+  "analysis_draft": {
+    "id": "CA-A-1321",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+    "sha256": "ef2c218926a807baf38ce486d075d2924971160f0e440e933de780b1a21fd490"
+  },
+  "current_authority_pins": [
+    {
+      "id": "CA-R-2487",
+      "version": 13,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045"
+    },
+    {
+      "id": "CA-R-2593",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2593-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "80a4f7213199aa5e5818b18d515e03f49e1bdc539b34e8d9d384065696e31949"
+    },
+    {
+      "id": "CA-R-2594",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2594-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "f711324330e0121142be66a52968fcb4aec80a21a114e248bf4bbf94a777ac8b"
+    },
+    {
+      "id": "CA-R-2601",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "d31d8e02dedf8afe62ad100733208ff77c8f069666397b86480ae4d5da4de9a0"
+    },
+    {
+      "id": "CA-R-2604",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "f2b03e857aa8bc2e30beba8bac5f4b9b78d12af35061ab865d3c8e3ff07bdc5d"
+    },
+    {
+      "id": "CA-R-2768",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2768-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md",
+      "sha256": "f2fa2c56c05167ce4ab6be038fe223657f01189e2fcf4d8791a5c08ce4556626"
+    },
+    {
+      "id": "CA-R-2769",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2769-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "69ccd7b57a93be95871f29e4ad180044249983448172352d2c791273b680e4fa"
+    },
+    {
+      "id": "CA-R-2770",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2770-CORE_META_MODEL-DECLARATION--declare-cfel-operator-lookup-r-q.md",
+      "sha256": "33e9b2e573ddc8e875a44660aa62312b4e34523f2296ccee10986528d1fa4a24"
+    },
+    {
+      "id": "CA-R-2248",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "sha256": "e10f65588d725a5463ba1f257aa2d5e5a6eb97fd9c848e1e7184952efd9d193e"
+    },
+    {
+      "id": "CA-R-2253",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2253-CORE_META_MODEL-ENTITY_DEFINITION--define-string-value-format.md",
+      "sha256": "f5c86c8e98ef8fc92f822c8dad2c4824577f51d4b38c4f257774f3d5c9efaece"
+    },
+    {
+      "id": "CA-R-2771",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2771-CORE_META_MODEL-RULE--cfel-numeric-range-constraint.md",
+      "sha256": "f4381a01fd67e8b87a221c3467f3b87253332ae0713420ed3f10b1c454450382"
+    },
+    {
+      "id": "CA-R-2772",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2772-CORE_META_MODEL-RULE--cfel-format-constraint-intersection.md",
+      "sha256": "ede1863121a6b8b03095bcf71bd74e448e68c1d2e3636cb6a8b968d28ed1abd2"
+    },
+    {
+      "id": "CA-R-2566",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2566-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md",
+      "sha256": "4b8a0ac45864cfc21a3d01b0f64f1be73d3ff7ae186e3e188144249c1f836d00"
+    },
+    {
+      "id": "CA-R-2585",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2585-CORE_META_MODEL-CFEL--count-property-values-and-distinct-values.md",
+      "sha256": "030b2a4011e4bfb4fa436c88a035d663e7d6d93df85b3537b65d2cfe66c3af7a"
+    },
+    {
+      "id": "CA-R-2711",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "sha256": "0506c8ab90381874d50fd3f368b97217a392271e555c495b2b03d47bcf8267c3"
+    },
+    {
+      "id": "CA-R-2564",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "sha256": "6c1dc5f3c6f0d1f6aec7380c769824760da4de9497f46122fa45e660055e69b9"
+    }
+  ],
+  "distinctions": [
+    {
+      "topic": "Declarative wording",
+      "finding": "R2593 already calls == a required or derived conclusion; R2487 says CFEL does not create Carrier facts or execution steps. Replacing assignment language with required-value/constraint language can be editorial only if existing satisfaction, invalid-input and no-I/O behavior is preserved. R2768/R2769 currently state the effective missing value is set in the Model; do not silently redefine this as an authored Carrier occurrence or erase effective value semantics."
+    },
+    {
+      "topic": "Condition versus required value",
+      "finding": "R2594 makes = an equality test, while R2593 states == is a required/derived conclusion. A THEN consequent may contain either an asserted equality condition or a required conclusion. Contradictory supplied values and multiple incompatible == statements need explicit declarative satisfaction semantics; current text does not establish a silent overwrite rule."
+    },
+    {
+      "topic": "Default",
+      "finding": "R2768/R2769 preserve an authored value, select first available valid fallback only on absence, evaluate chain lazily, validate effective result and perform no Carrier write. Invalid authored value is an error, not absence; LOOKUP invalid present value/unresolved facts/multiple targets/cycle are errors. false, zero, empty and null are not absence. Purely renaming assignment is compatible only if these remain. R2768 also requires an error on missing final value; any shift to permit optional omission is a real change, scoped separately and reconciled with applicable cardinality."
+    },
+    {
+      "topic": "Bindings and quantification",
+      "finding": "Current R2487 permits an IF membership condition to bind an unbound participant, and R2604 scopes a new IF binding to its condition and THEN, with no shadowing. The proposed rule that IF must not silently introduce participants changes that admitted binding mechanism, unless an explicit equivalent quantifier is specified and existing claims migrated. Standalone typed binder block lifetime and existing outer-name references need preservation; no procedural mutation is implied by a logical binding."
+    },
+    {
+      "topic": "Model kinds as Formats",
+      "finding": "R2248 defines Format as direct-value domain, uses string for identifying values and says ref is not a Format. User-approved <Node> object Format is a substantive domain extension requiring compatible R2248/Format authorities and object identity/reference behavior, not just a label change. It does not make primitive literal values graph Nodes; object identity and scalar Format remain distinct unless independently decided."
+    },
+    {
+      "topic": "Functions as value terms",
+      "finding": "Current COUNT and MAX describe values of selections and require explicit domain/error behavior; LOOKUP traverses existing links in a given direction, selects nearest applicable authored value and has specified ambiguous/unresolved/cycle errors. Declarative mathematical notation can retain these as expressions without I/O, mutable state or business actions. Abolishing their callable spelling or traversal semantics would be a separate semantic/grammar migration, not demanded by declarative interpretation."
+    },
+    {
+      "topic": "Grammar and scope",
+      "finding": "A1321 proposes / for containment and // for narrowing (opposite Current R2487 meanings); typed and anonymous participants, scalar logical names and object Formats are additional syntax, not already-Current rules. Named-instance spelling, reverse views and exact participant quantification remain unsettled. ~ for allowed values is explicitly pending; no blanket colon replacement. Existing mixed AND/OR grouping and no-shadowing remain unless expressly changed."
+    }
+  ],
+  "top_blocking_question": "When an existing supplied value conflicts with an applicable `==` required value, should the declarative contract report the model as invalid while retaining the supplied value, or is there an explicitly authorized way to replace it?",
+  "minimal_source_plan": [
+    "Keep A1321 as analysis Draft and settle == conflict semantics and explicit binding/quantification before editing operator Claims.",
+    "Prepare coordinated R2487/R2593/R2594/R2768/R2769/R2770/R2604 successors, preserving current invalid-value, raw-versus-effective and no-Carrier-write boundaries unless a later explicit decision changes them.",
+    "Review R2248 and Format/selector declarations for approved object-kind Formats and scalar participants, keeping primitive literals distinct from graph nodes; decide exact syntax and named-instance migration separately.",
+    "Reconcile COUNT/MAX/LOOKUP expression syntax with their existing semantics and run a parsed source inventory; no implication that authoring a declaration performs a business operation.",
+    "Use source Drafts and independent review before migration; CA #3 owns any parser/runtime changes."
+  ],
+  "limits": [
+    "Current authorities remain active; no source, code, test, Git, or workflow mutation.",
+    "No new operator kind, Model kind, literal-node identity or additional decision is inferred from the analysis proposal."
+  ]
+}

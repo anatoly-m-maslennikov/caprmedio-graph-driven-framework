@@ -1,0 +1,76 @@
+{
+  "verdict": "PROPOSED_DESIGN_WITH_EXPLICIT_CONTRACT_GAPS",
+  "proposal": {
+    "id": "CA-A-1321@1-draft",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+    "sha256": "ef2c218926a807baf38ce486d075d2924971160f0e440e933de780b1a21fd490"
+  },
+  "header_preview": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/header-candidates/CA-R-ALLOCATE-declare-atom-header-container.preview.txt",
+    "sha256": "1cb290beeebaffa7599731c5b457d6572fa875fb3112b5eb8dfb9ffa3a46d889",
+    "status": "source-only; not admitted Current"
+  },
+  "current_authorities": [
+    {
+      "id": "CA-R-2530",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2530-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "sha256": "9abd4823d07e60b55d674823274fef480205f39e0eb5e193ac30d06c4f59a075"
+    },
+    {
+      "id": "CA-R-2684",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+      "sha256": "14a60cabd55349140c38bf8e0a3191016ff2ea78718d4043b3a80de163d67bbc"
+    },
+    {
+      "id": "CA-R-2524",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db"
+    },
+    {
+      "id": "CA-R-2653",
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",
+      "sha256": "e72067c7138f8deb947f81464ba3ded26d3a6192c2208954d1d76ae395a0fc9a"
+    },
+    {
+      "id": "CA-R-2654",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/04_requirement/CA-R-2654-FRAMEWORK_ENGINE-DEFINES_SCOPE_FOR-PROGRAMMATIC--declare-programmatic.md",
+      "sha256": "7762a9252a5a19fe3eb2ad66f7136293f6e5ed64ed502620c38787d9533b745d"
+    },
+    {
+      "id": "CA-R-2640",
+      "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+      "sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9"
+    }
+  ],
+  "findings": [
+    {
+      "id": "path-data-vs-CFEL-expression",
+      "interpretation": "A quoted full Scope Unit path is one string value and may contain slash characters. The proposed / containment operator is CFEL syntax when parsed as an expression. These are different contexts; neither changes a filesystem folder or admits an address merely by spelling.",
+      "next_source_obligation": "Define full-path string grammar, validation and explicit conversion to the resolved Scope Unit target; do not parse arbitrary unquoted source text as a path value."
+    },
+    {
+      "id": "example-is-not-an-alias",
+      "interpretation": "The illustrative /~ENGINE/PROGRAMMATIC path is not evidence of an existing ENGINE Scope Unit or alias. Current R2653 declares FRAMEWORK_ENGINE and R2654 declares PROGRAMMATIC as its child. The marker ~ and segment encoding are not defined by those Declarations.",
+      "next_source_obligation": "Treat it as illustrative; do not rename FRAMEWORK_ENGINE, assume an ENGINE alias, or rename directories."
+    },
+    {
+      "id": "single-string-versus-current-path",
+      "interpretation": "User proposes one full Scope Unit path string. Current R2530 describes a Scope Unit.Path as one or more strings listing identities from root; it does not itself define the proposed single-string serialized form.",
+      "next_source_obligation": "Review an explicit source successor and migration/compatibility mapping before treating the one-string form as Current."
+    },
+    {
+      "id": "root-and-declaration-bootstrap",
+      "interpretation": "User identifies Project root path as /. Current R2524 says Project is root with no Scope Unit parent. R2684 says a Scope Unit Declaration Atom is external to the Scope Unit it declares; the root Project Declaration Atom must still have its own Container under the accepted every-Atom rule.",
+      "next_source_obligation": "Resolve an independently valid external container for the Project Declaration Atom, or an explicit governed exception; / identifies the Project itself and cannot by itself establish an external container. Do not fabricate a Scope Unit.Header or external Atom."
+    },
+    {
+      "id": "object-format-vs-stored-string",
+      "interpretation": "The Header.Container candidate specifies a single string containing a full Scope Unit path or base Atom ID, with base ID selecting Current. Proposed <Node> and $x[<Node>] describe Model-kind and selected-object semantics, not a change to the stored string value Format.",
+      "next_source_obligation": "Keep stored string and resolved target distinct; add an explicit, separately governed target-resolution contract before treating the value as an object reference. Do not coerce strings into objects, invent a new Property or silently replace [string] with an object Format."
+    }
+  ],
+  "limits": [
+    "A1321 is a Draft proposal; no new CFEL notation is adopted by this review.",
+    "No canonical, Draft, code, data, or folder changes."
+  ]
+}

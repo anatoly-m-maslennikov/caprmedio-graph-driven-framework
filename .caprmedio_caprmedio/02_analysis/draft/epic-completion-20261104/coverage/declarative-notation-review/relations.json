@@ -1,0 +1,203 @@
+{
+  "status": "IMPACT_MAP_PROPOSAL_NOT_CURRENT_AUTHORITY",
+  "proposal": {
+    "id": "CA-A-1321@1-draft",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+    "sha256": "ef2c218926a807baf38ce486d075d2924971160f0e440e933de780b1a21fd490"
+  },
+  "current_source_pins": [
+    {
+      "id": "CA-R-2473",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00"
+    },
+    {
+      "id": "CA-R-2475",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c"
+    },
+    {
+      "id": "CA-R-2476",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "sha256": "0815c5de37042caf4d3f76777f7358c5509bf0f360f5d540f8c548ec9b677d9e"
+    },
+    {
+      "id": "CA-R-2478",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8"
+    },
+    {
+      "id": "CA-R-2617",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md",
+      "sha256": "129277b5d905006aed8279b20be9ed45ed8fcc1733b3097ca07321cdb03db16d"
+    },
+    {
+      "id": "CA-R-2619",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2619-CORE_META_MODEL-DECLARATION--declare-has-instance.md",
+      "sha256": "f8d8f828420b31bfedced5bbcd2eb9c51086c30b3b61e2d1cd8712f8bddb516b"
+    },
+    {
+      "id": "CA-R-2620",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2620-CORE_META_MODEL-DECLARATION--declare-has-narrower.md",
+      "sha256": "92dbcc2aa54b613c6a43c437ad0beedd632bc9ccb7d9905638f9e31472948d19"
+    },
+    {
+      "id": "CA-R-2604",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "f2b03e857aa8bc2e30beba8bac5f4b9b78d12af35061ab865d3c8e3ff07bdc5d"
+    },
+    {
+      "id": "CA-R-2605",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2605-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "af4f7fe4d92d3e39b9fc2026a93fa3e39147075d26d35c4a1f96330debebb1d0"
+    },
+    {
+      "id": "CA-R-2610",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2610-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "9be50d0d5c63f3382dba515073f3a400961e0272957b764b24e4f27737b50190"
+    },
+    {
+      "id": "CA-R-2592",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2592-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "15d757b8c771d83ec24a431d28d5ee0728bbc3240a827b214839da8c765de792"
+    },
+    {
+      "id": "CA-R-2593",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2593-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "80a4f7213199aa5e5818b18d515e03f49e1bdc539b34e8d9d384065696e31949"
+    },
+    {
+      "id": "CA-R-2769",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2769-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "69ccd7b57a93be95871f29e4ad180044249983448172352d2c791273b680e4fa"
+    },
+    {
+      "id": "CA-R-2609",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2609-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+      "sha256": "283b73c01297ffe141727a7007b77ea4a9d3508e5dc25059e0d66f6ab913d919"
+    },
+    {
+      "id": "CA-R-2613",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md",
+      "sha256": "deb55e82a43174ac74898393143ff987ae64141e5d8f5c80aea5bc7f7fa6e5ae"
+    },
+    {
+      "id": "CA-R-2487",
+      "version": 13,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045"
+    },
+    {
+      "id": "CA-R-1931",
+      "version": 18,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b"
+    },
+    {
+      "id": "CA-R-2720",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+      "sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56"
+    },
+    {
+      "id": "CA-R-2588",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c"
+    },
+    {
+      "id": "CA-R-2247",
+      "version": 11,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "b2204c4e8d43421bc1fa95ebf93dfae03eaf6749cef10015f97d3563bdb8cc22"
+    }
+  ],
+  "relation_impacts": [
+    {
+      "ids": [
+        "CA-R-2475",
+        "CA-R-2620",
+        "CA-R-2610"
+      ],
+      "topic": "Narrowing / \u2192 //",
+      "current": "R2475 defines NARROWER_THAN Direct as narrower\u2192broader, with / alias; R2610 reads X/Y as Y narrower than X. R2620 declares derived HAS_NARROWER.",
+      "proposal": "X//Y keeps X broader, Y narrower: Y ((NARROWER_THAN)) X or X ((HAS_NARROWER)) Y.",
+      "demand": "Reconcile lexical direction and alias metadata explicitly; do not mechanically assert X ((NARROWER_THAN)) Y or infer permission. Reverse traversal remains undecided."
+    },
+    {
+      "ids": [
+        "CA-R-2478",
+        "CA-R-2617",
+        "CA-R-1931"
+      ],
+      "topic": "Containment <+ / +> \u2192 proposed whole/part path",
+      "current": "IS_CONTAINED_BY Direct is part\u2192immediate Container; CONTAINS Derived is whole\u2192part. R2478 binds +> and R2617 binds <+.",
+      "proposal": "Whole/Part expresses whole contains part; the Direct fact remains Part IS_CONTAINED_BY Whole.",
+      "demand": "Review both formal relation authorities and notation together; do not reinterpret / as Direct whole\u2192part or duplicate Header.Container storage. Reverse traversal remains undecided."
+    },
+    {
+      "ids": [
+        "CA-R-2476",
+        "CA-R-2619",
+        "CA-R-2605",
+        "CA-R-2604"
+      ],
+      "topic": "Current named-instance // reassigned",
+      "current": "Kind//Name denotes named instance; INSTANCE_OF Direct is instance\u2192kind and HAS_INSTANCE Derived. Kind//$x and Kind// select existing typed participants.",
+      "proposal": "// denotes narrowing; $x[<Node>] and $<Node> express typed named and anonymous participants.",
+      "demand": "Define named-instance address before rewriting descriptor Subjects or aliases. Preserve instance identity, binding scope and no-shadowing; do not assume selection itself authors INSTANCE_OF."
+    },
+    {
+      "ids": [
+        "CA-R-2473"
+      ],
+      "topic": "Property dot remains",
+      "current": "IS_PROPERTY_OF Direct is Property\u2192bearer; dot addresses bearer-dependent Property.",
+      "demand": "Preserve direction and bearer semantics; do not treat containment / as a Property alias."
+    },
+    {
+      "ids": [
+        "CA-R-2593",
+        "CA-R-2769",
+        "CA-R-2592",
+        "CA-R-2487",
+        "CA-R-2613"
+      ],
+      "topic": "Object Formats and value semantics",
+      "current": "R2593 defines == as required/derived conclusion. R2769 describes ?== as conditional assignment but forbids Carrier write. R2592 binds : for allowed value. R2613 restricts Relation Declaration endpoint signature.",
+      "proposal": "<Node> is a MODEL object kind usable as Format; $ selects existing participants; == and ?== express declarative constraints, not mutation. ~ for allowed value remains unadopted.",
+      "demand": "Specify object-format and instance forms and revise applicable wording, preserving invalid/missing and no-write boundaries. Resolve endpoint selection and value-format meaning; do not adopt ~ or new cardinality syntax by assumption."
+    }
+  ],
+  "cross_cutting_demands": [
+    "Existing named Relation and Operator Subjects use // as instance notation; inventory and re-address affected sources and consumers contextually after the new instance form is accepted.",
+    "Preserve R2609 reverse writing and R2588 endpoint slot normalization and independent outgoing permissions unless reviewed authority changes them.",
+    "Migrate by parsed context, distinguishing narrowing /, named-instance //, containment +>/<+, full Scope Unit strings and quoted text. Preserve IDs and versioned references.",
+    "Source and data migration remain separate from CA #3 parser/runtime/tests and Workbench/Workflow ownership."
+  ],
+  "critical_questions_one_at_a_time": [
+    "What is the canonical spelling for a named instance such as Relation//IS_PROPERTY_OF once // means narrowing?",
+    "How will reverse containment and reverse narrowing be written?",
+    "What precisely do == and ?== require when supplied values are omitted, invalid or conflicting?",
+    "What is the complete Scope Unit path grammar, including Project root, segment Names and ~?"
+  ],
+  "limits": [
+    "No new inverse glyph, alias retirement, ~ adoption, or Current notation change is chosen here.",
+    "No Current, Workbench, Workflow, code, Git, data or projection mutation."
+  ]
+}
