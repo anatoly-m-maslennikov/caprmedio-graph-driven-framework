@@ -13,16 +13,12 @@ import json
 import os
 from pathlib import Path
 import re
-import socket
 import subprocess
 import sys
 import tempfile
 import time
-import tomllib
 import unittest
-from urllib.error import HTTPError
-from urllib.request import Request, urlopen
-from uuid import UUID, uuid4
+from uuid import uuid4
 
 
 REPOSITORY = Path(__file__).resolve().parents[5]
@@ -33,68 +29,15 @@ sys.path[:0] = [str(APP_ROOT / "tests"), str(APP_ROOT), str(TOOLS_ROOT), str(MCP
 
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from smalltest_support import source_path, write_atom, write_settings  # noqa: E402
+from workbench_docker_support import (  # noqa: E402
+    container_memory_metrics,
+    free_port,
+    is_uuid7,
+    project_name as read_project_name,
+    request,
+)
 from http_paths import HEALTH_PATH, MCP_PATH, WORKBENCH_PATH  # noqa: E402
 from work_journal import configured_journal_root  # noqa: E402
-
-
-def _free_port() -> int:
-    with socket.socket() as probe:
-        probe.bind(("127.0.0.1", 0))
-        return int(probe.getsockname()[1])
-
-
-def _project_name(control_root: Path) -> str:
-    settings_path = control_root / "caprmedio_project_settings.toml"
-    settings = tomllib.loads(settings_path.read_text(encoding="utf-8"))
-    return settings["project"]["name"]
-
-
-def _request(url: str, *, method: str = "GET", payload: dict | None = None) -> tuple[int, dict | str]:
-    body = None if payload is None else json.dumps(payload).encode()
-    request = Request(url, data=body, method=method, headers={"content-type": "application/json"})
-    try:
-        with urlopen(request, timeout=60) as response:  # noqa: S310 -- loopback test server
-            data = response.read().decode()
-            return response.status, json.loads(data) if response.headers.get_content_type() == "application/json" else data
-    except HTTPError as error:
-        with error:
-            data = error.read().decode()
-        return error.code, json.loads(data) if data else {}
-
-
-def _container_memory_metrics(name: str) -> tuple[str, dict[str, int], int | None]:
-    for events_path in ("/sys/fs/cgroup/memory.events", "/sys/fs/cgroup/memory/memory.events"):
-        result = subprocess.run(
-            ["docker", "exec", name, "cat", events_path],
-            capture_output=True, text=True, check=False,
-        )
-        if result.returncode != 0:
-            continue
-        events = {}
-        for line in result.stdout.splitlines():
-            key, _, value = line.partition(" ")
-            if key and value:
-                try:
-                    events[key] = int(value)
-                except ValueError:
-                    pass
-        peak_result = subprocess.run(
-            ["docker", "exec", name, "cat", events_path.replace("memory.events", "memory.peak")],
-            capture_output=True, text=True, check=False,
-        )
-        peak = int(peak_result.stdout.strip()) if peak_result.returncode == 0 else None
-        return events_path, events, peak
-    raise AssertionError("Workbench container did not expose cgroup memory.events")
-
-
-def _is_uuid7(value: object) -> bool:
-    if not isinstance(value, str):
-        return False
-    try:
-        parsed = UUID(value)
-    except ValueError:
-        return False
-    return parsed.version == 7 and str(parsed) == value
 
 
 class WorkbenchDockerE2E(unittest.TestCase):
@@ -106,14 +49,14 @@ class WorkbenchDockerE2E(unittest.TestCase):
         if not image:
             raise RuntimeError("CAPRMEDIO_IMAGE is required; the full suite builds the current-code image once")
         cls.image = image
-        cls.port = _free_port()
+        cls.port = free_port()
         cls.name = f"caprmedio-workbench-e2e-{uuid4().hex}"
         cls.url = f"http://127.0.0.1:{cls.port}"
         cls.target = next((path for path in REPOSITORY.rglob("CA-R-2723*.md") if "archive" not in {part.casefold() for part in path.parts}), None)
         if cls.target is None:
             raise RuntimeError("current CA-R-2723 source is required for the Workbench Docker proof")
         cls.before_hash = hashlib.sha256(cls.target.read_bytes()).hexdigest()
-        cls.project_name = _project_name(REPOSITORY / ".caprmedio_caprmedio")
+        cls.project_name = read_project_name(REPOSITORY / ".caprmedio_caprmedio")
         cls.workbench_path = f"{WORKBENCH_PATH}/{cls.project_name}"
         cls.journal_relative = configured_journal_root(REPOSITORY)
         cls.runtime = tempfile.TemporaryDirectory()
@@ -163,7 +106,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
                 stdout, stderr = cls.stdout.read(), cls.stderr.read()
                 raise RuntimeError(f"Workbench MCP container exited during startup\nstdout:\n{stdout}\nstderr:\n{stderr}")
             try:
-                if _request(cls.url + HEALTH_PATH)[0] == 200:
+                if request(cls.url + HEALTH_PATH)[0] == 200:
                     mounts = subprocess.run(
                         ["docker", "inspect", "--format", "{{json .Mounts}}", cls.name],
                         capture_output=True, text=True, check=True,
@@ -205,7 +148,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
 
     def assert_saved(self, value: dict, *, kind: str, sql: str) -> None:
         identifier = value.get("saved_query_id")
-        self.assertTrue(_is_uuid7(identifier), identifier)
+        self.assertTrue(is_uuid7(identifier), identifier)
         self.assertEqual(kind, value.get("kind"))
         self.assertEqual(sql, value.get("sql"))
         self.assertIsInstance(value.get("saved_at"), str)
@@ -334,20 +277,22 @@ class WorkbenchDockerE2E(unittest.TestCase):
         } <= {
             item["saved_query_id"] for item in recent["items"]
         })
-        recent_names = {item["saved_query_id"]: item["name"] for item in recent["items"]}
-        self.assertEqual("MCP query", recent_names[saved["saved_query_id"]])
-        self.assertEqual("MCP worksheet", recent_names[worksheet["saved_query_id"]])
+        recent_by_id = {item["saved_query_id"]: item for item in recent["items"]}
+        self.assertEqual("MCP query", recent_by_id[saved["saved_query_id"]].get("name"))
+        self.assertEqual("MCP worksheet", recent_by_id[worksheet["saved_query_id"]].get("name"))
+        self.assertNotIn("name", recent_by_id[ran["saved_query_id"]])
+        self.assertNotIn("name", recent_by_id[checked["saved_query_id"]])
         self.assertTrue(invalid_is_error)
         self.assert_saved(invalid, kind="query", sql="SELECT FROM")
         self.assert_saved_journal(ran, checked, saved, worksheet, invalid)
         self.assert_legacy_files_unchanged()
         self.assertTrue((self.workbench_state / "projection.duckdb").is_file())
-        events_path, events, peak = _container_memory_metrics(self.name)
+        events_path, events, peak = container_memory_metrics(self.name)
         self.assertEqual(0, events.get("oom_kill"), f"cgroup memory.events from {events_path}: {events}")
         print(f"Workbench Docker memory.events={events_path} oom_kill={events['oom_kill']} memory.peak={peak}")
 
     def test_workbench_http_run_check_and_read_only_failures_do_not_mutate_source(self) -> None:
-        status, page = _request(self.url + self.workbench_path)
+        status, page = request(self.url + self.workbench_path)
         self.assertEqual(200, status)
         self.assertIn("Workbench", page)
         asset_paths = [
@@ -356,16 +301,16 @@ class WorkbenchDockerE2E(unittest.TestCase):
         ]
         self.assertGreaterEqual(len(asset_paths), 2, page)
         for asset_path in asset_paths:
-            asset_status, _ = _request(self.url + asset_path)
+            asset_status, _ = request(self.url + asset_path)
             self.assertEqual(200, asset_status, asset_path)
         worksheet_sql = "SELECT 'λ'; SELECT 2"
         cursor_position = len("SELECT 'λ'; ".encode("utf-16-le")) // 2
-        status, schema = _request(self.url + f"{self.workbench_path}/schema", method="POST", payload={})
+        status, schema = request(self.url + f"{self.workbench_path}/schema", method="POST", payload={})
         self.assertEqual(200, status, schema)
         self.assertEqual({"atoms", "scope_units"}, set(schema["tables"]))
         status_column = next(column for column in schema["tables"]["atoms"] if column["name"] == "status")
         self.assertTrue(all(isinstance(value, str) for value in status_column.get("values", [])))
-        status, ran = _request(
+        status, ran = request(
             self.url + f"{self.workbench_path}/run", method="POST",
             payload={"sql": worksheet_sql, "cursor_position": cursor_position},
         )
@@ -373,7 +318,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
         self.assertEqual([[2]], ran["rows"])
         self.assert_saved(ran, kind="query", sql=" SELECT 2")
         self.assertNotIn("name", ran)
-        status, checked = _request(
+        status, checked = request(
             self.url + f"{self.workbench_path}/check", method="POST",
             payload={"sql": worksheet_sql, "cursor_position": cursor_position},
         )
@@ -381,7 +326,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
         self.assertTrue(checked["valid"])
         self.assert_saved(checked, kind="query", sql=" SELECT 2")
         self.assertNotIn("name", checked)
-        status, saved = _request(
+        status, saved = request(
             self.url + f"{self.workbench_path}/save", method="POST",
             payload={"sql": worksheet_sql, "cursor_position": cursor_position, "name": "HTTP query"},
         )
@@ -389,7 +334,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
         self.assertNotIn("query_id", saved)
         self.assert_saved(saved, kind="query", sql=" SELECT 2")
         self.assertEqual("HTTP query", saved["name"])
-        status, worksheet = _request(
+        status, worksheet = request(
             self.url + f"{self.workbench_path}/worksheet-save", method="POST",
             payload={"sql": worksheet_sql, "name": "HTTP worksheet"},
         )
@@ -397,19 +342,19 @@ class WorkbenchDockerE2E(unittest.TestCase):
         self.assertNotIn("query_id", worksheet)
         self.assert_saved(worksheet, kind="worksheet", sql=worksheet_sql)
         self.assertEqual("HTTP worksheet", worksheet["name"])
-        status, loaded_by_id = _request(
+        status, loaded_by_id = request(
             self.url + f"{self.workbench_path}/load", method="POST",
             payload={"reference": saved["saved_query_id"]},
         )
         self.assertEqual(200, status, loaded_by_id)
         self.assert_saved(loaded_by_id, kind="query", sql=" SELECT 2")
-        status, loaded_by_url = _request(
+        status, loaded_by_url = request(
             self.url + f"{self.workbench_path}/load", method="POST",
             payload={"reference": worksheet["saved_query_url"]},
         )
         self.assertEqual(200, status, loaded_by_url)
         self.assert_saved(loaded_by_url, kind="worksheet", sql=worksheet_sql)
-        status, recent = _request(
+        status, recent = request(
             self.url + f"{self.workbench_path}/saved-list", method="POST", payload={"limit": 20},
         )
         self.assertEqual(200, status, recent)
@@ -419,17 +364,19 @@ class WorkbenchDockerE2E(unittest.TestCase):
         } <= {
             item["saved_query_id"] for item in recent["items"]
         })
-        recent_names = {item["saved_query_id"]: item["name"] for item in recent["items"]}
-        self.assertEqual("HTTP query", recent_names[saved["saved_query_id"]])
-        self.assertEqual("HTTP worksheet", recent_names[worksheet["saved_query_id"]])
-        status, legacy_query = _request(
+        recent_by_id = {item["saved_query_id"]: item for item in recent["items"]}
+        self.assertEqual("HTTP query", recent_by_id[saved["saved_query_id"]].get("name"))
+        self.assertEqual("HTTP worksheet", recent_by_id[worksheet["saved_query_id"]].get("name"))
+        self.assertNotIn("name", recent_by_id[ran["saved_query_id"]])
+        self.assertNotIn("name", recent_by_id[checked["saved_query_id"]])
+        status, legacy_query = request(
             self.url + f"{self.workbench_path}/load", method="POST", payload={"reference": self.legacy_query_id},
         )
         self.assertEqual(200, status, legacy_query)
         self.assert_legacy_saved(
             legacy_query, identifier=self.legacy_query_id, kind="query", sql="SELECT 'legacy query'",
         )
-        status, legacy_worksheet = _request(
+        status, legacy_worksheet = request(
             self.url + f"{self.workbench_path}/load", method="POST",
             payload={"reference": f"{self.url}{self.workbench_path}?query={self.legacy_worksheet_id}"},
         )
@@ -438,21 +385,21 @@ class WorkbenchDockerE2E(unittest.TestCase):
             legacy_worksheet, identifier=self.legacy_worksheet_id,
             kind="worksheet", sql="SELECT 'legacy worksheet'",
         )
-        status, full = _request(
+        status, full = request(
             self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": "SELECT * FROM atoms"},
         )
         self.assertEqual(200, status, full)
         self.assertEqual(100, len(full["rows"]))
         self.assertGreater(full["row_count"], len(full["rows"]))
         self.assertTrue(full["has_more"])
-        status, next_page = _request(
+        status, next_page = request(
             self.url + f"{self.workbench_path}/page", method="POST",
             payload={"query_id": full["query_id"], "offset": len(full["rows"])},
         )
         self.assertEqual(200, status, next_page)
         self.assertEqual(full["saved_query_id"], next_page["saved_query_id"])
         self.assertEqual(full["saved_query_url"], next_page["saved_query_url"])
-        status, failure = _request(
+        status, failure = request(
             self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": "SELECT FROM"},
         )
         self.assertEqual(400, status)
@@ -461,10 +408,10 @@ class WorkbenchDockerE2E(unittest.TestCase):
         self.assert_saved_journal(ran, checked, saved, worksheet, full, failure)
         self.assert_legacy_files_unchanged()
         for sql in ("SELECT 1; SELECT 2", "CREATE TABLE forbidden(x INTEGER)"):
-            status, failure = _request(self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": sql})
+            status, failure = request(self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": sql})
             self.assertEqual(400, status)
             self.assertIn("error", failure)
-        status, _ = _request(self.url + f"{WORKBENCH_PATH}/not-{self.project_name}")
+        status, _ = request(self.url + f"{WORKBENCH_PATH}/not-{self.project_name}")
         self.assertEqual(404, status)
         self.assertEqual(self.before_hash, hashlib.sha256(self.target.read_bytes()).hexdigest())
 
@@ -473,15 +420,15 @@ class WorkbenchDockerE2E(unittest.TestCase):
             root = Path(temporary)
             root.chmod(0o755)
             control = write_settings(root)
-            project_name = _project_name(control)
-            workbench_path = f"{WORKBENCH_PATH}/{project_name}"
+            fixture_project_name = read_project_name(control)
+            workbench_path = f"{WORKBENCH_PATH}/{fixture_project_name}"
             declarations = write_scope_unit_declarations(root, control_root=control)
             target = write_atom(
                 source_path(declarations, "fixture", "04_requirement", "CA-R-901-docker.md"),
                 "CA-R-901",
             )
             name = f"caprmedio-workbench-watch-{uuid4().hex}"
-            port = _free_port()
+            port = free_port()
             url = f"http://127.0.0.1:{port}"
             stdout = tempfile.TemporaryFile(mode="w+t", encoding="utf-8")
             stderr = tempfile.TemporaryFile(mode="w+t", encoding="utf-8")
@@ -506,7 +453,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
                             f"watcher container exited during startup\nstdout:\n{stdout.read()}\nstderr:\n{stderr.read()}"
                         )
                     try:
-                        if _request(url + HEALTH_PATH)[0] == 200:
+                        if request(url + HEALTH_PATH)[0] == 200:
                             break
                     except OSError:
                         pass
@@ -514,7 +461,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
                 else:
                     self.fail("watcher container did not become ready within 45 seconds")
 
-                initial = _request(
+                initial = request(
                     url + f"{workbench_path}/run", method="POST",
                     payload={"sql": "SELECT version FROM atoms WHERE id = 'CA-R-901'"},
                 )
@@ -523,7 +470,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
                 write_atom(target, "CA-R-901", version=2, body="# Summary\n\nChanged from the host.\n")
                 deadline = time.monotonic() + 20
                 while time.monotonic() < deadline:
-                    status, result = _request(
+                    status, result = request(
                         url + f"{workbench_path}/run", method="POST",
                         payload={"sql": "SELECT version FROM atoms WHERE id = 'CA-R-901'"},
                     )

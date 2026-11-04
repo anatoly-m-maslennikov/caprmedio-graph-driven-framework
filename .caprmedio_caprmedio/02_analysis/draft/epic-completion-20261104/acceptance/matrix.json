@@ -1,6 +1,6 @@
 {
   "schema": "caprmedio-epic-acceptance-matrix/1",
-  "epic": "CA-P-2694@65",
+  "epic": "CA-P-2694@66",
   "as_of": "2026-11-05",
   "purpose": "Read-only completeness assessment; not authority to change Current or transition status.",
   "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-passive-frontier-20261105.json",
@@ -454,23 +454,19 @@
   "reviewed_plan_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
   "reviewed_plan_quality": "P2694@62 and P2707@5 remain Active; the 23 original acceptance groups and required external gates remain in force.",
   "latest_projection_checkpoint": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-passive-20261105/generation-manifest.json",
-  "current_epic_version": 65,
-  "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/double-colon-design-update/adoption-receipt.json",
-  "current_verification_task_version": 5,
+  "current_epic_version": 66,
+  "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/recursive-step-quantifier-plan-update-20261105/adoption-receipt.json",
+  "current_verification_task_version": 6,
   "execution_responsibility": {
     "this_chat": "MODEL, CFEL, Declarations, Atom sources and source projections",
     "CA #3": "implementation, runtime, fixtures, regression and integration test execution",
     "required_external_gates": "retained; no completion inferred from source work"
   },
   "latest_source_checkpoint": {
-    "epic": "CA-P-2694@62",
-    "Entity Term": "CA-M-451@7",
-    "Relation": "CA-R-2247@11",
-    "Term": "CA-R-1318@37",
-    "scope": "Source-only reviewed changes; all 23 acceptance groups retained.",
-    "local_remote_tracking_ref": "origin/amm/dev",
-    "local_remote_tracking_sha": "d4b745b2086f35714bd9febf3ad4f697b10dfd18",
-    "observation_limit": "Local remote-tracking ref observed read-only; not a fresh network query or final push."
+    "commit": "d7e38d8e4bd8b52b2e1c840c4a96481231a0ab9b",
+    "branch": "amm/dev",
+    "remote_ack": "d4b745b20..d7e38d8e4 HEAD -> amm/dev",
+    "scope": "reviewed Term repairs, seven projections, double-colon Drafts and planning evidence; later Draft work not included"
   },
   "historical_frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-cfel-frontier.json",
   "latest_container_decision": {
@@ -489,5 +485,32 @@
       "CA-R-2487@14"
     ],
     "adoption": "pending consumer integration, review and contextual migration"
+  },
+  "scope_declaration_source_snapshot": {
+    "declarations": 46,
+    "nonroot_unique_ids": 45,
+    "ordered_nonroot": 9,
+    "inventory": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/scope-declaration-check-20261105/inventory.json",
+    "review": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/scope-declaration-source-review-20261105.json",
+    "final_candidate_recheck_required": true
+  },
+  "latest_quantifier_decision": {
+    "syntax": "FOR EACH $atom[<Atom>, (conditions)]: (...)",
+    "with_in_headers": false,
+    "self_contained_claim": true,
+    "subjects_active": "retained focus",
+    "actual_draft": "CA-R-2778@1-draft",
+    "adoption": "pending typed Format/binding and overview source integration"
+  },
+  "latest_recursive_step_decision": {
+    "retire": "Substep",
+    "exclusive_forms": [
+      "RUNS exactly one Action",
+      "RUNS exactly one Workflow",
+      "CONTAINS one or more Steps"
+    ],
+    "cycles": "Operator allows containment cycles; one-Container reconciliation pending",
+    "carrier_layout": "D467/E500 pending",
+    "actual_workflow_instances": "external owner"
   }
 }
