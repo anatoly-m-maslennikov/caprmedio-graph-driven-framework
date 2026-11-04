@@ -28,6 +28,36 @@ def body(*claim_lines, semantics=None):
 
 
 class ContractGraphTests(unittest.TestCase):
+    def test_unary_relation_counts_keep_source_scope_and_no_target(self):
+        graph = compose_contract_graph([
+            carrier("CA-R-1", "Node", body("```CFEL", "# model", "(Node, Node.**) {:1}((IS_DECLARED_BY));", "```")),
+            carrier("CA-R-2", "Atom", body("```CFEL", "# instances", "Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));", "Atom//$atom {:0..1}((GOVERNS));", "```")),
+        ])
+        node = next(row for row in graph["entities"] if row["target"] == "Node")
+        atom = next(row for row in graph["entities"] if row["target"] == "Atom")
+        clauses = node["own"][0]["clauses"] + atom["own"][0]["instance_clauses"]
+        self.assertEqual(["IS_DECLARED_BY", "HAS_ACTIVE_SUBJECT", "GOVERNS"], [row["relation"] for row in clauses])
+        self.assertEqual(["model", "instances", "instances"], [row["group"] for row in clauses])
+        self.assertEqual(["(Node, Node.**)", "Atom//$atom", "Atom//$atom"], [row["source_selector"] for row in clauses])
+        self.assertEqual([{"minimum": 1, "maximum": 1}, {"minimum": 0, "maximum": 1}, {"minimum": 0, "maximum": 1}],
+                         [row["source_cardinality"] for row in clauses])
+        self.assertTrue(all(row["target_selector"] is None and row["target_domain"] == "unresolved" and row["written_direction"] == "forward" for row in clauses))
+        self.assertEqual([], graph["relations"])
+        self.assertEqual({"Node", "Atom"}, {row["target"] for row in graph["entities"]})
+        document = render_contract_graph(graph)
+        self.assertIn("`(Node, Node.**)` — IS_DECLARED_BY; outgoing count=1; target domain unresolved", document)
+        self.assertIn("`Atom//$atom` — HAS_ACTIVE_SUBJECT; outgoing count=0..1; target domain unresolved", document)
+        self.assertIn("`Atom//$atom` — GOVERNS; outgoing count=0..1; target domain unresolved", document)
+        self.assertNotIn("→ `None`", document)
+
+    def test_namespace_declaration_preserves_claim_without_creating_node(self):
+        graph = compose_contract_graph([carrier("CA-R-1", "CAPRMEDIO_MODEL", body("```CFEL", "MODEL >| (Container == yes)", "```")),
+                                        carrier("CA-R-2", "UNKNOWN_MODEL", body("Unknown."))])
+        self.assertEqual(["CAPRMEDIO_MODEL"], [row["target"] for row in graph["namespaces"]])
+        self.assertEqual(["UNKNOWN_MODEL"], [row["target"] for row in graph["entities"]])
+        self.assertEqual([], graph["coverage_gaps"])
+        self.assertIn("MODEL >| (Container == yes)", render_contract_graph(graph))
+
     def test_render_occurrence_and_population_scopes(self):
         graph = compose_contract_graph([
             carrier("CA-R-1", "Node", body("Node.")),

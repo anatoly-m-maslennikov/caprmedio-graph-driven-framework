@@ -5,8 +5,8 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY
-version: 1
-updated_at: 2026-11-03 20:00:05 +0400
+version: 2
+updated_at: 2026-11-04 07:31:50 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -26,7 +26,7 @@ Declare Atom.Header.Relations.IS_CONTAINED_BY
 
 ```CFEL
 # model
-Atom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};
+Atom.Header.Relations.IS_CONTAINED_BY{:1}: []{:0};
 
 Atom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}
 ```

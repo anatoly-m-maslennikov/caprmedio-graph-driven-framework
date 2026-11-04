@@ -1,0 +1,188 @@
+{
+  "status": "prospective review; no Current writes",
+  "decision": "Projection identity is Form + Scope Unit, both directions; Source.Named Selection describes sources and is not an identity component",
+  "frontier": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/post-application-frontier.json",
+    "sha256": "b40245922796d93282ec704c0a9900cf02e88dccdd56cb751ba42edbf8e46b5c"
+  },
+  "authority": [
+    {
+      "id": "CA-R-2535",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2535-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "sha256": "4933262a274a3bc1f76521fbfcd741468cc5d5d634b47085de0f91a7c8a620d6"
+    },
+    {
+      "id": "CA-R-2537",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "sha256": "39079ba2d698e63ec340ba9f3087477052469d5793c050c4be71889e81006442"
+    },
+    {
+      "id": "CA-R-2538",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+      "sha256": "852aaa4943ab5268bd4b80c204fab37be6b1cdab4e11623f29ffc8c7ec11135f"
+    },
+    {
+      "id": "CA-R-2540",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2540-CORE_META_MODEL-DECLARATION--declare-projection-source-atoms.md",
+      "sha256": "b92b098e18023c7393e1615699ad714b3bdc22450fda4d717bbd1e51c544192d"
+    },
+    {
+      "id": "CA-R-2541",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2541-CORE_META_MODEL-DECLARATION--declare-projection-source-named-selection.md",
+      "sha256": "55de140436c2e125ed61ed1dfda4d50f0ea92a3bf70d8c217a819c5a00a2a5e9"
+    },
+    {
+      "id": "CA-R-2586",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2586-CORE_META_MODEL-DECLARATION--declare-projection-source.md",
+      "sha256": "e79c3f189ed4088215afcaf89b176a98ad6d77235f6a4b92b7d48c17d4d77597"
+    },
+    {
+      "id": "CA-R-2587",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2587-CORE_META_MODEL-DECLARATION--declare-named-selection.md",
+      "sha256": "65e60dc293c24bc08c98350394c80bbca0744d100b2289d6582b5198b8378fd5"
+    },
+    {
+      "id": "CA-R-2523",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "CA-R-2537",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "source_sha256": "39079ba2d698e63ec340ba9f3087477052469d5793c050c4be71889e81006442",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/CA-R-2537.txt",
+      "candidate_sha256": "d87e8f06a02d38ae9c8fe55ca6197016a5e2d92484814baf5c372d8baeca7d66"
+    },
+    {
+      "id": "CA-R-2538",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+      "source_sha256": "852aaa4943ab5268bd4b80c204fab37be6b1cdab4e11623f29ffc8c7ec11135f",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/CA-R-2538.txt",
+      "candidate_sha256": "f0ba9c86b6d19bd8b903a2609534767cbc22161fded21a45ad33b7869a0b44f3"
+    },
+    {
+      "id": "CA-R-1943",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md",
+      "source_sha256": "6f4076d9a76ef1314cf4e346f27ed9bcd26d87ec63d51601a6e2a6d8ea9c9bff",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/CA-R-1943.txt",
+      "candidate_sha256": "8e89aaedad381814b8b3707eca0a041ba108354da99b02aa819a3fcb96df55c0"
+    },
+    {
+      "id": "CA-D-635",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames.md",
+      "source_sha256": "ada3ac3faec8c544814a6c0a2593b8786b496c2dc395f0d0d25addf9431fef53",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/CA-D-635.txt",
+      "candidate_sha256": "91d7ae4df13e995d0472179521afe200083832c8e1583c9c41670b178b30282a"
+    }
+  ],
+  "new_declaration": {
+    "id": "UNALLOCATED",
+    "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/CA-R-UNALLOCATED-Projection-Scope-Unit.txt",
+    "candidate_sha256": "b5fa894b74aa1b29448710b2ccf9e7f9318fd3c7ac6a8c7feea52e40e00512af",
+    "needs": "allocate canonical ID only during approved application"
+  },
+  "exclusions": [
+    "no Terms Graph Form",
+    "no runtime Projection instances modified"
+  ],
+  "form_value_declarations": [
+    {
+      "value": "Catalog",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/forms/catalog.txt",
+      "candidate_sha256": "0f110d89b565cfbb35b5574e56579d2f811109c32629038fd7024bb658f9d50f",
+      "id": "UNALLOCATED",
+      "reason": "no existing Current Requirement / Declaration found for this Form"
+    },
+    {
+      "value": "Map",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/forms/map.txt",
+      "candidate_sha256": "e26064c42b68fc1d8fabe71d7bb7d7abb9471410d83bd83f4e174798df60ea1d",
+      "id": "UNALLOCATED",
+      "reason": "no existing Current Requirement / Declaration found for this Form"
+    },
+    {
+      "value": "Hub",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/forms/hub.txt",
+      "candidate_sha256": "6d49a21604dd9829631819961b45e1176b225647a3e922b2aec64a3305de3270",
+      "id": "UNALLOCATED",
+      "reason": "no existing Current Requirement / Declaration found for this Form"
+    },
+    {
+      "value": "Primary Entities Tree",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/forms/primary-entities-tree.txt",
+      "candidate_sha256": "d07da8e75f56f577aae6981fb82473b2d2721fb0c0f81815a20f6e7252f3a8c0",
+      "id": "UNALLOCATED",
+      "reason": "no existing Current Requirement / Declaration found for this Form"
+    },
+    {
+      "value": "Primary Entities with Direct Properties",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/forms/primary-entities-with-direct-properties.txt",
+      "candidate_sha256": "a39c46c0fee838d7c9b5c8c8affcff7cb7b5c615600508031b65957b35fa7b2f",
+      "id": "UNALLOCATED",
+      "reason": "no existing Current Requirement / Declaration found for this Form"
+    },
+    {
+      "value": "Primary Entities with Inherited Property Contracts",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/forms/primary-entities-with-inherited-property-contracts.txt",
+      "candidate_sha256": "1cdb31a620d71b06ec3c62c925d9ed7a421dc18f6056d608cbdaf4166eeb4fd7",
+      "id": "UNALLOCATED",
+      "reason": "no existing Current Requirement / Declaration found for this Form"
+    },
+    {
+      "value": "Primary Entities with Inherited Formal Claims",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/forms/primary-entities-with-inherited-formal-claims.txt",
+      "candidate_sha256": "3558d671376b3117619fb22e606475da46d37d7ed5e653decbf1a9f24e5541e7",
+      "id": "UNALLOCATED",
+      "reason": "no existing Current Requirement / Declaration found for this Form"
+    },
+    {
+      "value": "Passive Only Subjects",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/forms/passive-only-subjects.txt",
+      "candidate_sha256": "0c7e8f1fc8574469932c5a3fbecce27d29387ae6cd2e13ca3ee970270c43f032",
+      "id": "UNALLOCATED",
+      "reason": "no existing Current Requirement / Declaration found for this Form"
+    },
+    {
+      "value": "Subjects without Requirement Declarations",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/forms/subjects-without-requirement-declarations.txt",
+      "candidate_sha256": "ef4c1a9ad53105379ab7d51d2a121e5092a5390642a227b60c9f072f7e4cfdf0",
+      "id": "UNALLOCATED",
+      "reason": "no existing Current Requirement / Declaration found for this Form"
+    },
+    {
+      "value": "Entity Definition and Active Subject Coverage",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/forms/entity-definition-and-active-subject-coverage.txt",
+      "candidate_sha256": "fae1066b735b6eba4e872bb7a3fe0f5be5d8aed8f5f1c90e1ea9606bd2d61caf",
+      "id": "UNALLOCATED",
+      "reason": "no existing Current Requirement / Declaration found for this Form"
+    }
+  ],
+  "form_property_policy": "No allowed-value enumeration in Projection.Form; each admitted value has its own Declaration.",
+  "root_binding": {
+    "canonical_subject": "CAPRMEDIO_STRUCTURE <+ Project//caprmedio",
+    "value": "Project//caprmedio",
+    "declared_by": "CA-R-2640@1",
+    "resolution": "read_scope_unit_declarations(root, control_root).root; verify the unique root declaration and its active Subject",
+    "scope": "seven current MODEL views",
+    "evidence": [
+      {
+        "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+        "sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9"
+      },
+      {
+        "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/scope_unit_declarations.py",
+        "sha256": "2ada98b60b656e6456d131ab15633d6d8ed003b762176645940088669a200fba"
+      },
+      {
+        "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/scope_declaration_parse.py",
+        "sha256": "3927b0641fba90ee11ae3fae85be826bcffedc32b5e0f5dd0364543eecd0dea6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/generate_subject_projections.py",
+        "sha256": "eaefe945a9767e71699da40c4e56f7254a6d46e74b97eaf6ccd314b10a145c71"
+      }
+    ]
+  }
+}

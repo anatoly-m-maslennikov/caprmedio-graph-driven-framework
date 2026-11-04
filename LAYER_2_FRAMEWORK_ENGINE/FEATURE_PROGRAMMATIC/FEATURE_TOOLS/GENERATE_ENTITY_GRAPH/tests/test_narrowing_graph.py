@@ -25,6 +25,26 @@ def claim(expression):
 
 
 class NarrowingGraphTests(unittest.TestCase):
+    def test_bare_narrowing_target_uses_declared_unique_parent(self):
+        graph, _ = compose_narrowing_graph([
+            carrier("CA-R-0", "Node"), carrier("CA-R-1", "Node/Continuant"),
+            carrier("CA-R-2", "Event Record", body=claim("Event Record ((NARROWER_THAN)) Continuant")),
+            carrier("CA-R-3", "Node/Other", body=claim("Other ((NARROWER_THAN)) Missing")),
+        ])
+        names = {row["id"]: row["identity"] for row in graph["nodes"]}
+        edges = {(names[row["relation_source"]], names[row["relation_target"]]) for row in graph["edges"]}
+        self.assertIn(("Event Record", "Node/Continuant"), edges)
+        self.assertTrue(any("undeclared endpoint" in row for row in graph["diagnostics"]))
+        self.assertFalse(any("Event Record: no explicit" in row for row in graph["diagnostics"]))
+
+    def test_bare_narrowing_target_with_duplicate_declarations_is_not_bound(self):
+        graph, _ = compose_narrowing_graph([
+            carrier("CA-R-0", "Node"), carrier("CA-R-1", "Node/Continuant"),
+            carrier("CA-R-2", "Node/Continuant"),
+            carrier("CA-R-3", "Event Record", body=claim("Event Record ((NARROWER_THAN)) Continuant")),
+        ])
+        self.assertTrue(any("reference `Continuant` is ambiguous" in row for row in graph["diagnostics"]))
+
     def test_instance_group_cannot_create_a_narrowing_edge(self):
         graph, _ = compose_narrowing_graph([
             carrier("CA-R-1", "Node"), carrier("CA-R-2", "Node/Continuant"),

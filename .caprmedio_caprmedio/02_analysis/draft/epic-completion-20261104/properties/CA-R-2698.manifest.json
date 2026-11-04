@@ -1,0 +1,23 @@
+{
+  "status": "HISTORICAL_PREVIEW_APPLIED",
+  "atom_id": "CA-R-2698",
+  "source_version": "1",
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+  "source_sha256": "a49f094b06a03b3564c0db21639196f0b45b9b957535cccd1fef37c7968d4a0e",
+  "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2698.preview.txt",
+  "candidate_sha256": "cfd3fc0405d71c7e0971bf1b85f58273d3a70c3158b12320ee2d207df132ab37",
+  "related_current_sources": {
+    "CA-R-2132@12": "f7f843d0a0b42653ab59557785d40e7b8aab904f23eab8b169abce7d79429a3b",
+    "CA-R-2478@5": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
+    "CA-R-2523@2": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819",
+    "CA-R-2688@1": "990a293220b3528ce4afbdd43b34fa831aee0b98b15102fe2fe81b1874b39824",
+    "CA-R-2699@2": "375ec0b4c9e4af412f361cb6ca8284e5c2178d37700ebb227e0cfdcadcd6069d",
+    "CA-R-2700@2": "6660e552b2dc55c3145dff1b2d5e8f86dc7c1e5385dd98e2e0b4a467558b689d"
+  },
+  "change": "Atom.Header.Relations.IS_CONTAINED_BY occurrence {:0..1} -> {:1}; direct value count {:0}, exactly-one child-name selector, and both optional endpoint value contracts are unchanged. Candidate subsequently applied in Current v2; do not reapply.",
+  "intent": "One immediate Container (Atom or Scope Unit) per Atom, as directed by root after user clarification that contained_by already supplies the nonempty Relations group.",
+  "compatibility": "Project Goal ownership by Operator Actor does not transfer or waive immediate containment. It remains distinct from Project Scope Unit tree parentage; the Project Scope Unit root has no Scope Unit parent, while a Project Goal Atom can be contained by its Target Project Container.",
+  "applied_current_version": "2",
+  "applied_current_sha256": "669672c32d618a63cd81611b5daf3eef6ba090e30780f66f057b19a9c9d257bd",
+  "application_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/first-model-batch/adoption-receipt.json"
+}

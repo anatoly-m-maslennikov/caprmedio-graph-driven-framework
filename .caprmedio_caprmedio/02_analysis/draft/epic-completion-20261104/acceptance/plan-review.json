@@ -1,0 +1,23 @@
+{
+  "schema": "caprmedio-plan-review/1",
+  "plan": "CA-P-2694@55",
+  "result": "PASS_WITH_ONE_NONBLOCKING_WORDING_CLARIFICATION",
+  "receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/epic-plan-receipt.json",
+  "matrix": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/acceptance/matrix.json",
+  "checks": {
+    "all_original_23_requirement_groups_retained": true,
+    "form_scope_unit_identity_replaces_named_selection_identity": true,
+    "terms_graph_only_deferred_term_definitions_remain_in_scope": true,
+    "immediate_containment_relation_remains_required": true,
+    "project_goal_ownership_not_an_epic_gate": true,
+    "checkpoint_push_precedes_dependent_mechanical_migration": true,
+    "post_migration_verification_preserved": true,
+    "named_p2707_gates_retained": true
+  },
+  "clarification": {
+    "current_wording": "No release or external publication is required by this plan.",
+    "issue": "The plan separately requires declaration-checkpoint and final pushes to amm/dev.",
+    "recommended_wording": "No release is required; the named amm/dev checkpoint and final pushes remain required."
+  },
+  "reviewed_source_sha256": "2bbd8102ac18b1d3370b0e8c3f3075b452c7f20649fb0d765e2d2c22ff731578"
+}

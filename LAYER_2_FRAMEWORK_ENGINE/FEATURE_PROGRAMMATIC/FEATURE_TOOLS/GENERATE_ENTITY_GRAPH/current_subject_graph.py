@@ -507,8 +507,16 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
         for constraint in constraints:
             expression = constraint.get("expression")
             if (constraint.get("group") == "instances" or constraint.get("kind") != "relation_cardinality" or constraint.get("relation") != "NARROWER_THAN"
-                    or not isinstance(expression, str) or not str(constraint.get("target_selector", "")).strip().startswith("@")):
+                    or not isinstance(expression, str)):
                 continue
+            selector = str(constraint.get("target_selector") or "").strip()
+            if not selector.startswith("@"):
+                try:
+                    parsed_target = notation.parse_subject_expression(selector, subject_profile="approved").expression
+                except notation.SubjectNotationError:
+                    continue
+                if not isinstance(parsed_target, notation.Path) or not isinstance(parsed_target.head, notation.Name) or parsed_target.steps:
+                    continue
             if constraint.get("source_cardinality") is not None or constraint.get("target_cardinality") is not None:
                 continue
             try:

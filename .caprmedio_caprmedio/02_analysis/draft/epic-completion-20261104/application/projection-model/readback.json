@@ -1,0 +1,805 @@
+{
+  "coverage": {
+    "candidate_sources": 221,
+    "bound_sources": 221,
+    "declared_entity_targets": 154,
+    "declared_component_targets": 25,
+    "declared_relation_targets": 41,
+    "shared_sources": 0,
+    "fenced_claim_blocks": 218,
+    "cfel_blocks": 218,
+    "recognized_clauses": 356,
+    "unsupported_clauses": 65,
+    "coverage_gaps": 0,
+    "outside_model_scope_sources": 0,
+    "duplicate_declarations": 0,
+    "missing_relation_semantics": 0,
+    "instance_kind_gaps": 0,
+    "inheritance_diagnostics": 0,
+    "tree_entities": 64,
+    "detail_declaration_sources": 221,
+    "entities_without_exact_declaration": 0
+  },
+  "diagnostics": [
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF $step {=0}((RUNS)) THEN $step {:1+}((CONTAINS)) Substep//$substep",
+      "source": {
+        "atom_id": "CA-R-2465",
+        "version": 4,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+        "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF $step {>0}((RUNS)) THEN $step {:0}((CONTAINS))",
+      "source": {
+        "atom_id": "CA-R-2465",
+        "version": 4,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+        "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF $step {=0}((CONTAINS)) THEN $step {:1}((RUNS)) (in (Action, Workflow))//$selected",
+      "source": {
+        "atom_id": "CA-R-2465",
+        "version": 4,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+        "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "p{:occurrence}: [value format]{:value count}",
+      "source": {
+        "atom_id": "CA-R-2487",
+        "version": 11,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+        "sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "p.*[name format]{:immediate name count}",
+      "source": {
+        "atom_id": "CA-R-2487",
+        "version": 11,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+        "sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "p.**[name format]{:recursive name count}",
+      "source": {
+        "atom_id": "CA-R-2487",
+        "version": 11,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+        "sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "p.*[name format]{:immediate name count}: [value format]{:value count}",
+      "source": {
+        "atom_id": "CA-R-2487",
+        "version": 11,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+        "sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "DETERMINES(\n  Atom//$atom,\n  (.ID),\n  (.Content.Summary),\n  (Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived)\n)",
+      "source": {
+        "atom_id": "CA-R-2499",
+        "version": 5,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2499-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+        "sha256": "aea7e0d55fa357a067585331d8798af8422b04da64c467b6105c0669c661bdcf"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "UNIQUE(Atom//$atom, (.Header.ID, .Header.Version))",
+      "source": {
+        "atom_id": "CA-R-2508",
+        "version": 5,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+        "sha256": "875fb6a3a853dbbf24816f2684083311bd6e2791ed6d6e07c4227aed05cb8318"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))\nTHEN ($atom.Header.Relations.IS_CONTAINED_BY{==1})",
+      "source": {
+        "atom_id": "CA-R-2511",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+        "sha256": "56beaca2cd77dcabee69710baba0abd429bc8e25801aea7c9abc4d0e56aec1ed"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit_5))\nTHEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6)",
+      "source": {
+        "atom_id": "CA-R-2523",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+        "sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Project//$project_2.order.ordered == false",
+      "source": {
+        "atom_id": "CA-R-2524",
+        "version": 3,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+        "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (Package//$package not in (Package/Implementation//$package_6))\nTHEN ($package {==1}((IS_CONTAINED_BY)) Package//$package_7)",
+      "source": {
+        "atom_id": "CA-R-2525",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2525-CORE_META_MODEL-DECLARATION--declare-package.md",
+        "sha256": "1ae9d6f130dff0df4335ba0dac0be6f009b6c269043990da6b6d92906d4542b6"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit))\nTHEN ($unit.ID{:1})",
+      "source": {
+        "atom_id": "CA-R-2526",
+        "version": 4,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+        "sha256": "171eacde51c1cde1cf249e599c4919ce638e477acdbaf1e1697b081b678eee9e"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "DETERMINES(Projection//$projection, (.Form, .Scope Unit), (.ID))",
+      "source": {
+        "atom_id": "CA-R-2537",
+        "version": 3,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+        "sha256": "4bf298a918f5f9fab0dcdbf6c143eb9e3e51b65f6af060e424173c0b6fc59022"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "DETERMINES(Projection//$projection_2, (.ID), (.Form, .Scope Unit))",
+      "source": {
+        "atom_id": "CA-R-2537",
+        "version": 3,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+        "sha256": "4bf298a918f5f9fab0dcdbf6c143eb9e3e51b65f6af060e424173c0b6fc59022"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "Projection//$projection.Updated At == MAX(Event Record//$event_record(.object_output{=1}, .object_output.version{=0}, .object_output.id = $projection.ID, (.action = create OR .action = update)).happened_at)",
+      "source": {
+        "atom_id": "CA-R-2539",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2539-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+        "sha256": "316e417088ea01559daa2984c0c28905258cad1ec5d295b3af441fd6d4d5f8dc"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Scope Unit.structural_level >= 0",
+      "source": {
+        "atom_id": "CA-R-2554",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+        "sha256": "0f0ba69390d074f65a5c0c75469e6bf3b1f24bb53f321fa3d742d38ab6cfb75b"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Scope Unit/Project//$project.structural_level = 0",
+      "source": {
+        "atom_id": "CA-R-2554",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+        "sha256": "0f0ba69390d074f65a5c0c75469e6bf3b1f24bb53f321fa3d742d38ab6cfb75b"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (Scope Unit//$contained ((IS_CONTAINED_BY)) Scope Unit//$container)\nTHEN ($contained.structural_level = $container.structural_level + 1)",
+      "source": {
+        "atom_id": "CA-R-2554",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+        "sha256": "0f0ba69390d074f65a5c0c75469e6bf3b1f24bb53f321fa3d742d38ab6cfb75b"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Package.structural_level >= 0",
+      "source": {
+        "atom_id": "CA-R-2555",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+        "sha256": "3823ca975892c836b070091fdbbf3ea91d3a6c7c6cc370efa619e903ebc58308"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Package/Implementation//$implementation.structural_level = 0",
+      "source": {
+        "atom_id": "CA-R-2555",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+        "sha256": "3823ca975892c836b070091fdbbf3ea91d3a6c7c6cc370efa619e903ebc58308"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (Package//$contained ((IS_CONTAINED_BY)) Package//$container)\nTHEN ($contained.structural_level = $container.structural_level + 1)",
+      "source": {
+        "atom_id": "CA-R-2555",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+        "sha256": "3823ca975892c836b070091fdbbf3ea91d3a6c7c6cc370efa619e903ebc58308"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "UNIQUE(Event Record//$event_record, (.ID))",
+      "source": {
+        "atom_id": "CA-R-2558",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2558-CORE_META_MODEL-DECLARATION--declare-event-record-id.md",
+        "sha256": "099e12b03e4208b414e1c376ccf91b539e9c2676582f7c8da72deeb2464d7281"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//Addition == \"+\"",
+      "source": {
+        "atom_id": "CA-R-2591",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2591-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "b8e1b543122d6cbbd22bfb82a4f71235fced9baef76ab83b6a22374a896ced29"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//AllowedValue == \":\"",
+      "source": {
+        "atom_id": "CA-R-2592",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2592-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "15d757b8c771d83ec24a431d28d5ee0728bbc3240a827b214839da8c765de792"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//Conclusion == \"==\"",
+      "source": {
+        "atom_id": "CA-R-2593",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2593-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "80a4f7213199aa5e5818b18d515e03f49e1bdc539b34e8d9d384065696e31949"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//Condition == \"=\"",
+      "source": {
+        "atom_id": "CA-R-2594",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2594-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "f711324330e0121142be66a52968fcb4aec80a21a114e248bf4bbf94a777ac8b"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//Delivery == \">>\"",
+      "source": {
+        "atom_id": "CA-R-2596",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2596-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "65a827af8666e6bfa9108874737413eb1c766f3d16cc16a7c6317e5f075d9d09"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//ExpressionSeparator == \";\"",
+      "source": {
+        "atom_id": "CA-R-2597",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2597-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "3cb07cdad515b08107f9bbdb1b852fa114282941fbddc4061f4803dcd8896875"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//Fallback == \"?=\"",
+      "source": {
+        "atom_id": "CA-R-2598",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//GreaterOrEqual == \">=\"",
+      "source": {
+        "atom_id": "CA-R-2599",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2599-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "de8a7fd7f46beafa80f0da140a93bb53463708db21b5ec9b243c07446961899a"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//GreaterThan == \">\"",
+      "source": {
+        "atom_id": "CA-R-2600",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2600-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "dcb8187fe92cfb528f7c2449333c255b7b50e1e9f5690472ea330a1f31e22dac"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//Grouping == \"()\"",
+      "source": {
+        "atom_id": "CA-R-2601",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "a60c4c3405fb1fa0f5c48e631c93b903a016f2a78fa2d3e9ebe5e900e5a3da8f"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//ImmediateWildcard == \"*\"",
+      "source": {
+        "atom_id": "CA-R-2602",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2602-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "a19112ba4a5e3efd207fa49b3185a9994c25280e13a6d6956c14c060f7c8867d"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//Inequality == \"!=\"",
+      "source": {
+        "atom_id": "CA-R-2603",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2603-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "2c84a31d2e9221be3b8c555613091b401534e9cf4f87119127c3577a9470a3c2"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//InstanceBinding == \"$\"",
+      "source": {
+        "atom_id": "CA-R-2604",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "368ad50c9fb2ec6b49d9b03c402ac761feb40ed4fb945de6ffdc93acabb694a0"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//Instance == \"//\"",
+      "source": {
+        "atom_id": "CA-R-2605",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2605-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "30830758efab546af7b8e415c1da15d0f053f11a7f6fed0f871e8841265eaa72"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//LessOrEqual == \"<=\"",
+      "source": {
+        "atom_id": "CA-R-2606",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2606-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "b416a70c35580654731070f54a336efe18cc2bc5b8e6c49649c1fd2f664e7242"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//LessThan == \"<\"",
+      "source": {
+        "atom_id": "CA-R-2607",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2607-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "f19cc3a45cc28b40e88a10d4571159412b2947f01d184addeb9ff4ee56b26c39"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//Membership == \"in / not in\"",
+      "source": {
+        "atom_id": "CA-R-2608",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2608-CORE_META_MODEL-DECLARATION--declare-cfel-operator-in-not-in.md",
+        "sha256": "b8ec5e164ffbd2806513a9ec34a3c1e47d89dcb0308cb8bad619ad6c3d8c0566"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//Narrowing == \"/\"",
+      "source": {
+        "atom_id": "CA-R-2610",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2610-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "9be50d0d5c63f3382dba515073f3a400961e0272957b764b24e4f27737b50190"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//Property == \".\"",
+      "source": {
+        "atom_id": "CA-R-2611",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2611-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "c99568372f8861dbc3c9cbca0ae47aa47dcf8f63964d4d5a6a588ace72bac516"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//RecursiveWildcard == \"**\"",
+      "source": {
+        "atom_id": "CA-R-2612",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2612-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "eb5f5da21d2b84babfc030cf1af078022cbee417f98c8f69b1a85df06e0d3035"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//SelectionExclusion == \"!()\"",
+      "source": {
+        "atom_id": "CA-R-2614",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2614-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "2941b1d241ed6ad422b246decd08b6a7f397bbc6485b771c8ebc958151350e01"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//SubjectValueSelection == \":=\"",
+      "source": {
+        "atom_id": "CA-R-2615",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2615-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "f3a7c463f631e1cf5e1e8a0ebfe7a487b8d00fda1db084379a6bcda25a120043"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0}",
+      "source": {
+        "atom_id": "CA-R-2686",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2686-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-number.md",
+        "sha256": "c5c55335a6fe2d5eb3cea0a7f919af0666b371b18b8502d0496ecaa974bf627f"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{=1}, .object_output.version{=1}, .object_output.id = $atom.Header.ID, .object_output.version = $atom.Header.Version, (.action = create OR .action = update)).happened_at)",
+      "source": {
+        "atom_id": "CA-R-2697",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2697-CORE_META_MODEL-DECLARATION--declare-atom-header-updated-at.md",
+        "sha256": "1647656ea34781df27895ad4d6b24d8a6423bf9c476c3692559e444fd1c02d93"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))\nTHEN (IMMUTABLE($atom.Header.ID))",
+      "source": {
+        "atom_id": "CA-R-2701",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2701-CORE_META_MODEL-DECLARATION--declare-atom-header-id.md",
+        "sha256": "5d96f3e98a7d43efba676cd1fe027ca3f514e0e7fbb0be7fa536b5567a602d5e"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Atom.Header.Version >= 1",
+      "source": {
+        "atom_id": "CA-R-2704",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2704-CORE_META_MODEL-DECLARATION--declare-atom-header-version.md",
+        "sha256": "0bd0ffe5c838037720e28d92ebda0264b673758d08e10781ee2cdc3ca81150aa"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Atom.Header.Label ?= Atom.Header.Form",
+      "source": {
+        "atom_id": "CA-R-2705",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
+        "sha256": "743aff2bb78914a616783752ac11a79f7bf784f351168414f8372d37f5241e92"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Atom.Header.Tier >= -1",
+      "source": {
+        "atom_id": "CA-R-2706",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2706-CORE_META_MODEL-DECLARATION--declare-atom-header-tier.md",
+        "sha256": "9cbbd70ffbd2dba975184c3ad9bfed4584cefd431068d714e68901a519efa4c2"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (($atom.Header.Tier.Label{=1}) AND ($atom.Header.Tier = 0)) THEN ($atom.Header.Tier.Label == Scope Contract)",
+      "source": {
+        "atom_id": "CA-R-2707",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+        "sha256": "bcd9a5c9e235731854fb3ea22d107a7c3d3d68eb1cfcae7fdb7d9f59428c4d3a"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (($atom_2.Header.Tier.Label{=1}) AND ($atom_2.Header.Tier = 1)) THEN ($atom_2.Header.Tier.Label == Core)",
+      "source": {
+        "atom_id": "CA-R-2707",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+        "sha256": "bcd9a5c9e235731854fb3ea22d107a7c3d3d68eb1cfcae7fdb7d9f59428c4d3a"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (($atom_3.Header.Tier.Label{=1}) AND ($atom_3.Header.Tier = 2)) THEN ($atom_3.Header.Tier.Label == General)",
+      "source": {
+        "atom_id": "CA-R-2707",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+        "sha256": "bcd9a5c9e235731854fb3ea22d107a7c3d3d68eb1cfcae7fdb7d9f59428c4d3a"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (($atom_4.Header.Tier.Label{=1}) AND ($atom_4.Header.Tier = 3)) THEN ($atom_4.Header.Tier.Label == Standard)",
+      "source": {
+        "atom_id": "CA-R-2707",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+        "sha256": "bcd9a5c9e235731854fb3ea22d107a7c3d3d68eb1cfcae7fdb7d9f59428c4d3a"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5.Header.Tier.Label == Detail)",
+      "source": {
+        "atom_id": "CA-R-2707",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+        "sha256": "bcd9a5c9e235731854fb3ea22d107a7c3d3d68eb1cfcae7fdb7d9f59428c4d3a"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)",
+      "source": {
+        "atom_id": "CA-R-2708",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2708-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-passive.md",
+        "sha256": "2b525cc7e96e8f348248a8e8fbfb591114c434d847e7c9e4cf7d3a8f8ceb9351"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold\n  ?= LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)\n  ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold",
+      "source": {
+        "atom_id": "CA-R-2711",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+        "sha256": "af3db8d7f4041a599002215975f96b3101e0f9383224b80eede75e93ffd24949"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF ($atom.Header.Work Sequence Number{=1})\nTHEN ($atom.Header.Work Sequence Number > 0)",
+      "source": {
+        "atom_id": "CA-R-2712",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+        "sha256": "5734c23d03209bdbb4735f1a6938942dfa1353c50fa093a371ca539543d0cbf7"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "UNIQUE(\n  Atom/(.Header.Role: Plan)//$atom_2,\n  (.Header.Relations.IS_CONTAINED_BY.atom, .Header.Work Sequence Number),\n  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.atom{=1})\n)",
+      "source": {
+        "atom_id": "CA-R-2712",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+        "sha256": "5734c23d03209bdbb4735f1a6938942dfa1353c50fa093a371ca539543d0cbf7"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "UNIQUE(\n  Atom/(.Header.Role: Plan)//$atom_3,\n  (.Header.Relations.IS_CONTAINED_BY.scope_unit, .Header.Work Sequence Number),\n  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.scope_unit{=1})\n)",
+      "source": {
+        "atom_id": "CA-R-2712",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+        "sha256": "5734c23d03209bdbb4735f1a6938942dfa1353c50fa093a371ca539543d0cbf7"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF ($atom.Header.Status >| Status Group = Current)\nTHEN ($atom.Header.Subjects.Active{==1})",
+      "source": {
+        "atom_id": "CA-R-2714",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2714-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-active.md",
+        "sha256": "4473cb7be670b15cc96de8c34ccccca9377839d820ff237efc0e1a9b04500b66"
+      },
+      "group": "instances"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL expression is outside the bounded projection extractor.",
+      "expression": "Operator//Alias == \"alias(Relation//RELATION_NAME) == \\\"notation token\\\"\"",
+      "source": {
+        "atom_id": "CA-R-2720",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+        "sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56"
+      },
+      "group": "model"
+    },
+    {
+      "code": "cfel-expression-unsupported",
+      "message": "CFEL control expression is outside the bounded projection extractor.",
+      "expression": "IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (\nFENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}\n)",
+      "source": {
+        "atom_id": "CA-R-2721",
+        "version": 2,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2721-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-formal-claim.md",
+        "sha256": "8c80857b57e1a31f7bca943dfde8a089e6ec571249bf0e812d8f70ff97ead43c"
+      },
+      "group": "model"
+    }
+  ]
+}

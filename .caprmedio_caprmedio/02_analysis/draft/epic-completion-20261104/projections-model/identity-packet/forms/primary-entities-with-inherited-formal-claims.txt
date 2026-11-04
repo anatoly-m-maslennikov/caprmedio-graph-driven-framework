@@ -1,0 +1,26 @@
+---
+atom_id: <unallocated>
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+subjects:
+  active: 'CAPRMEDIO_MODEL <+ Projection/(.Form := Primary Entities with Inherited Formal Claims)'
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+## Summary
+
+Declare Projection/(.Form := Primary Entities with Inherited Formal Claims)
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Projection.Form: Primary Entities with Inherited Formal Claims;
+
+Projection/(.Form: Primary Entities with Inherited Formal Claims)
+```

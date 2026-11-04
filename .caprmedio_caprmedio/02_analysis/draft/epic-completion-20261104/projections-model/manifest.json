@@ -1,0 +1,41 @@
+{
+  "status": "HOLD: Projection identity decision pending",
+  "frontier": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/post-application-frontier.json",
+    "sha256": "b40245922796d93282ec704c0a9900cf02e88dccdd56cb751ba42edbf8e46b5c"
+  },
+  "candidates": [
+    {
+      "id": "CA-R-1943",
+      "version": 15,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md",
+      "source_sha256": "6f4076d9a76ef1314cf4e346f27ed9bcd26d87ec63d51601a6e2a6d8ea9c9bff",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/CA-R-1943.txt",
+      "preview_sha256": "fa342b4c34a68ce59cbc7d6c90a08866ea9b9fc23b7cd0e90498f9b16b548cd1",
+      "basis": [
+        {
+          "id": "CA-R-2537",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+          "sha256": "39079ba2d698e63ec340ba9f3087477052469d5793c050c4be71889e81006442"
+        },
+        {
+          "id": "CA-R-2540",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2540-CORE_META_MODEL-DECLARATION--declare-projection-source-atoms.md",
+          "sha256": "b92b098e18023c7393e1615699ad714b3bdc22450fda4d717bbd1e51c544192d"
+        },
+        {
+          "id": "CA-R-2541",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2541-CORE_META_MODEL-DECLARATION--declare-projection-source-named-selection.md",
+          "sha256": "55de140436c2e125ed61ed1dfda4d50f0ea92a3bf70d8c217a819c5a00a2a5e9"
+        },
+        {
+          "id": "CA-R-2587",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2587-CORE_META_MODEL-DECLARATION--declare-named-selection.md",
+          "sha256": "65e60dc293c24bc08c98350394c80bbca0744d100b2289d6582b5198b8378fd5"
+        }
+      ],
+      "scope": "align identity rule with Form and Source.Named Selection; preserve versioned source evidence and stable identity across source revisions",
+      "precondition": "HOLD pending user decision whether Projection identity is Form + Scope Unit rather than Form + Source.Named Selection"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "status": "PREPARED_NOT_ADOPTED",
+  "route": "explicit user-authorized manual application",
+  "prepared_at": "2026-11-04 07:31:50 +0400",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2508",
+      "version": 5,
+      "before_version": 4,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@4.md",
+      "sha256": "875fb6a3a853dbbf24816f2684083311bd6e2791ed6d6e07c4227aed05cb8318",
+      "summary": "Declare Atom"
+    },
+    {
+      "atom_id": "CA-R-2462",
+      "version": 4,
+      "before_version": 3,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node@3.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c",
+      "summary": "Declare Node"
+    },
+    {
+      "atom_id": "CA-R-2713",
+      "version": 2,
+      "before_version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects.md",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects@1.md",
+      "sha256": "7e323b6351c24efd8480224237de77c32b4675ea65c84f65e7b5081f095332c3",
+      "summary": "Declare Atom.Header.Subjects"
+    },
+    {
+      "atom_id": "CA-R-2698",
+      "version": 2,
+      "before_version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by@1.md",
+      "sha256": "669672c32d618a63cd81611b5daf3eef6ba090e30780f66f057b19a9c9d257bd",
+      "summary": "Declare Atom.Header.Relations.IS_CONTAINED_BY"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@4.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2508\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom\nversion: 4\nrelations: {}\ntier: 3\nupdated_at: 2026-11-03 20:00:05 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom;\n\nAtom.*[string,in(Header,Content)]{:2};\n\nAtom ((NARROWER_THAN)) Continuant;\n\n# instances\nUNIQUE(Atom//$atom, (.Header.ID, .Header.Version));\n```\n\n## Semantics\n\nAn Atom is the smallest independently governed Artifact.\n",
+      "after_sha256": "7daab4c10ab54b4c88d021b103d7468d68e4afdcac416ec3ef654322d28e8e28"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "before": "---\natom_id: CA-R-2508\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom\nversion: 4\nrelations: {}\ntier: 3\nupdated_at: 2026-11-03 20:00:05 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom;\n\nAtom.*[string,in(Header,Content)]{:2};\n\nAtom ((NARROWER_THAN)) Continuant;\n\n# instances\nUNIQUE(Atom//$atom, (.Header.ID, .Header.Version));\n```\n\n## Semantics\n\nAn Atom is the smallest independently governed Artifact.\n",
+      "before_sha256": "7daab4c10ab54b4c88d021b103d7468d68e4afdcac416ec3ef654322d28e8e28",
+      "after": "---\natom_id: CA-R-2508\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom\nversion: 5\nrelations: {}\ntier: 3\nupdated_at: 2026-11-04 07:31:50 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom;\n\nAtom.*[string,in(Header,Content)]{:2};\n\nAtom ((NARROWER_THAN)) Continuant;\n\n# instances\nAtom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));\n\nAtom//$atom {:0..1}((GOVERNS));\n\nUNIQUE(Atom//$atom, (.Header.ID, .Header.Version));\n```\n\n### Prose Claim\n\nFor each Atom instance, the outgoing HAS_ACTIVE_SUBJECT Relation has cardinality 0..1 and targets only the declared entity or instance resolved from its active Subject field. When the applicable Current-status rule requires that field, its resolved target supplies the one link; an unresolved field remains a diagnostic.\n\nFor each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom\u2019s outgoing links within each Relation Declaration\u2019s admissible endpoint domain; they do not create links.\n\n## Semantics\n\nAn Atom is the smallest independently governed Object.\n",
+      "after_sha256": "875fb6a3a853dbbf24816f2684083311bd6e2791ed6d6e07c4227aed05cb8318"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node@3.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2462\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Node\nversion: 3\nupdated_at: 2026-11-04 05:21:15 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\n---\n\n## Summary\n\nDeclare Node\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n(Node, Node.**) {:0}((*));\n\nNode {:0}((IS_PROPERTY_OF));\n\n(Node, Node.**) {:0..1}((IS_PROPERTY_OF));\n\nNode {:0+}((NARROWER_THAN)) Node;\n\nNode {:0+}((HAS_NARROWER)) Node;\n\nNode.** {:1}((IS_PROPERTY_OF)) (Node, Node.**);\n\n(Node, Node.**) {:0+}((HAS_PROPERTY)) Node.**;\n\nNode.** {:0+}((HAS_INSTANCE)) Node.**//;\n\nIF $model_node in (Node, Node.**) THEN (\nIF ($model_node {=0}((IS_PROPERTY_OF)))\nTHEN ($model_node >| (Independence == Primary Node));\n);\n\nIF $model_node_2 in (Node, Node.**) THEN (\nIF ($model_node_2 {=1}((IS_PROPERTY_OF)))\nTHEN ($model_node_2 >| (Independence == Property))\nAND ($model_node_2 {==0}((HAS_NARROWER)));\n);\n\n# instances\nNode//$node;\n\n($node, $node.**) {:0}((*));\n\n$node {:0+}((INSTANCE_OF)) Node;\n\nNode {:0+}((HAS_INSTANCE)) $node;\n\n$node.** {:1}((IS_PROPERTY_OF)) ($node, $node.**);\n\n$node.** {:1}((INSTANCE_OF)) Node.**;\n\nNode.**//{:0..1};\n\n($node, $node.**) {:0+}((HAS_PROPERTY)) $node.**;\n```\n\n## Semantics\n\nA Node can be the Host or Target of a Relation.\n",
+      "after_sha256": "bb5d1e3565329828f3eb0e8959a01832ed41ea2d8855ca6ea3a80effdfe283e6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "before": "---\natom_id: CA-R-2462\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Node\nversion: 3\nupdated_at: 2026-11-04 05:21:15 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\n---\n\n## Summary\n\nDeclare Node\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n(Node, Node.**) {:0}((*));\n\nNode {:0}((IS_PROPERTY_OF));\n\n(Node, Node.**) {:0..1}((IS_PROPERTY_OF));\n\nNode {:0+}((NARROWER_THAN)) Node;\n\nNode {:0+}((HAS_NARROWER)) Node;\n\nNode.** {:1}((IS_PROPERTY_OF)) (Node, Node.**);\n\n(Node, Node.**) {:0+}((HAS_PROPERTY)) Node.**;\n\nNode.** {:0+}((HAS_INSTANCE)) Node.**//;\n\nIF $model_node in (Node, Node.**) THEN (\nIF ($model_node {=0}((IS_PROPERTY_OF)))\nTHEN ($model_node >| (Independence == Primary Node));\n);\n\nIF $model_node_2 in (Node, Node.**) THEN (\nIF ($model_node_2 {=1}((IS_PROPERTY_OF)))\nTHEN ($model_node_2 >| (Independence == Property))\nAND ($model_node_2 {==0}((HAS_NARROWER)));\n);\n\n# instances\nNode//$node;\n\n($node, $node.**) {:0}((*));\n\n$node {:0+}((INSTANCE_OF)) Node;\n\nNode {:0+}((HAS_INSTANCE)) $node;\n\n$node.** {:1}((IS_PROPERTY_OF)) ($node, $node.**);\n\n$node.** {:1}((INSTANCE_OF)) Node.**;\n\nNode.**//{:0..1};\n\n($node, $node.**) {:0+}((HAS_PROPERTY)) $node.**;\n```\n\n## Semantics\n\nA Node can be the Host or Target of a Relation.\n",
+      "before_sha256": "bb5d1e3565329828f3eb0e8959a01832ed41ea2d8855ca6ea3a80effdfe283e6",
+      "after": "---\natom_id: CA-R-2462\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Node\nversion: 4\nupdated_at: 2026-11-04 07:31:50 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\n---\n\n## Summary\n\nDeclare Node\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n(Node, Node.**) {:0}((*));\n\nNode {:0}((IS_PROPERTY_OF));\n\n(Node, Node.**) {:0..1}((IS_PROPERTY_OF));\n\n(Node, Node.**) {:1}((IS_DECLARED_BY));\n\nNode {:0+}((NARROWER_THAN)) Node;\n\nNode {:0+}((HAS_NARROWER)) Node;\n\nNode.** {:1}((IS_PROPERTY_OF)) (Node, Node.**);\n\n(Node, Node.**) {:0+}((HAS_PROPERTY)) Node.**;\n\nNode.** {:0+}((HAS_INSTANCE)) Node.**//;\n\nIF $model_node in (Node, Node.**) THEN (\nIF ($model_node {=0}((IS_PROPERTY_OF)))\nTHEN ($model_node >| (Independence == Primary Node));\n);\n\nIF $model_node_2 in (Node, Node.**) THEN (\nIF ($model_node_2 {=1}((IS_PROPERTY_OF)))\nTHEN ($model_node_2 >| (Independence == Property))\nAND ($model_node_2 {==0}((HAS_NARROWER)));\n);\n\n# instances\nNode//$node;\n\n($node, $node.**) {:0}((*));\n\n$node {:0+}((INSTANCE_OF)) Node;\n\nNode {:0+}((HAS_INSTANCE)) $node;\n\n$node.** {:1}((IS_PROPERTY_OF)) ($node, $node.**);\n\n$node.** {:1}((INSTANCE_OF)) Node.**;\n\nNode.**//{:0..1};\n\n($node, $node.**) {:0+}((HAS_PROPERTY)) $node.**;\n```\n\n### Prose Claim\n\nIn the selected effective MODEL, each logical model entity selected by Node or Node.** has exactly one outgoing IS_DECLARED_BY Relation to its qualified canonical declaring Requirement/Form Declaration Atom. This named outgoing permission applies to model entities, including Node Properties, and does not impose an ownership requirement on runtime instances. Derive the view only from a GOVERNS fact satisfying the declaring ownership qualification; do not store a second fact or infer any other inverse permission. The target-omitted bound counts each selected model entity\u2019s outgoing links within the Relation Declaration\u2019s qualified endpoint domain.\n\n## Semantics\n\nA Node can be the Host or Target of a Relation.\n",
+      "after_sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects@1.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2713\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects\nversion: 1\nupdated_at: 2026-11-03 20:00:05 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom.Header.Subjects\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Subjects{:1}: []{:0};\n\nAtom.Header.Subjects.*[in(Active,Passive)]{:0..2}\n```\n",
+      "after_sha256": "591e15533a771e77beeb38749e6fcaa33fb9da540003448e08d58260d86dd30f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects.md",
+      "before": "---\natom_id: CA-R-2713\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects\nversion: 1\nupdated_at: 2026-11-03 20:00:05 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom.Header.Subjects\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Subjects{:1}: []{:0};\n\nAtom.Header.Subjects.*[in(Active,Passive)]{:0..2}\n```\n",
+      "before_sha256": "591e15533a771e77beeb38749e6fcaa33fb9da540003448e08d58260d86dd30f",
+      "after": "---\natom_id: CA-R-2713\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects\nversion: 2\nupdated_at: 2026-11-04 07:31:50 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom.Header.Subjects\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Subjects{:0..1}: []{:0};\n\nAtom.Header.Subjects.*[in(Active,Passive)]{:0..2}\n```\n",
+      "after_sha256": "7e323b6351c24efd8480224237de77c32b4675ea65c84f65e7b5081f095332c3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by@1.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2698\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY\nversion: 1\nupdated_at: 2026-11-03 20:00:05 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom.Header.Relations.IS_CONTAINED_BY\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};\n\nAtom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}\n```\n",
+      "after_sha256": "a49f094b06a03b3564c0db21639196f0b45b9b957535cccd1fef37c7968d4a0e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+      "before": "---\natom_id: CA-R-2698\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY\nversion: 1\nupdated_at: 2026-11-03 20:00:05 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom.Header.Relations.IS_CONTAINED_BY\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Relations.IS_CONTAINED_BY{:0..1}: []{:0};\n\nAtom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}\n```\n",
+      "before_sha256": "a49f094b06a03b3564c0db21639196f0b45b9b957535cccd1fef37c7968d4a0e",
+      "after": "---\natom_id: CA-R-2698\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY\nversion: 2\nupdated_at: 2026-11-04 07:31:50 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom.Header.Relations.IS_CONTAINED_BY\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Relations.IS_CONTAINED_BY{:1}: []{:0};\n\nAtom.Header.Relations.IS_CONTAINED_BY.*[in(atom,scope_unit)]{:1}\n```\n",
+      "after_sha256": "669672c32d618a63cd81611b5daf3eef6ba090e30780f66f057b19a9c9d257bd"
+    }
+  ],
+  "review_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projection-review/first-batch-review.json"
+}

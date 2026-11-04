@@ -37,6 +37,26 @@ def carrier(
 
 
 class EnhancedCurrentGraphTests(unittest.TestCase):
+    def test_scoped_claims_are_preserved_without_unqualified_bindings(self):
+        records, diagnostics = extract_claim_constraints(carrier("CA-R-1001", {}, """## Claim
+```CFEL
+# model
+Atom/(.Header.Role: Plan);
+Atom/(.Header.Role: Plan).Header.Priority: [string]{:0..1};
+Atom/(.Header.Role: Plan).Header.Priority.*[]{:0};
+Atom/(.Header.Role: Plan).Header.Priority: High;
+# instances
+Atom/(.Header.Role: Plan)//$atom;
+Atom/(.Header.Role: )//$bad;
+IF (A) THEN (B)
+```
+"""))
+        self.assertEqual(["subject_expression", "property_constraint", "property_constraint", "allowed_literal", "instance_binding"],
+                         [row["kind"] for row in records])
+        self.assertTrue(all(".Header.Role: Plan" in row.get("property_selector", row.get("kind_selector", row.get("expression", ""))) for row in records))
+        self.assertEqual("atom", records[-1]["variable"])
+        self.assertEqual(["Atom/(.Header.Role: )//$bad", "IF (A) THEN (B)"], [row["expression"] for row in diagnostics])
+
     def test_selection_scopes_do_not_emit_entities_or_declarations(self) -> None:
         values = ("Node.**", "Node//", "@(Node.**)", "CAPRMEDIO <+ MODEL <+ (Node,Node.**)")
         carriers = [carrier(f"CA-R-{i}", {"active": value, "passive": []}, declaration=True)
@@ -382,7 +402,7 @@ Details: [string]{:1}
         self.assertFalse(any(row.get("property_selector") == "Node >| Container" for row in records))
         self.assertFalse(any(row.get("relation") == "RUN" for row in records))
         unsupported = [row["expression"] for row in diagnostics if row["code"] == "cfel-expression-unsupported"]
-        self.assertIn("Atom/(.Role := Requirement)/(.Form := Rule)", unsupported)
+        self.assertTrue(any(row["kind"] == "subject_expression" and row["expression"] == "Atom/(.Role := Requirement)/(.Form := Rule)" for row in records))
         self.assertIn("IF(A) THEN(B ((RUN)) C)", unsupported)
         self.assertIn("Node >| Container: yes", unsupported)
         self.assertIn("Label: 'a;b'", unsupported)

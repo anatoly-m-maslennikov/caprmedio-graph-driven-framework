@@ -239,6 +239,7 @@ def build_subject_projection_data(carriers: list[Record]) -> Record:
             },
             "relations": {row["target"]: row["own"] for row in contracts["relations"]},
             "components": {row["target"]: row["own"] for row in contracts["components"]},
+            "namespaces": {row["target"]: row["own"] for row in contracts["namespaces"]},
         },
         "diagnostics": [
             *contracts["diagnostics"],

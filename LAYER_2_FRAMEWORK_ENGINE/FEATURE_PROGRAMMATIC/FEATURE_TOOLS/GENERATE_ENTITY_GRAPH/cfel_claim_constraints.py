@@ -13,6 +13,7 @@ from collections.abc import Iterable, Mapping
 from pathlib import Path
 from typing import Any
 
+import subject_notation as notation
 
 Record = dict[str, Any]
 _FENCE_LINE = re.compile(r"^[ \t]*(?P<marker>`{3,}|~{3,})(?P<label>[^\r\n]*)\r?$")
@@ -52,9 +53,11 @@ _REVERSE_GROUPED_CLASSIFICATION = re.compile(
     r"^\(\s*(?P<axis>.+?)\s*(?P<operator>==|=)\s*(?P<value>.+?)\s*\)\s*\|<\s*(?P<subject>.+)$"
 )
 _ALLOWED_LITERAL = re.compile(r"^(?P<property>.+?)\s*:\s*(?P<literal>[^\[\]{}]+)$")
+_QUALIFIED_ALLOWED_LITERAL = re.compile(r"^(?P<property>.+\).+?)\s*:\s*(?P<literal>[^\[\]{}]+)$")
 _RELATION_ALIAS = re.compile(r'^alias\(\s*(?:Relation//)?(?P<name>[A-Za-z][A-Za-z0-9_]*)\s*\)\s*==\s*"(?P<glyph>[^"\r\n]+)"$')
 _COUNTERPART = re.compile(r'^(?P<source>Relation//[A-Za-z][A-Za-z0-9_]*)\s*<-->\s*(?P<target>Relation//[A-Za-z][A-Za-z0-9_]*)$')
 _INSTANCE_BINDING = re.compile(r'^(?P<kind>[A-Za-z][A-Za-z0-9_ /.-]*)//\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)$')
+_SCOPED_INSTANCE_BINDING = re.compile(r'^(?P<kind>.+)//\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)$')
 _INSTANCE_POPULATION = re.compile(rf'^(?P<kind>[A-Za-z][A-Za-z0-9_ /.-]*)//\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)\{{:{_COUNT}\}}$')
 _PROPERTY_INSTANCE_POPULATION = re.compile(rf'^(?P<bearer>[A-Za-z][A-Za-z0-9_ /.-]*)\.\*\*//\{{:{_COUNT}\}}$')
 _MODEL_BINDING = re.compile(r'^IF\s+\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)\s+in\s*\((?P<selection>[^()]*)\)\s+THEN\s*\(', re.I)
@@ -89,7 +92,15 @@ def _property_selector(value: str) -> str | None:
     selector = value.strip()
     plain = _MEMBERSHIP_QUALIFIER.sub("", selector)
     if not plain or any(token in plain for token in ("(", ")", "+", "=", "<", ">", "|", "@", "*", ";", ":", "[", "]", "{", "}", "'", '"')):
-        return None
+        try:
+            parsed = notation.parse_subject_expression(selector, subject_profile="approved").expression
+        except notation.SubjectNotationError:
+            return None
+        if (not isinstance(parsed, notation.Path) or parsed.value_format is not None or parsed.value_cardinality is not None
+                or not isinstance(parsed.head, notation.Name)
+                or not any(isinstance(step.operand, notation.Qualification) for step in parsed.steps)
+                or any(step.operator not in {"/", "."} or not isinstance(step.operand, (notation.Name, notation.Qualification)) for step in parsed.steps)):
+            return None
     return selector
 
 
@@ -404,6 +415,18 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
                                        population_cardinality=_count(property_population.group("minimum"), property_population.group("tail"), property_population.group("maximum"))))
                 continue
             binding = _INSTANCE_BINDING.fullmatch(expression) if group == 'instances' else None
+            if binding is None and group == 'instances':
+                scoped_binding = _SCOPED_INSTANCE_BINDING.fullmatch(expression)
+                if scoped_binding is not None:
+                    try:
+                        kind = notation.parse_subject_expression(scoped_binding.group("kind"), subject_profile="approved").expression
+                    except notation.SubjectNotationError:
+                        kind = None
+                    if (isinstance(kind, notation.Path) and isinstance(kind.head, notation.Name)
+                            and kind.value_format is None and kind.value_cardinality is None
+                            and any(isinstance(step.operand, notation.Qualification) for step in kind.steps)
+                            and all(step.operator in {"/", "."} and isinstance(step.operand, (notation.Name, notation.Qualification)) for step in kind.steps)):
+                        binding = scoped_binding
             if binding is not None:
                 records.append(_record(source, expression, "instance_binding", kind_selector=binding.group("kind").strip(), variable=binding.group("variable")))
                 continue
@@ -472,6 +495,8 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
                     ),
                     target_cardinality=None,
                     selection="all_relations" if relation_name == "*" else "named_relation",
+                    written_direction="forward",
+                    target_domain="unresolved",
                 ))
                 continue
             classification = (
@@ -547,15 +572,28 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
                 continue
             allowed_literal = _ALLOWED_LITERAL.fullmatch(expression)
             literal_selector = _property_selector(allowed_literal.group("property")) if allowed_literal is not None else None
+            if literal_selector is None:
+                allowed_literal = _QUALIFIED_ALLOWED_LITERAL.fullmatch(expression)
+                literal_selector = _property_selector(allowed_literal.group("property")) if allowed_literal is not None else None
             if allowed_literal is not None and literal_selector is not None and not any(
-                token in expression for token in (":=", ": =", "(", ")", "'", '"', ">|", "|<", "((")
-            ):
+                token in expression for token in (":=", ": =", "'", '"', ">|", "|<", "((")
+            ) and not any(token in allowed_literal.group("literal") for token in ("(", ")")):
                 records.append(_record(
                     source, expression, "allowed_literal",
                     property_selector=literal_selector,
                     literal=allowed_literal.group("literal").strip(),
                 ))
                 continue
+            if group in {None, "model"}:
+                try:
+                    subject = notation.parse_subject_expression(expression, subject_profile="approved").expression
+                except notation.SubjectNotationError:
+                    subject = None
+                if (isinstance(subject, notation.Path) and isinstance(subject.head, notation.Name)
+                        and subject.value_format is None and subject.value_cardinality is None
+                        and all(step.operator in {"/", "."} and isinstance(step.operand, (notation.Name, notation.Qualification)) for step in subject.steps)):
+                    records.append(_record(source, expression, "subject_expression", selector=notation.render_subject(subject)))
+                    continue
             diagnostics.append({
                 "code": "cfel-expression-unsupported",
                 "message": "CFEL expression is outside the bounded projection extractor.",

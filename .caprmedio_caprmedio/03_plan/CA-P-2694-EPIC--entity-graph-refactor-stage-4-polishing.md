@@ -5,8 +5,8 @@ current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
 tier: 3
-version: 54
-updated_at: 2026-11-04 05:23:38 +0400
+version: 55
+updated_at: 2026-11-04 07:21:10 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations: {}
@@ -23,9 +23,9 @@ Entity graph refactor stage 4 — polishing
 
 ## Objective
 
-Complete declaration-based Scope Unit authority and the latest MODEL/CFEL content, alias and counterpart changes.
+Complete declaration-based Scope Unit authority and the latest MODEL/CFEL content, alias, counterpart, Property and Projection changes. Verify the affected sources, consumers, projections and P2707 integration gates.
 
-## Details
+## Scope
 
 - Remove the five obsolete authority-mode overrides.
 - Promote 44 Declaration Atoms and the shared ordering, Project and identity model. Preserve source history; merge existing model Definitions rather than create duplicates.
@@ -36,94 +36,52 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 - Keep existing Scope Unit workflow definitions unchanged. Remove their TOML-specific implementation and executable bindings; do not build replacement Scope Unit tools in this Epic.
 - Preserve existing business operations through admitted Atom lifecycle behavior. Do not invent new APIs, approval systems, locks or business rules.
 
-## New MODEL follow-up — 2026-11-03
+- Keep MODEL entities distinct from their instances. Use the latest Operator decisions when earlier wording conflicts.
+- Keep Atom.Header and Atom.Content, an empty Claim container with one or two Formal Claim / Prose Claim children, declared heading interpretation, explicit counterpart identities, aliases, and the removal of the @ reference operator.
+- Keep # model / # instances groups and explicit $x bindings. Inherit declared formats without copying local value counts. A present Property has a value and has schema and bearer links.
+- Projection identity is Form + Scope Unit. Named Selection remains source information. Terms Graph is deferred by the latest Operator input; Term Definitions and historical projections remain.
 
-The latest Operator decisions add an explicit YAML/Markdown grouping, an empty Claim container with Formal Claim and Prose Claim children, removal of Claim Scope, symbolic aliases, minimal declared relation counterparts, and declaration-based heading interpretation. `Node.**` covers all Properties of Node and its branch.
+## Completed baseline
 
-Completed next task: [CA-P-2709 — simplify MODEL and STRUCTURE Subject roots](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/13-CA-P-2709-TASK--simplify-model-and-structure-subject-roots.md). Apply `CAPRMEDIO <+ MODEL` → `CAPRMEDIO_MODEL` and `CAPRMEDIO <+ STRUCTURE` → `CAPRMEDIO_STRUCTURE` in `subjects.active` and `subjects.passive` only, with a simple in-place script. Verified 1,178 source files and 3,685 Subject values, with every other source byte preserved. The four follow-up stages below have been executed and checked for the selected frontier.
+- P2695–P2706 and P2709 have recorded completed, bounded results. Preserve their history. P2708 owns the separately deferred O016 desired-behavior item.
+- The Scope Unit source cutover, TOML retirement, Header/Claim/alias migration, Subject-root migration and CFEL grouping migration have application and preservation evidence.
+- The latest published MODEL projections use 1,151 pinned Current suppliers. The last adopted batch passed 421 graph tests; subsequent reader changes require their own evidence and publication.
+- The previous Epic version preserves the detailed checkpoint history. The acceptance matrix retains all 23 requirement groups and their evidence. These baselines do not close the remaining gates.
 
-Execute in this order:
+## Remaining work
 
-1. Update/create the Declarations and reconcile the affected authoring/layout rules.
-2. Commit and push everything at that checkpoint to `amm/dev`.
-3. Apply the agreed mechanical migration in place and align its required consumers/projections.
-4. Check the migration against the frozen source frontier and adopted Declarations.
+1. **Relation permissions.** Adopt explicit outgoing permissions with correct model/instance scope, endpoint bounds and qualifications. Retain separate direct/inverse permissions. Record unary bounds in faithful graph projections.
+2. **Property contracts.** Resolve the six conditional cases from applicable Declarations. Keep Relations populated by the containment Relation. Repair the optional Subjects grouping without weakening Current Active-subject requirements.
+3. **MODEL coverage.** Disposition every flag in the 64 uncovered / 26 unresolved audit: source correction, declared authority, valid scope, authorized retirement or an Operator decision. Resolve used endpoint kinds and Settings ownership. Preserve operative Claims and exact history.
+4. **Projection identity.** Adopt Form + Scope Unit constraints, the required Scope Unit reference and distinct Forms for current views. Align Delivery, readers, identity checks and generated instances. Preserve versioned source references. Defer graph-specific Terms Graph work explicitly.
+5. **CFEL and faithful projections.** Repair declared narrowing and namespace binding, supported qualified selectors and bindings. Classify remaining opaque expressions; retain their complete source and diagnostics. Rebuild all seven MODEL-only views from actual Current Declarations. Formats, cardinalities and Formal Claims come only from Declarations.
+6. **Current carrier admission.** Align live Delivery authority, source closure, registry and validators. Remove dependencies on retired D274; preserve fail-closed checks. Reconcile Header/Claim, role/form, Author removal and required fields with their Current authority before enabling admission.
+7. **P2707.** Verify current Scope Declaration counts and identities, explain source-digest changes, verify absence of TOML dependencies, pass live Project admission, required fresh Docker query/status and lifecycle checks, the complete current-source suite and launcher. Capture one authoritative final result after changes.
+8. **Independent closure.** Audit every requirement in the acceptance matrix against live evidence. Verify exact predecessors, metadata/identity rules, actual published projections and the requested remote checkpoint. Mark the Epic Done only after every required item passes or the Operator explicitly changes its scope.
 
-The [follow-up plan and pending choices](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-content-alias-followup-20261103.md) define scope, owners and acceptance checks. Ask unresolved choices one at a time. The group names are now `Atom.Header` and `Atom.Content`. Claim/alias grammar choices are resolved. The pre-migration checkpoint db837f08e is pushed and verified; the selected source migration and seven projection rebuilds are complete. The MODEL audit queue remains explicit. Prior completed Tasks remain Done, and P2707 retains its existing verification scope.
+## Decisions and execution
 
-## CFEL grouping and variables
-
-- Group Formal Claim expressions with `# model` and `# instances` comments inside the same CFEL block. Model expressions come first. These comments do not create Markdown Properties.
-- Use explicit `$x` instance bindings, such as `Atom//$atom` and `Carrier//$carrier`, in place of anonymous instance references. Repeated variables identify the same bound instance within a Claim.
-- Use the same `$x` notation for model bindings where needed. Preserve the distinction between model entities and their instances; document the applicable binding scope.
-- Preserve explicit named references, inherited constraints, population cardinalities and endpoint-count meanings during migration.
-- Update the CFEL rules and authoring guidance, affected readers/checkers/renderers, fixtures and projections. Verify comment handling and model/instance bindings before adoption.
-
-The governing follow-up is adopted in 89 Current revisions, with 19 retired sources and 108 exact predecessor archives. The notation migration and seven MODEL-only projection rebuilds are verified. The earlier completed migration remains completed history. The [decision record](../02_analysis/draft/model-completeness-audit-20261103/decisions.md) holds the latest Operator wording.
-
-## Current tasks
-
-- CFEL grouping and `$x` notation — applied and verified; 1,148 selected sources, 263 changed, zero held; seven MODEL-only projections rebuilt.
-- [CA-P-2709](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/13-CA-P-2709-TASK--simplify-model-and-structure-subject-roots.md) — Done; Subject-root migration independently verified.
-- [CA-P-2704](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/09-CA-P-2704-TASK--remove-obsolete-scope-authority-mode-overrides.md) — Done.
-- [CA-P-2705](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/10-CA-P-2705-TASK--adopt-formal-scope-unit-declarations.md) — Done.
-- [CA-P-2706](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/11-CA-P-2706-TASK--retire-project-structure-toml-entirely.md) — Done.
-- [CA-P-2707](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md) — Active.
+- Ask one question at a time when confidence is below 90%. Record each answer and its affected sources.
+- Prepare and review source changes, commit the declaration checkpoint to amm/dev before a dependent mechanical migration, apply the accepted migration in place, then check it. Preserve disabled hooks and concurrent work.
+- Root owns canonical source integration and Git. Workers own the separate evidence and preview lanes in the completion packet. No release or external publication is required by this plan. Required local integration tests remain in scope.
 
 ## Definition of Done
 
-Current Declarations and shared model are coherent and history is preserved. The new MODEL follow-up has completed its declaration, remote checkpoint, in-place migration and migration-check stages; unresolved choices and migration defects are closed. The live project_structure.toml file is absent. Production execution no longer requires or writes it. Retired bindings are not exposed. Affected runtime/script tests pass, including required integration checks for release. Remaining source or implementation gaps are explicit rather than hidden by legacy fallback. The pending CFEL grouping and variable follow-up is adopted in its governing rules and affected sources; model/instance binding, comment handling and projection checks pass.
+1. Every acceptance-matrix requirement has current authoritative evidence. Required MODEL decisions and migration defects are closed.
+2. Current Declarations, Relations, Property contracts, Projection identity and affected R/M/E/D are coherent with the latest Operator decisions. Each retained model entity has its applicable defining authority. History is preserved.
+3. No live project_structure.toml or production read/write dependency remains. No retired binding or compatibility registry replaces Declaration authority. The 44 Scope Declarations and their current identities are verified.
+4. Required source, reader, validator, script, Docker and launcher checks pass on the final candidate. P2707 is Done; the separately owned P2708 disposition is explicit. Focused tests alone do not satisfy this gate.
+5. All seven published MODEL views match the final source frontier and their governing Declarations. Unsupported expressions remain complete and explicitly classified.
+6. The declaration checkpoint and checked final changes are committed and pushed to amm/dev, with matching local/remote evidence.
 
-## Previous completed stage
+## Evidence
 
-The earlier CFEL/model migration remains completed history. Its eight completed child Tasks are not reopened by this follow-up. The previous Epic content is preserved in its version-40 archive.
+- [Full acceptance matrix](../02_analysis/draft/epic-completion-20261104/acceptance/matrix.json).
+- [Completion lanes and current findings](../02_analysis/draft/epic-completion-20261104/README.md).
+- [P2707 verification task](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md).
+- [Adopted Property and inherited-format batch](../02_analysis/draft/property-instances-20261104/REPORT.md).
+- [Earlier Header/Claim/alias stages](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-content-alias-followup-20261103.md).
 
-## Verification checkpoint
+## Status
 
-The Scope Unit cutover is complete through P2706; P2709 is Done. The Header/Claim/alias follow-up applied 87 Current outputs with 86 exact-byte predecessor archives, pushed the pre-migration checkpoint db837f08e to amm/dev, migrated 1,158 selected files in place (1,071 changed), repaired five remaining consumers and rebuilt seven faithful MODEL projections from 1,154 Current sources. Independent preservation checks and 160 focused tests pass. Twelve model-binding gaps remain in the audit queue. P2707 retains its existing Engine verification blockers; the Epic remains Active. This update records manual source application and focused checks, without native workflow or release completion.
-
-[Migration report and remaining queue](../02_analysis/draft/model-header-content-migration-20261103/report.md).
-
-The CFEL grouping and variable rules are adopted. The mechanical notation migration and seven MODEL-only projections are verified. The Epic remains Active for this follow-up and P2707.
-
-## Carrier boundary
-
-- Operate on Objects read from whole Carriers.
-- Keep Carrier kinds in the MODEL.
-- Delivery templates and adapters own Carrier internals and physical layout.
-- Keep Atom.Header.Carrier Destination.File.Name and Path as mandatory string values.
-- Retire the internal Carrier Property sources, their internal-region Rule, and Git Index.
-
-The reviewed packet applies 89 revisions and 19 retirements. The declaring Relation is IS_DECLARED_BY, registered by CA-R-2732; its qualified derivation remains intact. The selected frontier contains 1,148 Current sources after retirement.
-
-## Latest verification
-
-- CFEL migration: 1,148 Current sources, 263 changed, zero held; 45 marker corrections retain business expressions.
-- All 44 Scope Declarations use instance markers and remain readable.
-- Seven MODEL-only projections are rebuilt from the final source pins.
-- Role values are admitted through their individual Declarations. The duplicate list in R1283 is removed; the wider allowed-value audit found no other equivalent duplication.
-- Independent preservation checks pass. All 412 graph tests pass; guard and migration checks pass.
-- The projection audit retains 74 uncovered Subject expressions and 51 unresolved expressions for review. P2707 keeps its existing Engine verification scope.
-
-[Continuation report](../02_analysis/draft/model-completeness-audit-20261103/implementation/report.md). The Epic remains Active; this does not claim a release or complete semantic evaluation.
-
-## Parallel MODEL cleanup — 2026-11-04
-
-- Four lanes reviewed legacy Subjects/Claims, syntax, 88 Property declarations and 41 Relations.
-- Applied 107 clear source repairs: 104 mechanical changes and three revisions with exact predecessor archives.
-- Fixed selector parsing and kept selectors separate from graph entities. Recognized Method/Term Definition lexical authority.
-- Rebuilt seven MODEL projections from 1,151 pinned suppliers. The audit now reports 64 uncovered and 26 unresolved expressions, down from 74/51.
-- 415 graph tests, 14 notation tests, four merge tests and independent preservation checks pass.
-- Property presence is resolved in the follow-up below. Hold outgoing permission bounds, old Projection job/Form mapping and omitted execution-kind decisions.
-
-[Cleanup report](../02_analysis/draft/model-cleanup-20261104/REPORT.md). The Epic remains Active.
-
-## Property instances and inherited formats — 2026-11-04
-
-- Applied 42 reviewed source revisions and preserved exact predecessors.
-- A present Property has a value. A zero value minimum permits omission. Property instances have schema and bearer links.
-- Declared four shared formats: Content Markdown; File destination strings; Authority Modes strings; Confidence integers. Removed 13 repeated format annotations; local counts remain.
-- The reader resolves inherited formats through narrower branches and cites the supplying Declaration. All 421 graph tests pass.
-- Rebuilt seven MODEL projections from 1,151 pinned suppliers. Six conditional applicability cases remain; the broader audit remains 64 uncovered / 26 unresolved.
-
-[Application and verification](../02_analysis/draft/property-instances-20261104/REPORT.md). Instance conformance and runtime release remain outside this pass.
+Active. Plan review found stale checkpoint wording, retired carrier authority and incomplete MODEL and integration gates. The remaining-work list retains the complete scope and gives each gap a concrete closure check.

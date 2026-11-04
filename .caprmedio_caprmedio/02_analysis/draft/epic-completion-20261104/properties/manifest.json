@@ -1,0 +1,17 @@
+{
+  "status": "PREVIEW_ONLY_REQUIRES_REVIEW",
+  "atom_id": "CA-R-2713",
+  "source_version": "1",
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects.md",
+  "source_sha256": "591e15533a771e77beeb38749e6fcaa33fb9da540003448e08d58260d86dd30f",
+  "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/CA-R-2713.preview.txt",
+  "candidate_sha256": "f96027edb5b9784f0566b48740617a0dbc62192af41016cd4a9845f73e416604",
+  "related_current_sources": {
+    "CA-R-2100@8": "1be97cd99a829eb3a4bb809c9e1e4c8a54c8329b6c6125ae2dc67604f3a5f08c",
+    "CA-R-2102@17": "2ac017dcc7bafcccd74830f85f3367334164b8d67b792d4887a89ca9031dc66a",
+    "CA-R-2714@2": "4473cb7be670b15cc96de8c34ccccca9377839d820ff237efc0e1a9b04500b66",
+    "CA-R-2708@1": "2b525cc7e96e8f348248a8e8fbfb591114c434d847e7c9e4cf7d3a8f8ceb9351"
+  },
+  "change": "Atom.Header.Subjects occurrence {:1} -> {:0..1}; all child-name and value constraints retained.",
+  "rationale": "CA-R-2100 explicitly says the Subjects collection is optional. CA-R-2102 and CA-R-2714 still require the Active value on complete Current Atoms, which makes the grouping present in that applicable case; zero-child/non-current cases may omit the group under the no-empty-Property rule."
+}

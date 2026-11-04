@@ -5,8 +5,8 @@ claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection.Form
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+version: 3
+updated_at: 2026-11-04 07:51:19 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -24,12 +24,6 @@ Declare Projection.Form
 # model
 Projection.Form{:1}: [string]{:1};
 
-Projection.Form.*[]{:0};
-
-Projection.Form: Catalog;
-
-Projection.Form: Map;
-
-Projection.Form: Hub
+Projection.Form.*[]{:0}
 ```
 

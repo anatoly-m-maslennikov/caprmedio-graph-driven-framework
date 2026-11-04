@@ -155,6 +155,9 @@ def _component_target(
 def _target(expression: notation.Path | notation.RelationChain) -> tuple[str, str] | None:
     """Map an exact active Subject to one already-declarable target category."""
 
+    if (isinstance(expression, notation.Path) and isinstance(expression.head, notation.Name)
+            and expression.head.value == "CAPRMEDIO_MODEL" and not expression.steps):
+        return "namespace", expression.head.value
     expression = namespace_local_expression(expression) or expression
     if _has_selection(expression):
         return None
@@ -696,7 +699,7 @@ def compose_contract_graph(carriers: list[Record]) -> Record:
     narrowing, _ = compose_narrowing_graph(declaration_carriers)
     primary_declarations = {identity: rows for (kind, identity), rows in catalog.items() if kind == "primary_node"}
     ancestors = _ancestor_rows(narrowing, primary_declarations)
-    entities, components, relations, conflicts, instance_kind_gaps = [], [], [], [], []
+    entities, components, relations, namespaces, conflicts, instance_kind_gaps = [], [], [], [], [], []
     for (kind, identity), own in sorted(catalog.items()):
         attached = shared[(kind, identity)]
         if len(own) > 1:
@@ -733,6 +736,8 @@ def compose_contract_graph(carriers: list[Record]) -> Record:
             entities.append(row)
         elif kind == "component":
             components.append(row)
+        elif kind == "namespace":
+            namespaces.append(row)
         else:
             relations.append({**row, **_relation_parts([*own, *attached], identity)})
 
@@ -764,7 +769,7 @@ def compose_contract_graph(carriers: list[Record]) -> Record:
     display_incomplete = any((gaps, conflicts, missing_relation_semantics, instance_kind_gaps, inheritance_diagnostics))
     return {
         "kind": "source_bound_formal_contract_graph", "narrowing_tree": narrowing,
-        "entities": entities, "components": components, "relations": relations,
+        "entities": entities, "components": components, "relations": relations, "namespaces": namespaces,
         "coverage_gaps": gaps, "outside_model_scope": outside_scope, "unresolved": gaps, "conflicts": conflicts,
         "missing_relation_semantics": missing_relation_semantics, "instance_kind_gaps": instance_kind_gaps,
         "diagnostics": diagnostics, "inheritance_diagnostics": inheritance_diagnostics,
@@ -786,6 +791,8 @@ def _clause(row: Mapping[str, Any]) -> str:
     if row.get("kind") == "relation_cardinality":
         relation = row.get("relation") or row.get("relation_notation") or "relation"
         written = row.get("written_direction", "forward")
+        if row.get("target_selector") is None:
+            return f"`{row.get('source_selector')}` — {relation}; outgoing count={_count(row.get('source_cardinality'))}; target domain unresolved from this clause; written direction={written}"
         return f"`{row.get('source_selector')}` — {relation} → `{row.get('target_selector')}`; Host={_count(row.get('source_cardinality'))}; Target={_count(row.get('target_cardinality'))}; written direction={written}"
     if row.get("kind") == "property_constraint":
         effective = "conflict" if row.get("occurrence_conflict") else _count(row.get("effective_occurrence_cardinality"))
@@ -858,6 +865,12 @@ def render_contract_graph(graph: Mapping[str, Any]) -> str:
     lines.extend(f"- {key.replace('_', ' ')}: {value}" for key, value in graph["coverage"].items())
     lines.extend([f"- display coverage: {graph['display_coverage']}", f"- structured CFEL extraction: {graph['structured_cfel']}"])
     lines.extend([""] + _tree_lines(graph["narrowing_tree"]))
+    if graph.get("namespaces"):
+        lines.extend(["## Namespace Declarations", ""])
+        for namespace in graph["namespaces"]:
+            lines.extend([f"### `{namespace['target']}` — namespace", ""])
+            _render_contract_rows(lines, namespace)
+            lines.append("")
     lines.extend(["## Entity and Property Contracts", ""])
     for entity in graph["entities"]:
         lines.extend([f"### `{entity['target']}` — {entity['kind']}", ""])

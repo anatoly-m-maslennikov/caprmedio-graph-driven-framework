@@ -1,0 +1,291 @@
+{
+  "status": "PREPARED_NOT_ADOPTED",
+  "route": "explicit user-authorized manual application",
+  "prepared_at": "2026-11-04 07:51:19 +0400",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2537",
+      "version": 3,
+      "before_version": 2,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id@2.md",
+      "sha256": "4bf298a918f5f9fab0dcdbf6c143eb9e3e51b65f6af060e424173c0b6fc59022",
+      "summary": "Declare Projection.ID",
+      "new": false,
+      "subjects_changed": false
+    },
+    {
+      "atom_id": "CA-R-2538",
+      "version": 3,
+      "before_version": 2,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form@2.md",
+      "sha256": "11ce973c5a99d1415c40b1dd9911893d3b2ca27c163dc3b1053b26e2e8b4f5e9",
+      "summary": "Declare Projection.Form",
+      "new": false,
+      "subjects_changed": false
+    },
+    {
+      "atom_id": "CA-R-1943",
+      "version": 16,
+      "before_version": 15,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id@15.md",
+      "sha256": "cb7d14ede2018974e6ffd21074d5fec576273c08d8ab053ac9e14829e516024d",
+      "summary": "Give each Projection a stable ID",
+      "new": false,
+      "subjects_changed": true
+    },
+    {
+      "atom_id": "CA-D-635",
+      "version": 17,
+      "before_version": 16,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames.md",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames@16.md",
+      "sha256": "20a57bce956acaac8a98cee243b18d040161894000dbe77e256ff548d4285d42",
+      "summary": "Serialize Projection identity and filenames",
+      "new": false,
+      "subjects_changed": true
+    },
+    {
+      "atom_id": "CA-R-2736",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2736-CORE_META_MODEL-DECLARATION--declare-projection-scope-unit.md",
+      "sha256": "e0257f2bd5bfafa0799fcf1f9737ee0cf0a7b6fd5689bc58180d088892969b0c",
+      "summary": "Declare Projection.Scope Unit",
+      "new": true
+    },
+    {
+      "atom_id": "CA-R-2737",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2737-CORE_META_MODEL-DECLARATION--declare-projection-form-catalog.md",
+      "sha256": "f36c18f575887c15c406a9505625aebf48b95c24a48be2e1a35a8ff0d4ccbea1",
+      "summary": "Declare Projection/(.Form := Catalog)",
+      "new": true
+    },
+    {
+      "atom_id": "CA-R-2738",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2738-CORE_META_MODEL-DECLARATION--declare-projection-form-map.md",
+      "sha256": "1c66d0e125b56b05b4c504d0bfc8bf4cf736c68dc1f9b12bba08d87c11407e55",
+      "summary": "Declare Projection/(.Form := Map)",
+      "new": true
+    },
+    {
+      "atom_id": "CA-R-2739",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2739-CORE_META_MODEL-DECLARATION--declare-projection-form-hub.md",
+      "sha256": "fd8a8a2127ded68292cb148e2191411baab7616be5d344c88f06bbcd072eec26",
+      "summary": "Declare Projection/(.Form := Hub)",
+      "new": true
+    },
+    {
+      "atom_id": "CA-R-2740",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2740-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-tree.md",
+      "sha256": "079e13159b67dc1fe5548bf445a28ea460f2bddfef90217730cab2c6883d8cc5",
+      "summary": "Declare Projection/(.Form := Primary Entities Tree)",
+      "new": true
+    },
+    {
+      "atom_id": "CA-R-2741",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2741-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-direct-properties.md",
+      "sha256": "bf898dcff723da62df9bb7663cd7a8cb40e2d5d060fe2f1ba1169115e37c0dbb",
+      "summary": "Declare Projection/(.Form := Primary Entities with Direct Properties)",
+      "new": true
+    },
+    {
+      "atom_id": "CA-R-2742",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2742-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-inherited-property-contracts.md",
+      "sha256": "db9329a61fb6aac3078d45d3e690e64c0b35fd219079c12350a847e2b5ca3341",
+      "summary": "Declare Projection/(.Form := Primary Entities with Inherited Property Contracts)",
+      "new": true
+    },
+    {
+      "atom_id": "CA-R-2743",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2743-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-inherited-formal-claims.md",
+      "sha256": "54666e0cc5d19b9f9fcf320be1812bd87f64067df0d7e91ea2beb0952a2b4411",
+      "summary": "Declare Projection/(.Form := Primary Entities with Inherited Formal Claims)",
+      "new": true
+    },
+    {
+      "atom_id": "CA-R-2744",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2744-CORE_META_MODEL-DECLARATION--declare-projection-form-passive-only-subjects.md",
+      "sha256": "365adf412a32ed64e6469bbb0d26934c5b903abd05abe430bcc0dfc0436eb038",
+      "summary": "Declare Projection/(.Form := Passive Only Subjects)",
+      "new": true
+    },
+    {
+      "atom_id": "CA-R-2745",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2745-CORE_META_MODEL-DECLARATION--declare-projection-form-subjects-without-requirement-declarations.md",
+      "sha256": "382944b4530fccdeaca44add57a0aff8a31126dbeb7e6cfe55823e67e934e17b",
+      "summary": "Declare Projection/(.Form := Subjects without Requirement Declarations)",
+      "new": true
+    },
+    {
+      "atom_id": "CA-R-2746",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2746-CORE_META_MODEL-DECLARATION--declare-projection-form-entity-definition-and-active-subject-coverage.md",
+      "sha256": "fa26a31ffccc01309a2aaa96a303d6efffeaff19d221d9193c0eb8746a8f4c7e",
+      "summary": "Declare Projection/(.Form := Entity Definition and Active Subject Coverage)",
+      "new": true
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id@2.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2537\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection.ID\nversion: 2\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\n---\n## Summary\n\nDeclare Projection.ID\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.ID{:1}: [string]{:1};\n\nProjection.ID.*[]{:0};\n\n# instances\nDETERMINES(Projection//$projection, (.Form, .Source.Named Selection), (.ID));\n\nDETERMINES(Projection//$projection_2, (.ID), (.Form, .Source.Named Selection))\n```\n\n",
+      "after_sha256": "39079ba2d698e63ec340ba9f3087477052469d5793c050c4be71889e81006442"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "before": "---\natom_id: CA-R-2537\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection.ID\nversion: 2\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\n---\n## Summary\n\nDeclare Projection.ID\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.ID{:1}: [string]{:1};\n\nProjection.ID.*[]{:0};\n\n# instances\nDETERMINES(Projection//$projection, (.Form, .Source.Named Selection), (.ID));\n\nDETERMINES(Projection//$projection_2, (.ID), (.Form, .Source.Named Selection))\n```\n\n",
+      "before_sha256": "39079ba2d698e63ec340ba9f3087477052469d5793c050c4be71889e81006442",
+      "after": "---\natom_id: CA-R-2537\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection.ID\nversion: 3\nupdated_at: 2026-11-04 07:51:19 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\n---\n## Summary\n\nDeclare Projection.ID\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.ID{:1}: [string]{:1};\n\nProjection.ID.*[]{:0};\n\n# instances\nDETERMINES(Projection//$projection, (.Form, .Scope Unit), (.ID));\n\nDETERMINES(Projection//$projection_2, (.ID), (.Form, .Scope Unit))\n```\n\n",
+      "after_sha256": "4bf298a918f5f9fab0dcdbf6c143eb9e3e51b65f6af060e424173c0b6fc59022"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form@2.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2538\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection.Form\nversion: 2\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\n---\n## Summary\n\nDeclare Projection.Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form{:1}: [string]{:1};\n\nProjection.Form.*[]{:0};\n\nProjection.Form: Catalog;\n\nProjection.Form: Map;\n\nProjection.Form: Hub\n```\n\n",
+      "after_sha256": "852aaa4943ab5268bd4b80c204fab37be6b1cdab4e11623f29ffc8c7ec11135f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+      "before": "---\natom_id: CA-R-2538\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection.Form\nversion: 2\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\n---\n## Summary\n\nDeclare Projection.Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form{:1}: [string]{:1};\n\nProjection.Form.*[]{:0};\n\nProjection.Form: Catalog;\n\nProjection.Form: Map;\n\nProjection.Form: Hub\n```\n\n",
+      "before_sha256": "852aaa4943ab5268bd4b80c204fab37be6b1cdab4e11623f29ffc8c7ec11135f",
+      "after": "---\natom_id: CA-R-2538\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection.Form\nversion: 3\nupdated_at: 2026-11-04 07:51:19 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\n---\n## Summary\n\nDeclare Projection.Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form{:1}: [string]{:1};\n\nProjection.Form.*[]{:0}\n```\n\n",
+      "after_sha256": "11ce973c5a99d1415c40b1dd9911893d3b2ca27c163dc3b1053b26e2e8b4f5e9"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id@15.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-1943\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection.ID\n  passive:\n  - CAPRMEDIO_MODEL <+ Projection\n  - CAPRMEDIO_MODEL <+ Projection.Form\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection\nversion: 15\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  depends_on:\n  - CA-R-2535\ntier: 3\nrole: Requirement\nform: Rule\n---\n## Summary\n\nGive each Projection a stable ID\n\n## Claim\n\n### Prose Claim\n\n\nProjection identity across rebuilds.\n\n\nEvery Projection has one Projection ID. The same Projection Type, named source selection and source of truth identify the same Projection and keep the same ID across rebuilds.\n\n## Details\n\n- A different Type, named source selection or source of truth identifies a different Projection and requires a different ID.\n- Changes to source contents, source Versions, the artifacts selected by the same selection, generated content or Updated At do not change the Projection ID.\n- A change to the current Scope Unit name or Carrier path alone does not change the Projection ID.\n- Projection ID identifies the derived view, not any source Atom. It does not make the Projection authoritative.\n",
+      "after_sha256": "6f4076d9a76ef1314cf4e346f27ed9bcd26d87ec63d51601a6e2a6d8ea9c9bff"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md",
+      "before": "---\natom_id: CA-R-1943\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection.ID\n  passive:\n  - CAPRMEDIO_MODEL <+ Projection\n  - CAPRMEDIO_MODEL <+ Projection.Form\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection\nversion: 15\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  depends_on:\n  - CA-R-2535\ntier: 3\nrole: Requirement\nform: Rule\n---\n## Summary\n\nGive each Projection a stable ID\n\n## Claim\n\n### Prose Claim\n\n\nProjection identity across rebuilds.\n\n\nEvery Projection has one Projection ID. The same Projection Type, named source selection and source of truth identify the same Projection and keep the same ID across rebuilds.\n\n## Details\n\n- A different Type, named source selection or source of truth identifies a different Projection and requires a different ID.\n- Changes to source contents, source Versions, the artifacts selected by the same selection, generated content or Updated At do not change the Projection ID.\n- A change to the current Scope Unit name or Carrier path alone does not change the Projection ID.\n- Projection ID identifies the derived view, not any source Atom. It does not make the Projection authoritative.\n",
+      "before_sha256": "6f4076d9a76ef1314cf4e346f27ed9bcd26d87ec63d51601a6e2a6d8ea9c9bff",
+      "after": "---\natom_id: CA-R-1943\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection.ID\n  passive:\n  - CAPRMEDIO_MODEL <+ Projection\n  - CAPRMEDIO_MODEL <+ Projection.Form\n  - CAPRMEDIO_MODEL <+ Projection.Scope Unit\n  - CAPRMEDIO_MODEL <+ Projection.Source.Named Selection\n  - CAPRMEDIO_MODEL <+ Projection.Source.Atoms\nversion: 16\nupdated_at: 2026-11-04 07:51:19 +0400\nrelations:\n  depends_on:\n  - CA-R-2535\ntier: 3\nrole: Requirement\nform: Rule\n---\n## Summary\n\nGive each Projection a stable ID\n\n## Claim\n\n### Prose Claim\n\n\nProjection identity across rebuilds.\n\n\nEvery Projection has one Projection ID. Its Form and Scope Unit determine its ID, and its ID determines its Form and Scope Unit. Rebuilding the same Projection retains that ID.\n\n## Details\n\n- A different Form or Scope Unit identifies a different Projection and requires a different ID.\n- Changes to the Named Selection, its selected sources, source contents or Versions, generated content or Updated At do not change the Projection ID. Source.Named Selection describes the sources; it is not an identity component. Where Source.Atoms is recorded, each value identifies an Atom with its explicit Version.\n- A change to the current Scope Unit name or Carrier path alone does not change the Projection ID.\n- Projection ID identifies the derived view, not any source Atom. It does not make the Projection authoritative.\n",
+      "after_sha256": "cb7d14ede2018974e6ffd21074d5fec576273c08d8ab053ac9e14829e516024d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames@16.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-635\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection\n  passive:\n  - CAPRMEDIO_MODEL <+ Projection.ID\n  - CAPRMEDIO_MODEL <+ Projection.Form\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection\n  - CAPRMEDIO_MODEL <+ Scope Unit\nversion: 16\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  depends_on:\n  - CA-R-1943\n  - CA-D-310\n  - CA-D-550\ntier: 4\nrole: Delivery\nform: Decision\n---\n## Summary\n\nSerialize Projection identity and filenames\n\n## Claim\n\n### Prose Claim\n\n\nProjection Markdown File Carriers.\n\n\nUse this filename:\n\n`<PROJECT_PREFIX>-PROJ-<ID>-<CURRENT_SCOPE_NAME>--<PROJECTION_TYPE>--<NAMED_SELECTION>.md`\n\nStore the full Projection ID as `projection_id` in YAML frontmatter. The filename and frontmatter must identify the same Projection.\n\n## Details\n\nFor this Project, the prefix is `CA`. For example:\n\n`CA-PROJ-001-CORE_META_MODEL--Entities-Graph--Current-Atoms.md`\n\nIts full Projection ID is `CA-PROJ-001`; `001` is the ID segment in the filename. Use the current Scope Unit name, not its label.\n\nThe YAML frontmatter carries:\n\n- `artifact_form: Projection`\n- `projection_id`: the full Projection ID.\n- `type`: Projection Type.\n- `named_selection`: the named source selection.\n- `source_of_truth`: an unambiguous reference to the authoritative source set.\n- `updated_at`: the latest completed rebuild time under CA-D-310.\n- `sources`: contributing Atom references with Versions, such as `CA-R-123@3`. Identify contributing non-Atom sources separately; do not invent Atom IDs for them.\n\nKeep the ID under CA-R-1943 when rebuilding or changing only the Scope Unit name or Carrier path. Filename changes do not by themselves create a new Projection.\n\nType-specific Delivery rules define the body and any additional source evidence. Store the Carrier under the applicable Projection root under CA-D-550.\n",
+      "after_sha256": "ada3ac3faec8c544814a6c0a2593b8786b496c2dc395f0d0d25addf9431fef53"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames.md",
+      "before": "---\natom_id: CA-D-635\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection\n  passive:\n  - CAPRMEDIO_MODEL <+ Projection.ID\n  - CAPRMEDIO_MODEL <+ Projection.Form\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection\n  - CAPRMEDIO_MODEL <+ Scope Unit\nversion: 16\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  depends_on:\n  - CA-R-1943\n  - CA-D-310\n  - CA-D-550\ntier: 4\nrole: Delivery\nform: Decision\n---\n## Summary\n\nSerialize Projection identity and filenames\n\n## Claim\n\n### Prose Claim\n\n\nProjection Markdown File Carriers.\n\n\nUse this filename:\n\n`<PROJECT_PREFIX>-PROJ-<ID>-<CURRENT_SCOPE_NAME>--<PROJECTION_TYPE>--<NAMED_SELECTION>.md`\n\nStore the full Projection ID as `projection_id` in YAML frontmatter. The filename and frontmatter must identify the same Projection.\n\n## Details\n\nFor this Project, the prefix is `CA`. For example:\n\n`CA-PROJ-001-CORE_META_MODEL--Entities-Graph--Current-Atoms.md`\n\nIts full Projection ID is `CA-PROJ-001`; `001` is the ID segment in the filename. Use the current Scope Unit name, not its label.\n\nThe YAML frontmatter carries:\n\n- `artifact_form: Projection`\n- `projection_id`: the full Projection ID.\n- `type`: Projection Type.\n- `named_selection`: the named source selection.\n- `source_of_truth`: an unambiguous reference to the authoritative source set.\n- `updated_at`: the latest completed rebuild time under CA-D-310.\n- `sources`: contributing Atom references with Versions, such as `CA-R-123@3`. Identify contributing non-Atom sources separately; do not invent Atom IDs for them.\n\nKeep the ID under CA-R-1943 when rebuilding or changing only the Scope Unit name or Carrier path. Filename changes do not by themselves create a new Projection.\n\nType-specific Delivery rules define the body and any additional source evidence. Store the Carrier under the applicable Projection root under CA-D-550.\n",
+      "before_sha256": "ada3ac3faec8c544814a6c0a2593b8786b496c2dc395f0d0d25addf9431fef53",
+      "after": "---\natom_id: CA-D-635\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection\n  passive:\n  - CAPRMEDIO_MODEL <+ Projection.ID\n  - CAPRMEDIO_MODEL <+ Projection.Form\n  - CAPRMEDIO_MODEL <+ Projection.Scope Unit\n  - CAPRMEDIO_MODEL <+ Projection.Source.Named Selection\n  - CAPRMEDIO_MODEL <+ Projection.Source.Atoms\n  - CAPRMEDIO_MODEL <+ Scope Unit\nversion: 17\nupdated_at: 2026-11-04 07:51:19 +0400\nrelations:\n  depends_on:\n  - CA-R-1943\n  - CA-D-310\n  - CA-D-550\ntier: 4\nrole: Delivery\nform: Decision\n---\n## Summary\n\nSerialize Projection identity and filenames\n\n## Claim\n\n### Prose Claim\n\n\nProjection Markdown File Carriers.\n\n\nUse this filename:\n\n`<PROJECT_PREFIX>-PROJ-<ID>-<CURRENT_SCOPE_NAME>--<PROJECTION_FORM>--<NAMED_SELECTION>.md`\n\nStore the full Projection ID as `projection_id` in YAML frontmatter. The filename and frontmatter must identify the same Projection.\n\n## Details\n\nFor this Project, the prefix is `CA`. For example:\n\n`CA-PROJ-001-CORE_META_MODEL--Entities-Graph--Current-Atoms.md`\n\nIts full Projection ID is `CA-PROJ-001`; `001` is the ID segment in the filename. Use the current Scope Unit name, not its label.\n\nThe YAML frontmatter carries:\n\n- `artifact_form: Projection`\n- `projection_id`: the full Projection ID.\n- `form`: Projection Form.\n- `scope_unit`: the reference to the one Scope Unit of the Projection; for a Project-root Projection in caprmedio, `Project//caprmedio`.\n- `source.named_selection`: the named source selection.\n- `source.atoms`: contributing Atom references with explicit Versions, such as `CA-R-123@3`, when recorded. Identify contributing non-Atom sources separately; do not invent Atom IDs for them.\n- `updated_at`: the latest completed rebuild time under CA-D-310.\n\nKeep the ID under CA-R-1943 when rebuilding or changing only the Scope Unit name or Carrier path. Filename changes, including changes to the Named Selection, do not by themselves create a new Projection. Form and Scope Unit determine identity under CA-R-1943.\n\nForm-specific Delivery rules define the body and any additional source evidence. Store the Carrier under the applicable Projection root under CA-D-550.\n",
+      "after_sha256": "20a57bce956acaac8a98cee243b18d040161894000dbe77e256ff548d4285d42"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2736-CORE_META_MODEL-DECLARATION--declare-projection-scope-unit.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2736\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection.Scope Unit\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 07:51:19 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2736-CORE_META_MODEL-DECLARATION--declare-projection-scope-unit.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Projection.Scope Unit\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Scope Unit{:1}: [Scope Unit//]{:1};\n\nProjection.Scope Unit.*[]{:0}\n```\n\n",
+      "after_sha256": "e0257f2bd5bfafa0799fcf1f9737ee0cf0a7b6fd5689bc58180d088892969b0c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2737-CORE_META_MODEL-DECLARATION--declare-projection-form-catalog.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2737\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Catalog)\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 07:51:19 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2737-CORE_META_MODEL-DECLARATION--declare-projection-form-catalog.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Projection/(.Form := Catalog)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form: Catalog;\n\nProjection/(.Form: Catalog)\n```\n",
+      "after_sha256": "f36c18f575887c15c406a9505625aebf48b95c24a48be2e1a35a8ff0d4ccbea1"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2738-CORE_META_MODEL-DECLARATION--declare-projection-form-map.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2738\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Map)\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 07:51:19 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2738-CORE_META_MODEL-DECLARATION--declare-projection-form-map.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Projection/(.Form := Map)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form: Map;\n\nProjection/(.Form: Map)\n```\n",
+      "after_sha256": "1c66d0e125b56b05b4c504d0bfc8bf4cf736c68dc1f9b12bba08d87c11407e55"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2739-CORE_META_MODEL-DECLARATION--declare-projection-form-hub.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2739\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Hub)\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 07:51:19 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2739-CORE_META_MODEL-DECLARATION--declare-projection-form-hub.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Projection/(.Form := Hub)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form: Hub;\n\nProjection/(.Form: Hub)\n```\n",
+      "after_sha256": "fd8a8a2127ded68292cb148e2191411baab7616be5d344c88f06bbcd072eec26"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2740-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-tree.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2740\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Primary Entities Tree)\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 07:51:19 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2740-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-tree.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Projection/(.Form := Primary Entities Tree)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form: Primary Entities Tree;\n\nProjection/(.Form: Primary Entities Tree)\n```\n",
+      "after_sha256": "079e13159b67dc1fe5548bf445a28ea460f2bddfef90217730cab2c6883d8cc5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2741-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-direct-properties.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2741\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Primary Entities with Direct Properties)\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 07:51:19 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2741-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-direct-properties.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Projection/(.Form := Primary Entities with Direct Properties)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form: Primary Entities with Direct Properties;\n\nProjection/(.Form: Primary Entities with Direct Properties)\n```\n",
+      "after_sha256": "bf898dcff723da62df9bb7663cd7a8cb40e2d5d060fe2f1ba1169115e37c0dbb"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2742-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-inherited-property-contracts.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2742\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Primary Entities with Inherited Property Contracts)\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 07:51:19 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2742-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-inherited-property-contracts.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Projection/(.Form := Primary Entities with Inherited Property Contracts)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form: Primary Entities with Inherited Property Contracts;\n\nProjection/(.Form: Primary Entities with Inherited Property Contracts)\n```\n",
+      "after_sha256": "db9329a61fb6aac3078d45d3e690e64c0b35fd219079c12350a847e2b5ca3341"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2743-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-inherited-formal-claims.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2743\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Primary Entities with Inherited Formal Claims)\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 07:51:19 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2743-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-inherited-formal-claims.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Projection/(.Form := Primary Entities with Inherited Formal Claims)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form: Primary Entities with Inherited Formal Claims;\n\nProjection/(.Form: Primary Entities with Inherited Formal Claims)\n```\n",
+      "after_sha256": "54666e0cc5d19b9f9fcf320be1812bd87f64067df0d7e91ea2beb0952a2b4411"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2744-CORE_META_MODEL-DECLARATION--declare-projection-form-passive-only-subjects.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2744\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Passive Only Subjects)\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 07:51:19 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2744-CORE_META_MODEL-DECLARATION--declare-projection-form-passive-only-subjects.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Projection/(.Form := Passive Only Subjects)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form: Passive Only Subjects;\n\nProjection/(.Form: Passive Only Subjects)\n```\n",
+      "after_sha256": "365adf412a32ed64e6469bbb0d26934c5b903abd05abe430bcc0dfc0436eb038"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2745-CORE_META_MODEL-DECLARATION--declare-projection-form-subjects-without-requirement-declarations.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2745\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Subjects without Requirement Declarations)\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 07:51:19 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2745-CORE_META_MODEL-DECLARATION--declare-projection-form-subjects-without-requirement-declarations.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Projection/(.Form := Subjects without Requirement Declarations)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form: Subjects without Requirement Declarations;\n\nProjection/(.Form: Subjects without Requirement Declarations)\n```\n",
+      "after_sha256": "382944b4530fccdeaca44add57a0aff8a31126dbeb7e6cfe55823e67e934e17b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2746-CORE_META_MODEL-DECLARATION--declare-projection-form-entity-definition-and-active-subject-coverage.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2746\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Entity Definition and Active Subject Coverage)\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 07:51:19 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2746-CORE_META_MODEL-DECLARATION--declare-projection-form-entity-definition-and-active-subject-coverage.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Projection/(.Form := Entity Definition and Active Subject Coverage)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nProjection.Form: Entity Definition and Active Subject Coverage;\n\nProjection/(.Form: Entity Definition and Active Subject Coverage)\n```\n",
+      "after_sha256": "fa26a31ffccc01309a2aaa96a303d6efffeaff19d221d9193c0eb8746a8f4c7e"
+    }
+  ],
+  "allocated": {
+    "Declare Projection.Scope Unit": "CA-R-2736",
+    "Declare Projection/(.Form := Catalog)": "CA-R-2737",
+    "Declare Projection/(.Form := Map)": "CA-R-2738",
+    "Declare Projection/(.Form := Hub)": "CA-R-2739",
+    "Declare Projection/(.Form := Primary Entities Tree)": "CA-R-2740",
+    "Declare Projection/(.Form := Primary Entities with Direct Properties)": "CA-R-2741",
+    "Declare Projection/(.Form := Primary Entities with Inherited Property Contracts)": "CA-R-2742",
+    "Declare Projection/(.Form := Primary Entities with Inherited Formal Claims)": "CA-R-2743",
+    "Declare Projection/(.Form := Passive Only Subjects)": "CA-R-2744",
+    "Declare Projection/(.Form := Subjects without Requirement Declarations)": "CA-R-2745",
+    "Declare Projection/(.Form := Entity Definition and Active Subject Coverage)": "CA-R-2746"
+  },
+  "review_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projection-review/final-packet-review.json",
+  "new_carrier_normalization": "canonical ID/version/time/destination; mandatory Core Meta-Model containment; no Atom Author"
+}

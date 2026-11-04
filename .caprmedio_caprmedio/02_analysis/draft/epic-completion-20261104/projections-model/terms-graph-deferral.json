@@ -1,0 +1,345 @@
+{
+  "status": "proposed deferral, no Current changes",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/post-application-frontier.json",
+  "frontier_sha256": "b40245922796d93282ec704c0a9900cf02e88dccdd56cb751ba42edbf8e46b5c",
+  "selection": "exact 1151 frontier source atoms; historic projections and archives excluded from mutation",
+  "patterns": [
+    "terms graph",
+    "terms-graph",
+    "CA-R-1454",
+    "CA-E-382",
+    "CA-R-1335"
+  ],
+  "hits": [
+    {
+      "id": "CA-R-1244",
+      "version": 33,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1244-CORE_META_MODEL-RULE--allow-multiple-direct-term-hierarchy-parents.md",
+      "sha256": "1652a8ee39a253aa26aa491011b91a83580799262e5cadda817914ab9f6010fe",
+      "summary": "Allow multiple direct Term hierarchy parents",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 5,
+          "text": "- 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1319",
+      "version": 28,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md",
+      "sha256": "4be252149f4ba5a0466f51fbe71236f12c0001af625da18aab906ae806480f3b",
+      "summary": "Define Governed Term",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 42,
+          "text": "CA-R-1279's canonical GOVERNS obligation remains applicable. A defining Claim may explicitly introduce its lexical Term target using Current authority under CA-R-1194 and CA-R-1931; lexical composition alone does not create one. The flat target family is `Term//<Name>`, including the approved target names `Term//Empty` and `Term//ID`. Those examples do not themselves define every Term. Optional terminology consumers must follow the Method-qualified meaning-owner selection without becoming prerequisites of Term meaning or implementing the deferred Terms Graph."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1345",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1345-CORE_META_MODEL-RULE--keep-the-narrower-than-graph-acyclic.md",
+      "sha256": "f39df22cca9398efb859b357a14a2ff0b36eab8017bc2a9f8fbaa570fc85b540",
+      "summary": "Keep the NARROWER_THAN graph acyclic",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 5,
+          "text": "- 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Terms Graph'"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1347",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1347-CORE_META_MODEL-DEFINITION--define-root-term.md",
+      "sha256": "d68625245525eae22c35ff16e79d4a8cfbe6de10bb89f06fe820033503dd8f46",
+      "summary": "Define Root Term",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 5,
+          "text": "- 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'"
+        },
+        {
+          "line": 27,
+          "text": "Terms in the Terms Graph."
+        },
+        {
+          "line": 30,
+          "text": "a Root Term **means** a Term with **`=0`** direct NARROWER_THAN parents **in** the Terms Graph."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1454",
+      "version": 32,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL--derive-governed-terms-views-from-selected-authority.md",
+      "sha256": "fcb5de2427dd003ac6d18a49268e3594a5263d9d1442eeaf3efd60560810c642",
+      "summary": "Derive governed Terms views from selected authority",
+      "disposition": "retirement candidate; review all current references",
+      "matches": [
+        {
+          "line": 3,
+          "text": "active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'"
+        },
+        {
+          "line": 15,
+          "text": "- CA-R-1335@31"
+        },
+        {
+          "line": 18,
+          "text": "atom_id: CA-R-1454"
+        },
+        {
+          "line": 35,
+          "text": "governed-only Terms Graph views for a requested source selection."
+        },
+        {
+          "line": 38,
+          "text": "for a requested source selection, a governed-only view of the Terms Graph **must** include **only** the Governed Terms admitted under CA-R-1319-CORE_META_MODEL--define-governed-term **and** CA-M-114-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms from Term Definition Atoms **in** that selection **and** the Relations explicitly declared by source Atoms **in** that selection whose endpoints are included **and** whose Relation Type is identified by its defining source Claim **and** that, where applicable, conforms to the governing Entity Definition constraints; it **must** include **every** such Term **and** Relation. **every** displayed node **and** edge **must** retain traceability **to** its exact source Claim **and** Artifact Revision. this selection reuses the Terms Graph under CA-R-1335@31-CORE_META_MODEL-DEFINITION--define-terms-graph **and** the source Relation authority under CA-R-1437-CORE_META_MODEL--keep-one-source-for-each-relation-fact **without** introducing another graph kind **or** independent vocabulary authority."
+        },
+        {
+          "line": 40,
+          "text": "the view **may** be derived from an upstream Terms Graph Projection **when** the upstream selection **and** source evidence support the requested view. its upstream Projection identity **and** Revision **must** remain traceable **to** the exact Term Definition Atoms **and** source Relation declarations required by this Claim. the upstream Projection **must not** acquire defining authority **or** establish complete source coverage from an incomplete selection. distinct graph **and** separately identified filtered-view Projection instances retain their own identities while reusing the Terms Graph Type **and** the shared Relation Type definitions; a governed-only filter alone does **not** create another Type or alter its identity."
+        },
+        {
+          "line": 46,
+          "text": "The dedicated lexical meaning owner is a Method Atom of Type Term Definition under CA-R-1319 and the admitted Method Type declaration. This adjusts only the selected lexical authority filter and its exact-source trace. Entity Definition constraints and source Relation authority retain their existing roles. These conditions govern a requested optional view; they require no dictionary Projection, extractor, lookup, or Terms Graph implementation and do not make a derived view a prerequisite of lexical meaning."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1455",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+      "sha256": "d5b1dd27d7a818967c35dbfd13d11863dde799cc51513e9c467b235061f37284",
+      "summary": "Preserve evidence and uncertainty in vocabulary diagnostic indexes",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 15,
+          "text": "- 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'"
+        },
+        {
+          "line": 48,
+          "text": "these indexes **must** remain non-authoritative Projections of the cited source evidence; they **must not** supply missing definitions, require **every** word **to** acquire a Project-specific definition, promise mechanical certainty about meaning, **or** introduce another Terms Graph **or** invented Relation edges. **any** graph representation additionally requires independently admitted Relation Kind **and** source Relation authority; index membership alone establishes neither."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2004",
+      "version": 14,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2004-CORE_META_MODEL--define-subject-target.md",
+      "sha256": "2ae7cb956f854a85e30929e6b48e541fd446da23b3d9c96c4846bcbde75071f5",
+      "summary": "Define Subject Target",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 38,
+          "text": "The Subject does not repeat or assign the Atom's Local Scope Unit, folder or Carrier. Topic meanings come from source use and Semantics; the Terms Graph derives definitions from those cases rather than creating another authority layer."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2275",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2275-CORE_META_MODEL-TERM_DEFINITION--define-id.md",
+      "sha256": "037f9b28fd2533cf7b88d6e73f317cd8a93c079299dddadb4878df98810dd832",
+      "summary": "Define ID",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 40,
+          "text": "The lexical target is introduced by this defining Claim under CA-R-1194@29, CA-R-1931@15, and CA-R-2002@15, using the Current Term kind from CA-R-1318@28. It is not asserted to preexist this definition or inferred from the letters in property names. The definition introduces no property, domain instance, prefix namespace, Relation, or other entity merely by naming it. It neither waives CA-R-1279 nor implements the deferred Terms Graph; C605's separate Term-placement reconciliation remains applicable."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2276",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "sha256": "305ea99fee46090bffe1df0d58e49bf6bdc2ad292d964e8e8a646d31d277d633",
+      "summary": "Require one-to-one canonical entity names with reusable Terms",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 44,
+          "text": "The dedicated Term Definition Method Atom owns a Governed Term's approved meaning. No dictionary Projection, extractor, lookup service, synthetic entity inference, or Terms Graph implementation is required. The accepted ID examples add no lifecycle identity semantics."
+        }
+      ]
+    },
+    {
+      "id": "CA-M-114",
+      "version": 43,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms.md",
+      "sha256": "298e9a64fc7b23d2e3636033e78afc90d01572c06d41c8234349046135f3f6bf",
+      "summary": "Derive Terminology Projection from Definition Atoms",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 40,
+          "text": "This Method applies only when a terminology Projection is requested. It does not make a dictionary, lookup table, Terms Graph, or other Projection a prerequisite for direct source-based authoring or evaluation. Lexical meaning ownership remains with the exact active Term Definition Atom and revision; source selection and GOVERNS binding do not turn an Entity Definition or derived Projection into lexical defining authority."
+        }
+      ]
+    },
+    {
+      "id": "CA-M-450",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-450-CORE_META_MODEL-TERM_DEFINITION--define-id.md",
+      "sha256": "419fdb8b83d9df113d27b3472fb26d345063961e9a3a8d2164ea4c6ce6627b2f",
+      "summary": "Define ID",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 40,
+          "text": "The proposed lexical target follows the Operator-confirmed initially flat placement at `Term//ID`; the separate Term branch and Method Type Term Definition declaration remain Draft dependencies. The target is explicitly introduced by the defining Claim rather than inferred from the letters in property names. The definition introduces no property, domain instance, prefix namespace, Relation, or other entity merely by naming it. It does not implement the deferred Terms Graph or waive the applicable defining-target binding rules; C605's separate Term-placement reconciliation remains applicable."
+        }
+      ]
+    },
+    {
+      "id": "CA-M-452",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-452-CORE_META_MODEL-TERM_DEFINITION--define-term.md",
+      "sha256": "11eab649754bb6e5767fb7b3847e8304892f28cc78d1d1ddfa8b01e1268afa9e",
+      "summary": "Define Term",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 61,
+          "text": "promotion, runtime change, Terms Graph implementation, dictionary extraction,"
+        }
+      ]
+    },
+    {
+      "id": "CA-M-453",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "sha256": "dd60c8d121d9d8cd62a91aaaa85531012a829bcdac6a106715297f29459c4238",
+      "summary": "Define Property",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 58,
+          "text": "Terms Graph, projection, parser rule, runtime behavior, or Current-source"
+        }
+      ]
+    },
+    {
+      "id": "CA-E-382",
+      "version": 49,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md",
+      "sha256": "540f7bca8553b45adbedf7d94c922ab614d8434f077155d496b164a66132dd6e",
+      "summary": "Validate Terms Graph",
+      "disposition": "retirement candidate; review all current references",
+      "matches": [
+        {
+          "line": 3,
+          "text": "active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'"
+        },
+        {
+          "line": 26,
+          "text": "- CA-R-1335@31"
+        },
+        {
+          "line": 33,
+          "text": "- CA-R-1454"
+        },
+        {
+          "line": 36,
+          "text": "atom_id: CA-E-382"
+        },
+        {
+          "line": 46,
+          "text": "Validate Terms Graph"
+        },
+        {
+          "line": 53,
+          "text": "Terms Graph validity **and** Terms Graph Projections **when** that native graph Evaluation is separately selected. This graph-specific Evaluation is optional **and** is **not** a prerequisite for directly checking Term Definitions **and** authored occurrences under CA-E-444."
+        },
+        {
+          "line": 56,
+          "text": "The selected native Terms Graph Evaluation **must** preserve the following graph-validity, source-authority **and** Projection-fidelity boundaries."
+        },
+        {
+          "line": 60,
+          "text": "the Evaluation **must** reject a Terms Graph **if** **any** of:"
+        },
+        {
+          "line": 69,
+          "text": "the Evaluation **must** accept an acyclic hierarchy with multiple direct parents **or** an isolated Root Term **when** the remaining applicable authority is satisfied. A Relation Type's applicable Entity Definition constraints, when selected, **must not** change Root Term classification **when** the Terms Graph hierarchy is unchanged. the checks **must** distinguish an unknown Type from missing or unresolved governing constraint evidence without inventing a default or treating the known Type as unregistered."
+        },
+        {
+          "line": 71,
+          "text": "for a governed-only view under CA-R-1454, the Evaluation **must** reject graph validity **if** a displayed native Term node lacks **`=1`** active dedicated Term Definition under CA-R-1319. missing **or** conflicting definitions **and** uncertain Relation or constraint evidence **must** be reported with their affected source references **without** inventing a definition **or** an edge."
+        },
+        {
+          "line": 75,
+          "text": "the same NARROWER_THAN implication check applies **when** the Terms name Actions **or** Workflows. those operational Atoms already are Entities; the Evaluation **must not** require **or** create separate Entity identities for them **or** infer a Terms Graph edge merely from their classification. an empty set of observed instances does **not** prove a hierarchy Relation; acceptance requires the governing Term definitions **and** explicit Relation authority."
+        },
+        {
+          "line": 79,
+          "text": "an admitted source-Atom **or** cross-graph reference under CA-R-1472 **must not** fail **only** because its external endpoint is **not** a Term; that endpoint is **not** a native Terms Graph node. reject a view that imports that endpoint as a Term, erases its graph context, uses an unregistered Relation Type, **or** lets the external reference alter NARROWER_THAN hierarchy **or** Root Term classification."
+        },
+        {
+          "line": 81,
+          "text": "for a governed-only view under CA-R-1454, the Evaluation **must** reject the view **if** an eligible Term **or** Relation required by CA-R-1454 is omitted, an ineligible node **or** edge is displayed, a displayed native Term node's Term Definition Atom **or** a displayed internal edge's source declaration is outside the requested source selection, a displayed native Term node **or** internal edge lacks exact source Claim **and** Artifact Revision traceability, **or** an internal Term Relation edge is inferred **only** from spelling, capitalization, shared Subject use, **or** compatible endpoints."
+        },
+        {
+          "line": 83,
+          "text": "the Evaluation **must** reject a graph **or** governed-only view **if** its rendered content is treated as independent vocabulary authority, an upstream Projection substitutes for exact defining **or** Relation-source authority, a Projection chain loses its upstream identity **or** ultimate source traceability, **or** an arbitrary filter is treated as another admitted Projection Type. a source-faithful view derived through an upstream Terms Graph Projection **must** pass these Projection-specific checks **when** the applicable fidelity, selection **and** source-traceability requirements are satisfied; graph validity is assessed separately."
+        },
+        {
+          "line": 91,
+          "text": "the complete-name check covers **every** named canonical Subject-graph entity: full expressions in admitted `/`, `//`, `.`, `:`, `+>`, `<+`, `>|` **and** `|<` constructs, qualified references to already declared Entities, plus registered direct Relation tokens inside `((...))`. A qualified reference refers to an already declared Entity **without** declaring another target; parsing alone admits no target or Relation. A registered Relation token resolves to one admitted Relation Type under the registered notation, but its bare spelling is not that entity's complete canonical expression; complete-name comparison uses the full qualified expression separately. `Entity/Object/Continuant/Package`, `Entity/Object/Continuant/Package <+ Module`, and `Entity/Object/Continuant/Package <+ Module <+ Code Unit` connect three entities with three full expressions; a component label, the operators, or the chain must not be introduced as another entity node. Operators, delimiters **and** selector syntax are not Terms. Under CA-R-1325, a complete composite Subject Expression is not one lexical Term; parsing arbitrary composite syntax does not automatically establish a complete entity expression or another entity. An Atom expression with independently admitted Role and Form values remains valid only with its full admitted canonical prefix. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names. Authored Subjects use their full admitted expressions. The three-target chain introduces no fourth entity or fourth complete expression. Check **all** authored mentions against those full-expression bindings: `component` used as a stylistic substitute for the same Module fails naming, while a separately defined Component entity remains distinct. Repeated references to the same entity are not collisions; distinct property, value or bearer-qualified entities using the same complete expression are collisions despite their context. A Relation token must not become an admitted Relation without its governing authority and endpoint permissions. Preserve existing separation of source naming, native Terms Graph membership and Projection fidelity."
+        }
+      ]
+    },
+    {
+      "id": "CA-E-444",
+      "version": 34,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "sha256": "7e851a7da148d0e524705426d81cfb0d45b645110e54bc0b2f1869412538a071",
+      "summary": "Validate Project-specific Term meaning",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 18,
+          "text": "- 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'"
+        }
+      ]
+    },
+    {
+      "id": "CA-D-653",
+      "version": 16,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-653-CORE_META_MODEL-ENG_DECISION--deliver-readable-subject-graph-views-as-markdown.md",
+      "sha256": "0b0d1f6a489243196b3942a750511c8ac93a1f56a12497a0a9803770f2d0d42b",
+      "summary": "Deliver readable Subject Graph views as Markdown",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 64,
+          "text": "Use spaces, not tabs, for YAML frontmatter indentation and literal tabs for hierarchy depth inside fenced text blocks. Each tree line shows its local label and incoming operator, without a repeated full path or a space after the operator. Property-section headings use concise labels with enough branch context to distinguish equal local names, without repeating full canonical paths as display labels. The display uses `[inherited]` without exposing the full origin path; exact paths and origins remain in internal provenance/manifest. Section 4 retains the exact full paths required for its dependency-only report. Keep /, ., :, and // distinct. Render all present source-backed instances in section 3; do not limit it to Workflow instances if other kinds are present. Preserve source-declared order where present, otherwise sort alphabetically. No Terms Graph, construction tree, instance link graph or other main section is added."
+        }
+      ]
+    },
+    {
+      "id": "CA-D-655",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-655-CORE_META_MODEL-POLICY--carry-term-definition-and-staged-review-evidence.md",
+      "sha256": "e7ad4330af9abddec4bf26381d529ab6759d6e86c427f160c9f2d68919936d9a",
+      "summary": "Carry Term Definition and staged review evidence",
+      "disposition": "retain; inspect graph-specific subject or wording without altering other meanings",
+      "matches": [
+        {
+          "line": 50,
+          "text": "Rejecting a mandatory dictionary for these checks does not retire CA-M-114 or existing optional Terms Graph or Catalog capabilities. Representation rules and authoring instructions alone are not proof of runtime behavior, completed review, corrected naming conflicts, or a naming migration. No parser change or automatic code identifier, path, or quoted external source rewrite is authorized by this Policy."
+        }
+      ]
+    }
+  ]
+}

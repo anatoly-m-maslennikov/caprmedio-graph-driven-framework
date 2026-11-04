@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "revisions": 4,
+  "operations": 8,
+  "exact_predecessors": 4,
+  "supplier_hashes": 1151,
+  "native_workflow_admission": false,
+  "journal_append": false
+}

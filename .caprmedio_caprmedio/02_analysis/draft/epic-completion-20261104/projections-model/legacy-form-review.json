@@ -1,0 +1,604 @@
+{
+  "status": "manual review: non-Terms legacy names held; Terms Graph deferred",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/post-application-frontier.json",
+  "frontier_sha256": "b40245922796d93282ec704c0a9900cf02e88dccdd56cb751ba42edbf8e46b5c",
+  "source_hash_drift": [],
+  "groups": [
+    {
+      "legacy_name": "Applicable Methodology",
+      "occurrences": [
+        {
+          "id": "CA-R-1178",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-1178-CAPRMEDIO-SCOPE_CONTRACT-GOAL--reduce-tokens-mistakes-and-context-clutter.md",
+          "sha256": "823f949778dbbcf451f80a4b19538d183471f4c7fe773f31fe6406d12db850b7",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology"
+        },
+        {
+          "id": "CA-R-1424",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-1424-GOAL--provide-tools-to-maintain-methodology-alignment.md",
+          "sha256": "484bb1b86c2b1a9aebd985579b608def23681f4eaa064ab683abc8491cd5cfcb",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology"
+        },
+        {
+          "id": "CA-M-296",
+          "path": ".caprmedio_caprmedio/05_method/CA-M-296-IMPLEMENTATION_METHOD--do-not-rely-on-memory-files.md",
+          "sha256": "43326198dbc7359b7c49a577e8778755afe68d39d9493b789cee48691d82e21f",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology"
+        },
+        {
+          "id": "CA-E-437",
+          "path": ".caprmedio_caprmedio/06_evaluation/CA-E-437-POLICY--evaluate-methodology-alignment-support.md",
+          "sha256": "0a6ee1510d2e1371f3fafc0491ad8524b5c62cb000adf7cf5c38ebdabbdd8590",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology"
+        },
+        {
+          "id": "CA-R-1219",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1219-CORE_META_MODEL-DEFINITION--define-methodology-source.md",
+          "sha256": "ecc1c5fcee0c8192c3ff3d915533d82ceb373c6a6d559ca1107b1688b9551799",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology"
+        },
+        {
+          "id": "CA-R-1246",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1246-CORE_META_MODEL-RULE--keep-relation-vocabularies-graph-specific.md",
+          "sha256": "e053d11d0d3b660fae765ec4fe1b09156da6f5f041203ac47ec2b65249c4eee7",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)"
+        },
+        {
+          "id": "CA-R-1284",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md",
+          "sha256": "47048137a76a2cb71acc40277f94fb59f4d619af5c498ab7349bf55da7fe1d36",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Applicable Methodology)"
+        },
+        {
+          "id": "CA-R-1491",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md",
+          "sha256": "de90f84f91279ca244619a88e7408dba13722e852a498410d23cb3adc4517ad8",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology"
+        },
+        {
+          "id": "CA-R-1519",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1519-CORE_META_MODEL-RULE--require-conforming-workflow-execution.md",
+          "sha256": "06016d66513a94fb318be0ec91e59126a3764fc66109ac6672690d56ff597ad8",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)"
+        },
+        {
+          "id": "CA-R-1577",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1577-CORE_META_MODEL-DEFINITION--define-plan-authoring-subtypes.md",
+          "sha256": "00b5730c7867787b06784d6750a4f29ab85a619ce6be56e18f9235560d8958c4",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology"
+        },
+        {
+          "id": "CA-R-1655",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-RULE--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "0d2d79957067097ad57d0494ff28bae3299c6f83c998808087758a3fe0681465",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Applicable Methodology)"
+        },
+        {
+          "id": "CA-M-120",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-IMPLEMENTATION_METHOD--compile-the-direct-relation-registry.md",
+          "sha256": "67d491e92fc7e9d0463f6c880fa53cbb2f1ced2112cba654483d072d08d5eccf",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)"
+        },
+        {
+          "id": "CA-E-476",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-EVAL_CASE--check-the-journal-storage-boundary.md",
+          "sha256": "c3cc1ee907d1380ef50b7dd78b96d85753660df8e7e13abad984f52a6f4317b2",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology"
+        },
+        {
+          "id": "CA-E-622",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+          "sha256": "19aec4891a13dfd0f271c7cb8372e41fd60d1db02e58fe80b3d87b01e29d8311",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)"
+        },
+        {
+          "id": "CA-D-550",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL-ENG_DECISION--centralize-project-projection-carriers.md",
+          "sha256": "269c09c682181356a6e1476473af8754b554ba3e69f62bf27df3f24f44ba40ac",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology"
+        },
+        {
+          "id": "CA-R-1316",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1316-PROJECT_CONFIGURATION-RULE--forbid-claim-synthesis-and-merge-during-compilation.md",
+          "sha256": "ef5331094dd4b8ad8278a7cfdc296516504f0f6ee031d84931880b36edf68ef9",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)"
+        },
+        {
+          "id": "CA-R-1317",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1317-PROJECT_CONFIGURATION-RULE--fail-closed-on-unresolved-methodology-conflicts.md",
+          "sha256": "7b0a2fdce73086145b89cd42c11f26d82e12483c7577b59b25dc3cec0bf2fbb5",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)"
+        },
+        {
+          "id": "CA-M-225",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-225-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--retrieve-applicable-methodology-mechanically.md",
+          "sha256": "160d876d0723711813a1856cd3c6867d0eba5b5f667e35ba772577d78c226957",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)"
+        },
+        {
+          "id": "CA-M-225",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-225-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--retrieve-applicable-methodology-mechanically.md",
+          "sha256": "160d876d0723711813a1856cd3c6867d0eba5b5f667e35ba772577d78c226957",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)"
+        },
+        {
+          "id": "CA-E-379",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md",
+          "sha256": "14cd076704cea5b4d65391b144bbb9edf9ed3e556075abcb4a00711911da0b73",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology"
+        },
+        {
+          "id": "CA-D-253",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-253-PROJECT_CONFIGURATION-DECISION--place-applicable-methodology-and-its-sources.md",
+          "sha256": "4c65150637e5fcbf92674ea0c991a316b5e5e3721c52252c36d44508a7ccc229",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)"
+        },
+        {
+          "id": "CA-D-253",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-253-PROJECT_CONFIGURATION-DECISION--place-applicable-methodology-and-its-sources.md",
+          "sha256": "4c65150637e5fcbf92674ea0c991a316b5e5e3721c52252c36d44508a7ccc229",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)"
+        },
+        {
+          "id": "CA-D-306",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-306-PROJECT_CONFIGURATION-DECISION--materialize-applicable-methodology-as-projected-atom-files.md",
+          "sha256": "2b55f6c4f05588247530df8c0d2379251c73dd28742308fa9d4bcdf1fddf0c05",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)"
+        },
+        {
+          "id": "CA-D-307",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-307-PROJECT_CONFIGURATION-DECISION--prohibit-persistent-applicable-methodology-subject-indexes.md",
+          "sha256": "6e17f2665aaf82fecd97ffbb25aa985624aa1a482250b9eed9bc2422ff96b5fc",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Applicable Methodology.Member",
+      "occurrences": [
+        {
+          "id": "CA-D-306",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-306-PROJECT_CONFIGURATION-DECISION--materialize-applicable-methodology-as-projected-atom-files.md",
+          "sha256": "2b55f6c4f05588247530df8c0d2379251c73dd28742308fa9d4bcdf1fddf0c05",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology.Member)"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Artifact Change Log",
+      "occurrences": [
+        {
+          "id": "CA-R-1463",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-RULE--derive-log-views-from-the-shared-journal.md",
+          "sha256": "b56f8ccc14986915d5fda2396e846cb87ef435033de5d2f92ed562694bfa38e2",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log"
+        },
+        {
+          "id": "CA-E-464",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-POLICY--validate-journal-independence-from-git.md",
+          "sha256": "3ec93c268712b295db59ea022e06b132b3a8c0baa877b005ac59d66fe2c54d0a",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Atom Subjects Graph",
+      "occurrences": [
+        {
+          "id": "CA-M-232",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md",
+          "sha256": "9f84da9fa587c9d41b91fbc4754afa3b470a3e8eb398bd0207399a34ad1f90af",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Atom Subjects Graph)"
+        },
+        {
+          "id": "CA-E-246",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md",
+          "sha256": "9f6fdb1f34591e398edb050628ae52679dc9e6a3a7aafbc28d6356e6451ecf52",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Atom Subjects Graph)"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Canonical Scope Signature",
+      "occurrences": [
+        {
+          "id": "CA-M-241",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-241-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-canonical-scope-signatures-without-source-rewrite.md",
+          "sha256": "732cb83f371ab6d2d239371a91f3098950c418a5fa1843b5253a0f07f4316248",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Canonical Scope Signature"
+        },
+        {
+          "id": "CA-E-407",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-407-CORE_META_MODEL-POLICY--validate-canonical-scope-signature-boundary.md",
+          "sha256": "3a7a7cd453d4571e00af90abccedae8f3fabbff4df58ec61b571e59bc9eae4f2",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Canonical Scope Signature"
+        },
+        {
+          "id": "CA-D-347",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL-DECISION--deliver-canonical-scope-signatures-as-external-report-projections.md",
+          "sha256": "bae57a3b5d71a39868d391ef59350d1f60dc815385380592434ad2aae3f7b711",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Canonical Scope Signature)"
+        },
+        {
+          "id": "CA-D-347",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL-DECISION--deliver-canonical-scope-signatures-as-external-report-projections.md",
+          "sha256": "bae57a3b5d71a39868d391ef59350d1f60dc815385380592434ad2aae3f7b711",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Canonical Scope Signature)"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Canonical Signature",
+      "occurrences": [
+        {
+          "id": "CA-D-346",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL-DECISION--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "28a3e493bdd1d5372bf57e28912f510a1e035d99f9b5ab33f16d0d596bbb332c",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Canonical Signature)"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Direct Relation Registry",
+      "occurrences": [
+        {
+          "id": "CA-M-120",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-IMPLEMENTATION_METHOD--compile-the-direct-relation-registry.md",
+          "sha256": "67d491e92fc7e9d0463f6c880fa53cbb2f1ced2112cba654483d072d08d5eccf",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Direct Relation Registry)"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Entities Graph",
+      "occurrences": [
+        {
+          "id": "CA-R-1456",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL-RULE--derive-entities-views-from-selected-authority.md",
+          "sha256": "3d803bf5beae93141a965c02a859affdd334b3f69bdca71a7c92b82515651c4b",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)"
+        },
+        {
+          "id": "CA-M-385",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md",
+          "sha256": "113ca9b8f8e6992dbce1b8e12b49e035ec75ebc9f945c86763572ec3d6fd7a95",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)"
+        },
+        {
+          "id": "CA-E-449",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md",
+          "sha256": "caca33e72e9b323d2570792e5cff4b1f1e8cb77adceb2fda24c0cbb4473cb6e5",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)"
+        },
+        {
+          "id": "CA-D-634",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-634-CORE_META_MODEL-DECISION--deliver-readable-entities-graph-trees-as-markdown.md",
+          "sha256": "ddee2e3b9210c1a077ad4e3293400d69f3a184c1fd29fb1033aeffd41652f7bd",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Entities Graph)"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Implementation Overview",
+      "occurrences": [
+        {
+          "id": "CA-R-1703",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-RULE--use-implementation-overview-as-a-projection.md",
+          "sha256": "5f8ae47413affdaf940598d8cc3ae283e4678103e4af367d7ecc77b986d99801",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Implementation Overview)"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Process Log",
+      "occurrences": [
+        {
+          "id": "CA-R-1463",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-RULE--derive-log-views-from-the-shared-journal.md",
+          "sha256": "b56f8ccc14986915d5fda2396e846cb87ef435033de5d2f92ed562694bfa38e2",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log"
+        },
+        {
+          "id": "CA-E-464",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-POLICY--validate-journal-independence-from-git.md",
+          "sha256": "3ec93c268712b295db59ea022e06b132b3a8c0baa877b005ac59d66fe2c54d0a",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Realization Graph",
+      "occurrences": [
+        {
+          "id": "CA-R-1612",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1612-PROJECT_CONFIGURATION-RULE--allow-pre-runtime-pass-only-with-sufficient-evidence.md",
+          "sha256": "da5739c49ae6132623f56cdb464d3c0e3b6c7fb9b96631bf3b58e53c82134330",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)"
+        },
+        {
+          "id": "CA-R-1616",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1616-PROJECT_CONFIGURATION-RULE--define-realization-graph.md",
+          "sha256": "0dc0173bcc9eb13c61ac6862779d46cc828908d5627222bebeb9e3e65bc7de16",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Realization Graph"
+        },
+        {
+          "id": "CA-R-1620",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1620-PROJECT_CONFIGURATION-RULE--define-the-realization-graph-dependency-view.md",
+          "sha256": "4d48529a0bff3fdcac1fe097cca2d9d8ad7d06a89f7d5c34971536aedfc2f962",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)"
+        },
+        {
+          "id": "CA-R-1621",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1621-PROJECT_CONFIGURATION-RULE--register-realization-graph-projection-type.md",
+          "sha256": "1334cdb95e465531f7bd392ab3a150a798a2a533f606256c6389a53c56d48413",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)"
+        },
+        {
+          "id": "CA-R-1621",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1621-PROJECT_CONFIGURATION-RULE--register-realization-graph-projection-type.md",
+          "sha256": "1334cdb95e465531f7bd392ab3a150a798a2a533f606256c6389a53c56d48413",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Reconciled Projection",
+      "occurrences": [
+        {
+          "id": "CA-R-1213",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1213-PROJECT_CONFIGURATION-RULE--define-applicable-methodology-as-a-compiled-projection.md",
+          "sha256": "78ce37e2a37232355b5dce990ff5ee9853e75eeb4f70295da44e34b7f3294572",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Reconciled Projection"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Scope Unit Graph",
+      "occurrences": [
+        {
+          "id": "CA-R-1052",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-RULE--separate-project-settings-from-the-project-scope-unit-graph.md",
+          "sha256": "55a4d84ce8866b7ee6b56d9029db5a9ccca21f5f4a57654a735ff6c39d4bdcf5",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Scope Unit Graph"
+        },
+        {
+          "id": "CA-R-1655",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-RULE--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "0d2d79957067097ad57d0494ff28bae3299c6f83c998808087758a3fe0681465",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Scope Unit Graph)"
+        },
+        {
+          "id": "CA-R-1740",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL-RULE--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+          "sha256": "01334463a83da244a4f6bc2761fb8fccb328a656ae8d15d1fdf235415c880c66",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Scope Unit Graph)"
+        },
+        {
+          "id": "CA-R-626",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-626-CORE_META_MODEL-RULE--project-the-current-scope-unit-graph-without-owning-authority.md",
+          "sha256": "a722e6d734ff0945ff9ec4ed8d2c4cd76ab028b0d903aeb69a02297ee442a956",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Scope Unit Graph)"
+        },
+        {
+          "id": "CA-E-672",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-672-CORE_META_MODEL-EVAL_POLICY--distinguish-scope-unit-declarations-from-observations.md",
+          "sha256": "c32b44016be761c36a9ea731735a98edf7d09e25027fe65ffc087a110f4bf5e7",
+          "role": "passive",
+          "kind": "malformed mapping",
+          "raw": {
+            "Entity/Object/Continuant/Projection/Type": "Scope Unit Graph"
+          }
+        },
+        {
+          "id": "CA-D-333",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-DECISION--serialize-scope-unit-graph-projection-generation-metadata.md",
+          "sha256": "de06bc3a691fbfa6fa983a6a6c9913bbb7ab414a171344dec52bb48efd96d74f",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Projection/(.Form:=Scope Unit Graph)"
+        },
+        {
+          "id": "CA-D-392",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-392-CORE_META_MODEL-ENG_DECISION--register-obsolete-project-names.md",
+          "sha256": "f815c732383f600e3c7602f84f4c59f4f136e0492a10acd680999e74768cd0ed",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Scope Unit Graph)"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Subject Graph",
+      "occurrences": [
+        {
+          "id": "CA-M-232",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md",
+          "sha256": "9f84da9fa587c9d41b91fbc4754afa3b470a3e8eb398bd0207399a34ad1f90af",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Subject Graph)"
+        }
+      ],
+      "disposition": "hold: exact identity with a proposed Form is not demonstrated; distinguish source scope, view/job, or representation from Form before mapping"
+    },
+    {
+      "legacy_name": "Terms Graph",
+      "occurrences": [
+        {
+          "id": "CA-R-1244",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1244-CORE_META_MODEL-RULE--allow-multiple-direct-term-hierarchy-parents.md",
+          "sha256": "1652a8ee39a253aa26aa491011b91a83580799262e5cadda817914ab9f6010fe",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)"
+        },
+        {
+          "id": "CA-R-1345",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1345-CORE_META_MODEL-RULE--keep-the-narrower-than-graph-acyclic.md",
+          "sha256": "f39df22cca9398efb859b357a14a2ff0b36eab8017bc2a9f8fbaa570fc85b540",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Terms Graph"
+        },
+        {
+          "id": "CA-R-1347",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1347-CORE_META_MODEL-DEFINITION--define-root-term.md",
+          "sha256": "d68625245525eae22c35ff16e79d4a8cfbe6de10bb89f06fe820033503dd8f46",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)"
+        },
+        {
+          "id": "CA-R-1454",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL--derive-governed-terms-views-from-selected-authority.md",
+          "sha256": "fcb5de2427dd003ac6d18a49268e3594a5263d9d1442eeaf3efd60560810c642",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)"
+        },
+        {
+          "id": "CA-R-1455",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+          "sha256": "d5b1dd27d7a818967c35dbfd13d11863dde799cc51513e9c467b235061f37284",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)"
+        },
+        {
+          "id": "CA-E-382",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md",
+          "sha256": "540f7bca8553b45adbedf7d94c922ab614d8434f077155d496b164a66132dd6e",
+          "role": "active",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)"
+        },
+        {
+          "id": "CA-E-444",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+          "sha256": "7e851a7da148d0e524705426d81cfb0d45b645110e54bc0b2f1869412538a071",
+          "role": "passive",
+          "kind": "selection",
+          "raw": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)"
+        }
+      ],
+      "disposition": "deferred: preserve term authority and historical projections, no admitted Form"
+    }
+  ]
+}

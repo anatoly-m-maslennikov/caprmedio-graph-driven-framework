@@ -1,0 +1,112 @@
+{
+  "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+  "source_sha256": "b11e8b9d3323d8b10d8632a2495ef44c75e9528d4fd03df5e043fab2aef8f65b",
+  "source_version": "3",
+  "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/delivery/previews/CA-D-657.txt",
+  "preview_sha256": "6bd32ef36f0f7932f9abd0c0eddc621150d1e5ccaa7f748c20a776cfcb498938",
+  "status": "PROSPECTIVE_NOT_APPLIED",
+  "pins": [
+    {
+      "id": "CA-R-2500",
+      "version": "5",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2500-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "sha256": "8334145ccc710b6e32d3f76f226301d032ce94c8f56ea7c5dec44d9fcbccf514"
+    },
+    {
+      "id": "CA-R-2498",
+      "version": "5",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+      "sha256": "1c9fc5041d0eda8854d2a1793e93f9eb873f0f305e2db29846e20cf2db843609"
+    },
+    {
+      "id": "CA-R-2721",
+      "version": "2",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2721-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-formal-claim.md",
+      "sha256": "8c80857b57e1a31f7bca943dfde8a089e6ec571249bf0e812d8f70ff97ead43c"
+    },
+    {
+      "id": "CA-R-2722",
+      "version": "2",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2722-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-prose-claim.md",
+      "sha256": "f2e16f2bae00d1bfd09de134ead682c5daab46d4fb86d0bb2c6bb38913f884ed"
+    },
+    {
+      "id": "CA-R-2711",
+      "version": "2",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "sha256": "af3db8d7f4041a599002215975f96b3101e0f9383224b80eede75e93ffd24949"
+    },
+    {
+      "id": "CA-D-479",
+      "version": "30",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "sha256": "47217f45ce7cb9a4b153b9f6b690e8f1968a3bf34dca229f6ca833c982b95b98"
+    },
+    {
+      "id": "CA-D-472",
+      "version": "29",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "sha256": "161c952b42de6a0f6a2fc560bbb14addd2c0aed16f2f7d7bcb8e66720ad92e3d"
+    },
+    {
+      "id": "CA-D-447",
+      "version": "30",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-ENG_DECISION--serialize-the-implementation-retry-limit-setting.md",
+      "sha256": "4334b7cadc76ac932c59355d01ff395345a6beb1c1ab33cac68b0235188dbfb3"
+    },
+    {
+      "id": "CA-D-669",
+      "version": "1",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-669-CORE_META_MODEL-ENG_DECISION--encode-configuration-surfaces-in-owning-atoms.md",
+      "sha256": "d9908d53ae4588788931994e7a58fe2e7797fcf2441ee61ed998e75d49ca41f6"
+    },
+    {
+      "id": "CA-D-473",
+      "version": "25",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-473-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md",
+      "sha256": "8e6d9f83ba2ca878ac12332f46fbabb714970f81285695369d5ba06079ff8dc5"
+    }
+  ],
+  "additional_previews": [
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "source_version": "3",
+      "source_sha256": "b11e8b9d3323d8b10d8632a2495ef44c75e9528d4fd03df5e043fab2aef8f65b",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/delivery/previews/CA-D-657.txt",
+      "preview_sha256": "6bd32ef36f0f7932f9abd0c0eddc621150d1e5ccaa7f748c20a776cfcb498938",
+      "kind": "same identity prospective revision"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "source_version": "29",
+      "source_sha256": "161c952b42de6a0f6a2fc560bbb14addd2c0aed16f2f7d7bcb8e66720ad92e3d",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/delivery/previews/CA-D-ALLOCATE-confidence.txt",
+      "preview_sha256": "5bfe5383609675c4482d38c9ae1be6b0604b847178214c1f8ca5e176b2842608",
+      "kind": "replacement identity requires ID allocation"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-669-CORE_META_MODEL-ENG_DECISION--encode-configuration-surfaces-in-owning-atoms.md",
+      "source_version": "1",
+      "source_sha256": "d9908d53ae4588788931994e7a58fe2e7797fcf2441ee61ed998e75d49ca41f6",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/delivery/previews/CA-D-669.txt",
+      "preview_sha256": "c0c02075671e741a50ee543a9dcc55e2bc4d63471bf76145b3ab706a178d5cf2",
+      "kind": "same identity prospective revision"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "source_version": "30",
+      "source_sha256": "47217f45ce7cb9a4b153b9f6b690e8f1968a3bf34dca229f6ca833c982b95b98",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/delivery/previews/CA-D-479.txt",
+      "preview_sha256": "1d3737f9f54425c05791b55d6ad857ed35ea86141f95e04f915a77fd2f35cc8a",
+      "kind": "same identity prospective revision"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-663-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md",
+      "source_version": "2",
+      "source_sha256": "c9eb0a17ef8f60ed43d9fc893b1b96eba75e594c51a9a3925fdf7ab106b429f0",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/delivery/previews/CA-D-663.txt",
+      "preview_sha256": "14da1e1305d46b54da55011ee069913dd592b7e9860222673a5e71e5dd78e39e",
+      "kind": "same identity prospective revision"
+    }
+  ]
+}

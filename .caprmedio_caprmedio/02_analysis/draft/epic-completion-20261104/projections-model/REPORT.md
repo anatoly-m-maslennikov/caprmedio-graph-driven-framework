@@ -1,0 +1,21 @@
+# Projection MODEL mapping
+
+One pinned candidate, `CA-R-1943.txt`, aligns the identity rule with Current CA-R-2537: Form and Source.Named Selection determine ID and ID determines both. It preserves stability across source-Atom Versions and makes the explicit-Version requirement for recorded Source.Atoms visible, following CA-R-2540. The candidate removes the old additional source-of-truth identity dimension because CA-R-2537 determines ID from Form and Named Selection alone. Review that consequence against consumers before application; it is not a mapping of any named job.
+
+`held.json` inventories 63 occurrences in 15 groups, including the existing malformed mapping, against all 1,151 frontier-pinned sources; all source hashes matched. The names include Applicable Methodology, Scope Unit Graph, Terms Graph, Entities Graph, Subject Graph, Realization Graph, and log/signature/overview names. Existing names are retained as evidence, not admitted as Form values or automatically introduced as Named Selection instances.
+
+**Decision needed:** Should a projection's Named Selection distinguish the content of each of these views, or does the model need a separate view/job discriminator? For example, a Terms Graph and an Entities Graph may use the same selected source Atoms; CA-R-2537 currently gives the same Form plus the same Named Selection the same ID. Assigning both `Map` and the same source selection would therefore collapse their identities, while inventing a different selection for each view could change what “source selection” means. The answer affects the affected Subjects, Claims, IDs and consumers. Review each named view's Form and source-selection meaning after that decision; do not rewrite frozen references or runtime instances as part of this MODEL draft.
+
+## Deferred Terms Graph
+
+Terms Graph is deferred. `terms-graph-deferral.json` pins the exact 17 Current source Atoms and 40 matching lines in the 1,151-source frontier, including references to CA-R-1454, CA-E-382 and historical CA-R-1335. Seven of the 63 held nonadmitted-form Subject occurrences are Terms Graph references; they are deferred rather than candidates for Form or Named Selection migration. Historical Projections, archives, the Term branch and Method / Term Definition Atoms are preserved.
+
+Proposed minimal sequence, subject to reference review: (1) retire graph-specific CA-R-1454 and CA-E-382 through normal version/history handling; (2) revise mixed Current Atoms individually to remove a graph-specific Subject or obsolete graph dependency only when the remaining Claim retains its authority; (3) retain general Term hierarchy, lexical definitions, direct Term checks and vocabulary Catalog work. In particular CA-R-1244 and CA-R-1345 express general Term hierarchy rules, CA-R-1455 and CA-M-114 support Catalog/terminology work, and CA-E-444 directly evaluates Term meanings. CA-R-1347's Root Term Claim refers to the graph and needs a meaning-preserving rewrite or separate decision; do not retire it mechanically. Preserve frozen references and historical projections; inspect all inbound references before any retirement.
+
+**Identity candidate held:** CA-R-1943 must not be applied while the user's Form + Scope Unit proposal is being resolved. The earlier question about job discriminator and the candidate's Form + Named Selection rule are pending that answer.
+
+## Superseding identity decision and packet
+
+The user subsequently selected `(Form, Scope Unit)` as identity in both directions, superseding the earlier identity question and held CA-R-1943 draft. Review `identity-packet-manifest.json` and its candidates instead. The packet separates each Form value into its own Declaration and keeps Projection.Form free of a duplicate list. Catalog, Map and Hub are preserved through individual Declaration previews; seven additional proposed Forms identify the seven live Entity views.
+
+The 63 inventory occurrences comprise 56 non-Terms occurrences held for meaning review and seven Terms Graph occurrences deferred. `legacy-form-review.json` records all groups: none of the non-Terms names was proved equivalent to one of the seven specific view Forms solely from its label. No automatic legacy-name rewrite follows from the new Forms.

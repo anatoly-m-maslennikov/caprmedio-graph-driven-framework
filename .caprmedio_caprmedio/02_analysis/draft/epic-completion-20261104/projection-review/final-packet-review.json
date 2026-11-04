@@ -1,0 +1,42 @@
+{
+  "status": "PASS_BOUNDED_PRE_ADOPTION_REVIEW",
+  "packet_manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet-manifest.json",
+  "packet_manifest_sha256": "f3d5c18093ceb65baed88ca1d63eaa3473c495905135be8d389813b58726bc3a",
+  "pins_checked": 27,
+  "pin_mismatches": [],
+  "other_reviewed_files": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/generate_subject_projections.py",
+      "sha256": "4983abd9bc4bd842d0ca9f7b37898a1f51fc205fe929517ed4c383676629eed3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/subject-projections-20261103/test_projection_identity.py",
+      "sha256": "9263ccc1f81f143887573fe844fd469bf4dcb5c7bdb8de2437f669403db2f6fe"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+      "sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9"
+    }
+  ],
+  "findings_resolved": [
+    "Ten separate value Declarations each state one explicit Projection.Form allowed value and a matching bearer selector; CA-R-2538 does not duplicate enumeration.",
+    "Projection.Scope Unit Property no longer has a Semantics section.",
+    "Registry preflight checks explicit Form/Scope Unit collisions even for preserved CA-PROJ-014–019; incomplete legacy metadata is preserved without guessed identity.",
+    "Project//caprmedio is active native R2640 root; R2524 declares Project narrower than Scope Unit; root resolver focused test passes.",
+    "R1943 and D635 passive Subject changes are explicitly root-authorized; their active Subjects, IDs and Summaries remain unchanged."
+  ],
+  "checks": [
+    "Bidirectional Form/Scope Unit and ID dependencies, with Named Selection excluded, match the requested identity within the declared Project evaluation context.",
+    "New Scope Unit Property specifies one occurrence and one Scope Unit instance reference.",
+    "Seven distinct Form values correspond to IDs 020–026 and chosen Project root; actual seven existing carriers are not yet migrated.",
+    "Generator publication checks Current Declaration adoption and exact 020–026 predecessor path/identity; unchanged old Map carriers block until a separately controlled migration.",
+    "Focused generator identity suite: 9 tests passed."
+  ],
+  "limitations": [
+    "This reviews staged source and generator behavior only. No Current source adoption, Projection migration, rebuild, runtime, MODEL data validation or release has been verified.",
+    "All 27 pins match at review time, not at future adoption; recheck under the adoption lock.",
+    "Existing 020–026 Map profiles lack scope_unit; assign and collision-check their exact authorized new Form and root identity in a separate reviewed migration.",
+    "Refresh the pinned source frontier after adoption before generation or publication.",
+    "Terms Graph remains deferred and 56 held legacy expressions were not mapped."
+  ]
+}

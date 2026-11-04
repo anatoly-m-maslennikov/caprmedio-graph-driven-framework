@@ -1,0 +1,65 @@
+[
+  {
+    "id": "CA-R-2508",
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+    "source_sha256": "7daab4c10ab54b4c88d021b103d7468d68e4afdcac416ec3ef654322d28e8e28",
+    "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/CA-R-2508.preview.txt",
+    "candidate_sha256": "9a8e3827d8564af038edaf1b396a9917700d9f352af7a8b94e743d515686325d"
+  },
+  {
+    "id": "CA-R-2462",
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+    "source_sha256": "bb5d1e3565329828f3eb0e8959a01832ed41ea2d8855ca6ea3a80effdfe283e6",
+    "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/CA-R-2462.preview.txt",
+    "candidate_sha256": "0ef8bd1a2a7cf1ca5d524b731668b593a446ee7a214cee580697ed0cc9532794"
+  },
+  {
+    "id": "CA-R-2618",
+    "evidence_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+    "sha256": "3dbe86364921d2cf506ab40a264a4499484f21f629d88627854e37b1f9bdf4c0"
+  },
+  {
+    "id": "CA-R-1199",
+    "evidence_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md",
+    "sha256": "4e4cf1d259ff62c9ba10be39ea5d871a052717eaf8bd95f0bc57f91294ee824e"
+  },
+  {
+    "id": "CA-R-2732",
+    "evidence_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2732-CORE_META_MODEL-DECLARATION--declare-is-declared-by.md",
+    "sha256": "735ddf3eaafc28810d65128fa112c53d792d945377f56777e3d0725d00ff17cc"
+  },
+  {
+    "id": "CA-R-2469",
+    "evidence_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2469-CORE_META_MODEL-RULE--require-one-declaration-for-each-node.md",
+    "sha256": "c6eef213897a925b1ba4c52251becf497d920993c735756446df515f635f6c64"
+  },
+  {
+    "id": "CA-R-2588",
+    "evidence_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+    "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c"
+  },
+  {
+    "id": "CA-R-2278",
+    "evidence_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2278-CORE_META_MODEL-RULE--require-exactly-one-defining-requirement-per-model-entity.md",
+    "sha256": "3293ba57db161be70079daa2826bcded856db0a60dde551fef968e63e1b57d8a"
+  },
+  {
+    "id": "CA-R-2714",
+    "evidence_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2714-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-active.md",
+    "sha256": "4473cb7be670b15cc96de8c34ccccca9377839d820ff237efc0e1a9b04500b66"
+  },
+  {
+    "id": "CA-R-2100",
+    "evidence_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2100-CORE_META_MODEL-RULE--limit-each-atom-to-one-governed-subject.md",
+    "sha256": "1be97cd99a829eb3a4bb809c9e1e4c8a54c8329b6c6125ae2dc67604f3a5f08c"
+  },
+  {
+    "id": "CA-R-2589",
+    "evidence_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2589-CORE_META_MODEL-DECLARATION--declare-continuant.md",
+    "sha256": "d50f24bc7cf31abfc32209927ca4fb0ded8e96e0aa4c675fa5f14284d5feeadd"
+  },
+  {
+    "frontier": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/post-application-frontier.json",
+    "sha256": "b40245922796d93282ec704c0a9900cf02e88dccdd56cb751ba42edbf8e46b5c"
+  }
+]
