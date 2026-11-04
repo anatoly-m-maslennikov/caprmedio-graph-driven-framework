@@ -1,0 +1,55 @@
+{
+  "status": "PASS_BOUNDED_ATOMIC_PAIR",
+  "candidates": [
+    {
+      "id": "CA-R-2170",
+      "source_sha256": "cce56d07fa656084df11f1bf77aab9e0e357a74ac1ca2281cead891cc1d37510",
+      "candidate_sha256": "97c58e047008512257d438636d7ee2554618939af85736308eb81d2a78bf7309",
+      "checks": {
+        "source_hash": true,
+        "candidate_hash": true,
+        "diff_hash": true,
+        "summary_preserved": true,
+        "one_active_subject_preserved": true,
+        "formal_claim_unchanged": true,
+        "typed_variables_all": true,
+        "no_if_local_scope_issue": true,
+        "complete_expression_separators": true
+      },
+      "variables": [
+        "$relation",
+        "$relation_2"
+      ]
+    },
+    {
+      "id": "CA-R-2485",
+      "source_sha256": "e108830788cccfecf0857b817c020c282dc9697a006719c6c6d09eb99c9b4fba",
+      "candidate_sha256": "918219090651fc8ab8875c4029aabcc07df7dcd7876c7113edec479adbee9868",
+      "checks": {
+        "source_hash": true,
+        "candidate_hash": true,
+        "diff_hash": true,
+        "summary_preserved": true,
+        "one_active_subject_preserved": true,
+        "formal_claim_unchanged": true,
+        "typed_variables_all": true,
+        "no_if_local_scope_issue": true,
+        "complete_expression_separators": true
+      },
+      "variables": [
+        "$relation",
+        "$relation_2"
+      ]
+    }
+  ],
+  "pair_checks": {
+    "non_repetition_moved_once": true,
+    "inference_trigger_retained": true,
+    "derived_qualification_retained": true,
+    "inverse_direction_permission_retained": true,
+    "only_requested_comparison_removed": true
+  },
+  "semantics": "Formal signatures remain typed model Relation selectors; prose preserves derived/source and direct/inverse qualifications. Intermediate expressions are semicolon-separated and each final expression ends with its CFEL fence; this does not adjudicate a global final-semicolon rule. Non-repetition applies to metadata inferred from an inverse binding, not all derived Relation metadata.",
+  "condition": "Adopt both candidates atomically; applying R2170 removal alone loses the current non-repetition instruction.",
+  "limits": "Bounded body/source pin review only; no actual Draft, Current, parser, runtime, Workflow/Workbench or Git changes. Existing header conventions and relation namespace are not independently redesigned."
+}

@@ -1,0 +1,84 @@
+{
+  "status": "SOURCE_PREVIEWS_ONLY",
+  "scope": "Only Atom containment representation consumers; formal Relation and Scope Unit Claims remain separate",
+  "candidates": [
+    {
+      "id": "CA-R-2508",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "source_sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/consumers/CA-R-2508.preview.txt",
+      "candidate_sha256": "23af86e0af36819cb2ea81385c9528f9de6622119285c1b30b1390fff33c6d8c",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/consumers/CA-R-2508.diff",
+      "diff_sha256": "3e41fd8e07704fe537970fead3e244d9b5ea485ea4b03e1e638323ceadd725c5"
+    },
+    {
+      "id": "CA-R-2712",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+      "source_sha256": "5734c23d03209bdbb4735f1a6938942dfa1353c50fa093a371ca539543d0cbf7",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/consumers/CA-R-2712.preview.txt",
+      "candidate_sha256": "a57018878de869e9ef9e6e8e417d7c0d05e6819e6c7e18a32d8ac6b206f1b5c0",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/consumers/CA-R-2712.diff",
+      "diff_sha256": "bbb0191eef0c942382168a3856551d94a9f181fabd99f6e8109269c9b0af43ac"
+    },
+    {
+      "id": "CA-R-2711",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "source_sha256": "0506c8ab90381874d50fd3f368b97217a392271e555c495b2b03d47bcf8267c3",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/consumers/CA-R-2711.preview.txt",
+      "candidate_sha256": "eda0187a44471e092d251506b170e7dcf2d3553f5bfaf6423f95455534cdba4d",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/consumers/CA-R-2711.diff",
+      "diff_sha256": "c6dfed0b7ba83e165ba16336b9abd0a9bd8c370c718432a4c648c1f19cf5cd6f"
+    }
+  ],
+  "other_old_header_path_sources": [
+    {
+      "id": "CA-E-240",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md",
+      "sha256": "5405cd2e41eccc209a38c1d632d87ac95c96372cf456549b662e4988f5403f35"
+    },
+    {
+      "id": "CA-R-2698",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+      "sha256": "669672c32d618a63cd81611b5daf3eef6ba090e30780f66f057b19a9c9d257bd"
+    },
+    {
+      "id": "CA-R-2700",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2700-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-scope-unit.md",
+      "sha256": "6660e552b2dc55c3145dff1b2d5e8f86dc7c1e5385dd98e2e0b4a467558b689d"
+    },
+    {
+      "id": "CA-R-2699",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2699-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-atom.md",
+      "sha256": "375ec0b4c9e4af412f361cb6ca8284e5c2178d37700ebb227e0cfdcadcd6069d"
+    },
+    {
+      "id": "CA-R-2511",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "ca9869c1ae916ae02af6112a4a6cba61cd0474aae0734098b7226db52abbc40f"
+    }
+  ],
+  "authority_pins": [
+    {
+      "id": "CA-R-2551",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2551-CORE_META_MODEL-CFEL--require-unique-property-tuples.md",
+      "sha256": "6a236db529b9acdcc45ea3eb1bfa1bf0fc0b3b467e6a2aa08905215d81a78b10"
+    },
+    {
+      "id": "CA-R-2770",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2770-CORE_META_MODEL-DECLARATION--declare-cfel-operator-lookup-r-q.md",
+      "sha256": "33e9b2e573ddc8e875a44660aa62312b4e34523f2296ccee10986528d1fa4a24"
+    }
+  ],
+  "requirements": [
+    "CA-R-2508 still requires one outgoing containment and binds it to Header.Container without a duplicate Header.Relations storage.",
+    "CA-R-2712 preserves separate current direct-container identity, Plan Active status and present positive Work Sequence Number; single tuple replaces the former disjoint typed storage branches.",
+    "CA-R-2711 retains formal LOOKUP and existing Project fallback. Atom link expresses its Header.Container target; no new LOOKUP Property syntax or extra stored fact.",
+    "Candidate depends on a separate declared Atom.Header.Container reference contract with full Scope Unit path or base Atom ID and target identity resolution.",
+    "For UNIQUE, Header.Container must resolve its typed path/ID to one canonical direct Container identity; an unresolved/ambiguous reference fails under CA-R-2551 rather than being silently compared as an arbitrary locator."
+  ],
+  "limits": [
+    "CA-R-2511 and CA-E-240 are listed but not edited here; CA-R-2698/2699/2700 are existing declaration carriers pending coordinated disposition.",
+    "No Current, Draft, code, Workflow, Workbench or Git mutation; no runtime migration.",
+    "Preview headers intentionally preserve Current metadata, including any old stored containment; coordinated Draft/adoption must migrate those own-Atom headers to Container under separately approved source and encoding authority."
+  ]
+}

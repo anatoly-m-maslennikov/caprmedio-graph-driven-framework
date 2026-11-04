@@ -1,0 +1,59 @@
+{
+  "verdict": "HOLD_REQUIRES_SOURCE_PRESERVATION_AND_CONSUMER_CLOSURE",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/manifest.json",
+  "manifest_sha256": "4300240b3826e8d1f0a09028689200797ede4030e768e4dc40f5c383e7c600cd",
+  "integrity": "All four Current source pins, both complete candidate/diff hashes, both exact retirement preimages, and all ten dependency pins match Current bytes. Both candidate Summaries and IDs remain unchanged.",
+  "row_review": [
+    {
+      "id": "CA-R-1441",
+      "status": "HOLD_MISSING_BOUNDARY",
+      "finding": "The Current Claim distinguishes Default Settings from both Project initialization inputs and explicit Operator selections. Candidate retains only the latter distinction; its manifest asserts the former remains but the candidate does not say so. Preserve the initialization-input distinction in the candidate or point to an explicit applicable retained authority before adopting."
+    },
+    {
+      "id": "CA-R-1429",
+      "status": "CONDITIONAL",
+      "finding": "Proposed Project.Settings focus preserves boundary, explicit concrete specification and independent-shared-authority conditions. Removal of separate Framework/Default Artifact foundations depends on the accepted consolidation and resolution of the pinned consumers; no independent runtime file change follows."
+    },
+    {
+      "id": "CA-D-407",
+      "status": "CONDITIONAL_RETIREMENT",
+      "finding": "Its only Claim requires a separate Default Settings TOML Carrier; latest Property-level default decision supersedes that design. Preserve exact preimage and retire only with dependent source disposition; do not delete files here."
+    },
+    {
+      "id": "CA-D-408",
+      "status": "CONDITIONAL_RETIREMENT",
+      "finding": "Its same-field/format/domain purpose is limited to a separate Default Settings TOML. Candidate R1441 explicitly retains Property Format and allowed-domain constraints; Project.Settings serialization remains separately governed. Retire only with dependents disposed and exact preimage preserved."
+    }
+  ],
+  "seven_consumer_gates": {
+    "CA-E-450": "Retain false/zero/empty presence, explicit-before-default, invalid/missing behavior, Project isolation, repeatability and no writeback while replacing obsolete Carrier.",
+    "CA-E-458": "Disposition Framework Artifact checks and preserve applicable history, ownership and initialization boundaries.",
+    "CA-E-459": "Preserve Project Artifact, owner, schema, selected values and history-vs-read checks.",
+    "CA-R-1983": "Resolve current Framework/Default source terminology and derived-result/non-storage rule.",
+    "CA-D-447": "Reconcile retry source and valid-value/zero constraints with assigned owner; do not infer a default.",
+    "CA-M-279": "Preserve exact explicit/default, absent/invalid, isolation and no-writeback behavior while changing source.",
+    "CA-R-2748": "Resolve wording that Atoms do not duplicate selected values or defaults consistently with a single Property-owned default."
+  },
+  "additional_current_consumers": [
+    {
+      "id": "CA-E-006",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md",
+      "sha256": "909749d12b6dc525dfa6ed8e315d5717040632ec86c77e89c137d163e7e77263"
+    },
+    {
+      "id": "CA-M-295",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md",
+      "sha256": "e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa"
+    },
+    {
+      "id": "CA-R-1405",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-RULE--register-core-artifact-type-values.md",
+      "sha256": "3cf75410940a71d7357a8c701a2d182f9aa503665bddff7034902415cd48a5c5"
+    }
+  ],
+  "additional_hold": "E006 requires resolving a Default Settings Artifact; R1405 lists Default Settings as an Artifact Type; M295 resolves retry through Default Settings. They are not among the seven pinned consumer gates. E006/R1405 need source disposition; M295 belongs with the retry/Workflow-owning lane. The seven-consumer list is not exhaustive.",
+  "limits": [
+    "No numerical default, new field name, precedence, Carrier deletion or runtime behavior was inferred.",
+    "No code, Current, Draft, Git, Journal, Workbench or Workflow mutation."
+  ]
+}

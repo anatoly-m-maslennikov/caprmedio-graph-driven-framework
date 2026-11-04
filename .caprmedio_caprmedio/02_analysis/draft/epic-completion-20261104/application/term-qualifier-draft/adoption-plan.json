@@ -1,0 +1,22 @@
+{
+  "status": "PREPARED_DRAFT",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2765",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2765@4-draft-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md",
+      "sha256": "705e3d9d776d41439c1bec1f1115171b443865b0a6600f26b8e617a6f1ac6ebe"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2765@4-draft-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2765\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 4\nupdated_at: 2026-11-04 23:07:00 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2765@4-draft-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Term Definition as a Method Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role := Method).Header.Form: Term Definition;\nAtom/(.Header.Role := Method)/(.Header.Form := Term Definition)\n```\n",
+      "after_sha256": "705e3d9d776d41439c1bec1f1115171b443865b0a6600f26b8e617a6f1ac6ebe"
+    }
+  ]
+}

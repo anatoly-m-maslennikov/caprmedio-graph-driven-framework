@@ -1,0 +1,54 @@
+{
+  "status": "PROPOSED_NOT_APPLIED",
+  "source_matrix": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/acceptance/matrix.json",
+  "source_matrix_sha256": "11b337b0874831f45e3b733cb8c534adff6ff8c7776d7249e3152c13ca2e4af1",
+  "all_23_group_ids": [
+    "P2695",
+    "P2696",
+    "P2697",
+    "P2698",
+    "P2699",
+    "P2700",
+    "P2701",
+    "P2703",
+    "P2694: declaration model",
+    "P2704",
+    "P2694: folder derivation",
+    "P2694/P2706: TOML retirement",
+    "P2694: workflow/API boundary",
+    "P2694: Claim/model notation",
+    "P2694: CFEL groups and bindings",
+    "P2694: CFEL semantic preservation",
+    "P2694: Carrier boundary",
+    "P2709",
+    "P2707: Current declaration cutover",
+    "P2707: Engine runtime cutover",
+    "P2707: carrier admission",
+    "P2694: source history/publication",
+    "P2704\u2013P2709: status and closure boundary"
+  ],
+  "changes": [
+    {
+      "requirement_id": "P2694: Claim/model notation",
+      "field": "explicit_requirement",
+      "old_exact": "Adopt Atom.Header / Atom.Content grouping; empty Claim container with Formal Claim and Prose Claim children; remove Claim Scope; symbolic aliases; minimal declared relation counterparts; declaration-based heading interpretation. Apply current Property contracts: inherited format without repeated local value counts; present Property instances have value, schema and bearer links; required Relations are populated by exactly one direct IS_CONTAINED_BY to the immediate Container; optional Subjects grouping does not weaken required Active subject on complete Current Atoms.",
+      "proposed": "Adopt Atom.Header / Atom.Content grouping; empty Claim container with Formal Claim and Prose Claim children; remove Claim Scope; symbolic aliases; minimal declared relation counterparts; declaration-based heading interpretation. Apply current Property contracts: inherited format without repeated local value counts; present Property instances have value, schema and bearer links; every Atom has exactly one immediate Container in Atom.Header.Container, expressed as a full Scope Unit path or a base Atom ID selecting its Current version by default; Header.Relations is optional and does not duplicate Container; IS_CONTAINED_BY, CONTAINS and +>/<+ remain MODEL/Formal Claim relations; optional Subjects grouping does not weaken required Active subject on complete Current Atoms."
+    },
+    {
+      "requirement_id": "P2694: declaration model",
+      "field": "additional_acceptance_check",
+      "proposed": "Check each non-Project Scope Unit has exactly one formal immediate Container and the Project root has zero. Separately verify each Scope Unit Declaration Atom has its own mandatory Header.Container; do not create a ScopeUnit.Container Property."
+    },
+    {
+      "requirement_id": "P2707: Current declaration cutover",
+      "field": "additional_acceptance_check",
+      "proposed": "Verify the same Scope Unit formal containment and separate Declaration Atom Header.Container without changing the existing 44/43/nine and digest checks."
+    },
+    {
+      "requirement_id": "P2694: Carrier boundary",
+      "field": "additional_acceptance_check",
+      "proposed": "Verify the source and schema checkpoints for Container, absence of duplicate containment in optional Relations, and the single mechanical migration before external implementation/runtime checks."
+    }
+  ],
+  "preservation": "All other requirements, existing gates, dependencies, explicit deferrals and CA #3 / external Workbench and Workflow ownership remain unchanged. This delta has not modified the actual matrix."
+}

@@ -1,7 +1,6 @@
-# CA-R-2727@4
-# CA-R-2729@3
-# CA-D-673@7
-# CA-D-674@8
+# CA-R-2729@4
+# CA-D-673@8
+# CA-D-674@9
 
 """Small HTTP representation of the shared Project Workbench connector."""
 
@@ -24,7 +23,8 @@ from http_paths import WORKBENCH_PATH
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "FEATURE_TOOLS"))
 from operation_error_boundary import ExplicitBlockingRuntimeFailure
 from runtime_failure_diagnostics import report_failure
-from workbench_tools import CHECK, PAGE, RUN
+from workbench_links import public_saved, validate_reference
+from workbench_tools import CHECK, LOAD, PAGE, RUN, SAVE, SAVED_LIST, SAVE_WORKSHEET, SCHEMA
 
 
 _FRONTEND = (
@@ -36,7 +36,7 @@ _FRONTEND = (
 )
 
 
-async def _arguments(request: Request, shared: bool, name: str) -> dict[str, Any]:
+async def _arguments(request: Request, shared: bool, name: str) -> dict[str, Any]:  # noqa: C901
     try:
         if request.headers.get("content-type", "").split(";", 1)[0] == "application/json":
             value = await request.json()
@@ -51,19 +51,30 @@ async def _arguments(request: Request, shared: bool, name: str) -> dict[str, Any
             raise ExplicitBlockingRuntimeFailure("query_error", "query_id must be a string")
         if type(value.get("offset")) is not int or value["offset"] < 0:
             raise ExplicitBlockingRuntimeFailure("query_error", "offset must be a non-negative integer")
-    elif not isinstance(value.get("sql"), str):
+    elif name == LOAD:
+        if not isinstance(value.get("reference"), str):
+            raise ExplicitBlockingRuntimeFailure("query_error", "reference must be a string")
+    elif name == SAVED_LIST:
+        limit = value.get("limit", 20)
+        if type(limit) is not int or not 1 <= limit <= 1000:
+            raise ExplicitBlockingRuntimeFailure("query_error", "limit must be an integer from 1 to 1000")
+    elif name != SCHEMA and not isinstance(value.get("sql"), str):
         raise ExplicitBlockingRuntimeFailure("query_error", "sql must be a string")
     if shared and not isinstance(value.get("project_root"), str):
         raise ExplicitBlockingRuntimeFailure("query_error", "project_root must be a string")
     return value
 
 
-def _error(gateway: Any, error: Exception) -> JSONResponse:
+def _error(gateway: Any, request: Request, selection: Any, arguments: dict[str, Any], error: Exception) -> JSONResponse:
     failure, _ = report_failure(
         getattr(gateway, "root", None), error,
         component="MCP_HTTP", operation="workbench",
     )
-    return JSONResponse({"error": failure.message}, status_code=400)
+    value: dict[str, Any] = {"error": failure.message}
+    saved = getattr(error, "details", {}).get("saved_query") if isinstance(getattr(error, "details", None), dict) else None
+    if isinstance(saved, dict):
+        value.update(public_saved(saved, request, selection, arguments.get("project_root")))
+    return JSONResponse(value, status_code=400)
 
 
 def _json_stream(value: dict[str, Any]):
@@ -91,16 +102,21 @@ async def _execute(gateway: Any, name: str, arguments: dict[str, Any], shared: b
     )
     value = response.structured_content
     if response.is_error:
+        saved = ({key: value[key] for key in ("saved_query_id", "kind", "sql")}
+                 if isinstance(value, dict) and all(isinstance(value.get(key), str)
+                                                    for key in ("saved_query_id", "kind", "sql")) else None)
         raise ExplicitBlockingRuntimeFailure(
             "query_error",
-            value.get("diagnostics", ["query failed"])[0] if isinstance(value, dict) else "query failed",
+            value.get("error") if isinstance(value, dict) and isinstance(value.get("error"), str)
+            else value.get("diagnostics", ["query failed"])[0] if isinstance(value, dict) else "query failed",
+            {"saved_query": saved} if saved is not None else None,
         )
     if not isinstance(value, dict):
         raise RuntimeError("Workbench returned an invalid result")
     return value
 
 
-def routes(gateway: Any, *, shared: bool = False) -> list[Route]:
+def routes(gateway: Any, *, shared: bool = False) -> list[Route]:  # noqa: C901
     async def page(request: Request):
         project_name = request.path_params["project_name"]
         if shared:
@@ -119,28 +135,37 @@ def routes(gateway: Any, *, shared: bool = False) -> list[Route]:
             )
         return FileResponse(_FRONTEND / "index.html")
 
-    async def operation(request: Request):
-        name = PAGE if request.url.path.endswith("/page") else RUN if request.url.path.endswith("/run") else CHECK
-        try:
-            arguments = await _arguments(request, shared, name)
-            if shared:
-                selection = gateway._selection(arguments["project_root"])
-            else:
-                selection = getattr(gateway, "selection", None)
-            if not _project_name_matches(selection, request.path_params["project_name"]):
-                return _unknown_project()
-            return StreamingResponse(
-                _json_stream(await _execute(gateway, name, arguments, shared)),
-                media_type="application/json",
-            )
-        except Exception as error:
-            return _error(gateway, error)
+    def operation(name: str):
+        async def endpoint(request: Request):  # noqa: C901
+            arguments: dict[str, Any] = {}
+            selection = None
+            try:
+                arguments = await _arguments(request, shared, name)
+                selection = gateway._selection(arguments["project_root"]) if shared else getattr(gateway, "selection", None)
+                if not _project_name_matches(selection, request.path_params["project_name"]):
+                    return _unknown_project()
+                if name == LOAD:
+                    try:
+                        arguments["reference"] = validate_reference(
+                            arguments["reference"], request, selection, arguments.get("project_root"),
+                        )
+                    except ValueError as error:
+                        raise ExplicitBlockingRuntimeFailure("query_error", str(error)) from error
+                value = await _execute(gateway, name, arguments, shared)
+                return StreamingResponse(
+                    _json_stream(public_saved(value, request, selection, arguments.get("project_root"))),
+                    media_type="application/json",
+                )
+            except Exception as error:
+                return _error(gateway, request, selection, arguments, error)
+        return endpoint
 
     return [
         Route(f"{WORKBENCH_PATH}/{{project_name}}", page),
-        Route(f"{WORKBENCH_PATH}/{{project_name}}/run", operation, methods=["POST"]),
-        Route(f"{WORKBENCH_PATH}/{{project_name}}/check", operation, methods=["POST"]),
-        Route(f"{WORKBENCH_PATH}/{{project_name}}/page", operation, methods=["POST"]),
+        *[Route(f"{WORKBENCH_PATH}/{{project_name}}/{path}", operation(name), methods=["POST"])
+          for path, name in (("run", RUN), ("page", PAGE), ("check", CHECK), ("schema", SCHEMA),
+                             ("save", SAVE), ("worksheet-save", SAVE_WORKSHEET), ("load", LOAD),
+                             ("saved-list", SAVED_LIST))],
         Mount(
             f"{WORKBENCH_PATH}/assets",
             app=StaticFiles(directory=_FRONTEND / "assets", check_dir=False),

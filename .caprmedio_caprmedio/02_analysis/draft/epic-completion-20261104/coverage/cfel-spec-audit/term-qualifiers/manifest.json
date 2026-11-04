@@ -1,0 +1,44 @@
+{
+  "status": "ONE_MINIMAL_PREVIEW_TWO_NO_CHANGE",
+  "sources": [
+    {
+      "id": "CA-R-2765",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2765-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md",
+      "source_sha256": "8d7d12e2dec1eff9d3f78abee94883e6d070a8f025bc3bf6d98be3896b77dbda",
+      "status": "REVIEW_READY",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/term-qualifiers/CA-R-2765.preview.txt",
+      "candidate_sha256": "a2a02818c72cf5b6ad8e6d61c0ccaa9feea50b09ead62201a348695684381c0f",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/term-qualifiers/CA-R-2765.diff",
+      "diff_sha256": "70151133236231d790d936e9cccce684bfc07bdf45da6f6a068702c23c87cb41",
+      "change": "Use := only for three filtered Node qualification conditions; retain `.Header.Form: Term Definition` as allowed-value property clause. Header, one active Subject, Summary, Role/Form values and all other bytes unchanged."
+    },
+    {
+      "id": "CA-E-659",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-659-CORE_META_MODEL-EVAL_CASE--check-term-definition-well-formedness.md",
+      "source_sha256": "ab8f02d75db389d6750182df8cc242e325be5c0d6b11e6f3866de42b3d87e265",
+      "status": "NO_SELECTOR_EDIT_NEEDED",
+      "finding": "No Formal Claim qualified selector; existing active/passive Subject uses :=. Prose and other concerns outside this focused review."
+    },
+    {
+      "id": "CA-R-1319",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md",
+      "source_sha256": "f8a7f93b97040bde26c2202cd48166a35d840508b6810544f4ffe1f2f58211f4",
+      "status": "NO_SELECTOR_EDIT_NEEDED",
+      "finding": "No Formal Claim qualified selector; existing active/passive Subject uses :=. Prose and other concerns outside this focused review."
+    }
+  ],
+  "authority_pins": [
+    {
+      "id": "CA-R-2471",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf"
+    },
+    {
+      "id": "CA-R-2487",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045"
+    }
+  ],
+  "reason": "R2471/R2487 distinguish := selection in filtered Node expressions from : admitting a Property value. The final unqualified property clause must remain colon; no rename or change to admitted values.",
+  "boundary": "Only three listed Current Term Definition sources inspected; no canonical, Draft, code, tests, Workflow/Workbench or Git edits."
+}

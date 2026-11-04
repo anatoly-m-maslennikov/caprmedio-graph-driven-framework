@@ -15,9 +15,9 @@ relations: {}
 ---
 
 ```mermaid
-flowchart TD
-    step1["Archive the selected Current Atom"]
-    click step1 "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-archive-atom/CA-O-draft-PROJECT_CONFIGURATION-STEP--archive-the-selected-current-atom.md" "Open Step"
+graph TD;
+    step1["Archive the selected Current Atom"];
+    click step1 "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-archive-atom/CA-O-draft-PROJECT_CONFIGURATION-STEP--archive-the-selected-current-atom.md" "Open Step";
 ```
 
 ## Summary

@@ -1,0 +1,62 @@
+{
+  "status": "PREPARED_DRAFT_BATCH",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "scope": "Generic Property Term plus atomic derived-metadata authoring focus pair",
+  "header_phase": "Draft headers use the Current containment schema. All affected metadata joins the later reviewed Header.Container migration; no premature path encoding.",
+  "outputs": [
+    {
+      "atom_id": "CA-M-453",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-453@4-draft-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "sha256": "1272454b2cdcb57ccd26f8a4b45cf5199f561732d3ca944fc0b6b99b63d3b270",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "source_sha256": "fb9d0205cf7d78c1adc9b44326a43ec6d793058862c834439cc0e58d25c659d4",
+      "summary": "Define Property",
+      "rebase": "Exact Current source; existing Draft content replaced"
+    },
+    {
+      "atom_id": "CA-R-2170",
+      "version": 11,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2170@11-draft-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "sha256": "cdc77b9916e75b588b326b64209350d9f6d009dbb66781f6f799495c685badcf",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "source_sha256": "cce56d07fa656084df11f1bf77aab9e0e357a74ac1ca2281cead891cc1d37510",
+      "summary": "Define is derived relation of relation",
+      "rebase": "Fresh Draft"
+    },
+    {
+      "atom_id": "CA-R-2485",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2485@6-draft-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+      "sha256": "40fbd20548016cc0b7b63b19890086a8666cc0ab0657f93402a8b0eb4d7c85f9",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2485-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+      "source_sha256": "e108830788cccfecf0857b817c020c282dc9697a006719c6c6d09eb99c9b4fba",
+      "summary": "Define HAS_INVERSE",
+      "rebase": "Fresh Draft"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-453@4-draft-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "before": "---\natom_id: CA-M-453\nstatus: Draft\ntier: 1\nversion: 4\nupdated_at: 2026-11-04 18:25:15 +0400\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Term//Property\n  passive:\n  - CAPRMEDIO_MODEL <+ Term\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_PROPERTY\n  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\nrole: Method\nform: Term Definition\ncarrier_destination:\n  file:\n    name: CA-M-453@4-draft-CORE_META_MODEL-TERM_DEFINITION--define-property.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft\n---\n## Summary\n\nDefine Property\n\n## Claim\n\n### Prose Claim\n\nProperty means a Node Property in `Node.**` whose direct `IS_PROPERTY_OF` Relation identifies exactly one immediate bearer, which may be a Node or Node Property. The bearer-qualified Subject is written `Bearer.Property`; `HAS_PROPERTY` is the derived inverse view.\n\nThis Claim defines the reusable lexical Term `Property` at `Term//Property`.\n",
+      "before_sha256": "1a132e4bb524a24c4a5b8e34eab2c4ef0c40e36026b4e88e1f1ff27456ca5874",
+      "after": "---\natom_id: CA-M-453\nstatus: Draft\ntier: 1\nversion: 4\nupdated_at: 2026-11-04 22:58:33 +0400\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Term//Property\n  passive:\n  - CAPRMEDIO_MODEL <+ Term\n  - CAPRMEDIO_MODEL <+ Term//Entity\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\nrole: Method\nform: Term Definition\ncarrier_destination:\n  file:\n    name: CA-M-453@4-draft-CORE_META_MODEL-TERM_DEFINITION--define-property.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft\n---\n## Summary\n\nDefine Property\n\n## Claim\n\n### Prose Claim\n\nProperty means an Entity whose identity depends on exactly one immediate bearer through the direct IS_PROPERTY_OF Relation.\n",
+      "after_sha256": "1272454b2cdcb57ccd26f8a4b45cf5199f561732d3ca944fc0b6b99b63d3b270"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2170@11-draft-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2170\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_DERIVED_RELATION_OF\n  passive:\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\nversion: 11\nupdated_at: 2026-11-04 22:58:33 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2170@11-draft-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine is derived relation of relation\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//$relation ((IS_DERIVED_RELATION_OF)) Relation//$relation_2;\n\nRelation//IS_DERIVED_RELATION_OF ((HAS_CLASSIFICATION)) Derivation == Direct\n```\n\n### Prose Claim\n\nIS_DERIVED_RELATION_OF relates a derived Relation Type instance to its source Relation Type instance. It does not itself specify the endpoint transformation or any qualification. A direct Declaration's inverse binding entails the bound inverse's IS_DERIVED_RELATION_OF link to the direct Relation. A qualified derivation must retain its explicit qualification; it must not be normalized to an unconditional inverse.\n",
+      "after_sha256": "cdc77b9916e75b588b326b64209350d9f6d009dbb66781f6f799495c685badcf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2485@6-draft-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2485\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_INVERSE\nversion: 6\nupdated_at: 2026-11-04 22:58:33 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2485@6-draft-CORE_META_MODEL-DECLARATION--define-has-inverse.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine HAS_INVERSE\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//$relation ((HAS_INVERSE)) Relation//$relation_2;\n\nalias(Relation//HAS_INVERSE) == \"<-->\";\n\nRelation//HAS_INVERSE ((HAS_CLASSIFICATION)) Derivation == Direct\n```\n\n### Prose Claim\n\nHAS_INVERSE binds a direct graph Relation to its derived inverse graph Relation. The Host is Direct and the Target is Derived. The inverse swaps Host and Target for each admitted direct fact. The two Relation identities remain distinct. The direct Declaration owns the shared meaning, endpoint signature, endpoint conditions and this binding; the derived Declaration supplies the reverse written counterpart binding and its own lexical alias when one exists. A bound inverse is inferred from the direct fact and is not authored separately. The inferred IS_DERIVED_RELATION_OF metadata is not repeated in the minimal derived Declaration. A qualified derived counterpart requires its qualification at the direct Declaration and is not an unconditional inverse.\n\n`<-->` is the Subject notation alias for this binding. Written as `Relation//DIRECT <--> Relation//DERIVED` inside the direct Declaration, its left operand identifies the direct Relation and its right operand identifies the derived inverse. It is neither equality nor aliasing of the two Relation identities. The binding does not grant endpoint permissions or outgoing cardinalities.\n",
+      "after_sha256": "40fbd20548016cc0b7b63b19890086a8666cc0ab0657f93402a8b0eb4d7c85f9"
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+{
+  "status": "BOUNDED_READ_ONLY_SOURCE_CENSUS",
+  "frontier_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-dependency-frontier.json",
+  "frontier_sha256": "e0cf2e16e61ac843b09dc1a2b5e4465582f77c0df1519a33efda0e72097a4e31",
+  "counts": {
+    "selected_current_sources": 1167,
+    "frontier_hash_match": 1167,
+    "header_containment": 61,
+    "header_scope_unit_key": 61,
+    "header_atom_key": 0,
+    "current_scope_unit_field": 1046,
+    "scope_declaration_atoms": 44,
+    "scope_declaration_header_containment": 0,
+    "scope_claim_parent_Scope_Unit": 36,
+    "scope_claim_parent_Project": 7
+  },
+  "currently_declared_model_paths": [
+    {
+      "path": "Atom.Header.Relations.IS_CONTAINED_BY",
+      "source": "CA-R-2698",
+      "meaning": "one grouping occurrence with one selected child (atom or scope_unit)"
+    },
+    {
+      "path": "Atom.Header.Relations.IS_CONTAINED_BY.atom",
+      "source": "CA-R-2699",
+      "meaning": "optional single atom-id value"
+    },
+    {
+      "path": "Atom.Header.Relations.IS_CONTAINED_BY.scope_unit",
+      "source": "CA-R-2700",
+      "meaning": "optional single scope-unit value"
+    }
+  ],
+  "affected_path_count": 3,
+  "additional_model_authority": [
+    "CA-R-2719 Atom.Header child list",
+    "CA-R-2709 Atom.Header.Relations currently required",
+    "CA-R-2508 Atom relation targets selected by old Header.Relations containment",
+    "CA-R-2523 non-Project Scope Unit parent requirement",
+    "CA-R-2524 Project no Scope Unit parent"
+  ],
+  "affected_qualified_path_sources": [
+    {
+      "id": "CA-E-240",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md",
+      "sha256": "5405cd2e41eccc209a38c1d632d87ac95c96372cf456549b662e4988f5403f35",
+      "occurrences": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom"
+    },
+    {
+      "id": "CA-R-2698",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+      "sha256": "669672c32d618a63cd81611b5daf3eef6ba090e30780f66f057b19a9c9d257bd",
+      "occurrences": 4,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY"
+    },
+    {
+      "id": "CA-R-2699",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2699-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-atom.md",
+      "sha256": "375ec0b4c9e4af412f361cb6ca8284e5c2178d37700ebb227e0cfdcadcd6069d",
+      "occurrences": 4,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY.atom"
+    },
+    {
+      "id": "CA-R-2700",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2700-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-scope-unit.md",
+      "sha256": "6660e552b2dc55c3145dff1b2d5e8f86dc7c1e5385dd98e2e0b4a467558b689d",
+      "occurrences": 4,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY.scope_unit"
+    }
+  ],
+  "authority_pins": [
+    {
+      "id": "CA-R-2508",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d"
+    },
+    {
+      "id": "CA-R-2719",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "sha256": "b44cedbf39e8d65c8dddb21a03370ed744e65daee99eff70cc0007d064ebb0e3"
+    },
+    {
+      "id": "CA-R-2709",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "3f759fcf082e94dd20b07d243edd7daaf374e23a80033c4246ad2c01b3d1df17"
+    },
+    {
+      "id": "CA-R-2698",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+      "sha256": "669672c32d618a63cd81611b5daf3eef6ba090e30780f66f057b19a9c9d257bd"
+    },
+    {
+      "id": "CA-R-2699",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2699-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-atom.md",
+      "sha256": "375ec0b4c9e4af412f361cb6ca8284e5c2178d37700ebb227e0cfdcadcd6069d"
+    },
+    {
+      "id": "CA-R-2700",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2700-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-scope-unit.md",
+      "sha256": "6660e552b2dc55c3145dff1b2d5e8f86dc7c1e5385dd98e2e0b4a467558b689d"
+    },
+    {
+      "id": "CA-R-2523",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5"
+    },
+    {
+      "id": "CA-R-2524",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db"
+    }
+  ],
+  "scope_declaration_records": [
+    {
+      "id": "CA-R-2640",
+      "header_containment": null,
+      "declared_edges": []
+    },
+    {
+      "id": "CA-R-2641",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "WORKFLOW_ORCHESTRATOR",
+          "target_type": "Scope Unit",
+          "target_name": "APPS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2642",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "DISCOVER_TOOLS",
+          "target_type": "Scope Unit",
+          "target_name": "TOOLS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2643",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "DISCOVER_OPERATIONS",
+          "target_type": "Scope Unit",
+          "target_name": "TOOLS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2644",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "GET_EXECUTION_CONTEXT",
+          "target_type": "Scope Unit",
+          "target_name": "TOOLS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2645",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "GET_EXECUTION_STATUS",
+          "target_type": "Scope Unit",
+          "target_name": "TOOLS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2646",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "RESUME_EXECUTION_CONTEXT",
+          "target_type": "Scope Unit",
+          "target_name": "TOOLS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2647",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "WATCH_EXECUTION",
+          "target_type": "Scope Unit",
+          "target_name": "TOOLS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2648",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "FRAMEWORK_METHODOLOGY",
+          "target_type": "Project",
+          "target_name": "caprmedio"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2649",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "METHODOLOGY_SOURCES",
+          "target_type": "Scope Unit",
+          "target_name": "FRAMEWORK_METHODOLOGY"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2650",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "CORE_META_MODEL",
+          "target_type": "Scope Unit",
+          "target_name": "METHODOLOGY_SOURCES"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2651",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "INSTALLED_EXTENSIONS",
+          "target_type": "Scope Unit",
+          "target_name": "METHODOLOGY_SOURCES"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2652",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "PROJECT_CONFIGURATION",
+          "target_type": "Scope Unit",
+          "target_name": "METHODOLOGY_SOURCES"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2653",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "FRAMEWORK_ENGINE",
+          "target_type": "Project",
+          "target_name": "caprmedio"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2654",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "PROGRAMMATIC",
+          "target_type": "Scope Unit",
+          "target_name": "FRAMEWORK_ENGINE"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2655",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "TOOLS",
+          "target_type": "Scope Unit",
+          "target_name": "PROGRAMMATIC"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2656",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "CONNECTOR_TOOLS",
+          "target_type": "Scope Unit",
+          "target_name": "PROGRAMMATIC"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2657",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "TOOL_WORKFLOWS",
+          "target_type": "Scope Unit",
+          "target_name": "PROGRAMMATIC"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2658",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "PROJECT_TOOLS",
+          "target_type": "Scope Unit",
+          "target_name": "PROGRAMMATIC"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2659",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "APPS",
+          "target_type": "Scope Unit",
+          "target_name": "PROGRAMMATIC"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2660",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "MCP",
+          "target_type": "Scope Unit",
+          "target_name": "PROGRAMMATIC"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2661",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "AGENTIC",
+          "target_type": "Scope Unit",
+          "target_name": "FRAMEWORK_ENGINE"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2662",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "SKILLS",
+          "target_type": "Scope Unit",
+          "target_name": "AGENTIC"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2663",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "PROMPTS",
+          "target_type": "Scope Unit",
+          "target_name": "AGENTIC"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2664",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "OPERATOR_DOCUMENTATION",
+          "target_type": "Project",
+          "target_name": "caprmedio"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2665",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "CORE_EXTENSIONS",
+          "target_type": "Project",
+          "target_name": "caprmedio"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2666",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "RELEASES",
+          "target_type": "Project",
+          "target_name": "caprmedio"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2667",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "COMMUNITY_EXTENSIONS",
+          "target_type": "Project",
+          "target_name": "caprmedio"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2668",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "FIELD",
+          "target_type": "Project",
+          "target_name": "caprmedio"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2669",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "ADAPTERS",
+          "target_type": "Scope Unit",
+          "target_name": "TOOLS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2670",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "SINGLE_ACTIONS",
+          "target_type": "Scope Unit",
+          "target_name": "TOOLS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2671",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "SCHEDULERS",
+          "target_type": "Scope Unit",
+          "target_name": "TOOLS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2672",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "WORKFLOWS",
+          "target_type": "Scope Unit",
+          "target_name": "TOOLS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2673",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "ACTION_ENGINE",
+          "target_type": "Scope Unit",
+          "target_name": "TOOLS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2674",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "ATOM_ACTIONS",
+          "target_type": "Scope Unit",
+          "target_name": "SINGLE_ACTIONS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2675",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "SCOPE_UNIT_ACTIONS",
+          "target_type": "Scope Unit",
+          "target_name": "SINGLE_ACTIONS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2676",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "PROJECTION_ACTIONS",
+          "target_type": "Scope Unit",
+          "target_name": "SINGLE_ACTIONS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2677",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "JOURNAL_ACTIONS",
+          "target_type": "Scope Unit",
+          "target_name": "SINGLE_ACTIONS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2678",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "PROJECT_ACTIONS",
+          "target_type": "Scope Unit",
+          "target_name": "SINGLE_ACTIONS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2679",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "QUEUE_ACTIONS",
+          "target_type": "Scope Unit",
+          "target_name": "SINGLE_ACTIONS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2680",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "BATCH_SCHEDULER",
+          "target_type": "Scope Unit",
+          "target_name": "SCHEDULERS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2681",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "WORKFLOW_SCHEDULER",
+          "target_type": "Scope Unit",
+          "target_name": "SCHEDULERS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2683",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "GRAPH_UI",
+          "target_type": "Scope Unit",
+          "target_name": "APPS"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2730",
+      "header_containment": null,
+      "declared_edges": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "WORKBENCH",
+          "target_type": "Scope Unit",
+          "target_name": "APPS"
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "CA-R-2650",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md",
+      "sha256": "d3de95bc060121e55c2f0a96928e759d5db4ab49433298fd1e07dcee5299e934",
+      "atom_header_relations": {},
+      "legacy_current_scope_unit": null,
+      "declared_object_parent": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "CORE_META_MODEL",
+          "target_type": "Scope Unit",
+          "target_name": "METHODOLOGY_SOURCES"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2648",
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
+      "sha256": "06421ef44ef225732161056345fc8236fd4516e9fafca5e1e22edb6995bc384b",
+      "atom_header_relations": {},
+      "legacy_current_scope_unit": null,
+      "declared_object_parent": [
+        {
+          "source_type": "Scope Unit",
+          "source_name": "FRAMEWORK_METHODOLOGY",
+          "target_type": "Project",
+          "target_name": "caprmedio"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2640",
+      "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+      "sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9",
+      "atom_header_relations": {},
+      "legacy_current_scope_unit": "Anatoly Maslennikov",
+      "declared_object_parent": []
+    },
+    {
+      "id": "CA-R-2508",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d",
+      "atom_header_relations": {
+        "IS_CONTAINED_BY": {
+          "scope_unit": "CA-SU-11"
+        }
+      },
+      "legacy_current_scope_unit": null,
+      "declared_object_parent": null
+    }
+  ],
+  "interpretation": [
+    "A Scope Unit Declaration is an Atom that describes a separate Scope Unit. Its own Container and the declared Scope Unit parent are different facts. Their equality is not established by physical paths or by the selected sample.",
+    "CA-R-2650 has no Atom-header containment fact and separately declares CORE_META_MODEL IS_CONTAINED_BY METHODOLOGY_SOURCES; its own intended Atom Container is not determined from that Claim.",
+    "CA-R-2648 declares FRAMEWORK_METHODOLOGY IS_CONTAINED_BY Project//caprmedio in its Claim, not in its own Atom Header.",
+    "CA-R-2640 declares Project//caprmedio with no parent, but the declaration is itself an Atom and presently has no explicit header containment; the user requires one for the Atom. Legacy author/scope fields are not automatically a new Container.",
+    "CA-R-2508 itself currently records scope_unit CA-SU-11 as its Atom containment; this is distinct from the Atom kind rule it declares.",
+    "The new Atom.Header.Container path and its typed encoding are not yet established by the cited Current Declarations. Do not infer Scope Unit.Header."
+  ],
+  "unresolved": [
+    "How the new Container field represents Atom versus Scope Unit targets, including explicit type/reference form.",
+    "How to derive and validate each Scope Unit Declaration Atom\u2019s own Container independently from the declared Scope Unit\u2019s parent; Project Declaration Atom CA-R-2640 needs an Atom container despite Project root having none.",
+    "Whether Scope Unit parent facts continue as formal Claim relations or receive a separate declared representation; Atom.Header alone does not provide a Scope Unit.Header.",
+    "The selected 1,167-source header census is evidence only and does not prove a complete instance/data migration or determine absent historical ownership."
+  ],
+  "limits": [
+    "Source census over one pinned selected frontier, not full-repository or all instances.",
+    "No source, Draft, Workflow, Workbench, code, Git or data migration performed."
+  ],
+  "latest_user_steering": {
+    "decision": "The user rejects retaining IS_CONTAINED_BY as a graph Relation because it duplicates Container storage. Current Relation paths in this census are observations only, not an accepted new binding.",
+    "pending": "Whether +> and <+ remain shorthand for the Container Property after retiring the Relation pair or the notation is also retired.",
+    "boundary": "Do not invent Scope Unit.Header."
+  }
+}

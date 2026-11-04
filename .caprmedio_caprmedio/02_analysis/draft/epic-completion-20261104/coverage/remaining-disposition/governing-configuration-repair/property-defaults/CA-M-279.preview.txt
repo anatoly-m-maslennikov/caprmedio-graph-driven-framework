@@ -1,0 +1,25 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Project.Settings
+  passive:
+  - CAPRMEDIO_MODEL <+ Term//Property
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-M-279
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 2
+role: Method
+form: Implementation Method
+---
+## Summary
+
+Resolve missing framework parameters from Default Settings
+
+## Claim
+
+### Prose Claim
+
+For each Project.Settings parameter, use its explicit selected value when present; otherwise use the applicable default declared by that parameter’s Property. Determine presence per parameter, not by its section or the truthiness of its value; valid false, zero and empty values remain explicit selections. Validate the selected value against its governing Property authority and reject an invalid explicit value without fallback. If neither an explicit value nor an applicable default supplies a required parameter, report it unresolved and stop the operation requiring it; an optional parameter may remain absent. Do not copy inherited values into Project.Settings as explicit selections.

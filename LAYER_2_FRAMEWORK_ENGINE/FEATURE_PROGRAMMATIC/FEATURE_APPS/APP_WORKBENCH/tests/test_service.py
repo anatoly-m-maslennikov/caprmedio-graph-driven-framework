@@ -1,4 +1,5 @@
-# CA-E-677@7
+# CA-E-676@7
+# CA-E-677@8
 
 """Service failures stop this owner rather than retrying its startup."""
 
@@ -13,6 +14,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from watchfiles import Change  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.saved_queries import SavedQueryError  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
 
 
@@ -46,6 +48,14 @@ class ServiceTests(unittest.TestCase):
 
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
             service = WorkbenchService(Path("/project"))
+        saved = unittest.mock.Mock()
+        saved.save_query.side_effect = lambda sql: {
+            "saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": sql,
+        }
+        saved.save_worksheet.return_value = {"saved_query_id": "w_" + "1" * 32, "kind": "worksheet", "sql": "SELECT 2"}
+        saved.load.return_value = {"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1"}
+        saved.list.return_value = {"items": []}
+        service._saved_queries = saved
         service._store = store
         service._start = unittest.mock.Mock()
 
@@ -53,9 +63,19 @@ class ServiceTests(unittest.TestCase):
         self.assertEqual({"query_id": "q", "offset": 3}, service.page("q", 3, page_size=4))
         self.assertEqual({"valid": True}, service.check("SELECT 1"))
         self.assertEqual(3, service._start.call_count)
-        store.run.assert_called_once_with("SELECT 1", page_size=2)
+        store.run.assert_called_once_with(
+            "SELECT 1", page_size=2,
+            saved_query={"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1"},
+        )
         store.page.assert_called_once_with("q", 3, page_size=4)
-        store.check.assert_called_once_with("SELECT 1")
+        store.check.assert_called_once_with(
+            "SELECT 1",
+            saved_query={"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1"},
+        )
+        self.assertEqual({"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1"}, service.save("SELECT 1"))
+        self.assertEqual({"saved_query_id": "w_" + "1" * 32, "kind": "worksheet", "sql": "SELECT 2"}, service.save_worksheet("SELECT 2"))
+        self.assertEqual({"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1"}, service.load("q_" + "1" * 32))
+        self.assertEqual({"items": []}, service.saved_list())
 
     def test_refresh_releases_reader_rows_only_after_store_replace(self):
         reader = unittest.mock.Mock()
@@ -80,8 +100,12 @@ class ServiceTests(unittest.TestCase):
         with (
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"),
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.QueryStore", side_effect=RuntimeError("extension unavailable")) as connect,
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SavedQueryStore") as saved,
             redirect_stderr(StringIO()) as errors,
         ):
+            saved.return_value.save_query.return_value = {
+                "saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1",
+            }
             service = WorkbenchService(Path.cwd())
             for _ in range(2):
                 with self.assertRaisesRegex(RuntimeError, "restart required"):
@@ -134,8 +158,12 @@ class ServiceTests(unittest.TestCase):
         with (
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader),
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.QueryStore", return_value=store),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SavedQueryStore") as saved,
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.watch", side_effect=fake_watch),
         ):
+            saved.return_value.save_query.return_value = {
+                "saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1",
+            }
             service = WorkbenchService(Path("/project"))
             self.addCleanup(service.close)
             service.run("SELECT 1")
@@ -168,3 +196,30 @@ class ServiceTests(unittest.TestCase):
             self.assertIn("inside the selected repository", errors.getvalue())
             watch.assert_not_called()
             reader.capture.assert_not_called()
+
+    def test_saved_query_identity_survives_a_later_query_error(self):
+        store = unittest.mock.Mock()
+        store.run.side_effect = ValueError("bad SQL")
+        with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
+            service = WorkbenchService(Path("/project"))
+        saved = {"saved_query_id": "q_" + "2" * 32, "kind": "query", "sql": "invalid"}
+        service._saved_queries = unittest.mock.Mock(save_query=unittest.mock.Mock(return_value=saved))
+        service._store = store
+        service._start = unittest.mock.Mock()
+
+        with self.assertRaises(SavedQueryError) as raised:
+            service.run("invalid")
+
+        self.assertEqual(saved, raised.exception.saved_query)
+        self.assertIsInstance(raised.exception.original_error, ValueError)
+
+    def test_save_failure_does_not_start_or_execute(self):
+        with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
+            service = WorkbenchService(Path("/project"))
+        service._saved_queries = unittest.mock.Mock(save_query=unittest.mock.Mock(side_effect=ValueError("disk full")))
+        service._start = unittest.mock.Mock()
+
+        with self.assertRaisesRegex(ValueError, "disk full"):
+            service.run("SELECT 1")
+
+        service._start.assert_not_called()

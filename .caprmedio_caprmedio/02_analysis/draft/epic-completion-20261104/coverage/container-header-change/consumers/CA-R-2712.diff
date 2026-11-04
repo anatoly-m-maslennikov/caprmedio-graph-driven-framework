@@ -1,0 +1,18 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/consumers/CA-R-2712.preview.txt
+@@ -38,13 +38,7 @@
+ 
+ UNIQUE(
+   Atom/(.Header.Role: Plan)//$atom_2,
+-  (.Header.Relations.IS_CONTAINED_BY.atom, .Header.Work Sequence Number),
+-  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.atom{=1})
+-);
+-
+-UNIQUE(
+-  Atom/(.Header.Role: Plan)//$atom_3,
+-  (.Header.Relations.IS_CONTAINED_BY.scope_unit, .Header.Work Sequence Number),
+-  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.scope_unit{=1})
++  (.Header.Container, .Header.Work Sequence Number),
++  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Container{=1})
+ )
+ ```

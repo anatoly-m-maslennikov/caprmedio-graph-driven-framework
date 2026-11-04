@@ -1,0 +1,8 @@
+{
+  "status": "PASS_EXACT_OPERATOR_SUBSTITUTION",
+  "source_sha256": "8d7d12e2dec1eff9d3f78abee94883e6d070a8f025bc3bf6d98be3896b77dbda",
+  "candidate_sha256": "a2a02818c72cf5b6ad8e6d61c0ccaa9feea50b09ead62201a348695684381c0f",
+  "allowed_value_colon_preserved": true,
+  "body_equals_only_qualified_selector_operator_replacements": true,
+  "scope": "No admission of new Form or target; Current pre-Container metadata phase."
+}

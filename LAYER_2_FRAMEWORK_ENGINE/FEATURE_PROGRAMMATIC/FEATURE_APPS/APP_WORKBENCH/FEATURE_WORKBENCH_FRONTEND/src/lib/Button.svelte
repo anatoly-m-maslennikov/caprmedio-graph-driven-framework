@@ -1,11 +1,12 @@
-<!-- CA-R-2727@4 CA-M-466@5 CA-M-467@2 CA-D-674@8 -->
+<!-- CA-M-466@5 -->
 <script lang="ts">
-  let { children, disabled = false, type = 'button', onclick }: {
+  let { children, disabled = false, type = 'button', class: className = '', onclick }: {
     children: import('svelte').Snippet;
     disabled?: boolean;
     type?: 'button' | 'submit';
+    class?: string;
     onclick?: (event: MouseEvent) => void;
   } = $props();
 </script>
 
-<button {type} {disabled} {onclick}>{@render children()}</button>
+<button class={className} {type} {disabled} {onclick}>{@render children()}</button>

@@ -6,8 +6,8 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
-version: 10
-updated_at: 2026-10-27 19:59:43 +0400
+version: 11
+updated_at: 2026-11-04 23:19:17 +0400
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
   depends_on:
@@ -27,49 +27,34 @@ Materialize RMED ownership blocks in implementation
 ## Scope
 
 New or materially changed source in the assessed PROGRAMMATIC implementation
-boundary, including Tools, Apps, MCP components, workflows, and their
-claim-owning modules or units. Vendor code, generated output, frozen fixtures,
-and legacy history remain outside automatic editing unless explicitly admitted.
+boundary, including Tools, Apps, MCP components, workflows, and their owning
+modules or units. Vendor code, generated output, frozen fixtures, and legacy
+history remain outside automatic editing unless explicitly admitted.
 
 ## Claim
 
 To materialize a direct RMED-to-implementation trace, resolve current
-applicable authority first, choose the narrowest direct leaf for each relevant
-graph branch, and write the exact ownership block at the module header and at
-each identifiable owning unit. Preserve behavior and use many-to-many
-relations when one module or unit genuinely realizes several obligations.
+applicable authority first and write one header comment for each directly
+implemented Requirement, Evaluation, Delivery, or Engineering Decision. Each
+comment contains only that Atom ID and Version. Do not cite generic coding
+Policies merely because they guided the implementation, or an Atom only called
+by the implementation.
 
 ## Details
 
-1. Resolve current active RMED Atoms from authority and determine the
-   implementation owner. Use the graph for applicability and lineage, not as a
-   substitute for implementation evidence. Include an applicable policy leaf
-   for error, retry, logging, or similar behavior; do not cite an ancestor just
-   to fill a list.
-2. Place this block before the module's first code:
+Place the comments before the module's first code. A narrower set may also
+appear before an identifiable owning unit when useful. Use the file language's
+comment syntax:
 
-   ```text
-   # implementation of:
-   # Requirement: CA-R-2117, CA-R-2008
-   # Method: CA-M-431, CA-M-411
-   # Evaluation: CA-E-653
-   # Delivery: CA-D-640
-   ```
+```text
+# CA-R-2117@13
+# CA-M-466@5
+# CA-D-674@8
+```
 
-   Use Atom IDs only. Omit empty role lines. The same format immediately before
-   an identifiable function, class, or other owning unit may contain a
-   narrower set of IDs.
-3. Cite independent branches separately within the readable block. A
-   branch-specific block is optional when the owning unit needs that narrower
-   locality. Do not duplicate an already covered ancestor, turn a relation into
-   proof, or claim coverage merely because a comment exists. Keep actual
-   realization concentrated where practical under CA-M-411, while allowing a
-   justified split.
-4. Preserve the existing implementation and report a trace gap when current
-   source cannot resolve, a branch is ambiguous, a citation is stale or
-   malformed, or the owner cannot be identified. Do not invent authority or
-   silently mass-edit excluded files.
-
-The outcome is a readable, current, direct trace from applicable RMED claims to
-their actual implementation owners. It does not by itself assert conformance,
-test success, release readiness, or completion.
+Use one Atom per line. Do not add role labels, prose, headings, or an
+`implementation of` marker. Preserve the implementation and report a trace gap
+when current source cannot resolve, a citation is stale or malformed, or the
+owner cannot be identified. Do not invent authority or silently edit excluded
+files. The trace does not itself assert conformance, test success, release
+readiness, or completion.

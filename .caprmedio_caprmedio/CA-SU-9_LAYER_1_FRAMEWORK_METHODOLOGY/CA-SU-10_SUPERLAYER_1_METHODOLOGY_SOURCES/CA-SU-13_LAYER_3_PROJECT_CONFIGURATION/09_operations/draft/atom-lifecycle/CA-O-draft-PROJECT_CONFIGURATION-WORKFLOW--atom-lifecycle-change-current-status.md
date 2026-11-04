@@ -15,9 +15,9 @@ relations: {}
 ---
 
 ```mermaid
-flowchart TD
-    step1["Set the selected Current Status"]
-    click step1 "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-change-current-status/CA-O-draft-PROJECT_CONFIGURATION-STEP--set-the-selected-current-status.md" "Open Step"
+graph TD;
+    step1["Set the selected Current Status"];
+    click step1 "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-change-current-status/CA-O-draft-PROJECT_CONFIGURATION-STEP--set-the-selected-current-status.md" "Open Step";
 ```
 
 ## Summary

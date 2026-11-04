@@ -1,6 +1,6 @@
-# CA-R-2729@3
-# CA-M-463@4
-# CA-D-673@7
+# CA-R-2728@3
+# CA-R-2729@4
+# CA-D-673@8
 
 """Explicit process generations and connected Subject publication; no automatic replay."""
 import asyncio
@@ -32,9 +32,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'FEATURE_TOOLS'))
 from project_selection import ProjectSelection, bind_selection, resolve_project, rebind_selection
 from project_settings_schema import mcp_tool_blacklist
 from health_observations import HealthObservations
-from operation_error_boundary import FailureRecord, operation_error_boundary
+from operation_error_boundary import ExplicitBlockingRuntimeFailure, FailureRecord, operation_error_boundary
 from runtime_failure_diagnostics import report_failure
-from workbench_tools import CHECK as WORKBENCH_CHECK, PAGE as WORKBENCH_PAGE, RUN as WORKBENCH_RUN, WorkbenchTools, native_tools as workbench_native_tools
+from workbench_links import context_project_root, public_saved, validate_reference
+from workbench_tools import NATIVE_TOOLS as WORKBENCH_TOOLS, WorkbenchTools, native_tools as workbench_native_tools
 
 
 def startup_selection(root, control_root=None, instance_id=None, host_root=None):
@@ -407,7 +408,7 @@ class Gateway:
             phase, started = 'schema_validation', time.monotonic()
             names = [t.name for t in generation.tools]
             if len(set(names)) != len(names) or {
-                CONTROL.name, STATUS.name, WORKBENCH_RUN, WORKBENCH_CHECK, WORKBENCH_PAGE,
+                CONTROL.name, STATUS.name, *WORKBENCH_TOOLS,
             }.intersection(names):
                 raise ValueError('Duplicate or reserved Tool name')
             for tool in generation.tools:
@@ -600,7 +601,7 @@ class Gateway:
                     return await self._call(context, params)
 
             guarded_call = operation_error_boundary(
-                on_error=lambda caught: self._public_call_failure(caught, params),
+                on_error=lambda caught: self._public_call_failure(caught, context, params),
             )(guarded_call)
             response = await guarded_call()
             error = _INNER_CALL_ERROR.get()
@@ -623,8 +624,15 @@ class Gateway:
                 )
             _INNER_CALL_ERROR.reset(token)
 
-    def _public_call_failure(self, error, params):
+    def _public_call_failure(self, error, context, params):
         _INNER_CALL_ERROR.set(error)
+        saved = getattr(error, 'details', {}).get('saved_query') if isinstance(getattr(error, 'details', None), dict) else None
+        request = getattr(context, 'request', None)
+        if params.name in WORKBENCH_TOOLS and isinstance(saved, dict):
+            value = saved if request is None else public_saved(
+                saved, request, self.selection, context_project_root(context),
+            )
+            return result({'error': getattr(error, 'message', str(error)), **value}, True)
         return _failure_result(
             self.root, error, component='MCP_GATEWAY', operation=params.name,
         )
@@ -740,8 +748,22 @@ class Gateway:
             return result(self.status())
         if params.name == CONTROL.name:
             return await self.control(context, params.arguments or {})
-        if params.name in (WORKBENCH_RUN, WORKBENCH_CHECK, WORKBENCH_PAGE):
-            return result(await self.workbench.call(params.name, params.arguments))
+        if params.name in WORKBENCH_TOOLS:
+            request = getattr(context, 'request', None)
+            arguments = params.arguments
+            if (params.name == 'query_load' and isinstance(arguments, dict)
+                    and isinstance(arguments.get('reference'), str)):
+                try:
+                    reference = validate_reference(
+                        arguments['reference'], request, self.selection, context_project_root(context),
+                    )
+                except ValueError as error:
+                    raise ExplicitBlockingRuntimeFailure('query_error', str(error)) from error
+                arguments = {**arguments, 'reference': reference}
+            value = await self.workbench.call(params.name, arguments)
+            if request is not None:
+                value = public_saved(value, request, self.selection, context_project_root(context))
+            return result(value)
         generation = self.active
         generation.in_flight += 1
         try:

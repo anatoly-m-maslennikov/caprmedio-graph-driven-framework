@@ -7,17 +7,39 @@ The MCP endpoint is `/caprmedio/mcp`; health is `/caprmedio/health`.
 
 MCP tools:
 
-- `query_run(sql, page_size=100)` returns a `query_id`, original column metadata,
+- `query_run(sql, page_size=100, cursor_position?)` returns a `query_id`, original column metadata,
   positional rows, total counts, offset and `has_more`.
 - `query_page(query_id, offset, page_size=100)` reads the same result without
   re-executing SQL. The maximum page size is 1,000.
-- `query_check(sql)` returns validity and exact counts without transferring all rows.
+- `query_check(sql, cursor_position?)` returns validity and exact counts without transferring all rows.
+- `query_schema()` returns table/column names and types for completion.
+- `query_save(sql, cursor_position?)` saves SQL without executing it.
+- `worksheet_save(sql)` saves a whole multi-query script.
+- `query_load(reference)` opens a saved ID or full URL without executing it.
+- `query_saved_list(limit=20)` lists the most recent saved queries and Worksheets.
+
+Run and Check save before execution. Their answers, including SQL errors, return
+`saved_query_id`, `saved_query_url`, `kind` and the selected `sql`. The saved ID is
+separate from the materialized result's pagination `query_id`. Query saves are
+immutable `.sql` files; Worksheet saves are `.json` files in
+`.caprmedio_runtime/workbench/saved_queries`. A saved URL uses `?query=<id>`.
+
+Each editor tab is a Worksheet. Run, Check and Save select the statement at the
+cursor; Save Worksheet saves the whole script. Semicolons inside SQL literals or
+comments do not split statements. MCP callers may pass `cursor_position` in
+UTF-16 code units; without it, the submitted SQL is used unchanged.
+Cmd+Enter runs and Shift+Cmd+Enter checks. The CodeMirror editor completes names
+from the current schema. Local browser drafts autosave every five seconds and
+restore after reload; unsaved tabs/windows ask before closing. Saved SQL opens
+without execution. Light, Dark and System themes and text-only zoom cover all UI
+text, including buttons, tabs and result cells.
 
 The UI hides columns containing only NULL, empty strings or empty collections
 across the whole result. Zero and false remain visible. `columns[].has_values`
 is stable across pages; SQL rows and total column counts remain complete.
 
-Web POST endpoints are `/caprmedio/workbench/<project_name>/run`, `/page` and `/check`.
+Web POST endpoints are `/caprmedio/workbench/<project_name>/run`, `/page`, `/check`,
+`/schema`, `/save`, `/worksheet-save`, `/load` and `/saved-list`.
 A mismatched Project name returns 404. Static assets stay under `/caprmedio/workbench/assets`.
 A shared MCP server also requires `project_root`.
 

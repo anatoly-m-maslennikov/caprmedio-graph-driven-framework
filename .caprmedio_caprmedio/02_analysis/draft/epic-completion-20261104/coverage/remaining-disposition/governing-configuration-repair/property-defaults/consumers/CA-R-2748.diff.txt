@@ -1,0 +1,8 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2748-CORE_META_MODEL-RULE--unify-operator-selected-project-settings.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/consumers/CA-R-2748.preview.txt
+@@ -30,4 +30,4 @@
+ 
+ ### Prose Claim
+ 
+-Project.Settings owns the Operator-selected Project initialization inputs and applicable CAPRMEDIO behavior and configuration choices. Each selected setting has one authoritative owner in its Project. Atoms define permitted parameters, constraints, and applicability without duplicating selected values or defaults.
++Project.Settings owns the Operator-selected Project initialization inputs and applicable CAPRMEDIO behavior and configuration choices. Each selected setting has one authoritative owner in its Project. Atoms define permitted parameters, constraints, applicability, and applicable Property defaults without duplicating selected values or defaults.

@@ -1,0 +1,27 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Project.Settings
+  passive:
+  - CAPRMEDIO_MODEL <+ Term//Property
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1429
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Separate settings boundaries from field specifications
+
+## Claim
+
+### Prose Claim
+
+Project.Settings foundations must define their purpose, content and authority boundaries. An independently governable shared settings specification must preserve those foundations without selecting a concrete representation. Each concrete section, field or Carrier syntax specification must be explicit.
+
+A setting does not require a shared settings specification unless it needs independent shared authority.

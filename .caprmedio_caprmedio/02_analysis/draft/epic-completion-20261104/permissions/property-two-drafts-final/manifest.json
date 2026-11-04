@@ -1,0 +1,38 @@
+{
+  "status": "SOURCE_ONLY_PREVIEWS",
+  "scope": "Node.** Property rules only; no automatic Entity-to-Node mapping for other subjects",
+  "entries": [
+    {
+      "id": "CA-R-1247",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1247-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "current_sha256": "3a1847ad88f2cee8615db4b45c931746771e4508fcccb2ccd22a2967edf1c3f4",
+      "actual_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1247@25-draft-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "actual_draft_sha256": "73583d243707488dbf62e229d249724a4a7466f27ffe5502cd70cfb0e0c3f25b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/property-two-drafts-final/CA-R-1247.preview.txt",
+      "candidate_sha256": "8308c9ae1b83e9b0ec1f886de0c729450c8a8a95fe4ffc7f8a14ea9b81aa69b8",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/property-two-drafts-final/CA-R-1247.diff",
+      "diff_sha256": "5e33413054881e652a3349d0f422ff96926330505d3b66f050a6ecebec4ff0b1"
+    },
+    {
+      "id": "CA-R-2003",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "current_sha256": "6b83ec62b5d30960febc3dbcaadee3d5504be4ff3caa95356745a91f8952b4c0",
+      "actual_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2003@17-draft-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "actual_draft_sha256": "9c8efd2b279a09608f4b6fdde2e33a4e49dda63ea743e8459e8cc88d8b2f9038",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/property-two-drafts-final/CA-R-2003.preview.txt",
+      "candidate_sha256": "2bde797ee156081c82021e4c6e7290e1fa30babe31c6d9ccdea78f1fec0dbab2",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/property-two-drafts-final/CA-R-2003.diff",
+      "diff_sha256": "28ff5554ebc12923b95c0b8d4717906dfb398d77ca13637587d8474bd162b0d7"
+    }
+  ],
+  "authority": {
+    "id": "CA-M-451@7",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+    "sha256": "cc83380cc43391664968b27b812f799030e57e9c7d88baa2ba329912e0d7a998"
+  },
+  "notes": [
+    "R1247 replaces only obsolete Entity-root passive with retained lexical Term//Entity; normative distinct-name predicate is explicitly scoped to Property occurrences.",
+    "R2003 claim specifies Node.** for declared occurrences and keeps source inventory independent of present bearer edges; no non-Node Property permission is changed.",
+    "Metadata, ID, version, Summary, existing Property and IS_PROPERTY_OF dependencies remain unchanged."
+  ]
+}

@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2635-CORE_META_MODEL-DECLARATION--declare-project-settings-implementation-retry-limit.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/CA-R-2635.preview.txt
+@@ -23,7 +23,7 @@
+ 
+ ```CFEL
+ # model
+-Project.Settings.Implementation Retry Limit: [int]{:0..1};
++Project.Settings.Implementation Retry Limit: [int]{:0..1} ?== 3;
+ 
+ Project.Settings.Implementation Retry Limit.*[]{:0}
+ ```

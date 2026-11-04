@@ -1,0 +1,173 @@
+{
+  "status": "CONDITIONAL_PREVIEW_AND_EXACT_HELDS",
+  "rows": [
+    {
+      "id": "CA-E-450",
+      "version": 27,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md",
+      "source_sha256": "3f60f832dcb4b1e40193d9823ffb5c8facf0f5576a94ac0a864f1f4b1ab57e15",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution",
+      "clause_disposition": {
+        "preserve": [
+          "Valid explicit value wins; absent individual value may use applicable valid Property default; false/zero/empty remain present.",
+          "Reject invalid explicit or selected default; required missing remains unresolved, optional missing permitted; no cross-project reads or copying fallback into authored values.",
+          "Repeated reads stable for unchanged inputs; isolated fixtures for otherwise unavailable value cases."
+        ],
+        "obsolete": [
+          "Remove independent default TOML Carrier and representation comparison; validate default against the same Property Format/domain.",
+          "Replace evaluation_for CA-D-407/CA-D-408 only when those sources retire; retain M279 and R1441 bindings."
+        ],
+        "hold": "Active Subject still names retired Project.Framework Settings.Parameter Resolution. Its exact currently declared target is not established; do not relabel to a broader Subject or invent a resolution entity."
+      },
+      "status": "HELD_SCOPE_OR_DEPENDENCY"
+    },
+    {
+      "id": "CA-R-1983",
+      "version": 15,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1983-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-parameter-resolution.md",
+      "source_sha256": "d274204e13a7a6c117916a9107af85eaf868a1fe865477007db3f0eb27b0ff5c",
+      "active_subject": "CAPRMEDIO_MODEL <+ Project.Settings",
+      "clause_disposition": {
+        "preserve": [
+          "Explicit selected value takes applicable precedence; default is Property-owned; resolution remains derived without a separately authored result.",
+          "Preserve detailed M279 precedence and invalid-value handling."
+        ],
+        "obsolete": [
+          "Remove references to separate Framework and Default Settings configurations and Candidate #6 staging."
+        ],
+        "hold": "Current Summary names retired Project.Framework Settings.Parameter Resolution. A changed Summary requires a new ID; exact governing target and replacement authority remain to be established."
+      },
+      "status": "HELD_SCOPE_OR_DEPENDENCY"
+    },
+    {
+      "id": "CA-M-279",
+      "version": 24,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings.md",
+      "source_sha256": "a0eaf436f740ee68608eefa952d3dd46d6db7ae044d66995922225acf123a756",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution",
+      "clause_disposition": {
+        "preserve": [
+          "Per-parameter explicit presence precedes declared Property default; valid false/zero/empty are explicit.",
+          "Validate selected value and reject invalid explicit values without fallback; missing required fails, optional may remain absent; do not copy derived values into selected settings."
+        ],
+        "obsolete": [
+          "Replace separate Framework Instance Settings/Default Settings Artifact source with same Project.Settings Property and its declared ?== default."
+        ],
+        "hold": "Active Subject points to obsolete Project.Framework Settings.Parameter Resolution and no exact Current target for this Method is established. Preserve Summary until correct scope/ID is settled; no blind remapping."
+      },
+      "status": "HELD_SCOPE_OR_DEPENDENCY"
+    },
+    {
+      "id": "CA-D-447",
+      "version": 30,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-ENG_DECISION--serialize-the-implementation-retry-limit-setting.md",
+      "source_sha256": "4334b7cadc76ac932c59355d01ff395345a6beb1c1ab33cac68b0235188dbfb3",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit",
+      "clause_disposition": {
+        "preserve": [
+          "Existing selected Project retry limit remains nonnegative and explicit zero valid under R2635; preserve actual approved serialization only when current exact Project.Settings field is verified."
+        ],
+        "obsolete": [
+          "Remove separate Default Settings TOML and obsolete per-Plan retry/Hub override claims per latest decision."
+        ],
+        "hold": "Exact Current Project.Settings retry carrier field/path and default value are not established by R2635; do not invent a field, value or a Plan override. Reconcile with serialization owner and retained history."
+      },
+      "status": "HELD_SCOPE_OR_DEPENDENCY"
+    },
+    {
+      "id": "CA-E-458",
+      "version": 35,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-POLICY--validate-authoritative-framework-settings-artifact.md",
+      "source_sha256": "0673486890ca4f0517debe3baee67fe872d0c04788af5d5e6efc2f3c7f44ac4e",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+      "clause_disposition": {
+        "preserve": [
+          "Applicable checks for selected Project authority, validation, isolation, content and history binding must be retained wherever Current authority requires them."
+        ],
+        "obsolete": [
+          "Framework Instance Settings as separately authoritative artifact is superseded by unified Project.Settings; its isolated TOML/absence-of-initialization assumptions cannot be carried wholesale."
+        ],
+        "hold": "Historical record/receipt checks and their applicable successor cannot be mapped safely to Project Settings without separate authority review; Summary explicitly names old artifact, so a changed Summary requires a fresh ID."
+      },
+      "status": "HELD_SCOPE_OR_DEPENDENCY"
+    },
+    {
+      "id": "CA-E-459",
+      "version": 40,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md",
+      "source_sha256": "f8772712515bb95f5559bd9d9ac8986e11df070ad14ca4d1ccae58286b3b0787",
+      "active_subject": "CAPRMEDIO_MODEL <+ Project.Settings",
+      "clause_disposition": {
+        "preserve": [
+          "All current Project-root Settings Carrier placement, selected Name/Prefix, explicit validation and separate read/history rules remain untouched.",
+          "R1429 reference remains same ID if candidate revision is adopted."
+        ],
+        "obsolete": [
+          "None required by Property-default relocation alone. Existing stale Current source-pin prose is a separate issue."
+        ],
+        "hold": "No default-consumer content change required within this bounded packet; exact broader Carrier/schema migration is owned elsewhere."
+      },
+      "status": "NO_CHANGE_IN_BOUNDED_DEFAULT_PACKET"
+    },
+    {
+      "id": "CA-R-2748",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2748-CORE_META_MODEL-RULE--unify-operator-selected-project-settings.md",
+      "source_sha256": "aee50dd9308c89d6ff68605aa4e1c643071be28bb5da1ec3dd362f8ea6a70cef",
+      "active_subject": "CAPRMEDIO_MODEL <+ Project.Settings",
+      "clause_disposition": {
+        "preserve": [
+          "Operator-selected values remain owned in Project.Settings; Atoms do not duplicate selected values or duplicate defaults."
+        ],
+        "change": [
+          "Clarify that applicable Property defaults are included among authoritative declared Atom constraints."
+        ],
+        "hold": "Candidate is conditional on coordinated R1441 Property-default replacement; no new default, value or carrier schema."
+      },
+      "status": "CONDITIONAL_WHOLE_PREVIEW",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/consumers/CA-R-2748.preview.txt",
+      "candidate_sha256": "9ed28e852f12eab4e1df4c848b4111c09921267bef6fcf42b6f2af458852b0a6",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/consumers/CA-R-2748.diff.txt",
+      "diff_sha256": "08226f2e2a05fe5870ba0a23479a2b7e1fcb896ff4e0ca510b002400a9903d8d"
+    }
+  ],
+  "current_authority_pins": [
+    {
+      "id": "CA-R-2635",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2635-CORE_META_MODEL-DECLARATION--declare-project-settings-implementation-retry-limit.md",
+      "sha256": "d0eae12b9d3813e8dc65b40a46e5cf689d6db0d693b8890079833f8cd35e1e7b"
+    },
+    {
+      "id": "CA-R-2532",
+      "version": 8,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+    },
+    {
+      "id": "CA-R-2564",
+      "version": 4,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "sha256": "6c1dc5f3c6f0d1f6aec7380c769824760da4de9497f46122fa45e660055e69b9"
+    },
+    {
+      "id": "CA-R-2769",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2769-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "69ccd7b57a93be95871f29e4ad180044249983448172352d2c791273b680e4fa"
+    },
+    {
+      "id": "CA-R-2770",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2770-CORE_META_MODEL-DECLARATION--declare-cfel-operator-lookup-r-q.md",
+      "sha256": "33e9b2e573ddc8e875a44660aa62312b4e34523f2296ccee10986528d1fa4a24"
+    }
+  ],
+  "first_unresolved": "What existing Current Subject exactly owns Project.Settings parameter-resolution Method and Evaluation Claims? Current source uses retired Project.Framework Settings.Parameter Resolution; no replacement Subject is inferred.",
+  "secondary_gap": "The Current Project.Settings retry limit is optional and references governed default resolution, but the concrete retry default and serialized field are not established here; no value or carrier field invented.",
+  "coordination": [
+    "R1441/R1429 replacements and D407/D408 retirement require simultaneous accepted repairs to their live references and existing behaviors.",
+    "Changing a Summary or substituting an independent source requires a fresh ID through the designated owner.",
+    "Conditional R2748 preview is source-only and does not authorize modifying existing Carrier data, runtime adapter or Plan overrides."
+  ]
+}

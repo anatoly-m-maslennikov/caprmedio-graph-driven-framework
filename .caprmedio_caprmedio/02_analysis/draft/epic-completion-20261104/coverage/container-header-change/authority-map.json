@@ -1,0 +1,258 @@
+{
+  "artifact": "container-header containment authority impact map",
+  "snapshot": "Current carriers read 2026-11-04",
+  "status": "DECISION_SETTLED_HEADER_CANDIDATES_PREPARED",
+  "scope": "Core Meta Model Atom Header/Scope Unit declarations and direct Delivery serialization authority. No Current, Draft, code, workflow, workbench, test, or Git changes.",
+  "latest_user_decisions": [
+    "Keep IS_CONTAINED_BY/CONTAINS and +>/<+ for Formal Claims/MODEL, with no new alias semantics.",
+    "Atom instance containment is stored only as ordinary Atom.Header.Container; do not duplicate it under Header.Relations.",
+    "Every Atom has exactly one Header.Container, including Scope Unit Declaration Atoms. The Project Scope Unit instance has zero IS_CONTAINED_BY relations.",
+    "Header.Container value is either the full Scope Unit path or the base ID of the containing Atom; the base Atom ID is the current default.",
+    "Scope Unit Declaration Claims continue to express the declared Scope Unit instance parent using IS_CONTAINED_BY. Do not create Scope Unit.Container/Parent properties.",
+    "Keep R2698/R2699/R2700 typed wrapper declarations until all consumers have migrated."
+  ],
+  "impact_map": [
+    {
+      "area": "Atom Header field inventory",
+      "current_sources": [
+        {
+          "id": "CA-R-2719@1",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+          "sha256": "b44cedbf39e8d65c8dddb21a03370ed744e65daee99eff70cc0007d064ebb0e3",
+          "finding": "Atom.Header.* enumerates ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold and Work Sequence Number. Container is absent; this is the owning declaration to extend."
+        },
+        {
+          "id": "CA-R-2709@1",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+          "sha256": "3f759fcf082e94dd20b07d243edd7daaf374e23a80033c4246ad2c01b3d1df17",
+          "finding": "Atom.Header.Relations is currently cardinality 1 and its instances enumerate Relation references. Make the whole field optional per user decision while preserving other relation keys."
+        }
+      ],
+      "replacement_map": "Add Atom.Header.Container to the Atom.Header property inventory. Make Atom.Header.Relations optional; remove containment from that collection without treating other Relation headers as optional by implication beyond the accepted whole-field optionality."
+    },
+    {
+      "area": "Typed Atom containment target",
+      "current_sources": [
+        {
+          "id": "CA-R-2698@2",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+          "sha256": "669672c32d618a63cd81611b5daf3eef6ba090e30780f66f057b19a9c9d257bd",
+          "finding": "Current required wrapper is Atom.Header.Relations.IS_CONTAINED_BY with an in(atom,scope_unit) target choice."
+        },
+        {
+          "id": "CA-R-2699@2",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2699-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-atom.md",
+          "sha256": "375ec0b4c9e4af412f361cb6ca8284e5c2178d37700ebb227e0cfdcadcd6069d",
+          "finding": "One optional typed branch stores an Atom ID."
+        },
+        {
+          "id": "CA-R-2700@2",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2700-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-scope-unit.md",
+          "sha256": "6660e552b2dc55c3145dff1b2d5e8f86dc7c1e5385dd98e2e0b4a467558b689d",
+          "finding": "A separate optional typed branch stores a Scope Unit ID."
+        }
+      ],
+      "replacement_map": "Replace the typed wrapper with ordinary required Atom.Header.Container; allowed values are full Scope Unit path or base Atom ID, base ID current default. The old wrapper retires only after consumers migrate; do not duplicate storage under Header.Relations."
+    },
+    {
+      "area": "Atom containment cardinality and graph projection",
+      "current_sources": [
+        {
+          "id": "CA-R-2508@6",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+          "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d",
+          "finding": "Atom model requires one outgoing IS_CONTAINED_BY and says its target is selected by Header.Relations.IS_CONTAINED_BY. Keep the one IS_CONTAINED_BY formal Relation requirement, but read the Atom instance containment from its single Header.Container value; do not duplicate it in Header.Relations."
+        },
+        {
+          "id": "CA-R-2478@5",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+          "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
+          "finding": "Currently defines IS_CONTAINED_BY as direct child-to-Container Relation, CONTAINS as inverse, and +> as its alias. Keep the Relation pair and aliases for Formal Claims/MODEL; Atom instance containment is stored once in Header.Container, with no duplicate Header.Relations value."
+        },
+        {
+          "id": "CA-R-2617@2",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md",
+          "sha256": "129277b5d905006aed8279b20be9ed45ed8fcc1733b3097ca07321cdb03db16d",
+          "finding": "Declares CONTAINS as HAS_INVERSE of IS_CONTAINED_BY and aliases it as <+. Keep the Relation pair and aliases for Formal Claims/MODEL; Atom instance containment is stored once in Header.Container."
+        }
+      ],
+      "replacement_map": "Keep IS_CONTAINED_BY/CONTAINS for Formal Claims/MODEL; for Atom instances, Header.Container is the sole stored value and the graph fact must not be separately stored in Header.Relations."
+    },
+    {
+      "area": "Scope Unit instance container versus declaration Atom container",
+      "current_sources": [
+        {
+          "id": "CA-R-2523@3",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+          "sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5",
+          "finding": "Scope Unit instances currently use a direct IS_CONTAINED_BY edge; generic cardinality is 0..1, plus a condition requires one for non-Project Units."
+        },
+        {
+          "id": "CA-R-2524@3",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+          "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db",
+          "finding": "Project instance explicitly has zero IS_CONTAINED_BY edges and is the root Scope Unit."
+        },
+        {
+          "id": "CA-R-2688@2",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+          "sha256": "f6d0af9f8d82ac2994c2c7be70659947eaf9baf48edab3d8c1f233c6f36b47ff",
+          "finding": "External Scope Unit Declaration is the sole structural authority; it carries direct containment, and each non-root Scope Unit has one Parent while Project has none."
+        },
+        {
+          "id": "CA-R-2684@1",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+          "sha256": "14a60cabd55349140c38bf8e0a3191016ff2ea78718d4043b3a80de163d67bbc",
+          "finding": "A Scope Unit Declaration Atom is external to the specific Scope Unit named by its active Subject; it does not create another Scope Unit."
+        },
+        {
+          "id": "CA-R-2689@1",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2689-CORE_META_MODEL-RULE--derive-scope-unit-ancestry-from-declarations.md",
+          "sha256": "231b696a82ee2de48e57234e4bdcf981e2638bc44eb8a39e69ebece84dd8b6bd",
+          "finding": "Scope Unit Declaration's carrier is a Markdown Atom and its Claim is the governing source; this requires keeping the Atom's Header.Container distinct from the Scope Unit instance parent in the Claim."
+        },
+        {
+          "id": "CA-R-2650@1",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md",
+          "sha256": "d3de95bc060121e55c2f0a96928e759d5db4ab49433298fd1e07dcee5299e934",
+          "finding": "Concrete example: this Atom's active Subject is Scope Unit//CORE_META_MODEL; its Claim declares the Scope Unit instance CORE_META_MODEL IS_CONTAINED_BY Scope Unit//METHODOLOGY_SOURCES; its own frontmatter has relations: {}. The future Header.Container on this Atom concerns the declaration Atom itself, not the CORE_META_MODEL instance's parent, even if the resulting target happens to be the same Scope Unit."
+        }
+      ],
+      "replacement_map": "Keep the two object-level facts separate. Atom.Header.Container belongs to each declaration Atom. The declared Scope Unit instance parent remains IS_CONTAINED_BY in that external Scope Unit Declaration Claim. No Scope Unit.Container/Parent property is introduced."
+    },
+    {
+      "area": "Current containment consumers in Core MODEL",
+      "current_sources": [
+        {
+          "id": "CA-R-2711@6",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+          "sha256": "0506c8ab90381874d50fd3f368b97217a392271e555c495b2b03d47bcf8267c3",
+          "finding": "Plan threshold fallback uses a Formal Claim relation traversal. Keep IS_CONTAINED_BY available for formal claims/MODEL; no Header.Relations storage is introduced by this use."
+        },
+        {
+          "id": "CA-R-2712@2",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+          "sha256": "5734c23d03209bdbb4735f1a6938942dfa1353c50fa093a371ca539543d0cbf7",
+          "finding": "Plan work-sequence uniqueness currently reads the two typed Header.Relations children; update to the scalar Header.Container key once all consumers are migrated."
+        },
+        {
+          "id": "CA-R-2530@2",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2530-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+          "sha256": "9abd4823d07e60b55d674823274fef480205f39e0eb5e193ac30d06c4f59a075",
+          "finding": "Scope Unit.Path remains derived from Scope Unit Declaration IS_CONTAINED_BY claims."
+        },
+        {
+          "id": "CA-R-2554@2",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+          "sha256": "0f0ba69390d074f65a5c0c75469e6bf3b1f24bb53f321fa3d742d38ab6cfb75b",
+          "finding": "Structural level remains recursively derived from Scope Unit Declaration IS_CONTAINED_BY claims, never from the declaration Atom Header.Container."
+        }
+      ],
+      "replacement_map": "Rebase relation traversals and relation-key uniqueness predicates to the respective owning object's Container path. Keep Atom and Scope Unit instance scopes distinct."
+    },
+    {
+      "area": "Direct Delivery and materialization authority",
+      "current_sources": [
+        {
+          "id": "CA-D-268@30",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+          "sha256": "c301ef453ae1fa2a82f6deb2e12332bc7b340fd289d56ceeeb935e9e6f7bfb52",
+          "finding": "Currently requires every direct semantic relation under relations.<RELATION_KIND> and says child serializes IS_CONTAINED_BY. This serialization authority must be changed so Container is the only stored Atom-containment representation; preserve other direct relations."
+        },
+        {
+          "id": "CA-D-266@29",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+          "sha256": "4e72593f7c399b72dd910efdc1b492d8f777e563af836997f57a346086a39d60",
+          "finding": "Keep carrier-nesting-derived views distinct from the one authored Header.Container value for an Atom; do not persist a duplicate Atom relation fact. Formal Scope Unit Claim relations remain unaffected."
+        },
+        {
+          "id": "CA-D-264@29",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+          "sha256": "e12a30e551afc95a332d40b1f467231d68edf974bd753d54d5d1e6d2e9336e1e",
+          "finding": "This Delivery rule is scoped to Artifact Revisions and nearest Directory Carriers; ensure it does not create a competing stored Atom Header.Container value. Scope Unit logical parent continues to come from its Declaration."
+        },
+        {
+          "id": "CA-D-442@26",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+          "sha256": "3876e616560ffec0951cd4e9e4653d510bd7c914f3892163f67063c888f08115",
+          "finding": "Scope Unit Declaration is a Markdown Atom; Role, Form and active Subject are in frontmatter, while structural facts remain in the Claim. Keep the Scope Unit instance IS_CONTAINED_BY Claim expression; only the Declaration Atom's own Header.Container is a frontmatter property."
+        },
+        {
+          "id": "CA-D-666@1",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-666-CORE_META_MODEL-POLICY--carry-scope-unit-declarations-as-governing-atoms.md",
+          "sha256": "69c8ec98af846687233fcf0339ba78f66d0452413b77e59c834f331f628cb63b",
+          "finding": "Scope Unit Declaration's carrier is a Markdown Atom and its Claim is the governing source; supports separating Atom header container from instance's declared parent."
+        },
+        {
+          "id": "CA-D-671@1",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-671-CORE_META_MODEL-ENG_DECISION--carry-materialized-scope-units-with-directory-carriers.md",
+          "sha256": "4b159eea8047bd208a13cace2be4ffc732b9f2706eb32bc8f2eb17b965e74224",
+          "finding": "Materialized Scope Units have Directory Carriers, but a Scope Unit Declaration remains valid when not materialized; directory presence is not itself a universal parent source."
+        }
+      ],
+      "replacement_map": "D268 must route Atom instance containment storage to Header.Container, with no duplicate entry under relations.<RELATION_KIND>. IS_CONTAINED_BY/CONTAINS remain graph Relations for Formal Claims/MODEL. Scope Unit Declaration Delivery continues carrying the declared Scope Unit parent as IS_CONTAINED_BY in its Claim; keep that distinct from the Declaration Atom Header.Container."
+    }
+  ],
+  "scope_unit_parent_path_status": {
+    "current": "Scope Unit instance parent remains IS_CONTAINED_BY in the external Scope Unit Declaration Claim; R2523/R2688 require one for non-Project Units and zero for Project. No Scope Unit.Container/Parent property is introduced.",
+    "property_declaration": "No Scope Unit.Container/Parent property is introduced. Scope Unit.Parent occurs only as a legacy dependency subject in R2689; R2530 Path and R2554 structural level continue deriving from Scope Unit Declaration IS_CONTAINED_BY Claims.",
+    "impact": "Scope Unit instance containment stays as IS_CONTAINED_BY in the Scope Unit Declaration Claim; this fact is distinct from the declaration Atom Header.Container. Do not substitute one for the other."
+  },
+  "minimal_field_path_replacements": [
+    {
+      "old": "Atom.Header.Relations.IS_CONTAINED_BY (+ .atom or .scope_unit typed target)",
+      "new": "Atom.Header.Container (one scalar string; full Scope Unit path OR base Atom ID; base ID default)",
+      "status": "user-approved; candidate declares required string cardinality and prose value alternatives; Scope Unit path lexical serialization remains unestablished"
+    },
+    {
+      "old": "Atom.Header.Relations required object",
+      "new": "Atom.Header.Relations optional object",
+      "status": "user-approved; R2709 candidate prepared"
+    },
+    {
+      "old": "Atom instance containment serialized as a relation entry in Header.Relations",
+      "new": "Atom instance containment stored only in Header.Container; IS_CONTAINED_BY/CONTAINS remain graph Relations for Formal Claims/MODEL",
+      "status": "user-approved; do not duplicate instance storage"
+    },
+    {
+      "old": "Scope Unit//child IS_CONTAINED_BY Scope Unit//parent in its external Declaration Claim",
+      "new": "same IS_CONTAINED_BY Claim expression retained",
+      "status": "user-approved; no Scope Unit.Container/Parent field or property is introduced"
+    },
+    {
+      "old": "Plan work-sequence uniqueness tuple split by Header.Relations.IS_CONTAINED_BY.atom and .scope_unit",
+      "new": "single Header.Container tuple key",
+      "status": "consumer update after new declaration; preserve existing constraints"
+    }
+  ],
+  "critical_distinction_example": {
+    "source_atom": "CA-R-2650@1",
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/04_requirement/CA-R-2650-METHODOLOGY_SOURCES-DEFINES_SCOPE_FOR-CORE_META_MODEL--declare-core-meta-model.md",
+    "source_sha256": "d3de95bc060121e55c2f0a96928e759d5db4ab49433298fd1e07dcee5299e934",
+    "atom_fact": "The CA-R-2650 Declaration Atom has active Subject Scope Unit//CORE_META_MODEL; its own header is the Atom carrier metadata (currently relations: {}).",
+    "scope_unit_instance_fact": "Its Claim says the Scope Unit instance CORE_META_MODEL is IS_CONTAINED_BY Scope Unit//METHODOLOGY_SOURCES.",
+    "interpretation": "After migration, Header.Container on CA-R-2650 identifies the container of the declaration Atom. Its Claim-level IS_CONTAINED_BY identifies the parent of the Scope Unit instance named by subjects.active. These may resolve to the same Scope Unit, but have different hosts and must not be substituted for one another.",
+    "governance_pin": "CA-R-2684@1 explicitly says the Scope Unit Declaration is external to the Scope Unit it declares."
+  },
+  "remaining_questions": [],
+  "exclusions": [
+    "No implementation or runtime behavior inferred.",
+    "No canonical, Draft, code, workflow, workbench, test, or Git changes made.",
+    "This is a bounded Core Meta Model/Delivery authority map, not a full repository census of every IS_CONTAINED_BY occurrence."
+  ],
+  "candidate_packet": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/header-candidates/manifest.json",
+  "header_container_format_gap": "Scope Unit.Path semantics are declared, but its single-value lexical serialization for Header.Container is not. Candidate declares the existing string primitive and prose format alternatives only; no new syntax.",
+  "retirement_order": "R2698/R2699/R2700 typed wrapper declarations remain until R2508, R2711, R2712 and other consumers have migrated.",
+  "settled_path_and_format_gap": {
+    "property": "Atom.Header.Container",
+    "formal_candidate": "Required single string property; prose restricts its value to full Scope Unit path or base Atom ID, with base ID current default.",
+    "format_gap": "Scope Unit.Path declares string elements and full-chain semantics, but no current authority establishes the canonical lexical serialization of a full path in one Header.Container scalar. Candidate introduces no new syntax; decide/declare lexical format before strict validation."
+  },
+  "project_declaration_atom_example": {
+    "id": "CA-R-2640@1",
+    "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+    "sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9",
+    "fact": "This external Project Declaration Atom has active Subject Project//caprmedio, relations:{}, and legacy current_scope_unit Anatoly Maslennikov. Separately, Project as a Scope Unit instance has zero parent relations under CA-R-2524. Under the new rule the Declaration Atom still requires Header.Container=1; do not infer its value from the Project instance\u2019s zero-parent rule or from the legacy current_scope_unit field."
+  },
+  "candidate_packet_sha256": "e48b6484792390d6e4c5ce2447ac9213519a8b786ebc17e795126d952d44ff33"
+}

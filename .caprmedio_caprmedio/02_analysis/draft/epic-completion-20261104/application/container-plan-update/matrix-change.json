@@ -1,0 +1,7 @@
+{
+  "before_sha256": "11b337b0874831f45e3b733cb8c534adff6ff8c7776d7249e3152c13ca2e4af1",
+  "after_sha256": "7386c6590a206c8e17f0a92d4433fbc7ccc4d8cbb41a419ccc893aecea160497",
+  "requirement_groups": 23,
+  "gate_commands_preserved": true,
+  "latest_human_requirement_applied": true
+}

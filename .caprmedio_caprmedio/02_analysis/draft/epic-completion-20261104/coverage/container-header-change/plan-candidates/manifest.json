@@ -1,0 +1,18 @@
+{
+  "status": "READY_KNOWN_BINDING_SOURCE_PREVIEWS_NOT_APPLIED",
+  "latest_decision": "Atom.Header.Container is an ordinary single Property holding a full Scope Unit path or a base Atom ID selecting Current by default; Header.Relations is optional and contains no duplicate Container entry. IS_CONTAINED_BY/CONTAINS and +>/<+ remain MODEL/Formal Claim relations, not Property aliases. Scope Unit root formal containment and the Declaration Atom Header are distinct.",
+  "epic_source": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+  "epic_source_sha256": "7d9737c95123298b114dd3601a96b1704ec4e6fb06d1e0603f2cfb29bc4c4bc5",
+  "epic_preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/plan-candidates/CA-P-2694.preview.txt",
+  "epic_preview_sha256": "508d7db073d1c4e7411dbd0f53bafa10e7b0abeb7debbcbc275079c345ec615f",
+  "epic_diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/plan-candidates/CA-P-2694.diff",
+  "epic_diff_sha256": "0dd828e02a4a4061ecd702e7a1d51fbbc14cd06d837569501376853d7712ddae",
+  "matrix_delta": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/plan-candidates/matrix-delta.json",
+  "matrix_delta_sha256": "c6f2162c89ece3fb480bfa53250babb67bd5b2f640e90592ff734694aba64025",
+  "source_matrix_sha256": "11b337b0874831f45e3b733cb8c534adff6ff8c7776d7249e3152c13ca2e4af1",
+  "limits": [
+    "Preserve P2694 Summary and original Header in preview; root assigns successor and canonical metadata when preparing an actual Draft.",
+    "No actual Epic, matrix, source, data, code, tests, Workflow, Workbench or Git mutation.",
+    "Detailed Header value encoding and schema support must follow reviewed source authority; no runtime behavior is asserted."
+  ]
+}

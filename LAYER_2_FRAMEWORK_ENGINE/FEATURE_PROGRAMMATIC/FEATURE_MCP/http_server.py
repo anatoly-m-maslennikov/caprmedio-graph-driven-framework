@@ -1,5 +1,4 @@
-# CA-R-2727@4
-# CA-D-674@8
+# CA-D-674@9
 
 """Loopback-only Streamable HTTP transport for the MCP gateway."""
 import argparse

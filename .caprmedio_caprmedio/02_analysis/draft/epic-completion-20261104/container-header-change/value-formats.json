@@ -1,0 +1,81 @@
+{
+  "status": "HOLD_VALUE_REPRESENTATION_UNSPECIFIED",
+  "user_boundary": "Container identifies either a full Scope Unit Path or a base Atom ID; no Draft or archived revision references are requested. Keep existing formal Relations and +>/<+ semantics unchanged.",
+  "source_pins": [
+    {
+      "id": "CA-R-2530",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2530-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "sha256": "9abd4823d07e60b55d674823274fef480205f39e0eb5e193ac30d06c4f59a075"
+    },
+    {
+      "id": "CA-R-1661",
+      "version": 32,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-RULE--derive-structural-path.md",
+      "sha256": "6f216a0017372bccec74f6cfaf70a215d8e5e744e297022c51fe8a8127ea393c"
+    },
+    {
+      "id": "CA-R-2689",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2689-CORE_META_MODEL-RULE--derive-scope-unit-ancestry-from-declarations.md",
+      "sha256": "231b696a82ee2de48e57234e4bdcf981e2638bc44eb8a39e69ebece84dd8b6bd"
+    },
+    {
+      "id": "CA-R-2526",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "sha256": "171eacde51c1cde1cf249e599c4919ce638e477acdbaf1e1697b081b678eee9e"
+    },
+    {
+      "id": "CA-R-2701",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2701-CORE_META_MODEL-DECLARATION--declare-atom-header-id.md",
+      "sha256": "5d96f3e98a7d43efba676cd1fe027ca3f514e0e7fbb0be7fa536b5567a602d5e"
+    },
+    {
+      "id": "CA-R-2248",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "sha256": "e10f65588d725a5463ba1f257aa2d5e5a6eb97fd9c848e1e7184952efd9d193e"
+    },
+    {
+      "id": "CA-R-2253",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2253-CORE_META_MODEL-ENTITY_DEFINITION--define-string-value-format.md",
+      "sha256": "f5c86c8e98ef8fc92f822c8dad2c4824577f51d4b38c4f257774f3d5c9efaece"
+    },
+    {
+      "id": "CA-M-450",
+      "version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-450-CORE_META_MODEL-TERM_DEFINITION--define-id.md",
+      "sha256": "e50baff8a701137943ffd82e5b262d1e910191b5f26045a68102f7a2ca60fcea"
+    },
+    {
+      "id": "CA-R-2508",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d"
+    }
+  ],
+  "scope_path": {
+    "R2530": "Path is one Property holding one or more string values, listing identities from root to addressed Scope Unit.",
+    "R1661_R2689": "Path/ancestry derives from Current Scope Unit declarations and direct parent chain; a display rendering is derived and does not establish parentage.",
+    "R2526": "Project root has no Scope Unit ID; a full identity chain cannot be rendered by assuming every segment is a Scope Unit ID.",
+    "gap": "These sources do not specify one canonical scalar textual rendering or separator for the whole chain. They do not make a filesystem path authoritative."
+  },
+  "atom_identity": {
+    "R2701": "Atom.Header.ID is one string.",
+    "M450": "Term ID is a unique identifier within matching prefix namespace; examples include versioned forms but do not establish lifecycle equivalence.",
+    "user_decision": "CA-P-123 is base Atom ID; CA-P-123 refers to Current, CA-P-123@3 to Archived, and CA-P-123@3-draft to Draft. Proposed name AtomReference is analysis only; it has not been adopted as a Current Term or Format.",
+    "container_constraint": "Accept base Atom ID as the Atom alternative; do not admit @version or @version-draft as Container values based on this decision."
+  },
+  "formats": {
+    "R2248_R2253": "Existing string Format admits textual strings; identifying values use string with referenced object defined in source. No general ref Format is admitted.",
+    "result": "No separately named Current Atom ID, full Scope Unit Path string, or AtomReference Format was established by these inspected sources; do not invent new single-use grammar. Prose can state the permitted semantic alternatives, but not settle a missing concrete encoding."
+  },
+  "first_blocking_question": "How should the full root-to-unit Scope Unit identity chain be serialized in Header.Container: as an ordered list of identities, or as one string, and if one string what exact representation identifies the Project root and separates the identities?",
+  "candidate": "None: the cardinality and representation of a Container value cannot be specified without the above answer.",
+  "limits": [
+    "No filesystem path, versioned container, new Format, new Term, Current source, actual Draft, code or Git changes inferred."
+  ]
+}

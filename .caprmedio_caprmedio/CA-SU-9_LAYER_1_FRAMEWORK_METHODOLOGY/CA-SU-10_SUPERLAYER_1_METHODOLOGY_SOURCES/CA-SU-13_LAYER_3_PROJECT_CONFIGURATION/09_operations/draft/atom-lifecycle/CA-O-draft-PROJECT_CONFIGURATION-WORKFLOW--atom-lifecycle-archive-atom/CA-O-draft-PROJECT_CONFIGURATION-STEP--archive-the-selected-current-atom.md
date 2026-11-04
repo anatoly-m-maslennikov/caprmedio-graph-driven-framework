@@ -23,4 +23,22 @@ This Step is the single Step of [Atom Lifecycle_Archive Atom](../CA-O-draft-PROJ
 
 ## Claim
 
-This Step belongs to [Atom Lifecycle_Archive Atom](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-archive-atom.md) and RUNS [Archive one Current Atom](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--archive-one-current-atom.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind the exact Current source, applicable model, destination, and authorization under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md), then return the Action result unchanged.
+### Kind
+
+Execution.
+
+### Inputs
+
+Exact Current source; applicable model; destination; authorization.
+
+### Fixed parameters
+
+None.
+
+### Runs
+
+The Action [Archive one Current Atom](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--archive-one-current-atom.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind the inputs under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md).
+
+### Outputs
+
+The Action's saved Archived Atom or its explicit error with completed results, passed unchanged.

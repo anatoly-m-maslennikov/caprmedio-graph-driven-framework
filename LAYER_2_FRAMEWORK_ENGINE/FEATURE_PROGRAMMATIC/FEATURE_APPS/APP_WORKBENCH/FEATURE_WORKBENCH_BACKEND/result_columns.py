@@ -1,6 +1,4 @@
-# CA-D-673@7
-# CA-M-466@5
-# CA-D-674@8
+# CA-D-673@8
 
 """Column visibility over the complete stored result, independent of pagination."""
 

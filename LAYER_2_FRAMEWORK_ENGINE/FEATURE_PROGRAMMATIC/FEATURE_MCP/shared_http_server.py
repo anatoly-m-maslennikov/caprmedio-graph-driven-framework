@@ -1,5 +1,4 @@
-# CA-R-2727@4
-# CA-D-674@8
+# CA-D-674@9
 
 """Shared host Streamable HTTP transport for multiple Project gateways."""
 

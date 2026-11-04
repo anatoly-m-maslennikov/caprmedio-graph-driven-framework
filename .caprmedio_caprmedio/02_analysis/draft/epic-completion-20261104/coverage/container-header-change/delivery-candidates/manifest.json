@@ -1,0 +1,69 @@
+{
+  "status": "THREE_PREVIEWS_ONE_HELD",
+  "settled_scope": "Atom Header.Container stores one full Scope Unit path or base Atom ID. Header.Relations optional for other direct Relations. IS_CONTAINED_BY and derived CONTAINS remain Formal Claim/graph notation; no Scope Unit.Container property is introduced.",
+  "rows": [
+    {
+      "id": "CA-D-268",
+      "version": 30,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "source_sha256": "c301ef453ae1fa2a82f6deb2e12332bc7b340fd289d56ceeeb935e9e6f7bfb52",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Serialize Authored Direct Relations on Their Owning Atoms",
+      "new_id_required": false,
+      "status": "REVIEW_ONLY",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/delivery-candidates/CA-D-268.preview.txt",
+      "candidate_sha256": "b389db5cc37cc09d743ec4bc36303066770433ba25dd8f5fcc99c90a0dae46a5",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/delivery-candidates/CA-D-268.diff",
+      "diff_sha256": "196750739fb0ce8de6409e0e2e6a7e9bfb068f9db82ac4b712b776ca627ef779",
+      "limitation": "Subject and Summary preserved. Candidate depends on approved Header.Container declaration and coordinated reconciliation of D264."
+    },
+    {
+      "id": "CA-D-266",
+      "version": 29,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "source_sha256": "4e72593f7c399b72dd910efdc1b492d8f777e563af836997f57a346086a39d60",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Prohibit Persisting Derived Containment",
+      "new_id_required": false,
+      "status": "REVIEW_ONLY",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/delivery-candidates/CA-D-266.preview.txt",
+      "candidate_sha256": "7166497ab98a1167e9ee3566462120924f2387bcc089befcc0f191e1f47fb270",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/delivery-candidates/CA-D-266.diff",
+      "diff_sha256": "8320305ac38d146c9d83fe676f95b4ae23899f69277792cabd233067ef26b83c",
+      "limitation": "Subject and Summary preserved. Candidate depends on approved Header.Container declaration and coordinated reconciliation of D264."
+    },
+    {
+      "id": "CA-D-264",
+      "version": 29,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "source_sha256": "e12a30e551afc95a332d40b1f467231d68edf974bd753d54d5d1e6d2e9336e1e",
+      "active_subject": "CAPRMEDIO_MODEL <+ Carrier/Directory",
+      "summary": "Derive Direct Containment from the Nearest Directory Carrier",
+      "new_id_required": false,
+      "status": "HELD_NO_PREVIEW",
+      "reason": "Current Claim derives Artifact Revision containment from nearest Directory Carrier; latest decision disallows folder-authoritative parenting. Atom exclusion is clear, but remaining non-Atom content and intended non-Atom authority have not been determined; do not retain or retire the entire Claim by guess."
+    },
+    {
+      "id": "CA-D-442",
+      "version": 26,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+      "source_sha256": "3876e616560ffec0951cd4e9e4653d510bd7c914f3892163f67063c888f08115",
+      "active_subject": "CAPRMEDIO_MODEL <+ Scope Unit",
+      "summary": "Encode Scope Unit declaration fields",
+      "new_id_required": false,
+      "status": "REVIEW_ONLY",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/delivery-candidates/CA-D-442.preview.txt",
+      "candidate_sha256": "0b4739f8671e49f2a591883285a9c38be938e1de2365873a70372ffeda8e86a1",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/delivery-candidates/CA-D-442.diff",
+      "diff_sha256": "31c4bbf1177c180db2aab79144e6f42062bb411285ae57d0d1b5c1477b920414",
+      "limitation": "Subject and Summary preserved. Candidate depends on approved Header.Container declaration and coordinated reconciliation of D264."
+    }
+  ],
+  "dependencies": [
+    "Do not adopt D266 replacement while D264 still directs deriving an Atom parent from its nearest directory; source pair needs atomic reconciliation.",
+    "D264 non-Atom rule remains held for a source-backed decision: physical Folder/Directory is not automatically the logical parent.",
+    "D442 retains the existing Scope Unit Declaration Form under R2684; the declaration Atom container and declared Scope Unit instance parent remain distinct.",
+    "Container field contract, validation and data/runtime migration are outside these previews.",
+    "Exact source pins are captured above; no summary changes, fresh IDs, canonical Draft, code or Git mutation."
+  ]
+}

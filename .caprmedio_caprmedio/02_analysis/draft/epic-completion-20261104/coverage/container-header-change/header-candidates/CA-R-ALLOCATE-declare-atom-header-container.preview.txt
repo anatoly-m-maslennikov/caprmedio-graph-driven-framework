@@ -1,0 +1,39 @@
+---
+atom_id: CA-R-<ROOT_ALLOCATES>
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+subjects:
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Container
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+## Summary
+
+Declare Atom.Header.Container
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Atom.Header.Container{:1}: [string]{:1};
+
+Atom.Header.Container.*[]{:0};
+
+# instances
+Atom//$atom;
+$atom.Header.Container{:1}
+```
+
+### Prose Claim
+
+Every Atom instance has exactly one Header.Container value. The value identifies its immediate container and is either the full canonical Scope Unit path or the base Atom ID of the containing Atom. The base Atom ID is the current default form. Header.Container is the sole stored Atom-containment value; do not duplicate it under Header.Relations. This declaration does not define a new graph Relation or alias.
+
+## Semantics
+
+Header.Container identifies the containing Scope Unit or Atom for the Atom whose header carries it.

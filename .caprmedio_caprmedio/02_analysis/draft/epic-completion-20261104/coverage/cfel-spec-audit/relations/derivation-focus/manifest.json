@@ -1,0 +1,38 @@
+{
+  "status": "PAIRED_SOURCE_ONLY_CANDIDATES_READY",
+  "scope": "Atomic pair: remove one inverse-binding constraint and an unrelated comparison from R2170 while retaining the constraint in R2485, which owns the HAS_INVERSE authoring contract.",
+  "atomicity": "Do not apply the R2170 cleanup without the R2485 addition. The single normative rule about non-repetition of inferred IS_DERIVED_RELATION_OF metadata must exist exactly once in the pair.",
+  "nonchanges": [
+    "No new relation meaning, cardinality, endpoint permission, or syntax.",
+    "Both typed Relation//$ variables and each Atom active Subject are preserved.",
+    "Summaries and all unrelated Claim content remain unchanged."
+  ],
+  "candidates": [
+    {
+      "id": "CA-R-2170",
+      "before_version": "10",
+      "candidate_version": "11",
+      "before_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "before_sha256": "cce56d07fa656084df11f1bf77aab9e0e357a74ac1ca2281cead891cc1d37510",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/derivation-focus/CA-R-2170.v11.preview.txt",
+      "candidate_sha256": "97c58e047008512257d438636d7ee2554618939af85736308eb81d2a78bf7309",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/derivation-focus/CA-R-2170-successor.diff",
+      "diff_sha256": "ccc1ce73a7357cd2b1456a36b6d09eccb75b26ffb3d445f3fb136920bc32d670",
+      "active_subject": "active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_DERIVED_RELATION_OF",
+      "change": "Remove only the relocated inverse-binding non-repetition sentence and unrelated DERIVED_FROM comparison; preserve derivation and qualification semantics."
+    },
+    {
+      "id": "CA-R-2485",
+      "before_version": "5",
+      "candidate_version": "6",
+      "before_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2485-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+      "before_sha256": "e108830788cccfecf0857b817c020c282dc9697a006719c6c6d09eb99c9b4fba",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/derivation-focus/CA-R-2485.v6.preview.txt",
+      "candidate_sha256": "918219090651fc8ab8875c4029aabcc07df7dcd7876c7113edec479adbee9868",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/derivation-focus/CA-R-2485-successor.diff",
+      "diff_sha256": "893aa0e3dc8f803d566542a9325adde03cc7d0e6e06a360bc58ce9a28b10bbb6",
+      "active_subject": "active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_INVERSE",
+      "change": "Add the exact non-repetition constraint to the existing HAS_INVERSE binding paragraph; preserve endpoint swap, distinct identities, qualification, alias, and no-permission/cardinality grant."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Project.Settings
+  passive:
+  - CAPRMEDIO_MODEL <+ Term//Property
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
+relations: {}
+atom_id: CA-R-1441
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Define Default Settings
+
+## Claim
+
+### Prose Claim
+
+Default Settings are baseline values for applicable Project.Settings parameters, declared by their corresponding Property Declarations. A default follows the Property’s declared Format and allowed domain. Defaults are distinct from Project initialization inputs and Operator-selected values.

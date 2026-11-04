@@ -1,0 +1,33 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Project.Settings
+  passive:
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Project.Settings.Name
+  - CAPRMEDIO_MODEL <+ Project.Settings.Prefix
+  - CAPRMEDIO_MODEL <+ Atom
+version: 1
+updated_at: 2026-11-04 09:30:21 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+atom_id: CA-R-2748
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+carrier_destination:
+  file:
+    name: CA-R-2748-CORE_META_MODEL-RULE--unify-operator-selected-project-settings.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+---
+## Summary
+
+Unify Operator-selected Project Settings
+
+## Claim
+
+### Prose Claim
+
+Project.Settings owns the Operator-selected Project initialization inputs and applicable CAPRMEDIO behavior and configuration choices. Each selected setting has one authoritative owner in its Project. Atoms define permitted parameters, constraints, applicability, and applicable Property defaults without duplicating selected values or defaults.

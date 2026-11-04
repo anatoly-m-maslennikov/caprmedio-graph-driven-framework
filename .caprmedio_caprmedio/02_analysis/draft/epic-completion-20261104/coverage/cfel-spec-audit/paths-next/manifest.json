@@ -1,0 +1,120 @@
+{
+  "status": "ONE_CANDIDATE_TWO_HELD",
+  "findings": [
+    {
+      "id": "CA-R-1194",
+      "source": {
+        "id": "CA-R-1194",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+        "version": 32,
+        "sha256": "f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57"
+      },
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "status": "PREVIEW_FOR_INDEPENDENT_REVIEW",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/paths-next/CA-R-1194.preview.txt",
+      "candidate_sha256": "51fd4f02b0c286b3feb0278867b9fc26bc582cf1b647d37de7a00b046ee16144",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/paths-next/CA-R-1194.diff",
+      "scope": "Existing CFEL Subject Path authority; no new root or Subject kind. Full namespace plus target for Subjects, local CFEL expressions not replacement addresses. Corrects selector :=, removes retired Entity root, keeps target-selection and non-creation constraints. Passive targets are the two referenced Subject Relation types and Atom.Header.Role.",
+      "caution": "Namespace requirement is user-directed and must be checked against any admitted legacy or other namespace Subjects before adoption; no claim of exhaustive consumer migration."
+    },
+    {
+      "id": "CA-R-1931",
+      "source": {
+        "id": "CA-R-1931",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+        "version": 18,
+        "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b"
+      },
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "status": "HELD_NO_FULL_PREVIEW",
+      "safe_corrections": [
+        "Replace old selector qualification : with := in Subjects/filtered selections; use {:n} bounds; reverse <((NAME)) is same canonical fact; scope name escaping vs quoted values.",
+        "Use full namespace paths in Subject examples and retain local expressions for Formal Claim examples, without inventing paths."
+      ],
+      "held_clauses": [
+        "Legacy Entity/Property and CFEL <+ Relation passive target aliases require precise authority and current subject syntax reconciliation.",
+        "Legacy Package/Module/Code Unit and Operations Role/Form examples and containment assertions require source-admitted identities; no mapping guessed.",
+        "Status Group * expression is a value-set filter, distinct in context from rejected standalone universal Subject *, but its exact authority and behavior must be preserved or separately resolved.",
+        "Advanced construct exclusion and outdated draft staging text conflict with present CFEL; replacements must preserve real authoring constraints."
+      ],
+      "question": "Which existing source-backed Package/Module/Code Unit and status-group targets should these examples reference, or should the examples be removed while retaining their governing rules?"
+    },
+    {
+      "id": "CA-R-2276",
+      "source": {
+        "id": "CA-R-2276",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+        "version": 6,
+        "sha256": "305ea99fee46090bffe1df0d58e49bf6bdc2ad292d964e8e8a646d31d277d633"
+      },
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity",
+      "status": "HELD_NO_FULL_PREVIEW",
+      "safe_corrections": [
+        "Preserve exactly-one complete name per entity, one entity per complete name, distinct complete names not aliasing one entity, and all namespace/qualification collision constraints. Remove sole Entity-root exception under latest human decision.",
+        "Change illustrated Subject qualifier syntax to := without admitting any otherwise unregistered values."
+      ],
+      "held_clauses": [
+        "Current active Entity no longer identifies a supported universal root; a CFEL active Subject may govern notation but this claim also constrains all represented entities and authored Controlled English, so scope equivalence is not yet established.",
+        "Current full expression rule prohibits any outside-Term entity being named by a single registered Term; current declared bare primary names and canonical reference forms may conflict. Removing or rewriting this prohibition without a naming decision changes substantive authority.",
+        "Preserve separate literal/code vs entity mention boundary and existing exactly-one naming and collision constraints."
+      ],
+      "question": "Does the one-to-one rule govern CFEL Subject paths, Controlled English names, or both\u2014and can a declared primary name such as Node be a complete canonical name when it is also a registered Term?"
+    }
+  ],
+  "authority_pins": [
+    {
+      "id": "CA-R-2462",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "version": 4,
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c"
+    },
+    {
+      "id": "CA-R-2471",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "version": 7,
+      "sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf"
+    },
+    {
+      "id": "CA-R-2487",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "version": 13,
+      "sha256": "d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045"
+    },
+    {
+      "id": "CA-R-2243",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "version": 12,
+      "sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4"
+    },
+    {
+      "id": "CA-R-2609",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2609-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+      "version": 2,
+      "sha256": "283b73c01297ffe141727a7007b77ea4a9d3508e5dc25059e0d66f6ab913d919"
+    },
+    {
+      "id": "CA-R-2702",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2702-CORE_META_MODEL-DECLARATION--declare-atom-header-role.md",
+      "version": 1,
+      "sha256": "761c8aa0a967e458a2b4299aa8c426e22895ea3864d61515c4bd9fe12be4c068"
+    },
+    {
+      "id": "CA-R-1280",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1280-CORE_META_MODEL-RULE--reference-every-prerequisite-subject-through-depends-on.md",
+      "version": 34,
+      "sha256": "c4967b68e77164f9f68403a4b38f7c77f63cd35a11b7faedbb48fa840b9551f1"
+    },
+    {
+      "id": "CA-R-2225",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2225-CORE_META_MODEL-RULE--select-subject-graph-views-by-scope-units-and-branches.md",
+      "version": 4,
+      "sha256": "aebd0fee87c89750833158e5f03a9be4abbee797e7b32d9dd8f62d5643f538a6"
+    },
+    {
+      "id": "CA-M-451",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+      "sha256": "cc83380cc43391664968b27b812f799030e57e9c7d88baa2ba329912e0d7a998"
+    }
+  ],
+  "boundaries": "No native Current, Draft, code, tests, Workflow/Workbench source files or Git changes. Subject address prefix is not itself a new node or hierarchy root. A selector wildcard in a value set is not assumed equivalent to the rejected standalone universal Subject wildcard."
+}

@@ -1,0 +1,31 @@
+{
+  "status": "SOURCE_EVIDENCE_REFRESH_NOT_EPIC_CLOSURE",
+  "matrix_sha256": "11b337b0874831f45e3b733cb8c534adff6ff8c7776d7249e3152c13ca2e4af1",
+  "requirements_count": 23,
+  "requirement_ids_and_explicit_requirements_gates_dependencies_unchanged": true,
+  "updated_rows": [
+    "P2698",
+    "P2694: workflow/API boundary",
+    "P2694: Claim/model notation",
+    "P2694: CFEL groups and bindings",
+    "P2694: CFEL semantic preservation",
+    "P2707: Engine runtime cutover",
+    "P2694: source history/publication",
+    "P2704\u2013P2709: status and closure boundary"
+  ],
+  "current_epic": "CA-P-2694@62 Active",
+  "verification_task": "CA-P-2707@5 Active",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-dependency-frontier.json",
+  "selected_sources": 1167,
+  "audit": {
+    "missing": 55,
+    "unresolved": 23
+  },
+  "validated": "All 1,167 recorded supplier paths matched Current hashes; seven published view hashes match the generation manifest; origin/amm/dev local tracking ref observed at d4b745b2086f35714bd9febf3ad4f697b10dfd18.",
+  "source_level_contributions_closed": "Previously applied bounded declaration, goal/settings, relation, operator and source-projection batches remain evidenced by their individual receipts; no entire acceptance group is newly marked complete.",
+  "remaining": "55/23 source coverage; held source and precise relation mappings; confidence/retry consumer disposition; all CA #3 stable-candidate runtime, carrier, suite, launcher, Docker and W10 gates; final coherent projections, history and checked push. Workbench/Workflow work stays with its owners.",
+  "limits": [
+    "No tests, source, Workflow, Workbench or Git modifications.",
+    "The Git observation is a local remote-tracking ref, not a fresh remote query. No release or final publication is claimed."
+  ]
+}

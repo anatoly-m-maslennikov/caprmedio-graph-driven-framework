@@ -1,0 +1,78 @@
+{
+  "status": "SOURCE_ONLY_HEADER_CANDIDATES_READY",
+  "scope": "Atom.Header property declarations only. Scope Unit Declaration claims continue to express containment through IS_CONTAINED_BY; no Scope Unit.Container/Parent property is introduced.",
+  "latest_decisions": [
+    "IS_CONTAINED_BY and CONTAINS remain Relations for Formal Claims/MODEL; +> and <+ remain existing aliases with no new alias semantics.",
+    "For Atom instances, Header.Container is the sole stored containment value. It is not duplicated under Header.Relations.",
+    "Every Atom has exactly one Header.Container, including Scope Unit Declaration Atoms. Project Scope Unit instance has zero IS_CONTAINED_BY relations.",
+    "Header.Container value is either a full Scope Unit path or the base ID of its containing Atom; base Atom ID is the current default.",
+    "R2698/R2699/R2700 typed IS_CONTAINED_BY wrapper is retired only after all consumers migrate; this packet does not retire it."
+  ],
+  "format_gap": "Current Scope Unit.Path specifies string elements and the full chain semantics but does not establish a canonical lexical serialization for one full path-valued Header.Container. Candidate uses the existing string primitive and states the two permitted forms in prose; no new format syntax is introduced.",
+  "candidates": [
+    {
+      "id": "CA-R-2719",
+      "kind": "same-ID prospective successor",
+      "before_version": "1",
+      "candidate_version": "2",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "before_sha256": "b44cedbf39e8d65c8dddb21a03370ed744e65daee99eff70cc0007d064ebb0e3",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/header-candidates/CA-R-2719.v2.preview.txt",
+      "candidate_sha256": "f53c9bfe27abf51a223d03e129d692bad378fcaeae20b328728b5b85facaa3aa",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/header-candidates/CA-R-2719-successor.diff",
+      "diff_sha256": "563e0936edd89e9257df389a21055cff8a137d76263679425a4d3415a13f25b7",
+      "change": "Adds Container to the Atom.Header property inventory."
+    },
+    {
+      "id": "CA-R-2709",
+      "kind": "same-ID prospective successor",
+      "before_version": "1",
+      "candidate_version": "2",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "before_sha256": "3f759fcf082e94dd20b07d243edd7daaf374e23a80033c4246ad2c01b3d1df17",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/header-candidates/CA-R-2709.v2.preview.txt",
+      "candidate_sha256": "1f6843cb4063e6ec55d832b300074ef09be6d736555fe5f67ad8047eed5ba0c1",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/header-candidates/CA-R-2709-successor.diff",
+      "diff_sha256": "b08ec307eebd0bf078d6482ac265b035d2b44386fea535bbce86bd55c753c8fa",
+      "change": "Makes the Atom.Header.Relations object optional while retaining its existing Relation-member definition."
+    },
+    {
+      "id": "CA-R-<ROOT_ALLOCATES>",
+      "kind": "new unnumbered declaration candidate",
+      "before_version": null,
+      "candidate_version": "1",
+      "source_path": null,
+      "before_sha256": null,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/header-candidates/CA-R-ALLOCATE-declare-atom-header-container.preview.txt",
+      "candidate_sha256": "1cb290beeebaffa7599731c5b457d6572fa875fb3112b5eb8dfb9ffa3a46d889",
+      "diff_path": null,
+      "diff_sha256": null,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Container",
+      "change": "Declares required single string value, its two existing forms and base-Atom-ID default in prose; does not add a Relation child/map or alias."
+    }
+  ],
+  "follow_up_dependencies": [
+    {
+      "ids": [
+        "CA-R-2508",
+        "CA-R-2698",
+        "CA-R-2699",
+        "CA-R-2700",
+        "CA-R-2711",
+        "CA-R-2712"
+      ],
+      "action": "Rebase or retire old Header.Relations.IS_CONTAINED_BY references only after the new declaration and each consumer are updated; do not remove typed wrappers ahead of consumers."
+    },
+    {
+      "ids": [
+        "CA-R-2478",
+        "CA-R-2617",
+        "CA-R-2523",
+        "CA-R-2524",
+        "CA-R-2688",
+        "CA-R-2650"
+      ],
+      "action": "Retain formal Claim/model Relation declarations and Scope Unit instance containment; ensure Scope Unit Declaration Atom Header.Container is treated as a different host-level fact."
+    }
+  ]
+}

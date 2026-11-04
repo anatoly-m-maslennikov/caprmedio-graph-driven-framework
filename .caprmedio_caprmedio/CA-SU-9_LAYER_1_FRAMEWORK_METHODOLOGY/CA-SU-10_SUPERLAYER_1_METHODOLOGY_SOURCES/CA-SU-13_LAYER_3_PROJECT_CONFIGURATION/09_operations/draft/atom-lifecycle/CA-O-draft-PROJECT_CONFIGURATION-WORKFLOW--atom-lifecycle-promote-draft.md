@@ -15,9 +15,9 @@ relations: {}
 ---
 
 ```mermaid
-flowchart TD
-    step1["Promote the selected Atom Draft"]
-    click step1 "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-promote-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--promote-the-selected-atom-draft.md" "Open Step"
+graph TD;
+    step1["Promote the selected Atom Draft"];
+    click step1 "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-promote-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--promote-the-selected-atom-draft.md" "Open Step";
 ```
 
 ## Summary

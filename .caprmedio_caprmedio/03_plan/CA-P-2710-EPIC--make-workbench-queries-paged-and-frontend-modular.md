@@ -1,10 +1,10 @@
 ---
 atom_id: CA-P-2710
 label: Epic
-status: Done
+status: Active
 tier: 3
-version: 7
-updated_at: 2026-11-04 21:27:20 +0400
+version: 9
+updated_at: 2026-11-04 22:47:14 +0400
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
 relations:
@@ -56,7 +56,7 @@ Workbench only. No repair of unrelated lifecycle or model migrations, custom SQL
 
 ## Status
 
-Done. Workbench 0.4.4.16 is released and the public-schema and empty-column follow-up is verified through the live API and browser.
+Active. Workbench 0.4.4.16 remains the verified released baseline. The following interactive-workspace iteration is now in progress.
 
 ## Verification checkpoint
 
@@ -104,3 +104,34 @@ The 0.4.4.14 live API and browser returned 4,592 rows and 17 columns through 100
 - The live browser test selected seven columns across 101 rows. NULL, empty string, empty list and empty JSON object columns hid; zero, false and a value appearing only on row 101 stayed visible. Page two showed `0`, `false`, `last`, with the same three visible columns. The live API separately verified unchanged full rows/counts, stable page metadata and retained zero-row headers.
 - Seven narrow RMED updates preserve predecessor archives and have truthful update events; implementation comments reference the adopted versions. No lifecycle, relation-direction or other model migration was added.
 - Release receipt: `.caprmedio_runtime/simple_local_release/reports/workbench-20261104-schema-empty-columns.md`. Live evidence: `.caprmedio_tmp/workbench/live-public-schema-verification.json`.
+
+## Interactive workspace tasks
+
+Follow this cycle: prepare RMEDO → review the RMEDO packet against itself, related Current sources and the latest Operator input → gather related active Method Policies from PROGRAMMATIC and its descendants → compile one implementation prompt → implement the reviewed packet using that prompt → focused tests and local release/live verification. Record unresolved business choices rather than inventing them.
+
+1. Research current minimal technical developer-tool design references. Add the Visual Design Aspect and Workbench-specific design decision; implement light/day and dark/night themes using the existing component palette.
+2. Support Cmd+Enter for Run and Shift+Cmd+Enter for Check in the SQL editor. Keep buttons, accessibility and the busy guard.
+3. Save SQL through both UX and MCP under `.caprmedio_runtime/workbench/saved_queries`. Return a saved-query ID; `?query=<id>` loads its SQL without running it. Save automatically on each Run and Check, and include the saved-query ID in each corresponding answer. Keep saved SQL identity separate from a materialized result's pagination ID.
+4. Add text-only zoom; do not scale the whole interface.
+5. Add independent query tabs with an active tab.
+6. Replace the plain textarea with a suitable existing SQL-editor library. Support SQL completion, including actual table and column names and the quoted content columns; preserve native DuckDB/DuckPGQ SQL.
+7. Save every unsaved tab's SQL locally in the browser and restore it after reopening or reloading. Do not store result pages in local storage or silently discard unsaved SQL.
+8. Update affected callers, RMED, tests, fixtures, docs and packaging together. Keep the Workbench scope, two source tables, synchronous execution, backend/frontend boundary and file-size rules.
+
+## Interactive workspace stage status
+
+Planning and research. The earlier shortcut-only code candidate is not released; no new implementation is adopted until the RMEDO review and Method prompt gates pass. The rest of the framework, lifecycle migration and unrelated methodology remain outside this iteration.
+
+## Worksheet actions and backend parity
+
+These latest decisions refine the interactive-workspace tasks above.
+
+- Call each query-input tab a Worksheet. Provide Run, Check, Save and Save Worksheet. A Worksheet may contain multiple SQL statements separated by semicolons. Run, Check and Save target the statement at the cursor, including the two requested keyboard shortcuts. Semicolons inside strings or comments do not split statements. Use an existing native SQL tokenizer, not a new parser.
+- Save Worksheet preserves the entire input in its own saved format. Keep the full script in five-second browser-local autosave regardless of which statement ran. Confirm closing an unsaved Worksheet or leaving the window; flush pending drafts when the browser permits it.
+- Every saved query response includes its ID and full Workbench URL. Open saved accepts an ID or URL, loads without execution and preserves the selected Project. Provide a recent list that distinguishes saved queries and Worksheets. App-owned links reuse the current Workbench browser context; external app link-opening remains subject to browser behavior.
+- The editor can be collapsed and expanded as a spoiler.
+- Text zoom applies to all text: buttons, tabs, menus, headings, SQL, results and status messages. It does not multiply layout dimensions or icons.
+- Add a Method Policy: every public Workbench backend capability is accessible through MCP with the same operation contract. Browser-only preferences do not become backend operations.
+- Owned module headers contain only Atom IDs with versions in comments. List the M decisions and R/E/D claims the module actually implements, not merely called contracts or applied general coding policies.
+
+Review and fix the complete RMEDO packet before promotion. Ask the Operator only for material unresolved decisions below 90 percent confidence. Compile the related active PROGRAMMATIC Method Policies into one implementation prompt only after that review. Implement the reviewed sources with the prompt, keep files small and add no unrelated behavior.

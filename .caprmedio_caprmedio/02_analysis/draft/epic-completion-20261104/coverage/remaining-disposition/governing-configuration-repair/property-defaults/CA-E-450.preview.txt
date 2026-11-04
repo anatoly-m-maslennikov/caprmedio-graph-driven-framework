@@ -1,0 +1,36 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Project.Settings
+  passive:
+  - CAPRMEDIO_MODEL <+ Term//Property
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
+relations:
+  evaluation_for:
+  - CA-M-279
+  - CA-R-1441
+atom_id: CA-E-450
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 5
+role: Evaluation
+form: Eval Policy
+---
+## Summary
+
+Validate framework parameter fallback
+
+## Claim
+
+### Prose Claim
+
+Reject Project.Settings parameter resolution if any of the following occurs:
+
+- A valid explicit parameter loses to its Property default, or an absent parameter fails to use its available valid Property default.
+- Valid false, zero or empty values are mistaken for absence, or an invalid explicit value is accepted or replaced by fallback.
+- An invalid selected default is accepted, a required parameter without an explicit value or applicable default receives an invented value, or an optional parameter absent from both is rejected solely for its absence.
+- Resolution reads another Project’s selected values or writes derived defaults back as explicit selections.
+- Unchanged inputs resolve differently on a repeated read, or a default violates the governing Property’s Format or allowed domain.
+
+Use registered parameter constraints. When the current parameter catalog lacks a Boolean, zero-valued or empty-valued example, use isolated test-fixture parameters without adding them to authoritative Settings.

@@ -1,0 +1,24 @@
+--- CA-R-2709 Current
++++ CA-R-2709.v2.preview.txt
+@@ -5,10 +5,10 @@
+ status: Active
+ subjects:
+   active: CAPRMEDIO_MODEL <+ Atom.Header.Relations
+-version: 1
++version: 2
+ relations: {}
+ tier: 3
+-updated_at: 2026-11-03 20:00:05 +0400
++updated_at: 2026-11-04 22:48:33 +0400
+ role: Requirement
+ form: Declaration
+ carrier_destination:
+@@ -26,7 +26,7 @@
+ 
+ ```CFEL
+ # model
+-Atom.Header.Relations{:1}: []{:0};
++Atom.Header.Relations{:0..1}: []{:0};
+ 
+ # instances
+ Atom.Header.Relations.*[Relation//$relation]{:0+}

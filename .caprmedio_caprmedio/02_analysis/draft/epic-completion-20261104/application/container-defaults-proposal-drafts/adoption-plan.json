@@ -1,0 +1,39 @@
+{
+  "status": "PREPARED_ANALYSIS_DRAFTS",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "scope": "Reviewable proposals for latest user containment and Property-default decisions; uncreated Declaration previews are not called Drafts",
+  "header_phase": "Current schema pending later Header.Container migration",
+  "outputs": [
+    {
+      "atom_id": "CA-A-1319",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md",
+      "sha256": "0cda040bf9408ad4b3e95663670508857636aae4c64c865d2f8eca0623eb7848",
+      "summary": "Move Atom containment into Header.Container"
+    },
+    {
+      "atom_id": "CA-A-1320",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1320@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-setting-defaults-on-project-settings-properties.md",
+      "sha256": "023c4c4db886841dbb4b7c95584b3e8b46d1e1429c4e03be1c009966b5951ce1",
+      "summary": "Declare setting defaults on Project Settings Properties"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-A-1319\nversion: 1\nstatus: Draft\nrole: Analysis\nform: Specification Proposal\ntier: 3\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\nupdated_at: 2026-11-04 23:09:24 +0400\ncarrier_destination:\n  file:\n    name: CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft\n---\n## Summary\n\nMove Atom containment into Header.Container\n\n## Decisions\n\n- Store one immediate Container in Atom.Header.Container.\n- Its value is a full Scope Unit path or a base Atom ID.\n- A base Atom ID selects Current by default.\n- Header.Relations is optional. It stores other authored Relations.\n- Keep IS_CONTAINED_BY, CONTAINS and +>/<+ in Formal Claims and the MODEL.\n- Scope Unit containment remains in its Declaration Claim: one Container per non-Project Scope Unit; none for Project.\n- Each Declaration Atom separately has its own Header.Container.\n\n## Rationale\n\nOne stored Property supplies an Atom's Container. Formal containment expressions keep their established meaning. A Declaration Atom and the Scope Unit it declares are separate hosts.\n\n## Source changes\n\n1. Declare Header.Container and add it to Header.\n2. Make Header.Relations optional.\n3. Retire the old typed Header.Relations.IS_CONTAINED_BY wrapper and its atom/scope_unit children after consumer repair.\n4. Update Atom, Plan lookup, sequence-number and Delivery constraints.\n5. Review and push the source checkpoint before the mechanical data migration.\n6. Verify migrated sources and refresh the seven MODEL views. Implementation and test gates remain with CA #3; Workbench and Workflow owners keep their files.\n\n## Open decisions\n\n- Canonical encoding of the full Scope Unit path: one string or an ordered chain.\n- An external Project Declaration Atom still needs a valid Atom Container, although its declared Project has none.\n\n## Prepared evidence\n\nThe Header, consumer, Delivery and planning previews are listed in the Epic packet at `.caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/`. They are previews, not created Declaration Drafts.\n",
+      "after_sha256": "0cda040bf9408ad4b3e95663670508857636aae4c64c865d2f8eca0623eb7848"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1320@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-setting-defaults-on-project-settings-properties.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-A-1320\nversion: 1\nstatus: Draft\nrole: Analysis\nform: Specification Proposal\ntier: 3\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Project.Settings\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\nupdated_at: 2026-11-04 23:09:29 +0400\ncarrier_destination:\n  file:\n    name: CA-A-1320@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-setting-defaults-on-project-settings-properties.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft\n---\n## Summary\n\nDeclare setting defaults on Project Settings Properties\n\n## Decisions\n\n- Declare defaults on the corresponding Project.Settings Property with ?==.\n- Preserve explicitly supplied valid values, including zero and false where their formats allow them.\n- Validate values against each Property's declared format and cardinality.\n- Keep Project initialization inputs distinct from declared defaults.\n- Keep MODEL rules separate from Carrier serialization.\n\n## Rationale\n\nEach Property owns its format, cardinality and default. The separate Default Settings Artifact duplicates that schema. Moving defaults preserves one governing definition per Property.\n\n## Existing values\n\n- AI Agent Confidence Threshold: 90, already declared in the integer domain 0..100.\n- Implementation Retry Limit: 3, read from the current D407-governed `caprmedio_framework_default_settings.toml`, SHA-256 `f8fda1107671ad6c3fd02653ada4f16ffe01ce0a3f57b4a732d7eac39d4e3851`.\n\nThe retry value is prepared for R2635. Other defaults need their own source-backed mapping.\n\n## Source changes\n\n1. Reconcile R1441/R1429 and their validation/resolution consumers.\n2. Preserve defaults, validation, presence, isolation and writeback constraints that remain applicable.\n3. Retire D407/D408 only after their Current consumers have a replacement or an explicit disposition.\n4. Keep the earlier removal of the Plan Retry Limit. Workflow execution remains with its owner.\n5. Leave runtime files and implementation changes to their owners.\n\n## Prepared evidence\n\nThe source previews, default-file pin and consumer dispositions are in `.caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/`. These are previews; no dependent source retirement is claimed.\n",
+      "after_sha256": "023c4c4db886841dbb4b7c95584b3e8b46d1e1429c4e03be1c009966b5951ce1"
+    }
+  ]
+}

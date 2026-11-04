@@ -23,6 +23,22 @@ The single Step of [Atom Lifecycle_Change Current Status](../CA-O-draft-PROJECT_
 
 ## Claim
 
-This Step belongs to [Atom Lifecycle_Change Current Status](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-change-current-status.md) and RUNS exactly [Set one Current Atom Status](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--set-one-current-atom-status.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md).
+### Kind
 
-Bind the selected Atom, model, Status, placement, and authorization under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md). Pass the Action's result or error through unchanged.
+Execution.
+
+### Inputs
+
+Selected Current Atom; applicable model; requested `targetStatus`; placement; authorization.
+
+### Fixed parameters
+
+None.
+
+### Runs
+
+The Action [Set one Current Atom Status](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--set-one-current-atom-status.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind the inputs under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md).
+
+### Outputs
+
+The Action's saved Current Atom or its explicit error with completed results, passed unchanged.

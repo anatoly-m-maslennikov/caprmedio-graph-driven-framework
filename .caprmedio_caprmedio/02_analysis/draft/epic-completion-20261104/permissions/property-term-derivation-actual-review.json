@@ -1,0 +1,35 @@
+{
+  "verdict": "PASS_BOUNDED_DRAFT_REVIEW",
+  "plan_sha256": "ce78bc333513ffed133250f770fcc826adb19b59718ff150832b38ccd40cb541",
+  "receipt_sha256": "d074445020f09581658c381b7095cbc5900eda92aa44823de9227807b65ca0b9",
+  "drafts": {
+    "CA-M-453": {
+      "version": 4,
+      "sha256": "1272454b2cdcb57ccd26f8a4b45cf5199f561732d3ca944fc0b6b99b63d3b270",
+      "source_sha256": "fb9d0205cf7d78c1adc9b44326a43ec6d793058862c834439cc0e58d25c659d4"
+    },
+    "CA-R-2170": {
+      "version": 11,
+      "sha256": "cdc77b9916e75b588b326b64209350d9f6d009dbb66781f6f799495c685badcf",
+      "source_sha256": "cce56d07fa656084df11f1bf77aab9e0e357a74ac1ca2281cead891cc1d37510"
+    },
+    "CA-R-2485": {
+      "version": 6,
+      "sha256": "40fbd20548016cc0b7b63b19890086a8666cc0ab0657f93402a8b0eb4d7c85f9",
+      "source_sha256": "e108830788cccfecf0857b817c020c282dc9697a006719c6c6d09eb99c9b4fba"
+    }
+  },
+  "checks": {
+    "receipt": "3 operations and plan hash match receipt; all actual Draft and pinned Current source hashes match",
+    "bodies": "all three actual Claim bodies match their latest source preview exactly; one active Subject and immutable Summary each",
+    "M453": "generic Entity under M451, identity depends on exactly one immediate bearer through direct IS_PROPERTY_OF; no Node-only meaning; fresh content rebased from Current @5 into existing Draft @4",
+    "pair": "R2170 retains source-Relation meaning, inverse metadata entailment and qualified-derivation condition; R2485 owns the relocated no-repetition constraint exactly once; pair requires atomic promotion. R1639 separately defines DERIVED_FROM without asserting a new Revision entity.",
+    "versions": "control-root Current/archive maxima M453=5, R2170=10, R2485=5. M453 existing Draft @4 intentionally predates Current; promotion must allocate version above all existing versions; R2170@11/R2485@6 Draft reservations show no Current/archive collision",
+    "header_phase": "Current pre-migration relations.IS_CONTAINED_BY scope_unit metadata retained in Drafts; no Header.Container path or encoding asserted"
+  },
+  "limits": [
+    "Draft-only review: no source promotion or assertion of Header.Container migration conformance.",
+    "Receipt reports no native workflow admission or Journal append.",
+    "No parser, runtime or implementation checks."
+  ]
+}

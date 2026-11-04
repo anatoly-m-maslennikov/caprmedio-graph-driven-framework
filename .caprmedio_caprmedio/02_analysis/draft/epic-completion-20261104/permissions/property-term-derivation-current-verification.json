@@ -1,0 +1,40 @@
+{
+  "verdict": "PASS_BOUNDED_CURRENT_READBACK",
+  "plan_sha256": "9ba8ba13536da64fcc64260cb2cb84eb1b090cfe3e2bec41a70f08a1b544c4c0",
+  "receipt_sha256": "3438dc3f6e0f452efcda6c3f737b223069e616751ebe171926eeeef2e0eef107",
+  "outputs": [
+    {
+      "atom_id": "CA-M-453",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "sha256": "05aa611f0737b1abd55cde20d63328d12bbfec4d105a7b333cdf8472c5c5fa90",
+      "preserved_predecessor": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/archive/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property@5.md"
+    },
+    {
+      "atom_id": "CA-R-2170",
+      "version": 12,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "sha256": "ef0c37ed0a42722ceac6738764284d5b8ab37decb0a0dab2ab09abc59ab83db7",
+      "preserved_predecessor": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation@10.md"
+    },
+    {
+      "atom_id": "CA-R-2485",
+      "version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2485-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+      "sha256": "0139782312689c308d27c2ca6fa4c7facd52e6458bd4e71593ace82610fc02be",
+      "preserved_predecessor": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2485-CORE_META_MODEL-DECLARATION--define-has-inverse@5.md"
+    }
+  ],
+  "checks": {
+    "operations": "all nine actual after-states and receipt/plan pin match",
+    "archive": "all three Current predecessors preserved byte-for-byte",
+    "drafts": "all three reviewed Drafts consumed and their bodies and immutable Summaries preserved",
+    "property": "M453@6 retains generic Entity whose identity depends on exactly one immediate bearer via IS_PROPERTY_OF; no Entity root restored",
+    "pair": "R2170@12 retains derivation semantics; R2485@7 contains the relocated no-repeat rule; both applied as one pair",
+    "header_phase": "Current source metadata continues under pre-Container-migration schema; no new path encoding asserted"
+  },
+  "limits": [
+    "Receipt states native workflow admission and Journal append did not occur.",
+    "No Header.Container migration, parser, runtime or implementation validation."
+  ]
+}

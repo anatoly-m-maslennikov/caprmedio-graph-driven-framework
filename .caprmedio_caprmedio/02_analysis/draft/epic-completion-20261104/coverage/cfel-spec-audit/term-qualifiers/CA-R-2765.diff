@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2765-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/term-qualifiers/CA-R-2765.preview.txt
+@@ -28,6 +28,6 @@
+ 
+ ```CFEL
+ # model
+-Atom/(.Header.Role: Method).Header.Form: Term Definition;
+-Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)
++Atom/(.Header.Role := Method).Header.Form: Term Definition;
++Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
+ ```

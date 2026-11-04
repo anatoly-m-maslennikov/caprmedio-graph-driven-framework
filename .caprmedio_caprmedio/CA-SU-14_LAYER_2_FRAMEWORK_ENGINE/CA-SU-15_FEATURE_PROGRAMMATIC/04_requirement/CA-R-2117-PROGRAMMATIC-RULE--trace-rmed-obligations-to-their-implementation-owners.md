@@ -6,8 +6,8 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-27 20:00:07 +0400
+version: 13
+updated_at: 2026-11-04 23:19:17 +0400
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
   depends_on:
@@ -27,40 +27,39 @@ Trace RMED obligations to their implementation owners
 
 The assessed PROGRAMMATIC implementation boundary: source modules and, when
 identifiable, the functions, classes, or other implementation units that
-materially realize active Requirement, Method, Evaluation, or Delivery Atoms.
-This includes Tools, Apps, MCP components, workflows, and applicable policy
-behavior. It does not automatically include vendor code, generated output,
-frozen fixtures, or legacy history.
+materially realize active Requirement, Evaluation, Delivery, or Engineering
+Decision Atoms. This includes Tools, Apps, MCP components, and workflows. It
+does not automatically include vendor code, generated output, frozen fixtures,
+or legacy history.
 
 ## Claim
 
 Each assessed source module that materially realizes one or more applicable
-active RMED Atoms **must** carry a structured `# implementation of:` block at
-its module header. When the owning function, class, or other implementation
-unit is identifiable, the same block **must** also appear immediately before
-that unit and **must** be narrowed to the obligations it realizes.
+active Requirement, Evaluation, Delivery, or Engineering Decision Atoms
+**must** carry one header comment per Atom before its first code. A narrower set may also appear before an identifiable owning unit when useful. Each comment contains only the current Atom ID
+and Version:
 
-The block **must** use only current Atom IDs and these role lines: `# Requirement:`,
-`# Method:`, `# Evaluation:`, and `# Delivery:`. Empty roles **must** be omitted.
-IDs are comma-separated and contain no version, path, or title. Select the
-narrowest applicable direct RMED leaf for each relevant `child_of` or
-`parent_of` branch, include applicable policy leaves such as error, retry, or
-logging rules, do not repeat an ancestor already covered by that leaf, and cite
-independent branches separately within the readable block. A branch-specific
-block is optional when the owning unit needs that narrower locality. Many-to-many
-realization remains valid.
+```text
+# CA-R-2117@13
+# CA-M-466@5
+# CA-D-674@8
+```
+
+Do not add role labels, prose, headings, or an `implementation of` marker. Do
+not cite a generic coding Policy merely because it guided implementation, or an
+Atom merely called by the source. Many-to-many realization remains valid.
 
 ## Details
 
 - A module or unit is an implementation owner only when it materially realizes
   the cited claim. A caller, dependency, test, relation, or projection alone
   does not establish realization.
-- The block is direct trace metadata, not proof of conformance, completion, or
-  outcome. The authoritative Atom and observed implementation evidence remain
-  required.
-- The assessed source boundary applies to current admitted implementation
-  work. Out-of-boundary files are reported for explicit disposition rather
-  than mass-edited automatically.
+- The comments are direct trace metadata, not proof of conformance, completion,
+  or outcome. The authoritative Atom and observed implementation evidence
+  remain required.
+- The assessed source boundary applies to current admitted implementation work.
+  Out-of-boundary files are reported for explicit disposition rather than
+  mass-edited automatically.
 - A missing or ambiguous current branch, an unidentifiable owner, or an invalid
-  block is a traceability gap. Preserve the source and report the gap; do not
+  comment is a traceability gap. Preserve the source and report the gap; do not
   invent an Atom ID, parent, policy, or completion claim.

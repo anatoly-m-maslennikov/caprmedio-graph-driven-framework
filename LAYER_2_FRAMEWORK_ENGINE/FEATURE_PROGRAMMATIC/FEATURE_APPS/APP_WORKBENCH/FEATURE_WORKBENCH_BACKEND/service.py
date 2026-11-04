@@ -1,8 +1,7 @@
-# CA-R-1603@15
-# CA-R-2725@2
-# CA-M-463@4
-# CA-M-465@10
-# CA-D-675@9
+# CA-R-2728@3
+# CA-R-2729@4
+# CA-R-2776@1
+# CA-D-673@8
 
 """One Project's direct file reader, background indexer, and SQL capability."""
 
@@ -18,7 +17,9 @@ from watchfiles import watch
 
 from .query_store import QueryStore
 from .relations import canonical, materialize
+from .saved_queries import SavedQueryError, SavedQueryStore
 from .source_reader import SourceReader
+from .statements import select_statement
 
 
 class WorkbenchService:
@@ -27,6 +28,7 @@ class WorkbenchService:
     def __init__(self, root: Path, *, extension_directory: Path | None = None) -> None:
         self._root = Path(root).resolve()
         self._reader = SourceReader(self._root)
+        self._saved_queries = SavedQueryStore(self._root)
         self._extension_directory = extension_directory
         self._database_path = (
             self._root / ".caprmedio_runtime" / "workbench" / "projection.duckdb"
@@ -115,20 +117,50 @@ class WorkbenchService:
                 print(self._failure, file=sys.stderr)
                 raise RuntimeError(self._failure) from error
 
-    def run(self, sql: str, page_size: int = 100) -> dict[str, Any]:
-        self._start()
-        assert self._store is not None
-        return self._store.run(sql, page_size=page_size)
+    def _saved(self, sql: str, cursor_position: int | None) -> dict[str, str]:
+        return self._saved_queries.save_query(select_statement(sql, cursor_position))
+
+    def run(
+        self, sql: str, page_size: int = 100, cursor_position: int | None = None,
+    ) -> dict[str, Any]:
+        saved_query = self._saved(sql, cursor_position)
+        try:
+            self._start()
+            assert self._store is not None
+            return self._store.run(saved_query["sql"], page_size=page_size, saved_query=saved_query)
+        except (ValueError, RuntimeError) as error:
+            raise SavedQueryError(saved_query, error) from error
 
     def page(self, query_id: str, offset: int, page_size: int = 100) -> dict[str, Any]:
         self._start()
         assert self._store is not None
         return self._store.page(query_id, offset, page_size=page_size)
 
-    def check(self, sql: str) -> dict[str, Any]:
+    def check(self, sql: str, cursor_position: int | None = None) -> dict[str, Any]:
+        saved_query = self._saved(sql, cursor_position)
+        try:
+            self._start()
+            assert self._store is not None
+            return self._store.check(saved_query["sql"], saved_query=saved_query)
+        except (ValueError, RuntimeError) as error:
+            raise SavedQueryError(saved_query, error) from error
+
+    def save(self, sql: str, cursor_position: int | None = None) -> dict[str, str]:
+        return self._saved(sql, cursor_position)
+
+    def save_worksheet(self, sql: str) -> dict[str, str]:
+        return self._saved_queries.save_worksheet(sql)
+
+    def load(self, reference: str) -> dict[str, str]:
+        return self._saved_queries.load(reference)
+
+    def saved_list(self, limit: int = 20) -> dict[str, list[dict[str, str]]]:
+        return self._saved_queries.list(limit)
+
+    def schema(self) -> dict[str, dict[str, list[dict[str, str]]]]:
         self._start()
         assert self._store is not None
-        return self._store.check(sql)
+        return self._store.schema()
 
     def close(self) -> None:
         self._stop.set()

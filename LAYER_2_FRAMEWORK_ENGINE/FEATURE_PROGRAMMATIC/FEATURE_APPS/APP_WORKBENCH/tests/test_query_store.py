@@ -1,7 +1,5 @@
-# CA-E-673@3
-# CA-E-674@5
-# CA-E-676@6
-# CA-E-677@7
+# CA-E-676@7
+# CA-E-677@8
 
 from __future__ import annotations
 
@@ -124,6 +122,19 @@ class QueryStoreTest(unittest.TestCase):
             {"valid": True, "row_count": 0, "column_count": len(ATOM_FIELDS)},
             self.store.check("SELECT * FROM atoms"),
         )
+
+    def test_schema_and_saved_metadata_follow_one_materialized_result(self) -> None:
+        saved = {"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1"}
+        result = self.store.run("SELECT 1", saved_query=saved)
+
+        self.assertEqual(saved, {key: result[key] for key in saved})
+        page = self.store.page(result["query_id"], 0)
+        self.assertEqual(saved, {key: page[key] for key in saved})
+        checked = self.store.check("SELECT 1", saved_query=saved)
+        self.assertEqual(saved, {key: checked[key] for key in saved})
+        schema = self.store.schema()["tables"]
+        self.assertEqual([field for field in ATOM_FIELDS], [column["name"] for column in schema["atoms"]])
+        self.assertEqual([field for field in SCOPE_FIELDS], [column["name"] for column in schema["scope_units"]])
 
     def test_native_admission_errors_leave_a_valid_connection(self) -> None:
         self.assertEqual([[1]], self.store.run("-- comment ;\nSELECT 1; /* comment ; */")["rows"])

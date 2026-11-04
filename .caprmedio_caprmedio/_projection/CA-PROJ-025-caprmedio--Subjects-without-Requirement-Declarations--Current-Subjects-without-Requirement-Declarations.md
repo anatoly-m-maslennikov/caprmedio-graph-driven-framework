@@ -366,7 +366,7 @@ source:
   - CA-M-450@7
   - CA-M-451@7
   - CA-M-452@4
-  - CA-M-453@5
+  - CA-M-453@6
   - CA-M-454@6
   - CA-M-455@5
   - CA-M-456@2
@@ -795,7 +795,7 @@ source:
   - CA-R-2156@10
   - CA-R-2157@10
   - CA-R-2158@12
-  - CA-R-2170@10
+  - CA-R-2170@12
   - CA-R-2173@9
   - CA-R-2174@6
   - CA-R-2198@6
@@ -866,7 +866,7 @@ source:
   - CA-R-2482@2
   - CA-R-2483@6
   - CA-R-2484@2
-  - CA-R-2485@5
+  - CA-R-2485@7
   - CA-R-2486@6
   - CA-R-2487@13
   - CA-R-2498@5
@@ -1089,7 +1089,7 @@ source:
   - CA-R-2747@1
   - CA-R-2748@1
   - CA-R-2762@2
-  - CA-R-2765@3
+  - CA-R-2765@5
   - CA-R-2766@2
   - CA-R-2767@2
   - CA-R-2768@2
@@ -1173,7 +1173,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 22:23:07 +0400
+updated_at: 2026-11-04 23:15:53 +0400
 ---
 
 # Subjects Without Effective Requirement Declaration Coverage
@@ -1232,7 +1232,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-441@35, CA-E-473@26, CA-E-652@22, CA-M-295@32; keys: active, passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-2255@9; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime/Session` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1650@34; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Property` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-246@47, CA-E-449@44, CA-M-125@47, CA-M-453@5, CA-R-1247@24, CA-R-1259@24, CA-R-1284@27, CA-R-1931@18, CA-R-2003@16; keys: active, passive
+- `CAPRMEDIO_MODEL <+ Entity/Property` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-246@47, CA-E-449@44, CA-M-125@47, CA-R-1247@24, CA-R-1259@24, CA-R-1284@27, CA-R-1931@18, CA-R-2003@16; keys: active, passive
 - `CAPRMEDIO_MODEL <+ History` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1644@37; keys: passive
 - `CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology.Member)` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-306@30; keys: passive
 - `CAPRMEDIO_MODEL <+ Scope Unit/Project` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-671@1, CA-R-1430@27; keys: passive
@@ -1245,10 +1245,10 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Term//Artifact` — Term has a Method / Term Definition; outside Requirement Declaration scope; pins: CA-D-309@27, CA-D-464@25, CA-E-404@27, CA-E-436@30, CA-E-437@27, CA-E-444@36, CA-E-449@44, CA-E-522@19, CA-M-138@29, CA-M-239@25, CA-M-277@34, CA-M-278@31, CA-M-296@21, CA-M-454@6, CA-R-1026@33, CA-R-1220@26, CA-R-1405@29, CA-R-1409@30, CA-R-1410@22, CA-R-1424@28, CA-R-1441@26, CA-R-1455@27, CA-R-1499@21, CA-R-1500@21, CA-R-1501@21, CA-R-1521@32, CA-R-1558@23, CA-R-1568@26, CA-R-1609@22, CA-R-1639@38, CA-R-1646@41, CA-R-1655@45, CA-R-1703@40, CA-R-1708@39, CA-R-1720@38, CA-R-1765@35, CA-R-622@35; keys: active, passive; Term Definition: CA-M-454@6
 - `CAPRMEDIO_MODEL <+ Term//Change Content Roles` — Term has a Method / Term Definition; outside Requirement Declaration scope; pins: CA-M-455@5; keys: active; Term Definition: CA-M-455@5
 - `CAPRMEDIO_MODEL <+ Term//Empty` — Term has a Method / Term Definition; outside Requirement Declaration scope; pins: CA-M-449@4, CA-R-1318@37, CA-R-1319@31; keys: active, passive; Term Definition: CA-M-449@4
-- `CAPRMEDIO_MODEL <+ Term//Entity` — Term has a Method / Term Definition; outside Requirement Declaration scope; pins: CA-E-444@36, CA-M-451@7, CA-R-1318@37; keys: active, passive; Term Definition: CA-M-451@7
+- `CAPRMEDIO_MODEL <+ Term//Entity` — Term has a Method / Term Definition; outside Requirement Declaration scope; pins: CA-E-444@36, CA-M-451@7, CA-M-453@6, CA-R-1318@37; keys: active, passive; Term Definition: CA-M-451@7
 - `CAPRMEDIO_MODEL <+ Term//ID` — Term has a Method / Term Definition; outside Requirement Declaration scope; pins: CA-E-659@6, CA-M-450@7, CA-R-1318@37, CA-R-1319@31; keys: active, passive; Term Definition: CA-M-450@7
 - `CAPRMEDIO_MODEL <+ Term//Object` — Term has a Method / Term Definition; outside Requirement Declaration scope; pins: CA-M-458@3; keys: active; Term Definition: CA-M-458@3
-- `CAPRMEDIO_MODEL <+ Term//Property` — Term has a Method / Term Definition; outside Requirement Declaration scope; pins: CA-D-479@30, CA-D-485@27, CA-D-505@18, CA-D-506@18, CA-E-246@47, CA-E-383@46, CA-E-402@33, CA-E-403@36, CA-E-443@34, CA-E-449@44, CA-E-505@22, CA-E-520@32, CA-M-105@27, CA-M-125@47, CA-M-237@33, CA-M-271@29, CA-M-453@5, CA-R-1245@28, CA-R-1247@24, CA-R-1318@37, CA-R-1321@35, CA-R-1346@28, CA-R-1358@35, CA-R-1359@30, CA-R-1428@32, CA-R-1489@25, CA-R-1502@25, CA-R-1931@18, CA-R-2003@16; keys: active, passive; Term Definition: CA-M-453@5
+- `CAPRMEDIO_MODEL <+ Term//Property` — Term has a Method / Term Definition; outside Requirement Declaration scope; pins: CA-D-479@30, CA-D-485@27, CA-D-505@18, CA-D-506@18, CA-E-246@47, CA-E-383@46, CA-E-402@33, CA-E-403@36, CA-E-443@34, CA-E-449@44, CA-E-505@22, CA-E-520@32, CA-M-105@27, CA-M-125@47, CA-M-237@33, CA-M-271@29, CA-M-453@6, CA-R-1245@28, CA-R-1247@24, CA-R-1318@37, CA-R-1321@35, CA-R-1346@28, CA-R-1358@35, CA-R-1359@30, CA-R-1428@32, CA-R-1489@25, CA-R-1502@25, CA-R-1931@18, CA-R-2003@16; keys: active, passive; Term Definition: CA-M-453@6
 - `CAPRMEDIO_MODEL <+ Term//Term` — Term has a Method / Term Definition; outside Requirement Declaration scope; pins: CA-M-125@47, CA-M-452@4, CA-R-1318@37; keys: active, passive; Term Definition: CA-M-452@4
 
 ## Unresolved coverage needing review

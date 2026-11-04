@@ -1,4 +1,4 @@
-<!-- CA-R-2727@4 CA-M-466@5 CA-M-467@2 CA-D-674@8 -->
+<!-- CA-D-674@9 -->
 <script lang="ts">
   import type { QueryResult } from './types';
 

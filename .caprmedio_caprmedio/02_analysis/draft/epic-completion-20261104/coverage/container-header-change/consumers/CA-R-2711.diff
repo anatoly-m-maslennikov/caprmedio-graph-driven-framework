@@ -1,0 +1,10 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/consumers/CA-R-2711.preview.txt
+@@ -38,3 +38,7 @@
+   ?== LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)
+   ?== $project.Settings.AI Agent Confidence Threshold
+ ```
++
++### Prose Claim
++
++For an Atom, LOOKUP traverses the IS_CONTAINED_BY Relation expressing its Header.Container target. It does not write a second containment fact under Header.Relations.

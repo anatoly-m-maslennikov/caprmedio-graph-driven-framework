@@ -1,0 +1,71 @@
+{
+  "status": "READY_KNOWN_BINDING_SOURCE_PREVIEWS_NOT_APPLIED",
+  "latest_decision": "Atom.Header.Container is an ordinary single Property holding a full Scope Unit path or a base Atom ID selecting Current by default; Header.Relations is optional and contains no duplicate Container entry. IS_CONTAINED_BY/CONTAINS and +>/<+ remain MODEL/Formal Claim relations, not Property aliases. Scope Unit root formal containment and the Declaration Atom Header are distinct.",
+  "supersedes": "Prior suspended removal-of-Relation and pending-operator assumption; user has explicitly retained MODEL/Formal Claim relations and notation.",
+  "plan_candidates": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/plan-candidates/manifest.json",
+  "plan_candidates_sha256": "0d9e95a3a1c6ca86a9cc76d4d3273197433f02df938bcdc227caa9196844bb43",
+  "ownership": "Root/source lane owns source and the planned mechanical data migration after reviewed source/schema checkpoint. CA #3 owns implementation, runtime, fixtures and tests. Workbench/Workflow owners retain their files.",
+  "old_plan_preserved_for_history": {
+    "status": "SUSPENDED_OLD_RELATION_ASSUMPTION",
+    "human_decision": [
+      "Containment storage moves from Atom.Header.Relations to Atom.Header.Container; Atom.Header.Relations is optional.",
+      "Every Atom has exactly one immediate Container. Each non-Project Scope Unit has one immediate Container; the Project root has zero.",
+      "The graph IS_CONTAINED_BY remains Direct and has one authored fact read from Container."
+    ],
+    "pins": {
+      "epic": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "epic_sha256": "7d9737c95123298b114dd3601a96b1704ec4e6fb06d1e0603f2cfb29bc4c4bc5",
+      "acceptance_matrix": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/acceptance/matrix.json",
+      "matrix_sha256": "11b337b0874831f45e3b733cb8c534adff6ff8c7776d7249e3152c13ca2e4af1"
+    },
+    "acceptance_requirement_delta": [
+      {
+        "requirement_id": "P2694: Claim/model notation",
+        "field": "explicit_requirement",
+        "old_exact": "Adopt Atom.Header / Atom.Content grouping; empty Claim container with Formal Claim and Prose Claim children; remove Claim Scope; symbolic aliases; minimal declared relation counterparts; declaration-based heading interpretation. Apply current Property contracts: inherited format without repeated local value counts; present Property instances have value, schema and bearer links; required Relations are populated by exactly one direct IS_CONTAINED_BY to the immediate Container; optional Subjects grouping does not weaken required Active subject on complete Current Atoms.",
+        "proposed": "Adopt Atom.Header / Atom.Content grouping; empty Claim container with Formal Claim and Prose Claim children; remove Claim Scope; symbolic aliases; minimal declared relation counterparts; declaration-based heading interpretation. Apply current Property contracts: inherited format without repeated local value counts; present Property instances have value, schema and bearer links; each Atom has exactly one immediate Container carried in Atom.Header.Container; Atom.Header.Relations is optional; the graph has one direct IS_CONTAINED_BY fact read from Container; optional Subjects grouping does not weaken required Active subject on complete Current Atoms.",
+        "replaces_only": "required Relations are populated by exactly one direct IS_CONTAINED_BY to the immediate Container"
+      },
+      {
+        "requirement_id": "P2694: declaration model",
+        "field": "supplemental_latest_decision",
+        "proposed": "In addition to the existing 44-Declaration, stable-ID and root rules, verify every non-Project Scope Unit has exactly one immediate Container and the Project root has none; do not extend the root exception to Atoms."
+      },
+      {
+        "requirement_id": "P2707: Current declaration cutover",
+        "field": "supplemental_latest_decision",
+        "proposed": "Include the non-Project Scope Unit one-Container and Project-root zero-Container checks in final Current declaration readback without removing the existing counts, ID, ordering or digest gate."
+      }
+    ],
+    "epic_delta": [
+      {
+        "location": "Remaining work item 2, Property contracts",
+        "old_exact": "2. **Property contracts.** Resolve the six conditional cases from applicable Declarations. Keep Relations populated by the containment Relation. Repair the optional Subjects grouping without weakening Current Active-subject requirements.",
+        "proposed": "2. **Property contracts and containment.** Resolve the conditional cases from applicable Declarations. Require exactly one Atom.Header.Container per Atom and make Atom.Header.Relations optional. Read the single direct IS_CONTAINED_BY fact from Container. Require exactly one immediate Container for each non-Project Scope Unit and none for the Project root. Repair the optional Subjects grouping without weakening Current Active-subject requirements."
+      },
+      {
+        "location": "Scope, after Atom.Header / Atom.Content bullet",
+        "proposed_addition": "Carry each Atom\u2019s one immediate Container in Atom.Header.Container. Atom.Header.Relations is optional. The direct graph IS_CONTAINED_BY fact is read once from Container. Each non-Project Scope Unit has one immediate Container; the Project root has none."
+      }
+    ],
+    "sequencing": [
+      "Source lane identifies and reviews all affected MODEL, Header Property, Delivery and graph Relation authority, exact source preimages, Subjects and constraints; resolve canonical binding/encoding before application.",
+      "Apply reviewed source authority together and establish the required source checkpoint before the dependent mechanical migration. Preserve historical source and versioned references.",
+      "Plan one mechanical migration of existing Container bindings after the reviewed source checkpoint; preserve immediate container identity and unrelated Relation values, avoid duplicate authored facts, and report unresolved or ambiguous cases for disposition.",
+      "CA #3 owns corresponding implementation, readers/adapters, fixtures, migration execution and tests. Workbench and Workflow agents retain their own work and external gates; this source-only delta changes no such sources.",
+      "Regenerate and verify source projections only against the finally adopted source frontier; final suite, launcher, Docker query/status, W10, live admission and final checked push remain mandatory as already recorded."
+    ],
+    "constraints": [
+      "SUSPENDED: all older human_decision, Epic/acceptance proposed text and sequencing statements that retain a graph Relation or assign migration ownership to CA #3 are historical only and superseded by the latest_decision_note and ownership_correction.",
+      "These are proposed changes only: do not rewrite the actual acceptance matrix or Current Epic before source binding and reviewed adoption.",
+      "All 23 acceptance groups and their existing gates remain; replace the superseded required-Relations wording rather than adding a conflicting parallel requirement.",
+      "No actual Atom, Scope Unit, Relation, code, Workflow, Workbench, test, Git or Journal mutation.",
+      "This delta does not choose the Container value syntax, lookup/resolution protocol, legacy-data disposition or workflow execution details."
+    ],
+    "latest_decision_note": "The Operator rejected retaining IS_CONTAINED_BY as a separate graph Relation: Container Property is the single concept. Earlier proposed text below that retains an IS_CONTAINED_BY fact is superseded and must not be applied. Whether +> and <+ remain Property shorthand or are retired is pending. Do not change the Epic or acceptance matrix until that binding is settled.",
+    "ownership_correction": "Root/source lane owns source work and the planned mechanical data migration under the existing Epic. CA #3 owns implementation, runtime, fixtures and test execution. Workbench and Workflow owners retain their own files and work."
+  },
+  "limits": [
+    "No actual Epic/matrix/source/data/code/Workflow/Workbench/Git mutation."
+  ]
+}

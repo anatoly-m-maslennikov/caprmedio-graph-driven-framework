@@ -1,6 +1,6 @@
 # CA-E-675@5
-# CA-E-676@6
-# CA-E-677@7
+# CA-E-676@7
+# CA-E-677@8
 
 from __future__ import annotations
 
@@ -60,7 +60,12 @@ class WorkbenchFunctionalTests(unittest.TestCase):
             [["CA-R-501", "Current", "Short requirement.", "Atom.id[string]{1}", "An Atom has one ID."]],
             result["rows"],
         )
-        self.assertEqual({"valid": True, "row_count": 1, "column_count": 1}, self.service.check("SELECT id FROM atoms WHERE id = 'CA-R-501'"))
+        checked = self.service.check("SELECT id FROM atoms WHERE id = 'CA-R-501'")
+        self.assertEqual({"valid": True, "row_count": 1, "column_count": 1}, {
+            key: checked[key] for key in ("valid", "row_count", "column_count")
+        })
+        self.assertEqual("query", checked["kind"])
+        self.assertTrue(checked["saved_query_id"].startswith("q_"))
 
     def test_background_scan_indexes_new_sources_without_a_manual_refresh(self) -> None:
         self.service.run("SELECT 1")

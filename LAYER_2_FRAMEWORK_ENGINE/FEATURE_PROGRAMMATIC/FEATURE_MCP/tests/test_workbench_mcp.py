@@ -11,7 +11,10 @@ from unittest.mock import Mock
 MCP_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(MCP_ROOT))
 
-from workbench_tools import CHECK, PAGE, RUN, WorkbenchTools, native_tools  # noqa: E402
+from workbench_tools import (  # noqa: E402
+    CHECK, LOAD, NATIVE_TOOLS, PAGE, RUN, SAVE, SAVED_LIST, SAVE_WORKSHEET, SCHEMA,
+    WorkbenchTools, native_tools,
+)
 from operation_error_boundary import ExplicitBlockingRuntimeFailure  # noqa: E402
 
 
@@ -20,16 +23,16 @@ class FakeService:
         self.calls = []
         self.closed = False
 
-    def run(self, sql, page_size=100):
-        self.calls.append((RUN, sql, page_size))
+    def run(self, sql, page_size=100, cursor_position=None):
+        self.calls.append((RUN, sql, page_size, cursor_position))
         return {
             "query_id": "q-1", "columns": [{"name": "sql", "type": "VARCHAR"}],
             "rows": [[sql]], "row_count": 1, "column_count": 1,
             "offset": 0, "page_size": page_size, "has_more": False,
         }
 
-    def check(self, sql):
-        self.calls.append((CHECK, sql))
+    def check(self, sql, cursor_position=None):
+        self.calls.append((CHECK, sql, cursor_position))
         return {"valid": True, "row_count": 1, "column_count": 1}
 
     def page(self, query_id, offset, page_size=100):
@@ -40,13 +43,36 @@ class FakeService:
             "offset": offset, "page_size": page_size, "has_more": False,
         }
 
+    def schema(self):
+        self.calls.append((SCHEMA,))
+        return {"atoms": []}
+
+    def save(self, sql, cursor_position=None):
+        self.calls.append((SAVE, sql, cursor_position))
+        return {"saved_query_id": "q_1", "kind": "query", "sql": sql}
+
+    def save_worksheet(self, sql):
+        self.calls.append((SAVE_WORKSHEET, sql))
+        return {"saved_query_id": "w_1", "kind": "worksheet", "sql": sql}
+
+    def load(self, reference):
+        self.calls.append((LOAD, reference))
+        return {"saved_query_id": reference, "kind": "query", "sql": "SELECT 1"}
+
+    def saved_list(self, limit=20):
+        self.calls.append((SAVED_LIST, limit))
+        return {"items": []}
+
     def close(self):
         self.closed = True
 
 
 class WorkbenchToolsTests(unittest.TestCase):
-    def test_native_descriptors_and_one_owner_handle_run_page_check_and_close(self):
-        self.assertEqual([RUN, CHECK, PAGE], [tool.name for tool in native_tools()])
+    def test_native_descriptors_and_one_owner_handle_all_calls_and_close(self):
+        self.assertEqual(list(NATIVE_TOOLS), [tool.name for tool in native_tools()])
+        tools = {tool.name: tool for tool in native_tools()}
+        self.assertFalse(tools[RUN].annotations.read_only_hint)
+        self.assertTrue(tools[SCHEMA].annotations.read_only_hint)
         owner = WorkbenchTools(Path("/project"))
         fake = FakeService()
         owner._service = fake
@@ -58,11 +84,18 @@ class WorkbenchToolsTests(unittest.TestCase):
             page = await owner.call(PAGE, {"query_id": run["query_id"], "offset": 0, "page_size": 1})
             self.assertEqual(0, page["offset"])
             self.assertTrue((await owner.call(CHECK, {"sql": "SELECT 1"}))["valid"])
+            self.assertEqual("q_1", (await owner.call(SAVE, {"sql": "SELECT 2", "cursor_position": 2}))["saved_query_id"])
+            self.assertEqual("w_1", (await owner.call(SAVE_WORKSHEET, {"sql": "SELECT 3"}))["saved_query_id"])
+            self.assertEqual("q_2", (await owner.call(LOAD, {"reference": "q_2"}))["saved_query_id"])
+            self.assertEqual({"atoms": []}, await owner.call(SCHEMA, {}))
+            self.assertEqual({"items": []}, await owner.call(SAVED_LIST, {"limit": 3}))
             await owner.close()
 
         asyncio.run(exercise())
         self.assertEqual(
-            [(RUN, "SELECT 1", 100), (PAGE, "q-1", 0, 1), (CHECK, "SELECT 1")], fake.calls
+            [(RUN, "SELECT 1", 100, None), (PAGE, "q-1", 0, 1), (CHECK, "SELECT 1", None),
+             (SAVE, "SELECT 2", 2), (SAVE_WORKSHEET, "SELECT 3"), (LOAD, "q_2"),
+             (SCHEMA,), (SAVED_LIST, 3)], fake.calls
         )
         self.assertTrue(fake.closed)
 

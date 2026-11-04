@@ -1,0 +1,52 @@
+{
+  "status": "SOURCE_PREVIEW_ONLY",
+  "source": {
+    "id": "CA-M-453",
+    "version": 5,
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+    "sha256": "fb9d0205cf7d78c1adc9b44326a43ec6d793058862c834439cc0e58d25c659d4"
+  },
+  "candidate": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/property-term-repair/CA-M-453.preview.txt",
+    "sha256": "44f9882f5428377e224c0a5c008f273513e1ecac4cae2278c57f5620049efd2f",
+    "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/property-term-repair/CA-M-453.diff.txt",
+    "diff_sha256": "000213e345956d87af497c27e0ce5fcf59aedee6d4dd142326d3ed3e470faf79"
+  },
+  "authority_pins": [
+    {
+      "id": "CA-M-451",
+      "version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+      "sha256": "cc83380cc43391664968b27b812f799030e57e9c7d88baa2ba329912e0d7a998"
+    },
+    {
+      "id": "CA-R-2473",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00"
+    },
+    {
+      "id": "CA-R-2247",
+      "version": 11,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "b2204c4e8d43421bc1fa95ebf93dfae03eaf6749cef10015f97d3563bdb8cc22"
+    },
+    {
+      "id": "CA-R-1318",
+      "version": 37,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+      "sha256": "8902cdffb5f5afab784c57cea141019daa65d60b168521fbcb660cb4f282acdd"
+    }
+  ],
+  "decision": "Property is an Entity whose identity depends on exactly one immediate bearer through direct IS_PROPERTY_OF; no Node-only restriction or new graph kind.",
+  "metadata": "Preserves Current identity/version/status, Summary, Method/Form, containment and destination. Replaces obsolete passive Entity/Property with Term//Entity; retains Term, IS_PROPERTY_OF and qualified Method/Form; removes unmentioned HAS_PROPERTY.",
+  "held_draft": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-453@4-draft-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+    "sha256": "1a132e4bb524a24c4a5b8e34eab2c4ef0c40e36026b4e88e1f1ff27456ca5874",
+    "version": 4,
+    "disposition": "Obsolete predecessor Draft @4 is older than Current @5 and defines Property as Node.** only. Do not promote or reuse its Claim. Rebase a fresh successor on pinned Current @5 under authorized lifecycle, resolving the older held Draft through normal disposition."
+  },
+  "limits": [
+    "Preview is not an actual Draft or Current change. It introduces no Entity root, Node hierarchy change, universal selector or additional Rule."
+  ]
+}

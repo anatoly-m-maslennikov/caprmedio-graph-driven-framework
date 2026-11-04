@@ -1,10 +1,14 @@
-// CA-R-2727@4
-// CA-M-466@5
-// CA-M-467@2
-// CA-D-674@8
+// CA-D-674@9
 export type Column = { name: string; type: string; has_values?: boolean };
 
-export type QueryResult = {
+export type SavedIdentity = {
+  saved_query_id: string;
+  saved_query_url: string;
+  kind: 'query' | 'worksheet';
+  sql: string;
+};
+
+export type QueryResult = SavedIdentity & {
   query_id: string;
   columns: Column[];
   rows: unknown[][];
@@ -15,4 +19,12 @@ export type QueryResult = {
   has_more: boolean;
 };
 
-export type CheckResult = { valid: boolean; row_count: number; column_count: number };
+export type CheckResult = SavedIdentity & { valid: boolean; row_count: number; column_count: number };
+export type Schema = { tables: Record<string, Array<{ name: string; type: string }>> };
+export type SavedItem = {
+  saved_query_id: string;
+  saved_query_url: string;
+  kind: 'query' | 'worksheet';
+  preview: string;
+  saved_at: string;
+};

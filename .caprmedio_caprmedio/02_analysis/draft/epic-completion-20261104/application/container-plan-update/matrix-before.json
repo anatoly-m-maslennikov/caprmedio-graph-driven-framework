@@ -1,0 +1,474 @@
+{
+  "schema": "caprmedio-epic-acceptance-matrix/1",
+  "epic": "CA-P-2694@61",
+  "as_of": "2026-11-04",
+  "purpose": "Read-only completeness assessment; not authority to change Current or transition status.",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-dependency-frontier.json",
+  "current_frontier_note": "Seven published MODEL views match the bounded selected 1,167-source frontier; audit reports 55 missing and 23 unresolved. This is not final model, runtime or data conformance.",
+  "requirements": [
+    {
+      "requirement_id": "P2695",
+      "explicit_requirement": "Disposition for all 29 dependency-only paths / 63 uses; authority, correction, retirement, or justified remainder recorded.",
+      "live_evidence": "Completed task report + thin tracker and remainder list; 21 updated Atoms, 3 Definitions, views 014\u2013016 rebuilt.",
+      "gap_or_limit": "No apparent task-scope gap; the newer P2696 uniqueness requirement is separate.",
+      "gate_command_or_check": "Recompute exact-path set from live selected sources; compare each disposition to Current authority.",
+      "dependencies": [
+        "P2696"
+      ],
+      "assessment": "satisfied_for_scope",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/dependency-coverage-result.md",
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/dependency-only-subjects.tsv"
+      ]
+    },
+    {
+      "requirement_id": "P2696",
+      "explicit_requirement": "Exactly one defining Requirement per in-scope logical model Entity and Relation Type; shared/formal cases included; no hidden competing Definition; IS_DEFINED_BY derived.",
+      "live_evidence": "Task reports 336/336 original logical owners and 33/33 Relation Type owners; 75 successors + 145 new Atoms; source-backed audit retained all 337 raw paths.",
+      "gap_or_limit": "Task says done, but newer all-Model cleanup audits still report uncovered/unresolved expressions; scope differs and must not be conflated with ownership proof.",
+      "gate_command_or_check": "Re-read ownership audit and Current model; rerun ownership view over declared cohort.",
+      "dependencies": [
+        "P2697",
+        "P2698"
+      ],
+      "assessment": "satisfied_for_scope",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/definition-polishing-result.md"
+      ]
+    },
+    {
+      "requirement_id": "P2697",
+      "explicit_requirement": "Combined model coherence review covers original 180, repaired groups and all 133 shared/formal cases; conflicts/limits explicit.",
+      "live_evidence": "Task result says all 180 + 24 competing + 133 shared/formal cases reviewed; report records findings and limits.",
+      "gap_or_limit": "No standalone machine result re-opened in this lane; no additional semantic completeness claim.",
+      "gate_command_or_check": "Review report and finding register against Current source IDs/versions.",
+      "dependencies": [
+        "P2696"
+      ],
+      "assessment": "satisfied_for_scope",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/definition-polishing-result.md"
+      ]
+    },
+    {
+      "requirement_id": "P2698",
+      "explicit_requirement": "Every confirmed coherence finding fixed or explicitly Operator-disposed; complete reviewed model and projections rechecked.",
+      "live_evidence": "Earlier task and applied MODEL batches remain bounded evidence. Seven published views are pinned to the later 1,167-source selected frontier; the current audit reports 55 missing and 23 unresolved.",
+      "gap_or_limit": "The 55/23 audit and remaining non-Terms findings require disposition; this bounded selection is not full model conformance.",
+      "gate_command_or_check": "Re-open result and current projection pins; settle current explicit holds before epic closure.",
+      "dependencies": [
+        "P2697"
+      ],
+      "assessment": "partial",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/definition-polishing-result.md",
+        ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/projection-refresh-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json"
+      ]
+    },
+    {
+      "requirement_id": "P2699",
+      "explicit_requirement": "Every selected Current RMEDO source accounted once for Methodology/Engine/Project placement; uncertain/mixed cases explicit, no unapproved moves.",
+      "live_evidence": "Task reports 2,444 sources accounted; 576 MoveCandidate, 66 uncertain/split; no placement edits claimed.",
+      "gap_or_limit": "Review is complete, but it intentionally did not execute moves. Epic does not make those proposed moves an adoption requirement.",
+      "gate_command_or_check": "Verify thin table has one row per selected source and current selection/hash pins.",
+      "dependencies": [
+        "P2694"
+      ],
+      "assessment": "satisfied_for_scope",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/rmedo-placement-review.md",
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/current-rmedo-placement.tsv"
+      ]
+    },
+    {
+      "requirement_id": "P2700",
+      "explicit_requirement": "Trial exactly 100 Current sources including all 47 Goals; review candidate fit and limits without Current changes.",
+      "live_evidence": "Task reports 100 pinned sources, all 47 Goals, 104 Drafts; all source hashes unchanged, no migration.",
+      "gap_or_limit": "Trial is evidence only; adoption was superseded by P2701 and no longer a closure requirement.",
+      "gate_command_or_check": "Confirm result lists exact cohort and unchanged hashes.",
+      "dependencies": [
+        "P2701"
+      ],
+      "assessment": "satisfied_for_scope",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-trial-100-result.md"
+      ]
+    },
+    {
+      "requirement_id": "P2701",
+      "explicit_requirement": "Adopt Scope Contract model and explicit dispositions for Goals, Tier-0 commitments, held owners/targets and deferred consumers. Do not treat Project Goal Operator ownership as an Epic acceptance requirement; the prior explicit Operator answer removed that requirement.",
+      "live_evidence": "Task reports 87 Current updates, 1 retirement, 88 archives, rebuilt views; seven deferred Goal cases remain explicitly routed.",
+      "gap_or_limit": "Four technical goals and 26 retained Engine Goal gaps remain explicitly deferred. Project Goal containment remains covered separately by the immediate-containment rule; the removed ownership requirement is not a closure gate.",
+      "gate_command_or_check": "Verify Current adoption packet, Goal disposition register and links to Engine follow-up.",
+      "dependencies": [
+        "P2694",
+        "P2703"
+      ],
+      "assessment": "satisfied_with_explicit_deferrals",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-contract-adoption.md",
+        ".caprmedio_caprmedio/03_plan/CA-P-2637-EPIC--migrate-engine-rmed-atoms/backlog/CA-P-2702-TASK--reconcile-deferred-engine-scope-goals.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/REPORT.md"
+      ]
+    },
+    {
+      "requirement_id": "P2703",
+      "explicit_requirement": "All 12 deferred foundation/notation preparations have explicit adopt/retire/hold/supersede disposition; no draft mistaken as adopted.",
+      "live_evidence": "Task reports R2441/M445 adopted, E002 retired, R007/R686 held, five preparations handed to CA#5, Adapter Method to Engine; views rebuilt.",
+      "gap_or_limit": "Six handed-off preparations remain unadopted drafts, explicitly not counted.",
+      "gate_command_or_check": "Verify 12-item disposition register against Current and receiving plans.",
+      "dependencies": [
+        "P2701"
+      ],
+      "assessment": "satisfied_with_explicit_deferrals",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/deferred-draft-review.md",
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/deferred-draft-dispositions.tsv"
+      ]
+    },
+    {
+      "requirement_id": "P2694: declaration model",
+      "explicit_requirement": "Promote 44 Scope Unit Declarations and shared ordering/Project/identity model; 43 non-root stable IDs; Project root has no ID and is Unordered without order.number.",
+      "live_evidence": "P2705 reports adoption; P2707 source readback claims 44 Declarations, 43 IDs, nine Ordered.",
+      "gap_or_limit": "Need live independent readback pinned to latest Current frontier; legacy task packet is earlier.",
+      "gate_command_or_check": "Read Declarations and assert counts/unique root/IDs/order rules against Current.",
+      "dependencies": [
+        "P2705",
+        "P2707"
+      ],
+      "assessment": "reported_satisfied_current_readback_needed",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/10-CA-P-2705-TASK--adopt-formal-scope-unit-declarations.md",
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md"
+      ]
+    },
+    {
+      "requirement_id": "P2704",
+      "explicit_requirement": "Remove five obsolete authority-mode overrides from Declaration Drafts and retire field.",
+      "live_evidence": "P2704 Done; 44 Declarations adopted via P2705.",
+      "gap_or_limit": "No live scan evidence included in current P2704 text.",
+      "gate_command_or_check": "Search Current Declarations and production readers for retired field/override; compare against archived predecessors.",
+      "dependencies": [
+        "P2705"
+      ],
+      "assessment": "reported_satisfied_live_scan_needed",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/09-CA-P-2704-TASK--remove-obsolete-scope-authority-mode-overrides.md"
+      ]
+    },
+    {
+      "requirement_id": "P2694: folder derivation",
+      "explicit_requirement": "Rename existing Authority/Delivery folders to derived names; only non-root Authority names include Scope Unit ID; Project Authority remains .caprmedio_<project name>.",
+      "live_evidence": "P2706 adoption packet/README describes folder migration; P2707 retains cutover check.",
+      "gap_or_limit": "Need current filesystem-vs-Declaration check after latest source updates.",
+      "gate_command_or_check": "Run the path derivation/readback check from scope-unit-governance packet on live tree.",
+      "dependencies": [
+        "P2705",
+        "P2706",
+        "P2707"
+      ],
+      "assessment": "reported_satisfied_live_check_needed",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/README.md"
+      ]
+    },
+    {
+      "requirement_id": "P2694/P2706: TOML retirement",
+      "explicit_requirement": "Retire project_structure.toml as concept, source, and executable dependency; use Declarations directly; no fallback/generated compatibility TOML/second authored registry; retire row writers/file-only bindings/fixtures/docs; preserve workflow definitions and remove TOML-specific implementation/bindings.",
+      "live_evidence": "P2706 reports TOML and executable dependencies removed; P2707 reports live TOML absent and no production Python references; P2707 still Active.",
+      "gap_or_limit": "Need final live-code scan and all tests after current changes; full suite earlier had 28 failing modules.",
+      "gate_command_or_check": "Search source, docs, fixtures, tests and bindings for project_structure.toml / STRUCTURE_FILENAME / retired row editors; run P2707 complete suite + required integrations.",
+      "dependencies": [
+        "P2706",
+        "P2707"
+      ],
+      "assessment": "partial_gate_open",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/verification/final-cutover-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/REPORT.md"
+      ]
+    },
+    {
+      "requirement_id": "P2694: workflow/API boundary",
+      "explicit_requirement": "Keep existing Scope Unit workflow definitions unchanged; remove TOML-specific implementation/executable bindings; do not build replacement Scope Unit tools; preserve existing business operations through admitted lifecycle behavior; invent no APIs/approval/locks/rules.",
+      "live_evidence": "P2706 says workflows remain; no replacement tools are claimed.",
+      "gap_or_limit": "P2707@5 keeps live Project admission, valid Current execution bindings and affected lifecycle integration open. The earlier D274 failure report is historical; no new live admission pass is established. CA-O-104 remains a distinct source-authority issue owned outside this source lane.",
+      "gate_command_or_check": "Run live Project carrier admission journey and affected lifecycle integration suite; confirm no replacement tool/API.",
+      "dependencies": [
+        "P2706",
+        "P2707",
+        "D274 authority review"
+      ],
+      "assessment": "open",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/engine-followups.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/ownership-correction/adoption-receipt.json"
+      ]
+    },
+    {
+      "requirement_id": "P2694: Claim/model notation",
+      "explicit_requirement": "Adopt Atom.Header / Atom.Content grouping; empty Claim container with Formal Claim and Prose Claim children; remove Claim Scope; symbolic aliases; minimal declared relation counterparts; declaration-based heading interpretation. Apply current Property contracts: inherited format without repeated local value counts; present Property instances have value, schema and bearer links; required Relations are populated by exactly one direct IS_CONTAINED_BY to the immediate Container; optional Subjects grouping does not weaken required Active subject on complete Current Atoms.",
+      "live_evidence": "Reviewed MODEL, Property and Projection declarations were applied with exact predecessor evidence. The source-only CFEL operator, binding/range, Relation, Term and specialization batches have independently checked promotion receipts; the latest seven published views use the selected 1,167-source frontier.",
+      "gap_or_limit": "The 11 Occurrent kind choices are settled, but their endpoint/Relation source gates and Workbench/Workflow-owned work remain separate. Current R2711 supplies Plan confidence lookup, and Project.Settings retry remains declared by R2532/R2635; do not describe those existing sources as unadopted. Broader confidence/retry consumers and final parser/runtime conformance remain open.",
+      "gate_command_or_check": "Verify the adopted property-source receipts and relation/selector/parser behavior against the current frontier; integrate only reviewed identity packet changes, rebuild seven views, and confirm direct immediate containment and Subject Active semantics. Preserve opaque CFEL where evaluation is unspecified.",
+      "dependencies": [
+        "CFEL lane",
+        "permissions lane",
+        "endpoints lane",
+        "Projection lane",
+        "coverage lane",
+        "P2707"
+      ],
+      "assessment": "partial_identity_applied_final_coherence_open",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/02_analysis/draft/model-header-content-migration-20261103/report.md",
+        ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/cfel/analysis.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/properties/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/CONSUMERS.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projection-review/post-migration-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/settings-adoption-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/projection-refresh-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/capability-deferral/adoption-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-operators-current-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-binding-range-current-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/five-relation-current-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json"
+      ]
+    },
+    {
+      "requirement_id": "P2694: CFEL groups and bindings",
+      "explicit_requirement": "Formal Claim expressions in one CFEL block with # model then # instances; explicit $x bindings, same-variable identity within Claim, model/instance distinction and documented binding scope; preserve named references, inherited constraints, population cardinalities and endpoint counts; update rules/readers/checkers/renderers/fixtures/projections.",
+      "live_evidence": "Original per-Atom audits and recovered CFEL sources remain evidence. Current operator, grouping/binding/range and specialization source promotions have independent readbacks. Seven views are published against 1,167 selected Current suppliers.",
+      "gap_or_limit": "Source receipts and readable projections do not prove parser/evaluator behavior, binding identity or complete execution. Final source coherence and CA #3 parser/integration gates remain open.",
+      "gate_command_or_check": "Run current CFEL parser and grouping/binding test targets and verify seven projections match exact current pins; full gate remains P2707.",
+      "dependencies": [
+        "CFEL lane",
+        "P2707"
+      ],
+      "assessment": "source_repairs_applied_remaining_semantic_and_external_gates_open",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/02_analysis/draft/model-header-content-migration-20261103/report.md",
+        ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/cfel/analysis.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/cfel/inventory.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/audit-index.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-operators-current-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-binding-range-current-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/specialization-current-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-projections-review.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json"
+      ],
+      "latest_operator_requirements": [
+        "Complete Current CFEL spec review: every operator, Relation and expression syntax declared.",
+        "One actual active Subject per Atom; simple coherent vocabulary; remove redundant/staging text.",
+        "?== assigns omitted default; = condition; == assignment. Confidence default90 integer0..100.",
+        "IF-introduced variable scoped to IF condition and matching THEN group."
+      ]
+    },
+    {
+      "requirement_id": "P2694: CFEL semantic preservation",
+      "explicit_requirement": "Preserve named references, inheritance, cardinality and endpoint meanings; distinguish model entities from concrete instances; no formal claims inside Subjects. Keep Term Definitions in scope; defer only Terms Graph work and its specifically pinned projection occurrences. Resolve non-Terms model coverage, endpoint, Settings and named-view items or record authorized dispositions.",
+      "live_evidence": "Focused source and reader evidence preserves named references, unary scopes and target omission; Current Requirement/Declaration evidence drives the seven published views. The latest selected-frontier audit records 55 missing and 23 unresolved.",
+      "gap_or_limit": "The 11 Occurrent kind choices are settled; the corresponding endpoint/Relation source gates and other non-Terms gaps still require disposition. Current Plan confidence and Project.Settings retry Declarations exist, while broader consumer alignment remains open. Terms Graph alone remains deferred; Term Definitions remain in scope.",
+      "gate_command_or_check": "Reconcile all final-frontier coverage and unresolved flags (the historical snapshot had 64/26) with lane findings; exclude only the pinned Terms Graph deferment, retain Term Definitions in scope, and resolve or explicitly disposition every other flag. Verify each Projection Form and required Scope Unit reference and seven published views against current sources.",
+      "dependencies": [
+        "syntax",
+        "legacy",
+        "relations",
+        "projection",
+        "coverage",
+        "P2707"
+      ],
+      "assessment": "partial_reader_focused_checks_passed",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/identity-packet/CONSUMERS.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-model/terms-graph-deferral.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projection-review/post-migration-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/capability-reconciliation/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/method-term-current-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/entity-term-current-verification.json"
+      ]
+    },
+    {
+      "requirement_id": "P2694: Carrier boundary",
+      "explicit_requirement": "Objects read from whole Carriers; Carrier kinds stay in MODEL; Delivery templates/adapters own internals/layout; mandatory File.Name/Path string values; retire internal Carrier Property sources, internal-region Rule, Git Index.",
+      "live_evidence": "CA-D-657@4 is applied. Current admission evidence reports 20/20 live authority, eight Role bindings and 588 focused tests. Settings consolidation manually adopted 17 outputs; source validation confirms exact archives and reviewed bytes.",
+      "gap_or_limit": "The remaining current_scope_unit and claim_target_scope_unit migration disposition, final runtime integration and broader carrier admission remain open; focused tests are not full deployment or global conformance evidence.",
+      "gate_command_or_check": "Check adoption receipt hashes/archives and scan readers against Carrier boundary; P2707 live carrier gate still applies.",
+      "dependencies": [
+        "P2707",
+        "Carrier lane"
+      ],
+      "assessment": "partial_focused_admission_passed",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/02_analysis/draft/model-completeness-audit-20261103/implementation/report.md",
+        ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/REPORT.md",
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/engine-followups.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/admission/P2707-current-admission-final-report.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/settings-adoption-verification.json"
+      ]
+    },
+    {
+      "requirement_id": "P2709",
+      "explicit_requirement": "Normalize selected active/passive Subjects only; preserve all other bytes; idempotent; retain history and exclude snapshots.",
+      "live_evidence": "P2709 reports 1,178 canonical files / 3,685 values verified; later 1,151 is the narrower MODEL supplier set, not contradictory.",
+      "gap_or_limit": "Task evidence points to migration-time hashes; verify actual current pins only if closure requires rerunning.",
+      "gate_command_or_check": "Check P2709 application + independent verification receipt and idempotence evidence.",
+      "dependencies": [
+        "P2694"
+      ],
+      "assessment": "satisfied",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/13-CA-P-2709-TASK--simplify-model-and-structure-subject-roots.md"
+      ]
+    },
+    {
+      "requirement_id": "P2707: Current declaration cutover",
+      "explicit_requirement": "44 Declarations, one root, 43 non-root IDs, nine Ordered; unchanged source digest.",
+      "live_evidence": "Current 2026-11-04 integration review read 44 declarations, 43 IDs, nine Ordered units. Set comparison found one old path removed (CA-O-2682 GRAPH_SERVER) and one added (CA-O-2730 WORKBENCH); remaining 43 paths match. The digest changed; no prior per-file hashes prove that other bytes are unchanged.",
+      "gap_or_limit": "Path-set change explains part of digest drift, not the complete digest change. Do not claim unchanged source digest until per-file versions/hashes are reconciled.",
+      "gate_command_or_check": "Read and hash current Declaration set; compare to P2707 expected values.",
+      "dependencies": [
+        "P2705"
+      ],
+      "assessment": "partial_digest_drift_explained_in_part",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/REPORT.md"
+      ]
+    },
+    {
+      "requirement_id": "P2707: Engine runtime cutover",
+      "explicit_requirement": "No live TOML; no production Python dependency; affected runtime/script tests pass; full suite and required integrations green before any release.",
+      "live_evidence": "The mixed-state full diagnostic ran 4,068 tests with 56 failed entries including launcher; it is not a stable-candidate acceptance result. Focused connector/fixture work is reported as 48 passing; the default-fixture receipt separately records 16 passing.",
+      "gap_or_limit": "The historical mixed-state suite is not a stable-candidate result. CA #3 must run and assess the final full suite, launcher, fresh Docker query/status and W10 lifecycle checks; no external execution is inferred from source receipts.",
+      "gate_command_or_check": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/run_full_test_suite.py; then fresh Docker query/status and W10 lifecycle E2E; see integration/REPORT.md for exact invocation and prerequisites.",
+      "dependencies": [
+        "P2708",
+        "Engine follow-up",
+        "P2707"
+      ],
+      "assessment": "open_final_stable_suite_pending",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/engine-followups.md",
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/verification/final-cutover-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/full-suite-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/default-fixture-fix.json"
+      ]
+    },
+    {
+      "requirement_id": "P2707: carrier admission",
+      "explicit_requirement": "Live Project carrier admission works through current authority; no retired D274 dependency.",
+      "live_evidence": "CA-D-657@4 replaced retired carrier authority; the admission report records 20/20 live authority, eight Role bindings and 588 focused tests.",
+      "gap_or_limit": "Dispose of current_scope_unit and claim_target_scope_unit migration before claiming complete admission; rerun final affected and integrated checks.",
+      "gate_command_or_check": "Resolve current author/encoding authority; run source_context_from_project and live Project carrier admission integration journey.",
+      "dependencies": [
+        "D274 authority review",
+        "P2707"
+      ],
+      "assessment": "partial_scope_disposition_open",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/engine-followups.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/admission/P2707-current-admission-final-report.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/admission/P2707-current-admission-test-receipt.md"
+      ]
+    },
+    {
+      "requirement_id": "P2694: source history/publication",
+      "explicit_requirement": "Preserve source history, exact predecessor links and identity/metadata rules for adopted changes. P2694 separately requires the declared checkpoint push and final checked changes pushed to amm/dev; P2707 alone does not imply a release, commit or push.",
+      "live_evidence": "Manual source batches have plan/receipt and independent readback evidence, including exact predecessor preservation. P2694@62 and P2707@5 remain Active. The local origin/amm/dev tracking ref was observed at d4b745b2086f35714bd9febf3ad4f697b10dfd18; this is a source checkpoint, not the final checked push. Seven current published views are pinned to the 1,167-source selected frontier.",
+      "gap_or_limit": "Final source/archive and published-view pins, all required external gates, and a final checked push still require verification. A local remote-tracking ref is not a fresh network observation, release, native Workflow admission or Journal append.",
+      "gate_command_or_check": "Verify declaration checkpoint and final checked changes are committed/pushed to amm/dev with matching local/remote evidence; no release required.",
+      "dependencies": [
+        "integration/adoption",
+        "P2707"
+      ],
+      "assessment": "partial_checkpoint_recorded_final_publication_open",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/integration/verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/review/postapplicationverification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/post-application-frontier.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/goal-rules/adoption-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/adoption-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/settings-adoption-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/projection-refresh-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-permissions-plan-proposal/adoption-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json"
+      ]
+    },
+    {
+      "requirement_id": "P2704\u2013P2709: status and closure boundary",
+      "explicit_requirement": "Do not mark Epic Done until all explicit requirements/gates pass or Operator-approved deferrals are recorded; P2707 retains existing verification scope.",
+      "live_evidence": "P2694@62 and P2707@5 are Active. P2704\u20132706/P2709 retain their reported task results; subsequently adopted source batches and seven pinned views are bounded progress, not final integration evidence.",
+      "gap_or_limit": "P2707 final stable suite, launcher, Docker query/status, W10, scope-field disposition, MODEL/consumer decisions, final views and final branch push remain open. Workbench and Workflow work belongs to their owners; no gate is waived.",
+      "gate_command_or_check": "Final acceptance review against every row; update stale P2694/P2707 narratives before status transition; no status change included here.",
+      "dependencies": [
+        "all rows",
+        "P2707",
+        "P2708"
+      ],
+      "assessment": "open",
+      "evidence_refs": [
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/settings-adoption-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-permissions-plan-proposal/adoption-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json"
+      ]
+    }
+  ],
+  "reviewed_plan_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
+  "reviewed_plan_quality": "P2694@62 and P2707@5 remain Active; the 23 original acceptance groups and required external gates remain in force.",
+  "latest_projection_checkpoint": {
+    "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-dependency-frontier.json",
+    "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json",
+    "selected_sources": 1167,
+    "known_missing": 55,
+    "unresolved": 23,
+    "status": "PUBLISHED_SOURCE_PINNED_NOT_ALL_MODEL_CONFORMANT"
+  },
+  "current_epic_version": 62,
+  "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-permissions-plan-proposal/adoption-receipt.json",
+  "current_verification_task_version": 5,
+  "execution_responsibility": {
+    "this_chat": "MODEL, CFEL, Declarations, Atom sources and source projections",
+    "CA #3": "implementation, runtime, fixtures, regression and integration test execution",
+    "required_external_gates": "retained; no completion inferred from source work"
+  },
+  "latest_source_checkpoint": {
+    "epic": "CA-P-2694@62",
+    "Entity Term": "CA-M-451@7",
+    "Relation": "CA-R-2247@11",
+    "Term": "CA-R-1318@37",
+    "scope": "Source-only reviewed changes; all 23 acceptance groups retained.",
+    "local_remote_tracking_ref": "origin/amm/dev",
+    "local_remote_tracking_sha": "d4b745b2086f35714bd9febf3ad4f697b10dfd18",
+    "observation_limit": "Local remote-tracking ref observed read-only; not a fresh network query or final push."
+  },
+  "historical_frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-cfel-frontier.json"
+}

@@ -367,7 +367,7 @@ source:
   - CA-M-450@7
   - CA-M-451@7
   - CA-M-452@4
-  - CA-M-453@5
+  - CA-M-453@6
   - CA-M-454@6
   - CA-M-455@5
   - CA-M-456@2
@@ -796,7 +796,7 @@ source:
   - CA-R-2156@10
   - CA-R-2157@10
   - CA-R-2158@12
-  - CA-R-2170@10
+  - CA-R-2170@12
   - CA-R-2173@9
   - CA-R-2174@6
   - CA-R-2198@6
@@ -867,7 +867,7 @@ source:
   - CA-R-2482@2
   - CA-R-2483@6
   - CA-R-2484@2
-  - CA-R-2485@5
+  - CA-R-2485@7
   - CA-R-2486@6
   - CA-R-2487@13
   - CA-R-2498@5
@@ -1090,7 +1090,7 @@ source:
   - CA-R-2747@1
   - CA-R-2748@1
   - CA-R-2762@2
-  - CA-R-2765@3
+  - CA-R-2765@5
   - CA-R-2766@2
   - CA-R-2767@2
   - CA-R-2768@2
@@ -1174,7 +1174,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 22:23:07 +0400
+updated_at: 2026-11-04 23:15:53 +0400
 ---
 
 ## Primary entities
@@ -4283,7 +4283,7 @@ CAPRMEDIO_MODEL
 
 ### `Atom/(.Header.Role:=Method)/(.Header.Form:=Term Definition)`
 
-- Declaration sources: CA-R-2765@3
+- Declaration sources: CA-R-2765@5
 - property: `Atom.Content` (relative `Content`) [inherited] — CA-R-2498@5
   - origin: `Atom`
   - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
@@ -12486,6 +12486,7 @@ THEN ($atom.Header.Subjects.Active{==1}) — CA-R-2714@2
 - IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
 FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
 ) — CA-R-2721@2
+- Atom/(.Header.Role := Method).Header.Form: Term Definition — CA-R-2765@5
 - Operator//Fallback == "?==" — CA-R-2769@2
 - Operator//Lookup == "LOOKUP(R, q)" — CA-R-2770@2
 - Operator//Conjunction == "AND" — CA-R-2773@2

@@ -1,0 +1,27 @@
+--- .caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/plan-candidates/CA-P-2694.preview.txt
+@@ -38,6 +38,7 @@
+ 
+ - Keep MODEL entities distinct from their instances. Use the latest Operator decisions when earlier wording conflicts.
+ - Keep Atom.Header and Atom.Content, an empty Claim container with one or two Formal Claim / Prose Claim children, declared heading interpretation, explicit counterpart identities, aliases, and the removal of the @ reference operator.
++- Carry each Atom’s one immediate Container in Atom.Header.Container, using a full Scope Unit path or a base Atom ID selecting its Current version by default. Atom.Header.Relations is optional and does not duplicate Container. IS_CONTAINED_BY, CONTAINS and their +>/<+ notation remain MODEL/Formal Claim relations. A non-Project Scope Unit has one formal Container; the Project root has none. Each Scope Unit Declaration Atom separately has one Header.Container.
+ - Keep # model / # instances groups and explicit $x bindings. Inherit declared formats without copying local value counts. A present Property has a value and has schema and bearer links.
+ - Projection identity is Form + Scope Unit. Named Selection remains source information. Terms Graph is deferred by the latest Operator input; Term Definitions and historical projections remain.
+ 
+@@ -82,7 +83,7 @@
+ ## Remaining work
+ 
+ 1. **Relation permissions.** Verify the adopted outgoing permissions, model/instance scope, endpoint bounds and qualifications against final sources. Retain separate direct/inverse permissions and source-linked unary bounds in projections.
+-2. **Property contracts.** Resolve the six conditional cases from applicable Declarations. Keep Relations populated by the containment Relation. Repair the optional Subjects grouping without weakening Current Active-subject requirements.
++2. **Property contracts and containment.** Resolve the conditional cases from applicable Declarations. Update source and schema authority for the required Atom.Header.Container, optional Header.Relations and retained formal containment Relations; do not duplicate containment in Header.Relations. Verify one formal Container per non-Project Scope Unit and none for the Project root, separately from the mandatory Container of its Declaration Atom. Repair the optional Subjects grouping without weakening Current Active-subject requirements.
+ 3. **MODEL coverage.** Disposition every remaining flag in the latest pinned coverage audit: source correction, declared authority, valid scope, authorized retirement or an Operator decision. The Occurrent hierarchy is settled by the latest Operator decision; finish the reviewed endpoint/inverse-permission and Event Record Relation source gates rather than reopening that decision. Reconcile Settings ownership, preserve operative Claims and exact history, and retain only explicitly authorized deferrals.
+ 4. **Projection identity.** Verify the adopted Form + Scope Unit constraints, required Scope Unit reference and distinct Forms across Delivery, readers, identity checks and published instances. Keep all seven views at the Project root. Preserve versioned source references and the explicit Terms Graph deferral.
+ 5. **CFEL and faithful projections.** Repair declared narrowing and namespace binding, supported qualified selectors and bindings. Classify remaining opaque expressions; retain their complete source and diagnostics. Rebuild all seven MODEL-only views from actual Current Declarations. Formats, cardinalities and Formal Claims come only from Declarations.
+@@ -94,6 +95,7 @@
+ 
+ - Ask one question at a time when confidence is below 90%. Record each answer and its affected sources.
+ - Prepare and review source changes, commit the declaration checkpoint to amm/dev before a dependent mechanical migration, apply the accepted migration in place, then check it. Preserve disabled hooks and concurrent work.
++- After the reviewed Container source and schema checkpoint, the source lane owns one mechanical data migration and its preservation evidence. CA #3 owns the implementation, runtime, fixture and test gates; Workbench and Workflow owners retain their files and work.
+ - Root owns canonical source integration and source commits. CA #3 owns code and test execution. Workers prepare separate source previews and evidence. No release is required. The amm/dev checkpoint, final source push and external verification evidence remain required.
+ 
+ ## Definition of Done

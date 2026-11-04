@@ -23,4 +23,22 @@ Entry Step of [Atom Lifecycle_Update Atom](../CA-O-draft-PROJECT_CONFIGURATION-W
 
 ## Claim
 
-This Step RUNS [Atom Lifecycle_Create Draft](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind `sourceCurrent`, requested property changes, Draft destination, model, and authorization under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md). Pass the saved Draft or error through unchanged.
+### Kind
+
+Execution.
+
+### Inputs
+
+`sourceCurrent`; requested property changes; Draft destination; applicable model; authorization.
+
+### Fixed parameters
+
+None.
+
+### Runs
+
+The Workflow [Atom Lifecycle_Create Draft](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind the inputs under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md).
+
+### Outputs
+
+The saved Draft or explicit error with completed results, passed to the enclosing Workflow.

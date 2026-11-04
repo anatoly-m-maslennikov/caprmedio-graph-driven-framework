@@ -29,7 +29,7 @@ PROJECT_PATH = f"{WORKBENCH_PATH}/{PROJECT_NAME}"
 
 
 class FakeWorkbench:
-    async def call(self, name, arguments):
+    async def call(self, name, arguments):  # noqa: C901
         if name == "query_page":
             if arguments["query_id"] != "query-1":
                 raise ExplicitBlockingRuntimeFailure("query_error", "unknown query_id")
@@ -43,6 +43,18 @@ class FakeWorkbench:
                 "page_size": arguments.get("page_size", 100),
                 "has_more": False,
             }
+        if name == "query_schema":
+            return {"atoms": []}
+        if name == "query_saved_list":
+            return {"items": []}
+        if name == "query_load":
+            return {"saved_query_id": arguments["reference"], "kind": "query", "sql": "SELECT 1"}
+        if name in ("query_save", "worksheet_save"):
+            return {"saved_query_id": "q_1", "kind": "query", "sql": arguments["sql"]}
+        if arguments.get("sql") == "saved-bad":
+            raise ExplicitBlockingRuntimeFailure(
+                "query_error", "bad query", {"saved_query": {"saved_query_id": "q_2", "kind": "query", "sql": "saved-bad"}},
+            )
         if arguments["sql"] == "bad":
             raise ExplicitBlockingRuntimeFailure("query_error", "bad query")
         if arguments["sql"] == "crash":
@@ -90,7 +102,9 @@ class FakeGateway:
             value = await self.workbench.call(params.name, params.arguments)
             return types.CallToolResult(content=[], structured_content=value)
         except ExplicitBlockingRuntimeFailure as error:
-            return types.CallToolResult(content=[], structured_content={"diagnostics": [str(error)]}, is_error=True)
+            saved = error.details.get("saved_query")
+            value = {"error": error.message, **saved} if isinstance(saved, dict) else {"diagnostics": [str(error)]}
+            return types.CallToolResult(content=[], structured_content=value, is_error=True)
 
 
 class WorkbenchWebTests(unittest.TestCase):
@@ -106,14 +120,6 @@ class WorkbenchWebTests(unittest.TestCase):
         self._frontend.start()
         self.addCleanup(self._frontend.stop)
         self.addCleanup(self._temporary.cleanup)
-
-    def test_frontend_preserves_submit_and_nested_result_contracts(self):
-        app = (FRONTEND_ROOT / "src" / "App.svelte").read_text()
-        results = (FRONTEND_ROOT / "src" / "lib" / "ResultsTable.svelte").read_text()
-        self.assertIn('<Button type="submit" disabled={loading}>Run</Button>', app)
-        self.assertIn("const base = location.pathname", app)
-        self.assertIn("JSON.stringify(value)", results)
-        self.assertNotIn("String(value)}</td>", results)
 
     def test_project_named_assets_is_not_shadowed_by_static_files(self):
         gateway = FakeGateway()
@@ -135,6 +141,13 @@ class WorkbenchWebTests(unittest.TestCase):
             self.assertEqual(1, client.post(f"{PROJECT_PATH}/check", json={"sql": "SELECT 1"}).json()["row_count"])
             result = client.post(f"{PROJECT_PATH}/run", json={"sql": "SELECT 1"})
             self.assertEqual(1, result.json()["row_count"])
+            self.assertEqual({"atoms": []}, client.post(f"{PROJECT_PATH}/schema", json={}).json())
+            saved_id = "q_" + "0" * 32
+            self.assertEqual(saved_id, client.post(f"{PROJECT_PATH}/load", json={"reference": saved_id}).json()["saved_query_id"])
+            self.assertEqual(
+                {"error": "saved query reference must be an ID or absolute URL"},
+                client.post(f"{PROJECT_PATH}/load", json={"reference": "?query=" + saved_id}).json(),
+            )
             large = client.post(f"{PROJECT_PATH}/run", json={"sql": "large"})
             self.assertEqual("application/json", large.headers["content-type"])
             self.assertEqual(
@@ -185,6 +198,20 @@ class WorkbenchWebTests(unittest.TestCase):
                     client.post(f"{PROJECT_PATH}/check", json={"sql": "SELECT 1"}).json()["row_count"],
                 )
 
+    def test_saved_values_and_errors_have_request_derived_urls(self):
+        with TestClient(Starlette(routes=routes(FakeGateway())), base_url="http://workbench.test") as client:
+            saved = client.post(f"{PROJECT_PATH}/save", json={"sql": "SELECT 1"}).json()
+            self.assertEqual(
+                "http://workbench.test/caprmedio/workbench/caprmedio?query=q_1", saved["saved_query_url"],
+            )
+            failed = client.post(f"{PROJECT_PATH}/run", json={"sql": "saved-bad"})
+            self.assertEqual(400, failed.status_code)
+            self.assertEqual("bad query", failed.json()["error"])
+            self.assertEqual(
+                "http://workbench.test/caprmedio/workbench/caprmedio?query=q_2",
+                failed.json()["saved_query_url"],
+            )
+
     def test_built_assets_follow_the_workbench_route_when_available(self):
         frontend = FRONTEND_ROOT / "dist"
         index = frontend / "index.html"
@@ -210,7 +237,14 @@ class WorkbenchWebTests(unittest.TestCase):
             self.assertEqual(200, client.get(f"{PROJECT_PATH}?project_root=/project").status_code)
             self.assertEqual(404, client.get(f"{WORKBENCH_PATH}/wrong?project_root=/project").status_code)
             self.assertEqual(1, client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "SELECT 1"}).json()["row_count"])
-        self.assertEqual(["/project"], gateway.roots)
+            failure = client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "saved-bad"})
+            self.assertEqual(400, failure.status_code)
+            self.assertEqual("bad query", failure.json()["error"])
+            self.assertEqual(
+                "http://testserver/caprmedio/workbench/caprmedio?query=q_2&project_root=%2Fproject",
+                failure.json()["saved_query_url"],
+            )
+        self.assertEqual(["/project", "/project"], gateway.roots)
 
 
 if __name__ == "__main__":

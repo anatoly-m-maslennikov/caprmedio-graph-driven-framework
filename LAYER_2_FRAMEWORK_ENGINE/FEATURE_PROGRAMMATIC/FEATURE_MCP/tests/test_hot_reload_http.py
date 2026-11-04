@@ -120,7 +120,9 @@ class HTTPProtocolTests(unittest.IsolatedAsyncioTestCase):
         async with self.app.starlette_app.router.lifespan_context(self.app.starlette_app):
             client, transport, session = await self.session()
             try:
-                self.assertEqual({'echo', 'query_run', 'query_check', 'query_page', 'reload_mcp_implementation', 'get_mcp_reload_status'},
+                self.assertEqual({'echo', 'query_run', 'query_check', 'query_page', 'query_schema', 'query_save',
+                                  'worksheet_save', 'query_load', 'query_saved_list',
+                                  'reload_mcp_implementation', 'get_mcp_reload_status'},
                                  {tool.name for tool in (await session.list_tools()).tools})
                 self.assertEqual('A', (await session.call_tool('echo')).structured_content['version'])
                 old_call = asyncio.create_task(session.call_tool('echo', {'delay': 0.4}))

@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS_BOUNDED_SOURCE_AND_PROJECTION_READBACK",
+  "term_qualifier_plan_sha256": "0846896b3dadb7944a8f23b572119ebe5fa3605bad69e5ffde359e97d1093bf2",
+  "term_qualifier_receipt_sha256": "4972f5c7d7dd72fccefa4efdb29f206ef41e17feffa13f15a657b4391f1c78f5",
+  "frontier_sha256": "2012589551941b8ea1c08140cdf0ae4f72d39026805f78b0194b78b7b7eeed15",
+  "generation_manifest_sha256": "dd5a086bd51b61e15be4dc3b9781eb324ca27d8cab9bac51ebeec87ee9f2e25e",
+  "audit_data_sha256": "8099c78f47170c21a2436860bc21762ac040fdd0b2eb923243ab410744e315aa",
+  "previous_generation_manifest_sha256": "eb403fe50a812a0ebdeef2eb28135f2c55cfab1609982fbe7d19bbaaa8cf61f2",
+  "checks": {
+    "term_qualifier": "R2765@5 exact Current readback changes two Role operators and one Form operator from : to :=; the allowed-value colon before Term Definition remains; Summary and all metadata apart from lifecycle version/time/destination are unchanged, including Role and Tier",
+    "operations": "Draft and promotion receipt hashes match plans; three promotion after-states match, predecessor archive exact and reviewed Draft body consumed",
+    "frontier": "all 1167 selected Current source hashes match manifest",
+    "projections": "seven published files and seven staged copies match their generation-manifest hashes; six frozen projection files 014\u2013019 match prior hashes",
+    "coverage": "audit data has 55 missing and 23 unresolved; previous term-dependency generation manifest reports same counts"
+  },
+  "limits": [
+    "Bounded readback only; no rerender, code or tests.",
+    "55 missing and 23 unresolved remain; this is not a migration-complete or global all-clear finding.",
+    "Receipts report no native workflow admission or Journal append."
+  ]
+}

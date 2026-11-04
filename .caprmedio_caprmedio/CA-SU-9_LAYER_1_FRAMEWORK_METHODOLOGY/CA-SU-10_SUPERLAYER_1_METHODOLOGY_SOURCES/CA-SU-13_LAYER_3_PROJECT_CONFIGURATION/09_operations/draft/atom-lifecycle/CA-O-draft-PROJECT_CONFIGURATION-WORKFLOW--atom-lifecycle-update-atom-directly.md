@@ -15,9 +15,9 @@ relations: {}
 ---
 
 ```mermaid
-flowchart TD
-    step1["Apply the requested Direct Atom Update"]
-    click step1 "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom-directly/CA-O-draft-PROJECT_CONFIGURATION-STEP--apply-the-requested-direct-atom-update.md" "Open Step"
+graph TD;
+    step1["Apply the requested Direct Atom Update"];
+    click step1 "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom-directly/CA-O-draft-PROJECT_CONFIGURATION-STEP--apply-the-requested-direct-atom-update.md" "Open Step";
 ```
 
 ## Summary

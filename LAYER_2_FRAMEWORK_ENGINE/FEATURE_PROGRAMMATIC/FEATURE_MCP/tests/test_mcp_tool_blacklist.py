@@ -1,5 +1,6 @@
 """One Project blacklist filters selected, catalog and gateway MCP boundaries."""
 
+import json
 from pathlib import Path
 import sys
 import tempfile
@@ -13,6 +14,7 @@ import implementation_server  # noqa: E402
 from capability_discovery.service import Service  # noqa: E402
 from TOOL_DISCOVER_TOOLS import discover_tools as provider  # noqa: E402
 from hot_reload import CONTROL, STATUS, Gateway  # noqa: E402
+from workbench_tools import NATIVE_TOOLS  # noqa: E402
 from mcp.server.mcpserver.exceptions import ToolError  # noqa: E402
 from mcp import Client  # noqa: E402
 from project_selection import ProjectSelection, bind_selection  # noqa: E402
@@ -140,21 +142,22 @@ class GatewayBlacklistTests(unittest.IsolatedAsyncioTestCase):
     async def test_gateway_blocks_builtin_and_child_advertised_tools(self):
         control = self.root / ".caprmedio_fixture"
         control.mkdir()
+        blocked = ["echo", CONTROL.name, STATUS.name, *NATIVE_TOOLS]
         (control / "caprmedio_project_settings.toml").write_text(
             '[paths]\ncontrol_root = ".caprmedio_fixture"\n'
-            '[project_mcp]\ntool_blacklist = ["echo", "reload_mcp_implementation", "get_mcp_reload_status", "query_run", "query_check", "query_page"]\n'
+            f'[project_mcp]\ntool_blacklist = {json.dumps(blocked)}\n'
         )
         async with Client(self.params(), cache=None) as client:
             self.assertEqual([], (await client.list_tools()).tools)
-            for name, arguments in (
-                ("echo", {"request": {}}),
-                (CONTROL.name, {"request": {}}),
-                (STATUS.name, {"request": {}}),
-                ("query_run", {"sql": "SELECT 1"}),
-                ("query_check", {"sql": "SELECT 1"}),
-                ("query_page", {"query_id": "query", "offset": 0}),
-            ):
-                response = await client.call_tool(name, arguments)
+            arguments = {
+                "query_run": {"sql": "SELECT 1"}, "query_check": {"sql": "SELECT 1"},
+                "query_page": {"query_id": "query", "offset": 0}, "query_schema": {},
+                "query_save": {"sql": "SELECT 1"}, "worksheet_save": {"sql": "SELECT 1"},
+                "query_load": {"reference": "q_" + "0" * 32}, "query_saved_list": {},
+            }
+            for name in blocked:
+                arguments_for_name = {"request": {}} if name in {"echo", CONTROL.name, STATUS.name} else arguments[name]
+                response = await client.call_tool(name, arguments_for_name)
                 self.assertTrue(response.is_error)
                 self.assertEqual(["Unknown Tool"], response.structured_content["diagnostics"])
 

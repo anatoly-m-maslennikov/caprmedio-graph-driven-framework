@@ -1,0 +1,180 @@
+{
+  "status": "FRESH_PREVIEWS_PENDING_INDEPENDENT_REVIEW_AND_ATOMIC_HOLDS",
+  "user_decisions": [
+    "Property Declarations own defaults; Project.Settings is the existing aggregate scope for resolution; no separate defaults artifact or new Parameter Resolution kind.",
+    "Per-Plan Retry Limit is superseded; implementation retry remains a workflow job/Project setting.",
+    "Format and cardinality decide required/optional absence; selected explicit zero remains present."
+  ],
+  "fresh_candidates": [
+    {
+      "id": "CA-R-1441",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL--define-default-settings.md",
+      "source_sha256": "4e8fb187de61707999f26e1d24c2a1b7e0afb67634e3a3ebf72ce4793cd637ac",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/CA-R-1441.preview.txt",
+      "candidate_sha256": "f06f3e68cbe1a5b2803394cb7ce3cec360f46ae9cb8fdc35a0fa627b17ffcfd3",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/CA-R-1441.diff.txt",
+      "diff_sha256": "a230ebd037c48702fe071906253b529a74dfce9f554630e3cb288930b1ded658",
+      "summary": "Define Default Settings"
+    },
+    {
+      "id": "CA-R-1429",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL--separate-settings-boundaries-from-field-specifications.md",
+      "source_sha256": "1a654b8bb84dd6f0de6d0c06ae55f976da93289072542fcea0eeb40c22613ef5",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/CA-R-1429.preview.txt",
+      "candidate_sha256": "0b4e5a9a0282b64e2ee7ec346572d4c8229dbc1d70673fa8ec66c10eb4afed80",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/CA-R-1429.diff.txt",
+      "diff_sha256": "5027b066d87a5deaa1d09b33732ba99cbd8fa732790afcf838d14676dfdb4697",
+      "summary": "Separate settings boundaries from field specifications"
+    },
+    {
+      "id": "CA-M-279",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings.md",
+      "source_sha256": "a0eaf436f740ee68608eefa952d3dd46d6db7ae044d66995922225acf123a756",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/CA-M-279.preview.txt",
+      "candidate_sha256": "8ac628217fa119c7c031bbf8dbdafa2aa64df8b665fb67aa32eecf20384cc20f",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/CA-M-279.diff.txt",
+      "diff_sha256": "9cde5b7d9c7a9050c4c91f44b32d6dece51ebe824aa81fb6568ab679f34c58e3",
+      "summary": "Resolve missing framework parameters from Default Settings"
+    },
+    {
+      "id": "CA-E-450",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md",
+      "source_sha256": "3f60f832dcb4b1e40193d9823ffb5c8facf0f5576a94ac0a864f1f4b1ab57e15",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/CA-E-450.preview.txt",
+      "candidate_sha256": "6d950ba3522fa74409f7adf8a8447532936fa4b942a03d6ac08e689d39ee893a",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/CA-E-450.diff.txt",
+      "diff_sha256": "b083e22680b252d8d6662fe5b189434f2a3edb75df046c7065157aa209807991",
+      "summary": "Validate framework parameter fallback"
+    },
+    {
+      "id": "CA-R-2635",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2635-CORE_META_MODEL-DECLARATION--declare-project-settings-implementation-retry-limit.md",
+      "source_sha256": "d0eae12b9d3813e8dc65b40a46e5cf689d6db0d693b8890079833f8cd35e1e7b",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/CA-R-2635.preview.txt",
+      "candidate_sha256": "9d489e106ceef016488437d8e0cd4ffbba974859d9900dd4150d980f5dced5dd",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/property-defaults/CA-R-2635.diff.txt",
+      "diff_sha256": "38d6ad93d89dd387ce46737716eeff7906a3cdbe27c8f1b04632961dd634e6b2",
+      "summary": "Declare Project.Settings.Implementation Retry Limit"
+    }
+  ],
+  "retry_default_evidence": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/caprmedio_framework_default_settings.toml",
+    "sha256": "f8fda1107671ad6c3fd02653ada4f16ffe01ce0a3f57b4a732d7eac39d4e3851",
+    "key": "implementation.retry_limit",
+    "value": 3,
+    "authority": "Current CA-D-407 makes this exact TOML authoritative until retirement; transfer only this evidenced value."
+  },
+  "other_sources": {
+    "CA-R-2748": "Conditional whole preview in consumers/manifest.json; Project.Settings selected values remain authoritative, Property defaults stated once.",
+    "CA-E-459": "No Property-default-specific change needed; existing Project-root Carrier and history checks remain.",
+    "CA-R-1983": "Hold: Current Summary identifies retired Project.Framework Settings.Parameter Resolution. New Scope/meaning Summary requires fresh ID; no misleading same-ID rewrite. Preserve derived-result/no writeback and explicit precedence.",
+    "CA-D-447": "Hold: remove obsolete separate-default TOML and superseded Plan retry/Hub clauses, but current Project.Settings retry serialization field is not established by R2635; no field guessed.",
+    "CA-E-458": "Hold: Summary and multiple Carrier/history checks refer to separate Framework Settings Artifact. Replacement/retirement requires source-specific authority and fresh ID if Summary changes; do not silently discard history checks.",
+    "CA-D-407_CA-D-408": "Conditional exact retirements only after dependent consumers and fresh ID/source repairs are ready; no file deletion.",
+    "CA-E-006_CA-R-1405_CA-M-295": "Additional consumers reported by independent reviewer; inspect and reconcile before atomic adoption; M295 Plan retry logic is superseded and must not be preserved as active policy."
+  },
+  "clause_disposition": {
+    "R1441": "Retains baseline, parameter scope and distinction from both initialization inputs and explicit Operator selections; transfers default authority to corresponding Property.",
+    "R1429": "Retains purpose/content/authority, optional independently needed shared specs, and concrete field/section/carrier explicitness.",
+    "M279": "Retains per-parameter presence, valid false/zero/empty, selected value validation, invalid-explicit rejection, required failure, optional absence and no writeback.",
+    "E450": "Retains all per-parameter fallback, invalid and missing, isolation, deterministic read and fixture safeguards; obsolete separate carrier comparison replaced by Property format/domain validation.",
+    "R2635": "Adds ?== 3 only; retains optional cardinality, type, nonnegative and explicit zero semantics."
+  },
+  "limits": [
+    "All content remains previews; no Current, actual Draft, runtime, Workflow or Git mutation.",
+    "Preserve Property-level semantics without deriving a new carrier write or introducing a new Term or graph kind.",
+    "Dependent sources and actual active Subject alignment need independent review before any atomic source application."
+  ],
+  "dependent_current_pins": [
+    {
+      "id": "CA-R-1983",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1983-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-parameter-resolution.md",
+      "version": 15,
+      "sha256": "d274204e13a7a6c117916a9107af85eaf868a1fe865477007db3f0eb27b0ff5c",
+      "default_mentions": [
+        "Resolve each effective framework parameter from explicit Framework Settings or Default Settings under the applicable precedence. The result is derived; do not store it as a new Project.Settings Property."
+      ]
+    },
+    {
+      "id": "CA-D-447",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-ENG_DECISION--serialize-the-implementation-retry-limit-setting.md",
+      "version": 30,
+      "sha256": "4334b7cadc76ac932c59355d01ff395345a6beb1c1ab33cac68b0235188dbfb3",
+      "default_mentions": [
+        "- Default Settings TOML: the same field under CA-D-408-CORE_META_MODEL-DELIVERY--reuse-framework-parameter-fields-in-default-settings.",
+        "- allowed values follow CA-R-1488@21-CORE_META_MODEL-DEFINITION--define-implementation-retry-limit; the default value is owned **only** by Default Settings."
+      ]
+    },
+    {
+      "id": "CA-E-458",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-POLICY--validate-authoritative-framework-settings-artifact.md",
+      "version": 35,
+      "sha256": "0673486890ca4f0517debe3baee67fe872d0c04788af5d5e6efc2f3c7f44ac4e",
+      "default_mentions": []
+    },
+    {
+      "id": "CA-E-459",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md",
+      "version": 40,
+      "sha256": "f8772712515bb95f5559bd9d9ac8986e11df070ad14ca4d1ccae58286b3b0787",
+      "default_mentions": []
+    },
+    {
+      "id": "CA-R-2748",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2748-CORE_META_MODEL-RULE--unify-operator-selected-project-settings.md",
+      "version": 1,
+      "sha256": "aee50dd9308c89d6ff68605aa4e1c643071be28bb5da1ec3dd362f8ea6a70cef",
+      "default_mentions": []
+    },
+    {
+      "id": "CA-D-407",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL-ENG_DECISION--store-default-settings-with-the-core-meta-model-source.md",
+      "version": 25,
+      "sha256": "43ec6968f9c2eb75c4d451d91fc2249ff93ee374a747935d00907cbac064b1f8",
+      "default_mentions": [
+        "Store Default Settings with the Core Meta-Model source",
+        "the authoritative TOML File Carrier of the Default Settings Artifact.",
+        "the Default Settings Artifact **must** use `caprmedio_framework_default_settings.toml` **at** the root of the CORE_META_MODEL source Scope Unit as its **`=1`** authoritative TOML File Carrier."
+      ]
+    },
+    {
+      "id": "CA-D-408",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL-ENG_DECISION--reuse-framework-parameter-fields-in-default-settings.md",
+      "version": 24,
+      "sha256": "e30baa661f56fb069b4650e23e34d63bd1b7d11c7130116cfacb352b105e3d86",
+      "default_mentions": [
+        "Reuse framework parameter fields in Default Settings",
+        "parameter values in the Default Settings TOML Carrier.",
+        "**every** parameter value **in** the Default Settings TOML Carrier **must** use the same registered section, field path, value type, **and** allowed domain as the corresponding explicit Framework Instance Settings parameter, **without** introducing a separate defaults-field schema."
+      ]
+    },
+    {
+      "id": "CA-E-006",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md",
+      "version": 40,
+      "sha256": "909749d12b6dc525dfa6ed8e315d5717040632ec86c77e89c137d163e7e77263",
+      "default_mentions": [
+        "1. Resolve the exact current Framework Instance Settings, Project Settings, and Default Settings Artifacts."
+      ]
+    },
+    {
+      "id": "CA-R-1405",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-RULE--register-core-artifact-type-values.md",
+      "version": 29,
+      "sha256": "3cf75410940a71d7357a8c701a2d182f9aa503665bddff7034902415cd48a5c5",
+      "default_mentions": [
+        "the Core allowed values of Artifact Type **must** be (Atom, Journal, Projection, Project Settings, Framework Instance Settings, Default Settings)."
+      ]
+    },
+    {
+      "id": "CA-M-295",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md",
+      "version": 32,
+      "sha256": "e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa",
+      "default_mentions": [
+        "an effective Implementation Retry Limit resolved from direct Operator input, a Plan, the nearest Hub, Framework Instance Settings, **or** Default Settings.",
+        "4. Framework Instance Settings, resolving an omitted instance parameter through Default Settings under CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings."
+      ]
+    }
+  ]
+}

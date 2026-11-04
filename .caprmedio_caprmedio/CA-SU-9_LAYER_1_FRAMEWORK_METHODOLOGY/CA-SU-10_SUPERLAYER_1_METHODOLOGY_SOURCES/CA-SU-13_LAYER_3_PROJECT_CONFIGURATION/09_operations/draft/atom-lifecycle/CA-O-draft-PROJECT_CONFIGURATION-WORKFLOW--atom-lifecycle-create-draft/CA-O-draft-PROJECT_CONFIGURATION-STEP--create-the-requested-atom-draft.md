@@ -23,5 +23,23 @@ One non-container Draft request passed by [Atom Lifecycle_Create Draft](../CA-O-
 
 ## Claim
 
-This Step [RUNS](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md) exactly [Create one Atom Draft](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--create-one-atom-draft.md). Under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md), bind either `newAtom` properties or one exact `sourceCurrent` selector with changed properties, plus Draft destination, model and permissions. Pass the Action's result unchanged.
+### Kind
+
+Execution.
+
+### Inputs
+
+Either `newAtom` properties, or one exact `sourceCurrent` selector with changed properties; Draft destination; applicable model; authorization.
+
+### Fixed parameters
+
+None.
+
+### Runs
+
+The Action [Create one Atom Draft](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--create-one-atom-draft.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind the inputs under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md).
+
+### Outputs
+
+The Action's saved Draft or its explicit error with completed results, passed unchanged.
 

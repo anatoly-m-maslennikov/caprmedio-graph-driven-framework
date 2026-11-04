@@ -1,0 +1,20 @@
+{
+  "verdict": "HOLD_PRESERVE_IDENTITY_DEPENDENCE",
+  "manifest_sha256": "3fa19098f102b21c418362c4c5b6e8ed145c44feb15007a012c46affe3e048af",
+  "checks": {
+    "pins": "Current source, candidate, diff, four authorities and held older Draft match pins",
+    "identity": "same Method/Form Term Definition, Summary and active Term//Property retained",
+    "domain": "generic Term//Entity retained under Current M451@7; no Node-only restriction or Entity root",
+    "relation": "one immediate bearer via direct IS_PROPERTY_OF matches R2473; unrelated to the separate Container relation decision",
+    "draft_lineage": "older @4 held Draft predates Current @5; fresh successor must be based on Current"
+  },
+  "finding": {
+    "id": "identity-dependence",
+    "current": "Current definition says Property is an Entity whose identity depends on its immediate bearer.",
+    "candidate": "Candidate says only the Entity depends on its bearer, which weakens the identity condition.",
+    "minimal_correction": "Property means an Entity whose identity depends on exactly one immediate bearer through the direct IS_PROPERTY_OF Relation."
+  },
+  "limits": [
+    "Source-only preview; no Draft, Current, code or runtime changes."
+  ]
+}

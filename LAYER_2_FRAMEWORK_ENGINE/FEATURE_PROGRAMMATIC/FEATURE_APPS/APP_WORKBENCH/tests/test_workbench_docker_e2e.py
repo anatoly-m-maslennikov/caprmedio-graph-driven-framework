@@ -1,7 +1,7 @@
 # CA-E-673@3
 # CA-E-674@5
-# CA-E-676@6
-# CA-E-677@7
+# CA-E-676@7
+# CA-E-677@8
 
 """Real Workbench MCP/HTTP proof against the full-suite current-code image."""
 
@@ -170,82 +170,89 @@ class WorkbenchDockerE2E(unittest.TestCase):
             except OSError:
                 pass
 
-    def test_mcp_run_and_check_use_native_project_tables_and_graph(self) -> None:
+    def assert_saved(self, value: dict, *, kind: str, sql: str) -> None:
+        identifier = value.get("saved_query_id")
+        self.assertIsInstance(identifier, str)
+        self.assertRegex(identifier, rf"{'q' if kind == 'query' else 'w'}_[0-9a-f]{{32}}")
+        self.assertEqual(kind, value.get("kind"))
+        self.assertEqual(sql, value.get("sql"))
+        self.assertEqual(
+            f"{self.url}{self.workbench_path}?query={identifier}", value.get("saved_query_url"),
+        )
+
+    def test_mcp_exposes_all_workbench_tools_and_saved_query_identity(self) -> None:
         from mcp.client.session import ClientSession
         from mcp.client.streamable_http import streamable_http_client
 
-        sql = ("SELECT id AS item, role AS item FROM atoms "
-               "WHERE id IN ('CA-R-2723', 'CA-R-2725') ORDER BY 1")
+        worksheet_sql = "SELECT 'λ'; SELECT 2"
+        cursor_position = len("SELECT 'λ'; ".encode("utf-16-le")) // 2
 
-        async def exercise() -> tuple[dict, dict, dict]:
+        async def exercise() -> tuple[dict, ...]:
             async with streamable_http_client(self.url + MCP_PATH) as streams:
                 async with ClientSession(*streams, read_timeout_seconds=60) as client:
                     await client.initialize()
                     tools = {tool.name for tool in (await client.list_tools()).tools}
-                    self.assertTrue({"query_run", "query_page", "query_check"} <= tools)
-                    checked = await client.call_tool("query_check", {"sql": sql})
-                    self.assertFalse(checked.is_error)
-                    self.assertIsInstance(checked.structured_content, dict)
-                    ran = await client.call_tool("query_run", {"sql": sql})
+                    self.assertTrue({
+                        "query_run", "query_check", "query_page", "query_schema", "query_save",
+                        "worksheet_save", "query_load", "query_saved_list",
+                    } <= tools)
+                    schema = await client.call_tool("query_schema", {})
+                    self.assertFalse(schema.is_error)
+                    ran = await client.call_tool("query_run", {
+                        "sql": worksheet_sql, "cursor_position": cursor_position,
+                    })
                     self.assertFalse(ran.is_error)
-                    self.assertIsInstance(ran.structured_content, dict)
                     page = await client.call_tool("query_page", {
-                        "query_id": ran.structured_content["query_id"], "offset": 1,
+                        "query_id": ran.structured_content["query_id"], "offset": 0,
                     })
                     self.assertFalse(page.is_error, page.structured_content or page.content)
-                    self.assertIsInstance(page.structured_content, dict)
-                    graph = await client.call_tool("query_run", {"sql": "FROM GRAPH_TABLE (caprmedio MATCH (a:Reference) COLUMNS (a.ref AS ref)) LIMIT 1"})
-                    self.assertFalse(graph.is_error)
-                    for name in ("query_run", "query_check"):
-                        invalid = await client.call_tool(name, {"sql": "SELECT FROM"})
-                        self.assertTrue(invalid.is_error)
-                        self.assertTrue(
-                            invalid.structured_content is not None
-                            or any(getattr(content, "text", "") for content in invalid.content)
-                        )
-                        self.assertNotIn("internal_failure", str(invalid.structured_content))
-                        self.assertIn("query failed:", str(invalid.structured_content))
-                    return ran.structured_content, page.structured_content, checked.structured_content
+                    checked = await client.call_tool("query_check", {
+                        "sql": worksheet_sql, "cursor_position": cursor_position,
+                    })
+                    self.assertFalse(checked.is_error)
+                    saved = await client.call_tool("query_save", {
+                        "sql": worksheet_sql, "cursor_position": cursor_position,
+                    })
+                    worksheet = await client.call_tool("worksheet_save", {"sql": worksheet_sql})
+                    self.assertFalse(saved.is_error)
+                    self.assertFalse(worksheet.is_error)
+                    loaded_by_id = await client.call_tool("query_load", {
+                        "reference": saved.structured_content["saved_query_id"],
+                    })
+                    loaded_by_url = await client.call_tool("query_load", {
+                        "reference": worksheet.structured_content["saved_query_url"],
+                    })
+                    recent = await client.call_tool("query_saved_list", {"limit": 20})
+                    invalid = await client.call_tool("query_run", {"sql": "SELECT FROM"})
+                    return (
+                        schema.structured_content, ran.structured_content, page.structured_content,
+                        checked.structured_content, saved.structured_content, worksheet.structured_content,
+                        loaded_by_id.structured_content, loaded_by_url.structured_content,
+                        recent.structured_content, invalid.structured_content, invalid.is_error,
+                    )
 
-        ran, page, checked = asyncio.run(exercise())
-        expected = {
-            "columns": [
-                {"name": "item", "type": "VARCHAR", "has_values": True},
-                {"name": "item", "type": "VARCHAR", "has_values": True},
-            ],
-            "rows": [["CA-R-2723", "Requirement"], ["CA-R-2725", "Requirement"]],
-            "row_count": 2,
-            "column_count": 2,
-            "offset": 0,
-            "page_size": 100,
-            "has_more": False,
-        }
-        self.assertTrue(isinstance(ran.get("query_id"), str) and ran["query_id"])
-        self.assertEqual(expected, {key: value for key, value in ran.items() if key != "query_id"})
-        self.assertEqual([["CA-R-2725", "Requirement"]], page["rows"])
-        self.assertEqual(1, page["offset"])
+        (schema, ran, page, checked, saved, worksheet, loaded_by_id, loaded_by_url, recent,
+         invalid, invalid_is_error) = asyncio.run(exercise())
+        self.assertEqual({"atoms", "scope_units"}, set(schema["tables"]))
+        self.assertEqual([[2]], ran["rows"])
+        self.assertIsInstance(ran.get("query_id"), str)
+        self.assert_saved(ran, kind="query", sql="SELECT 2")
         self.assertEqual(ran["query_id"], page["query_id"])
-        self.assertEqual({"valid": True, "row_count": 2, "column_count": 2}, checked)
-        status, web_ran = _request(self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": sql})
-        self.assertEqual(200, status, web_ran)
-        self.assertTrue(isinstance(web_ran.get("query_id"), str) and web_ran["query_id"])
-        self.assertEqual(expected, {key: value for key, value in web_ran.items() if key != "query_id"})
-        status, web_checked = _request(self.url + f"{self.workbench_path}/check", method="POST", payload={"sql": sql})
-        self.assertEqual(200, status, checked)
-        self.assertEqual(checked, web_checked)
-        status, full = _request(self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": "SELECT * FROM atoms"})
-        self.assertEqual(200, status, full)
-        self.assertEqual(100, len(full["rows"]))
-        self.assertGreater(full["row_count"], len(full["rows"]))
-        self.assertTrue(full["has_more"])
-        status, next_page = _request(
-            self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": full["query_id"], "offset": len(full["rows"])},
-        )
-        self.assertEqual(200, status)
-        self.assertEqual(full["query_id"], next_page["query_id"])
-        self.assertEqual(len(full["rows"]), next_page["offset"])
-        self.assertTrue(next_page["rows"])
+        self.assertEqual(ran["saved_query_id"], page["saved_query_id"])
+        self.assert_saved(page, kind="query", sql="SELECT 2")
+        self.assertTrue(checked["valid"])
+        self.assert_saved(checked, kind="query", sql="SELECT 2")
+        self.assertNotIn("query_id", saved)
+        self.assert_saved(saved, kind="query", sql="SELECT 2")
+        self.assertNotIn("query_id", worksheet)
+        self.assert_saved(worksheet, kind="worksheet", sql=worksheet_sql)
+        self.assert_saved(loaded_by_id, kind="query", sql="SELECT 2")
+        self.assert_saved(loaded_by_url, kind="worksheet", sql=worksheet_sql)
+        self.assertTrue({saved["saved_query_id"], worksheet["saved_query_id"]} <= {
+            item["saved_query_id"] for item in recent["items"]
+        })
+        self.assertTrue(invalid_is_error)
+        self.assert_saved(invalid, kind="query", sql="SELECT FROM")
         self.assertTrue((self.workbench_state / "projection.duckdb").is_file())
         events_path, events, peak = _container_memory_metrics(self.name)
         self.assertEqual(0, events.get("oom_kill"), f"cgroup memory.events from {events_path}: {events}")
@@ -263,19 +270,78 @@ class WorkbenchDockerE2E(unittest.TestCase):
         for asset_path in asset_paths:
             asset_status, _ = _request(self.url + asset_path)
             self.assertEqual(200, asset_status, asset_path)
-        status, checked = _request(self.url + f"{self.workbench_path}/check", method="POST", payload={"sql": "SELECT count(*) FROM atoms"})
+        worksheet_sql = "SELECT 'λ'; SELECT 2"
+        cursor_position = len("SELECT 'λ'; ".encode("utf-16-le")) // 2
+        status, schema = _request(self.url + f"{self.workbench_path}/schema", method="POST", payload={})
+        self.assertEqual(200, status, schema)
+        self.assertEqual({"atoms", "scope_units"}, set(schema["tables"]))
+        status, ran = _request(
+            self.url + f"{self.workbench_path}/run", method="POST",
+            payload={"sql": worksheet_sql, "cursor_position": cursor_position},
+        )
+        self.assertEqual(200, status, ran)
+        self.assertEqual([[2]], ran["rows"])
+        self.assert_saved(ran, kind="query", sql="SELECT 2")
+        status, checked = _request(
+            self.url + f"{self.workbench_path}/check", method="POST",
+            payload={"sql": worksheet_sql, "cursor_position": cursor_position},
+        )
         self.assertEqual(200, status, checked)
         self.assertTrue(checked["valid"])
-        status, ran = _request(self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": "SELECT id FROM atoms WHERE id = 'CA-R-2723'"})
-        self.assertEqual(200, status)
-        self.assertEqual([["CA-R-2723"]], ran["rows"])
-        for operation in ("run", "check"):
-            status, failure = _request(
-                self.url + f"{self.workbench_path}/{operation}", method="POST", payload={"sql": "SELECT FROM"},
-            )
-            self.assertEqual(400, status)
-            self.assertIsInstance(failure.get("error"), str)
-            self.assertTrue(failure["error"])
+        self.assert_saved(checked, kind="query", sql="SELECT 2")
+        status, saved = _request(
+            self.url + f"{self.workbench_path}/save", method="POST",
+            payload={"sql": worksheet_sql, "cursor_position": cursor_position},
+        )
+        self.assertEqual(200, status, saved)
+        self.assertNotIn("query_id", saved)
+        self.assert_saved(saved, kind="query", sql="SELECT 2")
+        status, worksheet = _request(
+            self.url + f"{self.workbench_path}/worksheet-save", method="POST",
+            payload={"sql": worksheet_sql},
+        )
+        self.assertEqual(200, status, worksheet)
+        self.assertNotIn("query_id", worksheet)
+        self.assert_saved(worksheet, kind="worksheet", sql=worksheet_sql)
+        status, loaded_by_id = _request(
+            self.url + f"{self.workbench_path}/load", method="POST",
+            payload={"reference": saved["saved_query_id"]},
+        )
+        self.assertEqual(200, status, loaded_by_id)
+        self.assert_saved(loaded_by_id, kind="query", sql="SELECT 2")
+        status, loaded_by_url = _request(
+            self.url + f"{self.workbench_path}/load", method="POST",
+            payload={"reference": worksheet["saved_query_url"]},
+        )
+        self.assertEqual(200, status, loaded_by_url)
+        self.assert_saved(loaded_by_url, kind="worksheet", sql=worksheet_sql)
+        status, recent = _request(
+            self.url + f"{self.workbench_path}/saved-list", method="POST", payload={"limit": 20},
+        )
+        self.assertEqual(200, status, recent)
+        self.assertTrue({saved["saved_query_id"], worksheet["saved_query_id"]} <= {
+            item["saved_query_id"] for item in recent["items"]
+        })
+        status, full = _request(
+            self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": "SELECT * FROM atoms"},
+        )
+        self.assertEqual(200, status, full)
+        self.assertEqual(100, len(full["rows"]))
+        self.assertGreater(full["row_count"], len(full["rows"]))
+        self.assertTrue(full["has_more"])
+        status, next_page = _request(
+            self.url + f"{self.workbench_path}/page", method="POST",
+            payload={"query_id": full["query_id"], "offset": len(full["rows"])},
+        )
+        self.assertEqual(200, status, next_page)
+        self.assertEqual(full["saved_query_id"], next_page["saved_query_id"])
+        self.assertEqual(full["saved_query_url"], next_page["saved_query_url"])
+        status, failure = _request(
+            self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": "SELECT FROM"},
+        )
+        self.assertEqual(400, status)
+        self.assertIsInstance(failure.get("error"), str)
+        self.assert_saved(failure, kind="query", sql="SELECT FROM")
         for sql in ("SELECT 1; SELECT 2", "CREATE TABLE forbidden(x INTEGER)"):
             status, failure = _request(self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": sql})
             self.assertEqual(400, status)

@@ -1,0 +1,661 @@
+{
+  "schema": "occurrent-ownership-readiness-refresh/1",
+  "snapshot": "2026-11-04 live checkout; direct file reads; no Current/Draft edits",
+  "verdict": "SOURCE_LANE_OWNED; DEFINITION_PREVIEWS_EXIST_AS_NATIVE_DRAFTS; ADMISSION_AND_INSTANCE_FACTS_NOT_CLOSED",
+  "ownership": {
+    "epic_current_carrier": {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "sha256": "a5d0f68420b917bc98ae755d7f110480beb387e9abb91d8793a9f3450024c2e6",
+      "atom_id": "CA-P-2694",
+      "status": "Active",
+      "version": "63",
+      "updated_at": "2026-11-04 22:52:16 +0400",
+      "active_subject": "CAPRMEDIO_MODEL",
+      "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+    },
+    "source_scope": "P2694 v63 assigns MODEL, CFEL, Declaration and Atom source decisions, edits, preservation, and source-level review to this source lane. It assigns implementation/runtime/fixtures/tests to CA #3; Workflows and Workbench source ownership remains external per plan. The proposed kinds and relation signatures are MODEL sources even when they define actual-run endpoint types. Concrete Workflow Run, Step Run, Action Run, Runtime, Event, Session, Event Record instances and their factual links are data/runtime artifacts, not these source declarations.",
+    "header_container_effect": "Current P2694 v63 now requires Header.Container as immediate carrier metadata and optional Header.Relations. All 19 inspected native Drafts still carry legacy relations.IS_CONTAINED_BY.scope_unit: CA-SU-11 in frontmatter; this is a separate metadata-migration/admission prerequisite. It neither classifies a name containing Run as runtime data nor authorizes any MODEL instance Relation. Header.Container migration should update those headers only under its own reviewed migration, without rewriting their relation Claims."
+  },
+  "settled_decisions": [
+    {
+      "decision": "Retain Execution, Workflow Run, Step Run, Action Run, Runtime, Session and Event; do not add Substep Run.",
+      "evidence": "Current P2694 v63 + Occurrent manifest/review; these are kinds, not actual instances."
+    },
+    {
+      "decision": "Runtime has Internal Local, Internal Remote, External Local, External Remote children; Internal/External relative to CAPRMEDIO application; Local is operator machine, Remote elsewhere; Session narrower than External Remote Runtime.",
+      "evidence": "Latest explicit user decision recorded in P2694 v63 and reviewed packet; do not ask again."
+    },
+    {
+      "decision": "Event recording packet records RECORDS Event Record→Event exactly one; Event records production by Execution; Execution runs in Runtime; inverse views derived.",
+      "evidence": "event-contracts/manifest.json and REPORT.md; captured as a packet decision, but live Current authority still differs and adoption/reconciliation remains open."
+    }
+  ],
+  "native_drafts": {
+    "kind_declarations": {
+      "count": 11,
+      "ids": [
+        "CA-R-2749@1 Execution",
+        "CA-R-2750@1 Workflow Run",
+        "CA-R-2751@1 Step Run",
+        "CA-R-2752@1 Action Run",
+        "CA-R-2753@1 Runtime",
+        "CA-R-2754@1 Session",
+        "CA-R-2755@1 Event",
+        "CA-R-2756@1 Internal Local Runtime",
+        "CA-R-2757@1 Internal Remote Runtime",
+        "CA-R-2758@1 External Local Runtime",
+        "CA-R-2759@1 External Remote Runtime"
+      ],
+      "all_status": "Draft",
+      "sources": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2749@1-draft-CORE_META_MODEL-DECLARATION--declare-execution.md",
+          "sha256": "e10c47f979e40c139172af9b343d0d9879fd0cbda88478327f77791dbd0d27ee",
+          "atom_id": "CA-R-2749",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ Execution",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md",
+          "sha256": "a6111eca0b42ab6438fdbf65049e979f9a21fda1de8fbf3583ba6259575ed152",
+          "atom_id": "CA-R-2750",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ Workflow Run",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md",
+          "sha256": "3881cd3ef1fa4a78d630a0338ba23f09fdee46ab18700e0c22fd471fa2d0006a",
+          "atom_id": "CA-R-2751",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ Step Run",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md",
+          "sha256": "13db41bbc0cd48f58e26d14bf6c54a08013e5625e7aa713063161e62f55ca43c",
+          "atom_id": "CA-R-2752",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ Action Run",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2753@1-draft-CORE_META_MODEL-DECLARATION--declare-runtime.md",
+          "sha256": "2e26e0b5e8be38ab1fecee7f7dbf72cdd934fa7c854a4c8feb3000f243a9e2c0",
+          "atom_id": "CA-R-2753",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ Runtime",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2754@1-draft-CORE_META_MODEL-DECLARATION--declare-session.md",
+          "sha256": "d6b8471d72e6cfccccf72ad8c4458aa9546606f4d79624e3c43a4c0e252bfede",
+          "atom_id": "CA-R-2754",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ Session",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2755@1-draft-CORE_META_MODEL-DECLARATION--declare-event.md",
+          "sha256": "485a788b92206b08cd31821025c4400ea936692dabc68d9ac8d918cb5073c41a",
+          "atom_id": "CA-R-2755",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ Event",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2756@1-draft-CORE_META_MODEL-DECLARATION--declare-internal-local-runtime.md",
+          "sha256": "fc54dd164b64fbb4eb4de90ed4816911c2d772ae7a77bd7ff7a3cfb0fcbddf02",
+          "atom_id": "CA-R-2756",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ Internal Local Runtime",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2757@1-draft-CORE_META_MODEL-DECLARATION--declare-internal-remote-runtime.md",
+          "sha256": "463dca105c2c20558438746626d0d4ad736204ad526923eb5eb6926038a1b311",
+          "atom_id": "CA-R-2757",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ Internal Remote Runtime",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2758@1-draft-CORE_META_MODEL-DECLARATION--declare-external-local-runtime.md",
+          "sha256": "5714079751b3973f70ffbce1777f7a64cafa3fcb89df149b137a5c6768dff4d2",
+          "atom_id": "CA-R-2758",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ External Local Runtime",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2759@1-draft-CORE_META_MODEL-DECLARATION--declare-external-remote-runtime.md",
+          "sha256": "7c405e316821d44fc36b2617cec7bf7cb11eae0ad37fab54099a564e30dffc43",
+          "atom_id": "CA-R-2759",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ External Remote Runtime",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        }
+      ]
+    },
+    "relation_declarations": {
+      "count": 8,
+      "ids": [
+        "CA-R-2245@9 IS_EXECUTION_OF",
+        "CA-R-2417@6 HAS_EXECUTION",
+        "CA-R-2246@9 RECORDS",
+        "CA-R-2421@6 IS_RECORDED_BY",
+        "CA-R-2255@10 EXECUTES",
+        "CA-R-2420@6 IS_EXECUTED_BY",
+        "CA-R-2760@1 PRODUCES",
+        "CA-R-2761@1 IS_PRODUCED_BY"
+      ],
+      "all_status": "Draft",
+      "sources": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2245@9-draft-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+          "sha256": "10d74afc56acca0fa69e3b980cd697fbb7b28abe55a3521a129f479c6030d622",
+          "atom_id": "CA-R-2245",
+          "status": "Draft",
+          "version": "9",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTION_OF",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2246@9-draft-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+          "sha256": "0b532831307cbac442ad827160d5003f21a697a210496ffb5f217cf7ab385d21",
+          "atom_id": "CA-R-2246",
+          "status": "Draft",
+          "version": "9",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//RECORDS",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2255@10-draft-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+          "sha256": "626cf342a1e70ddfdaef4523ab8eaaefc01a1a814fdf3199f461a130d88b0cee",
+          "atom_id": "CA-R-2255",
+          "status": "Draft",
+          "version": "10",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//EXECUTES",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2417@6-draft-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+          "sha256": "556978fd1a9e0ef9e3fade634835d064cd0a319f5fbe833419ab7b35a46b3d9b",
+          "atom_id": "CA-R-2417",
+          "status": "Draft",
+          "version": "6",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_EXECUTION",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2420@6-draft-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+          "sha256": "58e64b297650225d5074cf384b5e9742f143ea55595b8710786286f14c1dfa27",
+          "atom_id": "CA-R-2420",
+          "status": "Draft",
+          "version": "6",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTED_BY",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2421@6-draft-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+          "sha256": "61ac53d74d7fa2b4be9681581ab26827b6678685d7ee4340d95f5ee76d2fd73d",
+          "atom_id": "CA-R-2421",
+          "status": "Draft",
+          "version": "6",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_RECORDED_BY",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2760@1-draft-CORE_META_MODEL-DECLARATION--declare-produces.md",
+          "sha256": "8cb9cdef19263df67e2baf20661ad7c90d18f39520703d701ad59f9c1b11a11f",
+          "atom_id": "CA-R-2760",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//PRODUCES",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2761@1-draft-CORE_META_MODEL-DECLARATION--declare-is-produced-by.md",
+          "sha256": "6d576263c2e2c382e7cf9ed890f516b2b821ca4db12d2df4d82542e48ce3f09f",
+          "atom_id": "CA-R-2761",
+          "status": "Draft",
+          "version": "1",
+          "updated_at": "2026-11-04 16:07:35 +0400",
+          "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PRODUCED_BY",
+          "legacy_container_metadata": "relations: IS_CONTAINED_BY.scope_unit: CA-SU-11"
+        }
+      ]
+    },
+    "related_endpoint_declaration_changes": {
+      "count": 4,
+      "ids": [
+        "CA-R-2464 Workflow",
+        "CA-R-2465 Step",
+        "CA-R-2467 Action",
+        "CA-R-2557 Event Record"
+      ],
+      "source_state": "Current sources and packet previews; their exact native Draft successors must be verified separately before adoption."
+    },
+    "combined_manifest_rows": [
+      {
+        "kind": "new",
+        "summary": "Declare Execution",
+        "active_subject": "CAPRMEDIO_MODEL <+ Execution",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-execution.preview.txt",
+        "candidate_sha256": "71eb7a2be4fa8a8eea2c612e84c056cc2538fc4c984203145818ca12077ce44a",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "new",
+        "summary": "Declare Workflow Run",
+        "active_subject": "CAPRMEDIO_MODEL <+ Workflow Run",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-workflow-run.preview.txt",
+        "candidate_sha256": "a457268b460be793c9cad80d8ba083cda3fe3581b1f86320951bcd0e8e529e2a",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "new",
+        "summary": "Declare Step Run",
+        "active_subject": "CAPRMEDIO_MODEL <+ Step Run",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-step-run.preview.txt",
+        "candidate_sha256": "107d9d01d95250af86c4a7b94511979af80e242dde4712833f058a18f303029a",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "new",
+        "summary": "Declare Action Run",
+        "active_subject": "CAPRMEDIO_MODEL <+ Action Run",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-action-run.preview.txt",
+        "candidate_sha256": "771ffd7ade636c1d580c627ad71919a3d3458d60013b2331534ab4e6ec8ee0fd",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "new",
+        "summary": "Declare Runtime",
+        "active_subject": "CAPRMEDIO_MODEL <+ Runtime",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-runtime.preview.txt",
+        "candidate_sha256": "796460895b6b40a1d733b3f4582ccea07dfaf7ed703f46dd388aa8c6501ab63c",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "new",
+        "summary": "Declare Session",
+        "active_subject": "CAPRMEDIO_MODEL <+ Session",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-session.preview.txt",
+        "candidate_sha256": "a3a779b9ac889dbe6275d163977aa1fd7accb9d9f2dda516e307853bc6b0fb26",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "new",
+        "summary": "Declare Event",
+        "active_subject": "CAPRMEDIO_MODEL <+ Event",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-event.preview.txt",
+        "candidate_sha256": "c80dcad89c791b818b7fd822c2616d50aa0ea76f5d4a21f060bb1befb9422b6e",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "new",
+        "summary": "Declare Internal Local Runtime",
+        "active_subject": "CAPRMEDIO_MODEL <+ Internal Local Runtime",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-internal-local-runtime.preview.txt",
+        "candidate_sha256": "668e2c5b8d1a908c38103af2af2b8f966b564ec68615ab1a981f332af62fb0c9",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "new",
+        "summary": "Declare Internal Remote Runtime",
+        "active_subject": "CAPRMEDIO_MODEL <+ Internal Remote Runtime",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-internal-remote-runtime.preview.txt",
+        "candidate_sha256": "7e54a3904db737652af9056aea87f941513e26286b103d637cd7540a5df0f37f",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "new",
+        "summary": "Declare External Local Runtime",
+        "active_subject": "CAPRMEDIO_MODEL <+ External Local Runtime",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-external-local-runtime.preview.txt",
+        "candidate_sha256": "8de3213723aeb722c00c4ab57f8cf4d7f647398e5130881058b6f86e6f7f0a9e",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "new",
+        "summary": "Declare External Remote Runtime",
+        "active_subject": "CAPRMEDIO_MODEL <+ External Remote Runtime",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-external-remote-runtime.preview.txt",
+        "candidate_sha256": "92fdab2c8dceffb46d4ec07dd660dc85e3082ab6a8b8cbf7550e155a6f204ab0",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "new",
+        "summary": "Declare PRODUCES",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//PRODUCES",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-produces.preview.txt",
+        "candidate_sha256": "c47b4ef5bf56280da0a7dd2f6db7ec4e32b56c26f6cf8d3dc6952605da9b218c",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "new",
+        "summary": "Declare IS_PRODUCED_BY",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PRODUCED_BY",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/declare-is-produced-by.preview.txt",
+        "candidate_sha256": "589fa7cee8630286988150295d81499fec65d27801919549a638e5edeb5d3f3b",
+        "source_path": null,
+        "source_sha256": null
+      },
+      {
+        "kind": "revise",
+        "summary": "Declare Workflow",
+        "active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2464.preview.txt",
+        "candidate_sha256": "72011f29926273c3a370569e9b39f464b01b66d818761bb5c91a0248f0fa62f8",
+        "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+        "source_sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a"
+      },
+      {
+        "kind": "revise",
+        "summary": "Declare Step",
+        "active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2465.preview.txt",
+        "candidate_sha256": "e7af12f7e8fb4ea04723c9dfedcc8da6763dddeb93a4210bde1b144a8fd4e854",
+        "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+        "source_sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf"
+      },
+      {
+        "kind": "revise",
+        "summary": "Declare Action",
+        "active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2467.preview.txt",
+        "candidate_sha256": "98bbe7ca42fd62e95356aeba100a3af3c4a29189a463c53d92419d061e41c2ac",
+        "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+        "source_sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a"
+      },
+      {
+        "kind": "revise",
+        "summary": "Define IS_EXECUTION_OF Relation",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTION_OF",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2245.preview.txt",
+        "candidate_sha256": "bd730844fec693381c33e067ca5ae0ab4bbe4e0ebfca7d8b27abda22d51f2185",
+        "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+        "source_sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae"
+      },
+      {
+        "kind": "revise",
+        "summary": "Define HAS_EXECUTION Relation",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_EXECUTION",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2417.preview.txt",
+        "candidate_sha256": "e446a96afbb89c1ee32acd0858c6f2b68880911cc84c8329f079d143ff051fb0",
+        "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+        "source_sha256": "e50b96e2a066c11c7deee1f31ef85197b74d09aaa93c12579648e7c9ef8bd691"
+      },
+      {
+        "kind": "revise",
+        "summary": "Define RECORDS Relation",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//RECORDS",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2246.preview.txt",
+        "candidate_sha256": "5e043538450f47e34cae5f0ac23635e22bc7b619516137d3ac03844d15eb023b",
+        "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+        "source_sha256": "5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03"
+      },
+      {
+        "kind": "revise",
+        "summary": "Define IS_RECORDED_BY Relation",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_RECORDED_BY",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2421.preview.txt",
+        "candidate_sha256": "b814ffe50e4a5121fecc02330e01916f2e2be50e3ea157346338b86a043c69ba",
+        "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2421-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+        "source_sha256": "1e6ddc6a60e24a613c8ea03be2c11b4dc452bb94d5e1fa2bd652123295b82277"
+      },
+      {
+        "kind": "revise",
+        "summary": "Declare Event Record",
+        "active_subject": "CAPRMEDIO_MODEL <+ Event Record",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2557.preview.txt",
+        "candidate_sha256": "beb27e9784851ca050828d25f5595f4a17b0f92760cb367b360a34ebbd63ce72",
+        "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2557-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+        "source_sha256": "0357e59cb3366ebbb2e13d0ef139d29e8fd24a449729014686c438555e535dcb"
+      },
+      {
+        "kind": "revise",
+        "summary": "Define EXECUTES Relation",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//EXECUTES",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2255.preview.txt",
+        "candidate_sha256": "0f5cedb290153066728f1a7c9b6a433360d78cf25f09112941130697aba70ce6",
+        "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2255-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+        "source_sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a"
+      },
+      {
+        "kind": "revise",
+        "summary": "Define IS_EXECUTED_BY Relation",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTED_BY",
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/combined/CA-R-2420.preview.txt",
+        "candidate_sha256": "44ce846919e6c42e0df3ef5fad2646ddd9a7b25b6499027280aaf2f357e1bbe8",
+        "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2420-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+        "source_sha256": "52e09f067858fcaa9c26bfd100227b9c7866058482054e0fca93331cdc238263"
+      }
+    ],
+    "integrated_source_state": "The 11 kinds and eight Relation Definition Draft carriers are present as actual Core MODEL Draft files, distinct from the analysis preview files. This is not Current adoption. Draft identities/versions/status/hashes are pinned above. The 12 additional packet rows are 8 Relation Declaration rows plus 4 related endpoint source revisions; the latter include Workflow/Step/Action endpoint permissions and Event Record declaration. Do not describe these 12 rows as 12 Relation Atom IDs."
+  },
+  "current_authority_pins": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae",
+      "atom_id": "CA-R-2245",
+      "status": "Active",
+      "version": "8",
+      "updated_at": "2026-11-03 20:00:05 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTION_OF",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+      "sha256": "5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03",
+      "atom_id": "CA-R-2246",
+      "status": "Active",
+      "version": "8",
+      "updated_at": "2026-11-03 20:00:05 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//RECORDS",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2255-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a",
+      "atom_id": "CA-R-2255",
+      "status": "Active",
+      "version": "9",
+      "updated_at": "2026-11-03 20:00:05 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//EXECUTES",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+      "sha256": "e50b96e2a066c11c7deee1f31ef85197b74d09aaa93c12579648e7c9ef8bd691",
+      "atom_id": "CA-R-2417",
+      "status": "Active",
+      "version": "5",
+      "updated_at": "2026-11-03 20:00:05 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_EXECUTION",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2420-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+      "sha256": "52e09f067858fcaa9c26bfd100227b9c7866058482054e0fca93331cdc238263",
+      "atom_id": "CA-R-2420",
+      "status": "Active",
+      "version": "5",
+      "updated_at": "2026-11-03 20:00:05 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTED_BY",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2421-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+      "sha256": "1e6ddc6a60e24a613c8ea03be2c11b4dc452bb94d5e1fa2bd652123295b82277",
+      "atom_id": "CA-R-2421",
+      "status": "Active",
+      "version": "5",
+      "updated_at": "2026-11-03 20:00:05 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_RECORDED_BY",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c",
+      "atom_id": "CA-R-2462",
+      "status": "Active",
+      "version": "4",
+      "updated_at": "2026-11-04 07:31:50 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ Node",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a",
+      "atom_id": "CA-R-2464",
+      "status": "Active",
+      "version": "5",
+      "updated_at": "'2026-11-04 00:31:19 +0400'",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf",
+      "atom_id": "CA-R-2465",
+      "status": "Active",
+      "version": "4",
+      "updated_at": "2026-11-02 17:54:42 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a",
+      "atom_id": "CA-R-2467",
+      "status": "Active",
+      "version": "2",
+      "updated_at": "2026-11-02 00:18:22 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2470-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+      "sha256": "4538f6da853f355069f985f84354a421b15ac7c792aa10859550f5486dbcf8fe",
+      "atom_id": "CA-R-2470",
+      "status": "Active",
+      "version": "2",
+      "updated_at": "2026-11-02 00:18:22 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ (Node, Node.**)",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2557-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "sha256": "0357e59cb3366ebbb2e13d0ef139d29e8fd24a449729014686c438555e535dcb",
+      "atom_id": "CA-R-2557",
+      "status": "Active",
+      "version": "4",
+      "updated_at": "2026-11-02 08:06:47 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ Event Record",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c",
+      "atom_id": "CA-R-2588",
+      "status": "Active",
+      "version": "5",
+      "updated_at": "2026-11-04 03:22:03 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2590-CORE_META_MODEL-DECLARATION--declare-occurrent.md",
+      "sha256": "d730e7db828cee2963d00db6c596079ac5a98b796021fbcd2a7882b1ac70b8c2",
+      "atom_id": "CA-R-2590",
+      "status": "Active",
+      "version": "2",
+      "updated_at": "2026-11-02 00:18:22 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ Node/Occurrent",
+      "legacy_container_metadata": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md",
+      "sha256": "deb55e82a43174ac74898393143ff987ae64141e5d8f5c80aea5bc7f7fa6e5ae",
+      "atom_id": "CA-R-2613",
+      "status": "Active",
+      "version": "1",
+      "updated_at": "2026-11-02 08:06:47 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//RelationEndpointSignature",
+      "legacy_container_metadata": null
+    }
+  ],
+  "open_gates": [
+    {
+      "id": "execution_endpoint_scope",
+      "state": "BLOCKING_REVIEW_BEFORE_ADOPTION",
+      "fact": "Current CA-R-2245@8 specifies Workflow Run→Workflow. Draft CA-R-2245@9 extends the Relation signature to Step Run→Step and Action Run→Action; each requires a reviewed matching declaration permission/counterpart and must not be inferred merely from names or archived definitions. Execution pair preview claims root acceptance for 0+ inverse allowances, but current Active endpoint declaration remains bounded."
+    },
+    {
+      "id": "event_relation_authority",
+      "state": "PACKET_DECISION_RECORDED; CURRENT_AUTHORITY_AND_ADOPTION_OPEN",
+      "fact": "Current CA-R-2246@8 endpoint subject is Event Record/Workflow Run and current CA-R-2557@4 is Event Record. Native Draft CA-R-2246@9 targets Event Record→Event, and associated R2421/R2557 drafts update the counterpart/model. Event-contract packet gives cardinalities/ownership. Current CA-R-2470/R2588 rules still require direction-specific permissions and applicable node endpoint declarations. Plan sentence that these are still pending decisions is stale against the recorded packet decision; it should say source update, Current pin check, consumer reconciliation, and adoption remain gated."
+    },
+    {
+      "id": "whitelist_and_counts",
+      "state": "REVIEW_BEFORE_PROMOTION",
+      "fact": "Current CA-R-2462 default-denies unspecified instance outgoing relations; CA-R-2470 governs inheritance/whitelists; CA-R-2588 gives effective default cardinality; CA-R-2613 governs typed relation endpoint signature. Ensure all forward and derived reverse scopes/counts stay in endpoint Declarations and no preview grants a fact."
+    },
+    {
+      "id": "workflow_execution_data",
+      "state": "EXCLUDED_FROM_MODEL_SOURCE_BATCH",
+      "fact": "No actual Workflow Run / Step Run / Action Run / Execution / Runtime / Event / Session / Event Record instance or fact is authored by these Declaration Drafts. Existing workflow source-owner and CA #3 runtime/data work remain external."
+    }
+  ],
+  "recommended_next_safe_batch": "Review and pin exact native DRAFTs against all 23 combined preview rows, reconcile the 4 endpoint Declaration Drafts (Workflow, Step, Action, Event Record) with R2698 etc. and latest Header.Container metadata migration, then an atomic source-owner decision/adoption batch. Keep instance datasets and runtime execution evidence separate. Re-open current relation authority pins immediately before promotion.",
+  "limits": [
+    "No canonical or Draft changes in this review.",
+    "Packet preview hashes are separate from native Draft hashes; Draft pin list uses actual live files.",
+    "P2694 plan says execution endpoint/inverse-permission and Event Record Relation decisions remain gates, while event-contract packet records exact relation direction/cardinality; keep the plan wording stale until root reconciles it.",
+    "No claim that all previews pass the current parser, permission checks, consumer migration or production runtime."
+  ]
+}
