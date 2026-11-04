@@ -76,11 +76,12 @@ values; a name selector is not a value selector. A `p.**` count aggregates
 selected distinct descendant Property identities below p within each selected
 bearer, independently of direct values and other bearers.
 
-The following named constructs are admitted only with the semantics in their
-own CFEL Rules: `IF`/`THEN`, `UNIQUE`, `DETERMINES`, `COUNT`, `MAX`,
-`LOOKUP`, `FENCED_LABELS`, and `?==`. Boolean `AND` and `OR` combine
-conditions; parenthesize mixed AND/OR expressions to state their grouping
-explicitly. `>>` is delivery notation with the
+The named constructs `IF`/`THEN`, `UNIQUE`, `DETERMINES`, `COUNT`, `MAX`,
+and `FENCED_LABELS` are admitted with the semantics in their own CFEL Rules.
+`LOOKUP(R, q)` and `?==` are admitted CFEL operators with their own operator
+Declarations; the `?==` ordered-assignment Rule supplies its chain semantics.
+Boolean `AND` and `OR` combine conditions; parenthesize mixed AND/OR
+expressions to state their grouping explicitly. `>>` is delivery notation with the
 semantics of the delivery Rule; `!(selectors)` excludes branches from a
 delivery selection. `Kind//$x` binds an existing selected instance and `$x.p`
 reads its Property. Each non-graph CFEL operator has its own Declaration;

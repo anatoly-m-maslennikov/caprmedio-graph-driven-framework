@@ -1,6 +1,6 @@
 # CA-E-673@3
 # CA-E-674@5
-# CA-E-676@5
+# CA-E-676@6
 # CA-E-677@7
 
 """Real Workbench MCP/HTTP proof against the full-suite current-code image."""
@@ -209,7 +209,10 @@ class WorkbenchDockerE2E(unittest.TestCase):
 
         ran, page, checked = asyncio.run(exercise())
         expected = {
-            "columns": [{"name": "item", "type": "VARCHAR"}, {"name": "item", "type": "VARCHAR"}],
+            "columns": [
+                {"name": "item", "type": "VARCHAR", "has_values": True},
+                {"name": "item", "type": "VARCHAR", "has_values": True},
+            ],
             "rows": [["CA-R-2723", "Requirement"], ["CA-R-2725", "Requirement"]],
             "row_count": 2,
             "column_count": 2,

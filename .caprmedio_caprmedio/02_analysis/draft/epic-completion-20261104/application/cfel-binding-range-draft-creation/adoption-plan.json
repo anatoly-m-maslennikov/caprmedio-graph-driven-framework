@@ -1,0 +1,56 @@
+{
+  "status": "PREPARED_DRAFT_CREATION",
+  "scope": "Settled grouping/binding scopes and noShadowing; explicitdeclaredPlanthresholdinteger0..100 optionalvalue, fallbackunchanged. Structurallevel=checksunchanged.",
+  "outputs": [
+    {
+      "atom_id": "CA-R-2601",
+      "version": 2,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2601@2-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "b994c40420977da1852bcd06a7286c976430aed5e97ab147af3c46f6360cb099",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "a60c4c3405fb1fa0f5c48e631c93b903a016f2a78fa2d3e9ebe5e900e5a3da8f",
+      "summary": "Declare CFEL operator ()"
+    },
+    {
+      "atom_id": "CA-R-2604",
+      "version": 2,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2604@2-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "edf50c1ed6adb81a270c2707b5a464ad3dbfb316dc8edc34509085698f909a6e",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "368ad50c9fb2ec6b49d9b03c402ac761feb40ed4fb945de6ffdc93acabb694a0",
+      "summary": "Declare CFEL operator $"
+    },
+    {
+      "atom_id": "CA-R-2711",
+      "version": 5,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2711@5-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "sha256": "5ae9b7240313cdbd743a563c3fceef8f8d815d41ba674f4a7509389be438284c",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "source_sha256": "544d1861d9e67ab8723fff961b42fe4490e0cf7af7a8b2c6a288a0fdfd34b54b",
+      "summary": "Declare Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2601@2-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2601\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Grouping\nversion: 2\nupdated_at: 2026-11-04 21:08:25 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2601@2-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare CFEL operator ()\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nOperator//Grouping == \"()\"\n```\n\n## Semantics\n\nGroup one CFEL expression; parentheses do not create a Node or Relation. When AND and OR occur in one Boolean expression, use parentheses to make their grouping explicit; neither has implicit precedence over the other.\n",
+      "after_sha256": "b994c40420977da1852bcd06a7286c976430aed5e97ab147af3c46f6360cb099"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2604@2-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2604\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding\nversion: 2\nupdated_at: 2026-11-04 21:08:25 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2604@2-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare CFEL operator $\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nOperator//InstanceBinding == \"$\"\n```\n\n## Semantics\n\nBind an existing selected instance or read its bound Property; it creates nothing. A variable introduced by a standalone typed instance selector such as `Kind//$x;` remains in scope for following statements in the same CFEL fenced block. A variable introduced in an IF condition is in scope within that condition and its matching THEN group only; it is not in scope in following statements. If an outer variable is already bound, a new binding inside IF must use a different variable name; references to the outer variable retain its existing identity.\n",
+      "after_sha256": "edf50c1ed6adb81a270c2707b5a464ad3dbfb316dc8edc34509085698f909a6e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2711@5-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2711\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold\nversion: 5\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nupdated_at: 2026-11-04 21:08:25 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2711@5-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold: [int, 0..100]{:0..1};\n\nAtom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{:0};\n\n# instances\nAtom/(.Header.Role: Plan)//$plan;\nScope Unit/Project//$project{:1};\n\n$plan.Header.AI Agent Confidence Threshold\n  ?== LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)\n  ?== $project.Settings.AI Agent Confidence Threshold\n```\n",
+      "after_sha256": "5ae9b7240313cdbd743a563c3fceef8f8d815d41ba674f4a7509389be438284c"
+    }
+  ]
+}

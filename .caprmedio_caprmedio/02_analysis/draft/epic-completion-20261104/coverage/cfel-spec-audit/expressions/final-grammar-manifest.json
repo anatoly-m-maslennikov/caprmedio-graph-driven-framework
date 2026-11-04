@@ -1,0 +1,109 @@
+{
+  "status": "TWO_GRAMMAR_READY_ONE_SHARED_CFEL_PENDING_REVIEW_TWO_REJECTED_TWO_HELD",
+  "decisions": [
+    "IF-introduced bindings last through IF condition and matching THEN group only.",
+    "Standalone typed instance selector bindings remain available through following statements of the same CFEL block.",
+    "Mixed AND/OR requires explicit parentheses without implicit precedence.",
+    "Quote text only when needed using double quotes; quoted text uses backslash quote for a literal quote and double backslash for a literal backslash. Other escapes are not authorized.",
+    "A new IF binding uses a different variable name from an already bound outer variable; ordinary references retain that binding identity."
+  ],
+  "candidates": [
+    {
+      "id": "CA-R-2601",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "a60c4c3405fb1fa0f5c48e631c93b903a016f2a78fa2d3e9ebe5e900e5a3da8f",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2601.preview.txt",
+      "candidate_sha256": "53abab95e25f0aaca0c18d2a8fbc82e9a3779db39415676c1e1a8e1379449b25",
+      "status": "READY_BOUNDED_REVIEW",
+      "changes": "Group one CFEL expression; parentheses do not create a Node or Relation. When AND and OR occur in one Boolean expression, use parentheses to make their grouping explicit; neither has implicit precedence over the other.",
+      "limits": "No claim about outer variable lifetime, shadowing or new syntax.",
+      "source_active_subject": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Grouping"
+    },
+    {
+      "id": "CA-R-2604",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "368ad50c9fb2ec6b49d9b03c402ac761feb40ed4fb945de6ffdc93acabb694a0",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2604.preview.txt",
+      "candidate_sha256": "b8a05b0930750cbfcfdec7213a49fac46260f805968c03aa956fe4f93d6f6f60",
+      "status": "READY_BOUNDED_REVIEW",
+      "changes": "Standalone typed instance selector `Kind//$x;` binding lasts through following statements in the same CFEL block; an IF-introduced binding is local to its condition and matching THEN group; a new binding must use a different name from an already bound outer variable, and references preserve existing identity.",
+      "limits": "No claim about outer variable lifetime, shadowing or new syntax.",
+      "source_active_subject": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding"
+    },
+    {
+      "id": "CA-R-2554",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+      "source_sha256": "0f0ba69390d074f65a5c0c75469e6bf3b1f24bb53f321fa3d742d38ab6cfb75b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2554.preview.txt",
+      "candidate_sha256": "1a5e37f783f76f6bb54835e368efcf5e2cfc2f70ba103ca50595a5adc88d3909",
+      "status": "REJECTED_PRESERVE_CURRENT_INVARIANT",
+      "change": "Use == for asserted root level and THEN conclusion in the existing formula; binding and formula grammar remain separate held checks.",
+      "source_active_subject": "active: CAPRMEDIO_MODEL <+ Scope Unit.structural_level",
+      "reason": "The structural level is written once; existing = expressions check invariants, including the IF consequent. Changing them to == changes the model behavior. Property Declaration is not CFEL syntax authority."
+    },
+    {
+      "id": "CA-R-2555",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+      "source_sha256": "3823ca975892c836b070091fdbbf3ea91d3a6c7c6cc370efa619e903ebc58308",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2555.preview.txt",
+      "candidate_sha256": "b3316789280598ce6a64855e374d0a1561333ecd23c363199b095146b0806a58",
+      "status": "REJECTED_PRESERVE_CURRENT_INVARIANT",
+      "change": "Use == for asserted root level and THEN conclusion in the existing formula; binding and formula grammar remain separate held checks.",
+      "source_active_subject": "active: CAPRMEDIO_MODEL <+ Package.structural_level",
+      "reason": "The structural level is written once; existing = expressions check invariants, including the IF consequent. Changing them to == changes the model behavior. Property Declaration is not CFEL syntax authority."
+    },
+    {
+      "id": "CA-R-2487",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "source_sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2487.operator-literal.combined.preview.txt",
+      "candidate_sha256": "afda795933475706924ffa0e0eed45bbec421f7f0602983432e5d3963bbb2c83",
+      "readiness": "REVIEW_BOUNDED",
+      "change": "Approved literal rule and Subject/formal filtered selector alignment.",
+      "status": "READY_COMBINED_FOR_REVIEW",
+      "exclusive_with": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-R-2487.combined.preview.txt",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2487.literal-only.preview.txt"
+      ],
+      "source_active_subject": "active: CAPRMEDIO_MODEL <+ CFEL",
+      "combined_from": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-R-2487.combined.preview.txt",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2487.literal-only.preview.txt"
+      ]
+    },
+    {
+      "id": "CA-R-1931",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "source_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-1931.combined.preview.txt",
+      "candidate_sha256": "3ebeab8a1c275507a09726984fd25c805ae57b0f58c6a3844763e737ce47096c",
+      "status": "HELD_LEGACY_SUBJECTS_AND_CLAIMS",
+      "exclusive_with": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-1931.preview.txt",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-1931.literal-only.preview.txt"
+      ],
+      "reason": "Combined two prior candidates; broader legacy source Subjects and claims require reconciliation before adoption.",
+      "source_active_subject": "active: CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "source_sha256": "8503b8391a73bfae63174a5c414f5be4b1d23fac8403951be0cbb4272817c78c",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-E-383.combined.preview.txt",
+      "candidate_sha256": "99cfc9da220aabe75fd3f90c50a8aba3126f3abbeb117463c24a16734b5d4270",
+      "status": "HELD_LEGACY_SUBJECTS_AND_CLAIMS",
+      "exclusive_with": [
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-E-383.preview.txt",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-E-383.literal-only.preview.txt"
+      ],
+      "reason": "Combined two prior candidates; broader legacy source Subjects and claims require reconciliation before adoption.",
+      "source_active_subject": "active: CAPRMEDIO_MODEL <+ Entity"
+    }
+  ],
+  "dependencies": [
+    "R2487 combines the operator owner composite and literal rule; both predecessors are mutually exclusive with this candidate. Operator owner must refresh its manifest and review.",
+    "R1931 and E383 combined candidates remain held for independent legacy Subject/claim reconciliation, despite their correct context clarification.",
+    "R2554/R2555 proposals are rejected: their existing = expressions test stored structural-level invariants; do not adopt those candidates or include Property Declarations as CFEL syntax authorities.",
+    "No runtime parser, reader, tests, Workbench or Workflow changes are claimed."
+  ]
+}

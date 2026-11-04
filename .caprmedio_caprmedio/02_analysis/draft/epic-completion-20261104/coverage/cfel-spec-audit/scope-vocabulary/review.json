@@ -1,0 +1,364 @@
+{
+  "scope": "28 original scope/vocabulary-assigned Current Core CFEL Atoms and reassessment of 13 previously excluded by lexical mention; no Workflow/Workbench owned source or constraint edited.",
+  "rows": [
+    {
+      "id": "CA-C-624",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/CA-C-624-CORE_META_MODEL-QUESTION--should-recursive-property-counts-aggregate-descendant-identities.md",
+      "source_sha256": "0f6453797a0a52d209d520bd92dadbe71f9dc8ee85b4c7a4693126ce936c3c28",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Cardinality",
+      "disposition": "pass",
+      "reason": "Resolved cardinality question reports recursive selection and aggregated count; no new governed claim."
+    },
+    {
+      "id": "CA-C-629",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/CA-C-629-CORE_META_MODEL-QUESTION--how-should-cfel-test-and-set-cardinalities.md",
+      "source_sha256": "e16dadfeee4246f78abeb24ce0b526fc779346b8ef96fdd183bfaa34242363da",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "pass",
+      "reason": "Resolved question distinguishes allowed count, count test and count conclusion; question remains coherent."
+    },
+    {
+      "id": "CA-A-1315",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/CA-A-1315-CORE_META_MODEL-SPECIFICATION_PROPOSAL--add-basic-cfel-queries-with-ctes-and-sql-aliases.md",
+      "source_sha256": "9cc3741638c50acc249c74c517af0c84ac9cee2a58629fb5a1b14c10f655d0d4",
+      "active_subject": "CAPRMEDIO <+ MODEL <+ CFEL",
+      "disposition": "held",
+      "reason": "Query proposal explicitly proposes several future SELECT, aliases, result views and traversal functions; active CFEL is broad and old CAPRMEDIO <+ MODEL root. Do not treat it as adopted syntax; split its independently proposed topics only when scoped."
+    },
+    {
+      "id": "CA-R-1194",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+      "source_sha256": "f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "finding",
+      "reason": "Definition names retired Entity as expression root and uses Local Scope Unit and Content Role vocabulary; target topic is Subject Path. Hold exact root/Subject alignment for grammar owner; avoid replacing ordinary Entity indiscriminately."
+    },
+    {
+      "id": "CA-R-1321",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+      "source_sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "finding",
+      "reason": "Subject Expression has obsolete sole Entity root exception and Entity-root Package references; substantial separate syntax/identity/cardinality assertions need grammar owner partition. Do not guess a replacement."
+    },
+    {
+      "id": "CA-R-2243",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "source_sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Cardinality",
+      "disposition": "held",
+      "reason": "Cardinality governs notation, but also duplicates Property presence and value semantics and directional Relation count constraints; distinguish necessary notation from independent rules before removal. Other cardinality/grammar owner must coordinate."
+    },
+    {
+      "id": "CA-R-2248",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "source_sha256": "e10f65588d725a5463ba1f257aa2d5e5a6eb97fd9c848e1e7184952efd9d193e",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format",
+      "disposition": "held",
+      "reason": "Format domain includes separate Carrier YAML encoding and null-count rules; decide whether to reference existing authority before trimming. Scalar vocabulary called provisional despite separate format definitions; ref statement requires reference authority check."
+    },
+    {
+      "id": "CA-R-2249",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2249-CORE_META_MODEL-ENTITY_DEFINITION--define-bool-value-format.md",
+      "source_sha256": "33e794ab91eb7360c879421930581fc5b5e5ce04ed0287d8b77eef704e3db5fd",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format/bool",
+      "disposition": "pass",
+      "reason": "bool admits true/false. Boundary sentence and Semantics restate what it excludes; optional editorial trim only, no separate normative target."
+    },
+    {
+      "id": "CA-R-2250",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2250-CORE_META_MODEL-ENTITY_DEFINITION--define-int-value-format.md",
+      "source_sha256": "8245418bdb1fc8dc4468bffe785f7090b5d4f46b2e2c30e0c06919e778ef1880",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format/int",
+      "disposition": "pass",
+      "reason": "int admits integer values. Range, cardinality and representation exclusions are scoped to this Format."
+    },
+    {
+      "id": "CA-R-2251",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2251-CORE_META_MODEL-ENTITY_DEFINITION--define-float-value-format.md",
+      "source_sha256": "140765b6e602a78a69973ffcae75eec29014e02729c8a5226d1ad4349ebf65c3",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format/float",
+      "disposition": "pass",
+      "reason": "float specifies its domain without precision or range; exclusions do not define separate rules."
+    },
+    {
+      "id": "CA-R-2252",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2252-CORE_META_MODEL-ENTITY_DEFINITION--define-decimal-value-format.md",
+      "source_sha256": "6832355d4bd3bbe58190783047f85ee726a5eecbae54bcda7296455dc6eb95e4",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format/decimal",
+      "disposition": "pass",
+      "reason": "decimal specifies its domain without scale or precision; exclusions are scoped to the Format."
+    },
+    {
+      "id": "CA-R-2253",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2253-CORE_META_MODEL-ENTITY_DEFINITION--define-string-value-format.md",
+      "source_sha256": "f5c86c8e98ef8fc92f822c8dad2c4824577f51d4b38c4f257774f3d5c9efaece",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format/string",
+      "disposition": "pass",
+      "reason": "string specifies text values and null distinction; the short excluded-properties sentence is scoped to the Format."
+    },
+    {
+      "id": "CA-R-2254",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2254-CORE_META_MODEL-ENTITY_DEFINITION--define-datetime-value-format.md",
+      "source_sha256": "410e95f24f10b861c13981c9906c0f9e172b46d4ea6de4a041c6cca71b2a3bdf",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format/datetime",
+      "disposition": "pass",
+      "reason": "datetime specifies date-time values, without asserting timezone/precision; no independent business rule found."
+    },
+    {
+      "id": "CA-R-2257",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2257-CORE_META_MODEL-ENTITY_DEFINITION--define-scalar-value-format.md",
+      "source_sha256": "781a74ff8fdc4896f3e8292f87b31b5d7abf3f2eae6c1d7ea411911ef49c03dd",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format/scalar",
+      "disposition": "held",
+      "reason": "Scalar domain includes null and Carrier-supported primitive types; independent YAML mapping/sequence interpretation is embedded. Preserve until Carrier/Format authority and null admission are reconciled."
+    },
+    {
+      "id": "CA-R-2327",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2327-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md",
+      "source_sha256": "453ef31f76dccc8b2ba1c08f83028c33d1b08d08420c5653b5e7d51ff1f9ac5b",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Cardinality",
+      "disposition": "pass",
+      "reason": "Cardinality definition and forms describe one notation topic; detailed syntax owned by cardinality source."
+    },
+    {
+      "id": "CA-R-2352",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2352-CORE_META_MODEL-ENTITY_DEFINITION--define-format-data-type.md",
+      "source_sha256": "3fbfba9ab0c5a8950971f2d7ae9113f91a6ff815b2c12011a57f1ff29150e845",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format.Data Type",
+      "disposition": "held",
+      "reason": "Data Type property names value domain, but repeats provisional initial vocabulary and carries list/map/reference exclusions; reconcile existing Format authority before deleting any substantive restriction."
+    },
+    {
+      "id": "CA-R-2353",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2353-CORE_META_MODEL-ENTITY_DEFINITION--define-format-uniqueness-selection.md",
+      "source_sha256": "33cf5507fe27473cee637a1dd027fb8ae378e923be8f898172d222f93a19e532",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format.Uniqueness Selection",
+      "disposition": "pass",
+      "reason": "Uniqueness Selection identifies optional comparison population; no actual uniqueness rule is invented."
+    },
+    {
+      "id": "CA-R-2472",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
+      "source_sha256": "659daa7c02b8d0458aad7d70e071ac1810c55bedb3aa553830468f47d4688b8e",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "held",
+      "reason": "Property name/value selectors also prescribe occurrence/presence and undeclared-child default; overlap R2243 and Node property authority. Keep constraints until ownership and potentially independent claims are reconciled."
+    },
+    {
+      "id": "CA-R-2547",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2547-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-value-format.md",
+      "source_sha256": "27167f35246056d3eede62a4c5fea2e13eaad2c1dd3344209205211d41139b6e",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format//markdown",
+      "disposition": "pass",
+      "reason": "Markdown Format defines source and retrieved section including descendants; one Format topic, no inferred carrier state."
+    },
+    {
+      "id": "CA-R-2548",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2548-CORE_META_MODEL-RULE--deliver-objects-to-carriers.md",
+      "source_sha256": "94bb4b46dcf8fbfbae71cc68113c62dc8a857feafdefcf818ff57c1fb76523c6",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "finding",
+      "reason": "Delivery >> is combined with bare address, exclusion selector and equality semantics. Hand exact clauses to operator/grammar owner; removal only after their authority is confirmed."
+    },
+    {
+      "id": "CA-R-2549",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2549-CORE_META_MODEL-CFEL--compare-numeric-values.md",
+      "source_sha256": "eb5ab30a14d689864cfa62b5c214c92dff04ad43a6b0f2826f60a0bab92207f3",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "held",
+      "reason": "Numeric comparison/addition includes IF application, assignment exclusions and unrelated relation-operator distinction. These may overlap existing operator declarations; preserve until grammar owner assigns each constraint."
+    },
+    {
+      "id": "CA-R-2550",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "source_sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "held",
+      "reason": "Fallback chain and LOOKUP traversal, error, binding and occurrence rules are numerous distinct constraints; no semantics removed until operator owner determines whether LOOKUP warrants its own Atom."
+    },
+    {
+      "id": "CA-R-2551",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2551-CORE_META_MODEL-CFEL--require-unique-property-tuples.md",
+      "source_sha256": "6a236db529b9acdcc45ea3eb1bfa1bf0fc0b3b467e6a2aa08905215d81a78b10",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "held",
+      "reason": "UNIQUE semantics includes population snapshot, reference equality, conditions and optional-value constraints. Hold split/trim pending operator owner; keep explicit selection behavior."
+    },
+    {
+      "id": "CA-R-2563",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2563-CORE_META_MODEL-CFEL--select-fenced-markdown-labels.md",
+      "source_sha256": "cb007dba7e400401554186e4db4dfbc2318b1343e0bc9149ab02bc1dcb756b04",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "held",
+      "reason": "FENCED_LABELS defines selection, Markdown parsing, format and error conditions; check overlap with Markdown value Format before moving independent parsing requirements."
+    },
+    {
+      "id": "CA-R-2566",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2566-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md",
+      "source_sha256": "4b8a0ac45864cfc21a3d01b0f64f1be73d3ff7ae186e3e188144249c1f836d00",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "finding",
+      "reason": "Instance filtering and MAX are separately named operations with independent rules under broad CFEL. Grammar owner must decide distinct governing Subjects and ensure both semantics preserved before splitting; IF/variable decisions apply."
+    },
+    {
+      "id": "CA-R-2585",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2585-CORE_META_MODEL-CFEL--count-property-values-and-distinct-values.md",
+      "source_sha256": "030b2a4011e4bfb4fa436c88a035d663e7d6d93df85b3537b65d2cfe66c3af7a",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "held",
+      "reason": "COUNT and DISTINCT rules combine value-occurrence selection and equality. Check dedicated operator authorities for overlap before any deletion or split."
+    },
+    {
+      "id": "CA-R-2588",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "source_sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "held",
+      "reason": "Default cardinality semantics includes inheritance, inverse direction and relation-slot rules. Check direct relation/cardinality ownership before removing duplicate explanations; no change to count constraints."
+    },
+    {
+      "id": "CA-M-457",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-457-CORE_META_MODEL-IMPLEMENTATION_METHOD--reuse-formal-notation-and-write-isolated-constraints-in-prose.md",
+      "source_sha256": "99559c748dc1dae66e33da6502549cd8a5a1b1fc1cb2ab99236cf1594e2693d3",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "finding",
+      "reason": "CFEL authoring Method embeds IS_PROPERTY_OF acyclicity. Conditional split only; determine existing normative acyclicity authority before removing rule or allocating a separate Atom."
+    }
+  ],
+  "reassessed_13": [
+    {
+      "id": "CA-R-1200",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md",
+      "source_sha256": "136852e0bf5b4b4e015c8ea16f705dd0a1e916b12a18ece200f41c788795df4a",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON",
+      "disposition": "other_relation_lane",
+      "reason": "DEPENDS_ON relation spec; Workflow only appears as passive Subject and negated control-flow boundary. In scope of relation owner."
+    },
+    {
+      "id": "CA-R-1931",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "source_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "in_scope_grammar_hold",
+      "reason": "CFEL notation spec; Workflow occurs in illustrative examples and Details, not a Workflow-owned source. Subject and root vocabulary need reconciliation; preserve business constraints and grammar-owner ownership."
+    },
+    {
+      "id": "CA-R-2245",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "source_sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTION_OF",
+      "disposition": "excluded_workflow_owned",
+      "reason": "Though active Relation IS_EXECUTION_OF, Claim explicitly governs Workflow Run to Workflow binding. Excluded as Workflow-owned business contract."
+    },
+    {
+      "id": "CA-R-2246",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+      "source_sha256": "5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//RECORDS",
+      "disposition": "other_relation_lane",
+      "reason": "RECORDS relation is general. Workflow Run is a stale example/endpoint; latest Event Record records one Event decision requires relation-owner review, not exclusion."
+    },
+    {
+      "id": "CA-R-2255",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2255-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "source_sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//EXECUTES",
+      "disposition": "other_relation_lane",
+      "reason": "EXECUTES is Runtime\u2013Execution relation; existing Workflow Run text narrows generic endpoints and needs relation-owner review under latest model, without editing Workflow."
+    },
+    {
+      "id": "CA-R-2471",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "source_sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "in_scope_grammar_hold",
+      "reason": "General CFEL notation, Workflow only an example. Staging/withdrawn-syntax prose and := selection belong grammar owner; retain meaning."
+    },
+    {
+      "id": "CA-R-2487",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "source_sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "in_scope_grammar_hold",
+      "reason": "General CFEL expression and Relation syntax; Workflow occurs as example or negation. IF variable binding and mixed AND/OR decisions require grammar owner alignment."
+    },
+    {
+      "id": "CA-R-2552",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2552-CORE_META_MODEL-CFEL--bind-instance-variables.md",
+      "source_sha256": "202ab2c725dd5698a671a3e6a02b5229be01417f70255e5c795ec3734822e8be",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "in_scope_grammar_hold",
+      "reason": "General instance binder and filter; Workflow only appears in a union example. Check binder scope with IF-condition/THEN decision through grammar owner."
+    },
+    {
+      "id": "CA-R-2561",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2561-CORE_META_MODEL-CFEL--require-scalar-immutability.md",
+      "source_sha256": "83bff367f0813031c98a833e5bc41dd93d245c1bfdee19de3cdcd9dfa4b188d8",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "in_scope_pass",
+      "reason": "IMMUTABLE semantics over one selected instance and value; Workflow appears only in a negative explanatory sentence, not a Workflow rule."
+    },
+    {
+      "id": "CA-R-2562",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2562-CORE_META_MODEL-CFEL--require-functional-dependencies.md",
+      "source_sha256": "a93c4455784800347d6afddfdcd54127d813632ca131f40a1270a348dcfa8eb2",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "in_scope_pass",
+      "reason": "DETERMINES describes value tuple functional dependency over time; Workflow appears only in a negative explanatory sentence."
+    },
+    {
+      "id": "CA-R-2615",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2615-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "31da9c3927f1e8bd2bfab42511c7b80fcffd3547022ef5a18bdd3984dc0259ef",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//SubjectValueSelection",
+      "disposition": "other_operator_lane",
+      "reason": "SubjectValueSelection operator; Workflow is an example and does not make it Workflow-owned. Operator owner reviews."
+    },
+    {
+      "id": "CA-R-2638",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "source_sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//RUNS",
+      "disposition": "other_relation_lane",
+      "reason": "RUNS relation generic Action-or-Workflow selector; do not touch Workflow-specific constraints. Relation owner to assess applicability."
+    },
+    {
+      "id": "CA-M-228",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "source_sha256": "81388ad9d846bac3e326c4c737b634d16b1cfde6b7603153042478e019a29401",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "in_scope_grammar_hold",
+      "reason": "General Subject-expression authoring Method; Workflow is a union example. Binding/filter wording must align approved IF scope and explicit grammar; grammar owner to reconcile."
+    }
+  ],
+  "counts": {
+    "original_28": {
+      "pass": 11,
+      "held": 12,
+      "finding": 5
+    },
+    "reassessed_13": {
+      "other_relation_lane": 4,
+      "in_scope_grammar_hold": 5,
+      "excluded_workflow_owned": 1,
+      "in_scope_pass": 2,
+      "other_operator_lane": 1
+    }
+  },
+  "preview": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/scope-vocabulary/CA-M-457.conditional-preview.txt",
+    "condition": "Only valid if acyclicity constraint remains governed elsewhere or is atomically split into an approved unallocated declaration; do not independently apply.",
+    "sha256": "3fd74e738607903b7e1bb869daba869d1fb1e6e9d890a1d2f000da1220fdcdd4"
+  },
+  "decisions_to_integrate": [
+    "?== conditional assignment",
+    "IF-bound variable scope includes IF condition and THEN only",
+    "mixed AND/OR must be grouped",
+    "SPECIALIZES is direct and IS_SPECIALIZED_BY derived for conditional Claim specialization preserving parent constraints"
+  ],
+  "limits": [
+    "Other owners review relation, operator and grammar contracts; pass is limited to this scope/vocabulary reading, not full integrated semantic or executable validation.",
+    "No automatic replacements, unallocated IDs or Current changes."
+  ]
+}

@@ -17,9 +17,9 @@
       "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
       "source_sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860",
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-R-2550.successor.preview.txt",
-      "preview_sha256": "c4562b6b0a46436905f60776f087338c67e98c6db602f557935c82c0b931b2f2",
+      "preview_sha256": "8a5082097c3e5eaadd5edab4775318c761fb1cce6128883906db813bf25a24a7",
       "change": "Fresh-ID focused fallback Rule successor. LOOKUP mechanics live in a separate existing-CFEL-scope Rule; ordered assignment/omission/cardinality remain here.",
-      "candidate_id": "ROOT_ALLOCATES_ID"
+      "candidate_id": "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID"
     },
     {
       "id": "CA-R-2598",
@@ -28,9 +28,9 @@
       "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
       "source_sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559",
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-R-2598.successor.preview.txt",
-      "preview_sha256": "2ba2859fe2a158ae114c843dd910cd00453a7698724a1e48280c3daae6820034",
+      "preview_sha256": "e4e4514e23835b98a00958ae102b86283a4c77ae6b7356ba3f7865244c9002a8",
       "change": "Fresh-ID Draft successor with updated Summary and ?== operator literal/semantics; preserve old source and frozen references.",
-      "candidate_id": "ROOT_ALLOCATES_ID"
+      "candidate_id": "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID"
     },
     {
       "id": "CA-R-2487",
@@ -38,8 +38,8 @@
       "candidate_version_on_adoption": 12,
       "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
       "source_sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
-      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-R-2487.combined.preview.txt",
-      "preview_sha256": "b3c1a413dfe56a2d57e3898b64b98de50f0797aa15f5ed81d40c85f84d997a74",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2487.operator-literal.combined.preview.txt",
+      "preview_sha256": "afda795933475706924ffa0e0eed45bbec421f7f0602983432e5d3963bbb2c83",
       "change": "Combined candidate from same pinned source preimage: adopts ?== catalog spelling, clarified Subject-selection := scope, AND/OR declarations, and approved parentheses for mixed AND/OR."
     },
     {
@@ -49,8 +49,8 @@
       "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
       "source_sha256": "743aff2bb78914a616783752ac11a79f7bf784f351168414f8372d37f5241e92",
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2705.preview.txt",
-      "preview_sha256": "7e5b22ed044d15677410064c57dc80eee0c26fd68e4c18393fb625e0a8f34d19",
-      "change": "Replace the old fallback token with ?==; keep existing expressions, order, and nonwriting omitted-value semantics."
+      "preview_sha256": "9f1b18d89bc83c8168b635047fec49f8eea25f0e6056ca3fff947e6616bbb9db",
+      "change": "Bind each Atom instance as $atom and apply label default to the same instance\u2019s Header.Form."
     },
     {
       "id": "CA-R-2711",
@@ -59,8 +59,8 @@
       "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
       "source_sha256": "af3db8d7f4041a599002215975f96b3101e0f9383224b80eede75e93ffd24949",
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2711.preview.txt",
-      "preview_sha256": "caaccc782aaece485511c885b135aecb493b7b27ecd443fb7cda5a704bc8903b",
-      "change": "Replace the old fallback token with ?==; keep existing expressions, order, and nonwriting omitted-value semantics."
+      "preview_sha256": "aa5303fdb24a496706dc31f20ce55b52c5138e6522564dcf120d4ecb9dda1c8d",
+      "change": "Bind each selected Plan instance as $plan and the one Project in the current Project context as $project; preserve the existing q schema selector and update fallback chain to ?==."
     },
     {
       "id": "CA-R-2564",
@@ -190,6 +190,25 @@
   ],
   "successor_packet": "../cfel-spec-audit/operators/successor-format-manifest.json",
   "successor_identity_policy": "CA-R-2550 and CA-R-2598 are replaced atomically by fresh-ID Draft successors; root allocates IDs/timestamps. The Current CA-A-1315 dependency remap and active use-site updates are required in the same adoption set. Frozen references and mirrors remain unchanged.",
-  "lookup_rule": "../cfel-spec-audit/operators/NEW-CFEL-LOOKUP-rule.preview.txt",
-  "atomic_replacement_plan": "../cfel-spec-audit/operators/atomic-retirement-replacement-plan.json"
+  "atomic_replacement_plan": "../cfel-spec-audit/operators/atomic-retirement-replacement-plan.json",
+  "lookup_declaration": "../cfel-spec-audit/operators/NEW-Operator-Lookup.preview.txt",
+  "id_allocation_placeholders": {
+    "CA-R-2550.successor.preview.txt": "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID",
+    "CA-R-2598.successor.preview.txt": "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID",
+    "NEW-Operator-Lookup.preview.txt": "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID",
+    "NEW-CFEL-inclusive-numeric-range-format.preview.txt": "ROOT_ALLOCATES_CFEL_NUMERIC_RANGE_RULE_ID",
+    "NEW-CFEL-format-constraint-combination.preview.txt": "ROOT_ALLOCATES_CFEL_FORMAT_INTERSECTION_RULE_ID",
+    "NEW-Operator-Conjunction.preview.txt": "ROOT_ALLOCATES_CFEL_AND_OPERATOR_ID",
+    "NEW-Operator-Disjunction.preview.txt": "ROOT_ALLOCATES_CFEL_OR_OPERATOR_ID"
+  },
+  "final_candidate_allocation_manifest": "../cfel-spec-audit/operators/final-allocation-manifest.json",
+  "instance_binding_dependencies": {
+    "CA-R-2705": [
+      "CA-R-2552@4 Kind//$x instance-binding rule"
+    ],
+    "CA-R-2711": [
+      "CA-R-2552@4 Kind//$x instance-binding rule",
+      "CA-R-2524@3 exactly one Project in Scope Unit/Project"
+    ]
+  }
 }

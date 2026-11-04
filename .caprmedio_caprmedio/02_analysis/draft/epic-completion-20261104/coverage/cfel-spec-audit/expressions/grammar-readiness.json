@@ -1,0 +1,69 @@
+{
+  "decisions": "A variable introduced by a standalone typed instance selector `Kind//$x;` remains available to following statements for the rest of the same CFEL block. A variable newly introduced in an IF condition is scoped to that condition and its matching THEN group only. Mixed AND/OR requires explicit parentheses, with no implicit precedence. A new IF binding must use a different name from any already bound outer variable; references to an outer binding retain its identity.",
+  "new_previews": [
+    {
+      "id": "CA-R-2601",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "a60c4c3405fb1fa0f5c48e631c93b903a016f2a78fa2d3e9ebe5e900e5a3da8f",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2601.preview.txt",
+      "candidate_sha256": "53abab95e25f0aaca0c18d2a8fbc82e9a3779db39415676c1e1a8e1379449b25",
+      "status": "READY_BOUNDED_SOURCE_REVIEW",
+      "changes": "Group one CFEL expression; parentheses do not create a Node or Relation. When AND and OR occur in one Boolean expression, use parentheses to make their grouping explicit; neither has implicit precedence over the other.",
+      "limits": "No claim about outer variable lifetime, shadowing or new syntax."
+    },
+    {
+      "id": "CA-R-2604",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "368ad50c9fb2ec6b49d9b03c402ac761feb40ed4fb945de6ffdc93acabb694a0",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2604.preview.txt",
+      "candidate_sha256": "b8a05b0930750cbfcfdec7213a49fac46260f805968c03aa956fe4f93d6f6f60",
+      "status": "READY_BOUNDED_SOURCE_REVIEW",
+      "changes": "Standalone typed instance selector `Kind//$x;` binding lasts through following statements in the same CFEL block; an IF-introduced binding is local to its condition and matching THEN group; a new binding must use a different name from an already bound outer variable, and references preserve existing identity.",
+      "limits": "No claim about outer variable lifetime, shadowing or new syntax."
+    }
+  ],
+  "re_review": [
+    {
+      "id": "CA-R-1194",
+      "status": "HOLD",
+      "reason": "Correct := example is mechanically valid and R2702 declares Atom.Header.Role, but prose asserts Entity root under R2462 whose Current governing selection is Node and Node.**; reconcile whole claim and root identity before adopting."
+    },
+    {
+      "id": "CA-R-1931",
+      "status": "HOLD",
+      "reason": "Colon-qualified examples and bare count annotations conflict with R2471/R2243; existing preview only partial: obsolete Entity root, Entity/Property and CFEL/Relation passive paths, legacy Role Operations/Form Step examples and semantics need coherent native authority before adoption."
+    },
+    {
+      "id": "CA-E-383",
+      "status": "HOLD_HEADER_AND_CLAIM",
+      "reason": "Reverse syntax patch is isolated and accurate, but active Entity and passive old Actor/Operator and CFEL/Relation paths plus broader legacy evaluation text need coordinated correction."
+    },
+    {
+      "id": "CA-M-232",
+      "status": "HOLD_HEADER_AND_CLAIM",
+      "reason": "Reverse syntax patch is isolated and accurate, but active Subject Graph uses legacy path/Form : selection; passive Atom Subjects Graph uses legacy Form selection, and CFEL/Relation paths remain; reconcile projection-specific authority and old Entity-root text."
+    },
+    {
+      "id": "CA-R-2554",
+      "status": "REJECTED_PRESERVE_CURRENT_INVARIANT",
+      "reason": "Current = checks a stored level invariant; IF consequence may assert a Boolean condition. Do not change to computed assignment."
+    },
+    {
+      "id": "CA-R-2555",
+      "status": "REJECTED_PRESERVE_CURRENT_INVARIANT",
+      "reason": "Current = checks a stored level invariant; IF consequence may assert a Boolean condition. Do not change to computed assignment."
+    }
+  ],
+  "scope": "No Current, code, tests, Git or Workflow/Workbench source mutation. Operator owners must integrate equivalent candidate updates, avoiding conflicting catalog edits.",
+  "resolved_standalone_binding": {
+    "question": "How long does a variable introduced by a standalone selector remain bound: through the rest of its CFEL fenced block, or only in the statement where it is introduced?",
+    "example": "R2462 instance block has `Node//$node;` followed by `($node, $node.**) {:0}((*));` and further statements using $node. The settled IF rule applies only to variables introduced in IF and does not resolve this standalone use.",
+    "blast_radius": "Current declaration patterns that bind standalone instances and reuse names in later expressions, including R2462 and R2701; determines validity and evaluation without affecting the settled IF rule.",
+    "resolution": "A variable introduced by a standalone typed instance selector `Kind//$x;` is available to following statements for the rest of the same CFEL block; specified once in R2604, not restated in R2462 or R2701."
+  },
+  "next_question": {
+    "question": "What syntax distinguishes literal text from names and operators inside CFEL, especially for multiword values and special characters?",
+    "example": "R2601 uses the quoted token \"()\" while R2707 uses unquoted multiword value Scope Contract; R1931 specifies backslash escaping and says quotes are carrier serialization for Entity names. Those facts do not fully define CFEL literal boundaries.",
+    "blast_radius": "Literal values, escaped operator characters, multiword enum values and parsing of formatted claims. Subject-path escaping alone does not define all CFEL literal contexts."
+  }
+}

@@ -31,6 +31,3 @@ Relation.Meaning.*[]{:0}
 
 
 Relation Meaning is the canonical meaning of a reusable Relation Type.
-
-
-

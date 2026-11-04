@@ -1,16 +1,20 @@
 ---
 atom_id: CA-R-2487
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL
-version: 11
-updated_at: 2026-11-04 05:21:15 +0400
-relations: {}
+version: 13
+updated_at: 2026-11-04 20:33:16 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 tier: 3
 role: Requirement
 form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 
@@ -47,14 +51,17 @@ CFEL uses these graph-address forms:
 
 - `X/Y` selects a narrower Primary Node; `X//Name` selects an existing
   instance of a declared kind, including a Property instance borne by its data bearer.
-- `X.p` addresses Property p borne by X. In a Subject only,
-  `X/(.p := V)` combines an admitted Property value with selection of X;
-  `:=` is not a Formal-Claim value assignment.
+- `X.p` addresses Property p borne by X. A Subject selection may appear in an address or inside a filtered Node
+  expression in a Formal Claim: `X/(.p := V)` combines an admitted Property
+  value with selection of X. `:=` belongs to this Subject-selection syntax; it
+  is not a free-standing Formal-Claim value assignment.
 - `Part +> Whole` and `Whole <+ Part` are opposite written views of one
   containment fact. `X >| Axis` and `Axis |< X` are opposite written views
   of one classification fact. A bare qualified address references its declared entity or instance. No `@` reference operator is required; `@N` identity/version tags retain their separate meaning.
 - Parentheses group one expression. `;` separates complete expressions;
   a line break has no conjunction or disjunction meaning.
+
+Text values use double quotes when needed to distinguish literal text from CFEL syntax; otherwise an unambiguous value may remain bare, including a multiword value such as `Scope Contract`. For example, `"A/B"` is text containing a slash. A name or path used as a reference retains its declared identity; a text value does not become a model reference. Within double-quoted text, `\"` represents a literal double quote and `\\` represents a literal backslash. Reject every other escape and any incomplete trailing backslash; JSON escape rules are not imported. This applies to values in Formal Claims and Subject selectors.
 
 In Formal Claims, `X: Y` admits Y as an allowed value of X regardless of X's
 kind or preceding path; it is not assignment. `=` and `!=` test conditions,
@@ -75,9 +82,12 @@ values; a name selector is not a value selector. A `p.**` count aggregates
 selected distinct descendant Property identities below p within each selected
 bearer, independently of direct values and other bearers.
 
-The following named constructs are admitted only with the semantics in their
-own CFEL Rules: `IF`/`THEN`, `UNIQUE`, `DETERMINES`, `COUNT`, `MAX`,
-`LOOKUP`, `FENCED_LABELS`, and `?=`. `>>` is delivery notation with the
+The named constructs `IF`/`THEN`, `UNIQUE`, `DETERMINES`, `COUNT`, `MAX`,
+and `FENCED_LABELS` are admitted with the semantics in their own CFEL Rules.
+`LOOKUP(R, q)` and `?==` are admitted CFEL operators with their own operator
+Declarations; the `?==` ordered-assignment Rule supplies its chain semantics.
+Boolean `AND` and `OR` combine conditions; parenthesize mixed AND/OR
+expressions to state their grouping explicitly. `>>` is delivery notation with the
 semantics of the delivery Rule; `!(selectors)` excludes branches from a
 delivery selection. `Kind//$x` binds an existing selected instance and `$x.p`
 reads its Property. Each non-graph CFEL operator has its own Declaration;

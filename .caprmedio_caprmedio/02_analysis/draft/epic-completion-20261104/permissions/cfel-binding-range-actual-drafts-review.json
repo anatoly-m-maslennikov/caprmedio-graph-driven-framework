@@ -1,0 +1,58 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_REVIEW",
+  "plan_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/cfel-binding-range-draft-creation/adoption-plan.json",
+  "plan_sha256": "52e9d3129a54f655e8fcffdd60cc5502b1ff61ca6d4758e186af349b3f520b49",
+  "rows": [
+    {
+      "id": "CA-R-2601",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "a60c4c3405fb1fa0f5c48e631c93b903a016f2a78fa2d3e9ebe5e900e5a3da8f",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2601@2-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "draft_sha256": "b994c40420977da1852bcd06a7286c976430aed5e97ab147af3c46f6360cb099",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Grouping",
+      "version": 2
+    },
+    {
+      "id": "CA-R-2604",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "368ad50c9fb2ec6b49d9b03c402ac761feb40ed4fb945de6ffdc93acabb694a0",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2604@2-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "draft_sha256": "edf50c1ed6adb81a270c2707b5a464ad3dbfb316dc8edc34509085698f909a6e",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding",
+      "version": 2
+    },
+    {
+      "id": "CA-R-2711",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "source_sha256": "544d1861d9e67ab8723fff961b42fe4490e0cf7af7a8b2c6a288a0fdfd34b54b",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2711@5-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "draft_sha256": "5ae9b7240313cdbd743a563c3fceef8f8d815d41ba674f4a7509389be438284c",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold",
+      "version": 5
+    }
+  ],
+  "authority_pins": {
+    "CA-R-1045": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1045-CORE_META_MODEL-RULE--restrict-autonomous-confidence-threshold-values.md",
+      "sha256": "4792a08baa8cdc7c8e6fa9192df3812d25fdaa29ed3a35ede1037855ac74fc9a"
+    },
+    "CA-R-2771": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2771-CORE_META_MODEL-RULE--cfel-numeric-range-constraint.md",
+      "sha256": "f4381a01fd67e8b87a221c3467f3b87253332ae0713420ed3f10b1c454450382"
+    },
+    "CA-R-2772": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2772-CORE_META_MODEL-RULE--cfel-format-constraint-intersection.md",
+      "sha256": "ede1863121a6b8b03095bcf71bd74e448e68c1d2e3636cb6a8b968d28ed1abd2"
+    }
+  },
+  "checks": [
+    "All three actual Drafts and Current source hashes and creation operation payloads match; identities, incremented versions, Summary, active Subject and canonical Core containment/destination are correct.",
+    "R2601 groups mixed AND/OR explicitly without implicit precedence.",
+    "R2604 restricts standalone lifetime to typed instance selectors and retains IF-introduced bindings only within the IF condition and matching THEN; new IF binding must use a different name from an outer variable, while existing outer references retain identity.",
+    "R2711 changes only [int] to [int, 0..100] in its model value Format; optional 0..1, typed variable bindings and fallback chain are unchanged. Current R1045 requires integer percentage 0 through 100, R2771 admits inclusive ranges, R2772 admits typed intersection."
+  ],
+  "limits": [
+    "Source-level review only: no native admission, promotion, runtime validation, tests or changes to R2554/R2555 established.",
+    "No Workbench or Workflow sources reviewed."
+  ]
+}

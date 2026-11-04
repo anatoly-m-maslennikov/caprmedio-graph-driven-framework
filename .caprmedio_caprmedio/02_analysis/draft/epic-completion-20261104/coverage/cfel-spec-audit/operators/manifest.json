@@ -200,29 +200,29 @@
       "candidate_file": "CA-R-2487.preview.txt",
       "candidate_sha256": "c6af1dd38a900b018721dec309390a37d51d4d0cff24d83bb56e1a6f2b16822b",
       "transform": "minimal semantic wording correction",
-      "superseded_by": "CA-R-2487.combined.preview.txt",
+      "superseded_by": "../expressions/CA-R-2487.operator-literal.combined.preview.txt",
       "review": "SUPERSEDED_SOURCE_ONLY"
     },
     {
-      "id": "<ROOT_ALLOCATES_ID>",
+      "id": "ROOT_ALLOCATES_CFEL_AND_OPERATOR_ID",
       "version": 1,
       "source": null,
       "candidate_file": "NEW-Operator-Conjunction.preview.txt",
-      "candidate_sha256": "fee24c985a61c9b68355cdc53e1c10c4a5397e1a0b228e2ea884a4105ada78ac",
+      "candidate_sha256": "5c2fafa34578a40c945ad0396e9b6b05af7a93401faa9d816bde7a711c031753",
       "transform": "new minimal operator declaration; ID pending root allocation"
     },
     {
-      "id": "<ROOT_ALLOCATES_ID>",
+      "id": "ROOT_ALLOCATES_CFEL_OR_OPERATOR_ID",
       "version": 1,
       "source": null,
       "candidate_file": "NEW-Operator-Disjunction.preview.txt",
-      "candidate_sha256": "b72689d12e3160f110392886eba7fd9a59230dc79907bc0de2e16e5444d964d1",
+      "candidate_sha256": "db021ffd0e6c9d208057c37b314a675967dbb01dde73955bab15bfc2ecf3a17f",
       "transform": "new minimal operator declaration; ID pending root allocation"
     },
     {
       "id": "CA-R-2487",
-      "candidate_file": "CA-R-2487.combined.preview.txt",
-      "candidate_sha256": "b3c1a413dfe56a2d57e3898b64b98de50f0797aa15f5ed81d40c85f84d997a74",
+      "candidate_file": "../expressions/CA-R-2487.operator-literal.combined.preview.txt",
+      "candidate_sha256": "afda795933475706924ffa0e0eed45bbec421f7f0602983432e5d3963bbb2c83",
       "transform": "same-ID source candidate; source version 11",
       "active_subject_count": 1,
       "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
@@ -230,55 +230,86 @@
       "version": 11
     },
     {
-      "id": "ROOT_ALLOCATES_ID",
+      "id": "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID",
       "candidate_file": "CA-R-2550.successor.preview.txt",
-      "candidate_sha256": "c4562b6b0a46436905f60776f087338c67e98c6db602f557935c82c0b931b2f2",
+      "candidate_sha256": "8a5082097c3e5eaadd5edab4775318c761fb1cce6128883906db813bf25a24a7",
       "transform": "fresh-ID Draft successor; source CA-R-2550@2",
       "active_subject_count": 1
     },
     {
-      "id": "ROOT_ALLOCATES_ID",
+      "id": "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID",
       "candidate_file": "CA-R-2598.successor.preview.txt",
-      "candidate_sha256": "2ba2859fe2a158ae114c843dd910cd00453a7698724a1e48280c3daae6820034",
+      "candidate_sha256": "e4e4514e23835b98a00958ae102b86283a4c77ae6b7356ba3f7865244c9002a8",
       "transform": "fresh-ID Draft successor; source CA-R-2598@1",
       "active_subject_count": 1
     },
     {
-      "id": "ROOT_ALLOCATES_ID",
+      "id": "ROOT_ALLOCATES_CFEL_NUMERIC_RANGE_RULE_ID",
       "candidate_file": "NEW-CFEL-inclusive-numeric-range-format.preview.txt",
-      "candidate_sha256": "803db67e65b05b14a1f5407f3fc75214a8f37ce19fed71bc3dd9d2d93c1725bb",
+      "candidate_sha256": "76c54b67992a56c613957731a47f38c12bc67d9a2884be6a3516a13f10b0f245",
       "transform": "new Declaration; root allocates ID/timestamp",
       "active_subject_count": 1
     },
     {
-      "id": "ROOT_ALLOCATES_ID",
+      "id": "ROOT_ALLOCATES_CFEL_FORMAT_INTERSECTION_RULE_ID",
       "candidate_file": "NEW-CFEL-format-constraint-combination.preview.txt",
-      "candidate_sha256": "f415695cc6fd70312cd598ee74ef6707a1054c20f78d76964ab97bab57f16606",
+      "candidate_sha256": "3ff5d70929a1dfe1212d60c9f21ea09cb9b298367bdff3321620f64f59252e9c",
       "transform": "new Declaration; root allocates ID/timestamp",
       "active_subject_count": 1
-    },
-    {
-      "id": "ROOT_ALLOCATES_ID",
-      "candidate_file": "NEW-CFEL-LOOKUP-rule.preview.txt",
-      "candidate_sha256": "14199a90e0bbb6e5947245731cec8f18542ed41194dbde38f56d6ab39deb1721",
-      "transform": "source-only proposal"
     },
     {
       "id": "CA-A-1315",
       "candidate_file": "CA-A-1315.current-reference-remap.preview.txt",
-      "candidate_sha256": "123bd18bf2b13e012cf0f54110418f6a00e346026815492f6aec9f771c3a99fa",
+      "candidate_sha256": "0497be911669769a0c890e10329406d095188312f603a0cb892fd2d6a8826c6a",
       "transform": "source-only proposal",
       "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/CA-A-1315-CORE_META_MODEL-SPECIFICATION_PROPOSAL--add-basic-cfel-queries-with-ctes-and-sql-aliases.md",
       "before_sha256": "9cc3741638c50acc249c74c517af0c84ac9cee2a58629fb5a1b14c10f655d0d4",
       "version": 2
+    },
+    {
+      "id": "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID",
+      "candidate_file": "NEW-Operator-Lookup.preview.txt",
+      "candidate_sha256": "efdf13d7b730b987c8924d5819a16ad2c54e1fa8ba9503893b4a5e1b4484c1bc",
+      "transform": "new declaration for existing function-like operator and existing Operator parent"
     }
   ],
   "limitations": [
+    "All seven new IDs and timestamps require root allocation.",
     "Preview files are source-only.",
-    "Fresh-ID successor/rule and new Declaration IDs/timestamps require root allocation.",
-    "Retire old fallback/operator atom carriers only atomically with successors and Current reference/use-site remaps.",
-    "Frozen references, applicable-mirror history, projections, and runtime pins are not edited."
+    "Retire old R2550/R2598 carriers only atomically with successors and current reference/use-site remaps.",
+    "Frozen references, applicable-mirror history, archives, projections, and CoreRuntime pins are not edited."
   ],
   "atomic_plan": "atomic-retirement-replacement-plan.json",
-  "incoming_references": "incoming-references.json"
+  "incoming_references": "incoming-references.json",
+  "id_allocation": {
+    "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID": {
+      "candidate_file": "CA-R-2550.successor.preview.txt",
+      "meaning": "ordered conditional-assignment Rule successor to CA-R-2550@2"
+    },
+    "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID": {
+      "candidate_file": "CA-R-2598.successor.preview.txt",
+      "meaning": "?== Operator//Fallback successor to CA-R-2598@1"
+    },
+    "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID": {
+      "candidate_file": "NEW-Operator-Lookup.preview.txt",
+      "meaning": "existing LOOKUP(R,q) operator declaration on existing Operator kind"
+    },
+    "ROOT_ALLOCATES_CFEL_NUMERIC_RANGE_RULE_ID": {
+      "candidate_file": "NEW-CFEL-inclusive-numeric-range-format.preview.txt",
+      "meaning": "inclusive numeric range Rule on existing Format scope"
+    },
+    "ROOT_ALLOCATES_CFEL_FORMAT_INTERSECTION_RULE_ID": {
+      "candidate_file": "NEW-CFEL-format-constraint-combination.preview.txt",
+      "meaning": "comma intersection Rule on existing Format scope"
+    },
+    "ROOT_ALLOCATES_CFEL_AND_OPERATOR_ID": {
+      "candidate_file": "NEW-Operator-Conjunction.preview.txt",
+      "meaning": "Boolean conjunction operator declaration"
+    },
+    "ROOT_ALLOCATES_CFEL_OR_OPERATOR_ID": {
+      "candidate_file": "NEW-Operator-Disjunction.preview.txt",
+      "meaning": "Boolean disjunction operator declaration"
+    }
+  },
+  "final_candidate_allocation_manifest": "final-allocation-manifest.json"
 }

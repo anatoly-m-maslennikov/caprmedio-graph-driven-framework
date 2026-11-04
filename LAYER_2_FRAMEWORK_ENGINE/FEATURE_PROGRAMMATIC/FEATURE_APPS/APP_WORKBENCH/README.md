@@ -13,12 +13,21 @@ MCP tools:
   re-executing SQL. The maximum page size is 1,000.
 - `query_check(sql)` returns validity and exact counts without transferring all rows.
 
+The UI hides columns containing only NULL, empty strings or empty collections
+across the whole result. Zero and false remain visible. `columns[].has_values`
+is stable across pages; SQL rows and total column counts remain complete.
+
 Web POST endpoints are `/caprmedio/workbench/<project_name>/run`, `/page` and `/check`.
 A mismatched Project name returns 404. Static assets stay under `/caprmedio/workbench/assets`.
 A shared MCP server also requires `project_root`.
 
 ```sql
-SELECT id, role, status, hash FROM atoms LIMIT 20;
+SELECT id, reference, role, status, "content.summary", relations FROM atoms LIMIT 20;
+```
+
+```sql
+SELECT id, "relative path", filename, relations->'$.CONTAINS' AS contains
+FROM atoms WHERE json_exists(relations, '$.CONTAINS');
 ```
 
 ```sql
@@ -33,7 +42,12 @@ FROM GRAPH_TABLE (
 ```
 
 The index reads Current and Draft Atom files and Current Scope Unit Declarations.
-It stores parsed YAML, Markdown sections and derived relations in the rebuildable
+`atoms` exposes a relative path plus filename, a stable `reference`, typed header
+properties, the fixed union of declared `content.*` Markdown values, outgoing
+`relations` JSON, and a hash. `scope_units` exposes its declaration properties,
+outgoing `relations`, and a hash. It does not expose parser-only YAML, raw Markdown,
+or raw edge JSON. Graph traversal remains available through `GRAPH_TABLE`.
+The index stores parsed YAML, Markdown sections and derived relations in the rebuildable
 `.caprmedio_runtime/workbench/projection.duckdb` database. Query results stay
 stable across source refresh and are discarded at restart. Spill files remain
 in the same owned runtime directory; source files stay authoritative.

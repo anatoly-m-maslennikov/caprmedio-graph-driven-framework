@@ -1,5 +1,5 @@
 ---
-atom_id: ROOT_ALLOCATES_ID
+atom_id: ROOT_ALLOCATES_CFEL_FORMAT_INTERSECTION_RULE_ID
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft

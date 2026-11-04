@@ -1,8 +1,8 @@
 // CA-R-2727@4
-// CA-M-466@4
+// CA-M-466@5
 // CA-M-467@2
-// CA-D-674@7
-export type Column = { name: string; type: string };
+// CA-D-674@8
+export type Column = { name: string; type: string; has_values?: boolean };
 
 export type QueryResult = {
   query_id: string;

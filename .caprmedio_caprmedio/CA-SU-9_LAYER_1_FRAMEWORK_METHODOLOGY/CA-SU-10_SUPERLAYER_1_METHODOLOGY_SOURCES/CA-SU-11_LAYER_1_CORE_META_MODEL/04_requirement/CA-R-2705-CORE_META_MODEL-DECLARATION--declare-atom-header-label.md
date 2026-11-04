@@ -1,13 +1,13 @@
 ---
 atom_id: CA-R-2705
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Header.Label
-version: 2
-updated_at: 2026-11-04 05:21:15 +0400
-relations: {}
+version: 4
+updated_at: 2026-11-04 20:33:16 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 tier: 3
 role: Requirement
 form: Declaration
@@ -30,5 +30,8 @@ Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
-Atom.Header.Label ?= Atom.Header.Form
+# instances
+Atom//$atom;
+
+$atom.Header.Label ?== $atom.Header.Form
 ```

@@ -31,7 +31,10 @@ Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold: [int]{:0..1};
 Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{:0};
 
 # instances
-Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold
+Atom/(.Header.Role: Plan)//$plan;
+Scope Unit/Project//$project{:1};
+
+$plan.Header.AI Agent Confidence Threshold
   ?== LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)
-  ?== Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold
+  ?== $project.Settings.AI Agent Confidence Threshold
 ```

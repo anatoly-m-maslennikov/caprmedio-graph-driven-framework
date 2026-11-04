@@ -1,7 +1,7 @@
 # CA-R-2727@4
 # CA-R-2729@3
-# CA-D-673@6
-# CA-D-674@7
+# CA-D-673@7
+# CA-D-674@8
 
 """Small HTTP representation of the shared Project Workbench connector."""
 

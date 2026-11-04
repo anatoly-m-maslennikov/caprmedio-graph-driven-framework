@@ -1,0 +1,59 @@
+{
+  "status": "ONE_READY_THREE_HELD",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/final-grammar-manifest.json",
+  "manifest_sha256": "23396b81bb912e0cbef8592ffe293d68f03a304c46306e2a56384e3e11e5e05d",
+  "rows": [
+    {
+      "id": "CA-R-2601",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "a60c4c3405fb1fa0f5c48e631c93b903a016f2a78fa2d3e9ebe5e900e5a3da8f",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2601.preview.txt",
+      "candidate_sha256": "53abab95e25f0aaca0c18d2a8fbc82e9a3779db39415676c1e1a8e1379449b25",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Grouping",
+      "summary_preserved": true,
+      "disposition": "READY_AFTER_HEADER_NORMALIZATION",
+      "reason": "Grouping active Subject is the declared Grouping operator. Semantics implements explicit grouping of mixed AND/OR without precedence; unchanged formal symbol and Summary."
+    },
+    {
+      "id": "CA-R-2604",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "368ad50c9fb2ec6b49d9b03c402ac761feb40ed4fb945de6ffdc93acabb694a0",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2604.preview.txt",
+      "candidate_sha256": "8464a84db32accc7baec4ecd71f4b29f52015bf2cc911f8189ca8d0f1d89f280",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding",
+      "summary_preserved": true,
+      "disposition": "PARTIAL_HOLD_TYPED_SELECTOR",
+      "reason": "IF condition-to-matching-THEN lifetime is correct. Candidate says any standalone selector rather than the approved standalone typed instance selector; make typing explicit before adoption, avoiding an unintended grant to arbitrary selectors. InstanceBinding Subject and symbol retained."
+    },
+    {
+      "id": "CA-R-2554",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+      "source_sha256": "0f0ba69390d074f65a5c0c75469e6bf3b1f24bb53f321fa3d742d38ab6cfb75b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2554.preview.txt",
+      "candidate_sha256": "1a5e37f783f76f6bb54835e368efcf5e2cfc2f70ba103ca50595a5adc88d3909",
+      "active_subject": "CAPRMEDIO_MODEL <+ Scope Unit.structural_level",
+      "summary_preserved": true,
+      "disposition": "REJECT_ASSIGNMENT_PREVIEW_PRESERVE_CURRENT",
+      "reason": "structural_level is written once in its declaration. Root and THEN expressions check stored values using =; proposed == would set/compute values and change the business meaning. A THEN consequent may assert a boolean condition. Preserve Current = expressions; do not promote this candidate."
+    },
+    {
+      "id": "CA-R-2555",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+      "source_sha256": "3823ca975892c836b070091fdbbf3ea91d3a6c7c6cc370efa619e903ebc58308",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2555.preview.txt",
+      "candidate_sha256": "b3316789280598ce6a64855e374d0a1561333ecd23c363199b095146b0806a58",
+      "active_subject": "CAPRMEDIO_MODEL <+ Package.structural_level",
+      "summary_preserved": true,
+      "disposition": "REJECT_ASSIGNMENT_PREVIEW_PRESERVE_CURRENT",
+      "reason": "structural_level is written once in its declaration. Root and THEN expressions check stored values using =; proposed == would set/compute values and change the business meaning. A THEN consequent may assert a boolean condition. Preserve Current = expressions; do not promote this candidate."
+    }
+  ],
+  "normalization_prerequisite": "Root must normalize legacy scope fields into Current canonical containment at Draft creation, without altering active Subjects.",
+  "limits": [
+    "No R2487 review; assigned to another reviewer.",
+    "Candidate success does not settle other grammar or runtime/parser implementation.",
+    "No Workflow or Workbench source or declaration edited or reviewed."
+  ],
+  "operator_semantics": "= tests a condition; == sets a value. A THEN conclusion can assert a boolean condition; it is not necessarily an assignment.",
+  "supersedes": "Earlier readiness verdict incorrectly treated all THEN conclusions as assignments; R2554/R2555 preview correction is rejected."
+}

@@ -3,7 +3,7 @@
 # CA-R-2725@2
 # CA-M-464@7
 # CA-M-465@10
-# CA-D-672@8
+# CA-D-672@9
 
 """Materialize authored references and literal declared inverse bindings in memory."""
 

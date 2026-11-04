@@ -1,0 +1,34 @@
+{
+  "verdict": "HOLD_LITERAL_ESCAPE_REFERENCE_AND_SUBJECT",
+  "manifest_sha256": "74573f014a56d1cd33f585777da0508afe2b7b6571ea0aa6c48b36853b54688e",
+  "candidate_count": 13,
+  "checks": {
+    "pins": "13 candidate, source and authority hashes match at review time; no source drift detected",
+    "scope": "13 candidate metadata objects each contain one active Subject; Operator parent CA-R-2616 and Format parent CA-R-2248 exist",
+    "prior_findings": "Range and intersection are now Rules on existing Format; Lookup is a distinct descriptor with retained direction, applicability, absence, errors and traversal contract; old R2550/R2598 retirement and reference dispositions included atomically",
+    "default": "?== retains valid authored values including 0 and false, rejects invalid supplied values, assigns only on absence; Model-level required effective int 0..100 defaults 90 without implicit Carrier write",
+    "r2487": "single merged candidate limits := to Subject-selection expressions (including embedded Formal Claims) and requires parentheses in mixed AND/OR",
+    "identity": "fresh successors have distinct allocated placeholders; unchanged source Summaries maintained in same-ID revision candidates"
+  },
+  "findings": [
+    {
+      "id": "literal-escape-exclusivity",
+      "issue": "R2487 defines \\\" and \\\\ escapes but does not reject every other or incomplete backslash escape.",
+      "action": "Specify only the approved two escapes are valid."
+    },
+    {
+      "id": "fallback-placeholder",
+      "issue": "CA-A-1315 uses ROOT_ALLOCATES_CFEL_FALLBACK_SUCCESSOR_ID, while manifest allocates ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID.",
+      "action": "Unify candidate placeholder and manifest allocation key."
+    },
+    {
+      "id": "legacy-subject",
+      "issue": "CA-A-1315 Current and proposed active Subject remain CAPRMEDIO <+ MODEL <+ CFEL, distinct from declared CAPRMEDIO_MODEL <+ CFEL.",
+      "action": "Combine an exact source-pinned Subject reconciliation with the reference revision or explicitly hold target-resolution."
+    }
+  ],
+  "limits": [
+    "No Current, code, tests, Workflow, Workbench or Git changes.",
+    "No runtime or evaluator conformance established."
+  ]
+}

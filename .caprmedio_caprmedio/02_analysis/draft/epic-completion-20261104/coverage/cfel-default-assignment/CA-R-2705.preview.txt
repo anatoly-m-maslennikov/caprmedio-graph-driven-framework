@@ -30,5 +30,8 @@ Atom.Header.Label: [string]{:0..1};
 
 Atom.Header.Label.*[]{:0};
 
-Atom.Header.Label ?== Atom.Header.Form
+# instances
+Atom//$atom;
+
+$atom.Header.Label ?== $atom.Header.Form
 ```

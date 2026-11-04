@@ -5,17 +5,16 @@
 # CA-M-463@4
 # CA-M-464@7
 # CA-M-465@10
-# CA-D-672@8
-# CA-D-673@6
+# CA-D-672@9
+# CA-D-673@7
 # CA-D-675@9
 
-"""The in-memory DuckDB and DuckPGQ owner for Workbench queries."""
+"""The DuckDB and DuckPGQ owner for disk-backed, paged Workbench queries."""
 
 from __future__ import annotations
 
 import base64
 import datetime as dt
-import json
 import math
 import sys
 import threading
@@ -25,90 +24,13 @@ from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
-from .graph_store import build_graph, quote_identifier
+from .graph_store import quote_identifier
+from .public_rows import insert_rows
+from .result_columns import result_columns
 
 
 _SAFE_INTEGER = 2**53 - 1
 _UNREPRESENTABLE = object()
-_ATOM_FIELDS = (
-    "source_path", "status_group", "id", "ref", "version", "status",
-    "current_scope_unit", "claim_target_scope_unit", "role", "form", "tier",
-    "updated_at", "header_json", "content_markdown", "content_properties_json",
-    "relation_edges_json", "hash",
-)
-_SCOPE_FIELDS = (
-    "name", "scope_unit_id", "parent_name", "declared_label", "ordered",
-    "order_number", "declaration_source_path", "declaration_version",
-    "relation_edges_json", "hash",
-)
-_ATOM_JSON_FIELDS = frozenset({"header_json", "content_properties_json", "relation_edges_json"})
-_SCOPE_JSON_FIELDS = frozenset({"relation_edges_json"})
-_ATOM_DDL = """CREATE TABLE main.atoms(
-    source_path VARCHAR PRIMARY KEY,
-    status_group VARCHAR NOT NULL,
-    id VARCHAR,
-    ref VARCHAR UNIQUE,
-    version BIGINT,
-    status VARCHAR,
-    current_scope_unit VARCHAR,
-    claim_target_scope_unit VARCHAR,
-    role VARCHAR,
-    form VARCHAR,
-    tier BIGINT,
-    updated_at TIMESTAMPTZ,
-    header_json JSON NOT NULL,
-    content_markdown VARCHAR NOT NULL,
-    content_properties_json JSON NOT NULL,
-    relation_edges_json JSON NOT NULL,
-    hash VARCHAR NOT NULL
-)"""
-_SCOPE_DDL = """CREATE TABLE main.scope_units(
-    name VARCHAR PRIMARY KEY,
-    scope_unit_id VARCHAR UNIQUE,
-    parent_name VARCHAR,
-    declared_label VARCHAR,
-    ordered BOOLEAN NOT NULL,
-    order_number BIGINT,
-    declaration_source_path VARCHAR NOT NULL UNIQUE,
-    declaration_version BIGINT NOT NULL,
-    relation_edges_json JSON NOT NULL,
-    hash VARCHAR NOT NULL
-)"""
-
-
-def _json_value(value: Any) -> Any:
-    if value is None or isinstance(value, (str, bool, int)):
-        return value
-    if isinstance(value, float):
-        if not math.isfinite(value):
-            raise ValueError("JSON cannot contain NaN or infinity")
-        return value
-    if isinstance(value, (dt.datetime, dt.date, dt.time)):
-        return value.isoformat()
-    if isinstance(value, Decimal):
-        return str(value)
-    if isinstance(value, bytes):
-        return "base64:" + base64.b64encode(value).decode("ascii")
-    if isinstance(value, (list, tuple)):
-        return [_json_value(item) for item in value]
-    if isinstance(value, Mapping):
-        if any(not isinstance(key, str) for key in value):
-            raise ValueError("JSON mapping keys must be strings")
-        return {key: _json_value(item) for key, item in value.items()}
-    raise ValueError(f"unsupported JSON value: {type(value).__name__}")
-
-
-def _records(rows: list[dict[str, Any]], fields: tuple[str, ...], json_fields: frozenset[str]) -> list[tuple[Any, ...]]:
-    records = []
-    for row in rows:
-        if not isinstance(row, dict) or set(row) != set(fields):
-            raise ValueError("row must contain exactly the declared D672 fields")
-        records.append(tuple(
-            json.dumps(_json_value(row[field]), separators=(",", ":"), allow_nan=False)
-            if field in json_fields else row[field]
-            for field in fields
-        ))
-    return records
 
 
 def _connect(extension_directory: Path | None, database_path: Path | None):
@@ -138,22 +60,6 @@ def _connect(extension_directory: Path | None, database_path: Path | None):
         connection.close()
         raise RuntimeError("DuckPGQ runtime initialization failed") from exc
     return connection
-
-
-def _insert_rows(connection, atoms: list[dict[str, Any]], scopes: list[dict[str, Any]]) -> None:
-    connection.execute(_ATOM_DDL)
-    connection.execute(_SCOPE_DDL)
-    if atoms:
-        connection.executemany(
-            "INSERT INTO main.atoms VALUES (" + ",".join("?" * len(_ATOM_FIELDS)) + ")",
-            _records(atoms, _ATOM_FIELDS, _ATOM_JSON_FIELDS),
-        )
-    if scopes:
-        connection.executemany(
-            "INSERT INTO main.scope_units VALUES (" + ",".join("?" * len(_SCOPE_FIELDS)) + ")",
-            _records(scopes, _SCOPE_FIELDS, _SCOPE_JSON_FIELDS),
-        )
-    build_graph(connection, atoms, scopes)
 
 
 def _result_scalar(value: Any) -> Any:
@@ -223,7 +129,7 @@ class QueryStore:
         self._connection = _connect(extension_directory, database_path)
         self._available = True
         self._initialized = False
-        self._results: dict[str, tuple[list[dict[str, str]], int]] = {}
+        self._results: dict[str, tuple[list[dict[str, Any]], int]] = {}
         self._clear_startup_projection()
         self.replace([], [])
 
@@ -251,7 +157,7 @@ class QueryStore:
                     self._connection.execute("DROP SCHEMA internal CASCADE")
                     self._connection.execute("DROP TABLE main.atoms")
                     self._connection.execute("DROP TABLE main.scope_units")
-                _insert_rows(self._connection, atom_rows, scope_rows)
+                insert_rows(self._connection, atom_rows, scope_rows)
                 self._connection.execute("COMMIT")
                 self._initialized = True
             except Exception as exc:
@@ -293,7 +199,7 @@ class QueryStore:
             raise ValueError("offset must be a non-negative integer")
         return value
 
-    def _materialize(self, sql: str) -> tuple[str, list[dict[str, str]], int]:
+    def _materialize(self, sql: str) -> tuple[str, list[dict[str, Any]], int]:
         if not self._available:
             raise RuntimeError("query store unavailable; Workbench restart required")
         try:
@@ -321,9 +227,7 @@ class QueryStore:
             # solely the trusted, generated cache table that evaluates it once.
             self._connection.execute("BEGIN TRANSACTION")
             self._connection.execute(f"CREATE TABLE workbench_results.{table} AS {sql}")
-            row_count = self._connection.execute(
-                f"SELECT count(*) FROM workbench_results.{table}"
-            ).fetchone()[0]
+            columns, row_count = result_columns(self._connection, table, columns)
             self._connection.execute("COMMIT")
         except Exception as exc:
             self._available = False
@@ -333,7 +237,7 @@ class QueryStore:
         return query_id, columns, row_count
 
     def _read_page(
-        self, query_id: str, columns: list[dict[str, str]], row_count: int,
+        self, query_id: str, columns: list[dict[str, Any]], row_count: int,
         offset: int, page_size: int,
     ) -> dict[str, Any]:
         try:

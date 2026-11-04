@@ -1,0 +1,37 @@
+{
+  "verdict": "PASS_DESCRIPTOR_DRAFT_REVIEW",
+  "plan_sha256": "13da7ae87a3a485e35450b388218b041593cbb30cfabd60511cafd02f258844e",
+  "receipt_sha256": "4984af926e415906377ed1dcac515ae416c41f122e120cd5863be4353a1ab3b9",
+  "drafts": [
+    "CA-R-2766@1-draft",
+    "CA-R-2767@1-draft"
+  ],
+  "checks": {
+    "payload": "receipt matches plan; two creation-only operations and each live Draft hash match; both substantive bodies exactly match pinned previews",
+    "meaning": "SPECIALIZES direct child to parent Atom, stricter or more specific same or narrower Scope, preserving applicable parent constraints; conditional specialization allowed; reference or dependency alone insufficient",
+    "inverse": "IS_SPECIALIZED_BY is distinct Derived inverse, declared parent-to-child Atom endpoint",
+    "scope": "one active Subject each under already declared CFEL Relation parent CA-R-2247; no invented counts, cycle policy or entailment grammar",
+    "metadata": "Draft tier matches reviewed previews; one active Subject each and CA-SU-11 containment retained; timestamp/ID/destination allocated.",
+    "operation_scope": "plan and receipt contain only two new Draft paths; no Workflow, Workbench, Current, or child_of data operation"
+  },
+  "findings": [],
+  "readiness": {
+    "descriptor_promotion": "ready for descriptor promotion subject to normal admission checks; no permission or data migration implied",
+    "node_permissions": "not supplied; separate named whitelist permissions needed in each direction under CA-R-2588",
+    "child_of_migration": "not performed or authorized by the two Draft descriptors"
+  },
+  "limits": [
+    "Manual Draft creation receipt states native workflow admission and Journal append did not occur.",
+    "Only plan operation scope checked; no global data-diff or runtime verification."
+  ],
+  "previous_verdict": "HOLD_TIER_METADATA_RECONCILIATION",
+  "metadata_correction": {
+    "plan_sha256": "262ddf12325a3c8083596c6cfa2696b5d314efd614c7a19c98688c080118a427",
+    "receipt_sha256": "90662e4d295bece4bb77e16ac2a399ec4f173bfe849eac118b594f650bba230b",
+    "draft_hashes": {
+      "CA-R-2766": "b2bb9e695a884dae1a3fc20986f51459c987e50c9954f214e071b731ce9d9cb7",
+      "CA-R-2767": "9ab59b83eb45efb5771ce4e3b8113da91f866f438740001d6d79527cac6f6e61"
+    },
+    "verification": "Both Drafts now match preview tier 1; correction changed only tier and updated_at, preserving body, ID, version and Subjects. Previous Draft hashes match correction predecessor bytes."
+  }
+}

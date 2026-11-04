@@ -5,9 +5,9 @@
   "source_ids": {
     "old_fallback": "CA-R-2550@2",
     "old_operator": "CA-R-2598@1",
-    "fallback_successor": "ROOT_ALLOCATES_ID",
-    "operator_successor": "ROOT_ALLOCATES_ID",
-    "lookup_rule": "ROOT_ALLOCATES_ID"
+    "fallback_successor": "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID",
+    "operator_successor": "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID",
+    "lookup_operator": "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID"
   },
   "source_authority": {
     "fallback": {
@@ -22,26 +22,59 @@
   "atomic_commit_set": [
     {
       "action": "CREATE_DRAFT",
-      "candidate": "NEW-Operator-Fallback successor",
+      "candidate": "?== Operator//Fallback successor",
       "file": "CA-R-2598.successor.preview.txt",
-      "id": "ROOT_ALLOCATES_ID",
-      "source_version": "CA-R-2598@1",
-      "reason": "Summary/token change; do not replace Summary under the same ID."
+      "id": "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID",
+      "reason": "Fresh-ID operator descriptor; Summary/token changed from CA-R-2598@1.",
+      "candidate_sha256": "e4e4514e23835b98a00958ae102b86283a4c77ae6b7356ba3f7865244c9002a8"
     },
     {
       "action": "CREATE_DRAFT",
-      "candidate": "CFEL ordered conditional-assignment Rule",
+      "candidate": "Operator//Lookup declaration",
+      "file": "NEW-Operator-Lookup.preview.txt",
+      "id": "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID",
+      "reason": "Declares existing function-like syntax on existing Operator kind; exact contract preserved from CA-R-2550@2.",
+      "candidate_sha256": "efdf13d7b730b987c8924d5819a16ad2c54e1fa8ba9503893b4a5e1b4484c1bc"
+    },
+    {
+      "action": "CREATE_DRAFT",
+      "candidate": "Inclusive numeric range Rule",
+      "file": "NEW-CFEL-inclusive-numeric-range-format.preview.txt",
+      "id": "ROOT_ALLOCATES_CFEL_NUMERIC_RANGE_RULE_ID",
+      "reason": "Extends existing Format syntax under existing CFEL<+Format scope; no new entity.",
+      "candidate_sha256": "76c54b67992a56c613957731a47f38c12bc67d9a2884be6a3516a13f10b0f245"
+    },
+    {
+      "action": "CREATE_DRAFT",
+      "candidate": "Format intersection Rule",
+      "file": "NEW-CFEL-format-constraint-combination.preview.txt",
+      "id": "ROOT_ALLOCATES_CFEL_FORMAT_INTERSECTION_RULE_ID",
+      "reason": "Declares existing approved comma combination [int, 0..100]; existing cardinality syntax unchanged.",
+      "candidate_sha256": "3ff5d70929a1dfe1212d60c9f21ea09cb9b298367bdff3321620f64f59252e9c"
+    },
+    {
+      "action": "CREATE_DRAFT",
+      "candidate": "AND operator declaration",
+      "file": "NEW-Operator-Conjunction.preview.txt",
+      "id": "ROOT_ALLOCATES_CFEL_AND_OPERATOR_ID",
+      "reason": "Declares already-used Boolean conjunction; mixed-expression grouping is explicit.",
+      "candidate_sha256": "5c2fafa34578a40c945ad0396e9b6b05af7a93401faa9d816bde7a711c031753"
+    },
+    {
+      "action": "CREATE_DRAFT",
+      "candidate": "OR operator declaration",
+      "file": "NEW-Operator-Disjunction.preview.txt",
+      "id": "ROOT_ALLOCATES_CFEL_OR_OPERATOR_ID",
+      "reason": "Declares already-used Boolean disjunction; mixed-expression grouping is explicit.",
+      "candidate_sha256": "db021ffd0e6c9d208057c37b314a675967dbb01dde73955bab15bfc2ecf3a17f"
+    },
+    {
+      "action": "CREATE_DRAFT",
+      "candidate": "Ordered conditional-assignment Rule successor",
       "file": "CA-R-2550.successor.preview.txt",
-      "id": "ROOT_ALLOCATES_ID",
-      "source_version": "CA-R-2550@2",
-      "reason": "Summary/semantics change; focused on assignment, omission, ordering, and constraints."
-    },
-    {
-      "action": "CREATE_DRAFT",
-      "candidate": "CFEL LOOKUP Rule",
-      "file": "NEW-CFEL-LOOKUP-rule.preview.txt",
-      "id": "ROOT_ALLOCATES_ID",
-      "reason": "Preserves the existing LOOKUP contract removed from the fallback rule, under existing CFEL scope; no new syntax/entity."
+      "id": "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID",
+      "reason": "Fresh-ID successor; focused on assignment, omission, order, lazy branch evaluation, and property constraints.",
+      "candidate_sha256": "8a5082097c3e5eaadd5edab4775318c761fb1cce6128883906db813bf25a24a7"
     },
     {
       "action": "UPDATE_CURRENT_SOURCE",
@@ -50,18 +83,29 @@
       "id": "CA-A-1315",
       "before": "CA-A-1315@2",
       "after": "CA-A-1315@3",
+      "before_sha256": "9cc3741638c50acc249c74c517af0c84ac9cee2a58629fb5a1b14c10f655d0d4",
+      "candidate_sha256": "0497be911669769a0c890e10329406d095188312f603a0cb892fd2d6a8826c6a",
       "reason": "Replace only depends_on CA-R-2550 with the allocated fallback successor ID; retain all other dependencies/content."
     },
     {
       "action": "UPDATE_CURRENT_SOURCE",
-      "candidate": "Use-site syntax previews",
+      "candidate": "Use-site/catalog previews",
       "files": [
+        "../expressions/CA-R-2487.operator-literal.combined.preview.txt",
         "../cfel-default-assignment/CA-R-2705.preview.txt",
         "../cfel-default-assignment/CA-R-2711.preview.txt",
-        "../cfel-default-assignment/CA-R-2564.preview.txt",
-        "CA-R-2487.combined.preview.txt"
+        "../cfel-default-assignment/CA-R-2564.preview.txt"
       ],
-      "reason": "Update live non-Workflow/non-Workbench uses to ?== and approved range syntax; retain each use-site identity."
+      "reason": "Update all live non-Workflow/non-Workbench ?= consumers/catalog/default to ?==; use approved [int, 0..100] and declare mixed AND/OR grouping.",
+      "candidate_sha256s": {
+        "CA-R-2705": "9f1b18d89bc83c8168b635047fec49f8eea25f0e6056ca3fff947e6616bbb9db",
+        "CA-R-2711": "aa5303fdb24a496706dc31f20ce55b52c5138e6522564dcf120d4ecb9dda1c8d",
+        "CA-R-2564": "c2b0fb1f21be5cd5d71fa219a3c17e82b5caae31eba9a0047bd2da9a93271b95"
+      },
+      "binding_authorities": [
+        "CA-R-2552@4",
+        "CA-R-2524@3"
+      ]
     },
     {
       "action": "RETIRE_CURRENT_CARRIERS",
@@ -69,14 +113,18 @@
         "CA-R-2550@2",
         "CA-R-2598@1"
       ],
-      "reason": "Retire old active carriers only in same adoption set as their successors and all live use/reference updates. Preserve archived/frozen history and mirror/applicable copies."
+      "paths": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md"
+      ],
+      "reason": "Remove only the two pinned authoritative Current carriers in the same adoption set as successors and all live updates. Preserve exact preimages, frozen references, archives, mirrors and applicable copies; no synthetic archive versions."
     }
   ],
   "order_constraints": [
-    "Allocate three new IDs and timestamps before finalizing dependent preview references.",
-    "Adopt operator descriptor and LOOKUP Rule before fallback Rule; validate all use-site syntax and CA-A-1315 dependency remap against allocated IDs.",
-    "Retire old R2550/R2598 only in the same approved atomic adoption set; never leave old and successor active together or remove old before replacements are ready.",
-    "Regenerate Current projections after canonical adoption; no projection/runtime/core-runtime pin edits are part of this packet."
+    "Root allocates all seven IDs and timestamps before finalizing dependency references.",
+    "Create the Operator//Fallback, Operator//Lookup, AND, OR and two Format Rules before adopting dependent CFEL Rules and use-site changes.",
+    "Adopt fallback successor and CA-A-1315 remap only with allocated IDs; verify every non-Workflow/non-Workbench use-site candidate.",
+    "Retire CA-R-2550@2 and CA-R-2598@1 only in this all-or-none adoption set; no window with missing or duplicate active definitions."
   ],
   "preservation": [
     "Frozen references to CA-R-2550@2 and CA-R-2598@1 remain unchanged.",
@@ -84,11 +132,43 @@
     "The Current CA-A-1315 native source is the sole direct incoming ID reference remapped; candidate pin is in incoming-references.json.",
     "No relation permissions, runtime pins, or evaluator behavior changes."
   ],
-  "id_allocation": "Root allocates fresh successor IDs/timestamps. All previews use explicit placeholder IDs until allocation.",
+  "id_allocation": "Root allocates fresh IDs/timestamps for all seven candidate Declarations/Rules, using each explicit placeholder in id_allocation_placeholders. CA-A-1315 is an existing-ID v3 update with a root-allocated timestamp.",
   "dependencies": [
-    "CA-R-2550 successor depends on the CA-R-2598 successor and the new LOOKUP Rule.",
-    "CA-A-1315 remap depends on allocated CA-R-2550 successor ID.",
-    "R2705/R2711/R2564/R2487 updates and retirements depend on the operator and fallback successors."
+    "CA-R-2550 successor requires its Operator//Fallback successor and Operator//Lookup Declaration.",
+    "R2487 combined candidate requires the AND/OR Declarations and ?== operator successor.",
+    "R2564 candidate requires the inclusive-range and Format-intersection Rules plus ?== successor.",
+    "CA-A-1315 remap requires the allocated CA-R-2550 successor ID.",
+    "Retirement requires all seven new atoms, live use-site updates, and CA-A-1315 remap ready for the same adoption.",
+    "R2705/R2711 candidates bind selected instances using CA-R-2552@4; R2711 binds the one current Project using CA-R-2524@3. The LOOKUP schema argument and Project resolution policy remain unchanged."
   ],
-  "limits": "No Current carrier was mutated; no code, tests, Git, projection, mirror, archive, or runtime pins changed."
+  "limits": "No Current carrier was mutated; no code, tests, Git, projection, mirror, archive, or runtime pins changed.",
+  "retire_current_preimages": [
+    {
+      "id": "CA-R-2550@2",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860"
+    },
+    {
+      "id": "CA-R-2598@1",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559"
+    }
+  ],
+  "retirement_mode": "Root removes only the two pinned authoritative Current carriers in the same approved adoption set after successor IDs and all live references/use sites are ready. Keep exact preimages, frozen ID/version references, archived histories, and mirror/applicable copies unchanged; do not create synthetic archive versions.",
+  "current_use_sites": [
+    "CA-R-2487@11",
+    "CA-R-2705@2",
+    "CA-R-2711@2",
+    "CA-R-2564@2"
+  ],
+  "runtime_boundary": "No CoreRuntime pins or runtime definitions change. Current projection outputs are regenerated only after canonical adoption by the owning integration lane.",
+  "id_allocation_placeholders": {
+    "CA-R-2550.successor.preview.txt": "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID",
+    "CA-R-2598.successor.preview.txt": "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID",
+    "NEW-Operator-Lookup.preview.txt": "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID",
+    "NEW-CFEL-inclusive-numeric-range-format.preview.txt": "ROOT_ALLOCATES_CFEL_NUMERIC_RANGE_RULE_ID",
+    "NEW-CFEL-format-constraint-combination.preview.txt": "ROOT_ALLOCATES_CFEL_FORMAT_INTERSECTION_RULE_ID",
+    "NEW-Operator-Conjunction.preview.txt": "ROOT_ALLOCATES_CFEL_AND_OPERATOR_ID",
+    "NEW-Operator-Disjunction.preview.txt": "ROOT_ALLOCATES_CFEL_OR_OPERATOR_ID"
+  }
 }

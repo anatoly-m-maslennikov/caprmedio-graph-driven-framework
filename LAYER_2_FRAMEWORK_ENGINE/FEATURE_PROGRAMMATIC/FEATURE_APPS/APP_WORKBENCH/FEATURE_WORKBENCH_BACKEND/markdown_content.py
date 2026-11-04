@@ -1,6 +1,6 @@
-# CA-R-2726@3
+# CA-R-2726@4
 # CA-M-464@7
-# CA-D-672@8
+# CA-D-672@9
 
 """CommonMark heading sections for the Workbench in-memory projection."""
 
@@ -12,12 +12,15 @@ from typing import Any
 from markdown_it import MarkdownIt
 
 
-def parse_content(body: str) -> list[dict[str, Any]]:
+def parse_content(
+    body: str, *, tolerate_duplicate_siblings: bool = False
+) -> list[dict[str, Any]]:
     """Return Content Properties in CommonMark heading order."""
     lines = list(StringIO(body, newline=""))
     headings = _headings(MarkdownIt("commonmark").parse(body))
     records = _records(headings, lines)
-    _reject_duplicate_siblings(records)
+    if not tolerate_duplicate_siblings:
+        _reject_duplicate_siblings(records)
     return [_public_record(record, records, lines) for record in records]
 
 

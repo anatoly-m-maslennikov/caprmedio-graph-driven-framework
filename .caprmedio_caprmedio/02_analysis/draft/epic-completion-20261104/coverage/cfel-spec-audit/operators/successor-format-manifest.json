@@ -9,53 +9,74 @@
   },
   "previews": [
     {
-      "candidate_file": "CA-R-2487.combined.preview.txt",
-      "candidate_sha256": "b3c1a413dfe56a2d57e3898b64b98de50f0797aa15f5ed81d40c85f84d997a74",
+      "candidate_file": "../expressions/CA-R-2487.operator-literal.combined.preview.txt",
+      "candidate_sha256": "afda795933475706924ffa0e0eed45bbec421f7f0602983432e5d3963bbb2c83",
       "predecessor_or_source": "CA-R-2487@11",
       "identity_plan": "same-ID source preview; combined disjoint edits",
       "active_subject_count": 1
     },
     {
       "candidate_file": "CA-R-2550.successor.preview.txt",
-      "candidate_sha256": "c4562b6b0a46436905f60776f087338c67e98c6db602f557935c82c0b931b2f2",
+      "candidate_sha256": "8a5082097c3e5eaadd5edab4775318c761fb1cce6128883906db813bf25a24a7",
       "predecessor_or_source": "CA-R-2550@2",
       "identity_plan": "fresh-ID successor; root allocation required",
-      "active_subject_count": 1
+      "active_subject_count": 1,
+      "id": "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID"
     },
     {
       "candidate_file": "CA-R-2598.successor.preview.txt",
-      "candidate_sha256": "2ba2859fe2a158ae114c843dd910cd00453a7698724a1e48280c3daae6820034",
+      "candidate_sha256": "e4e4514e23835b98a00958ae102b86283a4c77ae6b7356ba3f7865244c9002a8",
       "predecessor_or_source": "CA-R-2598@1",
       "identity_plan": "fresh-ID successor; root allocation required",
-      "active_subject_count": 1
+      "active_subject_count": 1,
+      "id": "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID"
     },
     {
       "candidate_file": "NEW-CFEL-inclusive-numeric-range-format.preview.txt",
-      "candidate_sha256": "803db67e65b05b14a1f5407f3fc75214a8f37ce19fed71bc3dd9d2d93c1725bb",
+      "candidate_sha256": "76c54b67992a56c613957731a47f38c12bc67d9a2884be6a3516a13f10b0f245",
       "predecessor_or_source": null,
       "identity_plan": "new Declaration; root ID/timestamp allocation required",
-      "active_subject_count": 1
+      "active_subject_count": 1,
+      "id": "ROOT_ALLOCATES_CFEL_NUMERIC_RANGE_RULE_ID"
     },
     {
       "candidate_file": "NEW-CFEL-format-constraint-combination.preview.txt",
-      "candidate_sha256": "f415695cc6fd70312cd598ee74ef6707a1054c20f78d76964ab97bab57f16606",
+      "candidate_sha256": "3ff5d70929a1dfe1212d60c9f21ea09cb9b298367bdff3321620f64f59252e9c",
       "predecessor_or_source": null,
       "identity_plan": "new Declaration; root ID/timestamp allocation required",
-      "active_subject_count": 1
-    },
-    {
-      "candidate_file": "NEW-CFEL-LOOKUP-rule.preview.txt",
-      "candidate_sha256": "14199a90e0bbb6e5947245731cec8f18542ed41194dbde38f56d6ab39deb1721",
-      "predecessor_or_source": null,
-      "identity_plan": "new focused Rule under existing CFEL scope",
-      "active_subject_count": 1
+      "active_subject_count": 1,
+      "id": "ROOT_ALLOCATES_CFEL_FORMAT_INTERSECTION_RULE_ID"
     },
     {
       "candidate_file": "CA-A-1315.current-reference-remap.preview.txt",
-      "candidate_sha256": "123bd18bf2b13e012cf0f54110418f6a00e346026815492f6aec9f771c3a99fa",
+      "candidate_sha256": "0497be911669769a0c890e10329406d095188312f603a0cb892fd2d6a8826c6a",
       "predecessor_or_source": "CA-A-1315@2",
       "identity_plan": "same-ID Current source update; root allocates timestamp",
       "active_subject_count": 0
+    },
+    {
+      "candidate_file": "NEW-Operator-Lookup.preview.txt",
+      "candidate_sha256": "efdf13d7b730b987c8924d5819a16ad2c54e1fa8ba9503893b4a5e1b4484c1bc",
+      "predecessor_or_source": "Existing syntax in CA-R-2550@2 and CA-R-2711@2; parent Operator in CA-R-2616@1",
+      "identity_plan": "new Requirement/Declaration on existing Operator kind; root ID/timestamp allocation required",
+      "active_subject_count": 1,
+      "id": "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID"
+    },
+    {
+      "candidate_file": "NEW-Operator-Conjunction.preview.txt",
+      "candidate_sha256": "5c2fafa34578a40c945ad0396e9b6b05af7a93401faa9d816bde7a711c031753",
+      "predecessor_or_source": "Existing AND/OR expressions and CFEL catalog R2487@11",
+      "identity_plan": "new Requirement/Declaration on existing Operator kind; root allocates ID/timestamp",
+      "active_subject_count": 1,
+      "id": "ROOT_ALLOCATES_CFEL_AND_OPERATOR_ID"
+    },
+    {
+      "candidate_file": "NEW-Operator-Disjunction.preview.txt",
+      "candidate_sha256": "db021ffd0e6c9d208057c37b314a675967dbb01dde73955bab15bfc2ecf3a17f",
+      "predecessor_or_source": "Existing AND/OR expressions and CFEL catalog R2487@11",
+      "identity_plan": "new Requirement/Declaration on existing Operator kind; root allocates ID/timestamp",
+      "active_subject_count": 1,
+      "id": "ROOT_ALLOCATES_CFEL_OR_OPERATOR_ID"
     }
   ],
   "authority_sources": [
@@ -100,6 +121,41 @@
       "version": 1,
       "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
       "sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559"
+    },
+    {
+      "id": "CA-R-2616",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2616-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "55ac3acdcfc6fb5ead5e7849def26ef4e82aa1a7fc5c70ec38458023e6a59cf9",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-2705",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
+      "sha256": "743aff2bb78914a616783752ac11a79f7bf784f351168414f8372d37f5241e92",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-2711",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "sha256": "af3db8d7f4041a599002215975f96b3101e0f9383224b80eede75e93ffd24949",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-2564",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "sha256": "0eacaf33e1a417d4f3a965c3d81829df8f29b21cdb813f7cd2889433651bcedc",
+      "status": "Active"
+    },
+    {
+      "id": "CA-A-1315",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/CA-A-1315-CORE_META_MODEL-SPECIFICATION_PROPOSAL--add-basic-cfel-queries-with-ctes-and-sql-aliases.md",
+      "sha256": "9cc3741638c50acc249c74c517af0c84ac9cee2a58629fb5a1b14c10f655d0d4",
+      "status": "Active"
     }
   ],
   "incoming_reference_inventory": "incoming-references.json",
@@ -107,7 +163,7 @@
   "dependencies": [
     {
       "candidate": "CA-R-2550 successor",
-      "requires": "CA-R-2598 successor and dedicated LOOKUP Rule",
+      "requires": "CA-R-2598 successor and the dedicated Operator//Lookup Declaration",
       "reason": "Fallback syntax uses ?== and LOOKUP expression semantics are defined separately."
     },
     {
@@ -131,6 +187,17 @@
     "Workflow and Workbench uses were excluded from the incoming-reference scan.",
     "New atom IDs and timestamps are intentionally unallocated."
   ],
-  "lookup_rule": "NEW-CFEL-LOOKUP-rule.preview.txt preserves the LOOKUP traversal/applicability/error contract removed from the focused fallback Rule; uses existing CFEL Rule scope and already-used syntax.",
-  "atomic_plan": "atomic-retirement-replacement-plan.json"
+  "atomic_plan": "atomic-retirement-replacement-plan.json",
+  "incoming_references": "incoming-references.json",
+  "lookup_declaration": "NEW-Operator-Lookup.preview.txt defines the already-used notation and semantics under the existing Operator kind, governed by CA-R-2616@1.",
+  "allocation_placeholders": {
+    "CA-R-2550.successor.preview.txt": "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID",
+    "CA-R-2598.successor.preview.txt": "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID",
+    "NEW-Operator-Lookup.preview.txt": "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID",
+    "NEW-CFEL-inclusive-numeric-range-format.preview.txt": "ROOT_ALLOCATES_CFEL_NUMERIC_RANGE_RULE_ID",
+    "NEW-CFEL-format-constraint-combination.preview.txt": "ROOT_ALLOCATES_CFEL_FORMAT_INTERSECTION_RULE_ID",
+    "NEW-Operator-Conjunction.preview.txt": "ROOT_ALLOCATES_CFEL_AND_OPERATOR_ID",
+    "NEW-Operator-Disjunction.preview.txt": "ROOT_ALLOCATES_CFEL_OR_OPERATOR_ID"
+  },
+  "final_candidate_allocation_manifest": "final-allocation-manifest.json"
 }

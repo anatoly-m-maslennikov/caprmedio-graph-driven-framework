@@ -31,6 +31,3 @@ Relation.Name.*[]{:0}
 
 
 Relation Name is the canonical name of a reusable Relation Type.
-
-
-

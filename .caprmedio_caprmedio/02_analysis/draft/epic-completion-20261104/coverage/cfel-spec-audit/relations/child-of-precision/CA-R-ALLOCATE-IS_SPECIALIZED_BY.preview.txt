@@ -1,0 +1,35 @@
+---
+atom_id: CA-R-<ALLOCATE_IS_SPECIALIZED_BY>
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_SPECIALIZED_BY
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+tier: 1
+role: Requirement
+form: Declaration
+version: 1
+---
+
+## Summary
+
+Declare IS_SPECIALIZED_BY
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Relation//IS_SPECIALIZED_BY <((HAS_INVERSE)) Relation//SPECIALIZES;
+
+Relation//IS_SPECIALIZED_BY ((HAS_CLASSIFICATION)) Derivation == Derived;
+
+# instances
+Atom//$parent ((IS_SPECIALIZED_BY)) Atom//$child
+```
+
+## Semantics
+
+IS_SPECIALIZED_BY relates an Atom to an Atom whose Claim specializes its Claim.

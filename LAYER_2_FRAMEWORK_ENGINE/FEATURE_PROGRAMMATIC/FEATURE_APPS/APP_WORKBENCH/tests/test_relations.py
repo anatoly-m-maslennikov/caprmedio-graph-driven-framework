@@ -1,4 +1,4 @@
-# CA-E-676@5
+# CA-E-676@6
 # CA-E-677@7
 
 """Runtime facts and hashes, independent of the repository's Atom contents."""

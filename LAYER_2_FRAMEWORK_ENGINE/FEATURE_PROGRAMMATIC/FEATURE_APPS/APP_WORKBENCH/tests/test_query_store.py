@@ -1,6 +1,6 @@
 # CA-E-673@3
 # CA-E-674@5
-# CA-E-676@5
+# CA-E-676@6
 # CA-E-677@7
 
 from __future__ import annotations
@@ -9,6 +9,7 @@ from contextlib import redirect_stderr
 import datetime as dt
 import hashlib
 from io import StringIO
+import json
 import sys
 import tempfile
 import unittest
@@ -20,6 +21,8 @@ sys.path[:0] = [str(APP_ROOT), str(Path(__file__).parent)]
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.query_store import QueryStore  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import canonical  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_columns import CONTENT_COLUMNS  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.public_rows import ATOM_FIELDS, SCOPE_FIELDS  # noqa: E402
 from smalltest_support import extension_directory  # noqa: E402
 
 
@@ -31,7 +34,13 @@ class QueryStoreTest(unittest.TestCase):
         self.store.close()
 
     @staticmethod
-    def atom(ref: str | None, edges: list[dict] | None = None, *, source_path: str | None = None) -> dict:
+    def atom(
+        ref: str | None,
+        edges: list[dict] | None = None,
+        *,
+        source_path: str | None = None,
+        body: str = "# Claim\n",
+    ) -> dict:
         base_id = ref.split("@", 1)[0] if ref else None
         return {
             "source_path": source_path or f"{ref or 'anonymous'}.md",
@@ -47,7 +56,7 @@ class QueryStoreTest(unittest.TestCase):
             "tier": 4,
             "updated_at": None,
             "header_json": {"present": True, "nested": {"zero": 0, "empty": None}},
-            "content_markdown": "# Claim\n",
+            "content_markdown": body,
             "content_properties_json": [],
             "relation_edges_json": edges or [],
             "hash": f"atom-{ref or 'anonymous'}",
@@ -86,26 +95,22 @@ class QueryStoreTest(unittest.TestCase):
 
     def test_exact_public_schema_cte_and_direct_replacement(self) -> None:
         self.store.replace([self.atom("A"), self.atom(None)], [self.scope("S")])
+        self.assertEqual(
+            (
+                "relative path", "filename", "status_group", "id", "reference", "version",
+                "status", "current_scope_unit", "claim_target_scope_unit", "role", "form",
+                "tier", "updated_at", *CONTENT_COLUMNS, "relations", "hash",
+            ),
+            ATOM_FIELDS,
+        )
         schema = self.store.run(
             "SELECT table_name, column_name FROM information_schema.columns "
             "WHERE table_schema = 'main' AND table_name NOT LIKE '__duckpgq_%' "
             "ORDER BY table_name, ordinal_position"
         )["rows"]
         self.assertEqual(
-            [
-                ["atoms", "source_path"], ["atoms", "status_group"], ["atoms", "id"],
-                ["atoms", "ref"], ["atoms", "version"], ["atoms", "status"],
-                ["atoms", "current_scope_unit"], ["atoms", "claim_target_scope_unit"],
-                ["atoms", "role"], ["atoms", "form"], ["atoms", "tier"],
-                ["atoms", "updated_at"], ["atoms", "header_json"],
-                ["atoms", "content_markdown"], ["atoms", "content_properties_json"],
-                ["atoms", "relation_edges_json"], ["atoms", "hash"],
-                ["scope_units", "name"], ["scope_units", "scope_unit_id"],
-                ["scope_units", "parent_name"], ["scope_units", "declared_label"],
-                ["scope_units", "ordered"], ["scope_units", "order_number"],
-                ["scope_units", "declaration_source_path"], ["scope_units", "declaration_version"],
-                ["scope_units", "relation_edges_json"], ["scope_units", "hash"],
-            ],
+            [["atoms", field] for field in ATOM_FIELDS]
+            + [["scope_units", field] for field in SCOPE_FIELDS],
             schema,
         )
         self.assertEqual(
@@ -115,7 +120,10 @@ class QueryStoreTest(unittest.TestCase):
         connection = self.store._connection
         self.store.replace([], [])
         self.assertIs(connection, self.store._connection)
-        self.assertEqual({"valid": True, "row_count": 0, "column_count": 17}, self.store.check("SELECT * FROM atoms"))
+        self.assertEqual(
+            {"valid": True, "row_count": 0, "column_count": len(ATOM_FIELDS)},
+            self.store.check("SELECT * FROM atoms"),
+        )
 
     def test_native_admission_errors_leave_a_valid_connection(self) -> None:
         self.assertEqual([[1]], self.store.run("-- comment ;\nSELECT 1; /* comment ; */")["rows"])
@@ -130,7 +138,7 @@ class QueryStoreTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.store.run("ATTACH 'outside.duckdb' AS outside")
         with self.assertRaises(RuntimeError):
-            self.store.run("WITH attempted AS (DELETE FROM atoms RETURNING source_path) SELECT * FROM attempted")
+            self.store.run("WITH attempted AS (DELETE FROM atoms RETURNING filename) SELECT * FROM attempted")
         self.assertEqual([[0]], self.store.run("SELECT count(*) FROM atoms")["rows"])
         with self.assertRaises(RuntimeError):
             self.store.run("SELECT * FROM read_csv_auto('/private/tmp/workbench-does-not-exist.csv')")
@@ -164,10 +172,21 @@ class QueryStoreTest(unittest.TestCase):
                 self.assertEqual([[100]], store.page(boundary["query_id"], offset=100)["rows"])
                 duplicate = store.run("SELECT 1 AS duplicate, 2 AS duplicate")
                 self.assertEqual(
-                    [{"name": "duplicate", "type": "INTEGER"}, {"name": "duplicate", "type": "INTEGER"}],
+                    [
+                        {"name": "duplicate", "type": "INTEGER", "has_values": True},
+                        {"name": "duplicate", "type": "INTEGER", "has_values": True},
+                    ],
                     duplicate["columns"],
                 )
                 self.assertEqual([[1, 2]], duplicate["rows"])
+                visibility = store.run("SELECT NULL AS empty, 1 AS present")
+                self.assertEqual(
+                    [
+                        {"name": "empty", "type": '"NULL"', "has_values": False},
+                        {"name": "present", "type": "INTEGER", "has_values": True},
+                    ],
+                    visibility["columns"],
+                )
                 store.replace([self.atom("refreshed")], [])
                 self.assertEqual(
                     [[1], [2]], store.page(result["query_id"], offset=0, page_size=2)["rows"],
@@ -238,6 +257,35 @@ class QueryStoreTest(unittest.TestCase):
                 ["Atom", "C", "Atom", "A", "CONTAINS", False],
             ],
             direct,
+        )
+        public_rows = self.store.run(
+            'SELECT "relative path", filename, reference, relations FROM atoms '
+            "WHERE reference IN ('A', 'B') ORDER BY reference"
+        )["rows"]
+        self.assertEqual(
+            [
+                [".", "A.md", "A", {"CONTAINS": [{"kind": "Atom", "reference": "B", "derived": False}]}],
+                [
+                    ".", "B.md", "B",
+                    {
+                        "CONTAINS": [
+                            {"kind": "Atom", "reference": "A", "derived": True},
+                            {"kind": "Atom", "reference": "C", "derived": False},
+                        ],
+                        "DRAFT_LINK": [{"kind": "Atom", "reference": "A@2-draft", "derived": False}],
+                    },
+                ],
+            ],
+            [[path, filename, reference, json.loads(relations)]
+             for path, filename, reference, relations in public_rows],
+        )
+        self.assertEqual(
+            {},
+            json.loads(self.store.run("SELECT relations FROM atoms WHERE reference = 'A@2-draft'")["rows"][0][0]),
+        )
+        self.assertEqual(
+            {"OWNS": [{"kind": "Atom", "reference": "A", "derived": False}]},
+            json.loads(self.store.run("SELECT relations FROM scope_units WHERE name = 'A'")["rows"][0][0]),
         )
         mapping_hashes = self.store.run(
             "SELECT * FROM GRAPH_TABLE (caprmedio "
@@ -338,7 +386,7 @@ class QueryStoreTest(unittest.TestCase):
             "MATCH (source:Reference)-[e:CONTAINS]->(target:Reference) "
             "COLUMNS (source.ref AS source_ref, target.ref AS target_ref))) "
             "SELECT graph_edges.source_ref, count(*) AS edge_count FROM graph_edges "
-            "JOIN atoms ON atoms.ref = graph_edges.source_ref "
+            "JOIN atoms ON atoms.reference = graph_edges.source_ref "
             "WHERE atoms.status_group = 'Current' GROUP BY graph_edges.source_ref "
             "ORDER BY graph_edges.source_ref"
         )["rows"]

@@ -1,0 +1,145 @@
+{
+  "scope": "Current native Core sources; examples only, not exhaustive lexical census. Workflow/Workbench files excluded. No source/code changes.",
+  "sources": [
+    {
+      "id": "CA-R-2487",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
+      "lines": [
+        {
+          "line": 88,
+          "text": "The reusable metadata family `Operator//Name == \"notation literal\"` binds a"
+        },
+        {
+          "line": 90,
+          "text": "quoted right side is metadata, not an executed CFEL expression, value assignment,"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1931",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "lines": [
+        {
+          "line": 120,
+          "text": "Backslash escapes the next literal name character. Single/double quotes are"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2720",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+      "sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+      "lines": [
+        {
+          "line": 29,
+          "text": "Operator//Alias == \"alias(Relation//RELATION_NAME) == \\\"notation token\\\"\""
+        },
+        {
+          "line": 34,
+          "text": "`alias(Relation//RELATION_NAME) == \"notation token\"` takes a qualified Relation-object address and binds that declared graph Relation's exact name to one nonempty lexical notation token in the selected effective MODEL. Resolve the name exactly; do not infer case folding or undeclared synonyms. A Relation has at most one authored alias. Reject undeclared Relation names, conflicting alias values and ambiguous token bindings. Without an alias, use the full named Relation notation."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2598",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559",
+      "lines": [
+        {
+          "line": 26,
+          "text": "Operator//Fallback == \"?=\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2603",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2603-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "2c84a31d2e9221be3b8c555613091b401534e9cf4f87119127c3577a9470a3c2",
+      "lines": [
+        {
+          "line": 26,
+          "text": "Operator//Inequality == \"!=\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2601",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "a60c4c3405fb1fa0f5c48e631c93b903a016f2a78fa2d3e9ebe5e900e5a3da8f",
+      "lines": [
+        {
+          "line": 26,
+          "text": "Operator//Grouping == \"()\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2462",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c",
+      "lines": [
+        {
+          "line": 46,
+          "text": "THEN ($model_node >| (Independence == Primary Node));"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2707",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+      "sha256": "bcd9a5c9e235731854fb3ea22d107a7c3d3d68eb1cfcae7fdb7d9f59428c4d3a",
+      "lines": [
+        {
+          "line": 36,
+          "text": "IF (($atom.Header.Tier.Label{=1}) AND ($atom.Header.Tier = 0)) THEN ($atom.Header.Tier.Label == Scope Contract);"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2686",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2686-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-number.md",
+      "sha256": "c5c55335a6fe2d5eb3cea0a7f919af0666b371b18b8502d0496ecaa974bf627f",
+      "lines": [
+        {
+          "line": 27,
+          "text": "Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0};"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2250",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2250-CORE_META_MODEL-ENTITY_DEFINITION--define-int-value-format.md",
+      "sha256": "8245418bdb1fc8dc4468bffe785f7090b5d4f46b2e2c30e0c06919e778ef1880",
+      "lines": [
+        {
+          "line": 41,
+          "text": "int is the value domain selected by an `[int]` annotation on one direct"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2637",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2637-CORE_META_MODEL-DECLARATION--declare-analysis-and-advisory.md",
+      "sha256": "daaca9e21b201d5207100582c58c0198229a7bf040d0c88bffcd56e547dd05cd",
+      "lines": [
+        {
+          "line": 25,
+          "text": "Atom/(.Header.Role: \"Analysis & Advisory\")"
+        }
+      ]
+    }
+  ],
+  "interpretation": [
+    "R2487 explicitly calls quoted operator RHS notation metadata, not an executed CFEL expression; quoted operator spelling alone does not define general string lexing.",
+    "R2720 contains a double-quoted outer metadata literal with backslash-escaped inner quotes as used syntax; it does not establish a complete CFEL escape table.",
+    "R1931 says backslash escapes the next literal name character and quotes are carrier serialization, not Entity-name delimiters. That applies to Entity paths and conflicts with treating embedded Subject quote marks as general Entity delimiters; R2637 shows a quoted multiword value in a selector, requiring reconciliation rather than assuming universal Subject quote semantics.",
+    "R2462 and R2707 show bare multiword values; p: [int] and existing [int, 1+] appear in Current; user-approved [int,0..100] is a new decision, not claimed as Current authority.",
+    "Current R2598 still declares fallback ?=; user-specified ?== is a pending new default-assignment decision, not Current quoted token."
+  ],
+  "minimal_proposal": "Keep existing readable bare multiword names/values where context and declared domain make them unambiguous; allow double-quoted literal text where punctuation would otherwise be parsed as CFEL syntax, following already-observed operator metadata style. Preserve Entity-path escaping as a separate rule. Define the actual quote/backslash and other escape handling explicitly before adoption; do not infer a JSON escape set. Distinguish quoted literal values from declared model references by operand context and authority; do not turn literal text into a Node.",
+  "one_question": "For CFEL literal values containing syntax characters, should we use double quotes while leaving unambiguous multiword values bare\u2014for example, retain `Label == Scope Contract`, but write `Label == \"A/B\"` when the slash is text\u2014and how should an actual double quote or backslash inside that literal be written?",
+  "blast_radius": "Affects literal tokenization in Formal Claims, quoted selector values, operator descriptors and relation-alias metadata; existing Subject path escapes are a separate compatibility check. Existing unquoted model references and named numeric format ranges need not be renamed.",
+  "status": "NEEDS_HUMAN_DECISION_NO_PREVIEW"
+}

@@ -1,0 +1,70 @@
+{
+  "status": "SOURCE_ONLY_UNALLOCATED_PREVIEWS",
+  "human_decision": "SPECIALIZES is Direct from child Atom to parent Atom when the child Claim is more specific or stricter within the same or narrower Scope and preserves applicable parent constraints. Conditional specialization qualifies; reference or dependency alone does not. IS_SPECIALIZED_BY is the distinct Derived inverse.",
+  "outputs": [
+    {
+      "relation": "SPECIALIZES",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/child-of-precision/CA-R-ALLOCATE-SPECIALIZES.preview.txt",
+      "sha256": "ba6772950a9459b11567406aaa80aa0216efd1fed873744329fdeb8b2a64ae5b",
+      "id": "unallocated",
+      "version": 1
+    },
+    {
+      "relation": "IS_SPECIALIZED_BY",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/child-of-precision/CA-R-ALLOCATE-IS_SPECIALIZED_BY.preview.txt",
+      "sha256": "9bc215e8bdcde3f4e4d157bcd1ef6c9df045c3c62013eaead8f278ce92842273",
+      "id": "unallocated",
+      "version": 1
+    }
+  ],
+  "source_pins": [
+    {
+      "id": "CA-R-2762",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2762-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "sha256": "6620239782cc317abe88ee6d70794e60727a197cfbb9dc959327b7483283cbc9"
+    },
+    {
+      "id": "CA-R-1580",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "sha256": "25e9d08d3851209230e686a23c42d7819f3fddd4b163d3e18947c6b6eedb8ae5"
+    },
+    {
+      "id": "CA-R-2485",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2485-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+      "sha256": "e108830788cccfecf0857b817c020c282dc9697a006719c6c6d09eb99c9b4fba"
+    },
+    {
+      "id": "CA-R-2588",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c"
+    },
+    {
+      "id": "CA-R-796",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-DECLARATION--keep-tier-parent-relations-within-atom-scope.md",
+      "sha256": "607e22a1220107c29659a90a98f80dd9b0477dfb21c00229426a3a45a12ffa86"
+    },
+    {
+      "id": "CA-R-879",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-RULE--register-child-of-and-parent-of-relation-pair.md",
+      "sha256": "170518ff269c74daa1c53a7d8385e790377fb116889bb25f6df49df6eb2d8ee3"
+    },
+    {
+      "id": "CA-R-2508",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d"
+    }
+  ],
+  "allocation": "Root allocates two history-unique Requirement IDs, timestamp and final destination before creating actual Drafts; placeholders are not valid allocated IDs.",
+  "permissions": "Atom endpoint signatures define domain only. Separately establish applicable outgoing permissions under R2588 and inherited/local rules for both directions; direct allowance does not automatically grant derived inverse permission. Neither preview specifies a count.",
+  "migration_plan": [
+    "Keep existing child_of facts, Claim-governance constraints, R796/R879 and history unchanged while classifying all 343 bounded links individually.",
+    "For each link resolve its exact parent version, compare the actual Claims and Scope, and retain its evidence. A SPECIALIZES candidate requires the approved meaning; mere references and procedure dependencies require their own separately declared applicable Relation or remain unresolved.",
+    "For other precise relation candidates check existing endpoint domains and separate outgoing permissions. Do not treat roles, co-location, containment or GOVERNS as an automatic mapping.",
+    "Prepare an explicit source and data transition only once all affected uses and unresolved cases are dispositioned, including external Workbench/Workflow ownership. Do not invent a broad parent_of Declaration for closure.",
+    "Preserve frozen/versioned references and exact source history; any retirement of R796/R879 is contingent on reviewed disposition and applicable authorization."
+  ],
+  "limits": [
+    "No Current, instance data, runtime, code, tests, Workbench, Workflow or Git changes.",
+    "No formal entailment operator, cardinality, acyclicity, or automatic inverse permission has been introduced."
+  ]
+}

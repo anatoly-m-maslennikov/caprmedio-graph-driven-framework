@@ -6,7 +6,7 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
-version: 5
+version: 6
 role: Evaluation
 form: Eval Case
 tier: 5
@@ -16,7 +16,7 @@ carrier_destination:
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation
 relations:
   evaluation_for: [CA-R-2728, CA-R-2724, CA-R-2729, CA-M-464, CA-D-673]
-updated_at: 2026-11-04 18:14:51 +0400
+updated_at: 2026-11-04 21:06:25 +0400
 ---
 ## Summary
 
@@ -36,13 +36,14 @@ Native DuckDB SQL and DuckPGQ SQL/PGQ return the requested columns, types, count
 
 | Fixture | Expected outcome |
 | --- | --- |
-| Valid selection, join, CTE, aggregation, ordering, string, and regex query | Native DuckDB returns requested columns and all rows with exact counts. |
+| Valid selection, join, CTE, aggregation, ordering, string, and regex query | Native DuckDB returns requested business-language `content.*` columns, `relative path` and `filename`, exact counts, and all rows through stable pages. |
 | `SELECT COUNT(*) FROM atoms` | Only the requested aggregate appears; no `atoms.hash` is added. |
 | Native `GRAPH_TABLE` / `MATCH` combined with a CTE, join, filter, and aggregate | The shared connector executes it with native semantics and complete requested results; no custom traversal engine is used. |
-| `Task IS_CONTAINED_BY Epic` and declared `CONTAINS` inverse | The Task row carries the direct outgoing fact; the Epic row carries the derived outgoing fact. Both are queryable in the graph without duplicate inverse synthesis. |
+| `Task IS_CONTAINED_BY Epic` and declared `CONTAINS` inverse | The Task row's native JSON `relations` carries the direct outgoing fact; the Epic row's `relations` carries the derived outgoing fact. Both are queryable in the same graph without duplicate inverse synthesis; rows with no outgoing facts use `{}`. |
 | Cycles, duplicate paths, several selected Relation Types, and an isolated seed | A reachability query returns the seed and each reachable typed reference once, terminates, and applies no hidden depth limit. |
 | Atom and Scope Unit with equal reference text; Current and Draft of one Atom | Kind and lifecycle-qualified reference keep the vertices distinct. |
 | Unregistered relation or prose/Formal Claim text | It is not materialized or traversed. |
 | Selected Docker image and application restart | The bundled DuckDB/DuckPGQ pair loads and enables its grammar without a runtime download; native SQL/PGQ queries work against the rebuilt graph. |
+| Page metadata and empty values | `columns[].has_values` is computed across the full materialized result and remains identical across pages: NULL, empty strings, empty arrays and empty objects are empty, while false, zero and an object with keys (even null values) are values. A non-empty result may hide fully empty UI columns; a zero-row result sets `has_values: true` for every returned column and retains every header. SQL values and counts do not change. |
 
 A query returning a non-null `TIMESTAMPTZ`, including `SELECT * FROM atoms` with Updated At, must preserve the instant in its ISO string result through the actual Docker dependency set.

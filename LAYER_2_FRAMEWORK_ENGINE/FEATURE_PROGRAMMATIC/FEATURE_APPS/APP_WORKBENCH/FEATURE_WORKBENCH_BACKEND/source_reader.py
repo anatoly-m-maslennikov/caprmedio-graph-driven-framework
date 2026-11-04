@@ -1,9 +1,9 @@
 # CA-R-2723@3
 # CA-R-2725@2
-# CA-R-2726@3
+# CA-R-2726@4
 # CA-M-464@7
 # CA-M-465@10
-# CA-D-672@8
+# CA-D-672@9
 
 """Governed Workbench carrier reader; scheduling belongs to the service."""
 
@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any
 
 from .markdown_content import parse_content
+from .content_columns import content_columns
 from .relations import canonical
 
 
@@ -304,7 +305,7 @@ def _atom(path, root, header, view, body, group):
         )
     else:
         ref = None
-    return {
+    row = {
         "source_path": path.relative_to(root).as_posix(),
         "status_group": group,
         "id": atom_id if isinstance(atom_id, str) else None,
@@ -319,10 +320,12 @@ def _atom(path, root, header, view, body, group):
         "updated_at": header.get("updated_at"),
         "header_json": header,
         "content_markdown": body,
-        "content_properties_json": parse_content(body),
+        "content_properties_json": parse_content(body, tolerate_duplicate_siblings=True),
         "relation_edges_json": [],
         "hash": None,
     }
+    content_columns(row)
+    return row
 
 
 def _scope(item, root):

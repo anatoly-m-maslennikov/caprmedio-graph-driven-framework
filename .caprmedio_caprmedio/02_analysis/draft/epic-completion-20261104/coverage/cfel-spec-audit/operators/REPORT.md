@@ -1,9 +1,9 @@
 # CFEL operator and format review
 
-Reviewed all 26 pinned Current native operator-owner Atoms and the relevant CFEL catalog/default rules. Individual verdicts and source pins are in `review.json`. Candidate hashes and dependencies are in `manifest.json` and `successor-format-manifest.json`.
+The 26-Atom review and source pins are in `review.json`; candidates and hashes are in `manifest.json` and `successor-format-manifest.json`.
 
-Source-only candidates cover the `//` declared-kind wording, R2487’s clarified Subject-selection `:=` scope, approved parentheses for mixed AND/OR, and the missing AND/OR declarations. R2550/R2598 are fresh-ID successor drafts because their Summaries change; the old carriers and frozen references remain untouched. The bounded incoming-reference inventory found CA-A-1315 as the only other-Atom reference to R2550 and none to R2598, excluding Workflow/Workbench.
+`LOOKUP(R, q)` already occurs in Current R2711 and is listed in R2487, but has no dedicated current operator declaration. Its full existing contract is now attached to a new `Operator//Lookup` Declaration under R2616’s existing Operator kind; no Rule-only generic CFEL scope or new syntax is introduced. The contract was moved out of the focused fallback successor without semantic loss.
 
-The approved `[int, 0..100]` form has two minimal Format declaration previews: closed numeric range endpoints, then comma-combination by intersection. Existing curly-brace cardinality range meanings remain unchanged. R2564 retains required occurrence and one-value cardinality, with `?== 90`; no Carrier or file write is implied.
+The two range candidates are Rules on existing `CFEL <+ Format`; `[int, 0..100]` is defined by inclusive numeric-range and comma-intersection semantics. Existing `{:n..m}` cardinality remains unchanged. The R2550/R2598 Summary changes use fresh-ID successors. The R2705/R2711 candidates bind selected Atom/Plan instances before assigning defaults; R2711 binds the unique Project in the current Project context under R2524/R2552, while preserving its schema-valued LOOKUP argument. The atomic plan includes the CA-A-1315 dependency remap and all-or-none retirement; frozen references and mirrors remain untouched.
 
-Relation direction, endpoint signatures, aliases, and delivery/exclusion semantics remain cross-lane. No Current carrier, code, tests, or Git state changed.
+These are source-only candidates; pin checks do not establish adoption or runtime behavior. No Current source, mirror, archive, projection, CoreRuntime pin, code, tests, or Git state changed.

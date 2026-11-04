@@ -1,0 +1,27 @@
+{
+  "verdict": "PASS_SOURCE_PROMOTION_WITH_SEPARATE_DECLARATION_GAP",
+  "plan_sha256": "056b1531411e01435c26a4f37d31e5dc20d348c4ccc4ea84ac37236d3d2b602b",
+  "receipt_sha256": "87838c1829bbc12a378b1455f0b8bd5b712f091bde1a88d21ffee2bc2d8fb2f1",
+  "checks": {
+    "readback": "36 after-states and 13 Active output identities, versions and Summaries match plan",
+    "archives": "six same-ID exact Current predecessors and two retired predecessor archives preserve exact bytes",
+    "drafts": "all 13 Draft carriers consumed; promoted bodies match Drafts",
+    "identity": "one active Subject each, no allocation placeholders; same-ID frozen version references preserved",
+    "references": "Current CA-A-1315 dependency maps to CA-R-2768; old R2550 and R2598 sources retired",
+    "scope": "promotion plan contains no Workflow, Workbench or code paths; receipt states native workflow admission and Journal append did not occur"
+  },
+  "semantic_finding": {
+    "id": "plan-threshold-range",
+    "evidence": [
+      "CA-R-2711@4 declares Plan Header AI Agent Confidence Threshold [int]{:0..1}.",
+      "CA-R-2564@4 declares separate Project.Settings.AI Agent Confidence Threshold [int, 0..100]{:1}.",
+      "CA-R-1045@27 requires Autonomous Confidence Threshold integer percentages 0..100 as a Rule under Decision Confidence; CA-R-1591 addresses the Plan Property and discusses that autonomous threshold.",
+      "No applicable inherited Plan Header Format range found in the inspected Core source declarations."
+    ],
+    "implication": "The independent R1045 Rule may constrain applicable Plan execution, but R2711 does not itself declare the Plan Property range and the Project.Settings Property format does not inherit through fallback. A declaration-only format check can accept an explicit 101.",
+    "suggested_action": "A narrowly scoped R2711 successor may specify [int, 0..100]{:0..1}, retaining optionality and existing fallback; assess with the user\u2019s declaration-only requirement."
+  },
+  "limits": [
+    "Exact plan operations and local Current sources checked; no global worktree diff, projection regeneration, parser/evaluator or runtime verification."
+  ]
+}

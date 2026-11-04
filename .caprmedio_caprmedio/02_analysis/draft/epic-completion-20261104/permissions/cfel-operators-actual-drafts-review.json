@@ -1,0 +1,44 @@
+{
+  "verdict": "PASS_BOUNDED_ATOMIC_DRAFT_REVIEW",
+  "plan_sha256": "15bfe4cb721b0e612f3b8e46463703eb32e78b660c34a2e55860befc696ccb73",
+  "receipt_sha256": "786bf80870fc64ed3c597f05ce33a49ad26426651d7525bf1398ac3c1f38014f",
+  "manifest_sha256": "f16005eb591f2246c2ec5a33d96adb72da5c4efe09841052a0637c3c309aa71f",
+  "drafts": {
+    "CA-R-2487": "c2e29cea7ac907049c157edec87f0bc32dc24775dbc2bdf2163f7e1ae426ae08",
+    "CA-R-2605": "c7ad9257126d80d9bb6edec7f0efbbb40935c962ebc248623757b25f875792dc",
+    "CA-R-2705": "38480c96c8182d82e5733bdace91ed778e646cab43aadb882f684e5269ac49dd",
+    "CA-R-2711": "827e2079e55e81cf776b2482395d2e37a46dfa3b47db401352a56ca77d467737",
+    "CA-R-2564": "1e96760d2bdf99c33340f333939c7d4532a30edf4e0b5d3656cce9dbaa435949",
+    "CA-A-1315": "376fea3cdcc6e844422a92081f9435286425ea964296d4212c6d8ea9b59121e4",
+    "CA-R-2768": "8d8c5e673619c5667cf67df60c94a4635bf32e44d1380019d83337aa685d3301",
+    "CA-R-2769": "b9776fce7482297beafdf50e37cfce0c2c19038d2c4362fa2d0dc2a412253e34",
+    "CA-R-2770": "7a4ce7fe6689f8999874c4b444b6d7d8fcd5708baa5761f5d0a8ac042f3b97d0",
+    "CA-R-2771": "e40d181a1b4facdc585ce3c942e0d5878d549a8b2c6df8b98900e6afecd7dc43",
+    "CA-R-2772": "0fb1a6f478b8398ac0c260b0069d2a69e0e4785b80e7210277256ec788082857",
+    "CA-R-2773": "b212ae4df72c5d12781e17c7c5ae7b5f4adfaecfe54f3ad346ca0cdc46506881",
+    "CA-R-2774": "370614a25b2dd2c66eba276a303e9bb1acdfe278a917de7bb7b5f394161adcab"
+  },
+  "checks": {
+    "pins": "13 live Draft and candidate pins match; six Current preimages and both retirement preimages remain unchanged; metadata correction plan and receipt match",
+    "metadata": "each has one expected active Subject, Draft status and planned ID/version; same-ID Summaries preserved; CA-A-1315 uses canonical CFEL Subject",
+    "dependencies": "no ROOT_ALLOCATES remains in any actual Draft; CA-A-1315 canonical CFEL Subject and CA-R-2768 dependency verified; R2550/R2598 remain Current until all-or-none adoption",
+    "semantics": "default ?== preserves supplied 0/false, rejects invalid values and assigns only missing effective Model value; required AI Agent threshold 90 is int 0..100; no implicit Carrier write",
+    "lookup": "dedicated Lookup Declaration preserves outgoing traversal, nearest authored value, applicability, absence, and graph errors",
+    "syntax": "R2487 admits only quote/backslash escapes, requires mixed AND/OR parentheses, and limits := to Subject selection including embedded expressions",
+    "binding": "R2705 binds same Atom for Label/Form; R2711 binds Plan and Project in Project context and uses lookup without Carrier write",
+    "scope": "creation receipt has 13 Draft creations only; no Current, Workflow, Workbench, code or Git operation"
+  },
+  "findings": [],
+  "limits": [
+    "Receipt states no native admission or Journal append.",
+    "No runtime/parser enforcement, data migration, projection refresh or frozen-mirror mutation verified."
+  ],
+  "previous_verdict": "HOLD_UNSUBSTITUTED_REFERENCE_PLACEHOLDER",
+  "metadata_correction": {
+    "plan_sha256": "4f8b96b5934d681f6820ad8dfcf214f031509e8602862c871c41957091db724c",
+    "receipt_sha256": "eb9e9d47709cdd4a3b9934c9b74514fdb7b601184edc9529bf74eb4eb359dc96",
+    "new_CA-A-1315_sha256": "376fea3cdcc6e844422a92081f9435286425ea964296d4212c6d8ea9b59121e4",
+    "check": "Only one of six depends_on entries changed from placeholder to CA-R-2768; other dependencies, full body, ID, version and metadata except updated_at preserved."
+  },
+  "readiness": "Thirteen Drafts pass this bounded source review; promote as one atomic set with predecessor retirement, reference remap and normal applicable admission checks."
+}

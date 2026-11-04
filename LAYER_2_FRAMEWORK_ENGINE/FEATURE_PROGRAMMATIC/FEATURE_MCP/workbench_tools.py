@@ -2,7 +2,7 @@
 # CA-R-2729@3
 # CA-M-462@7
 # CA-M-463@4
-# CA-D-673@6
+# CA-D-673@7
 
 """Native MCP adapters for the Project-owned Workbench service."""
 

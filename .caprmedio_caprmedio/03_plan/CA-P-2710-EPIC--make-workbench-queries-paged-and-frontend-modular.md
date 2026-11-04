@@ -1,10 +1,10 @@
 ---
 atom_id: CA-P-2710
 label: Epic
-status: Done
+status: Active
 tier: 3
-version: 5
-updated_at: 2026-11-04 19:31:25 +0400
+version: 6
+updated_at: 2026-11-04 20:57:46 +0400
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
 relations:
@@ -56,7 +56,7 @@ Workbench only. No repair of unrelated lifecycle or model migrations, custom SQL
 
 ## Status
 
-Done. Workbench 0.4.4.15 is released and the Project-specific page, API, MCP, health, pagination and bounded result display are verified live.
+Active. Workbench 0.4.4.15 is released. Apply and verify the following public-schema and empty-column follow-up before closing again.
 
 ## Verification checkpoint
 
@@ -87,3 +87,11 @@ The 0.4.4.14 live API and browser returned 4,592 rows and 17 columns through 100
 - Svelte + TypeScript + Vite, the component palette, >300-line recommendation and >500-line mandatory split are recorded in Current RMED. Frontend source files remain far below both thresholds.
 - Docker's applied disk size is 32 GiB. Old unused images and the verified obsolete test fixture were removed; only the current runtime image remains.
 - The release receipt is `.caprmedio_runtime/simple_local_release/reports/workbench-20261104-project-url.md`. Live API and browser evidence is retained under `.caprmedio_tmp/workbench`. The unrelated full repository suite was not run.
+
+## Public schema and empty-column follow-up
+
+1. Replace raw Header/body/heading JSON envelopes with declared `content.*` SQL columns. Keep Markdown prose intact within each declared Property; arbitrary prose headings do not create extra columns.
+2. Replace `source_path` with `relative path` (directory from Project root) and `filename`. Rename `ref` to `reference` for the exact Current or Draft identity.
+3. Add one `relations` JSON object to both public tables. Read direct and derived outgoing links from the same native GRAPH_TABLE; retain target kind, reference and derived flag.
+4. Hide columns whose values are all NULL, empty strings or empty collections across the entire materialized result, keeping full SQL rows and counts unchanged. Preserve zero-row column headers and values on later pages. False and zero remain visible values; collections containing values, even nested nulls, are nonempty.
+5. Align narrow Workbench RMED, callers, tests and documentation; verify native SQL/PGQ and build the Svelte frontend. Verify deployment separately from source completion.

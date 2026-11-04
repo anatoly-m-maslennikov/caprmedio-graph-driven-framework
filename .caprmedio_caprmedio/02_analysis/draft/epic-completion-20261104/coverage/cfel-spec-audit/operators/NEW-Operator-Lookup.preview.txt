@@ -1,0 +1,36 @@
+---
+atom_id: ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Operator//Lookup
+version: 1
+updated_at: 'ROOT_ALLOCATES_TIMESTAMP'
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+## Summary
+
+Declare CFEL operator LOOKUP(R, q)
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Operator//Lookup == "LOOKUP(R, q)"
+```
+
+### Prose Claim
+
+`LOOKUP(R, q)` is an existing contextual value expression admitted in a `?==` fallback expression. Starting at the bearer of target Property `p`, follow one existing outgoing link of declared Relation `R` at each step, in R's declared direction. Exclude the starting bearer. Return the nearest authored value of `q` that is applicable to that bearer. Resolve `q` by full Property declaration identity and effective MODEL applicability; skip only an inapplicable Property or an absent authored occurrence. At a known end with no applicable authored value, return absence. Do not match by bare name or invent a Property slot.
+
+A present invalid value, unresolved applicability or graph fact, multiple outgoing targets, or revisiting a bearer is an error. Follow only the Relation direction named by R.
+
+## Semantics
+
+`Operator//Lookup` identifies the declared CFEL value-expression operator. The traversal semantics above are its complete existing contract.

@@ -1,4 +1,4 @@
-# CA-E-675@4
+# CA-E-675@5
 # CA-E-677@7
 
 from __future__ import annotations
@@ -281,6 +281,20 @@ class SourceReaderTests(unittest.TestCase):
         self.assertIn("duplicate", first_stderr.lower())
         self.assertIn(invalid.relative_to(self.root).as_posix(), first_stderr)
         self.assertEqual(self.reader.excluded_count, 1)
+
+    def test_duplicate_declared_content_property_is_excluded(self) -> None:
+        path = self._write_atom(
+            "MAIN",
+            "04_requirement",
+            "CA-R-404-duplicate-summary.md",
+            atom_id="CA-R-404",
+            body="# Summary\n\nFirst.\n\n# Summary\n\nSecond.\n",
+        )
+
+        atoms, _scopes, stderr = self._capture()
+
+        self.assertNotIn(path.relative_to(self.root).as_posix(), {row["source_path"] for row in atoms})
+        self.assertIn("duplicate declared content property: summary", stderr)
 
         atoms_again, _scopes_again, second_stderr = self._capture()
         self.assertEqual({row["source_path"] for row in atoms_again}, {row["source_path"] for row in atoms})

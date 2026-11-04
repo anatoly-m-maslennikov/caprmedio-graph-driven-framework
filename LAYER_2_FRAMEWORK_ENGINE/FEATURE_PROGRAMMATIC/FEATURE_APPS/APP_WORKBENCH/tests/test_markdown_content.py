@@ -1,4 +1,4 @@
-# CA-E-675@4
+# CA-E-675@5
 
 from __future__ import annotations
 
@@ -9,6 +9,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parents[2]))
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import parse_content
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_columns import (
+    CONTENT_COLUMNS,
+    content_columns,
+)
 
 
 class ParseContentTest(unittest.TestCase):
@@ -73,6 +77,14 @@ class ParseContentTest(unittest.TestCase):
             [["left"], ["left", "name"], ["right"], ["right", "name"]],
         )
 
+    def test_can_preserve_duplicate_presentation_headings_for_legacy_rows(self) -> None:
+        properties = parse_content(
+            "# Claim\n### Prose Claim\n#### Context\nFirst.\n#### Context\nSecond.\n",
+            tolerate_duplicate_siblings=True,
+        )
+
+        self.assertEqual(4, len(properties))
+
     def test_returns_none_for_empty_direct_value_without_synthetic_properties(self) -> None:
         properties = parse_content("# Claim\n## Formal Claim\n`x`\n")
 
@@ -81,3 +93,135 @@ class ParseContentTest(unittest.TestCase):
             [item["property_path"] for item in properties],
             [["claim"], ["claim", "formal_claim"]],
         )
+
+
+class ContentColumnsTest(unittest.TestCase):
+    def test_rmed_claim_children_are_columns_and_keep_nested_prose_markdown(self) -> None:
+        row = {
+            "role": "Requirement",
+            "form": "Rule",
+            "content_markdown": """## Summary
+
+Short summary.
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+Atom.status[string]{1}
+```
+
+### Prose Claim
+
+Plain prose.
+
+#### Context
+
+This heading remains prose.
+
+#### Context
+
+Repeated presentation heading remains prose too.
+
+## Semantics
+
+Meaning.
+""",
+        }
+
+        values = content_columns(row)
+
+        self.assertEqual(set(CONTENT_COLUMNS), set(values))
+        self.assertEqual("Short summary.", values["content.summary"])
+        self.assertEqual("```CFEL\nAtom.status[string]{1}\n```", values["content.claim.formal claim"])
+        self.assertEqual(
+            "Plain prose.\n\n#### Context\n\nThis heading remains prose.\n\n#### Context\n\nRepeated presentation heading remains prose too.",
+            values["content.claim.prose claim"],
+        )
+        self.assertEqual("Meaning.", values["content.semantics"])
+        self.assertNotIn("content.context", values)
+
+    def test_legacy_direct_claim_remains_available_as_prose(self) -> None:
+        values = content_columns(
+            {
+                "role": "Method",
+                "form": "Policy",
+                "content_markdown": "# Summary\n\nSummary.\n\n## Claim\n\nLegacy prose.\n",
+            }
+        )
+
+        self.assertEqual("Legacy prose.", values["content.claim.prose claim"])
+
+    def test_known_canonical_sections_do_not_require_summary(self) -> None:
+        values = content_columns(
+            {
+                "role": "Requirement",
+                "form": "Rule",
+                "content_markdown": "## Claim\n\n### Prose Claim\n\nKnown claim.\n",
+            }
+        )
+
+        self.assertIsNone(values["content.summary"])
+        self.assertEqual("Known claim.", values["content.claim.prose claim"])
+
+    def test_nested_declared_name_inside_prose_claim_is_not_a_content_column(self) -> None:
+        values = content_columns(
+            {
+                "role": "Delivery",
+                "form": "Decision",
+                "content_markdown": """## Summary
+
+Summary.
+
+## Claim
+
+### Prose Claim
+
+Prose.
+
+#### Details
+
+Presentation detail.
+
+## Semantics
+
+Meaning.
+""",
+            }
+        )
+
+        self.assertIn("#### Details\n\nPresentation detail.", values["content.claim.prose claim"])
+        self.assertIsNone(values["content.details"])
+
+    def test_duplicate_declared_sections_are_rejected(self) -> None:
+        with self.assertRaisesRegex(ValueError, "duplicate declared content property: summary"):
+            content_columns(
+                {
+                    "role": "Requirement",
+                    "form": "Rule",
+                    "content_markdown": "## Summary\n\nFirst.\n\n## Summary\n\nSecond.\n",
+                }
+            )
+        with self.assertRaisesRegex(ValueError, "duplicate declared content property: prose claim"):
+            content_columns(
+                {
+                    "role": "Requirement",
+                    "form": "Rule",
+                    "content_markdown": "## Summary\n\nSummary.\n\n## Claim\n\n### Prose Claim\n\nFirst.\n\n### Prose Claim\n\nSecond.\n",
+                }
+            )
+
+    def test_plan_definition_of_done_is_a_declared_nested_property(self) -> None:
+        values = content_columns(
+            {
+                "role": "Plan",
+                "form": "Plan",
+                "content_markdown": "# Summary\n\nPlan.\n\n## Objective\n\nShip it.\n\n## Details\n\nContext.\n\n### Definition of Done\n\nTests pass.\n",
+            }
+        )
+
+        self.assertEqual("Plan.", values["content.summary"])
+        self.assertEqual("Ship it.", values["content.objective"])
+        self.assertEqual("Context.", values["content.details"])
+        self.assertEqual("Tests pass.", values["content.details.definition of done"])

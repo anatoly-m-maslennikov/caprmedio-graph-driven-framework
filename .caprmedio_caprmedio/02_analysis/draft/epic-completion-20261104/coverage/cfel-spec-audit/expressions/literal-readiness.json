@@ -1,0 +1,42 @@
+{
+  "status": "REVIEW_BOUNDED_ESCAPE_DECISION_RECORDED",
+  "user_decision": "Quote text only when needed, using double quotes. Unambiguous multiword values can remain bare. Quoted text with syntax characters is a value; names and paths remain references. Within quoted text, backslash-double-quote represents a quote and double backslash represents a backslash; no other JSON escapes authorized.",
+  "candidates": [
+    {
+      "id": "CA-R-2487",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "source_sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2487.literal-only.preview.txt",
+      "candidate_sha256": "96943fb046fafe5774e52b85abfb613765a64fec20a3714c2cb20f4e7b2202ad",
+      "readiness": "REVIEW_BOUNDED",
+      "change": "Approved literal rule and Subject/formal filtered selector alignment."
+    },
+    {
+      "id": "CA-R-1931",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "source_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-1931.literal-only.preview.txt",
+      "candidate_sha256": "4066caa2415e4300d3f0647e8500d976326e9926f5c25d3a105402cfb328d001",
+      "readiness": "MERGE_REQUIRED_EXISTING_HELD_PREVIEW",
+      "change": "Restrict existing no-quote rule to Entity path name segments and distinguish Subject-selector literal values; merge with other changes before adoption."
+    },
+    {
+      "id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "source_sha256": "8503b8391a73bfae63174a5c414f5be4b1d23fac8403951be0cbb4272817c78c",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-E-383.literal-only.preview.txt",
+      "candidate_sha256": "2c191b5ce027ed33455066a2ea327b5be9c4f3f456e8e31e275cafde9640b552",
+      "readiness": "MERGE_REQUIRED_EXISTING_HELD_PREVIEW",
+      "change": "Restrict existing no-quote rule to Entity path name segments and distinguish Subject-selector literal values; merge with other changes before adoption."
+    }
+  ],
+  "dependencies": [
+    "R2487 already governs CFEL; Subject is CAPRMEDIO_MODEL <+ CFEL. It must be merged with any independent R2487 source revisions on current bytes.",
+    "R1931 literal-only preview must be merged with its held selector/cardinality cleanup; its existing Subject and other stale examples still require review.",
+    "E383 literal-only preview must be merged with its prior reverse-view correction and held header/claim cleanup.",
+    "R2637 is existing quoted selector evidence, not edited; Subject parser/projection canonicalization must be reviewed separately before any runtime conformance claim.",
+    "Current R2598 ?= and the user-approved ?== default-assignment change belong to operator lane.",
+    "Only explicitly approved quote and backslash escapes are specified; other escapes are not defined by this preview."
+  ],
+  "no_other_mutations": "No Current, code, test, Workbench or Workflow changes."
+}

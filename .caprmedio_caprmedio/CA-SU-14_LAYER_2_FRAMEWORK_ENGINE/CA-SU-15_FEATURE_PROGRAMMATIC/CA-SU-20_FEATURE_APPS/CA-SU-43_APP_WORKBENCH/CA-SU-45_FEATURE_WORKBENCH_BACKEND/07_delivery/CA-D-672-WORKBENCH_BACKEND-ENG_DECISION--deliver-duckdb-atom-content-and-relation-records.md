@@ -3,7 +3,7 @@ atom_id: CA-D-672
 current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 status: Active
-version: 8
+version: 9
 author: Anatoly Maslennikov
 role: Delivery
 form: Eng Decision
@@ -19,7 +19,7 @@ carrier_destination:
   file:
     name: CA-D-672-WORKBENCH_BACKEND-ENG_DECISION--deliver-duckdb-atom-content-and-relation-records.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery
-updated_at: 2026-11-04 17:55:47 +0400
+updated_at: 2026-11-04 21:06:25 +0400
 ---
 
 ## Summary
@@ -38,17 +38,18 @@ The Workbench Projection must read governed source files directly with the Curre
 
 Parse complete YAML Headers and Markdown Content, including nested Header mappings and complete heading paths. The parser preserves native distinctions between a missing key, null, empty value, scalar, list, map, false, and zero. It keeps the original Markdown body and mapped section occurrences. It applies the Current model directly; Declarations do not produce a second schema artifact, and the reader does not evaluate generic CFEL or arbitrary prose. Current Scope Unit Declarations alone define `scope_units`. Applicable Current Declaration changes that govern scope or Relations refresh the actual indexed facts.
 
-The public SQL interface uses the following columns.
+The public SQL interface uses the following columns. Private parsed Header and Markdown data may remain available to the reader and graph pipeline, but it is not exposed as raw JSON or whole-body public columns.
 
 #### `atoms`
 
 | Column | DuckDB type | Nullability and key | Meaning |
 | --- | --- | --- | --- |
-| `source_path` | `VARCHAR` | NOT NULL; primary key | Governed canonical carrier path, unique within the Project. |
+| `relative path` | `VARCHAR` | NOT NULL; part of primary key | Governed canonical carrier directory relative to the Project root; uniqueness is with `filename`. |
+| `filename` | `VARCHAR` | NOT NULL; part of primary key | Governed canonical carrier filename. |
 | `status_group` | `VARCHAR` | NOT NULL | `Current` or `Draft` only; all Current statuses and Drafts are included, while Archived sources are excluded. |
 | `id` | `VARCHAR` | NULL | Raw Header Atom ID; never synthesized from filename or path. |
-| `ref` | `VARCHAR` | NULL; unique when non-null | Current base ID, or Draft `ID@Version-draft`. |
-| `version` | `BIGINT` | NULL | Convenient mapped Header Version; the complete value remains in `header_json`. |
+| `reference` | `VARCHAR` | NULL; unique when non-null | Exact Current or Draft identity, including Draft `ID@Version-draft`. |
+| `version` | `BIGINT` | NULL | Convenient mapped Header Version; complete parsed Header data remains private to the reader. |
 | `status` | `VARCHAR` | NULL | Convenient mapped Header Status. |
 | `current_scope_unit` | `VARCHAR` | NULL | Convenient mapped Header Current Scope Unit. |
 | `claim_target_scope_unit` | `VARCHAR` | NULL | Convenient mapped Header Claim Target Scope Unit. |
@@ -56,15 +57,13 @@ The public SQL interface uses the following columns.
 | `form` | `VARCHAR` | NULL | Convenient mapped Header Form. |
 | `tier` | `BIGINT` | NULL | Convenient mapped Header Tier. |
 | `updated_at` | `TIMESTAMPTZ` | NULL | Convenient mapped Header Updated At. |
-| `header_json` | `JSON` | NOT NULL | Complete parsed Header, retaining nested mappings and native value distinctions. |
-| `content_markdown` | `VARCHAR` | NOT NULL | Unchanged Markdown body after the frontmatter. |
-| `content_properties_json` | `JSON` | NOT NULL | Parsed mapped Content Property occurrences defined below. |
-| `relation_edges_json` | `JSON` | NOT NULL | All materialized direct and derived Relation facts defined below. |
+| `content.*` | declared DuckDB types | NULL | One column for each declared Content Property. Names are lowercase business-language paths with dots and spaces, such as `content.summary`, `content.claim.prose claim`, `content.claim.formal claim` and `content.details`. Parent direct values and declared nested values remain separate; arbitrary prose headings stay inside the value. |
+| `relations` | `JSON` | NOT NULL | Outgoing direct and derived Relations as a native JSON object. Each present Relation Type maps to `[{"kind": "...", "reference": "...", "derived": false}]`; no outgoing Relations are `{}` and no empty placeholder key is added. |
 | `hash` | `VARCHAR` | NOT NULL | SHA-256 of deterministic canonical row JSON with this column excluded. |
 
-`content_properties_json` is an array whose objects have exactly these fields: `property_path` (non-empty array of strings), `heading` (string), `heading_level` (integer), `position` (one-based heading occurrence order), `direct_markdown` (string or null), and `section_markdown` (string). Paths are segments, not dotted strings. `section_markdown` includes the heading and full subtree; `direct_markdown` excludes child Properties. Heading mapping follows the actual CommonMark heading tree: skipped levels create no synthetic segments, fenced heading-like text creates no section, and colliding normalized sibling keys are rejected. The row retains direct values separately from descendant subtrees, including the RMED Claim container with Formal Claim and Prose Claim children.
+The reader retains the complete mapped Content Property occurrences privately. `section_markdown` includes the heading and full subtree; the public parent column keeps the direct value while each declared child path is a separate public column. Heading mapping follows the actual CommonMark heading tree: skipped levels create no synthetic segments, fenced heading-like text creates no section, and colliding normalized declared Content Property headings under one parent are rejected; repeated arbitrary prose headings are allowed and remain inside the value. The public table preserves complete prose and nested headings without exposing a raw Markdown or property JSON bucket.
 
-`relation_edges_json` is an array whose objects have exactly these fields: `source_kind` (string), `source_ref` (string), `target_kind` (string), `target_ref` (string), `relation_type` (string), and `derived` (boolean). Each edge's `source_kind` and `source_ref` identify the object represented by the enclosing row. An Atom row carries its outgoing Relations; a Scope Unit row carries its outgoing Relations. `source_path` is not duplicated inside an edge. For `Task IS_CONTAINED_BY Epic`, store the direct fact in the Task row and the derived `CONTAINS` fact in the Epic row. Keep the supporting direct-fact association in memory so changing or excluding its source removes or refreshes every affected counterpart and row hash without editing the counterpart's source carrier. Preserve each Header relation key unchanged in `header_json`. For materialized facts, resolve its exact registered name or its unique case-folded carrier spelling to the canonical registered name. If that spelling matches more than one declared name, warn on stderr and omit that link. Ambiguous inverse metadata similarly produces no derived fact; it does not authorize repairing source declarations or changing their direction. Direct facts come only from source files. Derived facts are materialized in the derived database from those direct facts, and a declared inverse is not synthesized twice. References remain references rather than inline dereference objects.
+`relations` is read from the same native DuckPGQ graph facts used for traversal. Each present Relation Type contains objects with exactly `kind`, `reference` and `derived`; an Atom or Scope Unit row carries its outgoing direct and derived Relations. For `Task IS_CONTAINED_BY Epic`, store the direct fact in the Task `relations` object and the derived `CONTAINS` fact in the Epic `relations` object. Keep the supporting direct-fact association privately so changing or excluding its source removes or refreshes every affected counterpart and row hash without editing the counterpart's source carrier. Preserve Header relation keys in private parsed data. For materialized facts, resolve its exact registered name or its unique case-folded carrier spelling to the canonical registered name. If that spelling matches more than one declared name, warn on stderr and omit that link. Ambiguous inverse metadata similarly produces no derived fact; it does not authorize repairing source declarations or changing their direction. Direct facts come only from source files. A declared inverse is not synthesized twice. References remain references rather than inline dereference objects. A relation object is non-empty when it has a Relation fact, even when a nested value is null; an absent Relation object is `{}`.
 
 #### `scope_units`
 
@@ -76,9 +75,9 @@ The public SQL interface uses the following columns.
 | `declared_label` | `VARCHAR` | NULL | Declared Scope Unit Label. |
 | `ordered` | `BOOLEAN` | NOT NULL | Declared ordering flag. |
 | `order_number` | `BIGINT` | NULL | Declared order number, when present. |
-| `declaration_source_path` | `VARCHAR` | NOT NULL; unique | Source path of the Current Scope Unit Declaration. |
+| `declaration_source_path` | `VARCHAR` | NOT NULL; unique | Relative path of the Current Scope Unit Declaration carrier, including its filename. This is the Declaration source, not the Scope Unit's own folder. |
 | `declaration_version` | `BIGINT` | NOT NULL | Version of that declaration carrier. |
-| `relation_edges_json` | `JSON` | NOT NULL | This Scope Unit's outgoing direct and derived Relation facts, using the same edge fields as `atoms`. |
+| `relations` | `JSON` | NOT NULL | This Scope Unit's outgoing direct and derived Relations, using the same native JSON shape as `atoms`; `{}` means no outgoing Relation. |
 | `hash` | `VARCHAR` | NOT NULL | SHA-256 of deterministic canonical row JSON with this column excluded. |
 
 `scope_units` contains only Current Scope Unit Declaration rows. A Draft Declaration is an `atoms` row and does not alter the Current Scope Unit structure. Every indexed row, including any internal mapping row, carries the same deterministic row hash; no third public table is created. Each row hash covers the entire indexed row after materialization, including all nested derived Relation facts where present, and excludes only `hash`. No hash is automatically added to arbitrary SQL result rows.

@@ -1,0 +1,326 @@
+{
+  "schema": "cfel-final-draft-allocation-manifest/1",
+  "status": "SOURCE_ONLY_READY_FOR_ROOT_ID_ALLOCATION",
+  "canonical_mutation": false,
+  "candidate_count": 13,
+  "fresh_id_count": 7,
+  "same_id_revision_count": 6,
+  "id_allocation": {
+    "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID": "new fallback Rule successor to CA-R-2550@2",
+    "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID": "new ?== Operator//Fallback descriptor successor to CA-R-2598@1",
+    "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID": "new declaration for existing LOOKUP syntax under Operator parent CA-R-2616@1",
+    "ROOT_ALLOCATES_CFEL_NUMERIC_RANGE_RULE_ID": "new inclusive numeric range Rule on existing Format scope",
+    "ROOT_ALLOCATES_CFEL_FORMAT_INTERSECTION_RULE_ID": "new comma/intersection Rule on existing Format scope",
+    "ROOT_ALLOCATES_CFEL_AND_OPERATOR_ID": "new declaration for existing AND operator",
+    "ROOT_ALLOCATES_CFEL_OR_OPERATOR_ID": "new declaration for existing OR operator",
+    "timestamps": "Root allocates all new Draft timestamps; CA-A-1315@3 timestamp is also allocated."
+  },
+  "candidates": [
+    {
+      "kind": "same_id_source_revision",
+      "source_id": "CA-R-2487",
+      "source_version": 11,
+      "candidate_id": "CA-R-2487",
+      "candidate_version": 12,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "source_sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2487.operator-literal.combined.preview.txt",
+      "candidate_sha256": "afda795933475706924ffa0e0eed45bbec421f7f0602983432e5d3963bbb2c83",
+      "active_subject_count": 1,
+      "requires": [
+        "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID",
+        "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID",
+        "ROOT_ALLOCATES_CFEL_AND_OPERATOR_ID",
+        "ROOT_ALLOCATES_CFEL_OR_OPERATOR_ID"
+      ],
+      "change_summary": "Merged approved literals, Subject-selection := clarification, ?== catalog, and mixed AND/OR parentheses.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "source_active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "kind": "same_id_source_revision",
+      "source_id": "CA-R-2605",
+      "source_version": 1,
+      "candidate_id": "CA-R-2605",
+      "candidate_version": 2,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2605-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "30830758efab546af7b8e415c1da15d0f053f11a7f6fed0f871e8841265eaa72",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-R-2605.preview.txt",
+      "candidate_sha256": "53bde7a406750cf713d1b877e32e61caeadcbd29b60cbf38c011953a8dc8d069",
+      "active_subject_count": 1,
+      "requires": [],
+      "change_summary": "Broaden // from Primary Node only to existing instances of declared kinds.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Instance",
+      "source_active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Instance"
+    },
+    {
+      "kind": "same_id_source_revision",
+      "source_id": "CA-R-2705",
+      "source_version": 2,
+      "candidate_id": "CA-R-2705",
+      "candidate_version": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
+      "source_sha256": "743aff2bb78914a616783752ac11a79f7bf784f351168414f8372d37f5241e92",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2705.preview.txt",
+      "candidate_sha256": "9f1b18d89bc83c8168b635047fec49f8eea25f0e6056ca3fff947e6616bbb9db",
+      "active_subject_count": 1,
+      "requires": [
+        "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID",
+        "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID",
+        "CA-R-2552@4"
+      ],
+      "change_summary": "Update label fallback to ?==.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Label",
+      "source_active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Label"
+    },
+    {
+      "kind": "same_id_source_revision",
+      "source_id": "CA-R-2711",
+      "source_version": 2,
+      "candidate_id": "CA-R-2711",
+      "candidate_version": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "source_sha256": "af3db8d7f4041a599002215975f96b3101e0f9383224b80eede75e93ffd24949",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2711.preview.txt",
+      "candidate_sha256": "aa5303fdb24a496706dc31f20ce55b52c5138e6522564dcf120d4ecb9dda1c8d",
+      "active_subject_count": 1,
+      "requires": [
+        "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID",
+        "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID",
+        "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID",
+        "CA-R-2552@4",
+        "CA-R-2524@3"
+      ],
+      "change_summary": "Update plan threshold fallback chain to ?==; retains existing source order.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold",
+      "source_active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold"
+    },
+    {
+      "kind": "same_id_source_revision",
+      "source_id": "CA-R-2564",
+      "source_version": 2,
+      "candidate_id": "CA-R-2564",
+      "candidate_version": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "source_sha256": "0eacaf33e1a417d4f3a965c3d81829df8f29b21cdb813f7cd2889433651bcedc",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2564.preview.txt",
+      "candidate_sha256": "c2b0fb1f21be5cd5d71fa219a3c17e82b5caae31eba9a0047bd2da9a93271b95",
+      "active_subject_count": 1,
+      "requires": [
+        "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID",
+        "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID",
+        "ROOT_ALLOCATES_CFEL_NUMERIC_RANGE_RULE_ID",
+        "ROOT_ALLOCATES_CFEL_FORMAT_INTERSECTION_RULE_ID"
+      ],
+      "change_summary": "Preserve required effective value; declare [int,0..100] and add ?== 90.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ Project.Settings.AI Agent Confidence Threshold",
+      "source_active_subject": "CAPRMEDIO_MODEL <+ Project.Settings.AI Agent Confidence Threshold"
+    },
+    {
+      "kind": "same_id_source_revision",
+      "source_id": "CA-A-1315",
+      "source_version": 2,
+      "candidate_id": "CA-A-1315",
+      "candidate_version": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/CA-A-1315-CORE_META_MODEL-SPECIFICATION_PROPOSAL--add-basic-cfel-queries-with-ctes-and-sql-aliases.md",
+      "source_sha256": "9cc3741638c50acc249c74c517af0c84ac9cee2a58629fb5a1b14c10f655d0d4",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-A-1315.current-reference-remap.preview.txt",
+      "candidate_sha256": "0497be911669769a0c890e10329406d095188312f603a0cb892fd2d6a8826c6a",
+      "active_subject_count": 1,
+      "requires": [
+        "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID"
+      ],
+      "change_summary": "Change only depends_on CA-R-2550 to allocated successor ID.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "source_active_subject": "CAPRMEDIO <+ MODEL <+ CFEL"
+    },
+    {
+      "kind": "fresh_id_draft",
+      "candidate_id": "ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID",
+      "candidate_version": 1,
+      "source_or_predecessor": "CA-R-2550@2",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-R-2550.successor.preview.txt",
+      "candidate_sha256": "8a5082097c3e5eaadd5edab4775318c761fb1cce6128883906db813bf25a24a7",
+      "active_subject_count": 1,
+      "requires": [
+        "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID",
+        "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID"
+      ],
+      "change_summary": "Focused ordered conditional-assignment Rule; LOOKUP semantics delegated to its Declaration.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "kind": "fresh_id_draft",
+      "candidate_id": "ROOT_ALLOCATES_CFEL_FALLBACK_OPERATOR_ID",
+      "candidate_version": 1,
+      "source_or_predecessor": "CA-R-2598@1",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-R-2598.successor.preview.txt",
+      "candidate_sha256": "e4e4514e23835b98a00958ae102b86283a4c77ae6b7356ba3f7865244c9002a8",
+      "active_subject_count": 1,
+      "requires": [],
+      "change_summary": "Fresh-ID ?== operator descriptor with conditional assignment semantics.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Fallback"
+    },
+    {
+      "kind": "fresh_id_draft",
+      "candidate_id": "ROOT_ALLOCATES_CFEL_LOOKUP_OPERATOR_ID",
+      "candidate_version": 1,
+      "source_or_predecessor": "CA-R-2550@2 / CA-R-2711@2 / CA-R-2616@1",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/NEW-Operator-Lookup.preview.txt",
+      "candidate_sha256": "efdf13d7b730b987c8924d5819a16ad2c54e1fa8ba9503893b4a5e1b4484c1bc",
+      "active_subject_count": 1,
+      "requires": [],
+      "change_summary": "Declares already-used LOOKUP(R,q) under existing Operator kind with existing semantics.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Operator//Lookup"
+    },
+    {
+      "kind": "fresh_id_draft",
+      "candidate_id": "ROOT_ALLOCATES_CFEL_NUMERIC_RANGE_RULE_ID",
+      "candidate_version": 1,
+      "source_or_predecessor": "CA-R-2248@5 / CA-R-2250@6 / CA-R-2243@12",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/NEW-CFEL-inclusive-numeric-range-format.preview.txt",
+      "candidate_sha256": "76c54b67992a56c613957731a47f38c12bc67d9a2884be6a3516a13f10b0f245",
+      "active_subject_count": 1,
+      "requires": [],
+      "change_summary": "Rule on existing Format scope: inclusive numeric range in square-bracket value constraint.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format"
+    },
+    {
+      "kind": "fresh_id_draft",
+      "candidate_id": "ROOT_ALLOCATES_CFEL_FORMAT_INTERSECTION_RULE_ID",
+      "candidate_version": 1,
+      "source_or_predecessor": "CA-R-2248@5 / CA-R-2250@6",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/NEW-CFEL-format-constraint-combination.preview.txt",
+      "candidate_sha256": "3ff5d70929a1dfe1212d60c9f21ea09cb9b298367bdff3321620f64f59252e9c",
+      "active_subject_count": 1,
+      "requires": [
+        "ROOT_ALLOCATES_CFEL_NUMERIC_RANGE_RULE_ID"
+      ],
+      "change_summary": "Rule on existing Format scope: comma-separated constraints intersect; cardinality meaning unchanged.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format"
+    },
+    {
+      "kind": "fresh_id_draft",
+      "candidate_id": "ROOT_ALLOCATES_CFEL_AND_OPERATOR_ID",
+      "candidate_version": 1,
+      "source_or_predecessor": "CA-R-2487@11 and active Core AND uses",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/NEW-Operator-Conjunction.preview.txt",
+      "candidate_sha256": "5c2fafa34578a40c945ad0396e9b6b05af7a93401faa9d816bde7a711c031753",
+      "active_subject_count": 1,
+      "requires": [],
+      "change_summary": "Declares existing Boolean conjunction; mixed AND/OR uses explicit parentheses.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Operator//Conjunction"
+    },
+    {
+      "kind": "fresh_id_draft",
+      "candidate_id": "ROOT_ALLOCATES_CFEL_OR_OPERATOR_ID",
+      "candidate_version": 1,
+      "source_or_predecessor": "CA-R-2487@11 and active Core OR uses",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/NEW-Operator-Disjunction.preview.txt",
+      "candidate_sha256": "db021ffd0e6c9d208057c37b314a675967dbb01dde73955bab15bfc2ecf3a17f",
+      "active_subject_count": 1,
+      "requires": [],
+      "change_summary": "Declares existing Boolean disjunction; mixed AND/OR uses explicit parentheses.",
+      "candidate_active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Operator//Disjunction"
+    }
+  ],
+  "authority_pins": [
+    {
+      "id": "CA-R-2248",
+      "version": 5,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "source_sha256": "e10f65588d725a5463ba1f257aa2d5e5a6eb97fd9c848e1e7184952efd9d193e"
+    },
+    {
+      "id": "CA-R-2250",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2250-CORE_META_MODEL-ENTITY_DEFINITION--define-int-value-format.md",
+      "source_sha256": "8245418bdb1fc8dc4468bffe785f7090b5d4f46b2e2c30e0c06919e778ef1880"
+    },
+    {
+      "id": "CA-R-2243",
+      "version": 12,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "source_sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4"
+    },
+    {
+      "id": "CA-R-1045",
+      "version": 27,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1045-CORE_META_MODEL-RULE--restrict-autonomous-confidence-threshold-values.md",
+      "source_sha256": "4792a08baa8cdc7c8e6fa9192df3812d25fdaa29ed3a35ede1037855ac74fc9a"
+    },
+    {
+      "id": "CA-R-2616",
+      "version": 1,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2616-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "55ac3acdcfc6fb5ead5e7849def26ef4e82aa1a7fc5c70ec38458023e6a59cf9"
+    },
+    {
+      "id": "CA-R-2701",
+      "version": 1,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2701-CORE_META_MODEL-DECLARATION--declare-atom-header-id.md",
+      "source_sha256": "5d96f3e98a7d43efba676cd1fe027ca3f514e0e7fbb0be7fa536b5567a602d5e"
+    },
+    {
+      "id": "CA-R-2707",
+      "version": 2,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+      "source_sha256": "bcd9a5c9e235731854fb3ea22d107a7c3d3d68eb1cfcae7fdb7d9f59428c4d3a"
+    },
+    {
+      "id": "CA-R-2511",
+      "version": 5,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "source_sha256": "ca9869c1ae916ae02af6112a4a6cba61cd0474aae0734098b7226db52abbc40f"
+    },
+    {
+      "id": "CA-R-2499",
+      "version": 5,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2499-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+      "source_sha256": "aea7e0d55fa357a067585331d8798af8422b04da64c467b6105c0669c661bdcf"
+    },
+    {
+      "id": "CA-R-2524",
+      "version": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "source_sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db",
+      "scope": "Existing current Project singleton / existing Kind//$x binding rule"
+    },
+    {
+      "id": "CA-R-2552",
+      "version": 4,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2552-CORE_META_MODEL-CFEL--bind-instance-variables.md",
+      "source_sha256": "202ab2c725dd5698a671a3e6a02b5229be01417f70255e5c795ec3734822e8be",
+      "scope": "Existing current Project singleton / existing Kind//$x binding rule"
+    }
+  ],
+  "retirements": [
+    {
+      "id": "CA-R-2550@2",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "source_sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860",
+      "action": "retire pinned Current carrier atomically with all 13 candidate adoptions; preserve preimage/history/mirrors/frozen refs"
+    },
+    {
+      "id": "CA-R-2598@1",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559",
+      "action": "retire pinned Current carrier atomically with all 13 candidate adoptions; preserve preimage/history/mirrors/frozen refs"
+    }
+  ],
+  "current_reference_remap": {
+    "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-A-1315.current-reference-remap.preview.txt",
+    "source_id": "CA-A-1315@2",
+    "candidate_version": 3,
+    "dependency_change": "CA-R-2550 -> ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID",
+    "frozen_and_mirror_refs": "Preserved. Only canonical Current CA-A-1315 candidate changes; applicable mirrors and frozen history stay unchanged.",
+    "candidate_sha256": "0497be911669769a0c890e10329406d095188312f603a0cb892fd2d6a8826c6a"
+  },
+  "atomic_adoption": "All 13 candidates, use-site remaps, CA-A-1315 dependency remap, and retirement of old CA-R-2550@2/CA-R-2598@1 form one all-or-none adoption set. Allocate IDs first. Validate candidate dependencies and one active Subject per model Declaration/Rule before retiring either predecessor. No CoreRuntime pins change.",
+  "limitations": [
+    "No Current/source/mirror/history/projection/code/test/Git mutation occurred.",
+    "Workflow and Workbench source consumers are excluded.",
+    "R2487 must use the single merged candidate under expressions/; predecessor operator-only and literal-only candidates are superseded."
+  ],
+  "review_note": "Explicit instance binds added to R2705 and R2711 candidates. Pin checks are not adoption, parser conformance, runtime activation, or proof of effective Model values."
+}

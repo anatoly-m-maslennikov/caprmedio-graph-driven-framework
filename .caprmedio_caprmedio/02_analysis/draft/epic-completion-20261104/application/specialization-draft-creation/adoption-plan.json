@@ -1,0 +1,41 @@
+{
+  "status": "PREPARED_DRAFT_CREATION",
+  "route": "authorized manual source Draft creation",
+  "outputs": [
+    {
+      "atom_id": "CA-R-2766",
+      "version": 1,
+      "relation": "SPECIALIZES",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2766@1-draft-CORE_META_MODEL-DECLARATION--declare-specializes.md",
+      "sha256": "409bfbe19ea9535c73a270555e593c1f6cc904ee39698a5ac9793dc650df4bac",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/child-of-precision/CA-R-ALLOCATE-SPECIALIZES.preview.txt",
+      "candidate_sha256": "ba6772950a9459b11567406aaa80aa0216efd1fed873744329fdeb8b2a64ae5b"
+    },
+    {
+      "atom_id": "CA-R-2767",
+      "version": 1,
+      "relation": "IS_SPECIALIZED_BY",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2767@1-draft-CORE_META_MODEL-DECLARATION--declare-is-specialized-by.md",
+      "sha256": "94b6c9c6686945dc639d880f84c6147bb29e4b5fc5be53f6f622f9b506feb628",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/child-of-precision/CA-R-ALLOCATE-IS_SPECIALIZED_BY.preview.txt",
+      "candidate_sha256": "9bc215e8bdcde3f4e4d157bcd1ef6c9df045c3c62013eaead8f278ce92842273"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2766@1-draft-CORE_META_MODEL-DECLARATION--declare-specializes.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2766\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//SPECIALIZES\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 19:37:18 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2766@1-draft-CORE_META_MODEL-DECLARATION--declare-specializes.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare SPECIALIZES\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//SPECIALIZES ((HAS_INVERSE)) Relation//IS_SPECIALIZED_BY;\n\nRelation//SPECIALIZES ((HAS_CLASSIFICATION)) Derivation == Direct;\n\n# instances\nAtom//$child ((SPECIALIZES)) Atom//$parent\n```\n\n### Prose Claim\n\nThe child Atom's Claim is more specific or stricter than the parent Atom's Claim in the same or a narrower Scope and preserves the parent's applicable constraints. A conditional specialization is included. A reference or dependency alone does not establish SPECIALIZES.\n\n## Semantics\n\nSPECIALIZES relates a child Atom to the Atom whose Claim it specializes.\n",
+      "after_sha256": "409bfbe19ea9535c73a270555e593c1f6cc904ee39698a5ac9793dc650df4bac"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2767@1-draft-CORE_META_MODEL-DECLARATION--declare-is-specialized-by.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2767\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_SPECIALIZED_BY\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-04 19:37:23 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2767@1-draft-CORE_META_MODEL-DECLARATION--declare-is-specialized-by.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare IS_SPECIALIZED_BY\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//IS_SPECIALIZED_BY <((HAS_INVERSE)) Relation//SPECIALIZES;\n\nRelation//IS_SPECIALIZED_BY ((HAS_CLASSIFICATION)) Derivation == Derived;\n\n# instances\nAtom//$parent ((IS_SPECIALIZED_BY)) Atom//$child\n```\n\n## Semantics\n\nIS_SPECIALIZED_BY relates an Atom to an Atom whose Claim specializes its Claim.\n",
+      "after_sha256": "94b6c9c6686945dc639d880f84c6147bb29e4b5fc5be53f6f622f9b506feb628"
+    }
+  ],
+  "scope": "Two approved precise Relation Declarations; no child_of fact migration, endpoint permission or Current source change."
+}

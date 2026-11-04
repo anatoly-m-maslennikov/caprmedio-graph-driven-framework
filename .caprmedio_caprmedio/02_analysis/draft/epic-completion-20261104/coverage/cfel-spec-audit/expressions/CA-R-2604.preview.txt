@@ -1,0 +1,31 @@
+---
+atom_id: CA-R-2604
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding
+version: 1
+updated_at: 2026-11-02 08:06:47 +0400
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare CFEL operator $
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Operator//InstanceBinding == "$"
+```
+
+## Semantics
+
+Bind an existing selected instance or read its bound Property; it creates nothing. A variable introduced by a standalone typed instance selector such as `Kind//$x;` remains in scope for following statements in the same CFEL fenced block. A variable introduced in an IF condition is in scope within that condition and its matching THEN group only; it is not in scope in following statements. If an outer variable is already bound, a new binding inside IF must use a different variable name; references to the outer variable retain its existing identity.

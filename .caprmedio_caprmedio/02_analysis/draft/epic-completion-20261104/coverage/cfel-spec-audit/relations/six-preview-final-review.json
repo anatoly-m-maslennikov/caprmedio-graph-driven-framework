@@ -1,0 +1,67 @@
+{
+  "status": "READY_FOR_INDEPENDENT_SOURCE_REVIEW",
+  "outputs": [
+    {
+      "id": "CA-R-1020",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "source_sha256": "809a50e163bbb083181f7de8e9c0f79087de31b01614295343d18b1dea19d9e8",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1020.preview.txt",
+      "preview_sha256": "d28110626a09d7b2c1fe61dafe4d10cd2c01b405a04e61a101e6bfa18245fff0",
+      "summary": "Register implementation_of relation",
+      "body_scope": "Retain Implementation Carrier\u2192specification Atom domain; general endpoint whitelist and reverse view rules are governed separately."
+    },
+    {
+      "id": "CA-R-1021",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "source_sha256": "33540d09ed24ee76ec247b397736ac9786d133dcdb5dc6c016ed2fd120fbaaf0",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1021.preview.txt",
+      "preview_sha256": "a2f3bebdcc01e28c1a35cd63be2319599de6dbdd4d91fd0f4ee40b59f2ae5697",
+      "summary": "Register evidence_for relation",
+      "body_scope": "Retain evidence Carrier\u2192Evaluation/Implementation Carrier qualification; general whitelist and reverse-view rules are governed separately."
+    },
+    {
+      "id": "CA-R-1026",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md",
+      "source_sha256": "761422f7245c231d3c813eb8caf07f4fba2fc135563f88e7b3dc1780fa1c66e2",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1026.preview.txt",
+      "preview_sha256": "f341d4e0c61ef0bcdb7512e9246e20fd362072979a4820c7ab62e15b99cd4aba",
+      "summary": "Register depends_on and required_by relation pair",
+      "body_scope": "Keep dependency ordering on Artifact endpoints and exclusion of Plan start dependencies; direct/derived binding remains formal."
+    },
+    {
+      "id": "CA-R-2170",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "source_sha256": "cce56d07fa656084df11f1bf77aab9e0e357a74ac1ca2281cead891cc1d37510",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-2170.preview.txt",
+      "preview_sha256": "fa21be6c83520761fed417821032bba316e1d7a75f6e61c958457f6f15832b01",
+      "summary": "Define is derived relation of relation",
+      "body_scope": "Keep metadata derivation and qualified-transformation constraints; remove unrelated comparison to DERIVED_FROM."
+    },
+    {
+      "id": "CA-R-2354",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md",
+      "source_sha256": "605da11f69acff5cd94a7c5772fb07a869b21e782a0aca802aa556061edc4fd7",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-2354.preview.txt",
+      "preview_sha256": "ae9cf421a83a9ea751c94153dc4358b08d31ae6d29677b8749a2db23d42780a6",
+      "summary": "Define Relation Meaning",
+      "body_scope": "Keep Meaning property and its formal constraints; remove general Relation tuple/inverse restatement covered by R2247/R2485."
+    },
+    {
+      "id": "CA-R-2355",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "source_sha256": "e1e4f4ed28a5c8a98c421306e3d7211875d49d7e59dd46897d9d9a872fe3f354",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-2355.preview.txt",
+      "preview_sha256": "a768ffc7dc1a88bd84ab2669147f4c0b7009a169509895c60ec45f01987880ef",
+      "summary": "Define Relation Name",
+      "body_scope": "Keep Name property and its formal constraints; remove general Relation tuple restatement covered by R2247."
+    }
+  ],
+  "header_normalization": "All six retained original Current headers verbatim in previews; each has obsolete current_scope_unit and claim_target_scope_unit fields. On actual Draft creation use known typed CA-SU-11 containment, allocated Draft version and canonical destination; remove the old scope fields without changing active Subjects. Preserve and review passive Subjects per actual formal/body references.",
+  "semantic_limits": [
+    "R1020, R1021 signatures restrict endpoint types only; effective outgoing permissions remain separate under R2588.",
+    "R1026 keeps Artifact dependency ordering and excludes Plan start dependencies; its explicit direct/inverse binding remains. It does not adopt the missing implementation_of/implemented_by proposal or migrate facts.",
+    "R2170 preserves metadata derivation, inverse-binding entailment and qualified transformations; it does not define DERIVED_FROM.",
+    "R2354/R2355 preserve their exact Formal Claim cardinalities and Property meaning; general tuple and inverse definitions remain under R2247/R2485.",
+    "Source-only previews; no Current, Workflow, Workbench, code, tests or Git mutation."
+  ]
+}

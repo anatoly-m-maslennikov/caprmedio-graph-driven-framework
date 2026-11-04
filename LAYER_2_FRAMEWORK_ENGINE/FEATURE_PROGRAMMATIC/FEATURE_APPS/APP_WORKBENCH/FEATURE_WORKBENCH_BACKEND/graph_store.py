@@ -1,6 +1,6 @@
 # CA-R-2724@2
 # CA-M-464@7
-# CA-D-672@8
+# CA-D-672@9
 # CA-D-675@9
 
 """Trusted internal DuckPGQ mappings for the Workbench public row projection."""
@@ -10,6 +10,7 @@ from __future__ import annotations
 from collections import defaultdict
 from collections.abc import Iterable, Mapping
 import hashlib
+from typing import Any
 
 from .relations import canonical
 
@@ -47,6 +48,33 @@ def edge_records(rows: Iterable[Mapping[str, object]]) -> list[tuple[str, str, s
                 raise ValueError("relation edge endpoints must be non-empty and derived must be boolean")
             records.append((*endpoint_values, relation_type, edge["derived"]))
     return records
+
+
+def graph_relations(connection: Any, *, has_edges: bool) -> dict[tuple[str, str], dict[str, list[dict[str, object]]]]:
+    """Read outgoing facts from the native graph without exposing its tables."""
+    if not has_edges:
+        return {}
+    descriptions = connection.execute("SELECT * FROM describe_property_graph('caprmedio')").fetchall()
+    relation_types = sorted(
+        row[2] for row in descriptions
+        if row[3] is False and isinstance(row[2], str)
+    )
+    outgoing: dict[tuple[str, str], dict[str, list[dict[str, object]]]] = defaultdict(dict)
+    for relation_type in relation_types:
+        rows = connection.execute(
+            "FROM GRAPH_TABLE (caprmedio "
+            f"MATCH (source:Reference)-[edge:{quote_identifier(relation_type)}]->(target:Reference) "
+            "COLUMNS (source.kind AS source_kind, source.ref AS source_ref, "
+            "target.kind AS target_kind, target.ref AS target_ref, edge.derived AS derived)) "
+            "ORDER BY source_kind, source_ref, target_kind, target_ref, derived"
+        ).fetchall()
+        for source_kind, source_ref, target_kind, target_ref, derived in rows:
+            outgoing[(source_kind, source_ref)].setdefault(relation_type, []).append({
+                "kind": target_kind,
+                "reference": target_ref,
+                "derived": derived,
+            })
+    return {source: dict(relations) for source, relations in outgoing.items()}
 
 
 def build_graph(connection, atom_rows: Iterable[Mapping[str, object]], scope_rows: Iterable[Mapping[str, object]]) -> None:

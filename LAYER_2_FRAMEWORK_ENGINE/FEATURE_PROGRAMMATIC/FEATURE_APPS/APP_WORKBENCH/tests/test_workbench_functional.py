@@ -1,5 +1,5 @@
-# CA-E-675@4
-# CA-E-676@5
+# CA-E-675@5
+# CA-E-676@6
 # CA-E-677@7
 
 from __future__ import annotations
@@ -45,9 +45,21 @@ class WorkbenchFunctionalTests(unittest.TestCase):
         self.service._refresh()
 
     def test_real_yaml_commonmark_schema_and_native_sql_run_check(self) -> None:
-        self.atom("first.md", "CA-R-501", body="# Parent Heading\nintro\n\n## Child Property\nchild\n", extra="nested:\n  level: kept\n")
-        result = self.service.run("SELECT id, status_group, json_array_length(content_properties_json), json_extract_string(header_json, '$.nested.level') FROM atoms WHERE id = 'CA-R-501'")
-        self.assertEqual([["CA-R-501", "Current", 2, "kept"]], result["rows"])
+        self.atom(
+            "first.md", "CA-R-501",
+            body=("## Summary\nShort requirement.\n\n## Claim\n"
+                  "### Formal claim\nAtom.id[string]{1}\n\n"
+                  "### Prose claim\nAn Atom has one ID.\n"),
+            extra="nested:\n  level: kept\n",
+        )
+        result = self.service.run(
+            'SELECT id, status_group, "content.summary", "content.claim.formal claim", '
+            '"content.claim.prose claim" FROM atoms WHERE id = \'CA-R-501\''
+        )
+        self.assertEqual(
+            [["CA-R-501", "Current", "Short requirement.", "Atom.id[string]{1}", "An Atom has one ID."]],
+            result["rows"],
+        )
         self.assertEqual({"valid": True, "row_count": 1, "column_count": 1}, self.service.check("SELECT id FROM atoms WHERE id = 'CA-R-501'"))
 
     def test_background_scan_indexes_new_sources_without_a_manual_refresh(self) -> None:
@@ -68,11 +80,17 @@ class WorkbenchFunctionalTests(unittest.TestCase):
         self.assertEqual([["CA-R-502"]], self.service.run("SELECT id FROM atoms WHERE id = 'CA-R-502'")["rows"])
         write_atom(source, "CA-R-502", version=2, body="# Summary\n\nEdited.\n")
         self.refresh()
-        self.assertEqual([[2, "# Summary\n\nEdited.\n"]], self.service.run("SELECT version, content_markdown FROM atoms WHERE id = 'CA-R-502'")["rows"])
+        self.assertEqual(
+            [[2, "Edited."]],
+            self.service.run('SELECT version, "content.summary" FROM atoms WHERE id = \'CA-R-502\'')["rows"],
+        )
         moved = source.with_name("moved.md")
         source.rename(moved)
         self.refresh()
-        self.assertEqual([[moved.relative_to(self.root).as_posix()]], self.service.run("SELECT source_path FROM atoms WHERE id = 'CA-R-502'")["rows"])
+        self.assertEqual(
+            [[moved.parent.relative_to(self.root).as_posix(), "moved.md"]],
+            self.service.run('SELECT "relative path", filename FROM atoms WHERE id = \'CA-R-502\'')["rows"],
+        )
         moved.unlink()
         self.refresh()
         self.assertEqual([[0]], self.service.run("SELECT count(*) FROM atoms WHERE id = 'CA-R-502'")["rows"])
@@ -81,7 +99,7 @@ class WorkbenchFunctionalTests(unittest.TestCase):
         with redirect_stderr(stderr):
             self.refresh()
         self.assertIn(bad.relative_to(self.root).as_posix(), stderr.getvalue())
-        self.assertEqual([[0]], self.service.run("SELECT count(*) FROM atoms WHERE source_path LIKE '%bad.md'")["rows"])
+        self.assertEqual([[0]], self.service.run("SELECT count(*) FROM atoms WHERE filename = 'bad.md'")["rows"])
 
     def test_draft_is_included_archive_is_excluded_and_inverses_change_counterpart_hash(self) -> None:
         declarations = (
@@ -106,7 +124,7 @@ class WorkbenchFunctionalTests(unittest.TestCase):
         self.assertEqual([["Active"], ["Canceled"], ["Done"]], self.service.run(
             "SELECT status FROM atoms WHERE id IN ('CA-P-512', 'CA-R-516', 'CA-R-517') ORDER BY status"
         )["rows"])
-        self.assertEqual([["CA-R-514@2-draft"]], self.service.run("SELECT ref FROM atoms WHERE id = 'CA-R-514'")["rows"])
+        self.assertEqual([["CA-R-514@2-draft"]], self.service.run("SELECT reference FROM atoms WHERE id = 'CA-R-514'")["rows"])
         self.assertEqual([[0]], self.service.run("SELECT count(*) FROM atoms WHERE id = 'CA-R-515'")["rows"])
         before = self.service.run("SELECT hash FROM atoms WHERE id = 'CA-P-512'")["rows"][0][0]
         self.assertEqual([["CA-P-512", "CA-P-513", True]], self.service.run(

@@ -9,13 +9,13 @@ relations:
   depends_on:
   - CA-R-2487
   - CA-R-2549
-  - ROOT_ALLOCATES_CFEL_FALLBACK_SUCCESSOR_ID
+  - ROOT_ALLOCATES_CFEL_FALLBACK_RULE_ID
   - CA-R-2552
   - CA-R-2566
   - CA-R-2585
 tier: 3
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
 role: Analysis & Advisory
 form: Specification Proposal
 updated_at: 'ROOT_ALLOCATES_TIMESTAMP'

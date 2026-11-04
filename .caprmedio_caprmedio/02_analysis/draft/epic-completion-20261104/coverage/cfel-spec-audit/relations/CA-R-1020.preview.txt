@@ -38,4 +38,3 @@ Carrier//$implementation_carrier ((implementation_of)) Atom//$specification_atom
 
 implementation_of is the direct Relation owned by a governed Implementation Carrier. The Host is that governed Implementation Carrier and each tuple targets the specification Atom it implements.
 
-These are endpoint domain constraints and do not themselves grant outgoing Relation permission. They are not extra fields on a reusable Relation Type and do not authorize an additional storage fact for a derived inverse. Forward `Host ((implementation_of)) Target` and reverse `Target <((implementation_of)) Host` are written views of the same direct fact.
