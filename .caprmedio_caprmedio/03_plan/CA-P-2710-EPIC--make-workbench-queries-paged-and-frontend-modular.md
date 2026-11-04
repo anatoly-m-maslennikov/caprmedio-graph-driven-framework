@@ -1,10 +1,10 @@
 ---
 atom_id: CA-P-2710
 label: Epic
-status: Active
+status: Done
 tier: 3
-version: 6
-updated_at: 2026-11-04 20:57:46 +0400
+version: 7
+updated_at: 2026-11-04 21:27:20 +0400
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
 relations:
@@ -56,7 +56,7 @@ Workbench only. No repair of unrelated lifecycle or model migrations, custom SQL
 
 ## Status
 
-Active. Workbench 0.4.4.15 is released. Apply and verify the following public-schema and empty-column follow-up before closing again.
+Done. Workbench 0.4.4.16 is released and the public-schema and empty-column follow-up is verified through the live API and browser.
 
 ## Verification checkpoint
 
@@ -95,3 +95,12 @@ The 0.4.4.14 live API and browser returned 4,592 rows and 17 columns through 100
 3. Add one `relations` JSON object to both public tables. Read direct and derived outgoing links from the same native GRAPH_TABLE; retain target kind, reference and derived flag.
 4. Hide columns whose values are all NULL, empty strings or empty collections across the entire materialized result, keeping full SQL rows and counts unchanged. Preserve zero-row column headers and values on later pages. False and zero remain visible values; collections containing values, even nested nulls, are nonempty.
 5. Align narrow Workbench RMED, callers, tests and documentation; verify native SQL/PGQ and build the Svelte frontend. Verify deployment separately from source completion.
+
+## Public schema and empty-column result
+
+- Local release `workbench-20261104-schema-empty-columns` completed as 0.4.4.16. Its selected release gate passed 36 tests in six modules, zero skips/failures, and all launcher integration groups. The earlier host Workbench gate passed 65 tests; the added parser regression and related targeted tests also passed. Ten affected MCP/web tests, TypeScript, Vite and scoped Ruff checks passed. The unrelated full repository suite was not run.
+- The live index contains 4,618 Atoms and 46 Scope Units. Atoms expose 32 SQL columns: declared `content.*` values, `reference`, `relative path`, `filename`, graph-backed JSON `relations`, mapped Header fields and hash. The removed raw parser buckets are absent. Scope Units retain their Declaration source path.
+- Native GRAPH_TABLE supplies outgoing direct and derived JSON links; tests check direction, target kind and reference, including same-text Atom/Scope Unit references. Sources remain authoritative.
+- The live browser test selected seven columns across 101 rows. NULL, empty string, empty list and empty JSON object columns hid; zero, false and a value appearing only on row 101 stayed visible. Page two showed `0`, `false`, `last`, with the same three visible columns. The live API separately verified unchanged full rows/counts, stable page metadata and retained zero-row headers.
+- Seven narrow RMED updates preserve predecessor archives and have truthful update events; implementation comments reference the adopted versions. No lifecycle, relation-direction or other model migration was added.
+- Release receipt: `.caprmedio_runtime/simple_local_release/reports/workbench-20261104-schema-empty-columns.md`. Live evidence: `.caprmedio_tmp/workbench/live-public-schema-verification.json`.
