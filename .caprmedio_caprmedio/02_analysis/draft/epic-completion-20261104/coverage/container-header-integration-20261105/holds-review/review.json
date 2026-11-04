@@ -1,0 +1,34 @@
+{
+  "sources": [
+    {
+      "id": "CA-R-2511",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "source_sha256": "ca9869c1ae916ae02af6112a4a6cba61cd0474aae0734098b7226db52abbc40f",
+      "native_drafts": [],
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/holds-review/CA-R-2511.preview.txt",
+      "preview_sha256": "83e8dd10fffe0166fe8ec6bd47eb65d0c199102177eb36e630e71de2aeeccdfb",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/holds-review/CA-R-2511.diff",
+      "diff_sha256": "3379dd6d8a45af36f5e0e823b9707d8be209f9e1245bbf4da32e9582732d5aea",
+      "disposition": "PROPOSED_SUBJECT_TO_REVIEW",
+      "rationale": "Remove the conditional obsolete stored Header.Relations requirement, now subsumed for every Atom by mandatory Header.Container. Retain Plan-to-Plan CONTAINS formal allowance and unrelated blocking rules; it is not an independent authored storage requirement."
+    },
+    {
+      "id": "CA-D-264",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "source_sha256": "e12a30e551afc95a332d40b1f467231d68edf974bd753d54d5d1e6d2e9336e1e",
+      "native_drafts": [],
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/holds-review/CA-D-264.preview.txt",
+      "preview_sha256": "99b2fe827ac9228777c38858359ef705cb54c1cddf06ca8bc7e06e42935badab",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/holds-review/CA-D-264.diff",
+      "diff_sha256": "5a57de2c2476088f2913b07363637ac95341aff00da6e63a2819c39a8c85fe8f",
+      "disposition": "HOLD_BOUNDARY_REVIEW",
+      "rationale": "Exclude Atom containment from carrier-derived logical parenthood; retain the existing non-Atom carrier-derived view and inverse behavior. The user decision supports the Atom carve-out, but the source does not settle whether every Artifact Revision and carried Atom are distinct graph identities, so the retained non-Atom boundary needs integration review."
+    }
+  ],
+  "one_open_issue": "Does D264’s Artifact Revision denote an entity separate from a carried Atom, or can it denote that Atom itself? The answer determines the exact non-Atom boundary and prevents a physical nesting view from conflicting with the Atom’s logical Container.",
+  "constraints": [
+    "No additional stored Atom containment fact or automatic inverse permission.",
+    "No native source, actual Draft, code, test, Workflow, Workbench or Git changes.",
+    "Existing Summary and metadata retained; verify same-ID scope under identity rules before adoption."
+  ]
+}

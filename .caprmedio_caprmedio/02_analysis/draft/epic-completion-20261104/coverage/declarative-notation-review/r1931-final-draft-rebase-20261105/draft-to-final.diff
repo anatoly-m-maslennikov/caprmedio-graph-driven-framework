@@ -1,0 +1,96 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1931@19-draft-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-final-draft-rebase-20261105/CA-R-1931@19.final.preview.txt
+@@ -37,7 +37,7 @@
+ 
+ In an Entity Path, `/` separates a broader kind from its narrower kind; `//`
+ separates an Entity kind from a named instance; `.` separates a bearer from a
+-dependent Property; and `:` separates any `X` from its allowed literal value
++dependent Property; and `::` separates any `X` from its allowed literal value
+ `Y`, irrespective of X's kind or path. A bare qualified address refers to its declared target and declares no target. Parentheses provide logical
+ grouping.
+ 
+@@ -48,7 +48,7 @@
+ axis rather than belonging to a separate Classification Entity kind. This Rule does not
+ invent an inverse canonical Relation Type for HAS_CLASSIFICATION.
+ 
+-`X/(.Y: Z)` denotes a narrower kind of X qualified by its own Property Y
++`X/(.Y := Z)` denotes a narrower kind of X qualified by its own Property Y
+ and value Z. The leading dot inside parentheses is relative to X: `.Y`
+ addresses `X.Y`. The qualified X inherits X's applicable features and
+ constraints. The Property is the qualification condition; it does not become
+@@ -60,16 +60,17 @@
+ view. Entity syntax neither creates target identities nor admits native facts
+ without defining authority. A defining Atom may introduce its governed Entity.
+ 
+-Cardinality uses `{n}`, `{n+}`, and `{n..m}`. Direct Property values retain
+-their post-Property notation, for example `X.Y[format]{n}`. A Relation has two
++Cardinality uses `{::n}`, `{::n+}`, and `{::n..m}`. Direct Property values use
++their post-Property notation, for example `X.Y:: [format]{::n}`. A Relation has two
+ independent directional slots: `Source {forward-count}RELATION{reverse-count}
+ Target`. The pre-operator slot constrains Relation instances in the written
+ Source-to-Target direction per Source; the post-operator slot independently
+-constrains the reverse count per Target. These are not distinct-target counts. For example, `Step {:1}+>{:1+} Workflow` requires one Workflow per
+-Step and one or more Steps per Workflow; its reverse writing is
+-`Workflow {:1+}<+{:1} Step`. `Property {:1}((IS_PROPERTY_OF)) Bearer` requires
++constrains the reverse count per Target. These are not distinct-target counts. For example, the bound Step selector below
++requires exactly one outgoing IS_CONTAINED_BY link per Step to either a Workflow
++or another Step; it leaves the reverse count unspecified.
++`Property {::1}((IS_PROPERTY_OF)) Bearer` requires
+ exactly one outgoing IS_PROPERTY_OF Relation for each Property occurrence;
+-postfix-only `{1}` would instead constrain the reverse count per Bearer.
++postfix-only `{::1}` would instead constrain the reverse count per Bearer.
+ Each Relation is binary and connects two endpoint nodes or node instances.
+ The slots count Relation instances, not Relation arity; omitted slots remain
+ unspecified. This Relation counting is independent of the Property's
+@@ -79,13 +80,12 @@
+ 
+ 
+ ```text
+-Entity/Object/Continuant/Package <+ Module <+ Code Unit
+-Atom/(.Header.Role: Operations)/(.Header.Form: Step) {:1}+>{:1+} Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)
+-Atom/(.Header.Role: Operations)/(.Header.Form: Sub-step) {:1}+>{:0+} Atom/(.Header.Role: Operations)/(.Header.Form: Step)
+-Atom/(.Header.Role: Method)
+-Atom.Header.Status >| Status Group: Draft <+ Draft
+-Atom.Header.Status >| Status Group: Archived <+ Archived
+-Atom.Header.Status >| Status Group: Current <+ * not in (Draft, Archived)
++Step//$step;
++$step{::1}((IS_CONTAINED_BY)) (in (Workflow, Step))//$parent
++Atom/(.Header.Role := Method)
++Atom.Header.Status >| Status Group:: Draft <+ Draft
++Atom.Header.Status >| Status Group:: Archived <+ Archived
++Atom.Header.Status >| Status Group:: Current <+ * not in (Draft, Archived)
+ Source ((RELATION_TYPE)) Target
+ ```
+ 
+@@ -93,15 +93,15 @@
+ 
+ `/` is specialization and supplies inheritance. `+>` and `<+` are containment
+ and do not supply inheritance, sequence, or a property relation. `//` names
+-an instance of a kind; `.` addresses a dependent Property; and `:` declares
++an instance of a kind; `.` addresses a dependent Property; and `::` declares
+ an allowed value rather than assigning one. A bare qualified address refers to its declared target and creates neither an alias nor a duplicate.
+ 
+-`X.Y` addresses Property Y, and `X.Y: Z` expresses its allowed value.
+-`X/(.Y: Z)` instead identifies qualified X entities. For example,
+-`Atom/(.Header.Form: Method)` means an Atom with the stated Form qualification, not
++`X.Y` addresses Property Y, and `X.Y:: Z` expresses its allowed value.
++`X/(.Y := Z)` instead identifies qualified X entities. For example,
++`Atom/(.Header.Form := Method)` means an Atom with the stated Form qualification, not
+ the Form Property inheriting Atom's features. This syntax example alone does
+ not admit Method as a Form value; the existing Role use is written
+-`Atom/(.Header.Role: Method)`. Every qualification still requires its own
++`Atom/(.Header.Role := Method)`. Every qualification still requires its own
+ admitted Property and allowed value. Existing Carrier keys and encodings
+ remain governed separately by Delivery; the notation adds no nested object.
+ 
+@@ -116,8 +116,8 @@
+ ## Details
+ 
+ Each Module belongs to exactly one Package; Project Implementation is the
+-parentless root Package and a nested Package belongs to another Package. Step
+-belongs to Workflow; Step and Sub-step are distinct. Scope Unit has structural
++parentless root Package and a nested Package belongs to another Package. A Step
++is contained by a Workflow or another Step. Scope Unit has structural
+ parts expressed as `Scope Unit <+ Scope Unit`, `Scope Unit <+ Atom`, and
+ `Scope Unit <+ Projection`.
+ 

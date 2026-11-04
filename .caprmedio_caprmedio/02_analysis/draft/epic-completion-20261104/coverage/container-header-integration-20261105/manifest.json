@@ -1,0 +1,179 @@
+{
+  "schema": "atom-header-container-integration/1",
+  "status": "SOURCE_PINS_AND_WHOLE_ATOM_PREVIEWS_ONLY_NO_CURRENT_OR_DRAFT_MUTATION",
+  "decision_basis": [
+    "Atom.Header.Container is one scalar: actual Scope Unit name path or base Atom ID; root Project Declaration omission defaults to world.",
+    "Header.Relations is optional. An Atom instance stores immediate containment once in Header.Container, without a duplicate IS_CONTAINED_BY instance fact under Header.Relations.",
+    "Formal MODEL relation declarations remain in force; this packet does not retire IS_CONTAINED_BY/CONTAINS model semantics."
+  ],
+  "sources": {
+    "CA-R-2719": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "version": 1,
+      "sha256": "b44cedbf39e8d65c8dddb21a03370ed744e65daee99eff70cc0007d064ebb0e3"
+    },
+    "CA-R-2709": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "version": 1,
+      "sha256": "3f759fcf082e94dd20b07d243edd7daaf374e23a80033c4246ad2c01b3d1df17"
+    },
+    "CA-R-2508": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "version": 6,
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d"
+    },
+    "CA-R-2712": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+      "version": 2,
+      "sha256": "5734c23d03209bdbb4735f1a6938942dfa1353c50fa093a371ca539543d0cbf7"
+    },
+    "CA-R-2711": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "version": 6,
+      "sha256": "0506c8ab90381874d50fd3f368b97217a392271e555c495b2b03d47bcf8267c3"
+    },
+    "CA-R-2511": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "version": 5,
+      "sha256": "ca9869c1ae916ae02af6112a4a6cba61cd0474aae0734098b7226db52abbc40f"
+    },
+    "CA-E-240": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md",
+      "version": 49,
+      "sha256": "5405cd2e41eccc209a38c1d632d87ac95c96372cf456549b662e4988f5403f35"
+    },
+    "CA-D-268": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "version": 30,
+      "sha256": "c301ef453ae1fa2a82f6deb2e12332bc7b340fd289d56ceeeb935e9e6f7bfb52"
+    },
+    "CA-D-266": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "version": 29,
+      "sha256": "4e72593f7c399b72dd910efdc1b492d8f777e563af836997f57a346086a39d60"
+    },
+    "CA-D-442": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+      "version": 26,
+      "sha256": "3876e616560ffec0951cd4e9e4653d510bd7c914f3892163f67063c888f08115"
+    },
+    "CA-D-264": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "version": 29,
+      "sha256": "e12a30e551afc95a332d40b1f467231d68edf974bd753d54d5d1e6d2e9336e1e"
+    }
+  },
+  "header_path_authority_pins": {
+    "CA-R-2779": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/CA-R-2779@1.path-integrated.preview.md",
+      "sha256": "0f0521a431fd333ae7f325f14692efb03ee0fb7eb39ab3a0d214f8a17598263a"
+    },
+    "CA-R-2530": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/CA-R-2530.v3.path-string.preview.md",
+      "sha256": "51876c8b0cdf5f6a7c097b7e76fefac93d6d24087de0c3a14ff9c9117704b44a"
+    },
+    "CA-R-2524": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db"
+    }
+  },
+  "candidate_previews": {
+    "CA-R-2719": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-R-2719.preview.md",
+      "sha256": "46bd44a3305c66f59ff4e1b7f1e0d0d5d3092eaa1d5a410d688e827f22f425ba",
+      "basis": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/header-candidates/CA-R-2719.v2.preview.txt"
+    },
+    "CA-R-2709": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-R-2709.preview.md",
+      "sha256": "84bb5f30d40dba1116867ae380ec58411340a98c417e0ffa39ce4f1f9fe620e9",
+      "basis": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/header-candidates/CA-R-2709.v2.preview.txt"
+    },
+    "CA-R-2508": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-R-2508.preview.md",
+      "sha256": "c8d71b65fec90b01726f9ff40ede2fc3f2511e71a539a8d1f71a38d673b2ceb8",
+      "basis": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/consumers/CA-R-2508.preview.txt"
+    },
+    "CA-R-2712": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-R-2712.preview.md",
+      "sha256": "b3fc8fa1898df8fdb7f28bf08a44a47545eb4eeaf855382e275086d837753404",
+      "basis": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/consumers/CA-R-2712.preview.txt"
+    },
+    "CA-D-268": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-D-268.preview.md",
+      "sha256": "b389db5cc37cc09d743ec4bc36303066770433ba25dd8f5fcc99c90a0dae46a5",
+      "basis": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/delivery-candidates/CA-D-268.preview.txt"
+    },
+    "CA-D-266": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-D-266.preview.md",
+      "sha256": "7166497ab98a1167e9ee3566462120924f2387bcc089befcc0f191e1f47fb270",
+      "basis": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/delivery-candidates/CA-D-266.preview.txt"
+    },
+    "CA-E-240": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-E-240.preview.md",
+      "sha256": "2b1549740c13cd98cf35e7f418f5aa788c142f5dc9882299fb03f2afa9e4f2ad",
+      "basis": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md"
+    }
+  },
+  "dispositions": [
+    {
+      "id": "CA-R-2719",
+      "disposition": "READY_PREVIEW",
+      "rationale": "Adds Container to the declared Header properties."
+    },
+    {
+      "id": "CA-R-2709",
+      "disposition": "READY_PREVIEW",
+      "rationale": "Makes Header.Relations optional; empty Relation collections remain valid."
+    },
+    {
+      "id": "CA-R-2508",
+      "disposition": "HOLD_LOGICAL_PERMISSION_AND_WORLD_MAPPING",
+      "rationale": "Preview removes a logical Relation permission, beyond removing duplicate storage. Restore applicable formal containment permission, and reconcile root Project Declaration world literal without inventing a World entity before admission."
+    },
+    {
+      "id": "CA-R-2712",
+      "disposition": "READY_PREVIEW",
+      "rationale": "Keys Plan sequence uniqueness by immediate Header.Container rather than Header.Relations.IS_CONTAINED_BY."
+    },
+    {
+      "id": "CA-R-2711",
+      "disposition": "PRESERVE_FORMAL_MODEL_LOOKUP",
+      "rationale": "Its LOOKUP(Relation//IS_CONTAINED_BY, ...) occurs in the model rule; no instance Header.Relations field is referenced. Preserve the MODEL relation per explicit decision."
+    },
+    {
+      "id": "CA-R-2511",
+      "disposition": "HOLD_RELATION_VIEW_ALIGNMENT",
+      "rationale": "Contains among Plan instances may be a derived view from Header.Container, but this source also declares Plan-to-Plan relation constraints. Need align it without converting a derived MODEL relation into separately stored instance data."
+    },
+    {
+      "id": "CA-E-240",
+      "disposition": "READY_PREVIEW",
+      "rationale": "Changes evaluator dependency from Header.Relations.IS_CONTAINED_BY to Header.Container; separate containment/Scope context assertion remains."
+    },
+    {
+      "id": "CA-D-268",
+      "disposition": "READY_PREVIEW",
+      "rationale": "Explicitly limits authored relation serialization to non-container relations for Atom instances; Header.Container is the sole stored Atom container value. Keeps formal MODEL relation declarations."
+    },
+    {
+      "id": "CA-D-266",
+      "disposition": "READY_PREVIEW",
+      "rationale": "Extends prohibition to duplicate Atom instance containment facts while retaining non-Atom carrier-derived containment policy."
+    },
+    {
+      "id": "CA-D-442",
+      "disposition": "PRESERVE_NO_CONTAINER_CHANGE",
+      "rationale": "Governs Scope Unit declaration fields and folder naming; it does not make carrier-folder tokens into Header.Container paths."
+    },
+    {
+      "id": "CA-D-264",
+      "disposition": "HOLD_CARRIER_DERIVATION_MAPPING",
+      "rationale": "Current Delivery derives an IS_CONTAINED_BY view from Carrier nesting for Artifact Revisions. It is unresolved whether this non-Atom/carrier view remains separate from Header.Container or must be expressed through it."
+    }
+  ],
+  "limits": [
+    "No Current or native Draft carrier changed.",
+    "No instance, Workflow, Workbench, implementation, test or Git work.",
+    "R2711 preserves a formal MODEL Relation lookup; R2511 and D264 are held for the precise distinctions recorded above."
+  ]
+}

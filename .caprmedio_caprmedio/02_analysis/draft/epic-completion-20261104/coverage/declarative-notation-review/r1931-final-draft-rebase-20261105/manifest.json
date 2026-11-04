@@ -1,0 +1,64 @@
+{
+  "status": "PREVIEW_BLOCKED_ON_LEGACY_SCOPE_AND_COHERENCE_REVIEW",
+  "current": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+    "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+    "matches_clause_map": true
+  },
+  "existing_draft": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1931@19-draft-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+    "sha256": "8c90ec568c3913d915f17c37e0e3356b3d32dc11c91cd58f62bb86ae172e335e"
+  },
+  "merged_predecessor": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-existing-draft-rebase-20261105/CA-R-1931@19.merged.preview.txt",
+    "sha256": "8e41c736cd15fea5af628c67cdb02681698fe9788d0a8c2c100c2b9f5f6d5241",
+    "matches_clause_map": true
+  },
+  "clause_map": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-authority-consolidation-20261105/clause-map.json",
+    "sha256": "df32581da71bd65efa587efa8c5df1fba6ac261f6f7fda1207fe4f25b1c662d2"
+  },
+  "recursive_step_authority": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+    "sha256": "f1ad2cb139361d59d0447f8ae01ae47d392168d78f337f2563201b6509b2780e",
+    "status": "native Draft, not Current",
+    "formal_statements": "Step//$step; $step{::1}((IS_CONTAINED_BY)) (in (Workflow, Step))//$parent;"
+  },
+  "candidate": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-final-draft-rebase-20261105/CA-R-1931@19.final.preview.txt",
+    "sha256": "4f42ecab96c09b4fc0ec264f6ed4440aa196a66f39ab0ecc264edff30cd369d4",
+    "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-final-draft-rebase-20261105/draft-to-final.diff",
+    "diff_sha256": "0289e0eb835ec37af8f4e2961b73c35e1b78387f700bda72e8d1383e3e365de8",
+    "header_equal_draft": true
+  },
+  "changes": [
+    {
+      "clause": "selector and allowed-value notation",
+      "change": "Retains previous reviewed := qualification, :: allowed value and {::n} cardinality normalization. / and // not switched."
+    },
+    {
+      "clause": "obsolete examples",
+      "change": "Remove legacy Entity/Object/... Package-chain illustration and old Operations/Form Step and Sub-step illustrations; insert the actual R2465@5 bound Step containment statements using current Relation syntax."
+    },
+    {
+      "clause": "Step semantics",
+      "change": "Replace Step belongs to Workflow and Step/Sub-step distinct with Step contained by Workflow or another Step, matching R2465@5; contingent on coordinated adoption."
+    },
+    {
+      "clause": "retained operative rules",
+      "change": "No removal of Status Group mapping, Module-to-Package or nested-Package obligations, unique primary-kind name and canonical-path rule, reverse Relation counts, quote and reference rules, or no-inferred-inverse statement."
+    },
+    {
+      "clause": "directional count prose example",
+      "change": "Replace old every-Step-direct-Workflow assertion with the existing bound example: each Step has exactly one outgoing parent link to Workflow or Step, and reverse count is unspecified. Preserve general pre/post endpoint-slot semantics."
+    }
+  ],
+  "blockers": [
+    "Old passive Entity and Entity/Object/Continuant/Package... Subjects remain; exact new scope and target references require separate authoritative mapping, not blanket Node replacement.",
+    "Status Group and Package/Module obligations retained as unique authority; verify them with source owners before any move or retirement.",
+    "Current quote rule and accepted quoted values, old Form-Method illustration and advanced-construct exclusion need separate coherence reconciliation; preview is not fully promotion-ready.",
+    "Replacement Step statement depends on adoption of R2465@5 and compatible recursive-Step batch; it must not lead that source.",
+    "Current / and // remain unchanged in this preview; later notation direction migration is separate."
+  ],
+  "boundary": "No actual Draft or Current, code, tests, Workflow/Workbench or Git mutation. Candidate retains native Draft metadata and is not itself a native Draft update."
+}

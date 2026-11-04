@@ -1,0 +1,129 @@
+{
+  "status": "PREPARED_REVIEWED_DRAFTS_NOT_CURRENT_ADOPTION",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2719",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2719@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "sha256": "9554be538679ef02b54ea51852719aa381d29ccad45acfce2cd5120cb27e1830",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "source_sha256": "b44cedbf39e8d65c8dddb21a03370ed744e65daee99eff70cc0007d064ebb0e3",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-R-2719.preview.md",
+      "preview_sha256": "46bd44a3305c66f59ff4e1b7f1e0d0d5d3092eaa1d5a410d688e827f22f425ba"
+    },
+    {
+      "atom_id": "CA-R-2709",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2709@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "3a4c0fecf537a5f3fe67e5cf70cf5f7f1b4c5558ee83a460ae849afa514f29cc",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "source_sha256": "3f759fcf082e94dd20b07d243edd7daaf374e23a80033c4246ad2c01b3d1df17",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-R-2709.preview.md",
+      "preview_sha256": "84bb5f30d40dba1116867ae380ec58411340a98c417e0ffa39ce4f1f9fe620e9"
+    },
+    {
+      "atom_id": "CA-R-2712",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2712@3-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+      "sha256": "cf6a67b6762a039fa4969681781a016e29cda7e6c7f2673cdbf74c3c21923e2a",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+      "source_sha256": "5734c23d03209bdbb4735f1a6938942dfa1353c50fa093a371ca539543d0cbf7",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-R-2712.preview.md",
+      "preview_sha256": "b3fc8fa1898df8fdb7f28bf08a44a47545eb4eeaf855382e275086d837753404"
+    },
+    {
+      "atom_id": "CA-E-240",
+      "version": 50,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-240@50-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md",
+      "sha256": "e00005ce91dc0668f1de0b9a90ee9a53bacb889ddee4c4a12a5bfaf2bfcfe753",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md",
+      "source_sha256": "5405cd2e41eccc209a38c1d632d87ac95c96372cf456549b662e4988f5403f35",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-E-240.preview.md",
+      "preview_sha256": "2b1549740c13cd98cf35e7f418f5aa788c142f5dc9882299fb03f2afa9e4f2ad"
+    },
+    {
+      "atom_id": "CA-D-268",
+      "version": 31,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-268@31-draft-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "sha256": "3ccdecbf7cfeef6d7a300fafccb97ce5619aba971756ba5af4fafe24fd69ee4e",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "source_sha256": "c301ef453ae1fa2a82f6deb2e12332bc7b340fd289d56ceeeb935e9e6f7bfb52",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-D-268.preview.md",
+      "preview_sha256": "b389db5cc37cc09d743ec4bc36303066770433ba25dd8f5fcc99c90a0dae46a5"
+    },
+    {
+      "atom_id": "CA-D-266",
+      "version": 30,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-266@30-draft-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "sha256": "a2aa2a485d8fde5ab447e90a09390514c2b618de10b1e7d26037cf375e079303",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "source_sha256": "4e72593f7c399b72dd910efdc1b492d8f777e563af836997f57a346086a39d60",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-D-266.preview.md",
+      "preview_sha256": "7166497ab98a1167e9ee3566462120924f2387bcc089befcc0f191e1f47fb270"
+    },
+    {
+      "atom_id": "CA-R-2511",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2511@6-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "23d1824db1c01b04c917c7511f68d5f708e6e901b3ba52c1d51ee12f3cbdbd0f",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "source_sha256": "ca9869c1ae916ae02af6112a4a6cba61cd0474aae0734098b7226db52abbc40f",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/holds-review/CA-R-2511.preview.txt",
+      "preview_sha256": "83e8dd10fffe0166fe8ec6bd47eb65d0c199102177eb36e630e71de2aeeccdfb"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2719@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2719\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header\nversion: 2\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 03:53:43 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2719@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom.Header\n\n## Claim\n\n### Prose Claim\n\nAtom.Header groups the Atom Properties carried in YAML frontmatter, including for Draft Atoms.\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header{::1} :: []{::0};\n\nAtom.Header.*[string,in(ID, Role, Form, Version, Status, Updated At, Label, Tier, Subjects, Relations, Container, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{::0+}\n```\n\n",
+      "after_sha256": "9554be538679ef02b54ea51852719aa381d29ccad45acfce2cd5120cb27e1830"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2709@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2709\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Relations\nversion: 2\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nupdated_at: 2026-11-05 03:53:43 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2709@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom.Header.Relations\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Relations{::0..1} :: []{::0};\n\n# instances\nAtom.Header.Relations.*[Relation//$relation]{::0+}\n```\n",
+      "after_sha256": "3a4c0fecf537a5f3fe67e5cf70cf5f7f1b4c5558ee83a460ae849afa514f29cc"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2712@3-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2712\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Work Sequence Number\nversion: 3\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nupdated_at: 2026-11-05 03:53:43 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2712@3-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom/(.Header.Role := Plan).Header.Work Sequence Number\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role:=Plan).Header.Work Sequence Number :: [int]{::0..1};\n\nAtom/(.Header.Role:=Plan).Header.Work Sequence Number.*[]{::0};\n\n# instances\nAtom/(.Header.Role:=Plan)//$atom;\n\nIF ($atom.Header.Work Sequence Number{=1})\nTHEN ($atom.Header.Work Sequence Number > 0);\n\nUNIQUE(\n  Atom/(.Header.Role:=Plan)//$atom_2,\n  (.Header.Container, .Header.Work Sequence Number),\n  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Container{=1})\n)\n```\n",
+      "after_sha256": "cf6a67b6762a039fa4969681781a016e29cda7e6c7f2673cdbf74c3c21923e2a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-240@50-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active\n  - CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY\n  - CAPRMEDIO_MODEL <+ Atom.Content.Claim.Prose Claim\n  - CAPRMEDIO_MODEL <+ Scope Unit\nversion: 50\nupdated_at: 2026-11-05 03:53:43 +0400\nrelations:\n  evaluation_for:\n  - CA-R-2102\n  - CA-D-495\n  - CA-D-479\n  - CA-R-2714\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-E-240\nstatus: Draft\ntier: 7\nrole: Evaluation\nform: Eval Case\ncarrier_destination:\n  file:\n    name: CA-E-240@50-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft\n---\n## Summary\n\nValidate Atom Scope **and** Claim Scope\n\n## Claim\n\n### Prose Claim\n\nVerify that each complete Atom has exactly one `Header.Subjects.Active` and resolves its target Scope Unit from that active Subject. Containment and the Atom's own Scope context are separate from target resolution. Preserve textual applicability in Claim.Prose Claim without letting it select a different target.\n\n## Details\n\n### Test case\n\nCreate valid local and cross-Scope Goal or Demand fixtures with resolvable active Subjects. Include separate containment and own Scope contexts, and narrower and composite textual applicability in Prose Claim. Repeat with a missing, ambiguous, or unresolved active Subject and with applicability that contradicts its resolved target.\n\n### Acceptance criteria\n\nEach valid fixture has exactly one active Subject, resolves its target from that Subject, preserves its applicability, and retains its distinct containment and own Scope context. Each invalid fixture fails and identifies the affected Subject or contradictory applicability. Do not infer another target from applicability or repair an unresolved Subject by guessing.\n",
+      "after_sha256": "e00005ce91dc0668f1de0b9a90ee9a53bacb889ddee4c4a12a5bfaf2bfcfe753"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-268@31-draft-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation\n  passive:\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\nversion: 31\nupdated_at: 2026-11-05 03:53:43 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-D-268\nstatus: Draft\ntier: 3\nrole: Delivery\nform: Decision\ncarrier_destination:\n  file:\n    name: CA-D-268@31-draft-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\n---\n## Summary\n\nSerialize Authored Direct Relations on Their Owning Atoms\n\n## Claim\n\n### Prose Claim\n\n\nAuthored direct semantic relations.\n\n\nAn Atom **must** store its container once in its `Header.Container`, as the full Scope Unit path or the base Atom ID. Its `IS_CONTAINED_BY` Relation is represented by that value, not by a second `relations.IS_CONTAINED_BY` entry. Other authored direct semantic Relations **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns their declared direction as nonempty unordered collections of unique canonical target references. `Header.Relations` is optional when no such Relations are present. Target position and source-file order are nonsemantic; validation **must not** require sorting or order normalization. Each Relation's declared direction, endpoint validity, and other semantics remain applicable.\n\n## Details\n\nSerialize only the declared direct direction, never a second declaration for its derived inverse. `CONTAINS` remains a derived parent view and is not serialized on the parent. An Atom child stores its parent reference in `Header.Container`; a child-only change does not write the parent Carrier or create a parent Version. The Relation's spelling does not determine its direct direction.\n\nFor non-Atom Carrier-derived containment, CA-D-264 and CA-D-266 remain separately applicable. This Decision does not introduce another stored containment fact or a runtime relation key.\n",
+      "after_sha256": "3ccdecbf7cfeef6d7a300fafccb97ce5619aba971756ba5af4fafe24fd69ee4e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-266@30-draft-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation\n  passive:\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\n  - CAPRMEDIO_MODEL <+ Carrier/Directory\nversion: 30\nupdated_at: 2026-11-05 03:53:43 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-D-266\nstatus: Draft\ntier: 1\nrole: Delivery\nform: Decision\ncarrier_destination:\n  file:\n    name: CA-D-266@30-draft-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\n---\n## Summary\n\nProhibit Persisting Derived Containment\n\n## Claim\n\n### Prose Claim\n\n\n`CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting.\n\n\n`CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting **must not** be persisted as independent relation declarations.\n\n## Details\n\nThis prohibition applies when canonical Carrier nesting already owns a non-Atom containment fact. An Atom stores its own container in `Header.Container`; its logical parent is not inferred from a directory. For non-Atom facts, this does not ban an independently authored direct `IS_CONTAINED_BY` whose authority is the child's admitted Relation declaration rather than nesting. Do not maintain two independent sources for the same fact. `CONTAINS` remains a derived inverse and is not independently authored.\n",
+      "after_sha256": "a2aa2a485d8fde5ab447e90a09390514c2b618de10b1e7d26037cf375e079303"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2511@6-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2511\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\nversion: 6\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nupdated_at: 2026-11-05 03:53:43 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2511@6-draft-CORE_META_MODEL-DECLARATION--declare-plan.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom/(.Role := Plan)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Plan) >| (Container == yes);\n\nAtom/(.Header.Role: Plan);\n\n# instances\nAtom/(.Header.Role: Plan)//$plan {:0+}((CONTAINS)) Atom/(.Header.Role: Plan)//$contained_plan;\n\nAtom/(.Header.Role: Plan)//$dependent {:0+}((IS_BLOCKED_BY)) Atom/(.Header.Role: Plan)//$prerequisite;\n\nAtom/(.Header.Role: Plan)//$prerequisite_2 {:0+}((BLOCKS)) Atom/(.Header.Role: Plan)//$dependent_2;\n\n```\n\n## Semantics\n\nA Plan describes bounded intended work or an intended outcome.\n",
+      "after_sha256": "23d1824db1c01b04c917c7511f68d5f708e6e901b3ba52c1d51ee12f3cbdbd0f"
+    }
+  ],
+  "admission_hold": "Coordinated Header/notation adoption and R2508 world/logical mapping remain open. R2511 retains formal Plan containment permissions."
+}

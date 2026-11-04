@@ -1,0 +1,67 @@
+{
+  "verdict": "HOLD_R2508_RELATION_VIEW_OTHERS_BOUNDED_PASS",
+  "manifest_sha256": "8d46efb20bb733472c4ab528fcbd33fad5b173b3adb3c2e48ab92c6857e19ad2",
+  "rows": [
+    {
+      "id": "CA-R-2508",
+      "source_pin": true,
+      "preview_pin": true,
+      "preview_sha256": "c8d71b65fec90b01726f9ff40ede2fc3f2511e71a539a8d1f71a38d673b2ceb8",
+      "metadata_unchanged": true,
+      "active_subject_unchanged": true,
+      "disposition": "HOLD_RELATION_VIEW"
+    },
+    {
+      "id": "CA-R-2712",
+      "source_pin": true,
+      "preview_pin": true,
+      "preview_sha256": "b3fc8fa1898df8fdb7f28bf08a44a47545eb4eeaf855382e275086d837753404",
+      "metadata_unchanged": true,
+      "active_subject_unchanged": true,
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-E-240",
+      "source_pin": true,
+      "preview_pin": true,
+      "preview_sha256": "2b1549740c13cd98cf35e7f418f5aa788c142f5dc9882299fb03f2afa9e4f2ad",
+      "metadata_unchanged": true,
+      "active_subject_unchanged": true,
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-D-268",
+      "source_pin": true,
+      "preview_pin": true,
+      "preview_sha256": "b389db5cc37cc09d743ec4bc36303066770433ba25dd8f5fcc99c90a0dae46a5",
+      "metadata_unchanged": true,
+      "active_subject_unchanged": true,
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-D-266",
+      "source_pin": true,
+      "preview_pin": true,
+      "preview_sha256": "7166497ab98a1167e9ee3566462120924f2387bcc089befcc0f191e1f47fb270",
+      "metadata_unchanged": true,
+      "active_subject_unchanged": true,
+      "disposition": "PASS_BOUNDED"
+    }
+  ],
+  "header_authority_pins": {
+    "CA-R-2779": true,
+    "CA-R-2530": true,
+    "CA-R-2524": true
+  },
+  "finding": {
+    "id": "CA-R-2508",
+    "detail": "Preview removes the only explicit Atom instance IS_CONTAINED_BY outgoing permission and says the same fact is not represented as an instance-level IS_CONTAINED_BY Relation. That is broader than prohibiting a second stored Header.Relations entry and conflicts with the preserved formal Relation view in D268 and R2711 LOOKUP. R2588 default-zero whitelist also makes removal of the explicit allowance consequential.",
+    "correction": "Retain the source-backed logical outgoing Relation permission and bind its sole stored instance representation to Header.Container; prohibit only a duplicate stored Header.Relations entry. Coordinate exact wording with the header/Relation owner, preserving original one-container bound and no automatic inverse grant."
+  },
+  "preserved": [
+    "R2712 retains positive number and active-only uniqueness by immediate Container and value; ::/selector syntax is prospective.",
+    "E240 retains active Subject, Scope context and evaluation body; passive dependency changes to Header.Container.",
+    "D268/D266 retain direct/inverse boundaries and prohibit duplicate stored containment while preserving non-Atom Carrier rule."
+  ],
+  "boundary": "Preview-only; coordinated Header/Relation adoption, notation and R2511/D264 holds remain separate."
+}

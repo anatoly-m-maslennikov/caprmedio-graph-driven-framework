@@ -1,0 +1,36 @@
+{
+  "rows": [
+    {
+      "id": "CA-R-2511",
+      "source_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "disposition": "PASS_BOUNDED_DRAFT_PREVIEW",
+      "note": "Removes only obsolete conditional Header.Relations.IS_CONTAINED_BY storage; preserves Plan CONTAINS and BLOCKS constraints. Coordinate with Header representation."
+    },
+    {
+      "id": "CA-R-1931@19",
+      "current_pin": true,
+      "draft_pin": true,
+      "predecessor_pin": true,
+      "authority_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "header_equal": true,
+      "disposition": "REBASE_CORRECTION_PASS_PROMOTION_HELD",
+      "additional_holds": [
+        "Old passive Entity and Entity/Object/Continuant/Package... Subjects remain; exact new scope and target references require separate authoritative mapping, not blanket Node replacement.",
+        "Status Group and Package/Module obligations retained as unique authority; verify them with source owners before any move or retirement.",
+        "Current quote rule and accepted quoted values, old Form-Method illustration and advanced-construct exclusion need separate coherence reconciliation; preview is not fully promotion-ready.",
+        "Replacement Step statement depends on adoption of R2465@5 and compatible recursive-Step batch; it must not lead that source.",
+        "Current / and // remain unchanged in this preview; later notation direction migration is separate."
+      ],
+      "candidate_sha256": "4f42ecab96c09b4fc0ec264f6ed4440aa196a66f39ab0ecc264edff30cd369d4",
+      "resolved_finding": "The old direct-Workflow-per-Step assertion is replaced by the existing bound Step selector: exactly one outgoing parent to Workflow or Step, reverse count unspecified."
+    }
+  ],
+  "verdict": "R2511_BOUNDED_PASS_R1931_REBASE_CORRECTION_PASS_PROMOTION_HELD",
+  "boundary": "Source preview review only; no Draft or Current adoption. R2508 permission/root-world issue remains separately held.",
+  "r1931_manifest_sha256": "220675a92f21272cffe2e69cf95d1a1184224ab30f7fb0d91b3e5856ba59dff8"
+}

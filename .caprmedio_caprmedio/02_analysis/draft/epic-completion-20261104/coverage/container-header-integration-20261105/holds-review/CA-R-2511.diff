@@ -1,0 +1,13 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/holds-review/CA-R-2511.preview.txt
+@@ -37,10 +37,6 @@
+ 
+ Atom/(.Header.Role: Plan)//$prerequisite_2 {:0+}((BLOCKS)) Atom/(.Header.Role: Plan)//$dependent_2;
+ 
+-Atom/(.Header.Role: Plan)//$atom;
+-
+-IF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))
+-THEN ($atom.Header.Relations.IS_CONTAINED_BY{==1})
+ ```
+ 
+ ## Semantics

@@ -1,0 +1,11 @@
+{
+  "source_commit": "c33ea7266074e911c388f908b5c01b100b504869",
+  "published_tip": "fbfa109722a5ab47cdb713108ec34e4bea8f9f0f",
+  "branch": "amm/dev",
+  "remote_ack": "d7e38d8e4..fbfa10972 HEAD -> amm/dev",
+  "source_commit_in_published_history": true,
+  "shared_tip_note": "A concurrent Workbench commit followed the root source checkpoint; this receipt attributes only c33ea7266 source changes to root.",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "epic_complete": false
+}

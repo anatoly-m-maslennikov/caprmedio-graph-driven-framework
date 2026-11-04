@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS_ACTUAL_DRAFT_READBACK_PROMOTION_HELD",
+  "plan_sha256": "4e97e2ceeb35da93622b88332ed0506daa08d8b8299fc7b8d307cbf3e652b835",
+  "receipt_plan_pin": true,
+  "actual_sha256": "17592e060505c97f13eea169188de68b3a878af2294de18c1b8a513c6ceb7a72",
+  "actual_pin": true,
+  "operation_exact": true,
+  "draft_preimage_pin": true,
+  "current_pin": true,
+  "preview_pin": true,
+  "body_exact": true,
+  "metadata_only_updated_at": true,
+  "status": "Draft",
+  "version": 19,
+  "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+  "admission_holds": [
+    "Old passive Entity and Entity/Object/Continuant/Package... Subjects remain; exact new scope and target references require separate authoritative mapping, not blanket Node replacement.",
+    "Status Group and Package/Module obligations retained as unique authority; verify them with source owners before any move or retirement.",
+    "Current quote rule and accepted quoted values, old Form-Method illustration and advanced-construct exclusion need separate coherence reconciliation; preview is not fully promotion-ready.",
+    "Replacement Step statement depends on adoption of R2465@5 and compatible recursive-Step batch; it must not lead that source.",
+    "Current / and // remain unchanged in this preview; later notation direction migration is separate."
+  ],
+  "holds_match_manifest": true,
+  "boundary": "Rebased Draft only; no Current adoption, native workflow admission or runtime claimed."
+}

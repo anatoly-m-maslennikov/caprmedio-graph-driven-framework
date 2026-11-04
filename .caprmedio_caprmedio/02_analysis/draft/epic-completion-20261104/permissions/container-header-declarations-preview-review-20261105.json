@@ -1,0 +1,64 @@
+{
+  "verdict": "PASS_BOUNDED_TWO_PREVIEWS_READY_FOR_DRAFT_PREPARATION",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/manifest.json",
+  "manifest_sha256": "acce57906920a51d352aac1f4e29ec0fef3b9cf70c00f6c220625aa8a5a13df1",
+  "rows": [
+    {
+      "id": "CA-R-2719",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "current_sha256": "b44cedbf39e8d65c8dddb21a03370ed744e65daee99eff70cc0007d064ebb0e3",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-R-2719.preview.md",
+      "preview_sha256": "9bf63f0f5d814c2497b4bda2e58d7681d673af2b5e8dbdf028db8e68c52b410f"
+    },
+    {
+      "id": "CA-R-2709",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "current_sha256": "3f759fcf082e94dd20b07d243edd7daaf374e23a80033c4246ad2c01b3d1df17",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-R-2709.preview.md",
+      "preview_sha256": "af2e19fa61ba013de47badd628b1c988c5c8a548d404d9f946879e46a30b90bc"
+    }
+  ],
+  "checks": [
+    "Both live Current and candidate pins match; ID, Summary, active Subject, Role/Form and unrelated Header formal bounds remain unchanged.",
+    "R2719 adds Container to the allowed Header child names; R2709 changes Relations occurrence from 1 to 0..1 while preserving direct value count zero and child name count 0+.",
+    "Neither candidate removes the formal MODEL IS_CONTAINED_BY/CONTAINS relation declarations; no instance data modified."
+  ],
+  "blocking_findings": [
+    {
+      "id": "CA-R-2719",
+      "current_preview": "Atom.Header{::1}: []{::0};",
+      "required": "Atom.Header{::1} :: []{::0};",
+      "reason": "The value-domain allowed separator is still single colon, contrary to the adopted :: migration."
+    },
+    {
+      "id": "CA-R-2709",
+      "current_preview": "Atom.Header.Relations{::0..1}: []{::0};",
+      "required": "Atom.Header.Relations{::0..1} :: []{::0};",
+      "reason": "The value-domain allowed separator is still single colon, contrary to the adopted :: migration."
+    }
+  ],
+  "integration_holds": [
+    "R2508 logical instance IS_CONTAINED_BY permission and the root world sentinel mapping remain unresolved; do not infer a World entity or weaken the exactly-one bound.",
+    "No-duplicate containment and Header serialization require coordinated R2508/D268/D266 and other consumer source integration.",
+    "Draft preparation is not Current admission or data/runtime migration."
+  ],
+  "limits": [
+    "Only two Header Declarations reviewed; no unrelated previews, Current, native Draft, code, tests or Git changed."
+  ],
+  "prior_manifest_sha256": "8d46efb20bb733472c4ab528fcbd33fad5b173b3adb3c2e48ab92c6857e19ad2",
+  "resolved_findings": [
+    {
+      "id": "CA-R-2719",
+      "prior_preview_sha256": "9bf63f0f5d814c2497b4bda2e58d7681d673af2b5e8dbdf028db8e68c52b410f",
+      "corrected_preview_sha256": "46bd44a3305c66f59ff4e1b7f1e0d0d5d3092eaa1d5a410d688e827f22f425ba",
+      "resolution": "The only preview-byte change is replacing the value-domain separator : with ::; source pin unchanged."
+    },
+    {
+      "id": "CA-R-2709",
+      "prior_preview_sha256": "af2e19fa61ba013de47badd628b1c988c5c8a548d404d9f946879e46a30b90bc",
+      "corrected_preview_sha256": "84bb5f30d40dba1116867ae380ec58411340a98c417e0ffa39ce4f1f9fe620e9",
+      "resolution": "The only preview-byte change is replacing the value-domain separator : with ::; source pin unchanged."
+    }
+  ],
+  "blocking_findings_status": "Resolved; original finding details retained for audit."
+}
