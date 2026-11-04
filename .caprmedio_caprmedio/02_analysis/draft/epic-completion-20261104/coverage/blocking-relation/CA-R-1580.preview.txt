@@ -37,7 +37,7 @@ Relation//BLOCKS <((HAS_INVERSE)) Relation//IS_BLOCKED_BY;
 Relation//BLOCKS ((HAS_CLASSIFICATION)) Derivation == Derived;
 
 # instances
-Plan//$prerequisite ((BLOCKS)) Plan//$dependent
+Atom/(.Header.Role: Plan)//$prerequisite ((BLOCKS)) Atom/(.Header.Role: Plan)//$dependent
 ```
 
 ## Semantics

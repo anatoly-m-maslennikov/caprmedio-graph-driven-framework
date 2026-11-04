@@ -27,7 +27,7 @@ Relation//IS_BLOCKED_BY ((HAS_INVERSE)) Relation//BLOCKS;
 Relation//IS_BLOCKED_BY ((HAS_CLASSIFICATION)) Derivation == Direct;
 
 # instances
-Plan//$dependent ((IS_BLOCKED_BY)) Plan//$prerequisite
+Atom/(.Header.Role: Plan)//$dependent ((IS_BLOCKED_BY)) Atom/(.Header.Role: Plan)//$prerequisite
 ```
 
 ## Semantics

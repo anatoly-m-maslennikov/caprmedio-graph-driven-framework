@@ -9,7 +9,7 @@
       "source_version": 27,
       "source_sha256": "19ecfd4058ac41328bd6d995963a8f3e6f6e3b10ed1bb5ce84834d4ff65a390f",
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/CA-R-1580.preview.txt",
-      "candidate_sha256": "3ac61f04e72a40d515caa84db6075815063457376e479824e05f17fb9381f098",
+      "candidate_sha256": "8f767911439c4aa975ec98c15f08bb9d55a6167a2cbfc4ac8a85b4694b35698c",
       "summary": "Define Plan blocking",
       "metadata_changed": false
     },
@@ -17,8 +17,44 @@
       "id": "<UNALLOCATED-is-blocked-by>",
       "action": "new_id_draft",
       "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/is-blocked-by.preview.txt",
-      "candidate_sha256": "e88d15df338ee26a9e31ab037d4d8ba8a1af1621be8ddec3dbc75e4aab13e2f7",
+      "candidate_sha256": "9e4fcc4716852a1501510865908c7d605827acb81801f0b7a7f44e5d3b7e2967",
       "summary": "Declare IS_BLOCKED_BY"
+    },
+    {
+      "id": "CA-R-2511",
+      "action": "same_id_revision",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "source_version": 3,
+      "source_sha256": "741bdb16b86ded6ef4c2034e96267b70ed3bd449f1ab116849ed4c92c651f3e2",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/CA-R-2511.preview.txt",
+      "candidate_sha256": "97e03a63422052e1c5797f4eb6b641e37d7028d0c807ce7b966c6f1b688f3129",
+      "summary": "Declare Atom/(.Role := Plan)",
+      "metadata_changed": false
+    },
+    {
+      "id": "CA-D-471",
+      "action": "same_id_revision",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md",
+      "source_version": 24,
+      "source_sha256": "638304bed3ff46a5b20e5577cffe735dcafd4c339b79fd36daf5fab9221ccd8a",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/CA-D-471.preview.txt",
+      "candidate_sha256": "8655f7bf163b92491912ff575d617efe62fa656c76e36753c63dfe5608be46d8",
+      "summary": "Serialize explicit Plan blocking",
+      "metadata_changed": false
+    },
+    {
+      "id": "CA-M-306",
+      "action": "same_id_revision",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md",
+      "source_version": 32,
+      "source_sha256": "e3b360c6269adba675a83f9b971c0af7609cb2f30b31eb38fd92e27c330d7877",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/blocking-relation/CA-M-306.preview.txt",
+      "candidate_sha256": "fcea562c1bc284af4a1459d72684c41c57064e60d7c27e4ad74c3d4add20e515",
+      "summary": "Author Plan Atoms",
+      "metadata_changed": true,
+      "combined_wip_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/settings/confidence-retry/final-integration/previews/CA-M-306-safe.txt",
+      "combined_wip_sha256": "261bdf6a9ddd0b5b3fdfa2842ae04df36e84332fd8656c9f4fc5291c6528e67d",
+      "note": "Preserves safe WIP intent: confidence under applicable sources, only explicit override; removes unadmitted author/scope/assignee/retry Property enumeration and integrates direct blocking orientation."
     }
   ],
   "sources": [
@@ -133,22 +169,87 @@
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
       "sha256": "19aec4891a13dfd0f271c7cb8372e41fd60d1db02e58fe80b3d87b01e29d8311",
       "status": "Active"
+    },
+    {
+      "id": "CA-R-2709",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "3f759fcf082e94dd20b07d243edd7daaf374e23a80033c4246ad2c01b3d1df17",
+      "status": "Active"
+    },
+    {
+      "id": "CA-D-657",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1575",
+      "version": 25,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1575-CORE_META_MODEL-RULE--require-work-or-decomposition-in-every-plan.md",
+      "sha256": "016f5f2dd1111ebe5b9aba7fc28f34b75f30f6e330e6506fd5513cd9e6cb9bfb",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1589",
+      "version": 24,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1589-CORE_META_MODEL--bound-executable-leaf-plans.md",
+      "sha256": "f19e0124a094114cc37d11723aaac33ca3e2929778e4fbfffed2f0b81177f0ce",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1588",
+      "version": 26,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1588-CORE_META_MODEL-RULE--default-plan-target-to-the-enclosing-scope-unit.md",
+      "sha256": "a50e103ea2571f5b8b6e647510f0f8bfe0a4a30dc4c2194d54502e0fa3fc1131",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1599",
+      "version": 22,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1599-CORE_META_MODEL-RULE--require-a-definition-of-done-for-every-plan.md",
+      "sha256": "2dd1e5b0878a58a8407c4546fe678f9f0e1e771e8a82a330b39525d65e1b142f",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1418",
+      "version": 28,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1418-CORE_META_MODEL--give-every-atom-one-summary.md",
+      "sha256": "45a7c28786a40959028732921ab26268ad59814bf14e5006b7ff4f3422d005d9",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-2499",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2499-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+      "sha256": "aea7e0d55fa357a067585331d8798af8422b04da64c467b6105c0669c661bdcf",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1464",
+      "version": 22,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL-RULE--keep-summary-fixed-for-atom-identity.md",
+      "sha256": "16eb3243f62a6561dfe42868a149dcf10871ab148e2b7e62f758d0c22dcc898e",
+      "status": "Active"
     }
   ],
-  "endpoint_domain": "Plan instances only, in both written directions, as in Current CA-R-1580. No endpoint numeric cardinalities are proposed.",
+  "endpoint_domain": "Plan instances only using the full Atom/(.Header.Role: Plan)// selector in both written directions. Relation-object signatures have no cardinalities.",
   "endpoint_permissions_required": [
-    "CA-R-2511 effective Plan instance whitelist needs explicit outgoing IS_BLOCKED_BY to Plan and separate outgoing BLOCKS to Plan under CA-R-2462 and CA-R-2588; exact bounds must be sourced or decided separately.",
-    "A Relation signature and HAS_INVERSE binding neither create facts nor grant the other direction. Do not add unverified max or min counts."
+    "CA-R-2511 preview explicitly permits 0+ outgoing IS_BLOCKED_BY and 0+ outgoing derived BLOCKS for Plan instances. The 0+ allowance admits optional/multiple prerequisites and requires none; it does not create links.",
+    "Check dynamic Relation representation against the selected CA-R-2709 and CA-D-657 authority; D471 preview specifies the direct key, IDs and sequence but does not by itself establish runtime/schema support."
   ],
   "integration_gates": [
-    "CA-D-471 currently requires storing direct BLOCKS on the prerequisite under relations.blocks; this directly conflicts with the new direct/derived choice. Reconcile serialization and existing Plan data as a separately reviewed source and migration change before adoption; do not silently reverse existing facts.",
-    "CA-M-306 directs authors to express dependencies with BLOCKS; reconcile authoring direction. CA-E-504, CA-E-404, CA-E-622, CA-M-239 and CA-R-1592 consume BLOCKS semantics; retain derived views and review how assertions/observations are interpreted.",
-    "CA-R-1026 and CA-R-1200 distinguish scheduling from Subject DEPENDS_ON; preserve that separation.",
-    "Recheck all live source pins, frozen versioned references, exact preimages, selected effective MODEL permissions and all applicable source/consumer references before adoption; allocate new ID through governed workflow."
+    "Apply the five reviewed current/new source proposals as one coordinated source packet after full validation, allocation and frozen-reference checks.",
+    "The D471 direct storage encoding replaces existing relations.blocks on the prerequisite with relations.IS_BLOCKED_BY on the dependent. Data, fixture and code migration, including collision handling and exact old-to-new orientation, belongs to CA #3; this packet changes none.",
+    "Merge the CA-M-306 proposal with the separately owned confidence-retry WIP before any source application, and preserve any later accepted changes.",
+    "Review Current CA-E-504, CA-E-404, CA-E-622, CA-M-239 and CA-R-1592 consumers as logical BLOCKS views; keep their semantics unless they explicitly author or treat the derived view as a stored fact.",
+    "Validate nested-key admission and representation against CA-R-2709 and CA-D-657; do not infer runtime support or create an unapproved Property.",
+    "Recheck all exact live source and candidate pins and archive exact predecessors under the authorized workflow."
   ],
   "limitations": [
-    "Latest direct/derived choice is an explicit human decision supplied by root, not a statement about current adopted authority.",
-    "No canonical sources, code, fixtures, Git, runtime, graph facts or migration changed.",
-    "No general endpoint, numeric bound, alias or extra relation was invented; Current semantics is bounded to Plan Graph prerequisites."
+    "Relation signature and Plan permissions are source proposals only; actual Plan data/code/fixture migration is owned by CA #3.",
+    "No canonical source, code, tests, Git or actual Plan instance was changed.",
+    "CA-M-306 scope/assignee/author/retry assumptions were removed rather than replaced by invented Properties; other Current Rules still govern completion and source resolution."
   ]
 }
