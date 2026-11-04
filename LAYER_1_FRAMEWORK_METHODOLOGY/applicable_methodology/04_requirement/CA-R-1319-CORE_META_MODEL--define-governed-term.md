@@ -1,0 +1,52 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Term
+  passive:
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Term//Empty
+  - CAPRMEDIO_MODEL <+ Term//ID
+version: 31
+updated_at: 2026-11-04 18:28:33 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+atom_id: CA-R-1319
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+carrier_destination:
+  file:
+    name: CA-R-1319-CORE_META_MODEL--define-governed-term.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+projection:
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md
+  source_atom_id: CA-R-1319
+  source_atom_revision: 31
+  source_sha256: f8a7f93b97040bde26c2202cd48166a35d840508b6810544f4ffe1f2f58211f4
+  original_relations_sha256: e367927d209b7bdecd9da53dd0dc693193d074370738c97b4bc15988d6240196
+---
+## Summary
+
+Define Governed Term
+
+## Claim
+
+### Prose Claim
+
+
+Reusable lexical Terms whose Project-specific meanings are owned by active dedicated Term Definition Method Atoms.
+
+
+a Governed Term **means** a reusable Term whose approved Project-specific meaning is owned by **`=1`** active Method Atom of Form Term Definition.
+
+## Details
+
+The Operator's latest confirmed decision places Terms directly under `Term`, initially flat, and assigns their authoritative lexical definitions to Content Role Method with Form Term Definition. This supersedes the earlier Requirement-role meaning-owner choice. This governing Rule remains a Requirement Atom; the structural Term-kind definition remains R/Entity Definition. Neither is retyped into a lexical Method.
+
+Entity Definition Atoms, authored Semantics or Details, consistent use, and derived views do not become a second lexical meaning owner. Duplicate active Term Definition Methods are an authority conflict even when their wording agrees. A legacy Requirement Term Definition cannot remain a second active meaning owner after its admitted role replacement.
+
+Reusable `Package`, `Unit`, and `ID` do not become unique complete entity names merely by being Terms. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names or case-folded aliases. Authored Subjects use their full admitted expressions. `ID` keeps its approved meaning across those uses. No dictionary Projection, extractor, lookup, entity renaming, or parser inference is required.
+
+CA-R-1279's canonical GOVERNS obligation remains applicable. A defining Claim may explicitly introduce its lexical Term target using Current authority under CA-R-1194 and CA-R-1931; lexical composition alone does not create one. The flat target family is `Term//<Name>`, including the approved target names `Term//Empty` and `Term//ID`. Those examples do not themselves define every Term. Optional terminology consumers must follow the Method-qualified meaning-owner selection without becoming prerequisites of Term meaning or implementing the deferred Terms Graph.
