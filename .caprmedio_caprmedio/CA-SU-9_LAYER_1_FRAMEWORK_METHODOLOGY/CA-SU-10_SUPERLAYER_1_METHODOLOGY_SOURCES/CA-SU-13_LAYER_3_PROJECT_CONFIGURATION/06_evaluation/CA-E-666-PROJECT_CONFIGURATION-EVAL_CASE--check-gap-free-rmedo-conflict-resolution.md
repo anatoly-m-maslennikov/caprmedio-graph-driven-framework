@@ -11,7 +11,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
+  - CAPRMEDIO_MODEL <+ Event Record
 version: 4
 updated_at: 2026-11-02 18:35:20 +0400
 relations:

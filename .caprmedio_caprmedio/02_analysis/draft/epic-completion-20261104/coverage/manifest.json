@@ -1,0 +1,95 @@
+{
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/post-application-frontier.json",
+  "frontier_sha256": "b40245922796d93282ec704c0a9900cf02e88dccdd56cb751ba42edbf8e46b5c",
+  "audit_data": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/projections/audit-data.json",
+  "audit_data_sha256": "d0cefa074ea78f58bb20ce4e63b4644a9726c03fe8c14d9be426075a873102f7",
+  "generation_manifest": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/projections/generation-manifest.json",
+  "generation_manifest_sha256": "82b586e3ca56f14aa015a8175ad3f8d2f51aba8200eaf91944035f27c90ee3c0",
+  "flag_counts": {
+    "subjects": 64,
+    "unresolved": 26
+  },
+  "previews": [
+    {
+      "atom_id": "CA-R-2690",
+      "version": 1,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2690-CORE_META_MODEL-RULE--derive-scope-unit-places-from-declarations.md",
+      "source_sha256": "da2c4ba8c71e593979e6e0a03b64957c7d2aa9190c5ffe17034ec57ad99ddedd",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/CA-R-2690.preview.txt",
+      "preview_sha256": "3d3b914f86055e775516e25b6a38c995bd0fbf5c1089daf4fa17c82a92c7a94f",
+      "old_subject": "Atom/(.Role := Delivery)",
+      "new_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)"
+    },
+    {
+      "atom_id": "CA-R-1014",
+      "version": 40,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md",
+      "source_sha256": "4f4474a7778768b80cc324511be9e1f01afac85259bf3c821db4e4f9e1cb5108",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/CA-R-1014.preview.txt",
+      "preview_sha256": "912f1e4aa77afc21b6fb063857737bcd760b86657ba2ea28294691312c312baf",
+      "old_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Governs",
+      "new_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active"
+    },
+    {
+      "atom_id": "CA-E-403",
+      "version": 36,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-EVAL_POLICY--report-exact-claim-value-set-consolidation-candidates.md",
+      "source_sha256": "f06435eb38d8d58e67c0a17ee8184ae88f997c179e81fc8b93af2e99c5597f0f",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/CA-E-403.preview.txt",
+      "preview_sha256": "181df626b42d6f10606017d2f6146953de4bdb51b63638473a7eca81199f5b28",
+      "old_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Governs",
+      "new_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active"
+    }
+  ],
+  "reference_sources": [
+    {
+      "atom_id": "CA-R-2702",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2702-CORE_META_MODEL-DECLARATION--declare-atom-header-role.md",
+      "sha256": "761c8aa0a967e458a2b4299aa8c426e22895ea3864d61515c4bd9fe12be4c068"
+    },
+    {
+      "atom_id": "CA-R-2515",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2515-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "sha256": "20d6125efa919b669f8230f905d394ee3bf79233d4c14ea18eb9f216f8cf6867"
+    },
+    {
+      "atom_id": "CA-R-2714",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2714-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-active.md",
+      "sha256": "4473cb7be670b15cc96de8c34ccccca9377839d820ff237efc0e1a9b04500b66"
+    },
+    {
+      "atom_id": "CA-M-450",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-450-CORE_META_MODEL-TERM_DEFINITION--define-id.md",
+      "sha256": "419fdb8b83d9df113d27b3472fb26d345063961e9a3a8d2164ea4c6ce6627b2f"
+    },
+    {
+      "atom_id": "CA-M-453",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "sha256": "dd60c8d121d9d8cd62a91aaaa85531012a829bcdac6a106715297f29459c4238"
+    },
+    {
+      "atom_id": "CA-M-454",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md",
+      "sha256": "db1436c8bde02ae8ffd65c4909a6e54f068982fd763a28892afea74df554419a"
+    },
+    {
+      "atom_id": "CA-R-2532",
+      "version": 8,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+    },
+    {
+      "atom_id": "CA-E-671",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-671-CORE_META_MODEL-EVAL_CASE--validate-settings-boundaries-and-scope-unit-declarations.md",
+      "sha256": "d8276e59cf186a398f194cc424f484d49c038e135261c7af444b8acb7a6289fe"
+    }
+  ],
+  "status": "REVIEW_ONLY_NOT_APPLIED"
+}

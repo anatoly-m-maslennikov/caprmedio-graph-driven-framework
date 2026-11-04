@@ -6,7 +6,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Package/Implementation
 version: 31
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

@@ -12,7 +12,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Package/Implementation
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio

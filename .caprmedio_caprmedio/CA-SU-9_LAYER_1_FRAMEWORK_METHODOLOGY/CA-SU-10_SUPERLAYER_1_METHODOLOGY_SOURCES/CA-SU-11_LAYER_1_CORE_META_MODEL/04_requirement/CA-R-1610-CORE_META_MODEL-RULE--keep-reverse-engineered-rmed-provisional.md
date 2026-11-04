@@ -7,7 +7,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Header.Status
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Package/Implementation
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
 version: 25

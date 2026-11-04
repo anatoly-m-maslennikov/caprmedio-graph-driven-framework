@@ -1,0 +1,1702 @@
+{
+  "source_frontier": ".caprmedio_caprmedio/02_analysis/draft/property-instances-20261104/post-application-frontier.json",
+  "source_frontier_sha256": "b40245922796d93282ec704c0a9900cf02e88dccdd56cb751ba42edbf8e46b5c",
+  "interpretation": "All previews require review; any Framework Settings substitution is held due to CA-E-671@1 and CA-R-1750 distinction. No Current edit.",
+  "items": [
+    {
+      "id": "CA-R-047",
+      "source": ".caprmedio_caprmedio/04_requirement/CA-R-047-RULE--separate-self-improvement-stages.md",
+      "version": 37,
+      "source_sha256": "a4969bf70b2a40dc8746bc0a392d32bd0d2e31c50c32d735be4304fda124ad8c",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-047.txt",
+      "preview_sha256": "004c456acf4a64e7bb9f92ac70d6f4abdd21fd3e2826b6fce2e1c4145ea81709",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1407",
+      "source": ".caprmedio_caprmedio/04_requirement/CA-R-1407-CAPRMEDIO-SCOPE_CONTRACT-RULE--the-caprmedio-instance-and-the-implementation-form-a-graph-of-graphs.md",
+      "version": 28,
+      "source_sha256": "97ffbe17abccd29242c4471fe9dfc334e42723a97f923be1200fa454cce55770",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1407.txt",
+      "preview_sha256": "2e6ad60505a7a2769ce551b001be0279250086f759a532e4aae75a5e82972ed2",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1421",
+      "source": ".caprmedio_caprmedio/04_requirement/CA-R-1421-CAPRMEDIO-SCOPE_CONTRACT-GOAL--keep-the-framework-configurable-and-extensible.md",
+      "version": 23,
+      "source_sha256": "c4fb697b0a0035ddb5082bc433ac109568eb6a2091f5cff18d04c596fb073047",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1421.txt",
+      "preview_sha256": "e195fda712882e60fc00210996390e3890db51bffde3a3a7f49424d5b6f96cb3",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-2448",
+      "source": ".caprmedio_caprmedio/04_requirement/CA-R-2448-CAPRMEDIO-SCOPE_CONTRACT-GOAL--keep-valuable-project-information-recoverable.md",
+      "version": 5,
+      "source_sha256": "413ca22c69e591696df18e276541329790eedabf094b6154510c5d656de2e7a7",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-2448.txt",
+      "preview_sha256": "67789d11eed4ddd98f68cfdc49928e660c5f2ef36cb3e762f117e2a2ec04b323",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-634",
+      "source": ".caprmedio_caprmedio/04_requirement/CA-R-634-RULE--target-project-improvement-at-the-system-being-developed.md",
+      "version": 22,
+      "source_sha256": "01cc5c0b2474a50776d0fb4316d737429d1a0cc4c58718cba83dd87d8d2a64d9",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-634.txt",
+      "preview_sha256": "fac1bc7555db198e7d5ad5bf05d5853fb5b2a2486f827f7839702b7dc13ea26f",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-832",
+      "source": ".caprmedio_caprmedio/04_requirement/CA-R-832-GOAL--select-optional-capabilities-through-configuration.md",
+      "version": 35,
+      "source_sha256": "dde2603f75aabe1116542394ed8e7a3df6a19ab7c385778f080d1538bebab124",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-832.txt",
+      "preview_sha256": "bc1f01fc6b491e1ea7d3c1a54c937a0268162c2e8fec4822f197efccee53d022",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-M-006",
+      "source": ".caprmedio_caprmedio/05_method/CA-M-006-CAPRMEDIO-SCOPE_CONTRACT-ENG-POLICY--keep-the-whole-project-coherent.md",
+      "version": 31,
+      "source_sha256": "38fd34e55ed223fa7950520bbc47138c76e2fe3a0f84461018f5cb00371d223d",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-M-006.txt",
+      "preview_sha256": "57777a88746b31d16e60ddf8adc2c87441333a1b422f1db77567134c10522736",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-M-100",
+      "source": ".caprmedio_caprmedio/05_method/CA-M-100-IMPLEMENTATION_METHOD--optimize-flexibility-at-its-declared-priority.md",
+      "version": 27,
+      "source_sha256": "86937702ab07d1f248f803bd36d027cb1dfe9d5d0bc8d69b27a150a192ab99d5",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-M-100.txt",
+      "preview_sha256": "ba13cb9b55b335002d34ece4000fdaa966d7924126de73fdc8492bbce41e515b",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1052",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-RULE--separate-project-settings-from-the-project-scope-unit-graph.md",
+      "version": 41,
+      "source_sha256": "55a4d84ce8866b7ee6b56d9029db5a9ccca21f5f4a57654a735ff6c39d4bdcf5",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1052.txt",
+      "preview_sha256": "7e70940cf90cd6c05b5ba3096a995daac1379caeb6e8836125c79ba440664412",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1207",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1207-CORE_META_MODEL-RULE--separate-project-configuration-rules-from-current-settings.md",
+      "version": 31,
+      "source_sha256": "fd442f000f8b38f8764f967850d3f31b753003d65507cbee9e983617a6abea4c",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1207.txt",
+      "preview_sha256": "f83b04eb4ba995dd9d706033ad6273f4f2ca16c1f805a9cd85bc21e13f823448",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1375",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL--restrict-methodology-source-expansion-to-core-permission.md",
+      "version": 33,
+      "source_sha256": "2103e66bec8988ad7fdfbe524562e720a4f8fdcc3b14c5750f87b90753d23491",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1375.txt",
+      "preview_sha256": "d8a147b45eae965feab3c1512f1b1f4334c5cda1e826e5b25bbfc161a3b8cb1b",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1404",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL--keep-framework-instance-settings-outside-the-atom-type.md",
+      "version": 26,
+      "source_sha256": "c2312aa4988e589e6ac33c3a0adc801ae23644d5e90b0b12d947e5cc1c165e42",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1404.txt",
+      "preview_sha256": "2ad1591b7fe41e20f542957c26ea82e3c6d48f4195a23da11739c115d72af899",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1428",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL--permit-confidence-threshold-defaults-and-overrides.md",
+      "version": 32,
+      "source_sha256": "4fd0a513d98f08920fbcfde8aacf54f9ecbc7f92fab2d2861d54471e0d566980",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1428.txt",
+      "preview_sha256": "e09a1a2b149fe3909b898deebd30e9ac422f82ac7a7aab56fe9d2d1d4a5c1619",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1439",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1439-CORE_META_MODEL--limit-reporting-mode-effects-to-presentation.md",
+      "version": 23,
+      "source_sha256": "ec87243bd1702001a0c133ce35f998247544ec35da26f9d68988432090f2b20b",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1439.txt",
+      "preview_sha256": "c4846b37901f77deea9c67de92be6d36139be52f83713263faa6e08513834eea",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode",
+          "new": "Project.Settings.Interaction.Reporting Mode",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction",
+          "new": "Project.Settings.Interaction",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1440",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL--preserve-mandatory-information-in-every-reporting-mode.md",
+      "version": 24,
+      "source_sha256": "7cd4c17a4e05251083b1b060261b553526ce9a10a4a1ee869fcf9069d8e6a56e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1440.txt",
+      "preview_sha256": "16c0a246a34a4d83dc2864d08da006ccf4fe664a3c185af203f7b764a291bcff",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode",
+          "new": "Project.Settings.Interaction.Reporting Mode",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction",
+          "new": "Project.Settings.Interaction",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1441",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL--define-default-settings.md",
+      "version": 26,
+      "source_sha256": "4e8fb187de61707999f26e1d24c2a1b7e0afb67634e3a3ebf72ce4793cd637ac",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1441.txt",
+      "preview_sha256": "6cbc5b79f8f2051fc9c311f08ff55da4e6566ff5287d358b70c0d7195247092a",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1463",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-RULE--derive-log-views-from-the-shared-journal.md",
+      "version": 26,
+      "source_sha256": "b56f8ccc14986915d5fda2396e846cb87ef435033de5d2f92ed562694bfa38e2",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1463.txt",
+      "preview_sha256": "4a17e368ad98240a552e9645ef8d775db1576ec5693bbc56357561fdbf32d955",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1489",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1489-CORE_META_MODEL-RULE--permit-implementation-retry-limit-defaults-and-overrides.md",
+      "version": 25,
+      "source_sha256": "72bfe645888cf06c14471da14f137aa18f5d943685aa30daea7b62f17fa47731",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1489.txt",
+      "preview_sha256": "6f7bf8e01f252cc184c16aa64d02b0532c0043251438102e0b3905489c87bb0a",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit",
+          "new": "Project.Settings.Implementation Retry Limit",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1491",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md",
+      "version": 29,
+      "source_sha256": "de90f84f91279ca244619a88e7408dba13722e852a498410d23cb3adc4517ad8",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1491.txt",
+      "preview_sha256": "c5085cf95922e012bc55a57fcaaeb4a0a536ded9ea21296e59090a07a16547d8",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1497",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1497-CORE_META_MODEL-RULE--keep-lineage-analysis-distinct-from-evidence-of-its-correctness.md",
+      "version": 24,
+      "source_sha256": "9ce2eed6057eba34160d9763460b8e5ff35ae1ca84e1acaa837de36e722a9899",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1497.txt",
+      "preview_sha256": "525e5833d1e9e140c9b31e1cced31feef3ee942a3bfae00a267707a7694f866b",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1504",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1504-CORE_META_MODEL-RULE--keep-evaluation-implementation-coverage-explicit.md",
+      "version": 25,
+      "source_sha256": "913fd3df6a464eeed6f1b928defd422b4d9c0f3b1e43e546d738ddd934c192ec",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1504.txt",
+      "preview_sha256": "a4b59961fd6d22b147f817e67617addd38d48e5849f4b2647bb4bbe62382695a",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1505",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1505-CORE_META_MODEL-RULE--keep-evaluation-realization-chains-distinct.md",
+      "version": 27,
+      "source_sha256": "ef2fd8bf344d1e65fff6a9f5340206551287e1e081cfa8a9b4d8370a0d2c0470",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1505.txt",
+      "preview_sha256": "47aa3ddb73724a586511890c402fb8c1786dd07f08ea482710bea4af89678fa1",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1528",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "version": 22,
+      "source_sha256": "7a35338e70a82a58fd25cd61a66e1242ac7b5d365aa47fa223d966916d22db6d",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1528.txt",
+      "preview_sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1548",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-DEFINITION--define-specification-content-roles.md",
+      "version": 24,
+      "source_sha256": "227a12eec11ddb7c99963f41049accdb377d6863008feb22cc346e4a4b4aad2f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1548.txt",
+      "preview_sha256": "3407e3d4df02ce53a2a59203f8bb0f1a87ed96cc3f303f7cf80d3a108a03fbd0",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1567",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1567-CORE_META_MODEL-RULE--keep-change-and-implementation-collections-at-standard.md",
+      "version": 25,
+      "source_sha256": "190bc2160a87eb40f39fc356f301c26252925fcd3344cf254c5a51ff9cfb80ea",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1567.txt",
+      "preview_sha256": "6d041f94c657426b2ce936bc9176afea34090121c38c49183641433e51d218d0",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1568",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL--permit-projections-as-implementation-outputs.md",
+      "version": 26,
+      "source_sha256": "22bc7a73f5bb154e70128978a07ffbfa208301771315664599e8bd2ffc27fd28",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1568.txt",
+      "preview_sha256": "693b9f373d3ffbaa6d06c93ce59856e6cb46ba39674a33fc9173e2bb62e01fa1",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1587",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-RULE--require-an-effective-confidence-threshold-for-plan-execution.md",
+      "version": 26,
+      "source_sha256": "d0dcffc6432058f1fbd40d9403c4a621b233040827206a85907a057daa0f5cbc",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1587.txt",
+      "preview_sha256": "80553ec89953ab5f101251d91ede1f2c75c34f35edd4c4ad88282eafa9787a1b",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1610",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1610-CORE_META_MODEL-RULE--keep-reverse-engineered-rmed-provisional.md",
+      "version": 25,
+      "source_sha256": "013fe59ea1f65f5011f422421e837b239686f47afd9f8cfa150978400fd34148",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1610.txt",
+      "preview_sha256": "7cd599521f0dde4435badc9363399fee01eb925876dc6edba9067f8dd46e8590",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1628",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1628-CORE_META_MODEL-RULE--allow-silent-and-verbose-reporting-modes.md",
+      "version": 41,
+      "source_sha256": "5644c380d8642f11095d073f83971dd89aadf70856d362ad20f8c713ce00ce0e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1628.txt",
+      "preview_sha256": "4936788b57bbaf0c64abb0578667517a6fdfd9288093be121ed679eaa6a53561",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode",
+          "new": "Project.Settings.Interaction.Reporting Mode",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1629",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-RULE--effective-priority-conflict-selection.md",
+      "version": 39,
+      "source_sha256": "635e69b32631817296e72aa8912641e068c3a4f81acc56bdafcbb8614309bb11",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1629.txt",
+      "preview_sha256": "91a5f10cfcdb3bbfa1e34a68fc51a640de460f60b43804b30109632ddead042b",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1630",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-RULE--gate-atomic-admission-and-promotion.md",
+      "version": 41,
+      "source_sha256": "b04b475be16eac265df9ecc4af54bf1ecf6024e8cb4dd5b0367833aaba148ac7",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1630.txt",
+      "preview_sha256": "356d892961bd4b108fd683d6fcde43f346653149fdbb77ac9f485dd41e53b6f8",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1631",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-RULE--configure-optional-projection-activation.md",
+      "version": 34,
+      "source_sha256": "8d38aa78d67d72cc13ae9fbc999dd0029b6dd0e007a19226ba94c2d817396cde",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1631.txt",
+      "preview_sha256": "575b811b020bd1e3f98bab86e85eb82a71f7d04ad5167201237944dbbda141af",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 2
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1649",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-RULE--journal-projection-rebuild-events.md",
+      "version": 34,
+      "source_sha256": "53095960ef40ec519c8f72104fbb88907a4a4f49d8878a05fe377b93c9e5dbb9",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1649.txt",
+      "preview_sha256": "62de912bd543f6170e8ad9f184540023cc2d66d5e160e84094156f0b769cef3d",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1652",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL--configure-necessary-information-confidence-threshold.md",
+      "version": 41,
+      "source_sha256": "825efc5dec8b194d7c44c2401b68d7f6fcf19b62d227489d959af5a3b66307f7",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1652.txt",
+      "preview_sha256": "0db3bb718d566c06680251a1bd5b89129854916c0156bf1d19ed487ecd235839",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold",
+          "new": "Project.Settings.Confidence.Necessary Information Threshold",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1655",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-RULE--resolve-artifact-classification-from-authority-and-configuration.md",
+      "version": 45,
+      "source_sha256": "0d2d79957067097ad57d0494ff28bae3299c6f83c998808087758a3fe0681465",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1655.txt",
+      "preview_sha256": "2ab05a2ad7d08ab2cb7cb1bacaa036b4e013daca52f2c31d93ef33cf34036c7f",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Authority Modes",
+          "new": "Project.Settings.Authority Modes",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1682",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL--normative-atoms-are-the-caprmedio-specification.md",
+      "version": 41,
+      "source_sha256": "fec03e89033e2ef86ed0f0e14cf8c4466f1c8cd7ee8fa427f949fc15e495568c",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1682.txt",
+      "preview_sha256": "8e396afd622580c45c19c75abbe77ed50852054324e07f41ff1efa6f6274727b",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1683",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL--authority-evaluation-and-operations-remain-distinct.md",
+      "version": 45,
+      "source_sha256": "a2382d0507941274dc86105535249ed3bb0722519c83aba4c46bcf0041f5e194",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1683.txt",
+      "preview_sha256": "cfa24e7a5a41ff45b3f525cd0635e4577f940c1a611d36a939881c6ed05a4739",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1694",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-RULE--requirement-keep-requirements-realization-agnostic.md",
+      "version": 41,
+      "source_sha256": "4e1aab5abddcd1f8a4f2590877a999aa7346397b49b7866134bc3fd2f93fdd80",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1694.txt",
+      "preview_sha256": "66fd377e70ef2dcb35c793568b25a27b01eccf795a39315c7abad9d41ec6ab13",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1702",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "version": 49,
+      "source_sha256": "dd8f5e49ec50d3c1b2473da001ebf357e9b16cd11608594d13bbfab072a77a37",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1702.txt",
+      "preview_sha256": "d3ddebf0f7f78567434a6950d6ff3933dee32e5af027be9323c6fb3e53a28088",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1703",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-RULE--use-implementation-overview-as-a-projection.md",
+      "version": 40,
+      "source_sha256": "5f8ae47413affdaf940598d8cc3ae283e4678103e4af367d7ecc77b986d99801",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1703.txt",
+      "preview_sha256": "20dbd89fa31f9c349013127c64a527b53840f5c01b5fead0f6927ac6dd468290",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1720",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-RULE--use-one-project-journal-for-governed-provenance.md",
+      "version": 38,
+      "source_sha256": "e4e23f42ce0818131075826ba67c94f95ea0e1c9b01aed2b2803aadd5a2baa21",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1720.txt",
+      "preview_sha256": "2b8f8698154fc9d627ee4a78258881835ebc2c23f41906f8b34b65d4086e0c11",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1724",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL--define-configuration-selection-and-precedence.md",
+      "version": 36,
+      "source_sha256": "e26c1c32a1c1d26c07e1972c4639cb11a767013b25660d46f5ddba40c8740ae6",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1724.txt",
+      "preview_sha256": "ce870b467b0c2ca5f9bee2700edd988dd5cfd2bdfe7897b2f604d491014d56d4",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 2
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1740",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL-RULE--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "version": 41,
+      "source_sha256": "01334463a83da244a4f6bc2761fb8fccb328a656ae8d15d1fdf235415c880c66",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1740.txt",
+      "preview_sha256": "44f88bc4169ac78316a3b8e8948c6ba5953a31a33e90301ae1667702f4f687ad",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1772",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1772-CORE_META_MODEL-RULE--minimal-default-project-model.md",
+      "version": 37,
+      "source_sha256": "8f085b265116e5772b85ea73e5f5bf3bd6b2776d1bb4022e2b321b10f2829d98",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1772.txt",
+      "preview_sha256": "42a2f6ea0450b2616c1641b6b125c45f624e57482d0b7c31ef028279f9dfd8c0",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-2245",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "version": 8,
+      "source_sha256": "7d393e6c90f6971355c27611eab95fb40d9892f2db6b6aac30a1946ecb3a8716",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-2245.txt",
+      "preview_sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae",
+      "changes": [
+        {
+          "old": "Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)",
+          "new": "Atom/(.Header.Role := Operations)/Workflow",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-2246",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+      "version": 8,
+      "source_sha256": "a75f646117137ef848908ac52ce11ee26f3c0f7429728e227f1b9c66440f7ab9",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-2246.txt",
+      "preview_sha256": "5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-2271",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2271-CORE_META_MODEL-ENTITY_DEFINITION--define-framework-settings-confidence-and-capability-selections.md",
+      "version": 3,
+      "source_sha256": "978f4689ea6ef94e148cd47f72eacdc680ef3fc1b4dc4d9835a2f618d0755fd2",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-2271.txt",
+      "preview_sha256": "989c770317ada0129a9e089ae03ae3f509cccb4773ac5445d68778fa5753b3e4",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-380",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL--configure-the-semantic-resolution-confidence-default.md",
+      "version": 44,
+      "source_sha256": "5758398a3168932dc73e922e7a70d391634e9c28fdf995b7f377920f27cbffa6",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-380.txt",
+      "preview_sha256": "e8ef6a09735f38fbfd8e2d73c4883b8f5282718015cbc1b10963d1e154382e52",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Semantic Resolution Threshold",
+          "new": "Project.Settings.Confidence.Semantic Resolution Threshold",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-626",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-626-CORE_META_MODEL-RULE--project-the-current-scope-unit-graph-without-owning-authority.md",
+      "version": 43,
+      "source_sha256": "a722e6d734ff0945ff9ec4ed8d2c4cd76ab028b0d903aeb69a02297ee442a956",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-626.txt",
+      "preview_sha256": "2e3140f09f131ddca32425d70d4e8f9c68dd1d9d6feaf63397a0e2d5ae75643a",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-954",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-RULE--target-one-implementation-result-with-each-demand.md",
+      "version": 33,
+      "source_sha256": "a2c52a33d6ef2370b05922e5aaad5fdc5123f4897ef77ac40d1f5bec79e96beb",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-954.txt",
+      "preview_sha256": "52eb4fac30d8602fb3e4ffd940f192e868b9f2a96fa5334ba279df0ea367ee11",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-M-271",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md",
+      "version": 29,
+      "source_sha256": "c3fee4fb0f4f733a805b5122b2e38da7af8c8eb39ac5208912b1e00f05663c1a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-M-271.txt",
+      "preview_sha256": "9a4292d56d25e1130a9f787f58c78b9d1d476d99c6322c20ea2d5abd97d4671d",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-M-279",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings.md",
+      "version": 24,
+      "source_sha256": "a0eaf436f740ee68608eefa952d3dd46d6db7ae044d66995922225acf123a756",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-M-279.txt",
+      "preview_sha256": "7189b2e8c778f4d89dabcaddf1edea2a865d29011cea20241f68fcf2fc1b53a3",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-M-295",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md",
+      "version": 32,
+      "source_sha256": "e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-M-295.txt",
+      "preview_sha256": "7e58afdcca1614e3a0a0eff88215e91dedb2cf886cccbc84c7a8e739d5397dcc",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-E-241",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md",
+      "version": 47,
+      "source_sha256": "0f2673ddf610763e72e15de7d45bee76392d9d173d504e6246f03697f108f487",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-241.txt",
+      "preview_sha256": "7f01c875ffd77403b14b25a6f0dff5bac64a94aa749db944f1b40d62335bf15d",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-E-443",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-EVAL_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+      "version": 34,
+      "source_sha256": "8242efa9ffd4494184d19f7bd667b20537b363c4ca69336cd8f3be3e8c59a1dd",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-443.txt",
+      "preview_sha256": "557baaf47d3ee16eb6e06138692bc8baf1e9027d3657dfd8dd28cf2447279465",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-E-450",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md",
+      "version": 27,
+      "source_sha256": "3f60f832dcb4b1e40193d9823ffb5c8facf0f5576a94ac0a864f1f4b1ab57e15",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-450.txt",
+      "preview_sha256": "d575c7b26648bd8a3533114d8ef29a6b0e4c798966f9433271be4024a8e1b9da",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-E-458",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-POLICY--validate-authoritative-framework-settings-artifact.md",
+      "version": 35,
+      "source_sha256": "0673486890ca4f0517debe3baee67fe872d0c04788af5d5e6efc2f3c7f44ac4e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-458.txt",
+      "preview_sha256": "018f2b5a61a656591a29266f08ee6c6bcd1c7e159c2716c1be99a1c424b831a6",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 2
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-E-459",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md",
+      "version": 39,
+      "source_sha256": "d50d425e46708cecd12c05accffdd9ac7174f670f0a9b65d0ad981182e3e5b38",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-459.txt",
+      "preview_sha256": "077066e916b2cfe1bf51f2fcf627817894d360470e03c0639d90b78a10752f90",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-E-476",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-EVAL_CASE--check-the-journal-storage-boundary.md",
+      "version": 23,
+      "source_sha256": "c3cc1ee907d1380ef50b7dd78b96d85753660df8e7e13abad984f52a6f4317b2",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-476.txt",
+      "preview_sha256": "e75e878569f91ddf6c60f3a47c6bab8132a2827a1d6482269b14de7e716447f4",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-E-486",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-486-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+      "version": 23,
+      "source_sha256": "185027d4a784f42d086775c50704de8b3f74522214414452ab04fc65f65b224c",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-486.txt",
+      "preview_sha256": "05975fc46ce47e6bd7001cb410f16c34a44969c54685f29ad3a99159ec1ecfdf",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-E-522",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-EVAL_CASE--storage-boundary-classification-interpretability.md",
+      "version": 19,
+      "source_sha256": "2eeb2ca1d3eed36413fa28d6197463467b3a108308269e4f484dda70455664cc",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-522.txt",
+      "preview_sha256": "5550f842418739f0947a1e4cef3e0f71b1c1313494e262f144f4d7e34e9b8b28",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-E-523",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-EVAL_CASE--journal-view-integrity.md",
+      "version": 18,
+      "source_sha256": "b8dd97578d23681c9365dfb39a90f62dc9cb8505c2163e89e8d20b1eaed1c801",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-523.txt",
+      "preview_sha256": "7f393fdf82c695be630bf1bd352085f753137ddbb04c6641740cf2db099f09b2",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-E-624",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-624-CORE_META_MODEL-POLICY--validate-generated-only-provenance-boundary.md",
+      "version": 38,
+      "source_sha256": "0af15d79fae5f73fd84aec7a15e8ba1d87ae0fab42dc3834a0c7ad120fd66d5a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-624.txt",
+      "preview_sha256": "491e82c9309473bb1cea68b6bb3182532dec6aeda23d484b967883e25a1be12d",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-D-308",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-ENG_DECISION--serialize-journals-as-append-only-carriers.md",
+      "version": 26,
+      "source_sha256": "f0f072ab896a587f290f591d24c41b63ba0bb73daf17eb3a63895e4668a8995e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-308.txt",
+      "preview_sha256": "a348c5996bfa13921babc45d0ececb9b34faf1e51a47084225fe93189afeaf16",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-D-358",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL-ENG_DECISION--identify-framework-settings-artifact.md",
+      "version": 26,
+      "source_sha256": "2d5f06a8b5ce2be078c71336a10c77086ffe4167718c3fa00f0dfbb09385ba1e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-358.txt",
+      "preview_sha256": "8bb7f6ad72485b4ed7fd59d9e0e3371eea3a6c5f9fabf8b94a0b5c1c74c44003",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-359",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL-ENG_DECISION--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+      "version": 29,
+      "source_sha256": "eb11269ab9b7f71e354da1cf8390330a92183dd0495e2f9d8abe6e7d8b9f69da",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-359.txt",
+      "preview_sha256": "6db485511e6872b191053ecb4a0540e09c520048dbc4080902e1b6ee7cada9fc",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-360",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL-ENG_DECISION--bind-framework-settings-revisions-to-journal-receipts.md",
+      "version": 27,
+      "source_sha256": "f54f12b4b3464ed0572c9976f7d88c1877998cdc5ba2df511e6ded84e4105238",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-360.txt",
+      "preview_sha256": "4953779b32d892767ae057bfc6c865d579ca326684e8faadc023aa39df48ed67",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-361",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL-ENG_DECISION--serialize-framework-settings-content-in-toml.md",
+      "version": 32,
+      "source_sha256": "ef9872d2e414ce9d88f3801278706ccb04fab2958c5e5dc3eb7a52410fd7973a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-361.txt",
+      "preview_sha256": "67c35f939a15a05addbd87429b4b674208685d2ed593478f6435ddf2c48971d8",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 2
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-365",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL-ENG_DECISION--bind-project-settings-revisions-to-journal-receipts.md",
+      "version": 26,
+      "source_sha256": "5ae7dfd02828173ce44383686cd3644b1351ab2049c7614d4fd988563ddef5d9",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-365.txt",
+      "preview_sha256": "3b2578acb20ec10dbbf560e81d351325017d2bdcd5721a90619d88a0a70f10b4",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-D-366",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md",
+      "version": 30,
+      "source_sha256": "81060768aac09402e88887b772cd19e90856578352a15f5a3f087483a153530f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-366.txt",
+      "preview_sha256": "d8c52656d7935ec0e0da093625a4bc36147072112cab860af4c9be4f6f8213c0",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-368",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL-ENG_DECISION--serialize-the-necessary-information-confidence-default.md",
+      "version": 29,
+      "source_sha256": "a3de70ed1af9847f9ee82f6fd49fddbf4a4aeb4eef079fd5c3156f54a68f68e3",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-368.txt",
+      "preview_sha256": "19019d8ae61e734715824e4d1a63b69cd61cf872f55dc4bf5eb40db2bfcc3bce",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold",
+          "new": "Project.Settings.Confidence.Necessary Information Threshold",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-369",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-369-CORE_META_MODEL-ENG_DECISION--serialize-the-semantic-resolution-confidence-default.md",
+      "version": 28,
+      "source_sha256": "5a572b6fd390733b108c41e1ef5201aba256f5dfba5d77a8d9faf4275b902b4a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-369.txt",
+      "preview_sha256": "19400709fd8b54d24403dc272d173fe8fa70f11a12618ef48575bed95eac8275",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Semantic Resolution Threshold",
+          "new": "Project.Settings.Confidence.Semantic Resolution Threshold",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-370",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-370-CORE_META_MODEL-ENG_DECISION--serialize-the-framework-control-root-locator.md",
+      "version": 26,
+      "source_sha256": "65fb86919b668dd1292be381317c18796d9cf06058a51dcf1aacb9e1e5ac2f6c",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-370.txt",
+      "preview_sha256": "33c2f549603fbb6311267a74d04ce8cad898b68ca8cc33880d9805e3d7f798f8",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Framework Control-Root Locator",
+          "new": "Project.Settings.Framework Control-Root Locator",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-371",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-371-CORE_META_MODEL-ENG_DECISION--serialize-framework-code-root-locators.md",
+      "version": 24,
+      "source_sha256": "bd8ab429f1c8b3f9595f3e88ed9a3fc220052c0a4faf6405751620065a87e5fa",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-371.txt",
+      "preview_sha256": "ef130b6b6a9bd43138074889b1997bbfa39445a746b1666815712d2d4dd1cf6e",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Code-Root Locators",
+          "new": "Project.Settings.Code-Root Locators",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-372",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-372-CORE_META_MODEL-ENG_DECISION--serialize-instance-tool-selections.md",
+      "version": 27,
+      "source_sha256": "4f97abea348b70206f6b64f4d58828c959c340ca4056b97d08fdd87f3cd53e80",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-372.txt",
+      "preview_sha256": "3928f657933325f864dd55e251f59752e660dddfc06edac9a66a2baefaab37d6",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-373",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-373-CORE_META_MODEL-ENG_DECISION--serialize-instance-extension-selections.md",
+      "version": 25,
+      "source_sha256": "884b54e8f3a598872ba71c545256bda70be860cf583f33d67f75d801baa1defe",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-373.txt",
+      "preview_sha256": "f45c6aa92b6238645b0dd8ecbac0dd683ae8ff57e3e441d778c84aa86de0932e",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-377",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL-ENG_DECISION--exclude-atom-metadata-from-framework-instance-settings.md",
+      "version": 26,
+      "source_sha256": "39a9f4dce36bd65ed0f2a289ea6768b44aeaba68c67e4b3afd1b480397a17d51",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-377.txt",
+      "preview_sha256": "a347ff7b75a1b2f4313593f848bf197375c016e454e4b0c00638b8a3cd5408c2",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-383",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-ENG_DECISION--serialize-interaction-reporting-mode.md",
+      "version": 31,
+      "source_sha256": "277f7a7533a72197f9c237a7e871c9712e11cb02fd1a99076d59c88e56e09ce3",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-383.txt",
+      "preview_sha256": "baa9fe07b812ec726749298ec60ab86eeb0e66615c7cd698dce3afd2dc776cf2",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode",
+          "new": "Project.Settings.Interaction.Reporting Mode",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 2
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-387",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-387-CORE_META_MODEL-ENG_DECISION--serialize-atomic-admission-strictness.md",
+      "version": 27,
+      "source_sha256": "5e90f0151371d8c6280d2d00ec56d796b59c66279a51a75ab07216b215b2a8ea",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-387.txt",
+      "preview_sha256": "0da11476bf9f844457d8dfccadfda0f876a0e73795c98f6cf1ce7d40fdb17fd8",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 2
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-390",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL-ENG_DECISION--configure-the-artifact-timestamp-timezone.md",
+      "version": 27,
+      "source_sha256": "71ba0e9b31bb098ff5aebc91021852f6be0b6c6bb70368ad0fc66c9b7c1dc129",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-390.txt",
+      "preview_sha256": "ff9199a9ca460a375e8d31991ed9d69c936935773f002712e7bee0d1f8beb06f",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Artifact Timestamp Timezone",
+          "new": "Project.Settings.Artifact Timestamp Timezone",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-408",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL-ENG_DECISION--reuse-framework-parameter-fields-in-default-settings.md",
+      "version": 24,
+      "source_sha256": "e30baa661f56fb069b4650e23e34d63bd1b7d11c7130116cfacb352b105e3d86",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-408.txt",
+      "preview_sha256": "3e3526b2d3d57d83050a75177222ccdc60a10089b32073cc0ab55d88ee24b439",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-447",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-ENG_DECISION--serialize-the-implementation-retry-limit-setting.md",
+      "version": 30,
+      "source_sha256": "4334b7cadc76ac932c59355d01ff395345a6beb1c1ab33cac68b0235188dbfb3",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-447.txt",
+      "preview_sha256": "2aaa45280bcd33051ad44ec5fd165a7df57009c79bfa431f758b85db6243ba44",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit",
+          "new": "Project.Settings.Implementation Retry Limit",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-485",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-ENG_DECISION--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+      "version": 26,
+      "source_sha256": "5e4f75cef43a1d37d2111aaa176fb2abe0d5d132165f4eab7cf9fe5d78c511f8",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-485.txt",
+      "preview_sha256": "7fa14a1201cc6a94bcc9bbbdb7309bb1e2d466a865a6984989523515f7d9cb20",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit",
+          "new": "Project.Settings.Implementation Retry Limit",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-D-654",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-654-CORE_META_MODEL-POLICY--represent-occurrent-information-through-continuant-records.md",
+      "version": 3,
+      "source_sha256": "e9601fe894e4fc8a7df29e94440bb4dda1a3e2f2312e8bdbf5ce7790bc410951",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-654.txt",
+      "preview_sha256": "38f80d0fb6780332a63477153a4fe90cf43dd9dadccd3fb1d7904a85abe8f1ca",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1228",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1228-PROJECT_CONFIGURATION-RULE--include-all-applicable-methodology-sources.md",
+      "version": 35,
+      "source_sha256": "17ea9845e56cf8477465201b31982a3c0d883b4142d1dc508adbae9c5601f2f4",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1228.txt",
+      "preview_sha256": "13df7dca8d29bdea399bccff35ba6479d99ec01f2ae12df4d62218db1581158f",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-R-1317",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1317-PROJECT_CONFIGURATION-RULE--fail-closed-on-unresolved-methodology-conflicts.md",
+      "version": 31,
+      "source_sha256": "7b0a2fdce73086145b89cd42c11f26d82e12483c7577b59b25dc3cec0bf2fbb5",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1317.txt",
+      "preview_sha256": "b29925d2f3a34a56a41e36ead21b8e83adde354081472e1088c67fa6788daedd",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1514",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1514-PROJECT_CONFIGURATION-RULE--keep-implementation-specifications-independent-of-production-workflows.md",
+      "version": 27,
+      "source_sha256": "37f42624e8a95f336cdd79960d357889a12a4118e226a6d87671fbf3dc88fe6c",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1514.txt",
+      "preview_sha256": "ec8fa729e7dcb96f7311c2accbba0becdc67706428897c450e1287c01edd8ad7",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-1692",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1692-PROJECT_CONFIGURATION-RULE--requirement-freeze-a-version-only-at-release.md",
+      "version": 38,
+      "source_sha256": "c081d7099ed85319f16af2d9e30e3ca98b01cf5526fd0c2a790a023eda626dde",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-1692.txt",
+      "preview_sha256": "857d7c8d389491a247b9a6c8bedd9f168ba998efcf66f9f48ff0c90cf4e254bd",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-R-622",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-622-PROJECT_CONFIGURATION-RULE--keep-selected-settings-in-their-authoritative-settings-artifact.md",
+      "version": 34,
+      "source_sha256": "eadcdf57ad54e3ef5aeefd0c760d36a19581322b869d1ae0d3b6b9ac24c0d36e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-R-622.txt",
+      "preview_sha256": "80dfcf76fb5fc8009e8afab8da2eb4258fc8e44e5d0ae1d367cc62438ba24362",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-M-277",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-277-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-silent-mode.md",
+      "version": 33,
+      "source_sha256": "18380d048dae6c357bb4071c33717272dcc574f28029b01daf71fe575fba67e1",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-M-277.txt",
+      "preview_sha256": "3e5d2e1bb6e6ac4bc757287c079d07898f9d4d4edd2e2b1abb79fc5c87f84ade",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode",
+          "new": "Project.Settings.Interaction.Reporting Mode",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction",
+          "new": "Project.Settings.Interaction",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-M-278",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-278-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-verbose-mode.md",
+      "version": 30,
+      "source_sha256": "d204168180771af9d07f98225dc524fe1d77d8957a94c4fc90fbf3715cd704b8",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-M-278.txt",
+      "preview_sha256": "7c31faec172bbfdde43eb7b44020c74293122719fd80d4616a62d0c831e8a2ad",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction.Reporting Mode",
+          "new": "Project.Settings.Interaction.Reporting Mode",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction",
+          "new": "Project.Settings.Interaction",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-E-379",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md",
+      "version": 46,
+      "source_sha256": "14cd076704cea5b4d65391b144bbb9edf9ed3e556075abcb4a00711911da0b73",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-379.txt",
+      "preview_sha256": "293b125aecc3dc4830b0b02816dcd58ae3e8aa0013caee65214ffd3dd33078bb",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        },
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-E-473",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-473-PROJECT_CONFIGURATION-EVAL_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+      "version": 26,
+      "source_sha256": "235347ad6f66735c2e03a057243a697d051e7bc52f0e2e6407d91877ef4cffae",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-473.txt",
+      "preview_sha256": "373c344651e06b42bf255545b7d43ee7894ad073e5cf6cafc6e4c268172a6b05",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    },
+    {
+      "id": "CA-E-474",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-474-PROJECT_CONFIGURATION-EVAL_CASE--validate-configurable-release-readiness.md",
+      "version": 27,
+      "source_sha256": "5b6d99dbc9ff0ce24f28b77ccd9774da8f91214aabf60dc4a0c046add30ce93f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-474.txt",
+      "preview_sha256": "8619fce140c8541bb07799c7b2b05662130593881a46a80415400d58b4efa4d4",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-E-487",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-487-PROJECT_CONFIGURATION-EVAL_CASE--validate-workflow-independent-implementation-specifications.md",
+      "version": 28,
+      "source_sha256": "d8cb0f6a17c27bbb4252674470dce3d922f2389a543f59da2e7a8f3635920526",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-487.txt",
+      "preview_sha256": "b4a181680b2ed280e7d566a10d10f0dcb67553e8ebc5619d4f3177e15a94457e",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Package/Project Implementation",
+          "new": "Package/Implementation",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-E-666",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-666-PROJECT_CONFIGURATION-EVAL_CASE--check-gap-free-rmedo-conflict-resolution.md",
+      "version": 4,
+      "source_sha256": "e286cb64c7663dbfcda4272b2f7b486604095a341797723e65e0ec68c8e2bbd5",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-E-666.txt",
+      "preview_sha256": "c81f97dd587998507e9d099c21b083e42d2d8614b20ab2350e61127f69e9fd44",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-D-339",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-339-PROJECT_CONFIGURATION-ENG_DECISION--serialize-the-shared-project-journal.md",
+      "version": 29,
+      "source_sha256": "dacd6a05346078514d5f22584848cad4f2566316c92ee903db1215aa37cdc4b0",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-339.txt",
+      "preview_sha256": "cf469680a7b7cf7d4dab83dff6810faca44cc5b4718d676a3e54202ef40721ad",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/History/Journal <+ Event Record",
+          "new": "Event Record",
+          "count": 1
+        }
+      ],
+      "disposition": "candidate: review source meaning and integration"
+    },
+    {
+      "id": "CA-D-497",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-497-PROJECT_CONFIGURATION-ENG_DECISION--encode-rmed-review-batch-limits.md",
+      "version": 18,
+      "source_sha256": "8941258e7b5c85835ae71d8f18b6ee21af39c40f64f52ea5212048b9dbbbc227",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/endpoints/previews/CA-D-497.txt",
+      "preview_sha256": "883e0a4eb9a743c31b7382eba56975e3f42ff65979672a66fdac3782c2a98454",
+      "changes": [
+        {
+          "old": "Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings",
+          "new": "Project.Settings",
+          "count": 1
+        }
+      ],
+      "disposition": "HOLD: framework instance vs Project settings meaning needs source-by-source adjudication"
+    }
+  ],
+  "skipped": [
+    {
+      "id": "CA-R-1429",
+      "reason": "potential duplicate passive target",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL--separate-settings-boundaries-from-field-specifications.md"
+    },
+    {
+      "id": "CA-D-333",
+      "reason": "potential duplicate passive target",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-DECISION--serialize-scope-unit-graph-projection-generation-metadata.md"
+    }
+  ]
+}

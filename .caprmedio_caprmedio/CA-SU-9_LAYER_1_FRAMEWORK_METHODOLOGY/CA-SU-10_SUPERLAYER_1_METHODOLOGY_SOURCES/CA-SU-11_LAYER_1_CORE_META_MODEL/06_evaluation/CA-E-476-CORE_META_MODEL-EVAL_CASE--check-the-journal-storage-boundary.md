@@ -2,7 +2,7 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Journal
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
+  - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Project

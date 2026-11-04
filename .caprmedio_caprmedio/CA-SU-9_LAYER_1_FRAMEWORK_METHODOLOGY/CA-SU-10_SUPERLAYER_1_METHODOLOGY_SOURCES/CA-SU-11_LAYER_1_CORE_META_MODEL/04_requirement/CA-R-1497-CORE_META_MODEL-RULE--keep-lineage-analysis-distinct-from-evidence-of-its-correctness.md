@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom
   passive:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
+  - CAPRMEDIO_MODEL <+ Event Record
 version: 24
 updated_at: 2026-11-02 15:49:28 +0400
 relations: {}

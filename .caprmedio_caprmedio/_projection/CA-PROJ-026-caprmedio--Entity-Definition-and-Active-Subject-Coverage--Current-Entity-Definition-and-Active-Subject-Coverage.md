@@ -1168,7 +1168,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 08:45:38 +0400
+updated_at: 2026-11-04 09:00:21 +0400
 ---
 
 # Entity Definition Summary
@@ -1191,7 +1191,6 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 | `Entity/Object/Continuant/History` | primary_node | missing | CA-D-329@27, CA-R-1051@35, CA-R-1698@32 |
 | `Entity/Object/Continuant/History/Release` | primary_node | missing | CA-R-1181@30 |
 | `Entity/Object/Continuant/Package/Eval Package` | primary_node | missing | missing |
-| `Entity/Object/Continuant/Package/Project Implementation` | primary_node | missing | missing |
 | `Entity/Object/Continuant/Package/Runtime Package` | primary_node | missing | missing |
 | `Entity/Object/Continuant/Selection` | primary_node | missing | CA-E-460@34, CA-E-481@22, CA-M-121@28, CA-M-273@38, CA-R-1447@25, CA-R-1548@24, CA-R-833@29, CA-R-942@32, CA-R-999@26 |
 | `Entity/Object/Continuant/Term` | primary_node | missing | missing |
@@ -1209,7 +1208,6 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 | `Workflow Run` | primary_node | missing | missing |
 | `Atom.Enabled Relations.Contains` | property | missing | missing |
 | `Atom.Governance Origin` | property | missing | CA-R-1645@39, CA-R-1690@33 |
-| `Atom.Header.Subjects.Governs` | property | missing | missing |
 | `Atom.Local Scope Unit` | property | missing | CA-D-291@31, CA-R-1014@40, CA-R-886@39, CA-R-920@33 |
 | `Atom.Target Scope Unit` | property | missing | CA-R-1596@22, CA-R-1732@25, CA-R-718@44, CA-R-947@40 |
 | `Entity/Object/Continuant/Actor/AI Agent.Permissions` | property | missing | CA-E-230@27, CA-R-846@31, CA-R-852@32 |

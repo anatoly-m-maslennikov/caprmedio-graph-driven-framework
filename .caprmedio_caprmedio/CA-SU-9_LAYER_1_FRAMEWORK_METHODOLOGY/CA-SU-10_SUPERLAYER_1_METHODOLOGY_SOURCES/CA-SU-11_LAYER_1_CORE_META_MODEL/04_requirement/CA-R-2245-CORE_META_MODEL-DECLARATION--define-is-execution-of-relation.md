@@ -7,7 +7,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTION_OF
   passive:
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow'
 version: 8
 relations: {}
 tier: 1

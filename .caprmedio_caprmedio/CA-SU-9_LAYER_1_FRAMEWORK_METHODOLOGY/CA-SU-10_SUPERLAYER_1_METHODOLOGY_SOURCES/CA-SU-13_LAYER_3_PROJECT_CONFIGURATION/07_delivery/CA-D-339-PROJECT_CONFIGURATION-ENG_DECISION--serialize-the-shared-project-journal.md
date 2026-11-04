@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Serialization
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
+  - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Scope Unit

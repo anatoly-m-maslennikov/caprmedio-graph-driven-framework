@@ -4,7 +4,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Governs
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active
   - CAPRMEDIO_MODEL <+ Atom.Content
 version: 40
 updated_at: 2026-11-02 00:18:22 +0400

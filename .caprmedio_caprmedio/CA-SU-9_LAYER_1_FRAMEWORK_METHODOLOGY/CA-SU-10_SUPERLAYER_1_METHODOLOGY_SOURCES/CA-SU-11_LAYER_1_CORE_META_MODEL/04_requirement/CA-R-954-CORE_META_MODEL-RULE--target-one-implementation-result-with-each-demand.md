@@ -2,7 +2,7 @@
 subjects:
   active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)'
   passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Package/Implementation
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations:

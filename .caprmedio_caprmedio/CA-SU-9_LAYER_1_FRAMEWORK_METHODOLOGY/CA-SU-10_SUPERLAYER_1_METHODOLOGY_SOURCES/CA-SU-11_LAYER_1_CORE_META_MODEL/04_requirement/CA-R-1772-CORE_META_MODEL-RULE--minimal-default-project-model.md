@@ -9,7 +9,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation
+  - CAPRMEDIO_MODEL <+ Package/Implementation
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 atom_id: CA-R-1772

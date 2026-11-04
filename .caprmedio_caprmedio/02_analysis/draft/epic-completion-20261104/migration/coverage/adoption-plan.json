@@ -1,0 +1,49 @@
+{
+  "status": "PREPARED_NOT_ADOPTED",
+  "route": "user-authorized Subjects-only mechanical repair after remote declaration checkpoint",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2690",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2690-CORE_META_MODEL-RULE--derive-scope-unit-places-from-declarations.md",
+      "version": 1,
+      "sha256": "3d3b914f86055e775516e25b6a38c995bd0fbf5c1089daf4fa17c82a92c7a94f"
+    },
+    {
+      "atom_id": "CA-R-1014",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md",
+      "version": 40,
+      "sha256": "912f1e4aa77afc21b6fb063857737bcd760b86657ba2ea28294691312c312baf"
+    },
+    {
+      "atom_id": "CA-E-403",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-EVAL_POLICY--report-exact-claim-value-set-consolidation-candidates.md",
+      "version": 36,
+      "sha256": "181df626b42d6f10606017d2f6146953de4bdb51b63638473a7eca81199f5b28"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2690-CORE_META_MODEL-RULE--derive-scope-unit-places-from-declarations.md",
+      "before": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Scope Unit\n  passive:\n  - CAPRMEDIO_MODEL <+ Carrier/Directory\n  - Atom/(.Role := Delivery)\nversion: 1\nupdated_at: 2026-11-02 19:17:40 +0400\nrelations: {}\natom_id: CA-R-2690\nstatus: Active\ntier: 3\nrole: Requirement\nform: Rule\n---\n## Summary\n\nDerive Scope Unit places from Declarations\n\n## Claim\n\nEach non-Project Scope Unit has Authority and Delivery folders derived from its Scope Unit Declaration. Delivery Atoms govern representation, placement, and general Carrier conventions without repeating a unit's selected paths.\n",
+      "before_sha256": "da2c4ba8c71e593979e6e0a03b64957c7d2aa9190c5ffe17034ec57ad99ddedd",
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Scope Unit\n  passive:\n  - CAPRMEDIO_MODEL <+ Carrier/Directory\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)\nversion: 1\nupdated_at: 2026-11-02 19:17:40 +0400\nrelations: {}\natom_id: CA-R-2690\nstatus: Active\ntier: 3\nrole: Requirement\nform: Rule\n---\n## Summary\n\nDerive Scope Unit places from Declarations\n\n## Claim\n\nEach non-Project Scope Unit has Authority and Delivery folders derived from its Scope Unit Declaration. Delivery Atoms govern representation, placement, and general Carrier conventions without repeating a unit's selected paths.\n",
+      "after_sha256": "3d3b914f86055e775516e25b6a38c995bd0fbf5c1089daf4fa17c82a92c7a94f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md",
+      "before": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Governs\n  - CAPRMEDIO_MODEL <+ Atom.Content\nversion: 40\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  child_of:\n  - CA-R-1596\natom_id: CA-R-1014\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 3\nrole: Requirement\nform: Rule\n---\n## Summary\n\nResolve Atom Scope Contextually\n\n## Claim\n\n### Prose Claim\n\n\nAtom Scope.\n\n\nan Atom Scope **must** include its current Scope Unit Scope **or** its Author's registered Operator fallback under CA-D-657-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim.\n",
+      "before_sha256": "4f4474a7778768b80cc324511be9e1f01afac85259bf3c821db4e4f9e1cb5108",
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active\n  - CAPRMEDIO_MODEL <+ Atom.Content\nversion: 40\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations:\n  child_of:\n  - CA-R-1596\natom_id: CA-R-1014\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 3\nrole: Requirement\nform: Rule\n---\n## Summary\n\nResolve Atom Scope Contextually\n\n## Claim\n\n### Prose Claim\n\n\nAtom Scope.\n\n\nan Atom Scope **must** include its current Scope Unit Scope **or** its Author's registered Operator fallback under CA-D-657-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim.\n",
+      "after_sha256": "912f1e4aa77afc21b6fb063857737bcd760b86657ba2ea28294691312c312baf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-EVAL_POLICY--report-exact-claim-value-set-consolidation-candidates.md",
+      "before": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Content\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Governs\n  - CAPRMEDIO_MODEL <+ Term//Property\n  - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue\nversion: 36\nupdated_at: 2026-11-02 08:06:47 +0400\nrelations:\n  evaluation_for:\n  - CA-R-1358\n  - CA-R-1359\natom_id: CA-E-403\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 4\nrole: Evaluation\nform: Eval Policy\n---\n## Summary\n\nReport Exact Claim Value-Set Consolidation Candidates\n\n## Claim\n\n### Prose Claim\n\n\nClaim Value Set consolidation candidates.\n\n\nthe Evaluation **must** report **`=1`** Claim Value Set consolidation candidate **only** **if** **every** contributing active Atom has the same Atom Scope, Atom Governed Subject, Claim Target Scope Unit, textual Claim Scope, Property, **and** exact qualifiers, has **`=1`** mechanically parseable single-value Claim, **and** differs **only** by **`=1`** unique value proven as allowed by the `:` qualification for that Property; it **must not** mutate, merge, archive, replace, compile, **or** change a Source Atom by another operation, use semantic **or** LLM inference, **or** cause Applicable Methodology compilation **to** fail.\n",
+      "before_sha256": "f06435eb38d8d58e67c0a17ee8184ae88f997c179e81fc8b93af2e99c5597f0f",
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Content\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active\n  - CAPRMEDIO_MODEL <+ Term//Property\n  - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue\nversion: 36\nupdated_at: 2026-11-02 08:06:47 +0400\nrelations:\n  evaluation_for:\n  - CA-R-1358\n  - CA-R-1359\natom_id: CA-E-403\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\ntier: 4\nrole: Evaluation\nform: Eval Policy\n---\n## Summary\n\nReport Exact Claim Value-Set Consolidation Candidates\n\n## Claim\n\n### Prose Claim\n\n\nClaim Value Set consolidation candidates.\n\n\nthe Evaluation **must** report **`=1`** Claim Value Set consolidation candidate **only** **if** **every** contributing active Atom has the same Atom Scope, Atom Governed Subject, Claim Target Scope Unit, textual Claim Scope, Property, **and** exact qualifiers, has **`=1`** mechanically parseable single-value Claim, **and** differs **only** by **`=1`** unique value proven as allowed by the `:` qualification for that Property; it **must not** mutate, merge, archive, replace, compile, **or** change a Source Atom by another operation, use semantic **or** LLM inference, **or** cause Applicable Methodology compilation **to** fail.\n",
+      "after_sha256": "181df626b42d6f10606017d2f6146953de4bdb51b63638473a7eca81199f5b28"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "status": "PUBLISHED",
-  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-declaration-frontier.json",
-  "frontier_sha256": "14e2c90cfeeeeb1e93f29bfb2e4d03c1c8179a54b5e01d3546de7c64d3321e79",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-endpoint-frontier.json",
+  "frontier_sha256": "b7f786e0d9db0820d9f1fffebd7aaf41b49f006cde25fc8104350c5bc97bf654",
   "selected_sources": 1162,
   "declaration_coverage": {
     "candidate_sources": 221,
@@ -26,20 +26,20 @@
   },
   "audit_counts": {
     "passive_only_subjects": {
-      "subject_occurrences": 3242,
-      "parsed_subjects": 377,
-      "unresolved_subjects": 10,
-      "unresolved_occurrences": 46,
+      "subject_occurrences": 3243,
+      "parsed_subjects": 375,
+      "unresolved_subjects": 9,
+      "unresolved_occurrences": 45,
       "active_subjects": 330,
-      "passive_only_subjects": 49
+      "passive_only_subjects": 47
     },
     "subjects_without_declaration_coverage": {
-      "known_missing": 64,
-      "unresolved": 26
+      "known_missing": 62,
+      "unresolved": 25
     },
     "entity_definition_summary": {
-      "entities": 256,
-      "entities_with_any_missing": 57
+      "entities": 254,
+      "entities_with_any_missing": 55
     }
   },
   "prior_projections": {
@@ -58,7 +58,7 @@
       "scope_unit": "Project//caprmedio",
       "path": ".caprmedio_caprmedio/_projection/CA-PROJ-020-caprmedio--Primary-Entities-Tree--Current-Primary-Entities-Tree.md",
       "staged": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections/staged/CA-PROJ-020-caprmedio--Primary-Entities-Tree--Current-Primary-Entities-Tree.md",
-      "sha256": "8be0e065396058eb5f2bff79ef4dd79a4d1a7cc6197b8bda1de0d860addc6491"
+      "sha256": "303492e7c3ce304790a34b508c66d044429e092d607e12025245cda99dc7d98f"
     },
     {
       "projection_id": "CA-PROJ-021",
@@ -67,7 +67,7 @@
       "scope_unit": "Project//caprmedio",
       "path": ".caprmedio_caprmedio/_projection/CA-PROJ-021-caprmedio--Primary-Entities-with-Direct-Properties--Current-Primary-Entities-with-Direct-Properties.md",
       "staged": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections/staged/CA-PROJ-021-caprmedio--Primary-Entities-with-Direct-Properties--Current-Primary-Entities-with-Direct-Properties.md",
-      "sha256": "7fbf37e344d9084b3f5097913caf44a6ebc6bc79aed644e1e42fa164c4f97517"
+      "sha256": "b6eccbd78244174d38c89a060e88e8b26ca6adf78b0a5edadd1b48f3c8c893a3"
     },
     {
       "projection_id": "CA-PROJ-022",
@@ -76,7 +76,7 @@
       "scope_unit": "Project//caprmedio",
       "path": ".caprmedio_caprmedio/_projection/CA-PROJ-022-caprmedio--Primary-Entities-with-Inherited-Property-Contracts--Current-Primary-Entities-with-Inherited-Property-Contracts.md",
       "staged": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections/staged/CA-PROJ-022-caprmedio--Primary-Entities-with-Inherited-Property-Contracts--Current-Primary-Entities-with-Inherited-Property-Contracts.md",
-      "sha256": "721adbe713ebf11ac308e6572ee4d37a69b958d4f16d66fcdb1229da020a60b7"
+      "sha256": "7991967f3ac82620cc3a2e836f66b2769c0763fd804e80782dc35bfb7ae32f17"
     },
     {
       "projection_id": "CA-PROJ-023",
@@ -85,7 +85,7 @@
       "scope_unit": "Project//caprmedio",
       "path": ".caprmedio_caprmedio/_projection/CA-PROJ-023-caprmedio--Primary-Entities-with-Inherited-Formal-Claims--Current-Primary-Entities-with-Inherited-Formal-Claims.md",
       "staged": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections/staged/CA-PROJ-023-caprmedio--Primary-Entities-with-Inherited-Formal-Claims--Current-Primary-Entities-with-Inherited-Formal-Claims.md",
-      "sha256": "a4dbcdb5a1742b79ebe420edc49df0361b76fdda77c72806c88c734a76a46e48"
+      "sha256": "cb27963a98b85c69bd74dbbea90776357e2abf42ad5a36a2f2c010208c707868"
     },
     {
       "projection_id": "CA-PROJ-024",
@@ -94,7 +94,7 @@
       "scope_unit": "Project//caprmedio",
       "path": ".caprmedio_caprmedio/_projection/CA-PROJ-024-caprmedio--Passive-Only-Subjects--Current-Passive-Only-Subjects.md",
       "staged": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections/staged/CA-PROJ-024-caprmedio--Passive-Only-Subjects--Current-Passive-Only-Subjects.md",
-      "sha256": "4cff3ec38e7e7034dc6b048fbaa501b7a8e46864d82e18737306eb90a95e479c"
+      "sha256": "c93e4fd081b43b3997b96b94e2bbc83255dfafd2ec24f7902a4836a78eb04d66"
     },
     {
       "projection_id": "CA-PROJ-025",
@@ -103,7 +103,7 @@
       "scope_unit": "Project//caprmedio",
       "path": ".caprmedio_caprmedio/_projection/CA-PROJ-025-caprmedio--Subjects-without-Requirement-Declarations--Current-Subjects-without-Requirement-Declarations.md",
       "staged": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections/staged/CA-PROJ-025-caprmedio--Subjects-without-Requirement-Declarations--Current-Subjects-without-Requirement-Declarations.md",
-      "sha256": "a0edc2471e315fc4da9d982ae2f41973fe356764d5e2751e8988dc72ec4f5db5"
+      "sha256": "eaca6e7f91a55a8639529b994ffaf6a24aacee626744511aa679f2da4332b296"
     },
     {
       "projection_id": "CA-PROJ-026",
@@ -112,21 +112,16 @@
       "scope_unit": "Project//caprmedio",
       "path": ".caprmedio_caprmedio/_projection/CA-PROJ-026-caprmedio--Entity-Definition-and-Active-Subject-Coverage--Current-Entity-Definition-and-Active-Subject-Coverage.md",
       "staged": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections/staged/CA-PROJ-026-caprmedio--Entity-Definition-and-Active-Subject-Coverage--Current-Entity-Definition-and-Active-Subject-Coverage.md",
-      "sha256": "4cee588323c9ae9e0fd1d63c70803869df2f5a085177d0e1e369acad4a5b59be"
+      "sha256": "4e2be25882a1fa4f711d65b0ba87d11542d9fb56e62a0c92af9604ca16a43070"
     }
   ],
   "predecessors": {
-    ".caprmedio_caprmedio/_projection/CA-PROJ-020-caprmedio--Primary-Entities-Tree--Current-Primary-Entities-Tree.md": null,
-    ".caprmedio_caprmedio/_projection/CA-PROJ-021-caprmedio--Primary-Entities-with-Direct-Properties--Current-Primary-Entities-with-Direct-Properties.md": null,
-    ".caprmedio_caprmedio/_projection/CA-PROJ-022-caprmedio--Primary-Entities-with-Inherited-Property-Contracts--Current-Primary-Entities-with-Inherited-Property-Contracts.md": null,
-    ".caprmedio_caprmedio/_projection/CA-PROJ-023-caprmedio--Primary-Entities-with-Inherited-Formal-Claims--Current-Primary-Entities-with-Inherited-Formal-Claims.md": null,
-    ".caprmedio_caprmedio/_projection/CA-PROJ-024-caprmedio--Passive-Only-Subjects--Current-Passive-Only-Subjects.md": null,
-    ".caprmedio_caprmedio/_projection/CA-PROJ-025-caprmedio--Subjects-without-Requirement-Declarations--Current-Subjects-without-Requirement-Declarations.md": null,
-    ".caprmedio_caprmedio/_projection/CA-PROJ-026-caprmedio--Entity-Definition-and-Active-Subject-Coverage--Current-Entity-Definition-and-Active-Subject-Coverage.md": null
-  },
-  "carrier_migration_plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/migration/projections/adoption-plan.json",
-  "root_binding": [
-    "Project//caprmedio",
-    "522bff7b19131e8e2a55fbb3e8a46412db2a7922d082615946b30af0d9189f3b"
-  ]
+    ".caprmedio_caprmedio/_projection/CA-PROJ-020-caprmedio--Primary-Entities-Tree--Current-Primary-Entities-Tree.md": "022fd111fb92fa7a1c64c0f8e7d02aed7f39af5b4076f80623c7642a400fa5d0",
+    ".caprmedio_caprmedio/_projection/CA-PROJ-021-caprmedio--Primary-Entities-with-Direct-Properties--Current-Primary-Entities-with-Direct-Properties.md": "2967c05f1f128f964827909c0b832c260e9d384d6a049e8058d7ed189cc333fa",
+    ".caprmedio_caprmedio/_projection/CA-PROJ-022-caprmedio--Primary-Entities-with-Inherited-Property-Contracts--Current-Primary-Entities-with-Inherited-Property-Contracts.md": "0273de4d026ab6f984f09b7eb8dae7c78035dfe91e167cb2a3400ef889d5efe2",
+    ".caprmedio_caprmedio/_projection/CA-PROJ-023-caprmedio--Primary-Entities-with-Inherited-Formal-Claims--Current-Primary-Entities-with-Inherited-Formal-Claims.md": "62c890ef15ba855c8bf40d32f9c2bcb676745268d0e3ec861758bcfbec5e4d90",
+    ".caprmedio_caprmedio/_projection/CA-PROJ-024-caprmedio--Passive-Only-Subjects--Current-Passive-Only-Subjects.md": "c730063e70433e1f3a98eeaea16467b845c6b89b1d04c07873748262d92239b7",
+    ".caprmedio_caprmedio/_projection/CA-PROJ-025-caprmedio--Subjects-without-Requirement-Declarations--Current-Subjects-without-Requirement-Declarations.md": "67ddc5ed8dd369588b430e4bc26ca483a1ecf66002a53308f0105953fc2a2866",
+    ".caprmedio_caprmedio/_projection/CA-PROJ-026-caprmedio--Entity-Definition-and-Active-Subject-Coverage--Current-Entity-Definition-and-Active-Subject-Coverage.md": "72e1a716d695b17271a05c679d2207131c049b5416a4f63b35da93cc41595ada"
+  }
 }

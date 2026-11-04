@@ -14,7 +14,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[4]
 PACKET = Path(__file__).resolve().parent
-FRONTIER = ROOT / ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-declaration-frontier.json"
+FRONTIER = ROOT / ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-endpoint-frontier.json"
 OUTPUT = ROOT / ".caprmedio_caprmedio/_projection"
 TOOLS = ROOT / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS"
 sys.path[:0] = [str(TOOLS / "GENERATE_ENTITY_GRAPH"), str(TOOLS)]

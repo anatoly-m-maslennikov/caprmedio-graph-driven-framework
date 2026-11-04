@@ -1168,7 +1168,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 08:45:38 +0400
+updated_at: 2026-11-04 09:00:21 +0400
 ---
 
 # Subjects Used Only Passively
@@ -1181,7 +1181,6 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 
 - `CAPRMEDIO_MODEL <+ Atom.Enabled Relations.Contains` — pins: CA-R-1990@12, CA-R-1991@13; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom.Header.Status:Active` — pins: CA-E-383@46; keys: passive
-- `CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Governs` — pins: CA-E-403@36, CA-R-1014@40; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom.Header.Tier.Label:Scope Contract` — pins: CA-E-666@4; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — pins: CA-D-457@26, CA-E-474@27, CA-E-486@23, CA-E-488@25, CA-E-489@23, CA-E-491@25, CA-E-494@20, CA-E-495@19, CA-E-497@20, CA-E-513@23, CA-E-652@22, CA-E-658@14, CA-E-661@4, CA-M-303@26, CA-M-304@26, CA-M-305@22, CA-M-314@24, CA-R-1312@28, CA-R-1518@25, CA-R-1519@25, CA-R-1520@22, CA-R-1525@25, CA-R-1528@22, CA-R-1554@23, CA-R-1563@27, CA-R-1565@21, CA-R-1702@49, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18, CA-R-1800@19, CA-R-1991@13; keys: passive; unresolved syntax
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow) {:1+}<+ Atom/(.Header.Role: Operations)/(.Header.Form: Step)` — pins: CA-M-444@5; keys: passive; unresolved syntax
@@ -1189,7 +1188,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Action)` — pins: CA-D-457@26, CA-E-487@28, CA-E-488@25, CA-E-494@20, CA-E-495@19, CA-E-497@20, CA-E-513@23, CA-E-652@22, CA-M-304@26, CA-M-314@24, CA-R-1312@28, CA-R-1463@26, CA-R-1514@27, CA-R-1515@25, CA-R-1517@18, CA-R-1518@25, CA-R-1520@22, CA-R-1525@25, CA-R-1528@22, CA-R-1565@21, CA-R-1683@45, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18, CA-R-1799@20, CA-R-1800@19; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Action).Execution Kind` — pins: CA-E-495@19, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Action).Execution Kind:Agentic` — pins: CA-M-304@26; keys: passive
-- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Workflow)` — pins: CA-D-457@26, CA-D-549@19, CA-E-487@28, CA-E-488@25, CA-E-494@20, CA-E-495@19, CA-E-513@23, CA-E-523@18, CA-E-652@22, CA-M-304@26, CA-M-314@24, CA-R-1200@41, CA-R-1312@28, CA-R-1463@26, CA-R-1514@27, CA-R-1515@25, CA-R-1517@18, CA-R-1518@25, CA-R-1520@22, CA-R-1525@25, CA-R-1565@21, CA-R-1567@25, CA-R-1683@45, CA-R-1799@20, CA-R-1800@19, CA-R-2245@8; keys: passive
+- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Workflow)` — pins: CA-D-457@26, CA-D-549@19, CA-E-487@28, CA-E-488@25, CA-E-494@20, CA-E-495@19, CA-E-513@23, CA-E-523@18, CA-E-652@22, CA-M-304@26, CA-M-314@24, CA-R-1200@41, CA-R-1312@28, CA-R-1463@26, CA-R-1514@27, CA-R-1515@25, CA-R-1517@18, CA-R-1518@25, CA-R-1520@22, CA-R-1525@25, CA-R-1565@21, CA-R-1567@25, CA-R-1683@45, CA-R-1799@20, CA-R-1800@19; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Autonomous Confidence Threshold` — pins: CA-E-440@36, CA-E-441@35, CA-R-1559@26; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Content.Details` — pins: CA-D-470@29, CA-E-501@30; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Header.Status:Done` — pins: CA-E-504@22, CA-R-1580@27, CA-R-1592@23; keys: passive
@@ -1201,12 +1200,11 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Plan)/(.Header.Form:Plan).Header.Label` — pins: CA-E-505@22; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Requirement)/(.Header.Form:Demand)` — pins: CA-E-246@47; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Requirement)/(.Header.Form:Entity Definition)` — pins: CA-E-382@49, CA-E-444@34, CA-R-1455@27; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record` — pins: CA-D-308@26, CA-D-339@29, CA-D-360@27, CA-D-365@26, CA-D-654@3, CA-E-379@46, CA-E-474@27, CA-E-476@23, CA-E-486@23, CA-E-522@19, CA-E-523@18, CA-E-624@38, CA-E-666@4, CA-R-047@37, CA-R-1317@31, CA-R-1463@26, CA-R-1491@29, CA-R-1497@24, CA-R-1505@27, CA-R-1528@22, CA-R-1649@34, CA-R-1682@41, CA-R-1683@45, CA-R-1692@38, CA-R-1702@49, CA-R-1720@38, CA-R-2246@8; keys: passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record` — pins: CA-D-360@27, CA-E-379@46; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module` — pins: CA-E-382@49, CA-E-444@34, CA-E-472@30, CA-R-1321@35; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit` — pins: CA-E-382@49, CA-E-444@34, CA-E-472@30, CA-R-1321@35, CA-R-1931@18; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Prompt` — pins: CA-R-1560@19; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Eval Package` — pins: CA-E-382@49, CA-E-444@34, CA-E-472@30; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Project Implementation` — pins: CA-E-487@28, CA-M-006@31, CA-M-100@27, CA-R-047@37, CA-R-1407@28, CA-R-1504@25, CA-R-1505@27, CA-R-1514@27, CA-R-1548@24, CA-R-1567@25, CA-R-1568@26, CA-R-1610@25, CA-R-1682@41, CA-R-1683@45, CA-R-1692@38, CA-R-1694@41, CA-R-1703@40, CA-R-1720@38, CA-R-1772@37, CA-R-2448@5, CA-R-634@22, CA-R-954@33; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Runtime Package` — pins: CA-E-382@49, CA-E-444@34, CA-E-472@30; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Applicable Methodology)` — pins: CA-R-1284@27, CA-R-1655@45; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Atom Subjects Graph)` — pins: CA-E-246@47, CA-M-232@34; keys: passive
@@ -1229,7 +1227,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Step Run` — pins: CA-E-496@23; keys: passive
 - `CAPRMEDIO_MODEL <+ Workflow Run` — pins: CA-E-496@23; keys: passive
 
-## Diagnostics (46)
+## Diagnostics (45)
 
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-D-457@26; passive; Unsupported Subject: unexpected reserved character or trailing expression
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)` — CA-E-474@27; passive; Unsupported Subject: unexpected reserved character or trailing expression
@@ -1276,4 +1274,3 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `Entity/Object/Continuant/Governing Objects/Governing Configuration` — CA-R-1750@41; passive; Subject lacks an explicit parseable MODEL namespace; review required.
 - `Entity/Object/Continuant/Structural Unit/Scope Unit.Parent` — CA-R-2689@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
 - `Entity/Object/Continuant/Structural Unit/Scope Unit.Children` — CA-R-2689@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.
-- `Atom/(.Role := Delivery)` — CA-R-2690@1; passive; Subject lacks an explicit parseable MODEL namespace; review required.

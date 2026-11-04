@@ -3,7 +3,7 @@ subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Governs
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
 version: 36

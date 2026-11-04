@@ -1,0 +1,128 @@
+[
+  {
+    "id": "CA-R-2245",
+    "version": "8",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+    "sha256": "7d393e6c90f6971355c27611eab95fb40d9892f2db6b6aac30a1946ecb3a8716"
+  },
+  {
+    "id": "CA-R-2246",
+    "version": "8",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+    "sha256": "a75f646117137ef848908ac52ce11ee26f3c0f7429728e227f1b9c66440f7ab9"
+  },
+  {
+    "id": "CA-R-2255",
+    "version": "9",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2255-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+    "sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a"
+  },
+  {
+    "id": "CA-R-2464",
+    "version": "5",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+    "sha256": "70222545ca403b3b704862bb8cbd4972a664021368100fa1f90e9634240112be"
+  },
+  {
+    "id": "CA-R-2523",
+    "version": "2",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+    "sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819"
+  },
+  {
+    "id": "CA-R-2524",
+    "version": "3",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+    "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db"
+  },
+  {
+    "id": "CA-R-2525",
+    "version": "2",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2525-CORE_META_MODEL-DECLARATION--declare-package.md",
+    "sha256": "1ae9d6f130dff0df4335ba0dac0be6f009b6c269043990da6b6d92906d4542b6"
+  },
+  {
+    "id": "CA-R-2532",
+    "version": "8",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+    "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+  },
+  {
+    "id": "CA-R-2542",
+    "version": "2",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2542-CORE_META_MODEL-DECLARATION--declare-actor.md",
+    "sha256": "6195aa835367e1dcd83d22f266c53177c578fd92023ec6a38d642b438ef3d594"
+  },
+  {
+    "id": "CA-R-2553",
+    "version": "2",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2553-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+    "sha256": "95277e91faeffdfa209190a16070768bfd3e4690b04695c543d0b30f124dd090"
+  },
+  {
+    "id": "CA-R-2557",
+    "version": "4",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2557-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+    "sha256": "0357e59cb3366ebbb2e13d0ef139d29e8fd24a449729014686c438555e535dcb"
+  },
+  {
+    "id": "CA-R-2589",
+    "version": "2",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2589-CORE_META_MODEL-DECLARATION--declare-continuant.md",
+    "sha256": "d50f24bc7cf31abfc32209927ca4fb0ded8e96e0aa4c675fa5f14284d5feeadd"
+  },
+  {
+    "id": "CA-R-2590",
+    "version": "2",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2590-CORE_META_MODEL-DECLARATION--declare-occurrent.md",
+    "sha256": "d730e7db828cee2963d00db6c596079ac5a98b796021fbcd2a7882b1ac70b8c2"
+  },
+  {
+    "id": "CA-R-2733",
+    "version": "1",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2733-CORE_META_MODEL-DECLARATION--declare-workflow-purpose.md",
+    "sha256": "c1edac2d519b8029a75472a97cfadbece20b313f057624c6fde9a30c7f1b1116"
+  },
+  {
+    "id": "CA-R-2734",
+    "version": "1",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2734-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+    "sha256": "8e2acd9d85f653714060150ccac6d1fa884c17c5de09de4d637083cca6082cc0"
+  },
+  {
+    "id": "CA-R-2735",
+    "version": "1",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2735-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+    "sha256": "4bb3d141ed3bbc5fca44f6e3e52710b8b4d18ed69cd4d1343f6d976ba1d54738"
+  },
+  {
+    "id": "CA-R-1520",
+    "version": "22",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1520-CORE_META_MODEL-RULE--return-workflow-handoffs-through-terminal-results.md",
+    "sha256": "16c0e177c3bbbcbcefe518a54e6d76fd047ef24f71dbf3219e44a45620aada63"
+  },
+  {
+    "id": "CA-R-1525",
+    "version": "25",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1525-CORE_META_MODEL-RULE--bind-workflow-runs-to-exact-definition-revisions.md",
+    "sha256": "f1c5bad655bebbb6226f1c1546174ac1a15eb494fd6217c41c67315f6496dfed"
+  },
+  {
+    "id": "CA-R-1528",
+    "version": "22",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+    "sha256": "7a35338e70a82a58fd25cd61a66e1242ac7b5d365aa47fa223d966916d22db6d"
+  },
+  {
+    "id": "CA-R-1750",
+    "version": "41",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL--partition-operator-settings-between-settings-artifacts.md",
+    "sha256": "5dbdc3487ccb8e9359c1b2702c5bb9b2031d758af9d20858974f6a719861768a"
+  },
+  {
+    "id": "CA-E-671",
+    "version": "1",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-671-CORE_META_MODEL-EVAL_CASE--validate-settings-boundaries-and-scope-unit-declarations.md",
+    "sha256": "d8276e59cf186a398f194cc424f484d49c038e135261c7af444b8acb7a6289fe"
+  }
+]
