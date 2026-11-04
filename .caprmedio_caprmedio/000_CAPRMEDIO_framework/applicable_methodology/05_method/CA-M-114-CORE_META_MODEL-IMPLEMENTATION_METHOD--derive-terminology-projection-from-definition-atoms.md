@@ -2,30 +2,34 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)'
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Entity
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
-version: 43
-updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
+version: 44
+updated_at: 2026-11-04 18:28:33 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 atom_id: CA-M-114
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Method
 form: Implementation Method
+carrier_destination:
+  file:
+    name: CA-M-114-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms.md
   source_atom_id: CA-M-114
-  source_atom_revision: 43
-  source_sha256: 298e9a64fc7b23d2e3636033e78afc90d01572c06d41c8234349046135f3f6bf
-  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  source_atom_revision: 44
+  source_sha256: dc7ebfb73d05770adf4999b68258c5e077ce160555a1fe3c1d4f148d8ec933d1
+  original_relations_sha256: e367927d209b7bdecd9da53dd0dc693193d074370738c97b4bc15988d6240196
 ---
 ## Summary
 

@@ -1,26 +1,30 @@
 ---
 atom_id: CA-M-452
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Term//Term
   passive:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Term
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
-version: 3
-updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
+version: 4
+updated_at: 2026-11-04 18:28:33 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 tier: 1
 role: Method
 form: Term Definition
+carrier_destination:
+  file:
+    name: CA-M-452-CORE_META_MODEL-TERM_DEFINITION--define-term.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-452-CORE_META_MODEL-TERM_DEFINITION--define-term.md
   source_atom_id: CA-M-452
-  source_atom_revision: 3
-  source_sha256: 11eab649754bb6e5767fb7b3847e8304892f28cc78d1d1ddfa8b01e1268afa9e
-  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  source_atom_revision: 4
+  source_sha256: 20430a47370fae6ba05bf584f9401310e5f541767c522336214d821bd6083269
+  original_relations_sha256: e367927d209b7bdecd9da53dd0dc693193d074370738c97b4bc15988d6240196
 ---
 ## Summary
 

@@ -3,31 +3,35 @@ subjects:
   active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
   passive:
   - CAPRMEDIO_MODEL <+ Term
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Projection
-version: 32
-updated_at: 2026-11-02 00:18:22 +0400
+version: 33
+updated_at: 2026-11-04 18:28:33 +0400
 relations:
   child_of:
   - CA-R-1335@31
   - CA-R-1319
   - CA-R-1437
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 atom_id: CA-R-1454
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 2
 role: Requirement
 form: Rule
+carrier_destination:
+  file:
+    name: CA-R-1454-CORE_META_MODEL--derive-governed-terms-views-from-selected-authority.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL--derive-governed-terms-views-from-selected-authority.md
   source_atom_id: CA-R-1454
-  source_atom_revision: 32
-  source_sha256: fcb5de2427dd003ac6d18a49268e3594a5263d9d1442eeaf3efd60560810c642
-  original_relations_sha256: 8e132c01045800f67488d18acbb3aa8f36eb62c00d1c6ed57e3afc55b5abc32f
+  source_atom_revision: 33
+  source_sha256: 0ba35377327b64e94e47049c30c4c062f48158f6349605de808ea2272b5bebdf
+  original_relations_sha256: c0c5b8c3a7b263e140d8e459b062620d10009fef9b80f8934a52a28bf0a74959
 ---
 ## Summary
 

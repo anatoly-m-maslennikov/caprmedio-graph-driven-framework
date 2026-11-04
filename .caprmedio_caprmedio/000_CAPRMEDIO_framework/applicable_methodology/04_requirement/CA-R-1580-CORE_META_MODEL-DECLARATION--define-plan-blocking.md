@@ -2,17 +2,17 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//BLOCKS
   passive:
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)
   - CAPRMEDIO_MODEL <+ Projection
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status: Done'
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
-version: 27
-updated_at: 2026-11-03 20:00:05 +0400
-relations: {}
+version: 29
+updated_at: 2026-11-04 16:52:59 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 atom_id: CA-R-1580
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 role: Requirement
@@ -24,9 +24,9 @@ carrier_destination:
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md
   source_atom_id: CA-R-1580
-  source_atom_revision: 27
-  source_sha256: 19ecfd4058ac41328bd6d995963a8f3e6f6e3b10ed1bb5ce84834d4ff65a390f
-  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  source_atom_revision: 29
+  source_sha256: 25e9d08d3851209230e686a23c42d7819f3fddd4b163d3e18947c6b6eedb8ae5
+  original_relations_sha256: e367927d209b7bdecd9da53dd0dc693193d074370738c97b4bc15988d6240196
 ---
 ## Summary
 
@@ -38,24 +38,14 @@ Define Plan blocking
 
 ```CFEL
 # model
-Relation//BLOCKS ((HAS_CLASSIFICATION)) Derivation == Direct;
+Relation//BLOCKS <((HAS_INVERSE)) Relation//IS_BLOCKED_BY;
+
+Relation//BLOCKS ((HAS_CLASSIFICATION)) Derivation == Derived;
 
 # instances
-Plan//$plan ((BLOCKS)) Plan//$plan_2;
+Atom/(.Header.Role: Plan)//$prerequisite ((BLOCKS)) Atom/(.Header.Role: Plan)//$dependent
 ```
 
-### Prose Claim
+## Semantics
 
-#### Applicability
-Plan-blocking Relations in the Plan Graph.
-
-**in** the Plan Graph, `A BLOCKS B` **means** that Plan `B` may start only
-after Plan `A` is Done. An inverse lookup is derived from the same explicit
-fact and is not separately authored; Subject DEPENDS_ON remains distinct.
-
-Forward `Host ((BLOCKS)) Target` and reverse `Target <((BLOCKS)) Host` are views of the same Relation fact.
-BLOCKS relates prerequisite Plan to dependent Plan.
-
-#### Details
-Plan endpoint admission, status, cardinality, authority and reachability belong
-to the Plan Entity Definition CA-R-2511.
+BLOCKS relates a prerequisite Plan to a dependent Plan that may start only after that prerequisite is Done.

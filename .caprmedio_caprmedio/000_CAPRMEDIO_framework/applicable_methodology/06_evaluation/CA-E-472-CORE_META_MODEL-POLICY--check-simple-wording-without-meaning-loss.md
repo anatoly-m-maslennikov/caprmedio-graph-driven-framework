@@ -1,9 +1,11 @@
 ---
-version: 30
-updated_at: 2026-11-02 18:35:20 +0400
+version: 31
+updated_at: 2026-11-04 18:28:33 +0400
 relations:
   evaluation_for:
   - CA-M-294
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
@@ -14,24 +16,26 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Entity
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 atom_id: CA-E-472
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 4
 role: Evaluation
 form: Eval Policy
+carrier_destination:
+  file:
+    name: CA-E-472-CORE_META_MODEL-POLICY--check-simple-wording-without-meaning-loss.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-472-CORE_META_MODEL-POLICY--check-simple-wording-without-meaning-loss.md
   source_atom_id: CA-E-472
-  source_atom_revision: 30
-  source_sha256: 82409d4e5150738e45b8929a2fef3a1f4140e2d4bcbef7ee09724d3e4d76015e
-  original_relations_sha256: 8b9c3063afc923eb63345ee7aeb90194560f91eb0438e1f2c7351bbae8d424cd
+  source_atom_revision: 31
+  source_sha256: 25080fb0077a46dbfc7e451f9e5b48a6dfdcc25a735ec5d1aa5ae34b1d5a5e16
+  original_relations_sha256: d8899004df916effb535a6bbae1d0019d9ba0b9dbdc97cef9022b37ccc8999aa
 ---
 ## Summary
 

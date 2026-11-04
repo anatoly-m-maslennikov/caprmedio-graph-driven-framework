@@ -8,7 +8,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
   - CAPRMEDIO_MODEL <+ Scope Unit
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
@@ -19,8 +19,8 @@ subjects:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
   - CAPRMEDIO_MODEL <+ Atom
-version: 49
-updated_at: 2026-11-02 00:18:22 +0400
+version: 50
+updated_at: 2026-11-04 18:28:33 +0400
 relations:
   evaluation_for:
   - CA-R-1335@31
@@ -33,19 +33,23 @@ relations:
   - CA-R-1454
   - CA-R-1437
   - CA-R-1472
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 atom_id: CA-E-382
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Evaluation
 form: Eval Policy
+carrier_destination:
+  file:
+    name: CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md
   source_atom_id: CA-E-382
-  source_atom_revision: 49
-  source_sha256: 540f7bca8553b45adbedf7d94c922ab614d8434f077155d496b164a66132dd6e
-  original_relations_sha256: d52b070da8a7cae462b5fa65b49d26bb5561e395bc327a8642490181142fabc3
+  source_atom_revision: 50
+  source_sha256: c015529a32546da7407d9a592c715deebf945b628ba7a0ded588c84ca4ca484b
+  original_relations_sha256: 88e6667b5e1bcc93c75dac32182179d3f7bfda60821f72209d68de96f84e54d1
 ---
 ## Summary
 

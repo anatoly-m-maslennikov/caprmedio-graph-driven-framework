@@ -1,36 +1,37 @@
 ---
 subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   passive:
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
-  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Implementation Retry Limit'
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_BLOCKED_BY
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Carrier/File
-version: 32
-updated_at: 2026-11-02 18:35:20 +0400
+version: 34
+updated_at: 2026-11-04 16:52:59 +0400
 relations:
   depends_on:
   - CA-R-1588
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 atom_id: CA-M-306
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 2
 role: Method
 form: Implementation Method
+carrier_destination:
+  file:
+    name: CA-M-306-CORE_META_MODEL--author-plan-atoms.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md
   source_atom_id: CA-M-306
-  source_atom_revision: 32
-  source_sha256: e3b360c6269adba675a83f9b971c0af7609cb2f30b31eb38fd92e27c330d7877
-  original_relations_sha256: 21b8448a6646f8fd0798650a427c7b91afc15bdc426943dd06bceecabbe3b997
+  source_atom_revision: 34
+  source_sha256: 4a4888cc1dc2fd66c5318a3e52dd3dc5480024b936876da556e272b47619f576
+  original_relations_sha256: 3a33d04822a35042eacf39bf1f777403f6c2a840b4faea378044cd4bb7dda59d
 ---
 ## Summary
 
@@ -40,19 +41,10 @@ Author Plan Atoms
 
 ### Prose Claim
 
+To author a Plan Atom, apply the common Plan rules independently of Label:
 
-Plan Atoms.
-
-
-**to** author a Plan Atom, apply the common Plan authoring rules independently of Label:
-
-1. resolve **`=1`** effective Author.
-2. state **`=1`** intended work **or** outcome **in** Objective, supported by own work, directly contained Plans, **or** both under CA-R-1575.
-3. resolve its Claim Target Scope Unit under CA-R-1588; keep narrower **or** composite work restrictions **in** Objective, **and** do **not** target an ancestor Scope Unit.
-4. **if** it has own work, resolve **`=1`** effective Assignee **and** assign that work **to** that Assignee. retain the leaf-work bound under CA-R-1589.
-5. write **`=1`** Definition of Done under CA-M-123, carried inside Details under CA-D-470; include applicable own-work and verification conditions. For a containing Plan whose Status is Done **or** Canceled, require every directly contained Plan to be Done **or** Canceled; mixed terminal statuses are allowed, and containment does **not** force a child Status to match the parent.
-6. use a Label **only** for navigation; apply an authoring Subtype **only when** explicitly governed.
-7. express required start dependencies with `BLOCKS`; **when** a Plan is contained by another Plan, declare `IS_CONTAINED_BY` on the child and derive `CONTAINS`; do **not** infer execution dependencies from leading numbers **or** folder placement.
-8. resolve confidence **and** retry values from their applicable sources; store **only** explicitly selected overrides on this Plan.
-9. keep supporting Details within Objective **and** its restrictions **without** another intended outcome. review Objective against the completed Details **and** Definition of Done; explicitly revise Objective **if** needed **and** recheck their agreement.
-10. **only after** that review, derive Summary from the finalized Objective under CA-R-1418 **and** CA-R-2499. retain the established Summary across Revisions; **if** it needs changing, replace the Atom identity under CA-R-1464.
+1. State the intended work or outcome and provide own work, direct Plan decomposition, or both under CA-R-1575. Apply the executable leaf-work bound under CA-R-1589.
+2. Resolve the active Subject and its target Scope under CA-R-1588. Apply the applicable completion and verification rules, including CA-R-1599, and use Labels only under their governing rules. For a containing Plan whose Status is Done or Canceled, require every directly contained Plan to be Done or Canceled; mixed terminal statuses are allowed, and containment does not force a child Status to match the parent.
+3. Express required start dependencies as direct `IS_BLOCKED_BY` Relations on the dependent Plan and derive `BLOCKS`. For Plan containment, declare `IS_CONTAINED_BY` on the child and derive `CONTAINS`. Do not infer dependencies from numbers or folder placement.
+4. Resolve confidence from its applicable sources and store only an explicitly selected confidence override under its admitted encoding.
+5. Review the finalized intended contribution against its supporting content and completion criteria, then derive Summary under CA-R-1418 and CA-R-2499. Preserve Summary across Revisions; a changed Summary requires the applicable replacement identity under CA-R-1464.
