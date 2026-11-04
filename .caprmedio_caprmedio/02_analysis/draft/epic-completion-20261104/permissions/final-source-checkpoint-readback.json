@@ -1,0 +1,9 @@
+{
+  "status": "PASS_BEFORE_SCOPED_GIT",
+  "application_batches": 13,
+  "latest_distinct_operation_states": 30,
+  "paths_prepared_for_stage": 157,
+  "excluded": "Other agents Workbench, Workflow, code, tests and Journal changes.",
+  "native_workflow_admission": false,
+  "journal_append": false
+}

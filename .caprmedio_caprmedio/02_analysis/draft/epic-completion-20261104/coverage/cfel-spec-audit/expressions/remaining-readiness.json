@@ -1,0 +1,132 @@
+{
+  "scope": "Read-only source review of four held expression proposals. Native Current Core only; Workbench and Workflow source files were not opened or changed. Illustrative syntax in shared sources is retained as evidence.",
+  "status": "FOUR_HELD_WITH_BOUNDED_SAFE_EDITS",
+  "findings": [
+    {
+      "id": "CA-R-1194",
+      "status": "HOLD_ROOT_AND_PASSIVE_TARGETS",
+      "safe_edits": [
+        "Replace `Atom/(.Header.Role: Plan)` with `Atom/(.Header.Role := Plan)` in Semantics; R2702 supplies the actual Header.Role property and R2471 supplies selector syntax."
+      ],
+      "held": [
+        "Do not mechanically map Entity to Node: the sentence asserts a universal canonical root under R2462, but R2462 governs Node while R2487 also discusses CFEL, Carrier and graph Relations. Resolve actual Subject universe and distinguish Node/property/Relation/CFEL paths.",
+        "Passive Entity and CFEL <+ Relation require source-backed precise targets; Term remains independently addressed."
+      ],
+      "question": "Which exact canonical Subject targets and address roots does this Definition cover, including non-Node Relation and CFEL targets?",
+      "source": {
+        "id": "CA-R-1194",
+        "version": 32,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+        "sha256": "f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57"
+      }
+    },
+    {
+      "id": "CA-R-1931",
+      "status": "HOLD_LEGACY_SUBJECTS_AND_EXAMPLES",
+      "safe_edits": [
+        "Use `{:n}`, `{:n+}`, `{:n..m}`, `X.Y: [format]{:n}`, and `{:1}` for allowed bounds, preserving R2243 per-direction semantics.",
+        "Change qualified-selector syntax `X/(.Y: Z)` to `X/(.Y := Z)` and corresponding active-selector examples; preserve bare allowed-value : outside a selector.",
+        "Clarify Entity name-segment backslash escaping and quote delimiters separately from double-quoted selector literal values; no changes to Carrier encoding.",
+        "Remove stale Draft-only staging text if and only if Current revisions implement the stated contract."
+      ],
+      "held": [
+        "Legacy passive `Entity/Property`, `CFEL <+ Relation` and package/module path need evidence per target; do not infer mappings from names.",
+        "Role Operations/Form Step and Workflow examples contain obsolete type assumptions; do not silently rewrite them into different valid entities or change containment policy.",
+        "Review obsolete blanket exclusion of advanced expressions against Current CFEL without inventing general syntax."
+      ],
+      "question": "What currently declared, scope-appropriate examples should replace obsolete Operations Role/Form examples without altering their semantics?",
+      "source": {
+        "id": "CA-R-1931",
+        "version": 18,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+        "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b"
+      }
+    },
+    {
+      "id": "CA-E-383",
+      "status": "HOLD_SUBJECT_AND_LEGACY_EVALUATION",
+      "safe_edits": [
+        "Correct allowed-bound examples `{n}` to `{:n}`; preserve distinct `{=n}`, `{==n}` meanings and direction/count checks.",
+        "Correct qualified selector examples to := without implying Method is a Form or changing admitted values.",
+        "Accept `Target <((RELATION)) Source` as reverse notation for the same declared fact without requiring a separately named inverse; keep exact type, endpoint and permission checks.",
+        "Constrain no-name-quoting rule to Entity path name segments; permit double-quoted values in selectors under Current CFEL literal rule."
+      ],
+      "held": [
+        "Active Entity, legacy Actor/Operator and CFEL <+ Relation passive paths require an evidence-backed target; the policy has many independent stale evaluations beyond these bounded fixes.",
+        "Do not declare an arbitrary Node replacement or alter source-kind and inverse authorization."
+      ],
+      "question": "What is the precise governed scope of this evaluation policy after the retired Entity taxonomy, and which evaluations still apply to that scope?",
+      "source": {
+        "id": "CA-E-383",
+        "version": 46,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+        "sha256": "8503b8391a73bfae63174a5c414f5be4b1d23fac8403951be0cbb4272817c78c"
+      }
+    },
+    {
+      "id": "CA-M-232",
+      "status": "HOLD_PROJECTION_IDENTITY_AND_LEGACY_BODY",
+      "safe_edits": [
+        "Permit reverse syntax `Target <((RELATION)) Source` for the same canonical fact even without a named inverse; retain named-derived-inverse use where declared, no new fact or outgoing permission.",
+        "Use current allowed-value and count annotation syntax in illustrative Property notation after verifying each target context."
+      ],
+      "held": [
+        "Active legacy Projection/(.Form: Subject Graph) and passive Atom Subjects Graph do not match the ten pinned declared MODEL Projection.Form values; do not choose a new Form by name or merge identities.",
+        "The Claim and Details discuss old Entity taxonomy, old graph-view rules, and historical terminology. Determine the exact intended existing projection identity and whether the method belongs to it before a full revision."
+      ],
+      "question": "Which existing declared Projection.Form, if any, is the intended active target of this method; does its derivation claim still govern that same projection?",
+      "source": {
+        "id": "CA-M-232",
+        "version": 34,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md",
+        "sha256": "9f84da9fa587c9d41b91fbc4754afa3b470a3e8eb398bd0207399a34ad1f90af"
+      }
+    }
+  ],
+  "authority_pins": [
+    {
+      "id": "CA-R-2462",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c"
+    },
+    {
+      "id": "CA-R-2471",
+      "version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf"
+    },
+    {
+      "id": "CA-R-2487",
+      "version": 13,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045"
+    },
+    {
+      "id": "CA-R-2243",
+      "version": 12,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4"
+    },
+    {
+      "id": "CA-R-2609",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2609-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+      "sha256": "283b73c01297ffe141727a7007b77ea4a9d3508e5dc25059e0d66f6ab913d919"
+    },
+    {
+      "id": "CA-R-2604",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "f2b03e857aa8bc2e30beba8bac5f4b9b78d12af35061ab865d3c8e3ff07bdc5d"
+    },
+    {
+      "id": "CA-R-2702",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2702-CORE_META_MODEL-DECLARATION--declare-atom-header-role.md",
+      "sha256": "761c8aa0a967e458a2b4299aa8c426e22895ea3864d61515c4bd9fe12be4c068"
+    }
+  ],
+  "invariant": "R2554/R2555 = checks stored structural levels, including IF consequents; no change proposed. R2604 Current no-shadowing and IF-local binding are not amended.",
+  "limits": "Safe edits describe bounded syntax corrections, not adoption-ready whole-Atom candidates. Source and target identity, Summary and claims must be reviewed together before promotion; no Entity-to-Node equivalence is assumed. No code, parser, tests, Current sources, Workbench/Workflow files or Git changes."
+}

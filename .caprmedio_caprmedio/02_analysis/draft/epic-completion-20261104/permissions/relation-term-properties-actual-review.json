@@ -1,0 +1,20 @@
+{
+  "verdict": "PASS_BOUNDED_DRAFT_REVIEW",
+  "plan_sha256": "5d14f9ffec5f2d78b75484339a2eb92affc2008c216de36d597bd4acae48732c",
+  "receipt_sha256": "662aa154604581a4f57de58126a6d104b15db6929d84259325c16d24fa24b958",
+  "drafts": {
+    "CA-R-2247": "36759103081503ed4f3b9cad51a46172d0ca3b0adb8f73167e95e0bb7db06a6b",
+    "CA-R-1318": "cb8fd72a0f4b24670d02bb5c0d691a32763835219cfcd9a6a21fafc097069e07"
+  },
+  "checks": {
+    "pins": "actual Drafts, Current preimages, latest preview candidates, authority M451 and receipt plan hash match",
+    "scope": "model and instance Property-bearing directions only; no schema-instantiation or per-schema occurrence claim, no Node ancestry",
+    "syntax": "existing expressions terminated with semicolons; bound variables, 0+ bearers and exactly one immediate bearer per Property",
+    "identity": "same IDs and unchanged Summaries; one active Subject each; target Draft versions 10 and 34 have no same-or-higher Current/archive version in control-root scan",
+    "entity_term": "CA-R-1318 retains Term//Entity passive dependency under Current CA-M-451@7, not obsolete Entity root; broad prose unchanged"
+  },
+  "limits": [
+    "Source-only review; native workflow admission and Journal append did not occur.",
+    "Schema-instantiation rules and runtime behavior remain separate."
+  ]
+}

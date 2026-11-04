@@ -1,0 +1,143 @@
+{
+  "review": "governing-configuration-repair-readiness",
+  "snapshot": "live Current sources read on 2026-11-04",
+  "scope": "Seven live sources listed below. Read-only review; no source, Draft, code, workflow, workbench, test, or Git changes.",
+  "decision_context": {
+    "user_decisions": [
+      "Project properties under Project.Settings are the intended home for supported settings.",
+      "Conditional defaults use ?==; the AI Agent Confidence Threshold default of 90 is admitted.",
+      "Do not create a broad Governing Configuration node or invent setting names without source evidence."
+    ],
+    "first_unresolved_decision": {
+      "question": "Should the existing Default Settings Artifact and its authoritative TOML carrier remain as a reusable baseline that supplies values to declared Project.Settings properties, or should this legacy artifact/carrier be retired in favor of defaults declared directly on those properties with ?==?",
+      "why_needed": "Current sources explicitly require a distinct Default Settings Artifact and TOML carrier, while current Project.Settings declarations now support property-level defaults. No live source states that the former is retired or defines the precedence/flow between them.",
+      "options": [
+        "Keep the Default Settings Artifact/TOML as a reusable baseline; bind only evidenced fields to existing Project.Settings declarations.",
+        "Retire the Default Settings Artifact/TOML model and place defaults on existing property declarations using ?==."
+      ],
+      "do_not_infer": "The default value 90 on one declared property does not establish a global setting name, a full schema mapping, or retirement of the separate carrier."
+    }
+  },
+  "safe_subset": {
+    "status": "SAFE_NARROW_PROPERTY_DEFAULTS_ONLY",
+    "details": [
+      {
+        "property": "Project.Settings.AI Agent Confidence Threshold",
+        "evidence_atom": "CA-R-2564@4",
+        "evidence_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+        "evidence_sha256": "6c1dc5f3c6f0d1f6aec7380c769824760da4de9497f46122fa45e660055e69b9",
+        "evidence": "Formal Claim declares a required single integer in inclusive range 0..100 with ?== 90. This is an exact named property and default."
+      },
+      {
+        "property": "Project.Settings.Implementation Retry Limit",
+        "evidence_atom": "CA-R-2635@2",
+        "evidence_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2635-CORE_META_MODEL-DECLARATION--declare-project-settings-implementation-retry-limit.md",
+        "evidence_sha256": "d0eae12b9d3813e8dc65b40a46e5cf689d6db0d693b8890079833f8cd35e1e7b",
+        "evidence": "Formal Claim declares this exact property; prose says omitted value follows governed default resolution. No numeric default is declared here, so do not add one."
+      }
+    ],
+    "mapping_limit": "These exact declarations support their own property defaults only. They do not justify replacing every former Governing Configuration subject with Project.Settings or mapping unnamed framework settings."
+  },
+  "authority_pins": [
+    {
+      "id": "CA-R-2532@8",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464",
+      "relevance": "Declares Project.Settings and its enumerated property names; no Project Customization, canonical routing tree, or skill-route property appears in that list."
+    },
+    {
+      "id": "CA-R-2748@1",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2748-CORE_META_MODEL-RULE--unify-operator-selected-project-settings.md",
+      "sha256": "aee50dd9308c89d6ff68605aa4e1c643071be28bb5da1ec3dd362f8ea6a70cef",
+      "relevance": "Project.Settings owns selected Project initialization inputs and applicable CAPRMEDIO behavior/configuration choices; each selected setting has one authoritative owner in its Project. This does not name additional property paths."
+    },
+    {
+      "id": "CA-R-1405@29",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-RULE--register-core-artifact-type-values.md",
+      "sha256": "3cf75410940a71d7357a8c701a2d182f9aa503665bddff7034902415cd48a5c5",
+      "relevance": "Current Artifact Type values separately include Project Settings, Framework Instance Settings, and Default Settings."
+    },
+    {
+      "id": "CA-R-1200@41",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md",
+      "sha256": "136852e0bf5b4b4e015c8ea16f705dd0a1e916b12a18ece200f41c788795df4a",
+      "relevance": "Governing Configuration may carry formal claims, but configuration facts are not automatically Atom Claims. This distinguishes carrier from authority; it does not establish an entity identity or mapping."
+    }
+  ],
+  "reviewed_sources": [
+    {
+      "id": "CA-R-1441",
+      "version": "26",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL--define-default-settings.md",
+      "source_sha256": "4e8fb187de61707999f26e1d24c2a1b7e0afb67634e3a3ebf72ce4793cd637ac",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/CA-R-1441.subject-only.preview.txt",
+      "candidate_sha256": "c51c6484ad77e69639190a799d9c75c9b4fa0844924b7cc83f6ff833aaec2bd0",
+      "verdict": "HOLD_SUBJECT_REMAP",
+      "finding": "Defines Default Settings as reusable baseline values for registered Framework Instance Settings parameters and explicitly excludes Project initialization inputs and explicit Project selections. Current property-level defaults do not settle whether this distinct artifact survives."
+    },
+    {
+      "id": "CA-R-1429",
+      "version": "28",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL--separate-settings-boundaries-from-field-specifications.md",
+      "source_sha256": "1a654b8bb84dd6f0de6d0c06ae55f976da93289072542fcea0eeb40c22613ef5",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/CA-R-1429.subject-only.preview.txt",
+      "candidate_sha256": "f35a21ca05aee0c5f06298840e1fef10dbfb443c0d736949b9d407f61db94722",
+      "verdict": "HOLD_SUBJECT_REMAP",
+      "finding": "Treats Project Settings, Framework Instance Settings, and Default Settings as distinct settings foundations, plus shared specifications and concrete carrier syntax. Mapping the encompassing rule only to Project.Settings could erase those explicit boundaries; decide the status of the legacy foundations first."
+    },
+    {
+      "id": "CA-D-407",
+      "version": "25",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL-ENG_DECISION--store-default-settings-with-the-core-meta-model-source.md",
+      "source_sha256": "43ec6968f9c2eb75c4d451d91fc2249ff93ee374a747935d00907cbac064b1f8",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/CA-D-407.subject-only.preview.txt",
+      "candidate_sha256": "5864a1c87e91d4be5c828e8c225d094066d0166323388c282ee864139c843f2f",
+      "verdict": "HOLD_SUBJECT_REMAP",
+      "finding": "Requires one authoritative Default Settings TOML File Carrier at the CORE_META_MODEL source root. Property-level defaults do not by themselves retire this carrier or show how values flow to a Project."
+    },
+    {
+      "id": "CA-D-408",
+      "version": "24",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL-ENG_DECISION--reuse-framework-parameter-fields-in-default-settings.md",
+      "source_sha256": "e30baa661f56fb069b4650e23e34d63bd1b7d11c7130116cfacb352b105e3d86",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/CA-D-408.subject-only.preview.txt",
+      "candidate_sha256": "b44adb6c836a16ce058e970a57c232710f4836aab4bd11fb83258e1a478bf304",
+      "verdict": "HOLD_SUBJECT_REMAP",
+      "finding": "Requires TOML values to reuse the registered fields, types and domains of corresponding explicit Framework Instance Settings parameters. A Project.Settings-only subject rewrite would not resolve the specific legacy parameter/carrier correspondence."
+    },
+    {
+      "id": "CA-R-1226",
+      "version": "25",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1226-PROJECT_CONFIGURATION-RULE--bind-each-project-customization-to-one-source-revision.md",
+      "source_sha256": "ae8975dcaffe05461b378f3de5e550fcb73f78b8b0bd8377e8794c63897b2e8c",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "verdict": "HOLD_NO_DECLARED_TARGET",
+      "finding": "Defines Project Customization identity/revision binding. No exact declared Project.Settings property for this target is evidenced by R2532/R2748; do not invent one or map it to a vaguely related property."
+    },
+    {
+      "id": "CA-R-1640",
+      "version": "32",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1640-PROJECT_CONFIGURATION-RULE--register-one-canonical-routing-tree.md",
+      "source_sha256": "4bdad495af46d3011d7e7cf7bf4adf144486c23e3ffceae4a39e1fd73885862c",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "verdict": "HOLD_NO_DECLARED_TARGET",
+      "finding": "Defines a canonical routing tree with intent, synonyms, criteria, targets and authority effects. No exact Project.Settings property for this tree is declared by the pinned current authorities."
+    },
+    {
+      "id": "CA-R-1641",
+      "version": "33",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1641-PROJECT_CONFIGURATION-RULE--resolve-skill-routing-precedence.md",
+      "source_sha256": "2d19363233c17a6402287a89c0f1ef9bc49c36be9c8de34fdf31a4b69ff9f1cb",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "verdict": "HOLD_NO_DECLARED_TARGET",
+      "finding": "Defines project/framework/provider route precedence. No exact Project.Settings property for these routes is declared by the pinned current authorities."
+    }
+  ],
+  "excluded": [
+    "Workbench and Workflow files were not reviewed.",
+    "No conclusion about instances, runtime behavior, or carrier implementation follows from these MODEL-level sources."
+  ]
+}

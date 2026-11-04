@@ -1,0 +1,43 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//depends_on
+  passive:
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//required_by
+version: 33
+updated_at: 2026-11-03 20:00:05 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+atom_id: CA-R-1026
+status: Active
+tier: 1
+role: Requirement
+form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+---
+## Summary
+
+Register depends_on and required_by relation pair
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Relation//depends_on ((HAS_INVERSE)) Relation//required_by;
+
+Relation//depends_on ((HAS_CLASSIFICATION)) Derivation == Direct;
+
+# instances
+$dependent ((depends_on)) $prerequisite
+```
+
+### Prose Claim
+
+`depends_on` is a direct dependency-ordering Relation from a dependent Artifact to its prerequisite Artifact. It does not express Plan start dependencies.

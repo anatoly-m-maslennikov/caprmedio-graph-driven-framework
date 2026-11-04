@@ -1,0 +1,56 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "plan_sha256": "2ef995917cb6c2f5c8d9b49ac9910c6d440f425e973d23333be3b5d42f2ac3f4",
+  "outputs": [
+    {
+      "atom_id": "CA-R-1020",
+      "version": 33,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "sha256": "ada8da157faca9804f4f79e3bf35aea8bdd1e33e967f9c6fc8c2dfb489aad143",
+      "summary": "Register implementation_of relation",
+      "preserved_predecessor": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation@31.md"
+    },
+    {
+      "atom_id": "CA-R-1021",
+      "version": 33,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "sha256": "18c323b0bc5d01d2a45f6eb30c4ca4bdd656d5c2e5841381ab39e903b333158b",
+      "summary": "Register evidence_for relation",
+      "preserved_predecessor": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation@31.md"
+    },
+    {
+      "atom_id": "CA-R-2354",
+      "version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md",
+      "sha256": "f3b305849739b1aafebbecff54a116d666deb54e6023ffce41e4dcc78ed48bca",
+      "summary": "Define Relation Meaning",
+      "preserved_predecessor": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning@5.md"
+    },
+    {
+      "atom_id": "CA-R-2355",
+      "version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "sha256": "f055fbeae0965399e7660e6d4e0c70df72552ca1d4964a3f43221b3d9649deef",
+      "summary": "Define Relation Name",
+      "preserved_predecessor": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name@5.md"
+    },
+    {
+      "atom_id": "CA-R-2247",
+      "version": 9,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "7c4b7a2660b054a0aa178fffbf3cb83d407d4d647f9de6ecb08ba852a98e38e4",
+      "summary": "Define Relation",
+      "preserved_predecessor": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation@7.md"
+    }
+  ],
+  "checks": [
+    "All 15 operation outcomes and receipt plan pin match; five Draft paths consumed. Five Current source bodies match their reviewed Drafts; five prior Current predecessor bytes are preserved exactly.",
+    "Current IDs, Versions, Summaries, one active Subject, typed CA-SU-11 containment and destination metadata match their plans.",
+    "R2247 now retains the actual-edge/no-separate-Relation-ID rule, removed from R2355 in the same batch. R1020/R1021 endpoint restrictions and R2354 Property constraints are preserved. R1026 and R2170 were not included.",
+    "All operation paths are native Core Requirement source paths. No broad Entity endpoint permission or Entity root was introduced by this batch."
+  ],
+  "decision_context": "Latest user confirmed Entity is a generic Term and not an Entity root; this review does not infer universal permission or change endpoint domains.",
+  "limits": [
+    "Source/readback verification only; no tests, runtime, Git, Workflow or Journal operations performed. Receipt reports no native Workflow admission or Journal append."
+  ]
+}

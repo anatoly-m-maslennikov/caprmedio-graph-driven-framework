@@ -1,0 +1,50 @@
+{
+  "status": "SOURCE_ONLY_PREVIEWS_READY_FOR_REVIEW",
+  "scope": "Property-bearing edge allowances for Relation and Term only (model and instances). This packet does not add schema-instantiation/occurrence contracts.",
+  "approved_pattern_authority": {
+    "id": "CA-R-2462@4",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+    "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c",
+    "reuse": "Adapt only the property-bearing subset of R2462: model and instance IS_PROPERTY_OF and HAS_PROPERTY clauses. Do not copy unrelated HAS_INSTANCE, INSTANCE_OF, or per-schema occurrence contracts."
+  },
+  "constraints": [
+    "Relation and Term remain outside Node.",
+    "No Entity root, no standalone wildcard property allowance.",
+    "Both owner-to-property and property-to-owner IS_PROPERTY_OF rules are explicit; HAS_PROPERTY is declared separately and does not imply an automatic inverse.",
+    "No Node ancestry, schema-instantiation clauses, per-schema occurrence contracts, new fields, or default-deny rule is introduced.",
+    "The existing Relation and Term Name statements are terminated before added statements."
+  ],
+  "candidates": [
+    {
+      "id": "CA-R-2247",
+      "baseline_version": "9",
+      "candidate_version": "10",
+      "baseline_status": "Active",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "before_sha256": "7c4b7a2660b054a0aa178fffbf3cb83d407d4d647f9de6ecb08ba852a98e38e4",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/permissions/relation-term-properties/CA-R-2247.v10.preview.txt",
+      "candidate_sha256": "c8743dcfc3a2ee1d20807ecc5e108e8db7ca2e412ec9f84c36323e5f8eaf5e5b",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/permissions/relation-term-properties/CA-R-2247-9.diff",
+      "change": "Prospective successor adds only property-bearing model and instance clauses; terminates the existing bare Relation statement and preserves Summary, prior prose claims, and other metadata except successor version/time.",
+      "diff_sha256": "c5c6f2409adbefd7bc1b644d5f2c2eada474f03c82c8d302f999976baead874c"
+    },
+    {
+      "id": "CA-R-1318",
+      "baseline_version": "34",
+      "baseline_status": "Draft",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1318@34-draft-CORE_META_MODEL-DEFINITION--define-term.md",
+      "before_sha256": "449c2f3514391c8e74d3aa6f1ac0c52efa3a446fb5a76ef5985e9cedbdc247d4",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/permissions/relation-term-properties/CA-R-1318@34.repair.preview.txt",
+      "candidate_sha256": "5ede521c3214eccff4eaf2952a9791526014c5b24eca0088962d2e7dc28115c1",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/permissions/relation-term-properties/CA-R-1318-34-Draft.diff",
+      "change": "Draft repair preview removes obsolete broad Entity passive, restores the Term//Entity passive required by current M451@7, and adds only property-bearing Term model/instance clauses. It terminates the existing Term.Name statement. All other passives, Summary, and prose remain unchanged; baseline has no separate Entity/Property passive.",
+      "diff_sha256": "e41199553c085a9365dc3ee1d1cd2c47ebb2dc8f0b6b3ba6b640ed8830dd6d63"
+    }
+  ],
+  "retained_term_definition_authority": {
+    "id": "CA-M-451@7",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+    "sha256": "cc83380cc43391664968b27b812f799030e57e9c7d88baa2ba329912e0d7a998",
+    "rationale": "Current Method/Form Term Definition keeps Term//Entity active. The repaired Term declaration therefore retains Term//Entity as a passive lexical dependency; it does not restore the obsolete broad Entity passive or an Entity-root property scope."
+  }
+}

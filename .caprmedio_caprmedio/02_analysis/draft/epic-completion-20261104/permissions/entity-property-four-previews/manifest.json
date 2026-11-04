@@ -1,0 +1,23 @@
+{
+  "status": "PREVIEW_ONLY",
+  "entries": [
+    {
+      "id": "CA-R-1247",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1247@25-draft-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "draft_sha256": "c5569a1fb980633e1185dbc934707a697705595db526b06459359ddfdf49bb68",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/entity-property-four-previews/CA-R-1247.preview.txt",
+      "candidate_sha256": "a9d2dbf15c4c68f4ec4f076168572cd55ca8605afbebe156d1e52c4e9749a48d",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/entity-property-four-previews/CA-R-1247.diff",
+      "note": "Body-only correction"
+    },
+    {
+      "id": "CA-R-2003",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2003@17-draft-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "draft_sha256": "ba5055b7bee0c683a58c8f57955629d56ab8a9d42ce10e216aeee0df0a5c12c6",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/entity-property-four-previews/CA-R-2003.preview.txt",
+      "candidate_sha256": "c9dbf1d576121b11a463e54e61e8b233d57ac13244ab72a4cf2d2c2dbc7bccac",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/entity-property-four-previews/CA-R-2003.diff",
+      "note": "Body correction plus explicitly requested deletion of undeclared passive Selection Subject; active Subject unchanged"
+    }
+  ]
+}

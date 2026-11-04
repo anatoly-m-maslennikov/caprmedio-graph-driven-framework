@@ -1,0 +1,9 @@
+{
+  "status": "APPLIED_VERIFIED",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "plan_sha256": "b66cab417e537724ac0249bc12bea9a3ebad8dc581a5deca9a60778a4a1bcf86",
+  "output_count": 1,
+  "operation_count": 1,
+  "receipt_recovery": "Existing helper completed the content write and readback, then failed on omitted outputs metadata. No operation was replayed. Outputs added to plan and exact live after-hash verified before this receipt."
+}

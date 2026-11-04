@@ -1,0 +1,22 @@
+{
+  "status": "PREPARED_DRAFT",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-1318",
+      "version": 36,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1318@36-draft-CORE_META_MODEL-DECLARATION--define-term.md",
+      "sha256": "b894853e0c0ecee201afab51a6b101ad0354275c1987b46c23d905224912f1be"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1318@36-draft-CORE_META_MODEL-DECLARATION--define-term.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Term\n  passive:\n  - CAPRMEDIO_MODEL <+ Project\n  - CAPRMEDIO_MODEL <+ Term//Entity\n  - CAPRMEDIO_MODEL <+ Term.Name\n  - CAPRMEDIO_MODEL <+ Term//Term\n  - CAPRMEDIO_MODEL <+ Term//Empty\n  - CAPRMEDIO_MODEL <+ Term//ID\n  - CAPRMEDIO_MODEL <+ Term//Property\nversion: 36\nupdated_at: 2026-11-04 22:22:34 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-R-1318\nstatus: Draft\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-1318@36-draft-CORE_META_MODEL-DECLARATION--define-term.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Term\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nTerm.*[in (Name)]{:1};\n\nTerm.** {:1}((IS_PROPERTY_OF)) (Term, Term.**);\n(Term, Term.**) {:0+}((HAS_PROPERTY)) Term.**;\n\n# instances\nTerm//$term;\n$term.** {:1}((IS_PROPERTY_OF)) ($term, $term.**);\n($term, $term.**) {:0+}((HAS_PROPERTY)) $term.**;\n```\n\n### Prose Claim\n\nA Term is a reusable word or phrase component of entity expressions and authored content. Its Project-specific meaning remains consistent across uses and is owned by its active Method/Form Term Definition. Vocabulary Terms are lexical items, not graph Nodes merely because they are used as words. A Term has one Name.\n\nUse the full admitted canonical expression when identifying or comparing an entity. Reusing a Term within distinct expressions neither makes those expressions synonymous nor establishes a Relation between their referents. Literal source quotations and code identifiers are not automatically renamed. A lexical Term and an Entity whose complete name uses that Term have distinct targets and meaning owners.\n\n## Semantics\n\nA Term provides a reusable word or phrase; its full context supplies the expression in which it appears.\n",
+      "after_sha256": "b894853e0c0ecee201afab51a6b101ad0354275c1987b46c23d905224912f1be"
+    }
+  ]
+}

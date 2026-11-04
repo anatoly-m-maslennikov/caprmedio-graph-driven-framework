@@ -1,0 +1,10 @@
+{
+  "status": "PASS_BOUNDED_METADATA_RECONCILIATION",
+  "basis": "R1318 Claim concerns Term.**; Node.** passive was inherited from the old Entity/Property mapping. Remove that unused recursive Node selector; preserve lexical Term//Property and Term//Entity dependencies.",
+  "claim_body_unchanged": true,
+  "summary_unchanged": true,
+  "active_subject_unchanged": true,
+  "source_sha256": "46dab5ed2ab2e9118a5c2e7951bb63adba25a0b0cfd794dd0a2a74c4daa1c1b8",
+  "draft_sha256": "b894853e0c0ecee201afab51a6b101ad0354275c1987b46c23d905224912f1be",
+  "instance_or_schema_permissions_changed": false
+}

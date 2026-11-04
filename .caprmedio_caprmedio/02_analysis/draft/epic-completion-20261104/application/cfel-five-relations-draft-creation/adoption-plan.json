@@ -1,0 +1,96 @@
+{
+  "status": "PREPARED_NOT_ADOPTED",
+  "scope": "Five focused Relation source Drafts; atomic R2247/R2355 relocation",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "review_sha256": "e7d9edf9146cbc9e97bb8d03fb420645f91af81968767c25999c0e399345af1f",
+  "outputs": [
+    {
+      "atom_id": "CA-R-1020",
+      "version": 32,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1020@32-draft-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "sha256": "8d0b295fdb1bdf3e241f38aa7178643ab85141311889aa037d942737cfacd644",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "source_sha256": "809a50e163bbb083181f7de8e9c0f79087de31b01614295343d18b1dea19d9e8",
+      "summary": "Register implementation_of relation",
+      "preview_sha256": "b85cd2b0d074296ead142b56ae11cc05547d49af7712a07575958456498b73cc"
+    },
+    {
+      "atom_id": "CA-R-1021",
+      "version": 32,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1021@32-draft-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "sha256": "e35975c77504b09731a909118c4eb325731e99143bd96eb0ec3d8e803128c3cf",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "source_sha256": "33540d09ed24ee76ec247b397736ac9786d133dcdb5dc6c016ed2fd120fbaaf0",
+      "summary": "Register evidence_for relation",
+      "preview_sha256": "3f9bd30dde27f112542f20bfdd18f0588fd03fad7c846c16f5d92b9eebedaff1"
+    },
+    {
+      "atom_id": "CA-R-2354",
+      "version": 6,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2354@6-draft-CORE_META_MODEL-DECLARATION--define-relation-meaning.md",
+      "sha256": "b2a8527b80efe0e08e81e513eb5a311c3bf8dc49a44632ee3f6c6ea568165644",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md",
+      "source_sha256": "605da11f69acff5cd94a7c5772fb07a869b21e782a0aca802aa556061edc4fd7",
+      "summary": "Define Relation Meaning",
+      "preview_sha256": "2e1a4230398f0fc90479d545e78dd2c66adb9acdc3ca27608931318fe146696e"
+    },
+    {
+      "atom_id": "CA-R-2355",
+      "version": 6,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2355@6-draft-CORE_META_MODEL-DECLARATION--define-relation-name.md",
+      "sha256": "647ea1111bd2f12a8aca3d409c17a5af129aca12bba67b3ef14e6cb8732082c3",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "source_sha256": "e1e4f4ed28a5c8a98c421306e3d7211875d49d7e59dd46897d9d9a872fe3f354",
+      "summary": "Define Relation Name",
+      "preview_sha256": "2a4c602d2e2ac0296680b0352396c5157c9db20abc61a0784647b8b6915f1f4c"
+    },
+    {
+      "atom_id": "CA-R-2247",
+      "version": 8,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@8-draft-CORE_META_MODEL-DECLARATION--define-relation.md",
+      "sha256": "7b2e7b9d2655dd8633f95eeb1516c5e297066132317224370dda7b3ceb877811",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "source_sha256": "e94d4c0b78e0a1fbcb83e0070b323017b836335d188191729a75325d4c7f6e27",
+      "summary": "Define Relation",
+      "preview_sha256": "6c45d1ce093d345a23fb05859adc88f0b27fc121cc67ad776d8e1dbca1ac399a"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1020@32-draft-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//implementation_of\n  passive:\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\nversion: 32\nupdated_at: 2026-11-04 21:58:40 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-R-1020\nstatus: Draft\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-1020@32-draft-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nRegister implementation_of relation\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//implementation_of ((HAS_CLASSIFICATION)) Derivation == Direct;\n\n# instances\nCarrier//$implementation_carrier ((implementation_of)) Atom//$specification_atom\n```\n\n### Prose Claim\n\nimplementation_of is the direct Relation owned by a governed Implementation Carrier. The Host is that governed Implementation Carrier and each tuple targets the specification Atom it implements.\n\n",
+      "after_sha256": "8d0b295fdb1bdf3e241f38aa7178643ab85141311889aa037d942737cfacd644"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1021@32-draft-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//evidence_for\n  passive:\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\nversion: 32\nupdated_at: 2026-11-04 21:58:40 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-R-1021\nstatus: Draft\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-1021@32-draft-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nRegister evidence_for relation\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//evidence_for ((HAS_CLASSIFICATION)) Derivation == Direct;\n\n# instances\nCarrier//$evidence_carrier ((evidence_for)) Carrier//$supported_carrier\n```\n\n### Prose Claim\n\nevidence_for is the direct Relation owned by an evidence Carrier. The Host is that evidence Carrier and each tuple targets the Evaluation or Implementation Carrier it supports.\n\n",
+      "after_sha256": "e35975c77504b09731a909118c4eb325731e99143bd96eb0ec3d8e803128c3cf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2354@6-draft-CORE_META_MODEL-DECLARATION--define-relation-meaning.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2354\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation.Meaning\nversion: 6\nupdated_at: 2026-11-04 21:58:40 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2354@6-draft-CORE_META_MODEL-DECLARATION--define-relation-meaning.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Relation Meaning\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation.Meaning{:1}: [string]{:1};\n\nRelation.Meaning.*[]{:0}\n```\n\n### Prose Claim\n\n\nRelation Meaning is the canonical meaning of a reusable Relation Type.\n",
+      "after_sha256": "b2a8527b80efe0e08e81e513eb5a311c3bf8dc49a44632ee3f6c6ea568165644"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2355@6-draft-CORE_META_MODEL-DECLARATION--define-relation-name.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2355\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation.Name\nversion: 6\nupdated_at: 2026-11-04 21:58:40 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2355@6-draft-CORE_META_MODEL-DECLARATION--define-relation-name.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Relation Name\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation.Name{:1}: [string]{:1};\n\nRelation.Name.*[]{:0}\n```\n\n### Prose Claim\n\n\nRelation Name is the canonical name of a reusable Relation Type.\n",
+      "after_sha256": "647ea1111bd2f12a8aca3d409c17a5af129aca12bba67b3ef14e6cb8732082c3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@8-draft-CORE_META_MODEL-DECLARATION--define-relation.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2247\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation\nversion: 8\nupdated_at: 2026-11-04 21:58:40 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2247@8-draft-CORE_META_MODEL-DECLARATION--define-relation.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Relation\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation\n```\n\n### Prose Claim\n\nRelation defines a reusable directed graph Relation Type with a Name and Meaning. Each actual link is a tuple (Host, Relation Type, Target); persist each direct fact once. An actual edge does not create a separate Relation ID. Endpoints are declared model Entities or instances, including Carrier and CFEL descriptors, and exclude literal values and glyphs. An operator is distinct from a graph Relation even when its notation spells a Relation traversal. Its declared descriptor may be an endpoint.\n\nA direct Relation Declaration owns shared meaning, endpoint signature and any counterpart binding. A derived counterpart remains a distinct Relation with its own Declaration; its meaning and endpoints are inferred through that binding. An alias supplies lexical notation for one Relation; it does not create a new Relation, a Node or a separate Relation ID.\n",
+      "after_sha256": "7b2e7b9d2655dd8633f95eeb1516c5e297066132317224370dda7b3ceb877811"
+    }
+  ]
+}

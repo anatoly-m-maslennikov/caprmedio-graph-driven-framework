@@ -1,0 +1,30 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "plan_sha256": "7f2a03431d9ecea8f66a3416a20adc9daa6d9e55f4ef12255472a160e23df102",
+  "outputs": [
+    {
+      "atom_id": "CA-R-2766",
+      "relation": "SPECIALIZES",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2766-CORE_META_MODEL-DECLARATION--declare-specializes.md",
+      "sha256": "9ff42b4c80c6fd56cdb208661b1dbeb899e32bf061a13f3f3de183967259282c"
+    },
+    {
+      "atom_id": "CA-R-2767",
+      "relation": "IS_SPECIALIZED_BY",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2767-CORE_META_MODEL-DECLARATION--declare-is-specialized-by.md",
+      "sha256": "023fa028948d0bbc9e0c6351e290027bce7c51075ef7f3a187c0c3da7d80ae33"
+    }
+  ],
+  "checks": [
+    "All four operation results match plan hashes and receipt pins plan; two exact Draft bodies match promoted Current bodies and both Draft paths are absent.",
+    "Each Current R/Declaration has one active descriptor Subject, CA-SU-11 typed containment and destination matching its actual path; each descriptor has one exact Core declaration.",
+    "R2766 states Child SPECIALIZES Parent Direct with typed Atom endpoints; R2767 declares the reciprocal IS_SPECIALIZED_BY as Derived with reversed typed Atom endpoints. The parent-constraint-preserving, same-or-narrower Scope and conditional meaning, plus the distinction from reference or dependency alone, are present.",
+    "No counts, cycle constraint or automatic outgoing-permission allowance introduced. Every operation is confined to native Core Requirement sources; no Workflow, Workbench, code or instance-data operation appears."
+  ],
+  "limits": [
+    "Declaration is not an outgoing whitelist or evidence of link population or migration. The prior 343-link census remains at eight sampled and 335 unreviewed.",
+    "No runtime tests or Git operations. No native Workflow or Journal write is recorded in the plan and receipt; this was not an independent external audit."
+  ]
+}

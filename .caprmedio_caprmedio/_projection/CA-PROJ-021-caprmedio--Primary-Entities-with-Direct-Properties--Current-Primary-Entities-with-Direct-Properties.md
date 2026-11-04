@@ -364,7 +364,7 @@ source:
   - CA-M-448@4
   - CA-M-449@4
   - CA-M-450@7
-  - CA-M-451@5
+  - CA-M-451@7
   - CA-M-452@4
   - CA-M-453@5
   - CA-M-454@6
@@ -394,8 +394,8 @@ source:
   - CA-R-1017@31
   - CA-R-1018@38
   - CA-R-1019@30
-  - CA-R-1020@31
-  - CA-R-1021@31
+  - CA-R-1020@33
+  - CA-R-1021@33
   - CA-R-1022@32
   - CA-R-1023@27
   - CA-R-1024@28
@@ -481,7 +481,7 @@ source:
   - CA-R-1315@31
   - CA-R-1316@32
   - CA-R-1317@31
-  - CA-R-1318@33
+  - CA-R-1318@37
   - CA-R-1319@31
   - CA-R-1320@26
   - CA-R-1321@35
@@ -807,7 +807,7 @@ source:
   - CA-R-2243@12
   - CA-R-2245@8
   - CA-R-2246@8
-  - CA-R-2247@7
+  - CA-R-2247@11
   - CA-R-2248@5
   - CA-R-2249@6
   - CA-R-2250@6
@@ -825,8 +825,8 @@ source:
   - CA-R-2327@6
   - CA-R-2352@5
   - CA-R-2353@6
-  - CA-R-2354@5
-  - CA-R-2355@5
+  - CA-R-2354@7
+  - CA-R-2355@7
   - CA-R-2415@4
   - CA-R-2417@5
   - CA-R-2418@5
@@ -868,7 +868,7 @@ source:
   - CA-R-2484@2
   - CA-R-2485@5
   - CA-R-2486@6
-  - CA-R-2487@11
+  - CA-R-2487@13
   - CA-R-2498@5
   - CA-R-2499@5
   - CA-R-2500@5
@@ -907,7 +907,6 @@ source:
   - CA-R-2547@3
   - CA-R-2548@2
   - CA-R-2549@2
-  - CA-R-2550@2
   - CA-R-2551@2
   - CA-R-2552@4
   - CA-R-2553@2
@@ -921,7 +920,7 @@ source:
   - CA-R-2561@2
   - CA-R-2562@2
   - CA-R-2563@2
-  - CA-R-2564@2
+  - CA-R-2564@4
   - CA-R-2565@2
   - CA-R-2566@2
   - CA-R-2567@2
@@ -954,14 +953,13 @@ source:
   - CA-R-2594@1
   - CA-R-2596@1
   - CA-R-2597@1
-  - CA-R-2598@1
   - CA-R-2599@1
   - CA-R-2600@1
-  - CA-R-2601@1
+  - CA-R-2601@3
   - CA-R-2602@1
   - CA-R-2603@1
-  - CA-R-2604@1
-  - CA-R-2605@1
+  - CA-R-2604@3
+  - CA-R-2605@3
   - CA-R-2606@1
   - CA-R-2607@1
   - CA-R-2608@1
@@ -1054,13 +1052,13 @@ source:
   - CA-R-2702@1
   - CA-R-2703@1
   - CA-R-2704@1
-  - CA-R-2705@2
+  - CA-R-2705@4
   - CA-R-2706@2
   - CA-R-2707@2
   - CA-R-2708@1
   - CA-R-2709@1
   - CA-R-2710@1
-  - CA-R-2711@2
+  - CA-R-2711@6
   - CA-R-2712@2
   - CA-R-2713@2
   - CA-R-2714@2
@@ -1092,6 +1090,15 @@ source:
   - CA-R-2748@1
   - CA-R-2762@2
   - CA-R-2765@3
+  - CA-R-2766@2
+  - CA-R-2767@2
+  - CA-R-2768@2
+  - CA-R-2769@2
+  - CA-R-2770@2
+  - CA-R-2771@2
+  - CA-R-2772@2
+  - CA-R-2773@2
+  - CA-R-2774@2
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1166,12 +1173,12 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 18:38:32 +0400
+updated_at: 2026-11-04 22:23:07 +0400
 ---
 
 ## Primary entities
 
-Selected sources: 1160 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
+Selected sources: 1167 Current Methodology and direct Project RMED Atoms. Subjects are limited to the explicit MODEL namespace; concrete Node instances are excluded. Unprefixed Subjects remain unresolved for review. Coverage and absence are evaluated within this selection.
 
 Cardinalities, formats and Formal Claims come only from Current Requirement / Declaration Atoms. Unsupported CFEL remains visible with diagnostics.
 
@@ -1276,7 +1283,7 @@ CAPRMEDIO_MODEL
 - property: `Atom.Header.Carrier Destination.File.Path` (relative `Header.Carrier Destination.File.Path`) — CA-R-2718@3
 - property: `Atom.Header.Form` (relative `Header.Form`) — CA-R-2703@1
 - property: `Atom.Header.ID` (relative `Header.ID`) — CA-R-2701@1
-- property: `Atom.Header.Label` (relative `Header.Label`) — CA-R-2705@2
+- property: `Atom.Header.Label` (relative `Header.Label`) — CA-R-2705@4
 - property: `Atom.Header.Relations` (relative `Header.Relations`) — CA-R-2709@1
 - property: `Atom.Header.Relations.IS_CONTAINED_BY` (relative `Header.Relations.IS_CONTAINED_BY`) — CA-R-2698@2
 - property: `Atom.Header.Relations.IS_CONTAINED_BY.atom` (relative `Header.Relations.IS_CONTAINED_BY.atom`) — CA-R-2699@2
@@ -1309,7 +1316,7 @@ CAPRMEDIO_MODEL
 ### `Atom/(.Header.Role:=Plan)`
 
 - Declaration sources: CA-R-2511@5
-- property: `Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold` (relative `Header.AI Agent Confidence Threshold`) — CA-R-2711@2
+- property: `Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold` (relative `Header.AI Agent Confidence Threshold`) — CA-R-2711@6
 - property: `Atom/(.Header.Role:=Plan).Header.Work Sequence Number` (relative `Header.Work Sequence Number`) — CA-R-2712@2
 
 ### `Event Record`
@@ -1345,7 +1352,7 @@ CAPRMEDIO_MODEL
 
 - Declaration sources: CA-R-2524@3
 - property: `Project.Settings` (relative `Settings`) — CA-R-2532@8
-- property: `Project.Settings.AI Agent Confidence Threshold` (relative `Settings.AI Agent Confidence Threshold`) — CA-R-2564@2
+- property: `Project.Settings.AI Agent Confidence Threshold` (relative `Settings.AI Agent Confidence Threshold`) — CA-R-2564@4
 - property: `Project.Settings.Artifact Timestamp Timezone` (relative `Settings.Artifact Timestamp Timezone`) — CA-R-1977@16
 - property: `Project.Settings.Authority Modes` (relative `Settings.Authority Modes`) — CA-R-2632@3
 - property: `Project.Settings.Authority Modes.Default Scope Unit Authority Mode` (relative `Settings.Authority Modes.Default Scope Unit Authority Mode`) — CA-R-2633@2
@@ -1377,9 +1384,9 @@ CAPRMEDIO_MODEL
 
 ### `Relation`
 
-- Declaration sources: CA-R-2247@7
-- property: `Relation.Meaning` (relative `Meaning`) — CA-R-2354@5
-- property: `Relation.Name` (relative `Name`) — CA-R-2355@5
+- Declaration sources: CA-R-2247@11
+- property: `Relation.Meaning` (relative `Meaning`) — CA-R-2354@7
+- property: `Relation.Name` (relative `Name`) — CA-R-2355@7
 
 ### `Scope Unit`
 
@@ -1400,10 +1407,10 @@ CAPRMEDIO_MODEL
 - IF $step {=0}((RUNS)) THEN $step {:1+}((CONTAINS)) Substep//$substep — CA-R-2465@4
 - IF $step {>0}((RUNS)) THEN $step {:0}((CONTAINS)) — CA-R-2465@4
 - IF $step {=0}((CONTAINS)) THEN $step {:1}((RUNS)) (in (Action, Workflow))//$selected — CA-R-2465@4
-- p{:occurrence}: [value format]{:value count} — CA-R-2487@11
-- p.*[name format]{:immediate name count} — CA-R-2487@11
-- p.**[name format]{:recursive name count} — CA-R-2487@11
-- p.*[name format]{:immediate name count}: [value format]{:value count} — CA-R-2487@11
+- p{:occurrence}: [value format]{:value count} — CA-R-2487@13
+- p.*[name format]{:immediate name count} — CA-R-2487@13
+- p.**[name format]{:recursive name count} — CA-R-2487@13
+- p.*[name format]{:immediate name count}: [value format]{:value count} — CA-R-2487@13
 - DETERMINES(
   Atom//$atom,
   (.ID),
@@ -1432,20 +1439,20 @@ THEN ($contained.structural_level = $container.structural_level + 1) — CA-R-25
 - IF (Package//$contained ((IS_CONTAINED_BY)) Package//$container)
 THEN ($contained.structural_level = $container.structural_level + 1) — CA-R-2555@2
 - UNIQUE(Event Record//$event_record, (.ID)) — CA-R-2558@2
+- Project.Settings.AI Agent Confidence Threshold{:1}: [int, 0..100]{:1} ?== 90 — CA-R-2564@4
 - Operator//Addition == "+" — CA-R-2591@1
 - Operator//AllowedValue == ":" — CA-R-2592@1
 - Operator//Conclusion == "==" — CA-R-2593@1
 - Operator//Condition == "=" — CA-R-2594@1
 - Operator//Delivery == ">>" — CA-R-2596@1
 - Operator//ExpressionSeparator == ";" — CA-R-2597@1
-- Operator//Fallback == "?=" — CA-R-2598@1
 - Operator//GreaterOrEqual == ">=" — CA-R-2599@1
 - Operator//GreaterThan == ">" — CA-R-2600@1
-- Operator//Grouping == "()" — CA-R-2601@1
+- Operator//Grouping == "()" — CA-R-2601@3
 - Operator//ImmediateWildcard == "*" — CA-R-2602@1
 - Operator//Inequality == "!=" — CA-R-2603@1
-- Operator//InstanceBinding == "$" — CA-R-2604@1
-- Operator//Instance == "//" — CA-R-2605@1
+- Operator//InstanceBinding == "$" — CA-R-2604@3
+- Operator//Instance == "//" — CA-R-2605@3
 - Operator//LessOrEqual == "<=" — CA-R-2606@1
 - Operator//LessThan == "<" — CA-R-2607@1
 - Operator//Membership == "in / not in" — CA-R-2608@1
@@ -1459,7 +1466,7 @@ THEN ($contained.structural_level = $container.structural_level + 1) — CA-R-25
 - IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
 THEN (IMMUTABLE($atom.Header.ID)) — CA-R-2701@1
 - Atom.Header.Version >= 1 — CA-R-2704@1
-- Atom.Header.Label ?= Atom.Header.Form — CA-R-2705@2
+- $atom.Header.Label ?== $atom.Header.Form — CA-R-2705@4
 - Atom.Header.Tier >= -1 — CA-R-2706@2
 - IF (($atom.Header.Tier.Label{=1}) AND ($atom.Header.Tier = 0)) THEN ($atom.Header.Tier.Label == Scope Contract) — CA-R-2707@2
 - IF (($atom_2.Header.Tier.Label{=1}) AND ($atom_2.Header.Tier = 1)) THEN ($atom_2.Header.Tier.Label == Core) — CA-R-2707@2
@@ -1467,9 +1474,9 @@ THEN (IMMUTABLE($atom.Header.ID)) — CA-R-2701@1
 - IF (($atom_4.Header.Tier.Label{=1}) AND ($atom_4.Header.Tier = 3)) THEN ($atom_4.Header.Tier.Label == Standard) — CA-R-2707@2
 - IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5.Header.Tier.Label == Detail) — CA-R-2707@2
 - COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $) — CA-R-2708@1
-- Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold
-  ?= LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)
-  ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold — CA-R-2711@2
+- $plan.Header.AI Agent Confidence Threshold
+  ?== LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)
+  ?== $project.Settings.AI Agent Confidence Threshold — CA-R-2711@6
 - IF ($atom.Header.Work Sequence Number{=1})
 THEN ($atom.Header.Work Sequence Number > 0) — CA-R-2712@2
 - UNIQUE(
@@ -1488,3 +1495,7 @@ THEN ($atom.Header.Subjects.Active{==1}) — CA-R-2714@2
 - IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
 FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim): [in (CFEL)]{:1}
 ) — CA-R-2721@2
+- Operator//Fallback == "?==" — CA-R-2769@2
+- Operator//Lookup == "LOOKUP(R, q)" — CA-R-2770@2
+- Operator//Conjunction == "AND" — CA-R-2773@2
+- Operator//Disjunction == "OR" — CA-R-2774@2

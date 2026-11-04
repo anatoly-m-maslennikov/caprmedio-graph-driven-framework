@@ -1,0 +1,45 @@
+{
+  "status": "PREPARED_DRAFT_CREATION_AND_REPAIR",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "scope": "Approved Property-bearing permissions for separate Relation and Term branches only; no schema-instantiation changes",
+  "manifest_sha256": "42d37ac85300fd87b1d0a1204c81e0e706fa2c5dc7350660ebee737e92ede325",
+  "outputs": [
+    {
+      "atom_id": "CA-R-2247",
+      "version": 10,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@10-draft-CORE_META_MODEL-DECLARATION--define-relation.md",
+      "sha256": "36759103081503ed4f3b9cad51a46172d0ca3b0adb8f73167e95e0bb7db06a6b",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "source_sha256": "7c4b7a2660b054a0aa178fffbf3cb83d407d4d647f9de6ecb08ba852a98e38e4",
+      "summary": "Define Relation",
+      "preview_sha256": "c8743dcfc3a2ee1d20807ecc5e108e8db7ca2e412ec9f84c36323e5f8eaf5e5b"
+    },
+    {
+      "atom_id": "CA-R-1318",
+      "version": 34,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1318@34-draft-CORE_META_MODEL-DEFINITION--define-term.md",
+      "sha256": "cb8fd72a0f4b24670d02bb5c0d691a32763835219cfcd9a6a21fafc097069e07",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+      "source_sha256": "35014effa7d6d7ab7f57e2b5dddae8523f151b2208842d0e97bfe1661107e273",
+      "summary": "Define Term",
+      "preview_sha256": "5ede521c3214eccff4eaf2952a9791526014c5b24eca0088962d2e7dc28115c1"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@10-draft-CORE_META_MODEL-DECLARATION--define-relation.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2247\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation\nversion: 10\nupdated_at: 2026-11-04 22:16:20 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2247@10-draft-CORE_META_MODEL-DECLARATION--define-relation.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Relation\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation;\n\nRelation.** {:1}((IS_PROPERTY_OF)) (Relation, Relation.**);\n(Relation, Relation.**) {:0+}((HAS_PROPERTY)) Relation.**;\n\n# instances\nRelation//$relation;\n$relation.** {:1}((IS_PROPERTY_OF)) ($relation, $relation.**);\n($relation, $relation.**) {:0+}((HAS_PROPERTY)) $relation.**;\n```\n\n### Prose Claim\n\nRelation defines a reusable directed graph Relation Type with a Name and Meaning. Each actual link is a tuple (Host, Relation Type, Target); persist each direct fact once. An actual edge does not create a separate Relation ID. Endpoints are declared model Entities or instances, including Carrier and CFEL descriptors, and exclude literal values and glyphs. An operator is distinct from a graph Relation even when its notation spells a Relation traversal. Its declared descriptor may be an endpoint.\n\nA direct Relation Declaration owns shared meaning, endpoint signature and any counterpart binding. A derived counterpart remains a distinct Relation with its own Declaration; its meaning and endpoints are inferred through that binding. An alias supplies lexical notation for one Relation; it does not create a new Relation, a Node or a separate Relation ID.\n",
+      "after_sha256": "36759103081503ed4f3b9cad51a46172d0ca3b0adb8f73167e95e0bb7db06a6b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1318@34-draft-CORE_META_MODEL-DEFINITION--define-term.md",
+      "before": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Term\n  passive:\n  - CAPRMEDIO_MODEL <+ Project\n  - CAPRMEDIO_MODEL <+ Entity\n  - CAPRMEDIO_MODEL <+ Term.Name\n  - CAPRMEDIO_MODEL <+ Term//Term\n  - CAPRMEDIO_MODEL <+ Term//Empty\n  - CAPRMEDIO_MODEL <+ Term//ID\n  - CAPRMEDIO_MODEL <+ Node.**\n  - CAPRMEDIO_MODEL <+ Term//Property\nversion: 34\nupdated_at: 2026-11-04 18:25:15 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-R-1318\nstatus: Draft\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-1318@34-draft-CORE_META_MODEL-DEFINITION--define-term.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Term\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nTerm.*[in (Name)]{:1}\n```\n\n### Prose Claim\n\nA Term is a reusable word or phrase component of entity expressions and authored content. Its Project-specific meaning remains consistent across uses and is owned by its active Method/Form Term Definition. Vocabulary Terms are lexical items, not graph Nodes merely because they are used as words. A Term has one Name.\n\nUse the full admitted canonical expression when identifying or comparing an entity. Reusing a Term within distinct expressions neither makes those expressions synonymous nor establishes a Relation between their referents. Literal source quotations and code identifiers are not automatically renamed. A lexical Term and an Entity whose complete name uses that Term have distinct targets and meaning owners.\n\n## Semantics\n\nA Term provides a reusable word or phrase; its full context supplies the expression in which it appears.\n",
+      "before_sha256": "449c2f3514391c8e74d3aa6f1ac0c52efa3a446fb5a76ef5985e9cedbdc247d4",
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Term\n  passive:\n  - CAPRMEDIO_MODEL <+ Project\n  - CAPRMEDIO_MODEL <+ Term//Entity\n  - CAPRMEDIO_MODEL <+ Term.Name\n  - CAPRMEDIO_MODEL <+ Term//Term\n  - CAPRMEDIO_MODEL <+ Term//Empty\n  - CAPRMEDIO_MODEL <+ Term//ID\n  - CAPRMEDIO_MODEL <+ Node.**\n  - CAPRMEDIO_MODEL <+ Term//Property\nversion: 34\nupdated_at: 2026-11-04 22:16:20 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-R-1318\nstatus: Draft\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-1318@34-draft-CORE_META_MODEL-DEFINITION--define-term.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Term\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nTerm.*[in (Name)]{:1};\n\nTerm.** {:1}((IS_PROPERTY_OF)) (Term, Term.**);\n(Term, Term.**) {:0+}((HAS_PROPERTY)) Term.**;\n\n# instances\nTerm//$term;\n$term.** {:1}((IS_PROPERTY_OF)) ($term, $term.**);\n($term, $term.**) {:0+}((HAS_PROPERTY)) $term.**;\n```\n\n### Prose Claim\n\nA Term is a reusable word or phrase component of entity expressions and authored content. Its Project-specific meaning remains consistent across uses and is owned by its active Method/Form Term Definition. Vocabulary Terms are lexical items, not graph Nodes merely because they are used as words. A Term has one Name.\n\nUse the full admitted canonical expression when identifying or comparing an entity. Reusing a Term within distinct expressions neither makes those expressions synonymous nor establishes a Relation between their referents. Literal source quotations and code identifiers are not automatically renamed. A lexical Term and an Entity whose complete name uses that Term have distinct targets and meaning owners.\n\n## Semantics\n\nA Term provides a reusable word or phrase; its full context supplies the expression in which it appears.\n",
+      "after_sha256": "cb8fd72a0f4b24670d02bb5c0d691a32763835219cfcd9a6a21fafc097069e07"
+    }
+  ]
+}

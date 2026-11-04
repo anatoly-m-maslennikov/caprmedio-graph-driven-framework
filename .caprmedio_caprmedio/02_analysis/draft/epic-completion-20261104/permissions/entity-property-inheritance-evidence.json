@@ -1,0 +1,104 @@
+{
+  "status": "BOUNDED_EVIDENCE_NOT_A_DECISION",
+  "latest_human_steering": "Every subject-graph entity is an Entity, including Nodes, Properties and CFEL Relations. Entity is a generic Term, not a restored Entity root. No standalone wildcard is needed; inheritance is intended.",
+  "pins": [
+    {
+      "id": "CA-R-2462",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c"
+    },
+    {
+      "id": "CA-R-2471",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf"
+    },
+    {
+      "id": "CA-R-2473",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00"
+    },
+    {
+      "id": "CA-R-2621",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2621-CORE_META_MODEL-DECLARATION--declare-has-property.md",
+      "sha256": "c51142ed47d1f6a98da90b3a0f0708156c25c1b3bdc98b27a4a819b9bd3d9618"
+    },
+    {
+      "id": "CA-R-2588",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c"
+    },
+    {
+      "id": "CA-R-2247",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "7c4b7a2660b054a0aa178fffbf3cb83d407d4d647f9de6ecb08ba852a98e38e4"
+    },
+    {
+      "id": "CA-R-2616",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2616-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "55ac3acdcfc6fb5ead5e7849def26ef4e82aa1a7fc5c70ec38458023e6a59cf9"
+    },
+    {
+      "id": "CA-R-1958",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1958-CORE_META_MODEL--define-entity-carrier.md",
+      "sha256": "0a0074cc98230942772d96f790537e644d27b85837a3e08665c12fdde7b291ba"
+    },
+    {
+      "id": "CA-R-1318",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+      "sha256": "35014effa7d6d7ab7f57e2b5dddae8523f151b2208842d0e97bfe1661107e273"
+    },
+    {
+      "id": "CA-R-2355",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "sha256": "f055fbeae0965399e7660e6d4e0c70df72552ca1d4964a3f43221b3d9649deef"
+    },
+    {
+      "id": "CA-R-2415",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2415-CORE_META_MODEL-ENTITY_DEFINITION--define-term-name.md",
+      "sha256": "0bfe56e66fa9a7447d41882ceeccf3473244231c722a2ef45885fd7401b9a41a"
+    },
+    {
+      "id": "CA-R-1259",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-RULE--permit-zero-or-more-properties-on-every-entity.md",
+      "sha256": "55d09143de8f3e5fdbfbdfed181eae80dc0da051993cd34bb2567019a52e4707"
+    },
+    {
+      "id": "CA-R-2278",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2278-CORE_META_MODEL-RULE--require-exactly-one-defining-requirement-per-model-entity.md",
+      "sha256": "3293ba57db161be70079daa2826bcded856db0a60dde551fef968e63e1b57d8a"
+    }
+  ],
+  "findings": [
+    {
+      "id": "node-scope",
+      "evidence": "CA-R-2462 explicitly scopes its MODEL default and HAS_PROPERTY allowance to (Node, Node.**), and instance permissions to Node instance and its dependent Properties. CA-R-2471 says Node.** selects recursive dependents of Node; Node rules inherit into applicable narrower Nodes. CA-R-2278 says narrower declarations inherit applicable broader constraints; containment does not add inheritance.",
+      "consequence": "These pins establish the Node branch, not that Relation, Operator, Carrier or Term inherit Node."
+    },
+    {
+      "id": "non-node-cases",
+      "evidence": "CA-R-2247 defines Relation under CFEL; CA-R-2616 defines CFEL Operator; CA-R-1958 defines Carrier; CA-R-1318 defines Term. CA-R-2355 explicitly declares Relation.Name and CA-R-2415 explicitly declares Term.Name. CA-R-2471 says X.p addresses a Property borne by X.",
+      "consequence": "Current model already discusses bearer-qualified non-Node properties. No matching Node-narrowing declaration for these bearer kinds was found in this bounded trace; do not infer that they inherit Node or that their Properties are identical to Node.**."
+    },
+    {
+      "id": "domain-vs-permission",
+      "evidence": "CA-R-2473 defines IS_PROPERTY_OF from Property to any applicable declared model Entity or instance and HAS_PROPERTY as its derived inverse; CA-R-2621 declares the inverse. CA-R-2588 resolves default and named constraints by host, relation, target and layer and requires each inverse direction to have its own applicable named outgoing permission.",
+      "consequence": "The Relation definition supplies endpoint meaning, not automatic per-host inverse permission. No blanket wildcard prohibition was found for reviewed non-Node bearers; absence of an inspected non-Node whitelist is not evidence of prohibition or permission."
+    },
+    {
+      "id": "R1259-contribution",
+      "evidence": "CA-R-1259 states every Entity may bear zero or more Property occurrences and states a HAS_PROPERTY bound on Entity. CA-R-2462 provides the analogous named outgoing HAS_PROPERTY entry for the Node branch.",
+      "consequence": "The universal rule duplicates that allowance within the Node branch but states a broader all-Entity bearer capability that CA-R-2462 alone does not establish. Keep the user\u2019s universal meaning; do not narrow or retire it as redundant solely from Node inheritance."
+    },
+    {
+      "id": "target-omitted-bound",
+      "evidence": "CA-R-2462 has both `(Node, Node.**) {:0..1}((IS_PROPERTY_OF))` without a written target and `Node.** {:1}((IS_PROPERTY_OF)) (Node, Node.**)`; CA-R-2588 requires resolving target-domain applicability and treats omitted endpoint counts independently.",
+      "consequence": "The effect of the target-omitted named constraint on a Node.** Property targeting a non-Node bearer is not proved by this bounded trace. Do not assert such a link is forbidden or automatically permitted without resolving its applicable target domain."
+    }
+  ],
+  "minimal_disposition": "Preserve R1259 universal meaning and do not add a new Entity root, wildcard, classification or fabricated permission. Reconcile how the existing generic Entity term governs universal bearer applicability and how target-omitted and explicit endpoint permissions interact; then choose the canonical existing Subject for R1259 without narrowing its Claim.",
+  "question_if_needed": "Under the existing relation and inheritance rules, does R1259\u2019s universal prose establish the per-Entity HAS_PROPERTY permission for non-Node bearers, and how does the target-omitted IS_PROPERTY_OF bound interact with the explicit Node-bearer signature?",
+  "limits": [
+    "This is a bounded source trace, not an exhaustive model or runtime census.",
+    "No Current or Draft source, code, test, Git, Workflow or Workbench changes."
+  ]
+}

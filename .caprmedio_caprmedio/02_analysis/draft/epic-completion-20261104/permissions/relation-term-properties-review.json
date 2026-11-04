@@ -1,0 +1,42 @@
+{
+  "verdict": "PASS_BOUNDED_PROPERTY_BEARING_REVIEW",
+  "manifest_sha256": "a4a0d95a69ff36f6c1105cfb79a2dfc88d5c81d948784de194009126da8c6c08",
+  "candidates": [
+    {
+      "id": "CA-R-2247",
+      "baseline_matches": true,
+      "preview_matches": true,
+      "same_summary": true,
+      "active_subject_unchanged": true,
+      "model_and_instance_binder": "variables bound; both IS_PROPERTY_OF and HAS_PROPERTY explicitly stated for each layer; bearer 0+ and Property immediate bearer 1"
+    },
+    {
+      "id": "CA-R-1318",
+      "baseline_matches": true,
+      "preview_matches": true,
+      "same_summary": true,
+      "active_subject_unchanged": true,
+      "model_and_instance_binder": "variables bound; both IS_PROPERTY_OF and HAS_PROPERTY explicitly stated for each layer; bearer 0+ and Property immediate bearer 1"
+    }
+  ],
+  "findings": [],
+  "checks": {
+    "R2247": "preserves existing prose, Summary and active Relation Subject; no Node ancestry or global wildcard",
+    "R1318": "removes unresolvable passive Entity binding while preserving Term prose, Summary, other Subjects and existing Term.Name rule",
+    "inheritance": "does not infer Relation or Term are narrower Nodes; each inverse direction explicitly named"
+  },
+  "limits": [
+    "Source-only previews; no Current/Draft source edits or runtime tests.",
+    "Semantics of actual Relation tuples as independently identifiable graph instances is not assumed by the property-bearing declarations."
+  ],
+  "previous_verdict": "HOLD_SEMICOLON_AND_INSTANCE_SCOPE",
+  "resolved_history": [
+    "Both preceding CFEL expressions now have semicolon separators, confirmed against re-pinned source and previews.",
+    "Explicitly scoped to requested model- and instance-layer bearing permissions; does not claim full R2462 schema-instantiation pattern."
+  ],
+  "broader_separate_audit": "Property schema INSTANCE_OF/HAS_INSTANCE and per-schema/bearer cardinality outside the Node branch remain a separate audit gap, not a blocker to this bearing-only packet.",
+  "final_candidate_sha256": {
+    "CA-R-2247": "c8743dcfc3a2ee1d20807ecc5e108e8db7ca2e412ec9f84c36323e5f8eaf5e5b",
+    "CA-R-1318": "03c8f9ba287830108de284ad7dff4fd26e8706d44ec87d8752e0de3ab68a6e54"
+  }
+}

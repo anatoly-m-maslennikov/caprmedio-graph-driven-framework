@@ -27,3 +27,5 @@ Term Form/ID authority repair is Current and verified; exact R2275@2 is retired.
 The twelve held Drafts now have canonical containment Headers with obsolete scope fields removed. Their bodies and Current predecessors are unchanged; remaining Subject/prose repairs are still held.
 
 Latest: P2694@61 records the full CFEL specification audit and accepted ?== / IF binding decisions. Governing Configuration is Project properties. All23 prior acceptance groups remain. Four source lanes plus the non-Requirement Relation review cover the142-Atom specification census; completeness is not yet proven. Workbench/Workflows remain excluded owned files.
+
+CFEL source repair summary: [audit report](coverage/cfel-spec-audit/REPORT.md). Current operator/default, grouping/binding/range and precise-specialization packets passed bounded source readback. Seven views now use1167selectedsuppliers; coverage55missing23unresolved. Source/parser/runtime closure remains open.

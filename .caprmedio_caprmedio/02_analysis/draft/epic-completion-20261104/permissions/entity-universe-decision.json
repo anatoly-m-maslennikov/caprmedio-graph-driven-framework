@@ -1,0 +1,8 @@
+{
+  "status": "LATEST_HUMAN_DECISIONS",
+  "entity_meaning": "Everything represented in the Subject graph, including Node, Atom.Status and CFEL Relations.",
+  "entity_branch": "No Entity root. Keep the general Term.",
+  "universal_wildcard": "Rejected standalone * active-Subject syntax; use inheritance.",
+  "separate_branches": "Relation remains outside Node. Relation and Term declare their own Property permissions, inherited within their own branches.",
+  "scope": "Do not infer that every model branch inherits Node or grant automatic inverse permission. R1259 legacy scope remains to reconcile; its universal meaning was not rejected."
+}

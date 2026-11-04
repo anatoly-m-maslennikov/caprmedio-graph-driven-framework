@@ -1,0 +1,48 @@
+{
+  "status": "PASS_BOUNDED_DRAFT_REVIEW",
+  "checks": {
+    "actual_sha_matches_plan": true,
+    "actual_bytes_match_operation": true,
+    "current_pin_matches": true,
+    "reviewed_candidate_pin_matches": true,
+    "claim_and_summary_equal_reviewed_candidate": true,
+    "active_subject_term_entity": true,
+    "passive_form_matches_current_declaration_active": true,
+    "summary_unchanged": true,
+    "exact_meaning": true,
+    "no_new_wildcard_or_root_assertion": true,
+    "header_identity_status_version_role_form": true,
+    "tier_and_containment_preserved": true,
+    "destination_matches_actual_path": true,
+    "receipt_plan_hash_matches": true,
+    "receipt_reports_applied": true,
+    "no_other_m451_version6_file": true
+  },
+  "pins": {
+    "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-451@6-draft-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+    "draft_sha256": "0adab0c4c8081ae3f97a51105c1716284f633d97f03f00530dd9e4680cd2ef80",
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+    "source_sha256": "d029fba0cc8a5bd68871f491a357b856fa3f37c32805384b83b5918ee22beaf5",
+    "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/entity-universe-term-repair/CA-M-451.preview.txt",
+    "preview_sha256": "05c8c8dae3d4e3aca63f832fe4f333cbac8c703074555326931787d4daf3a9bc",
+    "plan_sha256": "2f2d3e3c3ce347fa40e73cb0297d2da83e0b60577e5fc98eb931806d32ddcd8a",
+    "receipt_sha256": "843f7e5a1df3fd4a5347477f63e8906a1ce4440070206f43c9e598e516f232bc",
+    "form_authority_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2765-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md",
+    "form_authority_sha256": "8d7d12e2dec1eff9d3f78abee94883e6d070a8f025bc3bf6d98be3896b77dbda",
+    "form_authority_version": 3
+  },
+  "version_evidence": {
+    "current_version": 5,
+    "draft_version": 6,
+    "matching_current_archive_draft_files": [
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/archive/CA-M-451@2-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/archive/CA-M-451@3-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/archive/CA-M-451@4-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-451@6-draft-CORE_META_MODEL-TERM_DEFINITION--define-entity.md"
+    ],
+    "reservation_limit": "No competing @6 file found under this native Method Scope Unit. This verifies visible carriers, not an independent global allocation ledger."
+  },
+  "interpretation": "Draft preserves reviewed Summary and body exactly; removes legacy Entity-root claims, staging content and stale Entity/Property passive Subjects. It retains Term and precise Form dependency and does not narrow the lexical definition to Nodes/Properties or create a new root or wildcard. R2765 Current active Subject exactly matches the Draft passive Form selector; its Formal Claim still uses older colon notation and is not revised by this review.",
+  "boundary": "Receipt verifies local Draft creation only; native workflow admission and Journal append are false. No promotion or source adoption. R1259 remains a separate decision; no retirement inferred."
+}

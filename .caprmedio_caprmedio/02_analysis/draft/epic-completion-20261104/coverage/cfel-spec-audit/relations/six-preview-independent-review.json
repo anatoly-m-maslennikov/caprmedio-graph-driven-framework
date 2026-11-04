@@ -1,0 +1,71 @@
+{
+  "verdict": "FIVE_REVIEWABLE_ONE_HOLD",
+  "entries": [
+    {
+      "id": "CA-R-1020",
+      "status": "SAFE_FOR_REVIEW",
+      "reason": "Active Subject implementation_of; retains Direct classification and Implementation Carrier\u2192specification Atom signature and governed-carrier qualification. General no-automatic-whitelist and reverse-writing rules remain at R2588/R2609.",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "current_sha256": "809a50e163bbb083181f7de8e9c0f79087de31b01614295343d18b1dea19d9e8",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1020.preview.txt",
+      "preview_sha256": "d28110626a09d7b2c1fe61dafe4d10cd2c01b405a04e61a101e6bfa18245fff0",
+      "current_and_candidate_pins_match_manifest": true
+    },
+    {
+      "id": "CA-R-1021",
+      "status": "SAFE_FOR_REVIEW",
+      "reason": "Active Subject evidence_for; retains Direct classification, Carrier\u2192Carrier signature and the essential restriction to evidence Carrier and Evaluation/Implementation Carrier. R2588 separately governs outgoing permission.",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "current_sha256": "33540d09ed24ee76ec247b397736ac9786d133dcdb5dc6c016ed2fd120fbaaf0",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1021.preview.txt",
+      "preview_sha256": "a2f3bebdcc01e28c1a35cd63be2319599de6dbdd4d91fd0f4ee40b59f2ae5697",
+      "current_and_candidate_pins_match_manifest": true
+    },
+    {
+      "id": "CA-R-1026",
+      "status": "SAFE_FOR_REVIEW",
+      "reason": "Active Subject depends_on; retains Direct classification, direct/inverse binding to required_by, Artifact\u2192Artifact meaning and exclusion of Plan start dependencies. R2762/R1580 separately own the adopted blocking pair.",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md",
+      "current_sha256": "761422f7245c231d3c813eb8caf07f4fba2fc135563f88e7b3dc1780fa1c66e2",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1026.preview.txt",
+      "preview_sha256": "f341d4e0c61ef0bcdb7512e9246e20fd362072979a4820c7ab62e15b99cd4aba",
+      "current_and_candidate_pins_match_manifest": true
+    },
+    {
+      "id": "CA-R-2170",
+      "status": "SAFE_FOR_REVIEW",
+      "reason": "Active Subject IS_DERIVED_RELATION_OF; retains descriptor\u2192descriptor signature, Direct classification, inverse-binding entailment and qualification boundary. Removing comparison to DERIVED_FROM does not change either Relation domain.",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "current_sha256": "cce56d07fa656084df11f1bf77aab9e0e357a74ac1ca2281cead891cc1d37510",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-2170.preview.txt",
+      "preview_sha256": "fa21be6c83520761fed417821032bba316e1d7a75f6e61c958457f6f15832b01",
+      "current_and_candidate_pins_match_manifest": true
+    },
+    {
+      "id": "CA-R-2354",
+      "status": "SAFE_FOR_REVIEW",
+      "reason": "Active Subject Relation.Meaning; retains its exact string/cardinality Formal Claim and canonical meaning. General tuple, inverse and optional transitivity authority remains in R2247/R2485/R806.",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md",
+      "current_sha256": "605da11f69acff5cd94a7c5772fb07a869b21e782a0aca802aa556061edc4fd7",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-2354.preview.txt",
+      "preview_sha256": "ae9cf421a83a9ea751c94153dc4358b08d31ae6d29677b8749a2db23d42780a6",
+      "current_and_candidate_pins_match_manifest": true
+    },
+    {
+      "id": "CA-R-2355",
+      "status": "HOLD_UNTIL_CONSTRAINT_REHOMED",
+      "reason": "Active Subject Relation.Name; name/string constraints remain, but the preview deletes the statement that an actual edge does not create a separate Relation ID. R2247 retains tuple structure and prohibits an alias creating a separate ID, but does not explicitly preserve this edge-specific rule. Move the exact edge-specific rule into the R2247 tuple Claim and review that source atomically before removing it here.",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "current_sha256": "e1e4f4ed28a5c8a98c421306e3d7211875d49d7e59dd46897d9d9a872fe3f354",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-2355.preview.txt",
+      "preview_sha256": "a768ffc7dc1a88bd84ab2669147f4c0b7009a169509895c60ec45f01987880ef",
+      "current_and_candidate_pins_match_manifest": true
+    }
+  ],
+  "required_fix": "Preserve R2355 actual-edge/no-separate-Relation-ID meaning in an appropriate Relation-focused source, preferably the R2247 tuple Claim, before atomically removing it from Name.",
+  "user_decisions": "No new semantic user decision identified; this is preservation and placement of existing source authority.",
+  "limits": [
+    "Role-specific endpoint domain does not establish a local or inherited outgoing permission; no population or runtime conformance is inferred.",
+    "This read-only review checks the named Current sources and cited governing authority, not an exhaustive current-source census. No source, Draft, code, Workflow, Workbench or Git modifications."
+  ]
+}

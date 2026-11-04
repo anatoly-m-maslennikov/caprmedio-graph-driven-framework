@@ -1,0 +1,28 @@
+--- CA-R-1318@34 Draft baseline
++++ CA-R-1318@34 Draft candidate
+@@ -3,7 +3,7 @@
+   active: CAPRMEDIO_MODEL <+ Term
+   passive:
+   - CAPRMEDIO_MODEL <+ Project
+-  - CAPRMEDIO_MODEL <+ Entity
++  - CAPRMEDIO_MODEL <+ Term//Entity
+   - CAPRMEDIO_MODEL <+ Term.Name
+   - CAPRMEDIO_MODEL <+ Term//Term
+   - CAPRMEDIO_MODEL <+ Term//Empty
+@@ -35,7 +35,15 @@
+ 
+ ```CFEL
+ # model
+-Term.*[in (Name)]{:1}
++Term.*[in (Name)]{:1};
++
++Term.** {:1}((IS_PROPERTY_OF)) (Term, Term.**);
++(Term, Term.**) {:0+}((HAS_PROPERTY)) Term.**;
++
++# instances
++Term//$term;
++$term.** {:1}((IS_PROPERTY_OF)) ($term, $term.**);
++($term, $term.**) {:0+}((HAS_PROPERTY)) $term.**;
+ ```
+ 
+ ### Prose Claim

@@ -3,8 +3,8 @@ atom_id: CA-P-2694
 label: Epic
 status: Active
 tier: 3
-version: 61
-updated_at: 2026-11-04 18:49:23 +0400
+version: 62
+updated_at: 2026-11-04 22:19:31 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations:
@@ -64,7 +64,7 @@ The blocking Relation pair is explicit: IS_BLOCKED_BY is Direct from the depende
 
 The Operator excludes Workbench and Workflows from this source lane: their agents own that work. Keep their required Epic gates as external dependencies. The prepared Occurrent/Workflow packet remains unpromoted here.
 
-Term Definition is now an admitted Method Form under R2765. M450 is the sole Current ID Term meaning owner; exact R2275@2 is retired. Twelve Entity/Property Drafts remain held for obsolete scope fields and Subject paths.
+Term Definition is now an admitted Method Form under R2765. M450 is the sole Current ID Term meaning owner; exact R2275@2 is retired. Eleven of the twelve Entity/Property Drafts remain held for Subject and scope repairs. R1318 is promoted with Term Property-bearing permissions. M451 defines Entity as anything represented in the Subject graph. Relation and Term remain separate from Node and declare their own Property-bearing rules; narrower entities inherit those rules.
 
 ## CFEL specification audit
 
@@ -73,8 +73,9 @@ Term Definition is now an admitted Method Form under R2765. M450 is the sole Cur
 3. Vocabulary and notation are coherent. Keep necessary meaning, constraints and brief Relation Semantics; remove staging notes and redundant rules.
 4. Use simple explicit syntax. Resolve ambiguity with the Operator before admission.
 5. `?==` assigns a missing Property value, `=` tests a condition, and `==` assigns a value. The Project confidence default is 90 in the integer range 0..100. Do not infer a Property rename.
-6. A variable introduced by IF is scoped to that condition and its matching THEN group.
-7. Review the full Current CFEL specification census semantically; operator-use scans and hash checks alone do not prove this audit complete.
+6. IF bindings last through the condition and matching THEN group; standalone typed bindings last through the CFEL block. A new binding uses another name.
+7. Mixed AND/OR uses parentheses. Quote text when needed; use escaped double quotes and backslashes.
+8. Review the full Current CFEL specification census semantically; operator-use scans and hash checks alone do not prove this audit complete.
 
 Workbench and Workflow definitions remain owned by other agents. Their illustrative use in a CFEL example does not exclude the CFEL specification itself from this audit.
 

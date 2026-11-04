@@ -8,22 +8,19 @@ subjects:
   - CAPRMEDIO_MODEL <+ Term//Term
   - CAPRMEDIO_MODEL <+ Term//Empty
   - CAPRMEDIO_MODEL <+ Term//ID
-  - CAPRMEDIO_MODEL <+ Node.**
+  - CAPRMEDIO_MODEL <+ Term//Entity
+  - CAPRMEDIO_MODEL <+ Entity/Property
   - CAPRMEDIO_MODEL <+ Term//Property
-version: 34
-updated_at: 2026-11-04 18:25:15 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
+version: 33
+updated_at: 2026-11-03 23:25:51 +0400
+relations: {}
 atom_id: CA-R-1318
-status: Draft
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
 tier: 1
 role: Requirement
 form: Declaration
-carrier_destination:
-  file:
-    name: CA-R-1318@34-draft-CORE_META_MODEL-DEFINITION--define-term.md
-    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
 ---
 ## Summary
 

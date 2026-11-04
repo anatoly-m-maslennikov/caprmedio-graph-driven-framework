@@ -1,0 +1,37 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_VERIFICATION",
+  "checks": {
+    "three_operations": true,
+    "receipt_plan_pin": true,
+    "receipt_applied": true,
+    "current_exact_after": true,
+    "archive_exact_before": true,
+    "consumed_draft_absent": true,
+    "consumed_draft_exact_review_pin": true,
+    "draft_body_preserved": true,
+    "current_identity_version_status": true,
+    "active_term_and_passive_preserved": true,
+    "containment_tier_preserved": true,
+    "current_destination_matches": true,
+    "generic_claim": true,
+    "no_root_or_wildcard": true,
+    "archive_previous_version": true,
+    "current_version_exceeds_draft": true
+  },
+  "pins": {
+    "plan_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-term-promotion/adoption-plan.json",
+    "plan_sha256": "e77b440b33533077b0b9d1f140229bb1af98801f46075401fd2ae29d64c651a1",
+    "receipt_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/entity-term-promotion/adoption-receipt.json",
+    "receipt_sha256": "2e4f2de06fab0ed05d25caf103af7d76cff3da3be506b237a52888ade3b2a22a",
+    "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+    "current_sha256": "cc83380cc43391664968b27b812f799030e57e9c7d88baa2ba329912e0d7a998",
+    "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/archive/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity@5.md",
+    "archive_sha256": "d029fba0cc8a5bd68871f491a357b856fa3f37c32805384b83b5918ee22beaf5",
+    "consumed_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-451@6-draft-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+    "consumed_draft_sha256": "0adab0c4c8081ae3f97a51105c1716284f633d97f03f00530dd9e4680cd2ef80",
+    "prior_review_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/entity-term-actual-draft-review.json",
+    "prior_review_sha256": "21f986ad144f4db00f7d1808bc32cd82b438aac6b36c200e78718b41bfa9410c"
+  },
+  "interpretation": "Current M451@7 retains the reviewed Draft Claim verbatim: Entity means anything represented in the Subject graph. It does not declare an Entity root, wildcard, or limit Entities to the Node branch; latest user decision also includes Relations and Terms and their Properties.",
+  "boundary": "Source-only promotion receipt reports native_workflow_admission false and journal_append false. No runtime, graph rebuild, full Subject reconciliation, future candidate, R1259 disposition, or Journal claim is made."
+}

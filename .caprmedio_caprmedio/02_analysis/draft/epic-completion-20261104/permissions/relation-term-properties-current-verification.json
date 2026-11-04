@@ -1,0 +1,33 @@
+{
+  "verdict": "PASS_BOUNDED_CURRENT_READBACK",
+  "plan_sha256": "2197f4bd670c7177e80789aea2af4415ba22c7833854cec959088f01e2543587",
+  "receipt_sha256": "fcd2678b1ac9bb86e67f0b8cd93e43488f0cf02e3ec8abce9012beb8d5d7ba64",
+  "outputs": [
+    {
+      "atom_id": "CA-R-2247",
+      "version": 11,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "b2204c4e8d43421bc1fa95ebf93dfae03eaf6749cef10015f97d3563bdb8cc22",
+      "preserved_predecessor": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation@9.md"
+    },
+    {
+      "atom_id": "CA-R-1318",
+      "version": 35,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+      "sha256": "46dab5ed2ab2e9118a5c2e7951bb63adba25a0b0cfd794dd0a2a74c4daa1c1b8",
+      "preserved_predecessor": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term@33.md"
+    }
+  ],
+  "checks": {
+    "operations": "all six after-states and receipt/plan pins match",
+    "current": "CA-R-2247@11 and CA-R-1318@35 are Active and match planned hashes and reviewed Draft bodies/Subjects",
+    "archives": "both prior Current carriers preserved byte-for-byte",
+    "drafts": "both reviewed Drafts were consumed",
+    "scope": "Relation and Term model and instance IS_PROPERTY_OF and HAS_PROPERTY bearing rules only; Term//Entity lexical dependency retained; no Node ancestry added"
+  },
+  "limits": [
+    "Schema-instance permissions and per-schema occurrence contracts remain a separate audit gap.",
+    "Receipt states native workflow admission and Journal append did not occur.",
+    "No runtime or parser conformance verified."
+  ]
+}

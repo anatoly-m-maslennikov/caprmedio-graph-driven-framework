@@ -1,0 +1,33 @@
+{
+  "verdict": "PASS_BOUNDED_PROJECTION_READBACK_WITH_KNOWN_SUBJECT_GAP",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-relation-term/generation-manifest.json",
+  "manifest_sha256": "858f1515b562759fad9c022149075670e40115cc06ce5556d9c7f1c093e2df8f",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-relation-term-frontier.json",
+  "frontier_sha256": "88fe0bfcbfa3f9ffc9d8f4db31dd7af835745c606a05872bae2e665202bd3f67",
+  "checks": [
+    "All 1,167 selected Current source file hashes match frontier; each of seven staged and published hashes match and each carries exactly the unique 1,167 source pins.",
+    "Seven distinct IDs and (Form, Project//caprmedio) pairs match actual Headers; historical 014\u2013019 files match pinned hashes.",
+    "Manifest reports zero inheritance diagnostics. No independent rerender performed."
+  ],
+  "delta": {
+    "prior": {
+      "known_missing": 55,
+      "unresolved": 23,
+      "passive_only": 48
+    },
+    "current": {
+      "known_missing": 55,
+      "unresolved": 24,
+      "passive_only": 49
+    },
+    "new_subject": "CAPRMEDIO_MODEL <+ Node.**",
+    "source": "CA-R-1318@35",
+    "source_sha256": "46dab5ed2ab2e9118a5c2e7951bb63adba25a0b0cfd794dd0a2a74c4daa1c1b8",
+    "history": "Current @33 passive Entity/Property was changed to Node.** in Draft @34; the repaired Draft @34 retained Node.**, and promotion retained it in @35.",
+    "assessment": "The Term declaration does contain formal references to Term.** property descendants, so a property-dependence context exists. Node.** is a recursive selection of many Property targets, not one direct known Subject; the unresolved report accurately exposes that unsupported aggregate Subject. It is not evidence that the reader lost a single direct known target. Whether this source should use a different admitted direct dependency requires source/Subject authority review; do not guess a replacement or conceal the diagnostic."
+  },
+  "limits": [
+    "These checks do not establish overall MODEL completeness.",
+    "No Current, generator, code, tests, Git or Workflow/Workbench mutations."
+  ]
+}

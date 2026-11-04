@@ -1,0 +1,23 @@
+{
+  "verdict": "PASS_BOUNDED_SOURCE_AND_PROJECTION_READBACK",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json",
+  "manifest_sha256": "eb403fe50a812a0ebdeef2eb28135f2c55cfab1609982fbe7d19bbaaa8cf61f2",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-dependency-frontier.json",
+  "frontier_sha256": "e0cf2e16e61ac843b09dc1a2b5e4465582f77c0df1519a33efda0e72097a4e31",
+  "checks": [
+    "All three promotion operations match before/after payloads and file readbacks; exact predecessor @35 retained and Draft @36 consumed.",
+    "Current CA-R-1318@37 body is byte-identical to @35. The only Subject change removes passive CAPRMEDIO_MODEL <+ Node.**; all other Subjects including Term//Entity and Term//Property remain unchanged. Header changes otherwise only version and timestamp.",
+    "All 1,167 selected Current source pins match; seven staged/published view hashes and each view\u2019s 1,167 source references match.",
+    "Seven IDs retain distinct Form plus Project//caprmedio identities; frozen 014\u2013019 match prior hashes.",
+    "Generation manifest reports zero inheritance diagnostics."
+  ],
+  "audit_counts": {
+    "known_missing": 55,
+    "unresolved": 23,
+    "passive_only": 48
+  },
+  "limits": [
+    "This removal eliminates the extra unsupported aggregate Subject diagnostic; it does not establish broader Claim semantics or complete MODEL coverage.",
+    "No independent renderer rerun; no Current/code/test/Git changes in this review."
+  ]
+}

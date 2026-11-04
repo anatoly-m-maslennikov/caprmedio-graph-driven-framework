@@ -1,0 +1,67 @@
+{
+  "verdict": "TWO_MINIMAL_FIXES_TWO_HELD",
+  "current_pins": [
+    {
+      "id": "CA-R-1247",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1247-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "current_sha256": "3a1847ad88f2cee8615db4b45c931746771e4508fcccb2ccd22a2967edf1c3f4",
+      "original_current_pin_matches": true,
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1247@25-draft-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "actual_draft_sha256": "c5569a1fb980633e1185dbc934707a697705595db526b06459359ddfdf49bb68",
+      "creation_draft_sha256": "db8a1432051b5eaf823b937ed68166b5a59e09707b4e1f3841608aa13de4c9e9",
+      "readiness": "minimal_fix",
+      "issues": [
+        "Node.** is a selector, not Entity kind; remove stale passive Entity binding only with approved scope mapping.",
+        "Preserve source-admitted bearer-qualified identity; model versus instance occurrence coverage needs normal validation."
+      ]
+    },
+    {
+      "id": "CA-R-2003",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "current_sha256": "6b83ec62b5d30960febc3dbcaadee3d5504be4ff3caa95356745a91f8952b4c0",
+      "original_current_pin_matches": true,
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2003@17-draft-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "actual_draft_sha256": "ba5055b7bee0c683a58c8f57955629d56ab8a9d42ce10e216aeee0df0a5c12c6",
+      "creation_draft_sha256": "b630d6c2bdf16aeeb2086d2cdb90286feb273c3b53572ac538c9cb952728706d",
+      "readiness": "minimal_fix",
+      "issues": [
+        "Node.** is a selector, not a Property kind.",
+        "Remove unresolved named Selection passive binding and replace its references with source-declared occurrence inventory independent of graph edges; retain exactly-one bearer and missing-edge failure."
+      ]
+    },
+    {
+      "id": "CA-R-1318",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+      "current_sha256": "35014effa7d6d7ab7f57e2b5dddae8523f151b2208842d0e97bfe1661107e273",
+      "original_current_pin_matches": true,
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1318@34-draft-CORE_META_MODEL-DEFINITION--define-term.md",
+      "actual_draft_sha256": "449c2f3514391c8e74d3aa6f1ac0c52efa3a446fb5a76ef5985e9cedbdc247d4",
+      "creation_draft_sha256": "d744b5d7a45fe5aac9873719faafc36540d03327240dba28926ab63fc459e564",
+      "readiness": "held_question",
+      "issues": [
+        "Draft Term definition still references undeclared Entity as passive Subject and in prose; retain distinction between a lexical Term and its target without presuming all targets are Nodes.",
+        "Determine an established broad target or approve removal of passive Entity binding; avoid opaque Node substitution."
+      ]
+    },
+    {
+      "id": "CA-R-1259",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-RULE--permit-zero-or-more-properties-on-every-entity.md",
+      "current_sha256": "55d09143de8f3e5fdbfbdfed181eae80dc0da051993cd34bb2567019a52e4707",
+      "original_current_pin_matches": true,
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1259@25-draft-CORE_META_MODEL-RULE--permit-zero-or-more-properties-on-every-entity.md",
+      "actual_draft_sha256": "42accc25dde25c770af1810b35e764231e57f69d99c3a7eacebca6afeb940603",
+      "creation_draft_sha256": "74beff2d3d23ff97ddb22b4323c87897ce5861b9d04fb556439f866c0c92d571",
+      "readiness": "held_question",
+      "issues": [
+        "Active Entity Subject, immutable Summary and Claim retain every-Entity bearer scope; passive replacement alone does not resolve it.",
+        "Node/Property bearer permission in CA-R-2462 does not prove every other Entity can bear Properties; decide retirement versus broader replacement."
+      ]
+    }
+  ],
+  "creation_plan_sha256": "1bba17c47c56f05300d72cc15c6f656174cd5cc2086f732b89b580cc4cff4278",
+  "header_cleanup": "Current actual Draft hashes supersede creation pins following verified metadata cleanup receipt; Current source pins remain matching.",
+  "limits": [
+    "No Current or Draft changes made.",
+    "No migration or runtime evidence established."
+  ]
+}

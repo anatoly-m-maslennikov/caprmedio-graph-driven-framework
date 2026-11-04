@@ -7,7 +7,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ CFEL
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
 version: 25
-updated_at: 2026-11-04 18:25:15 +0400
+updated_at: 2026-11-04 21:59:19 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
@@ -50,9 +50,9 @@ Qualification is part of the complete property name used for collision checks.
 A repeated display or reference of one entity remains the same entity, and
 parsing a name does not introduce another graph entity.
 
-`Node.**` is the Entity kind governed by this Rule.
+`Node.**` is the recursive Property selector governed by this Rule.
 `Term//Property` is its reusable lexical Term; the Term is not the
-Entity kind or an occurrence. The direct IS_PROPERTY_OF Relation runs from the
+selector or an occurrence. The direct IS_PROPERTY_OF Relation runs from the
 Property occurrence to its bearer. The separate bearer-cardinality Rule owns
 the exactly-one constraint; this Rule owns only the complete-path identity.
 

@@ -3,8 +3,8 @@
   "epic": "CA-P-2694@61",
   "as_of": "2026-11-04",
   "purpose": "Read-only completeness assessment; not authority to change Current or transition status.",
-  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-binding-frontier.json",
-  "current_frontier_note": "Seven MODEL views refreshed from 1,160 selected Current suppliers after Method Form/ID owner repair: 55 missing / 23 unresolved. Bounded source snapshot; Workbench/Workflows owned by other agents. Runtime gates remain open.",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-cfel-frontier.json",
+  "current_frontier_note": "Seven published MODEL views verified against1167selectedCurrent suppliers afterCFELsourceadoption. Coverage55missing23unresolved; boundedselection, nofinalruntime/data proof.",
   "requirements": [
     {
       "requirement_id": "P2695",
@@ -244,19 +244,25 @@
     {
       "requirement_id": "P2694: CFEL groups and bindings",
       "explicit_requirement": "Formal Claim expressions in one CFEL block with # model then # instances; explicit $x bindings, same-variable identity within Claim, model/instance distinction and documented binding scope; preserve named references, inherited constraints, population cardinalities and endpoint counts; update rules/readers/checkers/renderers/fixtures/projections.",
-      "live_evidence": "Earlier grouping/$x rules and source changes were adopted. The older CFEL inventory retained unsupported clauses as raw evidence; later source-backed view checks observed 65 opaque clauses. Neither observation establishes evaluator behavior.",
+      "live_evidence": "Original142-spec per-Atom audit index plus12recoveredCFELsources; reviewedCurrentoperator/default13-Atompacket, grouping/binding/range3-Atompacket and2specializationdescriptors; sevenviewsrefreshed1167suppliers. Sourceevidence is notparser/runtimeexecution.",
       "gap_or_limit": "Reconcile migration report claims with current parser/projection readback. Full-frontier source pins match, but no proof here that comment boundaries and repeated-variable identity are parsed correctly; do not equate raw preservation with semantic evaluation.",
       "gate_command_or_check": "Run current CFEL parser and grouping/binding test targets and verify seven projections match exact current pins; full gate remains P2707.",
       "dependencies": [
         "CFEL lane",
         "P2707"
       ],
-      "assessment": "source_spec_audit_in_progress_not_complete",
+      "assessment": "source_repairs_applied_remaining_semantic_and_external_gates_open",
       "evidence_refs": [
         ".caprmedio_caprmedio/02_analysis/draft/model-header-content-migration-20261103/report.md",
         ".caprmedio_caprmedio/02_analysis/draft/model-cleanup-20261104/REPORT.md",
         ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/cfel/analysis.md",
-        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/cfel/inventory.json"
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/cfel/inventory.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/audit-index.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-operators-current-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-binding-range-current-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/specialization-current-verification.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-projections-review.json"
       ],
       "latest_operator_requirements": [
         "Complete Current CFEL spec review: every operator, Relation and expression syntax declared.",
@@ -424,7 +430,14 @@
   ],
   "reviewed_plan_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
   "reviewed_plan_quality": "P2694@55 was independently reviewed; @56 clarifies required pushes versus no release and @57 records the verified1159-source checkpoint. Final gates remain open.",
-  "latest_projection_checkpoint": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-binding/generation-manifest.json",
+  "latest_projection_checkpoint": {
+    "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-dependency-frontier.json",
+    "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-dependency/generation-manifest.json",
+    "selected_sources": 1167,
+    "known_missing": 55,
+    "unresolved": 23,
+    "status": "PUBLISHED_SOURCE_PINNED_NOT_ALL_MODEL_CONFORMANT"
+  },
   "current_epic_version": 61,
   "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/cfel-audit-planning/adoption-receipt.json",
   "current_verification_task_version": 5,
@@ -432,5 +445,12 @@
     "this_chat": "MODEL, CFEL, Declarations, Atom sources and source projections",
     "CA #3": "implementation, runtime, fixtures, regression and integration test execution",
     "required_external_gates": "retained; no completion inferred from source work"
+  },
+  "latest_source_checkpoint": {
+    "epic": "CA-P-2694@62",
+    "Entity Term": "CA-M-451@7",
+    "Relation": "CA-R-2247@11",
+    "Term": "CA-R-1318@37",
+    "scope": "Source-only reviewed changes; all 23 acceptance groups retained."
   }
 }

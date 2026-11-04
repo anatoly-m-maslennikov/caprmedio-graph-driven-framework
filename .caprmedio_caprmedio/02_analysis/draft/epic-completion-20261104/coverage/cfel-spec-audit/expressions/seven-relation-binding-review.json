@@ -1,0 +1,109 @@
+{
+  "status": "BLOCKED_FOR_EXPLICIT_BINDING_AND_ENDPOINT_DOMAIN_REVIEW",
+  "scope": "Seven proposed Relation bodies and their Current claims; hash equality is provenance only, not semantic correctness. Current typed binding / no-shadowing reviewed; no IF expression appears in these seven candidates.",
+  "findings": [
+    {
+      "id": "CA-R-1020",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "source_sha256": "809a50e163bbb083181f7de8e9c0f79087de31b01614295343d18b1dea19d9e8",
+      "source_pin_matches": true,
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-1020.preview.txt",
+      "preview_sha256": "b85cd2b0d074296ead142b56ae11cc05547d49af7712a07575958456498b73cc",
+      "preview_pin_matches": true,
+      "variables": [
+        "$implementation_carrier",
+        "$specification_atom"
+      ],
+      "status": "HOLD_TYPED_DOMAIN",
+      "finding": "Both `$implementation_carrier` and `$specification_atom` are introduced in typed instance selectors, in one expression. Types Carrier and Atom are broader than Current claim: governed Implementation Carrier and specification Atom. No demonstrated existing narrower selector or formal qualifying predicate in this candidate; do not assert all Carrier/Atom pairs admitted."
+    },
+    {
+      "id": "CA-R-1021",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "source_sha256": "33540d09ed24ee76ec247b397736ac9786d133dcdb5dc6c016ed2fd120fbaaf0",
+      "source_pin_matches": true,
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-1021.preview.txt",
+      "preview_sha256": "3f9bd30dde27f112542f20bfdd18f0588fd03fad7c846c16f5d92b9eebedaff1",
+      "preview_pin_matches": true,
+      "variables": [
+        "$evidence_carrier",
+        "$supported_carrier"
+      ],
+      "status": "HOLD_TYPED_DOMAIN",
+      "finding": "Both `$evidence_carrier` and `$supported_carrier` are explicitly typed Carrier instance bindings. Current claim limits host to evidence Carrier and target to Evaluation or Implementation Carrier; formal selectors alone select broader domain. Current source prose explicitly preserves target condition, but candidate drops that explanatory paragraph; no typed narrow domain shown."
+    },
+    {
+      "id": "CA-R-1026",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md",
+      "source_sha256": "761422f7245c231d3c813eb8caf07f4fba2fc135563f88e7b3dc1780fa1c66e2",
+      "source_pin_matches": true,
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-1026.preview.txt",
+      "preview_sha256": "660ba61dbf886302c8831c3233938cbb596452865d39c5e1c116b7cdd7a3f01b",
+      "preview_pin_matches": true,
+      "variables": [
+        "$dependent",
+        "$prerequisite"
+      ],
+      "status": "BLOCK_UNBOUND_AND_DOMAIN",
+      "finding": "`$dependent` and `$prerequisite` are unbound in the #instances block. Current claim says both endpoints are Artifacts; Term//Artifact is a registered word, not an established graph entity kind. Exact entity domain must be supported before adding typed bindings; do not guess Carrier, Node or Term."
+    },
+    {
+      "id": "CA-R-2170",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "source_sha256": "cce56d07fa656084df11f1bf77aab9e0e357a74ac1ca2281cead891cc1d37510",
+      "source_pin_matches": true,
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-2170.preview.txt",
+      "preview_sha256": "05445f69a3cd5b4f7430c970f4080b2ed22d578155155503bca96646c5bf7f90",
+      "preview_pin_matches": true,
+      "variables": [
+        "$relation",
+        "$relation_2"
+      ],
+      "status": "HOLD_TYPED_DOMAIN",
+      "finding": "Both `$relation` and `$relation_2` are explicitly typed Relation selectors in #model. Current claim restricts Host to derived Relation Type and Target to its source Relation Type; formal selector currently reads broader unless the Claim\u2019s prose conditions are applied. Verify supported existing qualifier; do not infer inverse transformation. No unbound variables."
+    },
+    {
+      "id": "CA-R-2354",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md",
+      "source_sha256": "605da11f69acff5cd94a7c5772fb07a869b21e782a0aca802aa556061edc4fd7",
+      "source_pin_matches": true,
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-2354.preview.txt",
+      "preview_sha256": "2e1a4230398f0fc90479d545e78dd2c66adb9acdc3ca27608931318fe146696e",
+      "preview_pin_matches": true,
+      "variables": [],
+      "status": "PASS_BINDING_NO_ENDPOINTS",
+      "finding": "No variables or relation endpoint signature; declares Relation.Meaning. No binding-scope issue found in body."
+    },
+    {
+      "id": "CA-R-2355",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "source_sha256": "e1e4f4ed28a5c8a98c421306e3d7211875d49d7e59dd46897d9d9a872fe3f354",
+      "source_pin_matches": true,
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-2355.preview.txt",
+      "preview_sha256": "2a4c602d2e2ac0296680b0352396c5157c9db20abc61a0784647b8b6915f1f4c",
+      "preview_pin_matches": true,
+      "variables": [],
+      "status": "PASS_BINDING_NO_ENDPOINTS",
+      "finding": "No variables or relation endpoint signature; declares Relation.Name. No binding-scope issue found in body. Candidate must be adopted atomically with R2247 for relocated edge-identity sentence per manifest."
+    },
+    {
+      "id": "CA-R-2247",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "source_sha256": "e94d4c0b78e0a1fbcb83e0070b323017b836335d188191729a75325d4c7f6e27",
+      "source_pin_matches": true,
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-2247.preview.txt",
+      "preview_sha256": "6c45d1ce093d345a23fb05859adc88f0b27fc121cc67ad776d8e1dbca1ac399a",
+      "preview_pin_matches": true,
+      "variables": [],
+      "status": "PASS_BINDING_NO_SIGNATURE",
+      "finding": "No variables or typed endpoint signature in body. Prose preserves model-Entity-or-instance endpoints including Carrier and CFEL descriptors, excluding literals. Candidate must be reviewed together with R2355 relocation."
+    }
+  ],
+  "authority_limits": [
+    "R1026 Artifact is prose endpoint authority, not proof that Term//Artifact denotes an entity type or that any proposed replacement domain is equivalent.",
+    "A typed `Carrier//$x` binding is genuine binding but does not itself express narrower prose qualifications. Establish whether candidate syntax alone is required to encode those restrictions or whether a specific combined prose/formal contract suffices before declaring exact endpoint signature.",
+    "R2170 #model Relation selectors bind model Relation instances, not data-layer relation facts; no implicit exception to IF scope asserted.",
+    "The latest Entity-root decision does not determine exact mappings of Artifact or legacy paths; no speculative mapping made.",
+    "No Current, code, tests or Git changes."
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "status": "EVIDENCE_ONLY_ROOT_DECISION_PENDING",
+  "latest_clarification": "Every item in the Subject graph is an Entity, including a Node, Atom.Status Property and a CFEL Relation. This does not itself settle a root branch or declare a new kind.",
+  "source_pins": [
+    {
+      "id": "CA-R-1259",
+      "version": 24,
+      "status": "Active",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-RULE--permit-zero-or-more-properties-on-every-entity.md",
+      "sha256": "55d09143de8f3e5fdbfbdfed181eae80dc0da051993cd34bb2567019a52e4707"
+    },
+    {
+      "id": "CA-M-451",
+      "version": 5,
+      "status": "Active",
+      "active_subject": "CAPRMEDIO_MODEL <+ Term//Entity",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+      "sha256": "d029fba0cc8a5bd68871f491a357b856fa3f37c32805384b83b5918ee22beaf5"
+    },
+    {
+      "id": "CA-R-1194",
+      "version": 32,
+      "status": "Active",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+      "sha256": "f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57"
+    },
+    {
+      "id": "CA-R-2247",
+      "version": 7,
+      "status": "Active",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "e94d4c0b78e0a1fbcb83e0070b323017b836335d188191729a75325d4c7f6e27"
+    },
+    {
+      "id": "CA-R-2462",
+      "version": 4,
+      "status": "Active",
+      "active_subject": "CAPRMEDIO_MODEL <+ Node",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c"
+    },
+    {
+      "id": "CA-R-2696",
+      "version": 1,
+      "status": "Active",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Status",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2696-CORE_META_MODEL-DECLARATION--declare-atom-header-status.md",
+      "sha256": "91195e351c22d05abe26335dd90a6dadaec5acb0e9739fe50ef80a96f424449a"
+    },
+    {
+      "id": "CA-R-2473",
+      "version": 5,
+      "status": "Active",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "CA-M-451",
+      "finding": "Current @5 lexical Entity Term is active. Its Claim describes a common category for primary graph nodes and dependent properties and explicitly introduces Term//Entity. Its Semantics/Details also assert an Entity root and contain stale pending-Draft/staging material; those assertions conflict with the later retirement direction and cannot decide the pending root question."
+    },
+    {
+      "id": "CA-R-1194",
+      "finding": "Current @32 defines Subject Path as identifying one addressed thing or topic, but still asserts Entity as root under R2462. Current R2462 actually declares Node, so this root citation is stale; later human clarification expands what is called Entity, without establishing that stale structural claim."
+    },
+    {
+      "id": "CA-R-2247",
+      "finding": "Relation is a directed Relation Type; declared model Entities or instances, including CFEL descriptors, can be endpoints. Direct and derived Relation descriptors are distinct Relations; literal values and glyphs are not endpoints. Relation name/token is not automatically its descriptor identity."
+    },
+    {
+      "id": "CA-R-2462",
+      "finding": "Its formal selectors (Node, Node.**) cover primary Node and dependent Property and allow HAS_PROPERTY on those model entities; this evidence does not prove all CFEL Relation descriptors are Node instances or carry the same permissions."
+    },
+    {
+      "id": "CA-R-2696",
+      "finding": "Atom.Header.Status is an authored qualified Property Subject; the clarified general Entity term may refer to that Property as a graph entity, without converting status values into graph entities."
+    },
+    {
+      "id": "CA-R-1259",
+      "finding": "Current rule governs old Entity Subject and states every Entity may bear >=0 Property occurrences, with Entity-to-Property HAS_PROPERTY formal relation. Current subject Entity/Property and use of Entity as formal selector need reconciliation with the pending root decision and relation endpoint/permission authorities."
+    }
+  ],
+  "scope_options_without_asserting_new_syntax": [
+    {
+      "option": "Prose universal",
+      "evidence": "An ordinary-language Rule can describe all Subject-graph entities in its Claim while keeping lexical Term//Entity distinct from a modeled root. The active Subject must still have an existing target whose scope truthfully owns this rule; no such universal target has yet been established by this audit.",
+      "limit": "Prose does not by itself supply a CFEL-wide universal selector or HAS_PROPERTY endpoint permission."
+    },
+    {
+      "option": "Explicit existing authorities",
+      "evidence": "Use an existing proven selector such as (Node, Node.**) for its evidenced subset, and separately govern other applicable declared targets only where their own endpoint permissions and scope are established.",
+      "limit": "The Node subset is not established as the full Subject universe; do not silently exclude CFEL Relation descriptors or add permissions."
+    }
+  ],
+  "first_gap_after_pending_answer": "If Entity is lexical-only, identify an existing active Subject that truly governs the whole Subject-graph universe and an admitted formal selector/endpoint domain covering every intended entity, or retain a prose-only scoped rule and explicit unresolved formal coverage. If Entity is a structural root, establish the authoritative declaration, membership/identity and relation permissions before revising R1259. No new root, kind, universal syntax or automatic Relation Property permission is inferred.",
+  "limits": [
+    "Source-only; no Workbench/Workflow, code, tests, Git or canonical mutation.",
+    "Prior M451 retirement plan is not proof of retirement; live M451@5 is Active."
+  ]
+}

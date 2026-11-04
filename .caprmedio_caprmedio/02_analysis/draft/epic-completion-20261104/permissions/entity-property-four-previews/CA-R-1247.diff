@@ -1,0 +1,14 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1247@25-draft-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/entity-property-four-previews/CA-R-1247.preview.txt
+@@ -50,9 +50,9 @@
+ A repeated display or reference of one entity remains the same entity, and
+ parsing a name does not introduce another graph entity.
+ 
+-`Node.**` is the Entity kind governed by this Rule.
++`Node.**` is the recursive Property selector governed by this Rule.
+ `Term//Property` is its reusable lexical Term; the Term is not the
+-Entity kind or an occurrence. The direct IS_PROPERTY_OF Relation runs from the
++selector or an occurrence. The direct IS_PROPERTY_OF Relation runs from the
+ Property occurrence to its bearer. The separate bearer-cardinality Rule owns
+ the exactly-one constraint; this Rule owns only the complete-path identity.
+ 

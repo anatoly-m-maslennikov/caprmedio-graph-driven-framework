@@ -1,0 +1,102 @@
+{
+  "status": "SIX_REVIEWED_THREE_BOUNDED_PASS_THREE_REMOVED_RULES_FOR_ADJUDICATION",
+  "scope": "Body-level preservation only. Formal and prose Claims apply jointly; unchanged broad typed selectors do not alone establish endpoint widening. This is not proof preexisting grammar, metadata, or source Subject identity are correct. R1026 is excluded by instruction.",
+  "findings": [
+    {
+      "id": "CA-R-1020",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "source_sha256": "809a50e163bbb083181f7de8e9c0f79087de31b01614295343d18b1dea19d9e8",
+      "source_pin_matches": true,
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-1020.preview.txt",
+      "candidate_sha256": "b85cd2b0d074296ead142b56ae11cc05547d49af7712a07575958456498b73cc",
+      "candidate_pin_matches": true,
+      "status": "PASS_BOUNDED",
+      "finding": "Formal typed selectors unchanged; prose retains governed Implementation Carrier to implemented specification Atom restriction. Removed paragraph explains endpoint permissions, no duplicate inverse fact, and reverse writing; R2609/R2588 supply general reverse-notation and no second inverse fact rules. This review does not claim selector syntax alone encodes the narrower prose.",
+      "exact_body_diff": "--- current body\n+++ candidate body\n@@ -14,4 +14,3 @@\n \n implementation_of is the direct Relation owned by a governed Implementation Carrier. The Host is that governed Implementation Carrier and each tuple targets the specification Atom it implements.\n \n-These are endpoint permissions. They are not extra fields on a reusable Relation Type and do not authorize an additional storage fact for a derived inverse. Forward `Host ((implementation_of)) Target` and reverse `Target <((implementation_of)) Host` are written views of the same direct fact.\n"
+    },
+    {
+      "id": "CA-R-1021",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "source_sha256": "33540d09ed24ee76ec247b397736ac9786d133dcdb5dc6c016ed2fd120fbaaf0",
+      "source_pin_matches": true,
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-1021.preview.txt",
+      "candidate_sha256": "3f9bd30dde27f112542f20bfdd18f0588fd03fad7c846c16f5d92b9eebedaff1",
+      "candidate_pin_matches": true,
+      "status": "PASS_BOUNDED",
+      "finding": "Formal selectors unchanged. Prose retains evidence Carrier Host and Evaluation or Implementation Carrier target. Removed generic-target limitation restates this; no need to assume all Carrier pairs. General inverse/reverse constraints remain under R2609/R2588.",
+      "exact_body_diff": "--- current body\n+++ candidate body\n@@ -14,4 +14,3 @@\n \n evidence_for is the direct Relation owned by an evidence Carrier. The Host is that evidence Carrier and each tuple targets the Evaluation or Implementation Carrier it supports.\n \n-The generic Target variable retains precisely that source-supported endpoint condition; it does not admit every supported Carrier or introduce a new kind. These are endpoint permissions, not extra fields on a reusable Relation Type or additional storage facts for derived inverses. Forward `Host ((evidence_for)) Target` and reverse `Target <((evidence_for)) Host` are written views of the same direct fact.\n"
+    },
+    {
+      "id": "CA-R-2170",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "source_sha256": "cce56d07fa656084df11f1bf77aab9e0e357a74ac1ca2281cead891cc1d37510",
+      "source_pin_matches": true,
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-2170.preview.txt",
+      "candidate_sha256": "05445f69a3cd5b4f7430c970f4080b2ed22d578155155503bca96646c5bf7f90",
+      "candidate_pin_matches": true,
+      "status": "REVIEW_REMOVED_RULE",
+      "finding": "Formal selectors unchanged; prose retains derived-Type to its source-Type qualification and qualified-derivation rule. Removed `This inferred metadata is not repeated in the minimal derived Declaration` is a concrete authoring instruction, not restated in this candidate; no replacement was established in searched Current Core. Also removes distinction from DERIVED_FROM; the separately named Relations remain distinct, but locate authority if explicit anti-confusion text is necessary.",
+      "exact_body_diff": "--- current body\n+++ candidate body\n@@ -11,4 +11,4 @@\n \n ### Prose Claim\n \n-IS_DERIVED_RELATION_OF relates a derived Relation Type instance to its source Relation Type instance. It does not itself specify the endpoint transformation or any qualification. A direct Declaration's inverse binding entails the bound inverse's IS_DERIVED_RELATION_OF link to the direct Relation. This inferred metadata is not repeated in the minimal derived Declaration. A qualified derivation must retain its explicit qualification; it must not be normalized to an unconditional inverse. This Relation is distinct from DERIVED_FROM between Artifact Revisions.\n+IS_DERIVED_RELATION_OF relates a derived Relation Type instance to its source Relation Type instance. It does not itself specify the endpoint transformation or any qualification. A direct Declaration's inverse binding entails the bound inverse's IS_DERIVED_RELATION_OF link to the direct Relation. A qualified derivation must retain its explicit qualification; it must not be normalized to an unconditional inverse.\n"
+    },
+    {
+      "id": "CA-R-2354",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md",
+      "source_sha256": "605da11f69acff5cd94a7c5772fb07a869b21e782a0aca802aa556061edc4fd7",
+      "source_pin_matches": true,
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-2354.preview.txt",
+      "candidate_sha256": "2e1a4230398f0fc90479d545e78dd2c66adb9acdc3ca27608931318fe146696e",
+      "candidate_pin_matches": true,
+      "status": "REVIEW_REMOVED_TYPE_RULE",
+      "finding": "Formal property contract and meaning sentence retained. Removes explicit `Direction and transitivity describe the Type`; R806 retains optional type-level transitivity and direct direction, but does not establish a verbatim replacement for this complete statement. Removed no-second-inverse and endpoint-tuple claims have general counterparts R2588 and R2247. Determine if type-level direction/transitivity sentence should relocate or whether R806 suffices.",
+      "exact_body_diff": "--- current body\n+++ candidate body\n@@ -13,9 +13,3 @@\n \n \n Relation Meaning is the canonical meaning of a reusable Relation Type.\n-Direction and transitivity describe the Type. An optional derived inverse is a\n-view of the direct tuple, not another authored edge. Actual source and target\n-endpoints remain tuple facts.\n-\n-\n-\n"
+    },
+    {
+      "id": "CA-R-2355",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "source_sha256": "e1e4f4ed28a5c8a98c421306e3d7211875d49d7e59dd46897d9d9a872fe3f354",
+      "source_pin_matches": true,
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-2355.preview.txt",
+      "candidate_sha256": "2a4c602d2e2ac0296680b0352396c5157c9db20abc61a0784647b8b6915f1f4c",
+      "candidate_pin_matches": true,
+      "status": "REVIEW_REMOVED_MULTIPLICITY_ATOMIC",
+      "finding": "Name contract retained; R2247 preview expressly relocates tuple/no separate Relation ID, requiring atomic adoption. `The named Type can connect many endpoint pairs` is also removed; reusable Type and per-Relation endpoint permissions remain, but explicit many-pairs statement is not repeated in R2247 preview. Confirm whether this permissive statement is retained elsewhere or needs relocation; it does not grant arbitrary endpoint permissions.",
+      "exact_body_diff": "--- current body\n+++ candidate body\n@@ -12,9 +12,4 @@\n ### Prose Claim\n \n \n-Relation Name is the canonical name of a reusable Relation Type. The named\n-Type can connect many endpoint pairs. An actual edge remains the\n-source/Type/target tuple and does not create a separate Relation ID.\n-\n-\n-\n+Relation Name is the canonical name of a reusable Relation Type.\n"
+    },
+    {
+      "id": "CA-R-2247",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "source_sha256": "e94d4c0b78e0a1fbcb83e0070b323017b836335d188191729a75325d4c7f6e27",
+      "source_pin_matches": true,
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/seven-focused/CA-R-2247.preview.txt",
+      "candidate_sha256": "6c45d1ce093d345a23fb05859adc88f0b27fc121cc67ad776d8e1dbca1ac399a",
+      "candidate_pin_matches": true,
+      "status": "PASS_BOUNDED_ATOMIC",
+      "finding": "All original Claim text retained; adds R2355 no-separate-Relation-ID sentence. Review/adopt together with R2355 if that sentence is removed there. Its model/instance endpoint inclusion and exclusion remain unchanged.",
+      "exact_body_diff": "--- current body\n+++ candidate body\n@@ -9,6 +9,6 @@\n \n ### Prose Claim\n \n-Relation defines a reusable directed graph Relation Type with a Name and Meaning. Each actual link is a tuple (Host, Relation Type, Target); persist each direct fact once. Endpoints are declared model Entities or instances, including Carrier and CFEL descriptors, and exclude literal values and glyphs. An operator is distinct from a graph Relation even when its notation spells a Relation traversal. Its declared descriptor may be an endpoint.\n+Relation defines a reusable directed graph Relation Type with a Name and Meaning. Each actual link is a tuple (Host, Relation Type, Target); persist each direct fact once. An actual edge does not create a separate Relation ID. Endpoints are declared model Entities or instances, including Carrier and CFEL descriptors, and exclude literal values and glyphs. An operator is distinct from a graph Relation even when its notation spells a Relation traversal. Its declared descriptor may be an endpoint.\n \n A direct Relation Declaration owns shared meaning, endpoint signature and any counterpart binding. A derived counterpart remains a distinct Relation with its own Declaration; its meaning and endpoints are inferred through that binding. An alias supplies lexical notation for one Relation; it does not create a new Relation, a Node or a separate Relation ID.\n"
+    }
+  ],
+  "authority_refs": [
+    {
+      "id": "CA-R-806",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-RULE--register-complete-relation-kind-metadata.md",
+      "sha256": "45b0e2867a7cba864ebdbfa4bddb0a85a50f6022078fcbd77ede94e1642e7293"
+    },
+    {
+      "id": "CA-R-2247",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "e94d4c0b78e0a1fbcb83e0070b323017b836335d188191729a75325d4c7f6e27"
+    },
+    {
+      "id": "CA-R-2588",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c"
+    },
+    {
+      "id": "CA-R-2609",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2609-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+      "sha256": "283b73c01297ffe141727a7007b77ea4a9d3508e5dc25059e0d66f6ab913d919"
+    }
+  ],
+  "previous_review_correction": "Withdraw prior formal-only hold on R1020, R1021 and R2170 endpoint broadness: each preserves source prose restrictions. R2170 remains flagged only for its separately removed authoring instruction.",
+  "limits": "No source or candidate modifications. R2355 and R2247 require atomic adoption for relocated edge-ID statement. No unrestricted endpoint permission follows from reusable relation naming."
+}

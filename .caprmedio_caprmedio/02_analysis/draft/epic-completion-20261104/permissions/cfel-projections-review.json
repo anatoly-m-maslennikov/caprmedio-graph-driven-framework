@@ -1,0 +1,76 @@
+{
+  "verdict": "PASS_BOUNDED_SOURCE_PROJECTION_VERIFICATION",
+  "generation_manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-cfel/generation-manifest.json",
+  "generation_manifest_sha256": "3c8df67ca947c0ff87ce3dfeb5b532cedeed1760fc7192d53f58a08433f3c4f9",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-cfel-frontier.json",
+  "frontier_sha256": "846e1c516d36421fd058290831634a3ee752942381615b855856d0b104fbce65",
+  "selected_sources": 1167,
+  "checks": [
+    "All 1,167 selected live source hashes match the pinned frontier; Current additions CA-R-2766 through CA-R-2774 are included.",
+    "All seven published and staged view hashes match, and each has the identical unique set of 1,167 versioned source references.",
+    "Seven Projection IDs have unique (Form, Project//caprmedio Scope Unit) pairs matching their headers.",
+    "Six frozen CA-PROJ-014 through CA-PROJ-019 files match prior hashes.",
+    "CA-PROJ-023 contains 829 displayed CFEL blocks, each traceable to the exact Current Requirement Declaration source text. All 69 diagnostic clauses are preserved verbatim modulo whitespace and bound to their Current Requirement Declaration source.",
+    "Generation manifest records zero inheritance diagnostics; all source hashes and generated/staged readbacks are fresh for the selected frontier."
+  ],
+  "coverage_limits": {
+    "known_missing": 55,
+    "unresolved": 23,
+    "other": "Selected supplier frontier is bounded, not all live sources; these views do not establish complete model coverage. Unsupported syntax is reported, not treated as parsed."
+  },
+  "views": [
+    {
+      "id": "CA-PROJ-020",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-020-caprmedio--Primary-Entities-Tree--Current-Primary-Entities-Tree.md",
+      "sha256": "fb295139a36b665b01785b8645e4badfee41a9a454a33cdbf1f3875209cdff94",
+      "form": "Primary Entities Tree",
+      "scope_unit": "Project//caprmedio"
+    },
+    {
+      "id": "CA-PROJ-021",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-021-caprmedio--Primary-Entities-with-Direct-Properties--Current-Primary-Entities-with-Direct-Properties.md",
+      "sha256": "af4d0ef9eec9fd51e81c60ccd6b8a612d222dacd08af97ac8a4e871720555ac6",
+      "form": "Primary Entities with Direct Properties",
+      "scope_unit": "Project//caprmedio"
+    },
+    {
+      "id": "CA-PROJ-022",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-022-caprmedio--Primary-Entities-with-Inherited-Property-Contracts--Current-Primary-Entities-with-Inherited-Property-Contracts.md",
+      "sha256": "367bea6c15d5ceeadf9c7e8b1e1e2a713561a056cfd9e702df3148a5ee1073e0",
+      "form": "Primary Entities with Inherited Property Contracts",
+      "scope_unit": "Project//caprmedio"
+    },
+    {
+      "id": "CA-PROJ-023",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-023-caprmedio--Primary-Entities-with-Inherited-Formal-Claims--Current-Primary-Entities-with-Inherited-Formal-Claims.md",
+      "sha256": "85cfa330b36d22453c440ad6830dba904d6bd17173f5c966564236bee3ea57ff",
+      "form": "Primary Entities with Inherited Formal Claims",
+      "scope_unit": "Project//caprmedio"
+    },
+    {
+      "id": "CA-PROJ-024",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-024-caprmedio--Passive-Only-Subjects--Current-Passive-Only-Subjects.md",
+      "sha256": "24392abaeabcd25001e017457bdbce4f771c43302e11b21b2e3c966bbfc4a2fb",
+      "form": "Passive Only Subjects",
+      "scope_unit": "Project//caprmedio"
+    },
+    {
+      "id": "CA-PROJ-025",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-025-caprmedio--Subjects-without-Requirement-Declarations--Current-Subjects-without-Requirement-Declarations.md",
+      "sha256": "1816b9d4fe7c81041f65276ba249b69379a76b0a1df44b7647c7af9b4af6e3a7",
+      "form": "Subjects without Requirement Declarations",
+      "scope_unit": "Project//caprmedio"
+    },
+    {
+      "id": "CA-PROJ-026",
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-026-caprmedio--Entity-Definition-and-Active-Subject-Coverage--Current-Entity-Definition-and-Active-Subject-Coverage.md",
+      "sha256": "56051cb734f14fe302cf561ea10b6e5078cd7f1788443f3eba17e33f1f5d34a6",
+      "form": "Entity Definition and Active Subject Coverage",
+      "scope_unit": "Project//caprmedio"
+    }
+  ],
+  "limits": [
+    "No independent fresh renderer execution was performed; readback and source-content checks verify the published output, not all renderer behavior.",
+    "No Current source, code, tests, Workflow/Workbench, or Git changes."
+  ]
+}

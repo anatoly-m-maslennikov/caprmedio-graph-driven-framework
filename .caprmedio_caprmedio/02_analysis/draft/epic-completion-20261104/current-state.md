@@ -1,61 +1,50 @@
 # Completion state
 
-P2694@61 and P2707@5 are Active. All 23 acceptance groups remain required. Ask one real question at a time below 90% confidence. No question is pending.
+P2694@62 and P2707@5 remain Active. All 23 acceptance groups remain; CFEL checks extend the existing group.
 
-## Ownership
+## Scope
 
-- This chat owns MODEL, CFEL, Declarations, Atom source changes, source review and projections. The latest Operator instruction excludes Workbench and Workflows, including their Declarations and instances; other agents own them.
-- CA #3 owns implementation, fixtures, regression tests and runtime/integration gate execution. Preserve existing code work; this chat stopped its regression process and has no running tests.
-- Further messages to CA #8: SELECT are paused. No authorization to message CA #3 has been given.
-- Root owns canonical source adoption and scoped Git. Manual source receipts record native Workflow admission and Journal append as false. No release or memory write is authorized.
+This chat owns Core MODEL, CFEL and Atom sources. Other agents own Workbench, Workflows, implementation and tests. Manual source receipts claim neither native Workflow admission nor a Journal append.
 
-## Current source checkpoint
+## Applied source changes
 
-- Goal/Tier: 15 source contributions; exact predecessors preserved. R2747 replaces R927.
-- Settings: 17 contributions and exact predecessors; R2748 replaces R1750. Logical Settings ownership is Project.Settings; physical files stay in place. Twenty-five ambiguous sources remain held.
-- Capability deferral: R2624/R2625 clarify percentages; R2271/D372/D373 retired. Abstract Extension Sources remains.
-- Blocking: six reviewed sources are Current. R2762@2 declares Direct IS_BLOCKED_BY from dependent Plan to prerequisite. R1580@29 declares Derived BLOCKS in the reverse direction. R2511@5 permits both outgoing views. D471@26 stores only dependent-side IS_BLOCKED_BY; M306@34 and E504@24 preserve authoring and validation constraints. P2694@59 records the decision.
-- Blocking predecessors and six consumed Drafts are recorded in application/blocking-promotion/. Independent Current verification passed. This is source adoption, not runtime support.
-- CA #3 must migrate prerequisite-side relations.blocks to dependent-side relations.IS_BLOCKED_BY without changing edge meaning or history. No instance conversion occurred here.
+- IS_BLOCKED_BY is Direct; BLOCKS is Derived.
+- Method / Term Definition is admitted. M450 retains the ID meaning; exact duplicate R2275 is retired. Seventeen Term Subject headers use `:=`.
+- R1432 requires globally unique ID/Version pairs and increasing successor versions. Draft reservations remain valid.
+- R2768–R2774 declare fallback assignment, LOOKUP, range/intersection rules, AND and OR. R2550/R2598 are retired with exact predecessors preserved. The related syntax, default and analysis sources are revised.
+- R2601@3 requires parentheses for mixed AND/OR. R2604@3 preserves outer bindings, forbids shadowing, and distinguishes IF-local scope from standalone block scope.
+- R2711@6 declares the optional Plan confidence range as integer 0..100. Project Settings use the same range and default 90.
+- R2766/R2767 declare SPECIALIZES / IS_SPECIALIZED_BY. The 343 legacy child_of links remain unmigrated: eight sampled, 335 unreviewed.
+- A1318@1-draft records the proposal, rationale and created Draft IDs.
+- Five focused Relation cleanups are Current: R1020@33, R1021@33, R2247@11, R2354@7 and R2355@7. The existing edge-identity rule moved to Relation in the same batch that removed it from Relation.Name.
+- R1318@37 and R2247@11 explicitly allow Property-bearing in their own branches. R1318 also drops the unrelated inherited Node.** passive; its Claim is unchanged by that metadata cleanup.
+- M451@7 defines Entity as anything represented in the Subject graph; obsolete root exceptions and staging prose are removed.
 
-## Published projections
+## Latest human decisions
 
-- Seven views 020–026 were rebuilt from 1,160 freshly pinned selected suppliers: retire R2275 and add R2765 after the blocking checkpoint. This is a bounded selected-source snapshot, not an all-live census.
-- Project-root ownership and distinct Form + Scope Unit identities remain. Frozen 014–019 remain unchanged. Exact seven predecessors are in projections-term/predecessors/.
-- Coverage remains 55 missing / 23 unresolved cases. Full-claims view023 covers Primary Entities and their Properties; supplier metadata does not imply every Relation object Claim is rendered.
+- `?==` assigns a missing effective value; it implies no Carrier write. Valid explicit values remain; invalid input fails.
+- `=` tests a condition; `==` assigns a value. Stored structural-level equations remain tests.
+- Text is quoted when needed, using double quotes and escaped quotes/backslashes.
+- A new variable binding uses a different name from every in-scope binding. References retain their identity.
+- Governing Configuration denotes Project properties, not a separate broad kind.
+- Everything in the Subject graph is an Entity, including Nodes, Properties and CFEL Relations. Do not retire R1259 or narrow it to Node on the assumption that this broad meaning is obsolete. Keep the general Term; restore no Entity root. Standalone `*` is rejected. Relation and Term each declare their own Property permissions; their narrower entities inherit them.
 
-## Settled queued source work
+## Review and remaining work
 
-- Occurrent packet: 23 actual Requirement Drafts, including 13 new Declarations and 10 revisions, listed by A1317; independent source review passed. They are not Current yet.
-- Session is narrower than External Remote Runtime. Local means on the Operator's machine. Internal means part of the Project application.
-- Execution runs in Runtime and produces Event. Each Event Record records exactly one Event; existing fields stay on Event Record. No Substep Run.
-- Keep Term registry. Retire Entity Term M451 with its reference repairs; update Property Term M453. Twelve actual Drafts exist but remain held: an integrity review passed, then adoption readiness found legacy Header fields and old Subject paths. Partial cleanup previews exist; no Current source or M451 retirement occurred.
-- Duplicate ID owner: preserve M450's approved meaning; retire exact R2275@2 only after the Method/Form Term Definition prerequisite is declared and E659 is aligned. The four-Atom Form/ID batch is Current and verified; R2765@2 admits the Form, E659@5/R1319@30 align its authority, M450@6 preserves ID meaning, exact R2275@2 is retired.
+The original 142 CFEL specifications have individual dispositions; twelve CFEL sources were recovered from thirteen lexical exclusions. This is review coverage, not a clean bill of health. See `coverage/cfel-spec-audit/REPORT.md` and `audit-index.json`.
 
-## Lanes
+Eleven of the twelve Entity/Property Drafts remain held, with obsolete Header scope fields removed. R1318 was reviewed and promoted. Rebase the remaining source pins before adoption. R1247/R2003 have focused wording previews; universal Entity scope and unsupported legacy addresses still require resolution.
 
-| Deliverable | Owner | Exclusive scope | Dependencies | Acceptance | State |
-| --- | --- | --- | --- | --- | --- |
-| Blocking Current verification | model_legacy_cleanup | permissions/blocking-current-verification.json | Applied six-source batch | Exact payloads, history, direction and constraints | Done |
-| Seven projection readback | model_selector_parser | permissions/blocking-projections-review.json | Published 1,160-source snapshot | Sources, output hashes and explicit scope | Running |
-| Entity/Property Draft creation | mandatory_property_impact | Twelve Draft carriers and application/entity-property-draft-creation | Reviewed source previews | Preserved Current pins and actual Draft readback | Running |
-| Method Term Form prerequisite | model_relation_contracts | permissions/method-term-owner-review.json | Prepared source packet | Correct Form registration, preserved meaning and checks | Running |
-| Source integration and Git | root | Canonical adoption, tracking and index | Independent source review | Exact predecessors, scoped diff and push evidence | Running |
+Seven focused Relation previews preserve existing meanings. Five reviewed changes are applied; R1026 and R2170 remain held. The completed R2247/R2355 relocation is atomic. Later branch-permission additions undergo their own review.
 
-## Closure gates
+Latest snapshot: `post-term-dependency-frontier.json`; seven MODEL views in `projections-term-dependency` use 1,167 pinned Current suppliers. Frozen views 014–019 remain unchanged. Coverage remains 55 known missing and 23 unresolved entries. Source verification does not establish parser, runtime or integration conformance.
 
-The Epic remains Active. Remaining MODEL coverage decisions, coherent Current Declarations, faithful final projections, final source push and P2707 external checks are open. Actual Current O104 and R1766 authority gaps remain; archives or disposable fixtures do not restore them. Keep all acceptance gates. Focused checks, Drafts, source receipts and historical snapshots do not establish final integration.
+O104/R1766 authority gaps, held settings and the external P2707 gates remain. The Occurrent/Workflow Draft packet is outside this chat's promotion scope.
 
-Current continuation: prior turn was progress (blocking source adoption and pushed8452c933f). That question was resolved: these are Project properties. Workbench and Workflow sources are excluded.
+## Git
 
-The twelve held Drafts now have canonical containment Headers with obsolete scope fields removed. Their bodies and Current predecessors are unchanged; remaining Subject/prose repairs are still held.
+The latest results of all 48 distinct paths in the three CFEL/specialization application packets match committed HEAD. Shared release commits contain some source checkpoints; commit ownership is recorded rather than inferred. The source, projection, proposal and review-data checkpoint is prepared for a scoped commit. Preserve unrelated Workbench, Workflow, code and Journal changes.
 
-## Latest CFEL audit
+## Remaining boundary
 
-The Operator settled Governing Configuration as Project properties. Use ?== for default assignment, = for a condition, == for assignment. The example default is integer90 with range0..100 and one value. Existing AI Agent Confidence Threshold name remains pending any explicit rename; no rename is inferred from shorthand. Workbench/Workflows remain excluded.
-
-The four-lane CFEL audit is running: model_subject_syntax owns operators/defaults; model_relation_contracts owns Relations; model_selector_parser owns expression syntax; model_legacy_cleanup owns actual active-Subject scope and vocabulary/conciseness. Each writes only its audit folder; root integrates Current sources/Git. All lanes require pinned Current evidence, complete declaration coverage, short clear Claims and explicit ambiguity findings.
-
-TermSubjectalignment revised17CoreHeaders using :=, preserving allClaimbytes. R1432@30 now matches the approved unique/increasing Version invariant; process allocation remains Workflow-owned. Independent bounded verification passes and the fresh in-memory model has no inheritance diagnostics. Seven views are being refreshed again from the same1160supplierselection.
-
-Latest: P2694@61 records the full CFEL specification audit and accepted ?== / IF binding decisions. Governing Configuration is Project properties. All23 prior acceptance groups remain. Four source lanes plus the non-Requirement Relation review cover the142-Atom specification census; completeness is not yet proven. Workbench/Workflows remain excluded owned files.
+The new Relation/Term grant covers Property-bearing edges. Their Property schema-instance permissions remain a separate audit finding; source/readback success is not model-wide conformance. Existing legacy Entity-root Subjects still need reconciliation. No wildcard or Entity root is introduced to mask them.
