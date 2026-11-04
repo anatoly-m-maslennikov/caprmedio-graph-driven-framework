@@ -8,7 +8,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
   - CAPRMEDIO_MODEL <+ Term//Entity
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ Project
@@ -22,8 +22,8 @@ subjects:
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 34
-updated_at: 2026-11-02 00:18:22 +0400
+version: 36
+updated_at: 2026-11-04 18:28:33 +0400
 relations:
   evaluation_for:
   - CA-R-1318
@@ -31,13 +31,17 @@ relations:
   - CA-R-1320
   - CA-M-125
   - CA-M-113
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 atom_id: CA-E-444
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 4
 role: Evaluation
 form: Eval Case
+carrier_destination:
+  file:
+    name: CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 

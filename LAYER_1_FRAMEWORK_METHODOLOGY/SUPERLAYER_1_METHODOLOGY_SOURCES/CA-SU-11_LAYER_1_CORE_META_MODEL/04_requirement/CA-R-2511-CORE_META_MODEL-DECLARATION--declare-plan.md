@@ -3,12 +3,12 @@ atom_id: CA-R-2511
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
-version: 3
+version: 5
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
 tier: 3
-updated_at: 2026-11-04 11:00:07 +0400
+updated_at: 2026-11-04 16:52:59 +0400
 role: Requirement
 form: Declaration
 carrier_destination:
@@ -32,6 +32,10 @@ Atom/(.Header.Role: Plan);
 
 # instances
 Atom/(.Header.Role: Plan)//$plan {:0+}((CONTAINS)) Atom/(.Header.Role: Plan)//$contained_plan;
+
+Atom/(.Header.Role: Plan)//$dependent {:0+}((IS_BLOCKED_BY)) Atom/(.Header.Role: Plan)//$prerequisite;
+
+Atom/(.Header.Role: Plan)//$prerequisite_2 {:0+}((BLOCKS)) Atom/(.Header.Role: Plan)//$dependent_2;
 
 Atom/(.Header.Role: Plan)//$atom;
 
