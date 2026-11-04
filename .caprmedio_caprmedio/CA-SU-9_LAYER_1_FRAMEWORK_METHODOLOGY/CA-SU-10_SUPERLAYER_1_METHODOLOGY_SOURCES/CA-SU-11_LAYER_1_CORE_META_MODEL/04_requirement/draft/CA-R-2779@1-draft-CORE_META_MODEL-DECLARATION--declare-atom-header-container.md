@@ -10,7 +10,7 @@ relations:
 tier: 3
 role: Requirement
 form: Declaration
-updated_at: 2026-11-05 01:52:14 +0400
+updated_at: 2026-11-05 03:32:34 +0400
 carrier_destination:
   file:
     name: CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md
@@ -41,7 +41,7 @@ Header.Container identifies the Atom's immediate Container.
 
 Allowed values:
 
-1. A full canonical Scope Unit path.
+1. A full canonical Scope Unit path: one slash-delimited string formed from the exact Scope Unit.Name values in the declared parent chain. The Project root path is `/`, with no Project name segment. For example, `FRAMEWORK_ENGINE` is `/FRAMEWORK_ENGINE`; `CORE_META_MODEL` is `/FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/CORE_META_MODEL`.
 2. The base Atom ID of the containing Atom.
 3. `world`, for a root Project Declaration Atom.
 
