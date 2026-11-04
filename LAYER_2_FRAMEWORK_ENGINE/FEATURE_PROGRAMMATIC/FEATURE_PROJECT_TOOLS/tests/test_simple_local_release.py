@@ -367,6 +367,20 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual("completed", result["outcome"])
         self.assertIn('version = "0.4.1.10"', (self.root / "version.toml").read_text())
 
+    def test_workbench_node_dependencies_are_not_packaged(self):
+        frontend = self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_FRONTEND"
+        dependencies = frontend / "node_modules/.bin"
+        dependencies.mkdir(parents=True)
+        (frontend / "package.json").write_text('{"name":"workbench"}')
+        (dependencies / "vite").symlink_to("../vite/bin/vite.js")
+        runner, _ = self._runner()
+        with self._compiler():
+            result = run_local_release(self.root, run_id="frontend-dependencies", runner=runner)
+        self.assertEqual("completed", result["outcome"])
+        packaged = self.runtime / "simple_local_release/package" / frontend.relative_to(self.root)
+        self.assertTrue((packaged / "package.json").is_file())
+        self.assertFalse((packaged / "node_modules").exists())
+
     def test_preserved_ds_store_directories_do_not_block_replacement(self):
         (self.source_units["INSTALLED_EXTENSIONS"] / "active.md").unlink()
         retained = (

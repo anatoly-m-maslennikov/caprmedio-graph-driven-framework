@@ -1,0 +1,21 @@
+{
+  "status": "SOURCE_ONLY_PREVIEW",
+  "human_basis": "Latest explicit Operator decision: (Atom ID, Version) pairs are unique across all Atoms including Drafts; promotion chooses a Version above every same-ID Version. Example Current 7 plus Draft 8 yields successor 9. This decision supersedes the Current exact +1 wording; this preview states only the Core invariant and leaves maximum selection to Workflow owners.",
+  "source": {
+    "id": "CA-R-1432",
+    "version": 27,
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL--classify-admitted-atom-changes-by-semantic-effect.md",
+    "sha256": "17d1d9de7dd80e0a616eada79093a10d805704e176d310eecafdc232e052e47b"
+  },
+  "candidate": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/version-invariant-alignment/CA-R-1432.preview.txt",
+    "sha256": "a7eb016e0593bdb5a2ce8f13a8553d9fc16162d70348d47ac382b296af3f6ba1",
+    "summary": "Classify admitted Atom changes by semantic effect",
+    "changes": "Three table cells and two sentences replace exact +1 with unique successor Version greater than predecessor, and a global pair-uniqueness sentence includes Drafts. No-op, archival preservation, classifications, roles and unrelated content remain unchanged.",
+    "metadata": "Preview preserves source metadata; root assigns version, timestamp, containment and destination upon authorized adoption."
+  },
+  "limitations": [
+    "Current R1432 still states exact +1 until a reviewed source revision is applied; the two observed version jumps do not comply with that Current text.",
+    "This proposal does not amend Workflow definitions, implement allocation, or resolve other Current +1 sources or consumers."
+  ]
+}

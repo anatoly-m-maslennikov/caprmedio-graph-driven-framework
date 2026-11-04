@@ -23,8 +23,6 @@ This Action operates on one exact selected non-container Current Atom. Archived 
 
 ## Claim
 
-**Preconditions:** Resolve the exact Current source and validate required fields, applicable model/status for `Archived`, currentness, placement, permissions, collision, and no-overwrite. An optional known `targetID` is business-observation context only and does not change the archive target or assert publication. Wrong input returns an explicit error before writing.
+Resolve the exact Current source and validate its schema, mandatory fields, applicable `Archived` status, currentness, placement, authorization, collision, and no-overwrite.
 
-**Intended effect:** For Current version N, write `ID@N` with status `Archived`, preserving Version, Updated At, content, and unrelated metadata, and synchronize the required filename/location.
-
-**Returned evidence:** Save/read back the Archived carrier and location before returning `archived`; include `targetID` only as business observation. Return explicit error or partial results with actual completed outputs on failure. Create no successor/N+1, promotion, reference retarget, deletion/reactivation, or descendant cascade. Do not retry, replay, repair, or perform a rollback. Journal append is independent and nonblocking.
+For Current Version N, write `ID@N` with status `Archived`, preserving Version, Updated At, content, and unrelated metadata, then read back the saved carrier. Return it, or the explicit error with completed outputs under [CA-R-1432@28-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md). Journal append records the archived predecessor only and is nonblocking.

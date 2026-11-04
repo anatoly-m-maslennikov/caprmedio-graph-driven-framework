@@ -1,0 +1,22 @@
+{
+  "verdict": "HOLD_TWO_VERSION_DISCREPANCIES",
+  "plan_sha256": "ec853f0754df259305521971aa713bbbfc2ae9882b2155a97d345b5cd935e840",
+  "checks": [
+    "All 34 operation bytes and receipt plan pin match; 17 exact predecessor archives and all 17 Summary/Claim/body byte sequences preserved. Subject headers use := for the qualified Method/Form, including R2765 passive Method parent.",
+    "All 17 changed Current source hashes relative to post-term frontier are exactly the 17 planned revisions; no Workbench or Workflow source path is present in the operation set.",
+    "Read-only in-memory compose_contract_graph over the same 1,160 source paths with live 17 revisions selects 224 Current model carriers and reports zero inheritance diagnostics, zero coverage gaps and zero duplicate declarations. Both prior R2765 undeclared-endpoint warnings disappear. Published views were not modified."
+  ],
+  "findings": [
+    {
+      "ids": [
+        "CA-M-453",
+        "CA-E-444"
+      ],
+      "detail": "Current revisions advanced 3\u21925 and 34\u219236 respectively; CA-R-1432 requires every same-ID Current update to advance exactly one. Held Draft versions @4 and @35 appear to have been avoided, but an exception to this rule has not been established.",
+      "action": "Resolve the source/version conflict through the owning authority before marking all 17 revisions conformant; do not silently assert version compliance."
+    }
+  ],
+  "limits": [
+    "No projection published, no tests, source, Git, Workflow or Workbench changes. Manual operation receipt records no native Workflow admission or Journal append; not independently audited."
+  ]
+}

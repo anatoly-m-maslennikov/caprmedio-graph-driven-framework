@@ -1,0 +1,147 @@
+{
+  "scope": "Current native Core sources; Workflow and Workbench source files excluded. Operator catalog and Relation descriptors belong to other lanes. Findings are bounded, not a proof that unsearched language constructs are absent.",
+  "previews": [
+    {
+      "id": "CA-R-1194",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+      "source_sha256": "f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-1194.preview.txt",
+      "candidate_sha256": "273255cbaa45c5570fcb512773b910ba73d35937b7dbcbee1e64ac29b7383316",
+      "status": "REVIEW_ONLY",
+      "change": "Align Subject qualification examples with Current R2471/R2615."
+    },
+    {
+      "id": "CA-R-1931",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "source_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-1931.preview.txt",
+      "candidate_sha256": "13a9c6e79a089ca9f8385c3217e201a7e92e1d3f70dcc4db4d656c484f2c619e",
+      "status": "REVIEW_ONLY",
+      "change": "Align qualified-selector examples and bound syntax with R2471/R2243; remove obsolete blanket exclusion and draft staging text. Claim otherwise preserved."
+    },
+    {
+      "id": "CA-R-2243",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "source_sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4",
+      "status": "EVIDENCE_ONLY"
+    },
+    {
+      "id": "CA-R-2471",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "source_sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf",
+      "status": "EVIDENCE_ONLY"
+    },
+    {
+      "id": "CA-R-2555",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+      "source_sha256": "3823ca975892c836b070091fdbbf3ea91d3a6c7c6cc370efa619e903ebc58308",
+      "status": "EVIDENCE_ONLY"
+    },
+    {
+      "id": "CA-R-2601",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "a60c4c3405fb1fa0f5c48e631c93b903a016f2a78fa2d3e9ebe5e900e5a3da8f",
+      "status": "EVIDENCE_ONLY"
+    },
+    {
+      "id": "CA-R-2604",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "368ad50c9fb2ec6b49d9b03c402ac761feb40ed4fb945de6ffdc93acabb694a0",
+      "status": "EVIDENCE_ONLY"
+    },
+    {
+      "id": "CA-R-2608",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2608-CORE_META_MODEL-DECLARATION--declare-cfel-operator-in-not-in.md",
+      "source_sha256": "b8ec5e164ffbd2806513a9ec34a3c1e47d89dcb0308cb8bad619ad6c3d8c0566",
+      "status": "EVIDENCE_ONLY"
+    },
+    {
+      "id": "CA-R-2609",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2609-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+      "source_sha256": "283b73c01297ffe141727a7007b77ea4a9d3508e5dc25059e0d66f6ab913d919",
+      "status": "EVIDENCE_ONLY"
+    },
+    {
+      "id": "CA-R-2612",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2612-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "eb5f5da21d2b84babfc030cf1af078022cbee417f98c8f69b1a85df06e0d3035",
+      "status": "EVIDENCE_ONLY"
+    },
+    {
+      "id": "CA-R-2613",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md",
+      "source_sha256": "deb55e82a43174ac74898393143ff987ae64141e5d8f5c80aea5bc7f7fa6e5ae",
+      "status": "EVIDENCE_ONLY"
+    },
+    {
+      "id": "CA-R-2614",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2614-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "2941b1d241ed6ad422b246decd08b6a7f397bbc6485b771c8ebc958151350e01",
+      "status": "EVIDENCE_ONLY"
+    },
+    {
+      "id": "CA-R-2615",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2615-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "31da9c3927f1e8bd2bfab42511c7b80fcffd3547022ef5a18bdd3984dc0259ef",
+      "status": "EVIDENCE_ONLY"
+    },
+    {
+      "id": "CA-R-2701",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2701-CORE_META_MODEL-DECLARATION--declare-atom-header-id.md",
+      "source_sha256": "5d96f3e98a7d43efba676cd1fe027ca3f514e0e7fbb0be7fa536b5567a602d5e",
+      "status": "EVIDENCE_ONLY"
+    },
+    {
+      "id": "CA-R-2707",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+      "source_sha256": "bcd9a5c9e235731854fb3ea22d107a7c3d3d68eb1cfcae7fdb7d9f59428c4d3a",
+      "status": "EVIDENCE_ONLY"
+    }
+  ],
+  "inventory": [
+    {
+      "construct": "Subject selection vs allowed value",
+      "evidence": "R2471/R2615 := for qualified Subjects and filtered Node expressions; : outside selections is allowed value. R1931 and R1194 show obsolete colon forms. Subject metadata is an address, not a complete expression."
+    },
+    {
+      "construct": "model and instance union",
+      "evidence": "R2471 gives (Node, Node.**) and (Node//, (Node//).**); commas combine selectors, repeated instance matches count once."
+    },
+    {
+      "construct": "semicolon and grouped expressions",
+      "evidence": "R2597/R2471 semicolon separates complete expressions, line break is layout; R2601 groups one expression. R2707 demonstrates boolean AND and IF/THEN grouped syntax; full formal grammar, IF binding, nested grouped-body expression separators and end-of-block optional terminator not located in this bounded audit."
+    },
+    {
+      "construct": "binding and formula",
+      "evidence": "R2604 binds existing instance; R2471 repeated references select same member. R2555 uses declaration binding and arithmetic; name scope, binding lifetime, missing operands and arithmetic precedence are not explicitly established by those sources."
+    },
+    {
+      "construct": "formats and values",
+      "evidence": "R2243 shows [value format], per-property counts and immediate/recursive name filters. Exact lexical syntax for strings, escapes, enum literals, numeric intervals and typed range combinations not established by these sources."
+    },
+    {
+      "construct": "cardinality",
+      "evidence": "R2243 distinguishes {:n} bound, {=n}/{>n} conditions and {==n} conclusion, and per-endpoint Relation-instance counts. R1931 still shows bare {n} conflicting with R2243."
+    },
+    {
+      "construct": "wildcards, membership, exclusion",
+      "evidence": "R2602/R2612 immediate/recursive properties; R2243 recursive counts distinct descendant property identities per bearer. R2608 tests membership; R2614 exclusion is scoped to delivery selections. General grammar for in-list selector and exclusion nesting is not specified in those declarations."
+    },
+    {
+      "construct": "reverse and delivery",
+      "evidence": "R2609 reverse <((RELATION)) same fact with swapped endpoints/counts, no inverse permission; R2596 >> delivery. Endpoint typing authority R2613; unary/binary semantics and permissions are relation-lane cross-reference."
+    }
+  ],
+  "questions": [
+    "What lexical quoting and escaping rules distinguish literal strings, multiword names and reserved tokens in CFEL, and are numeric intervals inside a format list inclusive?",
+    "What is binding scope/lifetime across semicolon-separated expressions and IF branches, and what happens for an unbound or absent selected instance?",
+    "For nested boolean, arithmetic and relation expressions, what precedence and associativity apply; should unparenthesized mixes be rejected?",
+    "Is a final semicolon required, and may a THEN parenthesized body contain multiple semicolon-separated expressions?",
+    "Does in (list) select Nodes, literal values, or both depending on context, and what are allowed nested exclusion operands?"
+  ],
+  "not_resolved": [
+    "The example R2555 uses = in a THEN result; Current R2594 says = tests and R2593/R2471 == concludes or sets. Flag for owner review; do not silently change an actual formula.",
+    "One-active-subject syntax and R1931 passive subjects require separate source review; no unsupported replacement was invented.",
+    "Operator catalog and relation descriptor repairs are excluded; user decision ?== must be coordinated with their owner."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "current_source": {
+    "atom_id": "CA-R-1432",
+    "version": 30,
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL--classify-admitted-atom-changes-by-semantic-effect.md",
+    "sha256": "2fbac8f58eb4b5b1f3be5d7bcdab9bd4ce1b65171c0086611876b0360fd56ab5"
+  },
+  "draft_creation_plan_sha256": "fa136f03e59de33545e76161118190ef80b54dde9a7571c268b0a43b0b859fd0",
+  "promotion_plan_sha256": "09ad5fb2ce83fea572e31b2babd580aa259f8a55f1f729749f634bbc7e40e5ef",
+  "checks": [
+    "Draft and promotion receipts pin their respective plans; all three promotion operations match bytes/absence, the consumed @29 Draft matches creation pin and @27 exact predecessor is preserved.",
+    "Current R1432@30 body matches reviewed invariant preview; Summary, no-op, archive preservation and classification requirements remain. Current source now requires unique (ID, Version) pairs including Drafts and successor greater than predecessor; workflow maximum selection is not prescribed here.",
+    "M453@5 exceeds predecessor @3 and E444@36 exceeds @34. Their held Drafts @4 and @35 remain distinct. Native methodology source/history filename scan found no duplicate versions for either ID, with each Current version the highest observed. This is bounded evidence, not an all-Project identity audit.",
+    "Fresh read-only in-memory contract graph over the prior 1,160 selected paths with live revisions reports 224 selected model carriers, zero inheritance diagnostics and zero coverage gaps. The two prior R2765 warnings are absent.",
+    "The previous term-subject-binding review is retained unchanged as dated evidence of the former Current R1432 text."
+  ],
+  "limits": [
+    "No tests, published projections, code, Workbench, Workflow, Git or Journal changes. Plan/receipt no Workflow and Journal statements were not independently audited."
+  ]
+}

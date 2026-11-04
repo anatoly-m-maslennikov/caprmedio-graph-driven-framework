@@ -162,7 +162,7 @@ source:
   - CA-D-652@13
   - CA-D-653@16
   - CA-D-654@3
-  - CA-D-655@3
+  - CA-D-655@4
   - CA-D-657@4
   - CA-D-658@4
   - CA-D-662@4
@@ -190,7 +190,7 @@ source:
   - CA-E-246@47
   - CA-E-249@36
   - CA-E-379@46
-  - CA-E-382@49
+  - CA-E-382@50
   - CA-E-383@46
   - CA-E-384@42
   - CA-E-387@27
@@ -210,7 +210,7 @@ source:
   - CA-E-441@35
   - CA-E-442@26
   - CA-E-443@34
-  - CA-E-444@34
+  - CA-E-444@36
   - CA-E-445@28
   - CA-E-448@33
   - CA-E-449@44
@@ -226,7 +226,7 @@ source:
   - CA-E-465@27
   - CA-E-466@28
   - CA-E-471@28
-  - CA-E-472@30
+  - CA-E-472@31
   - CA-E-473@26
   - CA-E-474@27
   - CA-E-476@23
@@ -266,7 +266,7 @@ source:
   - CA-E-656@21
   - CA-E-657@8
   - CA-E-658@14
-  - CA-E-659@5
+  - CA-E-659@6
   - CA-E-661@4
   - CA-E-666@4
   - CA-E-667@3
@@ -289,7 +289,7 @@ source:
   - CA-M-105@27
   - CA-M-112@29
   - CA-M-113@42
-  - CA-M-114@43
+  - CA-M-114@44
   - CA-M-116@31
   - CA-M-120@43
   - CA-M-121@28
@@ -354,7 +354,7 @@ source:
   - CA-M-345@20
   - CA-M-385@25
   - CA-M-438@18
-  - CA-M-439@3
+  - CA-M-439@4
   - CA-M-442@5
   - CA-M-443@4
   - CA-M-444@5
@@ -362,13 +362,13 @@ source:
   - CA-M-446@3
   - CA-M-447@5
   - CA-M-448@4
-  - CA-M-449@3
-  - CA-M-450@6
-  - CA-M-451@4
-  - CA-M-452@3
-  - CA-M-453@3
-  - CA-M-454@5
-  - CA-M-455@4
+  - CA-M-449@4
+  - CA-M-450@7
+  - CA-M-451@5
+  - CA-M-452@4
+  - CA-M-453@5
+  - CA-M-454@6
+  - CA-M-455@5
   - CA-M-456@2
   - CA-M-457@2
   - CA-M-458@3
@@ -482,7 +482,7 @@ source:
   - CA-R-1316@32
   - CA-R-1317@31
   - CA-R-1318@33
-  - CA-R-1319@30
+  - CA-R-1319@31
   - CA-R-1320@26
   - CA-R-1321@35
   - CA-R-1324@27
@@ -528,7 +528,7 @@ source:
   - CA-R-1428@32
   - CA-R-1429@28
   - CA-R-1430@27
-  - CA-R-1432@27
+  - CA-R-1432@30
   - CA-R-1437@32
   - CA-R-1439@24
   - CA-R-1440@24
@@ -536,7 +536,7 @@ source:
   - CA-R-1447@25
   - CA-R-1448@25
   - CA-R-1449@21
-  - CA-R-1454@32
+  - CA-R-1454@33
   - CA-R-1455@27
   - CA-R-1456@39
   - CA-R-1460@22
@@ -1091,7 +1091,7 @@ source:
   - CA-R-2747@1
   - CA-R-2748@1
   - CA-R-2762@2
-  - CA-R-2765@2
+  - CA-R-2765@3
   - CA-R-366@35
   - CA-R-380@44
   - CA-R-621@17
@@ -1166,7 +1166,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 18:23:12 +0400
+updated_at: 2026-11-04 18:38:32 +0400
 ---
 
 # Subjects Used Only Passively
@@ -1192,19 +1192,18 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Content.Details` — pins: CA-D-470@29, CA-E-501@30; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Header.Status:Done` — pins: CA-E-504@24, CA-R-1580@29, CA-R-1592@23; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Implementation Retry Limit` — pins: CA-D-447@30, CA-M-295@32; keys: passive
-- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Method)` — pins: CA-R-2765@2; keys: passive
-- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Operations)/(.Header.Form:Action)` — pins: CA-E-246@47, CA-E-382@49, CA-E-449@44, CA-M-114@43, CA-M-444@5, CA-R-1720@38; keys: passive
-- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Operations)/(.Header.Form:Workflow)` — pins: CA-E-246@47, CA-E-382@49, CA-E-449@44, CA-E-520@32, CA-E-522@19, CA-M-114@43, CA-M-444@5, CA-R-1720@38; keys: passive
+- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Operations)/(.Header.Form:Action)` — pins: CA-E-246@47, CA-E-382@50, CA-E-449@44, CA-M-114@44, CA-M-444@5, CA-R-1720@38; keys: passive
+- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Operations)/(.Header.Form:Workflow)` — pins: CA-E-246@47, CA-E-382@50, CA-E-449@44, CA-E-520@32, CA-E-522@19, CA-M-114@44, CA-M-444@5, CA-R-1720@38; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Plan)/(.Header.Form:Plan)` — pins: CA-E-443@34, CA-E-505@22, CA-M-239@25, CA-M-271@29, CA-R-1428@32, CA-R-1489@25; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Plan)/(.Header.Form:Plan).Header.Label` — pins: CA-E-505@22; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Requirement)/(.Header.Form:Demand)` — pins: CA-E-246@47; keys: passive
-- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Requirement)/(.Header.Form:Entity Definition)` — pins: CA-E-382@49, CA-E-444@34, CA-R-1455@27; keys: passive
+- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:Requirement)/(.Header.Form:Entity Definition)` — pins: CA-E-382@50, CA-E-444@36, CA-R-1455@27; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record` — pins: CA-D-360@27, CA-E-379@46; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module` — pins: CA-E-382@49, CA-E-444@34, CA-E-472@30, CA-R-1321@35; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit` — pins: CA-E-382@49, CA-E-444@34, CA-E-472@30, CA-R-1321@35, CA-R-1931@18; keys: passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module` — pins: CA-E-382@50, CA-E-444@36, CA-E-472@31, CA-R-1321@35; keys: passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit` — pins: CA-E-382@50, CA-E-444@36, CA-E-472@31, CA-R-1321@35, CA-R-1931@18; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Prompt` — pins: CA-R-1560@19; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Eval Package` — pins: CA-E-382@49, CA-E-444@34, CA-E-472@30; keys: passive
-- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Runtime Package` — pins: CA-E-382@49, CA-E-444@34, CA-E-472@30; keys: passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Eval Package` — pins: CA-E-382@50, CA-E-444@36, CA-E-472@31; keys: passive
+- `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Runtime Package` — pins: CA-E-382@50, CA-E-444@36, CA-E-472@31; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Applicable Methodology)` — pins: CA-R-1284@27, CA-R-1655@45; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form:Atom Subjects Graph)` — pins: CA-E-246@47, CA-M-232@34; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Applicable Methodology` — pins: CA-D-550@20, CA-E-379@46, CA-E-437@27, CA-E-476@23, CA-M-296@21, CA-R-1178@28, CA-R-1219@32, CA-R-1424@28, CA-R-1491@29, CA-R-1577@23; keys: passive

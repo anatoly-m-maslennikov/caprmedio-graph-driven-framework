@@ -279,7 +279,7 @@ def _verify_package(package: Path, expected: Mapping[str, tuple[str, int]]) -> N
 
 
 def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tuple[str, int]]:
-    excluded = frozenset({".git", ".caprmedio_tmp", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv"})
+    excluded = frozenset({".git", ".caprmedio_tmp", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv", "node_modules"})
     trees = (
         (root / "LAYER_2_FRAMEWORK_ENGINE", Path("LAYER_2_FRAMEWORK_ENGINE")),
         (product / "SUPERLAYER_1_METHODOLOGY_SOURCES", Path("METHODOLOGY/sources")),

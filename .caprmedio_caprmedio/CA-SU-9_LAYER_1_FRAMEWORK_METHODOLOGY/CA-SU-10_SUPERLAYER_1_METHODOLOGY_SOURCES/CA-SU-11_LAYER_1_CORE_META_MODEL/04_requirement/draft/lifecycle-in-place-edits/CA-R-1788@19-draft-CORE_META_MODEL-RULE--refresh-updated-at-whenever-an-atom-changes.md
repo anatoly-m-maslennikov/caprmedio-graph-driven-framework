@@ -27,9 +27,9 @@ Refresh Updated At whenever an Atom changes
 
 canonical Atom publication timestamps.
 
-A newly created Draft initializes `updated_at` to its actual creation instant. Successful initial canonical publication or publication of a new Version **must** initialize or refresh the published Atom's `updated_at` to the actual Project-time publication instant. Draft edits **and** identity selection, technical Current/Archived in-place edits, Current-to-Current status-only edits, and standalone archival retain their existing Updated At; these operations do not refresh `updated_at`.
+A newly created Draft initializes `updated_at` to its actual creation instant. Successful initial canonical publication or publication of a new Version **must** initialize or refresh the published Atom's `updated_at` to the actual Project-time publication instant. Draft edits, technical Current/Archived in-place edits, Current-to-Current status-only edits, and standalone archival retain their existing Updated At; these operations do not refresh `updated_at`.
 
-When publication archives its predecessor, the Archive Carrier **must** retain the predecessor's prior Updated At and unrelated content; Git history preserves the exact pre-archive bytes. Publication time is assigned only when the selected target is successfully published.
+When publication archives its predecessor, the Archive Carrier **must** retain the predecessor's prior Updated At and unrelated content; Git history preserves the exact pre-archive bytes. Publication time is assigned only when the canonical Atom is successfully published.
 
 ## Details
 

@@ -25,4 +25,4 @@ The sole Step of [Atom Lifecycle_Update Atom Directly](../CA-O-draft-PROJECT_CON
 
 This Step belongs to [Atom Lifecycle_Update Atom Directly](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom-directly.md) and RUNS exactly [Apply one Direct Atom Update](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--apply-one-direct-atom-update.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind the exact non-container target, requested changes, model, Scope Unit, expected source/currentness, placement and authorization under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md). The Action selects the case; this Step adds no operation.
 
-Pass the Action's saved result or explicit error with completed partial outputs unchanged. Do not retry, replay, or roll back; do not select descendants or cascades.
+Pass the Action's result unchanged.

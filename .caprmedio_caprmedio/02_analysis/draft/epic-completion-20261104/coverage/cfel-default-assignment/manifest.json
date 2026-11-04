@@ -1,0 +1,188 @@
+{
+  "schema": "cfel-default-assignment/1",
+  "status": "SOURCE_ONLY_PREVIEWS",
+  "canonical_mutation": false,
+  "operator_change": {
+    "current_descriptor": "CA-R-2598 Operator//Fallback == \"?=\"",
+    "candidate_descriptor": "Operator//Fallback == \"?==\"",
+    "current_rule": "CA-R-2550@2 defines ordered fallback on omission. Candidate changes the token to ?== and defines ordered conditional assignment: retain authored p, otherwise assign the first valid expression to the missing Object Property in the Model. `=` remains condition; `==` is assignment.",
+    "persistence_boundary": "The model-level assignment does not itself write a Carrier or file. Adapter/Delivery authority determines persistence; no write behavior is inferred."
+  },
+  "previews": [
+    {
+      "id": "CA-R-2550",
+      "source_version": 2,
+      "candidate_version_on_adoption": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "source_sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2550.preview.txt",
+      "preview_sha256": "dabd54741335093bb02e681ef0a6c36b681646357d492fcae6f05f3b1f251daa",
+      "change": "Rename the Summary to describe conditional default assignment; replace old operator spelling with ?== and update omitted-value semantics while preserving ordered lookup/error constraints."
+    },
+    {
+      "id": "CA-R-2598",
+      "source_version": 1,
+      "candidate_version_on_adoption": 2,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2598.preview.txt",
+      "preview_sha256": "d13a28012d31a672e7c87f8f264d88dc219450b4f1305b46339833ed27b83eed",
+      "change": "Replace the old fallback token with ?==; keep existing expressions, order, and nonwriting omitted-value semantics."
+    },
+    {
+      "id": "CA-R-2487",
+      "source_version": 11,
+      "candidate_version_on_adoption": 12,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "source_sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2487.preview.txt",
+      "preview_sha256": "8389b08699a5489f3abc4c1f6a7c9bf100a23a9a38bec1446eaa06dde6dd94a4",
+      "change": "Replace the old fallback token with ?==; keep existing expressions, order, and nonwriting omitted-value semantics."
+    },
+    {
+      "id": "CA-R-2705",
+      "source_version": 2,
+      "candidate_version_on_adoption": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
+      "source_sha256": "743aff2bb78914a616783752ac11a79f7bf784f351168414f8372d37f5241e92",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2705.preview.txt",
+      "preview_sha256": "7e5b22ed044d15677410064c57dc80eee0c26fd68e4c18393fb625e0a8f34d19",
+      "change": "Replace the old fallback token with ?==; keep existing expressions, order, and nonwriting omitted-value semantics."
+    },
+    {
+      "id": "CA-R-2711",
+      "source_version": 2,
+      "candidate_version_on_adoption": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "source_sha256": "af3db8d7f4041a599002215975f96b3101e0f9383224b80eede75e93ffd24949",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2711.preview.txt",
+      "preview_sha256": "caaccc782aaece485511c885b135aecb493b7b27ecd443fb7cda5a704bc8903b",
+      "change": "Replace the old fallback token with ?==; keep existing expressions, order, and nonwriting omitted-value semantics."
+    },
+    {
+      "id": "CA-R-2564",
+      "source_version": 2,
+      "candidate_version_on_adoption": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "source_sha256": "0eacaf33e1a417d4f3a965c3d81829df8f29b21cdb813f7cd2889433651bcedc",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2564.preview.txt",
+      "preview_sha256": "c2b0fb1f21be5cd5d71fa219a3c17e82b5caae31eba9a0047bd2da9a93271b95",
+      "change": "Retain the required single authored occurrence and value cardinality; constrain the admitted integer threshold range to 0..100; conditionally assign effective Model value 90 only when missing. No Carrier write is implied."
+    }
+  ],
+  "authority_sources": [
+    {
+      "id": "CA-R-1428",
+      "version": 32,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL--permit-confidence-threshold-defaults-and-overrides.md",
+      "sha256": "4fd0a513d98f08920fbcfde8aacf54f9ecbc7f92fab2d2861d54471e0d566980",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1045",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1045-CORE_META_MODEL-RULE--restrict-autonomous-confidence-threshold-values.md",
+      "sha256": "4792a08baa8cdc7c8e6fa9192df3812d25fdaa29ed3a35ede1037855ac74fc9a",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-2532",
+      "version": 8,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1587",
+      "version": 26,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-RULE--require-an-effective-confidence-threshold-for-plan-execution.md",
+      "sha256": "d0dcffc6432058f1fbd40d9403c4a621b233040827206a85907a057daa0f5cbc",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1591",
+      "version": 28,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1591-CORE_META_MODEL-RULE--apply-autonomous-confidence-thresholds-to-plan-execution.md",
+      "sha256": "2bf0af1b02316b85fdf64693bf9bfc188f6eb7d4b66ebebb976efda0e015acad",
+      "status": "Active"
+    },
+    {
+      "id": "CA-M-271",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md",
+      "sha256": "c3fee4fb0f4f733a805b5122b2e38da7af8c8eb39ac5208912b1e00f05663c1a",
+      "status": "Active"
+    },
+    {
+      "id": "CA-D-472",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "sha256": "161c952b42de6a0f6a2fc560bbb14addd2c0aed16f2f7d7bcb8e66720ad92e3d",
+      "status": "Active"
+    },
+    {
+      "id": "CA-R-1284",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md",
+      "sha256": "47048137a76a2cb71acc40277f94fb59f4d619af5c498ab7349bf55da7fe1d36",
+      "status": "Active"
+    }
+  ],
+  "current_usage_inventory": {
+    "scope": "Native Current core model and project configuration source trees; archives, Drafts, projections and staged artifacts excluded.",
+    "matching_atoms": [
+      {
+        "id": "CA-R-2705",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
+        "role": "Requirement",
+        "operator_mentions": 1
+      },
+      {
+        "id": "CA-R-2487",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+        "role": "Requirement",
+        "operator_mentions": 1
+      },
+      {
+        "id": "CA-R-2711",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+        "role": "Requirement",
+        "operator_mentions": 2
+      },
+      {
+        "id": "CA-R-2598",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "role": "Requirement",
+        "operator_mentions": 2
+      },
+      {
+        "id": "CA-R-2550",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+        "role": "Requirement",
+        "operator_mentions": 4
+      }
+    ],
+    "current_workflow_or_workbench_count": 0,
+    "workflow_workbench_records": [],
+    "treatment": "Only non-Workflow, non-Workbench CFEL operator definitions/uses are previewed. No Workflow/Workbench carrier is modified."
+  },
+  "threshold_contract": {
+    "canonical_property": "Project.Settings.AI Agent Confidence Threshold",
+    "declaration": "CA-R-2564@2 currently declares exactly one authored occurrence and exactly one [int] value.",
+    "default_authority": "CA-R-1428 permits an applicable framework/project settings default; CA-R-2711 explicitly falls back to Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold; CA-M-271 preserves precedence and explicit source selection.",
+    "range_authority": "CA-R-1045 requires integer percentage 0..100; default 90 is within that admitted range.",
+    "omitted_semantics": "CA-R-2550 candidate makes ?== conditionally assign a missing Object Property value in the Model. R2564 retains required occurrence and one-value cardinalities; the assignment satisfies the effective Model value, not a stored Carrier occurrence. No Carrier/file write is implied.",
+    "candidate": "Project.Settings.AI Agent Confidence Threshold{:1}: [int, 0..100]{:1} ?== 90;",
+    "name_change": "None. The existing full canonical Property path is retained.",
+    "name_resolution": "The current canonical name is Project.Settings.AI Agent Confidence Threshold. The user pattern’s shorter “Project.Settings.Confidence Threshold” is not used as a new name or alias.",
+    "source_terminology_note": "CA-R-2711 directly names Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold as the fallback. CA-R-1428 and CA-M-271 call their last-precedence source the Framework Instance Settings default. The preview preserves both existing references and does not introduce a new settings identity.",
+    "change_note": "No required cardinality is removed. Existing canonical property name is retained."
+  },
+  "limitations": [
+    "No runtime or evaluator change is claimed.",
+    "No Workflow or Workbench source is edited.",
+    "No default is added to Plan overrides; their source precedence and explicit-versus-inherited distinction remain governed by R1428, R1587, R1591, M271 and D472.",
+    "R2564 value default candidate is source-only and requires root review before adoption.",
+    "Model assignment does not imply Carrier or file persistence."
+  ]
+}

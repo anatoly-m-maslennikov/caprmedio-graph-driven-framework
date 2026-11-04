@@ -1,0 +1,106 @@
+{
+  "status": "ALL_HELD_REVIEW_CANDIDATES",
+  "decision_received": "Governing Configuration is represented by Project properties; defaults are usable. Default assignment operator is ?==; = is condition, == sets value. No operator edits are made in these seven Subject-only proposals.",
+  "naming": "R2564 declares Project.Settings.AI Agent Confidence Threshold; the example Confidence Threshold does not establish a rename. A separate explicit naming decision is needed before path changes.",
+  "declaration_pins": [
+    {
+      "id": "CA-R-2532",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464"
+    },
+    {
+      "id": "CA-R-2564",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "sha256": "0eacaf33e1a417d4f3a965c3d81829df8f29b21cdb813f7cd2889433651bcedc"
+    },
+    {
+      "id": "CA-R-2748",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2748-CORE_META_MODEL-RULE--unify-operator-selected-project-settings.md",
+      "sha256": "aee50dd9308c89d6ff68605aa4e1c643071be28bb5da1ec3dd362f8ea6a70cef"
+    }
+  ],
+  "rows": [
+    {
+      "id": "CA-R-1441",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL--define-default-settings.md",
+      "source_sha256": "4e8fb187de61707999f26e1d24c2a1b7e0afb67634e3a3ebf72ce4793cd637ac",
+      "version": "26",
+      "status": "HELD",
+      "reason": "Defines Default Settings as an authoritative Artifact; mapping the governing Subject to the settings parent is provisional until that physical Artifact claim is reconciled with property defaults.",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/CA-R-1441.subject-only.preview.txt",
+      "candidate_sha256": "c51c6484ad77e69639190a799d9c75c9b4fa0844924b7cc83f6ff833aaec2bd0",
+      "proposed_active_subject": "CAPRMEDIO_MODEL <+ Project.Settings",
+      "change": "Subject-only substitution; Claim, Summary, ID and remaining metadata preserved. Review preview only; never adoption-ready while held."
+    },
+    {
+      "id": "CA-R-1429",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL--separate-settings-boundaries-from-field-specifications.md",
+      "source_sha256": "1a654b8bb84dd6f0de6d0c06ae55f976da93289072542fcea0eeb40c22613ef5",
+      "version": "28",
+      "status": "HELD",
+      "reason": "Addresses settings foundations and shared specifications; parent is declared, but older Framework Instance Settings and Default Settings distinctions must be reconciled with current Project.Settings authority.",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/CA-R-1429.subject-only.preview.txt",
+      "candidate_sha256": "f35a21ca05aee0c5f06298840e1fef10dbfb443c0d736949b9d407f61db94722",
+      "proposed_active_subject": "CAPRMEDIO_MODEL <+ Project.Settings",
+      "change": "Subject-only substitution; Claim, Summary, ID and remaining metadata preserved. Review preview only; never adoption-ready while held."
+    },
+    {
+      "id": "CA-D-407",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL-ENG_DECISION--store-default-settings-with-the-core-meta-model-source.md",
+      "source_sha256": "43ec6968f9c2eb75c4d451d91fc2249ff93ee374a747935d00907cbac064b1f8",
+      "version": "25",
+      "status": "HELD",
+      "reason": "Claim requires a specific Default Settings TOML Artifact and File; a subject substitution alone does not establish whether it remains a carrier of property defaults.",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/CA-D-407.subject-only.preview.txt",
+      "candidate_sha256": "5864a1c87e91d4be5c828e8c225d094066d0166323388c282ee864139c843f2f",
+      "proposed_active_subject": "CAPRMEDIO_MODEL <+ Project.Settings",
+      "change": "Subject-only substitution; Claim, Summary, ID and remaining metadata preserved. Review preview only; never adoption-ready while held."
+    },
+    {
+      "id": "CA-D-408",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL-ENG_DECISION--reuse-framework-parameter-fields-in-default-settings.md",
+      "source_sha256": "e30baa661f56fb069b4650e23e34d63bd1b7d11c7130116cfacb352b105e3d86",
+      "version": "24",
+      "status": "HELD",
+      "reason": "Claim governs a Default Settings TOML schema; mapping its focus to the settings parent does not establish the status of the default carrier or old Framework Instance Settings references.",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/remaining-disposition/governing-configuration-repair/CA-D-408.subject-only.preview.txt",
+      "candidate_sha256": "b44adb6c836a16ce058e970a57c232710f4836aab4bd11fb83258e1a478bf304",
+      "proposed_active_subject": "CAPRMEDIO_MODEL <+ Project.Settings",
+      "change": "Subject-only substitution; Claim, Summary, ID and remaining metadata preserved. Review preview only; never adoption-ready while held."
+    },
+    {
+      "id": "CA-R-1226",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1226-PROJECT_CONFIGURATION-RULE--bind-each-project-customization-to-one-source-revision.md",
+      "source_sha256": "ae8975dcaffe05461b378f3de5e550fcb73f78b8b0bd8377e8794c63897b2e8c",
+      "version": "25",
+      "status": "HELD",
+      "reason": "Project Customization revision binding; no declared exact Project property found for this object.",
+      "candidate_path": null,
+      "proposed_active_subject": null,
+      "change": "Held pending an existing declared matching target; no invented property."
+    },
+    {
+      "id": "CA-R-1640",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1640-PROJECT_CONFIGURATION-RULE--register-one-canonical-routing-tree.md",
+      "source_sha256": "4bdad495af46d3011d7e7cf7bf4adf144486c23e3ffceae4a39e1fd73885862c",
+      "version": "32",
+      "status": "HELD",
+      "reason": "Canonical routing tree; no declared exact Project property found for that target.",
+      "candidate_path": null,
+      "proposed_active_subject": null,
+      "change": "Held pending an existing declared matching target; no invented property."
+    },
+    {
+      "id": "CA-R-1641",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1641-PROJECT_CONFIGURATION-RULE--resolve-skill-routing-precedence.md",
+      "source_sha256": "2d19363233c17a6402287a89c0f1ef9bc49c36be9c8de34fdf31a4b69ff9f1cb",
+      "version": "33",
+      "status": "HELD",
+      "reason": "Skill route precedence across project, framework and provider-global routes; no declared exact Project property found for that target.",
+      "candidate_path": null,
+      "proposed_active_subject": null,
+      "change": "Held pending an existing declared matching target; no invented property."
+    }
+  ],
+  "limit": "No Workbench or Workflow source files examined or modified; no Current, code, tests, Git, instances or new property declarations changed. No exhaustive proof of absent Project properties across all possible aliases."
+}

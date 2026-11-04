@@ -46,6 +46,14 @@ P2694@60 and P2707@5 are Active. All 23 acceptance groups remain required. Ask o
 
 The Epic remains Active. Remaining MODEL coverage decisions, coherent Current Declarations, faithful final projections, final source push and P2707 external checks are open. Actual Current O104 and R1766 authority gaps remain; archives or disposable fixtures do not restore them. Keep all acceptance gates. Focused checks, Drafts, source receipts and historical snapshots do not establish final integration.
 
-Current continuation: prior turn was progress (blocking source adoption and pushed8452c933f). One question is pending about retaining Governing Configuration versus assigning its seven Rules to specific Subjects. Workbench and Workflow sources are excluded.
+Current continuation: prior turn was progress (blocking source adoption and pushed8452c933f). That question was resolved: these are Project properties. Workbench and Workflow sources are excluded.
 
 The twelve held Drafts now have canonical containment Headers with obsolete scope fields removed. Their bodies and Current predecessors are unchanged; remaining Subject/prose repairs are still held.
+
+## Latest CFEL audit
+
+The Operator settled Governing Configuration as Project properties. Use ?== for default assignment, = for a condition, == for assignment. The example default is integer90 with range0..100 and one value. Existing AI Agent Confidence Threshold name remains pending any explicit rename; no rename is inferred from shorthand. Workbench/Workflows remain excluded.
+
+The four-lane CFEL audit is running: model_subject_syntax owns operators/defaults; model_relation_contracts owns Relations; model_selector_parser owns expression syntax; model_legacy_cleanup owns actual active-Subject scope and vocabulary/conciseness. Each writes only its audit folder; root integrates Current sources/Git. All lanes require pinned Current evidence, complete declaration coverage, short clear Claims and explicit ambiguity findings.
+
+TermSubjectalignment revised17CoreHeaders using :=, preserving allClaimbytes. R1432@30 now matches the approved unique/increasing Version invariant; process allocation remains Workflow-owned. Independent bounded verification passes and the fresh in-memory model has no inheritance diagnostics. Seven views are being refreshed again from the same1160supplierselection.

@@ -3,7 +3,7 @@ atom_id: CA-D-675
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
-version: 7
+version: 8
 author: Anatoly Maslennikov
 role: Delivery
 form: Eng Decision
@@ -18,7 +18,7 @@ carrier_destination:
   file:
     name: CA-D-675-WORKBENCH-ENG_DECISION--place-duckdb-projection-in-rebuildable-runtime-state.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery
-updated_at: 2026-11-04 18:14:51 +0400
+updated_at: 2026-11-04 18:38:27 +0400
 ---
 
 ## Summary
@@ -44,3 +44,5 @@ Build Svelte + TypeScript + Vite assets during image construction and serve the 
 The current Project container has a `1536m` memory budget. Keep query delivery bounded and let DuckDB spill within the owned runtime directory. Measure real-repository queries and refreshes against this budget; increasing RAM alone is not a substitute for paging. Report storage and engine errors explicitly. A failed owner requires an explicit restart.
 
 Include the locked `pytz` dependency in the Workbench runtime group so native DuckDB timestamp-with-time-zone results can be fetched and encoded as ISO strings.
+
+Exclude the frontend’s local `node_modules` dependency cache from release packages. Deliver its package manifest, lockfile and source, and build production assets in the image. Dependency-cache symlinks are not authored package input.
