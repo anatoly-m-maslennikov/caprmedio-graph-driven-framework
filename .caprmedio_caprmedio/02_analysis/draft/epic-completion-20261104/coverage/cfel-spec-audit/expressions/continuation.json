@@ -1,0 +1,2582 @@
+{
+  "previews": [
+    {
+      "id": "CA-M-232",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md",
+      "source_sha256": "9f84da9fa587c9d41b91fbc4754afa3b470a3e8eb398bd0207399a34ad1f90af",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-M-232.preview.txt",
+      "candidate_sha256": "52d0015bbb158cf0e4baa5f5f5594f84f8befb19962f640d920c2b3fbb0dafc2",
+      "status": "REVIEW_ONLY",
+      "change": "Permit reverse view of the same declared Relation without requiring a named inverse; preserve permission and duplicate-fact constraints."
+    },
+    {
+      "id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "source_sha256": "8503b8391a73bfae63174a5c414f5be4b1d23fac8403951be0cbb4272817c78c",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-E-383.preview.txt",
+      "candidate_sha256": "c57a13e292e175ac60643541c0a8e3025cf09241528bca8c6581619c513ef6df",
+      "status": "REVIEW_ONLY",
+      "change": "Permit reverse view of the same declared Relation without requiring a named inverse; preserve permission and duplicate-fact constraints."
+    },
+    {
+      "id": "CA-R-2554",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+      "source_sha256": "0f0ba69390d074f65a5c0c75469e6bf3b1f24bb53f321fa3d742d38ab6cfb75b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2554.preview.txt",
+      "candidate_sha256": "1a5e37f783f76f6bb54835e368efcf5e2cfc2f70ba103ca50595a5adc88d3909",
+      "status": "HELD_BINDING_GRAMMAR",
+      "change": "Use == for asserted root level and THEN conclusion in the existing formula; binding and formula grammar remain separate held checks."
+    },
+    {
+      "id": "CA-R-2555",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+      "source_sha256": "3823ca975892c836b070091fdbbf3ea91d3a6c7c6cc370efa619e903ebc58308",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/expressions/CA-R-2555.preview.txt",
+      "candidate_sha256": "b3316789280598ce6a64855e374d0a1561333ecd23c363199b095146b0806a58",
+      "status": "HELD_BINDING_GRAMMAR",
+      "change": "Use == for asserted root level and THEN conclusion in the existing formula; binding and formula grammar remain separate held checks."
+    }
+  ],
+  "coverage_definition": "Current active native Core R/M/E/D files containing CFEL or a CFEL fenced block, excluding Workflow/Workbench filenames; active subjects for those scopes explicitly excluded. This inventory is not a claim of semantic review for held atoms. Illustrative names alone do not exclude a source.",
+  "atom_coverage": [
+    {
+      "id": "CA-D-264",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "sha256": "e12a30e551afc95a332d40b1f467231d68edf974bd753d54d5d1e6d2e9336e1e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-266",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "sha256": "4e72593f7c399b72dd910efdc1b492d8f777e563af836997f57a346086a39d60",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-268",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "sha256": "c301ef453ae1fa2a82f6deb2e12332bc7b340fd289d56ceeeb935e9e6f7bfb52",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-269",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md",
+      "sha256": "83d60a51cbf261a8446fb2299c737c5b794e4bee814b1a1e419cb9a355698886",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-304",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-ENG_DECISION--preserve-authority-through-carrier-only-recoding.md",
+      "sha256": "c962bea3968bd4af89127ad9ac449224f6b13af0e3224aff97a4ede4cf65969d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-416",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-416-CORE_META_MODEL-ENG_DECISION--classify-markdown-atom-carrier.md",
+      "sha256": "5cfcda668adf8e01cb5b0ab4e262bbc2de85e4b4c4e1a4e7cc77303a85239fab",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-442",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+      "sha256": "3876e616560ffec0951cd4e9e4653d510bd7c914f3892163f67063c888f08115",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-471",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md",
+      "sha256": "ae5f999a3547c1a8644ea9dfa434b8f7770e3772e15ac192b755de07d3a18993",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-479",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "sha256": "47217f45ce7cb9a4b153b9f6b690e8f1968a3bf34dca229f6ca833c982b95b98",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-495",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-ENG_DECISION--carry-applicability-in-the-registered-body-sections.md",
+      "sha256": "c5f012e8c7478cbd411aef952f090cde51c08a14cc27562f8933987023b91723",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-505",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-ENG_DECISION--define-the-entity-carrier-binding.md",
+      "sha256": "884ba94a37b07117d955901753cef173489affbb5d978f5f3d84855cdcc83ea4",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-634",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-634-CORE_META_MODEL-DECISION--deliver-readable-entities-graph-trees-as-markdown.md",
+      "sha256": "ddee2e3b9210c1a077ad4e3293400d69f3a184c1fd29fb1033aeffd41652f7bd",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-636",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-636-CORE_META_MODEL-ENG_DECISION--bind-carriers-to-their-represented-current-or-historical-entities.md",
+      "sha256": "ab2ab5f411ab72c4cf2175e4ac3f19c976fd23f2637922244029448c034628a9",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-654",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-654-CORE_META_MODEL-POLICY--represent-occurrent-information-through-continuant-records.md",
+      "sha256": "38f80d0fb6780332a63477153a4fe90cf43dd9dadccd3fb1d7904a85abe8f1ca",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-657",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-662",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-662-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+      "sha256": "f311699df3697e761666ff198ebd40b9959c4f1e553db3425160055f0a647135",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-664",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "751a86d2ae43330bf75ba0d41c1887cb418c24caa2b5ba4885970fb02427e5aa",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-665",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-665-CORE_META_MODEL-ENG_DECISION--deliver-projections-to-markdown-files.md",
+      "sha256": "cc1fa90c64bebf6331cfc77fd862520e10a2ce4dd8d0a8909fb348856b25a5dd",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-666",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-666-CORE_META_MODEL-POLICY--carry-scope-unit-declarations-as-governing-atoms.md",
+      "sha256": "69c8ec98af846687233fcf0339ba78f66d0452413b77e59c834f331f628cb63b",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-D-669",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-669-CORE_META_MODEL-ENG_DECISION--encode-configuration-surfaces-in-owning-atoms.md",
+      "sha256": "b7d2b918e8462f28c4cd1e011ef96f4f90b798447785638ce6818b7e55f2717c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-246",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md",
+      "sha256": "9f6fdb1f34591e398edb050628ae52679dc9e6a3a7aafbc28d6356e6451ecf52",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-382",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md",
+      "sha256": "c015529a32546da7407d9a592c715deebf945b628ba7a0ded588c84ca4ca484b",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-402",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-402-CORE_META_MODEL-EVAL_POLICY--reject-invalid-claim-value-sets.md",
+      "sha256": "3017762d12c5a0f8de451508e86851afa02d1cb06b9e96c53b0d007335cfaf45",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-403",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-EVAL_POLICY--report-exact-claim-value-set-consolidation-candidates.md",
+      "sha256": "181df626b42d6f10606017d2f6146953de4bdb51b63638473a7eca81199f5b28",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-404",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-POLICY--reject-invalid-dependency-order-derivations.md",
+      "sha256": "b9446d9d98014e65b29e14ed6f96e685a25f7e296b0a13021aab043ecebf2bcf",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-444",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "sha256": "ca214061df4aa1d07d5971a191fc97645376344a9a9ac27a762ee8167fe9894b",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-449",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md",
+      "sha256": "caca33e72e9b323d2570792e5cff4b1f1e8cb77adceb2fda24c0cbb4473cb6e5",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-466",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-466-CORE_META_MODEL-EVAL_CASE--validate-single-source-of-truth-in-secondary-graphs.md",
+      "sha256": "c6dfe54d18b67a0027a5355109ac24fedbf93b7ff8d3d255c02ef71902c4c77f",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-481",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-481-CORE_META_MODEL-POLICY--validate-the-normative-authority-hierarchy.md",
+      "sha256": "fbf42b6c414ffe635c37bfec1049c7067c27a20a20cbc277aec1a0c9430d3632",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-505",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-505-CORE_META_MODEL-EVAL_CASE--validate-shared-label-semantics.md",
+      "sha256": "900192180fa76a8901aa2d423043460fdf0b8fb020a1457d887ff14cbcc2106f",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-506",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-EVAL_CASE--validate-self-sufficient-atom-carriers.md",
+      "sha256": "6a4e1c2dc73ada56e9bb4ad8f7b35007291dc61a8c09497e6a1abc523a711caa",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-620",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-620-CORE_META_MODEL-EVAL_CASE--relation-vocabulary-interpretability.md",
+      "sha256": "238a96069190bcb0df50cab34d6daf5f837676046a78a8e4d4ec35a58a8bbf14",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-622",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "19aec4891a13dfd0f271c7cb8372e41fd60d1db02e58fe80b3d87b01e29d8311",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-624",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-624-CORE_META_MODEL-POLICY--validate-generated-only-provenance-boundary.md",
+      "sha256": "491e82c9309473bb1cea68b6bb3182532dec6aeda23d484b967883e25a1be12d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-669",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "sha256": "55c62fe55716d1332afc79ae69fb9749d1bea43027de4bcca0d439c990afeeef",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-M-120",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-IMPLEMENTATION_METHOD--compile-the-direct-relation-registry.md",
+      "sha256": "67d491e92fc7e9d0463f6c880fa53cbb2f1ced2112cba654483d072d08d5eccf",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-M-125",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md",
+      "sha256": "f260c13b9cdbca25cdae58b2f177180eb9ebadbf88cb1a34fe4ca5a9978748fd",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-M-228",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "sha256": "81388ad9d846bac3e326c4c737b634d16b1cfde6b7603153042478e019a29401",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-M-237",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL-IMPLEMENTATION_METHOD--author-claim-value-sets.md",
+      "sha256": "5e82230031bb8c0a08fae9cb63dde23b4889f00d37c61e0e78c6d61b2002202a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-M-239",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-dependency-order-from-explicit-edges.md",
+      "sha256": "7ee9aa7b786a867e3707a28a057cc13ffbb269548ebe19bd9a613ddf1ea2f176",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-M-264",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-264-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-evaluations-with-reproducible-falsification.md",
+      "sha256": "17ffca6975dd73810a732976829b2c49e4289df98af790af3bb04b28409de48e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-M-265",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-265-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-evaluation-groups-from-checked-authority.md",
+      "sha256": "3adcfc53a1facfa58e035866fb497885616a4d1822b7e0d1185905d61224dbc2",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-M-306",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md",
+      "sha256": "4a4888cc1dc2fd66c5318a3e52dd3dc5480024b936876da556e272b47619f576",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-M-313",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
+      "sha256": "20f28ec9eb2dc97577539518c551f40fc91d0b0f9127ca46a6702ffb2f629c5c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-M-385",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md",
+      "sha256": "113ca9b8f8e6992dbce1b8e12b49e035ec75ebc9f945c86763572ec3d6fd7a95",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-M-453",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "sha256": "fb9d0205cf7d78c1adc9b44326a43ec6d793058862c834439cc0e58d25c659d4",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-M-457",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-457-CORE_META_MODEL-IMPLEMENTATION_METHOD--reuse-formal-notation-and-write-isolated-constraints-in-prose.md",
+      "sha256": "99559c748dc1dae66e33da6502549cd8a5a1b1fc1cb2ab99236cf1594e2693d3",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1016",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-DECLARATION--register-rationale-for-relation.md",
+      "sha256": "88d9c8c5f3ea03cdc955799ad495af4b726844670b3eac1987587fc6e968605c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1017",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-DECLARATION--register-method-for-relation.md",
+      "sha256": "4719ba251ad9e2f577804ca25f7573765d10c1059abef0b1b6a044bd5ea8b681",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1018",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-DECLARATION--register-evaluation-targets.md",
+      "sha256": "48410dd19c032ed26139667d3fe9ad766b6c33edd598f79c626b69c30efbb0b6",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1019",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-DECLARATION--register-delivery-for-relation.md",
+      "sha256": "ae0b7f6ca1f9faabea2695f31a3d9b28ca99d9058c706db993d829944cff0c0b",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1020",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "sha256": "809a50e163bbb083181f7de8e9c0f79087de31b01614295343d18b1dea19d9e8",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1021",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "sha256": "33540d09ed24ee76ec247b397736ac9786d133dcdb5dc6c016ed2fd120fbaaf0",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1022",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-DECLARATION--register-concern-about-relation.md",
+      "sha256": "cac1876b182e149cdbe450ae6f6f7e7f36b6a5e05f30fbb893dbebf6f5a33617",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1023",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-RULE--permit-distinct-direct-relations-on-one-atom.md",
+      "sha256": "440c34d3949e31267ab66f937bbfd62a91afeae155507113c96acba958fe016d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1024",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-RULE--prohibit-transitive-meaning-for-direct-relations.md",
+      "sha256": "5e09094e4540b5eb8449bf2b72a3dd0edee0870774ced029bd72d622c3d703a0",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1025",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-RULE--require-authority-for-new-relation-meanings.md",
+      "sha256": "7d2c26e0b21ae5a74b908fb336e6ef8eb887e2741843591ae68ca8a14be0a00c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1026",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md",
+      "sha256": "761422f7245c231d3c813eb8caf07f4fba2fc135563f88e7b3dc1780fa1c66e2",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1027",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-RULE--register-implementation-of-and-implemented-by-relation-pair.md",
+      "sha256": "bf199390acb9bcb302e7ad3f15985eb0e0ffef51a1c099786a11024daef79cf9",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1029",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-RULE--record-lineage-impact-disposition-context.md",
+      "sha256": "9848a6be3704e41861107010602c2385d3a34b28075111c9ccd02a98ac844a9c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1030",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-RULE--prohibit-silent-non-compatible-impact-dispositions.md",
+      "sha256": "605e00a73fa036fd4b0e992cbcd485dab671f4323e772b130b2f8bc1bc321ac7",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1032",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-RULE--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+      "sha256": "8e47de0fa645bf7f690a595afe280827c7404672df0b9f6e7b6b07a3db48340e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1033",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL--define-compatible-lineage-impact-disposition.md",
+      "sha256": "5dc14361dd91eddf9302d729acafb2a9983b8a248b275cd2a93bde14b0b05e77",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1034",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL--define-update-required-lineage-impact-disposition.md",
+      "sha256": "f21bff53993ca7b0683bbdb0c22c3a45674fd07fda89fb834261fd89054528f5",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1035",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL--define-replacement-required-lineage-impact-disposition.md",
+      "sha256": "ee967a22e450f0dff3c598d3050f0358f5f10726b9baa634cbd7ab350335fb35",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1036",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL--define-uncertain-lineage-impact-disposition.md",
+      "sha256": "c5b007b8f7f87f32df026a5ce910950461910dc16ec25cba4e15ad9510211da6",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1037",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL--define-lineage-impact-analysis-content.md",
+      "sha256": "53e4af3717afe88309c881029fbdae87a65d1528962499b7a629423b2322b7ad",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1038",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL-RULE--permit-multiple-child-rows-in-one-lineage-impact-analysis.md",
+      "sha256": "2aef6cf8468a9adc8ac86c77d3eb2d161b03db4ad483a1c857d7b089bd02c232",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1039",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-RULE--preserve-authority-outside-lineage-impact-analysis.md",
+      "sha256": "8299cf95f59515e000ec606ed994e99f7609d64dda8f29dd9e60f54d7aebaa2d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1040",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-RULE--reject-authored-inverse-relations.md",
+      "sha256": "bd821e802387393d1bd3ddd21e35a5bcb000b76cbaefb41f0dee80cd3b5a1123",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-117",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-RULE--store-each-semantic-relation-once.md",
+      "sha256": "9e28c39259714db9e1ebe7f77e83eda13857cc9f537a7b2cc14e75043cdcf55e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-118",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-RULE--let-the-dependent-atom-own-the-relation.md",
+      "sha256": "4d48fa01c68e143bf72827b5698f6a3dd02310738d2327ef73982c127e655109",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1199",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md",
+      "sha256": "4e4cf1d259ff62c9ba10be39ea5d871a052717eaf8bd95f0bc57f91294ee824e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1200",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md",
+      "sha256": "136852e0bf5b4b4e015c8ea16f705dd0a1e916b12a18ece200f41c788795df4a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1202",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1202-CORE_META_MODEL-RULE--resolve-every-direct-subject-target-once.md",
+      "sha256": "53e9b84c82774ed41a2400e509766194ac3a60a560498aa8beae1973027143f7",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1203",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1203-CORE_META_MODEL-RULE--split-at-multiple-governed-subject-boundaries.md",
+      "sha256": "c70c7108cd5241418f59047867e82335bb83bebf944b44b7622020052ea5e15e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-121",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-121-CORE_META_MODEL-RULE--store-only-direct-semantic-relations.md",
+      "sha256": "8de05bdb2362d31e2d96649b0affcf913f0104e76bf8818cce3a5d2eb6f3fbf5",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1244",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1244-CORE_META_MODEL-RULE--allow-multiple-direct-term-hierarchy-parents.md",
+      "sha256": "1652a8ee39a253aa26aa491011b91a83580799262e5cadda817914ab9f6010fe",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1245",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1245-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.md",
+      "sha256": "0dbf7796de969c987d6fa8380af15191629f19b005875b4cfdc88975ffcee674",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1246",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1246-CORE_META_MODEL-RULE--keep-relation-vocabularies-graph-specific.md",
+      "sha256": "e053d11d0d3b660fae765ec4fe1b09156da6f5f041203ac47ec2b65249c4eee7",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1247",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1247-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "sha256": "3a1847ad88f2cee8615db4b45c931746771e4508fcccb2ccd22a2967edf1c3f4",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1259",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-RULE--permit-zero-or-more-properties-on-every-entity.md",
+      "sha256": "55d09143de8f3e5fdbfbdfed181eae80dc0da051993cd34bb2567019a52e4707",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1275",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1275-CORE_META_MODEL--define-subject.md",
+      "sha256": "92933014b7346038ab25966e2a71b06791feb5eddf5e3a2c7445e54347253407",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1276",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1276-CORE_META_MODEL-RULE--type-every-direct-subject-reference.md",
+      "sha256": "6cbd35b10bd29acc99fdab0364b9c63503089c33fb018d1819eb4a5cc50a6a65",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1278",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1278-CORE_META_MODEL--allow-zero-or-more-dependency-subjects.md",
+      "sha256": "63b0a7e3f07c207566ec25b7159546f89a869ebb685292b6bab6b2fe0c650a46",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1279",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1279-CORE_META_MODEL-RULE--govern-every-defined-term.md",
+      "sha256": "1d7e9c68aa2119f9edb8bda5476bce6db471fd3a6d57d6098646a962af3f8585",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1280",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1280-CORE_META_MODEL-RULE--reference-every-prerequisite-subject-through-depends-on.md",
+      "sha256": "c4967b68e77164f9f68403a4b38f7c77f63cd35a11b7faedbb48fa840b9551f1",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1284",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md",
+      "sha256": "47048137a76a2cb71acc40277f94fb59f4d619af5c498ab7349bf55da7fe1d36",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1318",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+      "sha256": "35014effa7d6d7ab7f57e2b5dddae8523f151b2208842d0e97bfe1661107e273",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1321",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+      "sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1345",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1345-CORE_META_MODEL-RULE--keep-the-narrower-than-graph-acyclic.md",
+      "sha256": "f39df22cca9398efb859b357a14a2ff0b36eab8017bc2a9f8fbaa570fc85b540",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1346",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+      "sha256": "803ebe3f727ac959afe20ce369e6d4f643dbc98b93a8380bf18e764cdb3f7313",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1347",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1347-CORE_META_MODEL-DEFINITION--define-root-term.md",
+      "sha256": "d68625245525eae22c35ff16e79d4a8cfbe6de10bb89f06fe820033503dd8f46",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1351",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL--give-primary-entity-occurrences-no-bearer.md",
+      "sha256": "a647fa0d775df3838eaf0e09ad471544461b4573e2896f80d08ff88d6897c904",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1358",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1358-CORE_META_MODEL-RULE--consolidate-single-value-claims-as-one-value-set-claim.md",
+      "sha256": "fb90a002ecb1f78b3ce59c02e46f9e91007bb44263fc110f4e73efcc230ed317",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1359",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1359-CORE_META_MODEL-RULE--define-claim-value-set.md",
+      "sha256": "2e48c8574f14663dacf2668ec6259e9b418587750779dbc39ef9a1ad8e534ea8",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1405",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-RULE--register-core-artifact-type-values.md",
+      "sha256": "3cf75410940a71d7357a8c701a2d182f9aa503665bddff7034902415cd48a5c5",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1408",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1408-CORE_META_MODEL--define-graph-of-graphs.md",
+      "sha256": "cd8b86c2e7f9ffdd159a2745e64d102289d80cf7f3d7e5709f76a4fe62b4a057",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1409",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL--define-general-artifact-graph.md",
+      "sha256": "bdc7bae56168c943efb3e5f281691742860359faf810a72c11eb44b4cb08b7c7",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1410",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL--connect-every-caprmedio-graph-through-the-general-artifact-graph.md",
+      "sha256": "478dbbe9b09961fce5f570c3eb2423316dc9d912602bc0531e83ab089b7a7171",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1417",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1417-CORE_META_MODEL-RULE--give-every-atom-revision-one-content.md",
+      "sha256": "540959192edcd1e23348fa0cfbe4d6f3eed3c1ae76b67d6dffa2e70c190c2f8d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1437",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-RULE--keep-one-source-for-each-relation-fact.md",
+      "sha256": "743c507e6a2992e8db377adece88d39707d1bacdf83bb1337322ed8243060c29",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1454",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL--derive-governed-terms-views-from-selected-authority.md",
+      "sha256": "0ba35377327b64e94e47049c30c4c062f48158f6349605de808ea2272b5bebdf",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1455",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+      "sha256": "d5b1dd27d7a818967c35dbfd13d11863dde799cc51513e9c467b235061f37284",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1456",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL-RULE--derive-entities-views-from-selected-authority.md",
+      "sha256": "3d803bf5beae93141a965c02a859affdd334b3f69bdca71a7c92b82515651c4b",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1471",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1471-CORE_META_MODEL--keep-secondary-graphs-derived-from-source-authority.md",
+      "sha256": "689d73816c54ae434b14ae2f7c5d066f333fa46804e0f5897e0145881ed81239",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1472",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-RULE--admit-typed-secondary-graph-connections.md",
+      "sha256": "51da2f7620f45e65c6a603bc266e3241cc3328f3c8cb0c8df02bd75b41ed5aee",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1498",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1498-CORE_META_MODEL-RULE--derive-recursive-containment-from-direct-containment.md",
+      "sha256": "924cfc50137eff50c8329b3c90cf6e7b8a3e8a4a03f6ac31453d2e98ce222854",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1578",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1578-CORE_META_MODEL-DEFINITION--define-hub-atom-as-a-derived-description.md",
+      "sha256": "fda2a7acd3a2dfd56cccc42643b15a96b3378e2028fc72202f02f8a6458c4233",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1580",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "sha256": "25e9d08d3851209230e686a23c42d7819f3fddd4b163d3e18947c6b6eedb8ae5",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1593",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1593-CORE_META_MODEL-DEFINITION--define-the-plan-graph.md",
+      "sha256": "56f82a471ed8e5348106bf6a4e7f286ed32f8d84248b71f628eb96ee3c7ac853",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1598",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1598-CORE_META_MODEL-RULE--keep-every-atom-self-sufficient.md",
+      "sha256": "a062b4eb657d890a42a4b74c59a87d19bc87796e8e80b1830d20ca3905e43f02",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1632",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-RULE--classify-lineage-impact-with-four-dispositions.md",
+      "sha256": "ae00483b62a87ab968c0bca1b4642eb80166e1365a27f2778500f89084451c8f",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1639",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-DECLARATION--register-derived-from-relation.md",
+      "sha256": "cc759f728ea7026f510224834325364688389cbf9b1bf5e050ec6bd57c7d1428",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1654",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-DECLARATION--register-feature-realization-relation-kind.md",
+      "sha256": "f2117d0bf61ea4c0c2146cf65b3f689195bda3cddd008c6eed0cc6fa52838020",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1657",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-RULE--require-acyclic-structural-ownership.md",
+      "sha256": "e9b1db213d876cc6472de554d5ce833978423e5105e9bde9616b3b4d00725e45",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1659",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-RULE--derive-inverse-structural-ownership.md",
+      "sha256": "159af85ffc4bfe88783a006d9a6a3d59d087c9798c39bc67c0aa5f30b0787c5c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1660",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-DECLARATION--register-structural-parent-relation.md",
+      "sha256": "175001423157ce246b5a20c26b2a47eb8f29deb08649a7948ad091247bd25759",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1676",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-RULE--keep-rmed-to-rmed-relations-within-active-authority.md",
+      "sha256": "e94719418f2f60435d581a981f818580e24aa0947d1eb6f57fb16d65d732d4ea",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1697",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1697-CORE_META_MODEL-RULE--bind-traceability-to-exact-claims-and-revisions.md",
+      "sha256": "b2a64f2a4a87fa506af5ebf58e297ecec92795de70f132f290cd12c9a0c8ec37",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1699",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1699-CORE_META_MODEL-RULE--bind-governed-transactions-to-stable-artifact-revisions.md",
+      "sha256": "544574d7bea6cfabb6f7e38e465c8c2201b05bfd806027bca9d7271ac1d374e9",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1702",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "sha256": "d3ddebf0f7f78567434a6950d6ff3933dee32e5af027be9323c6fb3e53a28088",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1735",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1735-CORE_META_MODEL-RULE--relate-self-improvement-stages-explicitly.md",
+      "sha256": "2b213961107041374ae6efdb27d32e2e258acb293781e4d4310eb1e2dc80087a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1765",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL--prohibit-artifact-type-admission-through-narrower-than.md",
+      "sha256": "46e9c3b5ae07f4aeb2463ff31fb58cd5aa04c57e990dc012f908006a586e5dbb",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1955",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1955-CORE_META_MODEL-DEFINITION--define-entity-carrier-database-carrier.md",
+      "sha256": "f1d2672407c3fec36066980071c77277b9a39ffc2e9c371c2cf502c2787a2de8",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1956",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1956-CORE_META_MODEL-DEFINITION--define-entity-carrier-directory-carrier.md",
+      "sha256": "dacacf47d0215d11e97e87b45aab8e0bd95ce880bf261498f837ec5db386b7ca",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1957",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1957-CORE_META_MODEL-DEFINITION--define-entity-carrier-file-carrier.md",
+      "sha256": "d0e1a56b2caf880ca27628e1d1941aec9e25de48bda37c72eb21bd742da448e9",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1958",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1958-CORE_META_MODEL--define-entity-carrier.md",
+      "sha256": "0a0074cc98230942772d96f790537e644d27b85837a3e08665c12fdde7b291ba",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1977",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1977-CORE_META_MODEL-DECLARATION--define-project-framework-settings-artifact-timestamp-timezone.md",
+      "sha256": "f1841cf2f07900412c1b78854ae2c077b3047ba43a50431fa5f0d015a32c1604",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1978",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1978-CORE_META_MODEL-DECLARATION--define-project-framework-settings-code-root-locators.md",
+      "sha256": "74a9fa8910dbfa12d1e6a969b6cc44c1e504236531906d0adbfe3b6b1f5c0943",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1979",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1979-CORE_META_MODEL-DECLARATION--define-project-framework-settings-confidence.md",
+      "sha256": "4fd335502ece4b20846d63f229366c967431da13be02bc6123d9ed76916c1a6c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1980",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1980-CORE_META_MODEL-DECLARATION--define-project-framework-settings-framework-control-root-locator.md",
+      "sha256": "6db52d1f6c7c2b2ed8100adc7420266bb4dcd7cf3637c7e0d7a65a48855f3459",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1982",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1982-CORE_META_MODEL-DECLARATION--define-project-framework-settings-interaction.md",
+      "sha256": "ec4a31137414a2eaa949a999b752a790fee38ee979748a7a8d85d6fd486b8558",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-1993",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1993-CORE_META_MODEL-DECLARATION--define-carries.md",
+      "sha256": "82247b2cb99ad1dc826c579cfe51a42708f6cd9fe48039c4aeb2171e28580c1a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2003",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2003-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "sha256": "6b83ec62b5d30960febc3dbcaadee3d5504be4ff3caa95356745a91f8952b4c0",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2100",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2100-CORE_META_MODEL-RULE--limit-each-atom-to-one-governed-subject.md",
+      "sha256": "1be97cd99a829eb3a4bb809c9e1e4c8a54c8329b6c6125ae2dc67604f3a5f08c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2102",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md",
+      "sha256": "2ac017dcc7bafcccd74830f85f3367334164b8d67b792d4887a89ca9031dc66a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2170",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "sha256": "cce56d07fa656084df11f1bf77aab9e0e357a74ac1ca2281cead891cc1d37510",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2245",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2246",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+      "sha256": "5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2247",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "e94d4c0b78e0a1fbcb83e0070b323017b836335d188191729a75325d4c7f6e27",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2248",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "sha256": "e10f65588d725a5463ba1f257aa2d5e5a6eb97fd9c848e1e7184952efd9d193e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2249",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2249-CORE_META_MODEL-ENTITY_DEFINITION--define-bool-value-format.md",
+      "sha256": "33e794ab91eb7360c879421930581fc5b5e5ce04ed0287d8b77eef704e3db5fd",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2250",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2250-CORE_META_MODEL-ENTITY_DEFINITION--define-int-value-format.md",
+      "sha256": "8245418bdb1fc8dc4468bffe785f7090b5d4f46b2e2c30e0c06919e778ef1880",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2251",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2251-CORE_META_MODEL-ENTITY_DEFINITION--define-float-value-format.md",
+      "sha256": "140765b6e602a78a69973ffcae75eec29014e02729c8a5226d1ad4349ebf65c3",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2252",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2252-CORE_META_MODEL-ENTITY_DEFINITION--define-decimal-value-format.md",
+      "sha256": "6832355d4bd3bbe58190783047f85ee726a5eecbae54bcda7296455dc6eb95e4",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2253",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2253-CORE_META_MODEL-ENTITY_DEFINITION--define-string-value-format.md",
+      "sha256": "f5c86c8e98ef8fc92f822c8dad2c4824577f51d4b38c4f257774f3d5c9efaece",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2254",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2254-CORE_META_MODEL-ENTITY_DEFINITION--define-datetime-value-format.md",
+      "sha256": "410e95f24f10b861c13981c9906c0f9e172b46d4ea6de4a041c6cca71b2a3bdf",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2255",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2255-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2257",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2257-CORE_META_MODEL-ENTITY_DEFINITION--define-scalar-value-format.md",
+      "sha256": "781a74ff8fdc4896f3e8292f87b31b5d7abf3f2eae6c1d7ea411911ef49c03dd",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2278",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2278-CORE_META_MODEL-RULE--require-exactly-one-defining-requirement-per-model-entity.md",
+      "sha256": "3293ba57db161be70079daa2826bcded856db0a60dde551fef968e63e1b57d8a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2327",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2327-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality.md",
+      "sha256": "453ef31f76dccc8b2ba1c08f83028c33d1b08d08420c5653b5e7d51ff1f9ac5b",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2352",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2352-CORE_META_MODEL-ENTITY_DEFINITION--define-format-data-type.md",
+      "sha256": "3fbfba9ab0c5a8950971f2d7ae9113f91a6ff815b2c12011a57f1ff29150e845",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2353",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2353-CORE_META_MODEL-ENTITY_DEFINITION--define-format-uniqueness-selection.md",
+      "sha256": "33cf5507fe27473cee637a1dd027fb8ae378e923be8f898172d222f93a19e532",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2354",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md",
+      "sha256": "605da11f69acff5cd94a7c5772fb07a869b21e782a0aca802aa556061edc4fd7",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2355",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "sha256": "e1e4f4ed28a5c8a98c421306e3d7211875d49d7e59dd46897d9d9a872fe3f354",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2415",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2415-CORE_META_MODEL-ENTITY_DEFINITION--define-term-name.md",
+      "sha256": "0bfe56e66fa9a7447d41882ceeccf3473244231c722a2ef45885fd7401b9a41a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2417",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+      "sha256": "e50b96e2a066c11c7deee1f31ef85197b74d09aaa93c12579648e7c9ef8bd691",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2418",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2418-CORE_META_MODEL-DECLARATION--define-is-carried-by-relation.md",
+      "sha256": "4944f3098c5c6d1e4962ea88f6424cb1df23abcf0810e4c93cdc6d0f7f2d27ca",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2420",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2420-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+      "sha256": "52e09f067858fcaa9c26bfd100227b9c7866058482054e0fca93331cdc238263",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2421",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2421-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+      "sha256": "1e6ddc6a60e24a613c8ea03be2c11b4dc452bb94d5e1fa2bd652123295b82277",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2422",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2422-CORE_META_MODEL-DECLARATION--define-required-by-relation.md",
+      "sha256": "99a6c6ff6a56f1fa98a1ab141749ced037e9f0aa7cea75f92f1e5371b4875349",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2456",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2456-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-file-carrier.md",
+      "sha256": "b90c0f02d2925091717109fda962c197a555d7d7b4eefb7c71696084b017b1c6",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2457",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2457-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-atom-carrier.md",
+      "sha256": "80f7a08908664f04b3f9125ed7f607eb7843d07fd9bcc0a81dc7dcbfd3184eda",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2462",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2463",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "sha256": "165d90b12c799b31498419365be86415689b98e3cc5b8572ac323c8cbbe99d40",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2465",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2466",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "sha256": "f2a40705628b526539a0422901b2e5032ffaec8f0900072fb9c4d8d89b20bd11",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2467",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2468",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2468-CORE_META_MODEL-RULE--declaration-form-registration.md",
+      "sha256": "73d3a8c103cd2d7e8ad75c630b79ec06f2bb4c96ff0d5471e898451ca69d625c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2469",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2469-CORE_META_MODEL-RULE--require-one-declaration-for-each-node.md",
+      "sha256": "c6eef213897a925b1ba4c52251becf497d920993c735756446df515f635f6c64",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2472",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md",
+      "sha256": "659daa7c02b8d0458aad7d70e071ac1810c55bedb3aa553830468f47d4688b8e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2473",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2475",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2476",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "sha256": "0815c5de37042caf4d3f76777f7358c5509bf0f360f5d540f8c548ec9b677d9e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2477",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2477-CORE_META_MODEL-DECLARATION--define-classification-and-its-written-reverse.md",
+      "sha256": "e4b24cf8cabe401be72fde576c8d4694e8e72ca63ab18066c274a3c12da174af",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2478",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2483",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2483-CAPRMedio-RULE--separate-the-model-from-project-structure.md",
+      "sha256": "81946ceaa3228ea86007c2d4ee1c7d90fd131d87c2f1959cdc1e99318b209d70",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2484",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2484-CORE_META_MODEL-RULE--admit-container-classification.md",
+      "sha256": "36e1ed9959372d5a9cfe0fe1c3ce5554757c00fa1b063d12f9fa6637ebad1f06",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2485",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2485-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+      "sha256": "e108830788cccfecf0857b817c020c282dc9697a006719c6c6d09eb99c9b4fba",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2486",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+      "sha256": "cb61532e44ab2a8d27487d2f05e4ae21c019aa9f72953028d7315b2563bc40b5",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2487",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2498",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+      "sha256": "1c9fc5041d0eda8854d2a1793e93f9eb873f0f305e2db29846e20cf2db843609",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2499",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2499-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+      "sha256": "aea7e0d55fa357a067585331d8798af8422b04da64c467b6105c0669c661bdcf",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2500",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2500-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "sha256": "8334145ccc710b6e32d3f76f226301d032ce94c8f56ea7c5dec44d9fcbccf514",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2502",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2502-CORE_META_MODEL-DECLARATION--declare-atom-content-semantics.md",
+      "sha256": "03bb0aff28c52cb7385fc91fb8d58e2a79f25941ddd3890535b0aa7c66929a25",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2503",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2503-CORE_META_MODEL-DECLARATION--declare-atom-content-details.md",
+      "sha256": "8017db55ea1a7606166ccf33731c523e7518a1d51665fd975fb228e7006b64d1",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2508",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2509",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2509-CORE_META_MODEL-DECLARATION--declare-concern.md",
+      "sha256": "b98d53772ebdb55f9537858c9a8da44d77692826478081187438ffe53e1b7a6c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2511",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "ca9869c1ae916ae02af6112a4a6cba61cd0474aae0734098b7226db52abbc40f",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2512",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2512-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "sha256": "20bbc3ea22e51546ceb5a3c1083b98b8b6fd6840cad4c488b35344a876193dd0",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2513",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2513-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "sha256": "227b9bffb12923ffdd7d158e8c3f90604257c3f2dee3226d71f175004a483d78",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2514",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2514-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "sha256": "07eee575639ab29d0ea647fbdf9a034897b4183dfd5724353898a16436a54089",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2515",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2515-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "sha256": "20d6125efa919b669f8230f905d394ee3bf79233d4c14ea18eb9f216f8cf6867",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2516",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2516-CORE_META_MODEL-DECLARATION--declare-atom-role-requirement-form-declaration.md",
+      "sha256": "52fc54576f57e2cd13a7678d19ba23c10019a3e612a0c49817b0eefb2434f567",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2521",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2521-CORE_META_MODEL-DECLARATION--declare-action-execution-kind.md",
+      "sha256": "69a705428ffd163b445d30dcd5613ba8f2eab6291ae34f6baeea912bd9d23f7e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2523",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2524",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2525",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2525-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "sha256": "1ae9d6f130dff0df4335ba0dac0be6f009b6c269043990da6b6d92906d4542b6",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2526",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "sha256": "171eacde51c1cde1cf249e599c4919ce638e477acdbaf1e1697b081b678eee9e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2527",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2527-CORE_META_MODEL-DECLARATION--declare-scope-unit-name.md",
+      "sha256": "70d789e888f0c05afe3fb4b1998a46169734d6adeeb353f3ec16a4d4c7562c31",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2528",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2528-CORE_META_MODEL-DECLARATION--declare-scope-unit-label.md",
+      "sha256": "26707388b12ba2ec0d64a121b7c9589dea11d35f551ce1db58b644ac2ce3fab2",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2530",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2530-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "sha256": "9abd4823d07e60b55d674823274fef480205f39e0eb5e193ac30d06c4f59a075",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2531",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2531-CORE_META_MODEL-DECLARATION--declare-scope-unit-project-boundary-position.md",
+      "sha256": "26db6b1569b40d0eb467a55e037e468aa41786c1a20943fd84ad68dbd99735e0",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2532",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md",
+      "sha256": "3c45678f8b88c66a9fe5639383f7014e15fc72a2c8f11eb206e9c26dde880464",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2533",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2533-CORE_META_MODEL-DECLARATION--declare-project-settings-name.md",
+      "sha256": "ae7bbcf3e0273469c26dc240c719eed1db1cc6f0ecde80acf1bd5115da4fe8c1",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2534",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2534-CORE_META_MODEL-DECLARATION--declare-project-settings-prefix.md",
+      "sha256": "dce964081bdba99185482ef2c44d4544f55432136be8cef0228d1ef120056cb9",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2535",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2535-CORE_META_MODEL-DECLARATION--declare-projection.md",
+      "sha256": "4933262a274a3bc1f76521fbfcd741468cc5d5d634b47085de0f91a7c8a620d6",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2536",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2536-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "sha256": "20a5b68515df5b16e7b2a4facd9304f786d7fcbefb16097e8480d930ef93c991",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2537",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id.md",
+      "sha256": "4bf298a918f5f9fab0dcdbf6c143eb9e3e51b65f6af060e424173c0b6fc59022",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2538",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form.md",
+      "sha256": "11ce973c5a99d1415c40b1dd9911893d3b2ca27c163dc3b1053b26e2e8b4f5e9",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2539",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2539-CORE_META_MODEL-DECLARATION--declare-projection-updated-at.md",
+      "sha256": "316e417088ea01559daa2984c0c28905258cad1ec5d295b3af441fd6d4d5f8dc",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2540",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2540-CORE_META_MODEL-DECLARATION--declare-projection-source-atoms.md",
+      "sha256": "b92b098e18023c7393e1615699ad714b3bdc22450fda4d717bbd1e51c544192d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2541",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2541-CORE_META_MODEL-DECLARATION--declare-projection-source-named-selection.md",
+      "sha256": "55de140436c2e125ed61ed1dfda4d50f0ea92a3bf70d8c217a819c5a00a2a5e9",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2542",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2542-CORE_META_MODEL-DECLARATION--declare-actor.md",
+      "sha256": "6195aa835367e1dcd83d22f266c53177c578fd92023ec6a38d642b438ef3d594",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2543",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2543-CORE_META_MODEL-DECLARATION--declare-aspect.md",
+      "sha256": "280006f054ac9b4c976690c7d0365af00091b202fbe5820b6214b64e73b9c7ca",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2544",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2544-CORE_META_MODEL-DECLARATION--declare-actor-name.md",
+      "sha256": "1ef2d5f22a605157620096878a3be58a9dedb11675159da0ee9e303db744fcde",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2547",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2547-CORE_META_MODEL-ENTITY_DEFINITION--define-markdown-value-format.md",
+      "sha256": "27167f35246056d3eede62a4c5fea2e13eaad2c1dd3344209205211d41139b6e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2548",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2548-CORE_META_MODEL-RULE--deliver-objects-to-carriers.md",
+      "sha256": "94bb4b46dcf8fbfbae71cc68113c62dc8a857feafdefcf818ff57c1fb76523c6",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2549",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2549-CORE_META_MODEL-CFEL--compare-numeric-values.md",
+      "sha256": "eb5ab30a14d689864cfa62b5c214c92dff04ad43a6b0f2826f60a0bab92207f3",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2550",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2551",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2551-CORE_META_MODEL-CFEL--require-unique-property-tuples.md",
+      "sha256": "6a236db529b9acdcc45ea3eb1bfa1bf0fc0b3b467e6a2aa08905215d81a78b10",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2552",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2552-CORE_META_MODEL-CFEL--bind-instance-variables.md",
+      "sha256": "202ab2c725dd5698a671a3e6a02b5229be01417f70255e5c795ec3734822e8be",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2553",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2553-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+      "sha256": "95277e91faeffdfa209190a16070768bfd3e4690b04695c543d0b30f124dd090",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2557",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2557-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "sha256": "0357e59cb3366ebbb2e13d0ef139d29e8fd24a449729014686c438555e535dcb",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2558",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2558-CORE_META_MODEL-DECLARATION--declare-event-record-id.md",
+      "sha256": "099e12b03e4208b414e1c376ccf91b539e9c2676582f7c8da72deeb2464d7281",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2559",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2559-CORE_META_MODEL-DECLARATION--declare-model.md",
+      "sha256": "365bc7d8a6f0cf72740253ae73c83475a22d70fba83497ae9abed6c28b379263",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2560",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2560-CORE_META_MODEL-DECLARATION--declare-project-structure.md",
+      "sha256": "4028c03129e8351cffd240acfc2aa908d2cf612d3e6bf2499e00fb7526097259",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2561",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2561-CORE_META_MODEL-CFEL--require-scalar-immutability.md",
+      "sha256": "83bff367f0813031c98a833e5bc41dd93d245c1bfdee19de3cdcd9dfa4b188d8",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2562",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2562-CORE_META_MODEL-CFEL--require-functional-dependencies.md",
+      "sha256": "a93c4455784800347d6afddfdcd54127d813632ca131f40a1270a348dcfa8eb2",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2563",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2563-CORE_META_MODEL-CFEL--select-fenced-markdown-labels.md",
+      "sha256": "cb007dba7e400401554186e4db4dfbc2318b1343e0bc9149ab02bc1dcb756b04",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2564",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "sha256": "0eacaf33e1a417d4f3a965c3d81829df8f29b21cdb813f7cd2889433651bcedc",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2566",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2566-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md",
+      "sha256": "4b8a0ac45864cfc21a3d01b0f64f1be73d3ff7ae186e3e188144249c1f836d00",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2568",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2568-CORE_META_MODEL-DECLARATION--declare-event-record-happened-at.md",
+      "sha256": "f8ad86f2bdd3ea30324e7e5530ae96801fc23c6be029328bd7d7ab4004777187",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2569",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2569-CORE_META_MODEL-DECLARATION--declare-event-record-inserted-at.md",
+      "sha256": "af8281055152d393a51ee16f5d7363178f6ab62db174ebec789ae711340e499b",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2572",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2572-CORE_META_MODEL-DECLARATION--declare-event-record-object-input.md",
+      "sha256": "ad9921c0f42b37f2f05f83ef1c527fe24700126beb24dced84a623f0d0885cc8",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2573",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2573-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-id.md",
+      "sha256": "0b4491882b6b01f439ed1e2e672d1d536a4a30c3ab1d25f857ef790a3d60ded9",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2574",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2574-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-version.md",
+      "sha256": "f2fa27e7ba696155c96618cc6cb2248b5d2236f38bc163d942774d0b5f4dbb03",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2575",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2575-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-updated-at.md",
+      "sha256": "1e4a47ef864cb70821a42f31a93657562fa65008e8db69cb897154885d16d655",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2576",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2576-CORE_META_MODEL-DECLARATION--declare-event-record-object-output.md",
+      "sha256": "445f54d51975e15e8ac63a2b2e994c6200ab7d64ae67205aca90948673ad78e9",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2577",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2577-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-id.md",
+      "sha256": "a3d2cdd7eef9c276ead2eef02fc7696616e58683b73131f23d5dac33df5f2d7a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2578",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2578-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-version.md",
+      "sha256": "def460aa385a6a12596831495da3b5da15fcc8cb2562ccd0ba218ae7eb3c2c22",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2579",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2579-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-updated-at.md",
+      "sha256": "e05284ecb6dffa3062e24e67833b2676dfa9452e5d9c07239498b3e58863cef2",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2580",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2580-CORE_META_MODEL-DECLARATION--declare-event-record-action.md",
+      "sha256": "d9cd2f18956cbe62ea822bc164982e04c4cefb5457f602d7c00f1b83c5407203",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2581",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2581-CORE_META_MODEL-DECLARATION--declare-event-record-relations.md",
+      "sha256": "81b63ab16c5cdf89ff246590b2c1755b49594f2aa22728976fdaadbbea925850",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2582",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2582-CORE_META_MODEL-DECLARATION--declare-event-record-event-author.md",
+      "sha256": "ea46fd6885fc0b8c07bb6e35e9c26ee6350b01459e914f5aa36b2892f6f5bfde",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2583",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2583-CORE_META_MODEL-DECLARATION--define-has-event-author.md",
+      "sha256": "afbd2d65a6d8942764b91094b800fae52c2edff98e8e7cdee2950e212a81347c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2585",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2585-CORE_META_MODEL-CFEL--count-property-values-and-distinct-values.md",
+      "sha256": "030b2a4011e4bfb4fa436c88a035d663e7d6d93df85b3537b65d2cfe66c3af7a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2586",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2586-CORE_META_MODEL-DECLARATION--declare-projection-source.md",
+      "sha256": "e79c3f189ed4088215afcaf89b176a98ad6d77235f6a4b92b7d48c17d4d77597",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2587",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2587-CORE_META_MODEL-DECLARATION--declare-named-selection.md",
+      "sha256": "65e60dc293c24bc08c98350394c80bbca0744d100b2289d6582b5198b8378fd5",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2588",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2589",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2589-CORE_META_MODEL-DECLARATION--declare-continuant.md",
+      "sha256": "d50f24bc7cf31abfc32209927ca4fb0ded8e96e0aa4c675fa5f14284d5feeadd",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2590",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2590-CORE_META_MODEL-DECLARATION--declare-occurrent.md",
+      "sha256": "d730e7db828cee2963d00db6c596079ac5a98b796021fbcd2a7882b1ac70b8c2",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2591",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2591-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "b8e1b543122d6cbbd22bfb82a4f71235fced9baef76ab83b6a22374a896ced29",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2592",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2592-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "15d757b8c771d83ec24a431d28d5ee0728bbc3240a827b214839da8c765de792",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2593",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2593-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "80a4f7213199aa5e5818b18d515e03f49e1bdc539b34e8d9d384065696e31949",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2594",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2594-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "f711324330e0121142be66a52968fcb4aec80a21a114e248bf4bbf94a777ac8b",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2596",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2596-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "65a827af8666e6bfa9108874737413eb1c766f3d16cc16a7c6317e5f075d9d09",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2597",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2597-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "3cb07cdad515b08107f9bbdb1b852fa114282941fbddc4061f4803dcd8896875",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2598",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2599",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2599-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "de8a7fd7f46beafa80f0da140a93bb53463708db21b5ec9b243c07446961899a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2600",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2600-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "dcb8187fe92cfb528f7c2449333c255b7b50e1e9f5690472ea330a1f31e22dac",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2602",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2602-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "a19112ba4a5e3efd207fa49b3185a9994c25280e13a6d6956c14c060f7c8867d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2603",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2603-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "2c84a31d2e9221be3b8c555613091b401534e9cf4f87119127c3577a9470a3c2",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2605",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2605-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "30830758efab546af7b8e415c1da15d0f053f11a7f6fed0f871e8841265eaa72",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2606",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2606-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "b416a70c35580654731070f54a336efe18cc2bc5b8e6c49649c1fd2f664e7242",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2607",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2607-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "f19cc3a45cc28b40e88a10d4571159412b2947f01d184addeb9ff4ee56b26c39",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2610",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2610-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "9be50d0d5c63f3382dba515073f3a400961e0272957b764b24e4f27737b50190",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2611",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2611-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "c99568372f8861dbc3c9cbca0ae47aa47dcf8f63964d4d5a6a588ace72bac516",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2616",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2616-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "55ac3acdcfc6fb5ead5e7849def26ef4e82aa1a7fc5c70ec38458023e6a59cf9",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2617",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md",
+      "sha256": "129277b5d905006aed8279b20be9ed45ed8fcc1733b3097ca07321cdb03db16d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2618",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+      "sha256": "3dbe86364921d2cf506ab40a264a4499484f21f629d88627854e37b1f9bdf4c0",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2619",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2619-CORE_META_MODEL-DECLARATION--declare-has-instance.md",
+      "sha256": "f8d8f828420b31bfedced5bbcd2eb9c51086c30b3b61e2d1cd8712f8bddb516b",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2620",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2620-CORE_META_MODEL-DECLARATION--declare-has-narrower.md",
+      "sha256": "92dbcc2aa54b613c6a43c437ad0beedd632bc9ccb7d9905638f9e31472948d19",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2621",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2621-CORE_META_MODEL-DECLARATION--declare-has-property.md",
+      "sha256": "c51142ed47d1f6a98da90b3a0f0708156c25c1b3bdc98b27a4a819b9bd3d9618",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2622",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2622-CORE_META_MODEL-DECLARATION--declare-is-event-author-of.md",
+      "sha256": "ccad12aa39c516e384ebd4ae9ee64eb7d4fe772548a0efa42609164774503eea",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2623",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "sha256": "dd540f1c2fd04b4826443a96daa6f7e190853ecd8645ad1a369d85a3744a2fc6",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2624",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2624-CORE_META_MODEL-DECLARATION--define-necessary-information-threshold.md",
+      "sha256": "e205f3f4da504a0ba75cf6b19717c22dffe8e3f865c432507cc59acaeb73f039",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2625",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2625-CORE_META_MODEL-DECLARATION--define-semantic-resolution-threshold.md",
+      "sha256": "4f1b15e5987e74114dafe7533030b130471d694e8dd8d319e63b187913a8e66d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2626",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2626-CORE_META_MODEL-DECLARATION--define-interaction-reporting-mode.md",
+      "sha256": "b640e68b3f2c429eaaab4962126bf30d9a4e3958fe47bc0f87de61226e60af8c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2629",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2629-CORE_META_MODEL-DECLARATION--declare-project-settings-rmed-review-context-headroom-fraction.md",
+      "sha256": "be21dbe700eca8f7dc52ae033f60bafb8623657d909d8c4da9eb9d015da912c9",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2630",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2630-CORE_META_MODEL-DECLARATION--declare-project-settings-rmed-review-max-atoms.md",
+      "sha256": "2d07824c87546c00b1937f300a176d503b26700db0ccfdee3891ce6896efc70a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2631",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2631-CORE_META_MODEL-DECLARATION--declare-project-settings-rmed-review.md",
+      "sha256": "c16309a9f2dd08faca661f747f7622d799a0b507434e37d90939466c187ea759",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2632",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2632-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes.md",
+      "sha256": "7c8d9f295f35dbba9b64b6e3e8873731c92d4ce1e2198e02cf735bcff0b69078",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2633",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2633-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes-default-scope-unit-authority-mode.md",
+      "sha256": "8f033acc2fc289280dc1581173847f3d7266d511ea0330e8f353c6a7c3114aba",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2634",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2634-CORE_META_MODEL-DECLARATION--declare-project-settings-authority-modes-project-authority-mode.md",
+      "sha256": "35f141fbda4f96d3fb547dccefaf329d2a44eed84429c060df829685607b2275",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2635",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2635-CORE_META_MODEL-DECLARATION--declare-project-settings-implementation-retry-limit.md",
+      "sha256": "d0eae12b9d3813e8dc65b40a46e5cf689d6db0d693b8890079833f8cd35e1e7b",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2637",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2637-CORE_META_MODEL-DECLARATION--declare-analysis-and-advisory.md",
+      "sha256": "daaca9e21b201d5207100582c58c0198229a7bf040d0c88bffcd56e547dd05cd",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2638",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2685",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2685-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-ordered.md",
+      "sha256": "ba8aa90d9993eccbb28ecf956e6a6784dd195690e3a281b0795bde101c6c75b8",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2686",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2686-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-number.md",
+      "sha256": "c5c55335a6fe2d5eb3cea0a7f919af0666b371b18b8502d0496ecaa974bf627f",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2687",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2687-CORE_META_MODEL-DECLARATION--declare-scope-unit-order.md",
+      "sha256": "425b43b853867bda555b74525c164f602466704c3c9b8ebfc2416246a2ad2eec",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2696",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2696-CORE_META_MODEL-DECLARATION--declare-atom-header-status.md",
+      "sha256": "91195e351c22d05abe26335dd90a6dadaec5acb0e9739fe50ef80a96f424449a",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2697",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2697-CORE_META_MODEL-DECLARATION--declare-atom-header-updated-at.md",
+      "sha256": "1647656ea34781df27895ad4d6b24d8a6423bf9c476c3692559e444fd1c02d93",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2698",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+      "sha256": "669672c32d618a63cd81611b5daf3eef6ba090e30780f66f057b19a9c9d257bd",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2699",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2699-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-atom.md",
+      "sha256": "375ec0b4c9e4af412f361cb6ca8284e5c2178d37700ebb227e0cfdcadcd6069d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2700",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2700-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-scope-unit.md",
+      "sha256": "6660e552b2dc55c3145dff1b2d5e8f86dc7c1e5385dd98e2e0b4a467558b689d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2702",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2702-CORE_META_MODEL-DECLARATION--declare-atom-header-role.md",
+      "sha256": "761c8aa0a967e458a2b4299aa8c426e22895ea3864d61515c4bd9fe12be4c068",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2703",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2703-CORE_META_MODEL-DECLARATION--declare-atom-header-form.md",
+      "sha256": "89877026539d6a015237e01cc61b3d321061be9b4333476db0cf2288320ad443",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2704",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2704-CORE_META_MODEL-DECLARATION--declare-atom-header-version.md",
+      "sha256": "0bd0ffe5c838037720e28d92ebda0264b673758d08e10781ee2cdc3ca81150aa",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2705",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
+      "sha256": "743aff2bb78914a616783752ac11a79f7bf784f351168414f8372d37f5241e92",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2706",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2706-CORE_META_MODEL-DECLARATION--declare-atom-header-tier.md",
+      "sha256": "cc5e5e413ed0a323162f8a317f1b88baa1f068ed7c48dfa6b50a155685036d26",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2708",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2708-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-passive.md",
+      "sha256": "2b525cc7e96e8f348248a8e8fbfb591114c434d847e7c9e4cf7d3a8f8ceb9351",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2709",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "3f759fcf082e94dd20b07d243edd7daaf374e23a80033c4246ad2c01b3d1df17",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2710",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2710-CORE_META_MODEL-DECLARATION--declare-atom-header-role-concern-header-priority.md",
+      "sha256": "7408a54ca2c03ab3aaa592b93440faac0f1976d3cfa4bab352808a8b3bdc5c04",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2711",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "sha256": "af3db8d7f4041a599002215975f96b3101e0f9383224b80eede75e93ffd24949",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2712",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+      "sha256": "5734c23d03209bdbb4735f1a6938942dfa1353c50fa093a371ca539543d0cbf7",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2713",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects.md",
+      "sha256": "7e323b6351c24efd8480224237de77c32b4675ea65c84f65e7b5081f095332c3",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2714",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2714-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-active.md",
+      "sha256": "4473cb7be670b15cc96de8c34ccccca9377839d820ff237efc0e1a9b04500b66",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2715",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2715-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination.md",
+      "sha256": "fda7524c54c72c0d552dfcaad489762bc702306625d92461d734cf4d23bf369d",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2716",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2716-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file.md",
+      "sha256": "bde1ae98cefdf01baf2e48a7559c62bdd023391fbc0f6f784c934507ad5dd498",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2717",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2717-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-name.md",
+      "sha256": "73c5fa928f9ebe44fe23d5be8b54f41dca966846fd31ae0bd9329cfde36b8b56",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2718",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2718-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-path.md",
+      "sha256": "ac9aad835888181866e491a6efcd3e8e7c0240a7199d7b46d33ea39127ea9c04",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2719",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "sha256": "b44cedbf39e8d65c8dddb21a03370ed744e65daee99eff70cc0007d064ebb0e3",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2720",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+      "sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2721",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2721-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-formal-claim.md",
+      "sha256": "8c80857b57e1a31f7bca943dfde8a089e6ec571249bf0e812d8f70ff97ead43c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2722",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2722-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-prose-claim.md",
+      "sha256": "f2e16f2bae00d1bfd09de134ead682c5daab46d4fb86d0bb2c6bb38913f884ed",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2732",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2732-CORE_META_MODEL-DECLARATION--declare-is-declared-by.md",
+      "sha256": "735ddf3eaafc28810d65128fa112c53d792d945377f56777e3d0725d00ff17cc",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2736",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2736-CORE_META_MODEL-DECLARATION--declare-projection-scope-unit.md",
+      "sha256": "e0257f2bd5bfafa0799fcf1f9737ee0cf0a7b6fd5689bc58180d088892969b0c",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2737",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2737-CORE_META_MODEL-DECLARATION--declare-projection-form-catalog.md",
+      "sha256": "f36c18f575887c15c406a9505625aebf48b95c24a48be2e1a35a8ff0d4ccbea1",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2738",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2738-CORE_META_MODEL-DECLARATION--declare-projection-form-map.md",
+      "sha256": "1c66d0e125b56b05b4c504d0bfc8bf4cf736c68dc1f9b12bba08d87c11407e55",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2739",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2739-CORE_META_MODEL-DECLARATION--declare-projection-form-hub.md",
+      "sha256": "fd8a8a2127ded68292cb148e2191411baab7616be5d344c88f06bbcd072eec26",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2740",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2740-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-tree.md",
+      "sha256": "079e13159b67dc1fe5548bf445a28ea460f2bddfef90217730cab2c6883d8cc5",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2741",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2741-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-direct-properties.md",
+      "sha256": "bf898dcff723da62df9bb7663cd7a8cb40e2d5d060fe2f1ba1169115e37c0dbb",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2742",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2742-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-inherited-property-contracts.md",
+      "sha256": "db9329a61fb6aac3078d45d3e690e64c0b35fd219079c12350a847e2b5ca3341",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2743",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2743-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-inherited-formal-claims.md",
+      "sha256": "54666e0cc5d19b9f9fcf320be1812bd87f64067df0d7e91ea2beb0952a2b4411",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2744",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2744-CORE_META_MODEL-DECLARATION--declare-projection-form-passive-only-subjects.md",
+      "sha256": "365adf412a32ed64e6469bbb0d26934c5b903abd05abe430bcc0dfc0436eb038",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2745",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2745-CORE_META_MODEL-DECLARATION--declare-projection-form-subjects-without-requirement-declarations.md",
+      "sha256": "382944b4530fccdeaca44add57a0aff8a31126dbeb7e6cfe55823e67e934e17b",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2746",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2746-CORE_META_MODEL-DECLARATION--declare-projection-form-entity-definition-and-active-subject-coverage.md",
+      "sha256": "fa26a31ffccc01309a2aaa96a303d6efffeaff19d221d9193c0eb8746a8f4c7e",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2762",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2762-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "sha256": "6620239782cc317abe88ee6d70794e60727a197cfbb9dc959327b7483283cbc9",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-2765",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2765-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md",
+      "sha256": "8d7d12e2dec1eff9d3f78abee94883e6d070a8f025bc3bf6d98be3896b77dbda",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-796",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-DECLARATION--keep-tier-parent-relations-within-atom-scope.md",
+      "sha256": "607e22a1220107c29659a90a98f80dd9b0477dfb21c00229426a3a45a12ffa86",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-806",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-RULE--register-complete-relation-kind-metadata.md",
+      "sha256": "45b0e2867a7cba864ebdbfa4bddb0a85a50f6022078fcbd77ede94e1642e7293",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-807",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md",
+      "sha256": "602c6d9eefd3da729ec512a0793ad7534085b0a675cd51ed6a7f1be935670a52",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-808",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-808-CORE_META_MODEL-RULE--apply-relation-direction-within-its-ordering-domain.md",
+      "sha256": "d1147e9cc4e02728a8885ada9b1768f338e02a64aa29baf543a13ec5dd9cc609",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-879",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-RULE--register-child-of-and-parent-of-relation-pair.md",
+      "sha256": "170518ff269c74daa1c53a7d8385e790377fb116889bb25f6df49df6eb2d8ee3",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-915",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-915-CORE_META_MODEL-RULE--prohibit-order-derived-dependencies.md",
+      "sha256": "bdc159c25b814a1885bb7bfcffc1f9397781c469222f6f18ab427688e6ef1c15",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-916",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-916-CORE_META_MODEL-DEMAND--restrict-ordered-demands-to-earlier-producers.md",
+      "sha256": "c38791d3c79329ac5b73f0438553aa41481b0f4f1054c3849bf1e4593ff729ca",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-934",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-RULE--preserve-producer-authority-outside-demanded-result.md",
+      "sha256": "a716a5fdfdbeeef385c59d36b73c3578c80fd76ff517f998450ed7414c8ccb01",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-935",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-RULE--prohibit-demands-between-ancestors-and-descendants.md",
+      "sha256": "f58492447e99435921c1893650c2e122f9069136fb18d94b77b69891277fd722",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-945",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-RULE--define-result-flow-direction.md",
+      "sha256": "006bef3b3ee307dceeaafe25269bf8c0c7d661be78cbf5576d1857c983c4bfec",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-960",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-DEFINITION--define-child-composition.md",
+      "sha256": "b72140f467155c03fb59135ba849ae4752b6f978c2e02742ab9df2b6a62e7aea",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-976",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-RULE--separate-navigational-order-from-structural-relations.md",
+      "sha256": "bace3f6700fde7bc8e106eb982db7d5b4ae60875629970a28aaeae0d276a6cab",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-R-992",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-RULE--separate-work-sequence-from-atom-identity.md",
+      "sha256": "573ca7f7b9ad1381921c24f024f58cf4b95f5032cdcf46a3f1dd46eebcddf4b7",
+      "status": "HELD_NOT_REVIEWED",
+      "reason": "Not yet semantically reviewed; CFEL reference or formal block identified for individual review."
+    },
+    {
+      "id": "CA-E-383",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "sha256": "8503b8391a73bfae63174a5c414f5be4b1d23fac8403951be0cbb4272817c78c",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-M-232",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md",
+      "sha256": "9f84da9fa587c9d41b91fbc4754afa3b470a3e8eb398bd0207399a34ad1f90af",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-1194",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+      "sha256": "f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-1931",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2243",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2471",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2554",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+      "sha256": "0f0ba69390d074f65a5c0c75469e6bf3b1f24bb53f321fa3d742d38ab6cfb75b",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2555",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+      "sha256": "3823ca975892c836b070091fdbbf3ea91d3a6c7c6cc370efa619e903ebc58308",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2601",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "a60c4c3405fb1fa0f5c48e631c93b903a016f2a78fa2d3e9ebe5e900e5a3da8f",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2604",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "368ad50c9fb2ec6b49d9b03c402ac761feb40ed4fb945de6ffdc93acabb694a0",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2608",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2608-CORE_META_MODEL-DECLARATION--declare-cfel-operator-in-not-in.md",
+      "sha256": "b8ec5e164ffbd2806513a9ec34a3c1e47d89dcb0308cb8bad619ad6c3d8c0566",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2609",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2609-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+      "sha256": "283b73c01297ffe141727a7007b77ea4a9d3508e5dc25059e0d66f6ab913d919",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2612",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2612-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "eb5f5da21d2b84babfc030cf1af078022cbee417f98c8f69b1a85df06e0d3035",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2613",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md",
+      "sha256": "deb55e82a43174ac74898393143ff987ae64141e5d8f5c80aea5bc7f7fa6e5ae",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2614",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2614-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "2941b1d241ed6ad422b246decd08b6a7f397bbc6485b771c8ebc958151350e01",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2615",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2615-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "31da9c3927f1e8bd2bfab42511c7b80fcffd3547022ef5a18bdd3984dc0259ef",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2701",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2701-CORE_META_MODEL-DECLARATION--declare-atom-header-id.md",
+      "sha256": "5d96f3e98a7d43efba676cd1fe027ca3f514e0e7fbb0be7fa536b5567a602d5e",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    },
+    {
+      "id": "CA-R-2707",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+      "sha256": "bcd9a5c9e235731854fb3ea22d107a7c3d3d68eb1cfcae7fdb7d9f59428c4d3a",
+      "status": "REVIEWED_BOUNDED",
+      "reason": "Reviewed specific cited construct; see audit.json; remaining constructs not certified."
+    }
+  ],
+  "limitations": [
+    "R1194/R1931 previews remain held until Header paths/source claims cohere.",
+    "Catalog and relation descriptor edits are owned elsewhere.",
+    "Formula candidates need binding/precedence audit and user-approved question resolution before adoption."
+  ]
+}

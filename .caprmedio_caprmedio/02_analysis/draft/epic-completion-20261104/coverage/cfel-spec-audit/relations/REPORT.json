@@ -1,5 +1,5 @@
 {
-  "status": "BOUNDED_AUDIT_NO_UNAMBIGUOUS_SOURCE_PREVIEW",
+  "status": "BOUNDED_AUDIT_TWO_CROSS_LANE_REVERSE_WRITING_GAPS",
   "inventory_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/inventory.json",
   "inventory_sha256": "16775db7ee6c0f615e16d5048ed8fdbd15f0b2b72df9ed2ae2f566be45c5f566",
   "scope": "Live reread of the prior selected 1,160 Current source paths, excluding Workbench/Workflow-named source files or active Subjects. No Current or code writes.",
@@ -8,11 +8,12 @@
     "36 actual named Relation operators observed in bounded fenced CFEL have an exact descriptor Declaration. Generic ((RELATION)) and Relation//RELATION_NAME are syntax placeholders declared by R2609/R2613 and R2720, respectively; do not create Relations for them.",
     "BLOCKS R1580 is Derived and IS_BLOCKED_BY R2762 Direct; directions and reciprocal inverse bindings match the latest decision. IS_DECLARED_BY R2732 is a qualified reversed GOVERNS view, not an unconditional inverse. Minimal inverse binding does not grant its own outgoing permission; R2588 explicitly requires separate effective permission.",
     "Descriptor inventory records each source pin, classification, reciprocal binding, declared aliases and full formal CFEL Claims. Relation//NAME denotes a descriptor; ((NAME)) in signatures denotes the named Relation. No declaration contains a cardinality placed on a named Relation descriptor as if it were an endpoint.",
-    "No unambiguous nonexcluded source repair was established in this bounded pass; therefore no source preview has been invented."
+    "CA-E-383@Current and CA-M-232@Current describe opposite named views as requiring the named derived inverse; this omits the independent <((RELATION)) reverse-written view admitted by CA-R-2609 and CA-R-1931, including where no named inverse exists. Route both wording corrections to the expression-syntax lane; no duplicate previews were created here.",
+    "An additional full-text named-delimiter scan of the same bounded sources found only NAME, R, RELATION and RELATION_TYPE unmatched; these occur as generic notation placeholders, not named Relation types."
   ],
   "limitations": [
     "The prior selected frontier is a bounded source selection, not an all-live census. This pass scans fenced CFEL operators; prose-only, dynamic/wildcard names, plugin/code surfaces, and excluded Workbench/Workflow sources are not proven complete.",
-    "Some endpoint signatures use intentionally generic variables; their kinds/populations and effective inherited permission whitelists require separate owner/domain evidence. A declared signature is not permission or runtime evidence.",
+    "Generic endpoint signatures do not themselves prove kinds/populations or effective inherited permissions. A declared signature is not an independent outgoing permission or runtime evidence.",
     "Classification, inverse bindings and CFEL clauses are source observations; unsupported runtime/projection enforcement is not inferred. No Workflow source or semantics was modified."
   ]
 }
