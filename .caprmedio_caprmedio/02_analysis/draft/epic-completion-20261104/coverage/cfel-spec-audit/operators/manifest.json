@@ -232,7 +232,7 @@
     {
       "id": "ROOT_ALLOCATES_ID",
       "candidate_file": "CA-R-2550.successor.preview.txt",
-      "candidate_sha256": "884dad534d8304738f5e7c2eb38385d0adcaa27311b2370d4d1f893ca3dcbb56",
+      "candidate_sha256": "c4562b6b0a46436905f60776f087338c67e98c6db602f557935c82c0b931b2f2",
       "transform": "fresh-ID Draft successor; source CA-R-2550@2",
       "active_subject_count": 1
     },
@@ -246,22 +246,39 @@
     {
       "id": "ROOT_ALLOCATES_ID",
       "candidate_file": "NEW-CFEL-inclusive-numeric-range-format.preview.txt",
-      "candidate_sha256": "1d607bd5a3f8aa48075ab9c90a5f5df9f929fc99f7bfd076d9b152175642945a",
+      "candidate_sha256": "803db67e65b05b14a1f5407f3fc75214a8f37ce19fed71bc3dd9d2d93c1725bb",
       "transform": "new Declaration; root allocates ID/timestamp",
       "active_subject_count": 1
     },
     {
       "id": "ROOT_ALLOCATES_ID",
       "candidate_file": "NEW-CFEL-format-constraint-combination.preview.txt",
-      "candidate_sha256": "978a0edaf22fda762e7b27f22de66ec22fcb3744899446ec540043ccf944ffb5",
+      "candidate_sha256": "f415695cc6fd70312cd598ee74ef6707a1054c20f78d76964ab97bab57f16606",
       "transform": "new Declaration; root allocates ID/timestamp",
       "active_subject_count": 1
+    },
+    {
+      "id": "ROOT_ALLOCATES_ID",
+      "candidate_file": "NEW-CFEL-LOOKUP-rule.preview.txt",
+      "candidate_sha256": "14199a90e0bbb6e5947245731cec8f18542ed41194dbde38f56d6ab39deb1721",
+      "transform": "source-only proposal"
+    },
+    {
+      "id": "CA-A-1315",
+      "candidate_file": "CA-A-1315.current-reference-remap.preview.txt",
+      "candidate_sha256": "123bd18bf2b13e012cf0f54110418f6a00e346026815492f6aec9f771c3a99fa",
+      "transform": "source-only proposal",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/CA-A-1315-CORE_META_MODEL-SPECIFICATION_PROPOSAL--add-basic-cfel-queries-with-ctes-and-sql-aliases.md",
+      "before_sha256": "9cc3741638c50acc249c74c517af0c84ac9cee2a58629fb5a1b14c10f655d0d4",
+      "version": 2
     }
   ],
   "limitations": [
     "Preview files are source-only.",
-    "Fresh-ID successor and new Declaration IDs/timestamps require root allocation.",
-    "Relation syntax and delivery semantics are cross-lane and unchanged.",
-    "Mixed AND/OR parentheses and [int, 0..100] inclusive range are latest explicit user decisions."
-  ]
+    "Fresh-ID successor/rule and new Declaration IDs/timestamps require root allocation.",
+    "Retire old fallback/operator atom carriers only atomically with successors and Current reference/use-site remaps.",
+    "Frozen references, applicable-mirror history, projections, and runtime pins are not edited."
+  ],
+  "atomic_plan": "atomic-retirement-replacement-plan.json",
+  "incoming_references": "incoming-references.json"
 }

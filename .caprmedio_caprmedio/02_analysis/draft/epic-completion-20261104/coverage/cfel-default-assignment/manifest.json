@@ -17,8 +17,8 @@
       "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
       "source_sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860",
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-R-2550.successor.preview.txt",
-      "preview_sha256": "884dad534d8304738f5e7c2eb38385d0adcaa27311b2370d4d1f893ca3dcbb56",
-      "change": "Fresh-ID Draft successor with updated Summary and ?== conditional-assignment semantics; preserve old source and frozen references.",
+      "preview_sha256": "c4562b6b0a46436905f60776f087338c67e98c6db602f557935c82c0b931b2f2",
+      "change": "Fresh-ID focused fallback Rule successor. LOOKUP mechanics live in a separate existing-CFEL-scope Rule; ordered assignment/omission/cardinality remain here.",
       "candidate_id": "ROOT_ALLOCATES_ID"
     },
     {
@@ -189,5 +189,7 @@
     "Model assignment does not imply Carrier or file persistence."
   ],
   "successor_packet": "../cfel-spec-audit/operators/successor-format-manifest.json",
-  "successor_identity_policy": "CA-R-2550 and CA-R-2598 candidate content is prepared as fresh-ID Draft successors with updated Summary. Their existing Current carriers remain unchanged and frozen references are not rewritten. Root allocates each new ID and timestamp."
+  "successor_identity_policy": "CA-R-2550 and CA-R-2598 are replaced atomically by fresh-ID Draft successors; root allocates IDs/timestamps. The Current CA-A-1315 dependency remap and active use-site updates are required in the same adoption set. Frozen references and mirrors remain unchanged.",
+  "lookup_rule": "../cfel-spec-audit/operators/NEW-CFEL-LOOKUP-rule.preview.txt",
+  "atomic_replacement_plan": "../cfel-spec-audit/operators/atomic-retirement-replacement-plan.json"
 }

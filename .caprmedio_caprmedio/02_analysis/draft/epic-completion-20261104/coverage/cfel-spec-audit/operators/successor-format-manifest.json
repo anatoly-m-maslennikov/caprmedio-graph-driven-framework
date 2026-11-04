@@ -17,7 +17,7 @@
     },
     {
       "candidate_file": "CA-R-2550.successor.preview.txt",
-      "candidate_sha256": "884dad534d8304738f5e7c2eb38385d0adcaa27311b2370d4d1f893ca3dcbb56",
+      "candidate_sha256": "c4562b6b0a46436905f60776f087338c67e98c6db602f557935c82c0b931b2f2",
       "predecessor_or_source": "CA-R-2550@2",
       "identity_plan": "fresh-ID successor; root allocation required",
       "active_subject_count": 1
@@ -31,17 +31,31 @@
     },
     {
       "candidate_file": "NEW-CFEL-inclusive-numeric-range-format.preview.txt",
-      "candidate_sha256": "1d607bd5a3f8aa48075ab9c90a5f5df9f929fc99f7bfd076d9b152175642945a",
+      "candidate_sha256": "803db67e65b05b14a1f5407f3fc75214a8f37ce19fed71bc3dd9d2d93c1725bb",
       "predecessor_or_source": null,
       "identity_plan": "new Declaration; root ID/timestamp allocation required",
       "active_subject_count": 1
     },
     {
       "candidate_file": "NEW-CFEL-format-constraint-combination.preview.txt",
-      "candidate_sha256": "978a0edaf22fda762e7b27f22de66ec22fcb3744899446ec540043ccf944ffb5",
+      "candidate_sha256": "f415695cc6fd70312cd598ee74ef6707a1054c20f78d76964ab97bab57f16606",
       "predecessor_or_source": null,
       "identity_plan": "new Declaration; root ID/timestamp allocation required",
       "active_subject_count": 1
+    },
+    {
+      "candidate_file": "NEW-CFEL-LOOKUP-rule.preview.txt",
+      "candidate_sha256": "14199a90e0bbb6e5947245731cec8f18542ed41194dbde38f56d6ab39deb1721",
+      "predecessor_or_source": null,
+      "identity_plan": "new focused Rule under existing CFEL scope",
+      "active_subject_count": 1
+    },
+    {
+      "candidate_file": "CA-A-1315.current-reference-remap.preview.txt",
+      "candidate_sha256": "123bd18bf2b13e012cf0f54110418f6a00e346026815492f6aec9f771c3a99fa",
+      "predecessor_or_source": "CA-A-1315@2",
+      "identity_plan": "same-ID Current source update; root allocates timestamp",
+      "active_subject_count": 0
     }
   ],
   "authority_sources": [
@@ -93,28 +107,30 @@
   "dependencies": [
     {
       "candidate": "CA-R-2550 successor",
-      "requires": "CA-R-2598 successor",
-      "reason": "Fallback rule uses ?== operator descriptor."
+      "requires": "CA-R-2598 successor and dedicated LOOKUP Rule",
+      "reason": "Fallback syntax uses ?== and LOOKUP expression semantics are defined separately."
+    },
+    {
+      "candidate": "CA-A-1315 v3 dependency remap",
+      "requires": "allocated CA-R-2550 successor ID",
+      "reason": "Repoints the only other-Atom Current native direct ID dependency."
     },
     {
       "candidate": "CA-R-2564 threshold default source preview",
-      "requires": "CA-R-2550 successor and CA-R-2598 successor",
-      "reason": "Uses ?== 90 under approved [int,0..100] syntax."
+      "requires": "CA-R-2550 successor, CA-R-2598 successor, inclusive range Rule, and format intersection Rule",
+      "reason": "Uses ?== 90 under approved [int, 0..100] syntax."
     },
     {
-      "candidate": "CA-R-2487 combined preview",
-      "requires": "CA-R-2550 successor and CA-R-2598 successor",
-      "reason": "Catalog names the ?== operator."
-    },
-    {
-      "candidate": "CA-R-2564 threshold default source preview",
-      "requires": "NEW-CFEL-inclusive-numeric-range-format and NEW-CFEL-format-constraint-combination",
-      "reason": "Formal grammar supports approved format constraint."
+      "candidate": "Retirement of CA-R-2550@2 and CA-R-2598@1",
+      "requires": "all successor, LOOKUP, and current use/reference candidates validated",
+      "reason": "Atomic replacement avoids simultaneous conflicting active definitions or dangling use sites."
     }
   ],
   "limitations": [
     "No Current/Applicable carrier, code, tests, or Git state changed.",
     "Workflow and Workbench uses were excluded from the incoming-reference scan.",
     "New atom IDs and timestamps are intentionally unallocated."
-  ]
+  ],
+  "lookup_rule": "NEW-CFEL-LOOKUP-rule.preview.txt preserves the LOOKUP traversal/applicability/error contract removed from the focused fallback Rule; uses existing CFEL Rule scope and already-used syntax.",
+  "atomic_plan": "atomic-retirement-replacement-plan.json"
 }
