@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Prefix
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Prefix
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project.Settings
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 28
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -22,11 +22,13 @@ form: Decision
 
 Serialize the Project Atom prefix
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Operator-selected Atom prefix in the Project Settings TOML Carrier.
 
-## Claim
 
 the Project Settings TOML Carrier **must** encode the Operator-selected Atom prefix as its exact nonempty uppercase TOML string value under CA-D-378 **in** `artifacts.identity.project_prefix` **before** the first Project Atom is created.
 

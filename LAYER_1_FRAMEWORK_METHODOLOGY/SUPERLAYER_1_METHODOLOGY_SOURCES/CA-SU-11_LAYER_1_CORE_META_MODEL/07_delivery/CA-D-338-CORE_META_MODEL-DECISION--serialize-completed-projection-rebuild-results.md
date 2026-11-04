@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ Event Record
-  - CAPRMEDIO <+ MODEL <+ Projection
-version: 29
-updated_at: 2026-11-02 08:06:47 +0400
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Projection
+version: 30
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-338
 current_scope_unit: CORE_META_MODEL
@@ -21,10 +21,12 @@ form: Decision
 
 Serialize Completed Projection Rebuild Results
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 encoded completed Projection Rebuild Event Record results.
 
-## Claim
 
 the Main Content that encodes a completed Projection Rebuild Event Record **must** serialize the published Projection Updated At value, output Carrier reference, **and** content digest.

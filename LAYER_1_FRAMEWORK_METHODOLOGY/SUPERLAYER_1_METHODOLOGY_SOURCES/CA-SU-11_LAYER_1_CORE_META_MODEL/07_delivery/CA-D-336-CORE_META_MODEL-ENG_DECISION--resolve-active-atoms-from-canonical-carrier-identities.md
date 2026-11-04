@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.ID
-  - CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
-version: 30
-updated_at: 2026-11-02 00:18:22 +0400
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Carrier
+version: 31
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-336
 current_scope_unit: CORE_META_MODEL
@@ -19,11 +19,13 @@ form: Decision
 
 Resolve Active Atoms from Canonical Carrier Identities
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Active Atom Carrier discovery from selected Project-owned Markdown source frontiers.
 
-## Claim
 
 Active Atom Carrier discovery **must** resolve requested Atom IDs from the identities carried inside the selected Project-owned Markdown source frontier **and** select carried Status Active.
 

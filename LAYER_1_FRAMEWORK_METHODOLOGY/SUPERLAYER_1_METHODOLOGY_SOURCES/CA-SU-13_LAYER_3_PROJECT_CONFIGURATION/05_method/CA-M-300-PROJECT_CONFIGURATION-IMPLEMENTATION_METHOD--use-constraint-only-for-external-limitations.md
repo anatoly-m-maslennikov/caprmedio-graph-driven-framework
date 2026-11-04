@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Constraint'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Constraint)'
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type'
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Actor
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement).Header.Form'
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Actor
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,9 +21,11 @@ form: Implementation Method
 ## Summary
 Use Constraint only for external limitations
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 selection of a Requirement Type.
 
-## Claim
 
 **to** select a Requirement Type, the Author **must** use Constraint **only** for a limitation imposed from outside the Project choice boundary.

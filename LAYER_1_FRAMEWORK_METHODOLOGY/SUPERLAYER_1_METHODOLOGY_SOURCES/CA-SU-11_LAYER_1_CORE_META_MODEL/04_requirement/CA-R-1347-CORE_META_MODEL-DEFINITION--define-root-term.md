@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Term
+  active: CAPRMEDIO_MODEL <+ Term
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//NARROWER_THAN
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Define Root Term
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Terms in the Terms Graph.
 
-## Claim
 
 a Root Term **means** a Term with **`=0`** direct NARROWER_THAN parents **in** the Terms Graph.

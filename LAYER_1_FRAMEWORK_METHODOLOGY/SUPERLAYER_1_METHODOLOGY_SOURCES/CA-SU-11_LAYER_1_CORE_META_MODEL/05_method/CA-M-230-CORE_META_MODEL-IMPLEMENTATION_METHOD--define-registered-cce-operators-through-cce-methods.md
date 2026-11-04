@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Implementation Method
 
 Define Registered CCE Operators through CCE Methods
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 registered CCE Operators in CCE.
 
-## Claim
 
 within CCE, a CCE Operator **means** one canonical lowercase word-form token **or** token sequence **or** one canonical symbolic token that one active CCE Method assigns one syntactic **or** logical function.

@@ -4,15 +4,15 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Format/string
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Format/string
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Format
-version: 5
-updated_at: 2026-11-02 08:06:47 +0400
+  - CAPRMEDIO_MODEL <+ CFEL <+ Format
+version: 6
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 tier: 1
 role: Requirement
-form: Entity Definition
+form: Declaration
 ---
 ## Summary
 
@@ -20,14 +20,21 @@ Define string Value Format
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+# model
+CFEL <+ Format/string
+```
+
+### Prose Claim
+
+
 The string Value Format admits textual string values. It does not turn null
 into a string or set a property's cardinality, uniqueness, or carrier
 representation.
 
 
-```CFEL
-CFEL <+ Format/string
-```
 
 ## Semantics
 

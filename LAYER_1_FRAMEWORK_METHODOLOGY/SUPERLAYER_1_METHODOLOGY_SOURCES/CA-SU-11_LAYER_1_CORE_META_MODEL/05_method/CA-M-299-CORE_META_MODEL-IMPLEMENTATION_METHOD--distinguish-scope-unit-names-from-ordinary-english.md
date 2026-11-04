@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Name
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Name
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 20
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Implementation Method
 
 Distinguish Scope Unit Names from Ordinary English
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit references in CAPRMEDIO content.
 
-## Claim
 
 **to** distinguish a Scope Unit reference from ordinary English, use its exact uppercase Scope Unit Name **to** denote the Scope Unit. an **otherwise** identical lowercase word retains its ordinary English meaning.

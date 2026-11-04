@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File
+  active: CAPRMEDIO_MODEL <+ Carrier/File
 version: 23
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Decision
 
 Structure Markdown Atom Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoritative Markdown Atom Carrier structure.
 
-## Claim
 
 **every** authoritative Markdown Atom Carrier **must** contain YAML Frontmatter followed by Main Content.

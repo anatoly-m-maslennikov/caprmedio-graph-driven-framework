@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Entity
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Give Every Borne Type Property One Value
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Entity occurrences that bear Type.
 
-## Claim
 
 an Entity occurrence that bears Type **must** have **`=1`** direct Type value.

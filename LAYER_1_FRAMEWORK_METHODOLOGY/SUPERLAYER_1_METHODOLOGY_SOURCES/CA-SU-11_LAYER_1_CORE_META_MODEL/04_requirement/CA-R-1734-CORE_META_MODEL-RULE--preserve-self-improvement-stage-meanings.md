@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Role
 version: 29
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,10 +18,12 @@ form: Rule
 
 Preserve self-improvement stage meanings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 governed self-improvement stages.
 
-## Claim
 
 **every** governed self-improvement stage **must** retain the canonical Content-role meaning of the artifact that represents it **without** absorbing the meaning of an earlier **or** later stage.

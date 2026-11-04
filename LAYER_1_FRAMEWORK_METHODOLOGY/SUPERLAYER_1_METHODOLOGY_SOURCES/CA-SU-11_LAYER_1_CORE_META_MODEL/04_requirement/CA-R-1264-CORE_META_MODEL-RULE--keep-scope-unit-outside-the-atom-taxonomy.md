@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Keep Scope Unit Outside the Atom Taxonomy
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the position of Scope Unit outside the Atom taxonomy.
 
-## Claim
 
 the Term Scope Unit **must not** be NARROWER_THAN Atom.

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,11 +19,13 @@ form: Implementation Method
 
 Derive Navigation Projections from the CCE Claim
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 derivation of an Atom's navigation values from its authoritative content.
 
-## Claim
 
 **to** derive an Atom's navigation values, derive them from authoritative content rather than another navigation value:
 

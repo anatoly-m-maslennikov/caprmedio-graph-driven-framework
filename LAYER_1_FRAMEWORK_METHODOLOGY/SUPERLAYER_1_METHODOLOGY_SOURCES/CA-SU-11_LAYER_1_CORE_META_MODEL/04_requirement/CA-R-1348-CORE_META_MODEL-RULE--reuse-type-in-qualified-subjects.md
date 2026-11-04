@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Term//Type
+  active: CAPRMEDIO_MODEL <+ Term//Type
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Reuse Type in Qualified Subjects
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 qualified Type Subjects.
 
-## Claim
 
 a qualified Type Subject **must** reuse the Term Type **and** **must not** create a role-specific Type Term.

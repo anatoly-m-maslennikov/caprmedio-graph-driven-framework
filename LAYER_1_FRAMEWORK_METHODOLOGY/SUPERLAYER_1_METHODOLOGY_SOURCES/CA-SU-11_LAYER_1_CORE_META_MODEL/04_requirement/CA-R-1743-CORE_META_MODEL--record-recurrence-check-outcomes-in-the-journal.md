@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Journal
+  active: CAPRMEDIO_MODEL <+ Journal
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Record recurrence-check outcomes in the Journal
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 execution outcomes of recurrence-protection mechanisms.
 
-## Claim
 
 **every** execution outcome of a recurrence-protection mechanism **must** be carried by a Journal Record as execution evidence, distinct from the reusable Operations definition.

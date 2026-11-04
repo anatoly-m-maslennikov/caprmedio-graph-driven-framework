@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Tier
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Project Goal'
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Atom.Tier
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-version: 12
-updated_at: 2026-11-02 00:18:22 +0400
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Goal)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
+version: 13
+updated_at: 2026-11-04 09:19:08 +0400
 relations: {}
 atom_id: CA-R-2132
 current_scope_unit: CORE_META_MODEL
@@ -21,14 +21,16 @@ form: Rule
 
 Assign Project Goal Tier Minus One
 
-## Claim scope
-
-Project Goal Atoms.
-
 ## Claim
 
-Every Requirement Atom of Type Project Goal **must** target the Project, be owned by its Operator Actor instead of a Local Scope Unit, and carry exactly one numeric Tier `-1`. Tier `-1` is explicit, is not omitted, and is outside the ordinary nonnegative Tier range. This Rule does not impose an arbitrary Type-to-Tier restriction beyond verified Project Goal identity and ownership.
+### Prose Claim
+
+
+Atoms of Form Goal whose active Subject resolves to the Project Scope Unit root.
+
+
+Every Atom of Form Goal whose active Subject resolves to the Project Scope Unit root **must** carry exactly one numeric Tier `-1`. Tier `-1` is explicit, is not omitted, and is outside the ordinary nonnegative Tier range. This Rule does not impose an additional Type-to-Tier restriction.
 
 ## Details
 
-The Project Goal retains its Operator Actor owner. CA-R-2149 uses its Target Project only as the derived ordering context; ordinary Goal ownership and Scope ordering are unchanged.
+Under CA-R-2149, the Project resolved from the active Subject is the ordering context.

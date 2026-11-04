@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,10 +18,12 @@ form: Rule
 
 Relate self-improvement stages explicitly
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 persisted transitions between self-improvement stages.
 
-## Claim
 
 **every** persisted transition between self-improvement stages **must** be represented by a typed relation owned by the receiving artifact.

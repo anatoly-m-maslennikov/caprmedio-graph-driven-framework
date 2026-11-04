@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Status
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Status
 relations:
   child_of:
   - CA-R-1174
@@ -18,13 +18,15 @@ form: Rule
 
 Define Atom.Status allowed values
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The base allowed values inherited by narrower Atom kinds.
 
-## Claim
 
-Atom.Status **must** admit (Draft, Active, Archived). Narrower Atom kinds inherit these values and **may** add allowed values under their applicable Content Role or Type. An inherited value does **not** require a separate declaration for every narrower kind.
+Atom.Header.Status **must** admit (Draft, Active, Archived). Narrower Atom kinds inherit these values and **may** add allowed values under their applicable Content Role or Type. An inherited value does **not** require a separate declaration for every narrower kind.
 
 ## Details
 

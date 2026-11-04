@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Interaction.Reporting Mode
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Interaction.Reporting Mode
 version: 1
 relations: {}
 tier: 3
@@ -19,7 +19,12 @@ Define Interaction Reporting Mode
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Project.Settings.Interaction.Reporting Mode{:1}: [string]{:1};
+
 Project.Settings.Interaction.Reporting Mode.*[]{:0}
 ```
+

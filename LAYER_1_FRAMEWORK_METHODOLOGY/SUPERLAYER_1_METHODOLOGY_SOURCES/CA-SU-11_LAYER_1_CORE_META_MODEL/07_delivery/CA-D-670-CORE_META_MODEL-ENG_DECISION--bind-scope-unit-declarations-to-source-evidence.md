@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: Scope Unit
-  depends_on:
+  active: CAPRMEDIO_MODEL <+ Scope Unit
+  passive:
   - Entity/Object/Continuant/History
-  - Journal
-  - Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}

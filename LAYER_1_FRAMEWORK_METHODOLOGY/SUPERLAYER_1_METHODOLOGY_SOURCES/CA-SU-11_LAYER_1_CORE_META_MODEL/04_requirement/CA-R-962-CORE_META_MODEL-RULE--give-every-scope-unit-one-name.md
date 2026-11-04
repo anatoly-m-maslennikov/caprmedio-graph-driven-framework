@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Name
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Name
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Give Every Scope Unit One Name
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit Names.
 
-## Claim
 
 **every** Scope Unit **must** have **`=1`** authoritative Name.

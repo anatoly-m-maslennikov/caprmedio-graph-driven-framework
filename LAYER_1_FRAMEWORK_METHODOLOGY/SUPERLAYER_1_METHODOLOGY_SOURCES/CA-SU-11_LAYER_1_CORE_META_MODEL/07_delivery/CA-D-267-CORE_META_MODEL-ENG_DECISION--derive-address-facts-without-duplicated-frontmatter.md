@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Carrier/File.YAML Frontmatter
-version: 27
-updated_at: 2026-11-02 00:18:22 +0400
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Carrier/File
+version: 28
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-267
 current_scope_unit: CORE_META_MODEL
@@ -19,10 +19,12 @@ form: Decision
 
 Derive Address Facts without Duplicated Frontmatter
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 registered canonical Carrier addresses that completely **and** unambiguously derive non-Atom Artifact Properties.
 
-## Claim
 
 that address **must** be its sole Carrier encoding **and** embedded metadata **must not** duplicate it. Atom Properties instead follow CA-D-478 **and** CA-D-480.

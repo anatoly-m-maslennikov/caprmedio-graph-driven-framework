@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Goal'
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 31
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Require an Accepted Goal for Every Scope Unit
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Units and their Claim Target Scope Unit references.
 
-## Claim
 
 **every** Scope Unit **must** remain the Claim Target Scope Unit of **`>=1`** accepted Goal Atom.

@@ -1,17 +1,17 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project.Settings.Name
-  - CAPRMEDIO <+ MODEL <+ Project.Settings.Prefix
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-version: 39
-updated_at: 2026-11-02 19:46:47 +0400
+  - CAPRMEDIO_MODEL <+ Project.Settings.Name
+  - CAPRMEDIO_MODEL <+ Project.Settings.Prefix
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Scope Unit
+version: 40
+updated_at: 2026-11-04 09:30:21 +0400
 relations:
   evaluation_for:
   - CA-R-2532
-  - CA-R-1750
+  - CA-R-2748
   - CA-R-1429
   - CA-D-318
   - CA-D-362
@@ -28,30 +28,36 @@ status: Active
 tier: 8
 role: Evaluation
 form: Eval Policy
+carrier_destination:
+  file:
+    name: CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 
 Validate Authoritative Project Settings Artifact
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoritative Project Settings Artifacts.
 
-## Claim
 
-the Evaluation **must** reject Project Settings **if**
+the Evaluation **must** reject the Project-root Settings TOML Carrier **if**
 
 - it is treated as an Atom **or** Projection,
 - has an Atom ID **or** Atom Content Role,
 - is **not** available independently of Project Atoms **and** Implementation,
 - violates its registered Project-root placement **or** filename,
-- has other than **`=1`** authoritative TOML Carrier,
-- **contains** Framework Instance choices **or** independently editable Project Structure,
+- has other than **`=1`** authoritative Project-root TOML Carrier for its registered fields,
+- **contains** independently editable Project Structure,
 - violates its foundational content boundary, applicable shared settings specifications, applicable concrete field specifications, **or** the complete closed current field signature under CA-D-366,
 - lacks a required CORE_META_MODEL definition **or** storage rule for Project Settings Name **or** Project Settings Prefix,
 - lacks an Operator-selected Project Settings Name,
 - lacks an Operator-selected Project Settings Prefix,
-- treats a Methodology Atom, Framework Instance Settings, **or** a Projection as an independent authoritative source of either selected value,
+- treats a Methodology Atom, an unadmitted Carrier, **or** a Projection as an independent authoritative source of either selected value,
 - **or**, for history-binding evaluation under CA-D-365, lacks an exact current Revision, SHA-256 Digest, **and** admitted Work Journal receipt.
 
 ## Details

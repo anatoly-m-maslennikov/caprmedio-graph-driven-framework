@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Step
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Action
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role:=Operations)/Workflow
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
 version: 26
 relations: {}
 atom_id: CA-R-1570
@@ -20,11 +20,13 @@ updated_at: 2026-11-02 17:54:42 +0400
 
 Keep Workflow graphs separate from Step bindings
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a Workflow graph scheme.
 
-## Claim
 
 A Workflow graph scheme **must** identify Step references, declared order, structural Relations, entry points, and terminal outcomes.
 

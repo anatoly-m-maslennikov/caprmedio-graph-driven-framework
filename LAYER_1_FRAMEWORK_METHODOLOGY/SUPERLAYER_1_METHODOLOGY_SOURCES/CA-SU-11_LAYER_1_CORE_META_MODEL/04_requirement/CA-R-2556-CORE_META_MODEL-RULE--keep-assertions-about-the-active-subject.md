@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -17,6 +17,9 @@ form: Rule
 State assertions about the active Subject
 
 ## Claim
+
+### Prose Claim
+
 
 - For an Atom with an active Subject, all assertions and prescriptions concern that active Subject.
 - References to other Subjects describe the active Subject's endpoints, inputs, outputs, conditions or dependencies.

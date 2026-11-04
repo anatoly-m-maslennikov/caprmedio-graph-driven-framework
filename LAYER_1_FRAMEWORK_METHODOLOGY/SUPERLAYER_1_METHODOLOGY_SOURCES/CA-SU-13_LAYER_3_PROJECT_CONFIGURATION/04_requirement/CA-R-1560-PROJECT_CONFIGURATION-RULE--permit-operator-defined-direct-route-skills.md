@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Package > Prompt
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Prompt
 version: 19
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Permit Operator-Defined Direct Route Skills
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Operator-defined CAPRMEDIO Direct Route Skills.
 
-## Claim
 
 the Operator **may** add a CAPRMEDIO Direct Route Skill.

@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Node/Occurrent
+  active: CAPRMEDIO_MODEL <+ Node/Occurrent
 version: 2
 relations: {}
 tier: 3
@@ -19,7 +19,10 @@ Declare Occurrent
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Node/Occurrent
 ```
 

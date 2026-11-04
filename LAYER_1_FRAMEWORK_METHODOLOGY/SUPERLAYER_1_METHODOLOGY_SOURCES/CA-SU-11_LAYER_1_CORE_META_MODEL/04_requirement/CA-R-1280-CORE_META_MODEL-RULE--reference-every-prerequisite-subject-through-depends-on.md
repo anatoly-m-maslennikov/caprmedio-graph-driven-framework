@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//DEPENDS_ON
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
 version: 34
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Rule
 
 Reference Every Prerequisite Subject through DEPENDS_ON
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 coverage of canonical Subject Target mentions by an Atom's Subjects.
 
-## Claim
 
 an Atom's Subjects, **when** present, **must** be exactly the distinct canonical Subject Targets independently mentioned **in** its Markdown Main Content, **not** an Atom citation label rendered under `CA-M-444-CORE_META_MODEL-METHOD--make-atom-claims-easy-to-understand` as the referenced Atom's complete filename **without** its `.md` extension **or** directory path: zero **or** one GOVERNS target for its Claim, **and** DEPENDS_ON targets for **every** other mentioned Subject Target.
 

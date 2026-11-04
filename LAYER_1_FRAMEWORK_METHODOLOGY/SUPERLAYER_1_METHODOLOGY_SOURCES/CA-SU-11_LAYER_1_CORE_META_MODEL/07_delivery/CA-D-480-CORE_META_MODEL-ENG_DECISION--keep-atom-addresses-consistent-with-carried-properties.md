@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO <+ MODEL <+ Atom.ID
-  - CAPRMEDIO <+ MODEL <+ Atom.Status
-  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Carrier/File
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Decision
 
 Keep Atom addresses consistent with carried Properties
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom Properties represented by a filename, matching directory name, or placement.
 
-## Claim
 
 **every** Atom Property represented by a filename, matching directory name, **or** placement **must** agree with its canonical internal value under the applicable Delivery encoding.
 

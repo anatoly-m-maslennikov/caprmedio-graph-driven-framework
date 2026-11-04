@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Term//Artifact
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Entity
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Keep Entity and Artifact Distinct
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the distinction between Artifact and Entity.
 
-## Claim
 
 Artifact **must not** be equivalent **to** Entity.

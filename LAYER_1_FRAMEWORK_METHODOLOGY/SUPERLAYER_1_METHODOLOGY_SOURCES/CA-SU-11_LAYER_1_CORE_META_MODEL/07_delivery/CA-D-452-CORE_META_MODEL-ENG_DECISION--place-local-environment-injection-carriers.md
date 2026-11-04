@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 19
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,11 +19,13 @@ form: Decision
 
 Place Local Environment Injection Carriers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 secret values and local environment injection Carriers.
 
-## Claim
 
 secret values **must** be stored **only** **in**:
 

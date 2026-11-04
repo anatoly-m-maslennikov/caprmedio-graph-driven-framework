@@ -1,15 +1,15 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ Event Record
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Projection
-version: 33
-updated_at: 2026-11-02 08:06:47 +0400
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Projection
+version: 34
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-340
 current_scope_unit: CORE_META_MODEL
@@ -23,11 +23,13 @@ form: Decision
 
 Serialize Work Journal Event Properties
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 serialization **and** reading of supplied Work Journal Event representations.
 
-## Claim
 
 the Main Content of a Journal Carrier **must** preserve the properties actually supplied as observations through safe encoding; reading **must** return stored representations as recorded.
 

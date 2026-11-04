@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Entities Graph)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Entities Graph)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Projection
 version: 23
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -26,11 +26,13 @@ form: Decision
 
 Deliver readable Entities Graph trees as Markdown
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 The Markdown Carriers for readable Entities Graph structural and named declaration views.
 
-## Claim
 
 Deliver the view as a UTF-8 Markdown file under the Project's declared Projection root. Include YAML frontmatter and tab-indented trees inside fenced text blocks.
 
@@ -60,6 +62,6 @@ A source-derived tree remains a Projection, not a new source of truth. This form
 
 The selected Relation Type declaration view uses the same Entities Graph Type, its own named selection and a stable Projection ID under CA-R-1943. Reuse CA-D-635's filename and YAML fields. Render named Relation Types with defining Atom IDs, their meanings and explicitly declared direction, inverse, derivation or transitivity. The defining Atom has Status; the Relation Type has no Status field. Do not turn actual endpoint tuples into Type declarations.
 
-The model views contain primary entities, then one property section per primary entity with properties, including inherited properties marked `[inherited]`. Keep primary-kind definition references as Atom IDs rather than copied definition text. Source-declared containment and specialization retain their distinct operators; use spaces around the complete containment operator, for example `>{1+} Atom/Content Role: Operations/Type: Step`.
+The model views contain primary entities, then one property section per primary entity with properties, including inherited properties marked `[inherited]`. Keep primary-kind definition references as Atom IDs rather than copied definition text. Source-declared containment and specialization retain their distinct operators; use spaces around the complete containment operator, for example `>{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)`.
 
 Report missing definitions, unresolved identities, unsupported source syntax and coverage limits explicitly. Do not create a separate Graph Rule instance catalogue or render retired frontmatter `claim.*` grammar. Constraints and simple formal expressions belong to the corresponding Entity Definitions. Keep source selection, complete contributing source versions and actual rebuild timestamp in every Projection.

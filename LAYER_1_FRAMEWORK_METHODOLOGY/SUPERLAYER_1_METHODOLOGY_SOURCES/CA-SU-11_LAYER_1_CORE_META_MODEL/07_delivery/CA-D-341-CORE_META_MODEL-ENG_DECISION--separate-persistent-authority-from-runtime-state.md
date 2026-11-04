@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,11 +18,13 @@ form: Decision
 
 Separate Persistent Authority from Runtime State
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 persistent Carriers holding canonical authority or retained history, in relation to runtime cleanup.
 
-## Claim
 
 runtime cleanup **must not** remove persistent Carriers holding canonical authority or retained history.
 

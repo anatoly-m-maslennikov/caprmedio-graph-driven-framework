@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -19,11 +19,13 @@ form: Rule
 
 Requirement — Promote active backlog candidates into Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Development Backlog candidates selected into active work.
 
-## Claim
 
 assigning a Development Backlog candidate **to** a current **or** future version does **not** establish governed truth. the candidate becomes active work **only** **when** the operator selects it **and** CAPRMEDIO creates **`=1`** bounded Task Atom for its action. execution **then** materializes the minimum Requirement, Method, Evaluation, Delivery, **or** future Operations Atoms needed **to** govern that work.
 

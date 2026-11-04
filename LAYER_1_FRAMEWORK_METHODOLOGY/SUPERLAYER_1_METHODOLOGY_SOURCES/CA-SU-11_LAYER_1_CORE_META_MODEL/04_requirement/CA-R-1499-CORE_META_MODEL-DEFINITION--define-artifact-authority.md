@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Term//Artifact
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,11 +20,13 @@ form: Rule
 
 Define Artifact Authority
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an Artifact's governed capacity to establish meaning of a declared kind.
 
-## Claim
 
 
 For an Atom as a governed Artifact, Authority must mean its governed capacity to establish meaning of a declared kind.

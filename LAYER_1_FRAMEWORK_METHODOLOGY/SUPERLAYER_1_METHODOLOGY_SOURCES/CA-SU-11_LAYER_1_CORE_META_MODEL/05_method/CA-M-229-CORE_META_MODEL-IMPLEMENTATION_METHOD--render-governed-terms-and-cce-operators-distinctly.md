@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Term
+  active: CAPRMEDIO_MODEL <+ Term
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
-  - CAPRMEDIO <+ MODEL <+ Actor
-  - CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content.CCE Operator
-version: 33
-updated_at: 2026-11-02 18:35:20 +0400
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Scope Unit.Name
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Carrier/File
+version: 34
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-M-229
 current_scope_unit: CORE_META_MODEL
@@ -21,11 +21,13 @@ form: Implementation Method
 
 Render Governed Terms and CCE Operators Distinctly
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO content lexical-case rendering.
 
-## Claim
 
 **to** render CAPRMEDIO content, the Author **must** apply the following lexical-case rules:
 

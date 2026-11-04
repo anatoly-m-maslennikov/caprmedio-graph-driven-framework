@@ -1,8 +1,8 @@
 ---
 subjects:
-  governs: Scope Unit.Path
-  depends_on:
-  - Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Path
+  passive:
+  - CAPRMEDIO_MODEL <+ Scope Unit
   - Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
   - Entity/Object/Continuant/Structural Unit/Scope Unit.Children
 version: 1

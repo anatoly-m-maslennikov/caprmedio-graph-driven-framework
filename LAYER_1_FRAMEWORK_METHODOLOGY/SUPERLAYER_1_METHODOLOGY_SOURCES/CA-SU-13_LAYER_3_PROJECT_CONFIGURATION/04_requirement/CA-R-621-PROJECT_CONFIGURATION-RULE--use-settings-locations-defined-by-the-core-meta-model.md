@@ -17,7 +17,7 @@ status: Active
 atom_id: CA-R-621
 tier: 2
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File
+  active: CAPRMEDIO_MODEL <+ Carrier/File
 claim_target_scope_unit: caprmedio
 role: Requirement
 form: Rule
@@ -26,5 +26,8 @@ form: Rule
 Use settings locations defined by the Core Meta-Model
 
 ## Claim
+
+### Prose Claim
+
 
 the caprmedio Implementation **must** resolve both Settings Artifacts through the Core Meta-Model Carrier rules CA-D-359 **and** CA-D-364 **without** defining a Project-specific competing location.

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children
 version: 36
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Make Scope Unit ownership immediate and recursive
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Units and their direct child Scope Units.
 
-## Claim
 
 **every** Scope Unit **must** own **only** its direct child Scope Units through the same recursive structural-parent relation.

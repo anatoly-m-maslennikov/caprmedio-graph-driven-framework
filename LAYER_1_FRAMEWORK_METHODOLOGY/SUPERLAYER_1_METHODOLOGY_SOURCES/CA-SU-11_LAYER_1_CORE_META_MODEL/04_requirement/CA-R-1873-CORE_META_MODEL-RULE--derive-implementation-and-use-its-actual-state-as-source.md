@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Package/Implementation
+  active: CAPRMEDIO_MODEL <+ Package/Implementation
   passive:
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 20
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -20,11 +20,13 @@ form: Rule
 
 Derive Implementation and use its actual state as source
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 native Implementation production and subsequent use as a source.
 
-## Claim
 
 Implementation production **must** derive I from current applicable RMED using governed Operations: **RMED → using O → I**. native I **may** subsequently act as source truth for its actual realized content, structure, dependencies, **and** behavior. a further view derived from I using O, including a dependency graph, **must** remain a non-authoritative Projection: **I → using O → Projection**.
 

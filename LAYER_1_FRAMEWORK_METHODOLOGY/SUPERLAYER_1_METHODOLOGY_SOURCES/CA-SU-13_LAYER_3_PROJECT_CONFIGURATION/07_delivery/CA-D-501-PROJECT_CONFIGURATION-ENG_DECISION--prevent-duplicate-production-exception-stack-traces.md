@@ -4,9 +4,9 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
 version: 15
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,11 +18,13 @@ form: Decision
 
 Prevent duplicate production exception stack traces
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 exceptions handled **or** escalated through production-relevant components’ Logging Policies.
 
-## Claim
 
 an exception is emitted once at the boundary responsible for handling **or** escalating it; lower layers preserve structured context **without** duplicating the same stack trace at **every** call boundary.
 

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory
+  active: CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 22
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Decision
 
 Place Disposable Temporary State
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 disposable temporary state in a CAPRMEDIO Project.
 
-## Claim
 
 the CAPRMEDIO Project **must** place disposable scratch, staging, test cache, atomic-write intermediate, build intermediate, **and** interrupted-cleanup Carriers under `.caprmedio_tmp/`.
 

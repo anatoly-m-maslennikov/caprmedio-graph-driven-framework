@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Node
+  active: CAPRMEDIO_MODEL <+ Node
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Implementation Method
 
 Name Model Concepts with Canonical Terms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Authoring names for metamodel and Project concepts.
 
-## Claim
 
 - Choose names that distinguish their referents.
 - Avoid Entity, Type, Content or Value when they add no information.

@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ PROJECT STRUCTURE
+  active: CAPRMEDIO_MODEL <+ PROJECT STRUCTURE
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,15 @@ Declare PROJECT STRUCTURE
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 PROJECT STRUCTURE {:0}((IS_PROPERTY_OF));
+
 PROJECT STRUCTURE >| (Container == yes);
-PROJECT STRUCTURE ((NARROWER_THAN)) @Node
+
+PROJECT STRUCTURE ((NARROWER_THAN)) Node
 ```
 
 ## Semantics

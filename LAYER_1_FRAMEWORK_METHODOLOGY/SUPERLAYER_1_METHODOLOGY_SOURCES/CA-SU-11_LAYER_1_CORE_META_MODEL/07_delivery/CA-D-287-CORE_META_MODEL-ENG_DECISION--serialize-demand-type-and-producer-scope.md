@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Filename
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit'
-version: 28
-updated_at: 2026-11-02 00:18:22 +0400
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Demand).Target Scope Unit
+version: 29
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-287
 current_scope_unit: CORE_META_MODEL
@@ -18,10 +18,12 @@ form: Decision
 
 Serialize Demand Type and Producer Scope
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Demand Atom filenames.
 
-## Claim
 
 **every** Demand Atom filename **must** serialize its Type **and** Producer Scope as `DEMANDS_FROM-<PRODUCER_SCOPE>`.

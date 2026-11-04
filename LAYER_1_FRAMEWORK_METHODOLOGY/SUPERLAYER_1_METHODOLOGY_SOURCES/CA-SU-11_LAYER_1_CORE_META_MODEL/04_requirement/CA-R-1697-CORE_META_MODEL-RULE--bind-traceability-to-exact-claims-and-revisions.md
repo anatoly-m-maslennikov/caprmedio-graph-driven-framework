@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 36
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,11 +18,13 @@ form: Rule
 
 Bind traceability to exact claims and revisions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO traceability assertions.
 
-## Claim
 
 **every** CAPRMEDIO traceability assertion **must** identify the exact governed claim revision on which a receiving artifact, implementation target, evaluation use, delivery action, operational observation, **or** other governed result relies.
 

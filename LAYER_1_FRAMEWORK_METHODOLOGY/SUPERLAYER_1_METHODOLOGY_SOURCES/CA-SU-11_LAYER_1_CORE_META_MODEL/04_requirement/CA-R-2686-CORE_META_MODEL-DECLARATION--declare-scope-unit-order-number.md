@@ -2,11 +2,11 @@
 atom_id: CA-R-2686
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit.order.number
+  active: CAPRMEDIO_MODEL <+ Scope Unit.order.number
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.order
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.ordered
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Format/int
+  - CAPRMEDIO_MODEL <+ Scope Unit.order
+  - CAPRMEDIO_MODEL <+ Scope Unit.order.ordered
+  - CAPRMEDIO_MODEL <+ CFEL <+ Format/int
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 relations: {}
@@ -20,8 +20,12 @@ Declare Scope Unit.order.number
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Scope Unit.order.number: IF order.ordered = true THEN [int, 1+]{:1} ELSE []{:0};
+
 Scope Unit.order.number.*[]{:0}
 ```
 

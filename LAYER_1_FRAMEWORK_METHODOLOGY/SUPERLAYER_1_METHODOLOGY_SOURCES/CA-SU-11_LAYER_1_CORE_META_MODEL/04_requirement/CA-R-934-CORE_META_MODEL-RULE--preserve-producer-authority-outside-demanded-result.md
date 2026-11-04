@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 31
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -17,10 +17,12 @@ form: Rule
 ## Summary
 Preserve Producer authority outside demanded result
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Demand Atoms and their named Implementation results.
 
-## Claim
 
 a Demand Atom **must not** constrain Producer authority outside the exact Implementation result named by the Demand Atom.

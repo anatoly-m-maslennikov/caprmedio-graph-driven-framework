@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 31
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Rule
 
 Reject authored inverse relations
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authored inverse typed relations.
 
-## Claim
 
 validators **must** reject **every** inverse typed relation authored **in** an Atom Carrier.
 

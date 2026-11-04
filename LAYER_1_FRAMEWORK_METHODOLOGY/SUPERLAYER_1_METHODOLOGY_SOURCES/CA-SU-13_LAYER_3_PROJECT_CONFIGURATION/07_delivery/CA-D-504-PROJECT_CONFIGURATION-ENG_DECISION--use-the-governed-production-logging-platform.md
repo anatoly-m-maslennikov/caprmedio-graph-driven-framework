@@ -4,9 +4,9 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Journal
 version: 14
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,11 +18,13 @@ form: Decision
 
 Use the governed production logging platform
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production technical and business runtime log Journal Carriers.
 
-## Claim
 
 production technical **and** business runtime log Journals **must** use the deployment environment's governed logging sink. governed CAPRMEDIO workflow **and** local project-control Journals **are not** substitutes for the production system's log platform.
 

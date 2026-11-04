@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//CARRIES
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//CARRIES
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
 relations:
   child_of:
   - CA-R-1174
@@ -22,11 +22,13 @@ form: Policy
 
 Bind Carriers to their represented current or historical Entities
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Carrier bindings of non-ephemeral Entities.
 
-## Claim
 
 a Carrier binding **must** identify the Entity actually represented by that Carrier. a current Entity's Carrier binds that current Entity; a preserved historical version's Carrier binds that archived Atom version or the historical record actually represented, not a separate Revision entity. citing a current Entity's Version **must not** reclassify the current Entity as an archived version.
 

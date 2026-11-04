@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -18,10 +18,12 @@ form: Rule
 
 Allow scope sets to vary by structural owner
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 structural scope sets and their governing owners.
 
-## Claim
 
 the governing owner declares the structural scope set applicable **to** **every** structural scope. Scope sets **may** be identical, overlapping, **or** different across structural owners; reuse **or** correspondence **must** be explicit **and** cannot be inferred from matching labels alone.

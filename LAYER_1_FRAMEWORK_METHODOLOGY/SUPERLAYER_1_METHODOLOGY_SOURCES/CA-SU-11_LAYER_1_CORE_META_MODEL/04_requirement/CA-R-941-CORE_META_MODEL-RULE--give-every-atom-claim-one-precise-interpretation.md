@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
 version: 30
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -17,10 +17,12 @@ form: Rule
 ## Summary
 Give every Atom Claim one precise interpretation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Atom Claims.
 
-## Claim
 
 **every** Atom Claim **must** have **`=1`** precise interpretation.

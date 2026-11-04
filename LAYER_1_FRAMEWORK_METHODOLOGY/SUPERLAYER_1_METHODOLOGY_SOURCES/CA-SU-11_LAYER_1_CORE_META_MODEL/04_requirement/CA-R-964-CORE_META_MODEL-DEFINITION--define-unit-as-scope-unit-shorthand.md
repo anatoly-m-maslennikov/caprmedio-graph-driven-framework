@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Define Unit as Scope Unit shorthand
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the governed shorthand `Unit` in CAPRMEDIO.
 
-## Claim
 
 Unit **means** Scope Unit **when** CAPRMEDIO uses Unit as a governed shorthand.

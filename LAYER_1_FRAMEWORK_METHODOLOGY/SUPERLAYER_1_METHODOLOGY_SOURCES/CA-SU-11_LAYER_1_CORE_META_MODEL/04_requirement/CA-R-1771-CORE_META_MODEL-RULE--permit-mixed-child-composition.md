@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children
 version: 30
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Permit mixed Child Composition
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a Scope Unit whose Child Composition is MIXED.
 
-## Claim
 
 a Scope Unit **may** own (Ordered Scope Units **and** Unordered Scope Units) as direct children.

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Term
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -20,11 +20,13 @@ form: Rule
 
 Define Subject Path
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 A canonical Subject path identifying a governed or dependency target.
 
-## Claim
 
 
 
@@ -36,4 +38,4 @@ The target is selected by the meaning addressed, not by the Atom's Local Scope U
 
 ## Semantics
 
-A path may address classification without declaring an Entity kind. `Atom.Content Role` addresses the relative Property, while `Atom/(.Content Role: Plan)` identifies a qualified Atom inheriting applicable Atom features and constraints. Neither form invents an intermediate Entity kind. The root and operators follow the adopted Entity syntax under CA-R-1931; no Project-name namespace layer is introduced.
+A path may address classification without declaring an Entity kind. `Atom.Header.Role` addresses the relative Property, while `Atom/(.Header.Role: Plan)` identifies a qualified Atom inheriting applicable Atom features and constraints. Neither form invents an intermediate Entity kind. The root and operators follow the adopted Entity syntax under CA-R-1931; no Project-name namespace layer is introduced.

@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Interaction
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Interaction
 relations:
   child_of:
   - CA-R-1176
@@ -18,16 +18,23 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Define Project.Framework Settings.Interaction
 
-## Claim scope
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Project.Settings.Interaction{:0..1}: []{:0};
+
+Project.Settings.Interaction.*[in (Reporting Mode)]{:1}
+```
+
+### Prose Claim
+
 
 the Interaction grouping in the Project's Framework Settings.
 
-## Claim
 
-```CFEL
-Project.Settings.Interaction{:0..1}: []{:0};
-Project.Settings.Interaction.*[in (Reporting Mode)]{:1}
-```
 
 ## Details
 

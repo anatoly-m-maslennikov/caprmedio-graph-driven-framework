@@ -4,25 +4,27 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier.ID
+  active: CAPRMEDIO_MODEL <+ Carrier
 relations:
   child_of:
   - CA-R-1176
-version: 16
+version: 17
 tier: 3
 role: Requirement
 form: Rule
-updated_at: 2026-11-02 08:06:47 +0400
+updated_at: 2026-11-03 23:25:51 +0400
 ---
 ## Summary
 
 Define Project.Framework Settings.Identifier
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Identifier of the Project’s authoritative Framework Instance Settings Carrier.
 
-## Claim
 
 The Identifier of the Project’s authoritative Framework Instance Settings Carrier is `caprmedio_framework_settings`.
 

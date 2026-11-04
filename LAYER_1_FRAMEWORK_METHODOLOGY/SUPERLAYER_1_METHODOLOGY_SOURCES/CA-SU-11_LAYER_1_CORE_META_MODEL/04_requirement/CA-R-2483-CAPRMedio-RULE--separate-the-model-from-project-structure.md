@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE
+  active: CAPRMEDIO_STRUCTURE
 version: 6
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,15 +18,22 @@ Separate the CAPRMEDIO model from Project structure
 
 ## Claim
 
+### Formal Claim
+
+```CFEL
+# model
+Aspects <+ Product
+```
+
+### Prose Claim
+
+
 CAPRMEDIO's PROJECT STRUCTURE has:
 
 - Scope Structure.
 - Aspect instances, including Product.
 - Other declared components.
 
-```CFEL
-Aspects <+ Product
-```
 
 Its Scope Structure retains the proposed ordered Units:
 

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom.Target Scope Unit
+  active: CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 22
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,9 +20,11 @@ form: Rule
 ## Summary
 Give every Claim one Target Scope Unit
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Atom Claims **and** their Claim Target Scope Unit resolutions.
 
-## Claim
 
 **every** Atom Claim **must** resolve **to** **`=1`** Claim Target Scope Unit.

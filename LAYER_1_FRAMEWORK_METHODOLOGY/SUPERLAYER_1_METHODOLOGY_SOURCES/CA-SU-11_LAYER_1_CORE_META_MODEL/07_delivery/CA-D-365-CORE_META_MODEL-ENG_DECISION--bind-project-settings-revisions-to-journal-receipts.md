@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
+  - CAPRMEDIO_MODEL <+ Event Record
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,11 +21,13 @@ form: Decision
 
 Bind Project Settings Revisions to Journal Receipts
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the current Project Settings Revision and SHA-256 Digest.
 
-## Claim
 
 the current Project Settings Revision **and** SHA-256 Digest **must** bind **to** its authoritative TOML Carrier through a canonical completed governed-change Work Journal receipt **or** an explicitly authorized canonical recovered-state Work Journal receipt registering its observed baseline; the receipt **must** match the selected Project, exact Carrier path, logical Artifact Revision, **and** Digest. absence, ambiguity, **or** mismatch **must** leave its currentness unknown.
 

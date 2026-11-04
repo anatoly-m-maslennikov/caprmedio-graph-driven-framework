@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
 version: 8
 relations: {}
 tier: 3
@@ -18,7 +18,12 @@ Declare Project.Settings
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Project.Settings{:1}: []{:0};
+
 Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Implementation Retry Limit, RMED Review)]{:3..11}
 ```
+

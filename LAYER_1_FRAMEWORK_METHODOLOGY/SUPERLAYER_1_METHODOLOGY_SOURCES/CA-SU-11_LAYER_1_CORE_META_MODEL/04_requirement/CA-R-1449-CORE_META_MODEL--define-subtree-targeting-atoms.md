@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Define Subtree-targeting Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the targeting of Atoms to a Scope Unit subtree.
 
-## Claim
 
 Subtree-targeting Atoms **means** the union of Targeting Atoms for the selected Scope Unit **and** **every** descendant Scope Unit.

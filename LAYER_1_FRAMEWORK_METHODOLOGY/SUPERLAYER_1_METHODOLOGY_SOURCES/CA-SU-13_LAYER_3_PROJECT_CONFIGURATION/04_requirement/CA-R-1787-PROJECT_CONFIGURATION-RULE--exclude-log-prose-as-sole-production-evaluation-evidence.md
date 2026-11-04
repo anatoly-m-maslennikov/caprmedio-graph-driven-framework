@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
 version: 14
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Rule
 
 Exclude log prose as sole production-evaluation evidence
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 production evaluation decisions.
 
-## Claim
 
 a production evaluation decision **must not** depend solely on parsing free-form log prose.
 

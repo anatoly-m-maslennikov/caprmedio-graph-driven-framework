@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Term//Artifact
 version: 39
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,10 +21,12 @@ form: Rule
 
 Classify Artifacts through the Extensible Type Registry
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifacts and their Types.
 
-## Claim
 
 an Artifact **must** have **`=1`** Type admitted by applicable authority; the Core values are specified by CA-R-1405 **and** remain open **to** permitted expansion.

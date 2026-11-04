@@ -4,7 +4,7 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Monitoring
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Monitoring
 version: 14
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,11 +16,13 @@ form: Rule
 
 Require monitors for important production health signals
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 important production health counters, thresholds, **and** service-level signals.
 
-## Claim
 
 important production health counters, thresholds, **and** service-level signals receive explicit monitors.
 

@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Scope Unit//CORE_META_MODEL
+  active: CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Keep Project-specific substrates out of the reusable Core
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 an Operator-mandated Project-specific substrate.
 
-## Claim
 
 an Operator-mandated Project-specific substrate **must** be governed by Project authority **or** PROJECT_CONFIGURATION **without** becoming an implicit prerequisite of the reusable CORE_META_MODEL.

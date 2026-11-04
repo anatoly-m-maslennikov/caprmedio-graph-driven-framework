@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//INSTALLED_EXTENSIONS
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//INSTALLED_EXTENSIONS
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Separate Extension Installation from Activation
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Extension installation and activation applicability in the current Project.
 
-## Claim
 
 installing an Extension **must** make its immutable authority available **to** Project Configuration **without** making the Extension authority applicable **to** the current Project.

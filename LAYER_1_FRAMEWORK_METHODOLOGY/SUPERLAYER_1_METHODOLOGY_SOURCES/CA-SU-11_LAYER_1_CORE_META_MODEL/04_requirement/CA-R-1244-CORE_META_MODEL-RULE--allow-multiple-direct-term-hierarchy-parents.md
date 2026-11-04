@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//NARROWER_THAN
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/(.Type: Terms Graph)'
-  - CAPRMEDIO <+ MODEL <+ Term
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
+  - CAPRMEDIO_MODEL <+ Term
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Allow multiple direct Term hierarchy parents
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Direct NARROWER_THAN parents of a Term.
 
-## Claim
 
 a Term **may** have **`>=0`** direct NARROWER_THAN parents.

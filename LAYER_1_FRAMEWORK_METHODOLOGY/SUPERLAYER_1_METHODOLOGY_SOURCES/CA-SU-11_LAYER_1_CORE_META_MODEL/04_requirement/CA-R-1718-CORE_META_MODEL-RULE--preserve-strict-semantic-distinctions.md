@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Role
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Role
 version: 38
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -19,11 +19,13 @@ form: Rule
 
 Preserve strict semantic distinctions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 independently governed meanings.
 
-## Claim
 
 independently governed meanings **must** remain distinct even **when** ordinary language, one Carrier, one workflow, **or** one Implementation change presents them together:
 

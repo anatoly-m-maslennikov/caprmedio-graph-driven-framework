@@ -4,12 +4,12 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Projection
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -21,11 +21,13 @@ form: Rule
 
 Separate legacy observations from refactoring decisions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Reverse-engineering results, including observed Implementation facts and proposed decisions about the intended refactored result.
 
-## Claim
 
 reverse-engineering results **must** distinguish observed Implementation facts from proposed decisions about the intended refactored result.
 

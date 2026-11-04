@@ -3,9 +3,9 @@ atom_id: CA-D-666
 form: Policy
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 1
 relations: {}
 tier: 3
@@ -17,6 +17,9 @@ role: Delivery
 Carry Scope Unit Declarations as Governing Atoms
 
 ## Claim
+
+### Prose Claim
+
 
 Carry a Scope Unit Declaration in a Markdown Atom file. The file is its Carrier; the Declaration is the governing source.
 

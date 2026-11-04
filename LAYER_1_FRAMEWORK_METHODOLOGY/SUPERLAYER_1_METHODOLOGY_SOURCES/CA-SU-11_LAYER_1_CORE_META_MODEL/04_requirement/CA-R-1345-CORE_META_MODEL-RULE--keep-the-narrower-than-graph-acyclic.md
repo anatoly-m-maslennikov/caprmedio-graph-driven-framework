@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//NARROWER_THAN
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Terms Graph'
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Terms Graph'
 version: 29
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Keep the NARROWER_THAN graph acyclic
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the NARROWER_THAN graph.
 
-## Claim
 
 the NARROWER_THAN graph **must** remain acyclic.

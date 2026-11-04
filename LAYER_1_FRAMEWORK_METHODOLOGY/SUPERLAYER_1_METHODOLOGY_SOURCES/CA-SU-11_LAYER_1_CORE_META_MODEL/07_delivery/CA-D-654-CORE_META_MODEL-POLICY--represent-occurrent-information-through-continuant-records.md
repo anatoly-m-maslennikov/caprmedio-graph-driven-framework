@@ -4,11 +4,11 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Node/Occurrent
+  active: CAPRMEDIO_MODEL <+ Node/Occurrent
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation//CARRIES
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//CARRIES
 version: 3
 relations: {}
 tier: 1
@@ -20,11 +20,13 @@ form: Policy
 
 Represent Occurrent information through Continuant records
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 representation of an Occurrent's recorded information.
 
-## Claim
 
 An Occurrent is not carried or stored as the occurrence itself. When
 information about an Occurrent is retained, a Continuant record represents

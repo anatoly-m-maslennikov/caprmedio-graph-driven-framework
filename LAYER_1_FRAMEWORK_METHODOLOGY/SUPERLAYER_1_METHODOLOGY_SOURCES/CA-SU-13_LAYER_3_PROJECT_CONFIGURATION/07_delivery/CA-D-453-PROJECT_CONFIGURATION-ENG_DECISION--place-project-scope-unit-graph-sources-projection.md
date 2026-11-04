@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Projection//PROJECT_SCOPE_UNIT_GRAPH
+  active: CAPRMEDIO_STRUCTURE <+ Projection//PROJECT_SCOPE_UNIT_GRAPH
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 20
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -19,11 +19,13 @@ form: Decision
 
 Place Project Scope Unit Graph Sources Projection
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the historical versionless Project Scope Unit Graph Sources Projection.
 
-## Claim
 
 **if** the CAPRMEDIO Project's versionless Project Scope Unit Graph Sources Projection is retained as historical migration evidence, **then** it **must** reside at `.caprmedio_caprmedio/_projection/project_scope_unit_graph_sources.projection.toml`.
 

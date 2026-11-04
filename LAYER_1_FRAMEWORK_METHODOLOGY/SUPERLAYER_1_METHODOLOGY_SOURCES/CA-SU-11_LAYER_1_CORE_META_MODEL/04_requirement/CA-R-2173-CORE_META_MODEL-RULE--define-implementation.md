@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Package/Implementation
+  active: CAPRMEDIO_MODEL <+ Package/Implementation
 version: 9
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -17,6 +17,9 @@ form: Rule
 Define Implementation
 
 ## Claim
+
+### Prose Claim
+
 
 Implementation **means** the actual Code, Prompts, Documentation and Resources that realize RMED for a Project. Directly edited Implementation can be authoritative for what is actually implemented.
 

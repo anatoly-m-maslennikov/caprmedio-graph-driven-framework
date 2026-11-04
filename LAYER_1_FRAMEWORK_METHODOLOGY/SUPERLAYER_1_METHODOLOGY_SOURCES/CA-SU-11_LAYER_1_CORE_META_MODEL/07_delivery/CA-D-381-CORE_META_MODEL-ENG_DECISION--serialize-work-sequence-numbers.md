@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan).Work Sequence Number
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Work Sequence Number
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 23
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Decision
 
 Serialize Work Sequence Numbers
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Carrier renderings of a Work Sequence Number.
 
-## Claim
 
 **every** Carrier rendering of a Work Sequence Number **must** use decimal digits.

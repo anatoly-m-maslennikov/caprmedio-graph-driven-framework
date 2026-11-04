@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 32
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 ## Summary
 Define Subtree-owned Atoms
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Owned Atoms of a selected Scope Unit and its descendant Scope Units.
 
-## Claim
 
 Subtree-owned Atoms **means** the union of Owned Atoms for the selected Scope Unit **and** **every** descendant Scope Unit.

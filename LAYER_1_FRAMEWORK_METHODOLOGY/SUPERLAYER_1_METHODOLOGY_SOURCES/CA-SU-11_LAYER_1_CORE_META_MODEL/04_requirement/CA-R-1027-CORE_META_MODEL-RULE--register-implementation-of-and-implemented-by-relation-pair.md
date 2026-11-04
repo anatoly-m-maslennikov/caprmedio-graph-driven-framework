@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 28
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Register implementation_of **and** implemented_by relation pair
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the `implementation_of` **and** `implemented_by` relation pair.
 
-## Claim
 
 `implementation_of` **must** be registered as the declared upstream relation **and** `implemented_by` as its inverse-derived downstream relation **in** the realization ordering domain.

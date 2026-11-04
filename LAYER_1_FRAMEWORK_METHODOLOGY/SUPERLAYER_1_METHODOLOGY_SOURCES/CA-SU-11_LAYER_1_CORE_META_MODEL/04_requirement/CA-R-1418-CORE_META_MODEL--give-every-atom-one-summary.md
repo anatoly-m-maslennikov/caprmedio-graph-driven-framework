@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  active: CAPRMEDIO_MODEL <+ Atom.Content.Summary
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Give Every Atom One Summary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the number **and** authority of an Atom's Summary.
 
-## Claim
 
 **every** Atom **must** have **`=1`** Summary for navigation, derived from its finalized primary contribution within its applicability under CA-R-2499 **without** independent authority.

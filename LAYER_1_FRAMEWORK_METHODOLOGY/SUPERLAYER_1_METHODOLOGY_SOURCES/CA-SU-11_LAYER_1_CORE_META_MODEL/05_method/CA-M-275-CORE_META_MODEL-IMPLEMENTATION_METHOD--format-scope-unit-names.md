@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Name
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Name
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Scope Unit
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,10 +20,12 @@ form: Implementation Method
 
 Format Scope Unit Names
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Unit Names.
 
-## Claim
 
 **to** write a Scope Unit Name, join nonempty uppercase letter-or-digit word tokens with single underscores.

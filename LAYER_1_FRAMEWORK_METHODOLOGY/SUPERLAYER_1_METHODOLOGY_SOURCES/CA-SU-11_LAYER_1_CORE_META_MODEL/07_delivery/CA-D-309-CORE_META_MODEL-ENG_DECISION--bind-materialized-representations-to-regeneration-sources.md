@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier
+  active: CAPRMEDIO_MODEL <+ Carrier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Term//Artifact
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,11 +18,13 @@ form: Decision
 
 Bind Materialized Representations to Regeneration Sources
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 admitted materialized representation Carriers.
 
-## Claim
 
 **every** admitted materialized representation Carrier **must** have a recoverable binding **to** its exact canonical source Revision **and** **`=1`** deterministic regeneration **or** reconciliation rule.
 

@@ -10,11 +10,11 @@ relations:
   - CA-R-706
   - CA-R-2425
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -31,6 +31,9 @@ form: Eval Policy
 Check the selected Scope against active Project-wide invariants
 
 ## Claim
+
+### Prose Claim
+
 
 For **every** selected Scope, the complete set of active Atoms **must** align with **every** active Project-wide foundational invariant.
 

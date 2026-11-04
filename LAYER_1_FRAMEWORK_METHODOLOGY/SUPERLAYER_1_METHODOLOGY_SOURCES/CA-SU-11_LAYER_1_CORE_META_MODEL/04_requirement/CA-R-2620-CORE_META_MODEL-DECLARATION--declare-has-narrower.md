@@ -3,36 +3,27 @@ atom_id: CA-R-2620
 role: Requirement
 form: Declaration
 status: Active
-version: 1
-updated_at: 2026-11-02 08:06:47 +0400
+version: 2
+updated_at: 2026-11-03 20:00:05 +0400
 current_scope_unit: CORE_META_MODEL
 tier: 3
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//HAS_NARROWER
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_NARROWER
 relations: {}
+carrier_destination:
+  file:
+    name: CA-R-2620-CORE_META_MODEL-DECLARATION--declare-has-narrower.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
-
 ## Summary
 
 Declare HAS_NARROWER
 
 ## Claim
 
-A declared kind has a narrower kind. HAS_NARROWER is the derived inverse of NARROWER_THAN. It expresses the same fact and is not authored separately.
+### Formal Claim
 
 ```CFEL
-$broader ((HAS_NARROWER)) $narrower;
-((NARROWER_THAN)) ((HAS_INVERSE)) ((HAS_NARROWER));
-
-((HAS_NARROWER)) >| Derivation == Derived;
-((HAS_NARROWER)) ((IS_DERIVED_RELATION_OF)) ((NARROWER_THAN))
+# model
+Relation//HAS_NARROWER <((HAS_INVERSE)) Relation//NARROWER_THAN
 ```
-
-## Semantics
-
-The endpoints are declared kinds supporting narrowing; a Property does not narrow.
-
-
-Forward `Host ((HAS_NARROWER)) Target` and reverse `Target <((HAS_NARROWER)) Host` are views of the same Relation fact.
-HAS_NARROWER relates broader declared kind to narrower declared kind. It is the derived inverse of NARROWER_THAN; it does not add a separately authored fact.
-

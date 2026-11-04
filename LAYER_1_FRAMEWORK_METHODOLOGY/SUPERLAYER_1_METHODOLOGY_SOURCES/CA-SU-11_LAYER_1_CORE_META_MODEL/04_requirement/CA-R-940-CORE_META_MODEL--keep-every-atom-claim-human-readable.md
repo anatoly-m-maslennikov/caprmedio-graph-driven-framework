@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content
+  active: CAPRMEDIO_MODEL <+ Atom.Content
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Content
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -19,9 +19,11 @@ form: Rule
 ## Summary
 Keep every Atom Claim human-readable
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Atom Claims.
 
-## Claim
 
 **every** Atom Claim **must** be readable by its intended human reader.

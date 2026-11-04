@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Filename.Scope Unit Token
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
-version: 28
-updated_at: 2026-11-02 00:18:22 +0400
+  - CAPRMEDIO_MODEL <+ Scope Unit.Name
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+version: 29
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-302
 current_scope_unit: CORE_META_MODEL
@@ -18,9 +18,11 @@ form: Decision
 ## Summary
 Serialize Scope Unit References as Filename Tokens
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Scope Unit references serialized **in** Atom filenames.
 
-## Claim
 
 **every** Scope Unit reference serialized **in** an Atom filename **must** use **`=1`** stable uppercase token selected from its Scope Unit Name by Project Configuration.

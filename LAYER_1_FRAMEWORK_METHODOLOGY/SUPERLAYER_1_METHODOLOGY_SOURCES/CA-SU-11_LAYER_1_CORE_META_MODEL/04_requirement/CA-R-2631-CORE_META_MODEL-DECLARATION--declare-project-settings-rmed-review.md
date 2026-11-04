@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings.RMED Review
+  active: CAPRMEDIO_MODEL <+ Project.Settings.RMED Review
 version: 1
 relations: {}
 tier: 3
@@ -19,7 +19,12 @@ Declare Project.Settings.RMED Review
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Project.Settings.RMED Review{:0..1}: []{:0};
+
 Project.Settings.RMED Review.*[in (Context Headroom Fraction, Max Atoms)]{:0..2}
 ```
+

@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  active: CAPRMEDIO_MODEL <+ Atom.Content.Summary
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Projection
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Prohibit Authority Derivation from Summary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the relationship between an Atom's Summary and its authoritative content.
 
-## Claim
 
 an Atom's primary content block, remaining Main Content, Claim restrictions, **or** Translation **must not** be reconstructed **or** validated from its Summary. Summary is derived navigation, **not** authority for the content it abbreviates.

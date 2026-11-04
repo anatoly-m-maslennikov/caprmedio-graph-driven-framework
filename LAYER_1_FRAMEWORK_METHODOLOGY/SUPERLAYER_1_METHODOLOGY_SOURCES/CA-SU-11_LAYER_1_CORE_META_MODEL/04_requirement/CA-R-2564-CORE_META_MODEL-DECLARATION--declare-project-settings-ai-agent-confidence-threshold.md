@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings.AI Agent Confidence Threshold
+  active: CAPRMEDIO_MODEL <+ Project.Settings.AI Agent Confidence Threshold
 version: 2
 relations: {}
 tier: 3
@@ -18,7 +18,12 @@ Declare Project.Settings.AI Agent Confidence Threshold
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Project.Settings.AI Agent Confidence Threshold{:1}: [int]{:1};
+
 Project.Settings.AI Agent Confidence Threshold.*[]{:0}
 ```
+

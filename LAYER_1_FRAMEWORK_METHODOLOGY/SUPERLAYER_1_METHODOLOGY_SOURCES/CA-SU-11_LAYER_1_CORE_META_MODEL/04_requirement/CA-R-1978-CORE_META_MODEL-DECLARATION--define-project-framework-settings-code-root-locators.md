@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Code-Root Locators
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Code-Root Locators
 relations:
   child_of:
   - CA-R-1176
@@ -18,16 +18,23 @@ updated_at: 2026-11-02 08:06:47 +0400
 
 Define Project.Framework Settings.Code-Root Locators
 
-## Claim scope
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Project.Settings.Code-Root Locators{:0..1}: [string]{:1+};
+
+Project.Settings.Code-Root Locators.*[]{:0}
+```
+
+### Prose Claim
+
 
 the code-root references in the Project's Framework Settings.
 
-## Claim
 
-```CFEL
-Project.Settings.Code-Root Locators{:0..1}: [string]{:1+};
-Project.Settings.Code-Root Locators.*[]{:0}
-```
 
 ## Details
 

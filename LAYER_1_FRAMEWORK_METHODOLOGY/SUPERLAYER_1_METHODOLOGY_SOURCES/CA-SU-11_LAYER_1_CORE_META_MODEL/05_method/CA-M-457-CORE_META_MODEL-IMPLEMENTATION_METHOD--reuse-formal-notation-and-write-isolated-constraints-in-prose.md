@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
 version: 2
 relations: {}
 tier: 3
@@ -17,6 +17,9 @@ form: Implementation Method
 Reuse formal notation and write isolated constraints in prose
 
 ## Claim
+
+### Prose Claim
+
 
 - Use admitted CFEL when it expresses the constraint.
 - Use short Claim prose only when CFEL cannot express the constraint without a single-use extension.

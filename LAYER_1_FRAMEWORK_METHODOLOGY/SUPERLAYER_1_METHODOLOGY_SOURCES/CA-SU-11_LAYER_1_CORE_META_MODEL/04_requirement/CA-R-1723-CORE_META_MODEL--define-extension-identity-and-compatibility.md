@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -17,9 +17,11 @@ form: Rule
 ## Summary
 Define Extension identity and compatibility
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 Extensions **and** their identity, version, extension-point, compatibility, **and** canonical capability declarations.
 
-## Claim
 
 **every** Extension declares stable identity, version boundary, explicit extension points, compatibility obligations, **and** the canonical capabilities it adds **or** specializes **without** copying **or** redefining canonical authority.

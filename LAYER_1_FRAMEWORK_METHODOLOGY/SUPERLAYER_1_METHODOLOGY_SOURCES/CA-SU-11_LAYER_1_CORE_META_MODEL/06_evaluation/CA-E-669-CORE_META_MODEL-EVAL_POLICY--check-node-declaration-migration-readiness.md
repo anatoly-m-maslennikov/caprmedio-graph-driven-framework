@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Node
+  active: CAPRMEDIO_MODEL <+ Node
 version: 4
 updated_at: 2026-11-02 17:54:42 +0400
 relations: {}
@@ -17,6 +17,9 @@ form: Eval Policy
 Check Node Declaration migration readiness
 
 ## Claim
+
+### Prose Claim
+
 
 A migration packet passes only when its selected Node inventory, predecessor dispositions, governing sources and consumer changes are explicit and independently reviewed. Reject incomplete or contradictory coverage; a prepared Draft is not an adopted Declaration.
 

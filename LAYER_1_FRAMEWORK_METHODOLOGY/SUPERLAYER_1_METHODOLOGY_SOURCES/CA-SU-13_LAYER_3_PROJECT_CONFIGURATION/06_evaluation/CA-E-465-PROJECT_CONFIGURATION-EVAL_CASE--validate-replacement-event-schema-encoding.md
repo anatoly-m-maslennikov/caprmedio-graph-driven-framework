@@ -1,13 +1,13 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/File.Main Content
+  active: CAPRMEDIO_MODEL <+ Carrier/File
   passive:
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Journal
-  - CAPRMEDIO <+ MODEL <+ Event Record
-  - CAPRMEDIO <+ MODEL <+ Atom.ID
-version: 26
-updated_at: 2026-11-02 19:44:26 +0400
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Journal
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+version: 27
+updated_at: 2026-11-03 23:25:51 +0400
 relations:
   evaluation_for:
   - CA-D-435
@@ -24,11 +24,13 @@ form: Eval Case
 
 Validate replacement Event schema encoding
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Main Content of the selected schema-version `3` replacement Journal Event Carrier.
 
-## Claim
 
 the Main Content of the selected schema-version `3` replacement Journal Event Carrier **must** support evaluation of CA-D-435-PROJECT_CONFIGURATION-DELIVERY--serialize-atom-replacement-event-references without treating Project conformance as storage integrity.
 

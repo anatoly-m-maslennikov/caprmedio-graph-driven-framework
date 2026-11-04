@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//INSTALLED_EXTENSIONS
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//INSTALLED_EXTENSIONS
+  - CAPRMEDIO_MODEL <+ Term//Artifact
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Require Immutable Installed Extension Candidate Provenance
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Installed Extensions Catalog Entries and immutable Extension Candidates.
 
-## Claim
 
 **every** Installed Extensions Catalog Entry **must** identify **`=1`** immutable Extension Candidate by stable Identity, Version, Author, Source, Source Version, Origin, **and** Content Digest.

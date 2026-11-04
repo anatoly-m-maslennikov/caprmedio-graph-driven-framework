@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ UX <+ Entry
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ UX <+ Entry
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
 version: 24
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Restrict General System Prompt Loading to Main Skill
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO General System Prompt loading.
 
-## Claim
 
 **only** the CAPRMEDIO Main Skill **may** load the CAPRMEDIO General System Prompt.

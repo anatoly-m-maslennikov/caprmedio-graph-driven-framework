@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection.Source.Atoms
+  active: CAPRMEDIO_MODEL <+ Projection.Source.Atoms
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,9 +18,17 @@ Declare Projection.Source.Atoms
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 Projection.Source.Atoms{:0..1}: [string]{:0+};
+
 Projection.Source.Atoms.*[]{:0}
 ```
+
+### Prose Claim
+
+
 
 Each value is an Atom ID with an explicit Version.

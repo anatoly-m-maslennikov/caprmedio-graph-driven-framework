@@ -4,10 +4,10 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Concern.Status'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Header.Status'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Concern)
-  - CAPRMEDIO <+ MODEL <+ Atom.Status
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Status
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Register Core Concern Status Values
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Core Concern Status model.
 
-## Claim
 
-the Core Concern Status model **must** inherit the allowed values of Atom.Status and add (Resolved, Canceled).
+the Core Concern Status model **must** inherit the allowed values of Atom.Header.Status and add (Resolved, Canceled).

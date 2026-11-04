@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit
+  active: CAPRMEDIO_MODEL <+ Scope Unit
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Require one parent Scope Unit
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Scope Units other than a Scope Unit root.
 
-## Claim
 
 **every** Scope Unit except a Scope Unit root **must** have **`=1`** direct parent Scope Unit.

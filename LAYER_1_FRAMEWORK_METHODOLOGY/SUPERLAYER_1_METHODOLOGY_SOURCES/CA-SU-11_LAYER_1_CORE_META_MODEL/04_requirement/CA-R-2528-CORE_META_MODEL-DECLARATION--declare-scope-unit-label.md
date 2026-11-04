@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Label
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Label
+version: 3
+updated_at: 2026-11-04 05:21:15 +0400
 relations: {}
 tier: 3
 role: Requirement
@@ -19,7 +19,12 @@ Declare Scope Unit Label
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
-Scope Unit.Label{:0..1}: [string]{:1};
+# model
+Scope Unit.Label: [string]{:0..1};
+
 Scope Unit.Label.*[]{:0}
 ```
+

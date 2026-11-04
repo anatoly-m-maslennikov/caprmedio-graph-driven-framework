@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier.Canonical Address.Segment
-version: 29
-updated_at: 2026-11-02 19:44:26 +0400
+  active: CAPRMEDIO_MODEL <+ Carrier
+version: 30
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 atom_id: CA-D-301
 current_scope_unit: CORE_META_MODEL
@@ -16,11 +16,13 @@ form: Decision
 
 Require Portable-Safe Carrier Addresses
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project-owned Carrier address segments.
 
-## Claim
 
 **every** Project-owned Carrier address segment
 

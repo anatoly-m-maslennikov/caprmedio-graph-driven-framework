@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO <+ MODEL <+ Carrier/Directory
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 29
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -19,11 +19,13 @@ form: Decision
 
 Prohibit Persisting Derived Containment
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 `CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting.
 
-## Claim
 
 `CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting **must not** be persisted as independent relation declarations.
 

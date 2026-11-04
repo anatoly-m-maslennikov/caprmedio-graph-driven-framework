@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Node/Continuant
+  - CAPRMEDIO_MODEL <+ Node/Continuant
 relations: {}
 version: 15
 updated_at: 2026-11-02 00:18:22 +0400
@@ -18,11 +18,13 @@ form: Rule
 
 Define Entity/Node
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Nodes in the Subject graph.
 
-## Claim
 
 
 An Entity used as a Subject-graph node must identify a thing or topic addressed by the graph; its description and Carrier remain separate.

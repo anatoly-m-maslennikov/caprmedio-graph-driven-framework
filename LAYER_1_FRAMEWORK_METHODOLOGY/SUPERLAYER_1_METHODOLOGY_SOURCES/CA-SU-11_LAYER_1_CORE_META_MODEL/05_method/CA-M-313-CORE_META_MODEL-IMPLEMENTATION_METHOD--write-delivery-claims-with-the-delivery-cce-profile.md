@@ -1,12 +1,12 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Delivery).Content.Claim'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Delivery).Content.Claim'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
-  - CAPRMEDIO <+ MODEL <+ Carrier
-  - CAPRMEDIO <+ MODEL <+ Atom.Subjects
-  - CAPRMEDIO <+ MODEL <+ Term
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Term
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -24,11 +24,13 @@ form: Implementation Method
 
 Write Delivery Claims with the Delivery CCE Profile
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoring Delivery Substance with the applicable Delivery CCE Role Profile.
 
-## Claim
 
 a Delivery Substance **must** use the applicable Delivery CCE Role Profile with these authoring conventions:
 

@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: Project.Settings.Authority Modes
-  depends_on:
-  - Project.Settings
-  - Project
-  - Scope Unit
-  - Atom
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes
+  passive:
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Scope Unit/Project
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom
 version: 27
 updated_at: 2026-11-02 20:07:03 +0400
 relations: {}

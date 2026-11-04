@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Scope Unit Graph)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Scope Unit Graph)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  - CAPRMEDIO <+ MODEL <+ Project.Settings
-  - CAPRMEDIO <+ MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Carrier
 version: 35
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -21,10 +21,12 @@ form: Decision
 
 Serialize Scope Unit Graph Projection Generation Metadata
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 a retained Project Scope Unit Graph Projection for compatibility.
 
-## Claim
 
 **if** a Project Scope Unit Graph Projection is retained for compatibility, its Carrier **must** serialize Updated At, generator identity **and** digest, exact consumed Project Structure **and** Settings source states, **and** the source bindings **and** distinct Directory Carrier observations needed **to** explain emitted values **and** unresolved findings. this compatibility format does **not** require production **or** refresh of a separate structural Projection.

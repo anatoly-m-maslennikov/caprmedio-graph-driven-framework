@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery.Status'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery).Header.Status'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,10 +18,12 @@ form: Rule
 
 Register Core Delivery Status Values
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Core Delivery Status model.
 
-## Claim
 
 the Core allowed values of Delivery Status **must** be exactly (Draft, Active, Archived).

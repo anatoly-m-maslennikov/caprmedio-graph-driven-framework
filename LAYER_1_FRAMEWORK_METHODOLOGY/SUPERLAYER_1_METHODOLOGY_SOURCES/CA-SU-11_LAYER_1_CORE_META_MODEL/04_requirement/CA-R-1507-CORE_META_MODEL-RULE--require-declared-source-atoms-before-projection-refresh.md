@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection
+  active: CAPRMEDIO_MODEL <+ Projection
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom
 version: 19
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,10 +20,12 @@ form: Rule
 
 Require declared source Atoms before Projection refresh
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Projection refreshes with declared source Atoms.
 
-## Claim
 
 a Projection **may** refresh **only** **after** **every** declared source Atom exists.

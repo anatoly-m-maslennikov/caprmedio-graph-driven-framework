@@ -1,11 +1,11 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Property
+  active: CAPRMEDIO_MODEL <+ Entity/Property
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Term//Property
-  - CAPRMEDIO <+ MODEL <+ CFEL
-  - CAPRMEDIO <+ MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ CFEL
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -21,12 +21,14 @@ form: Rule
 
 Identify Dependent-Entity Occurrences by Complete Subject Path
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 `Entity/Property` occurrences, their immediate bearers, and their
 complete Subject Paths.
 
-## Claim
 
 **every** `Entity/Property` occurrence **must** derive its
 source-admitted bearer-qualified identity from its complete Subject Path

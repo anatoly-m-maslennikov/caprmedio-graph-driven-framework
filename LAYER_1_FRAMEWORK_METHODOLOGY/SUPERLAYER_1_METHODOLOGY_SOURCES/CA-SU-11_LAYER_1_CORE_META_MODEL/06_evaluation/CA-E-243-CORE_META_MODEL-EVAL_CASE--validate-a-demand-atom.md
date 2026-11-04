@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Demand'
+  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)'
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.number
+  - CAPRMEDIO_MODEL <+ Scope Unit.order.number
 version: 39
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -26,11 +26,13 @@ form: Eval Case
 
 Validate a Demand Atom
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Demand Atoms and their Consumer-owned Producer-result constraints.
 
-## Claim
 
 a Demand is owned by its Consumer **and** constrains **only** one Producer result authorized by the Consumer's accepted Goal.
 

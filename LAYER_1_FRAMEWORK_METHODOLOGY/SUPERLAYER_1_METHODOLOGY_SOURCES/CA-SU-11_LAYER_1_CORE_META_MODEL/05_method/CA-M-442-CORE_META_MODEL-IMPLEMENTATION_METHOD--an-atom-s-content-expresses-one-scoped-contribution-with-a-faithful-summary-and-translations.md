@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom.Content
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO <+ MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
 version: 5
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -23,11 +23,13 @@ form: Implementation Method
 
 An Atom's content expresses one scoped contribution with a faithful Summary and Translations.
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoring an Atom's prose CCE primary contribution, its applicability, **and** its derived Summary. The same Claim may contain readable prose and an optional R-only nested Formal claim under the Claim definition.
 
-## Claim
 
 **to** author one CCE Claim **and** its derived Summary, an Author **must** use these authoring constraints:
 

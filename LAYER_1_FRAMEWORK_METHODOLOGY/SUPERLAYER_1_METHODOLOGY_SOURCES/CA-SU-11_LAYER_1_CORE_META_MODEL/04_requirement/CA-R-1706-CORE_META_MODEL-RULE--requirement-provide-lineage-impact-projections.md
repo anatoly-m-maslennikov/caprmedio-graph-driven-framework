@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection
+  active: CAPRMEDIO_MODEL <+ Projection
 version: 31
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -19,11 +19,13 @@ form: Rule
 
 Requirement — Provide lineage-impact Projections
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 lineage-impact Projections for changed, replaced, or archived Atom revisions.
 
-## Claim
 
 CAPRMEDIO provides a non-authoritative lineage-impact Projection whenever an upstream Atom revision is changed, replaced, **or** archived. the Projection derives the reachable descendant set **without** modifying **or** retargeting **any** persisted relation.
 

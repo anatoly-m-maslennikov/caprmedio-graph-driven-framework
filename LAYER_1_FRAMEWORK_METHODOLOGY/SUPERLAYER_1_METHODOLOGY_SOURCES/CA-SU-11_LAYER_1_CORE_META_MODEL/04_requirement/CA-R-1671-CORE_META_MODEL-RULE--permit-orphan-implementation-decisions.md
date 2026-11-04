@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
 version: 28
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -19,11 +19,13 @@ form: Rule
 
 Permit orphan Implementation Decisions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 orphan permission for an active Eng Decision in strict authority mode.
 
-## Claim
 
 `eng_decision` **must** be registered as orphan-permitted, so an active Eng Decision **may** have no parent Eng Policy even **in** strict authority mode.
 

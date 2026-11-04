@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Record Lineage Impact disposition context
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Lineage Impact dispositions.
 
-## Claim
 
 **every** Lineage Impact disposition **must** preserve the examined parent Revision, the examined child Revision, the selected disposition, **and** **any** resulting child Revision **or** blocking Concern Atom.

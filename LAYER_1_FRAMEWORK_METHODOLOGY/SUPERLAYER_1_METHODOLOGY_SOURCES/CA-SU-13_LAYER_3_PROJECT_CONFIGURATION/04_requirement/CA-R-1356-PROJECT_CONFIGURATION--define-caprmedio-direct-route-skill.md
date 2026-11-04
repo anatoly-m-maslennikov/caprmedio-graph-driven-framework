@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering
 version: 26
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Define CAPRMEDIO Direct Route Skill
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 CAPRMEDIO Direct Route Skills.
 
-## Claim
 
 A CAPRMEDIO Direct Route Skill **must** be an Operator-defined Skill bound **to** **`=1`** branch **or** leaf registered **in** the CAPRMEDIO Routing Tree **and** **must** invoke **only** that bound target.

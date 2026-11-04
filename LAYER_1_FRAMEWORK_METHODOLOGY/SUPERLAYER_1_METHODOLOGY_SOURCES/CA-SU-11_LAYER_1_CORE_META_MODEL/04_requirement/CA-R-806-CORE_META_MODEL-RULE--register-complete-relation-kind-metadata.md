@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL <+ Relation
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom
 version: 42
 updated_at: 2026-11-02 08:06:47 +0400
 relations: {}
@@ -20,11 +20,13 @@ form: Rule
 
 Register Complete Relation Kind Metadata
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 admitted Relation Types and their defining source Claims.
 
-## Claim
 
 The canonical name and meaning of each Relation Type **are** defined in its governing R Claim(s). A governing Claim **may** state a relevant inverse, derivation, or transitivity rule; no such optional property is required when it is not relevant.
 

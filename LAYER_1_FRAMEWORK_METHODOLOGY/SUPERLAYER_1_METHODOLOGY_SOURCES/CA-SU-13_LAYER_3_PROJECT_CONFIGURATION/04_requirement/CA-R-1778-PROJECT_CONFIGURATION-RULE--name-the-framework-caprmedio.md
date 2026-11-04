@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Product
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 version: 30
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -18,10 +18,12 @@ form: Rule
 
 Name the Framework CAPRMEDIO
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Framework name.
 
-## Claim
 
 the Framework name **must** be `CAPRMEDIO`.

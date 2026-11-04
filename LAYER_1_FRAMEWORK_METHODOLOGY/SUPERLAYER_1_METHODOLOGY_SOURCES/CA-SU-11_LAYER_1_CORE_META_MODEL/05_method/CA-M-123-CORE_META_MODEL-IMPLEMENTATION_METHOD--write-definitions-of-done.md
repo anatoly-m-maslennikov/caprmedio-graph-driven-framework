@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Plan)
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -23,11 +23,13 @@ form: Implementation Method
 
 Write Definitions of Done
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 authoring one Definition of Done.
 
-## Claim
 
 **to** write one Definition of Done, the Author **must** perform **all** of:
 

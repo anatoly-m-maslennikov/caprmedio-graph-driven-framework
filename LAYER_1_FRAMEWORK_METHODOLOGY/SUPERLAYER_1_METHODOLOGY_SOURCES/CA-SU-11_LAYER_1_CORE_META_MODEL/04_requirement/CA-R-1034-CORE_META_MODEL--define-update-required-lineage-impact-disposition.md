@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ CFEL > Relation
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,11 +18,13 @@ form: Rule
 
 Define update_required Lineage Impact disposition
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 `update_required` Lineage Impact dispositions.
 
-## Claim
 
 
 When a Lineage Impact analysis addresses an Atom, `update_required` must mean the child requires a new Revision against the new parent Revision before traversal continues.

@@ -3,17 +3,17 @@ atom_id: CA-D-667
 role: Delivery
 form: Policy
 status: Active
-version: 1
-updated_at: 2026-11-02 19:17:40 +0400
+version: 2
+updated_at: 2026-11-03 23:25:51 +0400
 tier: 1
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Carrier/Directory.Name
+  active: CAPRMEDIO_MODEL <+ Carrier/Directory
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.ID
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.Name
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.Label
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.ordered
-  - CAPRMEDIO <+ MODEL <+ Scope Unit.order.number
+  - CAPRMEDIO_MODEL <+ Scope Unit.ID
+  - CAPRMEDIO_MODEL <+ Scope Unit.Name
+  - CAPRMEDIO_MODEL <+ Scope Unit.Label
+  - CAPRMEDIO_MODEL <+ Scope Unit.order.ordered
+  - CAPRMEDIO_MODEL <+ Scope Unit.order.number
 relations: {}
 ---
 ## Summary
@@ -21,6 +21,9 @@ relations: {}
 Derive Authority and Delivery Folder Names
 
 ## Claim
+
+### Prose Claim
+
 
 The Project Authority Folder is `.caprmedio_<project name>`, without a Scope Unit ID.
 

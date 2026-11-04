@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity
+  active: CAPRMEDIO_MODEL <+ Entity
   passive:
-  - CAPRMEDIO <+ MODEL <+ Entity
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
 version: 34
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,10 +21,12 @@ form: Rule
 
 Keep Classification Axes Distinct without Multiplying Types
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Artifact Type, Atom Content Role, and Governance Origin classification.
 
-## Claim
 
 Artifact Type, Atom Content Role, **and** Governance Origin **must** remain distinct classification axes **without** requiring an Artifact **or** a new Type for **every** possible combination; the Content Role axis applies **to** Atoms **only**.

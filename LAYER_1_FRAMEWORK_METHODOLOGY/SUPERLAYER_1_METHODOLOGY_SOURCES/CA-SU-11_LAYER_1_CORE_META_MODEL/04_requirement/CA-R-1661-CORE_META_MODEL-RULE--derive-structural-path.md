@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Scope Unit.Path
+  active: CAPRMEDIO_MODEL <+ Scope Unit.Path
   passive:
-  - CAPRMEDIO <+ MODEL <+ Scope Unit
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children
 version: 32
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -22,11 +22,13 @@ form: Rule
 
 Derive Structural Path
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Structural Paths derived from active Scope Unit identities and their declared Structural Parent Relations.
 
-## Claim
 
 **every** Structural Path **must** be derived from active Scope Unit identities **and** their declared Structural Parent Relations.
 

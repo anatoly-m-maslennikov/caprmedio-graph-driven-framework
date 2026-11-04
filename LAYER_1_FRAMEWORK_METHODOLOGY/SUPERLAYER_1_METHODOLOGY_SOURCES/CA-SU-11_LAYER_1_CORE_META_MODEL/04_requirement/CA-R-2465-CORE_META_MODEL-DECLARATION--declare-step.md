@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom/(.Role := Operations)/Step
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
 version: 4
 updated_at: 2026-11-02 17:54:42 +0400
 relations: {}
@@ -19,12 +19,22 @@ Declare Step
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
-Atom/(.Role: Operations)/Step;
-Step//{:1}((IS_CONTAINED_BY)) Workflow//;
-IF Step// {=0}((RUNS)) THEN Step// {:1+}((CONTAINS)) Substep//;
-IF Step// {>0}((RUNS)) THEN Step// {:0}((CONTAINS));
-IF Step// {=0}((CONTAINS)) THEN Step// {:1}((RUNS)) (in (Action, Workflow))//
+# model
+Atom/(.Header.Role: Operations)/Step;
+
+# instances
+Step//$step;
+
+$step{:1}((IS_CONTAINED_BY)) Workflow//$workflow;
+
+IF $step {=0}((RUNS)) THEN $step {:1+}((CONTAINS)) Substep//$substep;
+
+IF $step {>0}((RUNS)) THEN $step {:0}((CONTAINS));
+
+IF $step {=0}((CONTAINS)) THEN $step {:1}((RUNS)) (in (Action, Workflow))//$selected
 ```
 
 ## Semantics

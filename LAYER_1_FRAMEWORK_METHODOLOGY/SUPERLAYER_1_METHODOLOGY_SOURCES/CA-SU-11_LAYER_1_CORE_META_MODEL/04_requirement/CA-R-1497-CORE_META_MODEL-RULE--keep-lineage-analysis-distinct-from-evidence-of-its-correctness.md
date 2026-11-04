@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := "Analysis & Advisory")
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/History/Journal > Event Record
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
+  - CAPRMEDIO_MODEL <+ Event Record
 version: 24
 updated_at: 2026-11-02 15:49:28 +0400
 relations: {}
@@ -19,10 +19,12 @@ form: Rule
 
 Keep lineage analysis distinct from evidence of its correctness
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Lineage Impact Analysis Atoms and factual Journal Records carrying execution evidence.
 
-## Claim
 
 a Lineage Impact Analysis Atom **must not** serve as execution evidence of its own correctness. Analysis **and** the factual Journal Records carrying execution evidence remain distinct contributions under CA-R-1683 **and** CA-R-1684.

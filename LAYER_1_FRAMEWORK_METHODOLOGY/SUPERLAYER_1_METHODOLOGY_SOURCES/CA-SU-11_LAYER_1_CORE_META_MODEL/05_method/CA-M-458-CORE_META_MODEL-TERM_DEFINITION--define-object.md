@@ -4,9 +4,9 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Node
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+  active: CAPRMEDIO_MODEL <+ Term//Object
+version: 3
+updated_at: 2026-11-03 23:25:51 +0400
 relations: {}
 tier: 3
 role: Method
@@ -18,4 +18,7 @@ Define Object
 
 ## Claim
 
-Object means a Node instance.
+### Prose Claim
+
+
+Object means an instance of any model Entity.

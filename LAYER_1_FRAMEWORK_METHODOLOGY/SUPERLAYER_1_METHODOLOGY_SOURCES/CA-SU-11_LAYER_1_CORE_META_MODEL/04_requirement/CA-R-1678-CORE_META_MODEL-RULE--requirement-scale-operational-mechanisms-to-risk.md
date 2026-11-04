@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control
 version: 31
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -18,10 +18,12 @@ form: Rule
 
 Requirement — Scale operational mechanisms to risk
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 operational mechanisms within CAPRMEDIO.
 
-## Claim
 
 CAPRMEDIO **must** require operational mechanisms **to** be proportional **to** explicit failure risk **and** a declared authoritative-state boundary. CAPRMEDIO **must not** mandate one recovery **or** durability mechanism for **every** Project.

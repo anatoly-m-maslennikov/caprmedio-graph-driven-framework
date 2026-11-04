@@ -1,9 +1,9 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Atom
+  active: CAPRMEDIO_MODEL <+ Atom
   passive:
-  - CAPRMEDIO <+ MODEL <+ Term//Artifact
-  - CAPRMEDIO <+ MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Term//Artifact
+  - CAPRMEDIO_MODEL <+ Entity
 version: 21
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -21,11 +21,13 @@ form: Rule
 
 Define Artifact Currentness
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the exact applicable Artifact Revision in a declared context.
 
-## Claim
 
 
 For an Atom as a governed Artifact, Currentness must mean which exact applicable Artifact Revision is presently effective in the declared context.

@@ -1,10 +1,10 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Projection/Type: Canonical Scope Signature'
-  - CAPRMEDIO <+ MODEL <+ Carrier/File
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Canonical Scope Signature'
+  - CAPRMEDIO_MODEL <+ Carrier/File
 version: 30
 updated_at: 2026-11-02 18:35:20 +0400
 relations:
@@ -23,11 +23,13 @@ form: Eval Policy
 
 Validate Canonical Scope Signature Boundary
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Canonical Scope Signature derivations.
 
-## Claim
 
 the Evaluation **must** reject a Canonical Scope Signature derivation **if** **any** of the following holds:
 

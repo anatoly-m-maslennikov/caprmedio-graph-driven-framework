@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   passive:
-  - 'CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Governing Objects/Atom/Content Role: Plan/Type: Plan'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
 version: 33
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,11 +18,13 @@ form: Rule
 
 Define Autonomous Confidence Threshold
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Autonomous Confidence Threshold.
 
-## Claim
 
 
 An AI Agent may continue Plan work autonomously only when the applicable Decision Confidence reaches the Autonomous Confidence Threshold.

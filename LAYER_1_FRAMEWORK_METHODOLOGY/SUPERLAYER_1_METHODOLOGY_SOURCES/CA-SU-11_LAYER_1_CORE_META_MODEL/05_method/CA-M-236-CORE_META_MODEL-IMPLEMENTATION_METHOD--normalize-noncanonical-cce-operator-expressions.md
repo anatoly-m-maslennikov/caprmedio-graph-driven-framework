@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   passive:
-  - CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 24
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -18,11 +18,13 @@ form: Implementation Method
 
 Normalize Noncanonical CCE Operator Expressions
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 noncanonical CCE Operator Expressions.
 
-## Claim
 
 **to** normalize one noncanonical CCE Operator Expression, the Author **must** apply **all** applicable rewrites:
 

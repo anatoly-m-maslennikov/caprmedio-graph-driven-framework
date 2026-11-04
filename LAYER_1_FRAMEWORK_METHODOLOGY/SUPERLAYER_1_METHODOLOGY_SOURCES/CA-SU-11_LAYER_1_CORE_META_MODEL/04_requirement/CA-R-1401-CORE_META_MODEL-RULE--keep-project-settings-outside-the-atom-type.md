@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings
+  active: CAPRMEDIO_MODEL <+ Project.Settings
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,10 +20,12 @@ form: Rule
 
 Keep Project Settings Outside the Atom Type
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Project Settings Artifact.
 
-## Claim
 
 the Project Settings Artifact **must not** be an Atom.

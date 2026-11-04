@@ -6,12 +6,12 @@ status: Active
 version: 24
 updated_at: 2026-11-02 00:18:22 +0400
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   passive:
-  - CAPRMEDIO <+ MODEL <+ Atom
-  - CAPRMEDIO <+ MODEL <+ Atom/(.Role := Evaluation)
-  - CAPRMEDIO <+ MODEL <+ Carrier/File
-  - CAPRMEDIO <+ MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Carrier/File
+  - CAPRMEDIO_MODEL <+ Projection
 relations: {}
 tier: 3
 role: Delivery
@@ -21,11 +21,13 @@ form: Decision
 
 Store one review report per source Atom
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 temporary evidence Carriers of a local RMED Atom review Run.
 
-## Claim
 
 the Run **must** store its temporary evidence under **`=1`** caller-admitted directory using this layout:
 

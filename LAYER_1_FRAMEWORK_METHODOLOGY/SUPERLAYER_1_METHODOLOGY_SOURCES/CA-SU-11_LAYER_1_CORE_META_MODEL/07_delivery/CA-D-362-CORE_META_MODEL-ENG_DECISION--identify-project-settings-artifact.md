@@ -1,8 +1,8 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Identifier
+  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Identifier
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Project.Settings
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
 relations:
@@ -20,10 +20,12 @@ form: Decision
 
 Identify Project Settings Artifact
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 Project Settings for a Project named `<project_name>`.
 
-## Claim
 
 the Identifier of Project Settings for a Project named `<project_name>` **must** be `caprmedio_<project_name>_settings`.

@@ -7,12 +7,12 @@ tier: 7
 version: 4
 updated_at: 2026-11-02 19:46:47 +0400
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Project.Settings.Prefix
+  active: CAPRMEDIO_MODEL <+ Project.Settings.Prefix
   passive:
-  - CAPRMEDIO <+ MODEL <+ Project.Settings
-  - CAPRMEDIO <+ MODEL <+ Project
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO <+ MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom
 relations:
   child_of:
   - CA-D-366
@@ -23,11 +23,13 @@ form: Decision
 
 Serialize Project Prefix
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the Operator-selected Project Prefix in the Project Settings TOML Carrier.
 
-## Claim
 
 the Project Settings TOML Carrier **must** encode the Operator-selected Project Prefix as its exact nonempty uppercase TOML string value under CA-D-378 **in** `artifacts.identity.project_prefix` **before** the first Project Atom is created.
 

@@ -4,7 +4,7 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ CFEL
+  active: CAPRMEDIO_MODEL <+ CFEL
 version: 2
 updated_at: 2026-11-02 00:18:22 +0400
 relations: {}
@@ -18,9 +18,16 @@ Resolve a fallback when an optional Property is omitted
 
 ## Claim
 
+### Formal Claim
+
 ```CFEL
+# model
 p ?= expression
 ```
+
+### Prose Claim
+
+
 
 - `p ?= e1 ?= e2` is one ordered fallback chain. Use p when authored; otherwise use the first available valid expression from left to right. An authored invalid value is an error, not absence. Omission is Property absence, not null, an empty string, zero or false.
 
@@ -38,5 +45,6 @@ p ?= expression
 ## Details
 
 ```CFEL
-Atom.Label ?= Atom.Form
+# model
+Atom.Header.Label ?= Atom.Header.Form
 ```

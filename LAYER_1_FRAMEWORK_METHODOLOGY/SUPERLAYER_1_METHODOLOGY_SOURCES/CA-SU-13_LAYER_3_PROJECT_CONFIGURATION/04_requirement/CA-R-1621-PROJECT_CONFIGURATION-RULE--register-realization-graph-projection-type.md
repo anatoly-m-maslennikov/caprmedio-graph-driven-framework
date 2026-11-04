@@ -4,12 +4,12 @@ current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 subjects:
-  active: CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Realization Graph)
+  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)
   passive:
-  - CAPRMEDIO <+ MODEL <+ Projection/(.Form:=Realization Graph)
-  - CAPRMEDIO <+ STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
-  - CAPRMEDIO <+ MODEL <+ Projection
-  - CAPRMEDIO <+ MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)
+  - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  - CAPRMEDIO_MODEL <+ Projection
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
 version: 19
 updated_at: 2026-11-02 08:06:47 +0400
 relations:
@@ -25,11 +25,13 @@ form: Rule
 
 Register Realization Graph Projection Type
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 the caprmedio Project Configuration registration of the `realization_graph` Projection Type.
 
-## Claim
 
 the caprmedio Project Configuration **must** register `realization_graph` as a specialized non-authoritative Projection Type for understanding existing Implementation **and** supporting reverse engineering into proposed RMED.
 

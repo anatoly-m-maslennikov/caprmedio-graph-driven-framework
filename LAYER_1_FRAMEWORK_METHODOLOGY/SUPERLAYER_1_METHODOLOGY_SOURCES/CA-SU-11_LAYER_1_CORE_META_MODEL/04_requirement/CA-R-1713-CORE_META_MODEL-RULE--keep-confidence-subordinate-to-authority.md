@@ -1,6 +1,6 @@
 ---
 subjects:
-  active: CAPRMEDIO <+ STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
 relations: {}
@@ -16,10 +16,12 @@ form: Rule
 
 Keep confidence subordinate to authority
 
-## Claim scope
+## Claim
+
+### Prose Claim
+
 
 execution confidence and Operator authority.
 
-## Claim
 
 Execution confidence **must** never create, extend, **or** replace operator authority.
