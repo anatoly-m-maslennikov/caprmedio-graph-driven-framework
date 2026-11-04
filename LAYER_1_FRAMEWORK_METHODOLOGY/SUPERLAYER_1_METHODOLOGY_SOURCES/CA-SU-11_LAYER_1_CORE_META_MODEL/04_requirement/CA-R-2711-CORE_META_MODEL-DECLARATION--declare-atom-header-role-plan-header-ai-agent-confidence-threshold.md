@@ -1,14 +1,14 @@
 ---
 atom_id: CA-R-2711
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold
-version: 2
-relations: {}
+version: 6
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 tier: 3
-updated_at: 2026-11-04 05:21:15 +0400
+updated_at: 2026-11-04 21:11:03 +0400
 role: Requirement
 form: Declaration
 carrier_destination:
@@ -26,12 +26,15 @@ Declare Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold
 
 ```CFEL
 # model
-Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold: [int]{:0..1};
+Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold: [int, 0..100]{:0..1};
 
 Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{:0};
 
 # instances
-Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold
-  ?= LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)
-  ?= Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold
+Atom/(.Header.Role: Plan)//$plan;
+Scope Unit/Project//$project{:1};
+
+$plan.Header.AI Agent Confidence Threshold
+  ?== LOOKUP(Relation//IS_CONTAINED_BY, Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold)
+  ?== $project.Settings.AI Agent Confidence Threshold
 ```
