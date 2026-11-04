@@ -75,7 +75,9 @@ class GraphRuleAdmissionTests(unittest.TestCase):
         self.fixture = fixtures.ProposedCarrierAdmissionRegressions()
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
-        self.selection = self.fixture.project(source_ids=(*SOURCE_IDS, "CA-R-1309"))
+        self.selection = self.fixture.project(
+            source_ids=(*SOURCE_IDS, "CA-R-1309"), encoding_profile="legacy",
+        )
         self.context = proposed_carrier.source_context_from_project(self.selection.root)
         self.rule_inputs = proposed_carrier._type_inputs(
             self.context, self.graph_rule_metadata()
@@ -249,7 +251,7 @@ class GraphRuleAdmissionTests(unittest.TestCase):
         fixture = fixtures.ProposedCarrierAdmissionRegressions()
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
-        selection = fixture.project()
+        selection = fixture.project(encoding_profile="legacy")
         context = proposed_carrier.source_context_from_project(selection.root)
         selected = {row["binding"]["atom_id"] for row in context.inputs["sources"]}
         self.assertTrue(set(SOURCE_IDS).isdisjoint(selected))

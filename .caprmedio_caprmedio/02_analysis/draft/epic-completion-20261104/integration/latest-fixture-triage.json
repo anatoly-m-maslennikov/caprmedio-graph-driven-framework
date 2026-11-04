@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "kind": "stable_gate_fixture_triage",
+  "status": "read_only_diagnostic",
+  "observed_at": "2026-11-04",
+  "evidence": {
+    "handoff": ".caprmedio_tmp/workbench/stable-gate-handoff-20261104.md",
+    "historical_full_suite_log": ".caprmedio_tmp/workbench/full-suite-20261104.log",
+    "historical_full_suite": {
+      "modules": 499,
+      "tests": 4117,
+      "skipped": 0,
+      "failed_modules": 33
+    },
+    "reported_remaining_after_separate_rechecks": 29,
+    "rechecked_not_a_current_blocker": [
+      "APP_WORKFLOW_ORCHESTRATOR synthetic O104 fixture tests",
+      "FEATURE_MCP advertisement regression tests",
+      "project launcher fresh-image tests",
+      "connector_atom_receiver direct suite (32 passed)"
+    ],
+    "strict_current_rejection_occurrences_in_historical_log": 278
+  },
+  "authoritative_current_d657": {
+    "registry_version": 4,
+    "registry_sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f",
+    "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+    "contract_markers": [
+      "role and form replace content_role and type as canonical fields",
+      "no Atom author field",
+      "Claim has Formal Claim and/or Prose Claim children",
+      "ai_agent_confidence_threshold is the explicit Plan Header field"
+    ]
+  },
+  "root_cause": {
+    "classification": "shared_test_authority_fixture_drift",
+    "production_change_needed": false,
+    "details": [
+      {
+        "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/fixtures/current_encoding_authority.json",
+        "observed_fixture_version": 1,
+        "declared_sha256": "34d889b05d5a0167960c9c63d435f3ba7f6595f2629eeb210a6051eb32539ad8",
+        "mismatch": "It preserves historical content_role/type/author encoding and the former direct Claim; it is not the adopted v4 source pin."
+      },
+      {
+        "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/fixtures/current_encoding_d657_proposed.md",
+        "observed_fixture_version": 3,
+        "sha256": "5467e27fe9a0b63a8201087400d00ce4234f8d3fac76db883cd0f4317e20346b",
+        "mismatch": "It predates v4 and lacks the now-explicit ai_agent_confidence_threshold encoding sentence."
+      },
+      {
+        "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_carrier_admission_regressions.py",
+        "mismatch": "project() materializes _REGISTRY_IDS plus _LEGACY_REGISTRY_IDS by default. That supplies D276/D274/D482 but neither exact D657 bytes nor a D657 registry entry, so Current-first admission either falls back to the historical profile or becomes ambiguous if D657 is added naively."
+      }
+    ],
+    "why_not_production": "proposed_carrier._encoding_source already correctly selects D657 when present, rejects simultaneous D657 and D276, and only reads D276 for an explicitly historical fixture Project. Weakening that rule or making a live Current carrier fall back to D276 would hide the fixture defect."
+  },
+  "small_bounded_repair_groups": [
+    {
+      "id": "F1-current-d657-fixture-and-default-closure",
+      "state": "ready_after_write_freeze_lifts",
+      "edit_scope": [
+        "VALIDATE_ATOMS/tests/fixtures/current_encoding_authority.json",
+        "VALIDATE_ATOMS/tests/fixtures/current_encoding_d657_proposed.md",
+        "VALIDATE_ATOMS/tests/test_proposed_carrier_admission_regressions.py",
+        "VALIDATE_ATOMS/tests/test_current_frontmatter_encoding.py only if its expected source pin is asserted"
+      ],
+      "repair": [
+        "Regenerate both fixture payloads from the admitted v4 source bytes and pin 6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f.",
+        "Give project() an explicit encoding_profile. Its default current profile materializes the reviewed D657 fixture and every non-D276 current dependency, and does not materialize D276/D274/D482.",
+        "Keep a separately requested legacy profile for tests that intentionally exercise D276; it must not materialize D657 or newer Current-only carrier forms.",
+        "Make selected_entry resolve D657 from the reviewed fixture/registry row rather than the frozen historical corpus, which has no D657 entry."
+      ],
+      "direct_consumers_of_the_helper": [
+        "VALIDATE_ATOMS/tests/test_current_plan_placement_authority.py",
+        "VALIDATE_ATOMS/tests/test_current_rule_sources.py",
+        "VALIDATE_ATOMS/tests/test_current_type_admission.py",
+        "VALIDATE_ATOMS/tests/test_graph_rule_admission.py",
+        "VALIDATE_ATOMS/tests/test_inherited_status_authority.py",
+        "VALIDATE_ATOMS/tests/test_proposed_carrier_admission_regressions.py",
+        "VALIDATE_ATOMS/tests/test_proposed_reference_scope.py",
+        "VALIDATE_ATOMS/tests/test_proposed_reference_scope_independent.py",
+        "VALIDATE_ATOMS/tests/test_proposed_type_admission.py",
+        "VALIDATE_ATOMS/tests/test_section_authority.py",
+        "VALIDATE_ATOMS/tests/test_whitelist_authority.py",
+        "tests/test_atom_creation_complete_carrier.py",
+        "tests/test_connector_section_prepare.py",
+        "tests/test_connector_section_prepare_independent.py",
+        "tests/test_lifecycle_create_conflicts.py"
+      ],
+      "acceptance": [
+        "Current fixture source_context_from_project succeeds with D657 and no D276.",
+        "A simultaneous D657 and D276 still fails as ambiguous.",
+        "An explicitly legacy fixture can read D276, but never receives a Current D657 fallback."
+      ]
+    },
+    {
+      "id": "F2-current-bases-already-structured-correctly",
+      "state": "focused_recheck_before_edit",
+      "bases": [
+        "tests/test_selected_atom_lifecycle.py",
+        "ATOM_UPDATE/tests/test_nonarchived_subject_preview.py"
+      ],
+      "finding": "Both already remove D276 and materialize current_encoding_authority.json. After F1 refreshes that shared JSON, first rerun these bases and their consumers. Do not duplicate a second local D657 implementation or rewrite their Current-only closure before that evidence.",
+      "affected_historical_failures": [
+        "tests/test_atom_move_lifecycle.py",
+        "tests/test_definition_move_continuation.py",
+        "tests/test_flat_plan_archive.py",
+        "tests/test_lifecycle_complete_carrier_preflight.py",
+        "tests/test_update_version_history_independent.py",
+        "ATOM_SEARCH/tests/test_instance_subject_flow.py",
+        "ATOM_UPDATE/tests/test_direct_preparation_guards.py",
+        "ATOM_UPDATE/tests/test_direct_subject_preparation_provider.py",
+        "ATOM_UPDATE/tests/test_subject_intent_materialization.py",
+        "ATOM_UPDATE/tests/test_subject_patch_by_value_independent.py",
+        "ATOM_UPDATE/tests/test_subject_replace_set.py",
+        "ATOM_UPDATE/tests/test_subject_stage_preview.py",
+        "tests/test_subject_identity_parse_reuse.py",
+        "tests/test_subject_identity_reuse_independent.py",
+        "tests/test_subject_validation_scope.py",
+        "FEATURE_MCP/tests/test_direct_subject_preparation_protocol.py"
+      ]
+    },
+    {
+      "id": "F3-one-source-contract-expectation",
+      "state": "ready_after_write_freeze_lifts",
+      "edit_scope": [
+        "FEATURE_TOOLS/tests/test_atom_creation_complete_carrier.py"
+      ],
+      "finding": "RegistryRefreshTest.test_authorized_set_is_exact failed only because the asserted approved set omits CA-D-657 while registry_refresh.APPROVED_REFRESH_IDS includes it. Update that exact expected set; retain its explicit D276 legacy scenario rather than turning it into a Current fixture.",
+      "acceptance": "The approved-ID expectation equals the reviewed registry set and the D276 refresh tests remain explicit legacy coverage."
+    },
+    {
+      "id": "F4-source_authority_not_code",
+      "state": "blocked_on_admitted_source",
+      "finding": "The actual Current CA-O-104 binding remains unavailable. The synthetic O104 tests are green; no archive/delivery fallback or production substitute is authorized."
+    }
+  ],
+  "focused_verification_after_F1_F3": {
+    "command": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/run_full_test_suite.py --project-root \"$PWD\" --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_current_frontmatter_encoding.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_carrier_admission_regressions.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_current_plan_placement_authority.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_current_rule_sources.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_current_type_admission.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_graph_rule_admission.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_inherited_status_authority.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_reference_scope.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_reference_scope_independent.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_type_admission.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_section_authority.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_whitelist_authority.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_atom_creation_complete_carrier.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_connector_section_prepare.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_connector_section_prepare_independent.py --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_lifecycle_create_conflicts.py",
+    "then_recheck_current_fixture_bases": [
+      "FEATURE_TOOLS/tests/test_selected_atom_lifecycle.py",
+      "FEATURE_TOOLS/ATOM_UPDATE/tests/test_nonarchived_subject_preview.py",
+      "their listed historical consumers only"
+    ],
+    "not_run_by_this_diagnostic": true
+  },
+  "guardrails": [
+    "Do not edit proposed_carrier.py, registry pins, Current Atoms, or Git state for this fixture repair.",
+    "Do not use D276 as a fallback for a fixture that declares Current D657 or newer role/form carriers.",
+    "Do not infer a replacement for Current O104 from archived or delivery material.",
+    "The 29 remaining-module count is handoff evidence, not a result of a new full-suite run."
+  ]
+}

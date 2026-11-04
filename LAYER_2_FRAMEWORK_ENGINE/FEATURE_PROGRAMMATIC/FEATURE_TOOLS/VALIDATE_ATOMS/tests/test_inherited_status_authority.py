@@ -70,8 +70,12 @@ class InheritedStatusAuthorityTests(unittest.TestCase):
         fixture = fixtures.ProposedCarrierAdmissionRegressions()
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
-        selection = fixture.project(source_ids=tuple(dict.fromkeys(
-            (*proposed_carrier._FRONTIER_IDS, *proposed_carrier._GRAPH_IDS, "CA-D-378"))))
+        selection = fixture.project(
+            source_ids=tuple(dict.fromkeys(
+                (*proposed_carrier._FRONTIER_IDS, *proposed_carrier._GRAPH_IDS, "CA-D-378"),
+            )),
+            encoding_profile="legacy",
+        )
         source_path = next(fixture.root.rglob("CA-R-1539*.md"))
         before = source_path.read_text()
         updated = re.sub(r"## Claim\n.*?(?=\n## Details|\Z)",

@@ -30,7 +30,7 @@ class RegistryRefreshTest(unittest.TestCase):
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
         self.root = fixture.root
-        selection = fixture.project(source_ids=("CA-D-276",))
+        selection = fixture.project(source_ids=("CA-D-276",), encoding_profile="legacy")
         self.entries = {
             identity: frozen_entry(identity)
             for identity in ("CA-D-274", "CA-D-276")
@@ -63,7 +63,7 @@ class RegistryRefreshTest(unittest.TestCase):
             APPROVED_REFRESH_IDS,
             frozenset({
                 "CA-D-276", "CA-D-269", "CA-D-268", "CA-D-270", "CA-D-274",
-                "CA-D-446", "CA-D-479", "CA-D-482", "CA-D-483",
+                "CA-D-657", "CA-D-446", "CA-D-479", "CA-D-482", "CA-D-483",
             }),
         )
 
@@ -77,7 +77,9 @@ class CompleteCarrierPreflightTest(unittest.TestCase):
         self.addCleanup(fixture.doCleanups)
         self.root = fixture.root
         self.enterContext(
-            bind_selection(fixture.project(source_ids=("CA-R-1309", "CA-R-1397", "CA-R-1399")))
+            bind_selection(fixture.project(
+                source_ids=("CA-R-1309", "CA-R-1397", "CA-R-1399"), encoding_profile="legacy",
+            ))
         )
 
     @staticmethod

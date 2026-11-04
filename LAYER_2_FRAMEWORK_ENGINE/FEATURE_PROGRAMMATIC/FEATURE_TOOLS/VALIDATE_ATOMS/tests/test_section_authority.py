@@ -35,7 +35,7 @@ class SectionAuthorityTests(unittest.TestCase):
         self.fixture = fixtures.ProposedCarrierAdmissionRegressions()
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
-        self.selection = self.fixture.project(source_ids=SECTION_SOURCES)
+        self.selection = self.fixture.project(source_ids=SECTION_SOURCES, encoding_profile="legacy")
         self.root = self.selection.root
 
     def test_selected_context_lazily_reads_exact_section_sources(self):

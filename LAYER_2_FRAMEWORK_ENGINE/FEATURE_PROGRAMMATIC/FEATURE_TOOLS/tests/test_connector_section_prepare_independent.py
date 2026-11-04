@@ -46,7 +46,9 @@ class IndependentSectionPreparationTests(unittest.TestCase):
         self.project_fixture.setUp()
         self.addCleanup(self.project_fixture.doCleanups)
         self.project_fixture.root = self.root
-        self.selection = self.project_fixture.project(root=self.root, source_ids=("CA-R-1700",))
+        self.selection = self.project_fixture.project(
+            root=self.root, source_ids=("CA-R-1700",), encoding_profile="legacy",
+        )
         self.project_fixture.entry_patch.stop()
         write_frozen_authority(self.root, self.selection.control_relative, ("CA-R-1933", "CA-M-373", "CA-D-623"))
         self.path = self.selection.control_root / "03_plan/CA-P-701--independent-plan.md"

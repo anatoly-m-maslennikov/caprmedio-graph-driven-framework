@@ -48,7 +48,7 @@ class CurrentRuleSourcesTests(unittest.TestCase):
         fixture = admission_fixtures.ProposedCarrierAdmissionRegressions()
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
-        return fixture.project(source_ids=("CA-R-1666", "CA-R-793"))
+        return fixture.project(source_ids=("CA-R-1666", "CA-R-793"), encoding_profile="legacy")
 
     def relocate_rule(self, selection: Any, identifier: str) -> Path:
         registered = Path(proposed._entry(identifier)["source_path"])

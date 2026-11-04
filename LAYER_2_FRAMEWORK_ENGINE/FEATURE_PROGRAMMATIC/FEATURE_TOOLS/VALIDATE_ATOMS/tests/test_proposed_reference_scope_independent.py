@@ -23,7 +23,7 @@ class ExplicitReferenceScopeIndependentTests(unittest.TestCase):
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
         self.root = self.fixture.root
-        self.selection = self.fixture.project()
+        self.selection = self.fixture.project(encoding_profile="legacy")
         self.control = self.selection.control_relative
         core = next(
             Path(row["authority_path"])

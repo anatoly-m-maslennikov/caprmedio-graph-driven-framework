@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 import sys
 import tempfile
@@ -40,6 +41,7 @@ PLAN_BODY = "# Summary\n\nIndependent Plan\n\n## Objective\n\nCheck admission.\n
 TARGET = b"---\natom_id: CA-O-701\ncontent_role: Operations\ncurrent_scope_unit: TEST\nstatus: Active\nversion: 7\n---\n# Summary\n\nRequested target\n"
 CURRENT_GRAPH_R1947 = Path(__file__).with_name("fixtures") / "current_graph_authority/CA-R-1947.md"
 CURRENT_GRAPH_R1539 = Path(__file__).with_name("fixtures") / "current_graph_authority/CA-R-1539.md"
+CURRENT_ENCODING = Path(__file__).with_name("fixtures") / "current_encoding_authority.json"
 
 
 def snapshot(root):
@@ -64,9 +66,18 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         self.root = Path(self.directory.name)
 
     def selected_entry(self, identifier, *, graph=False):
-        entry = dict(frozen_entry(identifier, graph=graph))
-        raw = frozen_authority_fixture_bytes(identifier, graph=graph)
-        role = parse_carrier(raw, Path(identifier + ".md")).metadata["content_role"]
+        if identifier == "CA-D-657":
+            entry = dict(json.loads(
+                Path(admission.__file__).with_name("registry.json").read_text(encoding="utf-8")
+            )["sources"][identifier])
+            raw = json.loads(CURRENT_ENCODING.read_text(encoding="utf-8"))["text"].encode("utf-8")
+        else:
+            entry = dict(frozen_entry(identifier, graph=graph))
+            raw = frozen_authority_fixture_bytes(identifier, graph=graph)
+        metadata = parse_carrier(raw, Path(identifier + ".md")).metadata
+        role = metadata.get("role", metadata.get("content_role"))
+        if not isinstance(role, str):
+            raise AssertionError("fixture authority has no role: " + identifier)
         entry["source_path"] = (
             ".caprmedio_caprmedio/" + self._core_relative + "/"
             + self._role_folders[role] + "/" + identifier + ".md"
@@ -141,7 +152,10 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         with self.assertRaises(ProposedReferenceError):
             self.inventory()
 
-    def project(self, name="amber", control_name=".caprmedio_selected", *, root=None, source_ids=()):
+    def project(
+        self, name="amber", control_name=".caprmedio_selected", *, root=None, source_ids=(),
+        encoding_profile="current",
+    ):
         root = self.root if root is None else root
         control = root / control_name
         control.mkdir(parents=True, exist_ok=True)
@@ -169,15 +183,28 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
             "Delivery": "07_delivery", "Operations": "09_operations", "Plan": "03_plan",
             "Concern": "01_concern", "Analysis": "02_analysis",
         }
+        if encoding_profile == "current":
+            if {"CA-D-276", *_LEGACY_REGISTRY_IDS} & set(source_ids):
+                raise ValueError("current fixture cannot materialize historical encoding authority")
+            encoding_ids = ("CA-D-657", *(identifier for identifier in _REGISTRY_IDS if identifier != "CA-D-276"))
+        elif encoding_profile == "legacy":
+            if "CA-D-657" in source_ids:
+                raise ValueError("legacy fixture cannot materialize Current encoding authority")
+            encoding_ids = (*_REGISTRY_IDS, *_LEGACY_REGISTRY_IDS)
+        else:
+            raise ValueError("unknown fixture encoding profile: " + encoding_profile)
         identifiers = tuple(dict.fromkeys((
-            *_REGISTRY_IDS, *_LEGACY_REGISTRY_IDS, *_SUPPORT_IDS, *_FRONTIER_STATUS_IDS.values(),
-            "CA-R-1947", *source_ids,
+            *encoding_ids, *_SUPPORT_IDS, *_FRONTIER_STATUS_IDS.values(), "CA-R-1947", *source_ids,
         )))
         self.materialize_authority(core, identifiers)
         self.entry_patch.stop()
         self.entry_patch = patch.object(admission, "_entry", self.selected_entry)
         self.entry_patch.start()
         return resolve_project(root, control_name)
+
+    def legacy_project(self, *args, **kwargs):
+        """Materialize the explicit D276 fixture profile for historical carriers."""
+        return self.project(*args, encoding_profile="legacy", **kwargs)
 
     def materialize_authority(self, core: Path, identifiers: tuple[str, ...]) -> None:
         role_folders = {
@@ -189,9 +216,14 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
             raw = (
                 CURRENT_GRAPH_R1947.read_bytes() if identifier == "CA-R-1947"
                 else CURRENT_GRAPH_R1539.read_bytes() if identifier == "CA-R-1539"
+                else json.loads(CURRENT_ENCODING.read_text(encoding="utf-8"))["text"].encode("utf-8")
+                if identifier == "CA-D-657"
                 else frozen_authority_fixture_bytes(identifier)
             )
-            role = parse_carrier(raw, Path(identifier + ".md")).metadata["content_role"]
+            metadata = parse_carrier(raw, Path(identifier + ".md")).metadata
+            role = metadata.get("role", metadata.get("content_role"))
+            if not isinstance(role, str):
+                raise AssertionError("fixture authority has no role: " + identifier)
             self.put(core / role_folders[role] / (identifier + ".md"), raw)
 
     @staticmethod
@@ -217,14 +249,14 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
             with self.subTest(name=name, control=control):
                 root = self.root / name
                 root.mkdir()
-                selection = self.project(name, control, root=root)
+                selection = self.legacy_project(name, control, root=root)
                 before = snapshot(root)
                 result = self.validate_plan(selection)
                 self.assertFalse(result["findings"] + result["gaps"])
                 self.assertEqual(snapshot(root), before)
 
     def test_context_supplies_the_verified_scope_unit_declaration_aggregate(self):
-        selection = self.project()
+        selection = self.legacy_project()
         with bind_selection(selection):
             context = source_context_from_project(self.root)
         declarations = context.inputs["scope_unit_declarations"]
@@ -233,8 +265,36 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
                          [dict(row) for row in context.inputs["structure"]["scope_units"]])
         self.assertEqual(declarations.root.name, "amber")
 
+    def test_current_and_legacy_encoding_profiles_are_disjoint(self):
+        current = self.project()
+        with bind_selection(current):
+            context = source_context_from_project(self.root)
+        identifiers = {row["binding"]["atom_id"] for row in context.inputs["sources"]}
+        self.assertIn("CA-D-657", identifiers)
+        self.assertNotIn("CA-D-276", identifiers)
+
+        core = current.root / Path(next(
+            row["authority_path"] for row in current.structure["scope_units"]
+            if row["scope_unit_name"] == "CORE_META_MODEL"
+        ))
+        self.materialize_authority(core, ("CA-D-276",))
+        with bind_selection(current), self.assertRaisesRegex(
+            ProposedCarrierError, "required Project context is unreadable",
+        ) as caught:
+            source_context_from_project(self.root)
+        self.assertIn("frontmatter encoding authority is ambiguous", str(caught.exception.__cause__))
+
+        legacy_root = self.root / "legacy"
+        legacy_root.mkdir()
+        legacy = self.project(root=legacy_root, encoding_profile="legacy")
+        with bind_selection(legacy):
+            legacy_context = source_context_from_project(legacy.root)
+        legacy_identifiers = {row["binding"]["atom_id"] for row in legacy_context.inputs["sources"]}
+        self.assertIn("CA-D-276", legacy_identifiers)
+        self.assertNotIn("CA-D-657", legacy_identifiers)
+
     def test_project_owner_adapter_accepts_only_actual_bound_identity(self):
-        selection = self.project()
+        selection = self.legacy_project()
         with bind_selection(selection):
             context = source_context_from_project(self.root)
             for owner, accepted in (("amber", True), ("other-project", False), ("PROJECT", False)):
@@ -245,7 +305,7 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
                     self.assertEqual(not check.findings and not check.gaps, accepted)
 
     def test_unknown_target_wrong_project_owner_and_outside_project_path_refuse(self):
-        selection = self.project()
+        selection = self.legacy_project()
         for metadata, relative in (
             (self.metadata(claim_target_scope_unit="unknown"), Path("03_plan/CA-P-701--independent-plan.md")),
             (self.metadata(current_scope_unit="other-project"), Path("03_plan/CA-P-701--independent-plan.md")),
@@ -256,7 +316,7 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
                     self.validate_plan(selection, metadata, relative)
 
     def test_selected_settings_changed_or_missing_after_resolution_refuse(self):
-        selection = self.project()
+        selection = self.legacy_project()
         original = selection.settings_path.read_bytes()
         for raw in (original.replace(b'name = "amber"', b'name = "other"'), None):
             with self.subTest(raw=raw):
@@ -269,14 +329,14 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
                 selection.settings_path.write_bytes(original)
 
     def test_bound_selection_from_foreign_root_cannot_supply_project_identity(self):
-        selection = self.project()
+        selection = self.legacy_project()
         foreign = self.root / "foreign"
         foreign.mkdir()
         with bind_selection(selection), self.assertRaises((ProposedCarrierError, ValueError)):
             source_context_from_project(foreign)
 
     def test_project_and_declared_scope_unit_name_collision_refuses(self):
-        selection = self.project()
+        selection = self.legacy_project()
         control = self.root / selection.control_relative
         root_declaration = next(
             path for path in selection.declaration_paths if path.parent == selection.control_root
@@ -289,7 +349,7 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         self.assertEqual(snapshot(self.root), before)
 
     def test_captured_context_rechecks_settings_and_structure_before_validation(self):
-        selection = self.project()
+        selection = self.legacy_project()
         with bind_selection(selection):
             context = source_context_from_project(self.root)
             status_index = capture_status_models(self.root, context._reader)
@@ -304,13 +364,13 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
                 path.write_bytes(original)
 
     def test_captured_context_does_not_borrow_an_ambient_foreign_selection(self):
-        selection = self.project()
+        selection = self.legacy_project()
         with bind_selection(selection):
             context = source_context_from_project(self.root)
             status_index = capture_status_models(self.root, context._reader)
         foreign = self.root / "sibling"
         foreign.mkdir()
-        other = self.project("violet", ".caprmedio_foreign", root=foreign)
+        other = self.legacy_project("violet", ".caprmedio_foreign", root=foreign)
         before = snapshot(self.root)
         result = validate_proposed_carrier(self.metadata(), PLAN_BODY, context,
                                           Path("03_plan/CA-P-701--independent-plan.md"),
@@ -324,7 +384,7 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         self.assertEqual(snapshot(self.root), before)
 
     def test_explicit_project_plan_subtree_resolves_exact_parent_chain(self):
-        selection = self.project()
+        selection = self.legacy_project()
         base = selection.control_relative / "03_plan"
         parent = base / "CA-P-702--parent.md"
         self.put(parent, b"---\natom_id: CA-P-702\ncontent_role: Plan\ntype: Plan\ncurrent_scope_unit: amber\nstatus: Active\nversion: 1\n---\n# Summary\n\nParent\n")
@@ -343,7 +403,7 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         self.assertEqual(snapshot(self.root), before)
 
     def test_relation_bearing_caller_uses_verified_whitelist_and_graph_authority(self):
-        selection = self.project()
+        selection = self.legacy_project()
         control = selection.control_relative
         target_root = Path(next(
             row["authority_path"] for row in selection.structure["scope_units"]

@@ -5,8 +5,8 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Actor
-version: 3
-updated_at: 2026-11-03 23:25:51 +0400
+version: 4
+updated_at: 2026-11-04 07:56:15 +0400
 relations: {}
 atom_id: CA-D-657
 current_scope_unit: CORE_META_MODEL
@@ -47,7 +47,7 @@ The remaining applicable Status, Version, identity, Tier, Label, Summary, condit
 
 ### Conditional fields and expansion
 
-- A Plan Header AI Agent Confidence Threshold has zero or one integer values. An explicit value uses its applicable Delivery encoding; an unselected override remains omitted, and self-sufficiency does **not** copy an inherited value. A Plan Header has no Implementation Retry Limit Property; the retry limit is governed by the Workflow.
+- A Plan Header AI Agent Confidence Threshold has zero or one integer values. Encode an explicit value as the top-level integer frontmatter field `ai_agent_confidence_threshold`; an unselected override remains omitted, and self-sufficiency does **not** copy an inherited value. A Plan Header has no Implementation Retry Limit Property; the retry limit is governed by the Workflow.
 - `priority` follows the applicable Concern Priority authority for Concern Atoms **only**. Additional Plan, Operations, proof, **or** other Role-specific fields require an applicable Property Declaration and Delivery encoding; their occurrence **in** old Carriers does **not** admit them.
 - The generated `projection` block is admitted **only** **in** a projected representation under the projection source-binding encoding, with **only** its defined `source_carrier_path` String. It is **not** an authored source Atom Property.
 - A new field **or** nested key requires applicable authority that settles its canonical location, value type, cardinality, admission condition, **and** permitted values **or** reference resolution. unadmitted fields are invalid; an admitted Property with an unsettled encoding is a schema gap, **not** permission **to** guess **or** report full conformance.

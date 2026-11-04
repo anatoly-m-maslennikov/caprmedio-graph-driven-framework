@@ -39,7 +39,7 @@ class WhitelistAuthorityTests(unittest.TestCase):
         self.fixture = fixtures.ProposedCarrierAdmissionRegressions()
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
-        self.selection = self.fixture.project(source_ids=CONSUMED)
+        self.selection = self.fixture.project(source_ids=CONSUMED, encoding_profile="legacy")
         self.root = self.selection.root
 
     def test_real_selected_context_reads_all_consumed_exact_source_bindings(self):

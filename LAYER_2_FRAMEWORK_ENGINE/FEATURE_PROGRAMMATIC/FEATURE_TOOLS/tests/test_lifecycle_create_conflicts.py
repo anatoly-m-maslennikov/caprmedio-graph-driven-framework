@@ -21,7 +21,9 @@ class CreateAtomConflictTests(unittest.TestCase):
         self.addCleanup(fixture.doCleanups)
         self.root = fixture.root
         self.enterContext(
-            bind_selection(fixture.project(source_ids=("CA-R-1309", "CA-R-1397", "CA-R-1399")))
+            bind_selection(fixture.project(
+                source_ids=("CA-R-1309", "CA-R-1397", "CA-R-1399"), encoding_profile="legacy",
+            ))
         )
         self.destination = self.root / ".caprmedio_selected/04_requirement/CA-R-901--occupied.md"
         self.destination.parent.mkdir(parents=True, exist_ok=True)

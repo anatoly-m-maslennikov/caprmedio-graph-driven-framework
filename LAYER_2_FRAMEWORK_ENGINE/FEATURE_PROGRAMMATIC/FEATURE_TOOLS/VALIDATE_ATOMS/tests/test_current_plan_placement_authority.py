@@ -28,9 +28,12 @@ class CurrentPlanPlacementAuthorityTests(unittest.TestCase):
         self.addCleanup(self.fixture.doCleanups)
 
     def current_context(self):
-        selection = self.fixture.project(source_ids=tuple(dict.fromkeys(
-            (*proposed_carrier._FRONTIER_IDS, *proposed_carrier._GRAPH_IDS, "CA-D-378"),
-        )))
+        selection = self.fixture.project(
+            source_ids=tuple(dict.fromkeys(
+                (*proposed_carrier._FRONTIER_IDS, *proposed_carrier._GRAPH_IDS, "CA-D-378"),
+            )),
+            encoding_profile="legacy",
+        )
         raw = CURRENT_D461.read_bytes()
         self.assertEqual(hashlib.sha256(raw).hexdigest(), CURRENT_D461_SHA256)
         next(self.fixture.root.rglob("CA-D-461.md")).write_bytes(raw)

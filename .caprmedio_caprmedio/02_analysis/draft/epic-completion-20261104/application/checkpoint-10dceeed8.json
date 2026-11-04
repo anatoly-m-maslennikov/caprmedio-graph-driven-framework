@@ -1,0 +1,18 @@
+{
+  "status": "VERIFIED_REMOTE_SOURCE_CHECKPOINT",
+  "commit": "10dceeed8bbb15186ad627b76fb46f86a80b4f55",
+  "remote_ref": "refs/heads/amm/dev",
+  "readback_matches": true,
+  "selected_sources": 1159,
+  "view_count": 7,
+  "epic_version": 57,
+  "epic_status": "Active",
+  "verification_task_version": 4,
+  "full_suite_status": "PENDING_STABLE_FINAL_RUN",
+  "pending_model_kind_decision": [
+    "Workflow Run",
+    "Step Run",
+    "Runtime",
+    "Event"
+  ]
+}

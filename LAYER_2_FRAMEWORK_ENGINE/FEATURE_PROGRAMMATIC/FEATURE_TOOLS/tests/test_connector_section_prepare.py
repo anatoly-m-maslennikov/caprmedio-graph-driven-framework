@@ -36,7 +36,7 @@ class SectionPreparationTests(unittest.TestCase):
         self.carriers.setUp()
         self.addCleanup(self.carriers.doCleanups)
         self.root = self.io.root
-        self.selection = self.carriers.project(root=self.root)
+        self.selection = self.carriers.project(root=self.root, encoding_profile="legacy")
         selected_entry = carrier_fixture.admission._entry
 
         def section_entry(identifier, **kwargs):

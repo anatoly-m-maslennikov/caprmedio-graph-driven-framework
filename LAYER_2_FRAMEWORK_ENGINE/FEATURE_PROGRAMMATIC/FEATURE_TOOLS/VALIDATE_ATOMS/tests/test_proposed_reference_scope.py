@@ -33,7 +33,7 @@ class ProposedReferenceScopeTests(unittest.TestCase):
         )
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
-        self.selection = self.fixture.project()
+        self.selection = self.fixture.project(encoding_profile="legacy")
         self.root = self.selection.root
         self.control = self.selection.control_relative
         for identifier in dict.fromkeys((*_FRONTIER_IDS, *_GRAPH_IDS)):

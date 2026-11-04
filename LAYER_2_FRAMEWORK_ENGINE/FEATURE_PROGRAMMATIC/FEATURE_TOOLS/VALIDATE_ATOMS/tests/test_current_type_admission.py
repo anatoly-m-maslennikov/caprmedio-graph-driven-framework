@@ -116,7 +116,9 @@ class CurrentTypeAdmissionTests(unittest.TestCase):
         fixture = fixture_projects.ProposedCarrierAdmissionRegressions("test_root_and_foreign_project_names_use_real_selected_settings_not_folder_name")
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
-        selection = fixture.project(source_ids=("CA-R-1309", "CA-R-1397"))
+        selection = fixture.project(
+            source_ids=("CA-R-1309", "CA-R-1397"), encoding_profile="legacy",
+        )
         fixture.entry_patch.stop()
         live_entry = admission._entry
         with patch.object(admission, "_entry", side_effect=lambda identifier, **kw:
@@ -260,7 +262,7 @@ class CurrentTypeAdmissionTests(unittest.TestCase):
         fixture = fixture_projects.ProposedCarrierAdmissionRegressions("test_root_and_foreign_project_names_use_real_selected_settings_not_folder_name")
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
-        selection = fixture.project()
+        selection = fixture.project(encoding_profile="legacy")
         # The helper patches only historical fixture locators. D657 is an
         # independently captured Current source, not part of that frozen set.
         fixture.entry_patch.stop()

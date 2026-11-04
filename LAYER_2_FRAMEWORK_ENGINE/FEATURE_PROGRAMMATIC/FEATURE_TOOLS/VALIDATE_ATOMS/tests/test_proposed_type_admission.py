@@ -22,7 +22,7 @@ class ProposedTypeAdmissionTests(unittest.TestCase):
         self.fixture = fixtures.ProposedCarrierAdmissionRegressions()
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
-        self.selection = self.fixture.project()
+        self.selection = self.fixture.project(encoding_profile="legacy")
         self.root = self.selection.root
         self.context = proposed_carrier.source_context_from_project(self.root)
 

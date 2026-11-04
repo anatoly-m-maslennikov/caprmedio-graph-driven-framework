@@ -11,7 +11,7 @@ Goal Active: review P2694, then complete its full scope. Ask one question at a t
 - Capability deferral: two confidence Declaration clarifications and three retirements preserve existing invariants without a duplicate successor. Exact archives and frozen references remain.
 - The source frontier is post-endpoint-frontier.json, 1,159 Current suppliers. All seven views 020–026 rebuilt after Goal, Settings and capability-deferral batches. Every view uses Project root Project//caprmedio, distinct Form + Scope Unit identity, exact versioned source references. Frozen 014–019 remain unchanged.
 - Latest published audit: 56 uncovered Subjects and 23 unresolved entries. This is not a complete MODEL result.
-- Pushed amm/dev: 5a472b317, c3ae4dcdf, 5a2bc37aa and dd90a1132. The last includes Goal/Tier, seven refreshed views and the connector/default-fixture fixes (32 + 16 focused tests passed). Settings/capability/planning checkpoint is being prepared separately.
+- Pushed amm/dev: 5a472b317, c3ae4dcdf, 5a2bc37aa, dd90a1132 and 10dceeed8. The last includes Goal/Tier, seven refreshed views and the connector/default-fixture fixes (32 + 16 focused tests passed). The Settings/capability/planning checkpoint 10dceeed8 was pushed and independently read back from origin/amm/dev. The shared-fixture F1 repair passed 124 tests in16modules and independentreview. The F2Current-coverage diagnostic ran206tests in18modules; all18modules failed and are under shared-root-cause triage. No final-suite pass is claimed.
 
 ## One pending human question
 

@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "kind": "f1_fixture_repair_test_receipt",
+  "source": "existing focused F1 run; no rerun to create this receipt",
+  "changed_paths": [
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/fixtures/current_encoding_authority.json",
+      "sha256": "b423e090f94476c186102fbda689a79754822778561b8845c8ccbec9c60076d1"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/fixtures/current_encoding_d657_proposed.md",
+      "sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_carrier_admission_regressions.py",
+      "sha256": "7648060e0bed5559e0c674fe2ae144e8b8c0688ea85ecce95396371f4d411a81"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_current_plan_placement_authority.py",
+      "sha256": "217ef67d0966c39f53904339045f4f4bbd861a396dd0f581c6526c189a102709"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_current_rule_sources.py",
+      "sha256": "741ea004ad7ae7723a5f436b43b8ba00d7b8ed568238f08f8c474c78a07ffa48"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_current_type_admission.py",
+      "sha256": "4bb0f2487e412cad04ac0e4a30efffa07f029959e7ba48a9469f1e20e202a278"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_graph_rule_admission.py",
+      "sha256": "10e26918aa79f9bfd9f2061ef038aae14cca13d8a1c1a260351ad4193ff03572"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_inherited_status_authority.py",
+      "sha256": "797d1e672c0b44ea8d08802eed0c221a209b86cd1629a16235e63b896cf2e8b6"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_reference_scope.py",
+      "sha256": "afdd6319b2fbc63953e61801fc65d745b47238a1f42531ac7aa59a07e0bd5247"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_reference_scope_independent.py",
+      "sha256": "f484f4dd554853593f0c9c7150443f74f5fe04d997a248d56d4c39d135109999"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_type_admission.py",
+      "sha256": "c9d3f99a635f38aebf33008e7218755dd031d690ea3fdf24d3918897dd01b7c6"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_section_authority.py",
+      "sha256": "9c7d989d09a779d0b22db31848da586cda124fd824583ee1740a3936aa537287"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_whitelist_authority.py",
+      "sha256": "d8a8ed32ef5a053f4e1c79e75a0cc0a1b7cb7d4357e19c7378813c4686176988"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_atom_creation_complete_carrier.py",
+      "sha256": "69f2be79a801a375a904844a7876b7d0475112cdeb9fcdfc4dbd509ee4d249d5"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_connector_section_prepare.py",
+      "sha256": "a54e33d775e573f72c4dfa184b9cd86a2508e58742ec78a7948cbdb98b6c0081"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_connector_section_prepare_independent.py",
+      "sha256": "3ac91c5188e96287d3cd2da27bb4f69347e1dfe06c307c9b2e6d43b729730b27"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_lifecycle_create_conflicts.py",
+      "sha256": "eb6389db6971cdd0e9321d56945bad1dae0a876c144d7d2b82b79dbd4cc270bc"
+    }
+  ],
+  "command": {
+    "runner": ".venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/run_full_test_suite.py",
+    "project_root": "$PWD",
+    "selected_modules": [
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_current_frontmatter_encoding.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_carrier_admission_regressions.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_current_plan_placement_authority.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_current_rule_sources.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_current_type_admission.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_graph_rule_admission.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_inherited_status_authority.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_reference_scope.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_reference_scope_independent.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_proposed_type_admission.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_section_authority.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests/test_whitelist_authority.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_atom_creation_complete_carrier.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_connector_section_prepare.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_connector_section_prepare_independent.py",
+      "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/tests/test_lifecycle_create_conflicts.py"
+    ]
+  },
+  "result": {
+    "modules": 16,
+    "tests": 124,
+    "skipped": 0,
+    "failed_modules": 0
+  },
+  "guardrails": [
+    "No production validator, Current Atom, source, registry, or Git change is covered by this receipt."
+  ]
+}
+
