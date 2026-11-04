@@ -21,3 +21,14 @@ The lexical `Property` Term describes a `Node.**` Property with exactly one imme
 - `Term//Property` Subject refs remain in 30 Current carriers; these are not global registry removals.
 
 Reference lines, paths and hashes are pinned in `manifest.json`. The source selectors distinguish typed Subjects from ordinary English “Entity” mentions.
+
+## Approved inbound repairs and naming scope
+
+- Added R1247/R2003 previews with active Subject `Node.**`, preserving complete-path identity, exactly-one immediate bearer, and missing-edge behavior for all Node Properties.
+- R1318 removes its typed `Term//Entity` and old `Entity/Property` Subjects; E444 removes the `Term//Entity` selector and obsolete root-Entity exception fixture. The global Term registry and Property Term remain.
+- R2276 applies from `CAPRMEDIO_MODEL`, keeps one-to-one naming and reusable Terms, and permits a short complete name only when the exact expression is source-admitted and unambiguous. Its Summary is unchanged.
+- `Package <+ Module <+ Code Unit` is three connected endpoint entities. Check declaration coverage for Package, Module, and Code Unit separately; do not classify the entire chain as one missing entity or add a fourth kind.
+
+Exact preview and inbound-reference hashes are in `manifest.json`. All remaining typed legacy `Entity/Property` Subject refs are covered by versioned previews to `Node.**`; M451 is retired. Literal English “Entity” remains unchanged.
+
+The additional typed-reference previews cover CA-E-246, CA-E-449, CA-M-125, CA-R-1259, CA-R-1284, and CA-R-1931.
