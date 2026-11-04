@@ -1,0 +1,337 @@
+{
+  "schema": "cfel-allowed-value-consumer-review/1",
+  "snapshot": "2026-11-05; direct Current reads; no Current/Draft mutation",
+  "adopted_decision": {
+    "allowed_value_separator": "`:` becomes `::` in CFEL allowed-value forms, including count selectors `{:n}` -> `{::n}`; numeric/string bounds are unchanged.",
+    "unchanged_operators": [
+      ":=",
+      "?==",
+      "==",
+      "/",
+      "//",
+      "+>",
+      "<+",
+      ">|",
+      "|<"
+    ],
+    "source": "latest Operator decision relayed by root"
+  },
+  "source_dispositions": [
+    {
+      "source": {
+        "id": "CA-R-1931",
+        "version": "18",
+        "status": "Active",
+        "updated_at": "2026-11-02 00:18:22 +0400",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+        "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+        "bytes": 6308
+      },
+      "disposition": "PREVIEW_READY_TOKEN_ONLY; BROADER_RULE_TEXT_HELD",
+      "finding": "All actual allowed-value and allowed-count occurrences are normalized to `::` in the full-content preview. Cardinality forms without the allowed-value colon (`{n}`, `{n+}`, `{n..m}` and `>{1+}`) remain unchanged. The preview does not alter `/`, `//`, `:=`, entity roots, cross-subject examples, or other operators. The final paragraph calling the wider notation changes Draft proposals is held because it may refer to still-unreconciled path/instance notation. Qualified selectors in this preview use `:=` per Current R2471/R2487; `::` is used only for allowed values and count bounds. The historical bare `X/Y: Z` spelling remains labeled as an earlier spelling.",
+      "preview": {
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-consumers-20261105/previews/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.preview.md",
+        "sha256": "96d95f620ab4251db57fae0ddc6e2327a61ee61b81eae11a40c9a107021b6c1b"
+      },
+      "selector_authority_pins": [
+        {
+          "id": "CA-R-2471",
+          "version": "7",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+          "sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf"
+        },
+        {
+          "id": "CA-R-2487",
+          "version": "13",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+          "sha256": "d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045"
+        }
+      ]
+    },
+    {
+      "source": {
+        "id": "CA-R-1321",
+        "version": "35",
+        "status": "Active",
+        "updated_at": "2026-11-02 08:06:47 +0400",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+        "sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698",
+        "bytes": 6039
+      },
+      "disposition": "PREVIEW_READY_TOKEN_ONLY",
+      "finding": "The syntax inventory and both Relation-count/Property-value templates now use `::`. Qualified Atom conditions written with `:=` remain byte-for-byte unchanged. `/`, `//` and all other operators remain unchanged."
+    },
+    {
+      "source": {
+        "id": "CA-R-2588",
+        "version": "5",
+        "status": "Active",
+        "updated_at": "2026-11-04 03:22:03 +0400",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+        "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c",
+        "bytes": 2854
+      },
+      "disposition": "PREVIEW_READY_TOKEN_ONLY",
+      "finding": "All four allowed-value/count examples in the whitelist/default rule change from `{:...}` to `{::...}`. Direction, endpoint, layer, wildcard-default, inverse-permission, conditional and bound semantics are unchanged."
+    },
+    {
+      "source": {
+        "id": "CA-R-2768",
+        "version": "2",
+        "status": "Active",
+        "updated_at": "2026-11-04 20:33:16 +0400",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2768-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md",
+        "sha256": "f2fa2c56c05167ce4ab6be038fe223657f01189e2fcf4d8791a5c08ce4556626",
+        "bytes": 2247
+      },
+      "disposition": "PASS_NO_EDIT",
+      "finding": "This Rule uses `?==` conditional assignment and describes required Format/cardinality without any allowed-value-colon syntax. Preserve all Model-write versus Carrier-I/O boundaries and ordered lazy fallback constraints."
+    },
+    {
+      "source": {
+        "id": "CA-R-2769",
+        "version": "2",
+        "status": "Active",
+        "updated_at": "2026-11-04 20:33:16 +0400",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Fallback",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2769-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "69ccd7b57a93be95871f29e4ad180044249983448172352d2c791273b680e4fa",
+        "bytes": 847
+      },
+      "disposition": "PASS_NO_EDIT",
+      "finding": "The operator declaration uses `?==`; it has no allowed-value-colon syntax. Preserve the `==` declaration and exact operator name."
+    }
+  ],
+  "ready_full_content_previews": [
+    {
+      "id": "CA-R-1931@18",
+      "source": {
+        "id": "CA-R-1931",
+        "version": "18",
+        "status": "Active",
+        "updated_at": "2026-11-02 00:18:22 +0400",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+        "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+        "bytes": 6308
+      },
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-consumers-20261105/previews/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.preview.md",
+      "preview_sha256": "96d95f620ab4251db57fae0ddc6e2327a61ee61b81eae11a40c9a107021b6c1b",
+      "preview_bytes": 6349,
+      "exact_replacements": [
+        {
+          "before": "`:` separates",
+          "after": "`::` separates",
+          "occurrences": 1
+        },
+        {
+          "before": "X/(.Y: Z)",
+          "after": "X/(.Y:: Z)",
+          "occurrences": 2
+        },
+        {
+          "before": "X/Y: Z",
+          "after": "X/Y:: Z",
+          "occurrences": 1
+        },
+        {
+          "before": "`:` declares",
+          "after": "`::` declares",
+          "occurrences": 1
+        },
+        {
+          "before": "X.Y: Z",
+          "after": "X.Y:: Z",
+          "occurrences": 1
+        },
+        {
+          "before": "Header.Role: ",
+          "after": "Header.Role:: ",
+          "occurrences": 6
+        },
+        {
+          "before": "Header.Form: ",
+          "after": "Header.Form:: ",
+          "occurrences": 5
+        },
+        {
+          "before": "Status Group: ",
+          "after": "Status Group:: ",
+          "occurrences": 3
+        },
+        {
+          "before": "{:1+}",
+          "after": "{::1+}",
+          "occurrences": 3
+        },
+        {
+          "before": "{:0+}",
+          "after": "{::0+}",
+          "occurrences": 1
+        },
+        {
+          "before": "{:1}",
+          "after": "{::1}",
+          "occurrences": 5
+        }
+      ],
+      "business_constraints_preserved": true,
+      "unmodified_other_syntax": [
+        ":=",
+        "/",
+        "//",
+        "+>",
+        "<+",
+        ">|",
+        "|<",
+        "?==",
+        "=="
+      ],
+      "selector_correction": {
+        "authority": [
+          {
+            "id": "CA-R-2471",
+            "version": "7",
+            "status": "Active",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+            "sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf"
+          },
+          {
+            "id": "CA-R-2487",
+            "version": "13",
+            "status": "Active",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+            "sha256": "d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045"
+          }
+        ],
+        "rationale": "Current R2471 and R2487 distinguish filtered kind selection X/(.p := V) from allowed-value admission ::.",
+        "state": "refreshed after independent reviewer finding"
+      }
+    },
+    {
+      "id": "CA-R-1321@35",
+      "source": {
+        "id": "CA-R-1321",
+        "version": "35",
+        "status": "Active",
+        "updated_at": "2026-11-02 08:06:47 +0400",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+        "sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698",
+        "bytes": 6039
+      },
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-consumers-20261105/previews/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.preview.md",
+      "preview_sha256": "fb6dcfc98d1e3fc2f5e12745b24c93edc4ef2d1d8e2e637edb94c8f2b6f7b5fc",
+      "preview_bytes": 6045,
+      "exact_replacements": [
+        {
+          "before": "`/`, `//`, `.`, `:`, `+>`",
+          "after": "`/`, `//`, `.`, `::`, `+>`",
+          "occurrences": 1
+        },
+        {
+          "before": "`Source {:forward}((RELATION)){:reverse} Target`",
+          "after": "`Source {::forward}((RELATION)){::reverse} Target`",
+          "occurrences": 1
+        },
+        {
+          "before": "`Property{:occurrence}: [format]{:value count}`",
+          "after": "`Property{::occurrence}:: [format]{::value count}`",
+          "occurrences": 1
+        }
+      ],
+      "business_constraints_preserved": true,
+      "unmodified_other_syntax": [
+        ":=",
+        "/",
+        "//",
+        "+>",
+        "<+",
+        ">|",
+        "|<",
+        "?==",
+        "=="
+      ]
+    },
+    {
+      "id": "CA-R-2588@5",
+      "source": {
+        "id": "CA-R-2588",
+        "version": "5",
+        "status": "Active",
+        "updated_at": "2026-11-04 03:22:03 +0400",
+        "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+        "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c",
+        "bytes": 2854
+      },
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-consumers-20261105/previews/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.preview.md",
+      "preview_sha256": "d18732fca7dc7210a02cff0f022b93afb8d8f54530a045ca34bf77e6b7bf7fad",
+      "preview_bytes": 2858,
+      "exact_replacements": [
+        {
+          "before": "{:0}",
+          "after": "{::0}",
+          "occurrences": 1
+        },
+        {
+          "before": "{:x}",
+          "after": "{::x}",
+          "occurrences": 1
+        },
+        {
+          "before": "{:left}",
+          "after": "{::left}",
+          "occurrences": 1
+        },
+        {
+          "before": "{:right}",
+          "after": "{::right}",
+          "occurrences": 1
+        }
+      ],
+      "business_constraints_preserved": true,
+      "unmodified_other_syntax": [
+        ":=",
+        "/",
+        "//",
+        "+>",
+        "<+",
+        ">|",
+        "|<",
+        "?==",
+        "=="
+      ]
+    }
+  ],
+  "precise_wording_hold": {
+    "source": "CA-R-1931@18",
+    "source_pin": {
+      "id": "CA-R-1931",
+      "version": "18",
+      "status": "Active",
+      "updated_at": "2026-11-02 00:18:22 +0400",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "bytes": 6308
+    },
+    "text": "“These Operator-approved notation changes are Draft proposals.”",
+    "why_held": "CA-R-1931 is Current and its old allowed-value/count syntax is being corrected. The broad sentence may refer to still-unreconciled `/` and `//` notation, which this review does not change. The legacy bare `X/Y: Z` remains quoted as a historical spelling, not reinterpreted as an allowed value or rewritten into a new selector.",
+    "question_for_integration_owner": "Should this sentence remain as historical scope for still-unreconciled notation, or be split so it no longer labels the adopted `::` change as a Draft proposal? The three token-only previews do not depend on this answer."
+  },
+  "authority_boundary": "The previews update only the three Current consumers with actual allowed-value/count syntax. R2768/R2769 retain their fallback operator semantics. No direct Model assignment, runtime/parser behavior, or current-source adoption is claimed.",
+  "pin_integrity": {
+    "all_five_current_source_pins_match_live_bytes": true,
+    "all_preview_pins_match_live_bytes": true,
+    "checked_sources": 5,
+    "checked_previews": 3
+  },
+  "integration_dependency": "CA-R-1931/CA-R-1321 cite CA-R-2487 for wider grammar. Integrate these consumer previews with that operator-grammar source and authoring/evaluation/parser consumers as one reviewed change; this packet does not alter those owners."
+}

@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2735@2-draft-CORE_META_MODEL-DECLARATION--declare-project-workflow.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2735.preview.txt
+@@ -26,7 +26,7 @@
+ ### Formal Claim
+ 
+ ```CFEL
+-Atom/(.Header.Role: Operations)/Workflow/(.Purpose := Project)
++Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)
+ ```
+ 
+ ## Semantics

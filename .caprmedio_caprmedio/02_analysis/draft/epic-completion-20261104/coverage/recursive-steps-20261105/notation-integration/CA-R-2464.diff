@@ -1,0 +1,14 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2464.preview.txt
+@@ -27,9 +27,9 @@
+ 
+ ```CFEL
+ # model
+-Atom/(.Header.Role: Operations)/Workflow;
++Atom/(.Header.Role := Operations)/Workflow;
+ 
+-Atom/(.Header.Role: Operations)/Workflow >| (Container == yes);
++Atom/(.Header.Role := Operations)/Workflow >| (Container == yes);
+ 
+ # instances
+ Workflow//$workflow{::1+}((CONTAINS)) Step//$step;

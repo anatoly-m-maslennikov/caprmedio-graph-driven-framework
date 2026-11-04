@@ -1,0 +1,26 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2465.preview.txt
+@@ -34,17 +34,17 @@
+ # instances
+ Step//$step;
+ 
+-$step{:1}((IS_CONTAINED_BY)) Workflow//$workflow;
++$step{::1}((IS_CONTAINED_BY)) (in (Workflow, Step))//$parent;
+ 
+-IF $step {=0}((RUNS)) THEN $step {:1+}((CONTAINS)) Substep//$substep;
++IF $step {=0}((RUNS)) THEN $step {::1+}((CONTAINS)) Step//$nested_step;
+ 
+-IF $step {>0}((RUNS)) THEN $step {:0}((CONTAINS));
++IF $step {>0}((RUNS)) THEN $step {::0}((CONTAINS));
+ 
+-IF $step {=0}((CONTAINS)) THEN $step {:1}((RUNS)) (in (Action, Workflow))//$selected;
++IF $step {=0}((CONTAINS)) THEN $step {::1}((RUNS)) (in (Action, Workflow))//$selected;
+ 
+-Step//$definition {:0+}((HAS_EXECUTION)) Step Run//$run
++Step//$definition {::0+}((HAS_EXECUTION)) Step Run//$run
+ ```
+ 
+ ## Semantics
+ 
+-A Step is a unit of work within a Workflow.
++A Step is a unit of work within a Workflow. It either runs exactly one Action or Workflow, or contains one or more Steps.

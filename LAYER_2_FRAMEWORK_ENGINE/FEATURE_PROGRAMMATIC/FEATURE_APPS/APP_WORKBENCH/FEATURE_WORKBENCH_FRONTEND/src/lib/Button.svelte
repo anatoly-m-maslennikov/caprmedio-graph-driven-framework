@@ -1,4 +1,3 @@
-<!-- CA-M-466@5 -->
 <script lang="ts">
   let { children, disabled = false, type = 'button', class: className = '', onclick }: {
     children: import('svelte').Snippet;

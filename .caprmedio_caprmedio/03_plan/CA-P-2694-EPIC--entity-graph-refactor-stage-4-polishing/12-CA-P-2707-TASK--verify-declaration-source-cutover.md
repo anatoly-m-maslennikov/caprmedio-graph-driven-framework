@@ -4,8 +4,8 @@ role: Plan
 form: Plan
 label: Task
 status: Active
-version: 5
-updated_at: 2026-11-04 14:56:07 +0400
+version: 6
+updated_at: 2026-11-05 01:59:03 +0400
 tier: 4
 subjects:
   active: CAPRMEDIO_MODEL <+ Scope Unit
@@ -27,7 +27,7 @@ Verify the final Current Declaration sources and their source consumers. Reconci
 
 ## Recorded evidence
 
-- Earlier cutover evidence reported 44 Scope Unit Declarations, 43 non-root IDs and nine Ordered units. Recheck those counts and identities on the final candidate.
+- Earlier cutover evidence reported 44 Scope Unit Declarations, 43 non-root IDs and nine Ordered units. The 2026-11-05 source snapshot has 46 Current Declarations, 45 unique non-root IDs and nine Ordered units: one old Declaration is archived and three Workbench Declarations were added. All 43 surviving originals have source-backed namespace/wrapping-only differences. Recheck the final stable candidate; this source snapshot does not close runtime gates.
 - The live project_structure.toml was retired. Recheck production, bindings, fixtures and documentation for executable dependencies.
 - Current D657 replaces retired D274 as live carrier-encoding authority. Its reviewed Claim digest, registry closure and 588 validator tests are recorded in the completion packet.
 - The latest reader passed 426 graph tests. Seven MODEL views use Project root ownership and Form + Scope Unit identity.
@@ -48,6 +48,7 @@ Active. Focused tests and source adoption receipts do not close this gate. No re
 
 ## Evidence
 
+- [Current Scope Declaration source census](../../02_analysis/draft/epic-completion-20261104/coverage/scope-declaration-check-20261105/REPORT.md).
 - [Integration packet](../../02_analysis/draft/epic-completion-20261104/integration/REPORT.md).
 - [Full acceptance matrix](../../02_analysis/draft/epic-completion-20261104/acceptance/matrix.json).
 - [Earlier cutover verification](scope-unit-governance-20261031/verification/final-cutover-verification.json).

@@ -1,7 +1,7 @@
-# CA-R-2728@3
-# CA-R-2729@4
-# CA-R-2776@1
-# CA-D-673@8
+# CA-R-2728@4
+# CA-R-2729@5
+# CA-R-2776@2
+# CA-D-673@9
 
 """One Project's direct file reader, background indexer, and SQL capability."""
 
@@ -20,6 +20,13 @@ from .relations import canonical, materialize
 from .saved_queries import SavedQueryError, SavedQueryStore
 from .source_reader import SourceReader
 from .statements import select_statement
+
+
+TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0, str(TOOLS))
+
+from work_journal import configured_journal_root  # noqa: E402
 
 
 class WorkbenchService:
@@ -84,13 +91,17 @@ class WorkbenchService:
             for _batch in changes:
                 if self._stop.is_set():
                     return
-                if _batch:
+                if _batch and not self._journal_only(_batch):
                     self._refresh()
         except Exception as error:
             self._failure = f"Workbench indexing failed; restart required: {error}"
             self._watch_ready.set()
             if not self._stop.is_set():
                 print(self._failure, file=sys.stderr)
+
+    def _journal_only(self, batch: set[object]) -> bool:
+        journal = (self._root / configured_journal_root(self._root)).resolve()
+        return all(Path(str(change[1])).resolve().is_relative_to(journal) for change in batch)
 
     def _start(self) -> None:
         with self._start_lock:
@@ -145,11 +156,13 @@ class WorkbenchService:
         except (ValueError, RuntimeError) as error:
             raise SavedQueryError(saved_query, error) from error
 
-    def save(self, sql: str, cursor_position: int | None = None) -> dict[str, str]:
-        return self._saved(sql, cursor_position)
+    def save(
+        self, sql: str, cursor_position: int | None = None, name: str | None = None,
+    ) -> dict[str, Any]:
+        return self._saved_queries.save_query(select_statement(sql, cursor_position), name)
 
-    def save_worksheet(self, sql: str) -> dict[str, str]:
-        return self._saved_queries.save_worksheet(sql)
+    def save_worksheet(self, sql: str, name: str | None = None) -> dict[str, Any]:
+        return self._saved_queries.save_worksheet(sql, name)
 
     def load(self, reference: str) -> dict[str, str]:
         return self._saved_queries.load(reference)

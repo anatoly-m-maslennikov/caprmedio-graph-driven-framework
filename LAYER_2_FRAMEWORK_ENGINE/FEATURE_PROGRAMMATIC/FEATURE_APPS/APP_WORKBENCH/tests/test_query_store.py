@@ -1,4 +1,4 @@
-# CA-E-676@7
+# CA-E-676@8
 # CA-E-677@8
 
 from __future__ import annotations
@@ -135,6 +135,16 @@ class QueryStoreTest(unittest.TestCase):
         schema = self.store.schema()["tables"]
         self.assertEqual([field for field in ATOM_FIELDS], [column["name"] for column in schema["atoms"]])
         self.assertEqual([field for field in SCOPE_FIELDS], [column["name"] for column in schema["scope_units"]])
+
+    def test_schema_exposes_actual_status_literals_without_running_a_query(self) -> None:
+        done = self.atom("B")
+        done["status"] = "Done"
+        self.store.replace([self.atom("A"), done], [])
+
+        schema = self.store.schema()["tables"]
+
+        status = next(column for column in schema["atoms"] if column["name"] == "status")
+        self.assertEqual(["Active", "Done"], status["values"])
 
     def test_native_admission_errors_leave_a_valid_connection(self) -> None:
         self.assertEqual([[1]], self.store.run("-- comment ;\nSELECT 1; /* comment ; */")["rows"])

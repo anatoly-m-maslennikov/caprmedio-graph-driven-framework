@@ -1,0 +1,116 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_NINE_DRAFTS",
+  "plans": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/recursive-step-contract-drafts-20261105/adoption-plan.json",
+      "sha256": "fc3da8edd6702a9d1fbdc32bf4b1a279df2832ae33551c1fe4ece21123369b62",
+      "operations": 9
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/recursive-step-draft-notation-20261105/adoption-plan.json",
+      "sha256": "0e25ebe7bf16da80f698ab7060e6df930b6f5bee99538659da9adf9a51d23a27",
+      "operations": 6
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/workflow-purpose-draft-semantics-20261105/adoption-plan.json",
+      "sha256": "d86f1e085beb69381cac0fb4a6f22dda3b387518ed3689925e542eb27497a08e",
+      "operations": 2
+    }
+  ],
+  "rows": [
+    {
+      "id": "CA-R-2463",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2463@3-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "sha256": "70f58b3339848bfcbeb9cd6c8abf9a3d9443c67e6c325c6296853cf87e256b61",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "current_sha256": "165d90b12c799b31498419365be86415689b98e3cc5b8572ac323c8cbbe99d40",
+      "rebased_existing_draft": false
+    },
+    {
+      "id": "CA-R-2464",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "b7d4b82ddd34fc0a9874934daa812bfe4504f73396107ab0df80a84695668ad1",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "current_sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a",
+      "rebased_existing_draft": true
+    },
+    {
+      "id": "CA-R-2465",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "236a2c9f46c5fe5b88ae556cefc8f1fb967dad915f85e133ea8f780d791176a5",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "current_sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf",
+      "rebased_existing_draft": true
+    },
+    {
+      "id": "CA-R-2467",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2467@3-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "fc3030db263c59d72b0d29e9a0635c501cfec7263f87918749d47a201d648cc8",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "current_sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a",
+      "rebased_existing_draft": true
+    },
+    {
+      "id": "CA-R-2638",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2638@4-draft-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "sha256": "dcff0917a3545169b74ec2f6135639a9bef5b87763d89d6e10cb385d67e33733",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "current_sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3",
+      "rebased_existing_draft": false
+    },
+    {
+      "id": "CA-R-2734",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2734@2-draft-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "sha256": "bc8a67ae2d20a7a3b721bf5e584f791f1e001acbdd657f588954923d8be69dbd",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2734-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "current_sha256": "c044105caf865661419725b2ca2e9ae2bd3c8aaf1cd9bd54d910ec99b5eb511c",
+      "rebased_existing_draft": false
+    },
+    {
+      "id": "CA-R-2735",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2735@2-draft-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "sha256": "04eb1a6fbdea8d95ce29a7d94ef5cc405a7043b422c88cff231e55cfde90f6d4",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2735-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "current_sha256": "c5d223f5de5d92bfcf97e982c34cc968210e9c6f5d2c01a6d290c67886ae0637",
+      "rebased_existing_draft": false
+    },
+    {
+      "id": "CA-R-1528",
+      "version": 23,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1528@23-draft-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "sha256": "19160e7bf5b7544e88e481f3896d3a92ee3e6b805be0d51d10367c06d965cbfc",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "current_sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f",
+      "rebased_existing_draft": false
+    },
+    {
+      "id": "CA-E-486",
+      "version": 24,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-486@24-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+      "sha256": "c395ef5f491d1a9240643ad370c4de0cbf9897d7d8fbc19f71c2f76448b7d5ab",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-486-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+      "current_sha256": "05975fc46ce47e6bd7001cb410f16c34a44969c54685f29ad3a99159ec1ecfdf",
+      "rebased_existing_draft": false
+    }
+  ],
+  "checks": [
+    "All plan/receipt pins, 17 operation payloads and sequential before/after overlays match actual Draft files; all nine Current predecessor hashes are unchanged.",
+    "Initial Draft bodies exactly match independently reviewed contract previews; three existing native Drafts preserve identity/version/all other metadata apart from updated_at.",
+    "Six notation overlays contain exactly eight Role selector : to := changes and metadata timestamp only. Two Purpose overlays change only Semantics and timestamp; Claims unchanged.",
+    "Workflow, Step and Action Drafts retain named 0+ HAS_EXECUTION permissions."
+  ],
+  "holds": [
+    "R2466 retirement remains planned, not executed; cycle rule, D467/E500 physical policy and the independently owned five consumer sources remain open.",
+    "Coordinate approved syntax and full Header/endpoint source integration before Current adoption; no actual Workflow instance changes established."
+  ],
+  "limits": [
+    "No source, code, tests or Git mutations in this review; native admission and Journal append are false."
+  ]
+}

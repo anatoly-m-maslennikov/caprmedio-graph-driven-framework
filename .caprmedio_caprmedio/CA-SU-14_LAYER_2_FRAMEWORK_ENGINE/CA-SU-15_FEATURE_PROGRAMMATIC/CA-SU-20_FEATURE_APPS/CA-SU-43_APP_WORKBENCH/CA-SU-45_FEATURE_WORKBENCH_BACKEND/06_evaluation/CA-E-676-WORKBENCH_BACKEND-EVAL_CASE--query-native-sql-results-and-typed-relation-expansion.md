@@ -6,7 +6,7 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
-version: 7
+version: 8
 role: Evaluation
 form: Eval Case
 tier: 5
@@ -16,7 +16,7 @@ carrier_destination:
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation
 relations:
   evaluation_for: [CA-R-2728, CA-R-2724, CA-R-2729, CA-M-464, CA-D-673]
-updated_at: 2026-11-04 23:19:17 +0400
+updated_at: 2026-11-05 01:40:28 +0400
 ---
 ## Summary
 
@@ -37,10 +37,10 @@ Native DuckDB SQL and DuckPGQ SQL/PGQ return the requested columns, types, count
 | Fixture | Expected outcome |
 | --- | --- |
 | Valid selection, join, CTE, aggregation, ordering, string, and regex query | Native DuckDB returns requested business-language `content.*` columns, `relative path` and `filename`, exact counts, and all rows through stable pages. |
-| Read-only schema autocomplete | `query_schema({})` returns `{tables: {atoms: [{name, type}], scope_units: [{name, type}]}}`, including declared `content.*` columns and quoted names, without reading saved SQL files or executing user SQL. |
+| Read-only schema autocomplete | `query_schema({})` returns `{tables: {atoms: [{name, type, values?}], scope_units: [{name, type}]}}`, including declared `content.*` columns and quoted names. For `atoms.status`, optional `values` contains distinct non-null indexed status values; a prefix such as `status = 'Act` offers `Active` with correct quoting. Schema fetch does not read saved-item Journal entries, execute user SQL or create a saved record. |
 | Multiple statements and cursor selection | A semicolon-separated script preserves quoted strings, comments and dollar-quoted strings; Run, Check and Save select the statement at the optional UTF-16 cursor position using native tokenization. |
-| Explicit query and Worksheet save/load | `query_save({sql, cursor_position?})` writes exact selected SQL to immutable `q_<uuid hex>.sql`; `worksheet_save({sql})` writes `{"sql": "..."}` to immutable `w_<uuid hex>.json`; `query_load(reference)` returns saved_query_id, saved_query_url, kind and sql without executing it; `query_saved_list` returns recent entries of both kinds. |
-| Run and Check saved-query identity | Run and Check save exact selected SQL before execution and return `saved_query_id`, `saved_query_url`, `kind` and `sql` separately from the materialized result `query_id`; query errors include the saved identity and URL. A save failure prevents execution and does not promise an ID. Page returns the original saved identity and URL. |
+| Explicit query and Worksheet save/load | `query_save({sql, cursor_position?, name?})` appends exact selected SQL with an optional creation name to the Project saved-item Journal; `worksheet_save({sql, name?})` appends the full script with an optional creation name. New IDs are canonical UUIDv7 strings and Journal entries have kind, SQL, optional name and saved time; existing `q_<hex>.sql` and `w_<hex>.json` are read-only fallback sources. `query_load(reference)` returns saved_query_id, saved_query_url, kind, sql and optional name without executing it; `query_saved_list` returns recent entries of both kinds. Saved entries are not renamed. |
+| Run and Check saved-query identity | Run and Check save exact selected SQL without a name before execution and return `saved_query_id`, `saved_query_url`, `kind` and `sql` separately from the materialized result `query_id`; query errors include the saved identity and URL. A save failure prevents execution and does not promise an ID. Page returns the original saved identity and URL. |
 | `SELECT COUNT(*) FROM atoms` | Only the requested aggregate appears; no `atoms.hash` is added. |
 | Native `GRAPH_TABLE` / `MATCH` combined with a CTE, join, filter, and aggregate | The shared connector executes it with native semantics and complete requested results; no custom traversal engine is used. |
 | `Task IS_CONTAINED_BY Epic` and declared `CONTAINS` inverse | The Task row's native JSON `relations` carries the direct outgoing fact; the Epic row's `relations` carries the derived outgoing fact. Both are queryable in the same graph without duplicate inverse synthesis; rows with no outgoing facts use `{}`. |
@@ -52,5 +52,6 @@ Native DuckDB SQL and DuckPGQ SQL/PGQ return the requested columns, types, count
 | UTF-16 cursor after Unicode and within strings/comments | Native UTF-8 token boundaries identify the same query for web and MCP; positions inside a surrogate pair or outside the document fail before effects. |
 | No cursor and invalid/multi-statement raw SQL | Preserve the raw input in its saved file, then return the ordinary native query error with ID and full URL; Save alone does not validate SQL. |
 | HTTP MCP and web saved resources | Responses contain the same saved identity fields and full request-derived URLs; no port is guessed. |
+| Saved-item Journal partitioning and source watcher | Journal writes use the existing `workbench-saved-items` date-partitioned 1,000-row writer and do not trigger Atom source reindexing. |
 
 A query returning a non-null `TIMESTAMPTZ`, including `SELECT * FROM atoms` with Updated At, must preserve the instant in its ISO string result through the actual Docker dependency set.

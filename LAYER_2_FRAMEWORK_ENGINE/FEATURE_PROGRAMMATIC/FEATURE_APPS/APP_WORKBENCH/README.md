@@ -13,26 +13,41 @@ MCP tools:
   re-executing SQL. The maximum page size is 1,000.
 - `query_check(sql, cursor_position?)` returns validity and exact counts without transferring all rows.
 - `query_schema()` returns table/column names and types for completion.
-- `query_save(sql, cursor_position?)` saves SQL without executing it.
-- `worksheet_save(sql)` saves a whole multi-query script.
+- `query_save(sql, cursor_position?, name?)` saves SQL with an optional creation name.
+- `worksheet_save(sql, name?)` saves a whole multi-query script with an optional name.
 - `query_load(reference)` opens a saved ID or full URL without executing it.
 - `query_saved_list(limit=20)` lists the most recent saved queries and Worksheets.
 
 Run and Check save before execution. Their answers, including SQL errors, return
 `saved_query_id`, `saved_query_url`, `kind` and the selected `sql`. The saved ID is
-separate from the materialized result's pagination `query_id`. Query saves are
-immutable `.sql` files; Worksheet saves are `.json` files in
-`.caprmedio_runtime/workbench/saved_queries`. A saved URL uses `?query=<id>`.
+separate from the materialized result's pagination `query_id`. New saves are
+immutable entries in the configured Project Journal, in date-partitioned
+`workbench-saved-items-…-part-N.ndjson` files. Each entry has a canonical UUIDv7,
+kind, exact SQL, optional name and save timestamp. Parts hold about 1,000 entries
+under concurrent appends. Existing runtime `q_….sql` and `w_….json` files remain
+read-only compatibility sources; their IDs and URLs keep working.
+A saved URL uses `?query=<id>`. Saved entries are not renamed.
 
 Each editor tab is a Worksheet. Run, Check and Save select the statement at the
 cursor; Save Worksheet saves the whole script. Semicolons inside SQL literals or
 comments do not split statements. MCP callers may pass `cursor_position` in
 UTF-16 code units; without it, the submitted SQL is used unchanged.
-Cmd+Enter runs and Shift+Cmd+Enter checks. The CodeMirror editor completes names
-from the current schema. Local browser drafts autosave every five seconds and
+Cmd+Enter runs and Shift+Cmd+Enter checks. Cmd+P opens the searchable command
+palette for every current UI action. Arrow Up/Ctrl+P and Arrow Down/Ctrl+N move
+the selection; Enter chooses and Escape closes. Settings contains Theme and Zoom.
+The next utility tab lists saved queries and Worksheets. Open Saved is a top-left
+button/modal: Cmd+Option+O, paste an ID or URL, then Enter.
+
+The CodeMirror editor completes names from the current schema and values in
+status equality literals, such as `status = 'Act`. Schema metadata provides
+observed status values; typing does not run or save SQL.
+Local browser drafts and optional current Worksheet names autosave every five seconds and
 restore after reload; unsaved tabs/windows ask before closing. Saved SQL opens
 without execution. Light, Dark and System themes and text-only zoom cover all UI
 text, including buttons, tabs and result cells.
+
+Rename current Worksheets locally. Save Worksheet copies that optional name;
+explicit Save can take a query name. Run and Check save unnamed.
 
 The UI hides columns containing only NULL, empty strings or empty collections
 across the whole result. Zero and false remain visible. `columns[].has_values`

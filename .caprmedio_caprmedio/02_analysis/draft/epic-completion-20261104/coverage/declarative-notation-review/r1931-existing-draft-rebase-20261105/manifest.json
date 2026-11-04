@@ -1,0 +1,31 @@
+{
+  "status": "MERGED_PREVIEW_REQUIRES_INDEPENDENT_REVIEW",
+  "pins": {
+    "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+    "current_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+    "consumer_preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-consumers-20261105/previews/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.preview.md",
+    "consumer_preview_sha256": "96d95f620ab4251db57fae0ddc6e2327a61ee61b81eae11a40c9a107021b6c1b",
+    "existing_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1931@19-draft-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+    "existing_draft_sha256": "8c90ec568c3913d915f17c37e0e3356b3d32dc11c91cd58f62bb86ae172e335e",
+    "merged_preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-existing-draft-rebase-20261105/CA-R-1931@19.merged.preview.txt",
+    "merged_preview_sha256": "8e41c736cd15fea5af628c67cdb02681698fe9788d0a8c2c100c2b9f5f6d5241",
+    "draft_to_merged_diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-existing-draft-rebase-20261105/draft-to-merged.diff",
+    "draft_to_merged_diff_sha256": "1b2bf4fcc80a233d307165639dddea77a6e5aec1beabca9a79b15ea9822877a7"
+  },
+  "checks": {
+    "consumer_pins_match": true,
+    "draft_metadata_preserved_exactly": true,
+    "draft_staging_removal_preserved": true,
+    "draft_node_selection_passive_preserved": true,
+    "source_path_operators_unchanged": true
+  },
+  "merge": "Full existing Draft metadata retained byte-for-byte; token and := selector fixes from Current-based reviewed preview applied to its body. Bare allowed-bound illustrations `{n}`, `{n+}`, `{n..m}`, `{1}` and property format example also corrected to explicit {::...} and :: per Current R2243 plus new spelling. Obsolete X/Y: Z is retained only as explicitly historical spelling.",
+  "held_conflicts": [
+    "Passive Entity and Entity/Object/Continuant/Package... remain in existing Draft and are not mapped by guess.",
+    "Current text still claims quote characters cannot delimit Entity names; distinguish Subject literal values in a separately integrated change.",
+    "Legacy Operations Role/Form and Package/Module examples, Status Group wildcard and blanket advanced-construct exclusion remain existing Draft content; do not treat merged preview as a comprehensive CFEL cleanup.",
+    "Draft@19 version and metadata are preserved for review; any actual revision or rebase needs owner allocation/guard and must not overwrite an existing Draft without authorized workflow.",
+    "The notation reversal of / and // is a separate pending migration and is not implemented here."
+  ],
+  "no_changes": "No actual Draft, Current, code, tests, Git, Workflow or Workbench sources modified."
+}

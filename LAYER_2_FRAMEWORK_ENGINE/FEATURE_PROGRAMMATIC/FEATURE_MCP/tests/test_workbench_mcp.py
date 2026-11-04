@@ -47,13 +47,13 @@ class FakeService:
         self.calls.append((SCHEMA,))
         return {"atoms": []}
 
-    def save(self, sql, cursor_position=None):
-        self.calls.append((SAVE, sql, cursor_position))
-        return {"saved_query_id": "q_1", "kind": "query", "sql": sql}
+    def save(self, sql, cursor_position=None, name=None):
+        self.calls.append((SAVE, sql, cursor_position, name))
+        return {"saved_query_id": "q_1", "kind": "query", "sql": sql, "name": name}
 
-    def save_worksheet(self, sql):
-        self.calls.append((SAVE_WORKSHEET, sql))
-        return {"saved_query_id": "w_1", "kind": "worksheet", "sql": sql}
+    def save_worksheet(self, sql, name=None):
+        self.calls.append((SAVE_WORKSHEET, sql, name))
+        return {"saved_query_id": "w_1", "kind": "worksheet", "sql": sql, "name": name}
 
     def load(self, reference):
         self.calls.append((LOAD, reference))
@@ -84,8 +84,9 @@ class WorkbenchToolsTests(unittest.TestCase):
             page = await owner.call(PAGE, {"query_id": run["query_id"], "offset": 0, "page_size": 1})
             self.assertEqual(0, page["offset"])
             self.assertTrue((await owner.call(CHECK, {"sql": "SELECT 1"}))["valid"])
-            self.assertEqual("q_1", (await owner.call(SAVE, {"sql": "SELECT 2", "cursor_position": 2}))["saved_query_id"])
-            self.assertEqual("w_1", (await owner.call(SAVE_WORKSHEET, {"sql": "SELECT 3"}))["saved_query_id"])
+            self.assertEqual("q_1", (await owner.call(SAVE, {"sql": "SELECT 2", "cursor_position": 2, "name": "saved"}))["saved_query_id"])
+            self.assertEqual("w_1", (await owner.call(SAVE_WORKSHEET, {"sql": "SELECT 3", "name": "worksheet"}))["saved_query_id"])
+            await owner.call(SAVE, {"sql": "SELECT 4", "name": "   "})
             self.assertEqual("q_2", (await owner.call(LOAD, {"reference": "q_2"}))["saved_query_id"])
             self.assertEqual({"atoms": []}, await owner.call(SCHEMA, {}))
             self.assertEqual({"items": []}, await owner.call(SAVED_LIST, {"limit": 3}))
@@ -94,7 +95,8 @@ class WorkbenchToolsTests(unittest.TestCase):
         asyncio.run(exercise())
         self.assertEqual(
             [(RUN, "SELECT 1", 100, None), (PAGE, "q-1", 0, 1), (CHECK, "SELECT 1", None),
-             (SAVE, "SELECT 2", 2), (SAVE_WORKSHEET, "SELECT 3"), (LOAD, "q_2"),
+             (SAVE, "SELECT 2", 2, "saved"), (SAVE_WORKSHEET, "SELECT 3", "worksheet"),
+             (SAVE, "SELECT 4", None, "   "), (LOAD, "q_2"),
              (SCHEMA,), (SAVED_LIST, 3)], fake.calls
         )
         self.assertTrue(fake.closed)
@@ -117,6 +119,10 @@ class WorkbenchToolsTests(unittest.TestCase):
             (PAGE, {"query_id": "q", "offset": 0, "page_size": True}, "page_size must be an integer"),
             (PAGE, {"query_id": "q", "offset": 0, "unknown": 1}, "Expected query_id, offset, and optional page_size"),
             (RUN, {"sql": "SELECT 1", "page_size": True}, "page_size must be an integer"),
+            (RUN, {"sql": "SELECT 1", "name": "forbidden"}, "Expected only cursor_position and page_size and sql"),
+            (CHECK, {"sql": "SELECT 1", "name": "forbidden"}, "Expected only cursor_position and sql"),
+            (SAVE, {"sql": "SELECT 1", "name": 1}, "name must be a string"),
+            (SAVE_WORKSHEET, {"sql": "SELECT 1", "name": 1}, "name must be a string"),
             ("query_unknown", {"sql": "SELECT 1"}, "Unknown Workbench tool"),
         ):
             with self.subTest(name=name, arguments=arguments), self.assertRaises(ExplicitBlockingRuntimeFailure) as caught:

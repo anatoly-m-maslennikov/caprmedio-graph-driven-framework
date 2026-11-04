@@ -214,10 +214,10 @@
       "disposition": "PREVIEW_READY_MECHANICAL_OR_APPROVED",
       "active_subject_check": "PASS single active Subject; CAPRMEDIO_MODEL primary-kind path",
       "hierarchy_check": "PASS; matches approved Occurrent/Runtime/Session parents",
-      "claim_and_semantics_review": "Internal Remote Runtime/Runtime; semantics aligned to approved elsewhere wording by preview.",
+      "claim_and_semantics_review": "Internal Remote Runtime/Runtime; semantics matches approved wording: a machine other than the Operator’s.",
       "preview": {
         "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/kind-review-20261105/previews/CA-R-2757@1-preview-CORE_META_MODEL-DECLARATION--declare-internal-remote-runtime.preview.md",
-        "sha256": "c02e0c737e17078d70146b71fd32a19e0427c059ccf37780a421a5884f70d12f"
+        "sha256": "463dca105c2c20558438746626d0d4ad736204ad526923eb5eb6926038a1b311"
       }
     },
     {
@@ -255,10 +255,10 @@
       "disposition": "PREVIEW_READY_MECHANICAL_OR_APPROVED",
       "active_subject_check": "PASS single active Subject; CAPRMEDIO_MODEL primary-kind path",
       "hierarchy_check": "PASS; matches approved Occurrent/Runtime/Session parents",
-      "claim_and_semantics_review": "External Remote Runtime/Runtime; semantics aligned to approved elsewhere wording by preview.",
+      "claim_and_semantics_review": "External Remote Runtime/Runtime; semantics matches approved wording: a machine other than the Operator’s.",
       "preview": {
         "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/kind-review-20261105/previews/CA-R-2759@1-preview-CORE_META_MODEL-DECLARATION--declare-external-remote-runtime.preview.md",
-        "sha256": "53af5a8f8507628a2ffd20bdae34420f75e66caa33fb43e036e01a2baf5886e9"
+        "sha256": "7c405e316821d44fc36b2617cec7bf7cb11eae0ad37fab54099a564e30dffc43"
       }
     }
   ],
@@ -397,10 +397,10 @@
         "bytes": 798
       },
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/kind-review-20261105/previews/CA-R-2757@1-preview-CORE_META_MODEL-DECLARATION--declare-internal-remote-runtime.preview.md",
-      "preview_sha256": "c02e0c737e17078d70146b71fd32a19e0427c059ccf37780a421a5884f70d12f",
-      "preview_bytes": 775,
+      "preview_sha256": "463dca105c2c20558438746626d0d4ad736204ad526923eb5eb6926038a1b311",
+      "preview_bytes": 798,
       "exact_transformations": [
-        "Use the approved Local/Remote boundary wording “elsewhere” instead of restricting Remote to another machine"
+        "Restore the explicit Operator-machine boundary wording; approved Remote means on a machine other than the Operator’s."
       ],
       "non_target_text_preserved": true
     },
@@ -417,10 +417,10 @@
         "bytes": 807
       },
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/kind-review-20261105/previews/CA-R-2759@1-preview-CORE_META_MODEL-DECLARATION--declare-external-remote-runtime.preview.md",
-      "preview_sha256": "53af5a8f8507628a2ffd20bdae34420f75e66caa33fb43e036e01a2baf5886e9",
-      "preview_bytes": 784,
+      "preview_sha256": "7c405e316821d44fc36b2617cec7bf7cb11eae0ad37fab54099a564e30dffc43",
+      "preview_bytes": 807,
       "exact_transformations": [
-        "Use the approved Local/Remote boundary wording “elsewhere” instead of restricting Remote to another machine"
+        "Restore the explicit Operator-machine boundary wording; approved Remote means on a machine other than the Operator’s."
       ],
       "non_target_text_preserved": true
     }

@@ -4,7 +4,7 @@ status: Draft
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow
 version: 6
-updated_at: 2026-11-04 16:07:35 +0400
+updated_at: 2026-11-05 02:11:07 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
@@ -27,20 +27,20 @@ Declare Workflow
 
 ```CFEL
 # model
-Atom/(.Header.Role: Operations)/Workflow;
+Atom/(.Header.Role := Operations)/Workflow;
 
-Atom/(.Header.Role: Operations)/Workflow >| (Container == yes);
+Atom/(.Header.Role := Operations)/Workflow >| (Container == yes);
 
 # instances
-Workflow//$workflow{:1+}((CONTAINS)) Step//$step;
+Workflow//$workflow{::1+}((CONTAINS)) Step//$step;
 
-Workflow//$workflow_2{:0+}((IS_RUN_BY)) Step//$step_2;
+Workflow//$workflow_2{::0+}((IS_RUN_BY)) Step//$step_2;
 
-Workflow//$definition {:0+}((HAS_EXECUTION)) Workflow Run//$run
+Workflow//$definition {::0+}((HAS_EXECUTION)) Workflow Run//$run
 ```
 
 ## Semantics
 
 A Workflow defines a graph of Steps for governed work. Its Purpose distinguishes Runtime Workflows from Project Workflows through the selections `Workflow/(.Purpose := Runtime)` and `Workflow/(.Purpose := Project)`.
 
-Both selections inherit the same Step, Substep and Action definitions, graph rules, bindings and execution model. Steps and Actions can be reused by either selection. Purpose concerns use in a Project; reusable Workflow definitions can serve different Project-relative purposes without copying their canonical definition. Purpose does not determine shared or isolated execution context, definition ownership or delivery location.
+Both selections inherit the same Step and Action definitions, graph rules, bindings and execution model. Steps and Actions can be reused by either selection. Purpose concerns use in a Project; reusable Workflow definitions can serve different Project-relative purposes without copying their canonical definition. Purpose does not determine shared or isolated execution context, definition ownership or delivery location.

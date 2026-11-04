@@ -1,0 +1,8 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2463.preview.txt
+@@ -28,4 +28,4 @@
+ 
+ ## Semantics
+ 
+-An Operations Atom defines reusable work. It can define an Action, a Workflow, a Step, or a Substep.
++An Operations Atom defines reusable work. It can define an Action, a Workflow, or a Step.

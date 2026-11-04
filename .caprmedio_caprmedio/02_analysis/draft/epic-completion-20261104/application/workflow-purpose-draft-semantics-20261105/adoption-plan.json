@@ -1,0 +1,35 @@
+{
+  "status": "PREPARED_BRIEF_PRIMARY_SEMANTICS",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2734",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2734@2-draft-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "sha256": "bc8a67ae2d20a7a3b721bf5e584f791f1e001acbdd657f588954923d8be69dbd"
+    },
+    {
+      "atom_id": "CA-R-2735",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2735@2-draft-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "sha256": "04eb1a6fbdea8d95ce29a7d94ef5cc405a7043b422c88cff231e55cfde90f6d4"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2734@2-draft-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "before": "---\natom_id: CA-R-2734\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Runtime)\nversion: 2\nupdated_at: 2026-11-05 02:11:07 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2734@2-draft-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Runtime Workflow\n\n## Claim\n\n### Formal Claim\n\n```CFEL\nAtom/(.Header.Role := Operations)/Workflow/(.Purpose := Runtime)\n```\n\n## Semantics\n\nA Runtime Workflow is a Workflow whose Purpose is Runtime: it provides behavior through a Project's delivered result during its operation. In CAPRMEDIO, examples include Create Draft, Promote Draft and Archive Atom.\n\nIt inherits Workflow's shared Step and Action model. Purpose describes use relative to a Project and does not change the canonical definition's owning Scope Unit.\n",
+      "before_sha256": "e475c7061169a618ea0b8c6d327d3991a69ce5acbf2a41291e25a7039e024b7d",
+      "after": "---\natom_id: CA-R-2734\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Runtime)\nversion: 2\nupdated_at: 2026-11-05 02:11:52 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2734@2-draft-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Runtime Workflow\n\n## Claim\n\n### Formal Claim\n\n```CFEL\nAtom/(.Header.Role := Operations)/Workflow/(.Purpose := Runtime)\n```\n\n## Semantics\n\nA Runtime Workflow provides behavior through a Project\u2019s delivered result during its operation.\n",
+      "after_sha256": "bc8a67ae2d20a7a3b721bf5e584f791f1e001acbdd657f588954923d8be69dbd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2735@2-draft-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "before": "---\natom_id: CA-R-2735\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)\nversion: 2\nupdated_at: 2026-11-05 02:11:07 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2735@2-draft-CORE_META_MODEL-DECLARATION--declare-project-workflow.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Project Workflow\n\n## Claim\n\n### Formal Claim\n\n```CFEL\nAtom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)\n```\n\n## Semantics\n\nA Project Workflow is a Workflow whose Purpose is Project: it develops, validates, maintains or releases a Project's result. Examples include Implementation, Local Release and Public Release.\n\nIt inherits Workflow's shared Step and Action model. Purpose describes use relative to a Project and does not change the canonical definition's owning Scope Unit.\n",
+      "before_sha256": "cdcb41a188da6730f61216e4654fce7829fe96e2f217923c62266950dc8061e4",
+      "after": "---\natom_id: CA-R-2735\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)\nversion: 2\nupdated_at: 2026-11-05 02:11:52 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2735@2-draft-CORE_META_MODEL-DECLARATION--declare-project-workflow.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Project Workflow\n\n## Claim\n\n### Formal Claim\n\n```CFEL\nAtom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)\n```\n\n## Semantics\n\nA Project Workflow develops, validates, maintains or releases a Project\u2019s result.\n",
+      "after_sha256": "04eb1a6fbdea8d95ce29a7d94ef5cc405a7043b422c88cff231e55cfde90f6d4"
+    }
+  ]
+}

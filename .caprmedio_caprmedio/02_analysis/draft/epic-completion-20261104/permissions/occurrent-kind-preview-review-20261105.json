@@ -1,6 +1,6 @@
 {
-  "verdict": "HOLD_TWO_REMOTE_SEMANTICS",
-  "review_source_sha256": "79488b2d9558b4a6bc602a7d08e789f949d0290f793550eb5fd86cc62f2b84a8",
+  "verdict": "PASS_BOUNDED_DRAFT_EDIT_REVIEW",
+  "review_source_sha256": "0af21beb7d34d9541a8e8b2872d8bbd3e72861cc7da1b1e0e4bb93cc43655574",
   "rows": [
     {
       "id": "CA-R-2749@1",
@@ -107,10 +107,10 @@
       "source_sha256": "463dca105c2c20558438746626d0d4ad736204ad526923eb5eb6926038a1b311",
       "source_pin_matches": true,
       "active_subject": "CAPRMEDIO_MODEL <+ Internal Remote Runtime",
-      "draft_edit_readiness": "hold semantic wording",
+      "draft_edit_readiness": "no edit required; corrected preview is identical to source",
       "adoption": "hold until :: syntax, endpoint Relation and permission gates are satisfied",
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/kind-review-20261105/previews/CA-R-2757@1-preview-CORE_META_MODEL-DECLARATION--declare-internal-remote-runtime.preview.md",
-      "preview_sha256": "c02e0c737e17078d70146b71fd32a19e0427c059ccf37780a421a5884f70d12f",
+      "preview_sha256": "463dca105c2c20558438746626d0d4ad736204ad526923eb5eb6926038a1b311",
       "preview_pin_matches": true
     },
     {
@@ -130,10 +130,10 @@
       "source_sha256": "7c405e316821d44fc36b2617cec7bf7cb11eae0ad37fab54099a564e30dffc43",
       "source_pin_matches": true,
       "active_subject": "CAPRMEDIO_MODEL <+ External Remote Runtime",
-      "draft_edit_readiness": "hold semantic wording",
+      "draft_edit_readiness": "no edit required; corrected preview is identical to source",
       "adoption": "hold until :: syntax, endpoint Relation and permission gates are satisfied",
       "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/kind-review-20261105/previews/CA-R-2759@1-preview-CORE_META_MODEL-DECLARATION--declare-external-remote-runtime.preview.md",
-      "preview_sha256": "53af5a8f8507628a2ffd20bdae34420f75e66caa33fb43e036e01a2baf5886e9",
+      "preview_sha256": "7c405e316821d44fc36b2617cec7bf7cb11eae0ad37fab54099a564e30dffc43",
       "preview_pin_matches": true
     }
   ],
@@ -143,18 +143,13 @@
     "runtime": "Runtime generic preview drops application-only restriction, consistent with external Runtime branches",
     "readiness": "bounded mechanical edits can be prepared on Drafts; no preview or taxonomy is Current admission. R2751/R2752 additionally await source endpoint review and all Relation permissions remain separately gated"
   },
-  "findings": [
-    {
-      "ids": [
-        "CA-R-2757@1",
-        "CA-R-2759@1"
-      ],
-      "issue": "The revised Semantics says located elsewhere without naming the reference location; each standalone Draft thereby loses the explicit Operator-machine distinction in the original.",
-      "fix": "Retain the original on a machine other than the Operator\u2019s wording for both remote Runtime kinds."
-    }
-  ],
+  "findings": [],
   "limits": [
     "No Current, actual Draft, Workflow, Workbench, code, tests or Git changes.",
     "No kind or relation adoption, actual instance, endpoint permission, migration or runtime conformance established."
+  ],
+  "previous_verdict": "HOLD_TWO_REMOTE_SEMANTICS",
+  "resolved_findings": [
+    "CA-R-2757 and CA-R-2759 previews restore exact source wording on a machine other than the Operator\u2019s; both previews now byte-identical to their live Draft sources, so no edit is needed."
   ]
 }

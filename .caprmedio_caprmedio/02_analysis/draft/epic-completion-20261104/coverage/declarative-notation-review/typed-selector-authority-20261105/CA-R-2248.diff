@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/typed-selector-authority-20261105/CA-R-2248.preview.txt
+@@ -35,7 +35,7 @@
+ structures, not Value Formats. A YAML sequence carries multiple values, and a
+ mapping carries dependent Properties. `ref` is not a Value Format. Identifying
+ values use the `string` Format; their Definition identifies the referenced
+-object. Nested Properties have independent Formats and cardinalities. YAML
++object. Nested Properties have independent Formats and cardinalities. A Model object kind referenced as `<Kind>` may also supply an object Format alongside primitive Formats such as `int`; a Format specifies the admissible domain and does not create an instance or turn a literal into a Node. Bracketed Format conditions constrain values in that domain. YAML
+ null and an empty string each count as one direct value when present; Format
+ and prose conditions determine admissibility.
+ 

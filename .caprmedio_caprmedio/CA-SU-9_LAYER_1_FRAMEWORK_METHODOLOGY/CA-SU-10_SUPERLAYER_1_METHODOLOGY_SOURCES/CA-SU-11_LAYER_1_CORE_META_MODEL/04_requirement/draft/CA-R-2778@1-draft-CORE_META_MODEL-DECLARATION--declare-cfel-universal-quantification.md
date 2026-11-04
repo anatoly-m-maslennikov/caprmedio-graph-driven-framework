@@ -1,0 +1,44 @@
+---
+atom_id: CA-R-2778
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//UniversalQuantification
+version: 1
+role: Requirement
+form: Declaration
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+tier: 3
+updated_at: 2026-11-05 01:49:40 +0400
+carrier_destination:
+  file:
+    name: CA-R-2778@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-universal-quantification.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
+---
+## Summary
+
+Declare CFEL universal quantification
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Operator//UniversalQuantification == "FOR EACH"
+```
+
+### Prose Claim
+
+A `FOR EACH` construct has a typed, optionally filtered participant selector of the form `$name[<Kind>, (conditions)]`, followed by `:` and a parenthesized body. The paired `<Kind>` denotes the selected Model kind. It states that every selected instance satisfying the selector conditions satisfies each complete body expression. The header colon is a block delimiter, not the allowed-value operator `::`.
+
+The Claim explicitly declares its participant and scope; its active Subject identifies the governed focus and does not implicitly bind a participant. The participant is a logical binding available in its selector conditions and matching body. Each reference to that participant denotes the same selected instance. A new binding must use a name different from an already bound outer variable. The participant introduced by the `FOR EACH` construct is not in scope after its matching body. Existing IF binding rules remain applicable.
+
+Group selector conditions with parentheses. Separate complete body expressions with semicolons. Parenthesize mixed `AND` and `OR` conditions to make their grouping explicit. The expression is declarative: it does not create or modify an instance, perform I/O, or prescribe an execution loop.
+
+`FOR EACH` is the only keyword of this construct; its header does not use `with` or `in`.
+
+## Semantics
+
+Universal quantification constrains each matching participant without requiring that the selection contain an instance.

@@ -4,7 +4,7 @@ status: Draft
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
 version: 5
-updated_at: 2026-11-04 16:07:35 +0400
+updated_at: 2026-11-05 02:11:07 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
@@ -27,24 +27,24 @@ Declare Step
 
 ```CFEL
 # model
-Atom/(.Header.Role: Operations)/Step;
+Atom/(.Header.Role := Operations)/Step;
 
-Atom/(.Header.Role: Operations)/Step >| (Container == yes);
+Atom/(.Header.Role := Operations)/Step >| (Container == yes);
 
 # instances
 Step//$step;
 
-$step{:1}((IS_CONTAINED_BY)) Workflow//$workflow;
+$step{::1}((IS_CONTAINED_BY)) (in (Workflow, Step))//$parent;
 
-IF $step {=0}((RUNS)) THEN $step {:1+}((CONTAINS)) Substep//$substep;
+IF $step {=0}((RUNS)) THEN $step {::1+}((CONTAINS)) Step//$nested_step;
 
-IF $step {>0}((RUNS)) THEN $step {:0}((CONTAINS));
+IF $step {>0}((RUNS)) THEN $step {::0}((CONTAINS));
 
-IF $step {=0}((CONTAINS)) THEN $step {:1}((RUNS)) (in (Action, Workflow))//$selected;
+IF $step {=0}((CONTAINS)) THEN $step {::1}((RUNS)) (in (Action, Workflow))//$selected;
 
-Step//$definition {:0+}((HAS_EXECUTION)) Step Run//$run
+Step//$definition {::0+}((HAS_EXECUTION)) Step Run//$run
 ```
 
 ## Semantics
 
-A Step is a unit of work within a Workflow.
+A Step is a unit of work within a Workflow. It either runs exactly one Action or Workflow, or contains one or more Steps.

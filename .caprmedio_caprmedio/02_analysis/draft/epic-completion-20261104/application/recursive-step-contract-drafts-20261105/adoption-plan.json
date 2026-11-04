@@ -1,0 +1,169 @@
+{
+  "status": "PREPARED_REVIEWED_RECURSIVE_STEP_DRAFTS_NOT_ADOPTED",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2463",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2463@3-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "sha256": "5bde055e54a7980a6588099372ccbc150662241afc21fa905961f2f3debdc27e",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "current_sha256": "165d90b12c799b31498419365be86415689b98e3cc5b8572ac323c8cbbe99d40",
+      "preview_sha256": "3a3d00771c8594ceb8e95c5f6201d3621806d29ab0a0600d19cc80d64d98d625",
+      "draft_rebased": false
+    },
+    {
+      "atom_id": "CA-R-2464",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "1ee10af50347a9624bf5d9b2c5f00984a71042642a6065bb5618e35ff06cdd3e",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "current_sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a",
+      "preview_sha256": "9435ee7d84d4b17c1ec26058c9add7b6fe5047295424f3a65887b05bb97c3c63",
+      "draft_rebased": true
+    },
+    {
+      "atom_id": "CA-R-2465",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "d186b76d76d160bc0f0131b40a468574ee09b58bf94a3a7ef78af7298546dc28",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "current_sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf",
+      "preview_sha256": "6ec2496b5a3486e22fa3af239f62e40c8070e641fc7f3ac2cc44b12e32653676",
+      "draft_rebased": true
+    },
+    {
+      "atom_id": "CA-R-2467",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2467@3-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "5a0d70196152d01a9802fae01f4cf26d0e9f5de9300716bb87bbebd555914a62",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "current_sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a",
+      "preview_sha256": "4d919079ff90e52ce100517f938a05c95369c5d07aacd872aa37988f59a0ea9b",
+      "draft_rebased": true
+    },
+    {
+      "atom_id": "CA-R-2638",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2638@4-draft-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "sha256": "dcff0917a3545169b74ec2f6135639a9bef5b87763d89d6e10cb385d67e33733",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "current_sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3",
+      "preview_sha256": "eb3cb748e7609b46da538a8461ba6709bf62481ea971ade598c06e271fef9fe6",
+      "draft_rebased": false
+    },
+    {
+      "atom_id": "CA-R-2734",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2734@2-draft-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "sha256": "f3d1a3ca59de29ea4ae573f8513dc7ba9ac6f96de15ca0bb40c11870bf781241",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2734-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "current_sha256": "c044105caf865661419725b2ca2e9ae2bd3c8aaf1cd9bd54d910ec99b5eb511c",
+      "preview_sha256": "2127eebb79fa0bc067c6378d33141521b6b9eaa5b935eb890fa3ccb1e7f1a161",
+      "draft_rebased": false
+    },
+    {
+      "atom_id": "CA-R-2735",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2735@2-draft-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "sha256": "08665acc5e3dd0d0b6429e437db9f78e1fb3faee51b8e814a4e6fa6192dba7a9",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2735-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "current_sha256": "c5d223f5de5d92bfcf97e982c34cc968210e9c6f5d2c01a6d290c67886ae0637",
+      "preview_sha256": "bba7c98101e5efa755a432eb08e769ebbf8786dcacfbf954f2b7a51f6d06b099",
+      "draft_rebased": false
+    },
+    {
+      "atom_id": "CA-R-1528",
+      "version": 23,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1528@23-draft-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "sha256": "19160e7bf5b7544e88e481f3896d3a92ee3e6b805be0d51d10367c06d965cbfc",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "current_sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f",
+      "preview_sha256": "cd62c583a1c94ba34b74433f599de4cdfa0cdeee4586bfa79d285d83f024697c",
+      "draft_rebased": false
+    },
+    {
+      "atom_id": "CA-E-486",
+      "version": 24,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-486@24-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+      "sha256": "c395ef5f491d1a9240643ad370c4de0cbf9897d7d8fbc19f71c2f76448b7d5ab",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-486-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+      "current_sha256": "05975fc46ce47e6bd7001cb410f16c34a44969c54685f29ad3a99159ec1ecfdf",
+      "preview_sha256": "5c02138b58a030ca655d03af08b319627b1fa96f4db4e6fdefdcb918b62e7815",
+      "draft_rebased": false
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2463@3-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2463\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)\nversion: 3\nupdated_at: 2026-11-05 02:06:39 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2463@3-draft-CORE_META_MODEL-DECLARATION--declare-operations.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Operations\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Operations)\n```\n\n## Semantics\n\nAn Operations Atom defines reusable work. It can define an Action, a Workflow, or a Step.\n",
+      "after_sha256": "5bde055e54a7980a6588099372ccbc150662241afc21fa905961f2f3debdc27e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "before": "---\natom_id: CA-R-2464\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow\nversion: 6\nupdated_at: 2026-11-04 16:07:35 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Workflow\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Operations)/Workflow;\n\nAtom/(.Header.Role: Operations)/Workflow >| (Container == yes);\n\n# instances\nWorkflow//$workflow{:1+}((CONTAINS)) Step//$step;\n\nWorkflow//$workflow_2{:0+}((IS_RUN_BY)) Step//$step_2;\n\nWorkflow//$definition {:0+}((HAS_EXECUTION)) Workflow Run//$run\n```\n\n## Semantics\n\nA Workflow defines a graph of Steps for governed work. Its Purpose distinguishes Runtime Workflows from Project Workflows through the selections `Workflow/(.Purpose := Runtime)` and `Workflow/(.Purpose := Project)`.\n\nBoth selections inherit the same Step, Substep and Action definitions, graph rules, bindings and execution model. Steps and Actions can be reused by either selection. Purpose concerns use in a Project; reusable Workflow definitions can serve different Project-relative purposes without copying their canonical definition. Purpose does not determine shared or isolated execution context, definition ownership or delivery location.\n",
+      "before_sha256": "e4a3d1c3b99990b99e1870c32f1acb533d3109770e3a4b271eeb2aeb82dece85",
+      "after": "---\natom_id: CA-R-2464\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow\nversion: 6\nupdated_at: 2026-11-05 02:06:39 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Workflow\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Operations)/Workflow;\n\nAtom/(.Header.Role: Operations)/Workflow >| (Container == yes);\n\n# instances\nWorkflow//$workflow{::1+}((CONTAINS)) Step//$step;\n\nWorkflow//$workflow_2{::0+}((IS_RUN_BY)) Step//$step_2;\n\nWorkflow//$definition {::0+}((HAS_EXECUTION)) Workflow Run//$run\n```\n\n## Semantics\n\nA Workflow defines a graph of Steps for governed work. Its Purpose distinguishes Runtime Workflows from Project Workflows through the selections `Workflow/(.Purpose := Runtime)` and `Workflow/(.Purpose := Project)`.\n\nBoth selections inherit the same Step and Action definitions, graph rules, bindings and execution model. Steps and Actions can be reused by either selection. Purpose concerns use in a Project; reusable Workflow definitions can serve different Project-relative purposes without copying their canonical definition. Purpose does not determine shared or isolated execution context, definition ownership or delivery location.\n",
+      "after_sha256": "1ee10af50347a9624bf5d9b2c5f00984a71042642a6065bb5618e35ff06cdd3e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "before": "---\natom_id: CA-R-2465\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step\nversion: 5\nupdated_at: 2026-11-04 16:07:35 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Step\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Operations)/Step;\n\nAtom/(.Header.Role: Operations)/Step >| (Container == yes);\n\n# instances\nStep//$step;\n\n$step{:1}((IS_CONTAINED_BY)) Workflow//$workflow;\n\nIF $step {=0}((RUNS)) THEN $step {:1+}((CONTAINS)) Substep//$substep;\n\nIF $step {>0}((RUNS)) THEN $step {:0}((CONTAINS));\n\nIF $step {=0}((CONTAINS)) THEN $step {:1}((RUNS)) (in (Action, Workflow))//$selected;\n\nStep//$definition {:0+}((HAS_EXECUTION)) Step Run//$run\n```\n\n## Semantics\n\nA Step is a unit of work within a Workflow.\n",
+      "before_sha256": "41403056a38086987a3f7f12b277696e3c3db4cae8782680ac78e2a544d203ae",
+      "after": "---\natom_id: CA-R-2465\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step\nversion: 5\nupdated_at: 2026-11-05 02:06:39 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Step\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Operations)/Step;\n\nAtom/(.Header.Role: Operations)/Step >| (Container == yes);\n\n# instances\nStep//$step;\n\n$step{::1}((IS_CONTAINED_BY)) (in (Workflow, Step))//$parent;\n\nIF $step {=0}((RUNS)) THEN $step {::1+}((CONTAINS)) Step//$nested_step;\n\nIF $step {>0}((RUNS)) THEN $step {::0}((CONTAINS));\n\nIF $step {=0}((CONTAINS)) THEN $step {::1}((RUNS)) (in (Action, Workflow))//$selected;\n\nStep//$definition {::0+}((HAS_EXECUTION)) Step Run//$run\n```\n\n## Semantics\n\nA Step is a unit of work within a Workflow. It either runs exactly one Action or Workflow, or contains one or more Steps.\n",
+      "after_sha256": "d186b76d76d160bc0f0131b40a468574ee09b58bf94a3a7ef78af7298546dc28"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2467@3-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "before": "---\natom_id: CA-R-2467\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action\nversion: 3\nupdated_at: 2026-11-04 16:07:35 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2467@3-draft-CORE_META_MODEL-DECLARATION--declare-action.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Action\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Operations)/Action;\n\n# instances\nAction//$action{:0+}((IS_RUN_BY)) (in (Step, Substep))//$selected;\n\nAction//$definition {:0+}((HAS_EXECUTION)) Action Run//$run\n```\n\n## Semantics\n\nAn Action is a reusable operational building block. Its boundary reflects one modeled responsibility.\n",
+      "before_sha256": "75f3e750e4d243112532be060110fbd9a8d5d5a3ea263cb7575698bb84953620",
+      "after": "---\natom_id: CA-R-2467\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action\nversion: 3\nupdated_at: 2026-11-05 02:06:39 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2467@3-draft-CORE_META_MODEL-DECLARATION--declare-action.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Action\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Operations)/Action;\n\n# instances\nAction//$action{::0+}((IS_RUN_BY)) Step//$step;\n\nAction//$definition {::0+}((HAS_EXECUTION)) Action Run//$run\n```\n\n## Semantics\n\nAn Action is a reusable operational building block. Its boundary reflects one modeled responsibility.\n",
+      "after_sha256": "5a0d70196152d01a9802fae01f4cf26d0e9f5de9300716bb87bbebd555914a62"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2638@4-draft-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2638\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//RUNS\nversion: 4\nupdated_at: 2026-11-05 02:06:39 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2638@4-draft-CORE_META_MODEL-DECLARATION--define-runs.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine RUNS\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//RUNS ((HAS_INVERSE)) Relation//IS_RUN_BY;\n\nRelation//RUNS ((HAS_CLASSIFICATION)) Derivation == Direct;\n\n# instances\nStep//$step ((RUNS)) (in (Action, Workflow))//$selected\n```\n\n### Prose Claim\n\nRUNS binds a Step to its Action or Workflow target. Its inverse is IS_RUN_BY.\n",
+      "after_sha256": "dcff0917a3545169b74ec2f6135639a9bef5b87763d89d6e10cb385d67e33733"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2734@2-draft-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2734\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Runtime)\nversion: 2\nupdated_at: 2026-11-05 02:06:39 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2734@2-draft-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Runtime Workflow\n\n## Claim\n\n### Formal Claim\n\n```CFEL\nAtom/(.Header.Role: Operations)/Workflow/(.Purpose := Runtime)\n```\n\n## Semantics\n\nA Runtime Workflow is a Workflow whose Purpose is Runtime: it provides behavior through a Project's delivered result during its operation. In CAPRMEDIO, examples include Create Draft, Promote Draft and Archive Atom.\n\nIt inherits Workflow's shared Step and Action model. Purpose describes use relative to a Project and does not change the canonical definition's owning Scope Unit.\n",
+      "after_sha256": "f3d1a3ca59de29ea4ae573f8513dc7ba9ac6f96de15ca0bb40c11870bf781241"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2735@2-draft-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2735\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)\nversion: 2\nupdated_at: 2026-11-05 02:06:39 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2735@2-draft-CORE_META_MODEL-DECLARATION--declare-project-workflow.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Project Workflow\n\n## Claim\n\n### Formal Claim\n\n```CFEL\nAtom/(.Header.Role: Operations)/Workflow/(.Purpose := Project)\n```\n\n## Semantics\n\nA Project Workflow is a Workflow whose Purpose is Project: it develops, validates, maintains or releases a Project's result. Examples include Implementation, Local Release and Public Release.\n\nIt inherits Workflow's shared Step and Action model. Purpose describes use relative to a Project and does not change the canonical definition's owning Scope Unit.\n",
+      "after_sha256": "08665acc5e3dd0d0b6429e437db9f78e1fb3faee51b8e814a4e6fa6192dba7a9"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1528@23-draft-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution\n  passive:\n  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run\n  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)\n  - CAPRMEDIO_MODEL <+ Journal\n  - CAPRMEDIO_MODEL <+ Event Record\nversion: 23\nupdated_at: 2026-11-05 02:06:39 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-R-1528\nstatus: Draft\ntier: 2\nrole: Requirement\nform: Rule\ncarrier_destination:\n  file:\n    name: CA-R-1528@23-draft-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nRecord Tool calls within Step Runs\n\n## Claim\n\n### Prose Claim\n\n\nTool Calls that occur within Step Runs.\n\n\na Tool Call **means** an invocation of a Tool during execution; **when** it occurs within a Step Run, its execution evidence **must** remain associated with that parent Step Run **in** the canonical Project Journal.\n\n## Details\n\n- retain the invoked Tool, supplied inputs, actual result **or** error, **and** parent Step Run association. preserve call identity **and** timing sufficient **to** distinguish separate attempts; do **not** report an attempted **or** uncertain effect as confirmed completion.\n- use authorized references **or** protected representations for secret **or** sensitive inputs under their governing rules; execution tracing does **not** authorize copying secrets into the Journal.\n- a Step Run for a leaf Step that runs an Action executes its **`=1`** declared Action through its **`=1`** Action Run. a containing Step Run launches no own Action; its nested Step Runs retain their own Step execution. Tool calls remain execution details associated with their parent Step Run, **not** automatically new Steps, Action definitions, **or** Workflow nodes; this tracing rule does **not** grant Tool-call permission.\n- a view **may** display Workflow Run, containing **and** leaf Step Runs, **and** Tool-call evidence as a nested trace; derive the view from the canonical records rather than creating another independently maintained execution history.\n- preserve actual ordering **and** parentage **without** inferring concurrency permission, Workflow routing, **or** a new Step Run for **every** Tool call.\n",
+      "after_sha256": "19160e7bf5b7544e88e481f3896d3a92ee3e6b805be0d51d10367c06d965cbfc"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-486@24-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action\n  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run\n  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run\n  - CAPRMEDIO_MODEL <+ Event Record\nversion: 24\nupdated_at: 2026-11-05 02:06:39 +0400\nrelations:\n  evaluation_for:\n  - CA-R-2464\n  - CA-R-2465\n  - CA-R-1510@18\n  - CA-R-1511@22\natom_id: CA-E-486\nstatus: Draft\ntier: 3\nrole: Evaluation\nform: Eval Case\ncarrier_destination:\n  file:\n    name: CA-E-486@24-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft\n---\n## Summary\n\nValidate Workflow Steps and Runs\n\n## Claim\n\n### Prose Claim\n\n\nWorkflow Steps **and** Runs.\n\n\nthe Evaluation **must** check Workflow Steps **and** Runs.\n\n## Details\n\n### Cases\n\n- define **`=2`** distinct leaf Steps referencing the same Action with different input bindings; follow an admitted Conditional Step route whose result selects exactly one nested Step alternative.\n- execute a containing Step and its nested Steps: record a distinct Step Run for the containing Step and for each executed nested Step; the containing Step Run launches no Action or Workflow, while each executed leaf Step Run for an Action-running Step executes its **`=1`** referenced Action through its **`=1`** corresponding Action Run.\n- execute a leaf Step with exactly one Workflow target.\n- revisit a Step under an accepted retry allowance within **`=1`** Workflow Run.\n- introduce a Step with neither one Action nor one Workflow nor one or more nested Steps, more than one RUNS target in total across Action and Workflow, an unresolved selected target, **or** an unresolved required input binding; or give a containing Step an own Action or Workflow launch.\n- introduce an untyped edge, an edge whose endpoint is an Action rather than a Step, **or** a next-Step reference missing from that Workflow.\n- record a failed Step Run; separately reference a reusable Workflow definition **without** recording an execution.\n\n### Acceptance\n\n- the valid shared Action retains **`=1`** definition; Step bindings remain distinct, and the containing Step does not duplicate Action behavior.\n- every executed Step, including a containing Step, has its own distinct Step Run; the containing Step Run groups actual nested Step Runs and launches no Action or Workflow, while each leaf Step Run for an Action-running Step executes its **`=1`** referenced Action through its **`=1`** corresponding Action Run.\n- a Conditional Step selects exactly one declared nested Step alternative from its definition; no additional Branch, Fork, or Decision Atom is required.\n- **every** actual revisit creates a distinct Step Run within the same Workflow Run **without** resetting its retry allowance.\n- invalid Step target cardinality, invalid containing-Step launch, unresolved inputs, invalid endpoints, **and** untyped transitions fail the check.\n- failed **or** absent execution evidence **must not** become successful completion, a new Workflow definition, **or** another historical source.\n\nreport the exact failing source, case, **and** condition; do **not** change source authority **to** make the check pass.\n",
+      "after_sha256": "c395ef5f491d1a9240643ad370c4de0cbf9897d7d8fbc19f71c2f76448b7d5ab"
+    }
+  ],
+  "planned_retirement": {
+    "id": "CA-R-2466",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+    "sha256": "f2a40705628b526539a0422901b2e5032ffaec8f0900072fb9c4d8d89b20bd11",
+    "exact_preimage": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2466.retirement-preimage.txt",
+    "atomic_disposition": "Retire exact R2466@4 only together with reviewed recursive-Step replacements and all operative Substep source consumers. Preserve exact preimage and historical C627/frozen references; no actual data or workflow migration."
+  }
+}

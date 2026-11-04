@@ -4,7 +4,7 @@ status: Draft
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action
 version: 3
-updated_at: 2026-11-04 16:07:35 +0400
+updated_at: 2026-11-05 02:11:07 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
@@ -27,12 +27,12 @@ Declare Action
 
 ```CFEL
 # model
-Atom/(.Header.Role: Operations)/Action;
+Atom/(.Header.Role := Operations)/Action;
 
 # instances
-Action//$action{:0+}((IS_RUN_BY)) (in (Step, Substep))//$selected;
+Action//$action{::0+}((IS_RUN_BY)) Step//$step;
 
-Action//$definition {:0+}((HAS_EXECUTION)) Action Run//$run
+Action//$definition {::0+}((HAS_EXECUTION)) Action Run//$run
 ```
 
 ## Semantics

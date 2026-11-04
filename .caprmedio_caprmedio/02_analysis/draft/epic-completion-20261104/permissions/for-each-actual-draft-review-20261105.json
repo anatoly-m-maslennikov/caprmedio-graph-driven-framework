@@ -1,0 +1,24 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_REVIEW",
+  "plan_sha256": "6b62b245bb0cf087d7fe44db9e975e20f0f4edc5a8989d0481df595ed2523643",
+  "receipt_sha256": "e4fa83c12d5cd2cad495ad20c3ab7f9bedc582e1d6d41626eae5693a271accde",
+  "draft": {
+    "atom_id": "CA-R-2778",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-universal-quantification.md",
+    "sha256": "1562a014a018cc42a30468ead86a326037cacb79e1695732906a6704d9a6027d",
+    "source_preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/for-each-20261105/unallocated-for-each-declaration.preview.txt",
+    "source_preview_sha256": "8bb0fbd747c49b252686049c2f25d3be2924715147884bf1681614ae83686560"
+  },
+  "checks": {
+    "payload": "R2778 live Draft and approved 8bb0 preview hashes match; complete substantive body is byte-identical",
+    "identity": "one active Subject Operator//UniversalQuantification, Draft @1, freshly created; no other native filename for CA-R-2778 found",
+    "claim": "one CFEL fence; typed participant and optional grouped conditions, explicit body scope, same binding identity, no outer-name shadowing, header uses neither WITH nor IN",
+    "effects": "declarative constraint performs no mutation, I/O or execution loop; empty selection is allowed"
+  },
+  "limits": [
+    "Review concerns R2778 only; the plan also contains a separate Container Draft not reviewed here.",
+    "Object Format and CFEL overview successors remain unadmitted dependencies; this does not make FOR EACH Current.",
+    "Receipt records no native workflow admission or Journal append; no parser/runtime validation."
+  ]
+}

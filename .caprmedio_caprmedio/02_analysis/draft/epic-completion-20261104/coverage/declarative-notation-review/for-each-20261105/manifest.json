@@ -1,0 +1,81 @@
+{
+  "status": "PROPOSAL_ONLY_PAIRED_KIND_DELIMITER_SETTLED",
+  "example_scope_note": "Illustration kept here, not as a second Formal Claim fence: FOR EACH $atom[<Atom>, (.Header.Status = Active)]: ( $atom.Header.Status = Active; ). It is notation evidence, not a new Atom policy; Done in the user example is a Plan-specific addition.",
+  "candidate": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/for-each-20261105/unallocated-for-each-declaration.preview.txt",
+    "sha256": "8bb0fbd747c49b252686049c2f25d3be2924715147884bf1681614ae83686560",
+    "id": "UNALLOCATED_REQUIREMENT_ID",
+    "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//UniversalQuantification",
+    "status": "Draft preview only; prospective operator name and identity require review and native allocation"
+  },
+  "authority_pins": [
+    {
+      "id": "CA-R-2487",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "version": 13,
+      "sha256": "d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045"
+    },
+    {
+      "id": "CA-R-2604",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "version": 3,
+      "sha256": "f2b03e857aa8bc2e30beba8bac5f4b9b78d12af35061ab865d3c8e3ff07bdc5d"
+    },
+    {
+      "id": "CA-R-2601",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "version": 3,
+      "sha256": "d31d8e02dedf8afe62ad100733208ff77c8f069666397b86480ae4d5da4de9a0"
+    },
+    {
+      "id": "CA-R-2696",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2696-CORE_META_MODEL-DECLARATION--declare-atom-header-status.md",
+      "version": 1,
+      "sha256": "91195e351c22d05abe26335dd90a6dadaec5acb0e9739fe50ef80a96f424449a"
+    },
+    {
+      "id": "CA-R-1947",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL--define-atom-status-allowed-values.md",
+      "version": 13,
+      "sha256": "d40a876b0bcd4b3045e05c2580f2132e742d1f583a9a1accfe60128abee3791c"
+    }
+  ],
+  "analysis_draft": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+    "sha256": "0553dcb7520a9c0867d15f8f121b66a83aed796c31318ca9d3995f9aaa649b11"
+  },
+  "integration_gates": [
+    "Typed participant syntax `$atom[<Atom>]` is dependent on adopting A1321 instance-format grammar; this preview does not independently adopt that grammar.",
+    "R2487 currently states no FOR primitive. Reconcile CFEL overview, operator inventory and new Declaration atomically, with exact fresh source pins.",
+    "Keep Current IF membership binding and its local scope; universal quantification adds no revocation.",
+    "New binding uses a different name from any already bound outer variable. References to outer bindings do not rebind; no new reassignment or shadowing policy.",
+    "The header colon is a construct delimiter, distinct from adopted :: allowed-value notation; incorporate contextual parser/migration review in CA #3.",
+    "Operator name is a proposed instance under the existing CFEL Operator family, not an already admitted node or alternate namespace; allocate identity and review one active Subject before any Draft creation.",
+    "FOR EACH is the only keyword in this construct; WITH and IN variants are not admitted.",
+    "The paired <Kind> spelling is settled; typed instance Format and filtered participant grammar need their coordinated source adoption.",
+    "Formal Claims explicitly declare participants and scope; subjects.active remains the governed focus and supplies no implicit operand or binding."
+  ],
+  "limits": "Proposal source only; no actual Draft, Current, code, tests, Workflow/Workbench or Git changes.",
+  "input_history": [
+    {
+      "stage": "initial user example",
+      "text": "FOR EACH $atom[<Atom>] with $atom.status = Done:\n(\nexpression1;\nexpression2;\n)"
+    },
+    {
+      "stage": "discussed alternative only",
+      "text": "FOR EACH $atom[<Atom>] in (...): (...)"
+    },
+    {
+      "stage": "latest user decision",
+      "text": "FOR EACH typed/filtered selector followed by colon and a parenthesized body; no WITH and no IN. Group conditions in parentheses. User wrote [<Atom, (conditions)]; closing > for kind is pending."
+    },
+    {
+      "stage": "kind delimiter settled",
+      "text": "[<Atom>, (conditions)] \u2014 keep <Atom> paired. FOR EACH $atom[<Atom>, (.Header.Status = Done)]: (...). No WITH or IN."
+    },
+    {
+      "stage": "self-contained Claim and focus settled",
+      "text": "A Formal Claim states its participants and scope completely; subjects.active remains required and identifies governed focus, not an implicit operand or binder."
+    }
+  ]
+}

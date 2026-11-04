@@ -1,6 +1,6 @@
-# CA-R-2728@3
-# CA-R-2729@4
-# CA-D-673@8
+# CA-R-2728@4
+# CA-R-2729@5
+# CA-D-673@9
 
 """Native MCP adapters for the Project-owned Workbench service."""
 
@@ -27,8 +27,8 @@ _SQL = {"type": "string"}
 _RUN_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000}, "cursor_position": _CURSOR}, "required": ["sql"], "additionalProperties": False}
 _CHECK_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "cursor_position": _CURSOR}, "required": ["sql"], "additionalProperties": False}
 _PAGE_SCHEMA = {"type": "object", "properties": {"query_id": _SQL, "offset": {"type": "integer", "minimum": 0}, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000}}, "required": ["query_id", "offset"], "additionalProperties": False}
-_SAVE_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "cursor_position": _CURSOR}, "required": ["sql"], "additionalProperties": False}
-_WORKSHEET_SCHEMA = {"type": "object", "properties": {"sql": _SQL}, "required": ["sql"], "additionalProperties": False}
+_SAVE_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "cursor_position": _CURSOR, "name": _SQL}, "required": ["sql"], "additionalProperties": False}
+_WORKSHEET_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "name": _SQL}, "required": ["sql"], "additionalProperties": False}
 _LOAD_SCHEMA = {"type": "object", "properties": {"reference": _SQL}, "required": ["reference"], "additionalProperties": False}
 _LIST_SCHEMA = {"type": "object", "properties": {"limit": {"type": "integer", "minimum": 1, "maximum": 1000}}, "additionalProperties": False}
 _EMPTY_SCHEMA = {"type": "object", "properties": {}, "additionalProperties": False}
@@ -77,11 +77,11 @@ class WorkbenchTools:
                 self._empty(arguments)
                 return await asyncio.to_thread(self._owner().schema)
             if name == SAVE:
-                sql, cursor = self._sql(arguments, {"sql", "cursor_position"})
-                return await asyncio.to_thread(self._owner().save, sql, cursor_position=cursor)
+                sql, cursor = self._sql(arguments, {"sql", "cursor_position", "name"})
+                return await asyncio.to_thread(self._owner().save, sql, cursor_position=cursor, name=self._name(arguments))
             if name == SAVE_WORKSHEET:
-                sql, _ = self._sql(arguments, {"sql"})
-                return await asyncio.to_thread(self._owner().save_worksheet, sql)
+                sql, _ = self._sql(arguments, {"sql", "name"})
+                return await asyncio.to_thread(self._owner().save_worksheet, sql, name=self._name(arguments))
             if name == LOAD:
                 reference, _ = self._sql(arguments, {"reference"}, key="reference")
                 return await asyncio.to_thread(self._owner().load, reference)
@@ -124,6 +124,13 @@ class WorkbenchTools:
             raise ValueError("page_size must be an integer")
         if not 1 <= value <= 1000:
             raise ValueError("page_size must be between 1 and 1000")
+        return value
+
+    @staticmethod
+    def _name(arguments: dict[str, Any]) -> str | None:
+        value = arguments.get("name")
+        if value is not None and not isinstance(value, str):
+            raise ValueError("name must be a string")
         return value
 
     def _run(self, arguments: Any) -> tuple[str, int, int | None]:

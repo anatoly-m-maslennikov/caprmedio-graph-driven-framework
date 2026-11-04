@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS_BOUNDED_AFTER_REPAIR",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/for-each-20261105/manifest.json",
+  "manifest_sha256": "518cc79cefe38241722b1aab83c0680f905505808301df57727845b79fa64961",
+  "candidate": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/for-each-20261105/unallocated-for-each-declaration.preview.txt",
+    "sha256": "8bb0fbd747c49b252686049c2f25d3be2924715147884bf1681614ae83686560",
+    "id": "UNALLOCATED_REQUIREMENT_ID",
+    "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//UniversalQuantification",
+    "status": "Draft preview only; prospective operator name and identity require review and native allocation"
+  },
+  "checks": [
+    "Exactly one CFEL fence remains in Formal Claim; the worked example is retained in the manifest, not imposed as Atom policy.",
+    "The typed paired <Kind> selector and parenthesized body represent the settled FOR EACH spelling; participant and scope are explicit, active Subject identifies focus rather than binding participants.",
+    "Existing IF binding, no-shadowing, declarative no-I/O, empty selection, and header-colon versus :: boundaries are preserved. All Current authority and candidate pins match."
+  ],
+  "adoption_gates": [
+    "Allocate a unique ID and version, then create a Draft with canonical metadata.",
+    "Adopt the <Kind>/typed-instance grammar and revised R2487 overview coherently; Current syntax is not changed by this preview.",
+    "Source work does not prove CA #3 parser, fixtures or runtime behavior."
+  ],
+  "limits": [
+    "No Current/Draft, code, Workflow, Workbench, Git or test mutation."
+  ]
+}

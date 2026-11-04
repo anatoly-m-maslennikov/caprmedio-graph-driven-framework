@@ -1,5 +1,5 @@
 // @ts-nocheck
-// CA-M-470@1
+// CA-M-470@2
 const empty = () => ({ id: crypto.randomUUID(), title: 'Worksheet', sql: '', savedSql: '', cursor: 0, dirty: false });
 
 export function newWorksheet(number) {
@@ -13,7 +13,7 @@ export function storageKey(projectName) {
 export function persistable(tabs, activeId) {
   return JSON.stringify({
     activeId,
-    tabs: tabs.map(({ id, title, sql, cursor, dirty, savedSql }) => ({ id, title, sql, cursor, dirty, savedSql })),
+    tabs: tabs.map(({ id, title, name, sql, cursor, dirty, savedSql }) => ({ id, title, ...(name ? { name } : {}), sql, cursor, dirty, savedSql })),
   });
 }
 
@@ -24,6 +24,7 @@ export function restore(raw) {
     const tabs = value.tabs.filter((tab) => typeof tab.id === 'string' && typeof tab.sql === 'string')
       .map((tab, index) => ({
         id: tab.id, title: typeof tab.title === 'string' ? tab.title : `Worksheet ${index + 1}`,
+        ...(typeof tab.name === 'string' && tab.name ? { name: tab.name } : {}),
         sql: tab.sql, cursor: Number.isInteger(tab.cursor) ? tab.cursor : 0,
         dirty: Boolean(tab.dirty), savedSql: typeof tab.savedSql === 'string' ? tab.savedSql : undefined,
       }));

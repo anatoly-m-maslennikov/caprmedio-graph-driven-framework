@@ -10,7 +10,7 @@ relations:
 tier: 3
 role: Requirement
 form: Declaration
-updated_at: 2026-11-04 16:07:35 +0400
+updated_at: 2026-11-05 01:38:59 +0400
 carrier_destination:
   file:
     name: CA-R-2753@1-draft-CORE_META_MODEL-DECLARATION--declare-runtime.md
@@ -30,9 +30,9 @@ Declare Runtime
 Runtime ((NARROWER_THAN)) Occurrent;
 
 # instances
-Runtime//$runtime {:0+}((EXECUTES)) Execution//$execution
+Runtime//$runtime {::0+}((EXECUTES)) Execution//$execution
 ```
 
 ## Semantics
 
-A Runtime is an application environment in which Executions run.
+A Runtime is an environment in which Executions run.

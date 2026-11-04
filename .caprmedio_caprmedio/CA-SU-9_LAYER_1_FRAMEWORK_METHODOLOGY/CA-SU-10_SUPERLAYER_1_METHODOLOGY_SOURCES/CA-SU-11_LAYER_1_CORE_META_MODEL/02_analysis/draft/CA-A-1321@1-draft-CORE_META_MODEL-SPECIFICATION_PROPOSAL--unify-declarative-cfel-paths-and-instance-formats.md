@@ -10,7 +10,7 @@ subjects:
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
-updated_at: 2026-11-05 01:31:24 +0400
+updated_at: 2026-11-05 01:59:03 +0400
 carrier_destination:
   file:
     name: CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md
@@ -32,7 +32,7 @@ CFEL declares constraints, relationships and required values. Workflows and adap
 - `[format, conditions]` constrains a value. Primitive formats include `int`; Model kinds also supply object Formats.
 - `<Node>` explicitly refers to a Model-defined object kind. This spelling is accepted.
 - `$<Node>` selects an anonymous instance; `$x[<Node>]` names an instance participant.
-- A specific Model Relation uses the same filtered form: `$x[<Relation>, .Name = IS_PROPERTY_OF]`. The final user correction rejects `IS_PROPERTY_OF[<Relation>]`; the old `Relation//IS_PROPERTY_OF` instance meaning is not retained in the proposed syntax.
+- A specific Model Relation uses the same filtered form: `$x[<Relation>, (.Name = IS_PROPERTY_OF)]`. The final user correction rejects `IS_PROPERTY_OF[<Relation>]`; the old `Relation//IS_PROPERTY_OF` instance meaning is not retained in the proposed syntax.
 - CFEL consists of declarative statements, rather than a program with mutable variables or procedural calls.
 - Allowed-value `:` becomes `::` everywhere in CFEL, including `{::1}` and `{::0+}`. Subject `:=` remains unchanged. YAML separators and literal colons retain their meanings.
 
@@ -61,8 +61,10 @@ CFEL declares constraints, relationships and required values. Workflows and adap
 
 - `$x` is a bound logical name, rather than a mutable program variable.
 - A typed participant denotes an existing selected value or instance; it creates nothing.
-- Universal quantification states that a constraint holds for every matching participant. `FOR EACH` is a candidate ASCII spelling, not an execution loop.
-- `IF ... THEN ...` expresses implication. Current bounded-name introduction in IF remains authoritative until a reviewed quantifier successor is selected; the declarative direction alone does not revoke that earlier decision.
+- Universal quantification uses `FOR EACH $atom[<Atom>, (conditions)]:` followed by a parenthesized body. The paired `<Atom>` is retained. The selector carries the domain and conditions; `WITH` and `IN` are absent from this header.
+- The participant is bound in its selector and body. It keeps one identity within that scope and is out of scope after the group. Existing no-shadowing rules remain.
+- A Formal Claim states its participants, scope and constraints explicitly. `subjects.active` remains the Atom's declared focus; it supplies no implicit participant binding.
+- `IF ... THEN ...` expresses implication. Current bounded-name introduction in IF remains authoritative; adding FOR EACH does not revoke that earlier decision.
 - Mathematical terms describe values and invariants; they perform no I/O or business action. A conflicting supplied value fails its required-value constraint; the statement does not overwrite it. An authorized Workflow can separately change the supplied data.
 - Existing explicit grouping for mixed AND/OR and quote/backslash rules remain applicable.
 
@@ -74,8 +76,8 @@ CAPRMEDIO_MODEL/Node//Continuant//Atom;
 
 # instances
 $x[<Node>];
-$atom[<Atom>, .Header.Status = Active];
-$relation[<Relation>, .Name = IS_PROPERTY_OF];
+$atom[<Atom>, (.Header.Status = Active)];
+$relation[<Relation>, (.Name = IS_PROPERTY_OF)];
 $n[int, 1+];
 ```
 
@@ -114,7 +116,6 @@ The accepted migration includes Formats, Property-name constraints and `{::n}` b
 
 - Reverse containment and narrowing traversal notation.
 - Definitions and default cases must retain absence, validation and conflict safeguards in the revised operator sources.
-- Explicit universal quantification and scope, preserving participant identity and the no-shadowing decision.
 - Complete Scope Unit path encoding, including the Project root, segment Names and the `~` marker.
 
 ## Rationale
@@ -129,5 +130,20 @@ Actual allowed-value notation Drafts:
 - CA-R-2243@13-draft: allowed cardinalities.
 - CA-R-2471@8-draft: notation distinctions.
 - CA-R-2487@14-draft: CFEL overview.
+- CA-R-1321@36-draft: Subject expression consumers.
+- CA-R-2588@6-draft: default Relation cardinality consumers.
+- CA-R-2778@1-draft: FOR EACH universal quantification.
 
-These Drafts require source-consumer integration and review before promotion and contextual migration. Other proposed path and instance changes have no admitted successor yet. Existing source-repair Drafts remain separately tracked in CA-A-1318.
+These Drafts require source-consumer integration and review before promotion and contextual migration. Typed object-Format and binding authority is being prepared; it is not admitted by the quantifier Draft alone. Other proposed path and instance changes have no admitted successor yet. Existing source-repair Drafts remain separately tracked in CA-A-1318.
+
+## Accepted quantifier shape
+
+```CFEL
+FOR EACH $atom[<Atom>, (.Header.Status = Done)]:
+(
+expression1;
+expression2;
+)
+```
+
+This is a syntax illustration. Its conditions and body are supplied by the authored Claim. The colon after the header introduces the group; `::` remains the allowed-value operator.

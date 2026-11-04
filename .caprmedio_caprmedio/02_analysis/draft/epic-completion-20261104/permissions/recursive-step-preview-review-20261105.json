@@ -1,0 +1,171 @@
+{
+  "verdict": "PASS_BOUNDED_NINE_DRAFT_PREPARATIONS_CURRENT_ADOPTION_HELD",
+  "contracts_manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/manifest.json",
+  "contracts_manifest_sha256": "214506b8ac80acdc63d14b2283af5124ec9e52ab6319111d2494609e2b38cf9d",
+  "consumers_manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/consumers/manifest.json",
+  "consumers_manifest_sha256": "141bf3d9052b1c9ef850ac626f3b5b7803a6262f32d6a9abd3ba68ac56d72d3a",
+  "checks": [
+    "All 8 contract Current/source/preview/diff pins and all consumer Current/preview pins match live.",
+    "R2464/2465/2467 previews preserve respective Workflow/Step/Action HAS_EXECUTION 0+ permissions from their native Drafts.",
+    "R2465 permits exactly one immediate Workflow or Step parent; its three conditional constraints select one Action/Workflow run with zero children or at least one nested Step with zero runs. Workflow and containing Step CONTAINS permissions and Action/Workflow IS_RUN_BY permissions are stated explicitly; no cycle rule added.",
+    "R2638 direct RUNS targets Step to Action/Workflow only; R2623 carries inverse binding. R1020/R1021 are implementation_of/evidence_for, not RUNS/IS_RUN_BY declarations."
+  ],
+  "findings": [
+    {
+      "severity": "atomic_adoption_hold",
+      "detail": "R2466 Substep Declaration retirement is planned but not executed. Retire exact Current only in a coordinated, reviewed batch with necessary source and run-kind endpoint changes; retain exact predecessor. Nine sources are preview-ready for Draft preparation, not ready for independent Current adoption."
+    },
+    {
+      "severity": "layout_policy_hold",
+      "detail": "E500 and D467 physical recursive carrier/folder policy remains explicitly held. No physical layout or instance migration inferred."
+    },
+    {
+      "severity": "cycle_and_run_parentage",
+      "detail": "Recursive containment cycle policy is undecided; no acyclicity rule inferred. R1528 names parentage evidence but no source-established parent-child Run Relation; do not invent one."
+    },
+    {
+      "severity": "syntax_and_header_integration",
+      "detail": "Approved ::/{::n} syntax, current binding/quantification and Header.Container migration require coordinated source review; no bounds or parent/child semantics may change accidentally."
+    }
+  ],
+  "other_unreviewed": [
+    "Current plans and historical data are not silently rewritten.",
+    "Actual Operations Workflows, Workbench, code, legacy copies and archived sources excluded."
+  ],
+  "extra_authority_pins": [
+    {
+      "id": "CA-R-1020",
+      "version": 33,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "sha256": "ada8da157faca9804f4f79e3bf35aea8bdd1e33e967f9c6fc8c2dfb489aad143"
+    },
+    {
+      "id": "CA-R-1021",
+      "version": 33,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "sha256": "18c323b0bc5d01d2a45f6eb30c4ca4bdd656d5c2e5841381ab39e903b333158b"
+    },
+    {
+      "id": "CA-R-2623",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "sha256": "dd540f1c2fd04b4826443a96daa6f7e190853ecd8645ad1a369d85a3744a2fc6"
+    },
+    {
+      "id": "CA-R-2588",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c"
+    },
+    {
+      "id": "CA-C-627",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/CA-C-627-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "sha256": "936f2558e671228edec1476a617ce7cfda665b8b92d5a0a195142dac5becbb89"
+    }
+  ],
+  "limits": [
+    "Review is source-only and does not execute Evaluations, settle layout/cycles, migrate instances, or establish native admission."
+  ],
+  "safe_draft_preparations": [
+    {
+      "id": "CA-R-2463",
+      "source_kind": "Current",
+      "source_sha256": "165d90b12c799b31498419365be86415689b98e3cc5b8572ac323c8cbbe99d40",
+      "current_sha256": "165d90b12c799b31498419365be86415689b98e3cc5b8572ac323c8cbbe99d40",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2463.preview.txt",
+      "preview_sha256": "3a3d00771c8594ceb8e95c5f6201d3621806d29ab0a0600d19cc80d64d98d625"
+    },
+    {
+      "id": "CA-R-2464",
+      "source_kind": "native Draft",
+      "source_sha256": "e4a3d1c3b99990b99e1870c32f1acb533d3109770e3a4b271eeb2aeb82dece85",
+      "current_sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2464.preview.txt",
+      "preview_sha256": "9435ee7d84d4b17c1ec26058c9add7b6fe5047295424f3a65887b05bb97c3c63"
+    },
+    {
+      "id": "CA-R-2465",
+      "source_kind": "native Draft",
+      "source_sha256": "41403056a38086987a3f7f12b277696e3c3db4cae8782680ac78e2a544d203ae",
+      "current_sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2465.preview.txt",
+      "preview_sha256": "6ec2496b5a3486e22fa3af239f62e40c8070e641fc7f3ac2cc44b12e32653676"
+    },
+    {
+      "id": "CA-R-2467",
+      "source_kind": "native Draft",
+      "source_sha256": "75f3e750e4d243112532be060110fbd9a8d5d5a3ea263cb7575698bb84953620",
+      "current_sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2467.preview.txt",
+      "preview_sha256": "4d919079ff90e52ce100517f938a05c95369c5d07aacd872aa37988f59a0ea9b"
+    },
+    {
+      "id": "CA-R-2638",
+      "source_kind": "Current",
+      "source_sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3",
+      "current_sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2638.preview.txt",
+      "preview_sha256": "eb3cb748e7609b46da538a8461ba6709bf62481ea971ade598c06e271fef9fe6"
+    },
+    {
+      "id": "CA-R-2734",
+      "source_kind": "Current",
+      "source_sha256": "c044105caf865661419725b2ca2e9ae2bd3c8aaf1cd9bd54d910ec99b5eb511c",
+      "current_sha256": "c044105caf865661419725b2ca2e9ae2bd3c8aaf1cd9bd54d910ec99b5eb511c",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2734.preview.txt",
+      "preview_sha256": "2127eebb79fa0bc067c6378d33141521b6b9eaa5b935eb890fa3ccb1e7f1a161"
+    },
+    {
+      "id": "CA-R-2735",
+      "source_kind": "Current",
+      "source_sha256": "c5d223f5de5d92bfcf97e982c34cc968210e9c6f5d2c01a6d290c67886ae0637",
+      "current_sha256": "c5d223f5de5d92bfcf97e982c34cc968210e9c6f5d2c01a6d290c67886ae0637",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2735.preview.txt",
+      "preview_sha256": "bba7c98101e5efa755a432eb08e769ebbf8786dcacfbf954f2b7a51f6d06b099"
+    },
+    {
+      "id": "CA-R-1528",
+      "source_kind": "Current",
+      "source_sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f",
+      "current_sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-1528.preview.txt",
+      "preview_sha256": "cd62c583a1c94ba34b74433f599de4cdfa0cdeee4586bfa79d285d83f024697c"
+    },
+    {
+      "id": "CA-E-486",
+      "source_kind": "Current",
+      "source_sha256": "05975fc46ce47e6bd7001cb410f16c34a44969c54685f29ad3a99159ec1ecfdf",
+      "current_sha256": "05975fc46ce47e6bd7001cb410f16c34a44969c54685f29ad3a99159ec1ecfdf",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-E-486.preview.txt",
+      "preview_sha256": "5c02138b58a030ca655d03af08b319627b1fa96f4db4e6fdefdcb918b62e7815"
+    }
+  ],
+  "resolved_findings": [
+    "CA-E-486 complete pinned preview is included. It retains two leaf Steps sharing an Action with distinct input bindings, unresolved-input failure, mixed total RUNS cardinality, separate Step Runs, retry and failure evidence, and explicitly covers a Workflow-target leaf. It introduces no Substep Run.",
+    "CA-R-2245@9 native Draft has Step Run to Step binding already, and CA-R-2623@4 is the Current IS_RUN_BY inverse binding; both are pinned and require no new preview.",
+    "CA-C-627@3 is a Resolved historical Question that records the earlier answer. Preserve its historical text; latest recursive-Step decision supersedes its old Substep statement. Its passive Subject is historical concern data and still visible to Subject audits; this is not an active Substep Declaration.",
+    "R2463 duplicate candidates are identical; use the contracts previews for R2638/R2734/R2735 and never apply both variants."
+  ],
+  "adoption_scope": "Nine contract previews ready for source Draft preparation after normal ID/version reservation; current adoption is a coordinated later gate. Other five non-overlap consumer previews are independently reviewed by another owner.",
+  "reviewed_no_change": [
+    {
+      "id": "CA-R-2245@9-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2245@9-draft-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "sha256": "10d74afc56acca0fa69e3b980cd697fbb7b28abe55a3521a129f479c6030d622",
+      "reason": "Its proposed Step Run\u2192Step signature already matches recursive Step and does not mention Substep. Adopt with paired kind/endpoint Declarations; this is not a new permission."
+    },
+    {
+      "id": "CA-R-2623@4",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "sha256": "dd540f1c2fd04b4826443a96daa6f7e190853ecd8645ad1a369d85a3744a2fc6",
+      "reason": "Canonical IS_RUN_BY Declaration is the derived inverse binding to RUNS; it has no Substep endpoint signature to revise. Do not alter R1020/R1021."
+    },
+    {
+      "id": "CA-C-627@3",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/CA-C-627-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "sha256": "936f2558e671228edec1476a617ce7cfda665b8b92d5a0a195142dac5becbb89",
+      "reason": "Resolved historical Question records an earlier Operator answer including Substep. Preserve that exact historical answer; the latest recursive-Step decision supersedes it. Its old passive Subject remains historical concern data, not a Current model-kind Declaration; do not silently rewrite or retire it."
+    }
+  ]
+}

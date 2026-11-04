@@ -1,0 +1,266 @@
+{
+  "status": "SOURCE_ONLY_RECURSIVE_STEP_PREVIEWS_WITH_ATOMIC_GATES",
+  "human_decision": "Retire Substep kind. A Step either RUNS exactly one Action, RUNS exactly one Workflow, or CONTAINS one or more Steps. Step Run continues to target Step.",
+  "outputs": [
+    {
+      "id": "CA-R-2463",
+      "source_kind": "Current",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "source_sha256": "165d90b12c799b31498419365be86415689b98e3cc5b8572ac323c8cbbe99d40",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "current_sha256": "165d90b12c799b31498419365be86415689b98e3cc5b8572ac323c8cbbe99d40",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2463.preview.txt",
+      "preview_sha256": "3a3d00771c8594ceb8e95c5f6201d3621806d29ab0a0600d19cc80d64d98d625",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2463.diff",
+      "diff_sha256": "a341917ab3ffd010f7a95ccc5e9897fdd24ae6d553f9a7688fc7d3703668a450"
+    },
+    {
+      "id": "CA-R-2464",
+      "source_kind": "native Draft",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "source_sha256": "e4a3d1c3b99990b99e1870c32f1acb533d3109770e3a4b271eeb2aeb82dece85",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "current_sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2464.preview.txt",
+      "preview_sha256": "9435ee7d84d4b17c1ec26058c9add7b6fe5047295424f3a65887b05bb97c3c63",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2464.diff",
+      "diff_sha256": "7c4df23198987219d22057a03a0be6ec7368a09039ce32f7aa38adc7dc93afdc"
+    },
+    {
+      "id": "CA-R-2465",
+      "source_kind": "native Draft",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "source_sha256": "41403056a38086987a3f7f12b277696e3c3db4cae8782680ac78e2a544d203ae",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "current_sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2465.preview.txt",
+      "preview_sha256": "6ec2496b5a3486e22fa3af239f62e40c8070e641fc7f3ac2cc44b12e32653676",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2465.diff",
+      "diff_sha256": "a52d4c197e1b1d260bd18852e90f1a5ca7b6206347c804faa26724947a492c58"
+    },
+    {
+      "id": "CA-R-2467",
+      "source_kind": "native Draft",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2467@3-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "source_sha256": "75f3e750e4d243112532be060110fbd9a8d5d5a3ea263cb7575698bb84953620",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "current_sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2467.preview.txt",
+      "preview_sha256": "4d919079ff90e52ce100517f938a05c95369c5d07aacd872aa37988f59a0ea9b",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2467.diff",
+      "diff_sha256": "f67cba039ad77120272547a63bb94ea0e172079079d1cbaef47086701de5e7b6"
+    },
+    {
+      "id": "CA-R-2638",
+      "source_kind": "Current",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "source_sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "current_sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2638.preview.txt",
+      "preview_sha256": "eb3cb748e7609b46da538a8461ba6709bf62481ea971ade598c06e271fef9fe6",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2638.diff",
+      "diff_sha256": "040c4087a1791fb0ab8dc6e4484fde7d01f2edda7661ea2e6947a420e11de36d"
+    },
+    {
+      "id": "CA-R-2734",
+      "source_kind": "Current",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2734-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "source_sha256": "c044105caf865661419725b2ca2e9ae2bd3c8aaf1cd9bd54d910ec99b5eb511c",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2734-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "current_sha256": "c044105caf865661419725b2ca2e9ae2bd3c8aaf1cd9bd54d910ec99b5eb511c",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2734.preview.txt",
+      "preview_sha256": "2127eebb79fa0bc067c6378d33141521b6b9eaa5b935eb890fa3ccb1e7f1a161",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2734.diff",
+      "diff_sha256": "b254d4f67fbe1120c876830646313ba4d8ed47fefced19a6c272be0ea03c1041"
+    },
+    {
+      "id": "CA-R-2735",
+      "source_kind": "Current",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2735-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "source_sha256": "c5d223f5de5d92bfcf97e982c34cc968210e9c6f5d2c01a6d290c67886ae0637",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2735-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "current_sha256": "c5d223f5de5d92bfcf97e982c34cc968210e9c6f5d2c01a6d290c67886ae0637",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2735.preview.txt",
+      "preview_sha256": "bba7c98101e5efa755a432eb08e769ebbf8786dcacfbf954f2b7a51f6d06b099",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2735.diff",
+      "diff_sha256": "138fe1e315079cb39eca818b2550140595e5c477dd398b609f6727675a5ef3c4"
+    },
+    {
+      "id": "CA-R-1528",
+      "source_kind": "Current",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "source_sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "current_sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-1528.preview.txt",
+      "preview_sha256": "cd62c583a1c94ba34b74433f599de4cdfa0cdeee4586bfa79d285d83f024697c",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-1528.diff",
+      "diff_sha256": "46ac1dc87ffc2459fe663012704409504c619e80a736d80d35b7b82dd1edfa82"
+    },
+    {
+      "id": "CA-E-486",
+      "source_kind": "Current",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-486-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+      "source_sha256": "05975fc46ce47e6bd7001cb410f16c34a44969c54685f29ad3a99159ec1ecfdf",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-486-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+      "current_sha256": "05975fc46ce47e6bd7001cb410f16c34a44969c54685f29ad3a99159ec1ecfdf",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-E-486.preview.txt",
+      "preview_sha256": "5c02138b58a030ca655d03af08b319627b1fa96f4db4e6fdefdcb918b62e7815",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-E-486.diff",
+      "diff_sha256": "df55d79b1886ee370e84d1ddda647e95b90a70f1d3575fe549b6f95785469660",
+      "note": "Retains existing check/cases, changes nested Substeps to Steps and explicitly tests the accepted three-way Step choice; does not define a Run-parent relation."
+    }
+  ],
+  "retirement": {
+    "id": "CA-R-2466",
+    "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+    "sha256": "f2a40705628b526539a0422901b2e5032ffaec8f0900072fb9c4d8d89b20bd11",
+    "exact_preimage": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2466.retirement-preimage.txt",
+    "atomic_disposition": "Retire exact R2466@4 only together with reviewed recursive-Step replacements and all operative Substep source consumers. Preserve exact preimage and historical C627/frozen references; no actual data or workflow migration."
+  },
+  "contract": [
+    "R2465 preserves one direct immediate IS_CONTAINED_BY from Step to either Workflow or Step; each selected parent must have applicable Container classification.",
+    "R2465 declares the conditional exclusive choice between 1+ nested Steps and exactly one RUNS target chosen from Action or Workflow. Counts apply per Step; no inverse exact-one is inferred.",
+    "R2464 retains one or more Step children and its independent IS_RUN_BY and HAS_EXECUTION allowances. R2467 separately allows IS_RUN_BY from Step; R2638 defines RUNS Step→Action/Workflow and its inverse remains R2623.",
+    "R1528 retains trace/evidence and exactly one Action Run for Action-running leaves; Workflow-running leaves are not silently assigned an Action Run. R2245/R2751 continue Step Run→Step."
+  ],
+  "source_census": {
+    "selection": "Prior 1,167 selected Current source paths, reread live; Operations-role sources and Workbench paths excluded. This is a reference inventory, not a complete all-Project or actual Workflow-instance census.",
+    "matches": [
+      {
+        "id": "CA-D-467",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+        "sha256": "ed46335c87661b1caa6ca3c6fc3f042f50a54de7dd0014e2b68877b1833a0b66"
+      },
+      {
+        "id": "CA-E-383",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+        "sha256": "8503b8391a73bfae63174a5c414f5be4b1d23fac8403951be0cbb4272817c78c"
+      },
+      {
+        "id": "CA-E-486",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-486-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+        "sha256": "05975fc46ce47e6bd7001cb410f16c34a44969c54685f29ad3a99159ec1ecfdf"
+      },
+      {
+        "id": "CA-E-500",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+        "sha256": "ceb0fdcccff0972ecb3e6b2aba27f6565ecd7cc05cea21bd9c8b072b4ce61edf"
+      },
+      {
+        "id": "CA-E-669",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+        "sha256": "55c62fe55716d1332afc79ae69fb9749d1bea43027de4bcca0d439c990afeeef"
+      },
+      {
+        "id": "CA-M-232",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md",
+        "sha256": "9f84da9fa587c9d41b91fbc4754afa3b470a3e8eb398bd0207399a34ad1f90af"
+      },
+      {
+        "id": "CA-M-305",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-305-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-workflow-schemes-using-step-references.md",
+        "sha256": "ae15e8389fa1417f1d5b820e14558c0adaf9409a4333ddff6d21801745c1a4f3"
+      },
+      {
+        "id": "CA-M-444",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly.md",
+        "sha256": "d3794f3b0f902703605cbe8a309e48dea4c688b8ab727de9868af19fa2b4018f"
+      },
+      {
+        "id": "CA-R-1528",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+        "sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f"
+      },
+      {
+        "id": "CA-R-1931",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+        "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b"
+      },
+      {
+        "id": "CA-R-2463",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md",
+        "sha256": "165d90b12c799b31498419365be86415689b98e3cc5b8572ac323c8cbbe99d40"
+      },
+      {
+        "id": "CA-R-2464",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+        "sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a"
+      },
+      {
+        "id": "CA-R-2465",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+        "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf"
+      },
+      {
+        "id": "CA-R-2466",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+        "sha256": "f2a40705628b526539a0422901b2e5032ffaec8f0900072fb9c4d8d89b20bd11"
+      },
+      {
+        "id": "CA-R-2467",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+        "sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a"
+      },
+      {
+        "id": "CA-R-2638",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+        "sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3"
+      },
+      {
+        "id": "CA-R-2734",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2734-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+        "sha256": "c044105caf865661419725b2ca2e9ae2bd3c8aaf1cd9bd54d910ec99b5eb511c"
+      },
+      {
+        "id": "CA-R-2735",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2735-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+        "sha256": "c5d223f5de5d92bfcf97e982c34cc968210e9c6f5d2c01a6d290c67886ae0637"
+      }
+    ]
+  },
+  "atomic_gates": [
+    "Resolve and disposition every operative Substep reference, including R1931 and cross-source schema/authoring/evaluation consumers, before retiring R2466. Adopt the reviewed E486 preview with the model batch and coordinate Workflow-owned D/E/M sources with their owners; do not mutate actual Workflow instances in this lane.",
+    "Include all accepted Occurrent Run kind and relation/endpoint Drafts where HAS_EXECUTION is added; preserve input/parameter semantics, exact references and separately declared direct/derived outgoing permissions.",
+    "Reconcile the new Atom.Header.Container value binding and current source/draft metadata separately; these are source previews, not an actual data migration.",
+    "Integrate adopted ::/{::n} notation with governing syntax source batch before promotion without changing any bounds; := remains unchanged.",
+    "Reserve new Versions across Current/Draft/Archive, preserve exact predecessors and frozen references; R2466 retirement must not invent a successor identity.",
+    "Physical Step Carrier/folder policy in E500/D467 remains held for an Operator decision; do not infer a layout from the recursive model."
+  ],
+  "unresolved": [
+    "Current inspected IS_CONTAINED_BY authority does not explicitly establish acyclicity for recursive Step containment. Do not infer a new cycle rule; decide whether self/indirect containment must be forbidden.",
+    "R1528 preserves Run parentage/evidence but does not name the Relation that binds parent and child Runs; do not assume containment or grant inverse permissions until its source meaning is established."
+  ],
+  "limits": [
+    "No actual Workflow/Workbench source, runtime/data, code/tests, Git or Journal mutation.",
+    "Previews are proposals; underlying native Drafts/Current and historical source evidence remain unchanged."
+  ],
+  "reviewed_no_change": [
+    {
+      "id": "CA-R-2245@9-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2245@9-draft-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "sha256": "10d74afc56acca0fa69e3b980cd697fbb7b28abe55a3521a129f479c6030d622",
+      "reason": "Its proposed Step Run→Step signature already matches recursive Step and does not mention Substep. Adopt with paired kind/endpoint Declarations; this is not a new permission."
+    },
+    {
+      "id": "CA-R-2623@4",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "sha256": "dd540f1c2fd04b4826443a96daa6f7e190853ecd8645ad1a369d85a3744a2fc6",
+      "reason": "Canonical IS_RUN_BY Declaration is the derived inverse binding to RUNS; it has no Substep endpoint signature to revise. Do not alter R1020/R1021."
+    },
+    {
+      "id": "CA-C-627@3",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/CA-C-627-CORE_META_MODEL-QUESTION--resolve-step-definition-details-after-model-instance-deferral.md",
+      "sha256": "936f2558e671228edec1476a617ce7cfda665b8b92d5a0a195142dac5becbb89",
+      "reason": "Resolved historical Question records an earlier Operator answer including Substep. Preserve that exact historical answer; the latest recursive-Step decision supersedes it. Its old passive Subject remains historical concern data, not a Current model-kind Declaration; do not silently rewrite or retire it."
+    }
+  ],
+  "canonical_preview_selection": {
+    "CA-R-2463": "contracts",
+    "CA-R-2638": "contracts: explicit Action/Workflow target",
+    "CA-R-2734": "contracts: shared Step and Action",
+    "CA-R-2735": "contracts: shared Step and Action",
+    "rule": "one source candidate per ID; do not apply duplicate consumer previews"
+  }
+}

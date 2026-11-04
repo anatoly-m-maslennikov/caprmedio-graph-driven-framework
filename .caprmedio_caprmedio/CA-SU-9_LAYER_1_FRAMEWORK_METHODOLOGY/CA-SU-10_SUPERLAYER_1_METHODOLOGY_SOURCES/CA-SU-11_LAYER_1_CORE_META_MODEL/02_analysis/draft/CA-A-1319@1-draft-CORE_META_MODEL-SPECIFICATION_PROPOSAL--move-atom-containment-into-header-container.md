@@ -10,7 +10,7 @@ subjects:
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
-updated_at: 2026-11-05 00:47:12 +0400
+updated_at: 2026-11-05 01:59:03 +0400
 carrier_destination:
   file:
     name: CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md
@@ -23,7 +23,8 @@ Move Atom containment into Header.Container
 ## Decisions
 
 - Store one immediate Container in Atom.Header.Container.
-- Its value is a full Scope Unit path string or a base Atom ID.
+- Its ordinary value is a full Scope Unit path string or a base Atom ID.
+- For a root Project Declaration Atom, an omitted Container has the effective default `world`. An explicit valid value overrides that default.
 - The path example is `/~ENGINE/PROGRAMMATIC/...`; it does not rename current Scope Units or folders.
 - A base Atom ID selects Current by default.
 - Header.Relations is optional. It stores other authored Relations.
@@ -47,8 +48,13 @@ One stored Property supplies an Atom's Container. Formal containment expressions
 ## Open decisions
 
 - Complete path encoding: Project root, canonical segment Names and the `~` marker.
-- An external Project Declaration Atom still needs a valid Atom Container, although its declared Project has none.
 
 ## Prepared evidence
 
 The Header, consumer, Delivery and planning previews are listed in the Epic packet at `.caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/`. They are previews, not created Declaration Drafts.
+
+## Created Draft
+
+- CA-R-2779@1-draft declares Atom.Header.Container, including its root default.
+
+The Draft is independently reviewed. Header, consumer, Delivery and schema integration remain prerequisites to promotion and mechanical migration.

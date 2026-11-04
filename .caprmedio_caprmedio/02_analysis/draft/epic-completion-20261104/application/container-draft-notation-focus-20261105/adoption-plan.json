@@ -1,0 +1,22 @@
+{
+  "status": "PREPARED_DRAFT_NOTATION_AND_FOCUS_REPAIR",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2779",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "64741ac4fab3996fa585aebfb04efbc5bdab3d2826b4dba26eed6184a67b448f"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "before": "---\natom_id: CA-R-2779\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Container\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 01:49:40 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom.Header.Container\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Container{:1}: [string]{:1};\n\nAtom.Header.Container.*[]{:0};\n\n# instances\nAtom//$atom;\n$atom.Header.Container{:1}\n```\n\n### Prose Claim\n\nEvery Atom instance has exactly one Header.Container value. For all Atoms other than the root Project Declaration Atom, the value identifies its immediate container and is either the full canonical Scope Unit path or the base Atom ID of the containing Atom. When Header.Container is omitted on the root Project Declaration Atom CA-R-2640, its effective default is the literal string \"world\"; an explicitly supplied valid Header.Container value overrides that default. This literal is neither a Scope Unit path nor an Atom ID and does not create a Scope Unit or a Scope Unit.Container Property. A base Atom ID selects the Current Atom by default; it is not an automatic default Header.Container value. Header.Container is the sole stored Atom-containment value; do not duplicate it under Header.Relations. This declaration does not define a new graph Relation or alias.\n\n",
+      "before_sha256": "eb706eb26f5690206dc29f6b7f19285351e695f28eb5d65aafb0c2af3ef84168",
+      "after": "---\natom_id: CA-R-2779\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Container\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 01:52:14 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom.Header.Container\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Container{::1} :: [string]{::1};\n\nAtom.Header.Container.*[]{::0};\n\n# instances\nAtom//$atom;\n$atom.Header.Container{::1}\n```\n\n### Prose Claim\n\nHeader.Container identifies the Atom's immediate Container.\n\nAllowed values:\n\n1. A full canonical Scope Unit path.\n2. The base Atom ID of the containing Atom.\n3. `world`, for a root Project Declaration Atom.\n\nA base Atom ID selects Current by default.\n\nFor a root Project Declaration Atom, an omitted Header.Container has the effective default `world`. An explicit valid value overrides that default.\n\nHeader.Container is the sole stored Atom-containment value.\n",
+      "after_sha256": "64741ac4fab3996fa585aebfb04efbc5bdab3d2826b4dba26eed6184a67b448f"
+    }
+  ]
+}

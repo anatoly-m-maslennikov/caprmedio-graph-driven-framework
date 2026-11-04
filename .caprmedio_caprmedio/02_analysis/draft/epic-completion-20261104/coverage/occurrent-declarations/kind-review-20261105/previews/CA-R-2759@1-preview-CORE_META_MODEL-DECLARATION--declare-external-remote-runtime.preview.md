@@ -32,4 +32,4 @@ External Remote Runtime ((NARROWER_THAN)) Runtime
 
 ## Semantics
 
-An External Remote Runtime is a Runtime external to our application located elsewhere.
+An External Remote Runtime is a Runtime external to our application on a machine other than the Operator’s.

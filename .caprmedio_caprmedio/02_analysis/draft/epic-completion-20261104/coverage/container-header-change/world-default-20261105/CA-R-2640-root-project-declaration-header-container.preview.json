@@ -1,0 +1,26 @@
+{
+  "kind": "logical_Header.Container_value_preview",
+  "source_atom": {
+    "id": "CA-R-2640@1",
+    "status": "Active",
+    "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+    "sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9"
+  },
+  "active_subject": "CAPRMEDIO_STRUCTURE <+ Project//caprmedio",
+  "header_property": "Atom.Header.Container",
+  "default_when_omitted": "world",
+  "explicit_valid_value_overrides_default": true,
+  "value_type": "literal string",
+  "scope": "Fallback only for this root Project Declaration Atom when Header.Container is omitted; not the default for every Atom.",
+  "physical_yaml_serialization": "not proposed; this preview does not assert that the literal is authored in the carrier.",
+  "authority_rationale": "Operator decision selects world as the root Project Declaration Atom fallback. Current CA-R-2684 says the Declaration is external to the Scope Unit it declares. Current CA-R-2524 says Project is the root Scope Unit and has zero formal parent IS_CONTAINED_BY links. These facts have different hosts: the Declaration Atom requires its own Header.Container while the Project instance remains parentless.",
+  "not_introduced": [
+    "Scope Unit.Container/Parent Property",
+    "new Scope Unit",
+    "Atom ID for world",
+    "generic every-Atom world default",
+    "mandatory authored world value",
+    "base Atom ID as a default Header.Container value",
+    "duplicate relations.IS_CONTAINED_BY entry"
+  ]
+}

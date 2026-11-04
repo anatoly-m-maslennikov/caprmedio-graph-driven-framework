@@ -1,5 +1,5 @@
 # CA-E-675@5
-# CA-E-676@7
+# CA-E-676@8
 # CA-E-677@8
 
 from __future__ import annotations
@@ -11,6 +11,7 @@ import sys
 import tempfile
 import time
 import unittest
+import uuid
 
 
 APP_ROOT = Path(__file__).resolve().parents[2]
@@ -65,7 +66,7 @@ class WorkbenchFunctionalTests(unittest.TestCase):
             key: checked[key] for key in ("valid", "row_count", "column_count")
         })
         self.assertEqual("query", checked["kind"])
-        self.assertTrue(checked["saved_query_id"].startswith("q_"))
+        self.assertEqual(7, uuid.UUID(checked["saved_query_id"]).version)
 
     def test_background_scan_indexes_new_sources_without_a_manual_refresh(self) -> None:
         self.service.run("SELECT 1")

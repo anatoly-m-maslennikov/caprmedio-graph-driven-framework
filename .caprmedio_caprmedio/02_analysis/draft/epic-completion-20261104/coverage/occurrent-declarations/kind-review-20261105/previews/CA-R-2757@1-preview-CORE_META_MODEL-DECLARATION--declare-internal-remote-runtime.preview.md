@@ -32,4 +32,4 @@ Internal Remote Runtime ((NARROWER_THAN)) Runtime
 
 ## Semantics
 
-An Internal Remote Runtime is a Runtime of our application located elsewhere.
+An Internal Remote Runtime is a Runtime of our application on a machine other than the Operator’s.

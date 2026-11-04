@@ -1,0 +1,31 @@
+{
+  "verdict": "PASS_BOUNDED_CURRENT_SOURCE_CENSUS",
+  "inventory_sha256": "c3409c927f4427a9e6ffea7eb9fec764caed37867fa245d6332f654b0ace81ee",
+  "checks": {
+    "native_scan": "46 native canonical active Requirement/Form Scope Unit Declaration carriers independently found; 46 unique Atom IDs; Project root plus 45 nonroot IDs all unique; 9 nonroot ordered, 36 unordered",
+    "root": "Current canonical R2524@3 hash matches; inherited Project unordered and no ID/no order.number; root R2640 does not itself restate these",
+    "historical_delta": "44 prior sources: 43 survive; CA-R-2682 removed and archived; CA-R-2730, CA-R-2763 and CA-R-2764 added",
+    "survivors": "43 historical predecessor bytes match pinned namespace preimages; independently normalized header metadata except active Subject, Claims and Summaries match Current after Subject namespace and CFEL/fence/blank-line wrapping normalization",
+    "other_pins": "historical cutover, historical inventory, draft inventory and retired R2682 archive hashes match",
+    "latest_recheck": "All 46 source versions and SHA-256 pins match; 45 unique nonroot IDs, 9 ordered, one root confirmed."
+  },
+  "limits": [
+    "Bounded source inventory only; historical aggregate digest not recomputed.",
+    "No tests, runtime, code, Workflow or Workbench source edits, or release claims.",
+    "Recheck confirms the live Workbench-owned source pin and counted fields, not review or endorsement of its @2-to-@3 implementation change."
+  ],
+  "previous_verdict": "HOLD_ONE_STALE_CURRENT_SOURCE_PIN",
+  "resolved_history": {
+    "previous_pin_drift": {
+      "id": "CA-R-2763",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2763-WORKBENCH-DEFINES_SCOPE_FOR-WORKBENCH_BACKEND--declare-workbench-backend.md",
+      "inventory_version": 2,
+      "inventory_sha256": "c243a94d1f655becefabb4f18e830c0572cddd3493dd5fb644f3be96a6456513",
+      "actual_version": 3,
+      "actual_sha256": "766a8de9729e70ef89ee42da179ba683dac875c36fb498726393d56afdee6d5a",
+      "observed_effect": "Current source still declares WORKBENCH_BACKEND, CA-SU-45 and unordered; 46/45/9 counts remain as independently observed. Exact inventory is stale.",
+      "action": "Have the Workbench owner or census owner re-pin and assess the @2 to @3 change; do not alter their source."
+    },
+    "resolution": "Inventory now pins live CA-R-2763@3; all 46 source hashes and versions rechecked and match."
+  }
+}

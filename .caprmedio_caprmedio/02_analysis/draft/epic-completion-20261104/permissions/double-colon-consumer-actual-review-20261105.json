@@ -1,0 +1,47 @@
+{
+  "verdict": "PASS_DRAFT_READBACK_NOT_PROMOTION",
+  "plan_sha256": "b640a70ea9379393f97fbc018afe425679831ca3c20dd97e38753f91358be6c3",
+  "receipt_pin_matches": true,
+  "rows": [
+    {
+      "id": "CA-R-1321",
+      "draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1321@36-draft-CORE_META_MODEL-RULE--define-subject-expression.md",
+      "draft_sha256": "befd4b5f9d946da1664fda176b758a2fcb9b37a3e2ec39078d9b8f59e7552714",
+      "actual_pin": true,
+      "current_pin": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "draft_status": "Draft",
+      "version": 36,
+      "metadata_except_lifecycle_equal": true,
+      "destination_correct": true,
+      "obsolete_fields_absent": true,
+      "same_version_native_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1321@36-draft-CORE_META_MODEL-RULE--define-subject-expression.md"
+      ],
+      "metadata_normalization": "Current empty relations replaced with Draft IS_CONTAINED_BY CA-SU-11; obsolete scope fields removed; lifecycle/version/timestamp and carrier destination adjusted."
+    },
+    {
+      "id": "CA-R-2588",
+      "draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2588@6-draft-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "draft_sha256": "05c56cfbd12a9a9731a1167c2477af467706fe330930a806c4fef4ac636dbc1d",
+      "actual_pin": true,
+      "current_pin": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "draft_status": "Draft",
+      "version": 6,
+      "metadata_except_lifecycle_equal": true,
+      "destination_correct": true,
+      "obsolete_fields_absent": true,
+      "same_version_native_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2588@6-draft-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md"
+      ],
+      "metadata_normalization": "Current empty relations replaced with Draft IS_CONTAINED_BY CA-SU-11; obsolete scope fields removed; lifecycle/version/timestamp and carrier destination adjusted."
+    }
+  ],
+  "promotion_hold": "CA-R-1321 preserves pre-existing Entity-root claims and paths that conflict with later user rejection of an Entity root; token-only readback does not resolve that separate source migration. Coordinate notation promotion with grammar and affected source repairs.",
+  "boundary": "Draft verification only; no Current adoption, native workflow admission, runtime or parser conformance asserted."
+}

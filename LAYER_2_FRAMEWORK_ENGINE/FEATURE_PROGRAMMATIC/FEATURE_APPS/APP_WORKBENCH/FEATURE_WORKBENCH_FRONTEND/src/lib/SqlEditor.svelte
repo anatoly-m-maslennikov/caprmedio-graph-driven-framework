@@ -1,4 +1,4 @@
-<!-- CA-M-468@1 -->
+<!-- CA-M-468@2 -->
 <script lang="ts">
   import { autocompletion, type Completion, type CompletionContext } from '@codemirror/autocomplete';
   import { defaultKeymap, history, historyKeymap } from '@codemirror/commands';
@@ -8,6 +8,7 @@
   import { Compartment, EditorState, Prec } from '@codemirror/state';
   import { EditorView, keymap } from '@codemirror/view';
   import { onMount } from 'svelte';
+  import { statusCompletion } from './editor_helpers.js';
   import type { Schema } from './types';
 
   type Action = 'run' | 'check';
@@ -29,6 +30,10 @@
     ]);
   }
   function source(context: CompletionContext, currentSchema = schema) {
+    const status = statusCompletion(context.state.doc.toString(), context.pos, currentSchema);
+    if (status) {
+      return { from: status.from, to: status.to, filter: false, options: status.values.map((value) => ({ label: value, apply: `${value}'`, type: 'enum' })) };
+    }
     const word = context.matchBefore(/[\w."]*/);
     if (!context.explicit && (!word || word.from === word.to)) return null;
     return { from: word?.from ?? context.pos, options: options(currentSchema) };

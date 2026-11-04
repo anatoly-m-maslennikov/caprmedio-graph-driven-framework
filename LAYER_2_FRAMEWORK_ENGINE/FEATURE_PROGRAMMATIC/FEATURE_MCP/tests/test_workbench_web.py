@@ -8,6 +8,7 @@ import sys
 import tempfile
 from types import MappingProxyType
 import unittest
+import uuid
 from unittest.mock import patch
 
 from mcp import types
@@ -50,7 +51,10 @@ class FakeWorkbench:
         if name == "query_load":
             return {"saved_query_id": arguments["reference"], "kind": "query", "sql": "SELECT 1"}
         if name in ("query_save", "worksheet_save"):
-            return {"saved_query_id": "q_1", "kind": "query", "sql": arguments["sql"]}
+            value = {"saved_query_id": "q_1", "kind": "query", "sql": arguments["sql"]}
+            if arguments.get("name", "").strip():
+                value["name"] = arguments["name"]
+            return value
         if arguments.get("sql") == "saved-bad":
             raise ExplicitBlockingRuntimeFailure(
                 "query_error", "bad query", {"saved_query": {"saved_query_id": "q_2", "kind": "query", "sql": "saved-bad"}},
@@ -144,6 +148,8 @@ class WorkbenchWebTests(unittest.TestCase):
             self.assertEqual({"atoms": []}, client.post(f"{PROJECT_PATH}/schema", json={}).json())
             saved_id = "q_" + "0" * 32
             self.assertEqual(saved_id, client.post(f"{PROJECT_PATH}/load", json={"reference": saved_id}).json()["saved_query_id"])
+            current_id = str(uuid.uuid7())
+            self.assertEqual(current_id, client.post(f"{PROJECT_PATH}/load", json={"reference": current_id}).json()["saved_query_id"])
             self.assertEqual(
                 {"error": "saved query reference must be an ID or absolute URL"},
                 client.post(f"{PROJECT_PATH}/load", json={"reference": "?query=" + saved_id}).json(),
@@ -204,6 +210,10 @@ class WorkbenchWebTests(unittest.TestCase):
             self.assertEqual(
                 "http://workbench.test/caprmedio/workbench/caprmedio?query=q_1", saved["saved_query_url"],
             )
+            named = client.post(f"{PROJECT_PATH}/save", json={"sql": "SELECT 1", "name": "named"}).json()
+            self.assertEqual("named", named["name"])
+            unnamed = client.post(f"{PROJECT_PATH}/save", json={"sql": "SELECT 1", "name": "   "}).json()
+            self.assertNotIn("name", unnamed)
             failed = client.post(f"{PROJECT_PATH}/run", json={"sql": "saved-bad"})
             self.assertEqual(400, failed.status_code)
             self.assertEqual("bad query", failed.json()["error"])
@@ -237,6 +247,8 @@ class WorkbenchWebTests(unittest.TestCase):
             self.assertEqual(200, client.get(f"{PROJECT_PATH}?project_root=/project").status_code)
             self.assertEqual(404, client.get(f"{WORKBENCH_PATH}/wrong?project_root=/project").status_code)
             self.assertEqual(1, client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "SELECT 1"}).json()["row_count"])
+            named = client.post(f"{PROJECT_PATH}/save", json={"project_root": "/project", "sql": "SELECT 1", "name": "shared"}).json()
+            self.assertEqual("shared", named["name"])
             failure = client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "saved-bad"})
             self.assertEqual(400, failure.status_code)
             self.assertEqual("bad query", failure.json()["error"])
@@ -244,7 +256,7 @@ class WorkbenchWebTests(unittest.TestCase):
                 "http://testserver/caprmedio/workbench/caprmedio?query=q_2&project_root=%2Fproject",
                 failure.json()["saved_query_url"],
             )
-        self.assertEqual(["/project", "/project"], gateway.roots)
+        self.assertEqual(["/project", "/project", "/project"], gateway.roots)
 
 
 if __name__ == "__main__":

@@ -10,7 +10,7 @@ relations:
 tier: 3
 role: Requirement
 form: Declaration
-updated_at: 2026-11-04 16:07:35 +0400
+updated_at: 2026-11-05 01:38:59 +0400
 carrier_destination:
   file:
     name: CA-R-2755@1-draft-CORE_META_MODEL-DECLARATION--declare-event.md
@@ -30,9 +30,9 @@ Declare Event
 Event ((NARROWER_THAN)) Occurrent;
 
 # instances
-Event//$event {:0+}((IS_RECORDED_BY)) Event Record//$record;
+Event//$event {::0+}((IS_RECORDED_BY)) Event Record//$record;
 
-Event//$produced_event {:1+}((IS_PRODUCED_BY)) Execution//$producer
+Event//$produced_event {::1+}((IS_PRODUCED_BY)) Execution//$producer
 ```
 
 ## Semantics

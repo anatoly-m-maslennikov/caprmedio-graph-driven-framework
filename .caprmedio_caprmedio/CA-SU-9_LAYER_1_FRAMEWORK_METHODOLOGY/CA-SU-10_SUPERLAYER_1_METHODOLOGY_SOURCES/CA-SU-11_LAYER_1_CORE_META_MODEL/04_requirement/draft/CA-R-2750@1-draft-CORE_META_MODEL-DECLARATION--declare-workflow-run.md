@@ -10,7 +10,7 @@ relations:
 tier: 3
 role: Requirement
 form: Declaration
-updated_at: 2026-11-04 16:07:35 +0400
+updated_at: 2026-11-05 01:38:59 +0400
 carrier_destination:
   file:
     name: CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md
@@ -30,7 +30,7 @@ Declare Workflow Run
 Workflow Run ((NARROWER_THAN)) Execution;
 
 # instances
-Workflow Run//$run {:1}((IS_EXECUTION_OF)) Workflow//$definition
+Workflow Run//$run {::1}((IS_EXECUTION_OF)) Workflow//$definition
 ```
 
 ## Semantics

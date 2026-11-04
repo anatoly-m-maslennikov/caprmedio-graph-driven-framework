@@ -1,0 +1,320 @@
+{
+  "schema": "recursive-step-current-consumer-previews/1",
+  "status": "SOURCE_CENSUS_AND_PREVIEWS_ONLY_NO_CURRENT_DRAFT_OR_WORKFLOW_INSTANCE_MUTATIONS",
+  "decision_basis": "Latest human decision: retire Substep kind; each Step has exactly one form: one Action, one Workflow, or one-or-more contained Steps. Preserve inputs, outputs and fixed-Step bindings.",
+  "scope": "Current native MODEL/RMED carrier consumers from post-CFEL frontier. Excludes archived, Draft, projection, applicable copies, Workbench/code and actual Workflow/Step instances; cross-owned items enumerated.",
+  "source_frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-passive-frontier-20261105.json",
+  "source_frontier_sha256": "bef85838ebb379caad05707e20b178aa37b100786436dd6e3a762bb3ce5168d7",
+  "items": [
+    {
+      "id": "CA-R-2463",
+      "current_version": 2,
+      "current_status": "Active",
+      "role": "Requirement",
+      "form": "Declaration",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "current_sha256": "165d90b12c799b31498419365be86415689b98e3cc5b8572ac323c8cbbe99d40",
+      "disposition": "CONTRACT_PACKET_COVERED",
+      "notes": "Successor candidate is owned by the recursive-steps contracts packet; this consumer packet defers to its source pin and whole-content preview.",
+      "related_preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2463.preview.txt",
+      "related_preview_sha256": "3a3d00771c8594ceb8e95c5f6201d3621806d29ab0a0600d19cc80d64d98d625"
+    },
+    {
+      "id": "CA-R-2638",
+      "current_version": 3,
+      "current_status": "Active",
+      "role": "Requirement",
+      "form": "Declaration",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "current_sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3",
+      "disposition": "CONTRACT_PACKET_COVERED",
+      "notes": "Successor candidate is owned by the recursive-steps contracts packet; this consumer packet defers to its source pin and whole-content preview.",
+      "related_preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2638.preview.txt",
+      "related_preview_sha256": "eb3cb748e7609b46da538a8461ba6709bf62481ea971ade598c06e271fef9fe6"
+    },
+    {
+      "id": "CA-R-2734",
+      "current_version": 1,
+      "current_status": "Active",
+      "role": "Requirement",
+      "form": "Declaration",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2734-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "current_sha256": "c044105caf865661419725b2ca2e9ae2bd3c8aaf1cd9bd54d910ec99b5eb511c",
+      "disposition": "CONTRACT_PACKET_COVERED",
+      "notes": "Successor candidate is owned by the recursive-steps contracts packet; this consumer packet defers to its source pin and whole-content preview.",
+      "related_preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2734.preview.txt",
+      "related_preview_sha256": "2127eebb79fa0bc067c6378d33141521b6b9eaa5b935eb890fa3ccb1e7f1a161"
+    },
+    {
+      "id": "CA-R-2735",
+      "current_version": 1,
+      "current_status": "Active",
+      "role": "Requirement",
+      "form": "Declaration",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2735-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "current_sha256": "c5d223f5de5d92bfcf97e982c34cc968210e9c6f5d2c01a6d290c67886ae0637",
+      "disposition": "CONTRACT_PACKET_COVERED",
+      "notes": "Successor candidate is owned by the recursive-steps contracts packet; this consumer packet defers to its source pin and whole-content preview.",
+      "related_preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2735.preview.txt",
+      "related_preview_sha256": "bba7c98101e5efa755a432eb08e769ebbf8786dcacfbf954f2b7a51f6d06b099"
+    },
+    {
+      "id": "CA-M-232",
+      "current_version": 34,
+      "current_status": "Active",
+      "role": "Method",
+      "form": "Implementation Method",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md",
+      "current_sha256": "9f84da9fa587c9d41b91fbc4754afa3b470a3e8eb398bd0207399a34ad1f90af",
+      "disposition": "HOLD_ACTIVE_SUBJECT_FORM",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/consumers/CA-M-232.preview.md",
+      "preview_sha256": "717d5e882f2ff392270310c528b7dd4d84e873daf09fcf825b0312e74feb4479",
+      "notes": "Body preview updates Step containment for either Workflow or Step parent. Active Subject `Entity/Object/Continuant/Projection/(.Form: Subject Graph)` lacks Current Declaration coverage in the selected 1,167-source snapshot; hold whole candidate and do not map it to Node."
+    },
+    {
+      "id": "CA-M-305",
+      "current_version": 22,
+      "current_status": "Active",
+      "role": "Method",
+      "form": "Implementation Method",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-305-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-workflow-schemes-using-step-references.md",
+      "current_sha256": "ae15e8389fa1417f1d5b820e14558c0adaf9409a4333ddff6d21801745c1a4f3",
+      "disposition": "READY_BOUNDED_PREVIEW",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/consumers/CA-M-305.preview.md",
+      "preview_sha256": "09e3a2372713f0efeae9a9d4a55feeebfed877e6b34a06851d2f6fa5ef2813e6",
+      "preservation_note": "Preserves leaf Step binding sources: previous-Step outputs, enclosing Workflow Run input, and values fixed by that Step.",
+      "notes": "Current R2639 bounds Step bindings to one of previous Step outputs, enclosing Workflow Run input, or fixed values declared by the Step, and requires binding to reference the selected Action/Workflow contract. Preview retains these constraints. Current R2464/2465 active subjects admit Workflow and Step paths; passives now target those exact kinds."
+    },
+    {
+      "id": "CA-M-444",
+      "current_version": 5,
+      "current_status": "Active",
+      "role": "Method",
+      "form": "Implementation Method",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly.md",
+      "current_sha256": "d3794f3b0f902703605cbe8a309e48dea4c688b8ab727de9868af19fa2b4018f",
+      "disposition": "READY_BOUNDED_PREVIEW",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/consumers/CA-M-444.preview.md",
+      "preview_sha256": "c614576c78f761dd574fe06c5287ff3ee7222550b6436f7717bb1706d4683bac",
+      "notes": "Passives now use exact current declared Workflow/Step/Action kind targets (not Form-qualified selectors); only the relevant `{::...}` count and Substep wording are updated."
+    },
+    {
+      "id": "CA-E-383",
+      "current_version": 46,
+      "current_status": "Active",
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "current_sha256": "8503b8391a73bfae63174a5c414f5be4b1d23fac8403951be0cbb4272817c78c",
+      "disposition": "HOLD_ACTIVE_ENTITY_ROOT",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/consumers/CA-E-383.preview.md",
+      "preview_sha256": "520146d2ebbab8541c13b40b0013ef8e4255ce4a8ca55aba7e2ff445176c398d",
+      "preservation_note": "Only the target cardinality/Step-composition paragraph changes; unrelated cardinality examples and evaluation rules are preserved; new count examples use approved :: syntax.",
+      "notes": "Allowed-value and count examples are normalized to ::; recursive Step composition updates preserve immediate-whole constraints. Active Subject remains CAPRMEDIO_MODEL <+ Entity; hold whole candidate and do not map Entity to Node."
+    },
+    {
+      "id": "CA-E-669",
+      "current_version": 4,
+      "current_status": "Active",
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "current_sha256": "55c62fe55716d1332afc79ae69fb9749d1bea43027de4bcca0d439c990afeeef",
+      "disposition": "READY_BOUNDED_PREVIEW",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/consumers/CA-E-669.preview.md",
+      "preview_sha256": "caa8b5351214e0ac967243ca1f6a79d4fa073b1c2a34dcbd35b1fa418ebdb737",
+      "preservation_note": "Preserves parameter sources, caller cardinalities, IS_CONTAINED_BY/CONTAINS, and no-duplicate reverse-view rule.",
+      "notes": "Drops only the false Property-instantiation prohibition: Current R2462 admits Property instances. Keeps the independent Property-narrowing ban, relation whitelist, cycle/multiple-bearer restrictions and remaining evaluation gates."
+    },
+    {
+      "id": "CA-E-500",
+      "current_version": 28,
+      "current_status": "Active",
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "current_sha256": "ceb0fdcccff0972ecb3e6b2aba27f6565ecd7cc05cea21bd9c8b072b4ce61edf",
+      "disposition": "HOLD_LAYOUT_DECISION",
+      "notes": "Current Evaluation requires a one-level Workflow\u2192Step\u2192Substep carrier layout and explicitly rejects deeper Step directories. Recursive Step MODEL is settled, but carrier nesting policy/migration is not specified."
+    },
+    {
+      "id": "CA-D-467",
+      "current_version": 28,
+      "current_status": "Active",
+      "role": "Delivery",
+      "form": "Decision",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "current_sha256": "ed46335c87661b1caa6ca3c6fc3f042f50a54de7dd0014e2b68877b1833a0b66",
+      "disposition": "HOLD_LAYOUT_DECISION",
+      "notes": "Current Delivery @28 explicitly governs a one-level Workflow\u2192Step\u2192Substep layout and rejects another nested Step directory. Recursive Step MODEL is settled, but recursive physical-carrier policy/migration is not specified. Older recursive-layout mirror is not Current authority."
+    },
+    {
+      "id": "CA-R-1931",
+      "current_version": 18,
+      "current_status": "Active",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "current_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "disposition": "CROSS_PACKET_REVIEW_EXISTING_NOTATION_PREVIEW",
+      "notes": "Has a qualified Sub-step selector and Step/Sub-step distinction. Coordinate one combined update with declarative-notation-review/allowed-value-consumers-20261105; selector := per R2471/R2487; allowed counts/values ::."
+    },
+    {
+      "id": "CA-R-2464",
+      "current_version": 5,
+      "current_status": "Active",
+      "role": "Requirement",
+      "form": "Declaration",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "current_sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a",
+      "disposition": "CONTRACT_WORKER_OWNED",
+      "notes": "Detailed Relation/Workflow contract source owned by relation-contract lane."
+    },
+    {
+      "id": "CA-R-2465",
+      "current_version": 4,
+      "current_status": "Active",
+      "role": "Requirement",
+      "form": "Declaration",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "current_sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf",
+      "disposition": "CONTRACT_WORKER_OWNED",
+      "notes": "Detailed Step composition declaration owned by relation-contract lane."
+    },
+    {
+      "id": "CA-R-2466",
+      "current_version": 4,
+      "current_status": "Active",
+      "role": "Requirement",
+      "form": "Declaration",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "current_sha256": "f2a40705628b526539a0422901b2e5032ffaec8f0900072fb9c4d8d89b20bd11",
+      "disposition": "CONTRACT_WORKER_OWNED",
+      "notes": "Substep declaration is in the relation-contract retirement lane."
+    },
+    {
+      "id": "CA-R-2467",
+      "current_version": 2,
+      "current_status": "Active",
+      "role": "Requirement",
+      "form": "Declaration",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "current_sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a",
+      "disposition": "CONTRACT_WORKER_OWNED",
+      "notes": "Action endpoint and counterpart contract owned by relation-contract lane."
+    },
+    {
+      "id": "CA-E-486",
+      "current_version": 23,
+      "current_status": "Active",
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-486-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+      "current_sha256": "05975fc46ce47e6bd7001cb410f16c34a44969c54685f29ad3a99159ec1ecfdf",
+      "disposition": "CONTRACT_WORKER_OWNED",
+      "notes": "Execution contract evaluation owned by relation-contract lane."
+    },
+    {
+      "id": "CA-R-2245",
+      "current_version": 8,
+      "current_status": "Active",
+      "role": "Requirement",
+      "form": "Declaration",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "current_sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae",
+      "disposition": "CONTRACT_WORKER_OWNED",
+      "notes": "Execution Relation endpoint signature owned by relation-contract lane."
+    },
+    {
+      "id": "CA-R-1528",
+      "current_version": 22,
+      "current_status": "Active",
+      "role": "Requirement",
+      "form": "Rule",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "current_sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f",
+      "disposition": "CONTRACT_WORKER_OWNED",
+      "notes": "Step Run/action and parentage consumer owned by relation-contract lane."
+    }
+  ],
+  "layout_decision": "Hold both CA-E-500 and CA-D-467. Current sources prescribe one-level carrier nesting and reject deeper Step directories, while the approved MODEL is recursive. Await an explicit carrier storage/migration disposition; do not infer physical recursion from model composition.",
+  "integration_constraints": [
+    "Five independently reviewed consumers only: M232, M305, M444, E383, E669.",
+    "R2463, R2638, R2734 and R2735 previews belong to the sibling recursive-steps contracts packet; this packet does not duplicate them.",
+    "No actual Current/Draft/Workflow instance edits.",
+    "Root chooses successor identities and version treatment."
+  ],
+  "source_census": {
+    "selected_current_supplier_count": 1167,
+    "selection_note": "Post-Term-passive 1,167-source Current snapshot, reread directly; not a complete all-Project or actual Workflow-instance census. The Substep cross-reference results include seven additional non-contract suppliers below.",
+    "substep_reference_source_count": 18,
+    "seven_additional_suppliers": [
+      "CA-D-467",
+      "CA-E-383",
+      "CA-E-500",
+      "CA-E-669",
+      "CA-M-232",
+      "CA-M-305",
+      "CA-M-444"
+    ],
+    "cross_reference_inventory_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/manifest.json",
+    "cross_reference_inventory_sha256": "214506b8ac80acdc63d14b2283af5124ec9e52ab6319111d2494609e2b38cf9d"
+  },
+  "ready_and_held_summary": {
+    "ready": [
+      "CA-M-305",
+      "CA-M-444",
+      "CA-E-669"
+    ],
+    "held": [
+      "CA-M-232: Current Subject Graph Form Declaration absent; no Node mapping",
+      "CA-E-383: Active Entity root unresolved; no Node mapping"
+    ]
+  },
+  "authority_pins": [
+    {
+      "id": "CA-R-2462",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c"
+    },
+    {
+      "id": "CA-R-2464",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a"
+    },
+    {
+      "id": "CA-R-2465",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf"
+    },
+    {
+      "id": "CA-R-2467",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "8b86d2c1204c2a881b01ee7381be3dd7eff9e89a2975e00ccae45444b20ba11a"
+    },
+    {
+      "id": "CA-R-2639",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md",
+      "sha256": "c645f6e1915c1b265ea57be061202626372206d7a5c3256100ea494f44594241"
+    }
+  ],
+  "independent_review": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/recursive-step-consumer-preview-review-20261105.json",
+    "sha256_at_review": "cfc720b91c31ca3e8abfa44d26860fce4609be471cd8e4f5acbf9cd064aa6dad",
+    "note": "Reviewer confirmed M305/M444 pass; M232/E383 remain held. Reviewer cleared E669 notation and specified E383 refer to FOR EACH as universal quantification, avoiding execution implications; applied."
+  },
+  "related_draft_pins": [
+    {
+      "id": "CA-R-2778@1",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-universal-quantification.md",
+      "sha256": "1562a014a018cc42a30468ead86a326037cacb79e1695732906a6704d9a6027d",
+      "use": "Defines FOR EACH as universal quantification and explicitly says the construct is declarative, not an execution loop."
+    }
+  ]
+}

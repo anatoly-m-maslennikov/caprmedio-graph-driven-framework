@@ -7,6 +7,7 @@ test('a new empty worksheet starts clean', () => {
   const tab = newWorksheet(1);
   assert.equal(tab.sql, tab.savedSql);
   assert.equal(tab.dirty, false);
+  assert.equal(tab.name, undefined);
 });
 
 test('single-statement save does not mark a multi-statement worksheet clean', () => {
@@ -16,6 +17,6 @@ test('single-statement save does not mark a multi-statement worksheet clean', ()
 });
 
 test('persisted workspaces keep scripts but never result rows', () => {
-  const raw = persistable([{ id: 'a', title: 'One', sql: 'SELECT 1', cursor: 8, dirty: true, result: { rows: [[1]] } }], 'a');
-  assert.deepEqual(restore(raw), { tabs: [{ id: 'a', title: 'One', sql: 'SELECT 1', cursor: 8, dirty: true, savedSql: undefined }], activeId: 'a' });
+  const raw = persistable([{ id: 'a', title: 'One', name: 'Daily report', sql: 'SELECT 1', cursor: 8, dirty: true, result: { rows: [[1]] } }], 'a');
+  assert.deepEqual(restore(raw), { tabs: [{ id: 'a', title: 'One', name: 'Daily report', sql: 'SELECT 1', cursor: 8, dirty: true, savedSql: undefined }], activeId: 'a' });
 });

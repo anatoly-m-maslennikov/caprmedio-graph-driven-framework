@@ -1,4 +1,4 @@
-# CA-E-676@7
+# CA-E-676@8
 # CA-E-677@8
 
 """Service failures stop this owner rather than retrying its startup."""
@@ -49,10 +49,11 @@ class ServiceTests(unittest.TestCase):
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
             service = WorkbenchService(Path("/project"))
         saved = unittest.mock.Mock()
-        saved.save_query.side_effect = lambda sql: {
-            "saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": sql,
-        }
-        saved.save_worksheet.return_value = {"saved_query_id": "w_" + "1" * 32, "kind": "worksheet", "sql": "SELECT 2"}
+        saved.save_query.side_effect = lambda sql, name=None: (
+            {"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": sql}
+            | ({"name": name} if name else {})
+        )
+        saved.save_worksheet.return_value = {"saved_query_id": "w_" + "1" * 32, "kind": "worksheet", "sql": "SELECT 2", "name": "Sheet"}
         saved.load.return_value = {"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1"}
         saved.list.return_value = {"items": []}
         service._saved_queries = saved
@@ -72,8 +73,10 @@ class ServiceTests(unittest.TestCase):
             "SELECT 1",
             saved_query={"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1"},
         )
-        self.assertEqual({"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1"}, service.save("SELECT 1"))
-        self.assertEqual({"saved_query_id": "w_" + "1" * 32, "kind": "worksheet", "sql": "SELECT 2"}, service.save_worksheet("SELECT 2"))
+        self.assertEqual({"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1", "name": "Query"}, service.save("SELECT 1", name="Query"))
+        saved.save_query.assert_called_with("SELECT 1", "Query")
+        self.assertEqual({"saved_query_id": "w_" + "1" * 32, "kind": "worksheet", "sql": "SELECT 2", "name": "Sheet"}, service.save_worksheet("SELECT 2", name="Sheet"))
+        saved.save_worksheet.assert_called_once_with("SELECT 2", "Sheet")
         self.assertEqual({"saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1"}, service.load("q_" + "1" * 32))
         self.assertEqual({"items": []}, service.saved_list())
 
@@ -160,6 +163,7 @@ class ServiceTests(unittest.TestCase):
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.QueryStore", return_value=store),
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SavedQueryStore") as saved,
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.watch", side_effect=fake_watch),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.configured_journal_root", return_value=Path(".caprmedio_caprmedio/_journal")),
         ):
             saved.return_value.save_query.return_value = {
                 "saved_query_id": "q_" + "1" * 32, "kind": "query", "sql": "SELECT 1",
@@ -179,6 +183,19 @@ class ServiceTests(unittest.TestCase):
             self.assertIs(service._stop, observed["stop_event"])
             self.assertEqual(100, observed["rust_timeout"])
             self.assertTrue(observed["yield_on_timeout"])
+
+    def test_journal_changes_are_not_source_refreshes(self):
+        with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
+            service = WorkbenchService(Path("/project"))
+
+        with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.configured_journal_root", return_value=Path(".caprmedio_caprmedio/_journal")):
+            self.assertTrue(service._journal_only({
+                (Change.modified, "/project/.caprmedio_caprmedio/_journal/workbench-saved-items-2026-11-05-part-1.ndjson"),
+            }))
+            self.assertFalse(service._journal_only({
+                (Change.modified, "/project/.caprmedio_caprmedio/_journal/workbench-saved-items-2026-11-05-part-1.ndjson"),
+                (Change.modified, "/project/.caprmedio_caprmedio/04_requirement/CA-R-1.md"),
+            }))
 
     def test_watcher_rejects_sources_outside_the_selected_repository(self):
         reader = unittest.mock.Mock()

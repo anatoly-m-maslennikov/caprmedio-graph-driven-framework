@@ -1,4 +1,4 @@
-// CA-D-673@8
+// CA-D-673@9
 import type { CheckResult, QueryResult, SavedIdentity, SavedItem, Schema } from './types';
 
 export class ApiError extends Error {
@@ -29,12 +29,12 @@ export class WorkbenchApi {
     return this.post('check', { sql, cursor_position: cursorPosition });
   }
 
-  save(sql: string, cursorPosition: number): Promise<SavedIdentity> {
-    return this.post('save', { sql, cursor_position: cursorPosition });
+  save(sql: string, cursorPosition: number, name?: string): Promise<SavedIdentity> {
+    return this.post('save', { sql, cursor_position: cursorPosition, ...(name ? { name } : {}) });
   }
 
-  saveWorksheet(sql: string): Promise<SavedIdentity> {
-    return this.post('worksheet-save', { sql });
+  saveWorksheet(sql: string, name?: string): Promise<SavedIdentity> {
+    return this.post('worksheet-save', { sql, ...(name ? { name } : {}) });
   }
 
   page(queryId: string, offset: number, pageSize: number): Promise<QueryResult> {

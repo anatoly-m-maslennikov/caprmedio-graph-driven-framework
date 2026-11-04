@@ -1,0 +1,25 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/typed-selector-authority-20261105/CA-R-2487.preview.txt
+@@ -43,9 +43,9 @@
+ constrains them. CFEL syntax neither creates a Node, Relation, Property,
+ Carrier fact, Workflow step, nor evaluator result.
+ 
+-An `IF` membership condition can bind an unbound variable to each matching member of its declared selection; a variable already bound in the surrounding scope is tested against membership without rebinding. A parenthesized multi-line `THEN` body uses the same binding in each complete expression. This does not introduce a `FOR` primitive.
++An `IF` membership condition can bind an unbound variable to each matching member of its declared selection; a variable already bound in the surrounding scope is tested against membership without rebinding. A parenthesized multi-line `THEN` body uses the same binding in each complete expression. `FOR EACH` states universal quantification under its own Declaration and does not revoke the IF binding rule.
+ 
+-In a Formal Claim, `#model` and `#instances` are ordering comments for the model and instance expressions that follow; they do not assert graph facts. A `$variable` explicitly binds an anonymous selected Entity or instance; repeated occurrences in its scope select the same identity. A typed selector supplies its universe; use model variables where model entities are intended. These bindings introduce no new binding operator.
++In a Formal Claim, `#model` and `#instances` are ordering comments for the model and instance expressions that follow; they do not assert graph facts. A `$variable` explicitly binds an anonymous selected Entity or instance; repeated occurrences in its scope select the same identity. A typed selector supplies its universe; use model variables where model entities are intended. `$x[<Kind>, (conditions)]` selects a named logical participant of the declared Model kind, with conditions relative to that participant. `$<Kind>` selects an anonymous instance. The Claim states whether its selection concerns model entities or instance data; the same binding does not create a match in another layer. A `FOR EACH` body uses its own declared participant and scope; the active Subject identifies the Claim focus and supplies no implicit participant.
+ 
+ CFEL uses these graph-address forms:
+ 
+@@ -128,9 +128,6 @@
+ or evaluator. An unimplemented construct remains an adoption and conformance
+ gap, not evidence that the construct has different semantics.
+ 
+-This Definition does not convert a Format, Bool value, or any other value
+-into an instance selected by `//`. Such an instance selection requires the
+-existing source binding that declares it. No value-format-to-instance rewrite
+-is implied by the CFEL overview.
++A Model kind can supply an object Format, but a Format, Bool value, or other literal does not become an instance merely by its Format or notation. Instance selection requires its declared source binding. No value-format-to-instance rewrite is implied by the CFEL overview.
+ 
+ `Relation//IS_DECLARED_BY` is the qualified derived view of a GOVERNS fact whose source is a Requirement/Form Declaration; it reverses that selected fact while retaining the qualification. It is not a general inverse of GOVERNS or a permission for every Relation.

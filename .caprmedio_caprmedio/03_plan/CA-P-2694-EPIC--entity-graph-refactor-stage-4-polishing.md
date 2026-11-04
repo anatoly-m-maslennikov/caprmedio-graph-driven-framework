@@ -3,8 +3,8 @@ atom_id: CA-P-2694
 label: Epic
 status: Active
 tier: 3
-version: 65
-updated_at: 2026-11-05 00:47:12 +0400
+version: 66
+updated_at: 2026-11-05 01:59:03 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations:
@@ -38,7 +38,8 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 
 - Keep MODEL entities distinct from their instances. Use the latest Operator decisions when earlier wording conflicts.
 - Keep Atom.Header and Atom.Content, an empty Claim container with one or two Formal Claim / Prose Claim children, declared heading interpretation, explicit counterpart identities, aliases, and the removal of the @ reference operator.
-- Carry each Atom’s one immediate Container in Atom.Header.Container, using a full Scope Unit path or a base Atom ID selecting its Current version by default. Atom.Header.Relations is optional and does not duplicate Container. IS_CONTAINED_BY, CONTAINS and their +>/<+ notation remain MODEL/Formal Claim relations. A non-Project Scope Unit has one formal Container; the Project root has none. Each Scope Unit Declaration Atom separately has one Header.Container.
+- Carry each Atom’s one immediate Container in Atom.Header.Container, using a full Scope Unit path or a base Atom ID selecting its Current version by default. Atom.Header.Relations is optional and does not duplicate Container. IS_CONTAINED_BY, CONTAINS and their +>/<+ notation remain MODEL/Formal Claim relations. A non-Project Scope Unit has one formal Container; the Project root has none. Each Scope Unit Declaration Atom separately has one Header.Container. For a root Project Declaration Atom, an omitted value defaults effectively to `world`; an explicit valid value overrides the default.
+- Retire Substep and make Step recursive: exactly one Action, one Workflow, or one or more contained Steps. Step Run covers Step at every nesting level. Preserve the separate actual Workflow-owner migration boundary.
 - Keep # model / # instances groups and explicit $x bindings. Inherit declared formats without copying local value counts. A present Property has a value and has schema and bearer links.
 - Projection identity is Form + Scope Unit. Named Selection remains source information. Terms Graph is deferred by the latest Operator input; Term Definitions and historical projections remain.
 
@@ -47,6 +48,7 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 - P2695–P2706 and P2709 have recorded completed, bounded results. Preserve their history. P2708 owns the separately deferred O016 desired-behavior item.
 - The Scope Unit source cutover, TOML retirement, Header/Claim/alias migration, Subject-root migration and CFEL grouping migration have application and preservation evidence.
 - The seven published MODEL projections use 1,159 pinned Current suppliers and Project root ownership. The graph reader passed 426 tests; the projection generator passed ten tests. Current admission passed 588 tests. These are focused results, not the final integration gate.
+- A 2026-11-05 source census found 46 Current Scope Unit Declarations: one Project root, 45 unique non-root IDs and nine Ordered units. The older 44-source cutover remains historical evidence. One original Declaration is archived and three Workbench Declarations were added; all 43 surviving original Claims and metadata match after the reviewed namespace and Formal Claim wrapping changes. This bounded source snapshot does not close stable-candidate integration.
 - The previous Epic version preserves the detailed checkpoint history. The acceptance matrix retains all 23 requirement groups and their evidence. These baselines do not close the remaining gates.
 
 - The Goal/Tier batch has 15 verified source contributions and exact predecessors. Seventeen reviewed Settings contributions merge logical ownership under Project.Settings; 25 ambiguous Settings sources remain held. R2747 and R2748 use fresh IDs because their Summaries changed.
@@ -90,7 +92,8 @@ CA-A-1321@1-draft records the latest design and its open grammar questions. Keep
 - The proposed `/` means containment and `//` means narrowing. Preserve relationship direction, inherited rules and endpoint count meaning during review.
 - Formats combine value domains and conditions, including primitive values. Bound names and quantifiers are logical notation.
 - Allowed values use `::`, including `{::n}` bounds; `:=` stays unchanged. A specific Relation participant uses `$x[<Relation>, .Name = IS_PROPERTY_OF]`. These Operator decisions are settled; their defining source revisions and migration remain open.
-- Explicit quantifier spelling and reverse traversal remain unresolved. Do not treat candidate spellings as adopted.
+- `FOR EACH $atom[<Atom>, (conditions)]: (...)` is accepted, without WITH or IN. Its participant is scoped to its selector and grouped body. Formal Claims are self-contained; subjects.active remains the declared focus. R2778@1-draft records the quantifier. Typed Format/binding source successors and the CFEL overview still require coordinated review and admission.
+- Reverse traversal remains unresolved. Do not treat candidate spellings as adopted.
 - Scope Unit paths use one string, illustrated by `/~ENGINE/PROGRAMMATIC/...`; canonical segment and Project-root handling still need source authority.
 - Put Project Settings defaults on their Property Declarations with `?==`. Preserve sourced values and validation; retire the old Default Settings Artifact requirements only after dependent source reconciliation. Runtime files stay with their owners.
 
@@ -116,7 +119,7 @@ CA-A-1321@1-draft records the latest design and its open grammar questions. Keep
 
 1. Every acceptance-matrix requirement has current authoritative evidence. Required MODEL decisions and migration defects are closed.
 2. Current Declarations, Relations, Property contracts, Projection identity and affected R/M/E/D are coherent with the latest Operator decisions. Each retained model entity has its applicable defining authority. History is preserved.
-3. No live project_structure.toml or production read/write dependency remains. No retired binding or compatibility registry replaces Declaration authority. The 44 Scope Declarations and their current identities are verified.
+3. No live project_structure.toml or production read/write dependency remains. No retired binding or compatibility registry replaces Declaration authority. All Current Scope Declarations and their identities are verified, preserving the original 44-source cutover and explaining later source-set changes.
 4. Required source, reader, validator, script, Docker and launcher checks pass on the final candidate. CA #3 owns implementation/runtime changes, fixture and test work, and execution of its P2707 gates; those results remain mandatory external dependencies and are not marked Done by this plan. P2707 must reach Done; the separately owned P2708 disposition is explicit. Focused tests alone do not satisfy this gate.
 5. All seven published MODEL views match the final source frontier and their governing Declarations. Unsupported expressions remain complete and explicitly classified.
 6. The declaration checkpoint and checked final changes are committed and pushed to amm/dev, with matching local/remote evidence.

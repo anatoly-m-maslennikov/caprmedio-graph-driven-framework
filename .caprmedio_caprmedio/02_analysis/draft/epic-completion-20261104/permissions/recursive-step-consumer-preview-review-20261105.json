@@ -1,0 +1,72 @@
+{
+  "verdict": "HOLD_FOUR_CONDITIONAL_ONE",
+  "manifest_sha256": "141bf3d9052b1c9ef850ac626f3b5b7803a6262f32d6a9abd3ba68ac56d72d3a",
+  "rows": [
+    {
+      "id": "CA-M-232",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md",
+      "source_sha256": "9f84da9fa587c9d41b91fbc4754afa3b470a3e8eb398bd0207399a34ad1f90af",
+      "source_pin_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/consumers/CA-M-232.preview.md",
+      "preview_sha256": "72b943fc486077827d7dc07d34249de5edb86925018684af15b89957dcb7e68d",
+      "preview_pin_matches": true,
+      "summary_and_metadata": "unchanged from Current",
+      "readiness": "HOLD",
+      "finding": "Body still requires Step containment by Workflow despite nested Step parents; active Subject is the legacy Entity-root Subject Graph path and an exact Current replacement target was not established. Coordinate existing expression-lane preview."
+    },
+    {
+      "id": "CA-M-305",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-305-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-workflow-schemes-using-step-references.md",
+      "source_sha256": "ae15e8389fa1417f1d5b820e14558c0adaf9409a4333ddff6d21801745c1a4f3",
+      "source_pin_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/consumers/CA-M-305.preview.md",
+      "preview_sha256": "cb985c3a4c93996d2f5001f04b9336779a0c47612ba3a508c6cbcb0ee4ed628c",
+      "preview_pin_matches": true,
+      "summary_and_metadata": "unchanged from Current",
+      "readiness": "HOLD",
+      "finding": "Leaf-Step instructions mention Action references and inputs but do not accommodate the approved Workflow-call leaf explicitly. Preserve each applicable input binding and its three allowed sources; reconcile legacy Workflow/Step Form passive reference in combined candidate."
+    },
+    {
+      "id": "CA-M-444",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly.md",
+      "source_sha256": "d3794f3b0f902703605cbe8a309e48dea4c688b8ab727de9868af19fa2b4018f",
+      "source_pin_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/consumers/CA-M-444.preview.md",
+      "preview_sha256": "bbef47648ad146bb8136827d32560d8c059728405d1d58f0d9cc88cfe72ecd3c",
+      "preview_pin_matches": true,
+      "summary_and_metadata": "unchanged from Current",
+      "readiness": "CONDITIONAL",
+      "finding": "Body change preserves Action/Workflow call, nested Steps, input bindings and routing. Its legacy Workflow/Step Form-qualified passive Subject still needs source-backed reconciliation; do not claim full target validation."
+    },
+    {
+      "id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "source_sha256": "8503b8391a73bfae63174a5c414f5be4b1d23fac8403951be0cbb4272817c78c",
+      "source_pin_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/consumers/CA-E-383.preview.md",
+      "preview_sha256": "e57846160c457030c1fde005f038a92370d6218ca3bf918349690d9069e5ec5a",
+      "preview_pin_matches": true,
+      "summary_and_metadata": "unchanged from Current",
+      "readiness": "HOLD",
+      "finding": "Recursive examples use accepted future {::...}, but remaining body still mandates colon allowed-value syntax and active Subject remains obsolete Entity root. Merge notation-owner changes and resolve governed target before adoption."
+    },
+    {
+      "id": "CA-E-669",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md",
+      "source_sha256": "55c62fe55716d1332afc79ae69fb9749d1bea43027de4bcca0d439c990afeeef",
+      "source_pin_matches": true,
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/consumers/CA-E-669.preview.md",
+      "preview_sha256": "bcecece8fce8da87d7336b4e9a95d47ad2bcf66e9fa2b55043245f1e82ccb340",
+      "preview_pin_matches": true,
+      "summary_and_metadata": "unchanged from Current",
+      "readiness": "HOLD",
+      "finding": "Recursive Step cases preserve the three input sources, but an independent retained clause rejects Property instantiation, contradicting admitted Property instance authority. Existing notation text also needs the coordinated syntax update. Preserve the distinction between model review and deferred actual instances."
+    }
+  ],
+  "boundaries": [
+    "Review covers exactly the five assigned consumers, not R2463/R2638/R2734/R2735 or relation-contract worker sources.",
+    "D467/E500 physical layout remains held and cycle policy remains undecided; no assumptions or instance edits are made.",
+    "All five source/preview pins, parsed metadata, active Subjects and immutable Summaries match; matching a stale Subject does not establish that target exists.",
+    "No canonical source, Draft, code, tests, Git, Workbench or actual Workflow/Step instance changes."
+  ]
+}

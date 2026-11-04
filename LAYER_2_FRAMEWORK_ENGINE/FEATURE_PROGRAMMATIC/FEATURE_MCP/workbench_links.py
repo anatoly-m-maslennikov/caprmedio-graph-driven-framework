@@ -1,6 +1,6 @@
-# CA-R-2728@3
-# CA-R-2729@4
-# CA-D-673@8
+# CA-R-2728@4
+# CA-R-2729@5
+# CA-D-673@9
 
 """HTTP-only links for persisted Workbench queries."""
 
@@ -8,12 +8,23 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 import re
+import uuid
 from typing import Any
 from urllib.parse import parse_qs, quote, urlencode, urlparse
 
 from http_paths import WORKBENCH_PATH
 
-_SAVED_ID = re.compile(r"^[qw]_[0-9a-f]{32}$")
+_LEGACY_SAVED_ID = re.compile(r"^[qw]_[0-9a-f]{32}$")
+
+
+def _saved_id(value: str) -> bool:
+    if _LEGACY_SAVED_ID.fullmatch(value):
+        return True
+    try:
+        parsed = uuid.UUID(value)
+    except ValueError:
+        return False
+    return parsed.version == 7 and parsed.variant == uuid.RFC_4122
 
 
 def project_name(selection: Any) -> str:
@@ -64,7 +75,7 @@ def context_project_root(context: Any) -> str | None:
 def validate_reference(reference: str, request: Any, selection: Any, project_root: str | None = None) -> str:
     """Accept a saved ID or this exact Project's public URL, never another Project's URL."""
     parsed = urlparse(reference)
-    if _SAVED_ID.fullmatch(reference):
+    if _saved_id(reference):
         return reference
     if not parsed.scheme or not parsed.netloc:
         raise ValueError("saved query reference must be an ID or absolute URL")

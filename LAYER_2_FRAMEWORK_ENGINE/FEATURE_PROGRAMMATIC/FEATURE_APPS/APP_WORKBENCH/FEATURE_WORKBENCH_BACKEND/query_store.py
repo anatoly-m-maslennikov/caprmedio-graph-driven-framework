@@ -1,6 +1,6 @@
-# CA-R-2728@3
-# CA-R-2729@4
-# CA-D-673@8
+# CA-R-2728@4
+# CA-R-2729@5
+# CA-D-673@9
 
 """The DuckDB and DuckPGQ owner for disk-backed, paged Workbench queries."""
 
@@ -298,11 +298,11 @@ class QueryStore:
             result.update(saved_query)
         return result
 
-    def schema(self) -> dict[str, dict[str, list[dict[str, str]]]]:
+    def schema(self) -> dict[str, dict[str, list[dict[str, Any]]]]:
         with self._lock:
             if not self._available:
                 raise RuntimeError("query store unavailable; Workbench restart required")
-            tables: dict[str, list[dict[str, str]]] = {}
+            tables: dict[str, list[dict[str, Any]]] = {}
             for name in ("atoms", "scope_units"):
                 rows = self._connection.execute(
                     "SELECT column_name, data_type FROM information_schema.columns "
@@ -310,6 +310,14 @@ class QueryStore:
                     [name],
                 ).fetchall()
                 tables[name] = [{"name": column, "type": data_type} for column, data_type in rows]
+            statuses = [
+                value[0]
+                for value in self._connection.execute(
+                    "SELECT DISTINCT status FROM main.atoms WHERE status IS NOT NULL ORDER BY status"
+                ).fetchall()
+            ]
+            if statuses:
+                next(column for column in tables["atoms"] if column["name"] == "status")["values"] = statuses
             return {"tables": tables}
 
     def close(self) -> None:

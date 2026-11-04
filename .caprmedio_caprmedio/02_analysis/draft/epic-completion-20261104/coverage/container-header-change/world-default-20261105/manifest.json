@@ -1,0 +1,62 @@
+{
+  "schema": "root-project-header-container-world-preview/1",
+  "status": "SOURCE_PREVIEWS_ONLY_NO_CANONICAL_OR_DRAFT_MUTATIONS",
+  "scope": "One root Declaration Atom Header.Container omission fallback. Ordinary Atoms may use a full Scope Unit path or a containing base Atom ID; the base Atom ID is a Current-selection default only, not a default Header.Container.",
+  "user_decision": "For root Project Declaration CA-R-2640 only, omitted Header.Container defaults to the literal string world. An explicitly supplied valid Header.Container value overrides that fallback; it is not a mandatory authored literal and is not a general Atom default.",
+  "candidate": {
+    "id": "unallocated Atom.Header.Container Declaration successor",
+    "source_preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/world-default-20261105/CA-R-ALLOCATE-declare-atom-header-container.world-default.preview.txt",
+    "source_preview_sha256": "f66862376adf5210c887a3ea17e626eb48fee7cdc2b2d257773e3068ea56ad4a",
+    "predecessor_preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/header-candidates/CA-R-ALLOCATE-declare-atom-header-container.preview.txt",
+    "predecessor_preview_sha256": "1cb290beeebaffa7599731c5b457d6572fa875fb3112b5eb8dfb9ffa3a46d889",
+    "edit": "Adds an omission-only root Project Declaration world fallback with explicit valid override; keeps path/base-ID containment alternatives and clarifies that Current-selection defaulting does not default Header.Container."
+  },
+  "root_value_preview": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/world-default-20261105/CA-R-2640-root-project-declaration-header-container.preview.json",
+    "sha256": "fc331698649be7072c35351c243ab29ce74762f979eadb4f1a68d50a8be572eb",
+    "semantic_value": "default_when_omitted: world; explicit valid value overrides",
+    "not_a_carrier_serialization": true
+  },
+  "evidence_pins": [
+    {
+      "id": "CA-R-2640",
+      "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+      "status": "Active",
+      "version": "1",
+      "sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9"
+    },
+    {
+      "id": "CA-R-2684",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+      "status": "Active",
+      "version": "1",
+      "sha256": "14a60cabd55349140c38bf8e0a3191016ff2ea78718d4043b3a80de163d67bbc"
+    },
+    {
+      "id": "CA-R-2524",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "status": "Active",
+      "version": "3",
+      "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db"
+    },
+    {
+      "id": "CA-R-2719",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "status": "Active",
+      "version": "1",
+      "sha256": "b44cedbf39e8d65c8dddb21a03370ed744e65daee99eff70cc0007d064ebb0e3"
+    }
+  ],
+  "authority_interpretation": {
+    "R2684": "The Scope Unit Declaration Atom is external to the Scope Unit identified by its active Subject; supports separate Atom-header host from declared Scope Unit instance.",
+    "R2524": "Project is the root Scope Unit instance and has zero IS_CONTAINED_BY parent relations; does not remove the separate mandatory Header.Container of CA-R-2640.",
+    "R2640": "The exact root Project Declaration Atom is Active, Role Requirement/Form Scope Unit Declaration, active Subject Project//caprmedio, and currently has no Header.Container field."
+  },
+  "integration_holds": [
+    "Do not update CA-R-2640 Current/Draft here.",
+    "Do not change the formal Project parent count or add Scope Unit.Container/Parent.",
+    "The Delivery consumer CA-D-442 still needs integration awareness of this root-only value before validation adopts the Header.Container contract.",
+    "Full Scope Unit path lexical serialization remains a separate open format gap; this preview does not resolve it."
+  ],
+  "formal_conflict": "None found between a parentless Project Scope Unit instance and a separate root Declaration Atom Header.Container. The Declaration Atom fallback applies only when omitted; it does not force an authored literal or set a default for every Atom."
+}

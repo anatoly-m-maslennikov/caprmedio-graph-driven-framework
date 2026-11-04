@@ -1,0 +1,16 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/contracts/CA-R-2638.preview.txt
+@@ -31,11 +31,9 @@
+ Relation//RUNS ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+ # instances
+-Step//$step ((RUNS)) (in (Action, Workflow))//$selected;
+-
+-Substep//$substep ((RUNS)) Action//$action;
++Step//$step ((RUNS)) (in (Action, Workflow))//$selected
+ ```
+ 
+ ### Prose Claim
+ 
+-RUNS binds a Step or Substep invocation to its execution target. Its inverse is IS_RUN_BY.
++RUNS binds a Step to its Action or Workflow target. Its inverse is IS_RUN_BY.

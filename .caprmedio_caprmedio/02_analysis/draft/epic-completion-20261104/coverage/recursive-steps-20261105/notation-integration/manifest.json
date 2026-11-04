@@ -1,0 +1,189 @@
+{
+  "status": "NINE_REVIEWED_SELECTORS_FIXED_PREVIEW_ONLY",
+  "plan_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/recursive-step-contract-drafts-20261105/adoption-plan.json",
+  "plan_sha256": "fc3da8edd6702a9d1fbdc32bf4b1a279df2832ae33551c1fe4ece21123369b62",
+  "rows": [
+    {
+      "id": "CA-R-2463",
+      "actual_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2463@3-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "actual_draft_sha256": "5bde055e54a7980a6588099372ccbc150662241afc21fa905961f2f3debdc27e",
+      "draft_matches_plan": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2463.preview.txt",
+      "candidate_sha256": "b365b2b2b5cbec376adef1f635590d501523e97ace8fb54624a923dd4f7d750c",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2463.diff",
+      "diff_sha256": "f021cc380aa823423a7f2fc19810231b21184eb611c205c0da5a122c13072be3",
+      "changes": [
+        {
+          "before": "(.Header.Role: Operations)",
+          "after": "(.Header.Role := Operations)",
+          "count": 1
+        }
+      ],
+      "remaining_single_colon_leads": [],
+      "status": "SELECTOR_REPAIRED",
+      "header_identical": true
+    },
+    {
+      "id": "CA-R-2464",
+      "actual_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "actual_draft_sha256": "1ee10af50347a9624bf5d9b2c5f00984a71042642a6065bb5618e35ff06cdd3e",
+      "draft_matches_plan": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2464.preview.txt",
+      "candidate_sha256": "14320ac65eb88ab87ebf4d263073523b484910a457cf6c32d9eecef8c087ca91",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2464.diff",
+      "diff_sha256": "ca2d4e1ca3a9ea81b048ced64c8523f2b9fc72756abdf4769029361c138d30c3",
+      "changes": [
+        {
+          "before": "(.Header.Role: Operations)",
+          "after": "(.Header.Role := Operations)",
+          "count": 2
+        }
+      ],
+      "remaining_single_colon_leads": [],
+      "status": "SELECTOR_REPAIRED",
+      "header_identical": true
+    },
+    {
+      "id": "CA-R-2465",
+      "actual_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "actual_draft_sha256": "d186b76d76d160bc0f0131b40a468574ee09b58bf94a3a7ef78af7298546dc28",
+      "draft_matches_plan": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2465.preview.txt",
+      "candidate_sha256": "720459dd079a8f83300877579d321c88c53d549d0ad0e87fd5d37a56e67d6327",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2465.diff",
+      "diff_sha256": "b2fc02b06458ad1939c0663afe4528f332333b4e58d587ec477372f2a02f0924",
+      "changes": [
+        {
+          "before": "(.Header.Role: Operations)",
+          "after": "(.Header.Role := Operations)",
+          "count": 2
+        }
+      ],
+      "remaining_single_colon_leads": [],
+      "status": "SELECTOR_REPAIRED",
+      "header_identical": true
+    },
+    {
+      "id": "CA-R-2467",
+      "actual_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2467@3-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "actual_draft_sha256": "5a0d70196152d01a9802fae01f4cf26d0e9f5de9300716bb87bbebd555914a62",
+      "draft_matches_plan": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2467.preview.txt",
+      "candidate_sha256": "9ba95829868635b76f144c974e38d028b1c4cf4fd7b0f9586719b968fb2d1d3f",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2467.diff",
+      "diff_sha256": "821285d7c81a7e52e8a87dcaf1ae23ca4f5715218dc2201d1579ffadf44fbe97",
+      "changes": [
+        {
+          "before": "(.Header.Role: Operations)",
+          "after": "(.Header.Role := Operations)",
+          "count": 1
+        }
+      ],
+      "remaining_single_colon_leads": [],
+      "status": "SELECTOR_REPAIRED",
+      "header_identical": true
+    },
+    {
+      "id": "CA-R-2638",
+      "actual_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2638@4-draft-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "actual_draft_sha256": "dcff0917a3545169b74ec2f6135639a9bef5b87763d89d6e10cb385d67e33733",
+      "draft_matches_plan": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2638.preview.txt",
+      "candidate_sha256": "dcff0917a3545169b74ec2f6135639a9bef5b87763d89d6e10cb385d67e33733",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2638.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": [],
+      "remaining_single_colon_leads": [],
+      "status": "NO_NOTATION_EDIT_NEEDED",
+      "header_identical": true
+    },
+    {
+      "id": "CA-R-2734",
+      "actual_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2734@2-draft-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "actual_draft_sha256": "f3d1a3ca59de29ea4ae573f8513dc7ba9ac6f96de15ca0bb40c11870bf781241",
+      "draft_matches_plan": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2734.preview.txt",
+      "candidate_sha256": "c4e24eada565806372df4fde652e4ba5eef4e747ad6344c08e27193b7a2ffa29",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2734.diff",
+      "diff_sha256": "6cdfde349a92951f92da68842d486c24e3df2739ebb1afac23bc20b45f18a70d",
+      "changes": [
+        {
+          "before": "(.Header.Role: Operations)",
+          "after": "(.Header.Role := Operations)",
+          "count": 1
+        }
+      ],
+      "remaining_single_colon_leads": [],
+      "status": "SELECTOR_REPAIRED",
+      "header_identical": true
+    },
+    {
+      "id": "CA-R-2735",
+      "actual_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2735@2-draft-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "actual_draft_sha256": "08665acc5e3dd0d0b6429e437db9f78e1fb3faee51b8e814a4e6fa6192dba7a9",
+      "draft_matches_plan": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2735.preview.txt",
+      "candidate_sha256": "3050b05cd14d678615bec2962131f6c8732d8da7b4cb0fb11c6c8b37eff5cf9d",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-2735.diff",
+      "diff_sha256": "91ffabcdf8fea339c4f68804bcade74895038c17c67b693a8c34018000204f79",
+      "changes": [
+        {
+          "before": "(.Header.Role: Operations)",
+          "after": "(.Header.Role := Operations)",
+          "count": 1
+        }
+      ],
+      "remaining_single_colon_leads": [],
+      "status": "SELECTOR_REPAIRED",
+      "header_identical": true
+    },
+    {
+      "id": "CA-R-1528",
+      "actual_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1528@23-draft-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+      "actual_draft_sha256": "19160e7bf5b7544e88e481f3896d3a92ee3e6b805be0d51d10367c06d965cbfc",
+      "draft_matches_plan": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-1528.preview.txt",
+      "candidate_sha256": "19160e7bf5b7544e88e481f3896d3a92ee3e6b805be0d51d10367c06d965cbfc",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-R-1528.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": [],
+      "remaining_single_colon_leads": [],
+      "status": "NO_NOTATION_EDIT_NEEDED",
+      "header_identical": true
+    },
+    {
+      "id": "CA-E-486",
+      "actual_draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-486@24-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+      "actual_draft_sha256": "c395ef5f491d1a9240643ad370c4de0cbf9897d7d8fbc19f71c2f76448b7d5ab",
+      "draft_matches_plan": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-E-486.preview.txt",
+      "candidate_sha256": "c395ef5f491d1a9240643ad370c4de0cbf9897d7d8fbc19f71c2f76448b7d5ab",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/recursive-steps-20261105/notation-integration/CA-E-486.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": [],
+      "remaining_single_colon_leads": [],
+      "status": "NO_NOTATION_EDIT_NEEDED",
+      "header_identical": true
+    }
+  ],
+  "semantics_notes": [
+    {
+      "ids": [
+        "CA-R-2734",
+        "CA-R-2735"
+      ],
+      "finding": "Their Semantics repeat inherited Workflow model and assert Purpose does not alter owning Scope Unit; these statements repeat shared constraints and may be verbose for Primary Semantics. No change is made here.",
+      "suggested_terse_semantics": {
+        "CA-R-2734": "A Runtime Workflow provides behavior through a Project\u2019s delivered result during its operation.",
+        "CA-R-2735": "A Project Workflow develops, validates, maintains or releases a Project\u2019s result."
+      },
+      "constraint": "Suggested wording preserves the distinction in existing first sentences; existing Purpose declarations, claims and shared inheritance remain separate authority. Examples and ownership statement need independent owner review before removal."
+    }
+  ],
+  "checks": [
+    "Only CFEL fenced blocks are changed, with exact selector-context replacement; no YAML, quotes, prose, conditions, {::n} bounds or / // syntax changes.",
+    "No residual bare-colon leads occur in the nine CFEL fences; E486 and R1528 have no CFEL fences. This search is not a complete parser validation.",
+    "Nine actual Draft hashes compared to supplied plan; preserve live concurrent work by guarding any future write."
+  ],
+  "boundary": "Preview-only; no actual Draft, Current, code, tests, Git or other Workflow sources changed."
+}

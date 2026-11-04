@@ -1,0 +1,58 @@
+{
+  "verdict": "PASS_BOUNDED_DRAFT_EDIT_READBACK",
+  "plan_sha256": "56c9fe172d41c5d384eced30a3d1dd06ef724a4834e5a5c15ae0c5a4a2e1b3f7",
+  "receipt_sha256": "b63e719f2b8a73c8b9bc720efbefed6674a469786038ee87c2ebf0ff743beec3",
+  "outputs": [
+    {
+      "atom_id": "CA-R-2749",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2749@1-draft-CORE_META_MODEL-DECLARATION--declare-execution.md",
+      "sha256": "2294bb3b89d468c74c2a59fb334506e8d04d39fc6e93c8dada99bc0b81cd6136",
+      "preview_sha256": "04bd5db8f6d08ed4b372ee9c1d417c1225745f4657daf41f3288bbad4331f175"
+    },
+    {
+      "atom_id": "CA-R-2750",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md",
+      "sha256": "5786369adf8e0817a0d94a0d351d4c46685b76f5486d51b540bef7ba90f88e0e",
+      "preview_sha256": "59008e17e226c024ffbf32ae1d66a36c159aee6b1fb8f42be9cd788f84423933"
+    },
+    {
+      "atom_id": "CA-R-2751",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md",
+      "sha256": "43d807afd2283f9e23749730bbcf66a73bc82a1edc79b35b8477ec8d1bfe1b77",
+      "preview_sha256": "8990a2cf5a57a26e2236b485bb81e8feb19d9623f911989d9511c2897b4922e1"
+    },
+    {
+      "atom_id": "CA-R-2752",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md",
+      "sha256": "cde409fc0870e58e118aa9e20a0b05f23e64bd046dfeec3a7f196a131b8374e8",
+      "preview_sha256": "d9983166d09206e632dbe999f4639e3afd4aa119dee0ca29f765cfd4faadca95"
+    },
+    {
+      "atom_id": "CA-R-2753",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2753@1-draft-CORE_META_MODEL-DECLARATION--declare-runtime.md",
+      "sha256": "9a367bab9a511bf4f15c588c43b01759287195f5b79095ab0cd4dafdc4c6c086",
+      "preview_sha256": "e6adca8a175932bafa81b9ca47aa610bfdff75d0984a4abd38b7ce4b138b6e37"
+    },
+    {
+      "atom_id": "CA-R-2755",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2755@1-draft-CORE_META_MODEL-DECLARATION--declare-event.md",
+      "sha256": "55cb6caa87c8cbb4663932763960696c54bb79a62b180756aab24699a14752b5",
+      "preview_sha256": "b1ca5d2807c447d071306b8d11e612dc2d256593befaed705e91a704a23af8d0"
+    }
+  ],
+  "checks": [
+    "All six live Draft hashes, reviewed preview hashes, before hashes and receipt plan hash match.",
+    "All six bodies match reviewed whole-content previews exactly; parsed metadata matches except updated_at; all remain Draft version 1 with unchanged Summary and active Subject.",
+    "No Current source promotion occurs in the six Draft-only operations."
+  ],
+  "limits": [
+    "R2751/R2752 endpoint semantics and relation admission remain separate holds.",
+    "No native admission, Journal append, parser, runtime, Workflow or Workbench verification."
+  ]
+}

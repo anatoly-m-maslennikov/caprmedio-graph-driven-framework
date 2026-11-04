@@ -10,7 +10,7 @@ relations:
 atom_id: CA-A-1317
 version: 1
 status: Draft
-updated_at: 2026-11-04 16:07:35 +0400
+updated_at: 2026-11-05 01:59:03 +0400
 carrier_destination:
   file:
     name: CA-A-1317@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-occurrent-nodes-and-execution-event-relations.md
@@ -28,13 +28,15 @@ Declare the Occurrent hierarchy and its execution-event Relations.
 - Runtime has Internal Local, Internal Remote, External Local and External Remote Runtime kinds.
 - Session is narrower than External Remote Runtime.
 - Local means on the Operator's machine.
-- Internal means part of the Project's application.
+- Internal means part of the CAPRMEDIO application.
 - Each Event Record records one Event. Its existing fields remain in place.
 - Executions produce Events and run in Runtimes.
+- Step is recursive. Each Step uses exactly one execution form: RUNS one Action, RUNS one Workflow, or CONTAINS one or more Steps.
+- Retire the separate Substep kind. Step Run executes Step at any nesting level. Actual Workflow instances remain with their owners.
 
 ## Rationale
 
-Declarations define the model kinds and their permitted Relations. Occurrences and their records have distinct identities. Reusable definitions admit actual Runs. Parent rules apply through inheritance.
+Declarations define the model kinds and their permitted Relations. Occurrences and their records have distinct identities. Reusable definitions admit actual Runs. Parent rules apply through inheritance. Recursive Steps preserve the same execution choice at every structural depth, without a separate Substep kind.
 
 ## Relation contracts
 
@@ -79,4 +81,6 @@ Declarations define the model kinds and their permitted Relations. Occurrences a
 
 Review the complete source packet. Promote accepted Drafts atomically with their prerequisite declarations. Rebuild the seven MODEL projections from the accepted sources. CA #3 owns implementation, data conversion, fixtures and test execution.
 
-The Term registry remains. Entity Term retirement and Property Term revision are separate approved source changes. Blocking Relations are being prepared separately under the same Epic.
+The Term registry remains. Entity is a general Term without an Entity root; Property has its reviewed Term meaning. IS_BLOCKED_BY / BLOCKS are already Current.
+
+The recursive Step source packet is prepared separately in the Epic evidence. Existing native Drafts must be merged rather than replaced. Containment-cycle policy, carrier recursion and all affected endpoint permissions remain review gates; no new recursive Step source is claimed Current here.

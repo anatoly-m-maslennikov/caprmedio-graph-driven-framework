@@ -1,0 +1,90 @@
+{
+  "verdict": "PASS_BOUNDED_SOURCE_PREVIEW_READY_FOR_DRAFT_WITH_INTEGRATION_HOLDS",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/world-default-20261105/manifest.json",
+  "manifest_sha256": "473db766159d92f42f44fe605c489451790934f12a32bfc8632513ffc07afc2d",
+  "evidence_pins": [
+    {
+      "id": "CA-R-2640",
+      "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+      "status": "Active",
+      "version": "1",
+      "sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9"
+    },
+    {
+      "id": "CA-R-2684",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+      "status": "Active",
+      "version": "1",
+      "sha256": "14a60cabd55349140c38bf8e0a3191016ff2ea78718d4043b3a80de163d67bbc"
+    },
+    {
+      "id": "CA-R-2524",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "status": "Active",
+      "version": "3",
+      "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db"
+    },
+    {
+      "id": "CA-R-2719",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "status": "Active",
+      "version": "1",
+      "sha256": "b44cedbf39e8d65c8dddb21a03370ed744e65daee99eff70cc0007d064ebb0e3"
+    }
+  ],
+  "extra_authority_pins": [
+    {
+      "id": "CA-R-2508",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d"
+    },
+    {
+      "id": "CA-R-2709",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "3f759fcf082e94dd20b07d243edd7daaf374e23a80033c4246ad2c01b3d1df17"
+    },
+    {
+      "id": "CA-R-2768",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2768-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md",
+      "sha256": "f2fa2c56c05167ce4ab6be038fe223657f01189e2fcf4d8791a5c08ce4556626"
+    },
+    {
+      "id": "CA-D-442",
+      "version": 26,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+      "sha256": "3876e616560ffec0951cd4e9e4653d510bd7c914f3892163f67063c888f08115"
+    }
+  ],
+  "verified": [
+    "Candidate, predecessor and root-value preview hashes and four live source pins match.",
+    "R2684 makes the Declaration Atom external to its governed Scope Unit; R2524 gives the Project Scope Unit zero Scope Unit parents. These concern different hosts.",
+    "Candidate retains ordinary full Scope Unit path or base Atom ID and forbids duplication under Header.Relations; no new world Scope Unit or Scope Unit.Container property is declared."
+  ],
+  "blocking_findings": [],
+  "integration_holds": [
+    "R2719 Current Header dependent-name list does not include Container; revise its Declaration as part of the coordinated Header packet.",
+    "Current R2508 and related containment serialization still use Header.Relations.IS_CONTAINED_BY, so source and D442/consumer migration must be coordinated before enforcing no duplicate containment.",
+    "Root literal value preview does not establish physical Carrier serialization; Current-to-successor migration and full path encoding remain separately reviewed.",
+    "Preserve the parentless Project Scope Unit instance and do not change its formal parent count."
+  ],
+  "limits": [
+    "Source preview is ready for a properly allocated Draft under the coordinated Header packet; it is not Current admission or Carrier serialization.",
+    "Integration holds remain: R2719 Header whitelist, R2508/containment serialization and D442, explicit admissibility and full path encoding, and the separately coordinated CFEL syntax migration.",
+    "No Current, actual Draft, code, test, Workflow or Git change in this review."
+  ],
+  "candidate": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/world-default-20261105/CA-R-ALLOCATE-declare-atom-header-container.world-default.preview.txt",
+    "sha256": "f66862376adf5210c887a3ea17e626eb48fee7cdc2b2d257773e3068ea56ad4a"
+  },
+  "root_value_preview": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/world-default-20261105/CA-R-2640-root-project-declaration-header-container.preview.json",
+    "sha256": "fc331698649be7072c35351c243ab29ce74762f979eadb4f1a68d50a8be572eb"
+  },
+  "resolved_findings": [
+    "world now applies only when root CA-R-2640 Header.Container is omitted; an explicitly supplied valid value overrides it. Root JSON records fallback only, not an authored value.",
+    "The contradictory Semantics paragraph was removed; base Atom ID selects Current by default and is not a default Container value."
+  ]
+}

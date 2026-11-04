@@ -1,0 +1,27 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_REVIEW_WITH_INTEGRATION_HOLDS",
+  "draft": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+    "id": "CA-R-2779",
+    "version": 1,
+    "sha256": "64741ac4fab3996fa585aebfb04efbc5bdab3d2826b4dba26eed6184a67b448f"
+  },
+  "focus_plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/container-draft-notation-focus-20261105/adoption-plan.json",
+  "focus_plan_sha256": "42bb8415fd8b47c3ec865e787b50ae019227e49b2683c147724cad5dc2aae2eb",
+  "checks": [
+    "Actual final Draft equals focus plan payload, whose before hash is the creation plan\u2019s output hash; both receipts pin their plans.",
+    "Native carrier scan finds exactly one CA-R-2779 identity/version and no Current carrier; Atom ID, version, Role/Form, active Subject, canonical Core containment and Draft destination match.",
+    "Formal allowed-value syntax uses :: and {::n} with the unchanged 1/1/0/1 bounds.",
+    "Prose allows full Scope Unit path or base Atom ID, plus world for a root Project Declaration; world applies by default only when omitted and a valid explicit value overrides it. Base Atom ID selects Current; it is not an ordinary Container default.",
+    "Root wording is generic rather than normatively binding CA-R-2640; no Scope Unit.Container, world entity, alias or extra relation is introduced.",
+    "Eight previously pinned Current authorities remain byte-identical."
+  ],
+  "integration_holds": [
+    "Draft uses accepted successor :: notation, which must be adopted through coordinated syntax source migration before treating it as Current grammar.",
+    "R2719 Header admission, R2508 and D442 containment serialization, root default/effective value behavior and path representation need coordinated source/consumer integration.",
+    "Draft readiness does not mean Current adoption, data migration or executable validation."
+  ],
+  "limits": [
+    "No Current, code, test, Workflow/Workbench or Git changes in this review."
+  ]
+}

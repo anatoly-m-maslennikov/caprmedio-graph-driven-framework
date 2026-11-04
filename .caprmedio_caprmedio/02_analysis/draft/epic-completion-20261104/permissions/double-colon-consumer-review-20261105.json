@@ -1,0 +1,56 @@
+{
+  "verdict": "PASS_BOUNDED_AFTER_SELECTOR_REPAIR",
+  "source_review": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/allowed-value-consumers-20261105/review.json",
+  "source_review_sha256": "5b63cd67c163e2c32a89e138904f3a738c805cd2559a78cfa514bb41ef26fecb",
+  "sources": [
+    {
+      "id": "CA-R-1931",
+      "status": "PASS_BOUNDED_AFTER_SELECTOR_REPAIR",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "pin_matches": true,
+      "reason": "Revised preview uses := for filtered selectors, :: for allowed values and bounds, and preserves the old bare X/Y: Z as explicitly historical. Broader legacy Entity/path and pending-proposal wording remain held for separate review."
+    },
+    {
+      "id": "CA-R-1321",
+      "status": "PASS_TOKEN_PREVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+      "sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698",
+      "pin_matches": true,
+      "reason": "The recorded replacements change notation examples only, preserve operator inventory, endpoint bounds and existing :=."
+    },
+    {
+      "id": "CA-R-2588",
+      "status": "PASS_TOKEN_PREVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c",
+      "pin_matches": true,
+      "reason": "The recorded replacements change only four allowed-count tokens; zero default, directional slots, condition and independent inverse permissions remain."
+    },
+    {
+      "id": "CA-R-2768",
+      "status": "PASS_NO_EDIT_FOR_COLON_ONLY",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2768-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md",
+      "sha256": "f2fa2c56c05167ce4ab6be038fe223657f01189e2fcf4d8791a5c08ce4556626",
+      "pin_matches": true,
+      "reason": "No : or {:n} token requires edit for this bounded packet. Its assignment wording remains a separate declarative-semantics integration item."
+    },
+    {
+      "id": "CA-R-2769",
+      "status": "PASS_NO_EDIT_FOR_COLON_ONLY",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2769-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "69ccd7b57a93be95871f29e4ad180044249983448172352d2c791273b680e4fa",
+      "pin_matches": true,
+      "reason": "No : or {:n} token requires edit for this bounded packet. Its assignment wording remains a separate declarative-semantics integration item."
+    }
+  ],
+  "checks": [
+    "All five source pins and all three preview pins match; R1321/R2588 candidates are exact token-replacement sequences; the updated R1931 intentionally repairs historical selector examples to := and preserves Header and Summary. Existing := and double-quoted literal bytes remain unchanged.",
+    "R1321 and R2588 are safe to prepare as Drafts as token-only proposals, with normal source/version and adoption checks. R1931 selector correction is ready for Draft preparation with its broader path/source holds explicitly retained.",
+    "No proposed source alone establishes grammar adoption or permits dependent mechanical migration; coordinate with R2487, allowed-value successor and remaining consumers."
+  ],
+  "limits": [
+    "The R1931 broader path/instance rules, legacy Entity vocabulary and pending-proposal wording remain separately unresolved; the corrected preview is not evidence of their adoption.",
+    "No Current, actual Draft, code, tests, Workflow, Workbench or Git changes."
+  ]
+}

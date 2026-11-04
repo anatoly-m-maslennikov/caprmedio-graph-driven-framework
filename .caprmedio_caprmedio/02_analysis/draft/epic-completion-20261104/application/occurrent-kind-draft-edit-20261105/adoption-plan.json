@@ -1,0 +1,93 @@
+{
+  "status": "PREPARED_REVIEWED_DRAFT_EDITS_NOT_ADOPTED",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2749",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2749@1-draft-CORE_META_MODEL-DECLARATION--declare-execution.md",
+      "sha256": "2294bb3b89d468c74c2a59fb334506e8d04d39fc6e93c8dada99bc0b81cd6136",
+      "preview_sha256": "04bd5db8f6d08ed4b372ee9c1d417c1225745f4657daf41f3288bbad4331f175"
+    },
+    {
+      "atom_id": "CA-R-2750",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md",
+      "sha256": "5786369adf8e0817a0d94a0d351d4c46685b76f5486d51b540bef7ba90f88e0e",
+      "preview_sha256": "59008e17e226c024ffbf32ae1d66a36c159aee6b1fb8f42be9cd788f84423933"
+    },
+    {
+      "atom_id": "CA-R-2751",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md",
+      "sha256": "43d807afd2283f9e23749730bbcf66a73bc82a1edc79b35b8477ec8d1bfe1b77",
+      "preview_sha256": "8990a2cf5a57a26e2236b485bb81e8feb19d9623f911989d9511c2897b4922e1"
+    },
+    {
+      "atom_id": "CA-R-2752",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md",
+      "sha256": "cde409fc0870e58e118aa9e20a0b05f23e64bd046dfeec3a7f196a131b8374e8",
+      "preview_sha256": "d9983166d09206e632dbe999f4639e3afd4aa119dee0ca29f765cfd4faadca95"
+    },
+    {
+      "atom_id": "CA-R-2753",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2753@1-draft-CORE_META_MODEL-DECLARATION--declare-runtime.md",
+      "sha256": "9a367bab9a511bf4f15c588c43b01759287195f5b79095ab0cd4dafdc4c6c086",
+      "preview_sha256": "e6adca8a175932bafa81b9ca47aa610bfdff75d0984a4abd38b7ce4b138b6e37"
+    },
+    {
+      "atom_id": "CA-R-2755",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2755@1-draft-CORE_META_MODEL-DECLARATION--declare-event.md",
+      "sha256": "55cb6caa87c8cbb4663932763960696c54bb79a62b180756aab24699a14752b5",
+      "preview_sha256": "b1ca5d2807c447d071306b8d11e612dc2d256593befaed705e91a704a23af8d0"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2749@1-draft-CORE_META_MODEL-DECLARATION--declare-execution.md",
+      "before": "---\natom_id: CA-R-2749\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Execution\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 16:07:35 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2749@1-draft-CORE_META_MODEL-DECLARATION--declare-execution.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Execution\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nExecution ((NARROWER_THAN)) Occurrent;\n\n# instances\nExecution//$execution {:1+}((IS_EXECUTED_BY)) Runtime//$runtime;\n\nExecution//$producer {:0+}((PRODUCES)) Event//$event\n```\n\n## Semantics\n\nAn Execution is the actual performance of work.\n",
+      "before_sha256": "e10c47f979e40c139172af9b343d0d9879fd0cbda88478327f77791dbd0d27ee",
+      "after": "---\natom_id: CA-R-2749\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Execution\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 01:38:59 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2749@1-draft-CORE_META_MODEL-DECLARATION--declare-execution.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Execution\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nExecution ((NARROWER_THAN)) Occurrent;\n\n# instances\nExecution//$execution {::1+}((IS_EXECUTED_BY)) Runtime//$runtime;\n\nExecution//$producer {::0+}((PRODUCES)) Event//$event\n```\n\n## Semantics\n\nAn Execution is the actual performance of work.\n",
+      "after_sha256": "2294bb3b89d468c74c2a59fb334506e8d04d39fc6e93c8dada99bc0b81cd6136"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md",
+      "before": "---\natom_id: CA-R-2750\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Workflow Run\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 16:07:35 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Workflow Run\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nWorkflow Run ((NARROWER_THAN)) Execution;\n\n# instances\nWorkflow Run//$run {:1}((IS_EXECUTION_OF)) Workflow//$definition\n```\n\n## Semantics\n\nA Workflow Run is an actual execution of one Workflow with supplied inputs and parameters.\n",
+      "before_sha256": "a6111eca0b42ab6438fdbf65049e979f9a21fda1de8fbf3583ba6259575ed152",
+      "after": "---\natom_id: CA-R-2750\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Workflow Run\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 01:38:59 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Workflow Run\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nWorkflow Run ((NARROWER_THAN)) Execution;\n\n# instances\nWorkflow Run//$run {::1}((IS_EXECUTION_OF)) Workflow//$definition\n```\n\n## Semantics\n\nA Workflow Run is an actual execution of one Workflow with supplied inputs and parameters.\n",
+      "after_sha256": "5786369adf8e0817a0d94a0d351d4c46685b76f5486d51b540bef7ba90f88e0e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md",
+      "before": "---\natom_id: CA-R-2751\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Step Run\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 16:07:35 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Step Run\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nStep Run ((NARROWER_THAN)) Execution;\n\n# instances\nStep Run//$run {:1}((IS_EXECUTION_OF)) Step//$definition\n```\n\n## Semantics\n\nA Step Run is an actual execution of one Step within a Workflow Run.\n",
+      "before_sha256": "3881cd3ef1fa4a78d630a0338ba23f09fdee46ab18700e0c22fd471fa2d0006a",
+      "after": "---\natom_id: CA-R-2751\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Step Run\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 01:38:59 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Step Run\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nStep Run ((NARROWER_THAN)) Execution;\n\n# instances\nStep Run//$run {::1}((IS_EXECUTION_OF)) Step//$definition\n```\n\n## Semantics\n\nA Step Run is an actual execution of one Step within a Workflow Run.\n",
+      "after_sha256": "43d807afd2283f9e23749730bbcf66a73bc82a1edc79b35b8477ec8d1bfe1b77"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md",
+      "before": "---\natom_id: CA-R-2752\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Action Run\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 16:07:35 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Action Run\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAction Run ((NARROWER_THAN)) Execution;\n\n# instances\nAction Run//$run {:1}((IS_EXECUTION_OF)) Action//$definition\n```\n\n## Semantics\n\nAn Action Run is an actual execution of one Action.\n",
+      "before_sha256": "13db41bbc0cd48f58e26d14bf6c54a08013e5625e7aa713063161e62f55ca43c",
+      "after": "---\natom_id: CA-R-2752\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Action Run\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 01:38:59 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Action Run\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAction Run ((NARROWER_THAN)) Execution;\n\n# instances\nAction Run//$run {::1}((IS_EXECUTION_OF)) Action//$definition\n```\n\n## Semantics\n\nAn Action Run is an actual execution of one Action.\n",
+      "after_sha256": "cde409fc0870e58e118aa9e20a0b05f23e64bd046dfeec3a7f196a131b8374e8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2753@1-draft-CORE_META_MODEL-DECLARATION--declare-runtime.md",
+      "before": "---\natom_id: CA-R-2753\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Runtime\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 16:07:35 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2753@1-draft-CORE_META_MODEL-DECLARATION--declare-runtime.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Runtime\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRuntime ((NARROWER_THAN)) Occurrent;\n\n# instances\nRuntime//$runtime {:0+}((EXECUTES)) Execution//$execution\n```\n\n## Semantics\n\nA Runtime is an application environment in which Executions run.\n",
+      "before_sha256": "2e26e0b5e8be38ab1fecee7f7dbf72cdd934fa7c854a4c8feb3000f243a9e2c0",
+      "after": "---\natom_id: CA-R-2753\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Runtime\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 01:38:59 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2753@1-draft-CORE_META_MODEL-DECLARATION--declare-runtime.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Runtime\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRuntime ((NARROWER_THAN)) Occurrent;\n\n# instances\nRuntime//$runtime {::0+}((EXECUTES)) Execution//$execution\n```\n\n## Semantics\n\nA Runtime is an environment in which Executions run.\n",
+      "after_sha256": "9a367bab9a511bf4f15c588c43b01759287195f5b79095ab0cd4dafdc4c6c086"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2755@1-draft-CORE_META_MODEL-DECLARATION--declare-event.md",
+      "before": "---\natom_id: CA-R-2755\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Event\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-04 16:07:35 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2755@1-draft-CORE_META_MODEL-DECLARATION--declare-event.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Event\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nEvent ((NARROWER_THAN)) Occurrent;\n\n# instances\nEvent//$event {:0+}((IS_RECORDED_BY)) Event Record//$record;\n\nEvent//$produced_event {:1+}((IS_PRODUCED_BY)) Execution//$producer\n```\n\n## Semantics\n\nAn Event is an occurrence produced by an Execution.\n",
+      "before_sha256": "485a788b92206b08cd31821025c4400ea936692dabc68d9ac8d918cb5073c41a",
+      "after": "---\natom_id: CA-R-2755\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Event\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 01:38:59 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2755@1-draft-CORE_META_MODEL-DECLARATION--declare-event.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Event\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nEvent ((NARROWER_THAN)) Occurrent;\n\n# instances\nEvent//$event {::0+}((IS_RECORDED_BY)) Event Record//$record;\n\nEvent//$produced_event {::1+}((IS_PRODUCED_BY)) Execution//$producer\n```\n\n## Semantics\n\nAn Event is an occurrence produced by an Execution.\n",
+      "after_sha256": "55cb6caa87c8cbb4663932763960696c54bb79a62b180756aab24699a14752b5"
+    }
+  ]
+}
