@@ -6,28 +6,31 @@
     "current_descriptor": "CA-R-2598 Operator//Fallback == \"?=\"",
     "candidate_descriptor": "Operator//Fallback == \"?==\"",
     "current_rule": "CA-R-2550@2 defines ordered fallback on omission. Candidate changes the token to ?== and defines ordered conditional assignment: retain authored p, otherwise assign the first valid expression to the missing Object Property in the Model. `=` remains condition; `==` is assignment.",
-    "persistence_boundary": "The model-level assignment does not itself write a Carrier or file. Adapter/Delivery authority determines persistence; no write behavior is inferred."
+    "persistence_boundary": "Model-level assignment fills a missing effective Model Property; it does not itself write a Carrier/file or create an authored Carrier occurrence. Adapter/Delivery authority determines Carrier I/O.",
+    "candidate_atom": "Fresh-ID Draft successor to CA-R-2598@1; root allocates new ID and timestamp."
   },
   "previews": [
     {
       "id": "CA-R-2550",
       "source_version": 2,
-      "candidate_version_on_adoption": 3,
+      "candidate_version_on_adoption": 1,
       "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
       "source_sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860",
-      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2550.preview.txt",
-      "preview_sha256": "dabd54741335093bb02e681ef0a6c36b681646357d492fcae6f05f3b1f251daa",
-      "change": "Rename the Summary to describe conditional default assignment; replace old operator spelling with ?== and update omitted-value semantics while preserving ordered lookup/error constraints."
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-R-2550.successor.preview.txt",
+      "preview_sha256": "884dad534d8304738f5e7c2eb38385d0adcaa27311b2370d4d1f893ca3dcbb56",
+      "change": "Fresh-ID Draft successor with updated Summary and ?== conditional-assignment semantics; preserve old source and frozen references.",
+      "candidate_id": "ROOT_ALLOCATES_ID"
     },
     {
       "id": "CA-R-2598",
       "source_version": 1,
-      "candidate_version_on_adoption": 2,
+      "candidate_version_on_adoption": 1,
       "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
       "source_sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559",
-      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2598.preview.txt",
-      "preview_sha256": "d13a28012d31a672e7c87f8f264d88dc219450b4f1305b46339833ed27b83eed",
-      "change": "Replace the old fallback token with ?==; keep existing expressions, order, and nonwriting omitted-value semantics."
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-R-2598.successor.preview.txt",
+      "preview_sha256": "2ba2859fe2a158ae114c843dd910cd00453a7698724a1e48280c3daae6820034",
+      "change": "Fresh-ID Draft successor with updated Summary and ?== operator literal/semantics; preserve old source and frozen references.",
+      "candidate_id": "ROOT_ALLOCATES_ID"
     },
     {
       "id": "CA-R-2487",
@@ -35,9 +38,9 @@
       "candidate_version_on_adoption": 12,
       "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
       "source_sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
-      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-default-assignment/CA-R-2487.preview.txt",
-      "preview_sha256": "8389b08699a5489f3abc4c1f6a7c9bf100a23a9a38bec1446eaa06dde6dd94a4",
-      "change": "Replace the old fallback token with ?==; keep existing expressions, order, and nonwriting omitted-value semantics."
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/operators/CA-R-2487.combined.preview.txt",
+      "preview_sha256": "b3c1a413dfe56a2d57e3898b64b98de50f0797aa15f5ed81d40c85f84d997a74",
+      "change": "Combined candidate from same pinned source preimage: adopts ?== catalog spelling, clarified Subject-selection := scope, AND/OR declarations, and approved parentheses for mixed AND/OR."
     },
     {
       "id": "CA-R-2705",
@@ -174,7 +177,7 @@
     "omitted_semantics": "CA-R-2550 candidate makes ?== conditionally assign a missing Object Property value in the Model. R2564 retains required occurrence and one-value cardinalities; the assignment satisfies the effective Model value, not a stored Carrier occurrence. No Carrier/file write is implied.",
     "candidate": "Project.Settings.AI Agent Confidence Threshold{:1}: [int, 0..100]{:1} ?== 90;",
     "name_change": "None. The existing full canonical Property path is retained.",
-    "name_resolution": "The current canonical name is Project.Settings.AI Agent Confidence Threshold. The user pattern’s shorter “Project.Settings.Confidence Threshold” is not used as a new name or alias.",
+    "name_resolution": "The current canonical name is Project.Settings.AI Agent Confidence Threshold. The user pattern\u2019s shorter \u201cProject.Settings.Confidence Threshold\u201d is not used as a new name or alias.",
     "source_terminology_note": "CA-R-2711 directly names Scope Unit/Project//$project.Settings.AI Agent Confidence Threshold as the fallback. CA-R-1428 and CA-M-271 call their last-precedence source the Framework Instance Settings default. The preview preserves both existing references and does not introduce a new settings identity.",
     "change_note": "No required cardinality is removed. Existing canonical property name is retained."
   },
@@ -184,5 +187,7 @@
     "No default is added to Plan overrides; their source precedence and explicit-versus-inherited distinction remain governed by R1428, R1587, R1591, M271 and D472.",
     "R2564 value default candidate is source-only and requires root review before adoption.",
     "Model assignment does not imply Carrier or file persistence."
-  ]
+  ],
+  "successor_packet": "../cfel-spec-audit/operators/successor-format-manifest.json",
+  "successor_identity_policy": "CA-R-2550 and CA-R-2598 candidate content is prepared as fresh-ID Draft successors with updated Summary. Their existing Current carriers remain unchanged and frozen references are not rewritten. Root allocates each new ID and timestamp."
 }

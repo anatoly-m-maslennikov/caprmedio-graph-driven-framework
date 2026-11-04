@@ -1,0 +1,36 @@
+---
+atom_id: CA-R-2354
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation.Meaning
+version: 5
+updated_at: 2026-11-03 23:25:51 +0400
+relations: {}
+tier: 1
+role: Requirement
+form: Declaration
+---
+## Summary
+
+Define Relation Meaning
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Relation.Meaning{:1}: [string]{:1};
+
+Relation.Meaning.*[]{:0}
+```
+
+### Prose Claim
+
+
+Relation Meaning is the canonical meaning of a reusable Relation Type.
+
+
+

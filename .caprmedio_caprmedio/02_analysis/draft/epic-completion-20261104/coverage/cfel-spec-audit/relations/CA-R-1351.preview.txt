@@ -1,0 +1,34 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  passive:
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Entity
+version: 23
+updated_at: 2026-11-02 19:46:47 +0400
+relations: {}
+atom_id: CA-R-1351
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Give Primary Entity Occurrences No Bearer
+
+## Claim
+
+### Prose Claim
+
+
+Primary Entity occurrences referenced by a Subject.
+
+
+a Primary Entity referenced by a Subject **must** have **`=0`** outgoing IS_PROPERTY_OF Relations.
+
+## Details
+
+This successor preserves the existing Primary Entity constraint and immutable Summary. It changes the Relation reference to the approved canonical IS_PROPERTY_OF name; it does not remove Primary Entity semantics or create a new primary-kind branch. Zero outgoing Relations here does not prohibit being the target bearer of incoming Property Relations.

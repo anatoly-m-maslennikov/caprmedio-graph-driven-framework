@@ -16,8 +16,7 @@ relations: {}
 
 ```mermaid
 flowchart TD
-    %% Entry: step1. Success terminal: step1. Failure at any Step is terminal.
-    step1["Promote the selected Atom Draft<br/>Success: published Current; Draft removed<br/>Failure: stop with error and completed outputs"]
+    step1["Promote the selected Atom Draft"]
     click step1 "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-promote-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--promote-the-selected-atom-draft.md" "Open Step"
 ```
 
@@ -31,9 +30,32 @@ This Workflow handles one exact selected Draft for one non-container Atom under 
 
 ## Claim
 
-This Workflow's Purpose is Runtime.
+This Workflow's Purpose is Runtime. Step order follows [CA-R-1570](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md).
 
-The caller supplies the selected Draft, applicable model, destination, and an explicit model-admitted Current Status. In [Atom Lifecycle_Update Atom](./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom.md), pass the original Current Status captured before archival.
+### Input
 
-Invoke [Promote the selected Atom Draft](CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-promote-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--promote-the-selected-atom-draft.md) once under the [Workflow graph rule](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md). Return its result or its explicit error with completed outputs under [CA-R-1432@28-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md).
+One exact Draft selector and an explicit `targetStatus` admitted by the model's Current group. In composed Update, use the original Current Status captured before archival.
 
+The Project, applicable model, authorization and required destinations are bound from the request and Project configuration. They are execution context, not additional proof or receipt inputs.
+
+### Output
+
+The saved Current Atom with its actual canonical ID, published Version, Status and location; the selected Draft has been removed.
+
+On failure, return the explicit error and actual completed results under [CA-R-1432](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md). A partially completed operation does not report uncompleted effects as successful.
+
+### Step handoffs
+
+| Step | Receives | Produces | Next |
+| --- | --- | --- | --- |
+| [Promote the selected Atom Draft](./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-promote-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--promote-the-selected-atom-draft.md) | Selected Draft, targetStatus and execution context | Published Current Atom and completed Draft removal | Return the publication |
+
+### Logical switches
+
+This Workflow has one Step and no alternate Step route. These cases are selected or rejected inside its Action; they do not add Workflow Steps.
+
+| Condition | Behavior |
+| --- | --- |
+| Draft marker identifies an existing Atom and proposed Version | The Action publishes that canonical ID at its proposed Version. |
+| Draft has a role-only marker | The Action allocates a fresh canonical ID and publishes Version 1. |
+| Requested Status is not in the applicable Current group | The Action returns an explicit error; no Active default is substituted. |

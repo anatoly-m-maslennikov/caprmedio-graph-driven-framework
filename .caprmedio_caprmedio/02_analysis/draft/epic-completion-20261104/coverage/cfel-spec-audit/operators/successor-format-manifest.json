@@ -1,0 +1,120 @@
+{
+  "schema": "cfel-spec-operator-format-successors/1",
+  "status": "SOURCE_ONLY_PREVIEWS",
+  "canonical_mutation": false,
+  "user_decisions": {
+    "mixed_boolean": "Mixed AND/OR expressions require parentheses.",
+    "subject_value_selection": ":= is Subject-selection syntax; a Subject expression may appear inside a Formal Claim, but := is not a free-standing Formal-Claim assignment.",
+    "threshold_range": "[int, 0..100] is approved; inclusive endpoints; integer/range intersection. Do not replace with comparison workarounds."
+  },
+  "previews": [
+    {
+      "candidate_file": "CA-R-2487.combined.preview.txt",
+      "candidate_sha256": "b3c1a413dfe56a2d57e3898b64b98de50f0797aa15f5ed81d40c85f84d997a74",
+      "predecessor_or_source": "CA-R-2487@11",
+      "identity_plan": "same-ID source preview; combined disjoint edits",
+      "active_subject_count": 1
+    },
+    {
+      "candidate_file": "CA-R-2550.successor.preview.txt",
+      "candidate_sha256": "884dad534d8304738f5e7c2eb38385d0adcaa27311b2370d4d1f893ca3dcbb56",
+      "predecessor_or_source": "CA-R-2550@2",
+      "identity_plan": "fresh-ID successor; root allocation required",
+      "active_subject_count": 1
+    },
+    {
+      "candidate_file": "CA-R-2598.successor.preview.txt",
+      "candidate_sha256": "2ba2859fe2a158ae114c843dd910cd00453a7698724a1e48280c3daae6820034",
+      "predecessor_or_source": "CA-R-2598@1",
+      "identity_plan": "fresh-ID successor; root allocation required",
+      "active_subject_count": 1
+    },
+    {
+      "candidate_file": "NEW-CFEL-inclusive-numeric-range-format.preview.txt",
+      "candidate_sha256": "1d607bd5a3f8aa48075ab9c90a5f5df9f929fc99f7bfd076d9b152175642945a",
+      "predecessor_or_source": null,
+      "identity_plan": "new Declaration; root ID/timestamp allocation required",
+      "active_subject_count": 1
+    },
+    {
+      "candidate_file": "NEW-CFEL-format-constraint-combination.preview.txt",
+      "candidate_sha256": "978a0edaf22fda762e7b27f22de66ec22fcb3744899446ec540043ccf944ffb5",
+      "predecessor_or_source": null,
+      "identity_plan": "new Declaration; root ID/timestamp allocation required",
+      "active_subject_count": 1
+    }
+  ],
+  "authority_sources": [
+    {
+      "id": "CA-R-2487",
+      "version": 11,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d"
+    },
+    {
+      "id": "CA-R-2248",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "sha256": "e10f65588d725a5463ba1f257aa2d5e5a6eb97fd9c848e1e7184952efd9d193e"
+    },
+    {
+      "id": "CA-R-2250",
+      "version": 6,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2250-CORE_META_MODEL-ENTITY_DEFINITION--define-int-value-format.md",
+      "sha256": "8245418bdb1fc8dc4468bffe785f7090b5d4f46b2e2c30e0c06919e778ef1880"
+    },
+    {
+      "id": "CA-R-2243",
+      "version": 12,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4"
+    },
+    {
+      "id": "CA-R-1045",
+      "version": 27,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1045-CORE_META_MODEL-RULE--restrict-autonomous-confidence-threshold-values.md",
+      "sha256": "4792a08baa8cdc7c8e6fa9192df3812d25fdaa29ed3a35ede1037855ac74fc9a"
+    },
+    {
+      "id": "CA-R-2550",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860"
+    },
+    {
+      "id": "CA-R-2598",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559"
+    }
+  ],
+  "incoming_reference_inventory": "incoming-references.json",
+  "successor_policy": "R2550/R2598 use fresh-ID Draft successors because Summary changes; preserve old Current carriers and all pinned references. Root allocates IDs and timestamps. Do not increment/replace either predecessor under the same ID.",
+  "dependencies": [
+    {
+      "candidate": "CA-R-2550 successor",
+      "requires": "CA-R-2598 successor",
+      "reason": "Fallback rule uses ?== operator descriptor."
+    },
+    {
+      "candidate": "CA-R-2564 threshold default source preview",
+      "requires": "CA-R-2550 successor and CA-R-2598 successor",
+      "reason": "Uses ?== 90 under approved [int,0..100] syntax."
+    },
+    {
+      "candidate": "CA-R-2487 combined preview",
+      "requires": "CA-R-2550 successor and CA-R-2598 successor",
+      "reason": "Catalog names the ?== operator."
+    },
+    {
+      "candidate": "CA-R-2564 threshold default source preview",
+      "requires": "NEW-CFEL-inclusive-numeric-range-format and NEW-CFEL-format-constraint-combination",
+      "reason": "Formal grammar supports approved format constraint."
+    }
+  ],
+  "limitations": [
+    "No Current/Applicable carrier, code, tests, or Git state changed.",
+    "Workflow and Workbench uses were excluded from the incoming-reference scan.",
+    "New atom IDs and timestamps are intentionally unallocated."
+  ]
+}

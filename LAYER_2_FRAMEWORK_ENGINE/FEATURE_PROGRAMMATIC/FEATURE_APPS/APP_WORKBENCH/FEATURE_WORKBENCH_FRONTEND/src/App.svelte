@@ -1,11 +1,11 @@
-<!-- CA-R-2727@3 CA-M-466@3 CA-M-467@2 CA-D-674@6 -->
+<!-- CA-R-2727@4 CA-M-466@4 CA-M-467@2 CA-D-674@7 -->
 <script lang="ts">
   import Button from './lib/Button.svelte';
   import ResultsTable from './lib/ResultsTable.svelte';
   import SqlEditor from './lib/SqlEditor.svelte';
   import type { CheckResult, QueryResult } from './lib/types';
 
-  const base = '/caprmedio/workbench';
+  const base = location.pathname.replace(/\/+$/, '');
   const projectRoot = new URLSearchParams(location.search).get('project_root');
   let sql = 'SELECT id, role, status FROM atoms LIMIT 20';
   let result: QueryResult | null = null;

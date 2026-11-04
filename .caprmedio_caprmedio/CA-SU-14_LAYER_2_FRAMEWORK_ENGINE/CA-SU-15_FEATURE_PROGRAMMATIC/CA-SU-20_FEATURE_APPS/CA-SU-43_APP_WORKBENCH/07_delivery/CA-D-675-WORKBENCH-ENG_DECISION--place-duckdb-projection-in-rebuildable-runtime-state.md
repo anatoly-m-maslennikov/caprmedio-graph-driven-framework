@@ -3,7 +3,7 @@ atom_id: CA-D-675
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
-version: 8
+version: 9
 author: Anatoly Maslennikov
 role: Delivery
 form: Eng Decision
@@ -18,7 +18,7 @@ carrier_destination:
   file:
     name: CA-D-675-WORKBENCH-ENG_DECISION--place-duckdb-projection-in-rebuildable-runtime-state.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery
-updated_at: 2026-11-04 18:38:27 +0400
+updated_at: 2026-11-04 18:59:03 +0400
 ---
 
 ## Summary
@@ -39,7 +39,7 @@ Expose only `main.atoms` and `main.scope_units` as public source tables. Interna
 
 Bundle DuckDB `2.0.0` and its compatible DuckPGQ extension in the existing application image. Load the extension and grammar at trusted startup without downloading it at runtime. Disable external access and lock public configuration after startup. Admit native read queries only; trusted internal source refresh and result materialization use native write transactions with COMMIT. Do not add application retries, rollback or automatic recovery.
 
-Build Svelte + TypeScript + Vite assets during image construction and serve the static output through Python. No Node server is needed at runtime. Deliver `/caprmedio/workbench`, `/caprmedio/mcp` and `/caprmedio/health` on the configured listener.
+Build Svelte + TypeScript + Vite assets during image construction and serve the static output through Python. No Node server is needed at runtime. Deliver `/caprmedio/workbench/<project_name>`, `/caprmedio/mcp` and `/caprmedio/health` on the configured listener.
 
 The current Project container has a `1536m` memory budget. Keep query delivery bounded and let DuckDB spill within the owned runtime directory. Measure real-repository queries and refreshes against this budget; increasing RAM alone is not a substitute for paging. Report storage and engine errors explicitly. A failed owner requires an explicit restart.
 

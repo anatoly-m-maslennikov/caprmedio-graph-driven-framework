@@ -1,0 +1,93 @@
+{
+  "verdict": "HOLD_IDENTITY_RANGE_AND_BOOLEAN_OVERLAP",
+  "default_manifest_sha256": "92d929a64c01bbd538aaefd6e3dd2f38f07f03cd4e2fa5152bdc9401cd787486",
+  "operator_manifest_sha256": "8cbff5bc92eb58cc31525cb6ea283e1ffa4333aba0f89544bf74b3bb5de52232",
+  "entries": [
+    {
+      "id": "CA-R-2550",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "current_summary": "Resolve a fallback when an optional Property is omitted",
+      "proposed_summary": "Assign a default when an Object Property is absent",
+      "active_subject_preserved": true,
+      "readiness": "hold",
+      "reason": "Conditional assignment semantics preserve invalid/absent, lazy lookup, source applicability and no implicit Carrier write. Summary changed: new-ID successor and reference handling required; old Summary says optional and should not be retained if false."
+    },
+    {
+      "id": "CA-R-2598",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "current_summary": "Declare CFEL operator ?=",
+      "proposed_summary": "Declare CFEL operator ?==",
+      "active_subject_preserved": true,
+      "readiness": "hold",
+      "reason": "Defines ?== on existing Fallback descriptor without Carrier write; Summary token changed, so new-ID successor and reference handling required."
+    },
+    {
+      "id": "CA-R-2487",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "current_summary": "Define CFEL",
+      "proposed_summary": "Define CFEL",
+      "active_subject_preserved": true,
+      "readiness": "dependent_merge_or_operator_admission",
+      "reason": "Default candidate changes ?= to ?== only; must merge once with independently proposed filtered Subject-expression clarification, excluding held AND/OR precedence policy."
+    },
+    {
+      "id": "CA-R-2705",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "current_summary": "Declare Atom.Header.Label",
+      "proposed_summary": "Declare Atom.Header.Label",
+      "active_subject_preserved": true,
+      "readiness": "dependent_merge_or_operator_admission",
+      "reason": "Token migration of existing Label fallback; preserves Summary, active Subject, claim focus and fallback expression; depends on admitted operator semantics."
+    },
+    {
+      "id": "CA-R-2711",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "current_summary": "Declare Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold",
+      "proposed_summary": "Declare Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold",
+      "active_subject_preserved": true,
+      "readiness": "dependent_merge_or_operator_admission",
+      "reason": "Token migration of existing Plan confidence fallback; preserves Summary, active Subject, lookup and project source; default affects effective Model value, not authored Carrier override."
+    },
+    {
+      "id": "CA-R-2564",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "current_summary": "Declare Project.Settings.AI Agent Confidence Threshold",
+      "proposed_summary": "Declare Project.Settings.AI Agent Confidence Threshold",
+      "active_subject_preserved": true,
+      "readiness": "hold",
+      "reason": "Existing canonical threshold path and required effective 1/value retained; user-selected 90 default. `[int, 0..100]` range form not established in reviewed Current CFEL; use existing >= and <= comparisons or establish syntax. Do not require authored Carrier occurrence merely from effective cardinality."
+    },
+    {
+      "id": "CA-R-2605 operator preview",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "current_summary": "Declare CFEL operator //",
+      "proposed_summary": "Declare CFEL operator //",
+      "active_subject_preserved": true,
+      "readiness": "pass_bounded",
+      "reason": "Existing // selects declared-kind instances including bearer-bound Property instances, without declaring a new kind or independent Carrier."
+    },
+    {
+      "id": "CA-R-2487 operator preview",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "current_summary": "Define CFEL",
+      "proposed_summary": "Define CFEL",
+      "active_subject_preserved": true,
+      "readiness": "hold_split_boolean_and_merge",
+      "reason": "Clarify := only for Subject expressions, including such expressions embedded in a Formal Claim; do not make := general assignment. Candidate duplicates ?== migration and adds mixed AND/OR parenthesizing policy, held pending precedence decision."
+    }
+  ],
+  "r2487_merge": "One source candidate must include the ?= to ?== replacement plus a precise Subject-expression-in-Formal-Claim clarification. Exclude mixed-AND/OR precedence sentence pending decision; do not apply the two R2487 previews independently.",
+  "separate_hold": "New AND and OR descriptor previews are held for user precedence decision; not part of default readiness.",
+  "limits": [
+    "Source-only review; no parser, evaluator, Carrier or runtime behavior established.",
+    "No Current, code, test, Git, Workbench or Workflow modifications."
+  ]
+}

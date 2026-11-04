@@ -7,7 +7,7 @@
 # CA-M-465@10
 # CA-D-672@8
 # CA-D-673@6
-# CA-D-675@8
+# CA-D-675@9
 
 """The in-memory DuckDB and DuckPGQ owner for Workbench queries."""
 

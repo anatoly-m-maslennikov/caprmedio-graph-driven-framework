@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 import sys
 import tempfile
+from types import MappingProxyType
 import unittest
 from unittest.mock import patch
 
@@ -21,6 +22,10 @@ from http_paths import WORKBENCH_PATH  # noqa: E402
 import workbench_web  # noqa: E402
 from workbench_web import routes  # noqa: E402
 from operation_error_boundary import ExplicitBlockingRuntimeFailure  # noqa: E402
+
+
+PROJECT_NAME = "caprmedio"
+PROJECT_PATH = f"{WORKBENCH_PATH}/{PROJECT_NAME}"
 
 
 class FakeWorkbench:
@@ -71,11 +76,13 @@ class FakeGateway:
     def __init__(self):
         self.workbench = FakeWorkbench()
         self.roots = []
+        settings = MappingProxyType({"project": MappingProxyType({"name": PROJECT_NAME})})
+        self.selection = type("Selection", (), {"settings": settings})()
 
     def _selection(self, root):
         if root != "/project":
             raise ValueError("invalid_project_root")
-        return object()
+        return self.selection
 
     async def call(self, _context, params):
         self.roots.append(params.arguments["project_root"])
@@ -104,21 +111,31 @@ class WorkbenchWebTests(unittest.TestCase):
         app = (FRONTEND_ROOT / "src" / "App.svelte").read_text()
         results = (FRONTEND_ROOT / "src" / "lib" / "ResultsTable.svelte").read_text()
         self.assertIn('<Button type="submit" disabled={loading}>Run</Button>', app)
+        self.assertIn("const base = location.pathname", app)
         self.assertIn("JSON.stringify(value)", results)
         self.assertNotIn("String(value)}</td>", results)
+
+    def test_project_named_assets_is_not_shadowed_by_static_files(self):
+        gateway = FakeGateway()
+        gateway.selection.settings = MappingProxyType({"project": MappingProxyType({"name": "assets"})})
+        with TestClient(Starlette(routes=routes(gateway))) as client:
+            self.assertEqual(200, client.get(f"{WORKBENCH_PATH}/assets").status_code)
+            self.assertEqual(200, client.post(f"{WORKBENCH_PATH}/assets/check", json={"sql": "SELECT 1"}).status_code)
+            self.assertEqual(200, client.get(f"{WORKBENCH_PATH}/assets/app.js").status_code)
 
     def test_page_and_project_bound_run_check_routes(self):
         gateway = FakeGateway()
         app = Starlette(routes=routes(gateway))
         with TestClient(app) as client:
-            page = client.get(WORKBENCH_PATH)
+            self.assertEqual(404, client.get(WORKBENCH_PATH).status_code)
+            page = client.get(PROJECT_PATH)
             self.assertEqual(200, page.status_code)
             self.assertIn('id="app"', page.text)
             self.assertIn(f"{WORKBENCH_PATH}/assets/", page.text)
-            self.assertEqual(1, client.post(f"{WORKBENCH_PATH}/check", json={"sql": "SELECT 1"}).json()["row_count"])
-            result = client.post(f"{WORKBENCH_PATH}/run", json={"sql": "SELECT 1"})
+            self.assertEqual(1, client.post(f"{PROJECT_PATH}/check", json={"sql": "SELECT 1"}).json()["row_count"])
+            result = client.post(f"{PROJECT_PATH}/run", json={"sql": "SELECT 1"})
             self.assertEqual(1, result.json()["row_count"])
-            large = client.post(f"{WORKBENCH_PATH}/run", json={"sql": "large"})
+            large = client.post(f"{PROJECT_PATH}/run", json={"sql": "large"})
             self.assertEqual("application/json", large.headers["content-type"])
             self.assertEqual(
                 {
@@ -134,37 +151,38 @@ class WorkbenchWebTests(unittest.TestCase):
                 large.json(),
             )
             paged = client.post(
-                f"{WORKBENCH_PATH}/page",
+                f"{PROJECT_PATH}/page",
                 json={"query_id": "query-1", "offset": 100, "page_size": 20},
             )
             self.assertEqual(200, paged.status_code)
             self.assertEqual(100, paged.json()["offset"])
             self.assertEqual(20, paged.json()["page_size"])
             for operation in ("run", "check"):
-                failure = client.post(f"{WORKBENCH_PATH}/{operation}", json={"sql": "bad"})
+                failure = client.post(f"{PROJECT_PATH}/{operation}", json={"sql": "bad"})
                 self.assertEqual(400, failure.status_code)
                 self.assertEqual({"error": "bad query"}, failure.json())
-            failure = client.post(f"{WORKBENCH_PATH}/run", json={"sql": "crash"})
+            failure = client.post(f"{PROJECT_PATH}/run", json={"sql": "crash"})
             self.assertEqual(400, failure.status_code)
             self.assertEqual({"error": "operation failure"}, failure.json())
-            failure = client.post(f"{WORKBENCH_PATH}/check", json={"sql": 1})
+            failure = client.post(f"{PROJECT_PATH}/check", json={"sql": 1})
             self.assertEqual({"error": "sql must be a string"}, failure.json())
-            failure = client.post(f"{WORKBENCH_PATH}/page", json={"query_id": "query-1", "offset": -1})
+            failure = client.post(f"{PROJECT_PATH}/page", json={"query_id": "query-1", "offset": -1})
             self.assertEqual({"error": "offset must be a non-negative integer"}, failure.json())
+            self.assertEqual(404, client.post(f"{WORKBENCH_PATH}/wrong/run", json={"sql": "SELECT 1"}).status_code)
 
     def test_missing_frontend_does_not_block_query_routes(self):
         missing = Path(self._temporary.name) / "missing"
         with patch.object(workbench_web, "_FRONTEND", missing):
             app = Starlette(routes=routes(FakeGateway()))
             with TestClient(app) as client:
-                response = client.get(WORKBENCH_PATH)
+                response = client.get(PROJECT_PATH)
                 self.assertEqual(503, response.status_code)
                 self.assertEqual(
                     {"error": "Workbench frontend is unavailable; build required"}, response.json()
                 )
                 self.assertEqual(
                     1,
-                    client.post(f"{WORKBENCH_PATH}/check", json={"sql": "SELECT 1"}).json()["row_count"],
+                    client.post(f"{PROJECT_PATH}/check", json={"sql": "SELECT 1"}).json()["row_count"],
                 )
 
     def test_built_assets_follow_the_workbench_route_when_available(self):
@@ -175,7 +193,7 @@ class WorkbenchWebTests(unittest.TestCase):
         with patch.object(workbench_web, "_FRONTEND", frontend):
             app = Starlette(routes=routes(FakeGateway()))
             with TestClient(app) as client:
-                self.assertEqual(200, client.get(WORKBENCH_PATH).status_code)
+                self.assertEqual(200, client.get(PROJECT_PATH).status_code)
                 assets = re.findall(r'(?:src|href)="([^"?#]+)', index.read_text())
                 self.assertTrue(assets)
                 for asset in assets:
@@ -187,9 +205,11 @@ class WorkbenchWebTests(unittest.TestCase):
         gateway = FakeGateway()
         app = Starlette(routes=routes(gateway, shared=True))
         with TestClient(app) as client:
-            self.assertEqual(400, client.get(WORKBENCH_PATH).status_code)
-            self.assertEqual(200, client.get(f"{WORKBENCH_PATH}?project_root=/project").status_code)
-            self.assertEqual(1, client.post(f"{WORKBENCH_PATH}/run", json={"project_root": "/project", "sql": "SELECT 1"}).json()["row_count"])
+            self.assertEqual(404, client.get(WORKBENCH_PATH).status_code)
+            self.assertEqual(400, client.get(PROJECT_PATH).status_code)
+            self.assertEqual(200, client.get(f"{PROJECT_PATH}?project_root=/project").status_code)
+            self.assertEqual(404, client.get(f"{WORKBENCH_PATH}/wrong?project_root=/project").status_code)
+            self.assertEqual(1, client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "SELECT 1"}).json()["row_count"])
         self.assertEqual(["/project"], gateway.roots)
 
 

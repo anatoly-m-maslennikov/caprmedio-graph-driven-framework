@@ -1,0 +1,267 @@
+{
+  "snapshot": "2026-11-04 Current native Core sources pinned from scope-vocabulary/inventory.json",
+  "items": [
+    {
+      "id": "CA-R-1346",
+      "version": 28,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+      "before_sha256": "803ebe3f727ac959afe20ce369e6d4f643dbc98b93a8380bf18e764cdb3f7313",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2591",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2591-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "b8e1b543122d6cbbd22bfb82a4f71235fced9baef76ab83b6a22374a896ced29",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2592",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2592-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "15d757b8c771d83ec24a431d28d5ee0728bbc3240a827b214839da8c765de792",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2593",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2593-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "80a4f7213199aa5e5818b18d515e03f49e1bdc539b34e8d9d384065696e31949",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2594",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2594-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "f711324330e0121142be66a52968fcb4aec80a21a114e248bf4bbf94a777ac8b",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2596",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2596-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "65a827af8666e6bfa9108874737413eb1c766f3d16cc16a7c6317e5f075d9d09",
+      "review": "CROSS_REFERENCE"
+    },
+    {
+      "id": "CA-R-2597",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2597-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "3cb07cdad515b08107f9bbdb1b852fa114282941fbddc4061f4803dcd8896875",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2598",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559",
+      "review": "PREVIEWED"
+    },
+    {
+      "id": "CA-R-2599",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2599-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "de8a7fd7f46beafa80f0da140a93bb53463708db21b5ec9b243c07446961899a",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2600",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2600-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "dcb8187fe92cfb528f7c2449333c255b7b50e1e9f5690472ea330a1f31e22dac",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2601",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "a60c4c3405fb1fa0f5c48e631c93b903a016f2a78fa2d3e9ebe5e900e5a3da8f",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2602",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2602-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "a19112ba4a5e3efd207fa49b3185a9994c25280e13a6d6956c14c060f7c8867d",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2603",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2603-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "2c84a31d2e9221be3b8c555613091b401534e9cf4f87119127c3577a9470a3c2",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2604",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "368ad50c9fb2ec6b49d9b03c402ac761feb40ed4fb945de6ffdc93acabb694a0",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2605",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2605-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "30830758efab546af7b8e415c1da15d0f053f11a7f6fed0f871e8841265eaa72",
+      "review": "FINDING"
+    },
+    {
+      "id": "CA-R-2606",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2606-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "b416a70c35580654731070f54a336efe18cc2bc5b8e6c49649c1fd2f664e7242",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2607",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2607-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "f19cc3a45cc28b40e88a10d4571159412b2947f01d184addeb9ff4ee56b26c39",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2608",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2608-CORE_META_MODEL-DECLARATION--declare-cfel-operator-in-not-in.md",
+      "before_sha256": "b8ec5e164ffbd2806513a9ec34a3c1e47d89dcb0308cb8bad619ad6c3d8c0566",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2609",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2609-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+      "before_sha256": "283b73c01297ffe141727a7007b77ea4a9d3508e5dc25059e0d66f6ab913d919",
+      "review": "CROSS_REFERENCE"
+    },
+    {
+      "id": "CA-R-2610",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2610-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "9be50d0d5c63f3382dba515073f3a400961e0272957b764b24e4f27737b50190",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2611",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2611-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "c99568372f8861dbc3c9cbca0ae47aa47dcf8f63964d4d5a6a588ace72bac516",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2612",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2612-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "eb5f5da21d2b84babfc030cf1af078022cbee417f98c8f69b1a85df06e0d3035",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2613",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md",
+      "before_sha256": "deb55e82a43174ac74898393143ff987ae64141e5d8f5c80aea5bc7f7fa6e5ae",
+      "review": "CROSS_REFERENCE"
+    },
+    {
+      "id": "CA-R-2614",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2614-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "2941b1d241ed6ad422b246decd08b6a7f397bbc6485b771c8ebc958151350e01",
+      "review": "CROSS_REFERENCE"
+    },
+    {
+      "id": "CA-R-2616",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2616-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "55ac3acdcfc6fb5ead5e7849def26ef4e82aa1a7fc5c70ec38458023e6a59cf9",
+      "review": "PASS"
+    },
+    {
+      "id": "CA-R-2720",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+      "before_sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+      "review": "CROSS_REFERENCE"
+    },
+    {
+      "id": "CA-R-2605",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2605-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before_sha256": "30830758efab546af7b8e415c1da15d0f053f11a7f6fed0f871e8841265eaa72",
+      "candidate_file": "CA-R-2605.preview.txt",
+      "candidate_sha256": "53bde7a406750cf713d1b877e32e61caeadcbd29b60cbf38c011953a8dc8d069",
+      "transform": "minimal semantic wording correction"
+    },
+    {
+      "id": "CA-R-2487",
+      "version": 11,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "before_sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
+      "candidate_file": "CA-R-2487.preview.txt",
+      "candidate_sha256": "c6af1dd38a900b018721dec309390a37d51d4d0cff24d83bb56e1a6f2b16822b",
+      "transform": "minimal semantic wording correction",
+      "superseded_by": "CA-R-2487.combined.preview.txt",
+      "review": "SUPERSEDED_SOURCE_ONLY"
+    },
+    {
+      "id": "<ROOT_ALLOCATES_ID>",
+      "version": 1,
+      "source": null,
+      "candidate_file": "NEW-Operator-Conjunction.preview.txt",
+      "candidate_sha256": "fee24c985a61c9b68355cdc53e1c10c4a5397e1a0b228e2ea884a4105ada78ac",
+      "transform": "new minimal operator declaration; ID pending root allocation"
+    },
+    {
+      "id": "<ROOT_ALLOCATES_ID>",
+      "version": 1,
+      "source": null,
+      "candidate_file": "NEW-Operator-Disjunction.preview.txt",
+      "candidate_sha256": "b72689d12e3160f110392886eba7fd9a59230dc79907bc0de2e16e5444d964d1",
+      "transform": "new minimal operator declaration; ID pending root allocation"
+    },
+    {
+      "id": "CA-R-2487",
+      "candidate_file": "CA-R-2487.combined.preview.txt",
+      "candidate_sha256": "b3c1a413dfe56a2d57e3898b64b98de50f0797aa15f5ed81d40c85f84d997a74",
+      "transform": "same-ID source candidate; source version 11",
+      "active_subject_count": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "before_sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
+      "version": 11
+    },
+    {
+      "id": "ROOT_ALLOCATES_ID",
+      "candidate_file": "CA-R-2550.successor.preview.txt",
+      "candidate_sha256": "884dad534d8304738f5e7c2eb38385d0adcaa27311b2370d4d1f893ca3dcbb56",
+      "transform": "fresh-ID Draft successor; source CA-R-2550@2",
+      "active_subject_count": 1
+    },
+    {
+      "id": "ROOT_ALLOCATES_ID",
+      "candidate_file": "CA-R-2598.successor.preview.txt",
+      "candidate_sha256": "2ba2859fe2a158ae114c843dd910cd00453a7698724a1e48280c3daae6820034",
+      "transform": "fresh-ID Draft successor; source CA-R-2598@1",
+      "active_subject_count": 1
+    },
+    {
+      "id": "ROOT_ALLOCATES_ID",
+      "candidate_file": "NEW-CFEL-inclusive-numeric-range-format.preview.txt",
+      "candidate_sha256": "1d607bd5a3f8aa48075ab9c90a5f5df9f929fc99f7bfd076d9b152175642945a",
+      "transform": "new Declaration; root allocates ID/timestamp",
+      "active_subject_count": 1
+    },
+    {
+      "id": "ROOT_ALLOCATES_ID",
+      "candidate_file": "NEW-CFEL-format-constraint-combination.preview.txt",
+      "candidate_sha256": "978a0edaf22fda762e7b27f22de66ec22fcb3744899446ec540043ccf944ffb5",
+      "transform": "new Declaration; root allocates ID/timestamp",
+      "active_subject_count": 1
+    }
+  ],
+  "limitations": [
+    "Preview files are source-only.",
+    "Fresh-ID successor and new Declaration IDs/timestamps require root allocation.",
+    "Relation syntax and delivery semantics are cross-lane and unchanged.",
+    "Mixed AND/OR parentheses and [int, 0..100] inclusive range are latest explicit user decisions."
+  ]
+}

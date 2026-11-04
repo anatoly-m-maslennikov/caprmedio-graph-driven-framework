@@ -1,0 +1,67 @@
+{
+  "status": "SOURCE_ONLY_PREVIEWS",
+  "previews": {
+    "CA-R-1023": {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-RULE--permit-distinct-direct-relations-on-one-atom.md",
+      "source_sha256": "440c34d3949e31267ab66f937bbfd62a91afeae155507113c96acba958fe016d",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1023.preview.txt",
+      "preview_sha256": "5b5dccf6eb6face7b90e054dc5c8ba61774a817c557a3e9896906e9855d73eb5"
+    },
+    "CA-R-1026": {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md",
+      "source_sha256": "761422f7245c231d3c813eb8caf07f4fba2fc135563f88e7b3dc1780fa1c66e2",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1026.preview.txt",
+      "preview_sha256": "d9c99d8367dfbcde56314403738c3e9d5026d64c3285a1e8ce1a7bfea4c0c48d"
+    },
+    "CA-R-1351": {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL--give-primary-entity-occurrences-no-bearer.md",
+      "source_sha256": "a647fa0d775df3838eaf0e09ad471544461b4573e2896f80d08ff88d6897c904",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1351.preview.txt",
+      "preview_sha256": "a518e406fb63007d275afda09171e8a2e0462ddb6e097240fa9cca1918b3ba5b"
+    },
+    "CA-R-2354": {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md",
+      "source_sha256": "605da11f69acff5cd94a7c5772fb07a869b21e782a0aca802aa556061edc4fd7",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-2354.preview.txt",
+      "preview_sha256": "c121bcb779d39b558349bc2de641beaf82f7b9bb136f8d7115cd1b5215ed1634"
+    },
+    "CA-R-2355": {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "source_sha256": "e1e4f4ed28a5c8a98c421306e3d7211875d49d7e59dd46897d9d9a872fe3f354",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-2355.preview.txt",
+      "preview_sha256": "0bcc30a9987642bdfd18fa3c8c505326fc916a138cf66da803d06463980571ec"
+    },
+    "CA-R-1020": {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "source_sha256": "809a50e163bbb083181f7de8e9c0f79087de31b01614295343d18b1dea19d9e8",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1020.preview.txt",
+      "preview_sha256": "5cc4c7dd03d03bd58bac0e368fa5db23962fde7b23b74f2438f5458028491906"
+    },
+    "CA-R-1021": {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "source_sha256": "33540d09ed24ee76ec247b397736ac9786d133dcdb5dc6c016ed2fd120fbaaf0",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1021.preview.txt",
+      "preview_sha256": "3ce1a4eff14bea146510b133e879991c71296f0a73ce9f1432aa58586201d1aa"
+    },
+    "CA-R-2170": {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "source_sha256": "cce56d07fa656084df11f1bf77aab9e0e357a74ac1ca2281cead891cc1d37510",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-2170.preview.txt",
+      "preview_sha256": "3e9199a275eaadb24f9a1cf7f8cce2e0c77ba4679d6b02107aa83969cee43d90"
+    }
+  },
+  "basis": {
+    "CA-R-1023": "R1639 declares exact uppercase DERIVED_FROM.",
+    "CA-R-1026": "R2762 and R1580 own stored direct and derived Plan blocking directions.",
+    "CA-R-1351": "Remove outdated adoption bookkeeping only; retain operative claim and immutable summary.",
+    "CA-R-2354": "Remove non-Meaning relation tuple/inverse restatements already covered by R2247 and R2485.",
+    "CA-R-2355": "Remove non-Name tuple restatements already covered by R2247.",
+    "CA-R-1020": "R2588: an endpoint signature is not an outgoing whitelist permission.",
+    "CA-R-1021": "R2588: an endpoint signature is not an outgoing whitelist permission.",
+    "CA-R-2170": "R1639 defines DERIVED_FROM between represented-content versions and explicitly does not introduce a Revision entity."
+  },
+  "limits": [
+    "Previews preserve source Summary and metadata; no Current edits.",
+    "Required review must confirm R1023 canonical spelling maps its intended relation, rather than a distinct legacy encoded key."
+  ]
+}

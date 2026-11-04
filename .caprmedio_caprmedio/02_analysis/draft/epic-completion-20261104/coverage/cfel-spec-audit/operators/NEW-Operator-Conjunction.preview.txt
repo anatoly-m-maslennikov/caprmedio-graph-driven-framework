@@ -1,0 +1,29 @@
+---
+atom_id: <ROOT_ALLOCATES_ID>
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Operator//Conjunction
+version: 1
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+## Summary
+
+Declare CFEL operator AND
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Operator//Conjunction == "AND"
+```
+
+## Semantics
+
+Both Boolean operands must be true. Parenthesize mixed AND/OR expressions to make grouping explicit.

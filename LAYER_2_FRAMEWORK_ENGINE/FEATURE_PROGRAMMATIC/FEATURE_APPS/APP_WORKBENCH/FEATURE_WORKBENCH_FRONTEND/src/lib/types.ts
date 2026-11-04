@@ -1,7 +1,7 @@
-// CA-R-2727@3
-// CA-M-466@3
+// CA-R-2727@4
+// CA-M-466@4
 // CA-M-467@2
-// CA-D-674@6
+// CA-D-674@7
 export type Column = { name: string; type: string };
 
 export type QueryResult = {

@@ -1,0 +1,826 @@
+{
+  "scope": "All 79 CA-R Requirement entries in the 88-item relation-boundary census; excluded whole Workbench/Workflow-owned sources are outside this table.",
+  "source_census": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/scope-vocabulary/inventory.json",
+  "source_census_sha256": "9499345cbf3ecabb2fa26b1afc99982235b3101ac1929013e253e0a946076b8c",
+  "counts": {
+    "reviewed_pass": 43,
+    "preview_proposed": 6,
+    "held_semantics": 7,
+    "held_focus": 22,
+    "preview_partial_held_focus": 1
+  },
+  "entries": [
+    {
+      "id": "CA-R-1016",
+      "version": 32,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-DECLARATION--register-rationale-for-relation.md",
+      "sha256": "88d9c8c5f3ea03cdc955799ad495af4b726844670b3eac1987587fc6e968605c",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//rationale_for",
+      "summary": "Register rationale_for relation",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1017",
+      "version": 31,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-DECLARATION--register-method-for-relation.md",
+      "sha256": "4719ba251ad9e2f577804ca25f7573765d10c1059abef0b1b6a044bd5ea8b681",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//method_for",
+      "summary": "Register method_for relation",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1018",
+      "version": 38,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-DECLARATION--register-evaluation-targets.md",
+      "sha256": "48410dd19c032ed26139667d3fe9ad766b6c33edd598f79c626b69c30efbb0b6",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//evaluation_for",
+      "summary": "Register Evaluation targets",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1019",
+      "version": 30,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-DECLARATION--register-delivery-for-relation.md",
+      "sha256": "ae0b7f6ca1f9faabea2695f31a3d9b28ca99d9058c706db993d829944cff0c0b",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//delivery_for",
+      "summary": "Register delivery_for relation",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1020",
+      "version": 31,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "sha256": "809a50e163bbb083181f7de8e9c0f79087de31b01614295343d18b1dea19d9e8",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//implementation_of",
+      "summary": "Register implementation_of relation",
+      "disposition": "preview_proposed",
+      "reason": "Domain is mislabeled as permission; clarify against R2588.",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1020.preview.txt",
+      "preview_sha256": "5cc4c7dd03d03bd58bac0e368fa5db23962fde7b23b74f2438f5458028491906"
+    },
+    {
+      "id": "CA-R-1021",
+      "version": 31,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "sha256": "33540d09ed24ee76ec247b397736ac9786d133dcdb5dc6c016ed2fd120fbaaf0",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//evidence_for",
+      "summary": "Register evidence_for relation",
+      "disposition": "preview_proposed",
+      "reason": "Domain is mislabeled as permission; clarify against R2588.",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1021.preview.txt",
+      "preview_sha256": "3ce1a4eff14bea146510b133e879991c71296f0a73ce9f1432aa58586201d1aa"
+    },
+    {
+      "id": "CA-R-1022",
+      "version": 32,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-DECLARATION--register-concern-about-relation.md",
+      "sha256": "cac1876b182e149cdbe450ae6f6f7e7f36b6a5e05f30fbb893dbebf6f5a33617",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//concern_about",
+      "summary": "Register concern_about relation",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1023",
+      "version": 27,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-RULE--permit-distinct-direct-relations-on-one-atom.md",
+      "sha256": "440c34d3949e31267ab66f937bbfd62a91afeae155507113c96acba958fe016d",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Permit distinct direct relations on one Atom",
+      "disposition": "held_semantics",
+      "reason": "Lowercase derived_from may be different from R1639 represented-content-version DERIVED_FROM; no automatic normalization.",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1023.preview.txt",
+      "preview_sha256": "5b5dccf6eb6face7b90e054dc5c8ba61774a817c557a3e9896906e9855d73eb5",
+      "preview_status": "HELD_NOT_AUTHORIZED_DOMAIN_EQUIVALENCE"
+    },
+    {
+      "id": "CA-R-1024",
+      "version": 28,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-RULE--prohibit-transitive-meaning-for-direct-relations.md",
+      "sha256": "5e09094e4540b5eb8449bf2b72a3dd0edee0870774ced029bd72d622c3d703a0",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Prohibit transitive meaning for direct relations",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1025",
+      "version": 28,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-RULE--require-authority-for-new-relation-meanings.md",
+      "sha256": "7d2c26e0b21ae5a74b908fb336e6ef8eb887e2741843591ae68ca8a14be0a00c",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Require authority for new relation meanings",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1026",
+      "version": 33,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md",
+      "sha256": "761422f7245c231d3c813eb8caf07f4fba2fc135563f88e7b3dc1780fa1c66e2",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//depends_on",
+      "summary": "Register depends_on and required_by relation pair",
+      "disposition": "preview_proposed",
+      "reason": "Clarify approved stored IS_BLOCKED_BY and derived BLOCKS Plan dependency.",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1026.preview.txt",
+      "preview_sha256": "d9c99d8367dfbcde56314403738c3e9d5026d64c3285a1e8ce1a7bfea4c0c48d"
+    },
+    {
+      "id": "CA-R-1027",
+      "version": 28,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-RULE--register-implementation-of-and-implemented-by-relation-pair.md",
+      "sha256": "bf199390acb9bcb302e7ad3f15985eb0e0ffef51a1c099786a11024daef79cf9",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Register implementation_of **and** implemented_by relation pair",
+      "disposition": "held_semantics",
+      "reason": "Requires implemented_by derived Relation, no matching Current Relation Declaration or explicit binding."
+    },
+    {
+      "id": "CA-R-1029",
+      "version": 27,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-RULE--record-lineage-impact-disposition-context.md",
+      "sha256": "9848a6be3704e41861107010602c2385d3a34b28075111c9ccd02a98ac844a9c",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Record Lineage Impact disposition context",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs Lineage Impact disposition rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1030",
+      "version": 27,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-RULE--prohibit-silent-non-compatible-impact-dispositions.md",
+      "sha256": "605e00a73fa036fd4b0e992cbcd485dab671f4323e772b130b2f8bc1bc321ac7",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Prohibit silent non-compatible Impact dispositions",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs selection of non-compatible Impact dispositions rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1032",
+      "version": 28,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-RULE--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+      "sha256": "8e47de0fa645bf7f690a595afe280827c7404672df0b9f6e7b6b07a3db48340e",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Block dependent gates until Lineage Impact reaches a fixed point",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs release or downstream gates rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1038",
+      "version": 28,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL-RULE--permit-multiple-child-rows-in-one-lineage-impact-analysis.md",
+      "sha256": "2aef6cf8468a9adc8ac86c77d3eb2d161b03db4ad483a1c857d7b089bd02c232",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Permit multiple child rows in one Lineage Impact Analysis",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs Lineage Impact Analysis child rows rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1039",
+      "version": 28,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-RULE--preserve-authority-outside-lineage-impact-analysis.md",
+      "sha256": "8299cf95f59515e000ec606ed994e99f7609d64dda8f29dd9e60f54d7aebaa2d",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Preserve authority outside Lineage Impact Analysis",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs Lineage Impact Analysis Atom rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1040",
+      "version": 31,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-RULE--reject-authored-inverse-relations.md",
+      "sha256": "bd821e802387393d1bd3ddd21e35a5bcb000b76cbaefb41f0dee80cd3b5a1123",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Reject authored inverse relations",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-117",
+      "version": 31,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-RULE--store-each-semantic-relation-once.md",
+      "sha256": "9e28c39259714db9e1ebe7f77e83eda13857cc9f537a7b2cc14e75043cdcf55e",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Store each semantic relation once",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-118",
+      "version": 35,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-RULE--let-the-dependent-atom-own-the-relation.md",
+      "sha256": "4d48fa01c68e143bf72827b5698f6a3dd02310738d2327ef73982c127e655109",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Let the dependent Atom own the relation",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1199",
+      "version": 38,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md",
+      "sha256": "4e4cf1d259ff62c9ba10be39ea5d871a052717eaf8bd95f0bc57f91294ee824e",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS",
+      "summary": "Define GOVERNS Subject Relation Kind",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-121",
+      "version": 31,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-121-CORE_META_MODEL-RULE--store-only-direct-semantic-relations.md",
+      "sha256": "8de05bdb2362d31e2d96649b0affcf913f0104e76bf8818cce3a5d2eb6f3fbf5",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Store only direct semantic relations",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1244",
+      "version": 33,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1244-CORE_META_MODEL-RULE--allow-multiple-direct-term-hierarchy-parents.md",
+      "sha256": "1652a8ee39a253aa26aa491011b91a83580799262e5cadda817914ab9f6010fe",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN",
+      "summary": "Allow multiple direct Term hierarchy parents",
+      "disposition": "held_semantics",
+      "reason": "Term parent count is scoped to Term instances/kinds; Term kind is not automatically a Node merely from lexical use. Resolve target and usefulness of >=0 before changing. Claim focus: Term hierarchy parent count."
+    },
+    {
+      "id": "CA-R-1246",
+      "version": 34,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1246-CORE_META_MODEL-RULE--keep-relation-vocabularies-graph-specific.md",
+      "sha256": "e053d11d0d3b660fae765ec4fe1b09156da6f5f041203ac47ec2b65249c4eee7",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Keep relation vocabularies graph-specific",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1279",
+      "version": 32,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1279-CORE_META_MODEL-RULE--govern-every-defined-term.md",
+      "sha256": "1d7e9c68aa2119f9edb8bda5476bce6db471fd3a6d57d6098646a962af3f8585",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS",
+      "summary": "Govern Every Defined Term",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs Term-defining Atom GOVERNS requirement rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1280",
+      "version": 34,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1280-CORE_META_MODEL-RULE--reference-every-prerequisite-subject-through-depends-on.md",
+      "sha256": "c4967b68e77164f9f68403a4b38f7c77f63cd35a11b7faedbb48fa840b9551f1",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON",
+      "summary": "Reference Every Prerequisite Subject through DEPENDS_ON",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs Atom Subject-target mention coverage rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1345",
+      "version": 29,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1345-CORE_META_MODEL-RULE--keep-the-narrower-than-graph-acyclic.md",
+      "sha256": "f39df22cca9398efb859b357a14a2ff0b36eab8017bc2a9f8fbaa570fc85b540",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN",
+      "summary": "Keep the NARROWER_THAN graph acyclic",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1351",
+      "version": 23,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL--give-primary-entity-occurrences-no-bearer.md",
+      "sha256": "a647fa0d775df3838eaf0e09ad471544461b4573e2896f80d08ff88d6897c904",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF",
+      "summary": "Give Primary Entity Occurrences No Bearer",
+      "disposition": "preview_partial_held_focus",
+      "reason": "Obsolete staging tail removed in preview; Primary Entity constraint remains misfocused on IS_PROPERTY_OF and needs established endpoint Subject.",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-1351.preview.txt",
+      "preview_sha256": "a518e406fb63007d275afda09171e8a2e0462ddb6e097240fa9cca1918b3ba5b"
+    },
+    {
+      "id": "CA-R-1410",
+      "version": 22,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL--connect-every-caprmedio-graph-through-the-general-artifact-graph.md",
+      "sha256": "478dbbe9b09961fce5f570c3eb2423316dc9d912602bc0531e83ab089b7a7171",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Connect Every CAPRMEDIO Graph through the General Artifact Graph",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs CAPRMEDIO Graph connectivity rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1437",
+      "version": 32,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-RULE--keep-one-source-for-each-relation-fact.md",
+      "sha256": "743c507e6a2992e8db377adece88d39707d1bacdf83bb1337322ed8243060c29",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Keep one source for each relation fact",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1472",
+      "version": 28,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-RULE--admit-typed-secondary-graph-connections.md",
+      "sha256": "51da2f7620f45e65c6a603bc266e3241cc3328f3c8cb0c8df02bd75b41ed5aee",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Admit typed secondary graph connections",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs secondary graph connection admission rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1580",
+      "version": 29,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "sha256": "25e9d08d3851209230e686a23c42d7819f3fddd4b163d3e18947c6b6eedb8ae5",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//BLOCKS",
+      "summary": "Define Plan blocking",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1632",
+      "version": 35,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-RULE--classify-lineage-impact-with-four-dispositions.md",
+      "sha256": "ae00483b62a87ab968c0bca1b4642eb80166e1365a27f2778500f89084451c8f",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Classify lineage impact with four dispositions",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs Impact Review child disposition rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1639",
+      "version": 38,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-DECLARATION--register-derived-from-relation.md",
+      "sha256": "cc759f728ea7026f510224834325364688389cbf9b1bf5e050ec6bd57c7d1428",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//DERIVED_FROM",
+      "summary": "Register derived_from relation",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1654",
+      "version": 38,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-DECLARATION--register-feature-realization-relation-kind.md",
+      "sha256": "f2117d0bf61ea4c0c2146cf65b3f689195bda3cddd008c6eed0cc6fa52838020",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//feature_realization",
+      "summary": "Register feature realization relation kind",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1657",
+      "version": 33,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-RULE--require-acyclic-structural-ownership.md",
+      "sha256": "e9b1db213d876cc6472de554d5ce833978423e5105e9bde9616b3b4d00725e45",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Require acyclic structural ownership",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs structural_parent graph acyclicity rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1659",
+      "version": 31,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-RULE--derive-inverse-structural-ownership.md",
+      "sha256": "159af85ffc4bfe88783a006d9a6a3d59d087c9798c39bc67c0aa5f30b0787c5c",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Derive inverse structural ownership",
+      "disposition": "held_semantics",
+      "reason": "Requires structural_children derived view, no matching Current Relation Declaration or explicit binding. Claim focus: structural_children derived view."
+    },
+    {
+      "id": "CA-R-1660",
+      "version": 37,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-DECLARATION--register-structural-parent-relation.md",
+      "sha256": "175001423157ce246b5a20c26b2a47eb8f29deb08649a7948ad091247bd25759",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//structural_parent",
+      "summary": "Register structural parent relation",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-1676",
+      "version": 37,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-RULE--keep-rmed-to-rmed-relations-within-active-authority.md",
+      "sha256": "e94719418f2f60435d581a981f818580e24aa0947d1eb6f57fb16d65d732d4ea",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Keep RMED-to-RMED Relations within Active Authority",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs Current RMED endpoint condition rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1697",
+      "version": 36,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1697-CORE_META_MODEL-RULE--bind-traceability-to-exact-claims-and-revisions.md",
+      "sha256": "b2a64f2a4a87fa506af5ebf58e297ecec92795de70f132f290cd12c9a0c8ec37",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Bind traceability to exact claims and revisions",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs traceability assertions rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1699",
+      "version": 37,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1699-CORE_META_MODEL-RULE--bind-governed-transactions-to-stable-artifact-revisions.md",
+      "sha256": "544574d7bea6cfabb6f7e38e465c8c2201b05bfd806027bca9d7271ac1d374e9",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Bind governed transactions to stable artifact revisions",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs governed change transactions rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1735",
+      "version": 28,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1735-CORE_META_MODEL-RULE--relate-self-improvement-stages-explicitly.md",
+      "sha256": "2b213961107041374ae6efdb27d32e2e258acb293781e4d4310eb1e2dc80087a",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Relate self-improvement stages explicitly",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs self-improvement stage transitions rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-1993",
+      "version": 20,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1993-CORE_META_MODEL-DECLARATION--define-carries.md",
+      "sha256": "82247b2cb99ad1dc826c579cfe51a42708f6cd9fe48039c4aeb2171e28580c1a",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//CARRIES",
+      "summary": "Define CARRIES",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-2170",
+      "version": 10,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+      "sha256": "cce56d07fa656084df11f1bf77aab9e0e357a74ac1ca2281cead891cc1d37510",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_DERIVED_RELATION_OF",
+      "summary": "Define is derived relation of relation",
+      "disposition": "preview_proposed",
+      "reason": "DERIVED_FROM is between represented-content versions under R1639, not invented Artifact Revision entities.",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-2170.preview.txt",
+      "preview_sha256": "3e9199a275eaadb24f9a1cf7f8cce2e0c77ba4679d6b02107aa83969cee43d90"
+    },
+    {
+      "id": "CA-R-2247",
+      "version": 7,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "e94d4c0b78e0a1fbcb83e0070b323017b836335d188191729a75325d4c7f6e27",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Define Relation",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-2354",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md",
+      "sha256": "605da11f69acff5cd94a7c5772fb07a869b21e782a0aca802aa556061edc4fd7",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation.Meaning",
+      "summary": "Define Relation Meaning",
+      "disposition": "preview_proposed",
+      "reason": "Remove tuple/inverse restatement outside Relation.Meaning focus, preserved by R2247/R2485.",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-2354.preview.txt",
+      "preview_sha256": "c121bcb779d39b558349bc2de641beaf82f7b9bb136f8d7115cd1b5215ed1634"
+    },
+    {
+      "id": "CA-R-2355",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "sha256": "e1e4f4ed28a5c8a98c421306e3d7211875d49d7e59dd46897d9d9a872fe3f354",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation.Name",
+      "summary": "Define Relation Name",
+      "disposition": "preview_proposed",
+      "reason": "Remove tuple restatement outside Relation.Name focus, preserved by R2247.",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/CA-R-2355.preview.txt",
+      "preview_sha256": "0bcc30a9987642bdfd18fa3c8c505326fc916a138cf66da803d06463980571ec"
+    },
+    {
+      "id": "CA-R-2417",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+      "sha256": "e50b96e2a066c11c7deee1f31ef85197b74d09aaa93c12579648e7c9ef8bd691",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_EXECUTION",
+      "summary": "Define HAS_EXECUTION Relation",
+      "disposition": "reviewed_pass",
+      "reason": "Derived Relation has its own minimal Declaration; reciprocal HAS_INVERSE under R2485 supplies direct/derived relationship without implied outgoing permission."
+    },
+    {
+      "id": "CA-R-2418",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2418-CORE_META_MODEL-DECLARATION--define-is-carried-by-relation.md",
+      "sha256": "4944f3098c5c6d1e4962ea88f6424cb1df23abcf0810e4c93cdc6d0f7f2d27ca",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_CARRIED_BY",
+      "summary": "Define IS_CARRIED_BY Relation",
+      "disposition": "reviewed_pass",
+      "reason": "Derived Relation has its own minimal Declaration; reciprocal HAS_INVERSE under R2485 supplies direct/derived relationship without implied outgoing permission."
+    },
+    {
+      "id": "CA-R-2420",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2420-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+      "sha256": "52e09f067858fcaa9c26bfd100227b9c7866058482054e0fca93331cdc238263",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTED_BY",
+      "summary": "Define IS_EXECUTED_BY Relation",
+      "disposition": "reviewed_pass",
+      "reason": "Derived Relation has its own minimal Declaration; reciprocal HAS_INVERSE under R2485 supplies direct/derived relationship without implied outgoing permission."
+    },
+    {
+      "id": "CA-R-2421",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2421-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+      "sha256": "1e6ddc6a60e24a613c8ea03be2c11b4dc452bb94d5e1fa2bd652123295b82277",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_RECORDED_BY",
+      "summary": "Define IS_RECORDED_BY Relation",
+      "disposition": "reviewed_pass",
+      "reason": "Derived Relation has its own minimal Declaration; reciprocal HAS_INVERSE under R2485 supplies direct/derived relationship without implied outgoing permission."
+    },
+    {
+      "id": "CA-R-2422",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2422-CORE_META_MODEL-DECLARATION--define-required-by-relation.md",
+      "sha256": "99a6c6ff6a56f1fa98a1ab141749ced037e9f0aa7cea75f92f1e5371b4875349",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//required_by",
+      "summary": "Define required_by Relation",
+      "disposition": "reviewed_pass",
+      "reason": "Derived Relation has its own minimal Declaration; reciprocal HAS_INVERSE under R2485 supplies direct/derived relationship without implied outgoing permission."
+    },
+    {
+      "id": "CA-R-2473",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF",
+      "summary": "Define Property bearing and its inverse",
+      "disposition": "held_semantics",
+      "reason": "Property exact-one bearer and acyclicity are endpoint constraints inside Relation-focused Declaration; preserve until their full applicable Property domain and replacement ownership are verified."
+    },
+    {
+      "id": "CA-R-2475",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN",
+      "summary": "Define NARROWER_THAN",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-2476",
+      "version": 6,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "sha256": "0815c5de37042caf4d3f76777f7358c5509bf0f360f5d540f8c548ec9b677d9e",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//INSTANCE_OF",
+      "summary": "Define INSTANCE_OF",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-2477",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2477-CORE_META_MODEL-DECLARATION--define-classification-and-its-written-reverse.md",
+      "sha256": "e4b24cf8cabe401be72fde576c8d4694e8e72ca63ab18066c274a3c12da174af",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_CLASSIFICATION",
+      "summary": "Define classification and its written reverse",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-2478",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY",
+      "summary": "Define composition and its inverse",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-2485",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2485-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+      "sha256": "e108830788cccfecf0857b817c020c282dc9697a006719c6c6d09eb99c9b4fba",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_INVERSE",
+      "summary": "Define HAS_INVERSE",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-2583",
+      "version": 5,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2583-CORE_META_MODEL-DECLARATION--define-has-event-author.md",
+      "sha256": "afbd2d65a6d8942764b91094b800fae52c2edff98e8e7cdee2950e212a81347c",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_EVENT_AUTHOR",
+      "summary": "Define HAS_EVENT_AUTHOR",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-2617",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md",
+      "sha256": "129277b5d905006aed8279b20be9ed45ed8fcc1733b3097ca07321cdb03db16d",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//CONTAINS",
+      "summary": "Declare CONTAINS",
+      "disposition": "reviewed_pass",
+      "reason": "Derived Relation has its own minimal Declaration; reciprocal HAS_INVERSE under R2485 supplies direct/derived relationship without implied outgoing permission."
+    },
+    {
+      "id": "CA-R-2618",
+      "version": 3,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+      "sha256": "3dbe86364921d2cf506ab40a264a4499484f21f629d88627854e37b1f9bdf4c0",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_ACTIVE_SUBJECT",
+      "summary": "Declare HAS_ACTIVE_SUBJECT",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-2619",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2619-CORE_META_MODEL-DECLARATION--declare-has-instance.md",
+      "sha256": "f8d8f828420b31bfedced5bbcd2eb9c51086c30b3b61e2d1cd8712f8bddb516b",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_INSTANCE",
+      "summary": "Declare HAS_INSTANCE",
+      "disposition": "reviewed_pass",
+      "reason": "Derived Relation has its own minimal Declaration; reciprocal HAS_INVERSE under R2485 supplies direct/derived relationship without implied outgoing permission."
+    },
+    {
+      "id": "CA-R-2620",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2620-CORE_META_MODEL-DECLARATION--declare-has-narrower.md",
+      "sha256": "92dbcc2aa54b613c6a43c437ad0beedd632bc9ccb7d9905638f9e31472948d19",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_NARROWER",
+      "summary": "Declare HAS_NARROWER",
+      "disposition": "reviewed_pass",
+      "reason": "Derived Relation has its own minimal Declaration; reciprocal HAS_INVERSE under R2485 supplies direct/derived relationship without implied outgoing permission."
+    },
+    {
+      "id": "CA-R-2621",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2621-CORE_META_MODEL-DECLARATION--declare-has-property.md",
+      "sha256": "c51142ed47d1f6a98da90b3a0f0708156c25c1b3bdc98b27a4a819b9bd3d9618",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_PROPERTY",
+      "summary": "Declare HAS_PROPERTY",
+      "disposition": "reviewed_pass",
+      "reason": "Derived Relation has its own minimal Declaration; reciprocal HAS_INVERSE under R2485 supplies direct/derived relationship without implied outgoing permission."
+    },
+    {
+      "id": "CA-R-2622",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2622-CORE_META_MODEL-DECLARATION--declare-is-event-author-of.md",
+      "sha256": "ccad12aa39c516e384ebd4ae9ee64eb7d4fe772548a0efa42609164774503eea",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EVENT_AUTHOR_OF",
+      "summary": "Declare IS_EVENT_AUTHOR_OF",
+      "disposition": "reviewed_pass",
+      "reason": "Derived Relation has its own minimal Declaration; reciprocal HAS_INVERSE under R2485 supplies direct/derived relationship without implied outgoing permission."
+    },
+    {
+      "id": "CA-R-2623",
+      "version": 4,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+      "sha256": "dd540f1c2fd04b4826443a96daa6f7e190853ecd8645ad1a369d85a3744a2fc6",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_RUN_BY",
+      "summary": "Declare IS_RUN_BY",
+      "disposition": "reviewed_pass",
+      "reason": "Derived Relation has its own minimal Declaration; reciprocal HAS_INVERSE under R2485 supplies direct/derived relationship without implied outgoing permission."
+    },
+    {
+      "id": "CA-R-2732",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2732-CORE_META_MODEL-DECLARATION--declare-is-declared-by.md",
+      "sha256": "735ddf3eaafc28810d65128fa112c53d792d945377f56777e3d0725d00ff17cc",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_DECLARED_BY",
+      "summary": "Declare IS_DECLARED_BY",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-2762",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2762-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "sha256": "6620239782cc317abe88ee6d70794e60727a197cfbb9dc959327b7483283cbc9",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_BLOCKED_BY",
+      "summary": "Declare IS_BLOCKED_BY",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-796",
+      "version": 44,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-DECLARATION--keep-tier-parent-relations-within-atom-scope.md",
+      "sha256": "607e22a1220107c29659a90a98f80dd9b0477dfb21c00229426a3a45a12ffa86",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//child_of",
+      "summary": "Keep tier-parent relations within Atom Scope",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-806",
+      "version": 42,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-RULE--register-complete-relation-kind-metadata.md",
+      "sha256": "45b0e2867a7cba864ebdbfa4bddb0a85a50f6022078fcbd77ede94e1642e7293",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Register Complete Relation Kind Metadata",
+      "disposition": "reviewed_pass",
+      "reason": "Claim defines or constrains the active Relation descriptor/family; keep applicable domain and direct/derived permissions separate."
+    },
+    {
+      "id": "CA-R-807",
+      "version": 34,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md",
+      "sha256": "602c6d9eefd3da729ec512a0793ad7534085b0a675cd51ed6a7f1be935670a52",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Record replacement transitions in the Journal",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs replacement history Journal event rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-808",
+      "version": 35,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-808-CORE_META_MODEL-RULE--apply-relation-direction-within-its-ordering-domain.md",
+      "sha256": "d1147e9cc4e02728a8885ada9b1768f338e02a64aa29baf543a13ec5dd9cc609",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Apply relation direction within its ordering domain",
+      "disposition": "held_semantics",
+      "reason": "Mixes generic relation ordering with selected RMED endpoint Tier/Scope rules; rehoming requires preserving full selection, exceptions and inherited authority."
+    },
+    {
+      "id": "CA-R-879",
+      "version": 32,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-RULE--register-child-of-and-parent-of-relation-pair.md",
+      "sha256": "170518ff269c74daa1c53a7d8385e790377fb116889bb25f6df49df6eb2d8ee3",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Register child_of and parent_of relation pair",
+      "disposition": "held_semantics",
+      "reason": "Requires parent_of derived Relation, no matching Current Relation Declaration or explicit binding."
+    },
+    {
+      "id": "CA-R-915",
+      "version": 33,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-915-CORE_META_MODEL-RULE--prohibit-order-derived-dependencies.md",
+      "sha256": "bdc159c25b814a1885bb7bfcffc1f9397781c469222f6f18ab427688e6ef1c15",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Prohibit order-derived dependencies",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs ordered Scope Unit dependencies rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-916",
+      "version": 37,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-916-CORE_META_MODEL-DEMAND--restrict-ordered-demands-to-earlier-producers.md",
+      "sha256": "c38791d3c79329ac5b73f0438553aa41481b0f4f1054c3849bf1e4593ff729ca",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Restrict ordered Demands to earlier Producers",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs ordered Demand/Producer rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-934",
+      "version": 31,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-RULE--preserve-producer-authority-outside-demanded-result.md",
+      "sha256": "a716a5fdfdbeeef385c59d36b73c3578c80fd76ff517f998450ed7414c8ccb01",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Preserve Producer authority outside demanded result",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs Demand result constraint rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-935",
+      "version": 37,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-RULE--prohibit-demands-between-ancestors-and-descendants.md",
+      "sha256": "f58492447e99435921c1893650c2e122f9069136fb18d94b77b69891277fd722",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Prohibit Demands between ancestors and descendants",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs Demand Scope Unit ancestry rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-945",
+      "version": 38,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-RULE--define-result-flow-direction.md",
+      "sha256": "006bef3b3ee307dceeaafe25269bf8c0c7d661be78cbf5576d1857c983c4bfec",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Define result-flow direction",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs Producer result flow rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    },
+    {
+      "id": "CA-R-976",
+      "version": 31,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-RULE--separate-navigational-order-from-structural-relations.md",
+      "sha256": "bace3f6700fde7bc8e106eb982db7d5b4ae60875629970a28aaeae0d276a6cab",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "summary": "Separate Navigational Order from structural relations",
+      "disposition": "held_focus",
+      "reason": "Claim primarily governs Navigational Order Number rather than generic Relation descriptor; determine established canonical Subject and preserve its operative constraint before moving."
+    }
+  ],
+  "limitations": [
+    "Some plain-text policies describe role/ordering or graph concepts outside active Relation scope; resolving the actual target is held rather than invented.",
+    "Term hierarchy and direct-relation endpoint cardinality domains need additional authority decisions or other lane review.",
+    "No Current, Git, Workflow or Workbench modifications."
+  ]
+}

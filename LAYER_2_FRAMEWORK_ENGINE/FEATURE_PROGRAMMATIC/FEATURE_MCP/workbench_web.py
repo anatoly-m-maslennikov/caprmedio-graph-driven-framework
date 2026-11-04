@@ -1,13 +1,14 @@
-# CA-R-2727@3
+# CA-R-2727@4
 # CA-R-2729@3
 # CA-D-673@6
-# CA-D-674@6
+# CA-D-674@7
 
 """Small HTTP representation of the shared Project Workbench connector."""
 
 from __future__ import annotations
 
 import json
+from collections.abc import Mapping
 from pathlib import Path
 import sys
 from typing import Any
@@ -69,6 +70,16 @@ def _json_stream(value: dict[str, Any]):
     return json.JSONEncoder(ensure_ascii=False, allow_nan=False, separators=(",", ":")).iterencode(value)
 
 
+def _project_name_matches(selection: Any, project_name: str) -> bool:
+    settings = getattr(selection, "settings", None)
+    project = settings.get("project") if isinstance(settings, Mapping) else None
+    return isinstance(project, Mapping) and project.get("name") == project_name
+
+
+def _unknown_project() -> JSONResponse:
+    return JSONResponse({"error": "unknown Workbench project"}, status_code=404)
+
+
 async def _execute(gateway: Any, name: str, arguments: dict[str, Any], shared: bool) -> dict[str, Any]:
     if not shared:
         return await gateway.workbench.call(
@@ -91,12 +102,17 @@ async def _execute(gateway: Any, name: str, arguments: dict[str, Any], shared: b
 
 def routes(gateway: Any, *, shared: bool = False) -> list[Route]:
     async def page(request: Request):
+        project_name = request.path_params["project_name"]
         if shared:
             project_root = request.query_params.get("project_root", "")
             try:
-                gateway._selection(project_root)
+                selection = gateway._selection(project_root)
             except (TypeError, ValueError) as error:
                 return JSONResponse({"error": str(error)}, status_code=400)
+        else:
+            selection = getattr(gateway, "selection", None)
+        if not _project_name_matches(selection, project_name):
+            return _unknown_project()
         if not (_FRONTEND / "index.html").is_file():
             return JSONResponse(
                 {"error": "Workbench frontend is unavailable; build required"}, status_code=503
@@ -106,18 +122,25 @@ def routes(gateway: Any, *, shared: bool = False) -> list[Route]:
     async def operation(request: Request):
         name = PAGE if request.url.path.endswith("/page") else RUN if request.url.path.endswith("/run") else CHECK
         try:
+            arguments = await _arguments(request, shared, name)
+            if shared:
+                selection = gateway._selection(arguments["project_root"])
+            else:
+                selection = getattr(gateway, "selection", None)
+            if not _project_name_matches(selection, request.path_params["project_name"]):
+                return _unknown_project()
             return StreamingResponse(
-                _json_stream(await _execute(gateway, name, await _arguments(request, shared, name), shared)),
+                _json_stream(await _execute(gateway, name, arguments, shared)),
                 media_type="application/json",
             )
         except Exception as error:
             return _error(gateway, error)
 
     return [
-        Route(WORKBENCH_PATH, page),
-        Route(f"{WORKBENCH_PATH}/run", operation, methods=["POST"]),
-        Route(f"{WORKBENCH_PATH}/check", operation, methods=["POST"]),
-        Route(f"{WORKBENCH_PATH}/page", operation, methods=["POST"]),
+        Route(f"{WORKBENCH_PATH}/{{project_name}}", page),
+        Route(f"{WORKBENCH_PATH}/{{project_name}}/run", operation, methods=["POST"]),
+        Route(f"{WORKBENCH_PATH}/{{project_name}}/check", operation, methods=["POST"]),
+        Route(f"{WORKBENCH_PATH}/{{project_name}}/page", operation, methods=["POST"]),
         Mount(
             f"{WORKBENCH_PATH}/assets",
             app=StaticFiles(directory=_FRONTEND / "assets", check_dir=False),

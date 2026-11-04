@@ -3,7 +3,7 @@ atom_id: CA-M-466
 current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 status: Active
-version: 3
+version: 4
 author: Anatoly Maslennikov
 role: Method
 form: Eng Decision
@@ -17,7 +17,7 @@ carrier_destination:
   file:
     name: CA-M-466-WORKBENCH_FRONTEND-ENG_DECISION--use-svelte-typescript-and-vite-for-workbench.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method
-updated_at: 2026-11-04 18:09:13 +0400
+updated_at: 2026-11-04 18:57:01 +0400
 ---
 
 ## Summary
@@ -39,3 +39,5 @@ Keep presentation, formatting, page navigation and UI state in the frontend. Kee
 Reuse a small component palette from the start. Do not add a frontend router, state framework or separate web server for this query page.
 
 When the frontend build is missing, keep the query API and MCP available. The Workbench page returns HTTP 503 with an explicit build-required error; do not build assets or start a frontend server automatically.
+
+Use `/caprmedio/workbench/<project_name>` for the selected Project. Read its declared Name from the existing gateway selection; do not infer it from a folder name or discover other repositories. A mismatched name returns HTTP 404. Shared-server requests retain their existing explicit Project-root selection and the URL Name must match it. Keep MCP at `/caprmedio/mcp` and health at `/caprmedio/health`.

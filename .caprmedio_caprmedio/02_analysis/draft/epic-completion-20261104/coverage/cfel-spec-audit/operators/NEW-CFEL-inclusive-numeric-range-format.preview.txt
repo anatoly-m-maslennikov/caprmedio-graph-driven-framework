@@ -1,0 +1,30 @@
+---
+atom_id: ROOT_ALLOCATES_ID
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Format
+version: 1
+updated_at: 'ROOT_ALLOCATES_TIMESTAMP'
+relations: {}
+tier: 1
+role: Requirement
+form: Declaration
+---
+## Summary
+
+CFEL numeric range constraint
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+p: [0..100]{:value count}
+```
+
+### Prose Claim
+
+Inside a square-bracket value Format annotation, `lower..upper` is a closed numeric interval: both endpoints are included. It constrains each direct Property value and does not state Property occurrence or value cardinality. This square-bracket value constraint is distinct from the existing curly-brace cardinality range `{:n..m}`.

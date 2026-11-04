@@ -1,0 +1,338 @@
+{
+  "snapshot": "Current native Core, 2026-11-04; inventory pins taken from scope-vocabulary/inventory.json",
+  "operator_owner_count": 26,
+  "operator_reviews": [
+    {
+      "id": "CA-R-1346",
+      "version": 28,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+      "sha256": "803ebe3f727ac959afe20ce369e6d4f643dbc98b93a8380bf18e764cdb3f7313",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue",
+      "review": "PASS",
+      "finding": "AllowedValue reuse rule shares the token descriptor scope with R2592 but does not redeclare the token; its separate admission constraint is explicit."
+    },
+    {
+      "id": "CA-R-2591",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2591-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "b8e1b543122d6cbbd22bfb82a4f71235fced9baef76ab83b6a22374a896ced29",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Addition",
+      "review": "PASS",
+      "finding": "Declares + as numeric addition."
+    },
+    {
+      "id": "CA-R-2592",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2592-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "15d757b8c771d83ec24a431d28d5ee0728bbc3240a827b214839da8c765de792",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue",
+      "review": "PASS",
+      "finding": "Declares : as allowed-value admission; semantics explicitly exclude assignment and graph Relation."
+    },
+    {
+      "id": "CA-R-2593",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2593-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "80a4f7213199aa5e5818b18d515e03f49e1bdc539b34e8d9d384065696e31949",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Conclusion",
+      "review": "PASS",
+      "finding": "Declares == as required/derived conclusion."
+    },
+    {
+      "id": "CA-R-2594",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2594-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "f711324330e0121142be66a52968fcb4aec80a21a114e248bf4bbf94a777ac8b",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Condition",
+      "review": "PASS",
+      "finding": "Declares = as a condition test, not assignment; aligned with latest user rule."
+    },
+    {
+      "id": "CA-R-2596",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2596-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "65a827af8666e6bfa9108874737413eb1c766f3d16cc16a7c6317e5f075d9d09",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Delivery",
+      "review": "CROSS_REFERENCE",
+      "finding": "Delivery notation is scoped to Carrier delivery; semantics belong to delivery contract and must not imply runtime activation."
+    },
+    {
+      "id": "CA-R-2597",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2597-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "3cb07cdad515b08107f9bbdb1b852fa114282941fbddc4061f4803dcd8896875",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//ExpressionSeparator",
+      "review": "PASS",
+      "finding": "Separates complete expressions; line breaks are layout only."
+    },
+    {
+      "id": "CA-R-2598",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Fallback",
+      "review": "PREVIEWED",
+      "finding": "Fresh-ID successor preview prepared because the Summary changes; preserve frozen references to CA-R-2598@1."
+    },
+    {
+      "id": "CA-R-2599",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2599-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "de8a7fd7f46beafa80f0da140a93bb53463708db21b5ec9b243c07446961899a",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//GreaterOrEqual",
+      "review": "PASS",
+      "finding": "Numeric >= comparison is distinct from graph classification."
+    },
+    {
+      "id": "CA-R-2600",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2600-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "dcb8187fe92cfb528f7c2449333c255b7b50e1e9f5690472ea330a1f31e22dac",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//GreaterThan",
+      "review": "PASS",
+      "finding": "Numeric > comparison is distinct from graph classification >|."
+    },
+    {
+      "id": "CA-R-2601",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "a60c4c3405fb1fa0f5c48e631c93b903a016f2a78fa2d3e9ebe5e900e5a3da8f",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Grouping",
+      "review": "PASS",
+      "finding": "Parentheses group one expression and do not create graph entities."
+    },
+    {
+      "id": "CA-R-2602",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2602-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "a19112ba4a5e3efd207fa49b3185a9994c25280e13a6d6956c14c060f7c8867d",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//ImmediateWildcard",
+      "review": "PASS",
+      "finding": "Immediate wildcard addresses dependent Properties."
+    },
+    {
+      "id": "CA-R-2603",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2603-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "2c84a31d2e9221be3b8c555613091b401534e9cf4f87119127c3577a9470a3c2",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Inequality",
+      "review": "PASS",
+      "finding": "!= inequality condition is clear."
+    },
+    {
+      "id": "CA-R-2604",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "368ad50c9fb2ec6b49d9b03c402ac761feb40ed4fb945de6ffdc93acabb694a0",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding",
+      "review": "PASS",
+      "finding": "Dollar binding applies to existing selected instances/Property reads and creates nothing."
+    },
+    {
+      "id": "CA-R-2605",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2605-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "30830758efab546af7b8e415c1da15d0f053f11a7f6fed0f871e8841265eaa72",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Instance",
+      "review": "FINDING",
+      "finding": "Current semantics restrict // to a Primary Node; current uses include non-Node declared kinds (for example Term//ID, Relation//..., Projection//...). Preview broadens only to existing instances of a declared kind."
+    },
+    {
+      "id": "CA-R-2606",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2606-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "b416a70c35580654731070f54a336efe18cc2bc5b8e6c49649c1fd2f664e7242",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//LessOrEqual",
+      "review": "PASS",
+      "finding": "Numeric <= comparison is distinct from graph containment/classification."
+    },
+    {
+      "id": "CA-R-2607",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2607-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "f19cc3a45cc28b40e88a10d4571159412b2947f01d184addeb9ff4ee56b26c39",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//LessThan",
+      "review": "PASS",
+      "finding": "Numeric < comparison is distinct from graph containment/composition."
+    },
+    {
+      "id": "CA-R-2608",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2608-CORE_META_MODEL-DECLARATION--declare-cfel-operator-in-not-in.md",
+      "sha256": "b8ec5e164ffbd2806513a9ec34a3c1e47d89dcb0308cb8bad619ad6c3d8c0566",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Membership",
+      "review": "PASS",
+      "finding": "Membership and non-membership tests are explicit."
+    },
+    {
+      "id": "CA-R-2609",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2609-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+      "sha256": "283b73c01297ffe141727a7007b77ea4a9d3508e5dc25059e0d66f6ab913d919",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//NamedRelationDirection",
+      "review": "CROSS_REFERENCE",
+      "finding": "Named Relation direction syntax is distinct from Relation identity and delegates endpoint/counterpart permissions to Relation declarations."
+    },
+    {
+      "id": "CA-R-2610",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2610-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "9be50d0d5c63f3382dba515073f3a400961e0272957b764b24e4f27737b50190",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Narrowing",
+      "review": "PASS",
+      "finding": "/ selects narrower declared Primary Node; narrower inheritance is explicit."
+    },
+    {
+      "id": "CA-R-2611",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2611-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "c99568372f8861dbc3c9cbca0ae47aa47dcf8f63964d4d5a6a588ace72bac516",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Property",
+      "review": "PASS",
+      "finding": "Dot addresses a Property on its bearer."
+    },
+    {
+      "id": "CA-R-2612",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2612-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "eb5f5da21d2b84babfc030cf1af078022cbee417f98c8f69b1a85df06e0d3035",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//RecursiveWildcard",
+      "review": "PASS",
+      "finding": "Recursive wildcard selects distinct descendant Property identities per bearer; direct value count is distinguished."
+    },
+    {
+      "id": "CA-R-2613",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md",
+      "sha256": "deb55e82a43174ac74898393143ff987ae64141e5d8f5c80aea5bc7f7fa6e5ae",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//RelationEndpointSignature",
+      "review": "CROSS_REFERENCE",
+      "finding": "Generic host/target variables are limited to Relation Declaration Formal Claims and exclude literals; relation signature lane owns endpoint alignment."
+    },
+    {
+      "id": "CA-R-2614",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2614-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "2941b1d241ed6ad422b246decd08b6a7f397bbc6485b771c8ebc958151350e01",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//SelectionExclusion",
+      "review": "CROSS_REFERENCE",
+      "finding": "Exclusion is limited to delivery selections; confirm delivery rule owns semantics."
+    },
+    {
+      "id": "CA-R-2616",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2616-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "55ac3acdcfc6fb5ead5e7849def26ef4e82aa1a7fc5c70ec38458023e6a59cf9",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator",
+      "review": "PASS",
+      "finding": "Defines operator descriptor category, separates it from Relations and execution."
+    },
+    {
+      "id": "CA-R-2720",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+      "sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Operator//Alias",
+      "review": "CROSS_REFERENCE",
+      "finding": "Alias binds exact declared Relation names to lexical notation; Relation lane owns direct/derived direction and permission contract."
+    },
+    {
+      "id": "CA-R-2487",
+      "version": 11,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
+      "active_subject": "CFEL overview/catalog",
+      "review": "FINDING",
+      "finding": "Combined preview clarifies that Subject-selection syntax := may appear within a filtered Node expression in a Formal Claim but is not free-standing value assignment; catalog changes ?= to ?==; declares AND/OR catalog use and requires parentheses for mixed grouping."
+    },
+    {
+      "id": "CA-R-2615",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2615-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "31da9c3927f1e8bd2bfab42511c7b80fcffd3547022ef5a18bdd3984dc0259ef",
+      "active_subject": "Operator//SubjectValueSelection",
+      "review": "PASS",
+      "finding": "Explicitly admits := in a Subject or filtered Node expression in a Formal Claim; no value assignment."
+    },
+    {
+      "id": "CA-R-2471",
+      "version": 7,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "sha256": "04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf",
+      "active_subject": "CFEL graph notation",
+      "review": "PASS",
+      "finding": "Confirms := selection in Subjects and filtered Node expressions; clear distinction of :/= /== meanings."
+    },
+    {
+      "id": "CA-R-2550",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860",
+      "active_subject": "Operator//Fallback",
+      "review": "PREVIEWED",
+      "finding": "Fresh-ID successor preview prepared because the Summary changes; preserve frozen references to CA-R-2550@2."
+    },
+    {
+      "id": "CA-R-2564",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "sha256": "0eacaf33e1a417d4f3a965c3d81829df8f29b21cdb813f7cd2889433651bcedc",
+      "active_subject": "Project.Settings.AI Agent Confidence Threshold",
+      "review": "PREVIEWED",
+      "finding": "Pinned preview adds ?== 90 while preserving required effective cardinality and 0..100 format; no carrier write inferred."
+    },
+    {
+      "id": "CA-R-2705",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
+      "sha256": "743aff2bb78914a616783752ac11a79f7bf784f351168414f8372d37f5241e92",
+      "active_subject": "Label fallback",
+      "review": "PREVIEWED",
+      "finding": "Pinned preview updates fallback token to ?==."
+    },
+    {
+      "id": "CA-R-2711",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "sha256": "af3db8d7f4041a599002215975f96b3101e0f9383224b80eede75e93ffd24949",
+      "active_subject": "Plan confidence fallback",
+      "review": "PREVIEWED",
+      "finding": "Pinned preview updates fallback token to ?== and retains existing source order."
+    },
+    {
+      "id": "CA-R-2487",
+      "version": 11,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "dab712641d0d2c8544492b8fa21d7bac3100643aa2b8425d08122e5661b44e4d",
+      "active_subject": "Fallback operator catalog",
+      "review": "PREVIEWED",
+      "finding": "Combined preview clarifies that Subject-selection syntax := may appear within a filtered Node expression in a Formal Claim but is not free-standing value assignment; catalog changes ?= to ?==; declares AND/OR catalog use and requires parentheses for mixed grouping."
+    },
+    {
+      "id": "CA-R-2598",
+      "version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559",
+      "active_subject": "Operator//Fallback",
+      "review": "PREVIEWED",
+      "finding": "Fresh-ID successor preview prepared because the Summary changes; preserve frozen references to CA-R-2598@1."
+    }
+  ],
+  "cross_lane_ownership": {
+    "relation_operators": [
+      "CA-R-2609",
+      "CA-R-2613",
+      "CA-R-2720"
+    ],
+    "carrier_delivery": [
+      "CA-R-2596",
+      "CA-R-2614"
+    ],
+    "relation_and_endpoint_count": 88
+  },
+  "catalog_extra_reviews": {
+    "and_or": "AND and OR are active operators; parenthesize mixed AND/OR expressions (latest user decision). Dedicated Boolean operator declaration previews define conjunction/disjunction without guessing precedence.",
+    "subject_value_selection": "A Subject selection may appear in an address or inside a filtered Node expression in a Formal Claim; := remains Subject-selection syntax, not a free-standing Formal-Claim assignment."
+  },
+  "limits": "No Current source was edited; no parser/runtime behavior was inferred or validated."
+}

@@ -1,6 +1,6 @@
 # Workbench
 
-Open `/caprmedio/workbench` on the Project MCP server. Run executes SQL once
+Open `/caprmedio/workbench/<project_name>` (here, `/caprmedio/workbench/caprmedio`) on the Project MCP server. Run executes SQL once
 and returns the first page and exact total counts. Previous and Next fetch
 pages from that stable result; Check returns exact row and column counts.
 The MCP endpoint is `/caprmedio/mcp`; health is `/caprmedio/health`.
@@ -13,7 +13,8 @@ MCP tools:
   re-executing SQL. The maximum page size is 1,000.
 - `query_check(sql)` returns validity and exact counts without transferring all rows.
 
-Web POST endpoints are `/caprmedio/workbench/run`, `/page` and `/check`.
+Web POST endpoints are `/caprmedio/workbench/<project_name>/run`, `/page` and `/check`.
+A mismatched Project name returns 404. Static assets stay under `/caprmedio/workbench/assets`.
 A shared MCP server also requires `project_root`.
 
 ```sql

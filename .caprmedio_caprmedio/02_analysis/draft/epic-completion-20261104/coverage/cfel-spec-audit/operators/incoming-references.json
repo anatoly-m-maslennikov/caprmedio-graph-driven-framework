@@ -1,0 +1,129 @@
+{
+  "scope": "Active native markdown carriers under .caprmedio_caprmedio, excluding archive/draft/implementation/release/staged and carriers whose active Subject or current_scope_unit is Workflow or Workbench. Exact frozen and mirror/source-reference carriers retained in inventory.",
+  "targets": [
+    "CA-R-2550",
+    "CA-R-2598"
+  ],
+  "records": [
+    {
+      "target_id": "CA-R-2550",
+      "source_atom_id": "CA-A-1315",
+      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/CA-A-1315-CORE_META_MODEL-SPECIFICATION_PROPOSAL--add-basic-cfel-queries-with-ctes-and-sql-aliases.md",
+      "source_sha256": "9cc3741638c50acc249c74c517af0c84ac9cee2a58629fb5a1b14c10f655d0d4",
+      "classification": "INBOUND_CURRENT_ATOM_REFERENCE",
+      "matches": [
+        {
+          "line": 12,
+          "text": "- CA-R-2550"
+        }
+      ]
+    },
+    {
+      "target_id": "CA-R-2550",
+      "source_atom_id": "CA-R-2550",
+      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "source_sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860",
+      "classification": "SELF_OR_SOURCE_MIRROR",
+      "matches": [
+        {
+          "line": 2,
+          "text": "atom_id: CA-R-2550"
+        }
+      ]
+    },
+    {
+      "target_id": "CA-R-2550",
+      "source_atom_id": "CA-R-2550",
+      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "source_sha256": "e369d12a664a9059fa0d9d42acaee9c148cd9429699e92dd5acd4a5665105327",
+      "classification": "SELF_OR_SOURCE_MIRROR",
+      "matches": [
+        {
+          "line": 2,
+          "text": "atom_id: CA-R-2550"
+        },
+        {
+          "line": 15,
+          "text": "source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md"
+        },
+        {
+          "line": 16,
+          "text": "source_atom_id: CA-R-2550"
+        }
+      ]
+    },
+    {
+      "target_id": "CA-R-2550",
+      "source_atom_id": "CA-A-1315",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/CA-A-1315-CORE_META_MODEL-SPECIFICATION_PROPOSAL--add-basic-cfel-queries-with-ctes-and-sql-aliases.md",
+      "source_sha256": "9cc3741638c50acc249c74c517af0c84ac9cee2a58629fb5a1b14c10f655d0d4",
+      "classification": "INBOUND_CURRENT_ATOM_REFERENCE",
+      "matches": [
+        {
+          "line": 12,
+          "text": "- CA-R-2550"
+        }
+      ]
+    },
+    {
+      "target_id": "CA-R-2550",
+      "source_atom_id": "CA-R-2550",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "source_sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860",
+      "classification": "SELF_OR_SOURCE_MIRROR",
+      "matches": [
+        {
+          "line": 2,
+          "text": "atom_id: CA-R-2550"
+        }
+      ]
+    },
+    {
+      "target_id": "CA-R-2598",
+      "source_atom_id": "CA-R-2598",
+      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559",
+      "classification": "SELF_OR_SOURCE_MIRROR",
+      "matches": [
+        {
+          "line": 2,
+          "text": "atom_id: CA-R-2598"
+        }
+      ]
+    },
+    {
+      "target_id": "CA-R-2598",
+      "source_atom_id": "CA-R-2598",
+      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "8b47fbd56df9a50b42e6f6aac04d66f3b39bcd0605d2c77cbc311677d566af62",
+      "classification": "SELF_OR_SOURCE_MIRROR",
+      "matches": [
+        {
+          "line": 2,
+          "text": "atom_id: CA-R-2598"
+        },
+        {
+          "line": 15,
+          "text": "source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md"
+        },
+        {
+          "line": 16,
+          "text": "source_atom_id: CA-R-2598"
+        }
+      ]
+    },
+    {
+      "target_id": "CA-R-2598",
+      "source_atom_id": "CA-R-2598",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559",
+      "classification": "SELF_OR_SOURCE_MIRROR",
+      "matches": [
+        {
+          "line": 2,
+          "text": "atom_id: CA-R-2598"
+        }
+      ]
+    }
+  ]
+}

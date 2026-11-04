@@ -18,6 +18,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import tomllib
 import unittest
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
@@ -39,6 +40,12 @@ def _free_port() -> int:
     with socket.socket() as probe:
         probe.bind(("127.0.0.1", 0))
         return int(probe.getsockname()[1])
+
+
+def _project_name(control_root: Path) -> str:
+    settings_path = control_root / "caprmedio_project_settings.toml"
+    settings = tomllib.loads(settings_path.read_text(encoding="utf-8"))
+    return settings["project"]["name"]
 
 
 def _request(url: str, *, method: str = "GET", payload: dict | None = None) -> tuple[int, dict | str]:
@@ -95,6 +102,8 @@ class WorkbenchDockerE2E(unittest.TestCase):
         if cls.target is None:
             raise RuntimeError("current CA-R-2723 source is required for the Workbench Docker proof")
         cls.before_hash = hashlib.sha256(cls.target.read_bytes()).hexdigest()
+        cls.project_name = _project_name(REPOSITORY / ".caprmedio_caprmedio")
+        cls.workbench_path = f"{WORKBENCH_PATH}/{cls.project_name}"
         cls.runtime = tempfile.TemporaryDirectory()
         cls.workbench_state = Path(cls.runtime.name) / "workbench"
         cls.workbench_state.mkdir()
@@ -214,20 +223,20 @@ class WorkbenchDockerE2E(unittest.TestCase):
         self.assertEqual(1, page["offset"])
         self.assertEqual(ran["query_id"], page["query_id"])
         self.assertEqual({"valid": True, "row_count": 2, "column_count": 2}, checked)
-        status, web_ran = _request(self.url + f"{WORKBENCH_PATH}/run", method="POST", payload={"sql": sql})
+        status, web_ran = _request(self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": sql})
         self.assertEqual(200, status, web_ran)
         self.assertTrue(isinstance(web_ran.get("query_id"), str) and web_ran["query_id"])
         self.assertEqual(expected, {key: value for key, value in web_ran.items() if key != "query_id"})
-        status, web_checked = _request(self.url + f"{WORKBENCH_PATH}/check", method="POST", payload={"sql": sql})
+        status, web_checked = _request(self.url + f"{self.workbench_path}/check", method="POST", payload={"sql": sql})
         self.assertEqual(200, status, checked)
         self.assertEqual(checked, web_checked)
-        status, full = _request(self.url + f"{WORKBENCH_PATH}/run", method="POST", payload={"sql": "SELECT * FROM atoms"})
+        status, full = _request(self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": "SELECT * FROM atoms"})
         self.assertEqual(200, status, full)
         self.assertEqual(100, len(full["rows"]))
         self.assertGreater(full["row_count"], len(full["rows"]))
         self.assertTrue(full["has_more"])
         status, next_page = _request(
-            self.url + f"{WORKBENCH_PATH}/page", method="POST",
+            self.url + f"{self.workbench_path}/page", method="POST",
             payload={"query_id": full["query_id"], "offset": len(full["rows"])},
         )
         self.assertEqual(200, status)
@@ -240,7 +249,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
         print(f"Workbench Docker memory.events={events_path} oom_kill={events['oom_kill']} memory.peak={peak}")
 
     def test_workbench_http_run_check_and_read_only_failures_do_not_mutate_source(self) -> None:
-        status, page = _request(self.url + WORKBENCH_PATH)
+        status, page = _request(self.url + self.workbench_path)
         self.assertEqual(200, status)
         self.assertIn("Workbench", page)
         asset_paths = [
@@ -251,23 +260,25 @@ class WorkbenchDockerE2E(unittest.TestCase):
         for asset_path in asset_paths:
             asset_status, _ = _request(self.url + asset_path)
             self.assertEqual(200, asset_status, asset_path)
-        status, checked = _request(self.url + f"{WORKBENCH_PATH}/check", method="POST", payload={"sql": "SELECT count(*) FROM atoms"})
+        status, checked = _request(self.url + f"{self.workbench_path}/check", method="POST", payload={"sql": "SELECT count(*) FROM atoms"})
         self.assertEqual(200, status, checked)
         self.assertTrue(checked["valid"])
-        status, ran = _request(self.url + f"{WORKBENCH_PATH}/run", method="POST", payload={"sql": "SELECT id FROM atoms WHERE id = 'CA-R-2723'"})
+        status, ran = _request(self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": "SELECT id FROM atoms WHERE id = 'CA-R-2723'"})
         self.assertEqual(200, status)
         self.assertEqual([["CA-R-2723"]], ran["rows"])
         for operation in ("run", "check"):
             status, failure = _request(
-                self.url + f"{WORKBENCH_PATH}/{operation}", method="POST", payload={"sql": "SELECT FROM"},
+                self.url + f"{self.workbench_path}/{operation}", method="POST", payload={"sql": "SELECT FROM"},
             )
             self.assertEqual(400, status)
             self.assertIsInstance(failure.get("error"), str)
             self.assertTrue(failure["error"])
         for sql in ("SELECT 1; SELECT 2", "CREATE TABLE forbidden(x INTEGER)"):
-            status, failure = _request(self.url + f"{WORKBENCH_PATH}/run", method="POST", payload={"sql": sql})
+            status, failure = _request(self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": sql})
             self.assertEqual(400, status)
             self.assertIn("error", failure)
+        status, _ = _request(self.url + f"{WORKBENCH_PATH}/not-{self.project_name}")
+        self.assertEqual(404, status)
         self.assertEqual(self.before_hash, hashlib.sha256(self.target.read_bytes()).hexdigest())
 
     def test_watchfiles_reloads_source_from_writable_docker_bind_mount(self) -> None:
@@ -275,6 +286,8 @@ class WorkbenchDockerE2E(unittest.TestCase):
             root = Path(temporary)
             root.chmod(0o755)
             control = write_settings(root)
+            project_name = _project_name(control)
+            workbench_path = f"{WORKBENCH_PATH}/{project_name}"
             declarations = write_scope_unit_declarations(root, control_root=control)
             target = write_atom(
                 source_path(declarations, "fixture", "04_requirement", "CA-R-901-docker.md"),
@@ -315,7 +328,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
                     self.fail("watcher container did not become ready within 45 seconds")
 
                 initial = _request(
-                    url + f"{WORKBENCH_PATH}/run", method="POST",
+                    url + f"{workbench_path}/run", method="POST",
                     payload={"sql": "SELECT version FROM atoms WHERE id = 'CA-R-901'"},
                 )
                 self.assertEqual(200, initial[0])
@@ -324,7 +337,7 @@ class WorkbenchDockerE2E(unittest.TestCase):
                 deadline = time.monotonic() + 20
                 while time.monotonic() < deadline:
                     status, result = _request(
-                        url + f"{WORKBENCH_PATH}/run", method="POST",
+                        url + f"{workbench_path}/run", method="POST",
                         payload={"sql": "SELECT version FROM atoms WHERE id = 'CA-R-901'"},
                     )
                     if status == 200 and result["rows"] == [[2]]:

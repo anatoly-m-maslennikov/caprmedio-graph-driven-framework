@@ -1,4 +1,4 @@
-<!-- CA-R-2727@3 CA-M-466@3 CA-M-467@2 CA-D-674@6 -->
+<!-- CA-R-2727@4 CA-M-466@4 CA-M-467@2 CA-D-674@7 -->
 <script lang="ts">
   import type { QueryResult } from './types';
 
@@ -17,6 +17,6 @@
 <div class="table-scroll">
   <table>
     <thead><tr>{#each result.columns as column}<th scope="col">{column.name}<small>{column.type}</small></th>{/each}</tr></thead>
-    <tbody>{#each result.rows as row}<tr>{#each row as value}<td>{display(value)}</td>{/each}</tr>{/each}</tbody>
+    <tbody>{#each result.rows as row}<tr>{#each row as value}<td><div class="cell-value">{display(value)}</div></td>{/each}</tr>{/each}</tbody>
   </table>
 </div>

@@ -1,0 +1,31 @@
+---
+atom_id: ROOT_ALLOCATES_ID
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Fallback
+version: 1
+updated_at: 'ROOT_ALLOCATES_TIMESTAMP'
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare CFEL operator ?==
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Operator//Fallback == "?=="
+```
+
+## Semantics
+
+Conditionally assign the first available valid value to a missing Object Property in the Model. This does not itself write a Carrier; persistence is the responsibility of an adapter or Delivery rule.

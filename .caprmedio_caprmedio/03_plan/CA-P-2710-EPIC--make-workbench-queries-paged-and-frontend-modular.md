@@ -3,8 +3,8 @@ atom_id: CA-P-2710
 label: Epic
 status: Active
 tier: 3
-version: 3
-updated_at: 2026-11-04 18:26:54 +0400
+version: 4
+updated_at: 2026-11-04 18:57:01 +0400
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
 relations:
@@ -39,7 +39,7 @@ Make ordinary Workbench queries usable without loading the complete result into 
 3. Execute each Run once, preserve its column metadata and exact counts, and deliver bounded pages from that stable result through MCP and web. Check returns exact counts without fetching all rows into Python. Release successful parser caches after indexing; preserve invalid-source skip behavior.
 4. Build the frontend with Svelte + TypeScript + Vite. Serve static build assets through the existing Python application. Move presentation, formatting, page navigation and UI state to the frontend; filtering, sorting and aggregation remain in DuckDB.
 5. Create a small reusable component palette from the start and use it in the query UI. Keep HTML, CSS, JavaScript, TypeScript and Svelte files small. Splitting a source file above 300 lines is strongly recommended; above 500 lines it is mandatory. Split by responsibility, not arbitrary chunks. Svelte components should make a Python HTML builder unnecessary.
-6. Serve `/caprmedio/workbench`, `/caprmedio/mcp` and `/caprmedio/health`. Update callers, fixtures, documentation and Docker packaging together.
+6. Serve `/caprmedio/workbench/<project_name>`, `/caprmedio/mcp` and `/caprmedio/health`. Update callers, fixtures, documentation and Docker packaging together.
 7. Test native SQL and DuckPGQ, duplicate column names, page boundaries, stable pages after source refresh, invalid requests, full Markdown preservation and frontend build. Prove real-repository `SELECT * FROM atoms` returns paged results in Docker without a memory-limit kill.
 8. Review RMED coverage, run focused Workbench and affected HTTP/startup checks, perform local release, and verify the new URLs and queries against the running container.
 
@@ -56,7 +56,7 @@ Workbench only. No repair of unrelated lifecycle or model migrations, custom SQL
 
 ## Status
 
-Active. Backend, frontend, RMED and Docker implementation checks pass. Local release and live browser verification remain pending.
+Active. Release 0.4.4.14 and its live browser/API checks passed. The final Project-specific Workbench URL and bounded result presentation are now being applied; their release remains pending.
 
 ## Verification checkpoint
 
@@ -68,3 +68,11 @@ Active. Backend, frontend, RMED and Docker implementation checks pass. Local rel
 - Docker reported no OOM kills. Peak container memory was 1,140,768,768 bytes under a 1,610,612,736-byte limit. This is a measured peak, not a promise of lower idle memory.
 - Added the native DuckDB timezone dependency and a regression that failed before it was installed. No memory-limit increase was needed for that failure.
 - Local release and live browser verification are still open. The unrelated repository-wide suite is outside this Workbench run.
+
+## Final URL and presentation follow-up
+
+The Operator selected `/caprmedio/workbench/caprmedio`, with `/caprmedio/mcp` and `/caprmedio/health` unchanged. Validate the URL Name against the selected Project; keep shared assets outside the Project path. Finish this routing change and bounded table/cell scrolling, verify them, and release.
+
+Docker Desktop is now configured and verified at 32 GiB, as requested. Old unused runtime/probe images and the verified obsolete test-fixture container/image were removed. Only the current runtime image remains.
+
+The 0.4.4.14 live API and browser returned 4,592 rows and 17 columns through 100-row pages. Run, Check, Next, Previous, visible query errors and a subsequent valid query all passed. The final follow-up must not be counted as deployed until separately released.

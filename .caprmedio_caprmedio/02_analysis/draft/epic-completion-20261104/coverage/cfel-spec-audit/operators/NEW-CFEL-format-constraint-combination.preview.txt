@@ -1,0 +1,30 @@
+---
+atom_id: ROOT_ALLOCATES_ID
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Format
+version: 1
+updated_at: 'ROOT_ALLOCATES_TIMESTAMP'
+relations: {}
+tier: 1
+role: Requirement
+form: Declaration
+---
+## Summary
+
+CFEL Format constraint intersection
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+p: [int, 0..100]{:value count}
+```
+
+### Prose Claim
+
+A comma inside one square-bracket value Format annotation combines constraints by intersection. Each direct value must satisfy every listed constraint. Thus `[int, 0..100]` admits integer values from 0 through 100 inclusive. An empty or incompatible intersection admits no values. Existing curly-brace occurrence and value-cardinality annotations keep their current meanings and remain independent.
