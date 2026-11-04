@@ -11,8 +11,8 @@ relations:
 tier: 3
 role: Requirement
 form: Declaration
-version: 3
-updated_at: 2026-11-04 18:28:33 +0400
+version: 5
+updated_at: 2026-11-04 23:07:00 +0400
 carrier_destination:
   file:
     name: CA-R-2765-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md
@@ -28,6 +28,6 @@ Declare Term Definition as a Method Form
 
 ```CFEL
 # model
-Atom/(.Header.Role: Method).Header.Form: Term Definition;
-Atom/(.Header.Role: Method)/(.Header.Form: Term Definition)
+Atom/(.Header.Role := Method).Header.Form: Term Definition;
+Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
 ```

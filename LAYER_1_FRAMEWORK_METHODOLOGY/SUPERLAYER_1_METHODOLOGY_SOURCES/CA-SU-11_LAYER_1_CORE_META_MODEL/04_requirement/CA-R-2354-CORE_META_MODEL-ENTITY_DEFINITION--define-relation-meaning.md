@@ -1,16 +1,20 @@
 ---
 atom_id: CA-R-2354
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation.Meaning
-version: 5
-updated_at: 2026-11-03 23:25:51 +0400
-relations: {}
+version: 7
+updated_at: 2026-11-04 22:00:28 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 tier: 1
 role: Requirement
 form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-2354-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-meaning.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 
@@ -31,9 +35,3 @@ Relation.Meaning.*[]{:0}
 
 
 Relation Meaning is the canonical meaning of a reusable Relation Type.
-Direction and transitivity describe the Type. An optional derived inverse is a
-view of the direct tuple, not another authored edge. Actual source and target
-endpoints remain tuple facts.
-
-
-

@@ -3,12 +3,12 @@ subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//implementation_of
   passive:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 31
-updated_at: 2026-11-03 23:25:51 +0400
-relations: {}
+version: 33
+updated_at: 2026-11-04 22:00:28 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 atom_id: CA-R-1020
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 role: Requirement
@@ -38,4 +38,3 @@ Carrier//$implementation_carrier ((implementation_of)) Atom//$specification_atom
 
 implementation_of is the direct Relation owned by a governed Implementation Carrier. The Host is that governed Implementation Carrier and each tuple targets the specification Atom it implements.
 
-These are endpoint permissions. They are not extra fields on a reusable Relation Type and do not authorize an additional storage fact for a derived inverse. Forward `Host ((implementation_of)) Target` and reverse `Target <((implementation_of)) Host` are written views of the same direct fact.
