@@ -33,13 +33,9 @@ p ?== expression
 
 - Expressions may be literals, same-bearer Property paths, explicit bound Property reads, or `LOOKUP(R, q)`. An explicit foreign-bearer read must resolve one target in the declared evaluation context; zero or multiple targets are errors.
 
-- `LOOKUP(R, q)` starts from p’s bearer, follows one existing outgoing R link at each step, and returns the nearest compatible authored q value. The starting bearer is excluded. A known end with no applicable authored value returns absence, allowing the next fallback.
+- `LOOKUP(R, q)` is a fallback expression governed by the separate CFEL LOOKUP Rule. It returns the nearest compatible authored q value or absence.
 
-- Resolve q by full Property declaration identity and applicability in the effective MODEL. Skip a bearer only when q is inapplicable or its authored occurrence is absent. Do not match unrelated Properties by bare name or invent a slot on an inapplicable kind.
-
-- An invalid present value, unresolved applicability or graph facts, multiple outgoing targets, or a revisited bearer is an error. Follow only the relation direction named by R.
-
-- Lookup is lazy: stop at the first valid available value. Later branches are not evaluated. Missing final values and evaluated fallback-expression cycles are errors. More than one applicable fallback chain is an error. Independent Declaration constraints still apply.
+- Evaluate fallback expressions lazily from left to right; stop at the first valid available value. Later branches are not evaluated. Missing final values, evaluated fallback-expression cycles, and more than one applicable fallback chain are errors. Independent Declaration constraints still apply.
 
 - The conditional assignment sets the missing Object Property value in the Model and the result must satisfy p’s declared value Format and cardinality, including required effective cardinality. It does not itself write a Carrier, persist a file, or create an authored Carrier occurrence; Carrier I/O remains the responsibility of an adapter or Delivery rule. Property-declaration inheritance is unchanged; recursive instance-value lookup occurs only through explicit LOOKUP.
 ## Details

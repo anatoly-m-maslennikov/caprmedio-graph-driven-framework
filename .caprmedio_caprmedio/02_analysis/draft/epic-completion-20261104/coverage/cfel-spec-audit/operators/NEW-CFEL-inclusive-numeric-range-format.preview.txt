@@ -10,7 +10,7 @@ updated_at: 'ROOT_ALLOCATES_TIMESTAMP'
 relations: {}
 tier: 1
 role: Requirement
-form: Declaration
+form: Rule
 ---
 ## Summary
 

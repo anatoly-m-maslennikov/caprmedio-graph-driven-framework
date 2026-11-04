@@ -1,0 +1,94 @@
+{
+  "schema": "cfel-default-successor-atomic-plan/1",
+  "status": "SOURCE_ONLY_PLAN",
+  "canonical_mutation": false,
+  "source_ids": {
+    "old_fallback": "CA-R-2550@2",
+    "old_operator": "CA-R-2598@1",
+    "fallback_successor": "ROOT_ALLOCATES_ID",
+    "operator_successor": "ROOT_ALLOCATES_ID",
+    "lookup_rule": "ROOT_ALLOCATES_ID"
+  },
+  "source_authority": {
+    "fallback": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2550-CORE_META_MODEL-CFEL--fallback-when-omitted.md",
+      "sha256": "96e82be4b859658326c1d2c248615d2e9bc7d8acf7dfa2599ad9d82c9d60f860"
+    },
+    "operator": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2598-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "cb81f0afe422b7b1443a3005ab0948127f541165b0de295b0b1be51c1b72a559"
+    }
+  },
+  "atomic_commit_set": [
+    {
+      "action": "CREATE_DRAFT",
+      "candidate": "NEW-Operator-Fallback successor",
+      "file": "CA-R-2598.successor.preview.txt",
+      "id": "ROOT_ALLOCATES_ID",
+      "source_version": "CA-R-2598@1",
+      "reason": "Summary/token change; do not replace Summary under the same ID."
+    },
+    {
+      "action": "CREATE_DRAFT",
+      "candidate": "CFEL ordered conditional-assignment Rule",
+      "file": "CA-R-2550.successor.preview.txt",
+      "id": "ROOT_ALLOCATES_ID",
+      "source_version": "CA-R-2550@2",
+      "reason": "Summary/semantics change; focused on assignment, omission, ordering, and constraints."
+    },
+    {
+      "action": "CREATE_DRAFT",
+      "candidate": "CFEL LOOKUP Rule",
+      "file": "NEW-CFEL-LOOKUP-rule.preview.txt",
+      "id": "ROOT_ALLOCATES_ID",
+      "reason": "Preserves the existing LOOKUP contract removed from the fallback rule, under existing CFEL scope; no new syntax/entity."
+    },
+    {
+      "action": "UPDATE_CURRENT_SOURCE",
+      "candidate": "CA-A-1315 v3 dependency remap",
+      "file": "CA-A-1315.current-reference-remap.preview.txt",
+      "id": "CA-A-1315",
+      "before": "CA-A-1315@2",
+      "after": "CA-A-1315@3",
+      "reason": "Replace only depends_on CA-R-2550 with the allocated fallback successor ID; retain all other dependencies/content."
+    },
+    {
+      "action": "UPDATE_CURRENT_SOURCE",
+      "candidate": "Use-site syntax previews",
+      "files": [
+        "../cfel-default-assignment/CA-R-2705.preview.txt",
+        "../cfel-default-assignment/CA-R-2711.preview.txt",
+        "../cfel-default-assignment/CA-R-2564.preview.txt",
+        "CA-R-2487.combined.preview.txt"
+      ],
+      "reason": "Update live non-Workflow/non-Workbench uses to ?== and approved range syntax; retain each use-site identity."
+    },
+    {
+      "action": "RETIRE_CURRENT_CARRIERS",
+      "ids": [
+        "CA-R-2550@2",
+        "CA-R-2598@1"
+      ],
+      "reason": "Retire old active carriers only in same adoption set as their successors and all live use/reference updates. Preserve archived/frozen history and mirror/applicable copies."
+    }
+  ],
+  "order_constraints": [
+    "Allocate three new IDs and timestamps before finalizing dependent preview references.",
+    "Adopt operator descriptor and LOOKUP Rule before fallback Rule; validate all use-site syntax and CA-A-1315 dependency remap against allocated IDs.",
+    "Retire old R2550/R2598 only in the same approved atomic adoption set; never leave old and successor active together or remove old before replacements are ready.",
+    "Regenerate Current projections after canonical adoption; no projection/runtime/core-runtime pin edits are part of this packet."
+  ],
+  "preservation": [
+    "Frozen references to CA-R-2550@2 and CA-R-2598@1 remain unchanged.",
+    "Applicable-methodology and other mirror/history copies remain unchanged.",
+    "The Current CA-A-1315 native source is the sole direct incoming ID reference remapped; candidate pin is in incoming-references.json.",
+    "No relation permissions, runtime pins, or evaluator behavior changes."
+  ],
+  "id_allocation": "Root allocates fresh successor IDs/timestamps. All previews use explicit placeholder IDs until allocation.",
+  "dependencies": [
+    "CA-R-2550 successor depends on the CA-R-2598 successor and the new LOOKUP Rule.",
+    "CA-A-1315 remap depends on allocated CA-R-2550 successor ID.",
+    "R2705/R2711/R2564/R2487 updates and retirements depend on the operator and fallback successors."
+  ],
+  "limits": "No Current carrier was mutated; no code, tests, Git, projection, mirror, archive, or runtime pins changed."
+}
