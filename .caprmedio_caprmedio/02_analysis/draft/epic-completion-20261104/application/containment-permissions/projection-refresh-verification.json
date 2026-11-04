@@ -1,0 +1,60 @@
+{
+  "status": "VERIFIED_PUBLISHED_FROZEN_CHECKPOINT",
+  "frontier_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-endpoint-frontier.json",
+  "frontier_sha256": "6c0bb38609dc950afd89a0daf4beab634f8cebdb3472f013de527f1897eb88fb",
+  "selected_sources": 1159,
+  "audit_counts": {
+    "passive_only_subjects": {
+      "subject_occurrences": 3240,
+      "parsed_subjects": 370,
+      "unresolved_subjects": 9,
+      "unresolved_occurrences": 42,
+      "active_subjects": 323,
+      "passive_only_subjects": 49
+    },
+    "subjects_without_declaration_coverage": {
+      "known_missing": 56,
+      "unresolved": 23
+    },
+    "entity_definition_summary": {
+      "entities": 248,
+      "entities_with_any_missing": 49
+    }
+  },
+  "projections": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-020-caprmedio--Primary-Entities-Tree--Current-Primary-Entities-Tree.md",
+      "sha256": "2961c053afb4f0874e1db59980c43d6f83178ebe4fc3e38416c5f37e3ebaa0aa"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-021-caprmedio--Primary-Entities-with-Direct-Properties--Current-Primary-Entities-with-Direct-Properties.md",
+      "sha256": "7bd649bcd6ede17494d55516353c842262322b3d35921a83f52d76dd44cf6e7e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-022-caprmedio--Primary-Entities-with-Inherited-Property-Contracts--Current-Primary-Entities-with-Inherited-Property-Contracts.md",
+      "sha256": "b7a418b65f20c336b2f620a03ff69be90f829af9ef78b877e36e3fc633419178"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-023-caprmedio--Primary-Entities-with-Inherited-Formal-Claims--Current-Primary-Entities-with-Inherited-Formal-Claims.md",
+      "sha256": "e8584a7be2fba7888f971869862057199308d8625bd49abf9275eb383ae119ef"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-024-caprmedio--Passive-Only-Subjects--Current-Passive-Only-Subjects.md",
+      "sha256": "796d78e958e76bc18e7adff079d1a3d603a023464993a5c58f12039a769b8559"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-025-caprmedio--Subjects-without-Requirement-Declarations--Current-Subjects-without-Requirement-Declarations.md",
+      "sha256": "d2820835f8687746f1e48ca296deb78508c724ec689c05fcbd738e35ef3d2c73"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/CA-PROJ-026-caprmedio--Entity-Definition-and-Active-Subject-Coverage--Current-Entity-Definition-and-Active-Subject-Coverage.md",
+      "sha256": "a48e6cc35faa7a6686f9023497f1b3fb6f2d620b53b957e99a667420207545db"
+    }
+  ],
+  "checks": [
+    "all selected source hashes match",
+    "seven unique IDs and Form/Scope Unit pairs",
+    "seven root references and exact versioned source pins",
+    "generator protected frozen 014-019"
+  ]
+}

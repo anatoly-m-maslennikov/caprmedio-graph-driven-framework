@@ -1,0 +1,70 @@
+{
+  "verdict": "PASS",
+  "plan_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/containment-permissions/adoption-plan.json",
+  "receipt_plan_sha256_matches": true,
+  "counts": {
+    "outputs": 3,
+    "operations": 6,
+    "archives": 3
+  },
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@5.md",
+      "matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit@2.md",
+      "matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan@2.md",
+      "matches": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "matches": true
+    }
+  ],
+  "outputs": [
+    {
+      "id": "CA-R-2508",
+      "version_correct": true,
+      "summary_unchanged": true,
+      "body_matches_reviewed_preview": true,
+      "canonical_containment": true,
+      "active": true,
+      "output_sha256_matches": true
+    },
+    {
+      "id": "CA-R-2523",
+      "version_correct": true,
+      "summary_unchanged": true,
+      "body_matches_reviewed_preview": true,
+      "canonical_containment": true,
+      "active": true,
+      "output_sha256_matches": true
+    },
+    {
+      "id": "CA-R-2511",
+      "version_correct": true,
+      "summary_unchanged": true,
+      "body_matches_reviewed_preview": true,
+      "canonical_containment": true,
+      "active": true,
+      "output_sha256_matches": true
+    }
+  ],
+  "workflow_scope": "Plan operations modify only CA-R-2508, CA-R-2523, CA-R-2511 and their predecessor archives; no Workflow or Step source appears in this adoption. This does not assert unrelated concurrent sources stayed unchanged.",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "limitations": "Source/receipt verification, not runtime, parser, projection rebuild, release or native workflow evidence.",
+  "errors": []
+}

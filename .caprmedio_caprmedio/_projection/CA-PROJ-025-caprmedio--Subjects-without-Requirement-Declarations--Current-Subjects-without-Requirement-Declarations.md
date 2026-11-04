@@ -875,16 +875,16 @@ source:
   - CA-R-2500@5
   - CA-R-2502@5
   - CA-R-2503@5
-  - CA-R-2508@5
+  - CA-R-2508@6
   - CA-R-2509@2
-  - CA-R-2511@2
+  - CA-R-2511@3
   - CA-R-2512@2
   - CA-R-2513@2
   - CA-R-2514@2
   - CA-R-2515@2
   - CA-R-2516@5
   - CA-R-2521@2
-  - CA-R-2523@2
+  - CA-R-2523@3
   - CA-R-2524@3
   - CA-R-2525@2
   - CA-R-2526@4
@@ -1165,7 +1165,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 09:37:31 +0400
+updated_at: 2026-11-04 11:07:12 +0400
 ---
 
 # Subjects Without Effective Requirement Declaration Coverage

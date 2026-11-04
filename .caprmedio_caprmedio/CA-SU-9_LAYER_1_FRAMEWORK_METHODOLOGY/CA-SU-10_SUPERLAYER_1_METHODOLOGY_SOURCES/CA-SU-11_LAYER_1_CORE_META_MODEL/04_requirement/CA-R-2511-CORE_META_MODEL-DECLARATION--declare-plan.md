@@ -1,16 +1,20 @@
 ---
 atom_id: CA-R-2511
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
 subjects:
   active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
-version: 2
-relations: {}
+version: 3
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
 tier: 3
-updated_at: 2026-11-02 00:18:22 +0400
+updated_at: 2026-11-04 11:00:07 +0400
 role: Requirement
 form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 
@@ -22,9 +26,13 @@ Declare Atom/(.Role := Plan)
 
 ```CFEL
 # model
+Atom/(.Header.Role: Plan) >| (Container == yes);
+
 Atom/(.Header.Role: Plan);
 
 # instances
+Atom/(.Header.Role: Plan)//$plan {:0+}((CONTAINS)) Atom/(.Header.Role: Plan)//$contained_plan;
+
 Atom/(.Header.Role: Plan)//$atom;
 
 IF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))

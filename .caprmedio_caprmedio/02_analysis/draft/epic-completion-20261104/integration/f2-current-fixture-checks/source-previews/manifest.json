@@ -1,0 +1,30 @@
+{
+  "status": "PREVIEW_ONLY_NOT_ADOPTED",
+  "entries": [
+    {
+      "id": "CA-R-2508",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "source_sha256": "875fb6a3a853dbbf24816f2684083311bd6e2791ed6d6e07c4227aed05cb8318",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/f2-current-fixture-checks/source-previews/CA-R-2508.txt",
+      "candidate_sha256": "33915ae5b96a2dde990d2123e344c3eabbd9260a54c69d45fd0e6d26401ecfc5",
+      "summary_unchanged": true
+    },
+    {
+      "id": "CA-R-2523",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "source_sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/f2-current-fixture-checks/source-previews/CA-R-2523.txt",
+      "candidate_sha256": "279511011a4587dc8ef08dbbb3a6f2687d353647fc3f31f3c7b876bc916aa4c2",
+      "summary_unchanged": true
+    },
+    {
+      "id": "CA-R-2511",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "source_sha256": "56beaca2cd77dcabee69710baba0abd429bc8e25801aea7c9abc4d0e56aec1ed",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/f2-current-fixture-checks/source-previews/CA-R-2511.txt",
+      "candidate_sha256": "1a4f623a7a9c6bea762556d392a75b683e88f171b1092261b96e95ac6320adff",
+      "summary_unchanged": true
+    }
+  ],
+  "rationale": "Repair named forward/inverse permissions and Plan container classification for already-approved Atom/Scope Unit/Plan containment. Other Workflow/Step and instance migrations remain outside this packet."
+}

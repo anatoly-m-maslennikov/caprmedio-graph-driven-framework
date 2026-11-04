@@ -875,16 +875,16 @@ source:
   - CA-R-2500@5
   - CA-R-2502@5
   - CA-R-2503@5
-  - CA-R-2508@5
+  - CA-R-2508@6
   - CA-R-2509@2
-  - CA-R-2511@2
+  - CA-R-2511@3
   - CA-R-2512@2
   - CA-R-2513@2
   - CA-R-2514@2
   - CA-R-2515@2
   - CA-R-2516@5
   - CA-R-2521@2
-  - CA-R-2523@2
+  - CA-R-2523@3
   - CA-R-2524@3
   - CA-R-2525@2
   - CA-R-2526@4
@@ -1165,7 +1165,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 09:37:31 +0400
+updated_at: 2026-11-04 11:07:12 +0400
 ---
 
 ## Primary entities
@@ -1259,7 +1259,7 @@ CAPRMEDIO_MODEL
 
 ### `Atom`
 
-- Declaration sources: CA-R-2508@5
+- Declaration sources: CA-R-2508@6
 - property: `Atom.Content` (relative `Content`) — CA-R-2498@5
 - property: `Atom.Content.Claim` (relative `Content.Claim`) — CA-R-2500@5
 - property: `Atom.Content.Claim.Formal Claim` (relative `Content.Claim.Formal Claim`) — CA-R-2721@2
@@ -1306,7 +1306,7 @@ CAPRMEDIO_MODEL
 
 ### `Atom/(.Header.Role:=Plan)`
 
-- Declaration sources: CA-R-2511@2
+- Declaration sources: CA-R-2511@3
 - property: `Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold` (relative `Header.AI Agent Confidence Threshold`) — CA-R-2711@2
 - property: `Atom/(.Header.Role:=Plan).Header.Work Sequence Number` (relative `Header.Work Sequence Number`) — CA-R-2712@2
 
@@ -1381,7 +1381,7 @@ CAPRMEDIO_MODEL
 
 ### `Scope Unit`
 
-- Declaration sources: CA-R-2523@2
+- Declaration sources: CA-R-2523@3
 - property: `Scope Unit.ID` (relative `ID`) — CA-R-2526@4
 - property: `Scope Unit.Label` (relative `Label`) — CA-R-2528@3
 - property: `Scope Unit.Name` (relative `Name`) — CA-R-2527@2
@@ -1408,11 +1408,11 @@ CAPRMEDIO_MODEL
   (.Content.Summary),
   (Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived)
 ) — CA-R-2499@5
-- UNIQUE(Atom//$atom, (.Header.ID, .Header.Version)) — CA-R-2508@5
+- UNIQUE(Atom//$atom, (.Header.ID, .Header.Version)) — CA-R-2508@6
 - IF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))
-THEN ($atom.Header.Relations.IS_CONTAINED_BY{==1}) — CA-R-2511@2
+THEN ($atom.Header.Relations.IS_CONTAINED_BY{==1}) — CA-R-2511@3
 - IF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit_5))
-THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6) — CA-R-2523@2
+THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6) — CA-R-2523@3
 - Project//$project_2.order.ordered == false — CA-R-2524@3
 - IF (Package//$package not in (Package/Implementation//$package_6))
 THEN ($package {==1}((IS_CONTAINED_BY)) Package//$package_7) — CA-R-2525@2

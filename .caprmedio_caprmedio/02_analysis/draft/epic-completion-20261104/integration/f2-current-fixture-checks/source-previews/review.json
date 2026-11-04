@@ -1,0 +1,26 @@
+{
+  "verdict": "PASS_BOUNDED",
+  "manifest_sha256": "344d014b37026710ee78f0970de870b9191b36606e0e120f0883829e7dbd78e0",
+  "entries": [
+    {
+      "id": "CA-R-2508",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "summary_preserved": true
+    },
+    {
+      "id": "CA-R-2523",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "summary_preserved": true
+    },
+    {
+      "id": "CA-R-2511",
+      "source_pin_matches": true,
+      "candidate_pin_matches": true,
+      "summary_preserved": true
+    }
+  ],
+  "assessment": "R2508 now states each Atom instance\u2019s exactly-one outgoing IS_CONTAINED_BY targets precisely the Atom or Scope Unit instance selected by Header.Relations.IS_CONTAINED_BY, resolving prior unbounded-domain issue. R2523 and R2511 separately allow the matching inverse views with 0+; Plan has a model Container=yes assertion. No automatic inverse permissions or new mandatory contained Plans are inferred. Existing narrower Step/Substep constraints and conditional Step XOR are unchanged.",
+  "limits": "Source-level review of pinned drafts, not actual parser/evaluator enforcement, instance classification inheritance or metadata migration/admission. Draft metadata has changed and existing source-scope consumers must be checked before application."
+}

@@ -1,0 +1,279 @@
+{
+  "status": "READ_ONLY_SOURCE_AUDIT",
+  "scope": "Current native core declarations and applicable rules; no runtime fix or WIP change",
+  "sources": [
+    {
+      "id": "CA-R-2462",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2508",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "875fb6a3a853dbbf24816f2684083311bd6e2791ed6d6e07c4227aed05cb8318",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2511",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "56beaca2cd77dcabee69710baba0abd429bc8e25801aea7c9abc4d0e56aec1ed",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2463",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "sha256": "165d90b12c799b31498419365be86415689b98e3cc5b8572ac323c8cbbe99d40",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2464",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "70222545ca403b3b704862bb8cbd4972a664021368100fa1f90e9634240112be",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2465",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2466",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "sha256": "f2a40705628b526539a0422901b2e5032ffaec8f0900072fb9c4d8d89b20bd11",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2478",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2523",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2524",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2525",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2525-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "sha256": "1ae9d6f130dff0df4335ba0dac0be6f009b6c269043990da6b6d92906d4542b6",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2536",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2536-CORE_META_MODEL-DECLARATION--declare-journal.md",
+      "sha256": "20a5b68515df5b16e7b2a4facd9304f786d7fcbefb16097e8480d930ef93c991",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2559",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2559-CORE_META_MODEL-DECLARATION--declare-model.md",
+      "sha256": "365bc7d8a6f0cf72740253ae73c83475a22d70fba83497ae9abed6c28b379263",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2560",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2560-CORE_META_MODEL-DECLARATION--declare-project-structure.md",
+      "sha256": "4028c03129e8351cffd240acfc2aa908d2cf612d3e6bf2499e00fb7526097259",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-2588",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Rule"
+    },
+    {
+      "id": "CA-R-2698",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+      "sha256": "669672c32d618a63cd81611b5daf3eef6ba090e30780f66f057b19a9c9d257bd",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Declaration"
+    },
+    {
+      "id": "CA-R-1990",
+      "version": 12,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1990-CORE_META_MODEL-RULE--enable-containment-for-plan-atoms.md",
+      "sha256": "d2db698bc86fff0b7d0a21c60a59e77627b94020882edb180f045fd46827ba6d",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Rule"
+    },
+    {
+      "id": "CA-R-1991",
+      "version": 13,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1991-CORE_META_MODEL-RULE--enable-containment-for-workflow-atoms.md",
+      "sha256": "2ba90e621c5cd394a4e930cab335d13bc781f6b313f2c6c3ae455b9dcbb2d387",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Rule"
+    },
+    {
+      "id": "CA-R-1575",
+      "version": 25,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1575-CORE_META_MODEL-RULE--require-work-or-decomposition-in-every-plan.md",
+      "sha256": "016f5f2dd1111ebe5b9aba7fc28f34b75f30f6e330e6506fd5513cd9e6cb9bfb",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Rule"
+    },
+    {
+      "id": "CA-R-1589",
+      "version": 24,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1589-CORE_META_MODEL--bound-executable-leaf-plans.md",
+      "sha256": "f19e0124a094114cc37d11723aaac33ca3e2929778e4fbfffed2f0b81177f0ce",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Rule"
+    },
+    {
+      "id": "CA-R-1590",
+      "version": 22,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1590-CORE_META_MODEL-RULE--permit-standalone-plans.md",
+      "sha256": "4efb5e02c91d26db17764a719d1f310424ab8829152380946a233b118e6018fb",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Rule"
+    },
+    {
+      "id": "CA-R-1577",
+      "version": 23,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1577-CORE_META_MODEL-DEFINITION--define-plan-authoring-subtypes.md",
+      "sha256": "00b5730c7867787b06784d6750a4f29ab85a619ce6be56e18f9235560d8958c4",
+      "status": "Active",
+      "role": "Requirement",
+      "form": "Rule"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "target": "Plan",
+      "evidence": [
+        "CA-R-2511",
+        "CA-R-1990",
+        "CA-R-1575",
+        "CA-R-1590",
+        "CA-R-2462",
+        "CA-R-2588"
+      ],
+      "finding": "Plan Declaration does not classify the Plan Kind as Container=yes or grant named Plan-instance outgoing CONTAINS / IS_CONTAINED_BY permissions. R1990 explicitly permits nested Plan Atoms, independent of Epic/Task/Version labels; R1575 and R1590 govern work/decomposition and standalones. The blanket Node-instance outgoing zero remains applicable absent a matching named exception.",
+      "minimum_source_change": "In CA-R-2511 classify the existing qualified Plan Kind as Container=yes and add separate instance-layer named permissions for Plan contains Plan and child Plan is-contained-by Plan, with optional nesting and no invented new Task/Subtask kinds. Preserve R1575 and R1590; use the declared target domains and exact approved CFEL binder syntax."
+    },
+    {
+      "id": "F2",
+      "target": "Workflow and Step",
+      "evidence": [
+        "CA-R-2464",
+        "CA-R-2465",
+        "CA-R-2466",
+        "CA-R-2478",
+        "CA-R-2588"
+      ],
+      "finding": "Workflow Declaration already requires Workflow-instance CONTAINS Step 1+. Step Declaration already grants Step-instance IS_CONTAINED_BY Workflow and conditional CONTAINS Substep; Substep Declaration already requires IS_CONTAINED_BY Step. None classifies the existing Workflow or Step Kind as Container=yes, which R2478 requires of the target of direct containment.",
+      "minimum_source_change": "Add Container=yes on the declared qualified Workflow Kind in CA-R-2464 and on the qualified Step Kind in CA-R-2465. Keep already present reciprocal named permissions and existing bounds; do not add duplicate signatures or make runtime instances model Kinds."
+    },
+    {
+      "id": "F3",
+      "target": "Step optional decomposition",
+      "evidence": [
+        "CA-R-2465",
+        "CA-R-2466"
+      ],
+      "finding": "Current Step rule says no RUNS implies at least one Substep, positive RUNS implies zero CONTAINS, and no CONTAINS implies exactly one RUNS. The latest request says Substeps are optional but does not itself decide whether the independent RUNS/decomposition alternatives and exclusivity are abolished.",
+      "minimum_source_change": "Preserve these existing conditional constraints in a classification-only repair unless the operator expressly changes them; if a zero-Substep/zero-RUNS fixture is required, disclose the conflict and seek the separate policy decision rather than silently weakening it."
+    },
+    {
+      "id": "F4",
+      "target": "Immediate container domains",
+      "evidence": [
+        "CA-R-2698",
+        "CA-R-2523",
+        "CA-R-2588",
+        "CA-R-2511"
+      ],
+      "finding": "The Atom carrier requires one IS_CONTAINED_BY endpoint group and permits atom or scope_unit encoding, but that does not itself grant per-layer outgoing Relation whitelist entries or both directions for every allowed endpoint. R1590 permits no enclosing Plan, not a containerless Atom.",
+      "minimum_source_change": "For each actual fixture, check its direct Atom-to-Scope Unit and inverse Scope Unit-to-Atom permissions under the selected effective model; if absent, identify the proper existing Declaration and separately propose the minimum supported named direction and target domain. Do not treat R2698 encoding alone as whitelist authority or invent a blanket relation permission."
+    },
+    {
+      "id": "F5",
+      "target": "Legacy source notation",
+      "evidence": [
+        "CA-R-1990",
+        "CA-R-1991",
+        "CA-R-2464"
+      ],
+      "finding": "R1990 and R1991 still express capability through legacy Enabled Relations.Contains Subjects and R1991 names Workflow as an Atom Form, while Current Workflow Declaration addresses the Operations/Workflow Kind. They support intended behavior but their old Subjects do not themselves supply Current Container classification.",
+      "minimum_source_change": "Leave semantic Subject migration to its separately scoped owner; do not recreate an Enabled Relations Property or derive a new Kind from the old spelling."
+    }
+  ],
+  "clauses_for_review_only": {
+    "plan_model": "Atom/(.Header.Role: Plan) >| (Container == yes);",
+    "plan_contains": "Atom/(.Header.Role: Plan)//$plan {:0+}((CONTAINS)) Atom/(.Header.Role: Plan)//$child;",
+    "plan_direct": "Atom/(.Header.Role: Plan)//$child {:0..1}((IS_CONTAINED_BY)) Atom/(.Header.Role: Plan)//$plan;",
+    "workflow_model": "Atom/(.Header.Role: Operations)/Workflow >| (Container == yes);",
+    "step_model": "Atom/(.Header.Role: Operations)/Step >| (Container == yes);",
+    "caveat": "Illustrative proposed clauses only, not parser-validated, admitted, applied or proof of data conformance. Counts for matching endpoint domains do not alone enforce one total immediate container across domains."
+  },
+  "limits": [
+    "No canonical sources, code, Git or main Workflow WIP modified.",
+    "No MODEL override/inheritance-wide inventory or real fixture validation performed.",
+    "Latest user decision is supplied by coordinating root; Current files support optional nested Plans and Workflow/Step decomposition but do not prove adoption of the proposed classification."
+  ]
+}

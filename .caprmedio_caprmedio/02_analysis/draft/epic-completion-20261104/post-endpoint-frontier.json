@@ -1,5 +1,5 @@
 {
-  "status": "APPLIED_VERIFIED_CAPABILITY_DEFERRAL",
+  "status": "APPLIED_VERIFIED_CONTAINMENT_PERMISSIONS",
   "selection": "Previous exact1148 selected suppliers plus newly Current Workflow declarationsR2733–2735. No expansion to unrelated Engine rules.",
   "operations": [
     {
@@ -14937,9 +14937,9 @@
     },
     {
       "base_id": "CA-R-2508",
-      "version": 5,
+      "version": 6,
       "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
-      "sha256": "875fb6a3a853dbbf24816f2684083311bd6e2791ed6d6e07c4227aed05cb8318",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d",
       "status": "Active",
       "role": "Requirement",
       "form": "Declaration",
@@ -14963,9 +14963,9 @@
     },
     {
       "base_id": "CA-R-2511",
-      "version": 2,
+      "version": 3,
       "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
-      "sha256": "56beaca2cd77dcabee69710baba0abd429bc8e25801aea7c9abc4d0e56aec1ed",
+      "sha256": "741bdb16b86ded6ef4c2034e96267b70ed3bd449f1ab116849ed4c92c651f3e2",
       "status": "Active",
       "role": "Requirement",
       "form": "Declaration",
@@ -15054,9 +15054,9 @@
     },
     {
       "base_id": "CA-R-2523",
-      "version": 2,
+      "version": 3,
       "destination_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
-      "sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819",
+      "sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5",
       "status": "Active",
       "role": "Requirement",
       "form": "Declaration",
@@ -18986,7 +18986,7 @@
     }
   ],
   "previous_frontier": {
-    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/capability-deferral/pre-refresh-frontier.json",
-    "sha256": "f4362cdf1b1c94923caebe403c76489a37a23cf78d904d1a5a340e2e2a8495c7"
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/containment-permissions/pre-refresh-frontier.json",
+    "sha256": "3b0dc5db0c49b5eb7c4b7ed1b1be011bfef8668f2b198030cb3449f00246ebeb"
   }
 }

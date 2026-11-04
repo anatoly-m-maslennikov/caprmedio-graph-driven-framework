@@ -876,16 +876,16 @@ source:
   - CA-R-2500@5
   - CA-R-2502@5
   - CA-R-2503@5
-  - CA-R-2508@5
+  - CA-R-2508@6
   - CA-R-2509@2
-  - CA-R-2511@2
+  - CA-R-2511@3
   - CA-R-2512@2
   - CA-R-2513@2
   - CA-R-2514@2
   - CA-R-2515@2
   - CA-R-2516@5
   - CA-R-2521@2
-  - CA-R-2523@2
+  - CA-R-2523@3
   - CA-R-2524@3
   - CA-R-2525@2
   - CA-R-2526@4
@@ -1166,7 +1166,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-04 09:37:31 +0400
+updated_at: 2026-11-04 11:07:12 +0400
 ---
 
 ## Primary entities
@@ -1283,7 +1283,7 @@ Actor.Name.*[]{:0}
 
 ### `Atom`
 
-- Declaration sources: CA-R-2508@5
+- Declaration sources: CA-R-2508@6
 - property: `Atom.Content` (relative `Content`) — CA-R-2498@5
   - contract: `Atom.Content{:1}: []{:0}` — CA-R-2498@5
     - nesting: `property`
@@ -11710,7 +11710,7 @@ Atom.Header.Version >= 1
 
 ### `Atom/(.Header.Role:=Plan)`
 
-- Declaration sources: CA-R-2511@2
+- Declaration sources: CA-R-2511@3
 - property: `Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold` (relative `Header.AI Agent Confidence Threshold`) — CA-R-2711@2
   - contract: `Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold: [int]{:0..1}` — CA-R-2711@2
     - nesting: `values`
@@ -17802,7 +17802,7 @@ Relation.Name.*[]{:0}
 
 ### `Scope Unit`
 
-- Declaration sources: CA-R-2523@2
+- Declaration sources: CA-R-2523@3
 - property: `Scope Unit.ID` (relative `ID`) — CA-R-2526@4
   - contract: `Scope Unit.ID: [string]{:0..1}` — CA-R-2526@4
     - nesting: `values`
@@ -18157,7 +18157,7 @@ Node.**//{:0..1};
 ### `Atom`
 
 - own Declaration:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -18167,6 +18167,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -18239,7 +18241,7 @@ Node.**//{:0..1};
 Atom/(.Header.Role: "Analysis & Advisory")
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -18249,6 +18251,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -18321,7 +18325,7 @@ Node.**//{:0..1};
 Atom/(.Header.Role: Concern)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -18331,6 +18335,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -18403,7 +18409,7 @@ Node.**//{:0..1};
 Atom/(.Header.Role: Delivery)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -18413,6 +18419,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -18485,7 +18493,7 @@ Node.**//{:0..1};
 Atom/(.Header.Role: Evaluation)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -18495,6 +18503,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -18567,7 +18577,7 @@ Node.**//{:0..1};
 Atom/(.Header.Role: Method)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -18577,6 +18587,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -18649,7 +18661,7 @@ Node.**//{:0..1};
 Atom/(.Header.Role: Operations)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -18659,6 +18671,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -18740,7 +18754,7 @@ Action//$action{:0+}((IS_RUN_BY)) (in (Step, Substep))//$selected
 Atom/(.Header.Role: Operations)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -18750,6 +18764,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -18839,7 +18855,7 @@ IF $step {=0}((CONTAINS)) THEN $step {:1}((RUNS)) (in (Action, Workflow))//$sele
 Atom/(.Header.Role: Operations)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -18849,6 +18865,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -18932,7 +18950,7 @@ Substep//$substep_2{:1}((RUNS)) Action//$action
 Atom/(.Header.Role: Operations)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -18942,6 +18960,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -19025,7 +19045,7 @@ Workflow//$workflow_2{:0+}((IS_RUN_BY)) Step//$step_2
 Atom/(.Header.Role: Operations)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -19035,6 +19055,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -19123,7 +19145,7 @@ Workflow//$workflow_2{:0+}((IS_RUN_BY)) Step//$step_2
 Atom/(.Header.Role: Operations)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -19133,6 +19155,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -19221,7 +19245,7 @@ Workflow//$workflow_2{:0+}((IS_RUN_BY)) Step//$step_2
 Atom/(.Header.Role: Operations)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -19231,6 +19255,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -19297,19 +19323,23 @@ Node.**//{:0..1};
 ### `Atom/(.Header.Role:=Plan)`
 
 - own Declaration:
-  - source: `CA-R-2511@2`
+  - source: `CA-R-2511@3`
 ```CFEL
 # model
+Atom/(.Header.Role: Plan) >| (Container == yes);
+
 Atom/(.Header.Role: Plan);
 
 # instances
+Atom/(.Header.Role: Plan)//$plan {:0+}((CONTAINS)) Atom/(.Header.Role: Plan)//$contained_plan;
+
 Atom/(.Header.Role: Plan)//$atom;
 
 IF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))
 THEN ($atom.Header.Relations.IS_CONTAINED_BY{==1})
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -19319,6 +19349,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -19391,7 +19423,7 @@ Node.**//{:0..1};
 Atom/(.Header.Role: Requirement)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -19401,6 +19433,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -19474,7 +19508,7 @@ Node.**//{:0..1};
 Atom/(.Header.Role: Requirement)
 ```
 - ancestor Declaration `Atom`:
-  - source: `CA-R-2508@5`
+  - source: `CA-R-2508@6`
 ```CFEL
 # model
 Atom;
@@ -19484,6 +19518,8 @@ Atom.*[string,in(Header,Content)]{:2};
 Atom ((NARROWER_THAN)) Continuant;
 
 # instances
+Atom//$atom {:1}((IS_CONTAINED_BY));
+
 Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {:0..1}((GOVERNS));
@@ -20496,7 +20532,7 @@ Project//$project_3.order.number: []{:0};
 Project//$project_4.ID: []{:0}
 ```
 - ancestor Declaration `Scope Unit`:
-  - source: `CA-R-2523@2`
+  - source: `CA-R-2523@3`
 ```CFEL
 # model
 Scope Unit >| (Container == yes);
@@ -20504,6 +20540,8 @@ Scope Unit >| (Container == yes);
 Scope Unit ((NARROWER_THAN)) Continuant;
 
 # instances
+Scope Unit//$scope_unit {:0+}((CONTAINS)) Atom//$atom;
+
 Scope Unit//$scope_unit{:0..1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;
 
 Scope Unit//$scope_unit_3{:0+}((CONTAINS)) Scope Unit//$scope_unit_4;
@@ -21397,7 +21435,7 @@ Relation
 ### `Scope Unit`
 
 - own Declaration:
-  - source: `CA-R-2523@2`
+  - source: `CA-R-2523@3`
 ```CFEL
 # model
 Scope Unit >| (Container == yes);
@@ -21405,6 +21443,8 @@ Scope Unit >| (Container == yes);
 Scope Unit ((NARROWER_THAN)) Continuant;
 
 # instances
+Scope Unit//$scope_unit {:0+}((CONTAINS)) Atom//$atom;
+
 Scope Unit//$scope_unit{:0..1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;
 
 Scope Unit//$scope_unit_3{:0+}((CONTAINS)) Scope Unit//$scope_unit_4;
@@ -21494,11 +21534,11 @@ Term.*[in (Name)]{:1}
   (.Content.Summary),
   (Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived)
 ) — CA-R-2499@5
-- UNIQUE(Atom//$atom, (.Header.ID, .Header.Version)) — CA-R-2508@5
+- UNIQUE(Atom//$atom, (.Header.ID, .Header.Version)) — CA-R-2508@6
 - IF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))
-THEN ($atom.Header.Relations.IS_CONTAINED_BY{==1}) — CA-R-2511@2
+THEN ($atom.Header.Relations.IS_CONTAINED_BY{==1}) — CA-R-2511@3
 - IF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit_5))
-THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6) — CA-R-2523@2
+THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6) — CA-R-2523@3
 - Project//$project_2.order.ordered == false — CA-R-2524@3
 - IF (Package//$package not in (Package/Implementation//$package_6))
 THEN ($package {==1}((IS_CONTAINED_BY)) Package//$package_7) — CA-R-2525@2

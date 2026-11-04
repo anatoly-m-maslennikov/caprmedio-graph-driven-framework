@@ -1,0 +1,80 @@
+{
+  "status": "PREPARED_NOT_ADOPTED",
+  "route": "manual source repair of already-approved Atom/Scope Unit/Plan containment",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "source_id": "CA-R-2508",
+      "atom_id": "CA-R-2508",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d",
+      "summary": "Declare Atom"
+    },
+    {
+      "source_id": "CA-R-2523",
+      "atom_id": "CA-R-2523",
+      "version": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5",
+      "summary": "Declare Scope Unit"
+    },
+    {
+      "source_id": "CA-R-2511",
+      "atom_id": "CA-R-2511",
+      "version": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "741bdb16b86ded6ef4c2034e96267b70ed3bd449f1ab116849ed4c92c651f3e2",
+      "summary": "Declare Atom/(.Role := Plan)"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@5.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2508\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom\nversion: 5\nrelations: {}\ntier: 3\nupdated_at: 2026-11-04 07:31:50 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom;\n\nAtom.*[string,in(Header,Content)]{:2};\n\nAtom ((NARROWER_THAN)) Continuant;\n\n# instances\nAtom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));\n\nAtom//$atom {:0..1}((GOVERNS));\n\nUNIQUE(Atom//$atom, (.Header.ID, .Header.Version));\n```\n\n### Prose Claim\n\nFor each Atom instance, the outgoing HAS_ACTIVE_SUBJECT Relation has cardinality 0..1 and targets only the declared entity or instance resolved from its active Subject field. When the applicable Current-status rule requires that field, its resolved target supplies the one link; an unresolved field remains a diagnostic.\n\nFor each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom\u2019s outgoing links within each Relation Declaration\u2019s admissible endpoint domain; they do not create links.\n\n## Semantics\n\nAn Atom is the smallest independently governed Object.\n",
+      "after_sha256": "875fb6a3a853dbbf24816f2684083311bd6e2791ed6d6e07c4227aed05cb8318"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "before": "---\natom_id: CA-R-2508\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom\nversion: 5\nrelations: {}\ntier: 3\nupdated_at: 2026-11-04 07:31:50 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom;\n\nAtom.*[string,in(Header,Content)]{:2};\n\nAtom ((NARROWER_THAN)) Continuant;\n\n# instances\nAtom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));\n\nAtom//$atom {:0..1}((GOVERNS));\n\nUNIQUE(Atom//$atom, (.Header.ID, .Header.Version));\n```\n\n### Prose Claim\n\nFor each Atom instance, the outgoing HAS_ACTIVE_SUBJECT Relation has cardinality 0..1 and targets only the declared entity or instance resolved from its active Subject field. When the applicable Current-status rule requires that field, its resolved target supplies the one link; an unresolved field remains a diagnostic.\n\nFor each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom\u2019s outgoing links within each Relation Declaration\u2019s admissible endpoint domain; they do not create links.\n\n## Semantics\n\nAn Atom is the smallest independently governed Object.\n",
+      "before_sha256": "875fb6a3a853dbbf24816f2684083311bd6e2791ed6d6e07c4227aed05cb8318",
+      "after": "---\natom_id: CA-R-2508\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom\nversion: 6\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nupdated_at: 2026-11-04 11:00:07 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom;\n\nAtom.*[string,in(Header,Content)]{:2};\n\nAtom ((NARROWER_THAN)) Continuant;\n\n# instances\nAtom//$atom {:1}((IS_CONTAINED_BY));\n\nAtom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));\n\nAtom//$atom {:0..1}((GOVERNS));\n\nUNIQUE(Atom//$atom, (.Header.ID, .Header.Version));\n```\n\n### Prose Claim\n\nFor each Atom instance, the outgoing HAS_ACTIVE_SUBJECT Relation has cardinality 0..1 and targets only the declared entity or instance resolved from its active Subject field. When the applicable Current-status rule requires that field, its resolved target supplies the one link; an unresolved field remains a diagnostic.\n\nFor each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom\u2019s outgoing links within each Relation Declaration\u2019s admissible endpoint domain; they do not create links.\n\nEach Atom instance's outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance selected by its Header.Relations.IS_CONTAINED_BY.\n\n## Semantics\n\nAn Atom is the smallest independently governed Object.\n",
+      "after_sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit@2.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2523\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Scope Unit\nversion: 2\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\n---\n\n## Summary\n\nDeclare Scope Unit\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nScope Unit >| (Container == yes);\n\nScope Unit ((NARROWER_THAN)) Continuant;\n\n# instances\nScope Unit//$scope_unit{:0..1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;\n\nScope Unit//$scope_unit_3{:0+}((CONTAINS)) Scope Unit//$scope_unit_4;\n\nIF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit_5))\nTHEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6);\n```\n\n## Semantics\n\nA Scope Unit defines a boundary of responsibility for Atoms.\n",
+      "after_sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "before": "---\natom_id: CA-R-2523\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Scope Unit\nversion: 2\nupdated_at: 2026-11-02 00:18:22 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\n---\n\n## Summary\n\nDeclare Scope Unit\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nScope Unit >| (Container == yes);\n\nScope Unit ((NARROWER_THAN)) Continuant;\n\n# instances\nScope Unit//$scope_unit{:0..1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;\n\nScope Unit//$scope_unit_3{:0+}((CONTAINS)) Scope Unit//$scope_unit_4;\n\nIF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit_5))\nTHEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6);\n```\n\n## Semantics\n\nA Scope Unit defines a boundary of responsibility for Atoms.\n",
+      "before_sha256": "3c4b409739e1a64e80825d447c1e58154693c8b0bcc33d19cd7f50f168582819",
+      "after": "---\natom_id: CA-R-2523\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Scope Unit\nversion: 3\nupdated_at: 2026-11-04 11:00:07 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n\n## Summary\n\nDeclare Scope Unit\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nScope Unit >| (Container == yes);\n\nScope Unit ((NARROWER_THAN)) Continuant;\n\n# instances\nScope Unit//$scope_unit {:0+}((CONTAINS)) Atom//$atom;\n\nScope Unit//$scope_unit{:0..1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;\n\nScope Unit//$scope_unit_3{:0+}((CONTAINS)) Scope Unit//$scope_unit_4;\n\nIF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit_5))\nTHEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6);\n```\n\n## Semantics\n\nA Scope Unit defines a boundary of responsibility for Atoms.\n",
+      "after_sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan@2.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2511\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\nversion: 2\nrelations: {}\ntier: 3\nupdated_at: 2026-11-02 00:18:22 +0400\nrole: Requirement\nform: Declaration\n---\n## Summary\n\nDeclare Atom/(.Role := Plan)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Plan);\n\n# instances\nAtom/(.Header.Role: Plan)//$atom;\n\nIF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))\nTHEN ($atom.Header.Relations.IS_CONTAINED_BY{==1})\n```\n\n## Semantics\n\nA Plan describes bounded intended work or an intended outcome.\n",
+      "after_sha256": "56beaca2cd77dcabee69710baba0abd429bc8e25801aea7c9abc4d0e56aec1ed"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "before": "---\natom_id: CA-R-2511\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\nversion: 2\nrelations: {}\ntier: 3\nupdated_at: 2026-11-02 00:18:22 +0400\nrole: Requirement\nform: Declaration\n---\n## Summary\n\nDeclare Atom/(.Role := Plan)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Plan);\n\n# instances\nAtom/(.Header.Role: Plan)//$atom;\n\nIF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))\nTHEN ($atom.Header.Relations.IS_CONTAINED_BY{==1})\n```\n\n## Semantics\n\nA Plan describes bounded intended work or an intended outcome.\n",
+      "before_sha256": "56beaca2cd77dcabee69710baba0abd429bc8e25801aea7c9abc4d0e56aec1ed",
+      "after": "---\natom_id: CA-R-2511\nstatus: Active\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\nversion: 3\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nupdated_at: 2026-11-04 11:00:07 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n## Summary\n\nDeclare Atom/(.Role := Plan)\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role: Plan) >| (Container == yes);\n\nAtom/(.Header.Role: Plan);\n\n# instances\nAtom/(.Header.Role: Plan)//$plan {:0+}((CONTAINS)) Atom/(.Header.Role: Plan)//$contained_plan;\n\nAtom/(.Header.Role: Plan)//$atom;\n\nIF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))\nTHEN ($atom.Header.Relations.IS_CONTAINED_BY{==1})\n```\n\n## Semantics\n\nA Plan describes bounded intended work or an intended outcome.\n",
+      "after_sha256": "741bdb16b86ded6ef4c2034e96267b70ed3bd449f1ab116849ed4c92c651f3e2"
+    }
+  ],
+  "review": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/f2-current-fixture-checks/source-previews/review.json"
+}
