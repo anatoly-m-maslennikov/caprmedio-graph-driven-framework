@@ -128,6 +128,8 @@ test('keeps filtering, sorting and grouping global while paging the cached resul
     const request = page.waitForRequest((item) => interfaceRequest(item, 'view_fetch'));
     await next.click();
     await request;
+    const first = 3 + index * 2;
+    await expect(page.locator('.result-summary').first()).toContainText(`showing ${first}-${first + 1}`);
   }
   await expect(page.locator('.tabulator-group')).toContainText('group_name: beta (4)');
 

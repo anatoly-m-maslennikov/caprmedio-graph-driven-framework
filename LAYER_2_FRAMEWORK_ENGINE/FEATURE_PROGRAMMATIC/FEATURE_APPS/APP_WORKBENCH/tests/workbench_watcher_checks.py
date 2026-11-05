@@ -203,6 +203,31 @@ class WorkbenchWatcherDockerMixin:
                     expected.append((operation, relative(old_path) if old_path else None, relative(new_path) if new_path else None))
                     wait_for_events(url, expected)
 
+                def observe_host_relocation(old_path: Path, new_path: Path, operation: str) -> None:
+                    """macOS bind mounts may expose a host relocation as remove/create."""
+                    old, new = relative(old_path), relative(new_path)
+                    deadline = time.monotonic() + 20
+                    while time.monotonic() < deadline:
+                        rows = query_rows(url)
+                        keys = {(str(row["operation"]), row["old_path"], row["new_path"]) for row in rows}
+                        direct = (operation, old, new)
+                        paired = {("remove", old, None), ("create", None, new)}
+                        if direct in keys:
+                            expected.append(direct)
+                            return
+                        if paired <= keys:
+                            expected.extend(sorted(paired))
+                            return
+                        time.sleep(0.2)
+                    self.fail(f"watcher did not deliver host relocation: {old} -> {new}")
+
+                def move_inside_container(name: str, old_path: Path, new_path: Path) -> None:
+                    result = subprocess.run(
+                        ["docker", "exec", name, "mv", f"/project/{relative(old_path)}", f"/project/{relative(new_path)}"],
+                        capture_output=True, text=True, check=False, timeout=30,
+                    )
+                    self.assertEqual(0, result.returncode, result.stderr)
+
                 created = source_directory / "CA-R-902-created.md"
                 write_atom(created, "CA-R-902")
                 wait_for_atom(url, "CA-R-902", [[1, relative(created.parent), created.name]])
@@ -213,11 +238,15 @@ class WorkbenchWatcherDockerMixin:
                 renamed = source_directory / "renamed.md"
                 created.rename(renamed)
                 wait_for_atom(url, "CA-R-902", [[2, relative(renamed.parent), renamed.name]])
-                observe("rename", created, renamed)
+                observe_host_relocation(created, renamed, "rename")
+                native_renamed = source_directory / "native-renamed.md"
+                move_inside_container(_name, renamed, native_renamed)
+                wait_for_atom(url, "CA-R-902", [[2, relative(native_renamed.parent), native_renamed.name]])
+                observe("rename", renamed, native_renamed)
                 moved = moved_parent / "moved-name.md"
-                renamed.rename(moved)
+                move_inside_container(_name, native_renamed, moved)
                 wait_for_atom(url, "CA-R-902", [[2, relative(moved.parent), moved.name]])
-                observe("move", renamed, moved)
+                observe("move", native_renamed, moved)
                 moved.unlink()
                 wait_for_atom(url, "CA-R-902", [])
                 observe("remove", moved, None)
@@ -227,7 +256,7 @@ class WorkbenchWatcherDockerMixin:
                 observe("create", None, directory_source)
                 directory_target = directory_parent / "watch-dir-target"
                 directory_source.rename(directory_target)
-                observe("move", directory_source, directory_target)
+                observe_host_relocation(directory_source, directory_target, "move")
                 directory_target.rmdir()
                 observe("remove", directory_target, None)
 
