@@ -1,0 +1,89 @@
+---
+atom_id: CA-E-520
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+version: 32
+updated_at: 2026-11-02 18:35:20 +0400
+subjects:
+  active: CAPRMEDIO_MODEL <+ Atom
+  passive:
+  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
+  - CAPRMEDIO_MODEL <+ Atom.Content.Details
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
+relations:
+  evaluation_for:
+  - CA-D-269
+  - CA-D-478
+  - CA-D-479
+  - CA-D-495
+  - CA-M-113
+  - CA-M-125
+  - CA-R-2500
+  - CA-R-1270
+  - CA-R-1271
+  - CA-R-1273
+  - CA-R-2499
+  - CA-R-2503
+tier: 5
+role: Evaluation
+form: Eval Policy
+projection:
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVAL-POLICY--check-rmed-atom-coherence.md
+  source_atom_id: CA-E-520
+  source_atom_revision: 32
+  source_sha256: a0f36f66a067921ad716a4ce5d3be9ffdc53b99ca2c0bf5627bc0998bec859f7
+  original_relations_sha256: 216745b2d9615d7395b419d7b8e1843d9163e6bafeaaf74fdf1adfb6a455cf32
+---
+## Summary
+
+Check RMED Atom coherence
+
+## Claim
+
+### Prose Claim
+
+
+individual active RMED Atoms reviewed locally against their exact carried text **and** applicable local authoring rules.
+
+
+an RMED Atom passes this local Evaluation **only** **when** **all** of these checks pass with source evidence:
+
+Apply CA-R-2500 and CA-D-479 to every RMED Claim. Check its readable prose and any R-only nested Formal claim as one scoped contribution; Semantics and Details are optional supporting sections.
+
+| Check | Passing condition |
+|---|---|
+| properties | frontmatter is valid; required local Properties are present, admitted, correctly typed, **and** consistent with the body; body Properties occupy their required sections; values are **not** inferred from filenames **or** folders |
+| scope | **`=1`** coherent applicability description applies throughout the contribution **and** supporting text; a composite boundary **may** describe **`=1`** Scope |
+| claim | Claim expresses **`=1`** independently replaceable contribution **and** distinguishes capability requirements from authorization **to** execute; multiple clauses, conditions, **or** allowed values alone do **not** imply multiple Claims |
+| details | Details explain the scoped Claim **without** adding an independent obligation, permission, exception, **or** applicability change |
+| summary | Summary faithfully shortens the scoped Claim **without** changing its contribution **or** decisive boundary |
+| cce | the complete Markdown follows the supplied current CCE rules, including syntax, capitalization, structure, **and** understandability |
+
+a failed check **must** identify its local source evidence, rule, **and** proposed correction. unresolved required local evidence **must** remain a coverage gap. a pass **must** include a concrete source observation **and** the rule it satisfies. mechanical evidence does **not** prove Claim meaning.
+
+## Details
+
+missing, duplicate, **or** misplaced headings fail Properties; they do **not** automatically block content checks. assess the complete readable text **and** cite actual passages that establish applicability, contribution, supporting detail, **and** Summary. this interpretation is review evidence, **not** a declaration that missing Property sections exist. keep the Carrier defect visible; do **not** invent headings **or** values from filenames **or** folders. **if** the content itself is absent **or** ambiguous, identify the precise unavailable evidence **or** unresolved meaning for the affected check. empty supporting content **may** satisfy Details; a missing Details heading fails Properties only where the applicable layout requires it. Absent optional Semantics or Details is not a defect.
+
+this checklist has **`=3`** disjoint parts: CCE for `cce`, Properties for `properties`, **and** coherence for `scope`, `claim`, `details`, **and** `summary`. **every** part uses the same source binding **and** compact local rule pack.
+
+the Claim check applies the supplied Operator-authority rule **to** the candidate's own text:
+
+- a capability Requirement states what the Framework provides. its existence alone does **not** authorize execution.
+- direct Operator instruction **or** explicit prior authorization **may** cover a Workflow **or** automation. required behavior during that authorized execution remains binding.
+- report an authority violation **only** with evidence that the text forces execution independently of Operator authorization. `must`, an event condition, **or** omitted repeated approval wording alone is insufficient evidence.
+- an unresolved distinction is a coverage gap, **not** an assumed violation. identify unspecified operation targets from the local text **without** inventing a Projection **or** another target.
+
+the profile is `atom_local`. Subject **and** relation fields are checked for local shape **only**. Entity-model correctness, Subject completeness **or** similarity, relation-target existence/status, cross-Atom conflicts, duplicate Claims, role reclassification, tier hierarchy, **and** general Tier 0 Scope Contract alignment are excluded. the explicit local execution-authority check above is included; it does **not** require a wider Scope Contract audit. excluded checks are **not** failures, passes, **or** coverage gaps of this profile.
+
+the result is failed **if** **any** local check fails, **otherwise** blocked **if** **any** local check is unresolved, **otherwise** passed. findings **and** coverage gaps remain distinct even **when** present together. a passed result asserts local quality **only**, **not** complete methodology conformance.

@@ -1,0 +1,35 @@
+{
+  "verdict": "PASS_BOUNDED_PREVIEW_REVIEW",
+  "manifest_sha256": "ce27077bb361b20c06d5c667eeb36c264d3f5114dd22ba317aa52e4f756c367e",
+  "rows": [
+    {
+      "id": "CA-R-2508",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "a02dd777cedb7ae46b09a0ae7d2706c413795688979d8baf4504c36aedd081ba",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom"
+    },
+    {
+      "id": "CA-R-2779",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "8eb27272c2b5f52d9bfddd4e9b260c19db056a5f413dc00350f04883f2c4f8f7",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Container"
+    }
+  ],
+  "semantic_checks": [
+    "R2508 binds one Atom for both conditional counts and other outgoing constraints; the separate UNIQUE variable is freshly bound, avoiding shadowing.",
+    "Effective world means zero outgoing containment; other valid scalar references require exactly one link to their resolved Atom or Scope Unit. Invalid references remain invalid, and count alone creates no target.",
+    "HAS_ACTIVE_SUBJECT and GOVERNS 0..1 and ID/version uniqueness remain; no inverse permission or duplicate storage inferred.",
+    "R2779 retains exact root Project-only omitted-value default, scalar path and base-ID conditions; only world no-link prose added.",
+    "!= is a Current R2487 condition; :: is prospective and needs coordinated notation adoption."
+  ],
+  "gates": [
+    "Coordinated Header, logical Relation and notation Draft adoption required; no Current or runtime change implied."
+  ],
+  "boundary": "Source previews only; no native Draft, Current, code, tests or Git changes."
+}
