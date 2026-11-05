@@ -1,0 +1,153 @@
+{
+  "status": "READ_ONLY_NO_ID_OR_SOURCE_CHANGES",
+  "rows": [
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/CA-R-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md",
+      "source_sha256": "e6cfcaad82769d7e006ca86dc8a45fecbd12673ed83e09d01f62e66f533fc665",
+      "summary": "Trace RMED claims to canonical module owners",
+      "role_letter": "R",
+      "current_version": 2,
+      "group": "unallocated version greater than 1",
+      "recommendation": "Exact anonymous @1 predecessor retained with same Summary and role; head version 2. Choose whether to preserve version and anonymous history or reset to v1.",
+      "predecessor_files": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/archive/CA-R-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners@1.md",
+          "sha256": "d2b74791c20746653372a5474430bd22f2cf75db0431ae906251ad3ccebe9009"
+        }
+      ]
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md",
+      "source_sha256": "42a9881346a83b7b1b257505bc3b68d1c2f5ab8c614ce8c8220f6995de8392e1",
+      "summary": "Organize cohesive modules, packages and assets",
+      "role_letter": "M",
+      "current_version": 2,
+      "group": "unallocated version greater than 1",
+      "recommendation": "Exact anonymous @1 predecessor retained with same Summary and role; head version 2. Choose whether to preserve version and anonymous history or reset to v1.",
+      "predecessor_files": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/archive/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets@1.md",
+          "sha256": "35cdd8bbba1b49a7b67f56f946f3631c408ba78cbca0ed732e7d5a07f88285c4"
+        }
+      ]
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md",
+      "source_sha256": "3614333d7dd42a3ae8be5db91b73311d4da1c1fbf53fe3337eea5e71468d383f",
+      "summary": "Write RMED owner citations only at module start",
+      "role_letter": "M",
+      "current_version": 2,
+      "group": "unallocated version greater than 1",
+      "recommendation": "Exact anonymous @1 predecessor retained with same Summary and role; head version 2. Choose whether to preserve version and anonymous history or reset to v1.",
+      "predecessor_files": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/archive/CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start@1.md",
+          "sha256": "61dc044091121e0d82326e757651161ce5bc0e64e13daa5f60ec479ea7ee6809"
+        }
+      ]
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md",
+      "source_sha256": "1d744baed7fc763f421dbd77840c604e2769994de68ea7cce5178c1204163c72",
+      "summary": "Evaluate source size, cohesion and package organization",
+      "role_letter": "E",
+      "current_version": 2,
+      "group": "unallocated version greater than 1",
+      "recommendation": "Exact anonymous @1 predecessor retained with same Summary and role; head version 2. Choose whether to preserve version and anonymous history or reset to v1.",
+      "predecessor_files": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization@1.md",
+          "sha256": "dee26b6e7dab1745aa0ac5d4620c56ef0c4813bb26d8d47543a4ca13f5a51f9c"
+        }
+      ]
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md",
+      "source_sha256": "ee484e9d59aed9eeaf2710ac54a513be25e7aeb08c100abfcadbfab633443f2f",
+      "summary": "Verify owner-only module citations and derived call-site traces",
+      "role_letter": "E",
+      "current_version": 2,
+      "group": "unallocated version greater than 1",
+      "recommendation": "Exact anonymous @1 predecessor retained with same Summary and role; head version 2. Choose whether to preserve version and anonymous history or reset to v1.",
+      "predecessor_files": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces@1.md",
+          "sha256": "fa4e980f3f8825c39a270816debe8ceb93f0e00abc6b7437cf784ecb49f14b65"
+        }
+      ]
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md",
+      "source_sha256": "dcc7df8d39d34f0f248ac62416ff947f882f73dacbf54b446a17e573d41ff0a3",
+      "summary": "Declare the Node branch and derive the graph from Formal Claims",
+      "role_letter": "A",
+      "current_version": 3,
+      "group": "unallocated version greater than 1",
+      "recommendation": "No exact-basename archived predecessor found; version 3 remains recorded in current Draft. Choose whether to preserve version and anonymous history or reset to v1.",
+      "predecessor_files": []
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md",
+      "source_sha256": "8352c29aa328a863ba9a1cd4bb56ef4ae6d1b1a1ad862604820cd3e2dea50357",
+      "summary": "Declare Workflow.Content.Claim.Mermaid Scheme",
+      "role_letter": "R",
+      "current_version": 1,
+      "group": "Workflow Mermaid identity reconciliation",
+      "recommendation": "Previously created as CA-R-2962@1 (creation receipt); later anonymous draft includes added Semantics and Step CA-R-2969 links to anonymous filename. Determine continuity and coordinate inbound link before any rename; preserve other owner changes.",
+      "predecessor_files": []
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-asset-file.md",
+      "source_sha256": "ebecd91559a29c4c053539d355bb5d5120a3aa856e5a46d8f3cdfdd1e4189d48",
+      "summary": "Define Asset File",
+      "role_letter": "R",
+      "current_version": 1,
+      "group": "superseded historical Draft",
+      "recommendation": "Draft explicitly retained as historical or preparation history; fresh ID would repair its address while preserving Draft status and withdrawn content, without promotion.",
+      "predecessor_files": []
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-model.md",
+      "source_sha256": "a3c866306779266dc2cc8311d7a18d3943cfac6d7eac5c0442fbccd2970b3cf5",
+      "summary": "Define Model",
+      "role_letter": "R",
+      "current_version": 1,
+      "group": "superseded historical Draft",
+      "recommendation": "Draft explicitly retained as historical or preparation history; fresh ID would repair its address while preserving Draft status and withdrawn content, without promotion.",
+      "predecessor_files": []
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-test-package.md",
+      "source_sha256": "743139aea2e508317924e10c4dd5871efe1324033ca9b26f81b8ab0433428869",
+      "summary": "Define Test Package",
+      "role_letter": "R",
+      "current_version": 1,
+      "group": "superseded historical Draft",
+      "recommendation": "Draft explicitly retained as historical or preparation history; fresh ID would repair its address while preserving Draft status and withdrawn content, without promotion.",
+      "predecessor_files": []
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-dependent-entity.md",
+      "source_sha256": "9104786bd1f9ca37679c39a938c8938db0df1af7e9497ef82c170df50d5179b3",
+      "summary": "Define Dependent Entity",
+      "role_letter": "R",
+      "current_version": 1,
+      "group": "withdrawn Dependent Entity",
+      "recommendation": "Draft explicitly withdrawn from active packet, retained as historical review evidence, and says no canonical identity allocated. Fresh ID can make this Draft addressable without promoting or reviving it. Same-Summary CA-R-1192 archives are evidence only and do not bind these distinct R/M contributions.",
+      "predecessor_files": []
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-draft-CORE_META_MODEL-TERM_DEFINITION--define-dependent-entity.md",
+      "source_sha256": "49a1103d0b227856e4b3e439383b3c2d8fbf1ff1597ebbe7ef67eab1e1a4403e",
+      "summary": "Define Dependent Entity",
+      "role_letter": "M",
+      "current_version": 1,
+      "group": "withdrawn Dependent Entity",
+      "recommendation": "Draft explicitly withdrawn from active packet, retained as historical review evidence, and says no canonical identity allocated. Fresh ID can make this Draft addressable without promoting or reviving it. Same-Summary CA-R-1192 archives are evidence only and do not bind these distinct R/M contributions.",
+      "predecessor_files": []
+    }
+  ],
+  "version_question": "May each unnumbered Draft with version 2 or 3 receive a fresh base ID while keeping its recorded version and leaving anonymous historical predecessor bytes untouched, or should its version be reset to 1?",
+  "workflow_question": "Should the anonymous Workflow Mermaid Draft retain its previously allocated CA-R-2962 identity, after checking no conflicting preserved use, or receive a new identity? Coordinate CA-R-2969 link regardless.",
+  "policy": "CA-D-650 new Draft v1; CA-D-378/446 identity and existing revision continuity. Neither identity assignment nor filename repair promotes the Claim."
+}

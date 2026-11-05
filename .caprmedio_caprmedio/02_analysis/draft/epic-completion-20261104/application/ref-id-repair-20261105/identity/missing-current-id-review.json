@@ -1,0 +1,163 @@
+{
+  "status": "READ_ONLY_ONE_STRONGLY_SUPPORTED_EIGHT_HELD",
+  "scope": "Current-path records lacking both carried ID and Status; no Status inferred.",
+  "rows": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/CA-D-019-OPERATOR_DOCUMENTATION-DELIVERY--bind-operator-documentation-delivery-place.md",
+      "sha256": "3c2efaa2c7cb2dac49ccda3c77bb7442bd76ed8e61d8cae2447aa3e6ade195cf",
+      "recommended_id": "CA-D-019",
+      "confidence_percent": 80,
+      "disposition": "HOLD_FILENAME_INFERRED",
+      "evidence": [
+        {
+          "git_commit": "67aaf9d2a9",
+          "detail": "Byte-identical path rename; continuity, not independently carried identity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/03_plan/12-CA-Epic-009-caprmedio-new-ops-migration/execution_evidence/CA-P-1087-projection-and-journal-authority-inventory.projection.json",
+          "detail": "Historical inventory records the same ID and former path; its identity may derive from filename."
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/CA-D-021-RELEASES-DELIVERY--bind-releases-delivery-place.md",
+      "sha256": "63acfd9f995b2606f25b747653033b016d207c71ca51229c55e6433640353ef6",
+      "recommended_id": "CA-D-021",
+      "confidence_percent": 80,
+      "disposition": "HOLD_FILENAME_INFERRED",
+      "evidence": [
+        {
+          "git_commit": "67aaf9d2a9",
+          "detail": "Byte-identical path rename; continuity, not independently carried identity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/03_plan/12-CA-Epic-009-caprmedio-new-ops-migration/execution_evidence/CA-P-1087-projection-and-journal-authority-inventory.projection.json",
+          "detail": "Historical inventory records the same ID and former path; its identity may derive from filename."
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-28_FEATURE_COMMUNITY_EXTENSIONS/07_delivery/CA-D-409-COMMUNITY_EXTENSIONS-DELIVERY--bind-community-extensions-delivery-place.md",
+      "sha256": "44890f1272da7e81a8124d607fa4dfe32cb2c603e9d9f358a9f5e0a34b45d5bf",
+      "recommended_id": "CA-D-409",
+      "confidence_percent": 99,
+      "disposition": "STRONGLY_SUPPORTED_REVIEW_ID_ONLY",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-28_FEATURE_COMMUNITY_EXTENSIONS/07_delivery/archive/CA-D-409-COMMUNITY_EXTENSIONS-DELIVERY--bind-community-extensions-delivery-place@5.md",
+          "sha256": "a0bc131d1dcb543d3de62042c4b5fb209a946582b6b332005cf7baa19adb8504",
+          "detail": "Archived @5 explicitly carries atom_id CA-D-409 and same Summary."
+        },
+        {
+          "git_commit": "5a80401f4836",
+          "detail": "Historical source explicitly carries CA-D-409; earlier history carried CA-D-026."
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/CA-D-022-FIELD-DELIVERY--bind-field-delivery-place.md",
+      "sha256": "eb29f96ff580efce5307b833270d96b2f10f0e626aa6550530f2f863b07d1698",
+      "recommended_id": "CA-D-022",
+      "confidence_percent": 80,
+      "disposition": "HOLD_FILENAME_INFERRED",
+      "evidence": [
+        {
+          "git_commit": "67aaf9d2a9",
+          "detail": "Byte-identical path rename; continuity, not independently carried identity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/03_plan/12-CA-Epic-009-caprmedio-new-ops-migration/execution_evidence/CA-P-1087-projection-and-journal-authority-inventory.projection.json",
+          "detail": "Historical inventory records the same ID and former path; its identity may derive from filename."
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-268-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-initialize-session-draft-be-reconciled.md",
+      "sha256": "4183b0d8c0056940285a63bde9875ac3f840d08fa6d9e04eef042486029ad433",
+      "recommended_id": "CA-C-268",
+      "confidence_percent": 95,
+      "disposition": "HOLD_CORROBORATED_REFERENCE",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/02_analysis/CA-A-933-ANALYSIS_RPRT--harvest-the-next-third-partition-session-packet.md",
+          "sha256": "6f726e1e7386d80d96fd8943616298bd383c95dd2fbfd820f7334d6c91ea03eb",
+          "detail": "Historical Analysis records this ID with matching subject; reference is corroboration, not explicit Header identity."
+        },
+        {
+          "git_commit": "67aaf9d2a9",
+          "detail": "Path rename history preserves filename continuity."
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-269-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-route-operator-intent-draft-be-reconciled.md",
+      "sha256": "69f33d63b71c5f79b018791faf253e64076abe020a4f91659fdaecc727dcb700",
+      "recommended_id": "CA-C-269",
+      "confidence_percent": 95,
+      "disposition": "HOLD_CORROBORATED_REFERENCE",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/02_analysis/CA-A-933-ANALYSIS_RPRT--harvest-the-next-third-partition-session-packet.md",
+          "sha256": "6f726e1e7386d80d96fd8943616298bd383c95dd2fbfd820f7334d6c91ea03eb",
+          "detail": "Historical Analysis records this ID with matching subject; reference is corroboration, not explicit Header identity."
+        },
+        {
+          "git_commit": "67aaf9d2a9",
+          "detail": "Path rename history preserves filename continuity."
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-270-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-change-governed-authority-draft-be-reconciled.md",
+      "sha256": "158484b9e72cf1f3ad6b67b75e0d7e92a29ba450afb45a90ba7db57c97f9aac3",
+      "recommended_id": "CA-C-270",
+      "confidence_percent": 95,
+      "disposition": "HOLD_CORROBORATED_REFERENCE",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/02_analysis/CA-A-933-ANALYSIS_RPRT--harvest-the-next-third-partition-session-packet.md",
+          "sha256": "6f726e1e7386d80d96fd8943616298bd383c95dd2fbfd820f7334d6c91ea03eb",
+          "detail": "Historical Analysis records this ID with matching subject; reference is corroboration, not explicit Header identity."
+        },
+        {
+          "git_commit": "67aaf9d2a9",
+          "detail": "Path rename history preserves filename continuity."
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-271-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-reconcile-unfinished-work-draft-be-reconciled.md",
+      "sha256": "733ab7c3d7d677b46765201dcfdfb1840f504f9831ce05c0e41c3edb39d844cd",
+      "recommended_id": "CA-C-271",
+      "confidence_percent": 93,
+      "disposition": "HOLD_CORROBORATED_REFERENCE",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/02_analysis/CA-A-933-ANALYSIS_RPRT--harvest-the-next-third-partition-session-packet.md",
+          "sha256": "6f726e1e7386d80d96fd8943616298bd383c95dd2fbfd820f7334d6c91ea03eb",
+          "detail": "Historical Analysis records this ID with matching subject; reference is corroboration, not explicit Header identity."
+        },
+        {
+          "git_commit": "67aaf9d2a9",
+          "detail": "Path rename history preserves filename continuity."
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-272-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-persist-analysis-and-ops-draft-be-reconciled.md",
+      "sha256": "bb6cd50d14cfd546357de0c79881abd1734c5c863171057928c5c6f2c0963555",
+      "recommended_id": "CA-C-272",
+      "confidence_percent": 70,
+      "disposition": "HOLD_FILENAME_INFERRED",
+      "evidence": [
+        {
+          "detail": "Filename and same-stem archived revisions provide continuity; no independently carried ID or matching canonical reference located."
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Confidence is evidence assessment, not an authorization to mutate.",
+    "No source, code, tests or Git changes."
+  ]
+}

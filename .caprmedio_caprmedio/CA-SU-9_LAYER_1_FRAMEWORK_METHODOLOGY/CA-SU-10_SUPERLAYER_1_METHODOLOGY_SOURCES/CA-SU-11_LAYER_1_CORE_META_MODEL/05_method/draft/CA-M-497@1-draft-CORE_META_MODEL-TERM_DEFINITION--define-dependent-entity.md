@@ -1,5 +1,6 @@
 ---
-atom_id: CA-M-draft
+atom_id: CA-M-497
+ref_id: CA-M-497@1-draft
 container:
   scope_unit: CA-SU-11
 role: Method
@@ -48,7 +49,7 @@ The role-only Draft marker allocates no canonical Method identity. Adoption requ
 
 - [Entity root with the Term branch](../../04_requirement/draft/CA-R-1248@24-draft-CORE_META_MODEL-DEFINITION--define-entity.md).
 - [Term kind and inherited structure](../../04_requirement/draft/CA-R-1318@30-draft-CORE_META_MODEL-DEFINITION--define-term.md).
-- [Dependent Entity kind](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-dependent-entity.md).
+- [Dependent Entity kind](../../04_requirement/draft/CA-R-2993@1-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-dependent-entity.md).
 - [Method Type Term Definition](../../04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-method-type-term-definition.md).
 - [Dedicated Method meaning owner](../../04_requirement/draft/CA-R-1319@26-draft-CORE_META_MODEL--define-governed-term.md).
 

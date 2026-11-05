@@ -102,10 +102,10 @@ Plan PROGRAMMATIC consumption of the protected base meta-model, activated instal
 
 The accepted planning inputs are the following saved Standard Drafts, not Active requirements or implemented capabilities:
 
-- [Model R](../04_requirement/draft/CA-R--PROGRAMMATIC-STANDARD--compose-expandable-and-overridable-model-declarations.md)
-- [Model M](../05_method/draft/CA-M--PROGRAMMATIC-STANDARD--resolve-one-provenance-bearing-effective-model.md)
-- [Model E](../06_evaluation/draft/CA-E--PROGRAMMATIC-STANDARD-EVALUATION_APPROACH--check-model-extension-override-and-refresh-contracts.md)
-- [Model D](../07_delivery/draft/CA-D--PROGRAMMATIC-STANDARD--deliver-model-inputs-effective-generation-and-limits.md)
+- [Model R](../04_requirement/draft/CA-R-2968@1-draft-PROGRAMMATIC-STANDARD--compose-expandable-and-overridable-model-declarations.md)
+- [Model M](../05_method/draft/CA-M-494@1-draft-PROGRAMMATIC-STANDARD--resolve-one-provenance-bearing-effective-model.md)
+- [Model E](../06_evaluation/draft/CA-E-789@1-draft-PROGRAMMATIC-STANDARD-EVALUATION_APPROACH--check-model-extension-override-and-refresh-contracts.md)
+- [Model D](../07_delivery/draft/CA-D-699@1-draft-PROGRAMMATIC-STANDARD--deliver-model-inputs-effective-generation-and-limits.md)
 
 Choose the supported versioned file format, extension/configuration admission and precedence, composition site and refresh policy before implementation. JSON is a candidate, not an adopted format. Target supported declaration changes without editing code or rebuilding the image; distinguish data changes from unsupported engine-semantic changes. Preserve exact provider/revision/input-digest provenance, one complete effective-model generation per operation and explicit diagnostics for conflicts or invalid/stale refresh. Effective models and graph views remain non-authoritative derived data.
 

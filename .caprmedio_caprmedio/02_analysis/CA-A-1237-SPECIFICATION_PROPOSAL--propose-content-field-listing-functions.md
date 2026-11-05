@@ -53,8 +53,8 @@ All functions remain proposals separate from Formal Claim syntax. Existing Summa
 
 | Draft | Role / Type | Purpose | State |
 |---|---|---|---|
-| [List Logical Content Fields](../101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-RULE--list-logical-content-fields.md) | R / Rule; `atom_id: CA-R-draft` | Candidate contract for registered Markdown headings at kind and instance level. | Draft; proposed only |
-| [Check Content Field Listing](../101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/draft/CA-E-draft-CORE_META_MODEL-EVAL_CASE--check-content-field-listing.md) | E / Eval Case; `atom_id: CA-E-draft` | Candidate checks for registered headings versus values and allowed versus present headings. | Draft; proposed only |
+| [List Logical Content Fields](../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2973@1-draft-CORE_META_MODEL-RULE--list-logical-content-fields.md) | R / Rule; `atom_id: CA-R-draft` | Candidate contract for registered Markdown headings at kind and instance level. | Draft; proposed only |
+| [Check Content Field Listing](../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-790@1-draft-CORE_META_MODEL-EVAL_CASE--check-content-field-listing.md) | E / Eval Case; `atom_id: CA-E-draft` | Candidate checks for registered headings versus values and allowed versus present headings. | Draft; proposed only |
 
 These are exactly two candidate Drafts. No numeric identity, typed evaluation link, parser, Tool, runtime, or Current-source change is proposed.
 

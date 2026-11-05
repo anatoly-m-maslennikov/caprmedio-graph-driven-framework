@@ -1,0 +1,40 @@
+{
+  "status": "PREPARED",
+  "scope": "Exact mapped Draft filenames and their recognized local Markdown hrefs in native Current/Draft sources; no unrelated path repair.",
+  "mapping": {
+    "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md": "CA-R-2962@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md"
+  },
+  "targets": {
+    "CA-R-2962@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2962@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md"
+  },
+  "scanned_native": 4669,
+  "reference_hits": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2969@1-draft-CORE_META_MODEL-DECLARATION--declare-step-content-claim-mermaid-scheme.md",
+      "href_repairs": [
+        {
+          "before": "CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md#semantics",
+          "after": "CA-R-2962@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md#semantics"
+        }
+      ],
+      "other_exact_name_replacements": []
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2969@1-draft-CORE_META_MODEL-DECLARATION--declare-step-content-claim-mermaid-scheme.md",
+      "before": "---\natom_id: CA-R-2969\nref_id: CA-R-2969@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Declaration\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Step.Content.Claim.Mermaid Scheme\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Workflow.Content.Claim.Mermaid Scheme\ntier: 3\nstatus: Draft\nversion: 1\nupdated_at: 2026-11-05 21:46:20 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2969@1-draft-CORE_META_MODEL-DECLARATION--declare-step-content-claim-mermaid-scheme.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Step.Content.Claim.Mermaid Scheme\n\n## Claim\n\n### Prose Claim\n\nMermaid Scheme semantics: [Workflow Mermaid Scheme declaration](CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md#semantics).\n\n### Formal Claim\n\n```CFEL\n# model\nStep.Content.Claim.Mermaid Scheme{::0..1} :: [markdown]{::1};\n\nStep.Content.Claim.Mermaid Scheme.*[]{::0}\n```\n",
+      "after": "---\natom_id: CA-R-2969\nref_id: CA-R-2969@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Declaration\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Step.Content.Claim.Mermaid Scheme\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Workflow.Content.Claim.Mermaid Scheme\ntier: 3\nstatus: Draft\nversion: 1\nupdated_at: 2026-11-05 21:46:20 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2969@1-draft-CORE_META_MODEL-DECLARATION--declare-step-content-claim-mermaid-scheme.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Step.Content.Claim.Mermaid Scheme\n\n## Claim\n\n### Prose Claim\n\nMermaid Scheme semantics: [Workflow Mermaid Scheme declaration](CA-R-2962@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md#semantics).\n\n### Formal Claim\n\n```CFEL\n# model\nStep.Content.Claim.Mermaid Scheme{::0..1} :: [markdown]{::1};\n\nStep.Content.Claim.Mermaid Scheme.*[]{::0}\n```\n",
+      "before_sha256": "92f75618415a92e8b796fd1310831cf8692db7469150aa35aa71b721be1b90e8",
+      "after_sha256": "1003da8ca3bcf1168a32ef758e2f389d658252bf8d46ea6c374b65a627e9ea27"
+    }
+  ],
+  "outputs": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2969@1-draft-CORE_META_MODEL-DECLARATION--declare-step-content-claim-mermaid-scheme.md",
+      "sha256": "1003da8ca3bcf1168a32ef758e2f389d658252bf8d46ea6c374b65a627e9ea27"
+    }
+  ],
+  "native_workflow_admission": false,
+  "journal_append": false
+}

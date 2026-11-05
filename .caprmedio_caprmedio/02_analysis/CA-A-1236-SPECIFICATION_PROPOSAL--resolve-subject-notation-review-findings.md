@@ -175,7 +175,7 @@ Decision: distinct primary-kind declaration names are unique across the effectiv
 
 ### Additional naming Rule Draft
 
-`CA-R-draft-CORE_META_MODEL-RULE--require-unique-primary-kind-names.md` records Q07. Fourteen total Drafts are now tracked. Conflicting primary labels need naming correction before promotion; exact collision inventory remains bounded follow-up, not a new generic identity layer.
+`CA-R-2974@1-draft-CORE_META_MODEL-RULE--require-unique-primary-kind-names.md` records Q07. Fourteen total Drafts are now tracked. Conflicting primary labels need naming correction before promotion; exact collision inventory remains bounded follow-up, not a new generic identity layer.
 
 ### Functions moved to a separate proposal
 

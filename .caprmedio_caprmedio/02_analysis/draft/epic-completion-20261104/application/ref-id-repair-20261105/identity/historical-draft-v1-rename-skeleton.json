@@ -1,0 +1,107 @@
+{
+  "status": "PROPOSED_PLACEHOLDERS_NO_ID_ALLOCATED",
+  "source_review": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/identity/remaining-12-review.json",
+  "candidates": [
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-asset-file.md",
+      "source_sha256": "ebecd91559a29c4c053539d355bb5d5120a3aa856e5a46d8f3cdfdd1e4189d48",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-DEFINITION--define-asset-file.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes and historical-only purpose",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Define Asset File",
+      "main_subject": "Model::CAPRMEDIO::Continuant/Package>Asset File",
+      "identity_evidence": "Source explicitly withdrawn or retained as preparation history; no numeric ID in source and no matching receipt filename under control root."
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-model.md",
+      "source_sha256": "a3c866306779266dc2cc8311d7a18d3943cfac6d7eac5c0442fbccd2970b3cf5",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-DEFINITION--define-model.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes and historical-only purpose",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Define Model",
+      "main_subject": "Model",
+      "identity_evidence": "Source explicitly withdrawn or retained as preparation history; no numeric ID in source and no matching receipt filename under control root."
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-test-package.md",
+      "source_sha256": "743139aea2e508317924e10c4dd5871efe1324033ca9b26f81b8ab0433428869",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-DEFINITION--define-test-package.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes and historical-only purpose",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Define Test Package",
+      "main_subject": "Model::CAPRMEDIO::Continuant/Package/Test Package",
+      "identity_evidence": "Source explicitly withdrawn or retained as preparation history; no numeric ID in source and no matching receipt filename under control root."
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-dependent-entity.md",
+      "source_sha256": "9104786bd1f9ca37679c39a938c8938db0df1af7e9497ef82c170df50d5179b3",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-dependent-entity.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes and historical-only purpose",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Define Dependent Entity",
+      "main_subject": "Entity/Dependent Entity",
+      "identity_evidence": "Source explicitly withdrawn or retained as preparation history; no numeric ID in source and no matching receipt filename under control root."
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-draft-CORE_META_MODEL-TERM_DEFINITION--define-dependent-entity.md",
+      "source_sha256": "49a1103d0b227856e4b3e439383b3c2d8fbf1ff1597ebbe7ef67eab1e1a4403e",
+      "letter": "M",
+      "proposed_id": "CA-M-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/{ID}@1-draft-CORE_META_MODEL-TERM_DEFINITION--define-dependent-entity.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes and historical-only purpose",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Define Dependent Entity",
+      "main_subject": "Entity/Term//Dependent Entity",
+      "identity_evidence": "Source explicitly withdrawn or retained as preparation history; no numeric ID in source and no matching receipt filename under control root."
+    }
+  ],
+  "preflight": [
+    "Recheck pinned source, Draft status, version 1 and no numeric identity.",
+    "Under global identity lock allocate unused role-letter ID and check preserved history.",
+    "Reject existing target or changed source; modify only identity fields and existing Carrier Destination filename; preserve Body and all other Header bytes."
+  ],
+  "note": "Identity-only repair preserves historical-only purpose and does not revive or promote withdrawn Claims."
+}

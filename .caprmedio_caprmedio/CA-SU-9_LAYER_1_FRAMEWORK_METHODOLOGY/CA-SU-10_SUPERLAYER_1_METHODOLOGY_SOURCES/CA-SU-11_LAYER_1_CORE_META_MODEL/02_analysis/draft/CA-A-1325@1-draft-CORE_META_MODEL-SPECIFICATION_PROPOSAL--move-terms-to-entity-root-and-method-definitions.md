@@ -229,8 +229,8 @@ At that stage, the register selected **116 RMED Drafts: 12 primary and 104 consu
 
 | Preparation | Disposition |
 |---|---|
-| `04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-dependent-entity.md` | Retained withdrawn preparation; excluded from the active register. |
-| `05_method/draft/CA-M-draft-CORE_META_MODEL-TERM_DEFINITION--define-dependent-entity.md` | Retained withdrawn preparation; excluded from the active register. |
+| `04_requirement/draft/CA-R-2993@1-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-dependent-entity.md` | Retained withdrawn preparation; excluded from the active register. |
+| `05_method/draft/CA-M-497@1-draft-CORE_META_MODEL-TERM_DEFINITION--define-dependent-entity.md` | Retained withdrawn preparation; excluded from the active register. |
 | `04_requirement/draft/CA-R-1251@23-draft-CORE_META_MODEL-RULE--classify-property-as-a-dependent-entity.md` | Retained withdrawn preparation; excluded from the active register. |
 | `04_requirement/draft/CA-R-1260@33-draft-CORE_META_MODEL-DEFINITION--define-is-borne-by.md` | Retained withdrawn preparation; excluded from the active register. |
 | `04_requirement/draft/CA-R-1267@23-draft-CORE_META_MODEL-RULE--classify-dependent-entity-as-an-entity.md` | Retained withdrawn preparation; excluded from the active register. |
@@ -373,7 +373,7 @@ The count before the token constrains links in the written Source-to-Target dire
 
 The earlier bounded preparation updated R1931, R2243, M228 and E383; R1193's exactly-one-bearer spelling; the glossary, Status Group and HAS_CLASSIFICATION Drafts; and the M301 dependency spelling. M301 still has no Current predecessor and is not revived or made promotion-ready. New source-pinned successors R1368@28 and R2419@2 retain the existing full-pair/reference ownership. Their exact paths are `04_requirement/draft/CA-R-1368@28-draft-CORE_META_MODEL--define-containment-relation-pair.md` and `04_requirement/draft/CA-R-2419@2-draft-CORE_META_MODEL-RELATION_DEFINITION--define-is-contained-by-relation.md`. They remain outside the 125-Draft Term/settings register, like the separate Classification preparations.
 
-The selected baseline is `02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--notation-baseline-for-intuitive-symbol-review.md`. Evidence and the bounded residual inventory are under `/tmp/cce-selected-composition-classification-notation-20261030/`. Other structural-path consumers and Current sources still need coordinated adoption; no parser, runtime, Current Atom, generated view or filename is changed by this preparation. No alternative to `X/(.Y: Z)` was selected.
+The selected baseline is `02_analysis/draft/CA-A-1326@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--notation-baseline-for-intuitive-symbol-review.md`. Evidence and the bounded residual inventory are under `/tmp/cce-selected-composition-classification-notation-20261030/`. Other structural-path consumers and Current sources still need coordinated adoption; no parser, runtime, Current Atom, generated view or filename is changed by this preparation. No alternative to `X/(.Y: Z)` was selected.
 
 ### Historical Atom Status Group and classification notation — superseded spellings
 

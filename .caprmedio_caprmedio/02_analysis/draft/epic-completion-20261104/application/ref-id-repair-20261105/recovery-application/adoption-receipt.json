@@ -1,0 +1,24 @@
+{
+  "operations": [
+    {
+      "before_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md",
+      "after_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2962@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md",
+      "before_sha256": "8352c29aa328a863ba9a1cd4bb56ef4ae6d1b1a1ad862604820cd3e2dea50357",
+      "after_sha256": "dbad24cfaeb309a0f6ab14301b980b38a300bb61585f9b60eb256d7dee33db6f"
+    },
+    {
+      "before_path": ".caprmedio_caprmedio/CA-SU-28_FEATURE_COMMUNITY_EXTENSIONS/07_delivery/CA-D-409-COMMUNITY_EXTENSIONS-DELIVERY--bind-community-extensions-delivery-place.md",
+      "after_path": ".caprmedio_caprmedio/CA-SU-28_FEATURE_COMMUNITY_EXTENSIONS/07_delivery/CA-D-409-COMMUNITY_EXTENSIONS-DELIVERY--bind-community-extensions-delivery-place.md",
+      "before_sha256": "44890f1272da7e81a8124d607fa4dfe32cb2c603e9d9f358a9f5e0a34b45d5bf",
+      "after_sha256": "d1cbffd86219f1cdbd820d97adc7ec041ca5206cead973aad06c06ee4ff8a025"
+    }
+  ],
+  "evidence": {
+    "workflow_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/content-order-20261105/workflow-declarations-receipt.json",
+    "d409_archive": ".caprmedio_caprmedio/CA-SU-28_FEATURE_COMMUNITY_EXTENSIONS/07_delivery/archive/CA-D-409-COMMUNITY_EXTENSIONS-DELIVERY--bind-community-extensions-delivery-place@5.md",
+    "d409_archive_sha256": "a0bc131d1dcb543d3de62042c4b5fb209a946582b6b332005cf7baa19adb8504"
+  },
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "status": "APPLIED_READBACK_VERIFIED"
+}

@@ -1954,7 +1954,7 @@ Subject values use string under CA-A-1285. The basic format check validates the 
 - [CA-A-1278: retire Resources and classify content by purpose](../CA-A-1278-SPECIFICATION_PROPOSAL--retire-resources-and-classify-content-by-purpose.md).
 - [CA-A-1271: logical Asset versus File Carrier](../CA-A-1271-SPECIFICATION_PROPOSAL--keep-asset-distinct-from-file-carrier.md).
 - [CA-A-1270: historical Asset File naming, superseded by CA-A-1271](../CA-A-1270-SPECIFICATION_PROPOSAL--name-the-non-executable-item-asset-file.md).
-- [Model Definition Draft](../../101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-model.md).
+- [Model Definition Draft](../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2991@1-draft-CORE_META_MODEL-DEFINITION--define-model.md).
 - [Runtime Package Definition Draft](../../101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-runtime-package.md).
 - [Eval Package Definition Draft](../../101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-eval-package.md).
 - [CA-A-1267: runtime/test usage for Modules and Assets](../CA-A-1267-SPECIFICATION_PROPOSAL--allow-modules-and-assets-for-runtime-or-tests.md).
@@ -1968,7 +1968,7 @@ Subject values use string under CA-A-1285. The basic format check validates the 
 - [Structural Unit Definition Draft](../../101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-structural-unit.md).
 - [Asset Definition Draft](../../101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-implementation-asset.md).
 - [Code Unit Definition Draft](../../101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-code-unit.md).
-- [Terms Projection Definition Draft](../../101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-terms-projection.md).
+- [Terms Projection Definition Draft](../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2971@1-draft-CORE_META_MODEL-DEFINITION--define-terms-projection.md).
 - [Graph Syntax Definition Draft](../../101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-graph-syntax.md).
 - Current property rules include CA-R-2102, CA-R-1269, CA-R-1947, CA-R-1539, CA-R-1608, CA-R-1875, CA-R-1945, CA-R-1990, CA-R-1991 and CA-R-1995 through CA-R-1999. Carrier and other property references appear inline.
 - CA-PROJ-011 was used only as a direct-property inventory. Its inherited marks were not trusted. Governing source definitions and the Operator's latest input determine this Draft.

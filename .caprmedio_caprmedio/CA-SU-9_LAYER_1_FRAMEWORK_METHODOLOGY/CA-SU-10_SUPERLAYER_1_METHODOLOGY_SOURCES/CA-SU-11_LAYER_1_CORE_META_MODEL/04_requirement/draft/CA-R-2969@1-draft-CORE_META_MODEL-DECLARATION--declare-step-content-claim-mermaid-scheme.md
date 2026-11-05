@@ -27,7 +27,7 @@ Declare Step.Content.Claim.Mermaid Scheme
 
 ### Prose Claim
 
-Mermaid Scheme semantics: [Workflow Mermaid Scheme declaration](CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md#semantics).
+Mermaid Scheme semantics: [Workflow Mermaid Scheme declaration](CA-R-2962@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md#semantics).
 
 ### Formal Claim
 

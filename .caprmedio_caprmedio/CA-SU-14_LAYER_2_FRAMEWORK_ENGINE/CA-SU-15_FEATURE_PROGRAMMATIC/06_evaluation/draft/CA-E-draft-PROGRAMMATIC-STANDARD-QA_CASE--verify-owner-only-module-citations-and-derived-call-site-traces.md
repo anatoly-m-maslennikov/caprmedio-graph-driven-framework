@@ -123,7 +123,7 @@ as complete.
 
 Evaluated Method Draft: [module-start owner citations](../../05_method/draft/CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md).
 
-Companion Method Draft: [localized ownership and shared policies](../../05_method/draft/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--localize-engineering-decisions-and-reuse-shared-policies.md).
+Companion Method Draft: [localized ownership and shared policies](../../05_method/draft/CA-M-495@1-draft-PROGRAMMATIC-CORE-ENG_POLICY--localize-engineering-decisions-and-reuse-shared-policies.md).
 
 These Draft references identify the candidate procedure for review, not an
 active runtime policy. Operational evaluation requires the admitted Method;
