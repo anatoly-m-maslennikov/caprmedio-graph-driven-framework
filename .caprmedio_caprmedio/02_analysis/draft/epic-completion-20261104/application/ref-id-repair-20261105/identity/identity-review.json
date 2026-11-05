@@ -21,7 +21,7 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "missing; do not infer from filename",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Compose expandable and overridable model declarations",
@@ -29,7 +29,9 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/CA-R-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md",
@@ -41,7 +43,7 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 2,
       "proposed_version": null,
       "summary": "Trace RMED claims to canonical module owners",
@@ -55,7 +57,9 @@
         "- CA-M-411",
         "Current CA-R-2117, CA-M-431, CA-E-653 and CA-M-411 remain active authority"
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNNUMBERED_VERSION_HISTORY",
+      "same_main_subject_current": [],
+      "identity_intent": "unallocated version greater than one; review retained history before treating as new version 1"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M--PROGRAMMATIC-STANDARD--resolve-one-provenance-bearing-effective-model.md",
@@ -67,7 +71,7 @@
       "role_letter": "M",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "missing; do not infer from filename",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Resolve one provenance-bearing effective model",
@@ -75,7 +79,9 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--localize-engineering-decisions-and-reuse-shared-policies.md",
@@ -87,9 +93,9 @@
       "role_letter": "M",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 47,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
-      "proposed_version": null,
+      "proposed_version": 1,
       "summary": "Localize engineering decisions and reuse shared policies",
       "main_subject": "Subject/Engineering/Source Unit Responsibility",
       "same_summary_current": [],
@@ -100,7 +106,9 @@
         "- CA-M-419",
         "supersede CA-M-403, CA-M-411 or CA-M-419, and must not be treated as an active"
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md",
@@ -112,7 +120,7 @@
       "role_letter": "M",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 47,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 2,
       "proposed_version": null,
       "summary": "Organize cohesive modules, packages and assets",
@@ -128,7 +136,9 @@
         "create, weaken or waive these rules. Existing CA-E-364 and CA-E-539 content",
         "silently supersede CA-M-403, CA-M-411, CA-M-419, CA-E-364 or CA-E-539."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNNUMBERED_VERSION_HISTORY",
+      "same_main_subject_current": [],
+      "identity_intent": "unallocated version greater than one; review retained history before treating as new version 1"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md",
@@ -140,7 +150,7 @@
       "role_letter": "M",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 67,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 2,
       "proposed_version": null,
       "summary": "Write RMED owner citations only at module start",
@@ -158,7 +168,9 @@
         "# Delivery: CA-D-345",
         "correction. Current CA-R-2117, CA-M-431, CA-E-653 and CA-M-411 remain active"
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNNUMBERED_VERSION_HISTORY",
+      "same_main_subject_current": [],
+      "identity_intent": "unallocated version greater than one; review retained history before treating as new version 1"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E--PROGRAMMATIC-STANDARD-EVALUATION_APPROACH--check-model-extension-override-and-refresh-contracts.md",
@@ -170,7 +182,7 @@
       "role_letter": "E",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Check model extension, override and refresh contracts",
@@ -178,7 +190,9 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md",
@@ -190,7 +204,7 @@
       "role_letter": "E",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 2,
       "proposed_version": null,
       "summary": "Evaluate source size, cohesion and package organization",
@@ -205,7 +219,9 @@
         "is not current authority and does not change CA-E-539. On coordinated",
         "CA-E-539, existing complexity checks, Ruff configuration and ratchets remain"
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNNUMBERED_VERSION_HISTORY",
+      "same_main_subject_current": [],
+      "identity_intent": "unallocated version greater than one; review retained history before treating as new version 1"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md",
@@ -217,7 +233,7 @@
       "role_letter": "E",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 2,
       "proposed_version": null,
       "summary": "Verify owner-only module citations and derived call-site traces",
@@ -233,7 +249,9 @@
         "revision is accepted; CA-R-2117 is informational here, not the rule source.",
         "historical CA-M-431 and CA-M-411 references are reconciliation context only."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNNUMBERED_VERSION_HISTORY",
+      "same_main_subject_current": [],
+      "identity_intent": "unallocated version greater than one; review retained history before treating as new version 1"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/07_delivery/draft/CA-D--PROGRAMMATIC-STANDARD--deliver-model-inputs-effective-generation-and-limits.md",
@@ -245,7 +263,7 @@
       "role_letter": "D",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "missing; do not infer from filename",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Deliver model inputs, effective generation and limits",
@@ -253,7 +271,9 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--establish-one-to-one-cce-dictionary.md",
@@ -265,9 +285,9 @@
       "role_letter": "A",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
-      "proposed_version": null,
+      "proposed_version": 1,
       "summary": "Establish explicit Term Definitions and staged CCE consistency checks",
       "main_subject": "Entity/Object/Continuant/Term",
       "same_summary_current": [],
@@ -286,7 +306,10 @@
         "| Requirement | CA-R-1321@31 | [CA-R-1321-CORE_META_MODEL--define-subject-expression](../../04_requirement/CA-R-1321-CORE_META_MODEL--define-subject-expression.md) |",
         "| Requirement | CA-R-1946@14 | [CA-R-1946-CORE_META_MODEL--define-atom-semantics](../../04_requirement/CA-R-1946-CORE_META_MODEL--define-atom-semantics.md) |"
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor",
+      "same_summary_current_analysis": []
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-terms-to-entity-root-and-method-definitions.md",
@@ -298,9 +321,9 @@
       "role_letter": "A",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
-      "proposed_version": null,
+      "proposed_version": 1,
       "summary": "Move Terms to the Entity root and Method definitions",
       "main_subject": "Entity/Term",
       "same_summary_current": [],
@@ -319,7 +342,10 @@
         "| CA-D-479@25 | [CA-D-479@26-draft-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties](../../07_delivery/draft/CA-D-479@26-draft-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md) |",
         "| CA-D-655@1 | [CA-D-655@2-draft-CORE_META_MODEL-POLICY--carry-term-definition-and-staged-review-evidence](../../07_delivery/draft/CA-D-655@2-draft-CORE_META_MODEL-POLICY--carry-term-definition-and-staged-review-evidence.md) |"
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor",
+      "same_summary_current_analysis": []
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--notation-baseline-for-intuitive-symbol-review.md",
@@ -331,9 +357,9 @@
       "role_letter": "A",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
-      "proposed_version": null,
+      "proposed_version": 1,
       "summary": "Notation baseline for intuitive symbol review",
       "main_subject": "Entity/Graph Syntax",
       "same_summary_current": [],
@@ -342,7 +368,10 @@
         "Supporting Drafts: [notation](../../04_requirement/draft/CA-R-1931@17-draft-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md),",
         "and [Format/cardinality](../../04_requirement/draft/CA-R-2243@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cardinality-notation.md)."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor",
+      "same_summary_current_analysis": []
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md",
@@ -354,7 +383,7 @@
       "role_letter": "A",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 3,
       "proposed_version": null,
       "summary": "Declare the Node branch and derive the graph from Formal Claims",
@@ -375,7 +404,9 @@
         "| `CA-R-2470@2` | Requirement / Rule | [Inherit Declaration constraints and enforce Relation whitelists](../../04_requirement/CA-R-2470-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md) |",
         "| `CA-R-2471@2` | Requirement / Rule | [Use distinct graph notation for Node relations](../../04_requirement/CA-R-2471-CORE_META_MODEL-CFEL--use-node-graph-notation.md) |"
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNNUMBERED_VERSION_HISTORY",
+      "same_main_subject_current": [],
+      "identity_intent": "unallocated version greater than one; review retained history before treating as new version 1"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--allow-one-optional-atom-semantics.md",
@@ -387,17 +418,19 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Allow zero or one Semantics section for each Atom.  ```yaml graph_rule_type: cardinality applies_to:   node: \"Entity/Node/Continuant/Atom\"   property: \"Entity/Node/Continuant/Atom.Semantics\" condition:   minimum: 0   maximum: 1 ```",
+      "summary": "Allow zero or one Semantics section for each Atom.",
       "main_subject": "Entity/Node/Continuant/Atom.Semantics",
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [
         "Provenance: `../CA-R-1946-CORE_META_MODEL-GENERAL--define-atom-semantics.md` defines Semantics as Atom content without requiring it on every Atom; `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` permits an optional Semantics section for formal Graph Rules. The operative block is a proposed property-cardinality schema only; current CA-D-637 admits cardinality only for relations. It creates no parser, validator, resolver, evaluator, o"
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--constrain-evaluation-for-endpoint-kinds.md",
@@ -409,10 +442,10 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Constrain the endpoint kinds of evaluation_for  ```yaml graph_rule_type: whitelist applies_to:   relation_type: evaluation_for condition:   source:     - \"Entity/Node/Continuant/Atom/Content Role: Evaluation\"   target:     - \"Entity/Node/Continuant/Atom/Content Role: Requirement\"     - \"Entity/Node/Continuant/Atom/Content Role: Method\"     - \"Entity/Node/Continuant/Atom/Content Role: Evaluation\"     - \"Entity/Node/Continuant/Atom/Content Role: Delivery\"     - \"Entity/Node/Continuant/Atom/Content Role: Operations\" ```",
+      "summary": "Constrain the endpoint kinds of evaluation_for",
       "main_subject": "Entity/Relation/Type: evaluation_for",
       "same_summary_current": [],
       "same_summary_history": [],
@@ -420,7 +453,9 @@
         "Source: [CA-R-1018@22](../CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md). The whitelist checks only endpoint kinds; it does not require a connection or establish that a supplied target's authority is actually checked. The relation's meaning and other constraints remain separate.",
         "This Draft uses the existing Whitelist shape from [CA-D-637@5](../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md). Draft creation does not activate this rule or establish runtime evaluation."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-original-atom-ids-unique.md",
@@ -432,10 +467,10 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Require unique canonical IDs among Current original Atoms  ```yaml graph_rule_type: value_constraint applies_to:   node: \"Entity/Node/Continuant/Selection//Current Original Atoms\"   property: \"Entity/Node/Continuant/Atom.ID\" condition:   unique: true ```",
+      "summary": "Require unique canonical IDs among Current original Atoms",
       "main_subject": "Entity/Node/Continuant/Atom.ID",
       "same_summary_current": [],
       "same_summary_history": [],
@@ -443,7 +478,9 @@
         "The `value_constraint` mapping is proposed only. [CA-D-637@5](../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md) names the type but does not yet admit its schema or a Selection resolver.",
         "Sources: [CA-D-446@17](../../07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md), [CA-D-378@16](../../07_delivery/CA-D-378-CORE_META_MODEL--serialize-assigned-atom-identities.md) and [CA-D-570@12](../../07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md). [Project Configuration CA-D-305@16](../../../003_PROJECT_CONFIGURATION/07_delivery/CA-D-305-PROJECT_CONFIGURATION-CORE--carry-projected-atoms-without-new-identity.md) "
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-rmed-relation-targets-current.md",
@@ -455,10 +492,10 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Keep Current RMED-to-RMED relation targets Current  ```yaml graph_rule_type: endpoint_constraint applies_to:   relation: direct   source:     lifecycle_group: Current     content_role:       - Requirement       - Method       - Evaluation       - Delivery   target:     content_role:       - Requirement       - Method       - Evaluation       - Delivery condition:   target_lifecycle_group: Current   on_unresolved_endpoint_lifecycle: unresolved ```",
+      "summary": "Keep Current RMED-to-RMED relation targets Current",
       "main_subject": "Entity/Relation",
       "same_summary_current": [],
       "same_summary_history": [],
@@ -466,7 +503,9 @@
         "The `endpoint_constraint` mapping is proposed only. [CA-D-637@5](../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md) does not yet admit an endpoint-constraint schema.",
         "Source: [CA-R-1676@21](../CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md). Current is a lifecycle group, not an Atom.Status value: exclude Draft and archived sources; include non-archived Done/Canceled where their role permits those statuses. Use authoritative lifecycle/placement, not historical Status bytes alone. Apply only to direct relations whose source and target roles are both in RMED. Relations involving Operations or other kinds are ou"
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-default-values-within-the-governed-value-domain.md",
@@ -478,10 +517,10 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Keep a default within the governed value's constraints  ```yaml graph_rule_type: value_constraint applies_to:   node: Entity/Graph Rule   property: Entity/Graph Rule.Default Value condition:   when_present:     conforms_to: governed_value_constraints ```",
+      "summary": "Keep a default within the governed value's constraints",
       "main_subject": "Entity/Graph Rule.Default Value",
       "same_summary_current": [],
       "same_summary_history": [],
@@ -489,7 +528,9 @@
         "Proposed Value Constraint encoding, not an admitted schema in CA-D-637@5. This Draft introduces no validator or resolver support.",
         "Source: [CA-R-1999@1](../CA-R-1999-CORE_META_MODEL-CORE--define-entity-graph-rule-default-value.md). Its fallback-only meaning remains: resolving a default does not automatically write a value or create a relation. Cardinality rules continue to forbid default_value under the existing Delivery schema."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--preserve-inherited-status-values.md",
@@ -501,10 +542,10 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Preserve inherited Status values in narrower Atom kinds  ```yaml graph_rule_type: value_constraint applies_to:   node: Entity/Node/Continuant/Atom   property: Entity/Node/Continuant/Atom.Status condition:   allowed_value_domain:     includes_inherited_values: true     permits_declared_additions: true ```",
+      "summary": "Preserve inherited Status values in narrower Atom kinds",
       "main_subject": "Entity/Node/Continuant/Atom.Status",
       "same_summary_current": [],
       "same_summary_history": [],
@@ -512,7 +553,9 @@
         "Proposed Value Constraint encoding, not an admitted schema in CA-D-637@5. It constrains source-declared allowed-value domains, not the number of Status values on one Atom. It introduces no resolver or universal rule-merging policy.",
         "Sources: [CA-R-1308@13](../CA-R-1308-CORE_META_MODEL-CORE-REQUIREMENT--resolve-status-domains-from-complete-qualified-paths.md) and [CA-R-1947@3](../CA-R-1947-CORE_META_MODEL-GENERAL--define-atom-status-allowed-values.md). The base values and qualified additions remain owned by those source declarations, not copied into this rule."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-date-time-atom-updated-at.md",
@@ -524,10 +567,10 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Require a date-time value for Atom Updated At  ```yaml graph_rule_type: value_constraint applies_to:   node: Entity/Node/Continuant/Atom   property: Entity/Node/Continuant/Atom.Updated At condition:   value_type: date_time ```",
+      "summary": "Require a date-time value for Atom Updated At",
       "main_subject": "Entity/Node/Continuant/Atom.Updated At",
       "same_summary_current": [],
       "same_summary_history": [],
@@ -535,7 +578,9 @@
         "Proposed Value Constraint encoding, not an admitted schema in CA-D-637@5. Check each present value; missing-value requiredness belongs to the separate Cardinality rule. Date-time is the semantic type, even when its carrier is a quoted YAML string. No general primitive-type registry is created here.",
         "Source: [CA-R-1416@15](../CA-R-1416-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-updated-at.md). Exact spelling, quoting and timezone representation remain Delivery policies, not another condition in this rule."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-integer-atom-version.md",
@@ -547,17 +592,19 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Require each Atom Version Number to be an integer.  ```yaml graph_rule_type: value_constraint applies_to:   node: \"Entity/Node/Continuant/Atom\"   property: \"Entity/Node/Continuant/Atom.Version Number\" condition:   value_type: integer ```",
+      "summary": "Require each Atom Version Number to be an integer.",
       "main_subject": "Entity/Node/Continuant/Atom.Version Number",
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [
         "Provenance: `../CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md` requires a positive integer Version. The operative block is a proposed value-constraint schema only: `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` does not yet admit value constraints. It creates no parser, validator, resolver, evaluator, or activation."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-status.md",
@@ -569,17 +616,19 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Require one Status for each Atom.  ```yaml graph_rule_type: cardinality applies_to:   node: \"Entity/Node/Continuant/Atom\"   property: \"Entity/Node/Continuant/Atom.Status\" condition:   minimum: 1   maximum: 1 ```",
+      "summary": "Require one Status for each Atom.",
       "main_subject": "Entity/Node/Continuant/Atom.Status",
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [
         "Provenance: `../CA-R-1412-CORE_META_MODEL-CORE--give-every-atom-revision-one-status.md` requires exactly one Status. The operative block is a proposed property-cardinality schema only: current `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` admits cardinality only for relations. It creates no parser, validator, resolver, evaluator, or activation."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-updated-at.md",
@@ -591,10 +640,10 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Require one Updated At value per Atom  ```yaml graph_rule_type: cardinality applies_to:   node: Entity/Node/Continuant/Atom   property: Entity/Node/Continuant/Atom.Updated At condition:   minimum: 1   maximum: 1 ```",
+      "summary": "Require one Updated At value per Atom",
       "main_subject": "Entity/Node/Continuant/Atom.Updated At",
       "same_summary_current": [],
       "same_summary_history": [],
@@ -602,7 +651,9 @@
         "Proposed property-value Cardinality encoding, not the relation-counting schema admitted by CA-D-637@5. Count the values of this property on each Atom, including zero for a missing property; do not count IS_BORNE_BY edges as property values.",
         "Source: [CA-R-1416@15](../CA-R-1416-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-updated-at.md). This Draft does not change timestamp serialization, timezone selection or update procedures."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-version.md",
@@ -614,17 +665,19 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Require one Version Number for each Atom.  ```yaml graph_rule_type: cardinality applies_to:   node: \"Entity/Node/Continuant/Atom\"   property: \"Entity/Node/Continuant/Atom.Version Number\" condition:   minimum: 1   maximum: 1 ```",
+      "summary": "Require one Version Number for each Atom.",
       "main_subject": "Entity/Node/Continuant/Atom.Version Number",
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [
         "Provenance: `../CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md` requires one positive integer Version. The operative block is a proposed property-cardinality schema only: current `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` admits cardinality only for relations. It creates no parser, validator, resolver, evaluator, or activation."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-positive-atom-version.md",
@@ -636,17 +689,19 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Require each Atom Version Number to be positive.  ```yaml graph_rule_type: value_constraint applies_to:   node: \"Entity/Node/Continuant/Atom\"   property: \"Entity/Node/Continuant/Atom.Version Number\" condition:   minimum: 1 ```",
+      "summary": "Require each Atom Version Number to be positive.",
       "main_subject": "Entity/Node/Continuant/Atom.Version Number",
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [
         "Provenance: `../CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md` requires a positive integer Version. The operative block is a proposed value-constraint range schema only: `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` does not yet admit value constraints. It creates no parser, validator, resolver, evaluator, or activation."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-text-atom-semantics.md",
@@ -658,17 +713,19 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Require an Atom's present Semantics section to contain text.  ```yaml graph_rule_type: value_constraint applies_to:   node: \"Entity/Node/Continuant/Atom\"   property: \"Entity/Node/Continuant/Atom.Semantics\" condition:   value_type: string ```",
+      "summary": "Require an Atom's present Semantics section to contain text.",
       "main_subject": "Entity/Node/Continuant/Atom.Semantics",
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [
         "Provenance: `../CA-R-1946-CORE_META_MODEL-GENERAL--define-atom-semantics.md` defines Semantics as content represented by a section. An absent Semantics section is ignored by this text constraint; optionality is governed separately. The operative block is a proposed value-constraint schema only: `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` does not yet admit value constraints. It creates no parser, validator, resolver, evaluator, "
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--use-the-applicable-status-values.md",
@@ -680,17 +737,19 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
-      "summary": "Use the Status values from each Atom's applicable qualified Status model.  ```yaml graph_rule_type: value_constraint applies_to:   node: \"Entity/Node/Continuant/Atom\"   property: \"Entity/Node/Continuant/Atom.Status\" condition:   allowed_values_source: qualified_status_model ```",
+      "summary": "Use the Status values from each Atom's applicable qualified Status model.",
       "main_subject": "Entity/Node/Continuant/Atom.Status",
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [
         "Provenance: `../CA-R-1308-CORE_META_MODEL-CORE-REQUIREMENT--resolve-status-domains-from-complete-qualified-paths.md` requires inherited Atom.Status values plus additions admitted by the complete qualified Content Role and Type path; `../CA-R-1947-CORE_META_MODEL-GENERAL--define-atom-status-allowed-values.md` declares the base Draft, Active, and Archived values while permitting narrower additions. This is a proposed value-constraint schema with a reference to the qualified model, not a flat globa"
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_UNADMITTED_GRAPH_RULE_SCHEMA",
+      "same_main_subject_current": [],
+      "identity_intent": "new derived Graph Rule proposal; source references supply provenance, not predecessor binding; schema and Form admission require review"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step-content-claim-mermaid-scheme.md",
@@ -702,7 +761,7 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 349,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "admitted: CA-R-2516",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Declare Step.Content.Claim.Mermaid Scheme",
@@ -710,7 +769,9 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md",
@@ -722,15 +783,17 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 349,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "admitted: CA-R-2516",
       "version_existing": 1,
-      "proposed_version": 1,
+      "proposed_version": null,
       "summary": "Declare Workflow.Content.Claim.Mermaid Scheme",
       "main_subject": "CAPRMEDIO_MODEL <+ Workflow.Content.Claim.Mermaid Scheme",
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "HOLD_PREVIOUSLY_ALLOCATED_ID_RECONCILE_RECLASSIFICATION",
+      "same_main_subject_current": [],
+      "identity_intent": "receipt creation-receipt.json records CA-R-2962@1 for same Workflow Mermaid declaration; later anonymous content has additions, lineage decision required"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-asset-file.md",
@@ -742,7 +805,7 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
       "summary": "Define Asset File",
@@ -753,7 +816,9 @@
         "CA-A-1266 narrows the previous broad Asset File proposal. CA-A-1267 confirms runtime and test Assets. Resources member classification remains separate work, rather than an unanswered runtime-versus-tests decision. Numeric identity, Current adoption and any Delivery mapping remain pending. No new primitive Format or runtime implementation is introduced.",
         "CA-A-1271 restores Asset as the logical kind because files are Carriers. The promotion candidate is define-implementation-asset.md. This Asset File naming Draft is retained for historical references only, not as another kind or alias."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_HISTORICAL_ONLY_EXPLICITLY_REPLACED",
+      "same_main_subject_current": [],
+      "identity_intent": "historical proposal retained for references, not promotion candidate"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-model.md",
@@ -765,9 +830,9 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 6,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
-      "proposed_version": null,
+      "proposed_version": 1,
       "summary": "Define Model",
       "main_subject": "Model",
       "same_summary_current": [],
@@ -775,7 +840,9 @@
       "id_reference_lines": [
         "Prepared from CA-A-1268\u2013CA-A-1270. Numeric identity and Current adoption remain pending."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-requirement-type-requirement.md",
@@ -787,9 +854,9 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
-      "proposed_version": null,
+      "proposed_version": 1,
       "summary": "Define Requirement Type Requirement",
       "main_subject": "Model::CAPRMEDIO::Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Requirement",
       "same_summary_current": [],
@@ -797,7 +864,9 @@
       "id_reference_lines": [
         "Prepared from the Operator's Type list in CA-A-1257; no numeric identity or Current promotion is claimed."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-terms-projection.md",
@@ -809,7 +878,7 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 6,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Define Terms Projection",
@@ -817,7 +886,9 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-test-package.md",
@@ -829,7 +900,7 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
       "summary": "Define Test Package",
@@ -840,7 +911,9 @@
         "Prepared from CA-A-1268\u2013CA-A-1270. Numeric identity and Current adoption remain pending.",
         "CA-A-1272 replaces Test Package with Eval Package, covering Module- and Prompt-based evaluations. The promotion candidate is define-eval-package.md. This old naming Draft remains only for historical references."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_HISTORICAL_ONLY_EXPLICITLY_REPLACED",
+      "same_main_subject_current": [],
+      "identity_intent": "historical proposal retained for references, not promotion candidate"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-value-constraint-annotations.md",
@@ -852,7 +925,7 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 0,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Define Value Constraint Annotations",
@@ -860,7 +933,24 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [
+        {
+          "path": ".caprmedio_caprmedio/02_analysis/CA-A-1292-SPECIFICATION_PROPOSAL--use-explicit-atom-paths-in-conditional-value-constraints.md",
+          "id": "CA-A-1292",
+          "version": 2,
+          "status": "Active",
+          "sha256": "ef619012e09b89b87ae008266857cfdacb1ecd418935ed5ea66e3dd46b0b1f51"
+        },
+        {
+          "path": ".caprmedio_caprmedio/02_analysis/CA-A-1291-SPECIFICATION_PROPOSAL--materialize-value-expressions-inside-format-conditions.md",
+          "id": "CA-A-1291",
+          "version": 2,
+          "status": "Active",
+          "sha256": "f6c5f974fdbd5d7803f975b79af94830fc7f32c0fd666f4739cefe909ca74f00"
+        }
+      ],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-dependent-entity.md",
@@ -872,7 +962,7 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 6,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": null,
       "summary": "Define Dependent Entity",
@@ -902,7 +992,9 @@
         "- [Term kind and inherited structure](CA-R-1318@30-draft-CORE_META_MODEL-DEFINITION--define-term.md).",
         "- [Dedicated Method meaning owner](CA-R-1319@26-draft-CORE_META_MODEL--define-governed-term.md)."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_MATCH_REVIEW_NOT_IDENTITY_PROOF",
+      "same_main_subject_current": [],
+      "identity_intent": "same-Summary match is evidence only; no explicit revision binding established"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-RULE--list-logical-content-fields.md",
@@ -914,9 +1006,9 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 648,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
-      "proposed_version": null,
+      "proposed_version": 1,
       "summary": "List Logical Content Fields",
       "main_subject": "Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content",
       "same_summary_current": [],
@@ -924,7 +1016,17 @@
       "id_reference_lines": [
         "This is a proposed candidate only, tracked by CA-A-1237. Its normative wording is not adopted methodology and must not be promoted as part of relation-notation changes."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [
+        {
+          "path": ".caprmedio_caprmedio/02_analysis/done/CA-A-1299-SPECIFICATION_PROPOSAL--use-sibling-summary-and-claim-headings.md",
+          "id": "CA-A-1299",
+          "version": 3,
+          "status": "Done",
+          "sha256": "f587e67cc3877e3af275db73fc53b25345d484b0c80ae23c053d5638e9995524"
+        }
+      ],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-RULE--require-unique-primary-kind-names.md",
@@ -936,9 +1038,9 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 648,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
-      "proposed_version": null,
+      "proposed_version": 1,
       "summary": "Require Unique Primary Kind Names",
       "main_subject": "Subject",
       "same_summary_current": [],
@@ -946,7 +1048,17 @@
       "id_reference_lines": [
         "This Draft records the Operator's explicit Yes to Q07 in CA-A-1236. Existing distinct same-label kinds, including Aspect Documentation and actual Implementation Documentation, require a reviewed naming correction before this rule can be applied across Current sources. This Draft does not perform those renames or implement lookup. No numeric Atom ID is allocated until promotion preparation."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [
+        {
+          "path": ".caprmedio_caprmedio/03_plan/CA-P-2637-EPIC--migrate-engine-rmed-atoms.md",
+          "id": "CA-P-2637",
+          "version": 10,
+          "status": "Active",
+          "sha256": "8806ef8f190a8bcddcbbc0cdc5c320596f6042ff3d1916ec99539c829b4bd7d8"
+        }
+      ],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-RULE--source-rmed-subject-view-contracts-only-from-declarations.md",
@@ -958,7 +1070,7 @@
       "role_letter": "R",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 648,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Source RMED Subject View Contracts Only from Declarations",
@@ -966,7 +1078,9 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-draft-CORE_META_MODEL-ENG_POLICY--derive-rmed-subject-maps-from-declarations.md",
@@ -978,7 +1092,7 @@
       "role_letter": "M",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 47,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Derive RMED Subject Maps from Declarations",
@@ -986,7 +1100,647 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/02_analysis/done/CA-A-1316-FRAMEWORK_ENGINE-SPECIFICATION_PROPOSAL--query-atoms-through-a-synchronized-duckdb-projection.md",
+          "id": "CA-A-1316",
+          "version": 7,
+          "status": "Done",
+          "sha256": "d7924e533d7eef025b56803617c7c64c6eb59b2f28aab65911c2b63ec933402f"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1567-CORE_META_MODEL-RULE--keep-change-and-implementation-collections-at-standard.md",
+          "id": "CA-R-1567",
+          "version": 25,
+          "status": "Active",
+          "sha256": "32ff84a3d3b50f21c51b52f6ef3873d862127a9231f3e23ac2ca13b41b00a17d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL--record-every-projection-rebuild-in-a-journal.md",
+          "id": "CA-R-1728",
+          "version": 29,
+          "status": "Active",
+          "sha256": "39586b952a2f0255df8ec29f3a3066a1306e51f53ea995f86bc17351a6b1afd4"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1593-CORE_META_MODEL-DEFINITION--define-the-plan-graph.md",
+          "id": "CA-R-1593",
+          "version": 25,
+          "status": "Active",
+          "sha256": "4701e30abbbcb36dfc17be9ed7b7b65099fbdd2b61328852bc34a73c24d94000"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL--preserve-source-scope-in-derived-views.md",
+          "id": "CA-R-1749",
+          "version": 27,
+          "status": "Active",
+          "sha256": "ae49318751cda47a70ec5c71180273309edb45dde087c2bb490b4d9054dc91e9"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL--permit-projections-as-implementation-outputs.md",
+          "id": "CA-R-1568",
+          "version": 26,
+          "status": "Active",
+          "sha256": "308b9f9f8ca1f5ebb904cca4ef4862baef605109ad061f5255ea223a58e9a367"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-231-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-navigation-projections-from-the-cce-claim.md",
+          "id": "CA-M-231",
+          "version": 34,
+          "status": "Active",
+          "sha256": "57a7adb2b831a1df5481ef582a60e9f340e021014c4609a030b1a8d9bf45bea2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2225-CORE_META_MODEL-RULE--select-subject-graph-views-by-scope-units-and-branches.md",
+          "id": "CA-R-2225",
+          "version": 4,
+          "status": "Active",
+          "sha256": "e50c68fa635e87bcaa0ac9af7a6a181a496281f47a8a261a66924b232afde416"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-RULE--journal-projection-rebuild-events.md",
+          "id": "CA-R-1649",
+          "version": 34,
+          "status": "Active",
+          "sha256": "fd4de65c29a9ffdc3c4a709f29f900882dec9b0f42d0fd5cf653178b71192207"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-RULE--derive-log-views-from-the-shared-journal.md",
+          "id": "CA-R-1463",
+          "version": 26,
+          "status": "Active",
+          "sha256": "7e27d10da84325b5c5345e716a8cb2e7bd2b4af5968717c6b56fb42aec3f9713"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms.md",
+          "id": "CA-M-114",
+          "version": 44,
+          "status": "Active",
+          "sha256": "cb6d01e0915d64454b610974a13195a907aa55f9d63cd2b2b9c4e6367c32b910"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL--derive-navigation-projections-from-the-cce-claim.md",
+          "id": "CA-M-116",
+          "version": 31,
+          "status": "Active",
+          "sha256": "065cdda6d2849601d38fcafbab489b437396b71715cb1bbd02886e463192c014"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL--define-general-artifact-graph.md",
+          "id": "CA-R-1409",
+          "version": 30,
+          "status": "Active",
+          "sha256": "5362632964c8e45826b150fc8e4187b669a42be1fa4414280b947373f9385d90"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1460-CORE_META_MODEL--separate-projection-derivation-from-carrier-materialization.md",
+          "id": "CA-R-1460",
+          "version": 22,
+          "status": "Active",
+          "sha256": "4c5a23a3812122caec15c8bcf4465c38abe44efb53be666297e426b113e2c34c"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1408-CORE_META_MODEL--define-graph-of-graphs.md",
+          "id": "CA-R-1408",
+          "version": 25,
+          "status": "Active",
+          "sha256": "2da3316f1ae7bba7143e41e46e867b2ce4822cbf1f9206ed59469703b706a4cd"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1507-CORE_META_MODEL-RULE--require-declared-source-atoms-before-projection-refresh.md",
+          "id": "CA-R-1507",
+          "version": 19,
+          "status": "Active",
+          "sha256": "3df605e8b4fe686a3f577c2a790fc33fbff52885a6eba4ea8b3784be4b07d5a1"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2535-CORE_META_MODEL-DECLARATION--declare-projection.md",
+          "id": "CA-R-2535",
+          "version": 2,
+          "status": "Active",
+          "sha256": "ea9191dc5c322224146211c5c2a2d9beee1184178be36435e953b4c1da2d9ce1"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1494-CORE_META_MODEL-RULE--record-projection-dependency-provenance-only-when-required.md",
+          "id": "CA-R-1494",
+          "version": 21,
+          "status": "Active",
+          "sha256": "d2ac0cf8bf7b6d40d7e4205e12f882480a59f3e4d1f5eb21c1899360c816cbae"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1493-CORE_META_MODEL-RULE--identify-how-each-projection-is-rebuilt.md",
+          "id": "CA-R-1493",
+          "version": 21,
+          "status": "Active",
+          "sha256": "6bdc0c26c3ea2318007dbe5c12063904558abbeac2cbee38fb70ac69caed5d2b"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL--keep-entity-identity-independent-of-graph-materialization.md",
+          "id": "CA-R-1406",
+          "version": 26,
+          "status": "Active",
+          "sha256": "a14dcd1c86fb20de9cd904da851f6f57a02c703a26c86c130fd399c4fd2e0cb0"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-RULE--distinguish-projected-representations-from-represented-entities.md",
+          "id": "CA-R-1609",
+          "version": 22,
+          "status": "Active",
+          "sha256": "4b29bf7b5938f6f359086a6aa1a9b0a7ab30d0ae3e4354e45b336a676d439a52"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1706-CORE_META_MODEL-RULE--requirement-provide-lineage-impact-projections.md",
+          "id": "CA-R-1706",
+          "version": 31,
+          "status": "Active",
+          "sha256": "b045bd609b1cc6b2ea3941bf196a9684e2e1ab28ca8218908c90307ad7b14ca1"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md",
+          "id": "CA-E-241",
+          "version": 47,
+          "status": "Active",
+          "sha256": "684396b1d9c1239cb61497344aef7edf24ef38e67323cadeb088713035d92108"
+        },
+        {
+          "path": ".caprmedio_caprmedio/03_plan/CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md",
+          "id": "CA-P-2710",
+          "version": 35,
+          "status": "Active",
+          "sha256": "1bcd42f395963ba3ee21f8654ace26d1a9a11e06c4681ebb99f961c89f857374"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames.md",
+          "id": "CA-D-635",
+          "version": 17,
+          "status": "Active",
+          "sha256": "bb89db55454c90f77d3120e220bf5593c0bf73d8f3380a8f41bf491afe67be1e"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-665-CORE_META_MODEL-ENG_DECISION--deliver-projections-to-markdown-files.md",
+          "id": "CA-D-665",
+          "version": 2,
+          "status": "Active",
+          "sha256": "59aabd5bd0dd79efd35be07c7016b55adbb6ce8203e8ba25ea9c6430483d1b95"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2727-WORKBENCH-RULE--provide-a-simple-web-query-interface-over-the-shared-query-capability.md",
+          "id": "CA-R-2727",
+          "version": 14,
+          "status": "Active",
+          "sha256": "63945ae618e155b23adbc05df9ccbe765bf77474a9069448e4300afeec0f4748"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2776-WORKBENCH-RULE--save-and-load-sql-by-id.md",
+          "id": "CA-R-2776",
+          "version": 6,
+          "status": "Active",
+          "sha256": "d7e60da31fa913525f7981b8e1235dc7c20c9db7f08f27af18ebfb30fad311ad"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2728-WORKBENCH-RULE--provide-native-sql-query-capability-over-query-projection.md",
+          "id": "CA-R-2728",
+          "version": 6,
+          "status": "Active",
+          "sha256": "c7c29455801296deee8efbae27740869a781e153a1e2a543b0f34f1756381289"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2952-WORKBENCH-RULE--show-workbench-source-sync-status.md",
+          "id": "CA-R-2952",
+          "version": 1,
+          "status": "Active",
+          "sha256": "9c0d77a9fa5d022d655404a928c8dde45901e545731fd41459ce90530015f4ff"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-653-CORE_META_MODEL-ENG_DECISION--deliver-readable-subject-graph-views-as-markdown.md",
+          "id": "CA-D-653",
+          "version": 16,
+          "status": "Active",
+          "sha256": "cb4ae8638608e90e7ef58bf4b938cf93fdfd16db2824e50524fca3bacafa2857"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2725-WORKBENCH-RULE--expose-only-valid-synchronized-source-state-through-query-projection.md",
+          "id": "CA-R-2725",
+          "version": 3,
+          "status": "Active",
+          "sha256": "4e659252a936a72ef3ac9126571b4f47f9cb81d5d40b453bf0baf5de70a20b6d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2786-WORKBENCH-RULE--rebuild-workbench-derived-state-from-source.md",
+          "id": "CA-R-2786",
+          "version": 1,
+          "status": "Active",
+          "sha256": "780ff6d6144c85f214b506679a01611b87a6424189df4885ecf01bd2e961915e"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2782-WORKBENCH-RULE--restart-workbench-without-restarting-mcp.md",
+          "id": "CA-R-2782",
+          "version": 2,
+          "status": "Active",
+          "sha256": "7b0ee32bc29f3f2a7d8d8a6873a07e72699250c39fd2f21d2ad75bc7fd10256b"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2950-WORKBENCH-RULE--record-observed-workbench-source-changes.md",
+          "id": "CA-R-2950",
+          "version": 1,
+          "status": "Active",
+          "sha256": "e79840592d90a07d037b04bfe83f47310ddac49279e3c1b6f6def61179fedfcf"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2729-WORKBENCH-RULE--return-complete-consistent-results-for-query-run-and-check.md",
+          "id": "CA-R-2729",
+          "version": 7,
+          "status": "Active",
+          "sha256": "469ba0a4747752590276fd33051009aa7e3cf5d29b573685ad0ecc7518ddcfd9"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2726-WORKBENCH-RULE--preserve-atom-header-and-markdown-content-faithfully-in-query-projection.md",
+          "id": "CA-R-2726",
+          "version": 4,
+          "status": "Active",
+          "sha256": "9f69fa08b71a13ea70dedbbb27c11a60ea19bd52d52eaaef48fe4873a5392382"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2724-WORKBENCH-RULE--expand-indexed-relation-references-with-complete-cycle-safe-results.md",
+          "id": "CA-R-2724",
+          "version": 3,
+          "status": "Active",
+          "sha256": "0c4b5c0c40ee993b01184103d55705d15b117042fbc343f5c9d57c70da0f8ce0"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2723-WORKBENCH-RULE--derive-query-projection-only-from-governed-atom-sources.md",
+          "id": "CA-R-2723",
+          "version": 3,
+          "status": "Active",
+          "sha256": "ef80dbb87184fe921f5888ad8f656d6eeac26144f7f4be512eb5b100d1997a46"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2953-WORKBENCH-RULE--query-results-support-read-only-sorting-filtering-and-grouping.md",
+          "id": "CA-R-2953",
+          "version": 1,
+          "status": "Active",
+          "sha256": "c72f16f105af260ca7041f8144523815bff8bf35743c59b8259e6e61c00700e3"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-474-WORKBENCH-ENG_DECISION--recreate-derived-state-from-source.md",
+          "id": "CA-M-474",
+          "version": 1,
+          "status": "Active",
+          "sha256": "d033df4aed62aa22064eb2b6e9ae3f1eb11e5f78c69b11be9278b4ceb5ccead6"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-471-WORKBENCH-ENG_POLICY--expose-workbench-capabilities-through-mcp.md",
+          "id": "CA-M-471",
+          "version": 3,
+          "status": "Active",
+          "sha256": "beba5ac506073dd268702f73e47b862873586a571367d1c773e414f85ce85c0a"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-472-WORKBENCH-ENG_DECISION--test-workbench-through-its-public-interfaces.md",
+          "id": "CA-M-472",
+          "version": 1,
+          "status": "Active",
+          "sha256": "bffa870590ae9c64e02195283c5cc9eafe74e120513baed2e97de41ef04c604f"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-470-WORKBENCH-ENG_DECISION--save-sql-and-browser-state.md",
+          "id": "CA-M-470",
+          "version": 7,
+          "status": "Active",
+          "sha256": "196e5ff99ee6b172829d82bf90cba8d3226b0451544be5c29edc10d32ea8d22d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/CA-M-467-WORKBENCH_FRONTEND-ENG_DECISION--keep-workbench-frontend-files-small.md",
+          "id": "CA-M-467",
+          "version": 2,
+          "status": "Active",
+          "sha256": "e36ccbaf571aa5259b1f2bd436edb46e4064cc9f7cba084a80d69b0b8fabed41"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/CA-M-466-WORKBENCH_FRONTEND-ENG_DECISION--use-svelte-typescript-and-vite-for-workbench.md",
+          "id": "CA-M-466",
+          "version": 5,
+          "status": "Active",
+          "sha256": "c0c9750ce8aa203b456d577bb8d207da52949811aca6340ee83b5ac2e144d7d7"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/CA-M-468-WORKBENCH_FRONTEND-ENG_DECISION--use-simple-sql-editor.md",
+          "id": "CA-M-468",
+          "version": 2,
+          "status": "Active",
+          "sha256": "c8d6d3eb02957eb3bfb416618b2108133e6569fdffe36daa80a9d558cbb08cf2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/CA-M-492-WORKBENCH_FRONTEND-ENG_DECISION--use-tabulator-for-read-only-result-grid.md",
+          "id": "CA-M-492",
+          "version": 1,
+          "status": "Active",
+          "sha256": "ec0e50209ce4a15f3fcab92611080bd643366bb8891cc42997558247fe63d683"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-782-WORKBENCH_FRONTEND-EVAL_CASE--verify-view-rename-modal.md",
+          "id": "CA-E-782",
+          "version": 1,
+          "status": "Active",
+          "sha256": "fc7581a2c8fed3175992d0849c52926dc49360f7aed258ecf9ceb5cd9d390caf"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-683-WORKBENCH_FRONTEND-EVAL_CASE--exercise-workbench-views-and-display-controls.md",
+          "id": "CA-E-683",
+          "version": 2,
+          "status": "Active",
+          "sha256": "fffd8437ba9fa126526cecf377329ece4b503701fdb4ae23ec5a048d3c73c9ee"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-783-WORKBENCH_FRONTEND-EVAL_CASE--verify-result-display-preferences.md",
+          "id": "CA-E-783",
+          "version": 1,
+          "status": "Active",
+          "sha256": "cf4cf8999fdc7a8599f43b6e28dda08be5c117a12428e28c458a0823ea0305e4"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-786-WORKBENCH_FRONTEND-EVAL_CASE--verify-result-grid-context-actions.md",
+          "id": "CA-E-786",
+          "version": 1,
+          "status": "Active",
+          "sha256": "1d70d1801cd8db8979a8d3418d917c77803f2db7ce90caa2e50529fd3e9b0c74"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-781-WORKBENCH_FRONTEND-EVAL_CASE--verify-workbench-sync-status.md",
+          "id": "CA-E-781",
+          "version": 1,
+          "status": "Active",
+          "sha256": "2a0c080835c7b730eb233b31176514e44fd7c71045ce967caf037cde4b75e43d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/07_delivery/CA-D-674-WORKBENCH_FRONTEND-ENG_DECISION--deliver-simple-sql-query-page.md",
+          "id": "CA-D-674",
+          "version": 18,
+          "status": "Active",
+          "sha256": "3a53d163b348661a356270c02faceafcd759dbe74d74115ed3e5a6c7d7e43786"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/09_operations/CA-O-240-WORKBENCH_BACKEND-ACTION--execute-one-read-only-duckdb-query.md",
+          "id": "CA-O-240",
+          "version": 10,
+          "status": "Active",
+          "sha256": "27ee02796801b35575ad6ec5f8b0cc60650f366c9464c9f0b2f7380887221b7c"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/09_operations/CA-O-241-WORKBENCH_BACKEND-ACTION--reconcile-the-duckdb-query-projection.md",
+          "id": "CA-O-241",
+          "version": 6,
+          "status": "Active",
+          "sha256": "e12d580aba9539bc1e57219f824993597146c5496270bac42c4180518451dcda"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-465-WORKBENCH_BACKEND-ENG_DECISION--reconcile-duckdb-derived-state-from-stable-governed-inventory.md",
+          "id": "CA-M-465",
+          "version": 13,
+          "status": "Active",
+          "sha256": "342b452075f1fdd912b92ff382f0e8f505aa38f487ef008960d642bf73a9626f"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-493-WORKBENCH_BACKEND-ENG_DECISION--page-native-cached-query-results-for-a-read-only-grid.md",
+          "id": "CA-M-493",
+          "version": 1,
+          "status": "Active",
+          "sha256": "b25017a13415d5927e7eb475908d8de4f96bcd81cc05e88a67db4766192bf532"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-462-WORKBENCH_BACKEND-ENG_DECISION--constrain-public-duckdb-queries-to-native-read-only-access.md",
+          "id": "CA-M-462",
+          "version": 10,
+          "status": "Active",
+          "sha256": "3afb517071a72afe76c09d3037e3316b0756e37a7bfcae5c9276fa92bbb7afd2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-464-WORKBENCH_BACKEND-ENG_DECISION--preserve-governed-atom-data-and-reuse-native-sql.md",
+          "id": "CA-M-464",
+          "version": 7,
+          "status": "Active",
+          "sha256": "5b7df2bedd87b0696eaf32f7bf715e5a3275152c38291dd4b15adcda61e4ffc7"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-463-WORKBENCH_BACKEND-ENG_DECISION--keep-duckdb-projection-ownership-in-the-existing-server.md",
+          "id": "CA-M-463",
+          "version": 6,
+          "status": "Active",
+          "sha256": "3d2415d4bf9c8fa52920e966e0c86b84be79359c22700a8c6b05a0c7aa95c3fa"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-490-WORKBENCH_BACKEND-ENG_DECISION--retain-a-bounded-watcher-change-log.md",
+          "id": "CA-M-490",
+          "version": 1,
+          "status": "Active",
+          "sha256": "b262a37da31971d321b44d602a7daf8e7e48b8a9b02bb5bc04b600fc680ab8e9"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-491-WORKBENCH_BACKEND-ENG_DECISION--retain-workbench-sync-status.md",
+          "id": "CA-M-491",
+          "version": 1,
+          "status": "Active",
+          "sha256": "09d53882d23b6753d86914c32e637c83acc7d9d96a4b382751ae16b024217e81"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-753-WORKBENCH_BACKEND-EVAL_CASE--verify-deployed-mcp-query-schema.md",
+          "id": "CA-E-753",
+          "version": 1,
+          "status": "Active",
+          "sha256": "7939384dec4583e78f2fd272cb52b844454e9b8f3ece64eade262e58f199317d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-788-WORKBENCH_BACKEND-EVAL_CASE--verify-cached-result-lifecycle.md",
+          "id": "CA-E-788",
+          "version": 1,
+          "status": "Active",
+          "sha256": "8ddcf57ec4d0c450681476b7e0170bd5f6b6fc4e032e256714b8dfe5eef72d10"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-784-WORKBENCH_BACKEND-EVAL_CASE--verify-native-cached-query-grid-pages.md",
+          "id": "CA-E-784",
+          "version": 1,
+          "status": "Active",
+          "sha256": "95cacbb2413dc1fcd6a9eddd80d746f21e4e472a5b71a4fd14fff445904523ed"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-752-WORKBENCH_BACKEND-EVAL_CASE--verify-query-failure-severity-and-runtime-health.md",
+          "id": "CA-E-752",
+          "version": 1,
+          "status": "Active",
+          "sha256": "e61671a78166a911c8fa0c510dfc84400bb6bc604adfb16c87effc5d9aa06546"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md",
+          "id": "CA-E-677",
+          "version": 8,
+          "status": "Active",
+          "sha256": "c8b787d589e266baa50dd10e09eb80632cc11cf1dac87ea0a39d7e9b54f17863"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-787-WORKBENCH_BACKEND-EVAL_CASE--verify-hourly-query-log-retention.md",
+          "id": "CA-E-787",
+          "version": 1,
+          "status": "Active",
+          "sha256": "10ae26b76d0bd6c756c0d4049e081730b7f1b73ae58895fc9ddb40cb0697e127"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-676-WORKBENCH_BACKEND-EVAL_CASE--query-native-sql-results-and-typed-relation-expansion.md",
+          "id": "CA-E-676",
+          "version": 11,
+          "status": "Active",
+          "sha256": "e42bd080a0e688627200178b4fbd0105db9593be71e526c6af5b927b5e8b466b"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-750-WORKBENCH_BACKEND-EVAL_CASE--verify-role-only-draft-reference-identity.md",
+          "id": "CA-E-750",
+          "version": 1,
+          "status": "Active",
+          "sha256": "f347dcd72993e68d2045b69763cdfa2e83d65a7d95015705b0a2d20180052015"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-780-WORKBENCH_BACKEND-EVAL_CASE--verify-watcher-change-log.md",
+          "id": "CA-E-780",
+          "version": 1,
+          "status": "Active",
+          "sha256": "059f3dad8dcfe13eba41ac90da3edd09c70c7951a5090e23e82849dcecda2f31"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-751-WORKBENCH_BACKEND-EVAL_CASE--verify-first-page-conversion-cleanup.md",
+          "id": "CA-E-751",
+          "version": 1,
+          "status": "Active",
+          "sha256": "15cd474f78db32c69cefdc8a6a53c86ae80f8b853cf19099f43576739a048fcb"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-695-WORKBENCH_BACKEND-ENG_DECISION--deliver-watcher-change-log.md",
+          "id": "CA-D-695",
+          "version": 1,
+          "status": "Active",
+          "sha256": "160a1263a49417621f75e75b42c091a896d008554b41221f09bddba28c416204"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-697-WORKBENCH_BACKEND-ENG_DECISION--deliver-grid-pages-from-cached-query-results.md",
+          "id": "CA-D-697",
+          "version": 1,
+          "status": "Active",
+          "sha256": "1ccaa7f241a72fe04ffe8019a08e71df2454fb5acc40fb80c1d5fad602485c28"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-672-WORKBENCH_BACKEND-ENG_DECISION--deliver-duckdb-atom-content-and-relation-records.md",
+          "id": "CA-D-672",
+          "version": 10,
+          "status": "Active",
+          "sha256": "ca6508a625e9ae8a44a52aa24449ab2645c15a2f6dc61ad52ab0d3cff0620c16"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-696-WORKBENCH_BACKEND-ENG_DECISION--deliver-workbench-sync-status.md",
+          "id": "CA-D-696",
+          "version": 1,
+          "status": "Active",
+          "sha256": "de77f928ad4c078fe517f1f0416d8777d5b7016c988c963f337d07807b79626c"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-698-WORKBENCH_BACKEND-ENG_DECISION--deliver-hourly-query-log-files.md",
+          "id": "CA-D-698",
+          "version": 1,
+          "status": "Active",
+          "sha256": "806607ad6b94f36f3f5afd65d3f8051a136d14af1252d9a8f37e23e93b3055bc"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-681-WORKBENCH-EVAL_CASE--verify-workbench-full-reread.md",
+          "id": "CA-E-681",
+          "version": 1,
+          "status": "Active",
+          "sha256": "07dacc3881375bdc90c93a52593bbf032992eb3efd52a683017681d434d840a2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-675-WORKBENCH-EVAL_CASE--preserve-nested-header-and-markdown-property-distinction.md",
+          "id": "CA-E-675",
+          "version": 5,
+          "status": "Active",
+          "sha256": "5f6154b21b8e2528b32903b977d224c99a84fcb3d7cc585b20b436fb2710f088"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-785-WORKBENCH-EVAL_CASE--verify-result-retention-and-one-query-views.md",
+          "id": "CA-E-785",
+          "version": 1,
+          "status": "Active",
+          "sha256": "25341d858aa81d408e1431d1a2ae0785bbfdf463784920ea13a55e7c2278963e"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-674-WORKBENCH-EVAL_CASE--enforce-native-read-only-and-exclusive-owner-handoff.md",
+          "id": "CA-E-674",
+          "version": 5,
+          "status": "Active",
+          "sha256": "25a938895d5ce6616e55a8f7f7bbc43078baa6c706e441705ab075f7ff46ada4"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-680-WORKBENCH-EVAL_CASE--verify-health-page-workbench-restart.md",
+          "id": "CA-E-680",
+          "version": 1,
+          "status": "Active",
+          "sha256": "f8138728bbb64ef41bcd3517922d0425801d66cb88392cf9e43cc03e717302b7"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-673-WORKBENCH-EVAL_CASE--align-mcp-run-check-and-web-results.md",
+          "id": "CA-E-673",
+          "version": 3,
+          "status": "Active",
+          "sha256": "2f36fe9c982cded633b24579f86c845f59efdca3e3193f9a9d48c1f93e0da3da"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-679-WORKBENCH-EVAL_CASE--verify-explicit-workbench-restart-through-mcp.md",
+          "id": "CA-E-679",
+          "version": 1,
+          "status": "Active",
+          "sha256": "5183553b93d1fb679d984d21da06f1e614e4265767d3524a0a6daf83a3b38344"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-675-WORKBENCH-ENG_DECISION--place-duckdb-projection-in-rebuildable-runtime-state.md",
+          "id": "CA-D-675",
+          "version": 10,
+          "status": "Active",
+          "sha256": "5cd72f35608f407423b54bfd1ed11d12661acd0f50846f7f2bb6357cfb95e5fc"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-676-WORKBENCH-ENG_DECISION--expose-workbench-restart-through-mcp.md",
+          "id": "CA-D-676",
+          "version": 2,
+          "status": "Active",
+          "sha256": "b3010759376abe55680d4c02c33dc965761e63503cf78a783f9132227ddc29c6"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-673-WORKBENCH-ENG_DECISION--deliver-shared-query-run-and-check-results.md",
+          "id": "CA-D-673",
+          "version": 13,
+          "status": "Active",
+          "sha256": "a74a9845cd744fc27cab29181ea1db0065d9cf701094569342a4ec5e30f4e3cd"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-677-WORKBENCH-ENG_DECISION--expose-workbench-restart-on-the-health-page.md",
+          "id": "CA-D-677",
+          "version": 1,
+          "status": "Active",
+          "sha256": "10e5b3bcb98e2c00a6a51f5922575c3f88ad3f20b53e4aa8432e029671c5aa87"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-679-WORKBENCH-ENG_DECISION--expose-workbench-reread-service.md",
+          "id": "CA-D-679",
+          "version": 1,
+          "status": "Active",
+          "sha256": "66dd2660a23295a13f08e610bc4d8cefae4c1c3d407d8f5843bc25999ee54ac7"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/done/CA-A-1323-PROGRAMMATIC-SPECIFICATION_PROPOSAL--refine-mcp-discovery-and-query-execution.md",
+          "id": "CA-A-1323",
+          "version": 1,
+          "status": "Done",
+          "sha256": "8d9d8e2bd35daa3819ec15692f9a3004a64d64ae067948181e6a4ac8e7d502b4"
+        }
+      ],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-draft-CORE_META_MODEL-TERM_DEFINITION--define-dependent-entity.md",
@@ -998,7 +1752,7 @@
       "role_letter": "M",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 8,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "admitted: CA-R-2765",
       "version_existing": 1,
       "proposed_version": null,
       "summary": "Define Dependent Entity",
@@ -1027,7 +1781,9 @@
         "- [Term kind and inherited structure](../../04_requirement/draft/CA-R-1318@30-draft-CORE_META_MODEL-DEFINITION--define-term.md).",
         "- [Dedicated Method meaning owner](../../04_requirement/draft/CA-R-1319@26-draft-CORE_META_MODEL--define-governed-term.md)."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "HOLD_MATCH_REVIEW_NOT_IDENTITY_PROOF",
+      "same_main_subject_current": [],
+      "identity_intent": "same-Summary match is evidence only; no explicit revision binding established"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-draft-CORE_META_MODEL-EVAL_CASE--check-content-field-listing.md",
@@ -1039,9 +1795,9 @@
       "role_letter": "E",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 159,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
-      "proposed_version": null,
+      "proposed_version": 1,
       "summary": "Check Content Field Listing",
       "main_subject": "Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content",
       "same_summary_current": [],
@@ -1049,7 +1805,17 @@
       "id_reference_lines": [
         "This is a proposed candidate only, tracked by CA-A-1237. Its normative wording is not adopted methodology and must not be promoted as part of relation-notation changes."
       ],
-      "action": "HOLD_IDENTITY_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [
+        {
+          "path": ".caprmedio_caprmedio/02_analysis/done/CA-A-1299-SPECIFICATION_PROPOSAL--use-sibling-summary-and-claim-headings.md",
+          "id": "CA-A-1299",
+          "version": 3,
+          "status": "Done",
+          "sha256": "f587e67cc3877e3af275db73fc53b25345d484b0c80ae23c053d5638e9995524"
+        }
+      ],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-rmed-subject-map-declaration-provenance.md",
@@ -1061,7 +1827,7 @@
       "role_letter": "E",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 52,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Check RMED Subject Map Declaration Provenance",
@@ -1069,7 +1835,647 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/02_analysis/done/CA-A-1316-FRAMEWORK_ENGINE-SPECIFICATION_PROPOSAL--query-atoms-through-a-synchronized-duckdb-projection.md",
+          "id": "CA-A-1316",
+          "version": 7,
+          "status": "Done",
+          "sha256": "d7924e533d7eef025b56803617c7c64c6eb59b2f28aab65911c2b63ec933402f"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1567-CORE_META_MODEL-RULE--keep-change-and-implementation-collections-at-standard.md",
+          "id": "CA-R-1567",
+          "version": 25,
+          "status": "Active",
+          "sha256": "32ff84a3d3b50f21c51b52f6ef3873d862127a9231f3e23ac2ca13b41b00a17d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL--record-every-projection-rebuild-in-a-journal.md",
+          "id": "CA-R-1728",
+          "version": 29,
+          "status": "Active",
+          "sha256": "39586b952a2f0255df8ec29f3a3066a1306e51f53ea995f86bc17351a6b1afd4"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1593-CORE_META_MODEL-DEFINITION--define-the-plan-graph.md",
+          "id": "CA-R-1593",
+          "version": 25,
+          "status": "Active",
+          "sha256": "4701e30abbbcb36dfc17be9ed7b7b65099fbdd2b61328852bc34a73c24d94000"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL--preserve-source-scope-in-derived-views.md",
+          "id": "CA-R-1749",
+          "version": 27,
+          "status": "Active",
+          "sha256": "ae49318751cda47a70ec5c71180273309edb45dde087c2bb490b4d9054dc91e9"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL--permit-projections-as-implementation-outputs.md",
+          "id": "CA-R-1568",
+          "version": 26,
+          "status": "Active",
+          "sha256": "308b9f9f8ca1f5ebb904cca4ef4862baef605109ad061f5255ea223a58e9a367"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-231-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-navigation-projections-from-the-cce-claim.md",
+          "id": "CA-M-231",
+          "version": 34,
+          "status": "Active",
+          "sha256": "57a7adb2b831a1df5481ef582a60e9f340e021014c4609a030b1a8d9bf45bea2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2225-CORE_META_MODEL-RULE--select-subject-graph-views-by-scope-units-and-branches.md",
+          "id": "CA-R-2225",
+          "version": 4,
+          "status": "Active",
+          "sha256": "e50c68fa635e87bcaa0ac9af7a6a181a496281f47a8a261a66924b232afde416"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-RULE--journal-projection-rebuild-events.md",
+          "id": "CA-R-1649",
+          "version": 34,
+          "status": "Active",
+          "sha256": "fd4de65c29a9ffdc3c4a709f29f900882dec9b0f42d0fd5cf653178b71192207"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-RULE--derive-log-views-from-the-shared-journal.md",
+          "id": "CA-R-1463",
+          "version": 26,
+          "status": "Active",
+          "sha256": "7e27d10da84325b5c5345e716a8cb2e7bd2b4af5968717c6b56fb42aec3f9713"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms.md",
+          "id": "CA-M-114",
+          "version": 44,
+          "status": "Active",
+          "sha256": "cb6d01e0915d64454b610974a13195a907aa55f9d63cd2b2b9c4e6367c32b910"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL--derive-navigation-projections-from-the-cce-claim.md",
+          "id": "CA-M-116",
+          "version": 31,
+          "status": "Active",
+          "sha256": "065cdda6d2849601d38fcafbab489b437396b71715cb1bbd02886e463192c014"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL--define-general-artifact-graph.md",
+          "id": "CA-R-1409",
+          "version": 30,
+          "status": "Active",
+          "sha256": "5362632964c8e45826b150fc8e4187b669a42be1fa4414280b947373f9385d90"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1460-CORE_META_MODEL--separate-projection-derivation-from-carrier-materialization.md",
+          "id": "CA-R-1460",
+          "version": 22,
+          "status": "Active",
+          "sha256": "4c5a23a3812122caec15c8bcf4465c38abe44efb53be666297e426b113e2c34c"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1408-CORE_META_MODEL--define-graph-of-graphs.md",
+          "id": "CA-R-1408",
+          "version": 25,
+          "status": "Active",
+          "sha256": "2da3316f1ae7bba7143e41e46e867b2ce4822cbf1f9206ed59469703b706a4cd"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1507-CORE_META_MODEL-RULE--require-declared-source-atoms-before-projection-refresh.md",
+          "id": "CA-R-1507",
+          "version": 19,
+          "status": "Active",
+          "sha256": "3df605e8b4fe686a3f577c2a790fc33fbff52885a6eba4ea8b3784be4b07d5a1"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2535-CORE_META_MODEL-DECLARATION--declare-projection.md",
+          "id": "CA-R-2535",
+          "version": 2,
+          "status": "Active",
+          "sha256": "ea9191dc5c322224146211c5c2a2d9beee1184178be36435e953b4c1da2d9ce1"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1494-CORE_META_MODEL-RULE--record-projection-dependency-provenance-only-when-required.md",
+          "id": "CA-R-1494",
+          "version": 21,
+          "status": "Active",
+          "sha256": "d2ac0cf8bf7b6d40d7e4205e12f882480a59f3e4d1f5eb21c1899360c816cbae"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1493-CORE_META_MODEL-RULE--identify-how-each-projection-is-rebuilt.md",
+          "id": "CA-R-1493",
+          "version": 21,
+          "status": "Active",
+          "sha256": "6bdc0c26c3ea2318007dbe5c12063904558abbeac2cbee38fb70ac69caed5d2b"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL--keep-entity-identity-independent-of-graph-materialization.md",
+          "id": "CA-R-1406",
+          "version": 26,
+          "status": "Active",
+          "sha256": "a14dcd1c86fb20de9cd904da851f6f57a02c703a26c86c130fd399c4fd2e0cb0"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-RULE--distinguish-projected-representations-from-represented-entities.md",
+          "id": "CA-R-1609",
+          "version": 22,
+          "status": "Active",
+          "sha256": "4b29bf7b5938f6f359086a6aa1a9b0a7ab30d0ae3e4354e45b336a676d439a52"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1706-CORE_META_MODEL-RULE--requirement-provide-lineage-impact-projections.md",
+          "id": "CA-R-1706",
+          "version": 31,
+          "status": "Active",
+          "sha256": "b045bd609b1cc6b2ea3941bf196a9684e2e1ab28ca8218908c90307ad7b14ca1"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md",
+          "id": "CA-E-241",
+          "version": 47,
+          "status": "Active",
+          "sha256": "684396b1d9c1239cb61497344aef7edf24ef38e67323cadeb088713035d92108"
+        },
+        {
+          "path": ".caprmedio_caprmedio/03_plan/CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md",
+          "id": "CA-P-2710",
+          "version": 35,
+          "status": "Active",
+          "sha256": "1bcd42f395963ba3ee21f8654ace26d1a9a11e06c4681ebb99f961c89f857374"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames.md",
+          "id": "CA-D-635",
+          "version": 17,
+          "status": "Active",
+          "sha256": "bb89db55454c90f77d3120e220bf5593c0bf73d8f3380a8f41bf491afe67be1e"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-665-CORE_META_MODEL-ENG_DECISION--deliver-projections-to-markdown-files.md",
+          "id": "CA-D-665",
+          "version": 2,
+          "status": "Active",
+          "sha256": "59aabd5bd0dd79efd35be07c7016b55adbb6ce8203e8ba25ea9c6430483d1b95"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2727-WORKBENCH-RULE--provide-a-simple-web-query-interface-over-the-shared-query-capability.md",
+          "id": "CA-R-2727",
+          "version": 14,
+          "status": "Active",
+          "sha256": "63945ae618e155b23adbc05df9ccbe765bf77474a9069448e4300afeec0f4748"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2776-WORKBENCH-RULE--save-and-load-sql-by-id.md",
+          "id": "CA-R-2776",
+          "version": 6,
+          "status": "Active",
+          "sha256": "d7e60da31fa913525f7981b8e1235dc7c20c9db7f08f27af18ebfb30fad311ad"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2728-WORKBENCH-RULE--provide-native-sql-query-capability-over-query-projection.md",
+          "id": "CA-R-2728",
+          "version": 6,
+          "status": "Active",
+          "sha256": "c7c29455801296deee8efbae27740869a781e153a1e2a543b0f34f1756381289"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2952-WORKBENCH-RULE--show-workbench-source-sync-status.md",
+          "id": "CA-R-2952",
+          "version": 1,
+          "status": "Active",
+          "sha256": "9c0d77a9fa5d022d655404a928c8dde45901e545731fd41459ce90530015f4ff"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-653-CORE_META_MODEL-ENG_DECISION--deliver-readable-subject-graph-views-as-markdown.md",
+          "id": "CA-D-653",
+          "version": 16,
+          "status": "Active",
+          "sha256": "cb4ae8638608e90e7ef58bf4b938cf93fdfd16db2824e50524fca3bacafa2857"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2725-WORKBENCH-RULE--expose-only-valid-synchronized-source-state-through-query-projection.md",
+          "id": "CA-R-2725",
+          "version": 3,
+          "status": "Active",
+          "sha256": "4e659252a936a72ef3ac9126571b4f47f9cb81d5d40b453bf0baf5de70a20b6d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2786-WORKBENCH-RULE--rebuild-workbench-derived-state-from-source.md",
+          "id": "CA-R-2786",
+          "version": 1,
+          "status": "Active",
+          "sha256": "780ff6d6144c85f214b506679a01611b87a6424189df4885ecf01bd2e961915e"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2782-WORKBENCH-RULE--restart-workbench-without-restarting-mcp.md",
+          "id": "CA-R-2782",
+          "version": 2,
+          "status": "Active",
+          "sha256": "7b0ee32bc29f3f2a7d8d8a6873a07e72699250c39fd2f21d2ad75bc7fd10256b"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2950-WORKBENCH-RULE--record-observed-workbench-source-changes.md",
+          "id": "CA-R-2950",
+          "version": 1,
+          "status": "Active",
+          "sha256": "e79840592d90a07d037b04bfe83f47310ddac49279e3c1b6f6def61179fedfcf"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2729-WORKBENCH-RULE--return-complete-consistent-results-for-query-run-and-check.md",
+          "id": "CA-R-2729",
+          "version": 7,
+          "status": "Active",
+          "sha256": "469ba0a4747752590276fd33051009aa7e3cf5d29b573685ad0ecc7518ddcfd9"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2726-WORKBENCH-RULE--preserve-atom-header-and-markdown-content-faithfully-in-query-projection.md",
+          "id": "CA-R-2726",
+          "version": 4,
+          "status": "Active",
+          "sha256": "9f69fa08b71a13ea70dedbbb27c11a60ea19bd52d52eaaef48fe4873a5392382"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2724-WORKBENCH-RULE--expand-indexed-relation-references-with-complete-cycle-safe-results.md",
+          "id": "CA-R-2724",
+          "version": 3,
+          "status": "Active",
+          "sha256": "0c4b5c0c40ee993b01184103d55705d15b117042fbc343f5c9d57c70da0f8ce0"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2723-WORKBENCH-RULE--derive-query-projection-only-from-governed-atom-sources.md",
+          "id": "CA-R-2723",
+          "version": 3,
+          "status": "Active",
+          "sha256": "ef80dbb87184fe921f5888ad8f656d6eeac26144f7f4be512eb5b100d1997a46"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2953-WORKBENCH-RULE--query-results-support-read-only-sorting-filtering-and-grouping.md",
+          "id": "CA-R-2953",
+          "version": 1,
+          "status": "Active",
+          "sha256": "c72f16f105af260ca7041f8144523815bff8bf35743c59b8259e6e61c00700e3"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-474-WORKBENCH-ENG_DECISION--recreate-derived-state-from-source.md",
+          "id": "CA-M-474",
+          "version": 1,
+          "status": "Active",
+          "sha256": "d033df4aed62aa22064eb2b6e9ae3f1eb11e5f78c69b11be9278b4ceb5ccead6"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-471-WORKBENCH-ENG_POLICY--expose-workbench-capabilities-through-mcp.md",
+          "id": "CA-M-471",
+          "version": 3,
+          "status": "Active",
+          "sha256": "beba5ac506073dd268702f73e47b862873586a571367d1c773e414f85ce85c0a"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-472-WORKBENCH-ENG_DECISION--test-workbench-through-its-public-interfaces.md",
+          "id": "CA-M-472",
+          "version": 1,
+          "status": "Active",
+          "sha256": "bffa870590ae9c64e02195283c5cc9eafe74e120513baed2e97de41ef04c604f"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-470-WORKBENCH-ENG_DECISION--save-sql-and-browser-state.md",
+          "id": "CA-M-470",
+          "version": 7,
+          "status": "Active",
+          "sha256": "196e5ff99ee6b172829d82bf90cba8d3226b0451544be5c29edc10d32ea8d22d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/CA-M-467-WORKBENCH_FRONTEND-ENG_DECISION--keep-workbench-frontend-files-small.md",
+          "id": "CA-M-467",
+          "version": 2,
+          "status": "Active",
+          "sha256": "e36ccbaf571aa5259b1f2bd436edb46e4064cc9f7cba084a80d69b0b8fabed41"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/CA-M-466-WORKBENCH_FRONTEND-ENG_DECISION--use-svelte-typescript-and-vite-for-workbench.md",
+          "id": "CA-M-466",
+          "version": 5,
+          "status": "Active",
+          "sha256": "c0c9750ce8aa203b456d577bb8d207da52949811aca6340ee83b5ac2e144d7d7"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/CA-M-468-WORKBENCH_FRONTEND-ENG_DECISION--use-simple-sql-editor.md",
+          "id": "CA-M-468",
+          "version": 2,
+          "status": "Active",
+          "sha256": "c8d6d3eb02957eb3bfb416618b2108133e6569fdffe36daa80a9d558cbb08cf2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/CA-M-492-WORKBENCH_FRONTEND-ENG_DECISION--use-tabulator-for-read-only-result-grid.md",
+          "id": "CA-M-492",
+          "version": 1,
+          "status": "Active",
+          "sha256": "ec0e50209ce4a15f3fcab92611080bd643366bb8891cc42997558247fe63d683"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-782-WORKBENCH_FRONTEND-EVAL_CASE--verify-view-rename-modal.md",
+          "id": "CA-E-782",
+          "version": 1,
+          "status": "Active",
+          "sha256": "fc7581a2c8fed3175992d0849c52926dc49360f7aed258ecf9ceb5cd9d390caf"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-683-WORKBENCH_FRONTEND-EVAL_CASE--exercise-workbench-views-and-display-controls.md",
+          "id": "CA-E-683",
+          "version": 2,
+          "status": "Active",
+          "sha256": "fffd8437ba9fa126526cecf377329ece4b503701fdb4ae23ec5a048d3c73c9ee"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-783-WORKBENCH_FRONTEND-EVAL_CASE--verify-result-display-preferences.md",
+          "id": "CA-E-783",
+          "version": 1,
+          "status": "Active",
+          "sha256": "cf4cf8999fdc7a8599f43b6e28dda08be5c117a12428e28c458a0823ea0305e4"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-786-WORKBENCH_FRONTEND-EVAL_CASE--verify-result-grid-context-actions.md",
+          "id": "CA-E-786",
+          "version": 1,
+          "status": "Active",
+          "sha256": "1d70d1801cd8db8979a8d3418d917c77803f2db7ce90caa2e50529fd3e9b0c74"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-781-WORKBENCH_FRONTEND-EVAL_CASE--verify-workbench-sync-status.md",
+          "id": "CA-E-781",
+          "version": 1,
+          "status": "Active",
+          "sha256": "2a0c080835c7b730eb233b31176514e44fd7c71045ce967caf037cde4b75e43d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/07_delivery/CA-D-674-WORKBENCH_FRONTEND-ENG_DECISION--deliver-simple-sql-query-page.md",
+          "id": "CA-D-674",
+          "version": 18,
+          "status": "Active",
+          "sha256": "3a53d163b348661a356270c02faceafcd759dbe74d74115ed3e5a6c7d7e43786"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/09_operations/CA-O-240-WORKBENCH_BACKEND-ACTION--execute-one-read-only-duckdb-query.md",
+          "id": "CA-O-240",
+          "version": 10,
+          "status": "Active",
+          "sha256": "27ee02796801b35575ad6ec5f8b0cc60650f366c9464c9f0b2f7380887221b7c"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/09_operations/CA-O-241-WORKBENCH_BACKEND-ACTION--reconcile-the-duckdb-query-projection.md",
+          "id": "CA-O-241",
+          "version": 6,
+          "status": "Active",
+          "sha256": "e12d580aba9539bc1e57219f824993597146c5496270bac42c4180518451dcda"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-465-WORKBENCH_BACKEND-ENG_DECISION--reconcile-duckdb-derived-state-from-stable-governed-inventory.md",
+          "id": "CA-M-465",
+          "version": 13,
+          "status": "Active",
+          "sha256": "342b452075f1fdd912b92ff382f0e8f505aa38f487ef008960d642bf73a9626f"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-493-WORKBENCH_BACKEND-ENG_DECISION--page-native-cached-query-results-for-a-read-only-grid.md",
+          "id": "CA-M-493",
+          "version": 1,
+          "status": "Active",
+          "sha256": "b25017a13415d5927e7eb475908d8de4f96bcd81cc05e88a67db4766192bf532"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-462-WORKBENCH_BACKEND-ENG_DECISION--constrain-public-duckdb-queries-to-native-read-only-access.md",
+          "id": "CA-M-462",
+          "version": 10,
+          "status": "Active",
+          "sha256": "3afb517071a72afe76c09d3037e3316b0756e37a7bfcae5c9276fa92bbb7afd2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-464-WORKBENCH_BACKEND-ENG_DECISION--preserve-governed-atom-data-and-reuse-native-sql.md",
+          "id": "CA-M-464",
+          "version": 7,
+          "status": "Active",
+          "sha256": "5b7df2bedd87b0696eaf32f7bf715e5a3275152c38291dd4b15adcda61e4ffc7"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-463-WORKBENCH_BACKEND-ENG_DECISION--keep-duckdb-projection-ownership-in-the-existing-server.md",
+          "id": "CA-M-463",
+          "version": 6,
+          "status": "Active",
+          "sha256": "3d2415d4bf9c8fa52920e966e0c86b84be79359c22700a8c6b05a0c7aa95c3fa"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-490-WORKBENCH_BACKEND-ENG_DECISION--retain-a-bounded-watcher-change-log.md",
+          "id": "CA-M-490",
+          "version": 1,
+          "status": "Active",
+          "sha256": "b262a37da31971d321b44d602a7daf8e7e48b8a9b02bb5bc04b600fc680ab8e9"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-491-WORKBENCH_BACKEND-ENG_DECISION--retain-workbench-sync-status.md",
+          "id": "CA-M-491",
+          "version": 1,
+          "status": "Active",
+          "sha256": "09d53882d23b6753d86914c32e637c83acc7d9d96a4b382751ae16b024217e81"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-753-WORKBENCH_BACKEND-EVAL_CASE--verify-deployed-mcp-query-schema.md",
+          "id": "CA-E-753",
+          "version": 1,
+          "status": "Active",
+          "sha256": "7939384dec4583e78f2fd272cb52b844454e9b8f3ece64eade262e58f199317d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-788-WORKBENCH_BACKEND-EVAL_CASE--verify-cached-result-lifecycle.md",
+          "id": "CA-E-788",
+          "version": 1,
+          "status": "Active",
+          "sha256": "8ddcf57ec4d0c450681476b7e0170bd5f6b6fc4e032e256714b8dfe5eef72d10"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-784-WORKBENCH_BACKEND-EVAL_CASE--verify-native-cached-query-grid-pages.md",
+          "id": "CA-E-784",
+          "version": 1,
+          "status": "Active",
+          "sha256": "95cacbb2413dc1fcd6a9eddd80d746f21e4e472a5b71a4fd14fff445904523ed"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-752-WORKBENCH_BACKEND-EVAL_CASE--verify-query-failure-severity-and-runtime-health.md",
+          "id": "CA-E-752",
+          "version": 1,
+          "status": "Active",
+          "sha256": "e61671a78166a911c8fa0c510dfc84400bb6bc604adfb16c87effc5d9aa06546"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md",
+          "id": "CA-E-677",
+          "version": 8,
+          "status": "Active",
+          "sha256": "c8b787d589e266baa50dd10e09eb80632cc11cf1dac87ea0a39d7e9b54f17863"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-787-WORKBENCH_BACKEND-EVAL_CASE--verify-hourly-query-log-retention.md",
+          "id": "CA-E-787",
+          "version": 1,
+          "status": "Active",
+          "sha256": "10ae26b76d0bd6c756c0d4049e081730b7f1b73ae58895fc9ddb40cb0697e127"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-676-WORKBENCH_BACKEND-EVAL_CASE--query-native-sql-results-and-typed-relation-expansion.md",
+          "id": "CA-E-676",
+          "version": 11,
+          "status": "Active",
+          "sha256": "e42bd080a0e688627200178b4fbd0105db9593be71e526c6af5b927b5e8b466b"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-750-WORKBENCH_BACKEND-EVAL_CASE--verify-role-only-draft-reference-identity.md",
+          "id": "CA-E-750",
+          "version": 1,
+          "status": "Active",
+          "sha256": "f347dcd72993e68d2045b69763cdfa2e83d65a7d95015705b0a2d20180052015"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-780-WORKBENCH_BACKEND-EVAL_CASE--verify-watcher-change-log.md",
+          "id": "CA-E-780",
+          "version": 1,
+          "status": "Active",
+          "sha256": "059f3dad8dcfe13eba41ac90da3edd09c70c7951a5090e23e82849dcecda2f31"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-751-WORKBENCH_BACKEND-EVAL_CASE--verify-first-page-conversion-cleanup.md",
+          "id": "CA-E-751",
+          "version": 1,
+          "status": "Active",
+          "sha256": "15cd474f78db32c69cefdc8a6a53c86ae80f8b853cf19099f43576739a048fcb"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-695-WORKBENCH_BACKEND-ENG_DECISION--deliver-watcher-change-log.md",
+          "id": "CA-D-695",
+          "version": 1,
+          "status": "Active",
+          "sha256": "160a1263a49417621f75e75b42c091a896d008554b41221f09bddba28c416204"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-697-WORKBENCH_BACKEND-ENG_DECISION--deliver-grid-pages-from-cached-query-results.md",
+          "id": "CA-D-697",
+          "version": 1,
+          "status": "Active",
+          "sha256": "1ccaa7f241a72fe04ffe8019a08e71df2454fb5acc40fb80c1d5fad602485c28"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-672-WORKBENCH_BACKEND-ENG_DECISION--deliver-duckdb-atom-content-and-relation-records.md",
+          "id": "CA-D-672",
+          "version": 10,
+          "status": "Active",
+          "sha256": "ca6508a625e9ae8a44a52aa24449ab2645c15a2f6dc61ad52ab0d3cff0620c16"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-696-WORKBENCH_BACKEND-ENG_DECISION--deliver-workbench-sync-status.md",
+          "id": "CA-D-696",
+          "version": 1,
+          "status": "Active",
+          "sha256": "de77f928ad4c078fe517f1f0416d8777d5b7016c988c963f337d07807b79626c"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-698-WORKBENCH_BACKEND-ENG_DECISION--deliver-hourly-query-log-files.md",
+          "id": "CA-D-698",
+          "version": 1,
+          "status": "Active",
+          "sha256": "806607ad6b94f36f3f5afd65d3f8051a136d14af1252d9a8f37e23e93b3055bc"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-681-WORKBENCH-EVAL_CASE--verify-workbench-full-reread.md",
+          "id": "CA-E-681",
+          "version": 1,
+          "status": "Active",
+          "sha256": "07dacc3881375bdc90c93a52593bbf032992eb3efd52a683017681d434d840a2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-675-WORKBENCH-EVAL_CASE--preserve-nested-header-and-markdown-property-distinction.md",
+          "id": "CA-E-675",
+          "version": 5,
+          "status": "Active",
+          "sha256": "5f6154b21b8e2528b32903b977d224c99a84fcb3d7cc585b20b436fb2710f088"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-785-WORKBENCH-EVAL_CASE--verify-result-retention-and-one-query-views.md",
+          "id": "CA-E-785",
+          "version": 1,
+          "status": "Active",
+          "sha256": "25341d858aa81d408e1431d1a2ae0785bbfdf463784920ea13a55e7c2278963e"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-674-WORKBENCH-EVAL_CASE--enforce-native-read-only-and-exclusive-owner-handoff.md",
+          "id": "CA-E-674",
+          "version": 5,
+          "status": "Active",
+          "sha256": "25a938895d5ce6616e55a8f7f7bbc43078baa6c706e441705ab075f7ff46ada4"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-680-WORKBENCH-EVAL_CASE--verify-health-page-workbench-restart.md",
+          "id": "CA-E-680",
+          "version": 1,
+          "status": "Active",
+          "sha256": "f8138728bbb64ef41bcd3517922d0425801d66cb88392cf9e43cc03e717302b7"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-673-WORKBENCH-EVAL_CASE--align-mcp-run-check-and-web-results.md",
+          "id": "CA-E-673",
+          "version": 3,
+          "status": "Active",
+          "sha256": "2f36fe9c982cded633b24579f86c845f59efdca3e3193f9a9d48c1f93e0da3da"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-679-WORKBENCH-EVAL_CASE--verify-explicit-workbench-restart-through-mcp.md",
+          "id": "CA-E-679",
+          "version": 1,
+          "status": "Active",
+          "sha256": "5183553b93d1fb679d984d21da06f1e614e4265767d3524a0a6daf83a3b38344"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-675-WORKBENCH-ENG_DECISION--place-duckdb-projection-in-rebuildable-runtime-state.md",
+          "id": "CA-D-675",
+          "version": 10,
+          "status": "Active",
+          "sha256": "5cd72f35608f407423b54bfd1ed11d12661acd0f50846f7f2bb6357cfb95e5fc"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-676-WORKBENCH-ENG_DECISION--expose-workbench-restart-through-mcp.md",
+          "id": "CA-D-676",
+          "version": 2,
+          "status": "Active",
+          "sha256": "b3010759376abe55680d4c02c33dc965761e63503cf78a783f9132227ddc29c6"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-673-WORKBENCH-ENG_DECISION--deliver-shared-query-run-and-check-results.md",
+          "id": "CA-D-673",
+          "version": 13,
+          "status": "Active",
+          "sha256": "a74a9845cd744fc27cab29181ea1db0065d9cf701094569342a4ec5e30f4e3cd"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-677-WORKBENCH-ENG_DECISION--expose-workbench-restart-on-the-health-page.md",
+          "id": "CA-D-677",
+          "version": 1,
+          "status": "Active",
+          "sha256": "10e5b3bcb98e2c00a6a51f5922575c3f88ad3f20b53e4aa8432e029671c5aa87"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-679-WORKBENCH-ENG_DECISION--expose-workbench-reread-service.md",
+          "id": "CA-D-679",
+          "version": 1,
+          "status": "Active",
+          "sha256": "66dd2660a23295a13f08e610bc4d8cefae4c1c3d407d8f5843bc25999ee54ac7"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/done/CA-A-1323-PROGRAMMATIC-SPECIFICATION_PROPOSAL--refine-mcp-discovery-and-query-execution.md",
+          "id": "CA-A-1323",
+          "version": 1,
+          "status": "Done",
+          "sha256": "8d9d8e2bd35daa3819ec15692f9a3004a64d64ae067948181e6a4ac8e7d502b4"
+        }
+      ],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-draft-CORE_META_MODEL-ENG_DECISION--bind-modules-to-file-carriers.md",
@@ -1081,7 +2487,7 @@
       "role_letter": "D",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 102,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Bind Modules to File Carriers",
@@ -1089,7 +2495,9 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-draft-CORE_META_MODEL-ENG_DECISION--deliver-seven-rmed-subject-maps.md",
@@ -1101,7 +2509,7 @@
       "role_letter": "D",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 102,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Deliver Seven RMED Subject Maps",
@@ -1109,7 +2517,647 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/02_analysis/done/CA-A-1316-FRAMEWORK_ENGINE-SPECIFICATION_PROPOSAL--query-atoms-through-a-synchronized-duckdb-projection.md",
+          "id": "CA-A-1316",
+          "version": 7,
+          "status": "Done",
+          "sha256": "d7924e533d7eef025b56803617c7c64c6eb59b2f28aab65911c2b63ec933402f"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1567-CORE_META_MODEL-RULE--keep-change-and-implementation-collections-at-standard.md",
+          "id": "CA-R-1567",
+          "version": 25,
+          "status": "Active",
+          "sha256": "32ff84a3d3b50f21c51b52f6ef3873d862127a9231f3e23ac2ca13b41b00a17d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL--record-every-projection-rebuild-in-a-journal.md",
+          "id": "CA-R-1728",
+          "version": 29,
+          "status": "Active",
+          "sha256": "39586b952a2f0255df8ec29f3a3066a1306e51f53ea995f86bc17351a6b1afd4"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1593-CORE_META_MODEL-DEFINITION--define-the-plan-graph.md",
+          "id": "CA-R-1593",
+          "version": 25,
+          "status": "Active",
+          "sha256": "4701e30abbbcb36dfc17be9ed7b7b65099fbdd2b61328852bc34a73c24d94000"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL--preserve-source-scope-in-derived-views.md",
+          "id": "CA-R-1749",
+          "version": 27,
+          "status": "Active",
+          "sha256": "ae49318751cda47a70ec5c71180273309edb45dde087c2bb490b4d9054dc91e9"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL--permit-projections-as-implementation-outputs.md",
+          "id": "CA-R-1568",
+          "version": 26,
+          "status": "Active",
+          "sha256": "308b9f9f8ca1f5ebb904cca4ef4862baef605109ad061f5255ea223a58e9a367"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-231-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-navigation-projections-from-the-cce-claim.md",
+          "id": "CA-M-231",
+          "version": 34,
+          "status": "Active",
+          "sha256": "57a7adb2b831a1df5481ef582a60e9f340e021014c4609a030b1a8d9bf45bea2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2225-CORE_META_MODEL-RULE--select-subject-graph-views-by-scope-units-and-branches.md",
+          "id": "CA-R-2225",
+          "version": 4,
+          "status": "Active",
+          "sha256": "e50c68fa635e87bcaa0ac9af7a6a181a496281f47a8a261a66924b232afde416"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-RULE--journal-projection-rebuild-events.md",
+          "id": "CA-R-1649",
+          "version": 34,
+          "status": "Active",
+          "sha256": "fd4de65c29a9ffdc3c4a709f29f900882dec9b0f42d0fd5cf653178b71192207"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-RULE--derive-log-views-from-the-shared-journal.md",
+          "id": "CA-R-1463",
+          "version": 26,
+          "status": "Active",
+          "sha256": "7e27d10da84325b5c5345e716a8cb2e7bd2b4af5968717c6b56fb42aec3f9713"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms.md",
+          "id": "CA-M-114",
+          "version": 44,
+          "status": "Active",
+          "sha256": "cb6d01e0915d64454b610974a13195a907aa55f9d63cd2b2b9c4e6367c32b910"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL--derive-navigation-projections-from-the-cce-claim.md",
+          "id": "CA-M-116",
+          "version": 31,
+          "status": "Active",
+          "sha256": "065cdda6d2849601d38fcafbab489b437396b71715cb1bbd02886e463192c014"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL--define-general-artifact-graph.md",
+          "id": "CA-R-1409",
+          "version": 30,
+          "status": "Active",
+          "sha256": "5362632964c8e45826b150fc8e4187b669a42be1fa4414280b947373f9385d90"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1460-CORE_META_MODEL--separate-projection-derivation-from-carrier-materialization.md",
+          "id": "CA-R-1460",
+          "version": 22,
+          "status": "Active",
+          "sha256": "4c5a23a3812122caec15c8bcf4465c38abe44efb53be666297e426b113e2c34c"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1408-CORE_META_MODEL--define-graph-of-graphs.md",
+          "id": "CA-R-1408",
+          "version": 25,
+          "status": "Active",
+          "sha256": "2da3316f1ae7bba7143e41e46e867b2ce4822cbf1f9206ed59469703b706a4cd"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1507-CORE_META_MODEL-RULE--require-declared-source-atoms-before-projection-refresh.md",
+          "id": "CA-R-1507",
+          "version": 19,
+          "status": "Active",
+          "sha256": "3df605e8b4fe686a3f577c2a790fc33fbff52885a6eba4ea8b3784be4b07d5a1"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2535-CORE_META_MODEL-DECLARATION--declare-projection.md",
+          "id": "CA-R-2535",
+          "version": 2,
+          "status": "Active",
+          "sha256": "ea9191dc5c322224146211c5c2a2d9beee1184178be36435e953b4c1da2d9ce1"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1494-CORE_META_MODEL-RULE--record-projection-dependency-provenance-only-when-required.md",
+          "id": "CA-R-1494",
+          "version": 21,
+          "status": "Active",
+          "sha256": "d2ac0cf8bf7b6d40d7e4205e12f882480a59f3e4d1f5eb21c1899360c816cbae"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1493-CORE_META_MODEL-RULE--identify-how-each-projection-is-rebuilt.md",
+          "id": "CA-R-1493",
+          "version": 21,
+          "status": "Active",
+          "sha256": "6bdc0c26c3ea2318007dbe5c12063904558abbeac2cbee38fb70ac69caed5d2b"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL--keep-entity-identity-independent-of-graph-materialization.md",
+          "id": "CA-R-1406",
+          "version": 26,
+          "status": "Active",
+          "sha256": "a14dcd1c86fb20de9cd904da851f6f57a02c703a26c86c130fd399c4fd2e0cb0"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-RULE--distinguish-projected-representations-from-represented-entities.md",
+          "id": "CA-R-1609",
+          "version": 22,
+          "status": "Active",
+          "sha256": "4b29bf7b5938f6f359086a6aa1a9b0a7ab30d0ae3e4354e45b336a676d439a52"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1706-CORE_META_MODEL-RULE--requirement-provide-lineage-impact-projections.md",
+          "id": "CA-R-1706",
+          "version": 31,
+          "status": "Active",
+          "sha256": "b045bd609b1cc6b2ea3941bf196a9684e2e1ab28ca8218908c90307ad7b14ca1"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md",
+          "id": "CA-E-241",
+          "version": 47,
+          "status": "Active",
+          "sha256": "684396b1d9c1239cb61497344aef7edf24ef38e67323cadeb088713035d92108"
+        },
+        {
+          "path": ".caprmedio_caprmedio/03_plan/CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md",
+          "id": "CA-P-2710",
+          "version": 35,
+          "status": "Active",
+          "sha256": "1bcd42f395963ba3ee21f8654ace26d1a9a11e06c4681ebb99f961c89f857374"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames.md",
+          "id": "CA-D-635",
+          "version": 17,
+          "status": "Active",
+          "sha256": "bb89db55454c90f77d3120e220bf5593c0bf73d8f3380a8f41bf491afe67be1e"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-665-CORE_META_MODEL-ENG_DECISION--deliver-projections-to-markdown-files.md",
+          "id": "CA-D-665",
+          "version": 2,
+          "status": "Active",
+          "sha256": "59aabd5bd0dd79efd35be07c7016b55adbb6ce8203e8ba25ea9c6430483d1b95"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2727-WORKBENCH-RULE--provide-a-simple-web-query-interface-over-the-shared-query-capability.md",
+          "id": "CA-R-2727",
+          "version": 14,
+          "status": "Active",
+          "sha256": "63945ae618e155b23adbc05df9ccbe765bf77474a9069448e4300afeec0f4748"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2776-WORKBENCH-RULE--save-and-load-sql-by-id.md",
+          "id": "CA-R-2776",
+          "version": 6,
+          "status": "Active",
+          "sha256": "d7e60da31fa913525f7981b8e1235dc7c20c9db7f08f27af18ebfb30fad311ad"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2728-WORKBENCH-RULE--provide-native-sql-query-capability-over-query-projection.md",
+          "id": "CA-R-2728",
+          "version": 6,
+          "status": "Active",
+          "sha256": "c7c29455801296deee8efbae27740869a781e153a1e2a543b0f34f1756381289"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2952-WORKBENCH-RULE--show-workbench-source-sync-status.md",
+          "id": "CA-R-2952",
+          "version": 1,
+          "status": "Active",
+          "sha256": "9c0d77a9fa5d022d655404a928c8dde45901e545731fd41459ce90530015f4ff"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-653-CORE_META_MODEL-ENG_DECISION--deliver-readable-subject-graph-views-as-markdown.md",
+          "id": "CA-D-653",
+          "version": 16,
+          "status": "Active",
+          "sha256": "cb4ae8638608e90e7ef58bf4b938cf93fdfd16db2824e50524fca3bacafa2857"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2725-WORKBENCH-RULE--expose-only-valid-synchronized-source-state-through-query-projection.md",
+          "id": "CA-R-2725",
+          "version": 3,
+          "status": "Active",
+          "sha256": "4e659252a936a72ef3ac9126571b4f47f9cb81d5d40b453bf0baf5de70a20b6d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2786-WORKBENCH-RULE--rebuild-workbench-derived-state-from-source.md",
+          "id": "CA-R-2786",
+          "version": 1,
+          "status": "Active",
+          "sha256": "780ff6d6144c85f214b506679a01611b87a6424189df4885ecf01bd2e961915e"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2782-WORKBENCH-RULE--restart-workbench-without-restarting-mcp.md",
+          "id": "CA-R-2782",
+          "version": 2,
+          "status": "Active",
+          "sha256": "7b0ee32bc29f3f2a7d8d8a6873a07e72699250c39fd2f21d2ad75bc7fd10256b"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2950-WORKBENCH-RULE--record-observed-workbench-source-changes.md",
+          "id": "CA-R-2950",
+          "version": 1,
+          "status": "Active",
+          "sha256": "e79840592d90a07d037b04bfe83f47310ddac49279e3c1b6f6def61179fedfcf"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2729-WORKBENCH-RULE--return-complete-consistent-results-for-query-run-and-check.md",
+          "id": "CA-R-2729",
+          "version": 7,
+          "status": "Active",
+          "sha256": "469ba0a4747752590276fd33051009aa7e3cf5d29b573685ad0ecc7518ddcfd9"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2726-WORKBENCH-RULE--preserve-atom-header-and-markdown-content-faithfully-in-query-projection.md",
+          "id": "CA-R-2726",
+          "version": 4,
+          "status": "Active",
+          "sha256": "9f69fa08b71a13ea70dedbbb27c11a60ea19bd52d52eaaef48fe4873a5392382"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2724-WORKBENCH-RULE--expand-indexed-relation-references-with-complete-cycle-safe-results.md",
+          "id": "CA-R-2724",
+          "version": 3,
+          "status": "Active",
+          "sha256": "0c4b5c0c40ee993b01184103d55705d15b117042fbc343f5c9d57c70da0f8ce0"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2723-WORKBENCH-RULE--derive-query-projection-only-from-governed-atom-sources.md",
+          "id": "CA-R-2723",
+          "version": 3,
+          "status": "Active",
+          "sha256": "ef80dbb87184fe921f5888ad8f656d6eeac26144f7f4be512eb5b100d1997a46"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/CA-R-2953-WORKBENCH-RULE--query-results-support-read-only-sorting-filtering-and-grouping.md",
+          "id": "CA-R-2953",
+          "version": 1,
+          "status": "Active",
+          "sha256": "c72f16f105af260ca7041f8144523815bff8bf35743c59b8259e6e61c00700e3"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-474-WORKBENCH-ENG_DECISION--recreate-derived-state-from-source.md",
+          "id": "CA-M-474",
+          "version": 1,
+          "status": "Active",
+          "sha256": "d033df4aed62aa22064eb2b6e9ae3f1eb11e5f78c69b11be9278b4ceb5ccead6"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-471-WORKBENCH-ENG_POLICY--expose-workbench-capabilities-through-mcp.md",
+          "id": "CA-M-471",
+          "version": 3,
+          "status": "Active",
+          "sha256": "beba5ac506073dd268702f73e47b862873586a571367d1c773e414f85ce85c0a"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-472-WORKBENCH-ENG_DECISION--test-workbench-through-its-public-interfaces.md",
+          "id": "CA-M-472",
+          "version": 1,
+          "status": "Active",
+          "sha256": "bffa870590ae9c64e02195283c5cc9eafe74e120513baed2e97de41ef04c604f"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-470-WORKBENCH-ENG_DECISION--save-sql-and-browser-state.md",
+          "id": "CA-M-470",
+          "version": 7,
+          "status": "Active",
+          "sha256": "196e5ff99ee6b172829d82bf90cba8d3226b0451544be5c29edc10d32ea8d22d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/CA-M-467-WORKBENCH_FRONTEND-ENG_DECISION--keep-workbench-frontend-files-small.md",
+          "id": "CA-M-467",
+          "version": 2,
+          "status": "Active",
+          "sha256": "e36ccbaf571aa5259b1f2bd436edb46e4064cc9f7cba084a80d69b0b8fabed41"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/CA-M-466-WORKBENCH_FRONTEND-ENG_DECISION--use-svelte-typescript-and-vite-for-workbench.md",
+          "id": "CA-M-466",
+          "version": 5,
+          "status": "Active",
+          "sha256": "c0c9750ce8aa203b456d577bb8d207da52949811aca6340ee83b5ac2e144d7d7"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/CA-M-468-WORKBENCH_FRONTEND-ENG_DECISION--use-simple-sql-editor.md",
+          "id": "CA-M-468",
+          "version": 2,
+          "status": "Active",
+          "sha256": "c8d6d3eb02957eb3bfb416618b2108133e6569fdffe36daa80a9d558cbb08cf2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/CA-M-492-WORKBENCH_FRONTEND-ENG_DECISION--use-tabulator-for-read-only-result-grid.md",
+          "id": "CA-M-492",
+          "version": 1,
+          "status": "Active",
+          "sha256": "ec0e50209ce4a15f3fcab92611080bd643366bb8891cc42997558247fe63d683"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-782-WORKBENCH_FRONTEND-EVAL_CASE--verify-view-rename-modal.md",
+          "id": "CA-E-782",
+          "version": 1,
+          "status": "Active",
+          "sha256": "fc7581a2c8fed3175992d0849c52926dc49360f7aed258ecf9ceb5cd9d390caf"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-683-WORKBENCH_FRONTEND-EVAL_CASE--exercise-workbench-views-and-display-controls.md",
+          "id": "CA-E-683",
+          "version": 2,
+          "status": "Active",
+          "sha256": "fffd8437ba9fa126526cecf377329ece4b503701fdb4ae23ec5a048d3c73c9ee"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-783-WORKBENCH_FRONTEND-EVAL_CASE--verify-result-display-preferences.md",
+          "id": "CA-E-783",
+          "version": 1,
+          "status": "Active",
+          "sha256": "cf4cf8999fdc7a8599f43b6e28dda08be5c117a12428e28c458a0823ea0305e4"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-786-WORKBENCH_FRONTEND-EVAL_CASE--verify-result-grid-context-actions.md",
+          "id": "CA-E-786",
+          "version": 1,
+          "status": "Active",
+          "sha256": "1d70d1801cd8db8979a8d3418d917c77803f2db7ce90caa2e50529fd3e9b0c74"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation/CA-E-781-WORKBENCH_FRONTEND-EVAL_CASE--verify-workbench-sync-status.md",
+          "id": "CA-E-781",
+          "version": 1,
+          "status": "Active",
+          "sha256": "2a0c080835c7b730eb233b31176514e44fd7c71045ce967caf037cde4b75e43d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/07_delivery/CA-D-674-WORKBENCH_FRONTEND-ENG_DECISION--deliver-simple-sql-query-page.md",
+          "id": "CA-D-674",
+          "version": 18,
+          "status": "Active",
+          "sha256": "3a53d163b348661a356270c02faceafcd759dbe74d74115ed3e5a6c7d7e43786"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/09_operations/CA-O-240-WORKBENCH_BACKEND-ACTION--execute-one-read-only-duckdb-query.md",
+          "id": "CA-O-240",
+          "version": 10,
+          "status": "Active",
+          "sha256": "27ee02796801b35575ad6ec5f8b0cc60650f366c9464c9f0b2f7380887221b7c"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/09_operations/CA-O-241-WORKBENCH_BACKEND-ACTION--reconcile-the-duckdb-query-projection.md",
+          "id": "CA-O-241",
+          "version": 6,
+          "status": "Active",
+          "sha256": "e12d580aba9539bc1e57219f824993597146c5496270bac42c4180518451dcda"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-465-WORKBENCH_BACKEND-ENG_DECISION--reconcile-duckdb-derived-state-from-stable-governed-inventory.md",
+          "id": "CA-M-465",
+          "version": 13,
+          "status": "Active",
+          "sha256": "342b452075f1fdd912b92ff382f0e8f505aa38f487ef008960d642bf73a9626f"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-493-WORKBENCH_BACKEND-ENG_DECISION--page-native-cached-query-results-for-a-read-only-grid.md",
+          "id": "CA-M-493",
+          "version": 1,
+          "status": "Active",
+          "sha256": "b25017a13415d5927e7eb475908d8de4f96bcd81cc05e88a67db4766192bf532"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-462-WORKBENCH_BACKEND-ENG_DECISION--constrain-public-duckdb-queries-to-native-read-only-access.md",
+          "id": "CA-M-462",
+          "version": 10,
+          "status": "Active",
+          "sha256": "3afb517071a72afe76c09d3037e3316b0756e37a7bfcae5c9276fa92bbb7afd2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-464-WORKBENCH_BACKEND-ENG_DECISION--preserve-governed-atom-data-and-reuse-native-sql.md",
+          "id": "CA-M-464",
+          "version": 7,
+          "status": "Active",
+          "sha256": "5b7df2bedd87b0696eaf32f7bf715e5a3275152c38291dd4b15adcda61e4ffc7"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-463-WORKBENCH_BACKEND-ENG_DECISION--keep-duckdb-projection-ownership-in-the-existing-server.md",
+          "id": "CA-M-463",
+          "version": 6,
+          "status": "Active",
+          "sha256": "3d2415d4bf9c8fa52920e966e0c86b84be79359c22700a8c6b05a0c7aa95c3fa"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-490-WORKBENCH_BACKEND-ENG_DECISION--retain-a-bounded-watcher-change-log.md",
+          "id": "CA-M-490",
+          "version": 1,
+          "status": "Active",
+          "sha256": "b262a37da31971d321b44d602a7daf8e7e48b8a9b02bb5bc04b600fc680ab8e9"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/CA-M-491-WORKBENCH_BACKEND-ENG_DECISION--retain-workbench-sync-status.md",
+          "id": "CA-M-491",
+          "version": 1,
+          "status": "Active",
+          "sha256": "09d53882d23b6753d86914c32e637c83acc7d9d96a4b382751ae16b024217e81"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-753-WORKBENCH_BACKEND-EVAL_CASE--verify-deployed-mcp-query-schema.md",
+          "id": "CA-E-753",
+          "version": 1,
+          "status": "Active",
+          "sha256": "7939384dec4583e78f2fd272cb52b844454e9b8f3ece64eade262e58f199317d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-788-WORKBENCH_BACKEND-EVAL_CASE--verify-cached-result-lifecycle.md",
+          "id": "CA-E-788",
+          "version": 1,
+          "status": "Active",
+          "sha256": "8ddcf57ec4d0c450681476b7e0170bd5f6b6fc4e032e256714b8dfe5eef72d10"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-784-WORKBENCH_BACKEND-EVAL_CASE--verify-native-cached-query-grid-pages.md",
+          "id": "CA-E-784",
+          "version": 1,
+          "status": "Active",
+          "sha256": "95cacbb2413dc1fcd6a9eddd80d746f21e4e472a5b71a4fd14fff445904523ed"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-752-WORKBENCH_BACKEND-EVAL_CASE--verify-query-failure-severity-and-runtime-health.md",
+          "id": "CA-E-752",
+          "version": 1,
+          "status": "Active",
+          "sha256": "e61671a78166a911c8fa0c510dfc84400bb6bc604adfb16c87effc5d9aa06546"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md",
+          "id": "CA-E-677",
+          "version": 8,
+          "status": "Active",
+          "sha256": "c8b787d589e266baa50dd10e09eb80632cc11cf1dac87ea0a39d7e9b54f17863"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-787-WORKBENCH_BACKEND-EVAL_CASE--verify-hourly-query-log-retention.md",
+          "id": "CA-E-787",
+          "version": 1,
+          "status": "Active",
+          "sha256": "10ae26b76d0bd6c756c0d4049e081730b7f1b73ae58895fc9ddb40cb0697e127"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-676-WORKBENCH_BACKEND-EVAL_CASE--query-native-sql-results-and-typed-relation-expansion.md",
+          "id": "CA-E-676",
+          "version": 11,
+          "status": "Active",
+          "sha256": "e42bd080a0e688627200178b4fbd0105db9593be71e526c6af5b927b5e8b466b"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-750-WORKBENCH_BACKEND-EVAL_CASE--verify-role-only-draft-reference-identity.md",
+          "id": "CA-E-750",
+          "version": 1,
+          "status": "Active",
+          "sha256": "f347dcd72993e68d2045b69763cdfa2e83d65a7d95015705b0a2d20180052015"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-780-WORKBENCH_BACKEND-EVAL_CASE--verify-watcher-change-log.md",
+          "id": "CA-E-780",
+          "version": 1,
+          "status": "Active",
+          "sha256": "059f3dad8dcfe13eba41ac90da3edd09c70c7951a5090e23e82849dcecda2f31"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-751-WORKBENCH_BACKEND-EVAL_CASE--verify-first-page-conversion-cleanup.md",
+          "id": "CA-E-751",
+          "version": 1,
+          "status": "Active",
+          "sha256": "15cd474f78db32c69cefdc8a6a53c86ae80f8b853cf19099f43576739a048fcb"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-695-WORKBENCH_BACKEND-ENG_DECISION--deliver-watcher-change-log.md",
+          "id": "CA-D-695",
+          "version": 1,
+          "status": "Active",
+          "sha256": "160a1263a49417621f75e75b42c091a896d008554b41221f09bddba28c416204"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-697-WORKBENCH_BACKEND-ENG_DECISION--deliver-grid-pages-from-cached-query-results.md",
+          "id": "CA-D-697",
+          "version": 1,
+          "status": "Active",
+          "sha256": "1ccaa7f241a72fe04ffe8019a08e71df2454fb5acc40fb80c1d5fad602485c28"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-672-WORKBENCH_BACKEND-ENG_DECISION--deliver-duckdb-atom-content-and-relation-records.md",
+          "id": "CA-D-672",
+          "version": 10,
+          "status": "Active",
+          "sha256": "ca6508a625e9ae8a44a52aa24449ab2645c15a2f6dc61ad52ab0d3cff0620c16"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-696-WORKBENCH_BACKEND-ENG_DECISION--deliver-workbench-sync-status.md",
+          "id": "CA-D-696",
+          "version": 1,
+          "status": "Active",
+          "sha256": "de77f928ad4c078fe517f1f0416d8777d5b7016c988c963f337d07807b79626c"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/CA-D-698-WORKBENCH_BACKEND-ENG_DECISION--deliver-hourly-query-log-files.md",
+          "id": "CA-D-698",
+          "version": 1,
+          "status": "Active",
+          "sha256": "806607ad6b94f36f3f5afd65d3f8051a136d14af1252d9a8f37e23e93b3055bc"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-681-WORKBENCH-EVAL_CASE--verify-workbench-full-reread.md",
+          "id": "CA-E-681",
+          "version": 1,
+          "status": "Active",
+          "sha256": "07dacc3881375bdc90c93a52593bbf032992eb3efd52a683017681d434d840a2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-675-WORKBENCH-EVAL_CASE--preserve-nested-header-and-markdown-property-distinction.md",
+          "id": "CA-E-675",
+          "version": 5,
+          "status": "Active",
+          "sha256": "5f6154b21b8e2528b32903b977d224c99a84fcb3d7cc585b20b436fb2710f088"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-785-WORKBENCH-EVAL_CASE--verify-result-retention-and-one-query-views.md",
+          "id": "CA-E-785",
+          "version": 1,
+          "status": "Active",
+          "sha256": "25341d858aa81d408e1431d1a2ae0785bbfdf463784920ea13a55e7c2278963e"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-674-WORKBENCH-EVAL_CASE--enforce-native-read-only-and-exclusive-owner-handoff.md",
+          "id": "CA-E-674",
+          "version": 5,
+          "status": "Active",
+          "sha256": "25a938895d5ce6616e55a8f7f7bbc43078baa6c706e441705ab075f7ff46ada4"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-680-WORKBENCH-EVAL_CASE--verify-health-page-workbench-restart.md",
+          "id": "CA-E-680",
+          "version": 1,
+          "status": "Active",
+          "sha256": "f8138728bbb64ef41bcd3517922d0425801d66cb88392cf9e43cc03e717302b7"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-673-WORKBENCH-EVAL_CASE--align-mcp-run-check-and-web-results.md",
+          "id": "CA-E-673",
+          "version": 3,
+          "status": "Active",
+          "sha256": "2f36fe9c982cded633b24579f86c845f59efdca3e3193f9a9d48c1f93e0da3da"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-679-WORKBENCH-EVAL_CASE--verify-explicit-workbench-restart-through-mcp.md",
+          "id": "CA-E-679",
+          "version": 1,
+          "status": "Active",
+          "sha256": "5183553b93d1fb679d984d21da06f1e614e4265767d3524a0a6daf83a3b38344"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-675-WORKBENCH-ENG_DECISION--place-duckdb-projection-in-rebuildable-runtime-state.md",
+          "id": "CA-D-675",
+          "version": 10,
+          "status": "Active",
+          "sha256": "5cd72f35608f407423b54bfd1ed11d12661acd0f50846f7f2bb6357cfb95e5fc"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-676-WORKBENCH-ENG_DECISION--expose-workbench-restart-through-mcp.md",
+          "id": "CA-D-676",
+          "version": 2,
+          "status": "Active",
+          "sha256": "b3010759376abe55680d4c02c33dc965761e63503cf78a783f9132227ddc29c6"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-673-WORKBENCH-ENG_DECISION--deliver-shared-query-run-and-check-results.md",
+          "id": "CA-D-673",
+          "version": 13,
+          "status": "Active",
+          "sha256": "a74a9845cd744fc27cab29181ea1db0065d9cf701094569342a4ec5e30f4e3cd"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-677-WORKBENCH-ENG_DECISION--expose-workbench-restart-on-the-health-page.md",
+          "id": "CA-D-677",
+          "version": 1,
+          "status": "Active",
+          "sha256": "10e5b3bcb98e2c00a6a51f5922575c3f88ad3f20b53e4aa8432e029671c5aa87"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery/CA-D-679-WORKBENCH-ENG_DECISION--expose-workbench-reread-service.md",
+          "id": "CA-D-679",
+          "version": 1,
+          "status": "Active",
+          "sha256": "66dd2660a23295a13f08e610bc4d8cefae4c1c3d407d8f5843bc25999ee54ac7"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/done/CA-A-1323-PROGRAMMATIC-SPECIFICATION_PROPOSAL--refine-mcp-discovery-and-query-execution.md",
+          "id": "CA-A-1323",
+          "version": 1,
+          "status": "Done",
+          "sha256": "8d9d8e2bd35daa3819ec15692f9a3004a64d64ae067948181e6a4ac8e7d502b4"
+        }
+      ],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     },
     {
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-draft-CORE_META_MODEL-ENG_DECISION--represent-packages-with-directory-carriers.md",
@@ -1121,7 +3169,7 @@
       "role_letter": "D",
       "role_letter_matches": true,
       "form_seen_in_current_atoms": 102,
-      "form_validation": "not established by usage; verify applicable Form Declaration",
+      "form_validation": "unverified; Current usage is not Form Declaration authority",
       "version_existing": 1,
       "proposed_version": 1,
       "summary": "Represent Packages with Directory Carriers",
@@ -1129,7 +3177,21 @@
       "same_summary_current": [],
       "same_summary_history": [],
       "id_reference_lines": [],
-      "action": "PROPOSE_NEW_ID_V1_AFTER_PROVENANCE_REVIEW"
+      "action": "PROPOSE_NEW_ID_V1_SUBJECT_TO_FORM_AND_PROVENANCE_REVIEW",
+      "same_main_subject_current": [
+        {
+          "path": ".caprmedio_caprmedio/02_analysis/done/CA-A-1278-SPECIFICATION_PROPOSAL--retire-resources-and-classify-content-by-purpose.md",
+          "id": "CA-A-1278",
+          "version": 3,
+          "status": "Done",
+          "sha256": "d6bad31dd2a07be9309a0a52706c7a0d9362c8dda3b9bc8e0fb4e33f78b598ac"
+        }
+      ],
+      "identity_intent": "no explicit predecessor established; referenced authority is not itself a predecessor"
     }
+  ],
+  "caveats": [
+    "All allocations are proposed only, contingent on Form admission and disposition of obsolete proposals; no ID is reserved.",
+    "Analysis same-Summary scan covers numeric native files directly within 02_analysis folders; exact Subject and Summary matches do not establish identity."
   ]
 }

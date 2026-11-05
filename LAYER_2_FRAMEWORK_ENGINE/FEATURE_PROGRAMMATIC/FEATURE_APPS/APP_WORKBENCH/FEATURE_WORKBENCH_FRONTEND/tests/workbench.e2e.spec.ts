@@ -12,8 +12,13 @@ const projectName = new URL(url).pathname.split('/').filter(Boolean).at(-1)!;
 
 async function replaceSql(page: Page, sql: string) {
   const input = editor(page);
-  await input.fill(sql);
+  await expect(input).toBeEditable();
+  await input.click();
+  await input.press('Meta+A');
+  await input.pressSequentially(sql);
+  await expect(input).toContainText(sql);
 }
+async function runSql(page: Page) { await editor(page).press('Meta+Enter'); }
 
 async function sharedWorkspace() {
   const workspace = `browser-${Date.now()}`;
@@ -84,7 +89,7 @@ test('binds two browser contexts to one Workspace and observes external state', 
     });
     await test.step('run the draft edited while the first autosave is held', async () => {
       await replaceSql(secondPage, 'SELECT 2 AS latest_draft');
-      const run = secondPage.keyboard.press('Meta+Enter');
+      const run = runSql(secondPage);
       releaseUpdate?.();
       await run;
       await expect(editor(secondPage)).toContainText('SELECT 2 AS latest_draft');
@@ -97,6 +102,34 @@ test('binds two browser contexts to one Workspace and observes external state', 
   }
 });
 
+test('waits for the initial Workspace binding before accepting SQL input', async ({ page }) => {
+  let releaseOpen!: () => void;
+  let opened!: () => void;
+  const held = new Promise<void>((resolve) => releaseOpen = resolve);
+  const openStarted = new Promise<void>((resolve) => opened = resolve);
+  await page.route('**/interface', async (route) => {
+    const request = route.request().postDataJSON() as { operation?: string };
+    if (request.operation === 'workspace_open') {
+      const response = await route.fetch();
+      opened(); await held;
+      await route.fulfill({ response });
+      return;
+    }
+    await route.continue();
+  });
+  try {
+    await page.goto(url); await openStarted;
+    await expect(editor(page)).toHaveAttribute('contenteditable', 'false');
+    await expect(page.getByRole('button', { name: 'Run Cmd+Enter' })).toBeDisabled();
+    releaseOpen();
+    await expect(editor(page)).toBeEditable();
+    await replaceSql(page, 'SELECT 31 AS bound_input');
+    const run = page.waitForRequest((request) => request.method() === 'POST' && request.postDataJSON()?.operation === 'view_run');
+    await runSql(page); await run;
+    await expect(page.getByRole('grid')).toBeVisible();
+  } finally { releaseOpen?.(); }
+});
+
 test('keeps dirty SQL through Run and Check under the Project Workbench header', async ({ page }) => {
   await page.goto(url);
   const header = page.locator('header');
@@ -106,7 +139,7 @@ test('keeps dirty SQL through Run and Check under the Project Workbench header',
   await expect(header.getByRole('tab', { name: 'Saved Queries and Views' })).toBeVisible();
   await expect(page.getByText('Query editor', { exact: true })).toBeVisible();
   await replaceSql(page, 'SELECT id FROM atoms ORDER BY id LIMIT 1');
-  await page.keyboard.press('Meta+Enter');
+  await runSql(page);
   await expect(page.getByRole('grid')).toBeVisible();
   await expect(page.getByRole('grid').getByRole('row')).toHaveCount(2);
   await expect(page.getByRole('columnheader').first()).toHaveText(/id\s*VARCHAR/);
@@ -285,7 +318,7 @@ test('uses persisted adaptive or fixed display and global grid actions without r
   try {
     await page.goto(url);
     await replaceSql(page, "SELECT i AS ordinal, repeat('😀', 151) AS long_value FROM range(0, 220) AS t(i)");
-    await page.keyboard.press('Meta+Enter');
+    await runSql(page);
     await expect(page.getByRole('grid')).toBeVisible(); await expect(page.getByLabel('Result cell content')).toHaveValue('limited');
     expect(runs).toBe(1);
     await page.getByRole('tab', { name: 'Settings', exact: true }).click();
@@ -323,7 +356,7 @@ test('uses persisted adaptive or fixed display and global grid actions without r
 test('keeps NULL and text null group counts distinct', async ({ page }) => {
   await page.goto(url);
   await replaceSql(page, "SELECT CASE WHEN i < 2 THEN NULL::VARCHAR ELSE 'null' END AS marker FROM range(0, 5) AS t(i)");
-  await page.keyboard.press('Meta+Enter'); await expect(page.getByRole('grid')).toBeVisible();
+  await runSql(page); await expect(page.getByRole('grid')).toBeVisible();
   const grouped = page.waitForRequest((request) => request.method() === 'POST' && request.postDataJSON()?.operation === 'view_fetch' && request.postDataJSON()?.arguments?.grid?.group_by?.column === 0);
   await page.getByRole('columnheader').first().click({ button: 'right' });
   await page.getByText('Group by', { exact: true }).click(); await grouped;

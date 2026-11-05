@@ -1,0 +1,418 @@
+{
+  "status": "PROPOSED_PLACEHOLDERS_NO_ID_ALLOCATED",
+  "source_review": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/identity/identity-review.json",
+  "candidates": [
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/CA-R--PROGRAMMATIC-STANDARD--compose-expandable-and-overridable-model-declarations.md",
+      "source_sha256": "94240bd10e816ca7d16fb99e97b3a43f59f68f9be50f2c3c9b7a00109efdba22",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/{ID}@1-draft-PROGRAMMATIC-STANDARD--compose-expandable-and-overridable-model-declarations.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Compose expandable and overridable model declarations",
+      "main_subject": "PROGRAMMATIC",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M--PROGRAMMATIC-STANDARD--resolve-one-provenance-bearing-effective-model.md",
+      "source_sha256": "ece689541f2db7c3c66d30952e635e2411d79cd7794a08253577b87a7a7872b7",
+      "letter": "M",
+      "proposed_id": "CA-M-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/{ID}@1-draft-PROGRAMMATIC-STANDARD--resolve-one-provenance-bearing-effective-model.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Resolve one provenance-bearing effective model",
+      "main_subject": "PROGRAMMATIC",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--localize-engineering-decisions-and-reuse-shared-policies.md",
+      "source_sha256": "f0d6d5614b03bc0ae189cee97ae7f173feb48347fe8a63fd91fb18884e3edfa9",
+      "letter": "M",
+      "proposed_id": "CA-M-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/{ID}@1-draft-PROGRAMMATIC-CORE-ENG_POLICY--localize-engineering-decisions-and-reuse-shared-policies.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Localize engineering decisions and reuse shared policies",
+      "main_subject": "Subject/Engineering/Source Unit Responsibility",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E--PROGRAMMATIC-STANDARD-EVALUATION_APPROACH--check-model-extension-override-and-refresh-contracts.md",
+      "source_sha256": "81d0e6780b5d3358369e1ba8c0d8d93667dedaa7258fedeb0fc770b4158a68d8",
+      "letter": "E",
+      "proposed_id": "CA-E-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/{ID}@1-draft-PROGRAMMATIC-STANDARD-EVALUATION_APPROACH--check-model-extension-override-and-refresh-contracts.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Check model extension, override and refresh contracts",
+      "main_subject": "PROGRAMMATIC",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/07_delivery/draft/CA-D--PROGRAMMATIC-STANDARD--deliver-model-inputs-effective-generation-and-limits.md",
+      "source_sha256": "ab5f3340fff24461ab8d17ac84d53a54d3926d3728a68933f01c63c9b37290e6",
+      "letter": "D",
+      "proposed_id": "CA-D-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/07_delivery/draft/{ID}@1-draft-PROGRAMMATIC-STANDARD--deliver-model-inputs-effective-generation-and-limits.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Deliver model inputs, effective generation and limits",
+      "main_subject": "PROGRAMMATIC",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--establish-one-to-one-cce-dictionary.md",
+      "source_sha256": "97413f9ddc57044ec768ab4ef7b147e20c9e44e9c36d51ca7a5609be59354f53",
+      "letter": "A",
+      "proposed_id": "CA-A-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/{ID}@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--establish-one-to-one-cce-dictionary.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Establish explicit Term Definitions and staged CCE consistency checks",
+      "main_subject": "Entity/Object/Continuant/Term",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-terms-to-entity-root-and-method-definitions.md",
+      "source_sha256": "ab2c6dbc71414de9317b8e24cbb482c17f22a9e7718fbe772ccf554fd42e2f57",
+      "letter": "A",
+      "proposed_id": "CA-A-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/{ID}@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-terms-to-entity-root-and-method-definitions.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Move Terms to the Entity root and Method definitions",
+      "main_subject": "Entity/Term",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--notation-baseline-for-intuitive-symbol-review.md",
+      "source_sha256": "61fea8d5a354f267d85cd3f0620e0f54f0a0b39b603b6e6327027bb01fbe383b",
+      "letter": "A",
+      "proposed_id": "CA-A-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/{ID}@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--notation-baseline-for-intuitive-symbol-review.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Notation baseline for intuitive symbol review",
+      "main_subject": "Entity/Graph Syntax",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step-content-claim-mermaid-scheme.md",
+      "source_sha256": "7a44d9dbc7d59d7633273de1dad3d76e8deff79a774fe3d073554f2834f005f8",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-DECLARATION--declare-step-content-claim-mermaid-scheme.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "{ID}@1-draft-CORE_META_MODEL-DECLARATION--declare-step-content-claim-mermaid-scheme.md"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Declare Step.Content.Claim.Mermaid Scheme",
+      "main_subject": "CAPRMEDIO_MODEL <+ Step.Content.Claim.Mermaid Scheme",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-requirement-type-requirement.md",
+      "source_sha256": "314f5fc7d3903e885895ae06fac56ca34829189136c2bebd5f53aa21c716d432",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-DEFINITION--define-requirement-type-requirement.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Define Requirement Type Requirement",
+      "main_subject": "Model::CAPRMEDIO::Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Requirement",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-terms-projection.md",
+      "source_sha256": "c04e0458a50ad2cea95a301f0a464000d00ddbde5d6e70bdf868cace7ff7ac2a",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-DEFINITION--define-terms-projection.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Define Terms Projection",
+      "main_subject": "Model::CAPRMEDIO::Continuant/Projection/Terms Projection",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-value-constraint-annotations.md",
+      "source_sha256": "1f3de098daa67a26007847ff0f2d31fc49af13ff5e4820cb0eee99854fd53e12",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-DEFINITION--define-value-constraint-annotations.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Define Value Constraint Annotations",
+      "main_subject": "Model::CAPRMEDIO::Graph Syntax.Format Notation",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-RULE--list-logical-content-fields.md",
+      "source_sha256": "a6a8eceaaa7f4e4508ba23a881d02514f9152f9dad82664e80f96836b0f9282a",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-RULE--list-logical-content-fields.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "List Logical Content Fields",
+      "main_subject": "Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-RULE--require-unique-primary-kind-names.md",
+      "source_sha256": "299e616a70c045dd21a80a01628eb25522f76ee28223e8c69c31c3464c49de33",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-RULE--require-unique-primary-kind-names.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Require Unique Primary Kind Names",
+      "main_subject": "Subject",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-RULE--source-rmed-subject-view-contracts-only-from-declarations.md",
+      "source_sha256": "155f8ae25807e73269f8a8274614eb4d3bffc7e07c142ba08f6e2747cdd4786e",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-RULE--source-rmed-subject-view-contracts-only-from-declarations.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "{ID}@1-draft-CORE_META_MODEL-RULE--source-rmed-subject-view-contracts-only-from-declarations.md"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Source RMED Subject View Contracts Only from Declarations",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Rule)",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-draft-CORE_META_MODEL-ENG_POLICY--derive-rmed-subject-maps-from-declarations.md",
+      "source_sha256": "fb23ba66cdcb0d82e074f14e2ddbf2f28365f1a1d2ad7d426801bb6a9f5a91b7",
+      "letter": "M",
+      "proposed_id": "CA-M-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/{ID}@1-draft-CORE_META_MODEL-ENG_POLICY--derive-rmed-subject-maps-from-declarations.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "{ID}@1-draft-CORE_META_MODEL-ENG_POLICY--derive-rmed-subject-maps-from-declarations.md"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Derive RMED Subject Maps from Declarations",
+      "main_subject": "CAPRMEDIO_MODEL <+ Projection",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-draft-CORE_META_MODEL-EVAL_CASE--check-content-field-listing.md",
+      "source_sha256": "94f90a44383f4d08447dd23741ac8d709d3836964559d024aeff7a3da8927eaa",
+      "letter": "E",
+      "proposed_id": "CA-E-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/{ID}@1-draft-CORE_META_MODEL-EVAL_CASE--check-content-field-listing.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Check Content Field Listing",
+      "main_subject": "Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-rmed-subject-map-declaration-provenance.md",
+      "source_sha256": "76c9106c9705880456df46568214eda823723b28a85574f952c121c685ddd5c7",
+      "letter": "E",
+      "proposed_id": "CA-E-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/{ID}@1-draft-CORE_META_MODEL-EVAL_POLICY--check-rmed-subject-map-declaration-provenance.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "{ID}@1-draft-CORE_META_MODEL-EVAL_POLICY--check-rmed-subject-map-declaration-provenance.md"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Check RMED Subject Map Declaration Provenance",
+      "main_subject": "CAPRMEDIO_MODEL <+ Projection",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-draft-CORE_META_MODEL-ENG_DECISION--bind-modules-to-file-carriers.md",
+      "source_sha256": "44ba648f7b72a4981b03f5e471772ea87adcc170f9f88f20b86ed5f90f400acc",
+      "letter": "D",
+      "proposed_id": "CA-D-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/{ID}@1-draft-CORE_META_MODEL-ENG_DECISION--bind-modules-to-file-carriers.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Bind Modules to File Carriers",
+      "main_subject": "Model::CAPRMEDIO::Continuant/Package>Module",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-draft-CORE_META_MODEL-ENG_DECISION--deliver-seven-rmed-subject-maps.md",
+      "source_sha256": "8640c1348974c755b5fe458f2b9175802f00cfc95d2d50b7d6afbd3ff0dd21c5",
+      "letter": "D",
+      "proposed_id": "CA-D-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/{ID}@1-draft-CORE_META_MODEL-ENG_DECISION--deliver-seven-rmed-subject-maps.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "{ID}@1-draft-CORE_META_MODEL-ENG_DECISION--deliver-seven-rmed-subject-maps.md"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Deliver Seven RMED Subject Maps",
+      "main_subject": "CAPRMEDIO_MODEL <+ Projection",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-draft-CORE_META_MODEL-ENG_DECISION--represent-packages-with-directory-carriers.md",
+      "source_sha256": "9e45c1d18c3fe3ce432bd124ed031826b79f8a67e0c24b726753274804ea4297",
+      "letter": "D",
+      "proposed_id": "CA-D-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/{ID}@1-draft-CORE_META_MODEL-ENG_DECISION--represent-packages-with-directory-carriers.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Represent Packages with Directory Carriers",
+      "main_subject": "Model::CAPRMEDIO::Continuant/Package",
+      "identity_evidence": "no explicit predecessor, assigned numeric ID or historical-only disposition found in inspected source and searched migration receipts"
+    }
+  ],
+  "excluded": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-model.md",
+      "reason": "Explicitly superseded root Definition; retained as preparation history."
+    }
+  ],
+  "preflight": [
+    "Recheck source SHA and Status Draft/version 1.",
+    "Under global identity lock allocate unused role-letter ID and check preserved history.",
+    "Reject existing target path or changed source; change only ID, Ref ID and existing Carrier Destination filename, preserve Body and other Header bytes.",
+    "Maintain link integrity as separate explicit operation where needed; no edits to Claim content implied."
+  ],
+  "checks": "No Summary or Subject match is an automatic identity binding; Form remains promotion validation."
+}

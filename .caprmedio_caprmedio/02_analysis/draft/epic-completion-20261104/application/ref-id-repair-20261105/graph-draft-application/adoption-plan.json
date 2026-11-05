@@ -1,0 +1,319 @@
+{
+  "status": "REVIEWED_IDENTITY_REPAIR",
+  "source_review_sha256": "b006ce424f1f8cfbab37f9b381250acdad919329562e207d1ecf5725d16e1059",
+  "scope": "Reviewed fresh Draft identities; no Form admission, Claim change or promotion.",
+  "outputs": [
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--allow-one-optional-atom-semantics.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2976@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--allow-one-optional-atom-semantics.md",
+      "atom_id": "CA-R-2976",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "19bb948a0969e1d697f39097995fab5443de743c7a7567cbf6406c3c68da6ea3"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--constrain-evaluation-for-endpoint-kinds.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2977@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--constrain-evaluation-for-endpoint-kinds.md",
+      "atom_id": "CA-R-2977",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "b220d2f5f8a38f5a539ca3a3e694217d2a189381ea02218387e96a17247f8837"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-original-atom-ids-unique.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2978@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-original-atom-ids-unique.md",
+      "atom_id": "CA-R-2978",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "95ef37f07a63ad6f77aa141bc98d679f111599b7e0608fadaad005b8aec84290"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-rmed-relation-targets-current.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2979@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-rmed-relation-targets-current.md",
+      "atom_id": "CA-R-2979",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "6473c4f2635a1074f5ef6cc9dc8187478e1244fc7de236388e9ca35b15f81c93"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-default-values-within-the-governed-value-domain.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2980@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-default-values-within-the-governed-value-domain.md",
+      "atom_id": "CA-R-2980",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "dbdec51011a623d557a17ee377e534035cfe4c23654fb0659d8ad4f20ded144a"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--preserve-inherited-status-values.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2981@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--preserve-inherited-status-values.md",
+      "atom_id": "CA-R-2981",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "288b1d6cb202fe7e69e474544b6be3f9257847b50730748311dd1c0f9b1563e7"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-date-time-atom-updated-at.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2982@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-date-time-atom-updated-at.md",
+      "atom_id": "CA-R-2982",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "9e8273e808e26bc536a96b1da65532d9f476cb0ce21764f86376d1f242b1a6d5"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-integer-atom-version.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2983@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-integer-atom-version.md",
+      "atom_id": "CA-R-2983",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "a72d3911001f000e3476b3cc38f5deebec57828cf5e866190fcb14e4d82a1930"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-status.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2984@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-status.md",
+      "atom_id": "CA-R-2984",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "e411e9a0d262a4abbe0663156b3d6551196784aeb977b0fab347f89f06679cf0"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-updated-at.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2985@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-updated-at.md",
+      "atom_id": "CA-R-2985",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "570836eec2d06258979cbf007dd095c0e1f2159515c2c132b7ac555b9b22edd6"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-version.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2986@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-version.md",
+      "atom_id": "CA-R-2986",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "d0e60165184dc4b1fff64844901f024a29b1e6dad39772d8b5beb96f1a044dc5"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-positive-atom-version.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2987@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-positive-atom-version.md",
+      "atom_id": "CA-R-2987",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "b83d5cbe24c9d43c1c3b7a348040aab477c20d3e6665bf5c429808c3349532e6"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-text-atom-semantics.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2988@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-text-atom-semantics.md",
+      "atom_id": "CA-R-2988",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "a492a9651e4d80007f5d7ecb7b33d6240d8c33dc4990a07285b0b0d557bab7ec"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--use-the-applicable-status-values.md",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2989@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--use-the-applicable-status-values.md",
+      "atom_id": "CA-R-2989",
+      "version": 1,
+      "status": "Draft",
+      "sha256": "c33febd5bb522908d2d55241f8cdc2c9949d2bcd67f619cf83ce5bc9720f1527"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2976@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--allow-one-optional-atom-semantics.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2976\nref_id: CA-R-2976@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Semantics\n  dependencies:\n  - Entity/Node/Continuant/Atom\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nAllow zero or one Semantics section for each Atom.\n\n```yaml\ngraph_rule_type: cardinality\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Semantics\"\ncondition:\n  minimum: 0\n  maximum: 1\n```\n\n## Details\n\nProvenance: `../CA-R-1946-CORE_META_MODEL-GENERAL--define-atom-semantics.md` defines Semantics as Atom content without requiring it on every Atom; `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` permits an optional Semantics section for formal Graph Rules. The operative block is a proposed property-cardinality schema only; current CA-D-637 admits cardinality only for relations. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "after_sha256": "19bb948a0969e1d697f39097995fab5443de743c7a7567cbf6406c3c68da6ea3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--allow-one-optional-atom-semantics.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: \"Entity/Node/Continuant/Atom.Semantics\"\n  dependencies:\n    - \"Entity/Node/Continuant/Atom\"\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nAllow zero or one Semantics section for each Atom.\n\n```yaml\ngraph_rule_type: cardinality\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Semantics\"\ncondition:\n  minimum: 0\n  maximum: 1\n```\n\n## Details\n\nProvenance: `../CA-R-1946-CORE_META_MODEL-GENERAL--define-atom-semantics.md` defines Semantics as Atom content without requiring it on every Atom; `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` permits an optional Semantics section for formal Graph Rules. The operative block is a proposed property-cardinality schema only; current CA-D-637 admits cardinality only for relations. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "before_sha256": "6fa0982217acc1c525e164434ab759181bb51f1e656c177bc65b245001ffee45",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2977@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--constrain-evaluation-for-endpoint-kinds.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2977\nref_id: CA-R-2977@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: 'Entity/Relation/Type: evaluation_for'\n  dependencies:\n  - 'Entity/Node/Continuant/Atom/Content Role: Evaluation'\n  - 'Entity/Node/Continuant/Atom/Content Role: Requirement'\n  - 'Entity/Node/Continuant/Atom/Content Role: Method'\n  - 'Entity/Node/Continuant/Atom/Content Role: Delivery'\n  - 'Entity/Node/Continuant/Atom/Content Role: Operations'\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nConstrain the endpoint kinds of evaluation_for\n\n```yaml\ngraph_rule_type: whitelist\napplies_to:\n  relation_type: evaluation_for\ncondition:\n  source:\n    - \"Entity/Node/Continuant/Atom/Content Role: Evaluation\"\n  target:\n    - \"Entity/Node/Continuant/Atom/Content Role: Requirement\"\n    - \"Entity/Node/Continuant/Atom/Content Role: Method\"\n    - \"Entity/Node/Continuant/Atom/Content Role: Evaluation\"\n    - \"Entity/Node/Continuant/Atom/Content Role: Delivery\"\n    - \"Entity/Node/Continuant/Atom/Content Role: Operations\"\n```\n\n## Details\n\nSource: [CA-R-1018@22](../CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md). The whitelist checks only endpoint kinds; it does not require a connection or establish that a supplied target's authority is actually checked. The relation's meaning and other constraints remain separate.\n\nThis Draft uses the existing Whitelist shape from [CA-D-637@5](../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md). Draft creation does not activate this rule or establish runtime evaluation.\n",
+      "after_sha256": "b220d2f5f8a38f5a539ca3a3e694217d2a189381ea02218387e96a17247f8837"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--constrain-evaluation-for-endpoint-kinds.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: \"Entity/Relation/Type: evaluation_for\"\n  dependencies:\n  - \"Entity/Node/Continuant/Atom/Content Role: Evaluation\"\n  - \"Entity/Node/Continuant/Atom/Content Role: Requirement\"\n  - \"Entity/Node/Continuant/Atom/Content Role: Method\"\n  - \"Entity/Node/Continuant/Atom/Content Role: Delivery\"\n  - \"Entity/Node/Continuant/Atom/Content Role: Operations\"\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nConstrain the endpoint kinds of evaluation_for\n\n```yaml\ngraph_rule_type: whitelist\napplies_to:\n  relation_type: evaluation_for\ncondition:\n  source:\n    - \"Entity/Node/Continuant/Atom/Content Role: Evaluation\"\n  target:\n    - \"Entity/Node/Continuant/Atom/Content Role: Requirement\"\n    - \"Entity/Node/Continuant/Atom/Content Role: Method\"\n    - \"Entity/Node/Continuant/Atom/Content Role: Evaluation\"\n    - \"Entity/Node/Continuant/Atom/Content Role: Delivery\"\n    - \"Entity/Node/Continuant/Atom/Content Role: Operations\"\n```\n\n## Details\n\nSource: [CA-R-1018@22](../CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md). The whitelist checks only endpoint kinds; it does not require a connection or establish that a supplied target's authority is actually checked. The relation's meaning and other constraints remain separate.\n\nThis Draft uses the existing Whitelist shape from [CA-D-637@5](../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md). Draft creation does not activate this rule or establish runtime evaluation.\n",
+      "before_sha256": "8f921566c24e4ac6b508d5a03e07d0eefaf50e379e655231a89a27474ad309ad",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2978@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-original-atom-ids-unique.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2978\nref_id: CA-R-2978@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.ID\n  dependencies:\n  - Entity/Node/Continuant/Atom.Version Number\n  - Entity/Node/Continuant/Atom.Status\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire unique canonical IDs among Current original Atoms\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: \"Entity/Node/Continuant/Selection//Current Original Atoms\"\n  property: \"Entity/Node/Continuant/Atom.ID\"\ncondition:\n  unique: true\n```\n\n## Details\n\nThe `value_constraint` mapping is proposed only. [CA-D-637@5](../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md) names the type but does not yet admit its schema or a Selection resolver.\n\nThe named Selection means all Current original logical Atoms in the selected source of truth. Exclude Drafts, archived originals and projection copies. Include Current statuses such as Done and Canceled, not only Active. Classify archival membership from the authoritative lifecycle/placement rules, not preserved historical Status bytes alone. Count logical Atoms, not file/folder representations or repeated source references. An unknown or incomplete population is unresolved, not a passing empty set.\n\nThe uniqueness key is canonical Atom.ID alone, never ID plus Version. Archived versions can reuse a canonical ID at different Versions without joining this population.\n\nSources: [CA-D-446@17](../../07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md), [CA-D-378@16](../../07_delivery/CA-D-378-CORE_META_MODEL--serialize-assigned-atom-identities.md) and [CA-D-570@12](../../07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md). [Project Configuration CA-D-305@16](../../../003_PROJECT_CONFIGURATION/07_delivery/CA-D-305-PROJECT_CONFIGURATION-CORE--carry-projected-atoms-without-new-identity.md) is a concrete example of projected members retaining source identity, not an extra universal Core authority.\n",
+      "after_sha256": "95ef37f07a63ad6f77aa141bc98d679f111599b7e0608fadaad005b8aec84290"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-original-atom-ids-unique.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.ID\n  dependencies:\n  - Entity/Node/Continuant/Atom.Version Number\n  - Entity/Node/Continuant/Atom.Status\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire unique canonical IDs among Current original Atoms\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: \"Entity/Node/Continuant/Selection//Current Original Atoms\"\n  property: \"Entity/Node/Continuant/Atom.ID\"\ncondition:\n  unique: true\n```\n\n## Details\n\nThe `value_constraint` mapping is proposed only. [CA-D-637@5](../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md) names the type but does not yet admit its schema or a Selection resolver.\n\nThe named Selection means all Current original logical Atoms in the selected source of truth. Exclude Drafts, archived originals and projection copies. Include Current statuses such as Done and Canceled, not only Active. Classify archival membership from the authoritative lifecycle/placement rules, not preserved historical Status bytes alone. Count logical Atoms, not file/folder representations or repeated source references. An unknown or incomplete population is unresolved, not a passing empty set.\n\nThe uniqueness key is canonical Atom.ID alone, never ID plus Version. Archived versions can reuse a canonical ID at different Versions without joining this population.\n\nSources: [CA-D-446@17](../../07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md), [CA-D-378@16](../../07_delivery/CA-D-378-CORE_META_MODEL--serialize-assigned-atom-identities.md) and [CA-D-570@12](../../07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md). [Project Configuration CA-D-305@16](../../../003_PROJECT_CONFIGURATION/07_delivery/CA-D-305-PROJECT_CONFIGURATION-CORE--carry-projected-atoms-without-new-identity.md) is a concrete example of projected members retaining source identity, not an extra universal Core authority.\n",
+      "before_sha256": "75f3ccb30a6f987a795e6bcc764de3af4b2737261514cb0e36ff9984f53b0f46",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2979@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-rmed-relation-targets-current.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2979\nref_id: CA-R-2979@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Relation\n  dependencies:\n  - 'Entity/Node/Continuant/Atom/Content Role: Requirement'\n  - 'Entity/Node/Continuant/Atom/Content Role: Method'\n  - 'Entity/Node/Continuant/Atom/Content Role: Evaluation'\n  - 'Entity/Node/Continuant/Atom/Content Role: Delivery'\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nKeep Current RMED-to-RMED relation targets Current\n\n```yaml\ngraph_rule_type: endpoint_constraint\napplies_to:\n  relation: direct\n  source:\n    lifecycle_group: Current\n    content_role:\n      - Requirement\n      - Method\n      - Evaluation\n      - Delivery\n  target:\n    content_role:\n      - Requirement\n      - Method\n      - Evaluation\n      - Delivery\ncondition:\n  target_lifecycle_group: Current\n  on_unresolved_endpoint_lifecycle: unresolved\n```\n\n## Details\n\nThe `endpoint_constraint` mapping is proposed only. [CA-D-637@5](../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md) does not yet admit an endpoint-constraint schema.\n\nSource: [CA-R-1676@21](../CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md). Current is a lifecycle group, not an Atom.Status value: exclude Draft and archived sources; include non-archived Done/Canceled where their role permits those statuses. Use authoritative lifecycle/placement, not historical Status bytes alone. Apply only to direct relations whose source and target roles are both in RMED. Relations involving Operations or other kinds are outside this rule, not implicitly prohibited.\n\nThe proposed unresolved-lifecycle outcome covers both endpoints, including source applicability. If either role-qualified endpoint's lifecycle cannot be determined, report unresolved before treating the source as out of scope or the target as conforming. Unknown membership is not a passing or automatically inapplicable case.\n",
+      "after_sha256": "6473c4f2635a1074f5ef6cc9dc8187478e1244fc7de236388e9ca35b15f81c93"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-rmed-relation-targets-current.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Relation\n  dependencies:\n  - \"Entity/Node/Continuant/Atom/Content Role: Requirement\"\n  - \"Entity/Node/Continuant/Atom/Content Role: Method\"\n  - \"Entity/Node/Continuant/Atom/Content Role: Evaluation\"\n  - \"Entity/Node/Continuant/Atom/Content Role: Delivery\"\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nKeep Current RMED-to-RMED relation targets Current\n\n```yaml\ngraph_rule_type: endpoint_constraint\napplies_to:\n  relation: direct\n  source:\n    lifecycle_group: Current\n    content_role:\n      - Requirement\n      - Method\n      - Evaluation\n      - Delivery\n  target:\n    content_role:\n      - Requirement\n      - Method\n      - Evaluation\n      - Delivery\ncondition:\n  target_lifecycle_group: Current\n  on_unresolved_endpoint_lifecycle: unresolved\n```\n\n## Details\n\nThe `endpoint_constraint` mapping is proposed only. [CA-D-637@5](../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md) does not yet admit an endpoint-constraint schema.\n\nSource: [CA-R-1676@21](../CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md). Current is a lifecycle group, not an Atom.Status value: exclude Draft and archived sources; include non-archived Done/Canceled where their role permits those statuses. Use authoritative lifecycle/placement, not historical Status bytes alone. Apply only to direct relations whose source and target roles are both in RMED. Relations involving Operations or other kinds are outside this rule, not implicitly prohibited.\n\nThe proposed unresolved-lifecycle outcome covers both endpoints, including source applicability. If either role-qualified endpoint's lifecycle cannot be determined, report unresolved before treating the source as out of scope or the target as conforming. Unknown membership is not a passing or automatically inapplicable case.\n",
+      "before_sha256": "cdc90afe282d78b4a57e4d9caa16903c6c1f0974f77683aca5ec5603cfeb5009",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2980@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-default-values-within-the-governed-value-domain.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2980\nref_id: CA-R-2980@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Graph Rule.Default Value\n  dependencies:\n  - Entity/Graph Rule.Condition\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nKeep a default within the governed value's constraints\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: Entity/Graph Rule\n  property: Entity/Graph Rule.Default Value\ncondition:\n  when_present:\n    conforms_to: governed_value_constraints\n```\n\n## Details\n\nProposed Value Constraint encoding, not an admitted schema in CA-D-637@5. This Draft introduces no validator or resolver support.\n\nAn absent default has nothing to check. A declared default must satisfy the same applicable value constraints as an explicit governed value. An explicit null is a declared value, not absence; its admissibility depends on the governed value's constraints. This rule selects no concrete default and no cross-rule precedence.\n\nSource: [CA-R-1999@1](../CA-R-1999-CORE_META_MODEL-CORE--define-entity-graph-rule-default-value.md). Its fallback-only meaning remains: resolving a default does not automatically write a value or create a relation. Cardinality rules continue to forbid default_value under the existing Delivery schema.\n",
+      "after_sha256": "dbdec51011a623d557a17ee377e534035cfe4c23654fb0659d8ad4f20ded144a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-default-values-within-the-governed-value-domain.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Graph Rule.Default Value\n  dependencies:\n    - Entity/Graph Rule.Condition\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nKeep a default within the governed value's constraints\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: Entity/Graph Rule\n  property: Entity/Graph Rule.Default Value\ncondition:\n  when_present:\n    conforms_to: governed_value_constraints\n```\n\n## Details\n\nProposed Value Constraint encoding, not an admitted schema in CA-D-637@5. This Draft introduces no validator or resolver support.\n\nAn absent default has nothing to check. A declared default must satisfy the same applicable value constraints as an explicit governed value. An explicit null is a declared value, not absence; its admissibility depends on the governed value's constraints. This rule selects no concrete default and no cross-rule precedence.\n\nSource: [CA-R-1999@1](../CA-R-1999-CORE_META_MODEL-CORE--define-entity-graph-rule-default-value.md). Its fallback-only meaning remains: resolving a default does not automatically write a value or create a relation. Cardinality rules continue to forbid default_value under the existing Delivery schema.\n",
+      "before_sha256": "0ee7d4acb4b1ca55ba53aa9e44907e4fa85959330f476c1430bc134aa71e8649",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2981@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--preserve-inherited-status-values.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2981\nref_id: CA-R-2981@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Status\n  dependencies:\n  - Entity/Node/Continuant/Atom/Content Role\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nPreserve inherited Status values in narrower Atom kinds\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: Entity/Node/Continuant/Atom\n  property: Entity/Node/Continuant/Atom.Status\ncondition:\n  allowed_value_domain:\n    includes_inherited_values: true\n    permits_declared_additions: true\n```\n\n## Details\n\nProposed Value Constraint encoding, not an admitted schema in CA-D-637@5. It constrains source-declared allowed-value domains, not the number of Status values on one Atom. It introduces no resolver or universal rule-merging policy.\n\nEach narrower Atom kind retains its inherited Status values and may admit additional values for its qualified Content Role or Type. Inherited values need not be declared again. This does not replace the qualified domain with a closed global list or decide inheritance for other properties.\n\nSources: [CA-R-1308@13](../CA-R-1308-CORE_META_MODEL-CORE-REQUIREMENT--resolve-status-domains-from-complete-qualified-paths.md) and [CA-R-1947@3](../CA-R-1947-CORE_META_MODEL-GENERAL--define-atom-status-allowed-values.md). The base values and qualified additions remain owned by those source declarations, not copied into this rule.\n",
+      "after_sha256": "288b1d6cb202fe7e69e474544b6be3f9257847b50730748311dd1c0f9b1563e7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--preserve-inherited-status-values.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Status\n  dependencies:\n    - Entity/Node/Continuant/Atom/Content Role\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nPreserve inherited Status values in narrower Atom kinds\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: Entity/Node/Continuant/Atom\n  property: Entity/Node/Continuant/Atom.Status\ncondition:\n  allowed_value_domain:\n    includes_inherited_values: true\n    permits_declared_additions: true\n```\n\n## Details\n\nProposed Value Constraint encoding, not an admitted schema in CA-D-637@5. It constrains source-declared allowed-value domains, not the number of Status values on one Atom. It introduces no resolver or universal rule-merging policy.\n\nEach narrower Atom kind retains its inherited Status values and may admit additional values for its qualified Content Role or Type. Inherited values need not be declared again. This does not replace the qualified domain with a closed global list or decide inheritance for other properties.\n\nSources: [CA-R-1308@13](../CA-R-1308-CORE_META_MODEL-CORE-REQUIREMENT--resolve-status-domains-from-complete-qualified-paths.md) and [CA-R-1947@3](../CA-R-1947-CORE_META_MODEL-GENERAL--define-atom-status-allowed-values.md). The base values and qualified additions remain owned by those source declarations, not copied into this rule.\n",
+      "before_sha256": "d16b220b8a1c221053fb4c0edf7b8d834cc897f44af79dabec9b60e0a535336e",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2982@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-date-time-atom-updated-at.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2982\nref_id: CA-R-2982@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Updated At\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire a date-time value for Atom Updated At\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: Entity/Node/Continuant/Atom\n  property: Entity/Node/Continuant/Atom.Updated At\ncondition:\n  value_type: date_time\n```\n\n## Details\n\nProposed Value Constraint encoding, not an admitted schema in CA-D-637@5. Check each present value; missing-value requiredness belongs to the separate Cardinality rule. Date-time is the semantic type, even when its carrier is a quoted YAML string. No general primitive-type registry is created here.\n\nSource: [CA-R-1416@15](../CA-R-1416-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-updated-at.md). Exact spelling, quoting and timezone representation remain Delivery policies, not another condition in this rule.\n",
+      "after_sha256": "9e8273e808e26bc536a96b1da65532d9f476cb0ce21764f86376d1f242b1a6d5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-date-time-atom-updated-at.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Updated At\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire a date-time value for Atom Updated At\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: Entity/Node/Continuant/Atom\n  property: Entity/Node/Continuant/Atom.Updated At\ncondition:\n  value_type: date_time\n```\n\n## Details\n\nProposed Value Constraint encoding, not an admitted schema in CA-D-637@5. Check each present value; missing-value requiredness belongs to the separate Cardinality rule. Date-time is the semantic type, even when its carrier is a quoted YAML string. No general primitive-type registry is created here.\n\nSource: [CA-R-1416@15](../CA-R-1416-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-updated-at.md). Exact spelling, quoting and timezone representation remain Delivery policies, not another condition in this rule.\n",
+      "before_sha256": "50772102c1ceaa22e32fa72792d5259aeabf89e921fa7178441a772a9c74e652",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2983@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-integer-atom-version.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2983\nref_id: CA-R-2983@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Version Number\n  dependencies:\n  - Entity/Node/Continuant/Atom\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire each Atom Version Number to be an integer.\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Version Number\"\ncondition:\n  value_type: integer\n```\n\n## Details\n\nProvenance: `../CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md` requires a positive integer Version. The operative block is a proposed value-constraint schema only: `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` does not yet admit value constraints. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "after_sha256": "a72d3911001f000e3476b3cc38f5deebec57828cf5e866190fcb14e4d82a1930"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-integer-atom-version.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: \"Entity/Node/Continuant/Atom.Version Number\"\n  dependencies:\n    - \"Entity/Node/Continuant/Atom\"\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire each Atom Version Number to be an integer.\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Version Number\"\ncondition:\n  value_type: integer\n```\n\n## Details\n\nProvenance: `../CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md` requires a positive integer Version. The operative block is a proposed value-constraint schema only: `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` does not yet admit value constraints. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "before_sha256": "ec0d0ac8d041b43cb1bf89f4dddedcb5a7c6af2d8bd3f6804c36f6dc57fb7c3a",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2984@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-status.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2984\nref_id: CA-R-2984@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Status\n  dependencies:\n  - Entity/Node/Continuant/Atom\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire one Status for each Atom.\n\n```yaml\ngraph_rule_type: cardinality\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Status\"\ncondition:\n  minimum: 1\n  maximum: 1\n```\n\n## Details\n\nProvenance: `../CA-R-1412-CORE_META_MODEL-CORE--give-every-atom-revision-one-status.md` requires exactly one Status. The operative block is a proposed property-cardinality schema only: current `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` admits cardinality only for relations. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "after_sha256": "e411e9a0d262a4abbe0663156b3d6551196784aeb977b0fab347f89f06679cf0"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-status.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: \"Entity/Node/Continuant/Atom.Status\"\n  dependencies:\n    - \"Entity/Node/Continuant/Atom\"\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire one Status for each Atom.\n\n```yaml\ngraph_rule_type: cardinality\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Status\"\ncondition:\n  minimum: 1\n  maximum: 1\n```\n\n## Details\n\nProvenance: `../CA-R-1412-CORE_META_MODEL-CORE--give-every-atom-revision-one-status.md` requires exactly one Status. The operative block is a proposed property-cardinality schema only: current `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` admits cardinality only for relations. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "before_sha256": "fc1a5ff7efb2dd2973631284fd68a0c811f73ed460d3670c2f74729d48d69676",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2985@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-updated-at.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2985\nref_id: CA-R-2985@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Updated At\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire one Updated At value per Atom\n\n```yaml\ngraph_rule_type: cardinality\napplies_to:\n  node: Entity/Node/Continuant/Atom\n  property: Entity/Node/Continuant/Atom.Updated At\ncondition:\n  minimum: 1\n  maximum: 1\n```\n\n## Details\n\nProposed property-value Cardinality encoding, not the relation-counting schema admitted by CA-D-637@5. Count the values of this property on each Atom, including zero for a missing property; do not count IS_BORNE_BY edges as property values.\n\nSource: [CA-R-1416@15](../CA-R-1416-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-updated-at.md). This Draft does not change timestamp serialization, timezone selection or update procedures.\n",
+      "after_sha256": "570836eec2d06258979cbf007dd095c0e1f2159515c2c132b7ac555b9b22edd6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-updated-at.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Updated At\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire one Updated At value per Atom\n\n```yaml\ngraph_rule_type: cardinality\napplies_to:\n  node: Entity/Node/Continuant/Atom\n  property: Entity/Node/Continuant/Atom.Updated At\ncondition:\n  minimum: 1\n  maximum: 1\n```\n\n## Details\n\nProposed property-value Cardinality encoding, not the relation-counting schema admitted by CA-D-637@5. Count the values of this property on each Atom, including zero for a missing property; do not count IS_BORNE_BY edges as property values.\n\nSource: [CA-R-1416@15](../CA-R-1416-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-updated-at.md). This Draft does not change timestamp serialization, timezone selection or update procedures.\n",
+      "before_sha256": "e3c3a2ec1d28c8821b1d7b3df57868cfd3b9616d053d57e93712a1adbdc914b8",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2986@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-version.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2986\nref_id: CA-R-2986@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Version Number\n  dependencies:\n  - Entity/Node/Continuant/Atom\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire one Version Number for each Atom.\n\n```yaml\ngraph_rule_type: cardinality\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Version Number\"\ncondition:\n  minimum: 1\n  maximum: 1\n```\n\n## Details\n\nProvenance: `../CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md` requires one positive integer Version. The operative block is a proposed property-cardinality schema only: current `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` admits cardinality only for relations. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "after_sha256": "d0e60165184dc4b1fff64844901f024a29b1e6dad39772d8b5beb96f1a044dc5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-version.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: \"Entity/Node/Continuant/Atom.Version Number\"\n  dependencies:\n    - \"Entity/Node/Continuant/Atom\"\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire one Version Number for each Atom.\n\n```yaml\ngraph_rule_type: cardinality\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Version Number\"\ncondition:\n  minimum: 1\n  maximum: 1\n```\n\n## Details\n\nProvenance: `../CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md` requires one positive integer Version. The operative block is a proposed property-cardinality schema only: current `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` admits cardinality only for relations. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "before_sha256": "92a75863b957cc91c85f5fe128bf5854fe0ddabf60c0b201643986aa1663cdc0",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2987@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-positive-atom-version.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2987\nref_id: CA-R-2987@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Version Number\n  dependencies:\n  - Entity/Node/Continuant/Atom\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire each Atom Version Number to be positive.\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Version Number\"\ncondition:\n  minimum: 1\n```\n\n## Details\n\nProvenance: `../CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md` requires a positive integer Version. The operative block is a proposed value-constraint range schema only: `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` does not yet admit value constraints. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "after_sha256": "b83d5cbe24c9d43c1c3b7a348040aab477c20d3e6665bf5c429808c3349532e6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-positive-atom-version.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: \"Entity/Node/Continuant/Atom.Version Number\"\n  dependencies:\n    - \"Entity/Node/Continuant/Atom\"\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire each Atom Version Number to be positive.\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Version Number\"\ncondition:\n  minimum: 1\n```\n\n## Details\n\nProvenance: `../CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md` requires a positive integer Version. The operative block is a proposed value-constraint range schema only: `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` does not yet admit value constraints. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "before_sha256": "ef9a1abc6a98e735de83c88b6d61fb1feb17018e19dfc0d009811050ee01fb5c",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2988@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-text-atom-semantics.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2988\nref_id: CA-R-2988@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Semantics\n  dependencies:\n  - Entity/Node/Continuant/Atom\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire an Atom's present Semantics section to contain text.\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Semantics\"\ncondition:\n  value_type: string\n```\n\n## Details\n\nProvenance: `../CA-R-1946-CORE_META_MODEL-GENERAL--define-atom-semantics.md` defines Semantics as content represented by a section. An absent Semantics section is ignored by this text constraint; optionality is governed separately. The operative block is a proposed value-constraint schema only: `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` does not yet admit value constraints. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "after_sha256": "a492a9651e4d80007f5d7ecb7b33d6240d8c33dc4990a07285b0b0d557bab7ec"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-text-atom-semantics.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: \"Entity/Node/Continuant/Atom.Semantics\"\n  dependencies:\n    - \"Entity/Node/Continuant/Atom\"\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nRequire an Atom's present Semantics section to contain text.\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Semantics\"\ncondition:\n  value_type: string\n```\n\n## Details\n\nProvenance: `../CA-R-1946-CORE_META_MODEL-GENERAL--define-atom-semantics.md` defines Semantics as content represented by a section. An absent Semantics section is ignored by this text constraint; optionality is governed separately. The operative block is a proposed value-constraint schema only: `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` does not yet admit value constraints. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "before_sha256": "b9de6bbd0250c91862403395e0c58d003e879566488b6edf6fa7dfe6e300e9c7",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2989@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--use-the-applicable-status-values.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2989\nref_id: CA-R-2989@1-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: Entity/Node/Continuant/Atom.Status\n  dependencies:\n  - Entity/Node/Continuant/Atom\n  - Entity/Node/Continuant/Atom/Content Role\nstatus: Draft\nversion: 1\nupdated_at: '2026-10-22T01:39:08+04:00'\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nUse the Status values from each Atom's applicable qualified Status model.\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Status\"\ncondition:\n  allowed_values_source: qualified_status_model\n```\n\n## Details\n\nProvenance: `../CA-R-1308-CORE_META_MODEL-CORE-REQUIREMENT--resolve-status-domains-from-complete-qualified-paths.md` requires inherited Atom.Status values plus additions admitted by the complete qualified Content Role and Type path; `../CA-R-1947-CORE_META_MODEL-GENERAL--define-atom-status-allowed-values.md` declares the base Draft, Active, and Archived values while permitting narrower additions. This is a proposed value-constraint schema with a reference to the qualified model, not a flat global enum or a precedence engine; `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` does not yet admit value constraints. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "after_sha256": "c33febd5bb522908d2d55241f8cdc2c9949d2bcd67f619cf83ce5bc9720f1527"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--use-the-applicable-status-values.md",
+      "before": "---\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Graph Rule\ntopics:\n  main_subject: \"Entity/Node/Continuant/Atom.Status\"\n  dependencies:\n    - \"Entity/Node/Continuant/Atom\"\n    - \"Entity/Node/Continuant/Atom/Content Role\"\nstatus: Draft\nversion: 1\nupdated_at: \"2026-10-22T01:39:08+04:00\"\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nauthor: Anatoly Maslennikov\n---\n# Summary\n\nUse the Status values from each Atom's applicable qualified Status model.\n\n```yaml\ngraph_rule_type: value_constraint\napplies_to:\n  node: \"Entity/Node/Continuant/Atom\"\n  property: \"Entity/Node/Continuant/Atom.Status\"\ncondition:\n  allowed_values_source: qualified_status_model\n```\n\n## Details\n\nProvenance: `../CA-R-1308-CORE_META_MODEL-CORE-REQUIREMENT--resolve-status-domains-from-complete-qualified-paths.md` requires inherited Atom.Status values plus additions admitted by the complete qualified Content Role and Type path; `../CA-R-1947-CORE_META_MODEL-GENERAL--define-atom-status-allowed-values.md` declares the base Draft, Active, and Archived values while permitting narrower additions. This is a proposed value-constraint schema with a reference to the qualified model, not a flat global enum or a precedence engine; `../../07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md` does not yet admit value constraints. It creates no parser, validator, resolver, evaluator, or activation.\n",
+      "before_sha256": "61383eb2515f9e29ea968c55657b0406ceea61f9186375af8879bcdcd955424d",
+      "after": null,
+      "after_sha256": null
+    }
+  ],
+  "native_workflow_admission": false,
+  "journal_append": false
+}

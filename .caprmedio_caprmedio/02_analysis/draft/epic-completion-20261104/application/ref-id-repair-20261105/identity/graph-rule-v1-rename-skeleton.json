@@ -1,0 +1,280 @@
+{
+  "status": "PROPOSED_PLACEHOLDERS_NO_ID_ALLOCATED",
+  "source_review": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/identity/identity-review.json",
+  "candidates": [
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--allow-one-optional-atom-semantics.md",
+      "source_sha256": "6fa0982217acc1c525e164434ab759181bb51f1e656c177bc65b245001ffee45",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--allow-one-optional-atom-semantics.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Allow zero or one Semantics section for each Atom.",
+      "main_subject": "Entity/Node/Continuant/Atom.Semantics",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--constrain-evaluation-for-endpoint-kinds.md",
+      "source_sha256": "8f921566c24e4ac6b508d5a03e07d0eefaf50e379e655231a89a27474ad309ad",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--constrain-evaluation-for-endpoint-kinds.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Constrain the endpoint kinds of evaluation_for",
+      "main_subject": "Entity/Relation/Type: evaluation_for",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-original-atom-ids-unique.md",
+      "source_sha256": "75f3ccb30a6f987a795e6bcc764de3af4b2737261514cb0e36ff9984f53b0f46",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-original-atom-ids-unique.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Require unique canonical IDs among Current original Atoms",
+      "main_subject": "Entity/Node/Continuant/Atom.ID",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-rmed-relation-targets-current.md",
+      "source_sha256": "cdc90afe282d78b4a57e4d9caa16903c6c1f0974f77683aca5ec5603cfeb5009",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-rmed-relation-targets-current.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Keep Current RMED-to-RMED relation targets Current",
+      "main_subject": "Entity/Relation",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-default-values-within-the-governed-value-domain.md",
+      "source_sha256": "0ee7d4acb4b1ca55ba53aa9e44907e4fa85959330f476c1430bc134aa71e8649",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-default-values-within-the-governed-value-domain.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Keep a default within the governed value's constraints",
+      "main_subject": "Entity/Graph Rule.Default Value",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--preserve-inherited-status-values.md",
+      "source_sha256": "d16b220b8a1c221053fb4c0edf7b8d834cc897f44af79dabec9b60e0a535336e",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--preserve-inherited-status-values.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Preserve inherited Status values in narrower Atom kinds",
+      "main_subject": "Entity/Node/Continuant/Atom.Status",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-date-time-atom-updated-at.md",
+      "source_sha256": "50772102c1ceaa22e32fa72792d5259aeabf89e921fa7178441a772a9c74e652",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-date-time-atom-updated-at.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Require a date-time value for Atom Updated At",
+      "main_subject": "Entity/Node/Continuant/Atom.Updated At",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-integer-atom-version.md",
+      "source_sha256": "ec0d0ac8d041b43cb1bf89f4dddedcb5a7c6af2d8bd3f6804c36f6dc57fb7c3a",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-integer-atom-version.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Require each Atom Version Number to be an integer.",
+      "main_subject": "Entity/Node/Continuant/Atom.Version Number",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-status.md",
+      "source_sha256": "fc1a5ff7efb2dd2973631284fd68a0c811f73ed460d3670c2f74729d48d69676",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-status.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Require one Status for each Atom.",
+      "main_subject": "Entity/Node/Continuant/Atom.Status",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-updated-at.md",
+      "source_sha256": "e3c3a2ec1d28c8821b1d7b3df57868cfd3b9616d053d57e93712a1adbdc914b8",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-updated-at.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Require one Updated At value per Atom",
+      "main_subject": "Entity/Node/Continuant/Atom.Updated At",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-version.md",
+      "source_sha256": "92a75863b957cc91c85f5fe128bf5854fe0ddabf60c0b201643986aa1663cdc0",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-version.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Require one Version Number for each Atom.",
+      "main_subject": "Entity/Node/Continuant/Atom.Version Number",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-positive-atom-version.md",
+      "source_sha256": "ef9a1abc6a98e735de83c88b6d61fb1feb17018e19dfc0d009811050ee01fb5c",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-positive-atom-version.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Require each Atom Version Number to be positive.",
+      "main_subject": "Entity/Node/Continuant/Atom.Version Number",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-text-atom-semantics.md",
+      "source_sha256": "b9de6bbd0250c91862403395e0c58d003e879566488b6edf6fa7dfe6e300e9c7",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-text-atom-semantics.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Require an Atom's present Semantics section to contain text.",
+      "main_subject": "Entity/Node/Continuant/Atom.Semantics",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--use-the-applicable-status-values.md",
+      "source_sha256": "61383eb2515f9e29ea968c55657b0406ceea61f9186375af8879bcdcd955424d",
+      "letter": "R",
+      "proposed_id": "CA-R-{NUMBER}",
+      "version": 1,
+      "status": "Draft",
+      "destination_template": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/{ID}@1-draft-CORE_META_MODEL-CORE-GRAPH_RULE--use-the-applicable-status-values.md",
+      "changes": {
+        "atom_id": "{ID}",
+        "ref_id": "{ID}@1-draft",
+        "carrier_destination.file.name": "ABSENT_PRESERVE"
+      },
+      "body": "preserve exact bytes",
+      "remaining_header": "preserve exact bytes except identity edits",
+      "summary": "Use the Status values from each Atom's applicable qualified Status model.",
+      "main_subject": "Entity/Node/Continuant/Atom.Status",
+      "identity_evidence": "no predecessor binding, historical-only disposition, or allocation found in source and receipt filename search"
+    }
+  ],
+  "receipt_search": "No matching receipt filenames found in control root.",
+  "preflight": [
+    "Recheck source SHA and Status Draft/version 1.",
+    "Under global identity lock allocate unused role-letter ID and check preserved history.",
+    "Reject existing target path or changed source; add ID and Ref ID only; preserve Body and all other Header bytes.",
+    "Maintain inbound link integrity separately where applicable."
+  ],
+  "note": "Identity assignment does not admit Graph Rule Form, schema, claim, or runtime behavior."
+}
