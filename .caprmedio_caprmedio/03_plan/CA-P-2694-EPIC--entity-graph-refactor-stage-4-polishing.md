@@ -3,8 +3,8 @@ atom_id: CA-P-2694
 label: Epic
 status: Active
 tier: 3
-version: 67
-updated_at: 2026-11-05 03:40:01 +0400
+version: 68
+updated_at: 2026-11-05 04:07:24 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations:
@@ -40,6 +40,7 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 - Keep Atom.Header and Atom.Content, an empty Claim container with one or two Formal Claim / Prose Claim children, declared heading interpretation, explicit counterpart identities, aliases, and the removal of the @ reference operator.
 - Carry each Atom’s one immediate Container in Atom.Header.Container, using a full Scope Unit path or a base Atom ID selecting its Current version by default. Atom.Header.Relations is optional and does not duplicate Container. IS_CONTAINED_BY, CONTAINS and their +>/<+ notation remain MODEL/Formal Claim relations. A non-Project Scope Unit has one formal Container; the Project root has none. Each Scope Unit Declaration Atom separately has one Header.Container. For a root Project Declaration Atom, an omitted value defaults effectively to `world`; an explicit valid value overrides the default.
 - Retire Substep and make Step recursive: exactly one Action, one Workflow, or one or more contained Steps. Step Run covers Step at every nesting level. Each Step has one Container and its Container chain ends at a Workflow. Preserve the separate actual Workflow-owner migration boundary.
+- Store Run parentage in Header.Container: a Step Run identifies its one containing Workflow Run or Step Run; an Action Run launched by a Step Run identifies that Step Run. Keep formal containment expressions without duplicate stored Relations. Run reference formats and Header group contracts remain source prerequisites.
 - Keep # model / # instances groups and explicit $x bindings. Inherit declared formats without copying local value counts. A present Property has a value and has schema and bearer links.
 - Projection identity is Form + Scope Unit. Named Selection remains source information. Terms Graph is deferred by the latest Operator input; Term Definitions and historical projections remain.
 
@@ -96,6 +97,8 @@ CA-A-1321@1-draft records the latest design and its open grammar questions. Keep
 - Reverse traversal remains unresolved. Do not treat candidate spellings as adopted.
 - Scope Unit paths use one string made from actual declared Names along the containment chain; the Project root is `/`. R2530@3-draft and the rebased R2779@1-draft record this contract. `/FRAMEWORK_ENGINE` and `/FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/CORE_META_MODEL` are current examples. Preserve Carrier folder names independently.
 - Put Project Settings defaults on their Property Declarations with `?==`. Preserve sourced values and validation; retire the old Default Settings Artifact requirements only after dependent source reconciliation. Runtime files stay with their owners.
+
+A narrow Journal source repair is Current as R1644@39; its Claim is unchanged and its undeclared passive History reference is removed. Seven refreshed MODEL views use 1,167 pinned Current sources: 54 missing Declaration cases, 23 unresolved cases and 47 passive-only Subjects. The historical 44-source digest is reproduced from preserved bytes; all 46 Current Declaration pins have a separately verified digest. These source checks do not close the final candidate or external gates.
 
 ## Remaining work
 

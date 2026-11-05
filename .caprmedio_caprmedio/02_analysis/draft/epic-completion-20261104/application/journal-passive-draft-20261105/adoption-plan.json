@@ -1,0 +1,26 @@
+{
+  "status": "REVIEWED_PASSIVE_REFERENCE_DRAFT",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-1644",
+      "version": 38,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1644@38-draft-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md",
+      "sha256": "17b8ba194a8747ba6bc8585a4e5b5a7168f09602cd8b5afff91166adfc55db94",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md",
+      "source_sha256": "06962fff4f7267ce9c4b142d53827075aecb069f67461db875cb979474ee2bc8",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/exact-authority-remaining-20261105/core-flags/CA-R-1644.preview.txt",
+      "preview_sha256": "d007078123d99421504c2dcd415ae27c6d4ea6637005e5999ead4e9b9a109f35"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1644@38-draft-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Journal\n  passive:\n  - CAPRMEDIO_MODEL <+ Event Record\n  - CAPRMEDIO_MODEL <+ Carrier\n  - CAPRMEDIO_MODEL <+ Actor\nversion: 38\nupdated_at: 2026-11-05 04:03:23 +0400\nrelations: {}\natom_id: CA-R-1644\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Draft\ntier: 1\nrole: Requirement\nform: Rule\ncarrier_destination:\n  file:\n    name: CA-R-1644@38-draft-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nRecover Work Journal coverage without invention\n\n## Claim\n\n### Prose Claim\n\n\nrecovered observations retained by a Journal.\n\n\na Journal **may** retain an Event Record recovered from evidence **only** for facts established by **any** of:\n\n- observed Carrier state;\n- preserved history;\n- Artifact movement;\n- native targets;\n- review records; **or**\n- bounded session state.\n\nthe Journal **must** preserve unresolved Actor, time, intent, scope, **or** outcome as explicit uncertainty rather than fabricated history.\n",
+      "after_sha256": "17b8ba194a8747ba6bc8585a4e5b5a7168f09602cd8b5afff91166adfc55db94"
+    }
+  ]
+}

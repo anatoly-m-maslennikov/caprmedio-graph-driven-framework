@@ -635,7 +635,7 @@ source:
   - CA-R-1641@33
   - CA-R-1642@33
   - CA-R-1643@41
-  - CA-R-1644@37
+  - CA-R-1644@39
   - CA-R-1645@39
   - CA-R-1646@41
   - CA-R-1647@33
@@ -1173,7 +1173,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-05 01:27:48 +0400
+updated_at: 2026-11-05 04:05:44 +0400
 ---
 
 # Entity Definition Summary
@@ -1205,7 +1205,6 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 | `Entity/Object/Occurrent/Runtime` | primary_node | missing | missing |
 | `Entity/Object/Occurrent/Runtime/Session` | primary_node | missing | missing |
 | `Entity/Property` | primary_node | missing | CA-R-1247@24, CA-R-2003@16 |
-| `History` | primary_node | missing | missing |
 | `Module` | primary_node | missing | missing |
 | `Prompt` | primary_node | missing | missing |
 | `Scope Unit/Project` | primary_node | missing | missing |

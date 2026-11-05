@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS_APPLIED_CURRENT_READBACK",
+  "plan_sha256": "ddff423d8cbbd4016871d9c47d7f91c2ebec6ca7952712f2367c53dce7664df4",
+  "receipt_plan_pin": true,
+  "current_sha256": "ee7c59241fd8d3596b58e8f357bc0c93abdb24e703dc336f109c13ad3bac8ff3",
+  "current_matches_plan": true,
+  "archive_exact_preimage": true,
+  "draft_consumed": true,
+  "body_summary_claim_unchanged": true,
+  "active_subject_unchanged": true,
+  "passive_only_history_removed": true,
+  "metadata_except_version_updated_at_destination_unchanged": true,
+  "status": "Active",
+  "version": 39,
+  "boundary": "Source readback only; no native workflow admission, Journal append, runtime or Git claim."
+}

@@ -1,0 +1,29 @@
+{
+  "verdict": "PASS_NARROW_PASSIVE_EDITS_D306_ACTIVE_SUBJECT_HELD",
+  "sources": [
+    {
+      "id": "CA-R-1644",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md",
+      "current_sha256": "06962fff4f7267ce9c4b142d53827075aecb069f67461db875cb979474ee2bc8",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/exact-authority-remaining-20261105/core-flags/CA-R-1644.preview.txt",
+      "preview_sha256": "d007078123d99421504c2dcd415ae27c6d4ea6637005e5999ead4e9b9a109f35",
+      "assessment": "Claim permits evidence from preserved history, not an independently declared History model target. Removing the unsupported passive Subject preserves all evidence/uncertainty requirements. The preview is suitable for guarded Draft preparation with canonical Header normalization; promotion remains subject to normal admission and pinned-source review."
+    },
+    {
+      "id": "CA-D-306",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-306-PROJECT_CONFIGURATION-DECISION--materialize-applicable-methodology-as-projected-atom-files.md",
+      "current_sha256": "2b55f6c4f05588247530df8c0d2379251c73dd28742308fa9d4bcdf1fddf0c05",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/exact-authority-remaining-20261105/projection-term/CA-D-306.preview.md",
+      "preview_sha256": "1c134ea007687e97403aa1e4a917e95eaa22a146a925ec5250c04619e8eb1372",
+      "assessment": "Claim explicitly concerns selected projected RMEDO Atoms and their File Carriers, so the replacement passive dependencies are contextually supported and introduce no new entity. The active Applicable Methodology Form remains unsupported by the admitted current Form values, and RMEDO wording may need source reconciliation. This is a nonsemantic passive repair, not a full-Atom promotion-ready successor."
+    }
+  ],
+  "checks": [
+    "Both Current/preview/diff pins match and each candidate is exactly its documented passive-line edit; all Claims, Summaries, active Subjects, versions and other bytes are unchanged.",
+    "D306 source authority pins match; this review does not infer a Projection Form or a Member entity from its old path."
+  ],
+  "limits": [
+    "No Current, Draft, code, tests or Git mutations.",
+    "R1644 Draft readiness is bounded to this repair and does not assert full Journal workflow or runtime acceptance."
+  ]
+}

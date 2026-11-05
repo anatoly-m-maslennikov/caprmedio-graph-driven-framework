@@ -1,4 +1,4 @@
-// CA-E-678@5
+// CA-E-678@6
 import { expect, test, type Page } from '@playwright/test';
 
 const url = process.env.WORKBENCH_E2E_URL!;
@@ -23,6 +23,7 @@ test('keeps dirty SQL through Run and Check under the Project Workbench header',
   await page.keyboard.press('Meta+Enter');
   await expect(page.getByRole('table')).toBeVisible();
   await expect(page.getByRole('table').getByRole('row')).toHaveCount(2);
+  await expect(page.getByRole('columnheader').first()).toHaveText(/id\s+VARCHAR/);
   await page.getByRole('button', { name: /^Check/ }).click();
   await expect(page.getByText('Valid: 1 rows, 1 columns.')).toBeVisible();
   await expect(editor(page)).toContainText('SELECT id FROM atoms ORDER BY id LIMIT 1');
@@ -58,8 +59,13 @@ test('restores local Worksheet state and opens a saved Worksheet without running
   page.on('request', (request) => {
     if (request.method() === 'POST' && /\/(run|check)$/.test(new URL(request.url()).pathname)) executionRequests += 1;
   });
-  await page.getByRole('button', { name: /Open Saved/ }).click();
-  await page.getByRole('dialog', { name: 'Open saved query or Worksheet' }).getByRole('textbox').fill(id!);
+  await expect(page.getByRole('button', { name: 'Open Saved', exact: true })).toHaveCount(0);
+  await page.keyboard.press('Meta+P');
+  await page.getByRole('dialog', { name: 'Command palette' }).getByRole('textbox').fill('Open Saved');
+  await page.keyboard.press('Enter');
+  const referenceInput = page.getByRole('dialog', { name: 'Open saved query or Worksheet' }).getByRole('textbox');
+  await expect(referenceInput).toBeFocused();
+  await referenceInput.fill(id!);
   await page.keyboard.press('Enter');
   await expect(editor(page)).toContainText("SELECT 'saved worksheet'");
   await expect(page.getByRole('table')).toHaveCount(0);

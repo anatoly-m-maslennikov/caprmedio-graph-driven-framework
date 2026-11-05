@@ -10,7 +10,7 @@ relations:
 atom_id: CA-A-1317
 version: 1
 status: Draft
-updated_at: 2026-11-05 03:40:01 +0400
+updated_at: 2026-11-05 04:07:24 +0400
 carrier_destination:
   file:
     name: CA-A-1317@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-occurrent-nodes-and-execution-event-relations.md
@@ -33,6 +33,13 @@ Declare the Occurrent hierarchy and its execution-event Relations.
 - Executions produce Events and run in Runtimes.
 - Step is recursive. Each Step uses exactly one execution form: RUNS one Action, RUNS one Workflow, or CONTAINS one or more Steps.
 - Retire the separate Substep kind. Step Run executes Step at any nesting level. Actual Workflow instances remain with their owners.
+
+## Run containers
+
+- A Step Run stores its one containing Workflow Run or Step Run in Header.Container.
+- An Action Run launched by a Step Run stores that Step Run in Header.Container.
+- Formal containment expressions remain available. Store parentage once, outside Relations.
+- Define the Run reference Format and necessary Header groups before admission. No new Workflow Run root rule is inferred.
 
 ## Rationale
 

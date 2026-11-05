@@ -1,4 +1,4 @@
-/* CA-M-469@4 */
+/* CA-M-469@5 */
 :root {
   --text-scale: 1;
   --ui-font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -63,3 +63,5 @@ th { position: sticky; top: 0; background: var(--surface-raised); color: var(--t
 .preferences { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; color: var(--text-muted); font-size: calc(12px * var(--text-scale)); }.preferences fieldset { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; min-width: 0; margin: 0; padding: 0; border: 0; }.preferences legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }.preferences label { display: inline-flex; align-items: center; gap: 4px; }.preferences select { min-height: 28px; padding: 3px 6px; }
 dialog { max-width: min(560px, calc(100vw - 32px)); border: 1px solid var(--border-strong); border-radius: 7px; background: var(--surface); color: var(--text); } dialog::backdrop { background: rgb(0 0 0 / .35); } dialog form, dialog ul { display: grid; gap: 10px; min-width: min(420px, calc(100vw - 64px)); margin: 0; padding: 0; border: 0; } dialog input { width: 100%; padding: 7px; } dialog menu { display: flex; justify-content: flex-end; gap: 8px; margin: 0; padding: 0; } dialog ul { max-height: 50vh; overflow: auto; list-style: none; } dialog li button { display: flex; justify-content: space-between; width: 100%; text-align: left; } dialog li button.active { border-color: var(--accent); background: var(--accent-soft); }
 @media (max-width: 700px) { .app-header, .workspace-toolbar { align-items: flex-start; flex-wrap: wrap; }.workspace { padding: 10px; }.workspace-toolbar, .toolbar-main, .toolbar-actions { gap: 10px; flex-wrap: wrap; }.tab-strip { margin-inline: -10px; padding-inline: 10px; } }
+
+th small { display: block; margin-top: 2px; font-weight: 400; }

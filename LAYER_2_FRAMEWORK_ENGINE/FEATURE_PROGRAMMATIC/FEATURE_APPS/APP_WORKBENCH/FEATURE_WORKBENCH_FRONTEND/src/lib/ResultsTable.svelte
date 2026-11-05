@@ -1,4 +1,4 @@
-<!-- CA-D-674@11 -->
+<!-- CA-D-674@13 -->
 <script lang="ts">
   import type { QueryResult } from './types';
 
@@ -21,7 +21,7 @@
 </div>
 <div class="table-scroll">
   <table>
-    <thead><tr>{#each visibleColumns as { column }}<th scope="col">{column.name}<small>{column.type}</small></th>{/each}</tr></thead>
+    <thead><tr>{#each visibleColumns as { column }}<th scope="col"><span>{column.name}</span> <small>{column.type}</small></th>{/each}</tr></thead>
     <tbody>{#each result.rows as row}<tr>{#each visibleColumns as { index }}<td><div class="cell-value">{display(row[index])}</div></td>{/each}</tr>{/each}</tbody>
   </table>
 </div>

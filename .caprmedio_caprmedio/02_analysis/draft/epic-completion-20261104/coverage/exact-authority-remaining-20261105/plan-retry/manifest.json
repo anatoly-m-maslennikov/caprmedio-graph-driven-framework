@@ -1,0 +1,110 @@
+{
+  "status": "RETIREMENT_PREIMAGE_READY_ATOMIC_DEPENDENCIES_HELD",
+  "decision": "Plan Header has no Implementation Retry Limit Property; retry is a Workflow job. Project.Settings retry limit remains separately declared.",
+  "retirement": {
+    "id": "CA-R-1489",
+    "current_version": 25,
+    "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1489-CORE_META_MODEL-RULE--permit-implementation-retry-limit-defaults-and-overrides.md",
+    "current_sha256": "72bfe645888cf06c14471da14f137aa18f5d943685aa30daea7b62f17fa47731",
+    "preimage": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/exact-authority-remaining-20261105/plan-retry/CA-R-1489.retirement-preimage.txt",
+    "preimage_sha256": "72bfe645888cf06c14471da14f137aa18f5d943685aa30daea7b62f17fa47731",
+    "existing_native_drafts": [],
+    "action": "Retire exact Current with byte-preserved historical predecessor in coordinated source operation; allocate no successor merely to rename Plan override."
+  },
+  "source_pins": [
+    {
+      "id": "CA-R-1489",
+      "version": 25,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1489-CORE_META_MODEL-RULE--permit-implementation-retry-limit-defaults-and-overrides.md",
+      "sha256": "72bfe645888cf06c14471da14f137aa18f5d943685aa30daea7b62f17fa47731",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan).Implementation Retry Limit"
+    },
+    {
+      "id": "CA-R-2635",
+      "version": 2,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2635-CORE_META_MODEL-DECLARATION--declare-project-settings-implementation-retry-limit.md",
+      "sha256": "d0eae12b9d3813e8dc65b40a46e5cf689d6db0d693b8890079833f8cd35e1e7b",
+      "active_subject": "CAPRMEDIO_MODEL <+ Project.Settings.Implementation Retry Limit"
+    },
+    {
+      "id": "CA-D-657",
+      "version": 4,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f",
+      "active_subject": "CAPRMEDIO_MODEL <+ Carrier/File"
+    },
+    {
+      "id": "CA-M-295",
+      "version": 32,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md",
+      "sha256": "e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit"
+    },
+    {
+      "id": "CA-E-473",
+      "version": 26,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-473-PROJECT_CONFIGURATION-EVAL_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+      "sha256": "235347ad6f66735c2e03a057243a697d051e7bc52f0e2e6407d91877ef4cffae",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit"
+    },
+    {
+      "id": "CA-D-447",
+      "version": 30,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-ENG_DECISION--serialize-the-implementation-retry-limit-setting.md",
+      "sha256": "4334b7cadc76ac932c59355d01ff395345a6beb1c1ab33cac68b0235188dbfb3",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit"
+    },
+    {
+      "id": "CA-E-441",
+      "version": 35,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-441-PROJECT_CONFIGURATION-POLICY--evaluate-retry-budget-and-escalation.md",
+      "sha256": "74779476a7ecf98826b7c52ddea0af93f70759c1787e353e30b12edd3058bad8",
+      "active_subject": "CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Implementation Retry Control"
+    }
+  ],
+  "direct_current_inbound": [
+    {
+      "id": "CA-M-295",
+      "binding": "unversioned child_of CA-R-1489",
+      "disposition": "Held for Workflow owner: Plan/Hub retry overrides and old defaults source are superseded; do not mechanically retarget to R2635 or alter actual Workflow."
+    },
+    {
+      "id": "CA-E-473",
+      "binding": "unversioned evaluation_for CA-R-1489; also M295 and D447",
+      "disposition": "Held: remove obsolete Plan/Hub test cases only in coordinated semantic revision; preserve still-authorized retry accounting, input isolation, valid zero, invalid-source handling and gates after owner determines applicable authority."
+    }
+  ],
+  "related_consumers": [
+    {
+      "id": "CA-D-447",
+      "issue": "Current claims Plan/Hub frontmatter retry and separate defaults TOML. Those are superseded; exact Project.Settings serialization remains unestablished in this bounded lane."
+    },
+    {
+      "id": "CA-E-441",
+      "issue": "Current Evaluation references M295 and workflow retry accounting. Any M295 disposition requires checking this consumer and preserving approved accounting; do not alter actual Workflow."
+    }
+  ],
+  "clause_disposition": {
+    "plan_explicit_and_nearest_hub_override": "Superseded by explicit user decision; do not recreate as Plan Property.",
+    "direct_Operator_execution_input": "Current R1489 and M295 mention it; do not claim this retirement settles the Workflow owner\u2019s execution-context input policy. Preserve only under independently applicable authority.",
+    "one_valid_effective_limit_before_retry": "R1489 includes it; R2635 declares optional nonnegative Project value and zero semantics but does not alone establish universal Workflow execution requirement. Route to Workflow owner before dropping or rewriting this operational invariant.",
+    "project_settings": "R2635@2 remains Current and unchanged; retain nonnegative integer, explicit zero and governed default behavior. An independently prepared ?==3 preview relies on the pinned D407-authoritative TOML, not yet Current adoption.",
+    "frozen_refs": "Preserve CA-R-1488@21 and all other versioned historical citations mechanically; no global rename."
+  },
+  "blockers": [
+    "M295 and E473 are live direct consumers of R1489; they require approved disposition before retirement. D447 and E441 are dependent or related consumers.",
+    "Actual Workflow policy and instances belong to their external owner; no source or runtime inference from a Plan override removal.",
+    "Separately selected Project retry field encoding and defaults packet remain unadopted; do not silently alter Project.Settings behavior."
+  ],
+  "scope_limits": [
+    "Current/native non-Operations source search; archived/Draft copies, projections, plans/history, Workbench and actual Workflow sources excluded.",
+    "No actual retirement, Current/Draft edit, tests, code or Git mutation."
+  ]
+}

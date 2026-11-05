@@ -3,7 +3,7 @@ atom_id: CA-E-678
 current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 status: Active
-version: 5
+version: 6
 author: Anatoly Maslennikov
 role: Evaluation
 form: Eval Case
@@ -22,7 +22,7 @@ carrier_destination:
   file:
     name: CA-E-678-WORKBENCH_FRONTEND-EVAL_CASE--exercise-workbench-worksheets-and-display-controls.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation
-updated_at: 2026-11-05 02:58:37 +0400
+updated_at: 2026-11-05 04:01:26 +0400
 ---
 
 ## Summary
@@ -47,7 +47,7 @@ The Workbench interface preserves Worksheet input and uses the shared backend co
 | Current Worksheet name | The Operator can rename a current Worksheet; five-second browser autosave and reload retain that name. Save Worksheet copies the optional name into a new entry without renaming an existing saved item. |
 | Native window close warning | Unsaved input uses the browser warning when the browser permits it; no cross-browser controller is added. |
 | Hide editor | One `Hide editor` control hides and reopens the same input while preserving its script and cursor in the current page. |
-| Open Saved modal | The one top-left `Open Saved` button and `Cmd+Option+O` open a modal with an autofocus ID/URL input. Native `Cmd+V` paste is accepted; Enter opens without execution; Escape and Cancel close it; no inline open form is shown. |
+| Open Saved modal | `Cmd+P` → `Open Saved` opens a modal; no separate toolbar button or dedicated shortcut is present. The modal has an autofocus ID/URL input. Native `Cmd+V` paste is accepted; Enter opens without execution; Escape and Cancel close it; no inline open form is shown. |
 | Completion | Actual tables and columns are offered, including quoted dotted/spaced content columns. A prefix such as `status = 'Act` offers and inserts `Active` with correct quoting. The editor does not execute SQL or create a saved record for suggestions. |
 | Hotkey hints | Each known shortcut appears inside its action button or immediately beside it, including Run and Check. |
 | Explicit saves | Run, Check, pagination and query errors create no saved Journal entries and do not mark local edits saved. Explicit Save and Save Worksheet create entries. Browser draft autosave continues. |
@@ -61,3 +61,5 @@ The Workbench interface preserves Worksheet input and uses the shared backend co
 | Current settings | Theme, Zoom and workspace preferences restore from local storage on reload. |
 
 Browser end-to-end checks cover SQL editing and execution with visible results; current Worksheet rename, autosave/reload, Save Worksheet and Open Saved without execution; and command-palette keyboard navigation, including Ctrl+P and Ctrl+N. Assertions use visible controls and outputs, not private Svelte or CodeMirror state.
+
+Result headers show the column name separately from the SQL type on the line below. SQL names, types and result values remain unchanged.

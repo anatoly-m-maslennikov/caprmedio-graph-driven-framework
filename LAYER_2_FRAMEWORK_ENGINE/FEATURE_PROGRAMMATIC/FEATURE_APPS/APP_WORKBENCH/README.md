@@ -33,8 +33,8 @@ UTF-16 code units; without it, the submitted SQL is used unchanged.
 Cmd+Enter runs and Shift+Cmd+Enter checks. Cmd+P opens the searchable command
 palette for every current UI action. Arrow Up/Ctrl+P and Arrow Down/Ctrl+N move
 the selection; Enter chooses and Escape closes. Settings contains Theme and Zoom.
-The next utility tab lists saved queries and Worksheets. Open Saved is a top-left
-button/modal: Cmd+Option+O, paste an ID or URL, then Enter.
+The next utility tab lists saved queries and Worksheets. Open Saved is available only in the command palette: Cmd+P, choose Open Saved,
+paste an ID or URL, then Enter.
 
 The CodeMirror editor completes names from the current schema and values in
 status equality literals, such as `status = 'Act`. Schema metadata provides
@@ -131,3 +131,5 @@ A standalone browser run requires an explicit `WORKBENCH_E2E_URL` and the same
 entries in the selected test Project. No live-server URL is assumed.
 
 Browser test artifacts are written to `.caprmedio_tmp/workbench/browser-results`, outside application/image inputs.
+
+Result table headers show column names on their own line, with SQL types below in smaller muted text.

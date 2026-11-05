@@ -1,0 +1,77 @@
+{
+  "status": "ONE_PASSIVE_PREVIEW_TWO_TERM_HOLDS",
+  "source_pins": {
+    "D306": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-306-PROJECT_CONFIGURATION-DECISION--materialize-applicable-methodology-as-projected-atom-files.md",
+      "sha256": "2b55f6c4f05588247530df8c0d2379251c73dd28742308fa9d4bcdf1fddf0c05",
+      "version": 30
+    },
+    "D305": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-305-PROJECT_CONFIGURATION-DECISION--carry-projected-atoms-without-new-identity.md",
+      "sha256": "c73168fa46cb4095d2f5350611bb3dcb0b1fa12afc22dc3263e4c674bd6cfbad",
+      "version": 32
+    },
+    "R1213": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1213-PROJECT_CONFIGURATION-RULE--define-applicable-methodology-as-a-compiled-projection.md",
+      "sha256": "78ce37e2a37232355b5dce990ff5ee9853e75eeb4f70295da44e34b7f3294572",
+      "version": 40
+    },
+    "R1284": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md",
+      "sha256": "47048137a76a2cb71acc40277f94fb59f4d619af5c498ab7349bf55da7fe1d36",
+      "version": 27
+    },
+    "R1284draft": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1284@28-draft-CORE_META_MODEL--define-type.md",
+      "sha256": "5e5bece5e34a73b79beceb2d4af5ba0036e6a8b025bf07aa5cdc35b557f9271b",
+      "version": 28
+    },
+    "R1348": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1348-CORE_META_MODEL-RULE--reuse-type-in-qualified-subjects.md",
+      "sha256": "71846be029a58bba48cdc962f1321c3a0925e70867ef8e6dad37ceb4f2364182",
+      "version": 25
+    },
+    "M452": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-452-CORE_META_MODEL-TERM_DEFINITION--define-term.md",
+      "sha256": "20430a47370fae6ba05bf584f9401310e5f541767c522336214d821bd6083269",
+      "version": 4
+    },
+    "M114": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms.md",
+      "sha256": "dc7ebfb73d05770adf4999b68258c5e077ce160555a1fe3c1d4f148d8ec933d1",
+      "version": 44
+    },
+    "R1957": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1957-CORE_META_MODEL-DEFINITION--define-entity-carrier-file-carrier.md",
+      "sha256": "d0e1a56b2caf880ca27628e1d1941aec9e25de48bda37c72eb21bd742da448e9",
+      "version": 12
+    },
+    "R2508": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d",
+      "version": 6
+    }
+  },
+  "preview": {
+    "id": "CA-D-306",
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/exact-authority-remaining-20261105/projection-term/CA-D-306.preview.md",
+    "sha256": "1c134ea007687e97403aa1e4a917e95eaa22a146a925ec5250c04619e8eb1372",
+    "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/exact-authority-remaining-20261105/projection-term/CA-D-306.diff",
+    "diff_sha256": "f35df493157c4cc577997b96f7fb4e764f6a6c5565741c02da9aad89f360969c",
+    "change": "Replace unsupported passive member Form address with existing Atom and Carrier/File dependencies. D305@32 uses these same targets and describes projected Atom Carrier membership without a new Atom identity; D306 Claim and active Applicable Methodology focus are byte-identical. This does not create a new Projection Form.",
+    "readiness": "REVIEW_REQUIRED_CURRENT_FORM_FOCUS_UNCHANGED"
+  },
+  "holds": [
+    {
+      "id": "CA-R-1348@25",
+      "target": "Term//Type",
+      "reason": "Term registry is retained and Claim explicitly governs the reusable Term Type. No Current Method Term Definition for Type was located in the bounded native Current set; R1284 describes a Type Property but is a Requirement Rule with Entity active Subject, not a lexical Method Term Definition. Replacing the Subject with generic Term or Property would change the governed target. Preserve this rule and exact target while lexical authority is resolved."
+    },
+    {
+      "id": "CA-R-1284@27 and Draft@28",
+      "target": "Term//Type passive",
+      "reason": "Same missing specific Term authority. Draft@28 already exists with separate active Entity and Property selector issues; do not overwrite, classify its passive as safely generic, or infer lexical admission from Property use."
+    }
+  ],
+  "boundary": "Full-content preview only; no native Draft, Current, workflow, code, tests, Workbench or Git edits. Existing active Applicable Methodology Form source authority remains distinct from Member passive correction."
+}

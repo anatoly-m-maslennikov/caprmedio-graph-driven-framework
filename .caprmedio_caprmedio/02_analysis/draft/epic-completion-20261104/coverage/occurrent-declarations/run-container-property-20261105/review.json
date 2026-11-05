@@ -1,0 +1,52 @@
+{
+  "status": "HOLD_REFERENCE_FORMAT_AND_DECLARATION_BOUNDARY",
+  "source_drafts": [
+    {
+      "id": "CA-R-2749",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2749@1-draft-CORE_META_MODEL-DECLARATION--declare-execution.md",
+      "sha256": "2294bb3b89d468c74c2a59fb334506e8d04d39fc6e93c8dada99bc0b81cd6136"
+    },
+    {
+      "id": "CA-R-2750",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md",
+      "sha256": "5786369adf8e0817a0d94a0d351d4c46685b76f5486d51b540bef7ba90f88e0e"
+    },
+    {
+      "id": "CA-R-2751",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md",
+      "sha256": "43d807afd2283f9e23749730bbcf66a73bc82a1edc79b35b8477ec8d1bfe1b77",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-container-property-20261105/CA-R-2751.preview.txt",
+      "preview_sha256": "869ac9f348cf8c6e0c8129b392c4c290de1ed07949d5a7be18d49bac30a211de",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-container-property-20261105/CA-R-2751.diff",
+      "diff_sha256": "b3c918e4352dbc045f3a40790a3a6a48470027c48e3cde2fb04ff6d1dd2ca519"
+    },
+    {
+      "id": "CA-R-2752",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md",
+      "sha256": "cde409fc0870e58e118aa9e20a0b05f23e64bd046dfeec3a7f196a131b8374e8",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-container-property-20261105/CA-R-2752.preview.txt",
+      "preview_sha256": "df2965b9ffe5698fc5950380629a3172fba78f021dde149a166d8e004461d000",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-container-property-20261105/CA-R-2752.diff",
+      "diff_sha256": "045730981157a4b27812a124a11b0a12803b2a8e0019ccab18969be15f9f06f8"
+    },
+    {
+      "id": "CA-R-2779",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "f6addbf5d5a3bfbd6bc6694f788801cb5cebe1faf27acb9514bbad9cba636aec"
+    },
+    {
+      "id": "CA-R-2719",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2719@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "sha256": "9554be538679ef02b54ea51852719aa381d29ccad45acfce2cd5120cb27e1830"
+    }
+  ],
+  "settled_contract": [
+    "A Step Run has exactly one immediate Workflow Run or containing Step Run in Header.Container.",
+    "An Action Run launched by a Step Run names that Step Run as its Header.Container.",
+    "The Container Property is the sole stored parentage; retain formal IS_CONTAINED_BY/CONTAINS views without automatic inverse permission."
+  ],
+  "finding": "R2749 declares Execution, while R2750–R2752 declare three distinct narrower kinds; inspected sources do not declare a shared Run kind, any Run.Header group, or a Run-identity reference Format. Atom.Header and its Atom-ID format cannot automatically govern non-Atom Executions. Step/Action Draft previews state the settled local constraints but depend on explicit Header group and Property declarations and their value Format before adoption.",
+  "question": "What value identifies a Workflow Run or Step Run in Header.Container: an existing Run identity/reference Format, or a newly specified Run reference Format?",
+  "gate": "Define only necessary Run Header group/Container Property declarations after the value Format and common owner are resolved; no global Node header, invented Workflow Run root, additional Action Run universal cardinality, or stored Relation fact. Preserve source Draft metadata and all unrelated Run behavior.",
+  "limits": "Source-only previews; no native source, code, tests, actual Workflow, Workbench or Git mutation."
+}

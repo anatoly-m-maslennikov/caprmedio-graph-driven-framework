@@ -1,9 +1,9 @@
 {
   "schema": "caprmedio-epic-acceptance-matrix/1",
-  "epic": "CA-P-2694@67",
+  "epic": "CA-P-2694@68",
   "as_of": "2026-11-05",
   "purpose": "Read-only completeness assessment; not authority to change Current or transition status.",
-  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-term-passive-frontier-20261105.json",
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-journal-passive-frontier-20261105.json",
   "current_frontier_note": "Seven published MODEL views match the bounded selected 1,167-source frontier; audit reports 55 missing and 23 unresolved. This is not final model, runtime or data conformance.",
   "requirements": [
     {
@@ -132,17 +132,19 @@
     {
       "requirement_id": "P2694: declaration model",
       "explicit_requirement": "Promote 44 Scope Unit Declarations and shared ordering/Project/identity model; 43 non-root stable IDs; Project root has no ID and is Unordered without order.number.",
-      "live_evidence": "P2705 reports adoption; P2707 source readback claims 44 Declarations, 43 IDs, nine Ordered.",
-      "gap_or_limit": "Need live independent readback pinned to latest Current frontier; legacy task packet is earlier.",
+      "live_evidence": "Independent source census verifies46CurrentDeclarations,45unique nonrootIDs,nineOrderedunits,Project root withoutID/order.number through inheritedCurrentR2524. Original44-source digest reproduced from preservedbytes.",
+      "gap_or_limit": "Finalcandidate recheck and separate mandatoryDeclarationAtom.Header.Container admission remain open.",
       "gate_command_or_check": "Read Declarations and assert counts/unique root/IDs/order rules against Current.",
       "dependencies": [
         "P2705",
         "P2707"
       ],
-      "assessment": "reported_satisfied_current_readback_needed",
+      "assessment": "current_source_snapshot_verified_header_and_final_candidate_open",
       "evidence_refs": [
         ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/10-CA-P-2705-TASK--adopt-formal-scope-unit-declarations.md",
-        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md"
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/scope-declaration-source-review-20261105.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/scope-historical-digest-review-20261105.json"
       ],
       "additional_acceptance_check": "Check each non-Project Scope Unit has exactly one formal immediate Container and the Project root has zero. Separately verify each Scope Unit Declaration Atom has its own mandatory Header.Container; do not create a ScopeUnit.Container Property."
     },
@@ -350,16 +352,18 @@
     {
       "requirement_id": "P2707: Current declaration cutover",
       "explicit_requirement": "44 Declarations, one root, 43 non-root IDs, nine Ordered; unchanged source digest.",
-      "live_evidence": "Current 2026-11-04 integration review read 44 declarations, 43 IDs, nine Ordered units. Set comparison found one old path removed (CA-O-2682 GRAPH_SERVER) and one added (CA-O-2730 WORKBENCH); remaining 43 paths match. The digest changed; no prior per-file hashes prove that other bytes are unchanged.",
-      "gap_or_limit": "Path-set change explains part of digest drift, not the complete digest change. Do not claim unchanged source digest until per-file versions/hashes are reconciled.",
+      "live_evidence": "Historical44Declarationdigest48a2f03d12ceddd7ec49dc31793bbab98ac45329a9a5d07e53c6930cfd0f36ca reproduced from44preserved source bytes and ID/version pins. Live46Declarationdigest92b735fe566c4b67c1c85babbd16a3b80352f66a2f9057266fe6936105dcd6ac independently verified. Delta: R2682 retired; R2730,R2763,R2764 added;43survivors preserve reviewed content through namespace/FormalClaim wrapping changes.",
+      "gap_or_limit": "Digestdrift reconciled; currentdigest intentionallydiffers. Recheck finalstablecandidate and complete separateHeader.Container/external gates; historical44/43/nine requirement preserved.",
       "gate_command_or_check": "Read and hash current Declaration set; compare to P2707 expected values.",
       "dependencies": [
         "P2705"
       ],
-      "assessment": "partial_digest_drift_explained_in_part",
+      "assessment": "source_digest_drift_reconciled_final_candidate_and_header_open",
       "evidence_refs": [
         ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
-        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/REPORT.md"
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/integration/REPORT.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/scope-declaration-check-20261105/historical-digest-verification-20261105.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/scope-historical-digest-review-20261105.json"
       ],
       "additional_acceptance_check": "Verify the same Scope Unit formal containment and separate Declaration Atom Header.Container without changing the existing 44/43/nine and digest checks."
     },
@@ -452,10 +456,10 @@
     }
   ],
   "reviewed_plan_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
-  "reviewed_plan_quality": "P2694@67 and P2707@6 remain Active; the 23 original acceptance groups and required external gates remain in force.",
-  "latest_projection_checkpoint": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-term-passive-20261105/generation-manifest.json",
-  "current_epic_version": 67,
-  "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/rooted-path-source-plan-checkpoint-20261105/adoption-receipt.json",
+  "reviewed_plan_quality": "P2694@68 and P2707@6 remain Active; all23original acceptance groups and external gates remain.",
+  "latest_projection_checkpoint": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-journal-passive-20261105/generation-manifest.json",
+  "current_epic_version": 68,
+  "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/run-container-source-progress-20261105/adoption-receipt.json",
   "current_verification_task_version": 6,
   "execution_responsibility": {
     "this_chat": "MODEL, CFEL, Declarations, Atom sources and source projections",
@@ -522,5 +526,11 @@
     "cycles": "Each Step has one Container; its Container chain ends at a Workflow.",
     "carrier_layout": "D467@29 and E500@29 Drafts preserve separate carriers and optional grouping, with recursive Step directories; Current adoption pending",
     "actual_workflow_instances": "external owner"
+  },
+  "latest_run_parentage_decision": {
+    "storage": "Header.Container",
+    "step_run": "one containing Workflow Run or Step Run",
+    "action_run_launched_by_step_run": "that Step Run",
+    "open": "Run-reference Format and Header group contracts before sourceadmission"
   }
 }

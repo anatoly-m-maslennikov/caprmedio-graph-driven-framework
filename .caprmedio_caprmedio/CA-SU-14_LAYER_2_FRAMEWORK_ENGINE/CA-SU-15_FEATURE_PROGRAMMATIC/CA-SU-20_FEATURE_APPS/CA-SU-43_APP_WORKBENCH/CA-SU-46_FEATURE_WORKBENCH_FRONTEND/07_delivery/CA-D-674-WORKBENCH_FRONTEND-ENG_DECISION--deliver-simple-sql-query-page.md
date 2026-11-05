@@ -3,7 +3,7 @@ atom_id: CA-D-674
 current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 status: Active
-version: 12
+version: 13
 author: Anatoly Maslennikov
 role: Delivery
 form: Eng Decision
@@ -17,7 +17,7 @@ carrier_destination:
   file:
     name: CA-D-674-WORKBENCH_FRONTEND-ENG_DECISION--deliver-simple-sql-query-page.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/07_delivery
-updated_at: 2026-11-05 02:58:37 +0400
+updated_at: 2026-11-05 04:01:26 +0400
 ---
 
 ## Summary
@@ -40,7 +40,7 @@ Title the input area `Query editor`. Put `Saved: <ID>` at the right of that titl
 
 Use read-only `query_schema({})` metadata, returned as `{tables: {atoms: [{name, type, values?}], scope_units: [{name, type}]}}`, for autocomplete of actual `atoms`, `scope_units` and declared `content.*` columns, including quoted names. Do not query saved SQL files to build completion suggestions. A URL `?query=<saved_query_id>` loads either a saved query or Worksheet without executing it and preserves the `project_root` parameter. Open Saved accepts an ID or URL and opens it in the current Workbench browser context. Show a recent combined query/Worksheet list from `query_saved_list` in the single `Saved Queries and Worksheets` tab.
 
-Put one top-left `Open Saved` button in the toolbar, not an inline open form. `Cmd+Option+O` opens a modal with an autofocus ID/URL input; native `Cmd+V` paste is allowed, Enter opens the saved item without executing it, and Escape or Cancel closes the modal. The schema metadata may include optional distinct non-null `atoms.status` values. Complete a single-quoted condition prefix such as `status = 'Act` with a properly escaped value such as `'Active'`; do not execute SQL or create a saved record for completion.
+Offer `Open Saved` only in the command palette, without a separate toolbar button or dedicated shortcut. The command opens a modal with an autofocus ID/URL input; native `Cmd+V` paste is allowed, Enter opens the saved item without executing it, and Escape or Cancel closes the modal. The schema metadata may include optional distinct non-null `atoms.status` values. Complete a single-quoted condition prefix such as `status = 'Act` with a properly escaped value such as `'Active'`; do not execute SQL or create a saved record for completion.
 
 Run and Check execute or inspect the selected statement without saving it. Page and query errors also create no saved entry. Return the selected `sql` with Run and Check results; pagination `query_id` is separate from a saved ID. Only explicit Save and Save Worksheet create Project Journal entries and return `saved_query_id`, `saved_query_url`, `kind` and `sql`. Keep the last explicitly saved or loaded identity available for its header link; Run and Check must not mark unsaved Worksheet edits as saved. Allow the Operator to rename the current Worksheet in browser-local state. Save Worksheet saves the whole editor script and its optional current name; explicit Save may take an optional query name. Saved entries are not renamed. A save failure shows an explicit error and does not promise an ID. Save, Worksheet save, load and list use the same shared contracts as MCP. Keep five-second browser draft autosave. Do not add sharing, authentication, deduplication, retry, repair, rollback, expiry or deletion workflows.
 
@@ -55,3 +55,5 @@ For the current Project, the page is `/caprmedio/workbench/caprmedio`. Keep shar
 Keep the result table in a bounded scrolling region, with visible column headers and separately scrollable long cell values. Preserve every row and value; scrolling changes presentation, not the query result.
 
 Provide a native searchable command-palette dialog, opened by `Cmd+P` from anywhere in the page. Focus its search field on opening. Offer every current Workbench user action, including Settings, saved library, editor/results focus, Worksheet switching/create/rename/close, query actions, Open Saved, Hide/Show editor, page navigation, Theme and Zoom choices. Show shortcut hints where available. Reuse the existing control handlers and availability conditions. Arrow Up and Ctrl+P move to the previous item; Arrow Down and Ctrl+N move to the next item; Enter invokes the selected available action; Escape closes. Current Theme, Zoom and workspace preferences persist in local storage and restore on load. No new backend capability or command execution engine is added.
+
+Render each result column name on its own line, with its SQL type below in smaller muted text. Do not concatenate the name and type. Keep the SQL column names and types unchanged.

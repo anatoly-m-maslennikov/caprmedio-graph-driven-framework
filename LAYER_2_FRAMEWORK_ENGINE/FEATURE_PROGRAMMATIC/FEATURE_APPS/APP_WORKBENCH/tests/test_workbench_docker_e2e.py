@@ -1,6 +1,6 @@
 # CA-D-673@10
 # CA-E-676@9
-# CA-E-678@5
+# CA-E-678@6
 
 """Real Workbench MCP/HTTP proof against the full-suite current-code image."""
 

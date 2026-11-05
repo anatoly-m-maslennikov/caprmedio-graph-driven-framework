@@ -1,5 +1,5 @@
-<!-- CA-R-2727@8 -->
-<!-- CA-D-674@12 -->
+<!-- CA-R-2727@9 -->
+<!-- CA-D-674@13 -->
 <!-- CA-M-470@3 -->
 <script lang="ts">
   import { onMount } from 'svelte';
@@ -89,7 +89,7 @@
     const busy = !active || active.busy || savedBusy; const result = active?.result;
     return [
       { id: 'settings', label: 'Settings', enabled: true, run: () => showUtility('settings') }, { id: 'saved', label: 'Saved Queries and Worksheets', enabled: true, run: () => showUtility('saved') },
-      { id: 'open', label: 'Open Saved', shortcut: 'Cmd+Option+O', enabled: !savedBusy, run: () => openSavedDialog = true }, { id: 'focus-sql', label: 'Focus Query editor', enabled: !!active, run: focusSql }, { id: 'focus-results', label: 'Focus Results', enabled: !!result, run: focusResults },
+      { id: 'open', label: 'Open Saved', enabled: !savedBusy, run: () => openSavedDialog = true }, { id: 'focus-sql', label: 'Focus Query editor', enabled: !!active, run: focusSql }, { id: 'focus-results', label: 'Focus Results', enabled: !!result, run: focusResults },
       ...tabs.map((tab) => ({ id: `worksheet-${tab.id}`, label: `Worksheet: ${tabName(tab)}`, enabled: true, run: () => showWorksheet(tab.id) })), { id: 'new', label: 'New Worksheet', enabled: true, run: addWorksheet },
       { id: 'rename', label: 'Rename Worksheet', enabled: !!active, run: renameActiveWorksheet }, { id: 'close', label: 'Close Worksheet', enabled: !!active, run: () => active && closeWorksheet(active.id) },
       { id: 'run', label: 'Run', shortcut: 'Cmd+Enter', enabled: !busy, run: () => action('run') }, { id: 'check', label: 'Check', shortcut: 'Shift+Cmd+Enter', enabled: !busy, run: () => action('check') }, { id: 'save', label: 'Save', enabled: !busy, run: requestSave }, { id: 'save-worksheet', label: 'Save Worksheet', enabled: !busy, run: () => saveWorksheet() },
@@ -101,14 +101,14 @@
     api = new WorkbenchApi(base, projectRoot); try { const recovered = restore(localStorage.getItem(namespace) ?? ''); if (recovered) { tabs = recovered.tabs as Tab[]; activeId = recovered.activeId; } } catch { storageError = 'Browser storage is unavailable; local Worksheet drafts cannot be restored.'; }
     void api.schema().then((value) => schema = value).catch(() => {}); void refreshSaved(); const requested = new URLSearchParams(location.search).get('query'); if (requested) void openSaved(requested);
     const unload = (event: BeforeUnloadEvent) => { persist(); if (tabs.some((tab) => tab.dirty)) { event.preventDefault(); event.returnValue = ''; } };
-    const keys = (event: KeyboardEvent) => { if (event.metaKey && !event.ctrlKey && !event.altKey && event.key.toLowerCase() === 'p') { event.preventDefault(); nameDialog = false; openSavedDialog = false; commandOpen = true; } else if (event.metaKey && event.altKey && !event.ctrlKey && event.key.toLowerCase() === 'o') { event.preventDefault(); commandOpen = false; nameDialog = false; openSavedDialog = true; } };
+    const keys = (event: KeyboardEvent) => { if (event.metaKey && !event.ctrlKey && !event.altKey && event.key.toLowerCase() === 'p') { event.preventDefault(); nameDialog = false; openSavedDialog = false; commandOpen = true; } };
     window.addEventListener('beforeunload', unload); window.addEventListener('pagehide', persist); window.addEventListener('keydown', keys, true); const timer = window.setInterval(persist, 5000);
     return () => { window.clearInterval(timer); window.removeEventListener('beforeunload', unload); window.removeEventListener('pagehide', persist); window.removeEventListener('keydown', keys, true); };
   });
 </script>
 
 <main class="workbench"><header class="app-header"><span class="brand-mark">CA</span><span class="app-name">Workbench</span><span class="project-label">Project: {projectName}</span><div class="header-utilities" role="tablist" aria-label="Workbench views"><button class:active={view === 'settings'} type="button" role="tab" aria-selected={view === 'settings'} onclick={() => showUtility('settings')}>Settings</button><button class:active={view === 'saved'} type="button" role="tab" aria-label="Saved Queries and Worksheets" title="Saved Queries and Worksheets" aria-selected={view === 'saved'} onclick={() => showUtility('saved')}>Saved</button></div></header><section class="workspace">
-  <div class="workspace-toolbar"><div class="toolbar-main"><Button onclick={() => openSavedDialog = true}>Open Saved <span class="shortcut">Cmd+Option+O</span></Button><WorksheetTabs {tabs} {activeId} utility={view} {renaming} onselect={showWorksheet} onclose={closeWorksheet} onadd={addWorksheet} onrename={renameWorksheet} /></div><div class="toolbar-actions"><Button onclick={() => commandOpen = true}>Commands <span class="shortcut">Cmd+P</span></Button></div></div>
+  <div class="workspace-toolbar"><div class="toolbar-main"><WorksheetTabs {tabs} {activeId} utility={view} {renaming} onselect={showWorksheet} onclose={closeWorksheet} onadd={addWorksheet} onrename={renameWorksheet} /></div><div class="toolbar-actions"><Button onclick={() => commandOpen = true}>Commands <span class="shortcut">Cmd+P</span></Button></div></div>
   <Preferences storageKey={namespace} visible={view === 'settings'} oncommands={(items) => preferenceCommands = items} />
   {#if view === 'saved'}<SavedPanel items={savedItems} busy={savedBusy} onopen={openSaved} />{/if}
   {#if view === 'worksheet' && active}<section class="editor-panel"><div class="panel-heading" role="group" aria-label="Query editor header"><span>Query editor</span>{#if active.saved}<span class="saved-reference">Saved: <a href={active.saved.saved_query_url}>{active.saved.saved_query_id}</a></span>{/if}</div><div class="editor-content" hidden={collapsed}>{#key active.id}<SqlEditor value={active.sql} cursor={active.cursor} disabled={active.busy} {schema} onchange={edit} onaction={(kind, cursor) => action(kind, cursor)} />{/key}</div><div class="query-actions"><Button disabled={active.busy || savedBusy} onclick={() => action('run')}>Run <span class="shortcut">Cmd+Enter</span></Button><Button disabled={active.busy || savedBusy} onclick={() => action('check')}>Check <span class="shortcut">Shift+Cmd+Enter</span></Button><Button disabled={active.busy || savedBusy} onclick={requestSave}>Save</Button><Button disabled={active.busy || savedBusy} onclick={() => saveWorksheet()}>Save Worksheet</Button><Button class="editor-toggle" onclick={() => collapsed = !collapsed}>{collapsed ? 'Show editor' : 'Hide editor'}</Button></div>{#if active.error}<p class="error" role="alert">{active.error}</p>{/if}</section>

@@ -1,0 +1,62 @@
+{
+  "sources": [
+    {
+      "id": "CA-R-1990",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1990-CORE_META_MODEL-RULE--enable-containment-for-plan-atoms.md",
+      "sha256": "d2db698bc86fff0b7d0a21c60a59e77627b94020882edb180f045fd46827ba6d",
+      "native_drafts": []
+    },
+    {
+      "id": "CA-R-1991",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1991-CORE_META_MODEL-RULE--enable-containment-for-workflow-atoms.md",
+      "sha256": "2ba90e621c5cd394a4e930cab335d13bc781f6b313f2c6c3ae455b9dcbb2d387",
+      "native_drafts": []
+    },
+    {
+      "id": "CA-R-1645",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1645-PROJECT_CONFIGURATION-RULE--define-self-hosted-governance-origins.md",
+      "sha256": "bc03be5ab06b03fb47c5c315b4ca0c248ccf7df9e4a9244e95220b80dccf7f37",
+      "native_drafts": []
+    },
+    {
+      "id": "CA-R-1690",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md",
+      "sha256": "ec3ae1b020dae0040958f04de93eeda693507257781d93043c67395c9bcd4f3e",
+      "native_drafts": []
+    },
+    {
+      "id": "CA-R-1644",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md",
+      "sha256": "06962fff4f7267ce9c4b142d53827075aecb069f67461db875cb979474ee2bc8",
+      "native_drafts": [],
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/exact-authority-remaining-20261105/core-flags/CA-R-1644.preview.txt",
+      "preview_sha256": "d007078123d99421504c2dcd415ae27c6d4ea6637005e5999ead4e9b9a109f35",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/exact-authority-remaining-20261105/core-flags/CA-R-1644.diff",
+      "diff_sha256": "90d8196938b630f118b8a272aaad7572766e1b59274aea2d77db5aeddfd14c0f"
+    }
+  ],
+  "dispositions": {
+    "Enabled Relations.Contains": "R1990 and R1991 govern obsolete Enabled Relations.Contains property paths, while Current R2511 and R2464 separately declare Plan and Workflow containment. Their unique prose details need claim-by-claim integration; do not silently retire or map the missing property to an instance field.",
+    "Governance Origin": "R1645 and R1690 both actively govern Atom.Governance Origin and impose distinct origin/obligation rules; no currently verified Property Declaration establishes this subject. Do not invent a Header property or remove rules.",
+    "History": "R1644 actively governs Journal; History is merely a passive model-node reference while preserved history remains ordinary evidence in its Claim. Preview removes only the undeclared passive path, preserving all Claim, Summary and other metadata."
+  },
+  "unresolved_question": "Should Governance Origin remain a declared Atom Property, or should its existing internal/external ownership rules instead govern another already-declared subject?",
+  "limits": "No native source/Draft, code, test, Workflow, Workbench or Git change. A preview does not close the audit flag or authorize retirement.",
+  "related_sources": [
+    {
+      "id": "CA-R-2511",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "ca9869c1ae916ae02af6112a4a6cba61cd0474aae0734098b7226db52abbc40f"
+    },
+    {
+      "id": "CA-R-2464",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a"
+    },
+    {
+      "id": "CA-R-2478",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8"
+    }
+  ]
+}

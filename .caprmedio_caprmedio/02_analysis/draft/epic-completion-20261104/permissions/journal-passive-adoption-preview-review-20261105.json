@@ -1,0 +1,60 @@
+{
+  "verdict": "PASS_BOUNDED_PROMOTION_PLAN_REVIEW",
+  "draft_plan_receipt_matches": true,
+  "promotion_plan_sha256": "ddff423d8cbbd4016871d9c47d7f91c2ebec6ca7952712f2367c53dce7664df4",
+  "current_pin": true,
+  "draft_pin": true,
+  "preview_pin": true,
+  "draft_body_matches_source": true,
+  "new_body_matches_source": true,
+  "passive_only_history_removed": true,
+  "new_metadata_except_expected_preserved": true,
+  "legacy_scope_fields_preserved": true,
+  "new_status_version": {
+    "status": "Active",
+    "version": 39
+  },
+  "destination_correct": true,
+  "archive_absent_and_exact_preimage": true,
+  "current_op_exact_preimage_and_after_hash": true,
+  "draft_consumption_exact": true,
+  "native_versions": [
+    {
+      "version": 37,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md"
+    },
+    {
+      "version": 38,
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1644@38-draft-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md"
+    },
+    {
+      "version": 19,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention@19.md"
+    },
+    {
+      "version": 18,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention@18.md"
+    },
+    {
+      "version": 17,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention@17.md"
+    },
+    {
+      "version": 21,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention@21.md"
+    },
+    {
+      "version": 20,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention@20.md"
+    }
+  ],
+  "version_39_unique_and_above_native_max": true,
+  "boundary": "Prepared plan only; no Current change, native workflow admission, Journal append, runtime or Git action."
+}

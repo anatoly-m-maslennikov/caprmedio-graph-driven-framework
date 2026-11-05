@@ -2,7 +2,7 @@
 
 Complete the declaration-based Scope Unit authority and latest MODEL/CFEL changes, including sources, consumers, seven faithful projections and P2707 gates. Ask one real question at a time when confidence is below 90%.
 
-P2694@67 and P2707@6 remain Active. The [current state](current-state.md) records accepted decisions separately from applied sources. The [acceptance matrix](acceptance/matrix.json) retains all 23 requirements.
+P2694@68 and P2707@6 remain Active. The [current state](current-state.md) records accepted decisions separately from applied sources. The [acceptance matrix](acceptance/matrix.json) retains all 23 requirements.
 
 | Deliverable | Owner / exclusive edit scope | Dependencies | Acceptance | State |
 | --- | --- | --- | --- | --- |
@@ -15,7 +15,7 @@ P2694@67 and P2707@6 remain Active. The [current state](current-state.md) record
 | Implementation, fixtures and P2707 checks | CA #3; external owned files and execution | Stable reviewed source/implementation/image candidate | Required live admission, complete suite, launcher, Docker and W10 | Required external dependency |
 | Actual Workflows and Workbench | Their source owners | Their own accepted changes | Owner evidence and relevant Epic gate | External; no root edits |
 
-Latest publication: seven MODEL views against 1,167 pinned Current suppliers. Coverage is 55 known missing and 23 unresolved entries; 48 Subjects are passive-only. These are bounded source findings, not proof of model or runtime conformance. Frozen views 014–019 remain unchanged.
+Latest publication: seven MODEL views against 1,167 pinned Current suppliers. Coverage is 54 known missing and 23 unresolved entries; 47 Subjects are passive-only. These are bounded source findings, not proof of model or runtime conformance. Frozen views 014–019 remain unchanged.
 
 The `::` source Draft packet and parent path/instance proposal remain prospective. Current syntax, source decisions, implementation and runtime evidence are checked separately. Source receipts do not establish native Workflow admission or Journal append. No required Epic gate is removed.
 

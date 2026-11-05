@@ -635,7 +635,7 @@ source:
   - CA-R-1641@33
   - CA-R-1642@33
   - CA-R-1643@41
-  - CA-R-1644@37
+  - CA-R-1644@39
   - CA-R-1645@39
   - CA-R-1646@41
   - CA-R-1647@33
@@ -1173,7 +1173,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-05 01:27:48 +0400
+updated_at: 2026-11-05 04:05:44 +0400
 ---
 
 # Subjects Without Effective Requirement Declaration Coverage
@@ -1233,7 +1233,6 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-2255@9; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Runtime/Session` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1650@34; keys: passive
 - `CAPRMEDIO_MODEL <+ Entity/Property` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-246@47, CA-E-449@44, CA-M-125@47, CA-R-1247@24, CA-R-1259@24, CA-R-1284@27, CA-R-1931@18, CA-R-2003@16; keys: active, passive
-- `CAPRMEDIO_MODEL <+ History` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-R-1644@37; keys: passive
 - `CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology.Member)` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-D-306@30; keys: passive
 - `CAPRMEDIO_MODEL <+ Scope Unit/Project` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-671@1, CA-R-1430@27; keys: passive
 - `CAPRMEDIO_MODEL <+ Step Run` — No effective Requirement / Declaration coverage in the selected sources.; pins: CA-E-496@23; keys: passive

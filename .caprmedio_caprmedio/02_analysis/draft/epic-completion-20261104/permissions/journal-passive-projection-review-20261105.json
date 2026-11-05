@@ -1,0 +1,89 @@
+{
+  "verdict": "PASS_BOUNDED_PUBLICATION_READBACK",
+  "generation_manifest_sha256": "d6e4a7fe6b40c28fbdb690eef945709bde84d7d3c27f9dc1abb03bc51a9aea0b",
+  "frontier_pin": true,
+  "source_counts": [
+    1167,
+    1167
+  ],
+  "same_supplier_ids": true,
+  "changed_sources": [
+    "CA-R-1644"
+  ],
+  "source_hash_failures": [],
+  "source_status_version_failures": [],
+  "projections": [
+    {
+      "id": "CA-PROJ-020",
+      "published_matches": true,
+      "staged_matches": true
+    },
+    {
+      "id": "CA-PROJ-021",
+      "published_matches": true,
+      "staged_matches": true
+    },
+    {
+      "id": "CA-PROJ-022",
+      "published_matches": true,
+      "staged_matches": true
+    },
+    {
+      "id": "CA-PROJ-023",
+      "published_matches": true,
+      "staged_matches": true
+    },
+    {
+      "id": "CA-PROJ-024",
+      "published_matches": true,
+      "staged_matches": true
+    },
+    {
+      "id": "CA-PROJ-025",
+      "published_matches": true,
+      "staged_matches": true
+    },
+    {
+      "id": "CA-PROJ-026",
+      "published_matches": true,
+      "staged_matches": true
+    }
+  ],
+  "frozen_014_019": {
+    "CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md": true,
+    "CA-PROJ-016-CAPRMEDIO--Subject-Graph-Instances--Current-Methodology-and-Project-RMED.md": true,
+    "CA-PROJ-017-CAPRMEDIO--Model-Graph--Current-MODEL-Declarations.md": true,
+    "CA-PROJ-015-CAPRMEDIO--Subject-Graph-Properties--Current-Methodology-and-Project-RMED.md": true,
+    "CA-PROJ-018-CAPRMEDIO--Entities-Graph--Current-Subject-Narrowing-Tree.md": true,
+    "CA-PROJ-019-CAPRMEDIO--MODEL-Formal-Contracts.md": true
+  },
+  "formal_claim_blocks": {
+    "new_count": 829,
+    "prior_count": 829,
+    "exact_order_and_text_equal": true
+  },
+  "authority_check": {
+    "unique_referenced_requirement_pins": 178,
+    "non_current_or_non_declaration_refs": [],
+    "scope": "References in 021-023 bodies; continuity of 023 fences does not prove extraction completeness."
+  },
+  "audit_counts": {
+    "passive_only_subjects": {
+      "subject_occurrences": 3239,
+      "parsed_subjects": 373,
+      "unresolved_subjects": 9,
+      "unresolved_occurrences": 42,
+      "active_subjects": 328,
+      "passive_only_subjects": 47
+    },
+    "subjects_without_declaration_coverage": {
+      "known_missing": 54,
+      "unresolved": 23
+    },
+    "entity_definition_summary": {
+      "entities": 252,
+      "entities_with_any_missing": 48
+    }
+  },
+  "boundary": "Bounded published source views only; no source regeneration, runtime, tests, migration or full semantic completeness asserted."
+}

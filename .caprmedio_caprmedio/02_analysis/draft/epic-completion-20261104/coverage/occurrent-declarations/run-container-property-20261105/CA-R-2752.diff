@@ -1,0 +1,13 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-container-property-20261105/CA-R-2752.preview.txt
+@@ -33,6 +33,10 @@
+ Action Run//$run {::1}((IS_EXECUTION_OF)) Action//$definition
+ ```
+ 
++### Prose Claim
++
++Each Action Run launched by a Step Run has that Step Run as its Header.Container.
++
+ ## Semantics
+ 
+ An Action Run is an actual execution of one Action.

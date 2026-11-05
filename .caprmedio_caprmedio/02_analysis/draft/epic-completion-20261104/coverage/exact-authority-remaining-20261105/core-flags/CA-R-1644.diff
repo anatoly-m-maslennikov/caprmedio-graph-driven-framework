@@ -1,0 +1,10 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/exact-authority-remaining-20261105/core-flags/CA-R-1644.preview.txt
+@@ -4,7 +4,6 @@
+   passive:
+   - CAPRMEDIO_MODEL <+ Event Record
+   - CAPRMEDIO_MODEL <+ Carrier
+-  - CAPRMEDIO_MODEL <+ History
+   - CAPRMEDIO_MODEL <+ Actor
+ version: 37
+ updated_at: 2026-11-02 08:06:47 +0400

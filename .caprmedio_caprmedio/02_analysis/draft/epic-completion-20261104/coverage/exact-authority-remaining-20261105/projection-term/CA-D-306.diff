@@ -1,0 +1,12 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-306-PROJECT_CONFIGURATION-DECISION--materialize-applicable-methodology-as-projected-atom-files.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/exact-authority-remaining-20261105/projection-term/CA-D-306.preview.md
+@@ -2,7 +2,8 @@
+ subjects:
+   active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
+   passive:
+-  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology.Member)
++  - CAPRMEDIO_MODEL <+ Atom
++  - CAPRMEDIO_MODEL <+ Carrier/File
+ version: 30
+ updated_at: 2026-11-02 08:06:47 +0400
+ relations: {}

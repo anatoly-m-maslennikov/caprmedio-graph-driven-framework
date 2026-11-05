@@ -1,5 +1,5 @@
 // CA-M-472@1
-// CA-E-678@5
+// CA-E-678@6
 import { defineConfig } from '@playwright/test';
 
 const baseURL = process.env.WORKBENCH_E2E_URL;

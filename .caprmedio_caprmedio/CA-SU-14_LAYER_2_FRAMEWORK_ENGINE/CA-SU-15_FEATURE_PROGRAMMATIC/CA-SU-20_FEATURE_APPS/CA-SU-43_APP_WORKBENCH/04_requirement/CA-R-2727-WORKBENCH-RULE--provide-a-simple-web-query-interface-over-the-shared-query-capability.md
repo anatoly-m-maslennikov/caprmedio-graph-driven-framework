@@ -7,7 +7,7 @@ author: Anatoly Maslennikov
 role: Requirement
 form: Rule
 tier: 3
-version: 8
+version: 9
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
 relations: {}
@@ -15,7 +15,7 @@ carrier_destination:
   file:
     name: CA-R-2727-WORKBENCH-RULE--provide-a-simple-web-query-interface-over-the-shared-query-capability.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement
-updated_at: 2026-11-05 02:58:37 +0400
+updated_at: 2026-11-05 04:01:26 +0400
 ---
 ## Summary
 
@@ -37,12 +37,12 @@ The web interface **must**:
 - show Workbench and the selected Project name in the top header. Put `Settings` and `Saved Queries and Worksheets` at the top-right of that header, on the same level as Workbench. Keep current Worksheet tabs in the workspace below. The `Settings` panel is hidden initially; Theme and Zoom preferences apply on page load even while it is hidden.
 - provide one `Hide editor` control for the active Worksheet. Keep the whole script for every open Worksheet in browser local storage every 5 seconds and restore it on the next page load.
 - title the input area `Query editor`. Show `Saved: <ID>` at the right of that title, on the same header row, when a saved resource is available.
-- provide one top-left `Open Saved` button, not an inline open form. `Cmd+Option+O` opens a modal with an autofocus ID/URL input; native paste with `Cmd+V` is allowed, Enter opens the saved item without executing its SQL, and Escape or Cancel closes the modal.
+- offer `Open Saved` only in the command palette, without a separate toolbar button or dedicated shortcut. The command opens a modal with an autofocus ID/URL input; native paste with `Cmd+V` is allowed, Enter opens the saved item without executing its SQL, and Escape or Cancel closes the modal.
 - ask before closing an unsaved tab or window. The standard browser `beforeunload` warning is allowed; flush the latest local draft on `pagehide` and `beforeunload` when possible.
 - use text-only zoom presets `80`, `90`, `100`, `110`, `125`, `150` and `200` percent, and remember the selected preset.
 - show each available hotkey inside its action button or immediately beside it.
 - bind `Cmd+Enter` to Run and `Shift+Cmd+Enter` to Check. These shortcuts must invoke different operations and target the statement at the cursor. Buttons Run, Check and Save target the same active statement; Save Worksheet targets the whole script.
-- show ordinary result rows in navigable pages, exact total row and column counts, and query errors.
+- show ordinary result rows in navigable pages, exact total row and column counts, and query errors. Show column names separately from their SQL types.
 - use a small reusable component palette for consistent controls and result presentation.
 - open a searchable command palette with `Cmd+P` from anywhere in Workbench. Expose every current user action, including Settings, moving focus, switching/creating/renaming/closing Worksheets, Run, Check, Save, Save Worksheet, Open Saved, Hide/Show editor, result paging, Theme and Zoom. Show available shortcuts. Use Arrow Up or `Ctrl+P` for the previous item, Arrow Down or `Ctrl+N` for the next item, Enter to choose and Escape to close. Invoke the same handlers and availability rules as the visible controls, without requiring a mouse or memorized action shortcuts.
 - persist current Theme, Zoom and workspace preferences in browser local storage and restore them on load.

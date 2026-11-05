@@ -1,0 +1,13 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-container-property-20261105/CA-R-2751.preview.txt
+@@ -33,6 +33,10 @@
+ Step Run//$run {::1}((IS_EXECUTION_OF)) Step//$definition
+ ```
+ 
++### Prose Claim
++
++Each Step Run’s Header.Container identifies exactly one immediate Container: its Workflow Run or its containing Step Run.
++
+ ## Semantics
+ 
+ A Step Run is an actual execution of one Step within a Workflow Run.
