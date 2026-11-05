@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  passive:
+atom_id: CA-E-622
+ref_id: CA-E-622
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Atom.Header.Status
@@ -11,8 +17,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-version: 53
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-806
@@ -27,13 +32,15 @@ relations:
   - CA-R-1040
   - CA-D-483
   - CA-D-466
-atom_id: CA-E-622
+status: Active
+version: 53
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
 ---
 ## Summary
 

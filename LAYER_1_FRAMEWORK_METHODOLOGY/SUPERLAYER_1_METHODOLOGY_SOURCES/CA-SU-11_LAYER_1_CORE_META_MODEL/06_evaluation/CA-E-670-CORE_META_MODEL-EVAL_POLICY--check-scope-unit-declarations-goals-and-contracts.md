@@ -1,14 +1,14 @@
 ---
 atom_id: CA-E-670
-form: Eval Policy
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-version: 1
-relations: {}
-tier: 3
-updated_at: 2026-11-02 19:17:40 +0400
+ref_id: CA-E-670
 role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+tier: 3
+status: Active
+version: 1
+updated_at: 2026-11-02 19:17:40 +0400
 ---
 ## Summary
 

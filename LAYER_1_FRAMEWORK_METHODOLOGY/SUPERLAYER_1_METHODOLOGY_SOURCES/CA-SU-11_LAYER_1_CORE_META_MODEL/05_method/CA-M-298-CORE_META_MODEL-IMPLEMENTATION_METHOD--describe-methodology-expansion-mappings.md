@@ -1,24 +1,27 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
-  passive:
+atom_id: CA-M-298
+ref_id: CA-M-298
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
+  dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
-version: 26
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 2
 relations:
   child_of:
   - CA-M-006
   method_for:
   - CA-R-1375
-atom_id: CA-M-298
+status: Active
+version: 26
+updated_at: 2026-11-02 18:35:20 +0400
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 2
-role: Method
-form: Implementation Method
 ---
 ## Summary
 

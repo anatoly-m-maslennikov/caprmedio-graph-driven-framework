@@ -1,21 +1,21 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//implementation_of
-  passive:
-  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 33
-updated_at: 2026-11-04 22:00:28 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-R-1020
-status: Active
-tier: 1
+ref_id: CA-R-1020
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//implementation_of
+  dependencies:
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+tier: 1
+status: Active
+version: 33
+updated_at: 2026-11-04 22:00:28 +0400
 carrier_destination:
   file:
-    name: CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md
+    name: CA-R-1020-DECLARATION--register-implementation-of-relation.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
@@ -23,6 +23,10 @@ carrier_destination:
 Register implementation_of relation
 
 ## Claim
+
+### Prose Claim
+
+implementation_of is the direct Relation owned by a governed Implementation Carrier. The Host is that governed Implementation Carrier and each tuple targets the specification Atom it implements.
 
 ### Formal Claim
 
@@ -33,8 +37,4 @@ Relation//implementation_of ((HAS_CLASSIFICATION)) Derivation == Direct;
 # instances
 Carrier//$implementation_carrier ((implementation_of)) Atom//$specification_atom
 ```
-
-### Prose Claim
-
-implementation_of is the direct Relation owned by a governed Implementation Carrier. The Host is that governed Implementation Carrier and each tuple targets the specification Atom it implements.
 

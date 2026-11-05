@@ -1,26 +1,28 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File
-  passive:
+atom_id: CA-D-479
+ref_id: CA-D-479
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier/File
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Atom.Content.Details
   - CAPRMEDIO_MODEL <+ Term//Property
-version: 30
-updated_at: 2026-11-03 23:25:51 +0400
-relations: {}
-atom_id: CA-D-479
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
 tier: 3
-role: Delivery
-form: Policy
+status: Active
+version: 32
+updated_at: 2026-11-05 22:47:24 +0400
 carrier_destination:
   file:
-    name: CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md
+    name: CA-D-479-CORE_META_MODEL-POLICY--use-stable-headings-for-atom-body-properties.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 
@@ -31,6 +33,8 @@ Use stable headings for Atom body Properties
 ### Prose Claim
 
 Applicability: Structured Main Content of Markdown Atom carriers.
+
+Serialize Content headings in their declared sibling order. Omit absent optional Properties. Other admitted sibling Properties follow the ordered Properties, with no required order among them. For a declared Workflow Claim, Mermaid Scheme precedes Prose Claim, which precedes Formal Claim.
 
 For ordinary RMED, carry one `## Summary` and one `## Claim` as sibling Properties, optionally followed by `## Semantics` and `## Details` in that order. Claim has no direct value and contains one or both `### Formal Claim` and `### Prose Claim`, with unique sibling names. Formal Claim contains a CFEL-labelled code fence; Prose Claim contains ordinary Markdown. Omit absent optional Properties. Do not duplicate Claim in frontmatter.
 

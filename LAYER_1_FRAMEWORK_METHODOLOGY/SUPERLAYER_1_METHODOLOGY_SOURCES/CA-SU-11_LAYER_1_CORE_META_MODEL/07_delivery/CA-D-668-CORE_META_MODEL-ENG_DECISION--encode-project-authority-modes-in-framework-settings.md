@@ -1,14 +1,14 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes
-version: 2
-updated_at: 2026-11-02 20:07:03 +0400
-relations: {}
 atom_id: CA-D-668
-status: Active
-tier: 3
+ref_id: CA-D-668
 role: Delivery
 form: Eng Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes
+tier: 3
+status: Active
+version: 2
+updated_at: 2026-11-02 20:07:03 +0400
 ---
 ## Summary
 

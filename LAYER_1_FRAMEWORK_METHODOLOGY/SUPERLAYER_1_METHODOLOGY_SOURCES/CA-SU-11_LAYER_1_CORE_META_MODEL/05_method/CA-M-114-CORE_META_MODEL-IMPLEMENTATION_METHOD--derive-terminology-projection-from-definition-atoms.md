@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-  passive:
+atom_id: CA-M-114
+ref_id: CA-M-114
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   - CAPRMEDIO_MODEL <+ Term
@@ -10,19 +16,13 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
+tier: 3
+status: Active
 version: 44
 updated_at: 2026-11-04 18:28:33 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
-atom_id: CA-M-114
-status: Active
-tier: 3
-role: Method
-form: Implementation Method
 carrier_destination:
   file:
-    name: CA-M-114-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms.md
+    name: CA-M-114-IMPLEMENTATION_METHOD--derive-terminology-projection-from-definition-atoms.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 ---
 ## Summary

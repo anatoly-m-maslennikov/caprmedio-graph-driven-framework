@@ -1,14 +1,14 @@
 ---
 atom_id: CA-R-2464
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow
-version: 5
-updated_at: '2026-11-04 00:31:19 +0400'
-relations: {}
-tier: 3
+ref_id: CA-R-2464
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow
+tier: 3
+status: Active
+version: 5
+updated_at: '2026-11-04 00:31:19 +0400'
 ---
 
 ## Summary
@@ -24,9 +24,9 @@ Declare Workflow
 Atom/(.Header.Role: Operations)/Workflow;
 
 # instances
-Workflow//$workflow{:1+}((CONTAINS)) Step//$step;
+Workflow//$workflow{::1+}((CONTAINS)) Step//$step;
 
-Workflow//$workflow_2{:0+}((IS_RUN_BY)) Step//$step_2
+Workflow//$workflow_2{::0+}((IS_RUN_BY)) Step//$step_2
 ```
 
 ## Semantics
