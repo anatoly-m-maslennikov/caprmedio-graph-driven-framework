@@ -1,6 +1,6 @@
 # Completion state
 
-P2694@68 and P2707@6 remain Active. All 23 acceptance groups remain required.
+P2694@68 and P2707@7 remain Active. All 23 acceptance groups remain required.
 
 ## Ownership
 
@@ -27,7 +27,7 @@ Root owns Core MODEL, CFEL, Atom sources, source/data projections and scoped sou
 
 ## Reviews and remaining work
 
-- The original 142 CFEL specifications have individual dispositions. Review coverage is not semantic completeness. Ten original Entity/Property Drafts remain held for scope and Subject repairs.
+- The original 142 CFEL specifications have individual dispositions. Review coverage is not semantic completeness. Ten original Entity/Property Drafts remain held. R1247@25 and R2003@17 now have reviewed Node.** scope and Property-instance repairs; their Current versions remain unchanged. R1247's broader naming-rule disposition and coordinated syntax admission remain open.
 - R2778@1-draft declares FOR EACH; R2779@1-draft declares Header.Container. Both actual Drafts passed bounded independent readback. Typed Format/binding Drafts R2248@6 and R2604@4 are created; R2487@14 is rebased. Their independent readback passes; Current adoption remains pending.
 - Nine recursive-Step contract Drafts are created or rebased: R2463@3, R2464@6, R2465@5, R2467@3, R2638@4, R2734@2, R2735@2, R1528@23 and E486@24. Substep retirement is planned atomically with all operative consumer repairs. Every Step has exactly one Container and its Container chain ends at a Workflow. The actual R2465@5 Draft records that rooting rule. Three consumer Drafts M305@23, M444@6 and E669@5 are prepared. D467@29 and E500@29 preserve optional grouping and separate carriers while allowing recursive same-stem Step directories. All remain Drafts; operative consumer closure is pending. Actual Workflow instances stay with their owners.
 - Eleven Occurrent kind Drafts and eight Relation Drafts plus four endpoint revisions have fresh source reviews. Runtime/Session taxonomy and one Event per Event Record are settled. R2557@5-draft now adds the source-backed Event Record author outgoing allowance; R2255@10-draft removes repeated inherited wording. Their Current counterparts remain unchanged. Run parentage uses Header.Container by the latest Operator decision. Run-reference Format, Header groups, endpoint permission closure, integrated notation and source adoption remain open. Step Run continues to target Step under the recursive model. Six kind Drafts received reviewed count-glyph/wording updates; two remote Runtime Drafts kept their original explicit Operator-machine comparison. No actual execution instances are authored by these Declarations.
@@ -45,4 +45,4 @@ Reviewed checkpoint `d7e38d8e4` was pushed to amm/dev (server acknowledged d4b74
 
 ## Delivery folder correction
 
-Three materialized Delivery directories now use D667 names without Scope Unit IDs. The directory-only move preserved the contents of all 1,069 files; canonical Authority and Workflow sources were outside the move. Independent post-move review passes: all 1,069 files match, all three old paths are absent, and all 46 Declaration pins remain unchanged. Dynamic writer/runtime checks remain with CA #3.
+Three materialized Delivery directories now use D667 names without Scope Unit IDs. The directory-only move preserved the contents of all 1,069 files; canonical Authority and Workflow sources were outside the move. Independent post-move review passes: all 1,069 files match, all three old paths are absent, and all 46 Declaration pins remain unchanged. The static writer audit confirms a current defect: local_release.py would recreate the old ID-prefixed names. P2707@7 records the required CA #3 implementation fix and verification.

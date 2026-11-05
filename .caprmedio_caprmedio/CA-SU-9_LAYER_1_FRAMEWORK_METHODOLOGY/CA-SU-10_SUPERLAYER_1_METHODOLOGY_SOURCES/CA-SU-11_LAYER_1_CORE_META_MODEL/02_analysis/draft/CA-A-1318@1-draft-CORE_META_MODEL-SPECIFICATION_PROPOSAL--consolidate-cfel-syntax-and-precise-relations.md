@@ -10,7 +10,7 @@ subjects:
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
-updated_at: 2026-11-05 00:12:31 +0400
+updated_at: 2026-11-05 04:33:40 +0400
 carrier_destination:
   file:
     name: CA-A-1318@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--consolidate-cfel-syntax-and-precise-relations.md
@@ -29,8 +29,8 @@ Consolidate CFEL syntax and precise Relations
 
 ## Syntax decisions
 
-- `=` tests a condition. `==` assigns a value. `?==` assigns a value when the Property is missing.
-- Default assignment preserves valid explicit values and rejects invalid supplied values.
+- `=` tests a condition. `==` states a required or derived value. `?==` supplies an effective default when the Property is missing. These statements perform no business mutation.
+- Default resolution preserves valid explicit values and rejects invalid supplied values.
 - Numeric ranges are inclusive. Format constraints separated by commas all apply.
 - Project Settings AI Agent Confidence Threshold defaults to integer 90 in 0..100. The Plan override uses the same numeric domain.
 - A standalone typed instance binding lasts through its CFEL block.
@@ -60,7 +60,7 @@ Consolidate CFEL syntax and precise Relations
 
 ## Rationale
 
-Consistent assignment symbols make conditions and defaults readable. Explicit scopes preserve variable identity. Parentheses and quoting resolve syntax without implicit precedence. Separate LOOKUP authority keeps default assignment focused. Precise Relations describe what each contribution does.
+Distinct symbols separate conditions, required values and defaults. Explicit scopes preserve variable identity. Parentheses and quoting resolve syntax without implicit precedence. Separate LOOKUP authority keeps default assignment focused. Precise Relations describe what each contribution does.
 
 ## Created Draft packet
 
@@ -97,6 +97,8 @@ These Drafts were created and reviewed before their accepted source promotions. 
 - CA-R-2765@4-draft
 
 Updated and reviewed existing Drafts: CA-R-1318@34-draft and CA-M-453@4-draft. The Property Draft was rebased on Current before promotion.
+
+Reviewed existing Draft repairs: CA-R-1247@25-draft and CA-R-2003@17-draft now govern Node.** Properties and distinguish model Properties from their instances. Their Current sources are unchanged. R1247's broader naming rule and coordinated source adoption remain open.
 
 ## Remaining work
 

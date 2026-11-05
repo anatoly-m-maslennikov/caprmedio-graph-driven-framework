@@ -1,0 +1,40 @@
+{
+  "verdict": "PASS_BOUNDED_DRAFT_REBASE_REVIEW",
+  "manifest_sha256": "0807383b4f44ebffd60ac4658c46c47fed6e1f014e4df1c1c1ca6ccaaea48e58",
+  "authority_pin": true,
+  "rows": [
+    {
+      "id": "CA-R-1247",
+      "current_pin": true,
+      "draft_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "unchanged_metadata_except_subjects": true,
+      "active_unchanged": true,
+      "version": 25,
+      "status": "Draft",
+      "preview_sha256": "9c0abd26d8f5052e361905369c69aab0790c18c4ab3aa0059d9b3425a305daa1"
+    },
+    {
+      "id": "CA-R-2003",
+      "current_pin": true,
+      "draft_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "unchanged_metadata_except_subjects": true,
+      "active_unchanged": true,
+      "version": 17,
+      "status": "Draft",
+      "preview_sha256": "af72bec29fc8b2d703069dacc19ad9ec873ff270823d95c73a923b5740471b48"
+    }
+  ],
+  "semantic_checks": [
+    "Claims scope model Property occurrences under Node and its narrower branch, including inherited applicability; no universal non-Node Property permission is asserted.",
+    "Property instances remain distinct and their separately declared HAS_INSTANCE permissions are not prohibited.",
+    "R2003 retains exactly one immediate bearer and source-based inventory independent of edges, so missing edges fail instead of disappearing from the selection.",
+    "R1247 preserves complete-path identity, qualified names and repeated-reference identity, without redefining bearer count.",
+    "Draft identity/version, active Subject and immutable Summary are retained; R1247 removes obsolete Entity-root passive."
+  ],
+  "promotion_hold": "R1247 Current owns a broader all-entity naming rule; its disposition remains unresolved. A bounded Draft rebase is not approval to narrow or retire that Current rule. Coordinate selector syntax and non-Node authority before promotion.",
+  "boundary": "Previews only; no native Draft/Current, code, tests, Workflows, Workbench or Git mutation."
+}

@@ -1,0 +1,44 @@
+{
+  "verdict": "PASS_BOUNDED_READBACK_WITH_NONBLOCKING_HISTORICAL_WORDING",
+  "plans": [
+    {
+      "name": "p2707-delivery-writer-handoff-20261105",
+      "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/p2707-delivery-writer-handoff-20261105/adoption-plan.json",
+      "plan_sha256": "75e96132dfc0bf117d4b9b658c1461d9ea66f8da6237f48b8e6d4459278ffdc8",
+      "receipt_sha256": "5ce15a10a928a6951f7e1a510c3f734e68366af22e75b95db2d15887fdb34d68",
+      "outputs": [
+        {
+          "atom_id": "CA-P-2707",
+          "version": 7,
+          "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+          "sha256": "96d537e5e5d0ccf34d48b3d0cc7f51c5e515bb7cc8f0d6ac3a5da83c5551aca0"
+        }
+      ]
+    },
+    {
+      "name": "property-rule-proposal-update-20261105",
+      "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-rule-proposal-update-20261105/adoption-plan.json",
+      "plan_sha256": "74e0e8a81609a77c16fa2610b20d5a3b2e88d17520ab8767475d1826105874f5",
+      "receipt_sha256": "bf149f77cc56e8bbf504bf969ae1082aba6e7c34c47969d244e4a1270c4d85c3",
+      "outputs": [
+        {
+          "atom_id": "CA-A-1318",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1318@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--consolidate-cfel-syntax-and-precise-relations.md",
+          "sha256": "5eac4cfd3e362b92d69811e885eefefb2b7e0a7b501cd55c11ddccb9b1eba031"
+        }
+      ]
+    }
+  ],
+  "matrix_sha256": "cd379581409343ca47f1847f11dc982a4e5ac34aa7a83bfb15e3699c44eca021",
+  "checks": [
+    "P2707@7 actual bytes and exact @6 predecessor archive match plan/receipt. Five original remaining checks preserved: 2\u20135 byte-identical, 1 retained with the CA #3 writer handoff appended.",
+    "The writer task specifies declared Authority input, declared Delivery destinations, bytes unchanged and all three folder names; CA #3 owns implementation and tests. The source lane claims no implementation execution. All recorded static writer source pins still match.",
+    "A1318 Draft update matches plan/receipt and records held R1247@25 and R2003@17 repairs, their model-vs-instance distinction and the broader naming hold. Its == and ?== text describes required/effective values without business mutation; no Current authority changed by this proposal.",
+    "Matrix retains all 23 acceptance IDs in original order and correctly records Active P2694@68/P2707@7."
+  ],
+  "nonblocking_tracking_note": "A1318 still calls R1318@34-draft and M453@4-draft \u201cexisting Drafts\u201d in an older packet paragraph; neither remains in the native Draft directory. Clarify those references as historical/consumed when next updating this proposal, preserving exact past references.",
+  "limits": [
+    "No runtime, parser or tests executed; no source, code or Git change in this review."
+  ]
+}

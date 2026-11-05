@@ -1,0 +1,20 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2003@17-draft-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/node-property-held-draft-repair-20261105/CA-R-2003.preview.txt
+@@ -28,14 +28,14 @@
+ ### Prose Claim
+ 
+ 
+-Declared Property occurrences and their direct IS_PROPERTY_OF connections.
++Model Property occurrences selected by `Node.**` and their direct IS_PROPERTY_OF connections.
+ 
+ 
+-Every declared Property occurrence must have exactly one immediate bearer, identified by one outgoing direct IS_PROPERTY_OF connection to that bearer. A source establishes dependence independently of whether the edge is present, so a missing edge fails this requirement. Select source-declared Property occurrences independently of whether their bearer edges exist; do not infer dependence from edges or create a bearer connection.
++Every source-declared model Property occurrence selected by `Node.**` must have exactly one immediate bearer, identified by one outgoing direct IS_PROPERTY_OF connection to that bearer. A source establishes dependence independently of whether the edge is present, so a missing edge fails this requirement. Select source-declared Property occurrences independently of whether their bearer edges exist; do not infer dependence from edges or create a bearer connection.
+ 
+ ## Semantics
+ 
+-`Node.**` is the recursive Property selector, grounded in bearer dependence through IS_PROPERTY_OF. Its lexical Term is separately defined at `Term//Property`. Identifying a source-declared Property occurrence does not invent a bearer edge or treat a missing edge as proof of independence. The Property occurrence has identity qualified by its immediate bearer; the Property definition supplies its value Format and direct-value cardinality. The bearer-Relation count is distinct from the number of values a Property allows.
++`Node.**` selects Properties of Node and its narrower branch, grounded in bearer dependence through IS_PROPERTY_OF. Property instances are distinct from model Properties; their HAS_INSTANCE permissions are declared separately. Its lexical Term is separately defined at `Term//Property`. Identifying a source-declared Property occurrence does not invent a bearer edge or treat a missing edge as proof of independence. The Property occurrence has identity qualified by its immediate bearer; the Property definition supplies its value Format and direct-value cardinality. The bearer-Relation count is distinct from the number of values a Property allows.
+ 
+ ## Details
+ 

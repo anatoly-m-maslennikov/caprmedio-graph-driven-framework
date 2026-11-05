@@ -1,0 +1,166 @@
+{
+  "schema": "caprmedio.writer_static_audit.v1",
+  "scope": "Read-only static trace of local-release copy-active-sources and related methodology path/export helpers; no writer execution, imports, tests, or edits to production code.",
+  "source_pins": [
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/RELEASE_VERSION/local_release.py",
+      "sha256": "2730b2a44252cc48d4497d97dd831b9bcdfbd71df1261ce857eb69f363225b80",
+      "lines": [
+        32,
+        33,
+        87,
+        103,
+        113,
+        155,
+        163,
+        433,
+        555,
+        569,
+        570,
+        583
+      ],
+      "role": "Production release phases, fixed product root, source selection, and copy target construction."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/project_selection.py",
+      "sha256": "44527b115deaa80350a5eb256161429825a8204e63a67168683ef68a586add71",
+      "lines": [
+        294,
+        297,
+        310,
+        315,
+        347,
+        350
+      ],
+      "role": "Active selection obtains the parsed Scope Unit declaration structure and pins it."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/scope_declaration_parse.py",
+      "sha256": "3927b0641fba90ee11ae3fae85be826bcffedc32b5e0f5dd0364543eecd0dea6",
+      "lines": [
+        296,
+        303,
+        327,
+        342,
+        350,
+        398,
+        417
+      ],
+      "role": "Authority and Delivery paths are separately derived; Authority includes Scope Unit ID and Delivery omits it."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/RELEASE_VERSION/methodology_layout.py",
+      "sha256": "73dec8956d02cc222c78501c0c8d39fcaca0bc340ec8411aad2ac84c07371a93",
+      "lines": [
+        42,
+        72
+      ],
+      "role": "Shared path resolver returns source authority, product root, source-copy delivery, and applicable delivery paths."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
+      "sha256": "4f264703d560c3897f042279a794e673dfba89623f342ff47c56f118e6df3164",
+      "lines": [
+        179,
+        231,
+        259,
+        299,
+        685,
+        697,
+        1078,
+        1097
+      ],
+      "role": "Compiler uses declaration-based source/output paths for the applicable-methodology projection; source layer roots are Authority paths."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/methodology_export.py",
+      "sha256": "1d20ef17b1ccba3a1187fb80323fc1489268cfe9495be593ab5a0726e9e956f3",
+      "lines": [
+        968,
+        1008,
+        1013,
+        1019
+      ],
+      "role": "Frozen methodology export preserves each selected source_path as its candidate destination; it does not derive Delivery layer directory names."
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/folder-derivation-live-check-20261105/comparison.json",
+      "sha256": "83aeffa93d66fe1c0ea2fc0e172071c5757f5b7072767139f30cbd2045facc5c",
+      "lines": [
+        57,
+        1500,
+        1526
+      ],
+      "role": "Pinned D667 naming rule and the three current exact Authority-versus-Delivery directory names."
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/folder-derivation-live-check-20261105/three-folder-impact.json",
+      "sha256": "c1e3d9fb457af11e948d9edf7370b5bac9ef8e21ad2ccf77ea2a8aef8496bad5",
+      "lines": [
+        18,
+        149
+      ],
+      "role": "Post-move destination state and observed source/reference inventory."
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "path": "local_release.py:32,87-113",
+      "finding": "The release source allowlist is exactly CORE_META_MODEL, INSTALLED_EXTENSIONS, and PROJECT_CONFIGURATION. _read_structure reads the matching active_selection scope rows but retains only each row's authority_path; delivery_path is discarded."
+    },
+    {
+      "step": 2,
+      "path": "project_selection.py:294-315; scope_declaration_parse.py:327-342,398-417",
+      "finding": "The shared selection helper has both paths available. The parser independently derives Authority components with Scope Unit ID and Delivery components without ID, and exposes both in each structure row."
+    },
+    {
+      "step": 3,
+      "path": "local_release.py:555-569",
+      "finding": "The copy-active-sources phase writes under the hard-coded product path and sets each destination directory to product/SUPERLAYER_1_METHODOLOGY_SOURCES/source.name. Since source came from authority_path, source.name is the ID-prefixed Authority name. The files are copied relative to that Authority source."
+    },
+    {
+      "step": 4,
+      "path": "methodology_layout.py:42-72; local_release.py:570-583",
+      "finding": "A shared resolver computes declared product and source-copy Delivery roots, but the local_release phase does not call it. The compile phase separately hard-codes its applicable output relative path."
+    },
+    {
+      "step": 5,
+      "path": "compile_applicable_methodology.py:179-231,259-299,685-697; methodology_export.py:968-1019",
+      "finding": "The compiler correctly reads declared Delivery path for its applicable output, while source layer roots remain Authority paths. The frozen export writes pinned source_path values unchanged. Neither is the release copy's directory-name correction."
+    }
+  ],
+  "current_d667_examples": [
+    {
+      "scope_unit_id": "CA-SU-11",
+      "scope_unit_name": "CORE_META_MODEL",
+      "authority_directory_name": "CA-SU-11_LAYER_1_CORE_META_MODEL",
+      "delivery_directory_name": "LAYER_1_CORE_META_MODEL"
+    },
+    {
+      "scope_unit_id": "CA-SU-12",
+      "scope_unit_name": "INSTALLED_EXTENSIONS",
+      "authority_directory_name": "CA-SU-12_LAYER_2_INSTALLED_EXTENSIONS",
+      "delivery_directory_name": "LAYER_2_INSTALLED_EXTENSIONS"
+    },
+    {
+      "scope_unit_id": "CA-SU-13",
+      "scope_unit_name": "PROJECT_CONFIGURATION",
+      "authority_directory_name": "CA-SU-13_LAYER_3_PROJECT_CONFIGURATION",
+      "delivery_directory_name": "LAYER_3_PROJECT_CONFIGURATION"
+    }
+  ],
+  "verdict": {
+    "future_local_release_copy": "WILL_RECREATE_ID_PREFIXED_DIRECTORIES",
+    "uses_d667_delivery_names": false,
+    "dynamic_scope_selection": "YES_FOR_AUTHORITY_SOURCE_INPUTS_ONLY",
+    "delivery_path_in_copy_target": "NOT_PASSED_THROUGH",
+    "other_branch": "Applicable-methodology compile uses declared METHODOLOGY_SOURCES delivery output, but local_release overrides the output with a fixed relative path; frozen methodology export preserves source_path and is not this copy phase.",
+    "next_action": "Update the local_release copy phase to retain each selected Scope Unit row's derived delivery_path (or resolve the existing MethodologyLayout) and construct children relative to the declared METHODOLOGY_SOURCES delivery root. Keep reading source bytes from authority_path. Also resolve product/copy/applicable roots through the declared layout rather than parallel hard-coded roots, then have the CA #3-owned runtime gate verify a future copy produces the three D667 directory names without changing Authority sources."
+  },
+  "limitations": [
+    "Static source inspection only; the writer was not executed or imported and no tests were run.",
+    "No claim is made about runtime activation or effects beyond the directly read path construction.",
+    "This audit does not alter Authority, Delivery files, Workflow/Workbench carriers, or Git state."
+  ]
+}

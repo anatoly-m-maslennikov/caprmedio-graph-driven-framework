@@ -1,0 +1,43 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_READBACK",
+  "plan_sha256": "134e14d5a21363dd907e21fb91df7ba9e7809eb2c0e7be11e10a924bb47d58da",
+  "receipt_pin": true,
+  "rows": [
+    {
+      "id": "CA-R-1247",
+      "actual_sha256": "b72da8950746ab8b1a2dfdac4634a82ac8059c60d6404e665022fd4c95c5d07b",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "preimage_matches_review": true,
+      "current_unchanged": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "metadata_only_updated_at": true,
+      "subjects_exact": true,
+      "identity_version_status": [
+        "CA-R-1247",
+        25,
+        "Draft"
+      ]
+    },
+    {
+      "id": "CA-R-2003",
+      "actual_sha256": "cc87ed88ca5b56e12dd47c163ea1f980384bcf5aaa5849bcf2e652a76faab9ce",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "preimage_matches_review": true,
+      "current_unchanged": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "metadata_only_updated_at": true,
+      "subjects_exact": true,
+      "identity_version_status": [
+        "CA-R-2003",
+        17,
+        "Draft"
+      ]
+    }
+  ],
+  "admission_hold": "R1247 broader Current naming-rule disposition and coordinated source/syntax integration remain open.",
+  "boundary": "Actual Draft rebases only; no Current adoption or runtime claim."
+}

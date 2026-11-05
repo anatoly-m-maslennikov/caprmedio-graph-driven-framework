@@ -2,7 +2,7 @@
 
 Complete the declaration-based Scope Unit authority and latest MODEL/CFEL changes, including sources, consumers, seven faithful projections and P2707 gates. Ask one real question at a time when confidence is below 90%.
 
-P2694@68 and P2707@6 remain Active. The [current state](current-state.md) records accepted decisions separately from applied sources. The [acceptance matrix](acceptance/matrix.json) retains all 23 requirements.
+P2694@68 and P2707@7 remain Active. The [current state](current-state.md) records accepted decisions separately from applied sources. The [acceptance matrix](acceptance/matrix.json) retains all 23 requirements.
 
 | Deliverable | Owner / exclusive edit scope | Dependencies | Acceptance | State |
 | --- | --- | --- | --- | --- |
@@ -23,4 +23,4 @@ Latest source decisions: FOR EACH uses a typed/filtered selector with grouped co
 
 Bounded Scope census: 46 Current Declarations, 45 unique non-root IDs, nine Ordered units. See [source census](coverage/scope-declaration-check-20261105/REPORT.md) and its independent review. Verified source checkpoints include d7e38d8e4, c33ea7266 and 611b532f0. Later reviewed source work is recorded separately; final publication and external verification remain open.
 
-The historical 44-source digest and current 46-source digest are independently verified. P2704 has a bounded static field-retirement check. Three Delivery directories are renamed to their derived names, with the contents of all 1,069 files preserved. Independent post-move checks pass. CA #3 writer/runtime verification remains open.
+The historical 44-source digest and current 46-source digest are independently verified. P2704 has a bounded static field-retirement check. Three Delivery directories are renamed to their derived names, with the contents of all 1,069 files preserved. Independent post-move checks pass. The static writer audit found that a release copy would recreate the ID-prefixed names. P2707@7 records the required CA #3 fix and runtime verification.

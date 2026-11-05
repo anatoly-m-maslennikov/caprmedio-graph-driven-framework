@@ -2,12 +2,11 @@
 subjects:
   active: CAPRMEDIO_MODEL <+ Node.**
   passive:
-  - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ CFEL
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
 version: 25
-updated_at: 2026-11-04 21:59:19 +0400
+updated_at: 2026-11-05 04:29:34 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
@@ -30,16 +29,15 @@ Identify Dependent-Entity Occurrences by Complete Subject Path
 ### Prose Claim
 
 
-`Node.**` occurrences, their immediate bearers, and their
-complete Subject Paths.
+Model Property occurrences selected by `Node.**`, their immediate bearers, and their complete Subject Paths.
 
 
-**every** `Node.**` occurrence **must** derive its
+**every** model Property occurrence selected by `Node.**` **must** derive its
 source-admitted bearer-qualified identity from its complete Subject Path
 **without** imposing one global ordinal position on a reusable Term. Its
 outgoing direct IS_PROPERTY_OF Relation identifies its immediate bearer. Distinct
-modeled entities **must** use distinct complete canonical names, while repeated
-references **to** the same entity **must** retain its same complete canonical
+model Property occurrences **must** use distinct complete canonical names, while repeated
+references **to** the same occurrence **must** retain its same complete canonical
 name.
 
 ## Details
@@ -47,10 +45,10 @@ name.
 The complete Subject Path preserves source-admitted bearer qualification.
 Ordinal position and display placement do not create entity identity.
 Qualification is part of the complete property name used for collision checks.
-A repeated display or reference of one entity remains the same entity, and
+A repeated display or reference of one model Property remains the same Property, and
 parsing a name does not introduce another graph entity.
 
-`Node.**` is the recursive Property selector governed by this Rule.
+`Node.**` selects Properties of Node and its narrower branch. Property instances are distinct from their model Properties; the applicable Declarations govern their HAS_INSTANCE links.
 `Term//Property` is its reusable lexical Term; the Term is not the
 selector or an occurrence. The direct IS_PROPERTY_OF Relation runs from the
 Property occurrence to its bearer. The separate bearer-cardinality Rule owns

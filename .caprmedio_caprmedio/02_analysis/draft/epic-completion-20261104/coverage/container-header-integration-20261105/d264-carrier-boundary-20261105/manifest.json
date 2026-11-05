@@ -1,0 +1,76 @@
+{
+  "status": "HELD_ONE_CARRIER_RELATION_CHOICE",
+  "source_pins": [
+    {
+      "id": "CA-D-264",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "sha256": "e12a30e551afc95a332d40b1f467231d68edf974bd753d54d5d1e6d2e9336e1e"
+    },
+    {
+      "id": "CA-D-266",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "sha256": "4e72593f7c399b72dd910efdc1b492d8f777e563af836997f57a346086a39d60"
+    },
+    {
+      "id": "CA-M-454",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-454-CORE_META_MODEL-TERM_DEFINITION--define-artifact.md",
+      "sha256": "ecb2430712c9a78d65dcf0ef32721179cb9b64b893cf43bf2e813a29fb2e595d"
+    },
+    {
+      "id": "CA-R-1958",
+      "version": 16,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1958-CORE_META_MODEL--define-entity-carrier.md",
+      "sha256": "0a0074cc98230942772d96f790537e644d27b85837a3e08665c12fdde7b291ba"
+    },
+    {
+      "id": "CA-R-1956",
+      "version": 12,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1956-CORE_META_MODEL-DEFINITION--define-entity-carrier-directory-carrier.md",
+      "sha256": "dacacf47d0215d11e97e87b45aab8e0bd95ce880bf261498f837ec5db386b7ca"
+    },
+    {
+      "id": "CA-R-2478",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8"
+    },
+    {
+      "id": "CA-R-2247",
+      "version": 11,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "b2204c4e8d43421bc1fa95ebf93dfae03eaf6749cef10015f97d3563bdb8cc22"
+    },
+    {
+      "id": "CA-R-1660",
+      "version": 37,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-DECLARATION--register-structural-parent-relation.md",
+      "sha256": "175001423157ce246b5a20c26b2a47eb8f29deb08649a7948ad091247bd25759"
+    },
+    {
+      "id": "CA-D-266@30-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-266@30-draft-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "sha256": "a2aa2a485d8fde5ab447e90a09390514c2b618de10b1e7d26037cf375e079303"
+    }
+  ],
+  "earlier_preview": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/holds-review/CA-D-264.preview.txt",
+    "sha256": "99b2fe827ac9228777c38858359ef705cb54c1cddf06ca8bc7e06e42935badab",
+    "finding": "The carve-out \u201cArtifact Revision other than an Atom\u201d still treats Atom as a subtype of Artifact, contrary to accepted Artifact=file/folder and Object=model entity instance; its target is still the represented Structural Entity Revision, not the physical Directory Carrier. It is not a Carrier-only successor."
+  },
+  "evidence": [
+    "M454@5 defines Artifact as file or folder; R1958 defines Carrier as storage representation distinct from its represented Object, with Object any model Entity instance.",
+    "R2247@11 permits declared Carrier descriptors/instances as Relation endpoints; R2478 requires an IS_CONTAINED_BY target classified Container=yes and defines inverse CONTAINS.",
+    "R1956 defines Directory Carrier but does not itself declare Container=yes or establish the per-direction Carrier instance permissions needed for a formal containment edge.",
+    "Current D264 states a relation between the represented Artifact Revision and the Structural Entity Revision carried by its nearest directory, not necessarily between Carrier representations. Changing its endpoints is a substantive authority change, not a proven mechanical rewording.",
+    "D266@30 Draft preserves Atom logical containment from Header.Container and separately treats non-Atom carrier-derived containment; R1660 prohibits physical nesting from silently replacing logical parentage."
+  ],
+  "one_unresolved_choice": "Should nearest-directory physical nesting be exposed only as a physical Carrier-location view, or should it also be a formal IS_CONTAINED_BY edge between the child Carrier and Directory Carrier instances, with explicit model admission/permissions for that edge?",
+  "if_resolved": "Preserve the distinction between physical representation and represented Object; keep exactly-one nearest directory where applicable and derived inverse only if the selected view admits them. Preserve no-write/no new Version and Project Structure parentage safeguards. Any required Carrier permissions need their own existing authority or separately reviewed source, not an invented property.",
+  "preview": "None: a whole-Atom successor would otherwise either discard the existing formal relation claim or assert unestablished Carrier endpoint permissions.",
+  "limits": [
+    "No Current, actual Draft, carrier moves, code, tests, Workflow or Git mutation."
+  ]
+}
