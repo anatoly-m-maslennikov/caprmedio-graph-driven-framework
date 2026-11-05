@@ -1,5 +1,5 @@
-# CA-E-684@2
-# CA-D-681@4
+# CA-E-684@3
+# CA-D-681@5
 # CA-E-781@1
 # CA-D-696@1
 
@@ -101,6 +101,29 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
 
     async def interface_call(self, client: httpx2.AsyncClient, operation: str, arguments: dict):
         return await client.post(self.interface, json={"operation": operation, "arguments": arguments})
+
+    async def test_ui_probe_uses_existing_mcp_without_starting_workbench(self) -> None:
+        from mcp import MCPError
+
+        async with self.session() as (session, _client):
+            descriptors = {tool.name: tool for tool in (await session.list_tools()).tools}
+            uri = descriptors["workbench_ui_probe"].meta["ui"]["resourceUri"]
+            self.assertIsNone(descriptors["workbench_ui_ping"].meta)
+            resources = (await session.list_resources()).resources
+            self.assertIn(uri, [resource.uri for resource in resources])
+            contents = (await session.read_resource(uri)).contents
+            self.assertEqual("text/html;profile=mcp-app", contents[0].mime_type)
+            self.assertIn("ui/initialize", contents[0].text)
+            self.assertIn("ui/notifications/tool-result", contents[0].text)
+            self.assertEqual({"message": "CAPRMEDIO MCP App resource loaded"},
+                             await self.tool(session, "workbench_ui_probe", {}))
+            self.assertEqual({"message": "Tool bridge passed"},
+                             await self.tool(session, "workbench_ui_ping", {}))
+            invalid = await session.call_tool("workbench_ui_ping", {"sql": "SELECT 1"})
+            self.assertTrue(invalid.is_error)
+            self.assertIsNone(self.app.gateway.workbench._service)
+            with self.assertRaises(MCPError):
+                await session.read_resource("ui://caprmedio/not-a-resource")
 
     async def test_sync_status_is_shared_and_readable_during_initial_capture(self) -> None:
         async with self.session() as (session, client):

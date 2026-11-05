@@ -36,6 +36,7 @@ for location in (tools, apps):
     if location not in sys.path:
         sys.path.insert(0, location)
 from operation_error_boundary import ExplicitBlockingRuntimeFailure  # noqa: E402
+from APP_WORKBENCH.FEATURE_CODEX_EXTENSION import mcp_app_probe  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import (  # noqa: E402
     QueryExecutionError, WorkbenchUnavailableError,
 )
@@ -55,7 +56,7 @@ INTERFACE_TOOLS = (
     VIEW_UPDATE, VIEW_RUN, VIEW_CHECK, VIEW_FETCH, VIEW_FOCUS, VIEW_RENAME, VIEW_REMOVE,
     QUERY_LOG_LIST, QUERY_LOG_GET,
 )
-NATIVE_TOOLS = (RUN, PAGE, CHECK, SCHEMA, SAVE_VIEW, LOAD, SAVED_LIST, *INTERFACE_TOOLS, RESTART, REREAD, SYNC_STATUS)
+NATIVE_TOOLS = (*mcp_app_probe.TOOL_NAMES, RUN, PAGE, CHECK, SCHEMA, SAVE_VIEW, LOAD, SAVED_LIST, *INTERFACE_TOOLS, RESTART, REREAD, SYNC_STATUS)
 
 _CURSOR = {"type": "integer", "minimum": 0}
 _SQL = {"type": "string"}
@@ -125,7 +126,7 @@ def native_tools() -> tuple[types.Tool, ...]:
         annotations=types.ToolAnnotations(read_only_hint=name not in writes, destructive_hint=name in {RESTART, REREAD},
                                           idempotent_hint=name not in writes, open_world_hint=False),
         input_schema=schemas[name],
-    ) for name in NATIVE_TOOLS)
+    ) for name in NATIVE_TOOLS if name not in mcp_app_probe.TOOL_NAMES) + mcp_app_probe.tools()
 
 
 class WorkbenchTools:
@@ -150,6 +151,9 @@ class WorkbenchTools:
 
     def _call(self, name: str, arguments: Any) -> dict[str, Any]:  # noqa: C901
         """Keep an owner alive for the complete synchronous Workbench operation."""
+        if name in mcp_app_probe.TOOL_NAMES:
+            self._empty(arguments)
+            return mcp_app_probe.call(name)
         if name == SYNC_STATUS:
             self._empty(arguments)
             owner = self._service

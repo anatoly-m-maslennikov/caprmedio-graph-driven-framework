@@ -300,14 +300,20 @@ test('migrates one standalone draft without running it and keeps close protectio
   const parsed = new URL(url); const root = parsed.searchParams.get('project_root') ?? projectName;
   const legacyKey = `caprmedio.workbench.${root}.workspace`;
   await page.addInitScript(({ key }) => localStorage.setItem(key, JSON.stringify({ activeId: 'legacy', tabs: [{ id: 'legacy', title: 'View 1', sql: 'SELECT 41 AS migrated_draft', cursor: 0, dirty: true, savedSql: '' }] })), { key: legacyKey });
-  let runs = 0;
-  page.on('request', (request) => { if (request.method() === 'POST' && new URL(request.url()).pathname.endsWith('/interface') && request.postDataJSON()?.operation === 'view_run') runs += 1; });
+  let runs = 0; const opened: string[] = [];
+  page.on('request', (request) => {
+    if (request.method() !== 'POST' || !new URL(request.url()).pathname.endsWith('/interface')) return;
+    const payload = request.postDataJSON(); if (payload?.operation === 'view_run') runs += 1;
+    if (payload?.operation === 'workspace_open') opened.push(payload.arguments?.session_id);
+  });
   try {
     await page.goto(url);
     await expect(editor(page)).toContainText('SELECT 41 AS migrated_draft');
-    expect(new URL(page.url()).searchParams.get('workspace')).toMatch(/^standalone-/);
+    expect(new URL(page.url()).searchParams.get('workspace')).toBeNull();
     const session = await page.evaluate(() => Object.entries(localStorage).find(([key]) => key.endsWith('.standalone-session'))?.[1]);
-    expect(session).toMatch(/^standalone-/); expect(runs).toBe(0);
+    expect(session).toMatch(/^standalone-/); expect(opened).toEqual([session]); expect(runs).toBe(0);
+    await page.reload(); await expect(editor(page)).toContainText('SELECT 41 AS migrated_draft');
+    expect(new URL(page.url()).searchParams.get('workspace')).toBeNull(); await expect.poll(() => opened).toEqual([session, session]);
 
     const update = page.waitForRequest((request) => request.method() === 'POST' && new URL(request.url()).pathname.endsWith('/interface') && request.postDataJSON()?.operation === 'view_update' && request.postDataJSON()?.arguments?.sql === 'SELECT 42 AS autosaved_draft');
     await replaceSql(page, 'SELECT 42 AS autosaved_draft'); await update;

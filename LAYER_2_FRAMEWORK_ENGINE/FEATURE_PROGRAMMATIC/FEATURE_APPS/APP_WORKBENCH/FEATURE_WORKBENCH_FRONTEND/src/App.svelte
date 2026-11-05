@@ -2,7 +2,7 @@
 <!-- CA-R-2902@2 -->
 <!-- CA-R-2952@1 -->
 <!-- CA-M-476@2 -->
-<!-- CA-D-674@18 -->
+<!-- CA-D-674@19 -->
 <!-- CA-D-681@4 -->
 <script lang="ts">
   import { onMount } from 'svelte';
@@ -31,7 +31,7 @@
   const legacyNamespace = storageKey(projectName, undefined, projectRoot ?? undefined);
   const standaloneSessionKey = `caprmedio.workbench.${projectRoot || projectName}.standalone-session`;
   // An explicit URL is native unless it names this browser's own persisted Workspace.
-  // That exception lets an interrupted one-time unbound-draft adoption resume after URL rewrite.
+  // That exception lets an interrupted one-time unbound-draft adoption resume.
   const persistedStandaloneId = !embedded ? localStorage.getItem(standaloneSessionKey) : null;
   const standaloneBinding = !embedded && (!explicitWorkspaceId || explicitWorkspaceId === persistedStandaloneId);
   function standaloneWorkspaceId() {
@@ -40,7 +40,10 @@
     const created = `standalone-${crypto.randomUUID()}`; localStorage.setItem(standaloneSessionKey, created); return created;
   }
   const workspaceId = standaloneWorkspaceId();
-  if (standaloneBinding && workspaceId) { parameters.set('workspace', workspaceId); history.replaceState(null, '', `${base}?${parameters.toString()}${location.hash}`); }
+  if (explicitWorkspaceId && explicitWorkspaceId === persistedStandaloneId) {
+    parameters.delete('workspace');
+    const search = parameters.toString(); history.replaceState(null, '', `${base}${search ? `?${search}` : ''}${location.hash}`);
+  }
   const namespace = storageKey(projectName, workspaceId, projectRoot ?? undefined);
   const migrationKey = `${standaloneSessionKey}.unbound-migrated`;
   const migrationProgressKey = `${migrationKey}.progress`;

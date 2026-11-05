@@ -13,11 +13,11 @@ relations:
   - CA-R-2727
   - CA-R-2952
 status: Active
-version: 18
-updated_at: 2026-11-05 20:34:04 +0400
+version: 19
+updated_at: 2026-11-06 01:29:53 +0400
 carrier_destination:
   file:
-    name: CA-D-674-WORKBENCH_FRONTEND-ENG_DECISION--deliver-a-simple-sql-query-page-through-the-shared-connector.md
+    name: CA-D-674-WORKBENCH_FRONTEND-ENG_DECISION--deliver-simple-sql-query-page.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/07_delivery
 current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
@@ -58,7 +58,7 @@ Use the existing Workbench Workspace/View routes at /caprmedio/workbench/<projec
 
 When the frontend build is missing, keep the query API and MCP available. The Workbench page returns HTTP 503 with an explicit build-required error; do not build assets or start a frontend server automatically.
 
-For the current Project, the page is /caprmedio/workbench/caprmedio. Keep shared static assets under /caprmedio/workbench/assets. The frontend sends Run, Page and Check requests under its current Project page path. The URL's Project name must match the existing selected Project; a mismatched name returns HTTP 404. The plugin opener alone appends `embedded=1` when it opens a Workbench URL; ordinary browser URLs do not receive the marker. Preserve the existing Project and Workspace query parameters.
+For the current Project, the page is /caprmedio/workbench/caprmedio. Keep shared static assets under /caprmedio/workbench/assets. The frontend sends Run, Page and Check requests under its current Project page path. The URL's Project name must match the existing selected Project; a mismatched name returns HTTP 404. The plugin opener alone appends `embedded=1` when it opens a Workbench URL; ordinary browser URLs do not receive the marker. Preserve existing Project parameters and explicit chat-bound or foreign Workspace parameters. A default standalone URL must not gain a workspace parameter. Keep its generated Workspace ID in browser local storage; the same browser resumes that Workspace after reload. Remove a legacy workspace parameter only when it equals this browser's persisted standalone ID, preserving query, project_root, other parameters and the fragment. Explicit foreign or chat-bound Workspace links retain their target. Keep all ID formats unchanged.
 
 Keep the read-only result grid in a bounded scrolling region, with visible column headers and separately scrollable long cell values. Preserve every row and value; scrolling changes presentation, not the query result.
 

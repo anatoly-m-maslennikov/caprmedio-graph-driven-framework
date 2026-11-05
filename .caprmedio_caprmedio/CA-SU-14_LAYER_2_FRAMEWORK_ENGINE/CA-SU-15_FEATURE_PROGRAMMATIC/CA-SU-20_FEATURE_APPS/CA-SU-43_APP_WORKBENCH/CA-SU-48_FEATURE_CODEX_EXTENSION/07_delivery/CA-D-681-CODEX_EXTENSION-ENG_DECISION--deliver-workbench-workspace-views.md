@@ -15,8 +15,8 @@ relations:
   - CA-M-476
   - CA-E-684
 status: Active
-version: 4
-updated_at: 2026-11-05 20:32:45 +0400
+version: 5
+updated_at: 2026-11-06 01:46:23 +0400
 carrier_destination:
   file:
     name: CA-D-681-CODEX_EXTENSION-ENG_DECISION--deliver-workbench-workspace-views.md
@@ -34,17 +34,17 @@ Deliver Workbench Workspace Views
 
 ### Prose Claim
 
-Deliver the embedded Workbench Workspace and View operations through the supported native browser embedding and MCP surfaces. The browser and MCP **must** expose the same list, open, create, update, run, fetch, focus, rename, remove and save effects.
+Deliver the Workbench Workspace and View operations through a native Codex plugin panel and MCP. The native panel, standalone browser and MCP **must** expose the same list, open, create, update, run, fetch, focus, rename, remove and save effects. A page opened by `open_in_codex(type=browser)` is not the plugin UI and does not complete delivery.
 
 Reuse the existing Workbench query executor, pagination, successful-run saving, saved Journal and browser autosave. Return Run metadata without rows by default and fetch rows through the existing paged capability. Deliver the temporary two-day query log with the same backend and MCP list/fetch behavior, retaining entries in the parent Workbench backend's hourly batches without result rows or extra schema data.
 
-Do not add an iframe SDK, standalone chat, separate chat controls, code runner, scheduler, magic Workflow or retry system.
+Do not add a second MCP service, standalone chat, separate chat controls, code runner, scheduler, magic Workflow or retry system.
 
 ## Interface
 
-The extension is a local Codex plugin with `plugin.json`, `skills/workbench/SKILL.md` and a command `SessionStart` hook. The hook supplies only the native `session_id` as model context; it starts no service and makes no network request. The Skill uses the existing host-configured CAPRMEDIO MCP, carries the trusted Project root, opens its returned `workspace_url` in the native browser beside the current chat and does not bundle a second MCP connection. For the embedded plugin, the Workspace ID is the supplied native session ID. The plugin does not prove or invent a native chat identity.
+The extension is a local Codex plugin with `plugin.json`, `skills/workbench/SKILL.md` and the existing `SessionStart` hook. The hook supplies only the native `session_id` as model context; it starts no service and makes no network request. The plugin uses the existing host-configured CAPRMEDIO MCP and trusted Project root, without bundling a second connection. The panel receives the host-provided native session and Project context and may use the standard MCP Apps resource/bridge when the Codex host supports it. The plugin does not invent a chat identity or claim a host-specific side-panel API.
 
-Workspace and View tools use explicit IDs. The HTTP interface invokes the same handlers under the selected Project's Workbench URL. A Workspace URL uses `?workspace=<workspace_id>` and preserves `project_root` when required. The plugin opener appends `embedded=1` only when it opens this embedded Workbench URL, preserving the existing `workspace` and `project_root` parameters; ordinary browser URLs are standalone and do not receive the marker. Unknown IDs and malformed inputs fail without selecting another Workspace.
+Workspace and View tools use explicit IDs. The HTTP interface invokes the same handlers under the selected Project's Workbench URL. A Workspace URL uses `?workspace=<workspace_id>` and preserves `project_root` when required. The native panel receives host context directly; browser URLs may use `embedded=1` only as a density-default marker and do not determine backend identity. Unknown IDs and malformed inputs fail without selecting another Workspace.
 
 | Operation | Inputs | Result |
 |---|---|---|
@@ -69,16 +69,22 @@ Use existing UUID generation for View IDs. Store Workspace documents under `.cap
 
 Each actual Run appends SQL, success/fail, error, row count and column count to the runtime query log, plus its technical ID and timestamp. Counts are null when unavailable after failure. The parent Workbench backend owns retention for two days in hourly batches; this Delivery adds no duplicate expiry or cleanup path. A log-write failure is reported to stderr and in the response without discarding a completed query result. Query Check is not logged. A result ID is process-local; reread or restart invalidates it. View removal or replacement of a displayed result releases that result's existing cache table. Saved Views and their Journal records have no query-log retention TTL.
 
-## Local plugin activation
+## Native plugin activation
 
 Register the existing `caprmedio-workbench` package in the repository's `.agents/plugins/marketplace.json`, under marketplace `caprmedio-local` with display name CAPRMEDIO. Its local source is `./LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_CODEX_EXTENSION/plugin`, within this repository. Keep the existing MCP connection; do not bundle a second connection.
 
-The desktop app discovers the repository entry after an app restart. The Operator installs the local plugin and explicitly trusts its bundled hook through `/hooks`. Skill and SessionStart activation require a new or resumed native chat; building or releasing the backend does not install the plugin or retroactively run a hook in an already active chat. Preserve the current chat and do not restart the desktop app as part of backend release.
+The desktop app discovers the repository entry after an app restart. The Operator installs the local plugin and explicitly trusts its bundled hook through `/hooks`. Plugin activation requires a new or resumed native chat; building or releasing the backend does not install the plugin or retroactively run a hook in an already active chat. Native panel rendering is complete only when the host renders the Workbench UI and the panel can exercise the same MCP Workspace/View effects.
 
 ## Standalone browser delivery
 
-The standalone browser uses the same selected Project Workbench HTTP handlers and Workspace/View backend as the embedded native-browser Skill, but has no chat. One existing backend is used per explicit Project; the standalone browser keeps one unique Session ID in its existing localStorage and opens its own Workspace without inventing a native Codex `session_id`. The embedded native session ID remains unchanged. An explicit `?workspace=<workspace_id>` URL selects the same Workspace from either UI, while `embedded=1` is only a density-default marker and is not backend logic. Assigning a standalone Workspace preserves all existing URL parameters, including the saved-query/open-saved `queryURL`.
+The standalone browser uses the same selected Project Workbench HTTP handlers and Workspace/View backend as the native Codex plugin panel, but has no chat. One existing backend is used per explicit Project; the standalone browser keeps one unique Session ID in its existing localStorage and opens its own Workspace without inventing a native Codex `session_id`. The native session ID remains unchanged. In the standalone browser, an explicit `?workspace=<workspace_id>` URL selects that Workspace, while `embedded=1` is only a density-default marker and is not backend logic. Assigning a standalone Workspace preserves all existing URL parameters, including the saved-query/open-saved `query`.
 
 On first binding, an unbound browser draft is migrated at most once into the standalone Workspace without SQL execution. Keep the original local copy until backend confirmation; do not merge shared Project Workspaces or import another chat's draft. Each View remains one SQL query: edits may be temporarily invalid, but Run and Check validate the whole View, reject multiple statements, and treat `cursor_position` as editor metadata rather than selecting one; legacy saved multi-script queries remain intact and are never partially executed through a View. Both UIs call the existing create, update, run, fetch, focus, rename, remove and save operations.
 
-Result-cache TTL is separate from parent-owned query-log retention and uses the shared Workbench runtime configuration's default of 3600 seconds unless an existing configured value applies. Standalone and embedded delivery do not add a query-log TTL setting, service, lease, heartbeat, chat or Domain entity.
+Result-cache TTL is separate from parent-owned query-log retention and uses the shared Workbench runtime configuration's default of 3600 seconds unless an existing configured value applies. Standalone and native panel delivery do not add a query-log TTL setting, service, lease, heartbeat, chat or Domain entity.
+
+
+
+## Native UI compatibility check
+
+Expose `workbench_ui_probe` and `workbench_ui_ping` through the existing CAPRMEDIO MCP connection. Both are read-only, take no native arguments and return a fixed message without reading Project data or starting Workbench. The existing public Project selector still applies. Only `workbench_ui_probe` links to `ui://caprmedio/workbench-compatibility.html` with MIME type `text/html;profile=mcp-app`. The HTML uses the standard MCP Apps initialization, receives the host tool result and calls the separate ping through the host tool bridge. It opens no browser and starts no second server. This check establishes host compatibility; it is not the complete Workbench UI.

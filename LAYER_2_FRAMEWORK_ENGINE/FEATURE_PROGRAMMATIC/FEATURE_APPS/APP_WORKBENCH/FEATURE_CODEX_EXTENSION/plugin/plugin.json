@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "caprmedio-workbench",
-  "version": "0.1.0",
-  "description": "Open and operate CAPRMEDIO Workbench workspaces from a native Codex session.",
+  "version": "0.1.1",
+  "description": "Operate CAPRMEDIO Workbench workspaces and test native MCP App UI from a Codex session.",
   "extensions": {
     "com.openai": {
       "hooks": "./hooks/hooks.json"

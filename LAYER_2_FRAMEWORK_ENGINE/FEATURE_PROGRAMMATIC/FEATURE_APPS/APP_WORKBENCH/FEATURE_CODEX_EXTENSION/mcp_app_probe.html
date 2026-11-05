@@ -1,0 +1,70 @@
+<!-- CA-D-681@5 -->
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CAPRMEDIO UI compatibility probe</title>
+<style>
+  :root { color-scheme: light dark; font: 14px system-ui; }
+  body { margin: 0; padding: 16px; }
+  button { font: inherit; padding: 6px 10px; }
+</style>
+<h1>CAPRMEDIO UI probe</h1>
+<p id="status" role="status">HTML rendered; waiting for host bridge.</p>
+<p id="result">Waiting for the host tool result.</p>
+<button id="ping" disabled>Test tool bridge</button>
+<script>
+  const status = document.querySelector('#status');
+  const button = document.querySelector('#ping');
+  let nextId = 1;
+  let projectRoot;
+  const requests = new Map();
+  function request(method, params) {
+    const id = nextId++;
+    const promise = new Promise((resolve, reject) => requests.set(id, { resolve, reject }));
+    window.parent.postMessage({ jsonrpc: '2.0', id, method, params }, '*');
+    return promise;
+  }
+  window.addEventListener('message', event => {
+    if (event.source !== window.parent || event.data?.jsonrpc !== '2.0') return;
+    const message = event.data;
+    if (message.method === 'ui/notifications/tool-input') {
+      projectRoot = message.params?.arguments?.project_root;
+      return;
+    }
+    if (message.method === 'ui/notifications/tool-result') {
+      document.querySelector('#result').textContent = message.params?.structuredContent?.message ?? 'Host result received';
+      return;
+    }
+    const pending = requests.get(message.id);
+    if (!pending) return;
+    requests.delete(message.id);
+    if (message.error) pending.reject(new Error(message.error.message));
+    else pending.resolve(message.result);
+  });
+  button.onclick = async () => {
+    button.disabled = true;
+    try {
+      const result = await request('tools/call', {
+        name: 'workbench_ui_ping',
+        arguments: typeof projectRoot === 'string' ? { project_root: projectRoot } : {},
+      });
+      if (result.isError) throw new Error('Host returned a tool error');
+      status.textContent = 'Tool bridge passed';
+    } catch (error) {
+      status.textContent = `Tool bridge failed: ${error.message}`;
+    } finally {
+      button.disabled = false;
+    }
+  };
+  request('ui/initialize', {
+    appInfo: { name: 'CAPRMEDIO UI compatibility probe', version: '0.0.1' },
+    appCapabilities: {},
+    protocolVersion: '2026-01-26',
+  }).then(() => {
+    window.parent.postMessage({ jsonrpc: '2.0', method: 'ui/notifications/initialized', params: {} }, '*');
+    status.textContent = 'Host bridge connected';
+    button.disabled = false;
+  }).catch(error => { status.textContent = `Host bridge failed: ${error.message}`; });
+</script>
+</html>

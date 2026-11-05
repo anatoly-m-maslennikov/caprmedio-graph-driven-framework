@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 37
-updated_at: 2026-11-06 01:12:28 +0400
+version: 39
+updated_at: 2026-11-06 01:50:53 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -34,7 +34,7 @@ Workbench RMEDO, implementation, tests, documentation and local deployment. Unre
 
 - [x] Implement and release the shared paged SQL backend, Svelte frontend and saved-item Journal.
 - [x] Implement and verify MCP query/discovery, Project context and full reread.
-- [x] Declare CODEX_EXTENSION and implement Workspace/View controls and the plugin package.
+- [x] Declare CODEX_EXTENSION and implement Workspace/View controls and the session-hook/skill scaffold.
 - [x] Fix the four reported defects, record Resolved Problems C700–C703 and retain linked regression Evaluations E750–E753.
 - [x] Correct the local-release startup caller and complete local release 0.4.4.23.
 - [x] Prepare, review and adopt watcher change-log and initial sync/interface RMED.
@@ -70,7 +70,7 @@ Each subagent works within one Scope Unit. The main agent owns adoption, transpo
 
 - [ ] Review the remaining unadopted PROGRAMMATIC proposals in CA-A-1322.
 - [ ] Finish the remaining confirmed Workbench audit and trace issues recorded there.
-- [ ] Install the local Codex plugin and trust its SessionStart hook in the desktop app.
+- [ ] Implement and verify the integrated Codex plugin UI; the existing browser opener does not complete it.
 - [ ] Review final Epic acceptance before closing it.
 
 ## Deferred
@@ -79,7 +79,7 @@ Standalone chat is disabled. Its remaining implementation, lifecycle repairs, te
 
 ## Current status
 
-Active. The requested Workbench implementation cycle is complete and version 0.4.4.25 is running on port 56317. Live verification passed for all 43 MCP tools/catalog names, View execution, cached grid pages, query-log records and the sync timestamp. The browser opened an existing cached View, resized it, left and rebuilt the grid with no uncaught errors. General proposals, the remaining audit work and manual plugin installation remain open; this Epic is not Done.
+Active. The requested Workbench implementation cycle is complete and version 0.4.4.25 is running on port 56317. Live verification passed for all 43 MCP tools/catalog names, View execution, cached grid pages, query-log records and the sync timestamp. The browser opened an existing cached View, resized it, left and rebuilt the grid with no uncaught errors. General proposals, the remaining audit work and the actual Codex plugin UI remain open; this Epic is not Done.
 
 ## Source and verification index
 
@@ -90,7 +90,7 @@ Active. The requested Workbench implementation cycle is complete and version 0.4
 - Current local release: `.caprmedio_runtime/simple_local_release/reports/workbench-20261106-grid-lifecycle.md`.
 - Live native MCP proof: `.caprmedio_tmp/workbench/grid-live-proof.json`. Browser proof: `.caprmedio_tmp/workbench/grid-live-browser.json`.
 
-The backend baseline passed 77 host tests in 12 modules, seven real Docker cases and launcher integration. The final frontend-only correction passed TypeScript, build, 13 state tests and 15 real-browser flows. Backend and dependency inputs were verified unchanged before reusing that evidence and the dependency layers. The native Codex plugin still requires manual installation and trust.
+The backend baseline passed 77 host tests in 12 modules, seven real Docker cases and launcher integration. The final frontend-only correction passed TypeScript, build, 13 state tests and 15 real-browser flows. Backend and dependency inputs were verified unchanged before reusing that evidence and the dependency layers. The existing Codex package is a session hook and skill that opens a browser panel. The integrated plugin UI requested by the Operator is not implemented; installation alone does not complete it.
 
 ## Current verification
 
@@ -108,3 +108,26 @@ Native in-container rename/move events and host-side indexing are tested. Docker
 The final image is sha256:c7d3c9cd43845007177625bc833056ae7df700d8c3edeea345e00959dac9cc63, built from source commit 29c172bb1f6a9330487828140064ad8fc77c14c8. Its package fingerprint is verified. Proven obsolete Project images were removed; unrelated resources were retained.
 
 Automatic property-column discovery and schema generation were not implemented in this cycle.
+
+## Codex plugin cycle
+
+- [ ] Verify a supported Codex custom-UI integration with a minimal rendering proof.
+- [x] Create, review and adopt the corresponding RMED.
+- [x] Reuse the applicable Policy prompt and gather the accepted implementation sources.
+- [ ] Implement and test the plugin.
+- [ ] Install and verify the integrated UI with the current chat Workspace and Views.
+- [ ] Correct and verify the default standalone URL.
+
+An ordinary page opened in the Codex browser is insufficient for the requested plugin. Current ID formats stay unchanged. The standalone Workspace remains browser-owned; removing its default URL parameter must preserve existing state and explicit chat-bound links.
+
+## Native UI compatibility progress
+
+- [x] Implement and test the read-only compatibility probe through the existing MCP.
+- [x] Register and install the local plugin package.
+- [x] Correct and verify the standalone URL in source and isolated browser tests.
+- [ ] Release the tested changes and verify the running MCP.
+- [ ] Observe native Codex rendering and the host tool bridge before implementing the full native UI.
+
+Plugin package 0.1.1 is installed through the local marketplace. This does not establish native UI activation. The current chat does not expose the CAPRMEDIO tools to the agent, although the configured endpoint is correct; actual host tool refresh remains unverified. Computer-use access to Codex was refused.
+
+Checks passed: seven native MCP/HTTP cases, two shared-project MCP cases, one component browser bridge case, four plugin package cases, 16 Workbench browser flows, 13 frontend state cases, build, TypeScript, and focused Python lint/type checks. Synthetic component tests do not count as native Codex rendering.

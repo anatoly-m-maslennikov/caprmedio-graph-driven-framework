@@ -9,6 +9,7 @@ from mcp.server.lowlevel import Server
 
 from health_observations import MAX_OBSERVATIONS, HealthObservations
 from hot_reload import Gateway
+from workbench_tools import mcp_app_probe
 from host_runtime_config import (
     HostRuntimeConfig,
     HostRuntimeConfigError,
@@ -191,7 +192,9 @@ class SharedGateway:
             return types.ListToolsResult(tools=tools)
 
         self.server = Server(
-            "CAPRMEDIO", version="0.2.0", on_list_tools=list_tools, on_call_tool=self.call
+            "CAPRMEDIO", version="0.2.0", on_list_tools=list_tools, on_call_tool=self.call,
+            on_list_resources=mcp_app_probe.list_resources,
+            on_read_resource=mcp_app_probe.read_resource,
         )
         return self.server
 

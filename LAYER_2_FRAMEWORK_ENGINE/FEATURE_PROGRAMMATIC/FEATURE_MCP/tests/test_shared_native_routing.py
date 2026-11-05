@@ -115,6 +115,16 @@ class SharedNativeRoutingTests(unittest.IsolatedAsyncioTestCase):
         async with self._session() as session:
             tools = {tool.name: tool for tool in (await session.list_tools()).tools}
             self.assertIn("read_effect_free", tools)
+            probe = tools["workbench_ui_probe"]
+            self.assertIn("project_root", probe.input_schema["required"])
+            uri = probe.meta["ui"]["resourceUri"]
+            resource = (await session.read_resource(uri)).contents[0]
+            self.assertEqual("text/html;profile=mcp-app", resource.mime_type)
+            ping = await session.call_tool("workbench_ui_ping", {
+                "project_root": str(self.projects_by_name["alpha"]),
+            })
+            self.assertFalse(ping.is_error)
+            self.assertEqual({"message": "Tool bridge passed"}, ping.structured_content)
             schema = tools["read_effect_free"].input_schema
             self.assertEqual(
                 {"atom_id", "run_id", "payload", "project_root"},
