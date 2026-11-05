@@ -1,0 +1,20 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/typed-model-repair/CA-R-2248.preview.txt
+@@ -26,7 +26,7 @@
+ 
+ ```CFEL
+ # model
+-CFEL <+ Format
++CFEL / Format
+ ```
+ 
+ ### Prose Claim
+@@ -39,7 +39,7 @@
+ structures, not Value Formats. A YAML sequence carries multiple values, and a
+ mapping carries dependent Properties. `ref` is not a Value Format. Identifying
+ values use the `string` Format; their Definition identifies the referenced
+-object. Nested Properties have independent Formats and cardinalities. A Model object kind referenced as `<Kind>` may also supply an object Format alongside primitive Formats such as `int`; a Format specifies the admissible domain and does not create an instance or turn a literal into a Node. Bracketed Format conditions constrain values in that domain. In `p{::occ} :: [<Kind>]{::valuecount}`, the bounds count Property occurrences and direct values respectively, not every instance of Kind in the Project. YAML
++object. Nested Properties have independent Formats and cardinalities. A Model object kind referenced as `<Kind>` may also supply an object Format alongside primitive Formats such as `int`; a Format specifies the admissible domain and does not create an instance or turn a literal into a Node. `[<Workflow Run> OR <Step Run>]` admits either declared Model kind as one union domain; a participant selected from it is one binding. Bracketed Format conditions constrain values in that domain. In `p{::occ} :: [<Kind>]{::valuecount}`, the bounds count Property occurrences and direct values respectively, not every instance of Kind in the Project. YAML
+ null and an empty string each count as one direct value when present; Format
+ and prose conditions determine admissibility.
+ 

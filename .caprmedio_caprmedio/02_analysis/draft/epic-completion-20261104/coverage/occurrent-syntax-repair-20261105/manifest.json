@@ -1,0 +1,266 @@
+{
+  "status": "TWENTY_THREE_PREVIEWS_READY_FOR_INDEPENDENT_REVIEW",
+  "sources": [
+    {
+      "id": "CA-R-2749",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2749@1-draft-CORE_META_MODEL-DECLARATION--declare-execution.md",
+      "source_sha256": "2294bb3b89d468c74c2a59fb334506e8d04d39fc6e93c8dada99bc0b81cd6136",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2749.preview.txt",
+      "preview_sha256": "65e79247b11162becf0164aa13839a1a62a9091a6164a4a801b65f4fbdab8247",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2749.diff",
+      "diff_sha256": "75fbedb22857b2196e1e8bb85a8abba91e26dcd4087b2e67c357e8631fab3161",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2750",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md",
+      "source_sha256": "650b12afa08dda1e268cfea0b62eb9f67d656e81cb4befba7da8effffdc306a7",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2750.preview.txt",
+      "preview_sha256": "10a2b09a6b8b83b1c5dd5b0281499256bf5354e1cf2fe6f9df2a872be3c54dab",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2750.diff",
+      "diff_sha256": "20780e051e109ed132e5c7a7e41542595eb4369e5527a9e3d7d91e53eefc00d6",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2751",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md",
+      "source_sha256": "d0d55b96362066f2fd1c043906cce7fdd5c184c548d717c5a52e739c58c99ae6",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2751.preview.txt",
+      "preview_sha256": "61123ec00d818218b0659e3052cc680057134c2a16cea0eea0de9658941de9e5",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2751.diff",
+      "diff_sha256": "4c8b0abcfec5f38f8375ed0f5d2658a5cc65ba97c5fe93ff0a6cc5b6d2698786",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Approved typed union uses one participant; existing total endpoint count and direction are retained."
+    },
+    {
+      "id": "CA-R-2752",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md",
+      "source_sha256": "cfbd4df261055654c103686252b5e4747a20ebf2c5bbdb1634c406bccefd148f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2752.preview.txt",
+      "preview_sha256": "3666391d7f18f51275b0a7c742d545b679471817d3f0055e78017036ec1f8ccf",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2752.diff",
+      "diff_sha256": "5b6a2810ff153b1dd7fbbf66e3d80a785b070ecf3cbc8f1a81a376090fbd4244",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2753",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2753@1-draft-CORE_META_MODEL-DECLARATION--declare-runtime.md",
+      "source_sha256": "9a367bab9a511bf4f15c588c43b01759287195f5b79095ab0cd4dafdc4c6c086",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2753.preview.txt",
+      "preview_sha256": "852f8bb7256a6a28f373368b2fd33c0f4fd7e409108261ad064b986c0547d036",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2753.diff",
+      "diff_sha256": "747d2ec8ad5ee51379338c03effb23ff0f070b14a23d5b3831bb26ca16cad5d3",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2754",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2754@1-draft-CORE_META_MODEL-DECLARATION--declare-session.md",
+      "source_sha256": "d6b8471d72e6cfccccf72ad8c4458aa9546606f4d79624e3c43a4c0e252bfede",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2754.preview.txt",
+      "preview_sha256": "d6b8471d72e6cfccccf72ad8c4458aa9546606f4d79624e3c43a4c0e252bfede",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2754.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2755",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2755@1-draft-CORE_META_MODEL-DECLARATION--declare-event.md",
+      "source_sha256": "55cb6caa87c8cbb4663932763960696c54bb79a62b180756aab24699a14752b5",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2755.preview.txt",
+      "preview_sha256": "cc6130b1125b985c2c9a6556ba4c3577368de4641b54faaac92fbe60c9462cb5",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2755.diff",
+      "diff_sha256": "65675606c52d0184a310fbca041edde6770bea296de9dbaa3d644775f7c5df44",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2756",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2756@1-draft-CORE_META_MODEL-DECLARATION--declare-internal-local-runtime.md",
+      "source_sha256": "fc54dd164b64fbb4eb4de90ed4816911c2d772ae7a77bd7ff7a3cfb0fcbddf02",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2756.preview.txt",
+      "preview_sha256": "fc54dd164b64fbb4eb4de90ed4816911c2d772ae7a77bd7ff7a3cfb0fcbddf02",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2756.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2757",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2757@1-draft-CORE_META_MODEL-DECLARATION--declare-internal-remote-runtime.md",
+      "source_sha256": "463dca105c2c20558438746626d0d4ad736204ad526923eb5eb6926038a1b311",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2757.preview.txt",
+      "preview_sha256": "463dca105c2c20558438746626d0d4ad736204ad526923eb5eb6926038a1b311",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2757.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2758",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2758@1-draft-CORE_META_MODEL-DECLARATION--declare-external-local-runtime.md",
+      "source_sha256": "5714079751b3973f70ffbce1777f7a64cafa3fcb89df149b137a5c6768dff4d2",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2758.preview.txt",
+      "preview_sha256": "5714079751b3973f70ffbce1777f7a64cafa3fcb89df149b137a5c6768dff4d2",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2758.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2759",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2759@1-draft-CORE_META_MODEL-DECLARATION--declare-external-remote-runtime.md",
+      "source_sha256": "7c405e316821d44fc36b2617cec7bf7cb11eae0ad37fab54099a564e30dffc43",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2759.preview.txt",
+      "preview_sha256": "7c405e316821d44fc36b2617cec7bf7cb11eae0ad37fab54099a564e30dffc43",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2759.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2245",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2245@9-draft-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "source_sha256": "10d74afc56acca0fa69e3b980cd697fbb7b28abe55a3521a129f479c6030d622",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2245.preview.txt",
+      "preview_sha256": "2201bc33972b3cb887e8de1abb95c33ed0dde72261578c93209cc03e44cad3cf",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2245.diff",
+      "diff_sha256": "2df35802fa97193b9fd1f9a4f76dcd22d89f7fdedcb21b21366bea560dd44dbb",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2246",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2246@9-draft-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+      "source_sha256": "0b532831307cbac442ad827160d5003f21a697a210496ffb5f217cf7ab385d21",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2246.preview.txt",
+      "preview_sha256": "2a9bef5794b67c57ca950bf5769d604e0283d6a54122b0ebf708f9d08f507a55",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2246.diff",
+      "diff_sha256": "e06823c99bda8eb7ef381b5e8c3ef2f2cff77fb62420b7eefdfd62020b2602b6",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2255",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2255@10-draft-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "source_sha256": "5297e956dcf489c91bd0edaecdc6181e8b54eb5639a04696b98f9f251423cecf",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2255.preview.txt",
+      "preview_sha256": "324dfde45e784c5944eef3ce8eb581320e99c8f260167c95fb98b92cb37e8f13",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2255.diff",
+      "diff_sha256": "559678a9336992f338b5913ba4e05a4b03c873e8a0a246f04beb56e9b1596cf8",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2417",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2417@6-draft-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+      "source_sha256": "556978fd1a9e0ef9e3fade634835d064cd0a319f5fbe833419ab7b35a46b3d9b",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2417.preview.txt",
+      "preview_sha256": "a0b90fe7e2b95e7d38df8a2c1f6c6a4b18acf1a914839bf680e0480a66485e91",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2417.diff",
+      "diff_sha256": "c62abbe68225f6b581b3fbaa4f11c14c905329626296d58270b668a9714fea62",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2420",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2420@6-draft-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+      "source_sha256": "58e64b297650225d5074cf384b5e9742f143ea55595b8710786286f14c1dfa27",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2420.preview.txt",
+      "preview_sha256": "817b9c405d5aa84c17f42fdf7bac9679007a09cead09b4883d8ef96f9da4ae7b",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2420.diff",
+      "diff_sha256": "09f6da7debc58809ff1db2bbe1893d03817890ae6b2d94608b757e7587680fcb",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2421",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2421@6-draft-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+      "source_sha256": "61ac53d74d7fa2b4be9681581ab26827b6678685d7ee4340d95f5ee76d2fd73d",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2421.preview.txt",
+      "preview_sha256": "1c8c72aa8de05de14a35e59dcfc93781e0f34868d3aba3c2e96cd3961b3af2db",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2421.diff",
+      "diff_sha256": "d308487666ece1853ed008cc803d4b74945ab33f5304edb18826ba069c9d44f1",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2760",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2760@1-draft-CORE_META_MODEL-DECLARATION--declare-produces.md",
+      "source_sha256": "8cb9cdef19263df67e2baf20661ad7c90d18f39520703d701ad59f9c1b11a11f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2760.preview.txt",
+      "preview_sha256": "71832afeb7eb3e82c5e02690184fda36acfb927fe604ae93e05441aee15fac9e",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2760.diff",
+      "diff_sha256": "284e2873078ae5b8966e84c4822b4634089e4d55b83018fa8696599ad1777260",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2761",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2761@1-draft-CORE_META_MODEL-DECLARATION--declare-is-produced-by.md",
+      "source_sha256": "6d576263c2e2c382e7cf9ed890f516b2b821ca4db12d2df4d82542e48ce3f09f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2761.preview.txt",
+      "preview_sha256": "7ae5b1f803bc6a7d9d7d9e8d0a2848e989da9559a5cdb7d454f3656e127eb031",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2761.diff",
+      "diff_sha256": "2f08337c74a6f923bf0e906d07f35bc5b5337ae2e73f4d47c211b1f41462a7ad",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2464",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "source_sha256": "b7d4b82ddd34fc0a9874934daa812bfe4504f73396107ab0df80a84695668ad1",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2464.preview.txt",
+      "preview_sha256": "8a8a67dbe06d115d4b8bae09240b3d5ee53f8d61345d7fdf2e4881fa2d3b2df4",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2464.diff",
+      "diff_sha256": "73381fbfe22e34831fef1b42632dd7ff7957708a81dcdf369f022d38ec9e18cf",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2465",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "source_sha256": "f1ad2cb139361d59d0447f8ae01ae47d392168d78f337f2563201b6509b2780e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2465.preview.txt",
+      "preview_sha256": "92a1fefff30b435c59c0eb10a192785cafb6c2cf2c7e9cffb6b134c42ded090e",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2465.diff",
+      "diff_sha256": "b965563496d869384e1f527363794b0d80fc32205c580eec0647c8cd3aeaa68e",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Approved typed union uses one participant; existing total endpoint count and direction are retained."
+    },
+    {
+      "id": "CA-R-2467",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2467@3-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "source_sha256": "fc3030db263c59d72b0d29e9a0635c501cfec7263f87918749d47a201d648cc8",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2467.preview.txt",
+      "preview_sha256": "4ef5f65da3e95e5c476ff5b66f6f042d41340a56278a040c987d6921a5b979c9",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2467.diff",
+      "diff_sha256": "0f013a7cfe18a1d5a9d67957a09105421b351bfb9e9983c215023be0bccbb480",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Formal Claim successor notation; source metadata retained."
+    },
+    {
+      "id": "CA-R-2557",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "source_sha256": "6da6d701668da7341df7637963b6f2ede253874a96731a821fe3eb0f4373879f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2557.preview.txt",
+      "preview_sha256": "3b4e9c1a37f4b837845a888af82cd7db04711b6df18e2b8e44b0b019eac181be",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2557.diff",
+      "diff_sha256": "777914c775380213ee30df6981da8adbefd7146ec4435ac8e3f986220b120cd4",
+      "disposition": "READY_FOR_INDEPENDENT_REVIEW",
+      "note": "Standalone typed Event Record binding precedes both outgoing constraints, retaining one selected identity."
+    }
+  ],
+  "transformation": "Native Draft headers preserved byte-for-byte; old kind//$name typed instance selections become $name[<Kind>]; Relation//NAME metadata objects become explicitly bound Relation participants. Existing bounds, directions, permissions and assertions retained. R2557 model {:0} becomes {::0}; qualified Workflow Purpose uses // with := retained.",
+  "holds": [
+    "Typed union requires the independently owned governing CFEL rule and R2247/R2462 integration before promotion.",
+    "Same-ID native Draft versions remain untouched. All 23 semantic, endpoint and typed-binding scopes require independent review.",
+    "Adopt with complete CFEL/value-Relation rules, metadata Subject migration, recursive-Step sources and Event author retirement; no Current or runtime conformance claimed."
+  ],
+  "limits": "No native Draft, Current, code, tests, actual Workflow, Workbench or Git mutation.",
+  "approved_typed_union": "One participant binds a union of declared kinds, e.g. $container[<Workflow Run> OR <Step Run>]; endpoint count applies to that combined population."
+}

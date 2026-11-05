@@ -1,4 +1,6 @@
 # CA-D-674@12
+# CA-D-639@15
+# CA-D-677@1
 
 """Loopback-only Streamable HTTP transport for the MCP gateway."""
 import argparse
@@ -13,6 +15,7 @@ from starlette.responses import HTMLResponse, JSONResponse, Response
 from starlette.routing import Route
 
 from health_page import render_health_page
+from health_actions import restart_workbench, reread_workbench
 from hot_reload import Gateway, startup_selection, bind_selection
 from http_paths import HEALTH_PATH, MCP_PATH
 from mcp.server.transport_security import TransportSecuritySettings
@@ -113,7 +116,7 @@ def _gateway_ready(gateway):
     return generation is not None and not generation.task.done()
 
 
-async def health(request, gateway):
+async def health(request, gateway, restart_action=None, reread_action=None):
     ready = _gateway_ready(gateway)
     status_code = 200 if ready else 503
     health_warning = None
@@ -130,12 +133,15 @@ async def health(request, gateway):
                 operation='health_observations',
             )
             health_warning = 'health observations unavailable'
-    if not _accepts_html(request.headers.get("accept")):
+    if restart_action is None and not _accepts_html(request.headers.get("accept")):
         payload = {"ready": ready}
         if health_warning is not None:
             payload['health_warning'] = health_warning
         return JSONResponse(payload, status_code=status_code)
-    page = render_health_page(snapshot, ready=ready, gateway=gateway)
+    page = render_health_page(
+        snapshot, ready=ready, gateway=gateway, restart_action=restart_action,
+        reread_action=reread_action,
+    )
     headers = {"Cache-Control": "no-store"}
     if health_warning is not None:
         page = page.replace(
@@ -151,12 +157,29 @@ def create_app(root, implementation=None, *, selection=None):
     async def readiness(request):
         return await health(request, gateway)
 
+    async def restart(request):
+        return await health(
+            request, gateway,
+            restart_action=await restart_workbench(request, gateway, shared=False),
+        )
+
+    async def reread(request):
+        return await health(
+            request, gateway,
+            reread_action=await reread_workbench(request, gateway, shared=False),
+        )
+
     app = server.streamable_http_app(
         streamable_http_path=PATH,
         transport_security=SECURITY,
         max_request_body_size=MAX_REQUEST_BODY_SIZE,
         host="127.0.0.1",
-        custom_starlette_routes=[Route(HEALTH_PATH, readiness), *workbench_routes(gateway)],
+        custom_starlette_routes=[
+            Route(HEALTH_PATH, readiness),
+            Route(f"{HEALTH_PATH}/workbench-restart", restart, methods=["POST"]),
+            Route(f"{HEALTH_PATH}/workbench-reread", reread, methods=["POST"]),
+            *workbench_routes(gateway),
+        ],
     )
     inner_lifespan = app.router.lifespan_context
 

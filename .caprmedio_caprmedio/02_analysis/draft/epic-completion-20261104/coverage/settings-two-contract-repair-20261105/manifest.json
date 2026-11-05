@@ -1,0 +1,45 @@
+{
+  "status": "TWO_WHOLE_SOURCE_PREVIEWS_REVIEW_REQUIRED",
+  "authority": {
+    "id": "CA-R-2748",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2748-CORE_META_MODEL-RULE--unify-operator-selected-project-settings.md",
+    "sha256": "aee50dd9308c89d6ff68605aa4e1c643071be28bb5da1ec3dd362f8ea6a70cef"
+  },
+  "rows": [
+    {
+      "id": "CA-R-1052",
+      "current_version": 41,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-RULE--separate-project-settings-from-the-project-scope-unit-graph.md",
+      "source_sha256": "55a4d84ce8866b7ee6b56d9029db5a9ccca21f5f4a57654a735ff6c39d4bdcf5",
+      "existing_drafts": [],
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/settings-two-contract-repair-20261105/CA-R-1052.preview.txt",
+      "preview_sha256": "7a7467d9bb26aa0fc379fd928f41815509cb863c5d3e9aa8ca79ea129fc10de0",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/settings-two-contract-repair-20261105/CA-R-1052.diff",
+      "diff_sha256": "3cc3610e0721cc9771d52279d385c87cf76aa9a135858ff44501f7d458c6a0cd",
+      "summary_and_lifecycle_unchanged": true
+    },
+    {
+      "id": "CA-E-671",
+      "current_version": 1,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-671-CORE_META_MODEL-EVAL_CASE--validate-settings-boundaries-and-scope-unit-declarations.md",
+      "source_sha256": "d8276e59cf186a398f194cc424f484d49c038e135261c7af444b8acb7a6289fe",
+      "existing_drafts": [],
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/settings-two-contract-repair-20261105/CA-E-671.preview.txt",
+      "preview_sha256": "dd1f3846d8a6e8718e75c6bcbd2c716387bf2525fb27baab7421903d16784ecf",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/settings-two-contract-repair-20261105/CA-E-671.diff",
+      "diff_sha256": "e946b3100527b82991e4a5f916ade5d3e0e84873f920826b8cfb6303b0b50c13",
+      "summary_and_lifecycle_unchanged": true
+    }
+  ],
+  "preserved_obligations": [
+    "R1052 keeps Project Structure distinct from read-only graph Projections; observations and generated values do not become independent authority.",
+    "E671 retains same-Project resolution and no cross-Project fallback, separate structure and settings, missing Carrier/Goal and undeclared-folder visibility, no source changes by projection, independent per-Project methodology source/output and absent-instance diagnostics, and all existing test cases.",
+    "Project.Settings continues to own both initialization inputs and applicable Framework behavior choices; no file rename, schema, default value or adapter behavior is invented."
+  ],
+  "holds": [
+    "R1052 retains Current passive legacy Projection/Type Scope Unit Graph address: its Form selection is not admitted and must be reconciled separately; this preview is not a whole-packet promotion authorization.",
+    "E671 retains Current passive Scope Unit/Project address; its exact canonical Subject resolution must be checked before promotion.",
+    "Both preview sources retain Current grammar, Summary, identity, Version, Updated At and unrelated metadata; coordination with world/root and notation Drafts precedes adoption."
+  ],
+  "limits": "No native sources, Drafts, code, tests, Git or other Settings sources changed."
+}

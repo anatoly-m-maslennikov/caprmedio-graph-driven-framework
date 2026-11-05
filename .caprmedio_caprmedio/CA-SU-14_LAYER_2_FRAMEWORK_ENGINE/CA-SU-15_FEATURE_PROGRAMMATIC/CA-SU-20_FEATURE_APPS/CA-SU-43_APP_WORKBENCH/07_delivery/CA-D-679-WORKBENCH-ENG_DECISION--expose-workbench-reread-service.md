@@ -1,0 +1,40 @@
+---
+atom_id: CA-D-679
+role: Delivery
+form: Eng Decision
+current_scope_unit: WORKBENCH
+claim_target_scope_unit: WORKBENCH
+status: Active
+version: 1
+author: Anatoly Maslennikov
+tier: 5
+subjects:
+  active: CAPRMEDIO_MODEL <+ Projection
+relations:
+  delivery_for:
+  - CA-R-2786
+  depends_on:
+  - CA-D-676
+  - CA-D-677
+updated_at: 2026-11-05 13:52:40 +0400
+carrier_destination:
+  file:
+    name: CA-D-679-WORKBENCH-ENG_DECISION--expose-workbench-reread-service.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery
+---
+
+## Summary
+
+Expose Workbench full reread through MCP and health
+
+## Claim scope
+
+The selected Project's Workbench service operation in the existing MCP gateway and health page.
+
+## Claim
+
+Expose the native MCP service tool `workbench_reread({})` and a health-page Full reread action through the same Workbench gateway operation. The operation has no generic service name, shell command, container argument or service registry. Add `workbench_reread` to the `Service` group of the generated `discover_tools` catalog. MCP and health use the same Project selection, operation and explicit failure boundary. The health page remains available when Workbench is unavailable. The operation does not restart MCP, another service or the container, and does not write a business Journal event.
+
+## Details
+
+The health action is an explicit POST to `/caprmedio/health/workbench-reread`; GET remains read-only. In shared mode it carries the existing explicit `project_root` form field; the single-Project action accepts no body. It reports success only after the full reread is ready and reports the same failure when source validation or startup fails.

@@ -4,8 +4,8 @@ content_role: Delivery
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
-version: 16
-updated_at: 2026-11-02 19:44:26 +0400
+version: 17
+updated_at: 2026-11-05 13:48:40 +0400
 subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   depends_on:
@@ -20,26 +20,24 @@ relations:
   - CA-M-355
 type: Eng Decision
 tier: 5
+carrier_destination:
+  file:
+    name: CA-D-593-MCP-ENG_DECISION--carry-project-mcp-launch-context.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/07_delivery
 ---
-# Summary
 
-carry Project MCP launch context
+## Summary
 
-## Scope
-
-the selected-Project context Carrier and its Project-scoped runtime storage boundary.
+Carry Project MCP launch context
 
 ## Claim
 
-the launcher **must** carry one explicit Project-selection record whose identity and selected bindings are sufficient to isolate the MCP Gateway and launcher state.
+The launcher **must** carry one explicit ProjectSelection record whose identity and selected bindings are sufficient to isolate the MCP Gateway and launcher state. The record carries the canonical host Project root, selected control root, Project identity, container path mapping and selected manifest, registry and query-source references.
 
-## Details
+The Codex hook's top-level project_root is an optional assertion for single-Project Tool calls and a required assertion for shared-Project Tool calls. Validate it against the carried ProjectSelection before Tool dispatch. A malformed or mismatched assertion produces a safe refusal with no native Tool execution, source effect or Journal effect. Remove the assertion envelope before a native Tool receives its own arguments. Prompt and Workflow wrappers retain their normal dispatch; initialize and tools/list are protocol operations, not Tool-call envelopes.
 
-- carry `ProjectSelection` with exactly the canonical Project-root/control-root facts, the derived Project identity, container path translation, and selected manifest/registry/query-source references. A Carrier records safe identifiers and relative references, never a credential or an unselected Project's content. A Git-repository boundary is neither a selection fact nor required mount.
-- place launcher-owned Gateway context, hot-reload receipts, cache metadata, pending-launch evidence, and the per-Project lock under the selected Project's installed runtime state in an identity-named namespace. Runtime metadata includes the Project identity, admitted image digest/fingerprint, Compose project identity, and safe observed publication; it never authorizes a changed Project context.
-- Gateway and reload constructors consume the carried selection rather than scanning for a default control root or repository ancestor. The endpoint mount is the selected Project context; sibling Projects are not required. The selected manifest, registry, and query-source bindings are validated again at their established admission boundaries.
-- this Carrier delivers no proxy, listener, worker, queue, Workflow request, or Release transition. Its namespace may be created only after successful selection and is not a shared cache.
-- this Carrier remains the legacy one-Project launcher context. Shared delivery
-  under CA-D-640 carries the outer project root and native request per call for
-  multiple Projects; it does not replace this record with a process-global
-  Project binding.
+tools/list **must** advertise the top-level project_root input as optional for the single-Project service and required for the shared service, without mutating the native Tool descriptors or their input schemas. The advertisement describes the service boundary only; native Tool arguments remain unchanged.
+
+Place launcher-owned Gateway context, hot-reload receipts, cache metadata, pending-launch evidence and the per-Project lock under the selected Project's installed runtime state in an identity-named namespace. Gateway and reload constructors consume the carried selection rather than scanning for a default control root or repository ancestor. A Carrier records safe identifiers and relative references, never credentials or an unselected Project's content.
+
+This Carrier delivers no proxy, listener, worker, queue, Workflow request or Release transition. Shared delivery may serve multiple explicit Projects through one endpoint, but each request remains bound to its validated ProjectSelection.

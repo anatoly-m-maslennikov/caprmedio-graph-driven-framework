@@ -1,0 +1,23 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2478.preview.txt
+@@ -26,13 +26,16 @@
+ 
+ ```CFEL
+ # model
+-$part ((IS_CONTAINED_BY)) $container;
++$host ((IS_CONTAINED_BY)) $target;
+ 
+-Relation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;
++$contained_by[<Relation>, (.Name = IS_CONTAINED_BY)];
++$contains[<Relation>, (.Name = CONTAINS)];
+ 
+-alias(Relation//IS_CONTAINED_BY) == "+>";
++$contained_by ((HAS_INVERSE)) $contains;
+ 
+-Relation//IS_CONTAINED_BY ((HAS_CLASSIFICATION)) Derivation == Direct
++alias($contained_by) == "+>";
++
++$contained_by ((HAS_CLASSIFICATION)) Derivation == Direct
+ ```
+ 
+ ### Prose Claim

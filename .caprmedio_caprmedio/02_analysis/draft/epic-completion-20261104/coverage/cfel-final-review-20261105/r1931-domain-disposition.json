@@ -1,0 +1,98 @@
+{
+  "status": "HOLD_NO_CFEL_ONLY_PREVIEW_UNTIL_DOMAIN_AUTHORITY_CLOSURE",
+  "current_pins": [
+    {
+      "id": "CA-R-1931",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b"
+    },
+    {
+      "id": "CA-M-232",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL--derive-atom-subjects-graph-from-current-atom-subjects.md",
+      "sha256": "9f84da9fa587c9d41b91fbc4754afa3b470a3e8eb398bd0207399a34ad1f90af"
+    },
+    {
+      "id": "CA-E-383",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "sha256": "8503b8391a73bfae63174a5c414f5be4b1d23fac8403951be0cbb4272817c78c"
+    },
+    {
+      "id": "CA-R-2525",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2525-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "sha256": "1ae9d6f130dff0df4335ba0dac0be6f009b6c269043990da6b6d92906d4542b6"
+    },
+    {
+      "id": "CA-R-2553",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2553-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+      "sha256": "95277e91faeffdfa209190a16070768bfd3e4690b04695c543d0b30f124dd090"
+    },
+    {
+      "id": "CA-R-2464",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a"
+    },
+    {
+      "id": "CA-R-2465",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf"
+    },
+    {
+      "id": "CA-R-2523",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5"
+    },
+    {
+      "id": "CA-R-2276",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "sha256": "305ea99fee46090bffe1df0d58e49bf6bdc2ad292d964e8e8a646d31d277d633"
+    }
+  ],
+  "candidate": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-graph-consumer-repair-20261105/CA-R-1931.preview.txt",
+    "sha256": "7532baaa2d35ad99d148438394b243ee5cb7f130d63da9d88145b83a4f2af982"
+  },
+  "native_draft": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1931@19-draft-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+    "sha256": "17592e060505c97f13eea169188de68b3a878af2294de18c1b8a513c6ceb7a72"
+  },
+  "clause_map": [
+    {
+      "clause": "Status Group Draft/Archived/Current membership and no new Status values",
+      "evidence": "CA-E-383 Current contains the group expressions and evaluates reversals, but explicitly labels those semantic checks proposed. CA-R-2701/R2714/R2499 use group names without independently defining full membership.",
+      "disposition": "UNCOVERED_INDEPENDENT_CURRENT_DECLARATION: preserve mapping until a dedicated Status/Group owner is adopted; evaluation example is not equivalent primary definition."
+    },
+    {
+      "clause": "Every Module has exactly one Package",
+      "evidence": "CA-M-232 Current says each Module belongs to exactly one Package and requires Module containment in the subject-graph rendering method; CA-E-383 has proposed checks.",
+      "disposition": "PARTIAL: Current projection Method reflects same cardinality, but no independently governing Module instance Declaration was found; preserve requirement or merge into its actual model owner before deletion."
+    },
+    {
+      "clause": "Project Implementation is parentless root Package; nested Package has Package parent",
+      "evidence": "CA-R-2553 declares exactly one Package/Implementation and zero Package parent; CA-R-2525 gives non-Implementation Packages one Package parent. CA-M-232 repeats the rendering rule.",
+      "disposition": "COVERED by Current model Declarations; no need for R1931 to carry domain assertion after coordinated cutover."
+    },
+    {
+      "clause": "Globally unique primary-kind name, one canonical path and no aliases",
+      "evidence": "CA-M-232 Current requires distinct primary-kind names across effective model, no aliases and canonical reference maintenance; CA-R-2276 protects exact full names but is not identical to global primary-kind uniqueness.",
+      "disposition": "PARTIAL: same uniqueness rule appears in Current graph Method, but its subject is graph derivation; verify its governing-scope sufficiency or place the general source-authoring rule in an appropriate owner before removal."
+    },
+    {
+      "clause": "Step belongs to Workflow or another Step",
+      "evidence": "CA-R-2465 Current requires a Workflow parent; recursive Step parent extension exists only in separate Draft R2465@5.",
+      "disposition": "HOLD: do not claim the Draft-only recursive expansion is Current; coordinate recursive Step source adoption separately."
+    },
+    {
+      "clause": "Scope Unit has Scope Unit, Atom and Projection structural parts",
+      "evidence": "CA-R-2523 Current permits Scope Unit CONTAINS Scope Unit and Atom. R1931/CA-M-232 also list Projection; no equivalent Scope Unit CONTAINS Projection Current Declaration located.",
+      "disposition": "PARTIAL: Projection membership/containment must be reconciled with current Projection.Scope Unit identity authority; do not silently infer a Relation."
+    },
+    {
+      "clause": "Backslash/quote path grammar and bare address identity",
+      "evidence": "Language-specific grammar, not domain constraint.",
+      "disposition": "Retain or reconcile with pinned CFEL grammar; do not drop as domain text."
+    }
+  ],
+  "opening_fragment": "Replace \u201ca Entity Path.\u201d with a coherent CFEL-scope sentence in a future coordinated preview; no business meaning depends on the fragment.",
+  "result": "No full CFEL-only preview produced: some domain obligations lack proven independently sufficient Current authority. Preserve Current and candidate content pending owner reconciliation.",
+  "boundary": "No native/code/tests/Git edits; no Workflow or Workbench instance changes."
+}

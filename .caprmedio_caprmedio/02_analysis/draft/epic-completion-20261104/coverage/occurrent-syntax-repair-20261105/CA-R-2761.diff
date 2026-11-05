@@ -1,0 +1,22 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2761@1-draft-CORE_META_MODEL-DECLARATION--declare-is-produced-by.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2761.preview.txt
+@@ -27,12 +27,16 @@
+ 
+ ```CFEL
+ # model
+-Relation//IS_PRODUCED_BY <((HAS_INVERSE)) Relation//PRODUCES;
++$relation[<Relation>, (.Name = IS_PRODUCED_BY)];
+ 
+-Relation//IS_PRODUCED_BY ((HAS_CLASSIFICATION)) Derivation == Derived;
++$inverse1[<Relation>, (.Name = PRODUCES)];
++
++$relation <((HAS_INVERSE)) $inverse1;
++
++$relation ((HAS_CLASSIFICATION)) Derivation == Derived;
+ 
+ # instances
+-Event//$event((IS_PRODUCED_BY)) Execution//$execution
++$event[<Event>]((IS_PRODUCED_BY)) $execution[<Execution>]
+ ```
+ 
+ ## Semantics

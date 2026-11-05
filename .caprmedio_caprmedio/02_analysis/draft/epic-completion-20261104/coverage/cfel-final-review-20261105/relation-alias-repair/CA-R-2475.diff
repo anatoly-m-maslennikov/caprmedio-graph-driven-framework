@@ -1,0 +1,15 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2475.preview.txt
+@@ -33,11 +33,9 @@
+ 
+ $direct ((HAS_INVERSE)) $inverse;
+ 
+-alias($direct) == "//";
+-
+ $direct ((HAS_CLASSIFICATION)) Derivation == Direct
+ ```
+ 
+ ### Prose Claim
+ 
+-NARROWER_THAN relates a narrower MODEL kind to a broader MODEL kind. A Property does not narrow. Both endpoints are MODEL kinds; Property bearers and instance populations do not become kinds through this notation. The narrower kind inherits applicable Relation and Property constraints without cloning declarations or instance facts. HAS_NARROWER is its derived inverse. In `X//Y`, Y is narrower than X; traversal runs from broader to narrower.
++NARROWER_THAN relates a narrower MODEL kind to a broader MODEL kind. A Property does not narrow. Both endpoints are MODEL kinds; Property bearers and instance populations do not become kinds through this notation. The narrower kind inherits applicable Relation and Property constraints without cloning declarations or instance facts. HAS_NARROWER is its derived inverse. In `X//Y`, Y is narrower than X; the `//` alias follows the derived HAS_NARROWER direction from broader to narrower.

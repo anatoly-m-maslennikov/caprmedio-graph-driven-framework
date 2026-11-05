@@ -1,0 +1,54 @@
+---
+atom_id: CA-R-2465
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
+version: 5
+updated_at: 2026-11-05 02:41:45 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+tier: 3
+role: Requirement
+form: Declaration
+carrier_destination:
+  file:
+    name: CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
+---
+
+## Summary
+
+Declare Step
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Atom//(.Header.Role := Operations)//Step;
+
+Atom//(.Header.Role := Operations)//Step >| (Container == yes);
+
+# instances
+$step[<Step>];
+
+$step{::1}((IS_CONTAINED_BY)) $parent[<Workflow> OR <Step>];
+
+IF $step {=0}((RUNS)) THEN $step {::1+}((CONTAINS)) $nested_step[<Step>];
+
+IF $step {>0}((RUNS)) THEN $step {::0}((CONTAINS));
+
+IF $step {=0}((CONTAINS)) THEN $step {::1}((RUNS)) $selected[<Action> OR <Workflow>];
+
+$definition[<Step>] {::0+}((HAS_EXECUTION)) $run[<Step Run>]
+```
+
+### Prose Claim
+
+Every Step’s Container chain ends at a Workflow.
+
+## Semantics
+
+A Step prescribes work within a Workflow.

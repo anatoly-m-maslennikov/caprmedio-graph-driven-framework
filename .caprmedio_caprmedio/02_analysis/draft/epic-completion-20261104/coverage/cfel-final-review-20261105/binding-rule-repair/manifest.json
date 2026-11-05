@@ -1,0 +1,28 @@
+{
+  "status": "PROSPECTIVE_REVIEW_REQUIRED",
+  "source": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2552@5-draft-CORE_META_MODEL-RULE--bind-instance-variables.md",
+    "sha256": "5997e75853fe1014a7998445b26205fad6324326581cbe184a20cf435a4a9d1b"
+  },
+  "candidate": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/binding-rule-repair/CA-R-2552.preview.txt",
+    "sha256": "83eb6f96f30a81f404d52b6bf94c6c566e0b47a115ea581868c811795b3051cc"
+  },
+  "diff": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/binding-rule-repair/CA-R-2552.diff",
+    "sha256": "0f8a449546fcea211de216bb03d6cedfa7160e28a257ba10e45b101afa0febcf"
+  },
+  "obligation_matrix": {
+    "scope": "One selected participant per binding; repeated variable identity preserved; aggregate retains full population.",
+    "instance_count": "Selected logical instances counted once in Project context; unresolved population is error.",
+    "property_count": "Named Property occurrence counted on corresponding bearer; max one per named Property per bearer, not per Project.",
+    "recursive_properties": "$node.** selects Properties of the selected Node instance; inherited Property schema identity is preserved.",
+    "identity": "Property instance INSTANCE_OF model Property and IS_PROPERTY_OF its actual data bearer, including Property bearers; mismatched pairs invalid, no Cartesian links.",
+    "presence": "Positive direct-value minimum requires occurrence; zero alone does not; existing occurrence and value constraints remain.",
+    "IF": "MODEL membership preserves selected or outer-bound identity, semicolon-separated nested conclusions, no creation; FOR EACH remains separate.",
+    "union": "OR kind alternatives produce one participant over their union.",
+    "aggregate": "MAX(VALUES(...)) operates over all matching direct values; conditions use AND.",
+    "direction": "Existing link tests and per-endpoint counts do not create facts or grant inverse permissions."
+  },
+  "limitations": "Preview only; native Draft unchanged. Filter conjunction does not change commas in in-list syntax."
+}

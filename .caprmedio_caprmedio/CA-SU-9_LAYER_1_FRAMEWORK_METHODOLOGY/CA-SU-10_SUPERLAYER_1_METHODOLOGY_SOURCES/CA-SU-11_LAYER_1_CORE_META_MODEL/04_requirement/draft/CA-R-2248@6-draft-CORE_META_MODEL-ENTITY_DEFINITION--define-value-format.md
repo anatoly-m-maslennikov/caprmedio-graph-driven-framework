@@ -26,7 +26,7 @@ Define Value Format
 
 ```CFEL
 # model
-CFEL <+ Format
+CFEL / Format
 ```
 
 ### Prose Claim
@@ -39,7 +39,7 @@ Selection names the comparison population. List and map are Carrier
 structures, not Value Formats. A YAML sequence carries multiple values, and a
 mapping carries dependent Properties. `ref` is not a Value Format. Identifying
 values use the `string` Format; their Definition identifies the referenced
-object. Nested Properties have independent Formats and cardinalities. A Model object kind referenced as `<Kind>` may also supply an object Format alongside primitive Formats such as `int`; a Format specifies the admissible domain and does not create an instance or turn a literal into a Node. Bracketed Format conditions constrain values in that domain. In `p{::occ} :: [<Kind>]{::valuecount}`, the bounds count Property occurrences and direct values respectively, not every instance of Kind in the Project. YAML
+object. Nested Properties have independent Formats and cardinalities. A Model object kind referenced as `<Kind>` may also supply an object Format alongside primitive Formats such as `int`; a Format specifies the admissible domain and does not create an instance or turn a literal into a Node. `[<Workflow Run> OR <Step Run>]` admits either declared Model kind as one union domain; a participant selected from it is one binding. Bracketed Format conditions constrain values in that domain. In `p{::occ} :: [<Kind>]{::valuecount}`, the bounds count Property occurrences and direct values respectively, not every instance of Kind in the Project. YAML
 null and an empty string each count as one direct value when present; Format
 and prose conditions determine admissibility.
 

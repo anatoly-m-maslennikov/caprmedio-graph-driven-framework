@@ -1,3 +1,4 @@
+# CA-E-750@1
 # CA-E-675@5
 # CA-E-677@7
 
@@ -19,6 +20,7 @@ sys.path[:0] = [str(APP_ROOT), str(TOOLS_ROOT), str(TOOLS_ROOT / "VALIDATE_ATOMS
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from scope_unit_declarations import ScopeDeclarationError  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND import source_reader as source_reader_module  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import materialize  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_reader import SourceReader  # noqa: E402
 
 
@@ -186,6 +188,35 @@ class SourceReaderTests(unittest.TestCase):
                 path.relative_to(self.root).as_posix() for path in archived
             },
             set(),
+        )
+
+    def test_role_only_drafts_keep_distinct_technical_references(self) -> None:
+        drafts = (
+            self._write_atom(
+                "MAIN", "09_operations", "CA-O-draft-first.md",
+                atom_id="CA-O-draft", status="Draft", parts=("draft",),
+            ),
+            self._write_atom(
+                "MAIN", "09_operations", "CA-O-draft-second.md",
+                atom_id="CA-O-draft", status="Draft", parts=("draft",),
+            ),
+        )
+
+        atoms, scopes, stderr = self._capture()
+        rows = [row for row in atoms if row["source_path"] in {
+            path.relative_to(self.root).as_posix() for path in drafts
+        }]
+        materialized, _scopes = materialize(atoms, scopes)
+
+        self.assertEqual(stderr, "")
+        self.assertEqual({row["ref"] for row in rows}, {
+            f"CA-O-draft:{path.relative_to(self.root).as_posix()}" for path in drafts
+        })
+        self.assertEqual(
+            {row["source_path"] for row in materialized} & {
+                path.relative_to(self.root).as_posix() for path in drafts
+            },
+            {path.relative_to(self.root).as_posix() for path in drafts},
         )
 
     def test_generic_and_legacy_filename_markers_are_candidates(self) -> None:

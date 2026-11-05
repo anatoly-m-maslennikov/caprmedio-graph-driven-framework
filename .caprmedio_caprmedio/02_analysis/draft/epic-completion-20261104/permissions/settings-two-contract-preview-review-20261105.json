@@ -1,0 +1,55 @@
+{
+  "verdict": "PASS_WITH_ADOPTION_GATES",
+  "scope": "Independent review of exactly two analysis previews; no Current or native Draft mutation.",
+  "evidence": {
+    "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/settings-two-contract-repair-20261105/manifest.json",
+    "authority": {
+      "id": "CA-R-2748",
+      "status": "Active",
+      "sha256": "aee50dd9308c89d6ff68605aa4e1c643071be28bb5da1ec3dd362f8ea6a70cef",
+      "finding": "Project.Settings owns both selected Project initialization inputs and applicable behavior/configuration choices; Atoms retain permitted parameters, constraints and applicability."
+    }
+  },
+  "rows": [
+    {
+      "id": "CA-R-1052",
+      "source_pin": "55a4d84ce8866b7ee6b56d9029db5a9ccca21f5f4a57654a735ff6c39d4bdcf5",
+      "preview_pin": "7a7467d9bb26aa0fc379fd928f41815509cb863c5d3e9aa8ca79ea129fc10de0",
+      "diff_pin": "3cc3610e0721cc9771d52279d385c87cf76aa9a135858ff44501f7d458c6a0cd",
+      "summary_unchanged": true,
+      "result": "PASS",
+      "finding": "The approved ownership merge is applied without weakening Project Structure versus read-only Projection separation or the observation/generated-value non-authority boundary.",
+      "subject_metadata": {
+        "removed": "Project.Framework Settings passive address",
+        "mapping": "unambiguous to Project.Settings under Current R2748",
+        "held": "Projection/Type: Scope Unit Graph passive address remains unchanged because its Form selection has no established canonical mapping in this review."
+      }
+    },
+    {
+      "id": "CA-E-671",
+      "source_pin": "d8276e59cf186a398f194cc424f484d49c038e135261c7af444b8acb7a6289fe",
+      "preview_pin": "dd1f3846d8a6e8718e75c6bcbd2c716387bf2525fb27baab7421903d16784ecf",
+      "diff_pin": "e946b3100527b82991e4a5f916ade5d3e0e84873f920826b8cfb6303b0b50c13",
+      "summary_unchanged": true,
+      "result": "PASS",
+      "finding": "The merge preserves same-Project resolution/no fallback, missing Carrier or active Goal visibility, undeclared-folder observation, no Declaration/Settings substitution, no Projection source mutation, independent per-Project methodology sources/results, and absent-instance diagnostics.",
+      "subject_metadata": {
+        "removed": "Project.Framework Settings passive address",
+        "mapping": "unambiguous to Project.Settings under Current R2748",
+        "held": "Scope Unit/Project passive address remains unchanged; its exact canonical Subject mapping is not established by this two-preview review."
+      }
+    }
+  ],
+  "adoption_gates": [
+    "Resolve the two held passive Subject addresses in their own source-level review; do not expand this repair to infer them.",
+    "Coordinate with Project-root/world and notation Drafts before promotion.",
+    "Promote only through the applicable lifecycle workflow; this PASS does not make either preview Current or establish runtime, carrier, or validation execution."
+  ],
+  "checks": {
+    "exact_manifest_pins_match": true,
+    "same_summary_and_lifecycle": true,
+    "settings_requirements_preserved": true,
+    "isolated_carrier_and_validation_checks_preserved": true,
+    "no_new_schema_default_adapter_or_file_behavior": true
+  }
+}

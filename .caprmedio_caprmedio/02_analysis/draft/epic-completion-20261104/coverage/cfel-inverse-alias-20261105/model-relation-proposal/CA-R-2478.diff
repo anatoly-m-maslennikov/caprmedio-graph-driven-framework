@@ -1,0 +1,17 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/CA-R-2478.preview.txt
+@@ -28,7 +28,7 @@
+ # model
+ $part ((IS_CONTAINED_BY)) $container;
+ 
+-Relation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;
++Relation//CONTAINS ((IS_INVERSE_ALIAS_FOR)) Relation//IS_CONTAINED_BY;
+ 
+ alias(Relation//IS_CONTAINED_BY) == "+>";
+ 
+@@ -37,4 +37,4 @@
+ 
+ ### Prose Claim
+ 
+-IS_CONTAINED_BY relates a contained declared Entity or instance to its immediate Container. The Target has classification `Container = yes`. Containment does not imply narrowing or inheritance. CONTAINS is its derived inverse: its Host and Target are the direct Target and Host, respectively. Store the direct fact once.
++IS_CONTAINED_BY relates a contained declared Entity or instance to its immediate Container. The Target has classification `Container = yes`. Containment does not imply narrowing or inheritance. CONTAINS is its inverse alias: its written Host and Target are the canonical Target and Host, respectively. Both writings identify the same fact. `Whole/Part` writes the inverse CONTAINS view; `Part +> Whole` writes the canonical direction.

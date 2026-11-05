@@ -27,27 +27,27 @@ Declare Node
 
 ```CFEL
 # model
-(Node, Node.**) {:0}((*));
+(Node, Node.**) {::0}((*));
 
-(Node, Node.**) {:0+}((HAS_ALLOWED_VALUE));
+(Node, Node.**) {::0+}((HAS_ALLOWED_VALUE));
 
-(Node, Node.**) {:0+}((HAS_VALUE_CONSTRAINT));
+(Node, Node.**) {::0+}((HAS_VALUE_CONSTRAINT));
 
-Node {:0}((IS_PROPERTY_OF));
+Node {::0}((IS_PROPERTY_OF));
 
-(Node, Node.**) {:0..1}((IS_PROPERTY_OF));
+(Node, Node.**) {::0..1}((IS_PROPERTY_OF));
 
-(Node, Node.**) {:1}((IS_DECLARED_BY));
+(Node, Node.**) {::1}((IS_DECLARED_BY));
 
-Node {:0+}((NARROWER_THAN)) Node;
+Node {::0+}((NARROWER_THAN)) Node;
 
-Node {:0+}((HAS_NARROWER)) Node;
+Node {::0+}((HAS_NARROWER)) Node;
 
-Node.** {:1}((IS_PROPERTY_OF)) (Node, Node.**);
+Node.** {::1}((IS_PROPERTY_OF)) (Node, Node.**);
 
-(Node, Node.**) {:0+}((HAS_PROPERTY)) Node.**;
+(Node, Node.**) {::0+}((HAS_PROPERTY)) Node.**;
 
-Node.** {:0+}((HAS_INSTANCE)) Node.**//;
+Node.** {::0+}((HAS_INSTANCE));
 
 IF $model_node in (Node, Node.**) THEN (
 IF ($model_node {=0}((IS_PROPERTY_OF)))
@@ -61,25 +61,23 @@ AND ($model_node_2 {==0}((HAS_NARROWER)));
 );
 
 # instances
-Node//$node;
+$node[<Node>];
 
-($node, $node.**) {:0}((*));
+($node, $node.**) {::0}((*));
 
-($node, $node.**) {:0+}((HAS_ALLOWED_VALUE));
+($node, $node.**) {::0+}((HAS_ALLOWED_VALUE));
 
-($node, $node.**) {:0+}((HAS_VALUE_CONSTRAINT));
+($node, $node.**) {::0+}((HAS_VALUE_CONSTRAINT));
 
-$node {:0+}((INSTANCE_OF)) Node;
+$node {::0+}((INSTANCE_OF)) Node;
 
-Node {:0+}((HAS_INSTANCE)) $node;
+Node {::0+}((HAS_INSTANCE)) $node;
 
-$node.** {:1}((IS_PROPERTY_OF)) ($node, $node.**);
+$node.** {::1}((IS_PROPERTY_OF)) ($node, $node.**);
 
-$node.** {:1}((INSTANCE_OF)) Node.**;
+$node.** {::1}((INSTANCE_OF)) Node.**;
 
-Node.**//{:0..1};
-
-($node, $node.**) {:0+}((HAS_PROPERTY)) $node.**;
+($node, $node.**) {::0+}((HAS_PROPERTY)) $node.**;
 ```
 
 ### Prose Claim

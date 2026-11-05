@@ -1,9 +1,15 @@
-"""Bounded, read-only HTML representation of the MCP health snapshot."""
+# CA-D-639@15
+# CA-D-677@1
+# CA-D-679@1
+
+"""Bounded HTML representation of the MCP health snapshot."""
 
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from html import escape
+
+from http_paths import HEALTH_PATH
 
 
 MAX_HISTORY = 32
@@ -132,7 +138,27 @@ def _context_rows(contexts: Sequence[Mapping[str, object]]) -> str:
     return "".join(f"<tr><td>{_cell(_project(context))}</td></tr>" for context in contexts)
 
 
-def render_health_page(snapshot: Mapping[str, object], *, ready: bool, gateway: object) -> str:
+def _workbench_control(
+    *, shared: bool, action: tuple[bool, str] | None, endpoint: str, label: str,
+) -> str:
+    project = (
+        '<label>Project folder <input name="project_root" required></label>'
+        if shared else ""
+    )
+    outcome = ""
+    if action is not None:
+        success, message = action
+        role = "status" if success else "alert"
+        outcome = f'<p role="{role}">{_cell(message)}</p>'
+    return f'''<form method="post" action="{HEALTH_PATH}/{endpoint}">{project}
+<button type="submit">{label}</button></form>{outcome}'''
+
+
+def render_health_page(
+    snapshot: Mapping[str, object], *, ready: bool, gateway: object,
+    shared: bool = False, restart_action: tuple[bool, str] | None = None,
+    reread_action: tuple[bool, str] | None = None,
+) -> str:
     """Render only admitted snapshot fields; this function performs no I/O."""
     if not isinstance(snapshot, Mapping):
         snapshot = {}
@@ -164,6 +190,9 @@ At most {MAX_HISTORY} Tool and {MAX_HISTORY} Workflow observations are retained;
 history resets when the gateway restarts. Missing or unobserved state remains unknown.</p>
 <p class="note">Provider and worker health are not probed; observations are historical and missing state is unknown.</p>
 <p class="note">Safe error categories: timeout (deadline exceeded); connection (transport failure); returned-error (the Tool returned an error); uncertain (the call result could not be established).</p>
+<section aria-labelledby="workbench-actions"><h2 id="workbench-actions">Workbench</h2>
+{_workbench_control(shared=shared, action=restart_action, endpoint="workbench-restart", label="Restart Workbench")}
+{_workbench_control(shared=shared, action=reread_action, endpoint="workbench-reread", label="Full reread")}</section>
 <section aria-labelledby="projects"><h2 id="projects">Known Project contexts</h2><table>
 <thead><tr><th>Project</th></tr></thead><tbody>{_context_rows(contexts)}</tbody></table></section>
 <section aria-labelledby="calls"><h2 id="calls">Recent Tool calls</h2><table>

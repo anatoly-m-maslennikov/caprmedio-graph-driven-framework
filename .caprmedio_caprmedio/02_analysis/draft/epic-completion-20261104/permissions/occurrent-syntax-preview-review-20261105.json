@@ -1,0 +1,222 @@
+{
+  "verdict": "PASS_23_BOUNDED_PREVIEWS",
+  "manifest_sha256": "cebba544b50275a909df33fa9407f4766aed310b775664882620c34817860f69",
+  "rows": [
+    {
+      "id": "CA-R-2749",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "65e79247b11162becf0164aa13839a1a62a9091a6164a4a801b65f4fbdab8247",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2750",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "10a2b09a6b8b83b1c5dd5b0281499256bf5354e1cf2fe6f9df2a872be3c54dab",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2751",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "61123ec00d818218b0659e3052cc680057134c2a16cea0eea0de9658941de9e5",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2752",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "3666391d7f18f51275b0a7c742d545b679471817d3f0055e78017036ec1f8ccf",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2753",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "852f8bb7256a6a28f373368b2fd33c0f4fd7e409108261ad064b986c0547d036",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2754",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "d6b8471d72e6cfccccf72ad8c4458aa9546606f4d79624e3c43a4c0e252bfede",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2755",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "cc6130b1125b985c2c9a6556ba4c3577368de4641b54faaac92fbe60c9462cb5",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2756",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "fc54dd164b64fbb4eb4de90ed4816911c2d772ae7a77bd7ff7a3cfb0fcbddf02",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2757",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "463dca105c2c20558438746626d0d4ad736204ad526923eb5eb6926038a1b311",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2758",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "5714079751b3973f70ffbce1777f7a64cafa3fcb89df149b137a5c6768dff4d2",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2759",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "7c405e316821d44fc36b2617cec7bf7cb11eae0ad37fab54099a564e30dffc43",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2245",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "2201bc33972b3cb887e8de1abb95c33ed0dde72261578c93209cc03e44cad3cf",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2246",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "2a9bef5794b67c57ca950bf5769d604e0283d6a54122b0ebf708f9d08f507a55",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2255",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "324dfde45e784c5944eef3ce8eb581320e99c8f260167c95fb98b92cb37e8f13",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2417",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "a0b90fe7e2b95e7d38df8a2c1f6c6a4b18acf1a914839bf680e0480a66485e91",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2420",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "817b9c405d5aa84c17f42fdf7bac9679007a09cead09b4883d8ef96f9da4ae7b",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2421",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "1c8c72aa8de05de14a35e59dcfc93781e0f34868d3aba3c2e96cd3961b3af2db",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2760",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "71832afeb7eb3e82c5e02690184fda36acfb927fe604ae93e05441aee15fac9e",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2761",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "7ae5b1f803bc6a7d9d7d9e8d0a2848e989da9559a5cdb7d454f3656e127eb031",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2464",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "8a8a67dbe06d115d4b8bae09240b3d5ee53f8d61345d7fdf2e4881fa2d3b2df4",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2465",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "92a1fefff30b435c59c0eb10a192785cafb6c2cf2c7e9cffb6b134c42ded090e",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2467",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "4ef5f65da3e95e5c476ff5b66f6f042d41340a56278a040c987d6921a5b979c9",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2557",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "3b4e9c1a37f4b837845a888af82cd7db04711b6df18e2b8e44b0b019eac181be",
+      "disposition": "PASS_BOUNDED"
+    }
+  ],
+  "preserved": [
+    "R2751 and R2465 use one OR-union participant with a single {::1} bound over the combined target population, not one bound per kind.",
+    "Session remains narrower than External Remote Runtime; unchanged variants retain explicit Local/Remote Operator-machine and Internal/External application meanings.",
+    "R2557 retains one Event per Event Record, no Author clause. Run parentage remains formal Relation only, with no Run Header/Property.",
+    "Explicit per-direction permissions and original endpoint counts are retained; no automatic inverse bound or permission is inferred.",
+    "Typed union OR is user-approved; syntax/source cohorts and contextual migration remain coordinated gates."
+  ],
+  "boundary": "23 source previews only; no actual Draft, Current, code, tests, Workflow, Workbench or Git mutation.",
+  "resolved_finding": "R2557 now uses one standalone typed Event Record binder reused by both existing one-link constraints."
+}

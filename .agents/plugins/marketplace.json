@@ -1,0 +1,20 @@
+{
+  "name": "caprmedio-local",
+  "interface": {
+    "displayName": "CAPRMEDIO"
+  },
+  "plugins": [
+    {
+      "name": "caprmedio-workbench",
+      "source": {
+        "source": "local",
+        "path": "./LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_CODEX_EXTENSION/plugin"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

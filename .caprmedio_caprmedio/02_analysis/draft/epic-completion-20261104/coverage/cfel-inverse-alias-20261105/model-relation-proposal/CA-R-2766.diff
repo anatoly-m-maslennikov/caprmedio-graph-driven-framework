@@ -1,0 +1,20 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2766-CORE_META_MODEL-DECLARATION--declare-specializes.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/CA-R-2766.preview.txt
+@@ -27,7 +27,7 @@
+ 
+ ```CFEL
+ # model
+-Relation//SPECIALIZES ((HAS_INVERSE)) Relation//IS_SPECIALIZED_BY;
++Relation//IS_SPECIALIZED_BY ((IS_INVERSE_ALIAS_FOR)) Relation//SPECIALIZES;
+ 
+ Relation//SPECIALIZES ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+@@ -37,7 +37,7 @@
+ 
+ ### Prose Claim
+ 
+-The child Atom's Claim is more specific or stricter than the parent Atom's Claim in the same or a narrower Scope and preserves the parent's applicable constraints. A conditional specialization is included. A reference or dependency alone does not establish SPECIALIZES.
++The child Atom's Claim is more specific or stricter than the parent Atom's Claim in the same or a narrower Scope and preserves the parent's applicable constraints. A conditional specialization is included. A reference or dependency alone does not establish SPECIALIZES. IS_SPECIALIZED_BY is the inverse alias, with parent and child endpoints reversed.
+ 
+ ## Semantics
+ 

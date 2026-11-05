@@ -1,0 +1,25 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "route": "reviewed user-approved VALUES rule; existing Project-global identity lock spans allocation and application",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2904",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2904@1-draft-CORE_META_MODEL-RULE--select-direct-property-values-with-values.md",
+      "sha256": "608a41ded2f4f9493736f6f875eecec60e338cdb21b362c906a9a1b865bc3f14",
+      "category": "value_selection_rule",
+      "summary": "Select direct Property values with VALUES"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2904@1-draft-CORE_META_MODEL-RULE--select-direct-property-values-with-values.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2904\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL\nversion: 1\ntier: 3\nrole: Requirement\nform: Rule\nupdated_at: 2026-11-05 17:25:05 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2904@1-draft-CORE_META_MODEL-RULE--select-direct-property-values-with-values.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nSelect direct Property values with VALUES\n\n## Claim\n\n### Prose Claim\n\n`VALUES(p)` selects the actual direct value occurrences of the selected Property expression `p`. Equal values remain distinct occurrences. It does not recursively walk dependent Properties or read value constraints as actual values. A known absent optional Property contributes an empty selection; unresolved or malformed bearer, Property population or value is an error, not an empty selection. Existing applicable cardinality and Format rules continue to apply.\n",
+      "after_sha256": "608a41ded2f4f9493736f6f875eecec60e338cdb21b362c906a9a1b865bc3f14"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+---
+atom_id: <unallocated>
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_INVERSE_ALIAS_FOR
+version: <unallocated>
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare IS_INVERSE_ALIAS_FOR
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+$host ((IS_INVERSE_ALIAS_FOR)) $target
+```
+
+### Prose Claim
+
+IS_INVERSE_ALIAS_FOR binds an inverse alias model address to its canonical Relation model address. The inverse alias is introduced by the canonical Relation Declaration and is not a separate Relation entity or Declaration. Its written endpoints reverse the canonical Relation's endpoints; both writings refer to the same fact. This binding grants no endpoint permission and creates no second authored Relation fact.
+
+## Semantics
+
+IS_INVERSE_ALIAS_FOR relates an inverse alias address to its canonical Relation address.

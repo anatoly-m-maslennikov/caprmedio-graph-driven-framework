@@ -32,6 +32,7 @@ main { width: min(1100px, 100%); margin: 0 auto; padding: 16px; }
 .project-label, .saved-meta, .status-line, .result-summary, small { color: var(--text-muted); font-size: calc(12px * var(--text-scale)); }
 .app-name { font-size: calc(15px * var(--text-scale)); font-weight: 650; }
 .workspace { width: min(1440px, 100%); margin: 0 auto; padding: 16px; }
+.work-main { min-width: 0; }
 .workspace-toolbar, .toolbar-main, .toolbar-actions, .query-actions, .actions, .panel-heading, .status-line { display: flex; align-items: center; gap: 8px; }
 .workspace-toolbar { justify-content: space-between; margin-bottom: 12px; }
 .toolbar-actions, .query-actions, .actions { flex-wrap: wrap; }
@@ -62,6 +63,7 @@ th { position: sticky; top: 0; background: var(--surface-raised); color: var(--t
 .saved-list { display: grid; gap: 6px; }.saved-item { display: grid; grid-template-columns: auto 1fr; gap: 4px 8px; padding: 8px; border: 1px solid var(--border); border-radius: 5px; }.saved-preview { grid-column: 1 / -1; overflow-wrap: anywhere; font-family: var(--mono-font); font-size: calc(12px * var(--text-scale)); }
 .preferences { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; color: var(--text-muted); font-size: calc(12px * var(--text-scale)); }.preferences fieldset { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; min-width: 0; margin: 0; padding: 0; border: 0; }.preferences legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }.preferences label { display: inline-flex; align-items: center; gap: 4px; }.preferences select { min-height: 28px; padding: 3px 6px; }
 dialog { max-width: min(560px, calc(100vw - 32px)); border: 1px solid var(--border-strong); border-radius: 7px; background: var(--surface); color: var(--text); } dialog::backdrop { background: rgb(0 0 0 / .35); } dialog form, dialog ul { display: grid; gap: 10px; min-width: min(420px, calc(100vw - 64px)); margin: 0; padding: 0; border: 0; } dialog input { width: 100%; padding: 7px; } dialog menu { display: flex; justify-content: flex-end; gap: 8px; margin: 0; padding: 0; } dialog ul { max-height: 50vh; overflow: auto; list-style: none; } dialog li button { display: flex; justify-content: space-between; width: 100%; text-align: left; } dialog li button.active { border-color: var(--accent); background: var(--accent-soft); }
-@media (max-width: 700px) { .app-header, .workspace-toolbar { align-items: flex-start; flex-wrap: wrap; }.workspace { padding: 10px; }.workspace-toolbar, .toolbar-main, .toolbar-actions { gap: 10px; flex-wrap: wrap; }.tab-strip { margin-inline: -10px; padding-inline: 10px; } }
+@media (max-width: 850px) { .app-header, .workspace-toolbar { align-items: flex-start; flex-wrap: wrap; }.workspace { padding: 10px; }.workspace-toolbar, .toolbar-main, .toolbar-actions { gap: 10px; flex-wrap: wrap; }.tab-strip { margin-inline: -10px; padding-inline: 10px; } }
 
 th small { display: block; margin-top: 2px; font-weight: 400; }
+:root[data-density='compact'] .workspace { padding: 10px; }:root[data-density='compact'] button { min-height: 28px; padding: 3px 7px; }:root[data-density='comfortable'] .workspace { padding: 24px; }:root[data-density='comfortable'] button { min-height: 38px; padding: 7px 12px; }

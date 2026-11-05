@@ -1,0 +1,28 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2417@6-draft-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2417.preview.txt
+@@ -26,16 +26,20 @@
+ 
+ ```CFEL
+ # model
+-Relation//HAS_EXECUTION <((HAS_INVERSE)) Relation//IS_EXECUTION_OF;
++$relation[<Relation>, (.Name = HAS_EXECUTION)];
+ 
+-Relation//HAS_EXECUTION ((HAS_CLASSIFICATION)) Derivation == Derived;
++$inverse1[<Relation>, (.Name = IS_EXECUTION_OF)];
++
++$relation <((HAS_INVERSE)) $inverse1;
++
++$relation ((HAS_CLASSIFICATION)) Derivation == Derived;
+ 
+ # instances
+-Workflow//$workflow ((HAS_EXECUTION)) Workflow Run//$workflow_run;
++$workflow[<Workflow>] ((HAS_EXECUTION)) $workflow_run[<Workflow Run>];
+ 
+-Step//$step ((HAS_EXECUTION)) Step Run//$step_run;
++$step[<Step>] ((HAS_EXECUTION)) $step_run[<Step Run>];
+ 
+-Action//$action ((HAS_EXECUTION)) Action Run//$action_run
++$action[<Action>] ((HAS_EXECUTION)) $action_run[<Action Run>]
+ ```
+ 
+ ## Semantics

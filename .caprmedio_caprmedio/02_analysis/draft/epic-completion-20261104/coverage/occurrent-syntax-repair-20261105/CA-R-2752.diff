@@ -1,0 +1,14 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2752.preview.txt
+@@ -30,9 +30,9 @@
+ Action Run ((NARROWER_THAN)) Execution;
+ 
+ # instances
+-Action Run//$run {::1}((IS_EXECUTION_OF)) Action//$definition;
++$run[<Action Run>] {::1}((IS_EXECUTION_OF)) $definition[<Action>];
+ 
+-Action Run//$action_run {::0+}((IS_CONTAINED_BY)) Step Run//$step_run
++$action_run[<Action Run>] {::0+}((IS_CONTAINED_BY)) $step_run[<Step Run>]
+ ```
+ 
+ ### Prose Claim

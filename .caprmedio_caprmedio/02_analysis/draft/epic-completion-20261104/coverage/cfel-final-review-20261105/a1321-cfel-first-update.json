@@ -1,0 +1,8 @@
+{
+  "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+  "before_sha256": "fbbf1a653c676e8804dc720f64346592200e82d3a21057ef0daf3486c05c8962",
+  "after_sha256": "ac67a132edad0d5c5db948a2fb40886aa8a7a4d19a8413c03cb3b044fc7c8c2e",
+  "change": "Adds approved OR kind Format and VALUES construct; cohort 49 + R2248@6 + R2904@1 = 51; 55-authority review is pending. Documents CFEL review before in-place migration before CA #3 handoff.",
+  "preservation": "ID, Summary, Version, Updated At and original 49 cohort IDs/versions retained; no Current source, code, tests or Git changed.",
+  "guards": "Exact preimage rechecked immediately before write."
+}

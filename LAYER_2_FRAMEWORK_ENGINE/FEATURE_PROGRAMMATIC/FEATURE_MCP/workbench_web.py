@@ -1,9 +1,6 @@
-# CA-R-2728@5
-# CA-R-2729@6
-# CA-R-2776@3
-# CA-D-673@10
-# CA-D-674@12
-# CA-D-674@12
+# CA-R-2902@1
+# CA-R-2903@1
+# CA-D-681@1
 
 """Small HTTP representation of the shared Project Workbench connector."""
 
@@ -25,10 +22,13 @@ from http_paths import WORKBENCH_PATH
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "FEATURE_TOOLS"))
 from operation_error_boundary import ExplicitBlockingRuntimeFailure
+from project_tool_context import native_arguments
 from runtime_failure_diagnostics import report_failure
-from workbench_links import public_saved, validate_reference
-from workbench_tools import CHECK, LOAD, PAGE, RUN, SAVE, SAVED_LIST, SAVE_WORKSHEET, SCHEMA
-
+from workbench_links import public_saved, public_workspace, validate_reference
+from workbench_tools import (
+    CHECK, INTERFACE_TOOLS, LOAD, PAGE, RUN, SAVED_LIST, SAVE_VIEW, SCHEMA,
+    WORKSPACE_GET, WORKSPACE_OPEN,
+)
 
 _FRONTEND = (
     Path(__file__).resolve().parents[1]
@@ -90,8 +90,16 @@ def _unknown_project() -> JSONResponse:
     return JSONResponse({"error": "unknown Workbench project"}, status_code=404)
 
 
+def _selection(gateway: Any, request: Request, shared: bool) -> Any:
+    if not shared:
+        return getattr(gateway, "selection", None)
+    return gateway._selection(request.query_params.get("project_root", ""))
+
+
 async def _execute(gateway: Any, name: str, arguments: dict[str, Any], shared: bool) -> dict[str, Any]:
     if not shared:
+        if name in (*INTERFACE_TOOLS, SAVE_VIEW) and name in getattr(gateway, "tool_blacklist", frozenset()):
+            raise ExplicitBlockingRuntimeFailure("query_error", "Unknown Tool")
         return await gateway.workbench.call(
             name, {key: value for key, value in arguments.items() if key != "project_root"}
         )
@@ -111,17 +119,33 @@ async def _execute(gateway: Any, name: str, arguments: dict[str, Any], shared: b
     return value
 
 
+async def _interface_arguments(request: Request, shared: bool) -> tuple[str, dict[str, Any]]:
+    try:
+        value = await request.json()
+    except ValueError as error:
+        raise ExplicitBlockingRuntimeFailure("query_error", str(error)) from error
+    if not isinstance(value, dict) or set(value) - {"operation", "arguments", "project_root"}:
+        raise ExplicitBlockingRuntimeFailure("query_error", "interface body must contain operation and arguments")
+    name, arguments = value.get("operation"), value.get("arguments")
+    if name not in (*INTERFACE_TOOLS, SAVE_VIEW) or not isinstance(arguments, dict):
+        raise ExplicitBlockingRuntimeFailure("query_error", "unknown Workbench interface operation")
+    root = value.get("project_root")
+    if shared:
+        if not isinstance(root, str):
+            raise ExplicitBlockingRuntimeFailure("query_error", "project_root must be a string")
+        arguments = {**arguments, "project_root": root}
+    elif root is not None:
+        arguments = {**arguments, "project_root": root}
+    return name, arguments
+
+
 def routes(gateway: Any, *, shared: bool = False) -> list[Route]:  # noqa: C901
     async def page(request: Request):
         project_name = request.path_params["project_name"]
-        if shared:
-            project_root = request.query_params.get("project_root", "")
-            try:
-                selection = gateway._selection(project_root)
-            except (TypeError, ValueError) as error:
-                return JSONResponse({"error": str(error)}, status_code=400)
-        else:
-            selection = getattr(gateway, "selection", None)
+        try:
+            selection = _selection(gateway, request, shared)
+        except (TypeError, ValueError) as error:
+            return JSONResponse({"error": str(error)}, status_code=400)
         if not _project_name_matches(selection, project_name):
             return _unknown_project()
         if not (_FRONTEND / "index.html").is_file():
@@ -155,11 +179,33 @@ def routes(gateway: Any, *, shared: bool = False) -> list[Route]:  # noqa: C901
                 return _error(gateway, request, selection, arguments, error)
         return endpoint
 
+    async def interface(request: Request):
+        arguments: dict[str, Any] = {}
+        selection = None
+        try:
+            name, arguments = await _interface_arguments(request, shared)
+            selection = gateway._selection(arguments["project_root"]) if shared else getattr(gateway, "selection", None)
+            if not _project_name_matches(selection, request.path_params["project_name"]):
+                return _unknown_project()
+            if not shared:
+                try:
+                    arguments = native_arguments(arguments, selection, gateway.root)
+                except ValueError as error:
+                    raise ExplicitBlockingRuntimeFailure("query_error", str(error)) from error
+            value = await _execute(gateway, name, arguments, shared)
+            value = public_saved(value, request, selection, arguments.get("project_root"))
+            if name in {WORKSPACE_OPEN, WORKSPACE_GET}:
+                value = public_workspace(value, request, selection, arguments.get("project_root"))
+            return StreamingResponse(_json_stream(value), media_type="application/json")
+        except Exception as error:
+            return _error(gateway, request, selection, arguments, error)
+
     return [
         Route(f"{WORKBENCH_PATH}/{{project_name}}", page),
+        Route(f"{WORKBENCH_PATH}/{{project_name}}/interface", interface, methods=["POST"]),
         *[Route(f"{WORKBENCH_PATH}/{{project_name}}/{path}", operation(name), methods=["POST"])
           for path, name in (("run", RUN), ("page", PAGE), ("check", CHECK), ("schema", SCHEMA),
-                             ("save", SAVE), ("worksheet-save", SAVE_WORKSHEET), ("load", LOAD),
+                             ("view-save", SAVE_VIEW), ("load", LOAD),
                              ("saved-list", SAVED_LIST))],
         Mount(
             f"{WORKBENCH_PATH}/assets",

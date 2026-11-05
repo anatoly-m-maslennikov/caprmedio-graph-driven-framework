@@ -1,0 +1,20 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2751.preview.txt
+@@ -32,13 +32,13 @@
+ Step Run >| (Container == yes);
+ 
+ # instances
+-Step Run//$run {::1}((IS_EXECUTION_OF)) Step//$definition;
++$run[<Step Run>] {::1}((IS_EXECUTION_OF)) $definition[<Step>];
+ 
+-Step Run//$step_run {::1}((IS_CONTAINED_BY)) (in (Workflow Run, Step Run))//$container;
++$step_run[<Step Run>] {::1}((IS_CONTAINED_BY)) $container[<Workflow Run> OR <Step Run>];
+ 
+-Step Run//$step_parent {::0+}((CONTAINS)) Step Run//$nested_step;
++$step_parent[<Step Run>] {::0+}((CONTAINS)) $nested_step[<Step Run>];
+ 
+-Step Run//$action_parent {::0+}((CONTAINS)) Action Run//$action_run
++$action_parent[<Step Run>] {::0+}((CONTAINS)) $action_run[<Action Run>]
+ ```
+ 
+ ## Semantics

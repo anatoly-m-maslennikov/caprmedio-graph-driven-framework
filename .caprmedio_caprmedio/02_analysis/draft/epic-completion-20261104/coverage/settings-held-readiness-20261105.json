@@ -1,0 +1,243 @@
+{
+  "status": "25_SOURCES_ACCOUNTED_BOUNDED_READ_ONLY",
+  "basis": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/settings/adoption-plan.json",
+  "prior_adopted_outputs": 17,
+  "rows": [
+    {
+      "id": "CA-R-1630",
+      "version": 41,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-RULE--gate-atomic-admission-and-promotion.md",
+      "sha256": "b04b475be16eac265df9ecc4af54bf1ecf6024e8cb4dd5b0367833aaba148ac7",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Atomic admission strictness setting has no admitted Project.Settings Property; preserve strictness checks and ownership requirements, do not invent a mode."
+    },
+    {
+      "id": "CA-R-1428",
+      "version": 32,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL--permit-confidence-threshold-defaults-and-overrides.md",
+      "sha256": "4fd0a513d98f08920fbcfde8aacf54f9ecbc7f92fab2d2861d54471e0d566980",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Confidence rule covers generic direct input and threshold classes; Plan AI-specific lookup is settled, but atomic consumer/precedence reconciliation must preserve non-Plan behavior."
+    },
+    {
+      "id": "CA-E-241",
+      "version": 47,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md",
+      "sha256": "0f2673ddf610763e72e15de7d45bee76392d9d173d504e6246f03697f108f487",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Combined Claim/translation Evaluation includes confidence cases; narrow Plan-specific preview exists, but generic threshold and non-Plan cases need atomic review without dropping evaluations."
+    },
+    {
+      "id": "CA-R-1629",
+      "version": 39,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-RULE--effective-priority-conflict-selection.md",
+      "sha256": "635e69b32631817296e72aa8912641e068c3a4f81acc56bdafcbb8614309bb11",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Priority conflict selection depends on a mode and parameters not declared on Project.Settings; preserve abstention and comparison constraints."
+    },
+    {
+      "id": "CA-R-1631",
+      "version": 34,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-RULE--configure-optional-projection-activation.md",
+      "sha256": "8d38aa78d67d72cc13ae9fbc999dd0029b6dd0e007a19226ba94c2d817396cde",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Optional Projection activation requires a source-backed setting target and its inactive/unknown handling; no Property inferred."
+    },
+    {
+      "id": "CA-R-1404",
+      "version": 26,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL--keep-framework-instance-settings-outside-the-atom-type.md",
+      "sha256": "c2312aa4988e589e6ac33c3a0adc801ae23644d5e90b0b12d947e5cc1c165e42",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Summary and scope identify former Framework Settings Artifact; retain non-Atom distinction while resolving physical carrier versus merged Property and identity before successor."
+    },
+    {
+      "id": "CA-R-1052",
+      "version": 41,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-RULE--separate-project-settings-from-the-project-scope-unit-graph.md",
+      "sha256": "55a4d84ce8866b7ee6b56d9029db5a9ccca21f5f4a57654a735ff6c39d4bdcf5",
+      "existing_native_drafts": [],
+      "classification": "SAME_SUMMARY_REPAIR_CANDIDATE",
+      "reason": "R2748 unifies selected settings; replace split conceptual authority with Project.Settings while preserving structural authority versus projections, independent observations and generated-value safeguards. Exact passive dependencies need source review."
+    },
+    {
+      "id": "CA-R-1440",
+      "version": 24,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL--preserve-mandatory-information-in-every-reporting-mode.md",
+      "sha256": "7cd4c17a4e05251083b1b060261b553526ce9a10a4a1ee869fcf9069d8e6a56e",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Mandatory reporting categories are valid; active old Interaction and reporting-mode paths lack a uniquely declared canonical target. Do not weaken required information."
+    },
+    {
+      "id": "CA-R-1587",
+      "version": 26,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-RULE--require-an-effective-confidence-threshold-for-plan-execution.md",
+      "sha256": "d0dcffc6432058f1fbd40d9403c4a621b233040827206a85907a057daa0f5cbc",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Plan AI Agent threshold is declared R2711, but R1587 generic autonomous threshold and M271 direct-input/non-Plan precedence require atomic reconciliation; no blanket narrowing."
+    },
+    {
+      "id": "CA-R-1652",
+      "version": 41,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL--configure-necessary-information-confidence-threshold.md",
+      "sha256": "825efc5dec8b194d7c44c2401b68d7f6fcf19b62d227489d959af5a3b66307f7",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Necessary Information confidence setting still has a valid percentage/configurability constraint but no verified corresponding Project.Settings Property target."
+    },
+    {
+      "id": "CA-R-1655",
+      "version": 45,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-RULE--resolve-artifact-classification-from-authority-and-configuration.md",
+      "sha256": "0d2d79957067097ad57d0494ff28bae3299c6f83c998808087758a3fe0681465",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Old Entity-root active Subject and Authority Modes references lack exact current mapping; preserve classification rules and other branches without Entity-to-Node inference."
+    },
+    {
+      "id": "CA-R-1740",
+      "version": 41,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL-RULE--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "sha256": "01334463a83da244a4f6bc2761fb8fccb328a656ae8d15d1fdf235415c880c66",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Scope Unit Graph Form is not among admitted current Form values; retain exact-source traceability and unresolved source behavior until Form/selection disposition."
+    },
+    {
+      "id": "CA-R-380",
+      "version": 44,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL--configure-the-semantic-resolution-confidence-default.md",
+      "sha256": "5758398a3168932dc73e922e7a70d391634e9c28fdf995b7f377920f27cbffa6",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Semantic-resolution threshold default remains a requirement, but its old property path lacks a verified Project.Settings authority; do not conflate it with AI Agent threshold."
+    },
+    {
+      "id": "CA-R-626",
+      "version": 43,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-626-CORE_META_MODEL-RULE--project-the-current-scope-unit-graph-without-owning-authority.md",
+      "sha256": "a722e6d734ff0945ff9ec4ed8d2c4cd76ab028b0d903aeb69a02297ee442a956",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Scope Unit Graph Form lacks admitted current Form authority; preserve distinction among declaration, derived values, settings and observed Carriers."
+    },
+    {
+      "id": "CA-D-497",
+      "version": 18,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-497-PROJECT_CONFIGURATION-ENG_DECISION--encode-rmed-review-batch-limits.md",
+      "sha256": "8941258e7b5c85835ae71d8f18b6ee21af39c40f64f52ea5212048b9dbbbc227",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Review-batch TOML parameters and Workflow Run endpoint need exact admitted settings and execution source; no deferred Extension/Tool fields or new serialization inferred."
+    },
+    {
+      "id": "CA-R-1441",
+      "version": 26,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL--define-default-settings.md",
+      "sha256": "4e8fb187de61707999f26e1d24c2a1b7e0afb67634e3a3ebf72ce4793cd637ac",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Default Settings separate Artifact superseded, but Summary is definition of that Artifact: replacement meaning needs new identity and coordinated D407/D408 and consumers; preserve Project initialization distinction."
+    },
+    {
+      "id": "CA-D-383",
+      "version": 31,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-ENG_DECISION--serialize-interaction-reporting-mode.md",
+      "sha256": "277f7a7533a72197f9c237a7e871c9712e11cb02fd1a99076d59c88e56e09ce3",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Reporting-mode physical encoding and allowed values must be reconciled with merged settings and its existing Carrier before resolving active Subject; no field relocation inferred."
+    },
+    {
+      "id": "CA-D-408",
+      "version": 24,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL-ENG_DECISION--reuse-framework-parameter-fields-in-default-settings.md",
+      "sha256": "e30baa661f56fb069b4650e23e34d63bd1b7d11c7130116cfacb352b105e3d86",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Default Artifact schema superseded by Property defaults, but preserve corresponding format/domain validation; Summary/identity and dependent consumers require atomic disposition."
+    },
+    {
+      "id": "CA-E-458",
+      "version": 35,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-POLICY--validate-authoritative-framework-settings-artifact.md",
+      "sha256": "0673486890ca4f0517debe3baee67fe872d0c04788af5d5e6efc2f3c7f44ac4e",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Preserve project isolation, carrier integrity and validation; Framework-specific Summary/receipt bindings and ownership need coordinated successor identity and D360/D365 reconciliation."
+    },
+    {
+      "id": "CA-D-360",
+      "version": 27,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL-ENG_DECISION--bind-framework-settings-revisions-to-journal-receipts.md",
+      "sha256": "f54f12b4b3464ed0572c9976f7d88c1877998cdc5ba2df511e6ded84e4105238",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Preserve exact carrier digest, revision and Journal receipt history; old Settings/History active/passive addresses and event-author retirement need coordinated source and consumer reconciliation."
+    },
+    {
+      "id": "CA-D-361",
+      "version": 32,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL-ENG_DECISION--serialize-framework-settings-content-in-toml.md",
+      "sha256": "ef9872d2e414ce9d88f3801278706ccb04fab2958c5e5dc3eb7a52410fd7973a",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Merged Project.Settings changes split exclusions, but physical TOML schema/partition and structural-data protections require explicit coordinated carrier mapping."
+    },
+    {
+      "id": "CA-D-377",
+      "version": 26,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL-ENG_DECISION--exclude-atom-metadata-from-framework-instance-settings.md",
+      "sha256": "39a9f4dce36bd65ed0f2a289ea6768b44aeaba68c67e4b3afd1b480397a17d51",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Retain exclusion of Atom metadata and receipt binding; old Framework Carrier identity and History dependency need source-backed contextual mapping."
+    },
+    {
+      "id": "CA-M-279",
+      "version": 24,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-missing-framework-parameters-from-default-settings.md",
+      "sha256": "a0eaf436f740ee68608eefa952d3dd46d6db7ae044d66995922225acf123a756",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Property ?== defaults settle fallback meaning but old Parameter Resolution active Subject, Summary and direct/default precedence require replacement identity and coordinated consumer closure; preserve explicit false/zero and validation."
+    },
+    {
+      "id": "CA-E-450",
+      "version": 27,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-POLICY--validate-framework-parameter-fallback.md",
+      "sha256": "3f60f832dcb4b1e40193d9823ffb5c8facf0f5576a94ac0a864f1f4b1ab57e15",
+      "existing_native_drafts": [],
+      "classification": "HELD",
+      "reason": "Preserve explicit value, absent-value fallback and invalid handling; old Parameter Resolution target and Summary/identity require coordinated default migration."
+    },
+    {
+      "id": "CA-E-671",
+      "version": 1,
+      "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-671-CORE_META_MODEL-EVAL_CASE--validate-settings-boundaries-and-scope-unit-declarations.md",
+      "sha256": "d8276e59cf186a398f194cc424f484d49c038e135261c7af444b8acb7a6289fe",
+      "existing_native_drafts": [],
+      "classification": "SAME_SUMMARY_REPAIR_CANDIDATE",
+      "reason": "Replace distinct conceptual Framework Settings authority with Project.Settings per R2748 while retaining Project isolation, initialization/instance choices, missing/undeclared observations and carrier separation. Project-root/world Draft integration remains separate."
+    }
+  ],
+  "counts": {
+    "source_count": 25,
+    "same_summary_repair_candidates": 2,
+    "held": 23
+  },
+  "limits": [
+    "Candidate means source repair can be prepared and independently reviewed, not existing preview approval or Current-promotion readiness.",
+    "Preserve all Settings domains, validation, isolation and no-silent-fallback constraints.",
+    "Extension/Tool future settings remain deferred. No Workflows, Workbench, native sources, code or tests changed.",
+    "Latest := / :: decisions remain prospective until source integration; no old colon-preview is treated as adopted."
+  ]
+}

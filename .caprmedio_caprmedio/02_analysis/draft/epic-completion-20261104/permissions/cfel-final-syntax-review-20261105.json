@@ -1,0 +1,494 @@
+{
+  "status": "BLOCKED_CANDIDATE_BODY_REPAIRS",
+  "scope": "Independent static source review of exact prospective 55 authorities. Header Subject legacy spelling is intentionally a later migration and is not itself a body defect. No native changes or runtime/parser/test claim.",
+  "candidate_manifest": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/specification-candidate.json",
+    "sha256": "502f6e2d71a54f3084623cfdc7e56e00b96c1e28e4957f8fe7a56730bfe99f7b"
+  },
+  "authorities": [
+    {
+      "id": "CA-R-1346",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1346@29-draft-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+      "sha256": "178547bd1fba8db2fc6248cc7ce4ee60681554efe345790ce7dff35bfd30058e",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2794",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2794@1-draft-CORE_META_MODEL-RULE--define-cfel-addition-syntax.md",
+      "sha256": "1258e5548a86ae9632b31db73c98b6d1466b5bcc98565b6247aefe966c5455b3",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2795",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2795@1-draft-CORE_META_MODEL-RULE--define-cfel-required-value-syntax.md",
+      "sha256": "19c2959036c637655a47cb0425b837fa9547588fc9dae04b3d45cf64ca3283b0",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2796",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2796@1-draft-CORE_META_MODEL-RULE--define-cfel-equality-condition-syntax.md",
+      "sha256": "b823cd49a6f819789e10ad6a64c4545e934b6e00bf71d20ed6ac15d5a2ec33ef",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2797",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2797@1-draft-CORE_META_MODEL-RULE--define-cfel-delivery-syntax.md",
+      "sha256": "a64066b8143e521c2696cceb8de0dbd954527a12f56153d53ac5c2ef0b95acae",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2798",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2798@1-draft-CORE_META_MODEL-RULE--define-cfel-expression-separator-syntax.md",
+      "sha256": "0694cd5886e45713c1c6c9d6cb30ac0ce0c8f4d57df9e199f477498aeb1352a6",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2799",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2799@1-draft-CORE_META_MODEL-RULE--define-cfel-greater-or-equal-syntax.md",
+      "sha256": "7611b65a457552a83ee9c2a0780a676a436290de4c3c2a285572e420c3c60887",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2800",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2800@1-draft-CORE_META_MODEL-RULE--define-cfel-greater-than-syntax.md",
+      "sha256": "bb7c3b51769660497e563f0f74f94325cc92180efd234717c2260614f44969d1",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2801",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2801@1-draft-CORE_META_MODEL-RULE--define-cfel-grouping-syntax.md",
+      "sha256": "1540b97c506b56a507f2ea313b9620b264f0ff7a74a3b59d053e33842fcf7610",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2802",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2802@1-draft-CORE_META_MODEL-RULE--select-immediate-dependent-properties.md",
+      "sha256": "ce2f51422af31a5be781c3a91a236d0273ca2b5c5a34c40677696bb073392e84",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2803",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2803@1-draft-CORE_META_MODEL-RULE--test-value-inequality.md",
+      "sha256": "0b3d106ceccb99d60bc41b3c46f931f5c53cdb4fb669d92453fc166b7b32dc2e",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2804",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2804@1-draft-CORE_META_MODEL-RULE--bind-selected-instances.md",
+      "sha256": "ada4536d1422e89a289c73a101fed7063924f6d7d2ad2b67ef1667488f26409e",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2805",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2805@1-draft-CORE_META_MODEL-RULE--test-less-than-or-equal.md",
+      "sha256": "ac81153c454bf2c4d2cc2fbe3bab1582c4680c7feaff27a6a2149338c4d55965",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2806",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2806@1-draft-CORE_META_MODEL-RULE--test-less-than.md",
+      "sha256": "7cc4b57366b9087026452a673ff439d172cb5af23485d44e5a9a0bb1b588f5f3",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2807",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2807@1-draft-CORE_META_MODEL-RULE--test-set-membership.md",
+      "sha256": "2465a25780ddc1acd5bbc0ad06e59c4e85ef2ff79f19baeb4b55f45df7fcfa39",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2808",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2808@1-draft-CORE_META_MODEL-RULE--write-named-relation-directions.md",
+      "sha256": "cfd9334eb5a6247361d8527e29a780142e7667f7863254279799f60dfcceeebc",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2809",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2809@1-draft-CORE_META_MODEL-RULE--address-a-dependent-property.md",
+      "sha256": "7a6a09cf0f6bbcee197f1baa3a7f9718356a907fe0ebb927a1a42b48703a33db",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2811",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2811@1-draft-CORE_META_MODEL-RULE--select-a-narrower-model-kind.md",
+      "sha256": "637df0ebbd21b2a3efee146dd65a25da0b3c96e9282d56d2d3fb2d547d99bc46",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2812",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2812@1-draft-CORE_META_MODEL-RULE--write-immediate-containment.md",
+      "sha256": "8ecb465dac4f7536fe13f57610daff7863d4250c8f8d83e07824b0d9846f1cc0",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2778",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-RULE--declare-cfel-universal-quantification.md",
+      "sha256": "981aa504288e4513abf5def56486f49656a58166fd9ef47f63436eae0bde2660",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2813",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2813@1-draft-CORE_META_MODEL-RULE--define-recursive-property-selection-with.md",
+      "sha256": "3274a1a2f3d4a10e52c08c6c0b946d6d7557dfab8227d181727e41c0ea27f966",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2814",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2814@1-draft-CORE_META_MODEL-RULE--define-generic-relation-declaration-endpoint-signature.md",
+      "sha256": "019d4162a32d91ea740a7e44632f8798d9000631aa313a6b9e369141c666d552",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2815",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2815@1-draft-CORE_META_MODEL-RULE--define-delivery-selection-exclusion-with.md",
+      "sha256": "2a5685fd70db945f1df805c9c8fdadb5811a906fe42445c4010bca08c0af76e7",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2816",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2816@1-draft-CORE_META_MODEL-RULE--define-property-value-selection-with.md",
+      "sha256": "28316751154fef5de811cb728641e230f71d6c8d953a452e823ca0681c1d5939",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2817",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2817@1-draft-CORE_META_MODEL-RULE--define-relation-alias-syntax-with-alias-r.md",
+      "sha256": "c51ffdc05c1a4dfe1062c578cd80ec0c7c13a0590ca410e76db949ce303bad3f",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2818",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2818@1-draft-CORE_META_MODEL-RULE--define-conditional-default-assignment-with.md",
+      "sha256": "5bb18b9a7b52f93de04b600ff6c5d65c39880eb6d4ca2d33c24bb6369ac4d134",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2819",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2819@1-draft-CORE_META_MODEL-RULE--define-relation-guided-lookup-with-lookup-r-q.md",
+      "sha256": "0d83cf938b6845c196f0f438f579cc794883b919bbdd762e093a996d182b53cb",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2820",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2820@1-draft-CORE_META_MODEL-RULE--define-boolean-conjunction-with-and.md",
+      "sha256": "c17b108edfa651d1d685fe4bbd5b9da839644cbf19dc714caa593d9dcca2b51a",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2821",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2821@1-draft-CORE_META_MODEL-RULE--define-boolean-disjunction-with-or.md",
+      "sha256": "56b5e2df5772786557ecf6bf0d79a53bdb5f8424a1ec61332399ab7318f2260b",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2487",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/overview-values-reference/CA-R-2487.preview.txt",
+      "sha256": "8ec2273a60d0fc58c205de0c08bf5786035c62df456593f76fc523554cc428c3",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2552",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/binding-rule-repair/CA-R-2552.preview.txt",
+      "sha256": "1468fb8c5513e7470c5d1fbf8c5016acddc36bdd7b2f24dfc6edefac4a12be7c",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2247",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@12-draft-CORE_META_MODEL-DECLARATION--define-relation.md",
+      "sha256": "0a6754df4861f552be7980356b04ab46a71150e1222137551995ece334fcfc12",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation"
+    },
+    {
+      "id": "CA-R-2462",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2462@5-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "7e0728852389f934c8d15a03a0802b43aa33f5d156be899d0d60ff438e68d0cc",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ Node"
+    },
+    {
+      "id": "CA-R-2826",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2826@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md",
+      "sha256": "34046b65a580ad65c4579de43478d88043939083f1d884ca178efa25a27d3f8f",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_ALLOWED_VALUE"
+    },
+    {
+      "id": "CA-R-2827",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2827@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md",
+      "sha256": "3004048941f4bb7949bdcb75097ef0ce59f1dcb4558b09f134b42584b8f6131b",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_ALLOWED_VALUE_OF"
+    },
+    {
+      "id": "CA-R-2828",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2828@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md",
+      "sha256": "662f48405701ac625c033482e8fabaed653a9774c0eba6ec74ec38e16f4a4bc7",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_VALUE_CONSTRAINT"
+    },
+    {
+      "id": "CA-R-2829",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2829@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md",
+      "sha256": "80c2beabf7a5d01e0dfc327e47686ab44dec29235be294e5b6b2f9841c72506a",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_VALUE_CONSTRAINT_OF"
+    },
+    {
+      "id": "CA-R-2248",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "sha256": "2dc58fd7387e13ffa38ca19bc60fb840eb9844151eea608f5902b634905f546a",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Format"
+    },
+    {
+      "id": "CA-R-2904",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2904@1-draft-CORE_META_MODEL-RULE--select-direct-property-values-with-values.md",
+      "sha256": "608a41ded2f4f9493736f6f875eecec60e338cdb21b362c906a9a1b865bc3f14",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2243",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2243.preview.txt",
+      "sha256": "69156a7976fd258a7df52e0b189592bafb2dd3a43110512fe119103ef9debd08",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Cardinality"
+    },
+    {
+      "id": "CA-R-2563",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2563.preview.txt",
+      "sha256": "a88e82a9ce59f37f4fab11d0b5a34b72e2e1c5450cd52d0e3551b90dc4431198",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2566",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2566.preview.txt",
+      "sha256": "0289b1f9a49d5caf0dc5db44a5e9448fea3ccde28ef0be5bd65d37ff16e3acee",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2585",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2585.preview.txt",
+      "sha256": "ca4ece90b11ef4ebec55d5bd8dcba80a675ba7987598be0e65894bfb10cbabf1",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2475",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2475.preview.txt",
+      "sha256": "326201be1e6da2371c3bd3c6734f9726cfe8d4832895f63aecc310a50eae2d97",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN"
+    },
+    {
+      "id": "CA-R-2476",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2476.preview.txt",
+      "sha256": "1af71d260bfa51ab09b0cdc673e229176819d9e45a81f0cba113e73062e75937",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//INSTANCE_OF"
+    },
+    {
+      "id": "CA-R-2617",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2617.preview.txt",
+      "sha256": "f10509a3cd3a9b13107d6d7746035e6c41a3cb5df55bc13c379e1cab07bedb0c",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//CONTAINS"
+    },
+    {
+      "id": "CA-R-2620",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2620.preview.txt",
+      "sha256": "6957a887fc0060da0d470ef668a697425ea9507e9a332f68c0a75fa88aa63392",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_NARROWER"
+    },
+    {
+      "id": "CA-R-2478",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2478.preview.txt",
+      "sha256": "beafaddccd7346a2919418e72cd60134964770873c69dfe20efcdfc7544d962c",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY"
+    },
+    {
+      "id": "CA-R-1931",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-graph-consumer-repair-20261105/CA-R-1931.preview.txt",
+      "sha256": "7532baaa2d35ad99d148438394b243ee5cb7f130d63da9d88145b83a4f2af982",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2551",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2551-CORE_META_MODEL-CFEL--require-unique-property-tuples.md",
+      "sha256": "6a236db529b9acdcc45ea3eb1bfa1bf0fc0b3b467e6a2aa08905215d81a78b10",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2562",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2562-CORE_META_MODEL-CFEL--require-functional-dependencies.md",
+      "sha256": "a93c4455784800347d6afddfdcd54127d813632ca131f40a1270a348dcfa8eb2",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL"
+    },
+    {
+      "id": "CA-R-2473",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF"
+    },
+    {
+      "id": "CA-R-2619",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2619-CORE_META_MODEL-DECLARATION--declare-has-instance.md",
+      "sha256": "f8d8f828420b31bfedced5bbcd2eb9c51086c30b3b61e2d1cd8712f8bddb516b",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_INSTANCE"
+    },
+    {
+      "id": "CA-R-2477",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2477-CORE_META_MODEL-DECLARATION--define-classification-and-its-written-reverse.md",
+      "sha256": "e4b24cf8cabe401be72fde576c8d4694e8e72ca63ab18066c274a3c12da174af",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_CLASSIFICATION"
+    },
+    {
+      "id": "CA-R-2485",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2485-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+      "sha256": "0139782312689c308d27c2ca6fa4c7facd52e6458bd4e71593ace82610fc02be",
+      "matches_candidate_manifest": true,
+      "active_subject_count": 1,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_INVERSE"
+    }
+  ],
+  "counts": {
+    "manifest": 55,
+    "inspected": 55,
+    "hash_mismatches": 0,
+    "non_single_active_field": 0
+  },
+  "syntax_checks": {
+    "coverage": "Inventory lists symbol, comparison, grouping, selection, value, binding, direction, comments and named construct owners; VALUES and IF truth appear in candidate overview, typed OR formats in R2804/R2248. Review is bounded static inspection, not proof of parse completeness.",
+    "directions": "Candidate HAS_NARROWER owns //, CONTAINS /, IS_CONTAINED_BY +>; old descriptor instance operands listed as blockers.",
+    "values": "R2826 assigns := and OR alternatives; R2828 assigns :: and AND constraints; absent allowed-value group is true. Qualified Subjects retain :=.",
+    "subjects": "One active Subject field checked in each source. Semantic focus examined; R1931 has unrelated normative domain obligations listed below.",
+    "operator_model": "No CFEL Operator entity required by the candidate Claimed bodies found in the source scan; separate Actor Operator unaffected.",
+    "escaping": "R1931 unquoted path backslash and R2487 quoted text escapes are context-specific; no quoted path-name segment inferred."
+  },
+  "findings": [
+    {
+      "severity": "blocker",
+      "ids": [
+        "CA-R-2473",
+        "CA-R-2477",
+        "CA-R-2485",
+        "CA-R-2619"
+      ],
+      "issue": "Formal Claims retain old Relation//NAME descriptor addresses and/or alias(Relation//NAME). R2485 also retains Relation//$variable and old Relation//DIRECT <--> Relation//DERIVED prose. These are instance-selection syntax in Current grammar but conflict with the candidate // narrowing and typed participant syntax.",
+      "repair": "Contextually bind typed Relation participants; preserve each direct/derived relation, aliases and declared endpoint rules. Metadata Subject strings are separate phase-2 migration."
+    },
+    {
+      "severity": "blocker",
+      "ids": [
+        "CA-R-1931"
+      ],
+      "issue": "Claim opens with stray fragment `a Entity Path.`. Status Group membership obligations appear in Semantics; Module/Package containment, Project Implementation root and globally unique primary kind-name obligations appear in Details under active CFEL focus.",
+      "repair": "Fix fragment; preserve or move each domain obligation to its appropriate owner with evidence. Do not delete unique authority by assumption."
+    },
+    {
+      "severity": "clarity",
+      "ids": [
+        "CA-R-2552"
+      ],
+      "issue": "After the Property-specific bullet, the next says `Each instance is INSTANCE_OF its model Property and IS_PROPERTY_OF its data bearer`; unqualified phrasing can falsely include all selected instances.",
+      "repair": "Say `Each selected Property instance` while preserving schema/bearer identities and no-Cartesian rule."
+    }
+  ],
+  "not_reviewed": "Contextual migration of every Current/Draft consumer, retirement application, executable grammar and runtime behavior remain separate."
+}

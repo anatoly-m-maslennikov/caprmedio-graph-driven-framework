@@ -1,0 +1,48 @@
+{
+  "status": "PROSPECTIVE_REVIEW_REQUIRED",
+  "source": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@15-draft-CORE_META_MODEL-DECLARATION--define-cfel.md",
+    "sha256": "707f825c9c6be6e1b1f18813857b105f32d2886f2bf5369d0ee23428f610a490"
+  },
+  "candidate": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/overview-values-reference/CA-R-2487.preview.txt",
+    "sha256": "8ec2273a60d0fc58c205de0c08bf5786035c62df456593f76fc523554cc428c3"
+  },
+  "diff": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/overview-values-reference/CA-R-2487.diff",
+    "sha256": "ec7acfc44b3c9b917f00249e43aa627704fd439a7bed3b7a5d38646ad36c401a"
+  },
+  "values_authority": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2904@1-draft-CORE_META_MODEL-RULE--select-direct-property-values-with-values.md",
+    "sha256": "608a41ded2f4f9493736f6f875eecec60e338cdb21b362c906a9a1b865bc3f14"
+  },
+  "change": "Add VALUES to the named-construct list and define general declarative IF/THEN truth behavior.",
+  "r1931_path_escape": {
+    "source": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/r1931-final-draft-rebase-20261105/CA-R-1931@19.final.preview.txt",
+      "sha256": "4f42ecab96c09b4fc0ec264f6ed4440aa196a66f39ab0ecc264edff30cd369d4"
+    },
+    "interpretation": "The existing obligation that a backslash escapes the next literal name character concerns unquoted Subject path names. R2487 limits escapes within double-quoted text to \\\" and \\\\. These are distinct contexts; the path escape alone does not conflict.",
+    "limits": "This does not introduce quoted path-name segments, and does not close other R1931 quote, scope, or example holds."
+  },
+  "boundary": "No native source mutation. Drafts and coordinated migration remain distinct from Current authority.",
+  "if_then_obligation_matrix": [
+    {
+      "case": "condition true",
+      "result": "Every complete expression in matching THEN body holds."
+    },
+    {
+      "case": "condition false",
+      "result": "THEN body imposes no constraint."
+    },
+    {
+      "case": "condition unresolved",
+      "result": "Error under applicable rules."
+    },
+    {
+      "case": "binding",
+      "result": "Existing IF binding, scope, and no-shadow rules remain; R2552 addresses membership and edge existence specifically."
+    }
+  ],
+  "known_existing_draft_issue": "CA-R-2552@5 says its model binding rule does not introduce a FOR operator; FOR EACH has since been separately approved and declared in R2778. Its context is not a general prohibition, but check clarity during coordinated migration."
+}

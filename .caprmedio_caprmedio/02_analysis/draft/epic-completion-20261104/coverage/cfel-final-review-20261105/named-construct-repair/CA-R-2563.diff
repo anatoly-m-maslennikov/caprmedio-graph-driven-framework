@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2563-CORE_META_MODEL-CFEL--select-fenced-markdown-labels.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2563.preview.txt
+@@ -26,7 +26,7 @@
+ - Evaluate p separately for each matching bearer. Do not pool values across Atoms.
+ - Use the complete recursive Markdown block parse. Exclude indented code blocks.
+ - Preserve duplicate labels as separate occurrences. An unlabelled fence contributes an empty label.
+-- `FENCED_LABELS(p): [format]{:n}` requires every selected label to match the Format. The count constrains selected occurrences, including duplicates.
++- `FENCED_LABELS(p) :: [format]{::n}` requires every selected label to match the Format. The count constrains selected occurrences, including duplicates.
+ - The finite literal Format `[in (CFEL)]` matches only CFEL. An empty selection satisfies the Format condition but must still satisfy the count.
+ - Bind parsed labels through the governing Markdown Format and the existing CFEL-labelled-fence rule. No whole-info-string, token or case-normalization policy is added here.
+ - Missing or multiple Markdown values, incomplete parsing and unresolved or ambiguous label bindings are evaluation errors. Never replace them with an empty selection.

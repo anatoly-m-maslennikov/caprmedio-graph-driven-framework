@@ -1,0 +1,977 @@
+{
+  "status": "23_ACCOUNTED_NOT_ALL_RESOLVED",
+  "audit_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-single-person-approval-20261105/audit-data.json",
+  "audit_sha256": "3a590bdcec2fc6ec68cb05bad256351401fc1ebba94c65dfb0ed04a1fd69aafc",
+  "manifest_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-single-person-approval-20261105/generation-manifest.json",
+  "manifest_sha256": "be9997c60a8c56bdb6899d236d9781e10b4b49ddc15804bf0162b7b04e85774a",
+  "published_path": ".caprmedio_caprmedio/_projection/CA-PROJ-025-caprmedio--Subjects-without-Requirement-Declarations--Current-Subjects-without-Requirement-Declarations.md",
+  "published_sha256": "450cddfce62d35adfbbfccdfb69163863792aa9e84a4e5f19b9fbc8ccfdbb500",
+  "published_matches_manifest": true,
+  "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-single-person-approval-frontier-20261105.json",
+  "frontier_sha256_expected": "84398814d8a934c5bbc83b7e111d052b446697d9dbe99e088d31b8fedc191960",
+  "frontier_sha256_actual": "84398814d8a934c5bbc83b7e111d052b446697d9dbe99e088d31b8fedc191960",
+  "selected_sources": 1167,
+  "audit_counts": {
+    "unresolved": 23,
+    "known_missing_excluded": 54
+  },
+  "classification_counts": {
+    "WORKFLOW_OWNER_EXCLUDED": 2,
+    "UNQUALIFIED_ACTOR_SCOPE": 1,
+    "UNQUALIFIED_SETTINGS_SCOPE": 1,
+    "UNQUALIFIED_HISTORY_SCOPE": 1,
+    "LEGACY_SCOPE_UNIT_RELATION": 2,
+    "SETTINGS_MERGE_CONSUMER": 1,
+    "PROJECTION_LEGACY_MALFORMED": 1,
+    "MODEL_NAMESPACE_FOCUS": 1,
+    "LEGITIMATE_MODEL_SELECTION": 1,
+    "LEGACY_COMPOSITION_SCOPE": 1,
+    "LEGACY_PACKAGE_CHAIN": 2,
+    "LEGACY_PROMPT_CHAIN": 1,
+    "LEGACY_PROJECTION_IDENTITY": 8
+  },
+  "rows": [
+    {
+      "number": 1,
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+      "audit_status": "unresolved",
+      "audit_message": "Unsupported Subject: unexpected reserved character or trailing expression",
+      "classification": "WORKFLOW_OWNER_EXCLUDED",
+      "finding": "Legacy Workflow/Step compound expression and obsolete cardinality/qualification syntax; parser diagnostic alone does not establish missing Declaration.",
+      "resolution_or_question": "Workflow owner must reconcile the source Subject with the separately staged recursive Step model and Current-to-proposed syntax. No mapping or source inspection in this lane.",
+      "suppliers": [
+        {
+          "pin": "CA-D-457@26",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-457-CORE_META_MODEL-ENG_DECISION--serialize-operations-atom-type-tokens.md",
+          "snapshot_sha256": "36288e9ea2929bfed587077cc3949930fb35232ad74d24cf415ada9d4ff0d043",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-E-474@27",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-474-PROJECT_CONFIGURATION-EVAL_CASE--validate-configurable-release-readiness.md",
+          "snapshot_sha256": "8619fce140c8541bb07799c7b2b05662130593881a46a80415400d58b4efa4d4",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-E-486@23",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-486-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md",
+          "snapshot_sha256": "05975fc46ce47e6bd7001cb410f16c34a44969c54685f29ad3a99159ec1ecfdf",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-E-488@25",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-488-PROJECT_CONFIGURATION-EVAL_CASE--validate-tool-action-bindings-and-evaluation-ownership.md",
+          "snapshot_sha256": "69d82c42ab4b75442de68a78f71c3c5497beb7196ef5d9feca64b47d73698901",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-E-489@23",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-EVAL_CASE--validate-workflow-execution-and-handoff-definitions.md",
+          "snapshot_sha256": "7a66268d2ee580274be7ca7e111bf8daad6b8e192e5e5594a598f835d53646bb",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-E-491@25",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-491-PROJECT_CONFIGURATION-EVAL_CASE--validate-update-to-replacement-routing.md",
+          "snapshot_sha256": "a6c77217ae40f2355c53f460a42d8733906ade203d1893b79fea4d459562b4c7",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-E-494@20",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-494-CORE_META_MODEL-EVAL_CASE--validate-workflow-run-definition-bindings.md",
+          "snapshot_sha256": "66700e4162ab4751fcf0d5f3b8d0cc4b65bf6a8b6f86c174b35a2ae102772552",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-E-495@19",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-EVAL_CASE--validate-action-kinds-and-step-contexts.md",
+          "snapshot_sha256": "bd67de991dfb53e31b0c79499ad79bad07d2bf83b41845e4c0c20ebb4569dedc",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-E-497@20",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-EVAL_CASE--validate-self-contained-agentic-invocations.md",
+          "snapshot_sha256": "5a5557971a727e5401e526442aee1cebeeec6152999743d3c27e849938e715f8",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-E-513@23",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-513-PROJECT_CONFIGURATION-EVAL_CASE--validate-the-atom-carrier-validation-workflow-definition.md",
+          "snapshot_sha256": "11fa7b8af47636cb0d9455dbec25578c42974c7d7b1640ed86a24bbc7a9c6fc0",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-E-652@22",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-652-PROJECT_CONFIGURATION-EVAL_CASE--check-shared-context-test-first-implementation-and-method-learning.md",
+          "snapshot_sha256": "cf73f5fd53fd0fafb815a68cf9dbd88702d311e0be65621be570fe1525c8cf96",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-E-658@14",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-658-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md",
+          "snapshot_sha256": "0cfb3a020dfeaca04fab3a53847b2ae2f329b48fb2ebf745ecbed0a8ac047798",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-E-661@4",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-661-CORE_META_MODEL-EVAL_POLICY--validate-tier-zero-content-role-semantics.md",
+          "snapshot_sha256": "1ba7f3f243766262fbf146f48b1e3ed47bdf541d2d567d919dae7c1d9b6a35b3",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-M-303@26",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-303-CORE_META_MODEL-IMPLEMENTATION_METHOD--declare-update-routing-in-the-calling-workflow.md",
+          "snapshot_sha256": "55c711d37eedd6d1345d21a99bb6eb489322be5e243ce12a1c2bb938422e7308",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-M-304@26",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-self-contained-agentic-action-instructions.md",
+          "snapshot_sha256": "081a5ae9da41ab1dac998c83d57cd13bee00d416dbe21e8ed03fed097741db7c",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-M-305@22",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-305-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-workflow-schemes-using-step-references.md",
+          "snapshot_sha256": "ae15e8389fa1417f1d5b820e14558c0adaf9409a4333ddff6d21801745c1a4f3",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-M-314@24",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-314-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-operations-claims-with-type-specific-cce-profiles.md",
+          "snapshot_sha256": "7059287b7c9995680c39dea5da8eea4def954d67f1238ff8c8dc9d423a9a98ee",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1312@28",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL--separate-governed-transitions-from-status-values.md",
+          "snapshot_sha256": "3123f1baa6d1ed712357f00a2e8a4da521c29ffa78c5cefa02334513d3657a90",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1518@25",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.md",
+          "snapshot_sha256": "a9a6736286df475fc2c63e800a57e683212aa720845c0435fef12108f1c8ced5",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1519@25",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1519-CORE_META_MODEL-RULE--require-conforming-workflow-execution.md",
+          "snapshot_sha256": "06016d66513a94fb318be0ec91e59126a3764fc66109ac6672690d56ff597ad8",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1520@22",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1520-CORE_META_MODEL-RULE--return-workflow-handoffs-through-terminal-results.md",
+          "snapshot_sha256": "16c0e177c3bbbcbcefe518a54e6d76fd047ef24f71dbf3219e44a45620aada63",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1525@25",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1525-CORE_META_MODEL-RULE--bind-workflow-runs-to-exact-definition-revisions.md",
+          "snapshot_sha256": "f1c5bad655bebbb6226f1c1546174ac1a15eb494fd6217c41c67315f6496dfed",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1528@22",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-RULE--record-tool-calls-within-step-runs.md",
+          "snapshot_sha256": "372e30cec1c80b39ddb078a031e96631fc4c7d1d66953649bb9019373f44f49f",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1554@23",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-RULE--bound-scripted-migrations.md",
+          "snapshot_sha256": "b60a03de998769e7375e0afed6b956b393b8a7123b117fc1c626e1cdcb9e24ef",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1563@27",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1563-CORE_META_MODEL-RULE--define-the-workflow-operations-atom-type.md",
+          "snapshot_sha256": "793078db718178f406b0a77df0290ee3694509da587f79acf54c55c1e736fbef",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1565@21",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1565-CORE_META_MODEL-RULE--admit-the-operations-atom-types.md",
+          "snapshot_sha256": "94f3844bd8305bcafb46b2dee619b5ee4e69c76f641814a5985dcf0f27b22214",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1702@49",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md",
+          "snapshot_sha256": "d3ddebf0f7f78567434a6950d6ff3933dee32e5af027be9323c6fb3e53a28088",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1789@21",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1789-CORE_META_MODEL--provide-self-contained-agentic-step-invocation-payloads.md",
+          "snapshot_sha256": "230662e5adc860a7d77b48fb25143199f4e1ea54e0fff9a4825e2bfeab989443",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1790@19",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1790-CORE_META_MODEL--retain-agentic-step-executor-state-and-routing.md",
+          "snapshot_sha256": "e24a61b830458f846cd19382be35dc1e86d076f0cdf7016e6742ba0bf87924f4",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1791@18",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1791-CORE_META_MODEL--keep-invocation-delivery-distinct-from-step-completion.md",
+          "snapshot_sha256": "9e3fff6df56785ec45bf1eb7b27d03ecf4b134baaba927c0b26dd71feec65b71",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1792@18",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1792-CORE_META_MODEL--preserve-terminal-workflow-handoff-approval-boundaries.md",
+          "snapshot_sha256": "243b8d5430bfb13520e73648afe4ba1ca4d28ea2916f981398f10c9d63147f8d",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1793@18",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1793-CORE_META_MODEL--preserve-agentic-invocation-results-without-replaying-effects.md",
+          "snapshot_sha256": "816d40b1fe46796598f7529595c16be1c32617822ef267b90dbca4619484de4a",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1800@19",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1800-PROJECT_CONFIGURATION-RULE--bind-every-tool-to-one-methodology-action.md",
+          "snapshot_sha256": "c4cb19ea62db3a85476ed31c9b5266ca3f1619b939229d46fcfae61a777c73c9",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        },
+        {
+          "pin": "CA-R-1991@13",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1991-CORE_META_MODEL-RULE--enable-containment-for-workflow-atoms.md",
+          "snapshot_sha256": "2ba90e621c5cd394a4e930cab335d13bc781f6b313f2c6c3ae455b9dcbb2d387",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 2,
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow) {:1+}<+ Atom/(.Header.Role: Operations)/(.Header.Form: Step)",
+      "audit_status": "unresolved",
+      "audit_message": "Unsupported Subject: cardinality must be {n}, {n+}, or {n..m}",
+      "classification": "WORKFLOW_OWNER_EXCLUDED",
+      "finding": "Legacy Workflow/Step compound expression and obsolete cardinality/qualification syntax; parser diagnostic alone does not establish missing Declaration.",
+      "resolution_or_question": "Workflow owner must reconcile the source Subject with the separately staged recursive Step model and Current-to-proposed syntax. No mapping or source inspection in this lane.",
+      "suppliers": [
+        {
+          "pin": "CA-M-444@5",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly.md",
+          "snapshot_sha256": "d3794f3b0f902703605cbe8a309e48dea4c688b8ab727de9868af19fa2b4018f",
+          "raw_value": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow) {:1+}<+ Atom/(.Header.Role: Operations)/(.Header.Form: Step)",
+          "current_check": "EXCLUDED_WORKFLOW_OWNER"
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 3,
+      "subject": "Entity/Object/Continuant/Actor/Operator",
+      "audit_status": "unresolved",
+      "audit_message": "Subject lacks an explicit parseable MODEL namespace; review required.",
+      "classification": "UNQUALIFIED_ACTOR_SCOPE",
+      "finding": "Bare legacy Actor/Operator lacks namespace; Actor Operator remains in model and must not be confused with removed CFEL Operator descriptors.",
+      "resolution_or_question": "Which exact declared Actor/Operator target is intended for this supplier? Preserve actor identity; no namespace or instance classification inferred.",
+      "suppliers": [
+        {
+          "pin": "CA-E-621@37",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-621-CORE_META_MODEL-EVAL_CASE--settings-artifact-usability.md",
+          "snapshot_sha256": "f3cadbc89afaf3e6a55156c68f19de0c322ef104bad33b545b7f0c349a663812",
+          "raw_value": "Entity/Object/Continuant/Actor/Operator",
+          "current_sha256": "f3cadbc89afaf3e6a55156c68f19de0c322ef104bad33b545b7f0c349a663812",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 4,
+      "subject": "Entity/Object/Continuant/Governing Objects/Governing Configuration",
+      "audit_status": "unresolved",
+      "audit_message": "Subject lacks an explicit parseable MODEL namespace; review required.",
+      "classification": "UNQUALIFIED_SETTINGS_SCOPE",
+      "finding": "Legacy Governing Configuration has no namespace. User directed configuration to Project properties, but supplier-specific focus and exact declared property still require review.",
+      "resolution_or_question": "Does this evaluation govern Project.Settings, its defaults, or another specific declared property? Reconcile its actual claim before changing the Subject.",
+      "suppliers": [
+        {
+          "pin": "CA-E-006@40",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md",
+          "snapshot_sha256": "909749d12b6dc525dfa6ed8e315d5717040632ec86c77e89c137d163e7e77263",
+          "raw_value": "Entity/Object/Continuant/Governing Objects/Governing Configuration",
+          "current_sha256": "909749d12b6dc525dfa6ed8e315d5717040632ec86c77e89c137d163e7e77263",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 5,
+      "subject": "Entity/Object/Continuant/History",
+      "audit_status": "unresolved",
+      "audit_message": "Subject lacks an explicit parseable MODEL namespace; review required.",
+      "classification": "UNQUALIFIED_HISTORY_SCOPE",
+      "finding": "Legacy History has no namespace; current target identity and model/instance scope cannot be inferred from this spelling.",
+      "resolution_or_question": "Which source-admitted History or Journal target does the Delivery actually address?",
+      "suppliers": [
+        {
+          "pin": "CA-D-670@1",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-670-CORE_META_MODEL-ENG_DECISION--bind-scope-unit-declarations-to-source-evidence.md",
+          "snapshot_sha256": "f18f6aa29ae095def1a50796a771f795f745db0c1fb3b987c7406fd7792d6d2d",
+          "raw_value": "Entity/Object/Continuant/History",
+          "current_sha256": "f18f6aa29ae095def1a50796a771f795f745db0c1fb3b987c7406fd7792d6d2d",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 6,
+      "subject": "Entity/Object/Continuant/Structural Unit/Scope Unit.Children",
+      "audit_status": "unresolved",
+      "audit_message": "Subject lacks an explicit parseable MODEL namespace; review required.",
+      "classification": "LEGACY_SCOPE_UNIT_RELATION",
+      "finding": "R2689 derives ancestry from explicit parent Relations. Children/Parent are old Property-like references, not proof that separate Scope Unit parent/children Properties exist.",
+      "resolution_or_question": "Reconcile R2689 Subject dependencies with supported IS_CONTAINED_BY/CONTAINS Relation authority; do not invent Scope Unit.Parent or .Children.",
+      "suppliers": [
+        {
+          "pin": "CA-R-2689@1",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2689-CORE_META_MODEL-RULE--derive-scope-unit-ancestry-from-declarations.md",
+          "snapshot_sha256": "231b696a82ee2de48e57234e4bdcf981e2638bc44eb8a39e69ebece84dd8b6bd",
+          "raw_value": "Entity/Object/Continuant/Structural Unit/Scope Unit.Children",
+          "current_sha256": "231b696a82ee2de48e57234e4bdcf981e2638bc44eb8a39e69ebece84dd8b6bd",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 7,
+      "subject": "Entity/Object/Continuant/Structural Unit/Scope Unit.Parent",
+      "audit_status": "unresolved",
+      "audit_message": "Subject lacks an explicit parseable MODEL namespace; review required.",
+      "classification": "LEGACY_SCOPE_UNIT_RELATION",
+      "finding": "R2689 derives ancestry from explicit parent Relations. Children/Parent are old Property-like references, not proof that separate Scope Unit parent/children Properties exist.",
+      "resolution_or_question": "Reconcile R2689 Subject dependencies with supported IS_CONTAINED_BY/CONTAINS Relation authority; do not invent Scope Unit.Parent or .Children.",
+      "suppliers": [
+        {
+          "pin": "CA-R-2689@1",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2689-CORE_META_MODEL-RULE--derive-scope-unit-ancestry-from-declarations.md",
+          "snapshot_sha256": "231b696a82ee2de48e57234e4bdcf981e2638bc44eb8a39e69ebece84dd8b6bd",
+          "raw_value": "Entity/Object/Continuant/Structural Unit/Scope Unit.Parent",
+          "current_sha256": "231b696a82ee2de48e57234e4bdcf981e2638bc44eb8a39e69ebece84dd8b6bd",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 8,
+      "subject": "Project.Framework Settings",
+      "audit_status": "unresolved",
+      "audit_message": "Subject lacks an explicit parseable MODEL namespace; review required.",
+      "classification": "SETTINGS_MERGE_CONSUMER",
+      "finding": "Old unqualified Project.Framework Settings is a source scope issue; user approved logical merge into Project.Settings without automatic physical file movement.",
+      "resolution_or_question": "Review E671 claim and bind its exact existing Project.Settings target while preserving settings/default and Carrier distinctions.",
+      "suppliers": [
+        {
+          "pin": "CA-E-671@1",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-671-CORE_META_MODEL-EVAL_CASE--validate-settings-boundaries-and-scope-unit-declarations.md",
+          "snapshot_sha256": "d8276e59cf186a398f194cc424f484d49c038e135261c7af444b8acb7a6289fe",
+          "raw_value": "Project.Framework Settings",
+          "current_sha256": "d8276e59cf186a398f194cc424f484d49c038e135261c7af444b8acb7a6289fe",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 9,
+      "subject": "{'Entity/Object/Continuant/Projection/Type': 'Scope Unit Graph'}",
+      "audit_status": "unresolved",
+      "audit_message": "Subject lacks an explicit parseable MODEL namespace; review required.",
+      "classification": "PROJECTION_LEGACY_MALFORMED",
+      "finding": "The legacy mapping-shaped value is not a parseable Subject path and refers to Scope Unit Graph. It does not prove the intended Projection.Form identity.",
+      "resolution_or_question": "Which declared projection/form, if any, is E672 evaluating? Do not map by similar label or silently stringify the mapping.",
+      "suppliers": [
+        {
+          "pin": "CA-E-672@1",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-672-CORE_META_MODEL-EVAL_POLICY--distinguish-scope-unit-declarations-from-observations.md",
+          "snapshot_sha256": "c32b44016be761c36a9ea731735a98edf7d09e25027fe65ffc087a110f4bf5e7",
+          "raw_value": "{'Entity/Object/Continuant/Projection/Type': 'Scope Unit Graph'}",
+          "current_sha256": "c32b44016be761c36a9ea731735a98edf7d09e25027fe65ffc087a110f4bf5e7",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 10,
+      "subject": "CAPRMEDIO_MODEL",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "MODEL_NAMESPACE_FOCUS",
+      "finding": "R2559 has the namespace alone as active Subject while its Claim declares MODEL; this is a scope/focus issue, not a demonstrably missing kind.",
+      "resolution_or_question": "Determine the canonical MODEL Declaration Subject in the existing namespace scheme; do not treat a namespace as a synthesized entity or assume a replacement.",
+      "suppliers": [
+        {
+          "pin": "CA-R-2559@2",
+          "role": "active",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2559-CORE_META_MODEL-DECLARATION--declare-model.md",
+          "snapshot_sha256": "365bc7d8a6f0cf72740253ae73c83475a22d70fba83497ae9abed6c28b379263",
+          "raw_value": "CAPRMEDIO_MODEL",
+          "current_sha256": "365bc7d8a6f0cf72740253ae73c83475a22d70fba83497ae9abed6c28b379263",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 11,
+      "subject": "CAPRMEDIO_MODEL <+ (Node,Node.**)",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGITIMATE_MODEL_SELECTION",
+      "finding": "Current R2469/R2470 explicitly govern (Node, Node.**) and R2462 supplies its selected model coverage. The group is a legitimate multi-target selection; it is not a single primary entity.",
+      "resolution_or_question": "Retain the full scoped group and its complex-scope diagnostic; check reader support in the staged grammar, without claiming Current reader migration.",
+      "suppliers": [
+        {
+          "pin": "CA-R-2469@4",
+          "role": "active",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2469-CORE_META_MODEL-RULE--require-one-declaration-for-each-node.md",
+          "snapshot_sha256": "c6eef213897a925b1ba4c52251becf497d920993c735756446df515f635f6c64",
+          "raw_value": "CAPRMEDIO_MODEL <+ (Node, Node.**)",
+          "current_sha256": "c6eef213897a925b1ba4c52251becf497d920993c735756446df515f635f6c64",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-R-2470@2",
+          "role": "active",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2470-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md",
+          "snapshot_sha256": "4538f6da853f355069f985f84354a421b15ac7c792aa10859550f5486dbcf8fe",
+          "raw_value": "CAPRMEDIO_MODEL <+ (Node, Node.**)",
+          "current_sha256": "4538f6da853f355069f985f84354a421b15ac7c792aa10859550f5486dbcf8fe",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 12,
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGACY_COMPOSITION_SCOPE",
+      "finding": "Compound old History/Journal <+ Event Record expresses a scoped composition, not one missing direct target. Event Record/Journal endpoint authority is separately staged.",
+      "resolution_or_question": "Which currently admitted Journal/Event Record relation and namespace express this exact supplier scope, without inventing a new entity?",
+      "suppliers": [
+        {
+          "pin": "CA-D-360@27",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL-ENG_DECISION--bind-framework-settings-revisions-to-journal-receipts.md",
+          "snapshot_sha256": "f54f12b4b3464ed0572c9976f7d88c1877998cdc5ba2df511e6ded84e4105238",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record",
+          "current_sha256": "f54f12b4b3464ed0572c9976f7d88c1877998cdc5ba2df511e6ded84e4105238",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-E-379@46",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md",
+          "snapshot_sha256": "14cd076704cea5b4d65391b144bbb9edf9ed3e556075abcb4a00711911da0b73",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record",
+          "current_sha256": "14cd076704cea5b4d65391b144bbb9edf9ed3e556075abcb4a00711911da0b73",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 13,
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGACY_PACKAGE_CHAIN",
+      "finding": "Old Entity-root Package/Module chain is a composition scope. R1321 has a staged syntax consumer, but its Draft does not alone establish identity or admission of each component.",
+      "resolution_or_question": "Which exact source-admitted complete targets and containment relations preserve this chain? Do not infer kinds or a path from name similarity.",
+      "suppliers": [
+        {
+          "pin": "CA-E-382@50",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md",
+          "snapshot_sha256": "c015529a32546da7407d9a592c715deebf945b628ba7a0ded588c84ca4ca484b",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module",
+          "current_sha256": "c015529a32546da7407d9a592c715deebf945b628ba7a0ded588c84ca4ca484b",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-E-444@36",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+          "snapshot_sha256": "ca214061df4aa1d07d5971a191fc97645376344a9a9ac27a762ee8167fe9894b",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module",
+          "current_sha256": "ca214061df4aa1d07d5971a191fc97645376344a9a9ac27a762ee8167fe9894b",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-E-472@31",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-472-CORE_META_MODEL-POLICY--check-simple-wording-without-meaning-loss.md",
+          "snapshot_sha256": "25080fb0077a46dbfc7e451f9e5b48a6dfdcc25a735ec5d1aa5ae34b1d5a5e16",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module",
+          "current_sha256": "25080fb0077a46dbfc7e451f9e5b48a6dfdcc25a735ec5d1aa5ae34b1d5a5e16",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-R-1321@35",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+          "snapshot_sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module",
+          "current_sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 14,
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGACY_PACKAGE_CHAIN",
+      "finding": "Old Entity-root Package/Module/Code Unit chain is a composition scope. R1321 has a staged syntax consumer, but its Draft does not alone establish identity or admission of each component.",
+      "resolution_or_question": "Which exact source-admitted complete targets and containment relations preserve this chain? Do not infer kinds or a path from name similarity.",
+      "suppliers": [
+        {
+          "pin": "CA-E-382@50",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md",
+          "snapshot_sha256": "c015529a32546da7407d9a592c715deebf945b628ba7a0ded588c84ca4ca484b",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit",
+          "current_sha256": "c015529a32546da7407d9a592c715deebf945b628ba7a0ded588c84ca4ca484b",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-E-444@36",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+          "snapshot_sha256": "ca214061df4aa1d07d5971a191fc97645376344a9a9ac27a762ee8167fe9894b",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit",
+          "current_sha256": "ca214061df4aa1d07d5971a191fc97645376344a9a9ac27a762ee8167fe9894b",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-E-472@31",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-472-CORE_META_MODEL-POLICY--check-simple-wording-without-meaning-loss.md",
+          "snapshot_sha256": "25080fb0077a46dbfc7e451f9e5b48a6dfdcc25a735ec5d1aa5ae34b1d5a5e16",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit",
+          "current_sha256": "25080fb0077a46dbfc7e451f9e5b48a6dfdcc25a735ec5d1aa5ae34b1d5a5e16",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-R-1321@35",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+          "snapshot_sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit",
+          "current_sha256": "119e600fbe0599d12bb76c9ed46f62e73a8e2e2b248949428a9d2893a32b9698",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-R-1931@18",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+          "snapshot_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit",
+          "current_sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 15,
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Prompt",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGACY_PROMPT_CHAIN",
+      "finding": "Old Package <+ Prompt expression is a scoped composition; R1560 Claim concerns Direct Route Skills and does not itself prove a Prompt node/containment mapping.",
+      "resolution_or_question": "What source-declared target and Relation, if any, represent this supplier\u2019s actual focus? Do not invent Prompt or Module authority.",
+      "suppliers": [
+        {
+          "pin": "CA-R-1560@19",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1560-PROJECT_CONFIGURATION-RULE--permit-operator-defined-direct-route-skills.md",
+          "snapshot_sha256": "1dde4c528d39488eb473c9aff6b14aa5ea60f8122e92b6555f2ed31ce81de803",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Prompt",
+          "current_sha256": "1dde4c528d39488eb473c9aff6b14aa5ea60f8122e92b6555f2ed31ce81de803",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 16,
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Applicable Methodology",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGACY_PROJECTION_IDENTITY",
+      "finding": "Legacy Projection/Type:Applicable Methodology is not a confirmed current Projection.Form or an independently established instance selection. Similar labels and a staged syntax change do not establish identity.",
+      "resolution_or_question": "Is Applicable Methodology an existing declared Projection.Form/instance, a retired view, or still deferred? Review each supplier before choosing a target.",
+      "suppliers": [
+        {
+          "pin": "CA-D-550@20",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL-ENG_DECISION--centralize-project-projection-carriers.md",
+          "snapshot_sha256": "269c09c682181356a6e1476473af8754b554ba3e69f62bf27df3f24f44ba40ac",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "current_sha256": "269c09c682181356a6e1476473af8754b554ba3e69f62bf27df3f24f44ba40ac",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-E-379@46",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md",
+          "snapshot_sha256": "14cd076704cea5b4d65391b144bbb9edf9ed3e556075abcb4a00711911da0b73",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "current_sha256": "14cd076704cea5b4d65391b144bbb9edf9ed3e556075abcb4a00711911da0b73",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-E-437@27",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/06_evaluation/CA-E-437-POLICY--evaluate-methodology-alignment-support.md",
+          "snapshot_sha256": "0a6ee1510d2e1371f3fafc0491ad8524b5c62cb000adf7cf5c38ebdabbdd8590",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "current_sha256": "0a6ee1510d2e1371f3fafc0491ad8524b5c62cb000adf7cf5c38ebdabbdd8590",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-E-476@23",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-EVAL_CASE--check-the-journal-storage-boundary.md",
+          "snapshot_sha256": "e75e878569f91ddf6c60f3a47c6bab8132a2827a1d6482269b14de7e716447f4",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "current_sha256": "e75e878569f91ddf6c60f3a47c6bab8132a2827a1d6482269b14de7e716447f4",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-M-296@21",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/05_method/CA-M-296-IMPLEMENTATION_METHOD--do-not-rely-on-memory-files.md",
+          "snapshot_sha256": "43326198dbc7359b7c49a577e8778755afe68d39d9493b789cee48691d82e21f",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "current_sha256": "43326198dbc7359b7c49a577e8778755afe68d39d9493b789cee48691d82e21f",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-R-1178@28",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-1178-CAPRMEDIO-SCOPE_CONTRACT-GOAL--reduce-tokens-mistakes-and-context-clutter.md",
+          "snapshot_sha256": "823f949778dbbcf451f80a4b19538d183471f4c7fe773f31fe6406d12db850b7",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "current_sha256": "823f949778dbbcf451f80a4b19538d183471f4c7fe773f31fe6406d12db850b7",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-R-1219@32",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1219-CORE_META_MODEL-DEFINITION--define-methodology-source.md",
+          "snapshot_sha256": "ecc1c5fcee0c8192c3ff3d915533d82ceb373c6a6d559ca1107b1688b9551799",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "current_sha256": "ecc1c5fcee0c8192c3ff3d915533d82ceb373c6a6d559ca1107b1688b9551799",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-R-1424@28",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/04_requirement/CA-R-1424-GOAL--provide-tools-to-maintain-methodology-alignment.md",
+          "snapshot_sha256": "484bb1b86c2b1a9aebd985579b608def23681f4eaa064ab683abc8491cd5cfcb",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "current_sha256": "484bb1b86c2b1a9aebd985579b608def23681f4eaa064ab683abc8491cd5cfcb",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-R-1491@29",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md",
+          "snapshot_sha256": "c5085cf95922e012bc55a57fcaaeb4a0a536ded9ea21296e59090a07a16547d8",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "current_sha256": "c5085cf95922e012bc55a57fcaaeb4a0a536ded9ea21296e59090a07a16547d8",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-R-1577@23",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1577-CORE_META_MODEL-DEFINITION--define-plan-authoring-subtypes.md",
+          "snapshot_sha256": "00b5730c7867787b06784d6750a4f29ab85a619ce6be56e18f9235560d8958c4",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology",
+          "current_sha256": "00b5730c7867787b06784d6750a4f29ab85a619ce6be56e18f9235560d8958c4",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 17,
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Artifact Change Log",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGACY_PROJECTION_IDENTITY",
+      "finding": "Legacy Projection/Type:Artifact Change Log is not a confirmed current Projection.Form or an independently established instance selection. Similar labels and a staged syntax change do not establish identity.",
+      "resolution_or_question": "Is Artifact Change Log an existing declared Projection.Form/instance, a retired view, or still deferred? Review each supplier before choosing a target.",
+      "suppliers": [
+        {
+          "pin": "CA-E-464@24",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-POLICY--validate-journal-independence-from-git.md",
+          "snapshot_sha256": "3ec93c268712b295db59ea022e06b132b3a8c0baa877b005ac59d66fe2c54d0a",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log",
+          "current_sha256": "3ec93c268712b295db59ea022e06b132b3a8c0baa877b005ac59d66fe2c54d0a",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-R-1463@26",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-RULE--derive-log-views-from-the-shared-journal.md",
+          "snapshot_sha256": "4a17e368ad98240a552e9645ef8d775db1576ec5693bbc56357561fdbf32d955",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log",
+          "current_sha256": "4a17e368ad98240a552e9645ef8d775db1576ec5693bbc56357561fdbf32d955",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 18,
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Canonical Scope Signature",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGACY_PROJECTION_IDENTITY",
+      "finding": "Legacy Projection/Type:Canonical Scope Signature is not a confirmed current Projection.Form or an independently established instance selection. Similar labels and a staged syntax change do not establish identity.",
+      "resolution_or_question": "Is Canonical Scope Signature an existing declared Projection.Form/instance, a retired view, or still deferred? Review each supplier before choosing a target.",
+      "suppliers": [
+        {
+          "pin": "CA-E-407@30",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-407-CORE_META_MODEL-POLICY--validate-canonical-scope-signature-boundary.md",
+          "snapshot_sha256": "3a7a7cd453d4571e00af90abccedae8f3fabbff4df58ec61b571e59bc9eae4f2",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Canonical Scope Signature",
+          "current_sha256": "3a7a7cd453d4571e00af90abccedae8f3fabbff4df58ec61b571e59bc9eae4f2",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-M-241@28",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-241-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-canonical-scope-signatures-without-source-rewrite.md",
+          "snapshot_sha256": "732cb83f371ab6d2d239371a91f3098950c418a5fa1843b5253a0f07f4316248",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Canonical Scope Signature",
+          "current_sha256": "732cb83f371ab6d2d239371a91f3098950c418a5fa1843b5253a0f07f4316248",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 19,
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Process Log",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGACY_PROJECTION_IDENTITY",
+      "finding": "Legacy Projection/Type:Process Log is not a confirmed current Projection.Form or an independently established instance selection. Similar labels and a staged syntax change do not establish identity.",
+      "resolution_or_question": "Is Process Log an existing declared Projection.Form/instance, a retired view, or still deferred? Review each supplier before choosing a target.",
+      "suppliers": [
+        {
+          "pin": "CA-E-464@24",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-POLICY--validate-journal-independence-from-git.md",
+          "snapshot_sha256": "3ec93c268712b295db59ea022e06b132b3a8c0baa877b005ac59d66fe2c54d0a",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log",
+          "current_sha256": "3ec93c268712b295db59ea022e06b132b3a8c0baa877b005ac59d66fe2c54d0a",
+          "matches_snapshot": true
+        },
+        {
+          "pin": "CA-R-1463@26",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-RULE--derive-log-views-from-the-shared-journal.md",
+          "snapshot_sha256": "4a17e368ad98240a552e9645ef8d775db1576ec5693bbc56357561fdbf32d955",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log",
+          "current_sha256": "4a17e368ad98240a552e9645ef8d775db1576ec5693bbc56357561fdbf32d955",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 20,
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Realization Graph",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGACY_PROJECTION_IDENTITY",
+      "finding": "Legacy Projection/Type:Realization Graph is not a confirmed current Projection.Form or an independently established instance selection. Similar labels and a staged syntax change do not establish identity.",
+      "resolution_or_question": "Is Realization Graph an existing declared Projection.Form/instance, a retired view, or still deferred? Review each supplier before choosing a target.",
+      "suppliers": [
+        {
+          "pin": "CA-R-1616@25",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1616-PROJECT_CONFIGURATION-RULE--define-realization-graph.md",
+          "snapshot_sha256": "0dc0173bcc9eb13c61ac6862779d46cc828908d5627222bebeb9e3e65bc7de16",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Realization Graph",
+          "current_sha256": "0dc0173bcc9eb13c61ac6862779d46cc828908d5627222bebeb9e3e65bc7de16",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 21,
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Reconciled Projection",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGACY_PROJECTION_IDENTITY",
+      "finding": "Legacy Projection/Type:Reconciled Projection is not a confirmed current Projection.Form or an independently established instance selection. Similar labels and a staged syntax change do not establish identity.",
+      "resolution_or_question": "Is Reconciled Projection an existing declared Projection.Form/instance, a retired view, or still deferred? Review each supplier before choosing a target.",
+      "suppliers": [
+        {
+          "pin": "CA-R-1213@40",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1213-PROJECT_CONFIGURATION-RULE--define-applicable-methodology-as-a-compiled-projection.md",
+          "snapshot_sha256": "78ce37e2a37232355b5dce990ff5ee9853e75eeb4f70295da44e34b7f3294572",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Reconciled Projection",
+          "current_sha256": "78ce37e2a37232355b5dce990ff5ee9853e75eeb4f70295da44e34b7f3294572",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 22,
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Scope Unit Graph",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGACY_PROJECTION_IDENTITY",
+      "finding": "Legacy Projection/Type:Scope Unit Graph is not a confirmed current Projection.Form or an independently established instance selection. Similar labels and a staged syntax change do not establish identity.",
+      "resolution_or_question": "Is Scope Unit Graph an existing declared Projection.Form/instance, a retired view, or still deferred? Review each supplier before choosing a target.",
+      "suppliers": [
+        {
+          "pin": "CA-R-1052@41",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-RULE--separate-project-settings-from-the-project-scope-unit-graph.md",
+          "snapshot_sha256": "55a4d84ce8866b7ee6b56d9029db5a9ccca21f5f4a57654a735ff6c39d4bdcf5",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Scope Unit Graph",
+          "current_sha256": "55a4d84ce8866b7ee6b56d9029db5a9ccca21f5f4a57654a735ff6c39d4bdcf5",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    },
+    {
+      "number": 23,
+      "subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type:Terms Graph",
+      "audit_status": "unresolved",
+      "audit_message": "Subject is not one direct known target; review required.",
+      "classification": "LEGACY_PROJECTION_IDENTITY",
+      "finding": "Legacy Projection/Type:Terms Graph is not a confirmed current Projection.Form or an independently established instance selection. Similar labels and a staged syntax change do not establish identity. Terms Graph remains deferred.",
+      "resolution_or_question": "Is Terms Graph an existing declared Projection.Form/instance, a retired view, or still deferred? Review each supplier before choosing a target.",
+      "suppliers": [
+        {
+          "pin": "CA-R-1345@29",
+          "role": "passive",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1345-CORE_META_MODEL-RULE--keep-the-narrower-than-graph-acyclic.md",
+          "snapshot_sha256": "f39df22cca9398efb859b357a14a2ff0b36eab8017bc2a9f8fbaa570fc85b540",
+          "raw_value": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Terms Graph",
+          "current_sha256": "f39df22cca9398efb859b357a14a2ff0b36eab8017bc2a9f8fbaa570fc85b540",
+          "matches_snapshot": true
+        }
+      ],
+      "staged_candidates": []
+    }
+  ],
+  "interpretation": [
+    "The staged syntax and final49 are Drafts, not evidence of Current grammar or source repair. Neither /\u2192containment nor //\u2192narrowing is Current solely from those Drafts.",
+    "None of the 23 unresolved Subject expressions is a CFEL Operator descriptor; no row is declared resolved merely because the modeled CFEL Operator branch is slated for retirement. Actor Operator and Term registry remain distinct.",
+    "Lack of MODEL namespace is a parser/scope diagnostic; it is not by itself proof that a target is an instance or property.",
+    "Workflow-related expressions are categorized only from published audit evidence and left to their owner; no Workbench/Workflow sources altered or independently audited.",
+    "The audit has 54 separate known-missing entries outside this review; their status is unchanged."
+  ],
+  "boundary": "Bounded disposition of published 025 against its selected 1167-source snapshot. Snapshot pins may drift from live sources; per-occurrence current hashes are included where inspected. No code, tests, source, Git, Workbench or Workflow edits."
+}

@@ -1,0 +1,76 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2462@5-draft-CORE_META_MODEL-DECLARATION--declare-node.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/typed-model-repair/CA-R-2462.preview.txt
+@@ -27,27 +27,27 @@
+ 
+ ```CFEL
+ # model
+-(Node, Node.**) {:0}((*));
++(Node, Node.**) {::0}((*));
+ 
+-(Node, Node.**) {:0+}((HAS_ALLOWED_VALUE));
++(Node, Node.**) {::0+}((HAS_ALLOWED_VALUE));
+ 
+-(Node, Node.**) {:0+}((HAS_VALUE_CONSTRAINT));
++(Node, Node.**) {::0+}((HAS_VALUE_CONSTRAINT));
+ 
+-Node {:0}((IS_PROPERTY_OF));
++Node {::0}((IS_PROPERTY_OF));
+ 
+-(Node, Node.**) {:0..1}((IS_PROPERTY_OF));
++(Node, Node.**) {::0..1}((IS_PROPERTY_OF));
+ 
+-(Node, Node.**) {:1}((IS_DECLARED_BY));
++(Node, Node.**) {::1}((IS_DECLARED_BY));
+ 
+-Node {:0+}((NARROWER_THAN)) Node;
++Node {::0+}((NARROWER_THAN)) Node;
+ 
+-Node {:0+}((HAS_NARROWER)) Node;
++Node {::0+}((HAS_NARROWER)) Node;
+ 
+-Node.** {:1}((IS_PROPERTY_OF)) (Node, Node.**);
++Node.** {::1}((IS_PROPERTY_OF)) (Node, Node.**);
+ 
+-(Node, Node.**) {:0+}((HAS_PROPERTY)) Node.**;
++(Node, Node.**) {::0+}((HAS_PROPERTY)) Node.**;
+ 
+-Node.** {:0+}((HAS_INSTANCE)) Node.**//;
++Node.** {::0+}((HAS_INSTANCE));
+ 
+ IF $model_node in (Node, Node.**) THEN (
+ IF ($model_node {=0}((IS_PROPERTY_OF)))
+@@ -61,25 +61,23 @@
+ );
+ 
+ # instances
+-Node//$node;
++$node[<Node>];
+ 
+-($node, $node.**) {:0}((*));
++($node, $node.**) {::0}((*));
+ 
+-($node, $node.**) {:0+}((HAS_ALLOWED_VALUE));
++($node, $node.**) {::0+}((HAS_ALLOWED_VALUE));
+ 
+-($node, $node.**) {:0+}((HAS_VALUE_CONSTRAINT));
++($node, $node.**) {::0+}((HAS_VALUE_CONSTRAINT));
+ 
+-$node {:0+}((INSTANCE_OF)) Node;
++$node {::0+}((INSTANCE_OF)) Node;
+ 
+-Node {:0+}((HAS_INSTANCE)) $node;
++Node {::0+}((HAS_INSTANCE)) $node;
+ 
+-$node.** {:1}((IS_PROPERTY_OF)) ($node, $node.**);
++$node.** {::1}((IS_PROPERTY_OF)) ($node, $node.**);
+ 
+-$node.** {:1}((INSTANCE_OF)) Node.**;
++$node.** {::1}((INSTANCE_OF)) Node.**;
+ 
+-Node.**//{:0..1};
+-
+-($node, $node.**) {:0+}((HAS_PROPERTY)) $node.**;
++($node, $node.**) {::0+}((HAS_PROPERTY)) $node.**;
+ ```
+ 
+ ### Prose Claim

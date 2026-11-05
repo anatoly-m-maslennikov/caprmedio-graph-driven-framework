@@ -1,0 +1,32 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2465.preview.txt
+@@ -27,22 +27,22 @@
+ 
+ ```CFEL
+ # model
+-Atom/(.Header.Role := Operations)/Step;
++Atom//(.Header.Role := Operations)//Step;
+ 
+-Atom/(.Header.Role := Operations)/Step >| (Container == yes);
++Atom//(.Header.Role := Operations)//Step >| (Container == yes);
+ 
+ # instances
+-Step//$step;
++$step[<Step>];
+ 
+-$step{::1}((IS_CONTAINED_BY)) (in (Workflow, Step))//$parent;
++$step{::1}((IS_CONTAINED_BY)) $parent[<Workflow> OR <Step>];
+ 
+-IF $step {=0}((RUNS)) THEN $step {::1+}((CONTAINS)) Step//$nested_step;
++IF $step {=0}((RUNS)) THEN $step {::1+}((CONTAINS)) $nested_step[<Step>];
+ 
+ IF $step {>0}((RUNS)) THEN $step {::0}((CONTAINS));
+ 
+-IF $step {=0}((CONTAINS)) THEN $step {::1}((RUNS)) (in (Action, Workflow))//$selected;
++IF $step {=0}((CONTAINS)) THEN $step {::1}((RUNS)) $selected[<Action> OR <Workflow>];
+ 
+-Step//$definition {::0+}((HAS_EXECUTION)) Step Run//$run
++$definition[<Step>] {::0+}((HAS_EXECUTION)) $run[<Step Run>]
+ ```
+ 
+ ### Prose Claim

@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "scope": "Independent read-only review of four retained previews and one unallocated VALUES Rule; no native, code, test, or Git change.",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/manifest.json",
+  "reviews": [
+    {
+      "id": "CA-R-2243",
+      "status": "PASS",
+      "evidence": "Existing @13 Draft is byte-identical to its preview; cardinality bounds, occurrence/value/name distinctions, reverse slots, and omission semantics are unchanged."
+    },
+    {
+      "id": "CA-R-2563",
+      "status": "PASS",
+      "evidence": "FENCED_LABELS retains one label per fenced-block occurrence, duplicate and empty-label behavior, per-bearer scope, explicit count/Format handling, and error handling for missing/multiple/malformed/ambiguous inputs."
+    },
+    {
+      "id": "CA-R-2566",
+      "status": "PASS",
+      "evidence": "VALUES selects direct p values only; same-instance filters, left-to-right short-circuiting, evaluated-error behavior, current-Project snapshot, scalar requirement, ordering, empty/incomplete/incompatible/non-orderable errors, and MAX scalar tie behavior are retained."
+    },
+    {
+      "id": "CA-R-2585",
+      "status": "PASS",
+      "evidence": "VALUES(p) denotes actual direct value occurrences rather than allowed values or constraints; duplicates, known absence, malformed/unresolved errors, Format equality, and per-bearer scope are retained. COUNT(VALUES(p)) and COUNT(DISTINCT VALUES(p)) are canonical and unambiguous."
+    },
+    {
+      "id": "VALUES_RULE_UNALLOCATED",
+      "status": "PASS",
+      "evidence": "The new approved VALUES Rule adds only direct actual-value selection, excludes recursive and constraint-data traversal, preserves duplicate/absence/error semantics and applicable cardinality/Format, and allocates no ID."
+    }
+  ],
+  "non_changes_verified": [
+    "UNIQUE and DETERMINES tuple fields remain their Current single-value-per-selected-instance/state constructs; no blind VALUES rewrite is introduced.",
+    "No parser implementation or executable function beyond the approved unallocated VALUES construct is proposed."
+  ],
+  "limitations": [
+    "VALUES is source-only and unallocated; parser implementation and coordinated native adoption remain later work."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "python3 \"${PLUGIN_ROOT}/hooks/session_start.py\"",
+        "additionalContextLimit": 500,
+        "statusMessage": "Preparing CAPRMEDIO Workbench context"
+      }
+    ]
+  }
+}

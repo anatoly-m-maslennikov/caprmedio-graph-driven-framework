@@ -1,0 +1,75 @@
+{
+  "status": "ONE_PARTIAL_PREVIEW_THREE_PRECISE_HOLDS",
+  "rows": [
+    {
+      "id": "CA-R-2276",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2276@7-draft-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "draft_sha256": "484597e14d3dcb7408db27848c79d3042d6c5801a2f548f1d2a465b2290a0cd1",
+      "draft_version": 7,
+      "active_subject": "CAPRMEDIO_MODEL",
+      "current_sources": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+          "sha256": "305ea99fee46090bffe1df0d58e49bf6bdc2ad292d964e8e8a646d31d277d633"
+        }
+      ],
+      "disposition": "PARTIAL_PREVIEW_HOLD_QUALIFIED_PATH_MIGRATION",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/lexical-subject-repair-20261105/CA-R-2276.preview.txt",
+      "preview_sha256": "d498e954fa476aa3b9f7eef41c9bc61baf00c7b6ec216f8e9e42c344d43d6bc5",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/lexical-subject-repair-20261105/CA-R-2276.diff",
+      "diff_sha256": "3b50934aac9865db0b9e9c0cb205597b4083d668893d4f2dc747037054840e46",
+      "finding": "Removes false value-entity classification while preserving universal entity naming/Term authority. Package <+ Module <+ Code Unit example and Relation registry remain pending coordinated path/metadata migration; preview is not whole-promotion-ready."
+    },
+    {
+      "id": "CA-E-444",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-444@35-draft-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "draft_sha256": "672091a3e721d5ccc6112589046bcb37e29af08ff9bd6a6a290d9b6d2afc8bdd",
+      "draft_version": 35,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom",
+      "current_sources": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+          "sha256": "ca214061df4aa1d07d5971a191fc97645376344a9a9ac27a762ee8167fe9894b"
+        }
+      ],
+      "disposition": "HOLD_EXACT_TARGETS",
+      "finding": "Fixtures and passive Subjects use Entity/Object/Continuant Package, Eval Package, Runtime Package and Terms Graph paths; exact source-admitted replacements and their illustrated unique identity must be resolved before rewriting. Existing Term registration/one-to-one naming checks retained."
+    },
+    {
+      "id": "CA-E-246",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-246@48-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md",
+      "draft_sha256": "318baedf571ded115a64cc7609cf026b79171f8e6f37d3abaae6b7b450dc2890",
+      "draft_version": 48,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Subjects",
+      "current_sources": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md",
+          "sha256": "9f6fdb1f34591e398edb050628ae52679dc9e6a3a7aafbc28d6356e6451ecf52"
+        }
+      ],
+      "disposition": "HOLD_EXACT_TARGETS_AND_FIXTURES",
+      "finding": "Legacy Entity-root Atom Subjects Graph and Demand/Action/Workflow qualifiers appear both as passive targets and test fixtures, including an explicit five-Term expectation. Exact replacement graph target and lexical segmentation are not established; preserve direct Subject link, narrowest-target and mention coverage tests."
+    },
+    {
+      "id": "CA-M-125",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-125@48-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md",
+      "draft_sha256": "34cd9d43846cc9e890d40309366e2f83222d2c38514c5503649ee7470c1b96b6",
+      "draft_version": 48,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Subjects",
+      "current_sources": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md",
+          "sha256": "f260c13b9cdbca25cdae58b2f177180eb9ebadbf88cb1a34fe4ca5a9978748fd"
+        }
+      ],
+      "disposition": "HOLD_INSTANCE_AND_TERM_CONTEXT",
+      "finding": "Legacy // instance-address prose and Entity passive require coordination with typed-participant and exact Term/entity source mappings; avoid rewriting Subject mentions to Node or changing Term registration, direct link or mention inventory semantics without an admitted concrete mapping."
+    }
+  ],
+  "common_authority": [
+    "Generic Entity is a Term, not a root or Node synonym.",
+    "HAV := alternatives OR; HVC :: constraints AND; literal values are not model Nodes.",
+    "No Current, native Draft, Workflows, Workbench, code, tests or Git edits."
+  ],
+  "integration_gate": "All four remain held for whole-source admission until exact path/fixture migrations and final 49-value Relation syntax are reconciled. R2276 preview is a narrow partial repair only."
+}

@@ -7,18 +7,56 @@ The MCP endpoint is `/caprmedio/mcp`; health is `/caprmedio/health`.
 
 MCP tools:
 
-- `query_run(sql, page_size=100, cursor_position?)` returns selected `sql`, a `query_id`, original column metadata,
+- `query_run(sql, page_size=100, cursor_position?, save=false, preview?, name?)` returns selected `sql`, a `query_id`, original column metadata,
   positional rows, total counts, offset and `has_more`.
 - `query_page(query_id, offset, page_size=100)` reads the same result without
   re-executing SQL. The maximum page size is 1,000.
 - `query_check(sql, cursor_position?)` returns selected `sql`, validity and exact counts without transferring all rows.
 - `query_schema()` returns table/column names and types for completion.
-- `query_save(sql, cursor_position?, name?)` saves SQL with an optional creation name.
-- `worksheet_save(sql, name?)` saves a whole multi-query script with an optional name.
+- `view_save(sql, name?)` saves a whole multi-query script with an optional name.
 - `query_load(reference)` opens a saved ID or full URL without executing it.
-- `query_saved_list(limit=20)` lists the most recent saved queries and Worksheets.
+- `query_saved_list(limit=20)` lists the most recent saved queries and Views.
+- `workbench_restart()` restarts only this Project's Workbench index and query owner.
+- `workbench_reread()` discards the derived DuckDB database and rebuilds it from source, including changed table schemas.
 
-Run and Check do not persist SQL or create saved IDs. Explicit Save and Save Worksheet
+`preview=N` returns at most N rows while preserving an existing SQL LIMIT;
+omitting it adds no limit. `save=true` saves the exact original selected SQL
+only after a successful Run. Preview never changes saved SQL. An optional `name`
+requires `save=true`. If saving fails after Run succeeds, the normal response
+keeps its rows and query ID and includes `outcome: "partial"` and `save_error`,
+without a new saved ID. MCP returns a normal result and HTTP returns 200.
+
+Single-project MCP tools accept an optional top-level `project_root` matching
+their bound host or container Project root. Shared MCP requires this field.
+The gateway validates and removes it before native dispatch; it cannot switch
+the Project of a single-project service.
+
+`workbench_restart()` is available through MCP and the fixed health-page
+`Restart Workbench` form. It has no Workbench frontend control and accepts no
+generic service, shell or Docker command. It closes the existing Workbench
+owner, rebuilds its index, and returns
+`{service: "workbench", status: "ready"}` only when the replacement is ready.
+Old query-result IDs become unavailable; saved query and View IDs remain
+loadable. MCP and other services continue running. A Scope Unit Declaration
+that remains invalid causes an explicit unavailable error; correct it and call
+`workbench_restart()` again. Restart does not retry automatically, control Docker,
+run shell commands, or write a Business Journal event.
+
+The native health form posts only to `/caprmedio/health/workbench-restart`.
+On a shared host it requires exactly one `project_root` Project folder; a
+single-project host accepts an empty form only. It uses the same MCP tool
+boundary as direct callers. The ordinary health GET and JSON readiness response
+remain read-only.
+
+The health-page `Full reread` button posts to
+`/caprmedio/health/workbench-reread` through the same MCP operation. It closes
+Workbench, removes only its derived database, WAL and temporary files, then
+creates a fresh database and reads Current and Draft sources. Old tables,
+columns and query-result IDs do not survive. Source files, saved queries,
+Views and their Journal remain unchanged. Failure reports unavailable;
+there is no automatic retry or fallback to the old database.
+
+Ordinary Run and Check do not create permanent saved-item IDs. Every actual Run records SQL, success/fail, error and row/column counts in the separate runtime query log; Check does not. Log records expire after seven days on use and contain no result rows. Saved Views do not expire. Run & Save and Save View
 create immutable entries in the configured Project Journal, in date-partitioned
 `workbench-saved-items-…-part-N.ndjson` files. Each entry has a canonical UUIDv7,
 kind, exact SQL, optional name and save timestamp. Parts hold about 1,000 entries
@@ -26,33 +64,57 @@ under concurrent appends. Existing runtime `q_….sql` and `w_….json` files re
 read-only compatibility sources; their IDs and URLs keep working.
 A saved URL uses `?query=<id>`. Saved entries are not renamed.
 
-Each editor tab is a Worksheet. Run, Check and Save select the statement at the
-cursor; Save Worksheet saves the whole script. Semicolons inside SQL literals or
+Each editor tab is a View. Run, Check and Run & Save select the statement at the
+cursor; Save View saves the whole script. Semicolons inside SQL literals or
 comments do not split statements. MCP callers may pass `cursor_position` in
 UTF-16 code units; without it, the submitted SQL is used unchanged.
 Cmd+Enter runs and Shift+Cmd+Enter checks. Cmd+P opens the searchable command
 palette for every current UI action. Arrow Up/Ctrl+P and Arrow Down/Ctrl+N move
 the selection; Enter chooses and Escape closes. Settings contains Theme and Zoom.
-The next utility tab lists saved queries and Worksheets. Open Saved is available only in the command palette: Cmd+P, choose Open Saved,
+The standalone Workbench chat is disabled; use native Codex chat.
+The next utility tab lists saved queries and Views. Open Saved is available only in the command palette: Cmd+P, choose Open Saved,
 paste an ID or URL, then Enter.
 
 The CodeMirror editor completes names from the current schema and values in
 status equality literals, such as `status = 'Act`. Schema metadata provides
 observed status values; typing does not run or save SQL.
-Local browser drafts and optional current Worksheet names autosave every five seconds and
+Local browser drafts and optional current View names autosave every five seconds and
 restore after reload; unsaved tabs/windows ask before closing. Saved SQL opens
 without execution. Light, Dark and System themes and text-only zoom cover all UI
 text, including buttons, tabs and result cells.
 
-Rename current Worksheets locally. Save Worksheet copies that optional name;
-explicit Save can take a query name.
+Rename current Views; bound Workspaces share those names with MCP. Save View copies that optional name;
+Run & Save can take a query name and saves only after successful execution.
 
 The UI hides columns containing only NULL, empty strings or empty collections
 across the whole result. Zero and false remain visible. `columns[].has_values`
 is stable across pages; SQL rows and total column counts remain complete.
 
+A Codex plugin package is in `FEATURE_CODEX_EXTENSION/plugin`. It uses a native
+SessionStart session ID and the existing CAPRMEDIO MCP connection; it adds no
+standalone chat or second server. Local packaging does not install or trust it
+in Codex automatically.
+
+`workspace_open(session_id)` initializes or resumes one Workspace for that native
+chat and Project. Open its `workspace_url` in Codex's native browser beside the
+chat. The URL uses `?workspace=<session_id>`. Existing unbound browser drafts stay
+separate. `workspace_list` and `workspace_get` inspect known state.
+
+Use `view_create` (first/last), `view_list`, `view_get`, `view_update`, `view_run`,
+`view_check`, `view_fetch`, `view_focus`, `view_rename`, `view_remove` and `view_save`
+with explicit Workspace/View IDs. SQL updates require the View's revision;
+stale updates fail without discarding the browser draft. The last View cannot be
+removed. `view_run` returns metadata, not rows; fetch result pages only when
+needed. The browser uses the same state, so an Agent can create, update, run and
+focus a View without reading the result rows. `query_log_list` and `query_log_get`
+read retained run records.
+
+The shared HTTP representation is POST `/interface` under the Project Workbench
+URL, with `{operation, arguments}` and the existing outer Project binding.
+
 Web POST endpoints are `/caprmedio/workbench/<project_name>/run`, `/page`, `/check`,
-`/schema`, `/save`, `/worksheet-save`, `/load` and `/saved-list`.
+`/schema`, `/view-save`, `/load` and `/saved-list`. Run & Save uses `/run`
+with `save=true`; there is no separate `/save` or MCP `query_save` operation.
 A mismatched Project name returns 404. Static assets stay under `/caprmedio/workbench/assets`.
 A shared MCP server also requires `project_root`.
 

@@ -1,4 +1,4 @@
-# CA-E-676@9
+# CA-E-676@11
 
 from __future__ import annotations
 
@@ -12,7 +12,8 @@ MCP_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(MCP_ROOT))
 
 from workbench_tools import (  # noqa: E402
-    CHECK, LOAD, NATIVE_TOOLS, PAGE, RUN, SAVE, SAVED_LIST, SAVE_WORKSHEET, SCHEMA,
+    CHECK, LOAD, NATIVE_TOOLS, PAGE, QUERY_LOG_LIST, RUN, SAVED_LIST, SAVE_VIEW, SCHEMA,
+    VIEW_CREATE, WORKSPACE_OPEN,
     WorkbenchTools, native_tools,
 )
 from operation_error_boundary import ExplicitBlockingRuntimeFailure  # noqa: E402
@@ -23,13 +24,16 @@ class FakeService:
         self.calls = []
         self.closed = False
 
-    def run(self, sql, page_size=100, cursor_position=None):
-        self.calls.append((RUN, sql, page_size, cursor_position))
-        return {
+    def run(self, sql, page_size=100, cursor_position=None, *, save=False, preview=None, name=None):
+        self.calls.append((RUN, sql, page_size, cursor_position, save, preview, name))
+        result = {
             "query_id": "q-1", "columns": [{"name": "sql", "type": "VARCHAR"}],
             "rows": [[sql]], "row_count": 1, "column_count": 1,
             "offset": 0, "page_size": page_size, "has_more": False,
         }
+        if save:
+            result.update({"saved_query_id": "q_1", "kind": "query", "sql": sql, "name": name})
+        return result
 
     def check(self, sql, cursor_position=None):
         self.calls.append((CHECK, sql, cursor_position))
@@ -47,13 +51,9 @@ class FakeService:
         self.calls.append((SCHEMA,))
         return {"atoms": []}
 
-    def save(self, sql, cursor_position=None, name=None):
-        self.calls.append((SAVE, sql, cursor_position, name))
-        return {"saved_query_id": "q_1", "kind": "query", "sql": sql, "name": name}
-
-    def save_worksheet(self, sql, name=None):
-        self.calls.append((SAVE_WORKSHEET, sql, name))
-        return {"saved_query_id": "w_1", "kind": "worksheet", "sql": sql, "name": name}
+    def save_view(self, sql, name=None):
+        self.calls.append((SAVE_VIEW, sql, name))
+        return {"saved_query_id": "w_1", "kind": "view", "sql": sql, "name": name}
 
     def load(self, reference):
         self.calls.append((LOAD, reference))
@@ -63,6 +63,10 @@ class FakeService:
         self.calls.append((SAVED_LIST, limit))
         return {"items": []}
 
+    def interface_call(self, name, arguments):
+        self.calls.append((name, arguments))
+        return {"operation": name, **arguments}
+
     def close(self):
         self.closed = True
 
@@ -71,9 +75,9 @@ class WorkbenchToolsTests(unittest.TestCase):
     def test_native_descriptors_and_one_owner_handle_all_calls_and_close(self):
         self.assertEqual(list(NATIVE_TOOLS), [tool.name for tool in native_tools()])
         tools = {tool.name: tool for tool in native_tools()}
-        self.assertTrue(tools[RUN].annotations.read_only_hint)
+        self.assertNotIn("query_save", tools)
+        self.assertFalse(tools[RUN].annotations.read_only_hint)
         self.assertTrue(tools[CHECK].annotations.read_only_hint)
-        self.assertFalse(tools[SAVE].annotations.read_only_hint)
         self.assertTrue(tools[SCHEMA].annotations.read_only_hint)
         owner = WorkbenchTools(Path("/project"))
         fake = FakeService()
@@ -86,20 +90,27 @@ class WorkbenchToolsTests(unittest.TestCase):
             page = await owner.call(PAGE, {"query_id": run["query_id"], "offset": 0, "page_size": 1})
             self.assertEqual(0, page["offset"])
             self.assertTrue((await owner.call(CHECK, {"sql": "SELECT 1"}))["valid"])
-            self.assertEqual("q_1", (await owner.call(SAVE, {"sql": "SELECT 2", "cursor_position": 2, "name": "saved"}))["saved_query_id"])
-            self.assertEqual("w_1", (await owner.call(SAVE_WORKSHEET, {"sql": "SELECT 3", "name": "worksheet"}))["saved_query_id"])
-            await owner.call(SAVE, {"sql": "SELECT 4", "name": "   "})
+            saved = await owner.call(RUN, {
+                "sql": "SELECT 2", "cursor_position": 2, "save": True, "name": "saved",
+            })
+            self.assertEqual("q_1", saved["saved_query_id"])
+            self.assertEqual("w_1", (await owner.call(SAVE_VIEW, {"sql": "SELECT 3", "name": "view"}))["saved_query_id"])
+            await owner.call(RUN, {"sql": "SELECT 4", "save": True, "name": "   "})
             self.assertEqual("q_2", (await owner.call(LOAD, {"reference": "q_2"}))["saved_query_id"])
             self.assertEqual({"atoms": []}, await owner.call(SCHEMA, {}))
             self.assertEqual({"items": []}, await owner.call(SAVED_LIST, {"limit": 3}))
+            self.assertEqual("session-1", (await owner.call(WORKSPACE_OPEN, {"session_id": "session-1"}))["session_id"])
+            self.assertEqual("view_create", (await owner.call(VIEW_CREATE, {"workspace_id": "session-1"}))["operation"])
+            self.assertEqual("query_log_list", (await owner.call(QUERY_LOG_LIST, {}))["operation"])
             await owner.close()
 
         asyncio.run(exercise())
         self.assertEqual(
-            [(RUN, "SELECT 1", 100, None), (PAGE, "q-1", 0, 1), (CHECK, "SELECT 1", None),
-             (SAVE, "SELECT 2", 2, "saved"), (SAVE_WORKSHEET, "SELECT 3", "worksheet"),
-             (SAVE, "SELECT 4", None, "   "), (LOAD, "q_2"),
-             (SCHEMA,), (SAVED_LIST, 3)], fake.calls
+            [(RUN, "SELECT 1", 100, None, False, None, None), (PAGE, "q-1", 0, 1), (CHECK, "SELECT 1", None),
+             (RUN, "SELECT 2", 100, 2, True, None, "saved"), (SAVE_VIEW, "SELECT 3", "view"),
+             (RUN, "SELECT 4", 100, None, True, None, "   "), (LOAD, "q_2"),
+             (SCHEMA,), (SAVED_LIST, 3), (WORKSPACE_OPEN, {"session_id": "session-1"}),
+             (VIEW_CREATE, {"workspace_id": "session-1"}), (QUERY_LOG_LIST, {})], fake.calls
         )
         self.assertTrue(fake.closed)
 
@@ -121,10 +132,11 @@ class WorkbenchToolsTests(unittest.TestCase):
             (PAGE, {"query_id": "q", "offset": 0, "page_size": True}, "page_size must be an integer"),
             (PAGE, {"query_id": "q", "offset": 0, "unknown": 1}, "Expected query_id, offset, and optional page_size"),
             (RUN, {"sql": "SELECT 1", "page_size": True}, "page_size must be an integer"),
-            (RUN, {"sql": "SELECT 1", "name": "forbidden"}, "Expected only cursor_position and page_size and sql"),
+            (RUN, {"sql": "SELECT 1", "name": "forbidden"}, "name is only valid when save is true"),
+            (RUN, {"sql": "SELECT 1", "save": "yes"}, "save must be a boolean"),
+            (RUN, {"sql": "SELECT 1", "preview": -1}, "preview must be a non-negative integer"),
             (CHECK, {"sql": "SELECT 1", "name": "forbidden"}, "Expected only cursor_position and sql"),
-            (SAVE, {"sql": "SELECT 1", "name": 1}, "name must be a string"),
-            (SAVE_WORKSHEET, {"sql": "SELECT 1", "name": 1}, "name must be a string"),
+            (SAVE_VIEW, {"sql": "SELECT 1", "name": 1}, "name must be a string"),
             ("query_unknown", {"sql": "SELECT 1"}, "Unknown Workbench tool"),
         ):
             with self.subTest(name=name, arguments=arguments), self.assertRaises(ExplicitBlockingRuntimeFailure) as caught:

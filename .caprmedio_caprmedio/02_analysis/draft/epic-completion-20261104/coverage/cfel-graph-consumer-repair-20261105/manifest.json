@@ -1,0 +1,115 @@
+{
+  "status": "TWO_PREVIEWS_HELD_PENDING_IDENTITY_AND_ATOMIC_COHORT",
+  "candidates": [
+    {
+      "id": "CA-R-1931",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1931@19-draft-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "draft_sha256": "17592e060505c97f13eea169188de68b3a878af2294de18c1b8a513c6ceb7a72",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-graph-consumer-repair-20261105/CA-R-1931.preview.txt",
+      "candidate_sha256": "7532baaa2d35ad99d148438394b243ee5cb7f130d63da9d88145b83a4f2af982",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-graph-consumer-repair-20261105/CA-R-1931.diff",
+      "diff_sha256": "0ff4eb5b1ca3fdfccb4722d135515066ee507f6ebd9c5156b63682adb2ff45d8",
+      "active_subject_unchanged": true,
+      "status": "HELD_LEGACY_PASSIVE_SUBJECTS_AND_REVIEW"
+    },
+    {
+      "id": "CA-E-449",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-449@46-draft-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md",
+      "draft_sha256": "4fc41a422fc8bf0f6cff4dd32eefdef879683753092fc12a899302c8bad0509c",
+      "cohort_pin_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-graph-consumer-repair-20261105/CA-E-449.preview.txt",
+      "candidate_sha256": "8ff4839b29a5a5a5890bb3cb8bc7cba7bd014825943d5018ce3856f5858fc06d",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-graph-consumer-repair-20261105/CA-E-449.diff",
+      "diff_sha256": "516c9e185176a78d534ad90305cd65d4660a9a4076a035490e553da0104ad2d9",
+      "active_subject_unchanged": true,
+      "status": "HELD_PROJECTION_IDENTITY_AND_LEGACY_SUBJECTS"
+    }
+  ],
+  "authority_drafts": [
+    {
+      "id": "CA-R-2826",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2826@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md",
+      "sha256": "34046b65a580ad65c4579de43478d88043939083f1d884ca178efa25a27d3f8f",
+      "matches_cohort": true
+    },
+    {
+      "id": "CA-R-2827",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2827@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md",
+      "sha256": "3004048941f4bb7949bdcb75097ef0ce59f1dcb4558b09f134b42584b8f6131b",
+      "matches_cohort": true
+    },
+    {
+      "id": "CA-R-2828",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2828@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md",
+      "sha256": "662f48405701ac625c033482e8fabaed653a9774c0eba6ec74ec38e16f4a4bc7",
+      "matches_cohort": true
+    },
+    {
+      "id": "CA-R-2829",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2829@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md",
+      "sha256": "80c2beabf7a5d01e0dfc327e47686ab44dec29235be294e5b6b2f9841c72506a",
+      "matches_cohort": true
+    },
+    {
+      "id": "CA-R-2816",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2816@1-draft-CORE_META_MODEL-RULE--define-property-value-selection-with.md",
+      "sha256": "9271c05015ae300309b481ab0fb5b6bc035db2cbaa3b0e442ed255bc7831e305",
+      "matches_cohort": true
+    },
+    {
+      "id": "CA-R-2462",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2462@5-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "d25623eb1b41382fde84676da54fc396a93c89cec1ce0b6607a72cadf2ee9b26",
+      "matches_cohort": true
+    },
+    {
+      "id": "CA-R-2247",
+      "version": 12,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@12-draft-CORE_META_MODEL-DECLARATION--define-relation.md",
+      "sha256": "e6ac609fc4b816168d4bf28173d7cb9d5859d69c68b41de90e25d712a9a9f470",
+      "matches_cohort": true
+    }
+  ],
+  "preserved_obligations": {
+    "R1931": [
+      "Canonical reference identity, no alias duplication",
+      "Direct IS_CONTAINED_BY and derived CONTAINS",
+      "Classification direction and no invented inverse",
+      "Property qualification and inherited applicable features",
+      "Directional endpoint cardinality and unspecified omissions",
+      "Status Group Draft/Archived/Current mapping",
+      "Module/Package and Scope Unit containment rules",
+      "Unique primary kind names and complete canonical path",
+      "Name escape and literal quote distinction",
+      "Binary Relation arity, with explicit literal/constraint endpoint exceptions"
+    ],
+    "E449": [
+      "Exact selected-source and ultimate source provenance",
+      "No duplicate identity; full bearer-qualified paths",
+      "IS_PROPERTY_OF endpoint, direction, cardinality and acyclicity",
+      "Relation Type selection, direct/inverse/derivation/transitivity and no invented admission",
+      "Per-context Term reuse and value admission",
+      "Shared nodes and filtered graph selection without universal-tree assumption",
+      "Formal Rule source identity/version and opaque preservation",
+      "Separate model/data/projection boundaries and no invented graph facts",
+      "Retained exact Summary and active Subject pending identity review"
+    ]
+  },
+  "metadata_holds": [
+    "E449 active `Entity/Object/Continuant/Projection/(.Form: Entities Graph)` is legacy; the reviewed Current Forms do not prove a same-identity mapping. Kept byte-for-byte; no similar-name substitution. Passive legacy Entity and old Operations paths also remain pending source-owner review.",
+    "R1931 passive Entity and Entity/Object/Continuant/Package chain are unresolved; no blanket mapping to Node or unproved Package/Module remap."
+  ],
+  "adoption_gates": [
+    "R2826/R2828/R2816 are native Drafts, not Current; E449 metadata evaluation_for replaces obsolete R1245 only as part of coordinated adoption and reference reconciliation.",
+    "Both prospective source changes depend on final49 and recursive Step authority; preserve Current grammar until migration and prevent same-version Draft overwrite.",
+    "E449 condition interpretation is a source validation obligation, not an assertion that the projection generator executes or merges constraints.",
+    "R1931 ordinary named Relation signatures retain no auto inverse permission; no user-scope Workflow or Workbench source edit."
+  ],
+  "boundary": "Preview only; no Current, actual Draft, code, tests or Git changes."
+}

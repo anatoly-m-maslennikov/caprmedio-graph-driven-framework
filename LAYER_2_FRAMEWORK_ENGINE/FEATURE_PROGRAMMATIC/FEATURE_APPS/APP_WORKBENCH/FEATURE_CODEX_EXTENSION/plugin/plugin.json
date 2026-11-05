@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "caprmedio-workbench",
+  "version": "0.1.0",
+  "description": "Open and operate CAPRMEDIO Workbench workspaces from a native Codex session.",
+  "extensions": {
+    "com.openai": {
+      "hooks": "./hooks/hooks.json"
+    }
+  }
+}

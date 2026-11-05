@@ -12,6 +12,12 @@ from project_selection import resolve_project
 
 
 class LocalReleaseCleanupTests(unittest.TestCase):
+    @staticmethod
+    def _successful_host_command(argv: tuple[str, ...]) -> subprocess.CompletedProcess[str]:
+        if argv[-1:] == ("project-mcp",):
+            return subprocess.CompletedProcess(argv, 0, "http://localhost:12345/mcp\n", "")
+        return subprocess.CompletedProcess(argv, 0, "", "")
+
     def fixture(self) -> tuple[local_tests.SimpleLocalReleaseTests, docker_tests.DockerFixture]:
         fixture = local_tests.SimpleLocalReleaseTests("runTest")
         fixture.setUp()
@@ -59,7 +65,7 @@ class LocalReleaseCleanupTests(unittest.TestCase):
             if argv[-1] == "project-mcp":
                 self.assertEqual(docker.containers, {})
                 order.append("launch")
-            return subprocess.CompletedProcess(argv, 0, "", "")
+            return self._successful_host_command(argv)
 
         with (
             fixture._compiler(),
@@ -87,7 +93,7 @@ class LocalReleaseCleanupTests(unittest.TestCase):
         def runner(argv: tuple[str, ...], root: Path) -> subprocess.CompletedProcess[str]:
             if argv[0] == "docker":
                 return docker.run(argv, root)
-            return subprocess.CompletedProcess(argv, 0, "", "")
+            return self._successful_host_command(argv)
 
         with (
             fixture._compiler(),
@@ -108,7 +114,7 @@ class LocalReleaseCleanupTests(unittest.TestCase):
                 return subprocess.CompletedProcess(argv, 0, "\n".join(docker.containers), "")
             if argv[0] == "docker":
                 return docker.run(argv, root)
-            return subprocess.CompletedProcess(argv, 0, "", "")
+            return self._successful_host_command(argv)
 
         with (
             fixture._compiler(),
@@ -141,7 +147,7 @@ class LocalReleaseCleanupTests(unittest.TestCase):
                 self.assertNotIn(identifier, docker.containers)
                 self.assertEqual(fixture.image_id, argv[argv.index("--image") + 1])
                 return subprocess.CompletedProcess(argv, 0, "http://localhost:12345/mcp", "")
-            return subprocess.CompletedProcess(argv, 0, "", "")
+            return self._successful_host_command(argv)
 
         with (
             fixture._compiler(),
@@ -181,7 +187,7 @@ class LocalReleaseCleanupTests(unittest.TestCase):
                 return subprocess.CompletedProcess(argv, 0, "\n".join(docker.containers), "")
             if argv[0] == "docker":
                 return docker.run(argv, root)
-            return subprocess.CompletedProcess(argv, 0, "", "")
+            return self._successful_host_command(argv)
 
         with (
             fixture._compiler(),
@@ -220,7 +226,7 @@ class LocalReleaseCleanupTests(unittest.TestCase):
                 docker.containers[identifier]["State"] = {"Running": False, "Status": "exited"}
             if argv[0] == "docker":
                 return docker.run(argv, root)
-            return subprocess.CompletedProcess(argv, 0, "", "")
+            return self._successful_host_command(argv)
 
         with (
             fixture._compiler(),

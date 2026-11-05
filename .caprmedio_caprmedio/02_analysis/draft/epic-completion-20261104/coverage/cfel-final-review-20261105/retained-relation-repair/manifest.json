@@ -1,0 +1,56 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "sources": [
+    {
+      "id": "CA-R-2473",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "source_sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/retained-relation-repair/CA-R-2473.preview.txt",
+      "preview_sha256": "e24aa6880709a03b3df5415e3f9da0f65bc22f90fa836b4d48dd5ac6574451d9",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/retained-relation-repair/CA-R-2473.diff",
+      "diff_sha256": "83eea75d2f8c7f989c4a2fe6f1cb5a5d8cd0e41464620d7485adadd7ef4d1f69"
+    },
+    {
+      "id": "CA-R-2477",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2477-CORE_META_MODEL-DECLARATION--define-classification-and-its-written-reverse.md",
+      "source_sha256": "e4b24cf8cabe401be72fde576c8d4694e8e72ca63ab18066c274a3c12da174af",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/retained-relation-repair/CA-R-2477.preview.txt",
+      "preview_sha256": "0340dcf733f697aebc64570dbf0152a79b35e4f05f834cd6d44475984893420c",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/retained-relation-repair/CA-R-2477.diff",
+      "diff_sha256": "2062d86d12d7a2aa3dbb480baeb68cf656a624fdc29f21c37ee53aa6aa94756f"
+    },
+    {
+      "id": "CA-R-2619",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2619-CORE_META_MODEL-DECLARATION--declare-has-instance.md",
+      "source_sha256": "f8d8f828420b31bfedced5bbcd2eb9c51086c30b3b61e2d1cd8712f8bddb516b",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/retained-relation-repair/CA-R-2619.preview.txt",
+      "preview_sha256": "d5cc0b7e38f6ead6d571db0e967d48bfb44ce0f4ab26ff6084f8dd96dd7719c2",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/retained-relation-repair/CA-R-2619.diff",
+      "diff_sha256": "ffc820940f878549a79b40137141e61b679b2ced010db0a0bebdfe12e7b54237"
+    },
+    {
+      "id": "CA-R-2485",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2485-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+      "source_sha256": "0139782312689c308d27c2ca6fa4c7facd52e6458bd4e71593ace82610fc02be",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/retained-relation-repair/CA-R-2485.preview.txt",
+      "preview_sha256": "9e9228f812583c951e1f46ce067ef0cb89a3982e19b4b048711778da0194ea2e",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/retained-relation-repair/CA-R-2485.diff",
+      "diff_sha256": "4a6e7637b3d586f2fc777b094a7b12ebf4f62038415cbc5faa7b7eec16419541"
+    },
+    {
+      "id": "CA-R-2621",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2621-CORE_META_MODEL-DECLARATION--declare-has-property.md",
+      "source_sha256": "c51142ed47d1f6a98da90b3a0f0708156c25c1b3bdc98b27a4a819b9bd3d9618",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/retained-relation-repair/CA-R-2621.preview.txt",
+      "preview_sha256": "2a9bf3b40185153a9167fea90e35caa59fafdaf1df747bc3d63124efde981bcf",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/retained-relation-repair/CA-R-2621.diff",
+      "diff_sha256": "6bc9a0467cac47b9131f1a78999d18ba7f8d7c7025043ca1e331cddcb3fbb91f"
+    }
+  ],
+  "notes": [
+    "Typed Relation participants are standalone bindings within model blocks and are reused for inverse, alias and classification statements.",
+    "Dot alias moves to derived HAS_PROPERTY R2621 because bearer→Property follows its direction; IS_PROPERTY_OF remains direct Property→bearer and retains its inverse binding and acyclic constraint.",
+    "No new permissions, inverse glyphs, Runtime facts or model entities."
+  ],
+  "limits": "Preview only; no native source, code, tests, Workflow, Workbench or Git mutation."
+}

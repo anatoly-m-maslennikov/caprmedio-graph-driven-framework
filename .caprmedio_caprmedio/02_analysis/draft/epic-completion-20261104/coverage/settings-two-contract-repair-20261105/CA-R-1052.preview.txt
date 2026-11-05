@@ -1,0 +1,33 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Project.Settings
+  passive:
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Scope Unit Graph'
+  - CAPRMEDIO_MODEL <+ Projection
+version: 41
+updated_at: 2026-11-02 19:44:26 +0400
+relations:
+  child_of:
+  - CA-R-832
+atom_id: CA-R-1052
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 1
+role: Requirement
+form: Rule
+---
+## Summary
+
+Separate Project Settings from the Project Scope Unit Graph
+
+## Claim
+
+### Prose Claim
+
+
+authoritative Project.Settings, Project Structure declarations, and read-only Project Scope Unit Graph Projections.
+
+
+the CAPRMEDIO Framework **must** distinguish authoritative Project.Settings and Project Structure declarations from read-only Project Scope Unit Graph Projections. Project.Settings owns Project initialization inputs and applicable Framework Instance behavior choices. structural observations **and** generated effective values **must not** become independent Settings **or** Project Structure authority.

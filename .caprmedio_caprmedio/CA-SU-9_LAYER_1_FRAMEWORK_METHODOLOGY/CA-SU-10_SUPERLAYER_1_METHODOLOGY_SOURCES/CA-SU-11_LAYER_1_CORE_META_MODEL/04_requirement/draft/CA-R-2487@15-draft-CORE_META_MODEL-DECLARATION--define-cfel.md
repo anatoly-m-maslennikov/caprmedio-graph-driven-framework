@@ -87,8 +87,7 @@ CFEL Rules; the `?==` ordered-default Rule supplies its chain semantics.
 Boolean `AND` and `OR` combine conditions; parenthesize mixed AND/OR
 expressions to state their grouping explicitly. `>>` is delivery notation with the
 semantics of the delivery Rule; `!(selectors)` excludes branches from a
-delivery selection. `$x[<Kind>]` binds an existing selected instance and `$x.p`
-reads its Property. A CFEL syntax form is not a binary Node Relation. A Requirement/Declaration describes
+delivery selection. `$x.p` reads its selected instance Property. A CFEL syntax form is not a binary Node Relation. A Requirement/Declaration describes
 a canonical or derived Relation direction; it does not authorize a second
 stored inverse fact.
 
@@ -98,14 +97,13 @@ creation, or a new model entity.
 
 A direct Relation Declaration owns shared meaning and endpoints. A derived inverse Declaration retains the reverse HAS_INVERSE binding and its own alias, when present. A qualified or other non-inverse derived view retains its source, endpoint transformation and qualification; derivation alone does not imply unconditional endpoint reversal. `alias($boundRelation) == "token"` binds an already-bound exact Relation name to lexical notation. `$direct[<Relation>, (.Name = DIRECT)] <--> $derived[<Relation>, (.Name = DERIVED)]` binds distinct inverse Relations in the direct Declaration. It never equates their identities. These metadata forms do not create literal-to-Node graph links.
 
-A graph Relation connects its declared endpoint domains, including declared model entities or instances and, where a value Relation declares them, literal values or value constraints. A literal remains a value, not a model entity. A CFEL syntax literal is not a
+A graph Relation connects its declared endpoint domains, including declared model entities or instances and, for HAS_ALLOWED_VALUE, HAS_VALUE_CONSTRAINT and their declared derived inverses only, literal values or value constraints. A literal remains a value, not a model entity. A CFEL syntax literal is not a
 graph Relation or model entity, and its glyph or literal operand does not create
 another model entity. Each direct Relation Declaration supplies shared meaning and a
 formal Host/Target signature with typed selectors whose universe is known, or
 with declared variables bound to that universe. Within a Relation Declaration
 Formal Claim only, `$host ((RELATION)) $target` is the reusable generic
-signature: its untyped variables range over that declared entity-or-instance
-universe and exclude literals. It declares neither a Relation fact nor instance
+signature: its untyped variables range over the Relation’s declared endpoint domains, including literal values or value constraints only for HAS_ALLOWED_VALUE, HAS_VALUE_CONSTRAINT and their declared derived inverses; those data are not model Nodes. It declares neither a Relation fact nor instance
 data. Known endpoint kinds remain typed selectors. This generic Relation signature binding applies within Relation Declarations; typed bindings can also select model entities where their universe is declared.
 
 Concrete directional alternatives describe the same canonical Relation fact:

@@ -145,7 +145,7 @@ class SharedGateway:
             with bind_selection(refreshed):
                 response = await entry.gateway.call(
                     context,
-                    types.CallToolRequestParams(name=params.name, arguments=native_arguments),
+                    params.model_copy(update={"arguments": native_arguments}),
                 )
             return response
         except asyncio.CancelledError as caught:

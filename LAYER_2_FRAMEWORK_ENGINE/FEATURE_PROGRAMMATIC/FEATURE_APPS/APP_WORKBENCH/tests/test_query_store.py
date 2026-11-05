@@ -1,3 +1,4 @@
+# CA-E-751@1
 # CA-E-676@9
 # CA-E-677@8
 # CA-M-472@1
@@ -429,8 +430,14 @@ class QueryStoreTest(unittest.TestCase):
         self.assertEqual(["9007199254740992", "9007199254740993"], result[6])
         self.assertEqual(["base64:eA=="], result[7])
         self.assertEqual({"wide": "9007199254740992", "binary": "base64:eA=="}, result[8])
+        tables_before = self.store._connection.execute(
+            "SELECT table_name FROM information_schema.tables WHERE table_schema = 'workbench_results'"
+        ).fetchall()
         with self.assertRaisesRegex(ValueError, "NaN or infinity"):
             self.store.run("SELECT 'NaN'::DOUBLE")
+        self.assertEqual(tables_before, self.store._connection.execute(
+            "SELECT table_name FROM information_schema.tables WHERE table_schema = 'workbench_results'"
+        ).fetchall())
         self.assertEqual([[1]], self.store.run("SELECT 1")["rows"])
         with self.assertRaises(RuntimeError):
             self.store.replace([{"source_path": "invalid.md"}], [])

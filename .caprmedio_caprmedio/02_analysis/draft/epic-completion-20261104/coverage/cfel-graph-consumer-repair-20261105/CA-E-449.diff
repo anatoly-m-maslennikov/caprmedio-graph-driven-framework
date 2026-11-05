@@ -1,0 +1,31 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-449@46-draft-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-graph-consumer-repair-20261105/CA-E-449.preview.txt
+@@ -33,7 +33,9 @@
+   - CA-R-1346
+   - CA-R-1351
+   - CA-R-1406
+-  - CA-R-1245
++  - CA-R-2826
++  - CA-R-2828
++  - CA-R-2816
+   - CA-R-1438@25
+   - CA-R-1456
+   IS_CONTAINED_BY:
+@@ -69,7 +71,7 @@
+ - a Relation Type is unknown under CA-R-1246-CORE_META_MODEL-RULE--keep-relation-vocabularies-graph-specific.
+ - an IS_PROPERTY_OF Relation has an invalid endpoint **or** direction under current CA-R-2473, or violates the applicable Node/Node.** endpoint and cardinality constraints in CA-R-2462 **or** the no-outgoing-bearer rule for primary Entity occurrences in CA-R-1351.
+ - the direct IS_PROPERTY_OF Relations contain a directed cycle, including a self-loop, contrary to the acyclicity constraint in current CA-R-2473.
+-- an allowed-value qualification admits a value **without** governing authority for its qualified target Entity context under CA-R-1245-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.
++- a HAS_ALLOWED_VALUE qualification admits a value **without** governing authority for its qualified target Entity context under CA-R-2826; a HAS_VALUE_CONSTRAINT restriction lacks its authority under CA-R-2828; or a qualified Property selection fails CA-R-2816.
+ - admission **in** one target Entity context is used **to** justify admission **in** another context **without** its applicable authority.
+ - allowed-value admission is treated as assigning a value **to** a particular occurrence **or** determining direct-value cardinality.
+ - HAS_PROPERTY is independently authored as another primitive Relation Type instead of being derived as the inverse of IS_PROPERTY_OF under current CA-R-2473 and CA-R-2621.
+@@ -94,6 +96,8 @@
+ ## Details
+ 
+ ### Allowed-value target cases
++
++The checks preserve all applicable and inherited HAS_ALLOWED_VALUE alternatives as OR and HAS_VALUE_CONSTRAINT restrictions as AND. Final admissibility is `(HAV := #1 OR #2 OR ...) AND (HVC :: #1 AND #2 AND ...)`; when the allowed-value group is absent, omit it (true). A qualified Subject retains `:=`. Literal value and constraint endpoints follow their Relation Declarations and are not invented Nodes.
+ 
+ Include a source-admitted allowed-value expression whose target is not a Property, alongside the Property cases. Its target kind alone must not cause rejection. Each value still requires authority in its own qualified target Entity context; neither case assigns a value to an occurrence or determines direct-value cardinality.
+ 

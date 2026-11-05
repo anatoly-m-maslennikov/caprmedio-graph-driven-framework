@@ -1,0 +1,846 @@
+{
+  "status": "INVENTORY_NOT_ADOPTED",
+  "scope": "Native Relation Declaration sources from current selected 42-descriptor inventory plus live SPECIALIZES pair, Occurrent PRODUCES pair and four staged value Relations; excludes archived/projection copies and actual Workflow/Workbench sources. Every named descriptor in this bounded inventory is accounted for.",
+  "total_names": 50,
+  "pairs": [
+    {
+      "canonical": "IS_BLOCKED_BY",
+      "reverse_alias": "BLOCKS",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-2762",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2762-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+            "sha256": "6620239782cc317abe88ee6d70794e60727a197cfbb9dc959327b7483283cbc9"
+          }
+        ],
+        "drafts": []
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-1580",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+            "sha256": "25e9d08d3851209230e686a23c42d7819f3fddd4b163d3e18947c6b6eedb8ae5"
+          }
+        ],
+        "drafts": []
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": null
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "CARRIES",
+      "reverse_alias": "IS_CARRIED_BY",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-1993",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1993-CORE_META_MODEL-DECLARATION--define-carries.md",
+            "sha256": "82247b2cb99ad1dc826c579cfe51a42708f6cd9fe48039c4aeb2171e28580c1a"
+          }
+        ],
+        "drafts": []
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-2418",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2418-CORE_META_MODEL-DECLARATION--define-is-carried-by-relation.md",
+            "sha256": "4944f3098c5c6d1e4962ea88f6424cb1df23abcf0810e4c93cdc6d0f7f2d27ca"
+          }
+        ],
+        "drafts": []
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": null
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "IS_CONTAINED_BY",
+      "reverse_alias": "CONTAINS",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-2478",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+            "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8"
+          }
+        ],
+        "drafts": []
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-2617",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md",
+            "sha256": "129277b5d905006aed8279b20be9ed45ed8fcc1733b3097ca07321cdb03db16d"
+          }
+        ],
+        "drafts": [
+          {
+            "id": "CA-R-2617",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2617@3-draft-CORE_META_MODEL-DECLARATION--declare-contains.md",
+            "sha256": "f10509a3cd3a9b13107d6d7746035e6c41a3cb5df55bc13c379e1cab07bedb0c"
+          }
+        ]
+      },
+      "glyphs": {
+        "canonical": "+>",
+        "reverse": "/ (successor; Current <+)"
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "EXECUTES",
+      "reverse_alias": "IS_EXECUTED_BY",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-2255",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2255-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+            "sha256": "5576cbdfb5114e55c4349d3c7b4925004777225935f13e157276ebd4f835a05a"
+          }
+        ],
+        "drafts": [
+          {
+            "id": "CA-R-2255",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2255@10-draft-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+            "sha256": "5297e956dcf489c91bd0edaecdc6181e8b54eb5639a04696b98f9f251423cecf"
+          }
+        ]
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-2420",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2420-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+            "sha256": "52e09f067858fcaa9c26bfd100227b9c7866058482054e0fca93331cdc238263"
+          }
+        ],
+        "drafts": [
+          {
+            "id": "CA-R-2420",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2420@6-draft-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+            "sha256": "58e64b297650225d5074cf384b5e9742f143ea55595b8710786286f14c1dfa27"
+          }
+        ]
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": null
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "IS_EXECUTION_OF",
+      "reverse_alias": "HAS_EXECUTION",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-2245",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2245-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+            "sha256": "b1da39ab37545c17cfbd463a2a0288544edef3223dd17565abc74e631c20f1ae"
+          }
+        ],
+        "drafts": [
+          {
+            "id": "CA-R-2245",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2245@9-draft-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+            "sha256": "10d74afc56acca0fa69e3b980cd697fbb7b28abe55a3521a129f479c6030d622"
+          }
+        ]
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-2417",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+            "sha256": "e50b96e2a066c11c7deee1f31ef85197b74d09aaa93c12579648e7c9ef8bd691"
+          }
+        ],
+        "drafts": [
+          {
+            "id": "CA-R-2417",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2417@6-draft-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+            "sha256": "556978fd1a9e0ef9e3fade634835d064cd0a319f5fbe833419ab7b35a46b3d9b"
+          }
+        ]
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": null
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "INSTANCE_OF",
+      "reverse_alias": "HAS_INSTANCE",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-2476",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+            "sha256": "0815c5de37042caf4d3f76777f7358c5509bf0f360f5d540f8c548ec9b677d9e"
+          }
+        ],
+        "drafts": [
+          {
+            "id": "CA-R-2476",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+            "sha256": "1af71d260bfa51ab09b0cdc673e229176819d9e45a81f0cba113e73062e75937"
+          }
+        ]
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-2619",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2619-CORE_META_MODEL-DECLARATION--declare-has-instance.md",
+            "sha256": "f8d8f828420b31bfedced5bbcd2eb9c51086c30b3b61e2d1cd8712f8bddb516b"
+          }
+        ],
+        "drafts": []
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": null
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "NARROWER_THAN",
+      "reverse_alias": "HAS_NARROWER",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-2475",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+            "sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c"
+          }
+        ],
+        "drafts": [
+          {
+            "id": "CA-R-2475",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+            "sha256": "5dca3569b44a6183d8f24fae240e2ae407327600f08fbba5958813b9dde6d652"
+          }
+        ]
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-2620",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2620-CORE_META_MODEL-DECLARATION--declare-has-narrower.md",
+            "sha256": "92dbcc2aa54b613c6a43c437ad0beedd632bc9ccb7d9905638f9e31472948d19"
+          }
+        ],
+        "drafts": []
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": "// (successor; Current / ambiguous)"
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "IS_PROPERTY_OF",
+      "reverse_alias": "HAS_PROPERTY",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-2473",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+            "sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00"
+          }
+        ],
+        "drafts": []
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-2621",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2621-CORE_META_MODEL-DECLARATION--declare-has-property.md",
+            "sha256": "c51142ed47d1f6a98da90b3a0f0708156c25c1b3bdc98b27a4a819b9bd3d9618"
+          }
+        ],
+        "drafts": []
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": "."
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "RECORDS",
+      "reverse_alias": "IS_RECORDED_BY",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-2246",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2246-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+            "sha256": "5e9c189d15a5098057b91b1d006d5d304335df97fbe46c6536be9cc217f0da03"
+          }
+        ],
+        "drafts": [
+          {
+            "id": "CA-R-2246",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2246@9-draft-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+            "sha256": "0b532831307cbac442ad827160d5003f21a697a210496ffb5f217cf7ab385d21"
+          }
+        ]
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-2421",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2421-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+            "sha256": "1e6ddc6a60e24a613c8ea03be2c11b4dc452bb94d5e1fa2bd652123295b82277"
+          }
+        ],
+        "drafts": [
+          {
+            "id": "CA-R-2421",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2421@6-draft-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+            "sha256": "61ac53d74d7fa2b4be9681581ab26827b6678685d7ee4340d95f5ee76d2fd73d"
+          }
+        ]
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": null
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "RUNS",
+      "reverse_alias": "IS_RUN_BY",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-2638",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md",
+            "sha256": "105c033579a4be1aa173de5333051a3b435ef21f5448177f1207061e66610fd3"
+          }
+        ],
+        "drafts": [
+          {
+            "id": "CA-R-2638",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2638@4-draft-CORE_META_MODEL-DECLARATION--define-runs.md",
+            "sha256": "dcff0917a3545169b74ec2f6135639a9bef5b87763d89d6e10cb385d67e33733"
+          }
+        ]
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-2623",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+            "sha256": "dd540f1c2fd04b4826443a96daa6f7e190853ecd8645ad1a369d85a3744a2fc6"
+          }
+        ],
+        "drafts": []
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": null
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "depends_on",
+      "reverse_alias": "required_by",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-1026",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md",
+            "sha256": "761422f7245c231d3c813eb8caf07f4fba2fc135563f88e7b3dc1780fa1c66e2"
+          }
+        ],
+        "drafts": []
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-2422",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2422-CORE_META_MODEL-DECLARATION--define-required-by-relation.md",
+            "sha256": "99a6c6ff6a56f1fa98a1ab141749ced037e9f0aa7cea75f92f1e5371b4875349"
+          }
+        ],
+        "drafts": []
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": null
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "SPECIALIZES",
+      "reverse_alias": "IS_SPECIALIZED_BY",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-2766",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2766-CORE_META_MODEL-DECLARATION--declare-specializes.md",
+            "sha256": "9ff42b4c80c6fd56cdb208661b1dbeb899e32bf061a13f3f3de183967259282c"
+          }
+        ],
+        "drafts": []
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-2767",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2767-CORE_META_MODEL-DECLARATION--declare-is-specialized-by.md",
+            "sha256": "023fa028948d0bbc9e0c6351e290027bce7c51075ef7f3a187c0c3da7d80ae33"
+          }
+        ],
+        "drafts": []
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": null
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "PRODUCES",
+      "reverse_alias": "IS_PRODUCED_BY",
+      "canonical_sources": {
+        "current": [],
+        "drafts": [
+          {
+            "id": "CA-R-2760",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2760@1-draft-CORE_META_MODEL-DECLARATION--declare-produces.md",
+            "sha256": "8cb9cdef19263df67e2baf20661ad7c90d18f39520703d701ad59f9c1b11a11f"
+          }
+        ]
+      },
+      "reverse_sources": {
+        "current": [],
+        "drafts": [
+          {
+            "id": "CA-R-2761",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2761@1-draft-CORE_META_MODEL-DECLARATION--declare-is-produced-by.md",
+            "sha256": "6d576263c2e2c382e7cf9ed890f516b2b821ca4db12d2df4d82542e48ce3f09f"
+          }
+        ]
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": null
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "HAS_ALLOWED_VALUE",
+      "reverse_alias": "IS_ALLOWED_VALUE_OF",
+      "canonical_sources": {
+        "current": [],
+        "drafts": [
+          {
+            "id": "CA-R-2826",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2826@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md",
+            "sha256": "34046b65a580ad65c4579de43478d88043939083f1d884ca178efa25a27d3f8f"
+          }
+        ]
+      },
+      "reverse_sources": {
+        "current": [],
+        "drafts": [
+          {
+            "id": "CA-R-2827",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2827@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md",
+            "sha256": "3004048941f4bb7949bdcb75097ef0ce59f1dcb4558b09f134b42584b8f6131b"
+          }
+        ]
+      },
+      "glyphs": {
+        "canonical": ":=",
+        "reverse": null
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "HAS_VALUE_CONSTRAINT",
+      "reverse_alias": "IS_VALUE_CONSTRAINT_OF",
+      "canonical_sources": {
+        "current": [],
+        "drafts": [
+          {
+            "id": "CA-R-2828",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2828@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md",
+            "sha256": "662f48405701ac625c033482e8fabaed653a9774c0eba6ec74ec38e16f4a4bc7"
+          }
+        ]
+      },
+      "reverse_sources": {
+        "current": [],
+        "drafts": [
+          {
+            "id": "CA-R-2829",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2829@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md",
+            "sha256": "80c2beabf7a5d01e0dfc327e47686ab44dec29235be294e5b6b2f9841c72506a"
+          }
+        ]
+      },
+      "glyphs": {
+        "canonical": "::",
+        "reverse": null
+      },
+      "disposition": "KEEP_CANONICAL_MERGE_REVERSE_ALIAS_RETIRE_REDUNDANT_INVERSE_DECLARATION",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    },
+    {
+      "canonical": "HAS_EVENT_AUTHOR",
+      "reverse_alias": "IS_EVENT_AUTHOR_OF",
+      "canonical_sources": {
+        "current": [
+          {
+            "id": "CA-R-2583",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2583-CORE_META_MODEL-DECLARATION--define-has-event-author.md",
+            "sha256": "afbd2d65a6d8942764b91094b800fae52c2edff98e8e7cdee2950e212a81347c"
+          }
+        ],
+        "drafts": []
+      },
+      "reverse_sources": {
+        "current": [
+          {
+            "id": "CA-R-2622",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2622-CORE_META_MODEL-DECLARATION--declare-is-event-author-of.md",
+            "sha256": "ccad12aa39c516e384ebd4ae9ee64eb7d4fe772548a0efa42609164774503eea"
+          }
+        ],
+        "drafts": []
+      },
+      "glyphs": {
+        "canonical": null,
+        "reverse": null
+      },
+      "disposition": "REMOVE_AUTHORSHIP_PAIR",
+      "caveat": "Existing inverse permission/consumer references require contextual migration; no new reverse Relation or automatic permission."
+    }
+  ],
+  "nonpaired": [
+    {
+      "name": "DEPENDS_ON",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-1200",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md",
+            "sha256": "136852e0bf5b4b4e015c8ea16f705dd0a1e916b12a18ece200f41c788795df4a"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "DERIVED_FROM",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-1639",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-DECLARATION--register-derived-from-relation.md",
+            "sha256": "cc759f728ea7026f510224834325364688389cbf9b1bf5e050ec6bd57c7d1428"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "GOVERNS",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-1199",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md",
+            "sha256": "4e4cf1d259ff62c9ba10be39ea5d871a052717eaf8bd95f0bc57f91294ee824e"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "HAS_ACTIVE_SUBJECT",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-2618",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+            "sha256": "3dbe86364921d2cf506ab40a264a4499484f21f629d88627854e37b1f9bdf4c0"
+          }
+        ],
+        "drafts": [
+          {
+            "id": "CA-R-2618",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2618@4-draft-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+            "sha256": "7b8b45a939152fa07f0d2b51d731643dd756f784bed03484be8001d0fc7d00d4"
+          }
+        ]
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "HAS_CLASSIFICATION",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-2477",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2477-CORE_META_MODEL-DECLARATION--define-classification-and-its-written-reverse.md",
+            "sha256": "e4b24cf8cabe401be72fde576c8d4694e8e72ca63ab18066c274a3c12da174af"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "HAS_INVERSE",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-2485",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2485-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+            "sha256": "0139782312689c308d27c2ca6fa4c7facd52e6458bd4e71593ace82610fc02be"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "MODEL_METADATA_RELATION_REVIEW",
+      "note": "Inverse metadata may require replacement by syntax/alias authority; preserve qualified source transformations."
+    },
+    {
+      "name": "IS_DECLARED_BY",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-2732",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2732-CORE_META_MODEL-DECLARATION--declare-is-declared-by.md",
+            "sha256": "735ddf3eaafc28810d65128fa112c53d792d945377f56777e3d0725d00ff17cc"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "QUALIFIED_DERIVED_VIEW_REQUIRES_SEPARATE_DISPOSITION",
+      "note": "Qualified Requirement/Form Declaration view of GOVERNS; not an unconditional reverse alias."
+    },
+    {
+      "name": "IS_DERIVED_RELATION_OF",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-2170",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2170-CORE_META_MODEL-DECLARATION--define-is-derived-relation-of-relation.md",
+            "sha256": "ef0c37ed0a42722ceac6738764284d5b8ab37decb0a0dab2ab09abc59ab83db7"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "MODEL_METADATA_RELATION_REVIEW",
+      "note": "Inverse metadata may require replacement by syntax/alias authority; preserve qualified source transformations."
+    },
+    {
+      "name": "child_of",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-796",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-DECLARATION--keep-tier-parent-relations-within-atom-scope.md",
+            "sha256": "607e22a1220107c29659a90a98f80dd9b0477dfb21c00229426a3a45a12ffa86"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "concern_about",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-1022",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-DECLARATION--register-concern-about-relation.md",
+            "sha256": "cac1876b182e149cdbe450ae6f6f7e7f36b6a5e05f30fbb893dbebf6f5a33617"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "delivery_for",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-1019",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-DECLARATION--register-delivery-for-relation.md",
+            "sha256": "ae0b7f6ca1f9faabea2695f31a3d9b28ca99d9058c706db993d829944cff0c0b"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "evaluation_for",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-1018",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-DECLARATION--register-evaluation-targets.md",
+            "sha256": "48410dd19c032ed26139667d3fe9ad766b6c33edd598f79c626b69c30efbb0b6"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "evidence_for",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-1021",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+            "sha256": "18c323b0bc5d01d2a45f6eb30c4ca4bdd656d5c2e5841381ab39e903b333158b"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "feature_realization",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-1654",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-DECLARATION--register-feature-realization-relation-kind.md",
+            "sha256": "f2117d0bf61ea4c0c2146cf65b3f689195bda3cddd008c6eed0cc6fa52838020"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "implementation_of",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-1020",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+            "sha256": "ada8da157faca9804f4f79e3bf35aea8bdd1e33e967f9c6fc8c2dfb489aad143"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "method_for",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-1017",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-DECLARATION--register-method-for-relation.md",
+            "sha256": "4719ba251ad9e2f577804ca25f7573765d10c1059abef0b1b6a044bd5ea8b681"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "rationale_for",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-1016",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-DECLARATION--register-rationale-for-relation.md",
+            "sha256": "88d9c8c5f3ea03cdc955799ad495af4b726844670b3eac1987587fc6e968605c"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    },
+    {
+      "name": "structural_parent",
+      "sources": {
+        "current": [
+          {
+            "id": "CA-R-1660",
+            "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-DECLARATION--register-structural-parent-relation.md",
+            "sha256": "175001423157ce246b5a20c26b2a47eb8f29deb08649a7948ad091247bd25759"
+          }
+        ],
+        "drafts": []
+      },
+      "classification": "CANONICAL_NONINVERSE",
+      "note": ""
+    }
+  ],
+  "unresolved_cases": [
+    "IS_DECLARED_BY is qualified by Requirement/Form Declaration and cannot be reduced to unconditional GOVERNS reversal; retain qualification and source semantics pending explicit representation.",
+    "HAS_INVERSE and IS_DERIVED_RELATION_OF describe current Relation metadata; removing modeled inverse Relations requires coherent replacement of their metadata uses without erasing qualified derivations.",
+    "Legacy child_of/parent_of: child_of currently declared, parent_of was used as an undeclared inverse; SPECIALIZES is narrower and migration remains casewise, not a blanket rename.",
+    "Value Relation inverse names must become written reverse aliases for their literal/constraint data endpoints without fabricating Value Nodes; preserve :=/:: domain semantics.",
+    "HAS_EVENT_AUTHOR and its inverse are separately marked for removal under the no-attribution decision, not retained as author aliases."
+  ],
+  "migration": [
+    "Header.Relations stores canonical Atom relations; IS_CONTAINED_BY is stored in Header.Container. Storage policy belongs to the Atom model, not Relation Declarations.",
+    "Preserve exact canonical IS_CONTAINED_BY and IS_BLOCKED_BY identities and direction; reverse aliases are written views of the same fact.",
+    "Do not infer permission for reverse views, retire/rename historical data, or mutate actual source before reviewed contextual migration.",
+    "Earlier 56-authority CFEL candidate is stale wherever it models inverse Relation entities; revise impacted clauses before adoption."
+  ],
+  "limits": "No native source, actual Workflow, Workbench, code, tests or Git mutation.",
+  "latest_binding_decision": {
+    "form": "Relation//CONTAINS ((IS_INVERSE_ALIAS_FOR)) Relation//IS_CONTAINED_BY",
+    "scope": "Fixed Relation model addresses, including phantom inverse alias address; no $ participant binder, new Alias entity kind or literal endpoint.",
+    "ownership": "The canonical Relation Declaration owns the alias binding; Atom Header.Relations or Header.Container governs Atom storage independently.",
+    "meta_relation_proposal": "coverage/cfel-inverse-alias-20261105/model-relation-proposal/IS_INVERSE_ALIAS_FOR.unallocated.preview.txt",
+    "superseded": "Prior typed $relation fixed-name metadata rewrites and two-Relation inverse Declarations are stale."
+  }
+}

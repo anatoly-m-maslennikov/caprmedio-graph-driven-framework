@@ -1,0 +1,18 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2467@3-draft-CORE_META_MODEL-DECLARATION--declare-action.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2467.preview.txt
+@@ -27,12 +27,12 @@
+ 
+ ```CFEL
+ # model
+-Atom/(.Header.Role := Operations)/Action;
++Atom//(.Header.Role := Operations)//Action;
+ 
+ # instances
+-Action//$action{::0+}((IS_RUN_BY)) Step//$step;
++$action[<Action>]{::0+}((IS_RUN_BY)) $step[<Step>];
+ 
+-Action//$definition {::0+}((HAS_EXECUTION)) Action Run//$run
++$definition[<Action>] {::0+}((HAS_EXECUTION)) $run[<Action Run>]
+ ```
+ 
+ ## Semantics

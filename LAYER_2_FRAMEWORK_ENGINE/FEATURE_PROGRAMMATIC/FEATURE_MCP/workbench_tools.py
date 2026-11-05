@@ -1,8 +1,15 @@
-# CA-R-2728@5
-# CA-R-2729@6
-# CA-R-2776@3
-# CA-M-470@3
-# CA-D-673@10
+# CA-R-2728@6
+# CA-R-2776@5
+# CA-M-470@6
+# CA-D-673@12
+# CA-R-2902@1
+# CA-R-2903@1
+# CA-D-681@1
+# CA-R-2782@2
+# CA-D-676@2
+# CA-R-2786@1
+# CA-M-474@1
+# CA-D-679@1
 
 """Native MCP adapters for the Project-owned Workbench service."""
 
@@ -11,6 +18,7 @@ from __future__ import annotations
 import asyncio
 from pathlib import Path
 import sys
+import threading
 from typing import Any
 
 from mcp import types
@@ -21,29 +29,81 @@ if tools not in sys.path:
 from operation_error_boundary import ExplicitBlockingRuntimeFailure  # noqa: E402
 
 RUN, PAGE, CHECK, SCHEMA = "query_run", "query_page", "query_check", "query_schema"
-SAVE, SAVE_WORKSHEET, LOAD, SAVED_LIST = "query_save", "worksheet_save", "query_load", "query_saved_list"
-NATIVE_TOOLS = (RUN, PAGE, CHECK, SCHEMA, SAVE, SAVE_WORKSHEET, LOAD, SAVED_LIST)
+SAVE_VIEW, LOAD, SAVED_LIST = "view_save", "query_load", "query_saved_list"
+RESTART = "workbench_restart"
+REREAD = "workbench_reread"
+WORKSPACE_OPEN, WORKSPACE_LIST, WORKSPACE_GET = "workspace_open", "workspace_list", "workspace_get"
+VIEW_CREATE, VIEW_LIST, VIEW_GET, VIEW_UPDATE = "view_create", "view_list", "view_get", "view_update"
+VIEW_RUN, VIEW_CHECK, VIEW_FETCH, VIEW_FOCUS = "view_run", "view_check", "view_fetch", "view_focus"
+VIEW_RENAME, VIEW_REMOVE = "view_rename", "view_remove"
+QUERY_LOG_LIST, QUERY_LOG_GET = "query_log_list", "query_log_get"
+INTERFACE_TOOLS = (
+    WORKSPACE_OPEN, WORKSPACE_LIST, WORKSPACE_GET, VIEW_CREATE, VIEW_LIST, VIEW_GET,
+    VIEW_UPDATE, VIEW_RUN, VIEW_CHECK, VIEW_FETCH, VIEW_FOCUS, VIEW_RENAME, VIEW_REMOVE,
+    QUERY_LOG_LIST, QUERY_LOG_GET,
+)
+NATIVE_TOOLS = (RUN, PAGE, CHECK, SCHEMA, SAVE_VIEW, LOAD, SAVED_LIST, *INTERFACE_TOOLS, RESTART, REREAD)
 
 _CURSOR = {"type": "integer", "minimum": 0}
 _SQL = {"type": "string"}
-_RUN_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000}, "cursor_position": _CURSOR}, "required": ["sql"], "additionalProperties": False}
+_RUN_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000}, "cursor_position": _CURSOR, "preview": {"type": "integer", "minimum": 0}, "save": {"type": "boolean", "default": False}, "name": _SQL}, "required": ["sql"], "additionalProperties": False}
 _CHECK_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "cursor_position": _CURSOR}, "required": ["sql"], "additionalProperties": False}
 _PAGE_SCHEMA = {"type": "object", "properties": {"query_id": _SQL, "offset": {"type": "integer", "minimum": 0}, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000}}, "required": ["query_id", "offset"], "additionalProperties": False}
-_SAVE_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "cursor_position": _CURSOR, "name": _SQL}, "required": ["sql"], "additionalProperties": False}
-_WORKSHEET_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "name": _SQL}, "required": ["sql"], "additionalProperties": False}
+_VIEW_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "name": _SQL}, "required": ["sql"], "additionalProperties": False}
 _LOAD_SCHEMA = {"type": "object", "properties": {"reference": _SQL}, "required": ["reference"], "additionalProperties": False}
 _LIST_SCHEMA = {"type": "object", "properties": {"limit": {"type": "integer", "minimum": 1, "maximum": 1000}}, "additionalProperties": False}
 _EMPTY_SCHEMA = {"type": "object", "properties": {}, "additionalProperties": False}
+_WORKSPACE_ID = {"type": "string", "minLength": 1}
+_VIEW_ID = {"type": "string", "minLength": 1}
+_POSITION = {"type": "string", "enum": ["first", "last"], "default": "last"}
+_PREVIEW = {"type": "integer", "minimum": 0}
+_WORKSPACE_OPEN_SCHEMA = {"type": "object", "properties": {"session_id": _WORKSPACE_ID}, "required": ["session_id"], "additionalProperties": False}
+_WORKSPACE_GET_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID}, "required": ["workspace_id"], "additionalProperties": False}
+_VIEW_CREATE_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "position": _POSITION, "name": _SQL}, "required": ["workspace_id"], "additionalProperties": False}
+_VIEW_GET_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
+_VIEW_UPDATE_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "sql": _SQL, "cursor_position": _CURSOR, "expected_revision": {"type": "integer", "minimum": 0}}, "required": ["workspace_id", "view_id", "sql", "expected_revision"], "additionalProperties": False}
+_VIEW_RUN_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "cursor_position": _CURSOR, "preview": _PREVIEW, "save": {"type": "boolean", "default": False}, "name": _SQL}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
+_VIEW_FETCH_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "offset": {"type": "integer", "minimum": 0, "default": 0}, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000, "default": 100}, "preview": _PREVIEW}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
+_VIEW_CHECK_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "cursor_position": _CURSOR}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
+_VIEW_RENAME_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "name": _SQL}, "required": ["workspace_id", "view_id", "name"], "additionalProperties": False}
+_QUERY_LOG_GET_SCHEMA = {"type": "object", "properties": {"log_id": _WORKSPACE_ID}, "required": ["log_id"], "additionalProperties": False}
+# shortcut: backend validates exclusive save modes, upgrade when the shared selector supports root schema unions.
+_SAVE_VIEW_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "sql": _SQL, "name": _SQL}, "additionalProperties": False}
 
 
 def native_tools() -> tuple[types.Tool, ...]:
     schemas = {RUN: _RUN_SCHEMA, PAGE: _PAGE_SCHEMA, CHECK: _CHECK_SCHEMA, SCHEMA: _EMPTY_SCHEMA,
-               SAVE: _SAVE_SCHEMA, SAVE_WORKSHEET: _WORKSHEET_SCHEMA, LOAD: _LOAD_SCHEMA,
-               SAVED_LIST: _LIST_SCHEMA}
-    writes = {SAVE, SAVE_WORKSHEET}
+               SAVE_VIEW: _SAVE_VIEW_SCHEMA, LOAD: _LOAD_SCHEMA, SAVED_LIST: _LIST_SCHEMA,
+               WORKSPACE_OPEN: _WORKSPACE_OPEN_SCHEMA, WORKSPACE_LIST: _EMPTY_SCHEMA,
+               WORKSPACE_GET: _WORKSPACE_GET_SCHEMA, VIEW_CREATE: _VIEW_CREATE_SCHEMA,
+               VIEW_LIST: _WORKSPACE_GET_SCHEMA, VIEW_GET: _VIEW_GET_SCHEMA,
+               VIEW_UPDATE: _VIEW_UPDATE_SCHEMA, VIEW_RUN: _VIEW_RUN_SCHEMA,
+               VIEW_CHECK: _VIEW_CHECK_SCHEMA, VIEW_FETCH: _VIEW_FETCH_SCHEMA,
+               VIEW_FOCUS: _VIEW_GET_SCHEMA, VIEW_RENAME: _VIEW_RENAME_SCHEMA,
+               VIEW_REMOVE: _VIEW_GET_SCHEMA, QUERY_LOG_LIST: _LIST_SCHEMA,
+               QUERY_LOG_GET: _QUERY_LOG_GET_SCHEMA, RESTART: _EMPTY_SCHEMA, REREAD: _EMPTY_SCHEMA}
+    writes = {RUN, SAVE_VIEW, WORKSPACE_OPEN, VIEW_CREATE, VIEW_UPDATE, VIEW_RUN, VIEW_FOCUS,
+              VIEW_RENAME, VIEW_REMOVE, RESTART, REREAD}
+    descriptions = {
+        WORKSPACE_OPEN: "Initialize or resume the Workspace bound to one native session.",
+        WORKSPACE_LIST: "List known Workspace IDs for the selected Project.",
+        WORKSPACE_GET: "Get Workspace Views, active View, and result metadata without result rows.",
+        VIEW_CREATE: "Create a stable View in a Workspace.",
+        VIEW_LIST: "List ordered Workspace Views and their result metadata.",
+        VIEW_GET: "Get one View's SQL, revision, and result metadata without rows.",
+        VIEW_UPDATE: "Update one View using its expected revision.",
+        VIEW_RUN: "Run one View and return metadata without result rows.",
+        VIEW_CHECK: "Check one View without recording a query log entry.",
+        VIEW_FETCH: "Fetch an optional page from one View's current result.",
+        VIEW_FOCUS: "Set the active View for a Workspace.",
+        VIEW_RENAME: "Rename one View.",
+        VIEW_REMOVE: "Remove one View while retaining at least one View.",
+        QUERY_LOG_LIST: "List retained query-log records without result rows.",
+        QUERY_LOG_GET: "Get one retained query-log record without result rows.",
+    }
     return tuple(types.Tool(
-        name=name, description=f"Workbench {name}.",
-        annotations=types.ToolAnnotations(read_only_hint=name not in writes, destructive_hint=False,
+        name=name, description=descriptions.get(name, f"Workbench {name.replace('_', ' ')}."),
+        annotations=types.ToolAnnotations(read_only_hint=name not in writes, destructive_hint=name in {RESTART, REREAD},
                                           idempotent_hint=name not in writes, open_world_hint=False),
         input_schema=schemas[name],
     ) for name in NATIVE_TOOLS)
@@ -54,6 +114,7 @@ class WorkbenchTools:
 
     def __init__(self, root: Path) -> None:
         self.root, self._service = root, None
+        self._lifecycle_lock = threading.RLock()
 
     def _owner(self) -> Any:
         if self._service is None:
@@ -66,32 +127,55 @@ class WorkbenchTools:
 
     async def call(self, name: str, arguments: Any) -> dict[str, Any]:
         try:
-            if name == RUN:
-                sql, page_size, cursor = self._run(arguments)
-                return await asyncio.to_thread(self._owner().run, sql, page_size=page_size, cursor_position=cursor)
-            if name == CHECK:
-                sql, cursor = self._sql(arguments, {"sql", "cursor_position"})
-                return await asyncio.to_thread(self._owner().check, sql, cursor_position=cursor)
-            if name == PAGE:
-                query_id, offset, page_size = self._page(arguments)
-                return await asyncio.to_thread(self._owner().page, query_id, offset, page_size=page_size)
-            if name == SCHEMA:
-                self._empty(arguments)
-                return await asyncio.to_thread(self._owner().schema)
-            if name == SAVE:
-                sql, cursor = self._sql(arguments, {"sql", "cursor_position", "name"})
-                return await asyncio.to_thread(self._owner().save, sql, cursor_position=cursor, name=self._name(arguments))
-            if name == SAVE_WORKSHEET:
-                sql, _ = self._sql(arguments, {"sql", "name"})
-                return await asyncio.to_thread(self._owner().save_worksheet, sql, name=self._name(arguments))
-            if name == LOAD:
-                reference, _ = self._sql(arguments, {"reference"}, key="reference")
-                return await asyncio.to_thread(self._owner().load, reference)
-            if name == SAVED_LIST:
-                return await asyncio.to_thread(self._owner().saved_list, limit=self._limit(arguments))
-            raise ValueError("Unknown Workbench tool")
+            return await asyncio.to_thread(self._call, name, arguments)
         except Exception as error:
             self._raise_known(error)
+
+    def _call(self, name: str, arguments: Any) -> dict[str, Any]:  # noqa: C901
+        """Keep an owner alive for the complete synchronous Workbench operation."""
+        with self._lifecycle_lock:
+            if name in INTERFACE_TOOLS:
+                return self._owner().interface_call(name, arguments)
+            if name == RUN:
+                sql, page_size, cursor, save, preview, query_name = self._run(arguments)
+                return self._owner().run(
+                    sql, page_size=page_size, cursor_position=cursor,
+                    save=save, preview=preview, name=query_name,
+                )
+            if name == CHECK:
+                sql, cursor = self._sql(arguments, {"sql", "cursor_position"})
+                return self._owner().check(sql, cursor_position=cursor)
+            if name == PAGE:
+                query_id, offset, page_size = self._page(arguments)
+                return self._owner().page(query_id, offset, page_size=page_size)
+            if name == SCHEMA:
+                self._empty(arguments)
+                return self._owner().schema()
+            if name == SAVE_VIEW:
+                if isinstance(arguments, dict) and {"workspace_id", "view_id"} <= set(arguments):
+                    return self._owner().interface_call(name, arguments)
+                sql, _ = self._sql(arguments, {"sql", "name"})
+                return self._owner().save_view(sql, name=self._name(arguments))
+            if name == LOAD:
+                reference, _ = self._sql(arguments, {"reference"}, key="reference")
+                return self._owner().load(reference)
+            if name == SAVED_LIST:
+                return self._owner().saved_list(limit=self._limit(arguments))
+            if name == RESTART:
+                self._empty(arguments)
+                if self._service is not None:
+                    self._service.close()
+                self._service = None
+                self._owner().schema()
+                return {"service": "workbench", "status": "ready"}
+            if name == REREAD:
+                self._empty(arguments)
+                previous = self._owner()
+                self._service = None
+                previous.discard_derived_state()
+                self._owner().schema()
+                return {"service": "workbench", "status": "ready"}
+            raise ValueError("Unknown Workbench tool")
 
     @staticmethod
     def _raise_known(error: Exception) -> None:
@@ -132,9 +216,20 @@ class WorkbenchTools:
             raise ValueError("name must be a string")
         return value
 
-    def _run(self, arguments: Any) -> tuple[str, int, int | None]:
-        sql, cursor = self._sql(arguments, {"sql", "page_size", "cursor_position"})
-        return sql, self._page_size(arguments), cursor
+    def _run(self, arguments: Any) -> tuple[str, int, int | None, bool, int | None, str | None]:
+        sql, cursor = self._sql(arguments, {"sql", "page_size", "cursor_position", "save", "preview", "name"})
+        save = arguments.get("save", False)
+        if type(save) is not bool:
+            raise ValueError("save must be a boolean")
+        preview = arguments.get("preview")
+        if preview is not None and (isinstance(preview, bool) or not isinstance(preview, int) or preview < 0):
+            raise ValueError("preview must be a non-negative integer")
+        if "name" in arguments and not isinstance(arguments["name"], str):
+            raise ValueError("name must be a string")
+        query_name = arguments.get("name")
+        if query_name is not None and not save:
+            raise ValueError("name is only valid when save is true")
+        return sql, self._page_size(arguments), cursor, save, preview, query_name
 
     def _page(self, arguments: Any) -> tuple[str, int, int]:
         if not isinstance(arguments, dict) or set(arguments) - {"query_id", "offset", "page_size"} or {"query_id", "offset"} - set(arguments):
@@ -161,8 +256,13 @@ class WorkbenchTools:
         return value
 
     async def close(self) -> None:
-        if self._service is not None:
-            await asyncio.to_thread(self._service.close)
+        await asyncio.to_thread(self._close)
+
+    def _close(self) -> None:
+        with self._lifecycle_lock:
+            if self._service is not None:
+                self._service.close()
+                self._service = None
 
 
-__all__ = ["CHECK", "LOAD", "NATIVE_TOOLS", "PAGE", "RUN", "SAVE", "SAVED_LIST", "SAVE_WORKSHEET", "SCHEMA", "WorkbenchTools", "native_tools"]
+__all__ = ["CHECK", "INTERFACE_TOOLS", "LOAD", "NATIVE_TOOLS", "PAGE", "QUERY_LOG_GET", "QUERY_LOG_LIST", "REREAD", "RESTART", "RUN", "SAVED_LIST", "SAVE_VIEW", "SCHEMA", "VIEW_CHECK", "VIEW_CREATE", "VIEW_FETCH", "VIEW_FOCUS", "VIEW_GET", "VIEW_LIST", "VIEW_REMOVE", "VIEW_RENAME", "VIEW_RUN", "VIEW_UPDATE", "WORKSPACE_GET", "WORKSPACE_LIST", "WORKSPACE_OPEN", "WorkbenchTools", "native_tools"]

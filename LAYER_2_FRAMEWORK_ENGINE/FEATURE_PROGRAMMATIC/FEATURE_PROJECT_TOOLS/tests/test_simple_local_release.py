@@ -81,6 +81,11 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.engine_bootstrap.write_bytes(b"#!/usr/bin/env python3\n# package bootstrap fixture\n")
         self.engine_bootstrap.chmod(0o755)
         (self.engine_bootstrap.parent / "runtime.py").write_text("# runtime entrypoint fixture\n", encoding="utf-8")
+        catalog_generator = (
+            self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tools_catalog.py"
+        )
+        catalog_generator.parent.mkdir(parents=True)
+        catalog_generator.write_text("# catalog generator fixture\n", encoding="utf-8")
         self.image_id = "sha256:" + "a" * 64
         self.image = SimpleNamespace(resolve=Mock(return_value=self.image_id),
                                      identity=lambda: SimpleNamespace(fingerprint="b" * 64))
@@ -115,6 +120,8 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             calls.append(argv)
             if argv == ("git", "diff", "--cached", "--quiet"):
                 return subprocess.CompletedProcess(argv, 1, "", "")
+            if argv[-1:] == ("project-mcp",):
+                return subprocess.CompletedProcess(argv, 0, "http://localhost:12345/mcp\n", "")
             return subprocess.CompletedProcess(argv, 0, "", "")
 
         return run, calls
@@ -236,6 +243,31 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual(1, sum(any(item.endswith("run_full_test_suite.py") for item in argv) for argv in calls))
         for target in (self.product, self.installed):
             self.assertEqual(source.read_bytes(), (target / "SUPERLAYER_1_METHODOLOGY_SOURCES" / source.parent.name / "active.md").read_bytes())
+
+    def test_catalog_generation_runs_after_mcp_start_and_failure_keeps_endpoint(self):
+        runner, calls = self._runner()
+
+        def catalog_failure(argv, cwd):
+            result = runner(argv, cwd)
+            if any(str(item).endswith("generate_tools_catalog.py") for item in argv):
+                return subprocess.CompletedProcess(argv, 1, "", "catalog unavailable")
+            return result
+
+        with self._compiler():
+            result = run_local_release(self.root, run_id="catalog-failed", runner=catalog_failure)
+
+        self.assertEqual(("failed", "generate_tools_catalog"), (result["outcome"], result["failed_step"]))
+        self.assertEqual("http://localhost:12345/mcp", result["endpoint"])
+        start = next(index for index, argv in enumerate(calls) if argv[-1:] == ("project-mcp",))
+        generator = next(
+            (index, argv) for index, argv in enumerate(calls)
+            if any(str(item).endswith("generate_tools_catalog.py") for item in argv)
+        )
+        self.assertLess(start, generator[0])
+        self.assertEqual("http://localhost:12345/mcp", generator[1][generator[1].index("--mcp-url") + 1])
+        report = (self.root / result["report_path"]).read_text(encoding="utf-8")
+        self.assertIn("Stopped at: `generate_tools_catalog`", report)
+        self.assertIn("MCP started at: `http://localhost:12345/mcp`", report)
 
     def test_focused_modules_are_forwarded_and_reported(self):
         modules = (
@@ -568,7 +600,8 @@ class SimpleLocalReleaseTests(unittest.TestCase):
                     for path in target.rglob("*") if path.is_file()}
         before = {target: inventory(target) for target in (self.installed, runtime_package, skill)}
         for relative in ("uv.lock", "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca/SKILL.md",
-                         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/runtime.py"):
+                         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/runtime.py",
+                         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tools_catalog.py"):
             with self.subTest(relative=relative):
                 missing = self.root / relative
                 payload = missing.read_bytes()

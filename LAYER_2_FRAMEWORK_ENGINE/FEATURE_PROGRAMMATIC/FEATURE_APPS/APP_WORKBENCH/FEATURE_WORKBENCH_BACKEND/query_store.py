@@ -1,6 +1,8 @@
 # CA-R-2728@5
-# CA-R-2729@6
-# CA-D-673@10
+# CA-R-2729@7
+# CA-M-462@9
+# CA-M-463@5
+# CA-D-673@11
 
 """The DuckDB and DuckPGQ owner for disk-backed, paged Workbench queries."""
 
@@ -27,12 +29,12 @@ _SAFE_INTEGER = 2**53 - 1
 _UNREPRESENTABLE = object()
 
 
-def _connect(extension_directory: Path | None, database_path: Path | None):
+def _connect(extension_directory: Path | None, database_path: Path | None) -> Any:
     try:
         import duckdb
     except ImportError as exc:
         raise RuntimeError("DuckDB runtime is unavailable") from exc
-    config: dict[str, str] = {"temp_directory": "", "memory_limit": "256MB"}
+    config: dict[str, str | bool | int | float | list[str]] = {"temp_directory": "", "memory_limit": "256MB"}
     database = ":memory:"
     if database_path is not None:
         database_path.parent.mkdir(parents=True, exist_ok=True)
@@ -151,7 +153,7 @@ class QueryStore:
                     self._connection.execute("DROP SCHEMA internal CASCADE")
                     self._connection.execute("DROP TABLE main.atoms")
                     self._connection.execute("DROP TABLE main.scope_units")
-                insert_rows(self._connection, atom_rows, scope_rows)
+                insert_rows(self._connection, atom_rows, scope_rows)  # type: ignore[no-untyped-call]
                 self._connection.execute("COMMIT")
                 self._initialized = True
             except Exception as exc:
@@ -193,7 +195,15 @@ class QueryStore:
             raise ValueError("offset must be a non-negative integer")
         return value
 
-    def _materialize(self, sql: str) -> tuple[str, list[dict[str, Any]], int]:
+    @staticmethod
+    def _preview(value: int | None) -> int | None:
+        if value is None:
+            return None
+        if type(value) is not int or value < 0:
+            raise ValueError("preview must be a non-negative integer")
+        return value
+
+    def _materialize(self, sql: str, preview: int | None = None) -> tuple[str, list[dict[str, Any]], int]:
         if not self._available:
             raise RuntimeError("query store unavailable; Workbench restart required")
         try:
@@ -207,6 +217,8 @@ class QueryStore:
             raise RuntimeError(f"query failed: {exc}") from exc
         try:
             relation = self._connection.sql(sql)
+            if preview is not None:
+                relation = relation.limit(preview)
             columns = [
                 {"name": name, "type": str(column_type)}
                 for name, column_type in zip(relation.columns, relation.types, strict=True)
@@ -220,7 +232,8 @@ class QueryStore:
             # The caller's SQL is already admitted read-only.  This write transaction is
             # solely the trusted, generated cache table that evaluates it once.
             self._connection.execute("BEGIN TRANSACTION")
-            self._connection.execute(f"CREATE TABLE workbench_results.{table} AS {sql}")
+            materialized_sql = sql if preview is None else relation.sql_query()
+            self._connection.execute(f"CREATE TABLE workbench_results.{table} AS {materialized_sql}")
             columns, row_count = result_columns(self._connection, table, columns)
             self._connection.execute("COMMIT")
         except Exception as exc:
@@ -262,22 +275,62 @@ class QueryStore:
         }
         return result
 
-    def run(self, sql: str, page_size: int = 100) -> dict[str, Any]:
+    def run(
+        self, sql: str, page_size: int = 100, *, preview: int | None = None,
+        include_rows: bool = True,
+    ) -> dict[str, Any]:
         page_size = self._page_size(page_size)
+        preview = self._preview(preview)
+        if type(include_rows) is not bool:
+            raise ValueError("include_rows must be a boolean")
         with self._lock:
-            query_id, columns, row_count = self._materialize(sql)
+            query_id, columns, row_count = self._materialize(sql, preview)
             self._results[query_id] = (columns, row_count, sql)
-            return self._read_page(query_id, columns, row_count, 0, page_size, sql)
+            if not include_rows:
+                return {
+                    "query_id": query_id, "sql": sql, "columns": columns,
+                    "row_count": row_count, "column_count": len(columns),
+                }
+            try:
+                return self._read_page(query_id, columns, row_count, 0, page_size, sql)
+            except ValueError:
+                self.drop(query_id)
+                raise
 
-    def page(self, query_id: str, offset: int, page_size: int = 100) -> dict[str, Any]:
+    def drop(self, query_id: str) -> None:
+        """Release one process-local materialized result."""
+        with self._lock:
+            if not isinstance(query_id, str) or query_id not in self._results:
+                raise ValueError("unknown query_id")
+            try:
+                table = quote_identifier(f"query_{query_id}")
+                self._connection.execute(f"DROP TABLE workbench_results.{table}")
+                del self._results[query_id]
+            except Exception as exc:
+                self._available = False
+                print(f"query store unavailable: {exc}", file=sys.stderr)
+                raise RuntimeError("query store unavailable; Workbench restart required") from exc
+
+    def page(
+        self, query_id: str, offset: int, page_size: int = 100, *, preview: int | None = None,
+    ) -> dict[str, Any]:
         offset = self._offset(offset)
         page_size = self._page_size(page_size)
+        preview = self._preview(preview)
         with self._lock:
             if not self._available:
                 raise RuntimeError("query store unavailable; Workbench restart required")
             if not isinstance(query_id, str) or query_id not in self._results:
                 raise ValueError("unknown query_id")
             columns, row_count, sql = self._results[query_id]
+            if preview == 0:
+                return {
+                    "query_id": query_id, "sql": sql, "columns": columns, "rows": [],
+                    "row_count": row_count, "column_count": len(columns), "offset": offset,
+                    "page_size": 0, "has_more": offset < row_count,
+                }
+            if preview is not None:
+                page_size = min(page_size, preview)
             return self._read_page(query_id, columns, row_count, offset, page_size, sql)
 
     def check(self, sql: str) -> dict[str, Any]:

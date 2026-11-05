@@ -1,0 +1,19 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2477-CORE_META_MODEL-DECLARATION--define-classification-and-its-written-reverse.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/retained-relation-repair/CA-R-2477.preview.txt
+@@ -26,11 +26,13 @@
+ 
+ ```CFEL
+ # model
+-$classified ((HAS_CLASSIFICATION)) $axis;
++$r0[<Relation>, (.Name = HAS_CLASSIFICATION)];
+ 
+-alias(Relation//HAS_CLASSIFICATION) == ">|";
++$host ((HAS_CLASSIFICATION)) $target;
+ 
+-Relation//HAS_CLASSIFICATION ((HAS_CLASSIFICATION)) Derivation == Direct
++alias($r0) == ">|";
++
++$r0 ((HAS_CLASSIFICATION)) Derivation == Direct
+ ```
+ 
+ ### Prose Claim

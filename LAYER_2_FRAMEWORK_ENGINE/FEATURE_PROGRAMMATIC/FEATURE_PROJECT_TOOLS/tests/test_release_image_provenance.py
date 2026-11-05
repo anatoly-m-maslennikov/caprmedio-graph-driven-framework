@@ -12,6 +12,12 @@ from release_image_provenance import release_image_provenance
 
 
 class ReleaseImageProvenanceTests(unittest.TestCase):
+    @staticmethod
+    def _release_output(argv: tuple[str, ...]) -> str:
+        if argv[-1:] == ("project-mcp",):
+            return "http://localhost:12345/mcp\n"
+        return ""
+
     def test_owner_name_and_full_head_are_observed_from_owning_root(self) -> None:
         root = Path("/owning-repository")
         selection = SimpleNamespace(
@@ -58,7 +64,7 @@ class ReleaseImageProvenanceTests(unittest.TestCase):
         self.addCleanup(fixture.doCleanups)
 
         def runner(argv: tuple[str, ...], root: Path) -> subprocess.CompletedProcess[str]:
-            return subprocess.CompletedProcess(argv, 0, "", "")
+            return subprocess.CompletedProcess(argv, 0, self._release_output(argv), "")
 
         with fixture._compiler():
             result = run_local_release(fixture.root, run_id="provenance", runner=runner)
@@ -103,7 +109,7 @@ class ReleaseImageProvenanceTests(unittest.TestCase):
             if argv[:2] == ("git", "commit"):
                 dirty, head = False, "e" * 40
             return subprocess.CompletedProcess(
-                argv, 0, head if argv[:3] == ("git", "rev-parse", "--verify") else "", ""
+                argv, 0, head if argv[:3] == ("git", "rev-parse", "--verify") else self._release_output(argv), ""
             )
 
         with fixture._compiler():

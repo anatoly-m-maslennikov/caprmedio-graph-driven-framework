@@ -1,0 +1,63 @@
+{
+  "status": "PROSPECTIVE_HELD_FOR_NOTATION_AND_CONTAINER_CUTOVER",
+  "scope": "Atom Header storage authority only. No Relation model storage fields; no native source edits.",
+  "candidate": {
+    "id": "CA-R-2709@2",
+    "source": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2709@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "3a4c0fecf537a5f3fe67e5cf70cf5f7f1b4c5558ee83a460ae849afa514f29cc"
+    },
+    "preview": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/atom-storage/CA-R-2709.preview.txt",
+      "sha256": "e379bb45c893e09387913986de078598cea1bb60b5de64678e8c5dd1fccbab65"
+    },
+    "diff": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/atom-storage/CA-R-2709.diff",
+      "sha256": "717bb0ee84aa448bdca7d0172620f409e9fa55bdb8e915f9dfb083c3d909078e"
+    }
+  },
+  "preserved_authorities": {
+    "2508": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "0a40a675928873e0da4b6b45929fbd33c9b547bbf9ba21a6bdc296761d97af53"
+    },
+    "2779": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "e0cac2dad37a8cf81d4e9f0635cd5cc3595789dce333c1d661624062c1bd9bae"
+    },
+    "2783": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2783@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-atom.md",
+      "sha256": "713994176b14c32eb72c52623f2c6f3f0fb07581370f8eb92776dce35927cb7d"
+    },
+    "2784": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2784@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-scope-unit.md",
+      "sha256": "f7335dd7cf2a7abcde3202e834c4d2c252226255dd1af5cae3da291ff8d35293"
+    },
+    "2698-current": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+      "sha256": "669672c32d618a63cd81611b5daf3eef6ba090e30780f66f057b19a9c9d257bd"
+    },
+    "2699-current": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2699-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-atom.md",
+      "sha256": "375ec0b4c9e4af412f361cb6ca8284e5c2178d37700ebb227e0cfdcadcd6069d"
+    },
+    "2700-current": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2700-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-scope-unit.md",
+      "sha256": "6660e552b2dc55c3145dff1b2d5e8f86dc7c1e5385dd98e2e0b4a467558b689d"
+    }
+  },
+  "obligation_matrix": {
+    "optional_relations": "R2709 {::0..1}, prose added",
+    "container": "R2779 exact one effective container mapping with exactly one atom/scope_unit key; root Project predefined world exception retained",
+    "duplicate": "R2709 prose prohibits storing the same IS_CONTAINED_BY again under Header.Relations; R2508 and R2779 retain sole stored containment",
+    "host": "Facts under Atom Header.Relations are outgoing from the Atom itself; active Subject identifies content focus",
+    "inverse": "Inverse aliases name reverse views of their canonical Relation; they are not separate authored direct facts.",
+    "types": "R2783 and R2784 retain atom ID and Scope Unit ID formats"
+  },
+  "integration_gates": [
+    "R2709 inherited Formal Claim still contains Relation//$relation, stale under the approved typed-participant notation. Reconcile its immediate child-name Format with the syntax migration; do not infer that [<Relation>] selects names rather than Relation objects.",
+    "R2779 retains Atom//$atom in its Formal Claim, also requiring contextual migration.",
+    "Current R2698/R2699/R2700 still declare the old Header.Relations.IS_CONTAINED_BY subtree; coordinated retirement and source/data migration are necessary before the new sole-container rule is Current."
+  ],
+  "inverse_alias_user_decision": "Fixed model references such as Relation//CONTAINS ((IS_INVERSE_ALIAS_FOR)) Relation//IS_CONTAINED_BY refer to model Relations, not literal text or a separate Alias kind. Host representation settled; Relation declaration remains to be prepared."
+}

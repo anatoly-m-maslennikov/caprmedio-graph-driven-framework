@@ -1,4 +1,5 @@
-# CA-E-676@9
+# CA-E-676@11
+# CA-E-683@1
 
 from __future__ import annotations
 
@@ -30,7 +31,19 @@ PROJECT_PATH = f"{WORKBENCH_PATH}/{PROJECT_NAME}"
 
 
 class FakeWorkbench:
+    def __init__(self):
+        self.calls = []
+
     async def call(self, name, arguments):  # noqa: C901
+        self.calls.append((name, arguments))
+        if name == "workspace_open":
+            return {"workspace_id": arguments["session_id"], "views": []}
+        if name == "workspace_get":
+            return {"workspace_id": arguments["workspace_id"], "views": []}
+        if name == "view_create":
+            return {"workspace_id": arguments["workspace_id"], "view_id": "view-1"}
+        if name == "view_save" and "workspace_id" in arguments:
+            return {"workspace_id": arguments["workspace_id"], "view_id": arguments["view_id"]}
         if name == "query_page":
             if arguments["query_id"] != "query-1":
                 raise ExplicitBlockingRuntimeFailure("query_error", "unknown query_id")
@@ -50,8 +63,8 @@ class FakeWorkbench:
             return {"items": []}
         if name == "query_load":
             return {"saved_query_id": arguments["reference"], "kind": "query", "sql": "SELECT 1"}
-        if name in ("query_save", "worksheet_save"):
-            value = {"saved_query_id": "q_1", "kind": "query", "sql": arguments["sql"]}
+        if name == "view_save":
+            value = {"saved_query_id": "w_1", "kind": "view", "sql": arguments["sql"]}
             if arguments.get("name", "").strip():
                 value["name"] = arguments["name"]
             return value
@@ -72,7 +85,7 @@ class FakeWorkbench:
             }
         if name == "query_check":
             return {"valid": True, "row_count": 1, "column_count": 1}
-        return {
+        value = {
             "query_id": "query-1",
             "columns": [{"name": "value", "type": "VARCHAR"}],
             "rows": [["<script>x</script>"]],
@@ -82,6 +95,11 @@ class FakeWorkbench:
             "page_size": arguments.get("page_size", 100),
             "has_more": False,
         }
+        if arguments.get("save"):
+            value.update({"saved_query_id": "q_1", "kind": "query", "sql": arguments["sql"]})
+            if arguments.get("name", "").strip():
+                value["name"] = arguments["name"]
+        return value
 
 
 class FakeGateway:
@@ -89,7 +107,9 @@ class FakeGateway:
         self.workbench = FakeWorkbench()
         self.roots = []
         settings = MappingProxyType({"project": MappingProxyType({"name": PROJECT_NAME})})
-        self.selection = type("Selection", (), {"settings": settings})()
+        self.root = Path.cwd()
+        self.tool_blacklist = frozenset()
+        self.selection = type("Selection", (), {"settings": settings, "root": self.root, "host_root": None})()
 
     def _selection(self, root):
         if root != "/project":
@@ -200,15 +220,68 @@ class WorkbenchWebTests(unittest.TestCase):
                     client.post(f"{PROJECT_PATH}/check", json={"sql": "SELECT 1"}).json()["row_count"],
                 )
 
-    def test_saved_values_have_request_derived_urls_and_query_errors_do_not(self):
+    def test_standalone_codex_chat_route_is_disabled(self):
+        with TestClient(Starlette(routes=routes(FakeGateway()))) as client:
+            self.assertEqual(404, client.get(f"{PROJECT_PATH}/codex").status_code)
+
+    def test_workspace_interface_uses_the_shared_native_operation_and_public_url(self):
         with TestClient(Starlette(routes=routes(FakeGateway())), base_url="http://workbench.test") as client:
-            saved = client.post(f"{PROJECT_PATH}/save", json={"sql": "SELECT 1"}).json()
+            opened = client.post(f"{PROJECT_PATH}/interface", json={
+                "operation": "workspace_open", "arguments": {"session_id": "session-1"},
+            })
+            self.assertEqual(200, opened.status_code)
+            self.assertEqual(
+                "http://workbench.test/caprmedio/workbench/caprmedio?workspace=session-1",
+                opened.json()["workspace_url"],
+            )
+            created = client.post(f"{PROJECT_PATH}/interface", json={
+                "operation": "view_create", "arguments": {"workspace_id": "session-1"},
+            })
+            self.assertEqual("view-1", created.json()["view_id"])
+            invalid = client.post(f"{PROJECT_PATH}/interface", json={
+                "operation": "unknown", "arguments": {},
+            })
+            self.assertEqual(400, invalid.status_code)
+
+    def test_interface_rejects_blacklisted_bound_view_save_and_validates_single_root(self):
+        gateway = FakeGateway()
+        gateway.tool_blacklist = frozenset({"view_save"})
+        with TestClient(Starlette(routes=routes(gateway))) as client:
+            blocked = client.post(f"{PROJECT_PATH}/interface", json={
+                "operation": "view_save", "arguments": {"workspace_id": "session-1", "view_id": "view-1"},
+            })
+            self.assertEqual(400, blocked.status_code)
+            self.assertEqual([], gateway.workbench.calls)
+
+        gateway = FakeGateway()
+        with TestClient(Starlette(routes=routes(gateway))) as client:
+            wrong = client.post(f"{PROJECT_PATH}/interface", json={
+                "operation": "workspace_open", "project_root": "/other",
+                "arguments": {"session_id": "session-1"},
+            })
+            self.assertEqual(400, wrong.status_code)
+            self.assertEqual([], gateway.workbench.calls)
+            correct = client.post(f"{PROJECT_PATH}/interface", json={
+                "operation": "workspace_open", "project_root": str(gateway.root),
+                "arguments": {"session_id": "session-1"},
+            })
+            self.assertEqual(200, correct.status_code)
+            self.assertEqual([("workspace_open", {"session_id": "session-1"})], gateway.workbench.calls)
+
+    def test_run_and_save_values_have_request_derived_urls_and_query_errors_do_not(self):
+        with TestClient(Starlette(routes=routes(FakeGateway())), base_url="http://workbench.test") as client:
+            self.assertEqual(404, client.post(f"{PROJECT_PATH}/save", json={"sql": "SELECT 1"}).status_code)
+            self.assertEqual(404, client.post(f"{PROJECT_PATH}/worksheet-save", json={"sql": "SELECT 1"}).status_code)
+            view = client.post(f"{PROJECT_PATH}/view-save", json={"sql": "SELECT 1", "name": "view"}).json()
+            self.assertEqual("view", view["kind"])
+            self.assertEqual("view", view["name"])
+            saved = client.post(f"{PROJECT_PATH}/run", json={"sql": "SELECT 1", "save": True}).json()
             self.assertEqual(
                 "http://workbench.test/caprmedio/workbench/caprmedio?query=q_1", saved["saved_query_url"],
             )
-            named = client.post(f"{PROJECT_PATH}/save", json={"sql": "SELECT 1", "name": "named"}).json()
+            named = client.post(f"{PROJECT_PATH}/run", json={"sql": "SELECT 1", "save": True, "name": "named"}).json()
             self.assertEqual("named", named["name"])
-            unnamed = client.post(f"{PROJECT_PATH}/save", json={"sql": "SELECT 1", "name": "   "}).json()
+            unnamed = client.post(f"{PROJECT_PATH}/run", json={"sql": "SELECT 1", "save": True, "name": "   "}).json()
             self.assertNotIn("name", unnamed)
             failed = client.post(f"{PROJECT_PATH}/run", json={"sql": "bad"})
             self.assertEqual(400, failed.status_code)
@@ -239,7 +312,7 @@ class WorkbenchWebTests(unittest.TestCase):
             self.assertEqual(200, client.get(f"{PROJECT_PATH}?project_root=/project").status_code)
             self.assertEqual(404, client.get(f"{WORKBENCH_PATH}/wrong?project_root=/project").status_code)
             self.assertEqual(1, client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "SELECT 1"}).json()["row_count"])
-            named = client.post(f"{PROJECT_PATH}/save", json={"project_root": "/project", "sql": "SELECT 1", "name": "shared"}).json()
+            named = client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "SELECT 1", "save": True, "name": "shared"}).json()
             self.assertEqual("shared", named["name"])
             failure = client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "bad"})
             self.assertEqual(400, failure.status_code)

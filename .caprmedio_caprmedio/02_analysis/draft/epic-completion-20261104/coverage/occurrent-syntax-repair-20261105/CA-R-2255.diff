@@ -1,0 +1,22 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2255@10-draft-CORE_META_MODEL-DECLARATION--define-executes-relation.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2255.preview.txt
+@@ -29,12 +29,16 @@
+ 
+ ```CFEL
+ # model
+-Relation//EXECUTES ((HAS_INVERSE)) Relation//IS_EXECUTED_BY;
++$relation[<Relation>, (.Name = EXECUTES)];
+ 
+-Relation//EXECUTES ((HAS_CLASSIFICATION)) Derivation == Direct;
++$inverse1[<Relation>, (.Name = IS_EXECUTED_BY)];
++
++$relation ((HAS_INVERSE)) $inverse1;
++
++$relation ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+ # instances
+-Runtime//$runtime((EXECUTES)) Execution//$execution
++$runtime[<Runtime>]((EXECUTES)) $execution[<Execution>]
+ ```
+ 
+ ## Semantics

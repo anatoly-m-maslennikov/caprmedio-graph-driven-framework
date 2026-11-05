@@ -1,0 +1,22 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2421@6-draft-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2421.preview.txt
+@@ -26,12 +26,16 @@
+ 
+ ```CFEL
+ # model
+-Relation//IS_RECORDED_BY <((HAS_INVERSE)) Relation//RECORDS;
++$relation[<Relation>, (.Name = IS_RECORDED_BY)];
+ 
+-Relation//IS_RECORDED_BY ((HAS_CLASSIFICATION)) Derivation == Derived;
++$inverse1[<Relation>, (.Name = RECORDS)];
++
++$relation <((HAS_INVERSE)) $inverse1;
++
++$relation ((HAS_CLASSIFICATION)) Derivation == Derived;
+ 
+ # instances
+-Event//$event((IS_RECORDED_BY)) Event Record//$record
++$event[<Event>]((IS_RECORDED_BY)) $record[<Event Record>]
+ ```
+ 
+ ## Semantics

@@ -1,0 +1,23 @@
+{
+  "verdict": "PASS_BOUNDED_PREVIEW_REBASE_ADOPTION_HELD",
+  "manifest_sha256": "86592ec445d7ab989147045863121f7dee6f32931d5089816cf14412896d263a",
+  "draft_pin": true,
+  "preview_pin": true,
+  "diff_pin": true,
+  "preview_sha256": "7532baaa2d35ad99d148438394b243ee5cb7f130d63da9d88145b83a4f2af982",
+  "metadata_unchanged": true,
+  "authority_pin_failures": [],
+  "correction_to_prior_report": "The native R1931@19 Draft and the older r1931-final-draft-rebase candidate retain prior meanings. This newer cfel-graph-consumer-repair preview already updates /, //, typed participants and HAV/HVC; do not treat the old-candidate finding as applying to this newer preview.",
+  "preserved": [
+    "Whole/Part containment, // narrowing/inheritance, typed instance participants and qualified :=; named Relation direct/derived distinction and endpoint count slots.",
+    "HAV alternatives OR, HVC restrictions AND, inherited groups and absent HAV true; literal/constraint endpoints do not create Nodes.",
+    "Status Group meanings, Module/Package and Scope Unit/Step obligations, canonical identity, quoted text distinction and non-inferred inverse rules remain in prose.",
+    "No new primary Property kind or Node-only replacement for Entity is asserted."
+  ],
+  "adoption_holds": [
+    "Legacy passive Entity and Entity/Object/Continuant/Package chain remain unmapped; exact authority must be resolved before Current adoption.",
+    "Coordinate final value Relation, typed-selector and recursive Step source migration; Current sources are unchanged by this preview.",
+    "Scope of Subject path escaping versus quoted literal escaping must remain consistent with the unified grammar; this review does not invent an additional escaping rule."
+  ],
+  "boundary": "Latest preview only; no native Draft, Current, code, tests, Workflow, Workbench or Git mutations."
+}

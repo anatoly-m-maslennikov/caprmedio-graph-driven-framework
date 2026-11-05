@@ -1,0 +1,62 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "sources": [
+    {
+      "id": "CA-R-2475",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "source_sha256": "5dca3569b44a6183d8f24fae240e2ae407327600f08fbba5958813b9dde6d652",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2475.preview.txt",
+      "preview_sha256": "326201be1e6da2371c3bd3c6734f9726cfe8d4832895f63aecc310a50eae2d97",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2475.diff",
+      "diff_sha256": "9ae0b044cf67920b8fb62350c6a82c597df2d28b50a2f2e6413ed7fe30296e2a",
+      "disposition": "READY_FOR_REVIEW"
+    },
+    {
+      "id": "CA-R-2476",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "source_sha256": "1af71d260bfa51ab09b0cdc673e229176819d9e45a81f0cba113e73062e75937",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2476.preview.txt",
+      "preview_sha256": "1af71d260bfa51ab09b0cdc673e229176819d9e45a81f0cba113e73062e75937",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2476.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "UNCHANGED_PINNED_DRAFT"
+    },
+    {
+      "id": "CA-R-2617",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2617@3-draft-CORE_META_MODEL-DECLARATION--declare-contains.md",
+      "source_sha256": "f10509a3cd3a9b13107d6d7746035e6c41a3cb5df55bc13c379e1cab07bedb0c",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2617.preview.txt",
+      "preview_sha256": "f10509a3cd3a9b13107d6d7746035e6c41a3cb5df55bc13c379e1cab07bedb0c",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2617.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "UNCHANGED_PINNED_DRAFT"
+    },
+    {
+      "id": "CA-R-2620",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2620-CORE_META_MODEL-DECLARATION--declare-has-narrower.md",
+      "source_sha256": "92dbcc2aa54b613c6a43c437ad0beedd632bc9ccb7d9905638f9e31472948d19",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2620.preview.txt",
+      "preview_sha256": "6957a887fc0060da0d470ef668a697425ea9507e9a332f68c0a75fa88aa63392",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2620.diff",
+      "diff_sha256": "b1f34b3bc3858d89a9d13506eb572a559cf0e2eca6daad6d9d397fbc02d7665f",
+      "disposition": "READY_FOR_REVIEW"
+    },
+    {
+      "id": "CA-R-2478",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "source_sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2478.preview.txt",
+      "preview_sha256": "beafaddccd7346a2919418e72cd60134964770873c69dfe20efcdfc7544d962c",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2478.diff",
+      "diff_sha256": "fded9489aa3a851f5be70a1cda02c58e206ec7d9d0cc032ba1409adbfdbe4839",
+      "disposition": "READY_FOR_REVIEW"
+    }
+  ],
+  "direction": "NARROWER_THAN canonical direct Host=narrow Target=broad; HAS_NARROWER is derived Host=broad Target=narrow and owns // so Broad//Narrow follows its owner. CONTAINS owns / whole→part; IS_CONTAINED_BY owns +> part→whole. INSTANCE_OF retains named syntax and no // alias.",
+  "dependencies": [
+    "R2817 alias Rule requires alias to follow owner Relation direction; alias move therefore requires R2620 as well as R2475.",
+    "Typed descriptor addressing, contextual Subject migration and full CFEL source migration must be coordinated before admission.",
+    "No named inverse Relation permission is implied by inverse declarations or syntax."
+  ],
+  "limits": "No native Draft, Current, code, tests, actual Workflow, Workbench or Git mutation."
+}

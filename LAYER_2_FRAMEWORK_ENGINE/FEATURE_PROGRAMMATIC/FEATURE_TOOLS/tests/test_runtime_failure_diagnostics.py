@@ -1,3 +1,4 @@
+# CA-E-752@1
 """Focused checks for the shared runtime failure diagnostic facade."""
 
 from __future__ import annotations
@@ -118,31 +119,35 @@ class RuntimeFailureDiagnosticsTests(unittest.TestCase):
         self.assertIsNone(secondary)
         self.assertNotIn("exception_class", json.loads(stream.getvalue()))
 
-    def test_structured_errors_are_downgraded_without_an_actual_exception(self) -> None:
+    def test_structured_errors_preserve_severity_except_workbench_query_error(self) -> None:
         stream = io.StringIO()
         logger = self._logger(stream)
-        cases = (None, "RuntimeError", "ExplicitBlockingRuntimeFailure")
+        cases = (
+            ("query_error", "WARNING", "failed"),
+            ("workbench_unavailable", "ERROR", "blocked"),
+            ("synthetic_error", "ERROR", "blocked"),
+        )
         with (
             patch.object(facade, "active_selection", return_value=self.selection),
             patch.object(facade, "make_technical_logger", return_value=(logger, None)),
         ):
-            for exception_class in cases:
-                with self.subTest(exception_class=exception_class):
+            for code, severity, outcome in cases:
+                with self.subTest(code=code):
                     stream.seek(0)
                     stream.truncate(0)
                     synthetic = FailureRecord(
                         "ERROR",
-                        "synthetic_error",
+                        code,
                         "safe synthetic",
-                        exception_class=exception_class,
                     )
                     failure, secondary = facade.report_failure(
                         self.root, synthetic, component="COMP", operation="op"
                     )
-                    self.assertEqual("WARNING", failure.severity)
-                    self.assertEqual(exception_class, failure.exception_class)
+                    self.assertEqual(severity, failure.severity)
                     self.assertIsNone(secondary)
-                    self.assertEqual("WARNING", json.loads(stream.getvalue())["severity"])
+                    record = json.loads(stream.getvalue())
+                    self.assertEqual(severity, record["severity"])
+                    self.assertEqual(outcome, record["outcome"])
 
     def test_explicit_blocking_failure_remains_error(self) -> None:
         stream = io.StringIO()
@@ -158,6 +163,30 @@ class RuntimeFailureDiagnosticsTests(unittest.TestCase):
         self.assertEqual(("ERROR", "runtime_blocked"), (failure.severity, failure.code))
         self.assertIsNone(secondary)
         self.assertEqual("ERROR", json.loads(stream.getvalue())["severity"])
+
+    def test_workbench_query_error_is_a_warning_but_runtime_unavailability_is_an_error(self) -> None:
+        stream = io.StringIO()
+        logger = self._logger(stream)
+        with (
+            patch.object(facade, "active_selection", return_value=self.selection),
+            patch.object(facade, "make_technical_logger", return_value=(logger, None)),
+        ):
+            query, query_secondary = facade.report_failure(
+                self.root, ExplicitBlockingRuntimeFailure("query_error", "invalid SQL"),
+                component="MCP_HTTP", operation="workbench",
+            )
+            unavailable, unavailable_secondary = facade.report_failure(
+                self.root, ExplicitBlockingRuntimeFailure(
+                    "workbench_unavailable", "Workbench unavailable; restart required"
+                ), component="MCP_HTTP", operation="workbench",
+            )
+        self.assertEqual(("WARNING", "query_error"), (query.severity, query.code))
+        self.assertIsNone(query_secondary)
+        self.assertEqual(("ERROR", "workbench_unavailable"), (unavailable.severity, unavailable.code))
+        self.assertIsNone(unavailable_secondary)
+        records = [json.loads(line) for line in stream.getvalue().splitlines()]
+        self.assertEqual(["WARNING", "ERROR"], [record["severity"] for record in records])
+        self.assertEqual(["failed", "blocked"], [record["outcome"] for record in records])
 
     def test_report_does_not_write_journal_or_source_files(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

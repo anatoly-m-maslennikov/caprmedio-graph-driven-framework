@@ -1,0 +1,28 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/retained-relation-repair/CA-R-2473.preview.txt
+@@ -26,13 +26,14 @@
+ 
+ ```CFEL
+ # model
+-$property ((IS_PROPERTY_OF)) $bearer;
++$r0[<Relation>, (.Name = IS_PROPERTY_OF)];
++$r1[<Relation>, (.Name = HAS_PROPERTY)];
+ 
+-Relation//IS_PROPERTY_OF ((HAS_INVERSE)) Relation//HAS_PROPERTY;
++$host ((IS_PROPERTY_OF)) $target;
+ 
+-alias(Relation//IS_PROPERTY_OF) == ".";
++$r0 ((HAS_INVERSE)) $r1;
+ 
+-Relation//IS_PROPERTY_OF ((HAS_CLASSIFICATION)) Derivation == Direct
++$r0 ((HAS_CLASSIFICATION)) Derivation == Direct
+ ```
+ 
+ ### Prose Claim
+@@ -42,5 +43,5 @@
+ A Property has exactly one immediate bearer; the bearer may be any applicable declared model Entity or instance.
+ 
+ Forward `Host ((IS_PROPERTY_OF)) Target` and reverse `Target <((IS_PROPERTY_OF)) Host` are views of the same Relation fact.
+-In `X.Y`, Y IS_PROPERTY_OF X; traversal runs from bearer to Property.
++In `X.Y`, Y IS_PROPERTY_OF X; the `.` alias follows HAS_PROPERTY from bearer to Property.
+ IS_PROPERTY_OF relates Property to immediate bearer.

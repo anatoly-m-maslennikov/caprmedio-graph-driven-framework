@@ -2,6 +2,9 @@
 # CA-R-2729@6
 # CA-R-2776@3
 # CA-D-673@10
+# CA-R-1113@23
+# CA-M-175@19
+# CA-D-593@17
 
 """Explicit process generations and connected Subject publication; no automatic replay."""
 import asyncio
@@ -34,9 +37,14 @@ from project_selection import ProjectSelection, bind_selection, resolve_project,
 from project_settings_schema import mcp_tool_blacklist
 from health_observations import HealthObservations
 from operation_error_boundary import ExplicitBlockingRuntimeFailure, FailureRecord, operation_error_boundary
+from project_tool_context import native_arguments
+from shared_tool_contract import public_tool
 from runtime_failure_diagnostics import report_failure
-from workbench_links import context_project_root, public_saved, validate_reference
-from workbench_tools import NATIVE_TOOLS as WORKBENCH_TOOLS, WorkbenchTools, native_tools as workbench_native_tools
+from workbench_links import context_project_root, public_saved, public_workspace, validate_reference
+from workbench_tools import (
+    NATIVE_TOOLS as WORKBENCH_TOOLS, WORKSPACE_GET, WORKSPACE_OPEN, WorkbenchTools,
+    native_tools as workbench_native_tools,
+)
 
 
 def startup_selection(root, control_root=None, instance_id=None, host_root=None):
@@ -596,10 +604,12 @@ class Gateway:
         error = None
         try:
             async def guarded_call():
+                arguments = native_arguments(params.arguments, self.selection, self.root)
+                native_params = params.model_copy(update={'arguments': arguments})
                 if params.name in self.tool_blacklist:
                     return result({'outcome': 'rejected', 'diagnostics': ['Unknown Tool']}, True)
                 with bind_selection(self.selection) if self.selection is not None else nullcontext():
-                    return await self._call(context, params)
+                    return await self._call(context, native_params)
 
             guarded_call = operation_error_boundary(
                 on_error=lambda caught: self._public_call_failure(caught, context, params),
@@ -718,7 +728,7 @@ class Gateway:
               and request.get('operation') == 'preview_subjects'):
             timeout = SUBJECT_PREVIEW_CALL_TIMEOUT_SECONDS
         response = await generation.client.call_tool(params.name, params.arguments,
-            read_timeout_seconds=timeout)
+            read_timeout_seconds=timeout, meta=params.meta)
         if staging:
             self._retain_subject_stage(context, response)
         return response
@@ -757,6 +767,8 @@ class Gateway:
             value = await self.workbench.call(params.name, arguments)
             if request is not None:
                 value = public_saved(value, request, self.selection, context_project_root(context))
+                if params.name in {WORKSPACE_OPEN, WORKSPACE_GET}:
+                    value = public_workspace(value, request, self.selection, context_project_root(context))
             return result(value)
         generation = self.active
         generation.in_flight += 1
@@ -848,7 +860,8 @@ class Gateway:
 
         async def list_tools(context, params):
             return types.ListToolsResult(tools=[
-                tool for tool in (CONTROL, STATUS, *workbench_native_tools(), *self.active.tools)
+                public_tool(tool, required=False)
+                for tool in (CONTROL, STATUS, *workbench_native_tools(), *self.active.tools)
                 if tool.name not in self.tool_blacklist
             ])
 

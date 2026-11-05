@@ -1,8 +1,8 @@
 # CA-R-2723@3
-# CA-R-2725@2
+# CA-R-2725@3
 # CA-R-2726@4
 # CA-M-464@7
-# CA-M-465@10
+# CA-M-465@12
 # CA-D-672@9
 
 """Governed Workbench carrier reader; scheduling belongs to the service."""
@@ -52,6 +52,7 @@ _FILENAME_MARKER = re.compile(
     rb"^(?:[0-9]+-)?[A-Za-z0-9-]+-(?P<role>[A-Za-z][A-Za-z0-9]*)-"
     rb"(?:[0-9]+|[Dd][Rr][Aa][Ff][Tt])(?:[-.@]|$)"
 )
+_NUMBERED_DRAFT_REFERENCE = re.compile(r"@\d+-draft$")
 _HEADER_MARKER = re.compile(rb"^(?:['\"]?)(?:atom_id|role|content_role)(?:['\"]?):", re.MULTILINE)
 _ROLE_MARKERS = {
     "01_concern": {"C", "CONC", "CONCERN"},
@@ -298,11 +299,12 @@ def _atom(path, root, header, view, body, group):
     if group == "Current" and isinstance(atom_id, str):
         ref = atom_id
     elif group == "Draft" and isinstance(atom_id, str) and type(version) is int:
-        ref = (
-            atom_id
-            if atom_id.endswith(("-draft", "@draft"))
-            else f"{atom_id}@{version}-draft"
-        )
+        if _NUMBERED_DRAFT_REFERENCE.search(atom_id):
+            ref = atom_id
+        elif atom_id.endswith(("-draft", "@draft")):
+            ref = f"{atom_id}:{path.relative_to(root).as_posix()}"
+        else:
+            ref = f"{atom_id}@{version}-draft"
     else:
         ref = None
     row = {

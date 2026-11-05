@@ -1,0 +1,14 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2620-CORE_META_MODEL-DECLARATION--declare-has-narrower.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/relation-alias-repair/CA-R-2620.preview.txt
+@@ -25,5 +25,10 @@
+ 
+ ```CFEL
+ # model
+-Relation//HAS_NARROWER <((HAS_INVERSE)) Relation//NARROWER_THAN
++$narrower_view[<Relation>, (.Name = HAS_NARROWER)];
++$narrower_direct[<Relation>, (.Name = NARROWER_THAN)];
++
++$narrower_view <((HAS_INVERSE)) $narrower_direct;
++
++alias($narrower_view) == "//"
+ ```

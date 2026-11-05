@@ -1,3 +1,5 @@
+# CA-E-680@1
+
 """Focused checks for the shared host HTTP boundary."""
 
 from __future__ import annotations
@@ -8,7 +10,7 @@ from pathlib import Path
 import sys
 from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
+from unittest.mock import AsyncMock, patch
 
 import httpx2
 from mcp import types
@@ -158,6 +160,59 @@ class SharedHTTPTests(unittest.IsolatedAsyncioTestCase):
                     await transport.__aexit__(None, None, None)
         self.assertEqual(1, self.gateway.initialize_calls)
         self.assertEqual(1, self.gateway.close_calls)
+
+    async def test_shared_health_restart_form_requires_one_project_and_uses_native_mcp(self):
+        self.gateway.call = AsyncMock(return_value=SimpleNamespace(
+            is_error=False,
+            structured_content={"service": "workbench", "status": "ready"},
+        ))
+        endpoint = f"{HEALTH_PATH}/workbench-restart"
+        async with self.app.starlette_app.router.lifespan_context(self.app.starlette_app):
+            async with httpx2.AsyncClient(
+                transport=httpx2.ASGITransport(app=self.app),
+                base_url="http://127.0.0.1:8092",
+            ) as client:
+                health = await client.get(HEALTH_PATH, headers={"accept": "text/html"})
+                self.assertIn('name="project_root" required', health.text)
+                for request in (
+                    {"data": {}},
+                    {"content": "project_root=/repos/a&project_root=/repos/b", "headers": {
+                        "content-type": "application/x-www-form-urlencoded"}},
+                    {"data": {"project_root": "/repos/a", "extra": "x"}},
+                    {"content": '{"project_root":"/repos/a"}', "headers": {
+                        "content-type": "application/json"}},
+                ):
+                    response = await client.post(endpoint, headers={"accept": "text/html", **request.pop("headers", {})}, **request)
+                    self.assertIn("Enter one Project folder.", response.text)
+                self.gateway.call.assert_not_awaited()
+
+                response = await client.post(
+                    endpoint, data={"project_root": "/repos/alpha"}, headers={"accept": "text/html"},
+                )
+                self.assertIn("Workbench is ready.", response.text)
+                call = self.gateway.call.await_args.args[1]
+                self.assertEqual("workbench_restart", call.name)
+                self.assertEqual({"project_root": "/repos/alpha"}, call.arguments)
+
+                self.gateway.call.reset_mock()
+                reread = await client.post(
+                    f"{HEALTH_PATH}/workbench-reread", data={"project_root": "/repos/alpha"},
+                    headers={"accept": "text/html"},
+                )
+                self.assertIn("Workbench is ready.", reread.text)
+                call = self.gateway.call.await_args.args[1]
+                self.assertEqual("workbench_reread", call.name)
+                self.assertEqual({"project_root": "/repos/alpha"}, call.arguments)
+
+                self.gateway.call.reset_mock()
+                self.gateway.call.return_value = SimpleNamespace(
+                    is_error=True, structured_content={"detail": "private provider failure"},
+                )
+                failed = await client.post(
+                    endpoint, data={"project_root": "/repos/alpha"}, headers={"accept": "text/html"},
+                )
+                self.assertIn("Workbench restart failed.", failed.text)
+                self.assertNotIn("private provider failure", failed.text)
 
 
 if __name__ == "__main__":

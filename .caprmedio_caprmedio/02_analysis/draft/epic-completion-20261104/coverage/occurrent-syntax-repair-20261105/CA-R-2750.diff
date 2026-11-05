@@ -1,0 +1,14 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2750.preview.txt
+@@ -32,9 +32,9 @@
+ Workflow Run >| (Container == yes);
+ 
+ # instances
+-Workflow Run//$run {::1}((IS_EXECUTION_OF)) Workflow//$definition;
++$run[<Workflow Run>] {::1}((IS_EXECUTION_OF)) $definition[<Workflow>];
+ 
+-Workflow Run//$container {::0+}((CONTAINS)) Step Run//$contained_step
++$container[<Workflow Run>] {::0+}((CONTAINS)) $contained_step[<Step Run>]
+ ```
+ 
+ ## Semantics

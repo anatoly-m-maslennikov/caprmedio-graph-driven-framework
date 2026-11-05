@@ -1,4 +1,4 @@
-# CA-E-676@9
+# CA-E-676@10
 # CA-E-677@8
 # CA-M-472@1
 
@@ -61,13 +61,54 @@ class ServiceTests(unittest.TestCase):
             watch.assert_not_called()
             reader.capture.assert_not_called()
 
-    def test_explicit_save_failure_does_not_start_or_execute(self):
+    def test_run_keeps_completed_result_when_late_save_fails(self):
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
             service = WorkbenchService(Path("/project"))
         service._saved_queries = unittest.mock.Mock(save_query=unittest.mock.Mock(side_effect=ValueError("disk full")))
         service._start = unittest.mock.Mock()
+        service._store = unittest.mock.Mock(run=unittest.mock.Mock(return_value={
+            "query_id": "done", "rows": [[1]], "row_count": 1, "column_count": 1,
+        }))
+        service._query_log = unittest.mock.Mock()
 
-        with self.assertRaisesRegex(ValueError, "disk full"):
-            service.save("SELECT 1")
+        with redirect_stderr(StringIO()) as errors:
+            result = service.run("SELECT 1", save=True, name="important")
+
+        self.assertEqual({"query_id": "done", "rows": [[1]], "row_count": 1, "column_count": 1, "outcome": "partial", "save_error": "disk full"}, result)
+        service._start.assert_called_once()
+        service._store.run.assert_called_once_with("SELECT 1", page_size=100, preview=None, include_rows=True)
+        service._saved_queries.save_query.assert_called_once_with("SELECT 1", "important")
+        service._query_log.append.assert_called_once()
+        self.assertIn("saved query failed: disk full", errors.getvalue())
+
+    def test_run_saves_only_after_a_completed_result(self):
+        with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
+            service = WorkbenchService(Path("/project"))
+        service._start = unittest.mock.Mock()
+        service._store = unittest.mock.Mock(run=unittest.mock.Mock(return_value={
+            "query_id": "done", "rows": [[1]], "row_count": 1, "column_count": 1,
+        }))
+        service._query_log = unittest.mock.Mock()
+        service._saved_queries = unittest.mock.Mock(
+            save_query=unittest.mock.Mock(return_value={"saved_query_id": "saved", "kind": "query"}),
+        )
+
+        result = service.run("SELECT 1", save=True, name="important")
+
+        self.assertEqual(
+            {"query_id": "done", "rows": [[1]], "row_count": 1, "column_count": 1, "saved_query_id": "saved", "kind": "query"},
+            result,
+        )
+        service._store.run.assert_called_once_with("SELECT 1", page_size=100, preview=None, include_rows=True)
+        service._saved_queries.save_query.assert_called_once_with("SELECT 1", "important")
+        service._query_log.append.assert_called_once()
+
+    def test_invalid_preview_does_not_start_the_service(self):
+        with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
+            service = WorkbenchService(Path("/project"))
+        service._start = unittest.mock.Mock()
+
+        with self.assertRaisesRegex(ValueError, "preview"):
+            service.run("SELECT 1", preview=True)
 
         service._start.assert_not_called()

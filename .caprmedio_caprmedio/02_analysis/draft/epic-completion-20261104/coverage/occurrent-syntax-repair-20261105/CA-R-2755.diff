@@ -1,0 +1,14 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2755@1-draft-CORE_META_MODEL-DECLARATION--declare-event.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2755.preview.txt
+@@ -30,9 +30,9 @@
+ Event ((NARROWER_THAN)) Occurrent;
+ 
+ # instances
+-Event//$event {::0+}((IS_RECORDED_BY)) Event Record//$record;
++$event[<Event>] {::0+}((IS_RECORDED_BY)) $record[<Event Record>];
+ 
+-Event//$produced_event {::1+}((IS_PRODUCED_BY)) Execution//$producer
++$produced_event[<Event>] {::1+}((IS_PRODUCED_BY)) $producer[<Execution>]
+ ```
+ 
+ ## Semantics

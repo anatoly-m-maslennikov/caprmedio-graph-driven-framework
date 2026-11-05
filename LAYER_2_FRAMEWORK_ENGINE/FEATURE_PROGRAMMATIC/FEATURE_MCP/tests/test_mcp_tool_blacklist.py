@@ -152,8 +152,9 @@ class GatewayBlacklistTests(unittest.IsolatedAsyncioTestCase):
             arguments = {
                 "query_run": {"sql": "SELECT 1"}, "query_check": {"sql": "SELECT 1"},
                 "query_page": {"query_id": "query", "offset": 0}, "query_schema": {},
-                "query_save": {"sql": "SELECT 1"}, "worksheet_save": {"sql": "SELECT 1"},
+                "view_save": {"sql": "SELECT 1"},
                 "query_load": {"reference": "q_" + "0" * 32}, "query_saved_list": {},
+                "workbench_restart": {}, "workbench_reread": {},
             }
             for name in blocked:
                 arguments_for_name = {"request": {}} if name in {"echo", CONTROL.name, STATUS.name} else arguments[name]

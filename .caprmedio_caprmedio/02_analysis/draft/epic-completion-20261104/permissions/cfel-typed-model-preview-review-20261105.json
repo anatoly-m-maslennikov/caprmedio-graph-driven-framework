@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "scope": "Independent read-only review of four typed-model-repair previews; no native, code, test, or Git change.",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/typed-model-repair/manifest.json",
+  "reviews": [
+    {
+      "id": "CA-R-2804",
+      "status": "PASS",
+      "evidence": "$container[<Workflow Run> OR <Step Run>] binds one participant over the union, and {::1} applies once over that whole union rather than per kind."
+    },
+    {
+      "id": "CA-R-2248",
+      "status": "PASS",
+      "evidence": "[<Workflow Run> OR <Step Run>] is one union value domain and a participant selected from it is one binding; format annotations remain direct-value domains and do not create instances or Nodes."
+    },
+    {
+      "id": "CA-R-2247",
+      "status": "PASS",
+      "evidence": "$relation[<Relation>] is typed; literal or constraint-data endpoints are limited to HAS_ALLOWED_VALUE and HAS_VALUE_CONSTRAINT Targets and their declared derived-inverse Hosts."
+    },
+    {
+      "id": "CA-R-2462",
+      "status": "PASS",
+      "evidence": "Target-omitted HAS_INSTANCE {::0+} retains the declared-domain outgoing permission. The removed Node.**//{::0..1} global bound is not replaced; Current R2243 and R2487 preserve the named applicable Property maximum of one occurrence per corresponding bearer. No <Node.**> domain is introduced."
+    }
+  ],
+  "pins": {
+    "CA-R-2804": "ada4536d1422e89a289c73a101fed7063924f6d7d2ad2b67ef1667488f26409e",
+    "CA-R-2248": "7cf8f9a85558595e8156e3073888dc5931a38481dbf97af65f136e90535d94cf",
+    "CA-R-2247": "0a6754df4861f552be7980356b04ab46a71150e1222137551995ece334fcfc12",
+    "CA-R-2462": "7e0728852389f934c8d15a03a0802b43aa33f5d156be899d0d60ff438e68d0cc"
+  },
+  "limitations": [
+    "The approved kind-union OR semantics are reviewed only as used by R2804/R2248; defining Rules remain outside this review.",
+    "This is not native-Draft adoption or runtime validation."
+  ]
+}

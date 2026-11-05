@@ -1,0 +1,101 @@
+{
+  "status": "FOUR_CONSTRUCTS_AND_UNALLOCATED_VALUES_RULE_REVIEW_REQUIRED",
+  "rows": [
+    {
+      "id": "CA-R-2243",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "current_sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4",
+      "existing_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2243@13-draft-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2243@13-draft-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "source_sha256": "69156a7976fd258a7df52e0b189592bafb2dd3a43110512fe119103ef9debd08",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2243.preview.txt",
+      "preview_sha256": "69156a7976fd258a7df52e0b189592bafb2dd3a43110512fe119103ef9debd08",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2243.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "EXISTING_DRAFT_NO_BODY_CHANGE",
+      "obligations": "Existing @13 already uses :: count bounds and value constraints; retains all occurrence/value/name counts, reverse slots and omission semantics."
+    },
+    {
+      "id": "CA-R-2563",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2563-CORE_META_MODEL-CFEL--select-fenced-markdown-labels.md",
+      "current_sha256": "cb007dba7e400401554186e4db4dfbc2318b1343e0bc9149ab02bc1dcb756b04",
+      "existing_draft": null,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2563-CORE_META_MODEL-CFEL--select-fenced-markdown-labels.md",
+      "source_sha256": "cb007dba7e400401554186e4db4dfbc2318b1343e0bc9149ab02bc1dcb756b04",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2563.preview.txt",
+      "preview_sha256": "a88e82a9ce59f37f4fab11d0b5a34b72e2e1c5450cd52d0e3551b90dc4431198",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2563.diff",
+      "diff_sha256": "723bd9a1c4ec6a760d9e9ef9a983e0d045bdfb79b0eb8bccb76085659b354776",
+      "status": "PREVIEW_REVIEW_REQUIRED",
+      "obligations": "Format and count constrain selected fenced-label occurrences; preserve duplicates, empty label, per-bearer scope, parse errors and non-Node data."
+    },
+    {
+      "id": "CA-R-2566",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2566-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md",
+      "current_sha256": "4b8a0ac45864cfc21a3d01b0f64f1be73d3ff7ae186e3e188144249c1f836d00",
+      "existing_draft": null,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2566-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md",
+      "source_sha256": "4b8a0ac45864cfc21a3d01b0f64f1be73d3ff7ae186e3e188144249c1f836d00",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2566.preview.txt",
+      "preview_sha256": "0289b1f9a49d5caf0dc5db44a5e9448fea3ccde28ef0be5bd65d37ff16e3acee",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2566.diff",
+      "diff_sha256": "8bcc8cabcf2f648b8750106b220a7a4583db4eb4b1c85543aeaf11d0d93fe22d",
+      "status": "PREVIEW_REVIEW_REQUIRED_WITH_VALUES_RULE",
+      "obligations": "Preserves filters on each same instance, left-to-right short circuit, error handling, Project snapshot, one scalar, ordering, empty/error cases and MAX scalar result. VALUES selects direct occurrences only; no recursive or constraint-data traversal."
+    },
+    {
+      "id": "CA-R-2585",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2585-CORE_META_MODEL-CFEL--count-property-values-and-distinct-values.md",
+      "current_sha256": "030b2a4011e4bfb4fa436c88a035d663e7d6d93df85b3537b65d2cfe66c3af7a",
+      "existing_draft": null,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2585-CORE_META_MODEL-CFEL--count-property-values-and-distinct-values.md",
+      "source_sha256": "030b2a4011e4bfb4fa436c88a035d663e7d6d93df85b3537b65d2cfe66c3af7a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2585.preview.txt",
+      "preview_sha256": "ca4ece90b11ef4ebec55d5bd8dcba80a675ba7987598be0e65894bfb10cbabf1",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2585.diff",
+      "diff_sha256": "05fd9ced574594b4ee493db92a70ab1fd151d9220124709a53090f872ed6e219",
+      "status": "PREVIEW_REVIEW_REQUIRED_WITH_VALUES_RULE",
+      "obligations": "Current p: $ selects actual direct value occurrences, not allowed-value declaration. Neither := nor :: denotes that operation; typed Property read alone has no proved occurrence-selection semantics. Preserve current COUNT/DISTINCT rules unchanged until selector authority is defined; do not silently reinterpret as a value Relation. VALUES selects direct occurrences only; no recursive or constraint-data traversal."
+    }
+  ],
+  "limits": [
+    "Previews retain source ID, Summary, Version and Updated At. No numeric successor or native mutation.",
+    "R2243 existing @13 Draft is the basis and already has the proposed cardinality notation.",
+    "No Operator instances or extra executable functions introduced.",
+    "New VALUES rule is unallocated; root owns ID assignment and atomic source integration."
+  ],
+  "new_rule": {
+    "summary": "Select direct Property values with VALUES",
+    "fresh_id_required": true,
+    "id_allocation": "root owns allocation after review",
+    "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/VALUES.rule.preview.txt",
+    "preview_sha256": "cdc45a7ba8a062b30aa8ee2c01ed0ba13cd78151a9e19600d10706bdeb516572",
+    "status": "UNALLOCATED_REVIEW_REQUIRED"
+  },
+  "tuple_construct_review": [
+    {
+      "id": "CA-R-2551",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2551-CORE_META_MODEL-CFEL--require-unique-property-tuples.md",
+      "sha256": "6a236db529b9acdcc45ea3eb1bfa1bf0fc0b3b467e6a2aa08905215d81a78b10",
+      "finding": "Current UNIQUE owner; tuple fields are Property references resolved exactly once per selected instance; no obsolete p: $ value-occurrence selector. No VALUES migration inferred."
+    },
+    {
+      "id": "CA-R-2562",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2562-CORE_META_MODEL-CFEL--require-functional-dependencies.md",
+      "sha256": "a93c4455784800347d6afddfdcd54127d813632ca131f40a1270a348dcfa8eb2",
+      "finding": "Current DETERMINES owner; tuple fields are Property references resolved exactly once per selected state; no obsolete p: $ value-occurrence selector. No VALUES migration inferred."
+    },
+    {
+      "id": "CA-R-2564",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "sha256": "6c1dc5f3c6f0d1f6aec7380c769824760da4de9497f46122fa45e660055e69b9",
+      "finding": "Current Project.Settings AI Agent Confidence Threshold Declaration, not UNIQUE owner."
+    },
+    {
+      "id": "CA-R-2565",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2565-CORE_META_MODEL-RULE--preserve-atom-version-and-updated-at-when-archiving.md",
+      "sha256": "a3bd488ac131db58c24699677b9a8d7d901f3ccbccdadbec383370339f76d0e1",
+      "finding": "Current Atom archival Version/Updated At rule, not DETERMINES owner."
+    }
+  ]
+}

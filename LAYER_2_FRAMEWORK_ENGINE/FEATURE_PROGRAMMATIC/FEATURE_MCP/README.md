@@ -10,6 +10,25 @@ Applicable Methodology. They are admitted only when the source-bound route
 manifest reopens with current pins.
 It uses the official [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk).
 
+## Project context and discovery
+
+Single-project tool calls accept an optional top-level `project_root` assertion.
+It must exactly match the trusted Project's canonical host root or its declared
+container mapping. The gateway rejects a foreign or malformed root before
+execution, then removes this outer field before native dispatch. Calls omitting
+it keep the existing fixed Project. Shared MCP still requires `project_root`.
+`tools/list` advertises this difference without changing native tool schemas.
+Protocol operations such as initialization and listing need no root argument.
+
+`discover_tools({"request": {}})` reads
+`.caprmedio_runtime/mcp/tools_catalog.json`, with root tools and the Queries,
+Views and Service groups. Local release generates this catalog from the
+ready server's complete native `tools/list`, preserving descriptors and schemas.
+Generation failure fails release; a missing or invalid catalog is an explicit
+discovery error. Requests with explicit selectors retain source-binding search.
+To generate it directly, run `generate_tools_catalog.py --project-root <root>
+--mcp-url <url>` in the project environment. Generation invokes no tools.
+
 ## Run
 
 For development from the repository source checkout, use only the project-local

@@ -1,3 +1,7 @@
+# CA-R-1113@23
+# CA-M-175@19
+# CA-D-593@17
+
 """Native Tool contract validation and the shared public schema adapter."""
 
 from __future__ import annotations
@@ -47,7 +51,7 @@ def contract_digest(tool: types.Tool) -> str:
     ).hexdigest()
 
 
-def public_tool(tool: types.Tool) -> types.Tool:
+def public_tool(tool: types.Tool, *, required: bool = True) -> types.Tool:
     """Add only the explicit host selector to a native root-object schema."""
     schema = copy.deepcopy(tool.input_schema)
     if not isinstance(schema, dict):
@@ -64,10 +68,10 @@ def public_tool(tool: types.Tool) -> types.Tool:
         raise ValueError("Native Tool input is not a root object")
     properties = dict(schema.get("properties", {}))
     properties["project_root"] = {"type": "string", "minLength": 1}
-    required = list(schema.get("required", []))
-    if "project_root" not in required:
-        required.append("project_root")
-    schema["type"], schema["properties"], schema["required"] = "object", properties, required
+    required_fields = list(schema.get("required", []))
+    if required and "project_root" not in required_fields:
+        required_fields.append("project_root")
+    schema["type"], schema["properties"], schema["required"] = "object", properties, required_fields
     try:
         Draft202012Validator.check_schema(schema)
     except SchemaError as error:

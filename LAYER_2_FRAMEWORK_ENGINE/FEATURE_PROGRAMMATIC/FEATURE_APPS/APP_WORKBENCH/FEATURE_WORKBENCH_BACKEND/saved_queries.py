@@ -1,6 +1,6 @@
-# CA-M-470@3
-# CA-R-2776@3
-# CA-D-673@10
+# CA-R-2776@5
+# CA-M-470@5
+# CA-D-673@12
 
 """Project-Journal saved SQL with read-only legacy-file fallback."""
 
@@ -113,8 +113,8 @@ class SavedQueryStore:
     def save_query(self, sql: object, name: object = None) -> dict[str, Any]:
         return self._record(sql, "query", name)
 
-    def save_worksheet(self, sql: object, name: object = None) -> dict[str, Any]:
-        return self._record(sql, "worksheet", name)
+    def save_view(self, sql: object, name: object = None) -> dict[str, Any]:
+        return self._record(sql, "view", name)
 
     @staticmethod
     def _reference(value: object) -> str:
@@ -142,13 +142,13 @@ class SavedQueryStore:
         if keys not in (expected, expected | {"name"}):
             raise ValueError("saved query record is invalid")
         saved_query_id = SavedQueryStore._uuid7(value["saved_query_id"])
-        if not isinstance(value["kind"], str) or value["kind"] not in {"query", "worksheet"}:
+        if not isinstance(value["kind"], str) or value["kind"] not in {"query", "view", "worksheet"}:
             raise ValueError("saved query record is invalid")
         if not isinstance(value["saved_at"], str):
             raise ValueError("saved query record is invalid")
         record = {
             "saved_query_id": saved_query_id,
-            "kind": value["kind"],
+            "kind": "view" if value["kind"] == "worksheet" else value["kind"],
             "sql": SavedQueryStore._sql(value["sql"]),
             "saved_at": value["saved_at"],
         }
@@ -183,7 +183,7 @@ class SavedQueryStore:
             raise ValueError("saved query is unavailable") from error
         if not isinstance(value, dict) or set(value) != {"sql"} or not isinstance(value["sql"], str):
             raise ValueError("saved query is unavailable")
-        return {"saved_query_id": saved_query_id, "kind": "worksheet", "sql": value["sql"]}
+        return {"saved_query_id": saved_query_id, "kind": "view", "sql": value["sql"]}
 
     def load(self, reference: object) -> dict[str, Any]:
         saved_query_id = self._reference(reference)

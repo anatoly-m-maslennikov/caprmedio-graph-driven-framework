@@ -1,0 +1,20 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2762-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/CA-R-2762.preview.txt
+@@ -27,7 +27,7 @@
+ 
+ ```CFEL
+ # model
+-Relation//IS_BLOCKED_BY ((HAS_INVERSE)) Relation//BLOCKS;
++Relation//BLOCKS ((IS_INVERSE_ALIAS_FOR)) Relation//IS_BLOCKED_BY;
+ 
+ Relation//IS_BLOCKED_BY ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+@@ -37,7 +37,7 @@
+ 
+ ### Prose Claim
+ 
+-A dependent Plan may start only after each Plan it is blocked by is Done.
++A dependent Plan may start only after each Plan it is blocked by is Done. BLOCKS is the inverse alias: the prerequisite is written before the dependent.
+ 
+ ## Semantics
+ 

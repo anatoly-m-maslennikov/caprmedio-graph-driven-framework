@@ -1,3 +1,5 @@
+# CA-M-462@9
+
 """Shared technical diagnostic facade for public runtime failures."""
 
 from __future__ import annotations
@@ -32,14 +34,15 @@ def _mark_diagnostic_success() -> None:
 
 def _classify(error: Exception | FailureRecord) -> FailureRecord:
     if isinstance(error, FailureRecord):
-        if error.severity == "ERROR":
+        if error.severity == "ERROR" and error.code == "query_error":
             return replace(error, severity="WARNING")
         return error
     if isinstance(error, FutureCancelledError):
         raise error
     if not isinstance(error, Exception):
         raise error
-    return classify_failure(error)
+    failure = classify_failure(error)
+    return replace(failure, severity="WARNING") if failure.code == "query_error" else failure
 
 
 def _logger(root: Path, component: str):

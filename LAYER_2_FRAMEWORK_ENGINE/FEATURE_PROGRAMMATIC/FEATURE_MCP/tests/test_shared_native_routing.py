@@ -20,6 +20,7 @@ sys.path[:0] = [str(APP), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS")]
 
 from host_runtime_config import load_host_runtime_config  # noqa: E402
 from hot_reload import Gateway  # noqa: E402
+from http_paths import MCP_PATH  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from shared_gateway import SharedGateway  # noqa: E402
 from shared_http_server import create_app  # noqa: E402
@@ -97,7 +98,7 @@ class SharedNativeRoutingTests(unittest.IsolatedAsyncioTestCase):
                 base_url="http://127.0.0.1:18092",
             ) as client:
                 transport = streamable_http_client(
-                    "http://127.0.0.1:18092/mcp",
+                    "http://127.0.0.1:18092" + MCP_PATH,
                     http_client=client,
                 )
                 streams = await transport.__aenter__()

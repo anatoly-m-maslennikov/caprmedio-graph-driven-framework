@@ -1,0 +1,120 @@
+{
+  "status": "TEN_HELD_DRAFTS_REASSESSED_NO_NATIVE_EDITS",
+  "scope": "Original 12 reviewed Drafts less M453 and R1318 already promoted; no broader census. E449@46 is latest rebased successor of original @45, which remains separately present.",
+  "rows": [
+    {
+      "id": "CA-R-1247",
+      "latest_draft_version": 25,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1247@25-draft-CORE_META_MODEL-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "sha256": "b72da8950746ab8b1a2dfdac4634a82ac8059c60d6404e665022fd4c95c5d07b",
+      "active_subject": "CAPRMEDIO_MODEL <+ Node.**",
+      "disposition": "PARTIAL_REBASED_HOLD_PROMOTION",
+      "finding": "Node.** model Property scope and HAS_INSTANCE distinction repaired; broader Current all-entity naming obligations still require explicit disposition, and path syntax must coordinate final language cohort.",
+      "older_native_drafts": []
+    },
+    {
+      "id": "CA-R-2003",
+      "latest_draft_version": 17,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2003@17-draft-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md",
+      "sha256": "cc87ed88ca5b56e12dd47c163ea1f980384bcf5aaa5849bcf2e652a76faab9ce",
+      "active_subject": "CAPRMEDIO_MODEL <+ Node.**",
+      "disposition": "PARTIAL_REBASED_HOLD_PROMOTION",
+      "finding": "Node.** source-declared occurrences independently checked and exactly one bearer; Property instances allowed. Summary still broader than scoped Claim and non-Node generic bearer coverage must remain in M453/other authorities; coordinate notation.",
+      "older_native_drafts": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2003@11-draft-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md"
+      ]
+    },
+    {
+      "id": "CA-E-444",
+      "latest_draft_version": 35,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-444@35-draft-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "sha256": "672091a3e721d5ccc6112589046bcb37e29af08ff9bd6a6a290d9b6d2afc8bdd",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom",
+      "disposition": "HOLD",
+      "finding": "Active Atom is valid; passive Entity-root paths and old Role/Form selectors remain; fixtures assert Entity/Object hierarchy and legacy symbols. Preserve lexical/canonical naming checks while reconciling actual paths and HAV/HVC literal values.",
+      "older_native_drafts": []
+    },
+    {
+      "id": "CA-R-2276",
+      "latest_draft_version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2276@7-draft-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "sha256": "484597e14d3dcb7408db27848c79d3042d6c5801a2f548f1d2a465b2290a0cd1",
+      "active_subject": "CAPRMEDIO_MODEL",
+      "disposition": "HOLD",
+      "finding": "Active MODEL root avoids obsolete Entity root, and universal entity naming remains. Claim includes allowed-value entities as mandatory naming population, inconsistent with literal values not becoming Nodes; revise only literal wording and reconcile full name syntax without weakening entity uniqueness.",
+      "older_native_drafts": []
+    },
+    {
+      "id": "CA-E-246",
+      "latest_draft_version": 48,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-246@48-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md",
+      "sha256": "318baedf571ded115a64cc7609cf026b79171f8e6f37d3abaae6b7b450dc2890",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Subjects",
+      "disposition": "HOLD",
+      "finding": "Active Atom.Header.Subjects is valid. Passive Entity-root Projection and Entity paths and old Role/Form selectors remain; fixtures assert Entity-root prefix and obsolete form naming. Preserve mention coverage, direct Subject links, exact narrowest target and missing-edge tests.",
+      "older_native_drafts": []
+    },
+    {
+      "id": "CA-E-449",
+      "latest_draft_version": 46,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-449@46-draft-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md",
+      "sha256": "4fc41a422fc8bf0f6cff4dd32eefdef879683753092fc12a899302c8bad0509c",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)",
+      "disposition": "HOLD",
+      "finding": "Latest @46 incorporates value Relation provenance; active legacy Entity/Object/... Entities Graph Subject and passive Entity root remain, plus :/old paths and R1245 predecessor dependency. Preserve literal-value annotation and distinct admitted Relation evidence; do not recreate value Nodes.",
+      "older_native_drafts": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-449@45-draft-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md"
+      ]
+    },
+    {
+      "id": "CA-M-125",
+      "latest_draft_version": 48,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-125@48-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md",
+      "sha256": "34cd9d43846cc9e890d40309366e2f83222d2c38514c5503649ee7470c1b96b6",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Subjects",
+      "disposition": "HOLD",
+      "finding": "Active Atom.Header.Subjects valid; Entity-root passive and legacy // named-instance/old path wording remain. Preserve Term registry, exact source targeting and mention coverage; reconcile with final typed instance and value syntax.",
+      "older_native_drafts": []
+    },
+    {
+      "id": "CA-R-1259",
+      "latest_draft_version": 25,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1259@25-draft-CORE_META_MODEL-RULE--permit-zero-or-more-properties-on-every-entity.md",
+      "sha256": "42accc25dde25c770af1810b35e764231e57f69d99c3a7eacebca6afeb940603",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity",
+      "disposition": "HOLD_USER_SCOPE",
+      "finding": "Active Entity root is obsolete. Current/Draft universal all-Entity HAS_PROPERTY cannot be blindly mapped to Node. Node, Relation and Term have explicit separate permissions; other branches are not assumed. User rejected retirement/narrowing; resolve generic Entity coverage via inherited permissions and declared branches before promotion.",
+      "older_native_drafts": []
+    },
+    {
+      "id": "CA-R-1284",
+      "latest_draft_version": 28,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1284@28-draft-CORE_META_MODEL--define-type.md",
+      "sha256": "5e5bece5e34a73b79beceb2d4af5ba0036e6a8b025bf07aa5cdc35b557f9271b",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity",
+      "disposition": "HOLD_AUTHORITY_AND_SCOPE",
+      "finding": "Active Entity root, legacy Projection path and Term//Type (no located Current lexical Term Definition) remain. Type-as-Property is not primary kind; preserve optional/single-value rule, Role/Form encoding and qualification while reconciling HAV/HVC and final notation. Existing @28 Draft must be rebased.",
+      "older_native_drafts": []
+    },
+    {
+      "id": "CA-R-1931",
+      "latest_draft_version": 19,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1931@19-draft-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "17592e060505c97f13eea169188de68b3a878af2294de18c1b8a513c6ceb7a72",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "disposition": "HOLD_COHERENCE",
+      "finding": "Active CFEL is valid; passive Entity-root paths remain. Draft still says / narrows, // selects named instances, :: admits allowed value, and graph Relation endpoints exclude literal values; these conflict with final 49 cohort. Preserve directional count, distinct status/package rules, quoted literal and reference identity; reconcile with accepted new Relation/value semantics.",
+      "older_native_drafts": []
+    }
+  ],
+  "resolved": [
+    "M453 generic Property Term and R1318 Term bearer permissions promoted separately; excluded from these ten.",
+    "R1247/R2003 Node.** scope and missing-edge fix exist in actual held Drafts; do not misreport original packet hashes as current."
+  ],
+  "integration_dependencies": [
+    "R1247 broader Current naming rule disposition; no silent loss of generic Entity coverage.",
+    "E449 and R1931 merge with final 49 HAV/HVC and notation cohort, avoiding overwrite of newer Drafts.",
+    "No Property primary kind, automatic inverse permissions or Value Node is inferred; root of Entity remains absent."
+  ],
+  "boundary": "Read-only bounded assessment, not adoption or full coverage audit."
+}

@@ -1,0 +1,59 @@
+{
+  "scope": "Proposed same-ID, same-version source previews only; no actual Draft or Current modifications.",
+  "rows": [
+    {
+      "id": "CA-R-2804",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2804@1-draft-CORE_META_MODEL-RULE--bind-selected-instances.md",
+      "source_sha256": "a2d074eb810fc1f7288565b1e2afcfe91e47da4a6842ecbfa1661f65d970eb1b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/typed-model-repair/CA-R-2804.preview.txt",
+      "candidate_sha256": "ada4536d1422e89a289c73a101fed7063924f6d7d2ad2b67ef1667488f26409e",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/typed-model-repair/CA-R-2804.diff",
+      "diff_sha256": "605de5a375e0d3380a2155efcac6a8a178b281eb45659173766e9325726f1ebf",
+      "status": "PROSPECTIVE_REVIEW_REQUIRED",
+      "hold": null
+    },
+    {
+      "id": "CA-R-2248",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "source_sha256": "4c155d2dc1e954a0c8f7e65ed10bfa8497118441f7e578ded6698df3ef14311b",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/typed-model-repair/CA-R-2248.preview.txt",
+      "candidate_sha256": "2dc58fd7387e13ffa38ca19bc60fb840eb9844151eea608f5902b634905f546a",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/typed-model-repair/CA-R-2248.diff",
+      "diff_sha256": "d687f568791352b72e40d43e011198e6dd6b101e665de05b2f0353091624fb77",
+      "status": "PROSPECTIVE_REVIEW_REQUIRED",
+      "hold": null
+    },
+    {
+      "id": "CA-R-2247",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@12-draft-CORE_META_MODEL-DECLARATION--define-relation.md",
+      "source_sha256": "e6ac609fc4b816168d4bf28173d7cb9d5859d69c68b41de90e25d712a9a9f470",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/typed-model-repair/CA-R-2247.preview.txt",
+      "candidate_sha256": "0a6754df4861f552be7980356b04ab46a71150e1222137551995ece334fcfc12",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/typed-model-repair/CA-R-2247.diff",
+      "diff_sha256": "d7aa5b4f716e0582252c25d6f75bbc2766fbfa0a3b3981963aecaf3dba197ab5",
+      "status": "PROSPECTIVE_REVIEW_REQUIRED",
+      "hold": null
+    },
+    {
+      "id": "CA-R-2462",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2462@5-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "source_sha256": "d25623eb1b41382fde84676da54fc396a93c89cec1ce0b6607a72cadf2ee9b26",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/typed-model-repair/CA-R-2462.preview.txt",
+      "candidate_sha256": "7e0728852389f934c8d15a03a0802b43aa33f5d156be899d0d60ff438e68d0cc",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/typed-model-repair/CA-R-2462.diff",
+      "diff_sha256": "5f6569ac0fb40de03c6fc2e17025067d2855649041e5aee7922ff9ba808cb780",
+      "status": "PROSPECTIVE_REVIEW_REQUIRED",
+      "hold": null
+    }
+  ],
+  "user_decision": "$container[<Workflow Run> OR <Step Run>] is one participant over the union; {::1} counts links over the overall union.",
+  "R2778_review": "R2778 refers to a typed and optionally filtered selector; union remains covered by the selector authority. Its single-kind example is not exclusive; no content change needed.",
+  "R2462_remaining_hold": null,
+  "R2462_preservation": {
+    "model_relation": "Target-omitted HAS_INSTANCE uses its declared endpoint domain and preserves the zero-or-more outbound permission for each recursive model Property.",
+    "instance_scope": "$node.** selects all Properties of the selected Node instance, consistent with the latest user decision; Node and its Properties remain distinct model and instance scopes.",
+    "removed_global_count": "Node.**//{::0..1} cannot be retained as a project-wide bound on instances of every Property kind. Its intended per-named-Property per-bearer maximum is already stated by Current R2243 and R2487; their approved format/cardinality migration is separate. Do not duplicate that universal rule here.",
+    "history": "Current R2462 and archived R2462@3 contain the old expression; Current R2243 line 53 and Current R2487 line 80 establish the per-bearer rule.",
+    "confidence": "The target-omitted permission relies on the relation declaration endpoint domain and existing target-omitted cardinality interpretation; independent review required."
+  }
+}

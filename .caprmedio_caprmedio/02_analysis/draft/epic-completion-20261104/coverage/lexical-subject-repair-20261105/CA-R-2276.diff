@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2276@7-draft-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/lexical-subject-repair-20261105/CA-R-2276.preview.txt
+@@ -35,7 +35,7 @@
+ 
+ ## Details
+ 
+-The naming domain includes every named Subject Graph entity, including Properties, allowed-value entities, named instances, and Relation Type entities. A missing complete name fails the exactly-one condition. No bearer, scope, value-domain, or context exception permits two distinct complete names for one entity.
++The naming domain includes every named Subject Graph entity, including Properties, named instances, and Relation Type entities. Literal allowed values and value constraints are data, not additional entity Nodes. A missing complete name fails the exactly-one condition. No bearer, scope, value-domain, or context exception permits two distinct complete names for one entity.
+ 
+ Reusable Terms may appear in different complete names. `Package` appears in `Package`, `Eval Package`, and `Runtime Package`; `Unit` appears in `Scope Unit` and `Code Unit`. Reuse does not create another entity or make the complete expressions synonymous. `Package <+ Module <+ Code Unit` connects three entities; check the complete name and source Declaration for each endpoint entity. The whole chain is not a fourth entity name.
+ 

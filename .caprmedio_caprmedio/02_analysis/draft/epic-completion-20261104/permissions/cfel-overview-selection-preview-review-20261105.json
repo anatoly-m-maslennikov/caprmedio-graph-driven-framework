@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "Read-only review of overview-selection-repair previews and manifest; no native, code, test, or Git change.",
+  "pins": {
+    "overview_manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/overview-selection-repair/manifest.json",
+    "r2487_preview": {"path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/overview-selection-repair/CA-R-2487.preview.txt", "sha256": "707f825c9c6be6e1b1f18813857b105f32d2886f2bf5369d0ee23428f610a490"},
+    "r2816_preview": {"path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/overview-selection-repair/CA-R-2816.preview.txt", "sha256": "28316751154fef5de811cb728641e230f71d6c8d953a452e823ca0681c1d5939"},
+    "r2814_authority": {"path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/relations/CA-R-2814.preview.txt", "sha256": "ecf7b2f9fcdc6473b4bdc327a8b7d89f78d70eeffdd72a8131b768001192224a"}
+  },
+  "findings": [],
+  "passes": [
+    "R2816 uses Workflow//(.Purpose := Runtime), so // is narrowing rather than containment.",
+    "R2816 preserves effective admissibility: inherited HAV alternatives combine by OR, inherited HVC restrictions combine by AND, and an absent HAV group is true with no enumeration restriction.",
+    "R2487 retains the selected-instance binding rule, named identity/scope, $x.p access, value-format/direct-value distinction, and occurrence/direct-value/name cardinality obligations.",
+    "R2487 now limits literal values and constraint data in both endpoint formulations to HAS_ALLOWED_VALUE, HAS_VALUE_CONSTRAINT, and their declared derived inverses, consistently with R2814; it retains the no-model-Node and no-fact/no-instance-data limits.",
+    "No kind-union OR grammar was added or inferred."
+  ],
+  "disposition": "PASS for the reviewed overview/selection scope; existing Draft rebase and coordinated integration remain owned by root."
+}

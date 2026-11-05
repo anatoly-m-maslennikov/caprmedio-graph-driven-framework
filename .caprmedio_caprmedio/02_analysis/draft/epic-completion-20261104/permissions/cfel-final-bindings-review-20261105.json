@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "scope": "Independent substantive review of the 55-authority CFEL specification candidate: bindings, VALUES, and counts. Metadata grammar migration is intentionally excluded as phase 2.",
+  "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/specification-candidate.json",
+  "authority_count": 55,
+  "checks": [
+    {
+      "topic": "VALUES_COUNT_MAX_UNIQUE_DETERMINES",
+      "status": "PASS",
+      "evidence": "CA-R-2904 defines VALUES as actual direct value occurrences only; CA-R-2585 uses COUNT(VALUES(p)) and COUNT(DISTINCT VALUES(p)), retaining duplicates, known absence, malformed/unresolved errors, Format equality, and per-bearer scope. CA-R-2566 preserves same-instance filters, short-circuit/error behavior, scalar-only MAX, ordering, and empty/incompatible/non-orderable errors. Current UNIQUE and DETERMINES retain their single resolved tuple-value-per-selected-instance/state semantics without a blind VALUES rewrite."
+    },
+    {
+      "topic": "TYPED_UNION_AND_BINDING_SCOPE",
+      "status": "PASS",
+      "evidence": "CA-R-2804 and CA-R-2248 treat <Workflow Run> OR <Step Run> as one union participant/domain and apply cardinality once over the full union. Named and anonymous typed bindings select existing instances only; repeated named references retain identity and do not create facts."
+    },
+    {
+      "topic": "IF_FOR_EACH_TRUTH_AND_SCOPE",
+      "status": "PASS",
+      "evidence": "CA-R-2487 defines IF true/false behavior and preserves unresolved-condition errors; its binding is scoped to the condition and matching THEN body. CA-R-2778 makes FOR EACH a typed, explicitly declared participant with a scoped parenthesized body, universal truth over matching instances, and no nonempty-selection requirement."
+    },
+    {
+      "topic": "FORMAT_KIND_AND_PROPERTY_COUNTS",
+      "status": "PASS",
+      "evidence": "CA-R-2248 and CA-R-2487 distinguish primitive/object Formats from model-instance selection. CA-R-2243 and CA-R-2487 preserve separate occurrence, direct-value, immediate-name, and recursive-name counts; a named applicable Property has at most one occurrence per corresponding bearer, while a structural parent may have nonempty child structure as its value. No candidate introduces <Node.**> as a fake kind/domain."
+    },
+    {
+      "topic": "EFFECTIVE_ADMISSIBILITY_AND_LANGUAGE_SAFETY",
+      "status": "PASS",
+      "evidence": "CA-R-2816 and the R2487 overview agree that inherited HAV alternatives combine by OR, inherited HVC restrictions by AND, and absent HAV is true. R2487 preserves only double-quote/backslash escapes, rejects every other or incomplete escape, and requires parentheses for mixed AND/OR; CA-R-2820/2821 agree."
+    }
+  ],
+  "integrity": {
+    "all_55_candidate_hashes_match_current_candidate_paths": true,
+    "no_false_Node_star_star_kind_domain_found": true,
+    "review_not_hash_only": "Each PASS above is based on the cited prospective content and cross-authority semantics."
+  },
+  "limitations": [
+    "Existing Header Subject metadata that still uses old grammar is an intentional coordinated phase-2 migration, not a substantive CFEL contract failure here.",
+    "PASS does not establish Current adoption, parser/runtime implementation, or tests."
+  ]
+}

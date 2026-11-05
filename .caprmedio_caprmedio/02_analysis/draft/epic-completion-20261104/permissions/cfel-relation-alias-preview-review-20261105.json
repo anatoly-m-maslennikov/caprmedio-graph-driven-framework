@@ -1,0 +1,73 @@
+{
+  "verdict": "PASS_FIVE_BOUNDED_PREVIEWS",
+  "manifest_sha256": "3ed36b17195198ba27aebe742c8385f57b01eb99870164c2f79e0b081ff8a581",
+  "rows": [
+    {
+      "id": "CA-R-2475",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN",
+      "preview_sha256": "326201be1e6da2371c3bd3c6734f9726cfe8d4832895f63aecc310a50eae2d97",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2476",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//INSTANCE_OF",
+      "preview_sha256": "1af71d260bfa51ab09b0cdc673e229176819d9e45a81f0cba113e73062e75937",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2617",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//CONTAINS",
+      "preview_sha256": "f10509a3cd3a9b13107d6d7746035e6c41a3cb5df55bc13c379e1cab07bedb0c",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2620",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_NARROWER",
+      "preview_sha256": "6957a887fc0060da0d470ef668a697425ea9507e9a332f68c0a75fa88aa63392",
+      "disposition": "PASS_BOUNDED"
+    },
+    {
+      "id": "CA-R-2478",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY",
+      "preview_sha256": "beafaddccd7346a2919418e72cd60134964770873c69dfe20efcdfc7544d962c",
+      "disposition": "PASS_BOUNDED"
+    }
+  ],
+  "alias_rule": {
+    "id": "CA-R-2817@1",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2817@1-draft-CORE_META_MODEL-RULE--define-relation-alias-syntax-with-alias-r.md",
+    "sha256": "c51ffdc05c1a4dfe1062c578cd80ec0c7c13a0590ca410e76db949ce303bad3f"
+  },
+  "semantic_checks": [
+    "NARROWER_THAN remains Direct narrow-to-broad and no longer owns //; HAS_NARROWER remains its distinct derived inverse and owns // broad-to-narrow, consistent with R2817 owner direction.",
+    "CONTAINS owns / whole-to-part and remains the derived inverse of Direct IS_CONTAINED_BY; the latter owns +> part-to-whole.",
+    "INSTANCE_OF retains typed named Relation meaning and no // alias; Property instance kind and bearer relations remain distinct.",
+    "Each inverse binding retains separate Relation identity, and aliases infer neither inverse endpoint permission nor cardinality."
+  ],
+  "gates": [
+    "R2817 alias Rule requires alias to follow owner Relation direction; alias move therefore requires R2620 as well as R2475.",
+    "Typed descriptor addressing, contextual Subject migration and full CFEL source migration must be coordinated before admission.",
+    "No named inverse Relation permission is implied by inverse declarations or syntax."
+  ],
+  "boundary": "Five source previews only; no native Draft/Current, code, tests, Workflow, Workbench or Git changes."
+}

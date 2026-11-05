@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2566-CORE_META_MODEL-CFEL--filter-instances-and-select-maximum-values.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/named-construct-repair/CA-R-2566.preview.txt
+@@ -21,7 +21,7 @@
+ ### Prose Claim
+ 
+ 
+-`Kind//(c1, ...).p` selects p from matching instances of Kind and its narrower kinds in one explicit current-Project instance snapshot.
++`VALUES($item[<Kind>, (c1 AND c2)].p)` selects direct values of p from matching instances of Kind and its narrower kinds in one explicit current-Project instance snapshot.
+ 
+ - Relative filter paths bind the same candidate instance. Outer variables retain their enclosing bindings; an unbound or ambiguous variable is an error.
+ - Every filter condition must hold. Commas inside filter parentheses mean AND. Outside them, selector commas retain their existing union meaning. Existing AND, OR and grouping remain available. Filter conditions and AND groups evaluate left-to-right with short-circuiting: a later field read is evaluated only after its earlier guard holds.

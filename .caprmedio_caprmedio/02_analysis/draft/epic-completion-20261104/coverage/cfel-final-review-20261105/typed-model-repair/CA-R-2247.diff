@@ -1,0 +1,21 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@12-draft-CORE_META_MODEL-DECLARATION--define-relation.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/typed-model-repair/CA-R-2247.preview.txt
+@@ -28,13 +28,13 @@
+ # model
+ Relation;
+ 
+-Relation.** {:1}((IS_PROPERTY_OF)) (Relation, Relation.**);
+-(Relation, Relation.**) {:0+}((HAS_PROPERTY)) Relation.**;
++Relation.** {::1}((IS_PROPERTY_OF)) (Relation, Relation.**);
++(Relation, Relation.**) {::0+}((HAS_PROPERTY)) Relation.**;
+ 
+ # instances
+-Relation//$relation;
+-$relation.** {:1}((IS_PROPERTY_OF)) ($relation, $relation.**);
+-($relation, $relation.**) {:0+}((HAS_PROPERTY)) $relation.**;
++$relation[<Relation>];
++$relation.** {::1}((IS_PROPERTY_OF)) ($relation, $relation.**);
++($relation, $relation.**) {::0+}((HAS_PROPERTY)) $relation.**;
+ ```
+ 
+ ### Prose Claim

@@ -1,5 +1,11 @@
 """Canonical ``DISCOVER_TOOLS`` Tool provider and JSON entrypoint."""
 
+# CA-R-2785@2
+# CA-M-473@2
+# CA-D-678@2
+# CA-R-1804@13
+# CA-D-512@16
+
 from __future__ import annotations
 
 
@@ -19,6 +25,7 @@ for path in (TOOLS, TOOLS / "VALIDATE_ATOMS"):
         sys.path.insert(0, str(path))
 
 from capability_discovery.service import Query, Service  # noqa: E402
+from capability_discovery.tool_catalog import read_catalog  # noqa: E402
 from tool_description import binding_matches, make_tool_description  # noqa: E402
 
 
@@ -37,6 +44,7 @@ class _DescriptorAdapter:
     """Root-bound invoker that preserves the existing discovery semantics."""
 
     def __init__(self, root: str | Path) -> None:
+        self._root = Path(root)
         self._service = Service(root)
 
     def bind_server_frontier(self, *, registered_names, quarantined=(), withheld=()) -> None:
@@ -46,6 +54,8 @@ class _DescriptorAdapter:
         )
 
     def invoke(self, request: Query) -> dict[str, Any]:
+        if not request.model_fields_set:
+            return read_catalog(self._root)
         return self._service.discover(request)
 
 
@@ -66,8 +76,8 @@ def describe_tool() -> dict[str, object]:
         input_symbol="Query",
         output_symbol="DiscoverToolsResult",
         title="Discover Tools",
-        description="Find declared Tools by capability, scope, and availability without invoking them.",
-        purpose="Provide effect-free capability discovery from current declared Tool bindings.",
+        description="List released MCP tools or find declared Tools by explicit selectors without invoking them.",
+        purpose="Provide effect-free discovery from the released catalog or current declared Tool bindings.",
         read_only=True,
         idempotent=True,
     )

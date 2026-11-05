@@ -1,19 +1,20 @@
 // @ts-nocheck
-// CA-M-470@2
-const empty = () => ({ id: crypto.randomUUID(), title: 'Worksheet', sql: '', savedSql: '', cursor: 0, dirty: false });
+// CA-M-470@6
+const empty = () => ({ id: crypto.randomUUID(), title: 'View', sql: '', savedSql: '', cursor: 0, dirty: false });
 
-export function newWorksheet(number) {
-  return { ...empty(), title: `Worksheet ${number}` };
+export function newView(number) {
+  return { ...empty(), title: `View ${number}` };
 }
 
-export function storageKey(projectName) {
-  return `caprmedio.workbench.${projectName}.workspace`;
+export function storageKey(projectName, workspaceId, projectRoot) {
+  if (!workspaceId) return `caprmedio.workbench.${projectName}.workspace`;
+  return `caprmedio.workbench.${projectRoot || projectName}.workspace.${workspaceId}`;
 }
 
 export function persistable(tabs, activeId) {
   return JSON.stringify({
     activeId,
-    tabs: tabs.map(({ id, title, name, sql, cursor, dirty, savedSql }) => ({ id, title, ...(name ? { name } : {}), sql, cursor, dirty, savedSql })),
+    tabs: tabs.map(({ id, title, name, sql, cursor, dirty, savedSql, revision }) => ({ id, title, ...(name ? { name } : {}), sql, cursor, dirty, savedSql, ...(Number.isInteger(revision) ? { revision } : {}) })),
   });
 }
 
@@ -23,10 +24,11 @@ export function restore(raw) {
     if (!Array.isArray(value.tabs) || !value.tabs.length) return null;
     const tabs = value.tabs.filter((tab) => typeof tab.id === 'string' && typeof tab.sql === 'string')
       .map((tab, index) => ({
-        id: tab.id, title: typeof tab.title === 'string' ? tab.title : `Worksheet ${index + 1}`,
+        id: tab.id, title: typeof tab.title === 'string' ? tab.title.replace(/^Worksheet( \d+)?$/, 'View$1') : `View ${index + 1}`,
         ...(typeof tab.name === 'string' && tab.name ? { name: tab.name } : {}),
         sql: tab.sql, cursor: Number.isInteger(tab.cursor) ? tab.cursor : 0,
         dirty: Boolean(tab.dirty), savedSql: typeof tab.savedSql === 'string' ? tab.savedSql : undefined,
+        ...(Number.isInteger(tab.revision) ? { revision: tab.revision } : {}),
       }));
     return tabs.length ? { tabs, activeId: tabs.some((tab) => tab.id === value.activeId) ? value.activeId : tabs[0].id } : null;
   } catch { return null; }
@@ -34,4 +36,23 @@ export function restore(raw) {
 
 export function cleanAfterSave(tab, savedSql) {
   return { ...tab, savedSql, dirty: tab.sql !== savedSql };
+}
+
+export function workspaceTabs(state, previous = []) {
+  const old = new Map(previous.map((tab) => [tab.id, tab]));
+  const tabs = state.views.map((view, index) => {
+    const local = old.get(view.id);
+    const remote = {
+      id: view.id, title: `View ${index + 1}`,
+      ...(view.name ? { name: view.name } : {}), sql: view.sql, savedSql: view.sql,
+      cursor: view.cursor_position, dirty: false, revision: view.revision, run: view.result,
+    };
+    if (!local?.dirty) return {
+      ...remote, busy: local?.busy, error: local?.error, check: local?.check, saved: local?.saved,
+      ...(local?.result && local.result.query_id === view.result?.query_id ? { result: local.result } : {}),
+    };
+    // Keep a draft on the old revision so the next update reports, rather than hides, a conflict.
+    return { ...remote, ...local, serverSql: view.sql, serverRevision: view.revision };
+  });
+  return { tabs, activeId: state.active_view_id && tabs.some((tab) => tab.id === state.active_view_id) ? state.active_view_id : tabs[0]?.id };
 }

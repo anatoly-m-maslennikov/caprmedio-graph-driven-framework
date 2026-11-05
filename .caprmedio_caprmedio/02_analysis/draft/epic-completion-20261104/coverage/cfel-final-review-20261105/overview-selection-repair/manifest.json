@@ -1,0 +1,50 @@
+{
+  "status": "TWO_DRAFT_REBASE_PREVIEWS_REVIEW_REQUIRED",
+  "rows": [
+    {
+      "id": "CA-R-2487",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@15-draft-CORE_META_MODEL-DECLARATION--define-cfel.md",
+      "source_sha256": "dd0b210db2876994455e684fb83855c97488bf61273f4ed2ed835506aaf90b70",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/overview-selection-repair/CA-R-2487.preview.txt",
+      "preview_sha256": "707f825c9c6be6e1b1f18813857b105f32d2886f2bf5369d0ee23428f610a490",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/overview-selection-repair/CA-R-2487.diff",
+      "diff_sha256": "b7295a38ed8d2e0785fede72aaefc667b325a4d3534a40911e5e152ff8556e20"
+    },
+    {
+      "id": "CA-R-2816",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2816@1-draft-CORE_META_MODEL-RULE--define-property-value-selection-with.md",
+      "source_sha256": "9271c05015ae300309b481ab0fb5b6bc035db2cbaa3b0e442ed255bc7831e305",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/overview-selection-repair/CA-R-2816.preview.txt",
+      "preview_sha256": "28316751154fef5de811cb728641e230f71d6c8d953a452e823ca0681c1d5939",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/overview-selection-repair/CA-R-2816.diff",
+      "diff_sha256": "a0abc8d356b27cddf4a83e3cf5e8192b258f590c134f16e7aeca6c9dfcc6d7e3"
+    }
+  ],
+  "authority": [
+    {
+      "id": "CA-R-2814 prospective preview",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/relations/CA-R-2814.preview.txt",
+      "sha256": "ecf7b2f9fcdc6473b4bdc327a8b7d89f78d70eeffdd72a8131b768001192224a",
+      "basis": "value Relation endpoints may be literal or constraint data, not Nodes"
+    }
+  ],
+  "obligation_matrix": [
+    {
+      "repair": "R2487 generic untyped Relation signature",
+      "preserved": "Signature remains declaration-scoped and creates no fact or instance data. Literal/constraint data are permitted only for HAS_ALLOWED_VALUE, HAS_VALUE_CONSTRAINT and their declared derived inverses, and are never converted to model Nodes; all other endpoint domains remain model entities or instances."
+    },
+    {
+      "repair": "R2816 example",
+      "preserved": "Purpose value-selection example remains illustrative; only narrowing separator changes to //, no new Purpose property or model fact introduced."
+    },
+    {
+      "repair": "R2487 duplicate binding wording",
+      "preserved": "Earlier same-Atom paragraph explicitly defines $x[<Kind>, (conditions)] as binding an existing instance, with named identity and scope. The later sentence retains $x.p property access. No separate authority or normative condition removed."
+    }
+  ],
+  "holds": [
+    "Full Draft metadata, Summary, version and timestamp unchanged; actual rebase and coordinated integration owned by root.",
+    "Approved OR kind Formats are governed by their own source; this bounded preview does not duplicate the rule."
+  ],
+  "scope": "No native/Git/code/test edits."
+}

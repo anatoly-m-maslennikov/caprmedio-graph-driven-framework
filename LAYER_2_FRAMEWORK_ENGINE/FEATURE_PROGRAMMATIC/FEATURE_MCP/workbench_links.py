@@ -1,6 +1,5 @@
-# CA-R-2728@4
-# CA-R-2729@5
-# CA-D-673@9
+# CA-R-2902@1
+# CA-D-681@1
 
 """HTTP-only links for persisted Workbench queries."""
 
@@ -61,6 +60,20 @@ def public_saved(value: Any, request: Any, selection: Any, project_root: str | N
     if isinstance(items, list):
         result = {**result, "items": [linked(item) for item in items]}
     return result
+
+
+def public_workspace(value: Any, request: Any, selection: Any, project_root: str | None = None) -> Any:
+    """Attach the request-derived URL for one explicitly addressed Workspace."""
+    if not isinstance(value, Mapping) or not isinstance(value.get("workspace_id"), str):
+        return value
+    base_url = getattr(request, "base_url", None)
+    if base_url is None:
+        raise ValueError("Workbench public URL requires an HTTP request")
+    query = {"workspace": value["workspace_id"]}
+    if project_root is not None:
+        query["project_root"] = project_root
+    path = f"{WORKBENCH_PATH}/{quote(project_name(selection), safe='')}"
+    return {**value, "workspace_url": f"{str(base_url).rstrip('/')}{path}?{urlencode(query)}"}
 
 
 def context_project_root(context: Any) -> str | None:

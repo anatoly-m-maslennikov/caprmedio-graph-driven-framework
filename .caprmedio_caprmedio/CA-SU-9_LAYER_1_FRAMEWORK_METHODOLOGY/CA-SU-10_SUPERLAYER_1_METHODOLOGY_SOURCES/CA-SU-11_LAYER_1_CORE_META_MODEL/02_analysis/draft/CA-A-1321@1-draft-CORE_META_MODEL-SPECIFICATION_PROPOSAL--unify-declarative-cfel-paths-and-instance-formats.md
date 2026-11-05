@@ -26,10 +26,14 @@ CFEL is declarative: Claims state participants, scope, constraints and required 
 
 - `X//Y` selects a narrower kind with inheritance; `Whole/Part` expresses immediate containment. The coordinated source and consumer migration is not yet adopted.
 - `<Kind>` identifies a Model kind used as an object Format. `$x[<Kind>, (conditions)]` selects a named participant, and `$<Kind>` an anonymous instance; selection creates nothing.
+- `$x[<KindA> OR <KindB>]` binds one participant drawn from either kind; a following count applies to the combined selection. Kind alternatives remain Formats, not new graph Nodes.
+- `VALUES(p)` selects the actual direct Property value occurrences, preserving duplicates without traversing nested Properties or treating constraints as stored values. CA-R-2904@1-draft declares this construct.
 - `FOR EACH $x[<Kind>, (conditions)]: ( ... )` expresses universal quantification. The body contains semicolon-separated expressions; no `WITH` or `IN` header keyword is used. Existing bounded IF binding and no-shadowing remain.
 - Formal Claims use `# model` before `# instances` when both groups occur. `=` tests a condition, `==` states a required or derived value, and `?==` supplies a default under its own rule.
 - HAS_ALLOWED_VALUE (`:=`, CA-R-2826) supplies allowed literal alternatives; applicable local and inherited alternatives combine by OR. HAS_VALUE_CONSTRAINT (`::`, CA-R-2828) supplies applicable local and inherited constraints combined by AND. Final admissibility is the allowed-value OR group AND the constraint AND group. When no allowed-value group exists, omit it (true): there is no enumeration restriction. Qualified Subjects retain `:=`.
-- CA-R-2827 and CA-R-2829 declare the respective inverse Relations. Literal values remain values, not newly invented Nodes.
+- The staged CA-R-2827 and CA-R-2829 inverse-Relation proposals require reconciliation with the decision that each canonical Relation has one Declaration and owns its inverse alias names. Literal values remain values, not newly invented Nodes.
+- An inverse alias is a phantom reverse-view name of its canonical Relation, not a literal or a separate Alias kind. Fixed Model Relation references require no `$` binding: `Relation//CONTAINS ((IS_INVERSE_ALIAS_FOR)) Relation//IS_CONTAINED_BY;`. `IS_INVERSE_ALIAS_FOR` is a proposed new canonical Relation whose Atom ID has not been allocated.
+- Atom Header storage concerns the Atom itself: outgoing Relation facts default to `Atom.Header.Relations`, while `IS_CONTAINED_BY` is stored only in `Atom.Header.Container`. This Atom schema rule does not add storage Properties to Relation.
 - CFEL has no modeled Operator descriptor catalog in this proposal. Actor Operator and AI Agent remain distinct Actor kinds.
 
 ## Rationale
@@ -38,15 +42,15 @@ One declarative notation separates value admission, value constraints and requir
 
 ## Staged Draft cohort
 
-The following **49 actual Draft Atoms** are the pinned language and value-Relation cohort. They are staged evidence, not Current authority or implementation.
+The following **51 actual Draft Atoms** are the pinned language and value-Relation cohort. They are staged evidence, not Current authority or implementation.
 
 ### Value and arithmetic Rules
 
-CA-R-1346@29, CA-R-2794@1, CA-R-2795@1, CA-R-2796@1, CA-R-2797@1, CA-R-2798@1, CA-R-2799@1, CA-R-2800@1, CA-R-2801@1
+CA-R-2904@1, CA-R-1346@29, CA-R-2794@1, CA-R-2795@1, CA-R-2796@1, CA-R-2797@1, CA-R-2798@1, CA-R-2799@1, CA-R-2800@1, CA-R-2801@1
 
 ### Path and binding Rules
 
-CA-R-2802@1, CA-R-2803@1, CA-R-2804@1, CA-R-2805@1, CA-R-2806@1, CA-R-2807@1, CA-R-2808@1, CA-R-2809@1, CA-R-2811@1, CA-R-2812@1, CA-R-2778@1
+CA-R-2248@6, CA-R-2802@1, CA-R-2803@1, CA-R-2804@1, CA-R-2805@1, CA-R-2806@1, CA-R-2807@1, CA-R-2808@1, CA-R-2809@1, CA-R-2811@1, CA-R-2812@1, CA-R-2778@1
 
 ### Control and expression Rules
 
@@ -66,4 +70,4 @@ CA-R-2826@1, CA-R-2827@1, CA-R-2828@1, CA-R-2829@1
 
 ## Integration boundary
 
-The predecessor allowed-value `::` Rule Draft CA-R-2810 was withdrawn and preserved as evidence; do not recreate it. Apply compatible source changes and reference replacements together after review. Preserve Current grammar until the coordinated adoption and migration. Rebuild affected MODEL projections after source acceptance; CA #3 owns implementation, data conversion, fixtures and tests.
+The predecessor allowed-value `::` Rule Draft CA-R-2810 was withdrawn and preserved as evidence; do not recreate it. Complete and review the CFEL source cohort first, including the pending candidate 55-authority review manifest; this is not Current authority or proof of complete language coverage. Then migrate applicable Current and Draft sources in place mechanically, preserving their content and identity under the reviewed migration. After that source migration, hand off implementation, adapters, data conversion, fixtures and tests to CA #3. Preserve Current grammar until coordinated adoption. Rebuild affected MODEL projections after source acceptance.

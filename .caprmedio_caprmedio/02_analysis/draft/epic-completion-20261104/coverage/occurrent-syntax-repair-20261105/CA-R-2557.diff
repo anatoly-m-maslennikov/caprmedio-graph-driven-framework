@@ -1,0 +1,22 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-syntax-repair-20261105/CA-R-2557.preview.txt
+@@ -26,14 +26,16 @@
+ 
+ ```CFEL
+ # model
+-Event Record {:0}((IS_PROPERTY_OF));
++Event Record {::0}((IS_PROPERTY_OF));
+ 
+ Event Record ((NARROWER_THAN)) Continuant;
+ 
+ # instances
+-Event Record//$event_record {::1}((IS_CONTAINED_BY)) Journal//$journal;
++$event_record[<Event Record>];
+ 
+-$event_record {::1}((RECORDS)) Event//$event
++$event_record {::1}((IS_CONTAINED_BY)) $journal[<Journal>];
++
++$event_record {::1}((RECORDS)) $event[<Event>]
+ ```
+ 
+ ### Prose Claim

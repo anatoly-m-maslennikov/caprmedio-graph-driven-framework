@@ -28,13 +28,13 @@ Define Relation
 # model
 Relation;
 
-Relation.** {:1}((IS_PROPERTY_OF)) (Relation, Relation.**);
-(Relation, Relation.**) {:0+}((HAS_PROPERTY)) Relation.**;
+Relation.** {::1}((IS_PROPERTY_OF)) (Relation, Relation.**);
+(Relation, Relation.**) {::0+}((HAS_PROPERTY)) Relation.**;
 
 # instances
-Relation//$relation;
-$relation.** {:1}((IS_PROPERTY_OF)) ($relation, $relation.**);
-($relation, $relation.**) {:0+}((HAS_PROPERTY)) $relation.**;
+$relation[<Relation>];
+$relation.** {::1}((IS_PROPERTY_OF)) ($relation, $relation.**);
+($relation, $relation.**) {::0+}((HAS_PROPERTY)) $relation.**;
 ```
 
 ### Prose Claim

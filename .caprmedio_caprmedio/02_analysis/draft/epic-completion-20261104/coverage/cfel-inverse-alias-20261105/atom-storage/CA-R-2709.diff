@@ -1,0 +1,10 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2709@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/atom-storage/CA-R-2709.preview.txt
+@@ -31,3 +31,7 @@
+ # instances
+ Atom.Header.Relations.*[Relation//$relation]{::0+}
+ ```
++
++### Prose Claim
++
++Header.Relations is optional. When present, it stores the Atom’s outgoing direct Relation facts about the Atom itself. The Atom is the Host of those facts; its active Subject identifies the focus of its content and is not the Host merely because it is named there. Store the Atom’s outgoing IS_CONTAINED_BY value only in Header.Container, never as a second fact under Header.Relations. Inverse aliases are reverse-view names of their canonical Relation and are not stored as separate direct facts.
