@@ -4,8 +4,8 @@ role: Plan
 form: Plan
 label: Task
 status: Active
-version: 9
-updated_at: 2026-11-05 16:54:20 +0400
+version: 10
+updated_at: 2026-11-05 18:04:53 +0400
 tier: 4
 subjects:
   active: CAPRMEDIO_MODEL <+ Scope Unit
@@ -64,12 +64,12 @@ The pinned static evidence is `coverage/project-root-id-20261105/static-impact/r
 
 ## CFEL and single-person source cutover — CA #3
 
-The reviewed candidate is `coverage/value-relations-20261105/final-live-cohort.json` in the completion packet. Its 49 Drafts are not Current syntax. Before coordinated source and data migration:
+The reviewed candidate is `coverage/value-relations-20261105/final-live-cohort.json` in the completion packet. Its 49 Drafts are not Current syntax. The Operator requires source-first sequencing: complete and review CFEL, migrate Current and Draft Atoms in place, check that migration, then send CA #3 the implementation handoff. After that handoff, the required compatibility work is:
 
 1. Distinguish HAS_ALLOWED_VALUE (`:=`, OR across applicable and inherited admissions) from HAS_VALUE_CONSTRAINT (`::`, AND across applicable and inherited constraints). With no admissions, omit that group. Preserve qualified-Subject `:=` and `{::n}` allowed cardinalities.
 2. Support the accepted typed logical participants, `//` narrowing, `/` containment, scoped IF/THEN and FOR EACH groups, explicit bindings, and `# model` / `# instances`. Remove modeled CFEL Operator descriptor dependencies while preserving Actor/Operator.
-3. Permit literal or constraint-data endpoints only for the declared value Relation families and their inverse views. Keep ordinary Relation endpoint checks, explicit inverse permissions and zero-default bounds.
-4. Coordinate Header.Container and single-person schema/registry changes. Current R1559@28 and E440@38 already govern threshold-and-permission approval; the other attribution and root-ID changes remain staged. Preserve accepted historical records.
+3. Implement the final reviewed canonical-Relation and inverse-alias contract. Preserve model references such as Relation//CONTAINS and the declared IS_INVERSE_ALIAS_FOR binding. Keep literal/constraint endpoint domains and zero-default bounds; do not restore separate inverse facts or infer reverse permissions.
+4. Implement Atom-owned storage: Header.Relations is the default for outgoing canonical facts about the Atom; IS_CONTAINED_BY uses Header.Container. Header.Relations is optional and stores no inverse alias or duplicate containment. Coordinate the single-person schema/registry changes. Current R1559@28 and E440@38 already govern threshold-and-permission approval; the other attribution and root-ID changes remain staged. Preserve accepted historical records.
 5. Use the existing Project-global identity boundary for allocation and application. The repaired value Relation IDs are R2826–R2829; retained history and all statuses reserve IDs. Keep other owners' Workbench sources intact.
 6. Record semantic/parser/admission and integration results on one stable candidate through the five checks below. Source receipts and refreshed projections alone do not satisfy them.
 
