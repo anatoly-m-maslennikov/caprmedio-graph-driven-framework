@@ -1,9 +1,8 @@
 """Filesystem and package support for the direct local-release runner."""
 
-# Implemented by:
-# CA-R-2785@2
-# CA-M-473@2
-# CA-D-678@2
+# CA-R-2785@3
+# CA-M-473@3
+# CA-D-678@4
 
 from __future__ import annotations
 
@@ -328,12 +327,12 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
 
 def _generate_tools_catalog(root: Path, runtime: Path, endpoint: str | None, runner: Any) -> None:
     script = runtime / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tools_catalog.py"
-    if not script.is_file() or script.is_symlink():
+    launcher_python = root / ".caprmedio_runtime/launcher-venv/bin/python"
+    if not script.is_file() or script.is_symlink() or not launcher_python.is_file():
         raise LocalReleaseError("local-release-tools-catalog-unavailable")
     try:
         result = runner((
-            "uv", "run", "--project", str(runtime), "--locked", "--no-sync", "--python", "3.14",
-            "--managed-python", "--no-env-file", "--group", "rmed-workflow-mcp", "python", str(script),
+            str(launcher_python), str(script),
             "--project-root", str(root), "--mcp-url", endpoint or "",
         ), root)
     except OSError as error:

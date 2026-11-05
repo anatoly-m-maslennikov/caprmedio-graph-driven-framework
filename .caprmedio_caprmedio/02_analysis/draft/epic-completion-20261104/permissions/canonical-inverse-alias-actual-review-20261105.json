@@ -1,0 +1,97 @@
+{
+  "verdict": "PASS",
+  "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/canonical-inverse-alias-drafts-20261105/adoption-plan.json",
+  "checks": {
+    "receipt_applied": true,
+    "receipt_plan_hash_matches": true,
+    "six_outputs": true,
+    "r2951_native_occurrences": [
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2951@1-draft-CORE_META_MODEL-DECLARATION--declare-is-inverse-alias-for.md"
+    ],
+    "r2951_unique": true,
+    "all_output_checks_pass": true
+  },
+  "outputs": [
+    {
+      "id": "CA-R-2478",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2478@6-draft-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "actual_sha256": "cfbe625911867d4cd1d6bd0621ae778c467455ebfed194af06eb2c4fe221fea5",
+      "matches_plan_and_receipt_operation": true,
+      "body_matches_preview": true,
+      "identity_status_valid": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY",
+      "single_active_subject": true,
+      "repo_relative_destination": true,
+      "current_source_unchanged": true
+    },
+    {
+      "id": "CA-R-2762",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2762@3-draft-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "actual_sha256": "eeb990c506651cfbca75c1abe86df16cec5ae0905a6dd0247277940afb8bc715",
+      "matches_plan_and_receipt_operation": true,
+      "body_matches_preview": true,
+      "identity_status_valid": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_BLOCKED_BY",
+      "single_active_subject": true,
+      "repo_relative_destination": true,
+      "current_source_unchanged": true
+    },
+    {
+      "id": "CA-R-2766",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2766@3-draft-CORE_META_MODEL-DECLARATION--declare-specializes.md",
+      "actual_sha256": "d371c53d3a92f8e1215fbc0533d2a52276d8bc87d5cc4506380a8ccab703f920",
+      "matches_plan_and_receipt_operation": true,
+      "body_matches_preview": true,
+      "identity_status_valid": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//SPECIALIZES",
+      "single_active_subject": true,
+      "repo_relative_destination": true,
+      "current_source_unchanged": true
+    },
+    {
+      "id": "CA-R-2817",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2817@1-draft-CORE_META_MODEL-RULE--define-relation-alias-syntax-with-alias-r.md",
+      "actual_sha256": "1f437547d2352c489d7da585215aeb4d00cda004fdd02df4027961ffb39d86c9",
+      "matches_plan_and_receipt_operation": true,
+      "body_matches_preview": true,
+      "identity_status_valid": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "single_active_subject": true,
+      "repo_relative_destination": true
+    },
+    {
+      "id": "CA-R-2247",
+      "version": 12,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@12-draft-CORE_META_MODEL-DECLARATION--define-relation.md",
+      "actual_sha256": "c7a11f63786fbd34bbf7d7d7da5afb5525d0125008de70b833612b853fa9eca0",
+      "matches_plan_and_receipt_operation": true,
+      "body_matches_preview": true,
+      "identity_status_valid": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "single_active_subject": true,
+      "repo_relative_destination": true
+    },
+    {
+      "id": "CA-R-2951",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2951@1-draft-CORE_META_MODEL-DECLARATION--declare-is-inverse-alias-for.md",
+      "actual_sha256": "6be43698ea57b2aa74af40d97d3bbfb088230cc53c94096d9c0546b559abf99d",
+      "matches_plan_and_receipt_operation": true,
+      "body_matches_preview": true,
+      "identity_status_valid": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_INVERSE_ALIAS_FOR",
+      "single_active_subject": true,
+      "repo_relative_destination": true
+    }
+  ],
+  "semantic_readback": [
+    "Fixed model references use Relation//NAME. Generic declaration-signature $host and $target do not prescribe fixed-name variables; typed instance participants remain separately scoped.",
+    "The inverse alias is a model address, not a separate Relation Declaration; endpoints and cardinality slots reverse for the same fact, without inferred permissions.",
+    "All six Drafts match reviewed substantive bodies; three Current source pins remain unchanged."
+  ],
+  "limits": "Draft readback only; no Current adoption, native workflow admission, Journal append, parser or runtime validation."
+}

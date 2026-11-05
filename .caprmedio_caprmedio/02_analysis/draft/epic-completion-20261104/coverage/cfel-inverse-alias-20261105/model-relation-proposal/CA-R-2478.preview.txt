@@ -39,4 +39,8 @@ Relation//IS_CONTAINED_BY ((HAS_CLASSIFICATION)) Derivation == Direct
 
 ### Prose Claim
 
-IS_CONTAINED_BY relates a contained declared Entity or instance to its immediate Container. The Target has classification `Container = yes`. Containment does not imply narrowing or inheritance. CONTAINS is its inverse alias: its written Host and Target are the canonical Target and Host, respectively. Both writings identify the same fact. `Whole/Part` writes the inverse CONTAINS view; `Part +> Whole` writes the canonical direction.
+The Target has classification `Container = yes`.
+
+## Semantics
+
+IS_CONTAINED_BY relates a declared Entity or instance to its immediate Container. CONTAINS is its inverse alias; both writings identify the same fact. `Whole/Part` writes the inverse view and `Part +> Whole` the canonical direction. Containment does not imply narrowing or inheritance.

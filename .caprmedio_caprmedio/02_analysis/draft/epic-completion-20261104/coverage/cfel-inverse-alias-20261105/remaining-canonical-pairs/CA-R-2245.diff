@@ -1,0 +1,23 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2245@9-draft-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2245.preview.txt
+@@ -33,16 +33,16 @@
+ 
+ ```CFEL
+ # model
+-Relation//IS_EXECUTION_OF ((HAS_INVERSE)) Relation//HAS_EXECUTION;
++Relation//HAS_EXECUTION ((IS_INVERSE_ALIAS_FOR)) Relation//IS_EXECUTION_OF;
+ 
+ Relation//IS_EXECUTION_OF ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+ # instances
+-Workflow Run//$workflow_run ((IS_EXECUTION_OF)) Workflow//$workflow;
++$workflow_run[<Workflow Run>] ((IS_EXECUTION_OF)) $workflow[<Workflow>];
+ 
+-Step Run//$step_run ((IS_EXECUTION_OF)) Step//$step;
++$step_run[<Step Run>] ((IS_EXECUTION_OF)) $step[<Step>];
+ 
+-Action Run//$action_run ((IS_EXECUTION_OF)) Action//$action
++$action_run[<Action Run>] ((IS_EXECUTION_OF)) $action[<Action>]
+ ```
+ 
+ 

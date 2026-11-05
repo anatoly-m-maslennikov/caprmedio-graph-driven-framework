@@ -1,0 +1,18 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2476.preview.txt
+@@ -28,12 +28,11 @@
+ # model
+ $host ((INSTANCE_OF)) $target;
+ 
+-$direct[<Relation>, (.Name = INSTANCE_OF)];
+-$inverse[<Relation>, (.Name = HAS_INSTANCE)];
+ 
+-$direct ((HAS_INVERSE)) $inverse;
+ 
+-$direct ((HAS_CLASSIFICATION)) Derivation == Direct
++Relation//HAS_INSTANCE ((IS_INVERSE_ALIAS_FOR)) Relation//INSTANCE_OF;
++
++Relation//INSTANCE_OF ((HAS_CLASSIFICATION)) Derivation == Direct
+ ```
+ 
+ ### Prose Claim

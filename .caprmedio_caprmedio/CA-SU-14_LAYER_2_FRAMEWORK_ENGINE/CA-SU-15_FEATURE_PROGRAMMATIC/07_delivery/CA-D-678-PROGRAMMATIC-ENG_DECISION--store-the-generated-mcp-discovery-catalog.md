@@ -3,7 +3,7 @@ atom_id: CA-D-678
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
-version: 3
+version: 4
 author: Anatoly Maslennikov
 role: Delivery
 form: Eng Decision
@@ -19,7 +19,7 @@ carrier_destination:
   file:
     name: CA-D-678-PROGRAMMATIC-ENG_DECISION--store-the-generated-mcp-discovery-catalog.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/07_delivery
-updated_at: 2026-11-05 16:56:06 +0400
+updated_at: 2026-11-05 18:24:34 +0400
 ---
 
 ## Summary
@@ -37,3 +37,10 @@ Provide the host script `FEATURE_MCP/generate_tools_catalog.py --project-root <r
 ## Sources
 
 CA-R-2785; CA-M-473.
+
+
+## Local release integration
+
+Start the selected installed package through the existing Project bootstrap at `.caprmedio_runtime/start_mcp.py`. The bootstrap provisions its locked MCP dependencies in `.caprmedio_runtime/launcher-venv`; do not run the package launcher in an empty unsynchronized package environment. Keep the selected source package and no-build boundary, and require the running image to match the already tested candidate.
+
+After MCP is ready, run its installed catalog generator with that provisioned launcher interpreter. Do not create a second virtual environment inside the copied package. A startup or catalog-generation failure stops release completion and keeps the useful diagnostic output available.

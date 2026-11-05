@@ -2,7 +2,7 @@
 
 # CA-R-2785@3
 # CA-M-473@3
-# CA-D-678@3
+# CA-D-678@4
 from __future__ import annotations
 
 import json
@@ -295,7 +295,9 @@ def run_local_release(
                 _deploy_bootstrap(root, runtime)
             else:
                 failed_step = "start_mcp"
-                launcher = runtime / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/runtime.py"
+                bootstrap = root / ".caprmedio_runtime/start_mcp.py"
+                if not bootstrap.is_file() or bootstrap.is_symlink():
+                    raise LocalReleaseError("local-release-bootstrap-unavailable")
                 cleanup = cleanup_stopped_containers(
                     root, selection.instance_id, selection.control_relative.as_posix(),
                     candidate_image, candidate_fingerprint, cleanup_runner,
@@ -369,10 +371,8 @@ def run_local_release(
                             cleanup_pending = True
                 try:
                     mcp = runner((
-                        "uv", "run", "--project", str(runtime), "--locked", "--no-sync", "--python", "3.14",
-                        "--managed-python", "--no-env-file", "--group", "rmed-workflow-mcp", "python", str(launcher),
-                        "--project-root", str(root), "--source-root", str(runtime), "--image", candidate_image,
-                        "--no-build", "--output", "url", "project-mcp",
+                        sys.executable, str(bootstrap), "--project-root", str(root),
+                        "--source-root", str(runtime), "--no-build",
                     ), root)
                 except OSError as error:
                     raise LocalReleaseError("local-release-command-unavailable") from error
@@ -381,15 +381,13 @@ def run_local_release(
                 output = getattr(mcp, "stdout", None)
                 endpoint = output.strip() if isinstance(output, str) and output.strip() else None
                 current_image = _launcher_image(selection)
+                if current_image != candidate_image:
+                    raise LocalReleaseError("local-release-installed-image-mismatch")
                 cleanup_stopped_containers(
                     root, selection.instance_id, selection.control_relative.as_posix(),
                     candidate_image, candidate_fingerprint, cleanup_runner, cleanup=cleanup,
                 )
-                if current_image != candidate_image:
-                    cleanup.notes.append("Image cleanup skipped: replacement launcher image was not verified.")
-                    cleanup.pending = True
-                else:
-                    cleanup_obsolete_images(root, candidate_image, candidate_fingerprint, cleanup, cleanup_runner)
+                cleanup_obsolete_images(root, candidate_image, candidate_fingerprint, cleanup, cleanup_runner)
                 cleanup_pending |= cleanup.pending
                 cleanup_note = "\n".join([cleanup_note, *cleanup.notes])
                 failed_step = "generate_tools_catalog"

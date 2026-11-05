@@ -32,7 +32,7 @@ Relation//BLOCKS ((IS_INVERSE_ALIAS_FOR)) Relation//IS_BLOCKED_BY;
 Relation//IS_BLOCKED_BY ((HAS_CLASSIFICATION)) Derivation == Direct;
 
 # instances
-Atom/(.Header.Role: Plan)//$dependent ((IS_BLOCKED_BY)) Atom/(.Header.Role: Plan)//$prerequisite
+$dependent[<Atom>, (.Header.Role = Plan)] ((IS_BLOCKED_BY)) $prerequisite[<Atom>, (.Header.Role = Plan)]
 ```
 
 ### Prose Claim

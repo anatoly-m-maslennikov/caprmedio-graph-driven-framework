@@ -32,7 +32,7 @@ Relation//IS_SPECIALIZED_BY ((IS_INVERSE_ALIAS_FOR)) Relation//SPECIALIZES;
 Relation//SPECIALIZES ((HAS_CLASSIFICATION)) Derivation == Direct;
 
 # instances
-Atom//$child ((SPECIALIZES)) Atom//$parent
+$specializing_atom[<Atom>] ((SPECIALIZES)) $specialized_atom[<Atom>]
 ```
 
 ### Prose Claim

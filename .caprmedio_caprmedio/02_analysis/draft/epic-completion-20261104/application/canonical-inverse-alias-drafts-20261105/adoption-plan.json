@@ -1,0 +1,100 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "route": "reviewed canonical Relation and inverse-alias Drafts; existing identity lock spans allocation and application",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2478",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "source_sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2478@6-draft-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "cfbe625911867d4cd1d6bd0621ae778c467455ebfed194af06eb2c4fe221fea5",
+      "kind": "canonical_relation_draft"
+    },
+    {
+      "atom_id": "CA-R-2762",
+      "version": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2762-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "source_sha256": "6620239782cc317abe88ee6d70794e60727a197cfbb9dc959327b7483283cbc9",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2762@3-draft-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "sha256": "eeb990c506651cfbca75c1abe86df16cec5ae0905a6dd0247277940afb8bc715",
+      "kind": "canonical_relation_draft"
+    },
+    {
+      "atom_id": "CA-R-2766",
+      "version": 3,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2766-CORE_META_MODEL-DECLARATION--declare-specializes.md",
+      "source_sha256": "9ff42b4c80c6fd56cdb208661b1dbeb899e32bf061a13f3f3de183967259282c",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2766@3-draft-CORE_META_MODEL-DECLARATION--declare-specializes.md",
+      "sha256": "d371c53d3a92f8e1215fbc0533d2a52276d8bc87d5cc4506380a8ccab703f920",
+      "kind": "canonical_relation_draft"
+    },
+    {
+      "atom_id": "CA-R-2817",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2817@1-draft-CORE_META_MODEL-RULE--define-relation-alias-syntax-with-alias-r.md",
+      "sha256": "1f437547d2352c489d7da585215aeb4d00cda004fdd02df4027961ffb39d86c9",
+      "kind": "grammar_draft_rebase"
+    },
+    {
+      "atom_id": "CA-R-2247",
+      "version": 12,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@12-draft-CORE_META_MODEL-DECLARATION--define-relation.md",
+      "sha256": "c7a11f63786fbd34bbf7d7d7da5afb5525d0125008de70b833612b853fa9eca0",
+      "kind": "grammar_draft_rebase"
+    },
+    {
+      "atom_id": "CA-R-2951",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2951@1-draft-CORE_META_MODEL-DECLARATION--declare-is-inverse-alias-for.md",
+      "sha256": "6be43698ea57b2aa74af40d97d3bbfb088230cc53c94096d9c0546b559abf99d",
+      "kind": "inverse_alias_relation_draft"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2478@6-draft-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2478\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY\nversion: 6\nupdated_at: 2026-11-05 18:23:39 +0400\nrelations: {}\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2478@6-draft-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine composition and its inverse\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$part ((IS_CONTAINED_BY)) $container;\n\nRelation//CONTAINS ((IS_INVERSE_ALIAS_FOR)) Relation//IS_CONTAINED_BY;\n\nalias(Relation//IS_CONTAINED_BY) == \"+>\";\n\nalias(Relation//CONTAINS) == \"/\";\n\nRelation//IS_CONTAINED_BY ((HAS_CLASSIFICATION)) Derivation == Direct\n```\n\n### Prose Claim\n\nThe Target has classification `Container = yes`.\n\n## Semantics\n\nIS_CONTAINED_BY relates a declared Entity or instance to its immediate Container. CONTAINS is its inverse alias; both writings identify the same fact. `Whole/Part` writes the inverse view and `Part +> Whole` the canonical direction. Containment does not imply narrowing or inheritance.\n",
+      "after_sha256": "cfbe625911867d4cd1d6bd0621ae778c467455ebfed194af06eb2c4fe221fea5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2762@3-draft-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2762\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_BLOCKED_BY\nversion: 3\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 1\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 18:23:39 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2762@3-draft-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare IS_BLOCKED_BY\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//BLOCKS ((IS_INVERSE_ALIAS_FOR)) Relation//IS_BLOCKED_BY;\n\nRelation//IS_BLOCKED_BY ((HAS_CLASSIFICATION)) Derivation == Direct;\n\n# instances\n$dependent[<Atom>, (.Header.Role = Plan)] ((IS_BLOCKED_BY)) $prerequisite[<Atom>, (.Header.Role = Plan)]\n```\n\n### Prose Claim\n\nA dependent Plan may start only after each Plan it is blocked by is Done. BLOCKS is the inverse alias: the prerequisite is written before the dependent.\n\n## Semantics\n\nIS_BLOCKED_BY relates a dependent Plan to a prerequisite Plan.\n",
+      "after_sha256": "eeb990c506651cfbca75c1abe86df16cec5ae0905a6dd0247277940afb8bc715"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2766@3-draft-CORE_META_MODEL-DECLARATION--declare-specializes.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2766\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//SPECIALIZES\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 1\nrole: Requirement\nform: Declaration\nversion: 3\nupdated_at: 2026-11-05 18:23:39 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2766@3-draft-CORE_META_MODEL-DECLARATION--declare-specializes.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare SPECIALIZES\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//IS_SPECIALIZED_BY ((IS_INVERSE_ALIAS_FOR)) Relation//SPECIALIZES;\n\nRelation//SPECIALIZES ((HAS_CLASSIFICATION)) Derivation == Direct;\n\n# instances\n$specializing_atom[<Atom>] ((SPECIALIZES)) $specialized_atom[<Atom>]\n```\n\n### Prose Claim\n\nThe child Atom's Claim is more specific or stricter than the parent Atom's Claim in the same or a narrower Scope and preserves the parent's applicable constraints. A conditional specialization is included. A reference or dependency alone does not establish SPECIALIZES. IS_SPECIALIZED_BY is the inverse alias, with parent and child endpoints reversed.\n\n## Semantics\n\nSPECIALIZES relates a child Atom to the Atom whose Claim it specializes.\n",
+      "after_sha256": "d371c53d3a92f8e1215fbc0533d2a52276d8bc87d5cc4506380a8ccab703f920"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2817@1-draft-CORE_META_MODEL-RULE--define-relation-alias-syntax-with-alias-r.md",
+      "before": "---\natom_id: CA-R-2817\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL\nversion: 1\nupdated_at: 2026-11-05 14:25:52 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Rule\ncarrier_destination:\n  file:\n    name: CA-R-2817@1-draft-CORE_META_MODEL-RULE--define-relation-alias-syntax-with-alias-r.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Relation alias syntax with `alias($r)`\n\n## Claim\n\n### Prose Claim\n\n`alias($r) == \"notation token\"` takes an already-bound Relation participant, such as one selected by `$r[<Relation>, (.Name = RELATION_NAME)]`, and binds that declared graph Relation\u2019s exact name to one nonempty lexical notation token in the selected effective MODEL. Resolve the name exactly; do not infer case folding or undeclared synonyms. A Relation has at most one authored alias. Reject undeclared Relation names, conflicting alias values, and ambiguous token bindings. Without an alias, use the full named Relation notation.\n\nThis syntax binds notation metadata; it does not construct a graph Relation fact or equate different Relation identities. The token follows the owning Relation Declaration\u2019s directional reading and grants no endpoint permission, cardinality, or second authored fact. In a graph expression, an already-bound Relation participant references that Relation object as an endpoint, whereas `((NAME))` invokes that Relation between endpoints.\n",
+      "before_sha256": "c51ffdc05c1a4dfe1062c578cd80ec0c7c13a0590ca410e76db949ce303bad3f",
+      "after": "---\natom_id: CA-R-2817\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL\nversion: 1\nupdated_at: 2026-11-05 14:25:52 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Rule\ncarrier_destination:\n  file:\n    name: CA-R-2817@1-draft-CORE_META_MODEL-RULE--define-relation-alias-syntax-with-alias-r.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Relation alias syntax with `alias($r)`\n\n## Claim\n\n### Prose Claim\n\n`alias(Relation//NAME) == \"notation token\"` binds one nonempty lexical notation token to a canonical Relation model name or its inverse alias model name. Resolve the name exactly; do not infer case folding or undeclared synonyms. Each written name has at most one authored short notation token. Reject unknown names, conflicting alias values and ambiguous token bindings. Without a short token, use the full named Relation notation.\n\nA token follows its written name's directional reading. This notation is metadata, not a graph Relation fact; it grants no endpoint permission or cardinality and creates no second Relation fact or Alias entity. Fixed names are written `Relation//NAME`; `((NAME))` invokes the corresponding Relation writing between endpoints.\n",
+      "after_sha256": "1f437547d2352c489d7da585215aeb4d00cda004fdd02df4027961ffb39d86c9"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@12-draft-CORE_META_MODEL-DECLARATION--define-relation.md",
+      "before": "---\natom_id: CA-R-2247\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation\nversion: 12\nupdated_at: 2026-11-05 16:33:24 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2247@12-draft-CORE_META_MODEL-DECLARATION--define-relation.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Relation\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation;\n\nRelation.** {::1}((IS_PROPERTY_OF)) (Relation, Relation.**);\n(Relation, Relation.**) {::0+}((HAS_PROPERTY)) Relation.**;\n\n# instances\n$relation[<Relation>];\n$relation.** {::1}((IS_PROPERTY_OF)) ($relation, $relation.**);\n($relation, $relation.**) {::0+}((HAS_PROPERTY)) $relation.**;\n```\n\n### Prose Claim\n\nRelation defines a reusable directed graph Relation Type with a Name and Meaning. Each actual link is a tuple (Host, Relation Type, Target); persist each direct fact once. An actual edge does not create a separate Relation ID. Endpoints are declared model Entities or instances, including Carrier and Relation descriptors, except that HAS_ALLOWED_VALUE and HAS_VALUE_CONSTRAINT have literal or constraint-data Targets, and their declared derived inverses have those data as Hosts. CFEL glyphs are not endpoints. CFEL syntax does not itself create an endpoint.\n\nA direct Relation Declaration owns shared meaning, endpoint signature and any counterpart binding. A derived counterpart remains a distinct Relation with its own Declaration; its meaning and endpoints are inferred through that binding. An alias supplies lexical notation for one Relation; it does not create a new Relation, a Node or a separate Relation ID.\n",
+      "before_sha256": "0a6754df4861f552be7980356b04ab46a71150e1222137551995ece334fcfc12",
+      "after": "---\natom_id: CA-R-2247\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation\nversion: 12\nupdated_at: 2026-11-05 16:33:24 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2247@12-draft-CORE_META_MODEL-DECLARATION--define-relation.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Relation\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation;\n\nRelation.** {::1}((IS_PROPERTY_OF)) (Relation, Relation.**);\n(Relation, Relation.**) {::0+}((HAS_PROPERTY)) Relation.**;\n\n# instances\n$relation[<Relation>];\n$relation.** {::1}((IS_PROPERTY_OF)) ($relation, $relation.**);\n($relation, $relation.**) {::0+}((HAS_PROPERTY)) $relation.**;\n```\n\n### Prose Claim\n\nRelation defines a reusable directed graph Relation Type with a Name and Meaning. Each actual link is a tuple (Host, Relation Type, Target); an actual edge does not create a separate Relation ID. Endpoints are declared model Entities or instances, including Carrier and Relation descriptors, except that HAS_ALLOWED_VALUE and HAS_VALUE_CONSTRAINT admit literal or constraint-data Targets and their inverse aliases write those data as Hosts. CFEL glyphs are not endpoints. A declared inverse alias model address and its canonical Relation model address are admitted as the Host and Target of IS_INVERSE_ALIAS_FOR. An inverse alias model address is not a separate Relation entity. CFEL syntax does not itself create a graph endpoint.\n\nA canonical Relation Declaration owns shared meaning, endpoint signature and its inverse alias binding when applicable. An inverse alias reverses the written endpoints of the canonical Relation and denotes the same fact; it has no separate Relation Declaration. A qualified derived view retains its source transformation and qualification. A short notation token follows the written name's direction; it does not create a new Relation, a Node or a separate Relation ID.\n",
+      "after_sha256": "c7a11f63786fbd34bbf7d7d7da5afb5525d0125008de70b833612b853fa9eca0"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2951@1-draft-CORE_META_MODEL-DECLARATION--declare-is-inverse-alias-for.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2951\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_INVERSE_ALIAS_FOR\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 18:23:39 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2951@1-draft-CORE_META_MODEL-DECLARATION--declare-is-inverse-alias-for.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare IS_INVERSE_ALIAS_FOR\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$host ((IS_INVERSE_ALIAS_FOR)) $target\n```\n\n### Prose Claim\n\nIS_INVERSE_ALIAS_FOR binds an inverse alias model address to its canonical Relation model address. The inverse alias is introduced by the canonical Relation Declaration and is not a separate Relation entity or Declaration. Normalizing an inverse alias to its canonical Relation swaps the written endpoints and their cardinality slots, preserving the numeric bounds. Explicit reverse writing of an inverse alias reverses its endpoints and slots again. Both writings refer to the same fact. This binding infers no bounds, grants no endpoint permission and creates no second authored Relation fact.\n\n## Semantics\n\nIS_INVERSE_ALIAS_FOR relates an inverse alias address to its canonical Relation address.\n",
+      "after_sha256": "6be43698ea57b2aa74af40d97d3bbfb088230cc53c94096d9c0546b559abf99d"
+    }
+  ]
+}

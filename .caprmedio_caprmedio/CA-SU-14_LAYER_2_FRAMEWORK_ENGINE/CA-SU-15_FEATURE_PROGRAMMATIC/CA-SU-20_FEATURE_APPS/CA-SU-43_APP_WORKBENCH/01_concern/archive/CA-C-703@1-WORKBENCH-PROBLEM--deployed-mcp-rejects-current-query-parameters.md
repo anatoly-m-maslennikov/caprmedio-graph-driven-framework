@@ -2,7 +2,7 @@
 atom_id: CA-C-703
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
-status: Active
+status: Archived
 version: 1
 author: Anatoly Maslennikov
 role: Concern
@@ -17,8 +17,8 @@ relations:
   - CA-D-673
 carrier_destination:
   file:
-    name: CA-C-703-WORKBENCH-PROBLEM--deployed-mcp-rejects-current-query-parameters.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/01_concern
+    name: CA-C-703@1-WORKBENCH-PROBLEM--deployed-mcp-rejects-current-query-parameters.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/01_concern/archive
 updated_at: 2026-11-05 17:43:47 +0400
 ---
 

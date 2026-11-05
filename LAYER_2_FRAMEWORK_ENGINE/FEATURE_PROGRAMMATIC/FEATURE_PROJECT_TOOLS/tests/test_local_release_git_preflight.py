@@ -37,8 +37,8 @@ class LocalReleaseGitPreflightTests(unittest.TestCase):
                     "?? .env.local\n" if mode == "residual-dirty" else "",
                     "",
                 )
-            if argv[-1:] == ("project-mcp",):
-                return subprocess.CompletedProcess(argv, 0, "http://localhost:12345/mcp\n", "")
+            if fixture._is_mcp_bootstrap(argv):
+                return fixture._mcp_bootstrap_success(argv)
             return subprocess.CompletedProcess(argv, 0, "", "")
 
         with fixture._compiler():

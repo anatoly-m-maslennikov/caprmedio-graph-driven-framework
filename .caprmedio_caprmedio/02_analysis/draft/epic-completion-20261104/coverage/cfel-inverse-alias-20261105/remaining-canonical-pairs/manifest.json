@@ -1,0 +1,338 @@
+{
+  "status": "TWELVE_CANDIDATES_THREE_ALREADY_REBASED_ONE_AUTHOR_PAIR_REMOVAL",
+  "pairs": [
+    {
+      "canonical": "IS_BLOCKED_BY",
+      "inverse_alias": "BLOCKS",
+      "inverse_current": [
+        {
+          "id": "CA-R-1580",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+          "sha256": "25e9d08d3851209230e686a23c42d7819f3fddd4b163d3e18947c6b6eedb8ae5"
+        }
+      ],
+      "inverse_drafts": [],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "ALREADY_REBASED_ACTUAL_DRAFT",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2762@3-draft-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "source_sha256": "eeb990c506651cfbca75c1abe86df16cec5ae0905a6dd0247277940afb8bc715"
+    },
+    {
+      "canonical": "CARRIES",
+      "inverse_alias": "IS_CARRIED_BY",
+      "inverse_current": [
+        {
+          "id": "CA-R-2418",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2418-CORE_META_MODEL-DECLARATION--define-is-carried-by-relation.md",
+          "sha256": "4944f3098c5c6d1e4962ea88f6424cb1df23abcf0810e4c93cdc6d0f7f2d27ca"
+        }
+      ],
+      "inverse_drafts": [],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1993-CORE_META_MODEL-DECLARATION--define-carries.md",
+      "source_sha256": "82247b2cb99ad1dc826c579cfe51a42708f6cd9fe48039c4aeb2171e28580c1a",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-1993.preview.txt",
+      "preview_sha256": "109fab92371405e5c91d6ad2a776ef351185640f448defbbdcf0b46d721cde09",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-1993.diff",
+      "diff_sha256": "0a4e230d8bfc065bed4231840ec2b16eaecf0b84f8c56659b3980f3f0752bd6b"
+    },
+    {
+      "canonical": "IS_CONTAINED_BY",
+      "inverse_alias": "CONTAINS",
+      "inverse_current": [
+        {
+          "id": "CA-R-2617",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md",
+          "sha256": "129277b5d905006aed8279b20be9ed45ed8fcc1733b3097ca07321cdb03db16d"
+        }
+      ],
+      "inverse_drafts": [
+        {
+          "id": "CA-R-2617",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2617@3-draft-CORE_META_MODEL-DECLARATION--declare-contains.md",
+          "sha256": "f10509a3cd3a9b13107d6d7746035e6c41a3cb5df55bc13c379e1cab07bedb0c"
+        }
+      ],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "ALREADY_REBASED_ACTUAL_DRAFT",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2478@6-draft-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "source_sha256": "cfbe625911867d4cd1d6bd0621ae778c467455ebfed194af06eb2c4fe221fea5"
+    },
+    {
+      "canonical": "EXECUTES",
+      "inverse_alias": "IS_EXECUTED_BY",
+      "inverse_current": [
+        {
+          "id": "CA-R-2420",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2420-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+          "sha256": "52e09f067858fcaa9c26bfd100227b9c7866058482054e0fca93331cdc238263"
+        }
+      ],
+      "inverse_drafts": [
+        {
+          "id": "CA-R-2420",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2420@6-draft-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md",
+          "sha256": "58e64b297650225d5074cf384b5e9742f143ea55595b8710786286f14c1dfa27"
+        }
+      ],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2255@10-draft-CORE_META_MODEL-DECLARATION--define-executes-relation.md",
+      "source_sha256": "5297e956dcf489c91bd0edaecdc6181e8b54eb5639a04696b98f9f251423cecf",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2255.preview.txt",
+      "preview_sha256": "b07f568b6d07818f8c38a42cdb13e3fb206bf511a981075f74bbd25666a84f4a",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2255.diff",
+      "diff_sha256": "62d213fa7ca16fb62d370adc141261efe0413c8eb7dcb14213004bd35a6da44a"
+    },
+    {
+      "canonical": "IS_EXECUTION_OF",
+      "inverse_alias": "HAS_EXECUTION",
+      "inverse_current": [
+        {
+          "id": "CA-R-2417",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2417-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+          "sha256": "e50b96e2a066c11c7deee1f31ef85197b74d09aaa93c12579648e7c9ef8bd691"
+        }
+      ],
+      "inverse_drafts": [
+        {
+          "id": "CA-R-2417",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2417@6-draft-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md",
+          "sha256": "556978fd1a9e0ef9e3fade634835d064cd0a319f5fbe833419ab7b35a46b3d9b"
+        }
+      ],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2245@9-draft-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md",
+      "source_sha256": "10d74afc56acca0fa69e3b980cd697fbb7b28abe55a3521a129f479c6030d622",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2245.preview.txt",
+      "preview_sha256": "b055bd55b45f7794dce8f5ab3df0aab3bb05f93fdfca7f10c6d720170115db12",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2245.diff",
+      "diff_sha256": "6dcc9571021475a97216601fa6fdbd5995aa29a2c91a4d5c00608e69811a788f"
+    },
+    {
+      "canonical": "INSTANCE_OF",
+      "inverse_alias": "HAS_INSTANCE",
+      "inverse_current": [
+        {
+          "id": "CA-R-2619",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2619-CORE_META_MODEL-DECLARATION--declare-has-instance.md",
+          "sha256": "f8d8f828420b31bfedced5bbcd2eb9c51086c30b3b61e2d1cd8712f8bddb516b"
+        }
+      ],
+      "inverse_drafts": [],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "source_sha256": "1af71d260bfa51ab09b0cdc673e229176819d9e45a81f0cba113e73062e75937",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2476.preview.txt",
+      "preview_sha256": "ad167cedc9afe65db9ccf518fb8c210f99146201045032ef979e0a91293afe5e",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2476.diff",
+      "diff_sha256": "e3519c24e0d1e911bce086eb52d55b9160a6ab67437cd68601d52230252ad585"
+    },
+    {
+      "canonical": "NARROWER_THAN",
+      "inverse_alias": "HAS_NARROWER",
+      "inverse_current": [
+        {
+          "id": "CA-R-2620",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2620-CORE_META_MODEL-DECLARATION--declare-has-narrower.md",
+          "sha256": "92dbcc2aa54b613c6a43c437ad0beedd632bc9ccb7d9905638f9e31472948d19"
+        }
+      ],
+      "inverse_drafts": [],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "source_sha256": "5dca3569b44a6183d8f24fae240e2ae407327600f08fbba5958813b9dde6d652",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2475.preview.txt",
+      "preview_sha256": "d50e227b0e30c66b64ed29527a59dc2420ad6e8da9c5619b9306880d15319d21",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2475.diff",
+      "diff_sha256": "da877f6af56781dd37f98cc0b170a6d064ccd2da5dd6fc85a1060489dc004f18"
+    },
+    {
+      "canonical": "IS_PROPERTY_OF",
+      "inverse_alias": "HAS_PROPERTY",
+      "inverse_current": [
+        {
+          "id": "CA-R-2621",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2621-CORE_META_MODEL-DECLARATION--declare-has-property.md",
+          "sha256": "c51142ed47d1f6a98da90b3a0f0708156c25c1b3bdc98b27a4a819b9bd3d9618"
+        }
+      ],
+      "inverse_drafts": [],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md",
+      "source_sha256": "e9e6ef725504569522386ec508820391a97df534812c1a8557916cc11d1b5b00",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2473.preview.txt",
+      "preview_sha256": "dd6b8b63bdf7279e2b9d19eab64a1b7d2ead416864ba4c6eae6cbf8249cbcee0",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2473.diff",
+      "diff_sha256": "6a7324d06b349789c6abf1bfbb0cd67841264f38a366182662ed7620fbc59cde"
+    },
+    {
+      "canonical": "RECORDS",
+      "inverse_alias": "IS_RECORDED_BY",
+      "inverse_current": [
+        {
+          "id": "CA-R-2421",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2421-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+          "sha256": "1e6ddc6a60e24a613c8ea03be2c11b4dc452bb94d5e1fa2bd652123295b82277"
+        }
+      ],
+      "inverse_drafts": [
+        {
+          "id": "CA-R-2421",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2421@6-draft-CORE_META_MODEL-DECLARATION--define-is-recorded-by-relation.md",
+          "sha256": "61ac53d74d7fa2b4be9681581ab26827b6678685d7ee4340d95f5ee76d2fd73d"
+        }
+      ],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2246@9-draft-CORE_META_MODEL-DECLARATION--define-records-relation.md",
+      "source_sha256": "0b532831307cbac442ad827160d5003f21a697a210496ffb5f217cf7ab385d21",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2246.preview.txt",
+      "preview_sha256": "564409c3cc465949f2a85c7239f73c70983198306ea2a16caed81617f48e7535",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2246.diff",
+      "diff_sha256": "af5883242d5386d6f8acf12a82384b4e4147b6ac00a98101c0d76b263c511718"
+    },
+    {
+      "canonical": "RUNS",
+      "inverse_alias": "IS_RUN_BY",
+      "inverse_current": [
+        {
+          "id": "CA-R-2623",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md",
+          "sha256": "dd540f1c2fd04b4826443a96daa6f7e190853ecd8645ad1a369d85a3744a2fc6"
+        }
+      ],
+      "inverse_drafts": [],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2638@4-draft-CORE_META_MODEL-DECLARATION--define-runs.md",
+      "source_sha256": "dcff0917a3545169b74ec2f6135639a9bef5b87763d89d6e10cb385d67e33733",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2638.preview.txt",
+      "preview_sha256": "24f898b9cdf1f2abb59f00c3191cd69927c3e5191d6e1d02691c0cdd7a6c7cd7",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2638.diff",
+      "diff_sha256": "ee0b33a185066735fd0942d9c83565729bc6605d10c75f0b3d668397c2297d28"
+    },
+    {
+      "canonical": "depends_on",
+      "inverse_alias": "required_by",
+      "inverse_current": [
+        {
+          "id": "CA-R-2422",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2422-CORE_META_MODEL-DECLARATION--define-required-by-relation.md",
+          "sha256": "99a6c6ff6a56f1fa98a1ab141749ced037e9f0aa7cea75f92f1e5371b4875349"
+        }
+      ],
+      "inverse_drafts": [],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md",
+      "source_sha256": "761422f7245c231d3c813eb8caf07f4fba2fc135563f88e7b3dc1780fa1c66e2",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-1026.preview.txt",
+      "preview_sha256": "7287facc0c1174d696ea357c939cc23581ad5e7e67a1f1561f7e8fc444f7795a",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-1026.diff",
+      "diff_sha256": "aed0d02e8b164d1eb18f0846f359235c60ec89bf1718528911b85b1d22ae468e"
+    },
+    {
+      "canonical": "SPECIALIZES",
+      "inverse_alias": "IS_SPECIALIZED_BY",
+      "inverse_current": [
+        {
+          "id": "CA-R-2767",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2767-CORE_META_MODEL-DECLARATION--declare-is-specialized-by.md",
+          "sha256": "023fa028948d0bbc9e0c6351e290027bce7c51075ef7f3a187c0c3da7d80ae33"
+        }
+      ],
+      "inverse_drafts": [],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "ALREADY_REBASED_ACTUAL_DRAFT",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2766@3-draft-CORE_META_MODEL-DECLARATION--declare-specializes.md",
+      "source_sha256": "d371c53d3a92f8e1215fbc0533d2a52276d8bc87d5cc4506380a8ccab703f920"
+    },
+    {
+      "canonical": "PRODUCES",
+      "inverse_alias": "IS_PRODUCED_BY",
+      "inverse_current": [],
+      "inverse_drafts": [
+        {
+          "id": "CA-R-2761",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2761@1-draft-CORE_META_MODEL-DECLARATION--declare-is-produced-by.md",
+          "sha256": "6d576263c2e2c382e7cf9ed890f516b2b821ca4db12d2df4d82542e48ce3f09f"
+        }
+      ],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2760@1-draft-CORE_META_MODEL-DECLARATION--declare-produces.md",
+      "source_sha256": "8cb9cdef19263df67e2baf20661ad7c90d18f39520703d701ad59f9c1b11a11f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2760.preview.txt",
+      "preview_sha256": "6839613ac82da72bc0dba05d1ac247c4c9711804d96b37544aafed45b34fd6ad",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2760.diff",
+      "diff_sha256": "52dd834365ecc52dd5db30fdad6c4c510240c13ad0b5d956dc99e4f6bf7d1ebd"
+    },
+    {
+      "canonical": "HAS_ALLOWED_VALUE",
+      "inverse_alias": "IS_ALLOWED_VALUE_OF",
+      "inverse_current": [],
+      "inverse_drafts": [
+        {
+          "id": "CA-R-2827",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2827@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md",
+          "sha256": "3004048941f4bb7949bdcb75097ef0ce59f1dcb4558b09f134b42584b8f6131b"
+        }
+      ],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2826@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md",
+      "source_sha256": "34046b65a580ad65c4579de43478d88043939083f1d884ca178efa25a27d3f8f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2826.preview.txt",
+      "preview_sha256": "bf011e35927dc4df5237ba08bb7e64a139b1ff52fb1aa4cf5c3332498a45970a",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2826.diff",
+      "diff_sha256": "bf9a6626f66cbd55568077f9df49ed7d0229e5e4596a78eec0366e8ae1f5cd29"
+    },
+    {
+      "canonical": "HAS_VALUE_CONSTRAINT",
+      "inverse_alias": "IS_VALUE_CONSTRAINT_OF",
+      "inverse_current": [],
+      "inverse_drafts": [
+        {
+          "id": "CA-R-2829",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2829@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md",
+          "sha256": "80c2beabf7a5d01e0dfc327e47686ab44dec29235be294e5b6b2f9841c72506a"
+        }
+      ],
+      "inverse_disposition": "Retire/withdraw redundant inverse Declaration only with canonical adoption and contextual consumer migration.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2828@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md",
+      "source_sha256": "662f48405701ac625c033482e8fabaed653a9774c0eba6ec74ec38e16f4a4bc7",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2828.preview.txt",
+      "preview_sha256": "dc596be1ca9e975e3ba2e768a525b0268a101622273f6cd6d6a6ccc500ffcd4c",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2828.diff",
+      "diff_sha256": "984c1cfa991a52b9e6bf8f8529518a0f471fef4255da1d20485f0cb978c0b0a3"
+    },
+    {
+      "canonical": "HAS_EVENT_AUTHOR",
+      "inverse_alias": "IS_EVENT_AUTHOR_OF",
+      "inverse_current": [
+        {
+          "id": "CA-R-2622",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2622-CORE_META_MODEL-DECLARATION--declare-is-event-author-of.md",
+          "sha256": "ccad12aa39c516e384ebd4ae9ee64eb7d4fe772548a0efa42609164774503eea"
+        }
+      ],
+      "inverse_drafts": [],
+      "inverse_disposition": "Retire both attribution Declarations under separately approved no-author source batch; do not introduce an author alias.",
+      "status": "AUTHOR_PAIR_REMOVE"
+    }
+  ],
+  "review_gates": [
+    "Every inverse alias binding is owned by its canonical Relation Declaration; no independent inverse Relation or storage policy is introduced.",
+    "Retire each exact redundant inverse Current Declaration and withdraw its obsolete Draft only in the coordinated source/consumer migration; preserve historical references.",
+    "Review all canonical candidates for typed-instance binding scope and unchanged endpoints/counts; this mechanical source preview does not constitute parser, graph, runtime or source-adoption proof.",
+    "Qualified IS_DECLARED_BY and current HAS_INVERSE / IS_DERIVED_RELATION_OF metadata are separate unresolved cases, not blanket pure inverses."
+  ],
+  "limits": "No native Current/Draft, code, tests, actual Workflow, Workbench or Git mutation."
+}

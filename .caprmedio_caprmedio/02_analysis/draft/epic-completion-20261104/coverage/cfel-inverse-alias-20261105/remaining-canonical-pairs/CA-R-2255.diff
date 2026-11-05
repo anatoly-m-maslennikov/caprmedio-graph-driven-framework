@@ -1,0 +1,20 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2255@10-draft-CORE_META_MODEL-DECLARATION--define-executes-relation.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2255.preview.txt
+@@ -29,14 +29,14 @@
+ 
+ ```CFEL
+ # model
+-Relation//EXECUTES ((HAS_INVERSE)) Relation//IS_EXECUTED_BY;
++Relation//IS_EXECUTED_BY ((IS_INVERSE_ALIAS_FOR)) Relation//EXECUTES;
+ 
+ Relation//EXECUTES ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+ # instances
+-Runtime//$runtime((EXECUTES)) Execution//$execution
++$runtime[<Runtime>]((EXECUTES)) $execution[<Execution>]
+ ```
+ 
+ ## Semantics
+ 
+-EXECUTES is the stored Relation from a Runtime to an Execution. Its declared inverse IS_EXECUTED_BY is a derived view.
++EXECUTES relates a Runtime to an Execution. IS_EXECUTED_BY is its inverse alias.

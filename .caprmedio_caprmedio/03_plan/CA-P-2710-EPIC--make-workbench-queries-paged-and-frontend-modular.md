@@ -3,8 +3,8 @@ atom_id: CA-P-2710
 label: Epic
 status: Active
 tier: 3
-version: 27
-updated_at: 2026-11-05 17:45:04 +0400
+version: 28
+updated_at: 2026-11-05 18:32:00 +0400
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
 relations:
@@ -107,7 +107,7 @@ The previous header, explicit-save and browser autosave behavior remains verifie
 
 ## Current status
 
-Active. CODEX_EXTENSION, its Workspace/View controls, the seven-day query log and the reported source defects are implemented and verified in source. The native MCP/HTTP boundary, full repository source capture, plugin package and real browser checks passed. Standalone chat remains disabled and deferred. The running MCP still exposes the older query schema; local release and native-plugin installation remain pending. Other audit and general Policy tasks remain open.
+Active. CODEX_EXTENSION, its Workspace/View controls, the seven-day query log and the reported source defects are implemented and verified in source. The native MCP/HTTP boundary, full repository source capture, plugin package and real browser checks passed. Standalone chat remains disabled and deferred. The tested 0.4.4.22 image is running through the existing Project bootstrap. Native MCP query parameters and Workspace/View controls passed live checks. The automated release startup caller and catalog completion are being corrected; native-plugin installation and hook trust remain pending. Other audit and general Policy tasks remain open.
 
 Design and review findings: CA-A-1322, `../CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/draft/CA-A-1322@1-draft-PROGRAMMATIC-SPECIFICATION_PROPOSAL--simplify-programmatic-implementation-policies-and-workflow.md`.
 
@@ -157,7 +157,7 @@ Design is recorded in CA-A-1323 and its RMED index. This adds MCP catalog genera
 
 The extension uses the existing Codex chat, with one Workspace per chat and at least one View. Workspace/View behavior and extension delivery belong in RMEDO, not in task design. The requested operations include listing Workspaces; creating a View first/last; listing, updating, running, fetching paged results, focusing, renaming, removing and saving Views. Standalone chat remains disabled and deferred. Existing unrelated audit tasks remain open.
 
-Project context and full reread have passed focused checks in source. No new release or deployment has run.
+Project context and full reread have passed focused source checks. The tested image is now running; the automated release caller and catalog completion remain separate from that runtime verification.
 
 
 Extension source index and review: `.caprmedio_tmp/workbench/codex-extension/adoption.json` and `review.md`. Design is in R2901–R2903, R2792–R2793, M476 and D681; E684 covers observable acceptance. Source conflicts found during review were corrected.
@@ -171,7 +171,7 @@ Extension source index and review: `.caprmedio_tmp/workbench/codex-extension/ado
 - [x] Verify the old deployed query schema and add a real MCP regression for current parameters.
 - [x] Correct the new Scope Unit Declaration carrier and recheck source loading.
 - [x] Fix browser integration failures and rerun the affected flows.
-- [ ] Release the tested implementation and verify the current query parameters in the running MCP.
+- [x] Activate the tested implementation and verify the current query parameters in the running MCP.
 
 The decisions for the reported defects are recorded in M462, M463 and M465. Building or testing source does not update the running container.
 
@@ -180,6 +180,29 @@ The decisions for the reported defects are recorded in M462, M463 and M465. Buil
 
 - [x] Record the four reported defects as Problems and link reusable regression Evaluations.
 - [x] Resolve the three verified source defects.
-- [ ] Verify the deployed query boundary and resolve CA-C-703.
+- [x] Verify the deployed query boundary and resolve CA-C-703.
 
-CA-C-700, CA-C-701 and CA-C-702 are Resolved; CA-C-703 is Active. CA-E-750, CA-E-751, CA-E-752 and CA-E-753 remain Active regression cases, linked through evaluation_for. Carrier paths and statuses are indexed in `.caprmedio_tmp/workbench/codex-extension/problems.json`. No deployed success is inferred from source tests.
+CA-C-700, CA-C-701, CA-C-702 and CA-C-703 are Resolved. CA-E-750, CA-E-751, CA-E-752 and CA-E-753 remain Active regression cases, linked through evaluation_for. Carrier paths and statuses are indexed in `.caprmedio_tmp/workbench/codex-extension/problems.json`. No deployed success is inferred from source tests.
+
+
+## Release completion follow-up
+
+- [x] Verify the tested image through a fresh native MCP client.
+- [x] Correct the local-release startup caller and its catalog environment.
+- [ ] Complete independent review and the corrected local release.
+- [ ] Verify the released catalog and the running interface.
+- [ ] Install the local Codex plugin and trust its hook in the desktop app.
+
+The previous automated release stopped at startup. The existing Project bootstrap restored the tested 0.4.4.22 image. A native client verified 42 tool descriptors, `preview: 0, save: false`, Workspace/View creation, SQL update, metadata-only Run, paged fetch and focus. This does not claim a successful automatic release receipt or a native plugin installation. Evidence: `.caprmedio_tmp/workbench/codex-extension/live-proof.json`.
+
+## Watcher change-log tasks
+
+- [x] Prepare RMED Drafts for the requested watcher change log.
+- [ ] Review the Drafts against the Operator input and existing watcher; resolve open decisions.
+- [ ] Adopt the reviewed RMED.
+- [ ] Reuse the implementation prompt and implement the adopted RMED.
+- [ ] Add and run end-to-end checks for the adopted behavior.
+- [ ] Review and fix the changes.
+- [ ] Release locally and verify the result.
+
+Draft source index: CA-R-2950, CA-M-490, CA-D-695, CA-E-780 and CA-R-2724. The packet and open decisions are tracked in `.caprmedio_tmp/workbench/watcher-change-log/drafts.json`. These Drafts are not Current contracts or implemented behavior.

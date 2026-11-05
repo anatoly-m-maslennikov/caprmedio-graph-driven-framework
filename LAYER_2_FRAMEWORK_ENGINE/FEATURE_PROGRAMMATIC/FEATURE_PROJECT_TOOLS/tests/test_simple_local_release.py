@@ -120,11 +120,25 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             calls.append(argv)
             if argv == ("git", "diff", "--cached", "--quiet"):
                 return subprocess.CompletedProcess(argv, 1, "", "")
-            if argv[-1:] == ("project-mcp",):
-                return subprocess.CompletedProcess(argv, 0, "http://localhost:12345/mcp\n", "")
+            if self._is_mcp_bootstrap(argv):
+                return self._mcp_bootstrap_success(argv)
             return subprocess.CompletedProcess(argv, 0, "", "")
 
         return run, calls
+
+    def _is_mcp_bootstrap(self, argv: tuple[str, ...]) -> bool:
+        return (
+            len(argv) > 1
+            and argv[0] == sys.executable
+            and argv[1] == str(self.runtime / "start_mcp.py")
+        )
+
+    def _mcp_bootstrap_success(self, argv: tuple[str, ...]) -> subprocess.CompletedProcess[str]:
+        launcher_python = self.runtime / "launcher-venv/bin/python"
+        launcher_python.parent.mkdir(parents=True, exist_ok=True)
+        launcher_python.write_text("#!/usr/bin/env python3\n", encoding="utf-8")
+        launcher_python.chmod(0o755)
+        return subprocess.CompletedProcess(argv, 0, "http://localhost:12345/mcp\n", "")
 
     def _compile(self, root):
         self.assertEqual(self.root, root)
@@ -229,7 +243,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual("ca skill", (self.root / ".agents/skills/ca/SKILL.md").read_text())
         self.assertIn('version = "0.4.1.1"', (self.root / "version.toml").read_text())
         self.assertIn('version = "0.4.1.1"', (self.runtime / "simple_local_release/package/version.toml").read_text())
-        self.assertEqual(1, sum(argv[-1:] == ("project-mcp",) for argv in calls))
+        self.assertEqual(1, sum(self._is_mcp_bootstrap(argv) for argv in calls))
         self.assertFalse((self.root / ".caprmedio_install").exists())
         self.assertEqual([], list((self.root / ".caprmedio_tmp/simple_local_release").iterdir()))
 
@@ -258,7 +272,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
 
         self.assertEqual(("failed", "generate_tools_catalog"), (result["outcome"], result["failed_step"]))
         self.assertEqual("http://localhost:12345/mcp", result["endpoint"])
-        start = next(index for index, argv in enumerate(calls) if argv[-1:] == ("project-mcp",))
+        start = next(index for index, argv in enumerate(calls) if self._is_mcp_bootstrap(argv))
         generator = next(
             (index, argv) for index, argv in enumerate(calls)
             if any(str(item).endswith("generate_tools_catalog.py") for item in argv)
@@ -319,7 +333,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual(("failed", "tests"), (result["outcome"], result["failed_step"]))
         self.assertEqual("focused", result["test_scope"])
         self.assertEqual(list(modules), result["test_modules"])
-        self.assertFalse(any(argv[-1:] == ("project-mcp",) for argv in calls))
+        self.assertFalse(any(self._is_mcp_bootstrap(argv) for argv in calls))
         report = (self.root / result["report_path"]).read_text(encoding="utf-8")
         self.assertIn("Test scope: `focused`", report)
         self.assertIn("Selected test modules: " + modules[0], report)
@@ -333,7 +347,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         for target in (self.product, self.installed):
             self.assertEqual("obsolete", (target / "old.txt").read_text())
         self.assertFalse(any(any(item.endswith("run_full_test_suite.py") for item in argv) for argv in calls))
-        self.assertFalse(any(argv[-1:] == ("project-mcp",) for argv in calls))
+        self.assertFalse(any(self._is_mcp_bootstrap(argv) for argv in calls))
         self.image_factory.assert_not_called()
 
     def test_source_symlink_refuses_before_tests_version_or_product_replacement(self):
@@ -389,7 +403,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual(0o755, stat.S_IMODE(bootstrap.stat().st_mode))
         self.assertEqual("keep = true\n", (self.runtime / "config.toml").read_text())
         self.assertEqual("retain this runtime state\n", state.read_text())
-        self.assertEqual(2, sum(argv[-1:] == ("project-mcp",) for argv in calls))
+        self.assertEqual(2, sum(self._is_mcp_bootstrap(argv) for argv in calls))
 
     def test_four_component_local_version_increments_without_rollover(self):
         (self.root / "version.toml").write_text('[framework]\nversion = "0.4.1.9"\n', encoding="utf-8")
@@ -519,7 +533,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertIn(result["test_log_path"], output.getvalue())
         for target in (self.product, self.installed):
             self.assertEqual("obsolete", (target / "old.txt").read_text())
-        self.assertFalse(any(argv[-1:] == ("project-mcp",) for argv in calls))
+        self.assertFalse(any(self._is_mcp_bootstrap(argv) for argv in calls))
 
     def test_default_test_log_survives_later_failure_without_whole_output_capture(self):
         runner, _ = self._runner()
@@ -575,6 +589,8 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             self.assertEqual(self.root, cwd)
             if argv[0] == "git":
                 return subprocess.run(argv, cwd=cwd, capture_output=True, text=True, check=False)
+            if self._is_mcp_bootstrap(argv):
+                return self._mcp_bootstrap_success(argv)
             if argv[0] == "docker":
                 return subprocess.CompletedProcess(argv, 0, "", "")
             return subprocess.CompletedProcess(argv, 0, "http://localhost:12345/mcp", "")
@@ -614,7 +630,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
                 missing.chmod(mode)
                 self.assertEqual("failed", result["outcome"])
                 self.assertEqual("build_package", result["failed_step"])
-                self.assertFalse(any(argv[-1:] == ("project-mcp",) for argv in calls))
+                self.assertFalse(any(self._is_mcp_bootstrap(argv) for argv in calls))
                 for target, snapshot in before.items():
                     self.assertEqual(snapshot, inventory(target))
                 self.assertEqual([], list((self.root / ".caprmedio_tmp/simple_local_release").iterdir()))
@@ -662,7 +678,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual("obsolete", (self.installed / "old.txt").read_text())
         for target in (runtime_package, skill):
             self.assertEqual(b"previous payload", (target / "old.txt").read_bytes())
-        self.assertFalse(any(argv[-1:] == ("project-mcp",) for argv in calls))
+        self.assertFalse(any(self._is_mcp_bootstrap(argv) for argv in calls))
 
     def test_staging_is_run_private_and_verified_before_replacement(self):
         import local_release
@@ -701,7 +717,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             result = runner(argv, cwd)
             if any(item.endswith("run_full_test_suite.py") for item in argv):
                 events.append("full-suite-green")
-            elif argv[-1:] == ("project-mcp",):
+            elif self._is_mcp_bootstrap(argv):
                 events.append("launch")
             elif argv[:3] == ("docker", "image", "ls"):
                 events.append("post-smoke-image-cleanup")
@@ -715,8 +731,10 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertTrue(source.is_relative_to(self.root / ".caprmedio_tmp/simple_local_release"))
         self.assertEqual(source.parent / "image_builds", temporary)
         self.assertEqual(self.runtime / "simple_local_release/package", self.image_factory.call_args_list[1].args[0])
-        launch = next(argv for argv in calls if argv[-1:] == ("project-mcp",))
-        self.assertEqual(self.image_id, launch[launch.index("--image") + 1])
+        launch = next(argv for argv in calls if self._is_mcp_bootstrap(argv))
+        self.assertEqual((sys.executable, str(self.runtime / "start_mcp.py")), launch[:2])
+        self.assertEqual(str(self.runtime / "simple_local_release/package"), launch[launch.index("--source-root") + 1])
+        self.assertNotIn("--image", launch)
         self.assertIn("--no-build", launch)
         self.assertLess(events.index("full-suite-green"), events.index("candidate-resolve"))
         self.assertLess(events.index("candidate-resolve"), events.index("installed-resolve"))
@@ -744,7 +762,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual("obsolete", (self.installed / "old.txt").read_text())
         self.assertEqual(b"previous payload", (runtime_package / "old.txt").read_bytes())
         self.assertEqual(b"previous payload", (skill / "old.txt").read_bytes())
-        self.assertFalse(any(argv[-1:] == ("project-mcp",) for argv in calls))
+        self.assertFalse(any(self._is_mcp_bootstrap(argv) for argv in calls))
 
 
 if __name__ == "__main__":

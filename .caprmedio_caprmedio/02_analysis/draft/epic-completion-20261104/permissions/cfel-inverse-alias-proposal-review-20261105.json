@@ -1,7 +1,7 @@
 {
-  "verdict": "HOLD_NARROW_COUNT_SLOT_CLARIFICATION_AND_DEPENDENCIES",
+  "verdict": "PASS_FOR_PROSPECTIVE_PACKET_WITH_COORDINATED_ADOPTION_DEPENDENCIES",
   "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/manifest.json",
-  "manifest_sha256": "c8371baf19ef8f271128307b28e6f5233417fedeaf6b279fb5dc5b7e29666d16",
+  "manifest_sha256": "a6c767d9b17bf054746c0e6ba0c07aef999834b7fecfd052a4e50fade8f49254",
   "canonical_candidates": [
     {
       "id": "CA-R-2478",
@@ -30,22 +30,83 @@
     "sha256_actual": "25ecaeeaf319484361a55b87e8c1a3908a72d89d42dfa95a28aaa96720eef8c9",
     "pin_matches": true
   },
-  "finding": {
-    "candidate": "IS_INVERSE_ALIAS_FOR",
-    "issue": "The proposal reverses written endpoints and preserves one fact, but does not state that written forward and reverse cardinality slots reverse with those endpoints.",
-    "minimal_fix": "State explicitly that when an inverse alias is used, each written endpoint retains its corresponding per-endpoint count, with the two written forward/reverse count slots swapped on canonical normalization; no new permission or count is inferred."
-  },
   "verified": [
-    "Fixed model references use Relation//NAME; no fixed-name variable, Alias kind, literal endpoint, separate inverse Declaration or storage rule introduced.",
-    "IS_CONTAINED_BY, IS_BLOCKED_BY and SPECIALIZES retain their canonical direction and substantive constraints; inverse alias names express reversed written endpoints of the same fact.",
-    "The generic host/target signature is confined to the new Relation Declaration. No automatic inverse endpoint permission is granted.",
-    "Current and preview changes preserve original Summaries; no source mutation or native adoption is implied."
+    "R2478, R2762 and R2766 preserve canonical meanings and use fixed Relation//NAME addresses; no fixed-name variable is invented. Generic $host/$target are the Relation Declaration signature.",
+    "R2247 admits the model alias address only as IS_INVERSE_ALIAS_FOR Host without a separate Alias entity or generic literal endpoint. R2817 admits canonical and inverse model names as lexical alias receivers; its Summary retains a generic parameter.",
+    "R2478 binds +> to IS_CONTAINED_BY and / to CONTAINS, each in its own written direction; one fact, no separate inverse fact or Declaration, and no automatically granted permission.",
+    "Pins for all five sourced candidates and the unallocated sixth candidate match. Relation Claims introduce no Atom Header storage rules."
   ],
   "dependencies": [
-    "Extend R2247 Relation endpoint authority to admit the inverse alias model address in this relation without treating it as a separate entity; extend R2817 existing alias receiver to name that inverse alias address and bind / there. This is already authorized and does not require another user decision.",
-    "Coordinate HAS_INVERSE and redundant inverse Declaration/permission retirement, retain qualified IS_DECLARED_BY as a separate unresolved representation.",
-    "Convert older participant syntax in the existing instance Claims under coordinated contextual CFEL migration.",
-    "Atom Header storage remains governed by Atom model."
+    "Coordinated semantic relocation or retirement of old HAS_INVERSE and redundant inverse Declarations and permissions remains necessary; qualified IS_DECLARED_BY requires its own representation.",
+    "These previews are prospective; R2247/R2817 extensions and the canonical candidates must be integrated together. Atom Header storage remains the Atom model responsibility."
   ],
-  "limits": "Proposal review only; no Current promotion, native changes, runtime or parser validation."
+  "limits": "Source proposal only; no native Draft or Current adoption, code, tests, runtime or Git changes.",
+  "grammar_manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/grammar/manifest.json",
+  "grammar_manifest_sha256": "75ee4802a85ccb19b523ca04b93e94f606962252656d20e996e4a5f496b32a88",
+  "six_candidates": [
+    {
+      "id": "CA-R-2478",
+      "source_sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
+      "source_pin_matches": true,
+      "preview_sha256": "96b85693711521992a8e4359d15ecb9e76185bb3e23373b12bf9117d244b1826",
+      "preview_pin_matches": true,
+      "diff_sha256": "725775f0da5a918b80b2c0df356b44c7903c748674570285740048c09feaae3e",
+      "diff_pin_matches": true
+    },
+    {
+      "id": "CA-R-2762",
+      "source_sha256": "6620239782cc317abe88ee6d70794e60727a197cfbb9dc959327b7483283cbc9",
+      "source_pin_matches": true,
+      "preview_sha256": "d91689fd9a4db42d60adbe137c070b9887690147150c2d64948c5bbf09b28621",
+      "preview_pin_matches": true,
+      "diff_sha256": "7fdecd137b8cc2d96fd8600d18af2e460ee4d44c264980055ddb08bf91b41cf2",
+      "diff_pin_matches": true
+    },
+    {
+      "id": "CA-R-2766",
+      "source_sha256": "9ff42b4c80c6fd56cdb208661b1dbeb899e32bf061a13f3f3de183967259282c",
+      "source_pin_matches": true,
+      "preview_sha256": "54417448569581cec15c651404ee24b65783c202b9cb3d90708fae8f08b14b72",
+      "preview_pin_matches": true,
+      "diff_sha256": "ba273007fe1fe7e0a2ea4ccc62f283a42b778fd51a5e0bc86e0531bd5d60f3a9",
+      "diff_pin_matches": true
+    },
+    {
+      "id": "CA-R-2817",
+      "source_sha256": "c51ffdc05c1a4dfe1062c578cd80ec0c7c13a0590ca410e76db949ce303bad3f",
+      "source_pin_matches": true,
+      "preview_sha256": "1f437547d2352c489d7da585215aeb4d00cda004fdd02df4027961ffb39d86c9",
+      "preview_pin_matches": true,
+      "diff_sha256": "8d0c34a53d184794ec85be97de341c0384b01079794a08ae0b7aac3551e50ccb",
+      "diff_pin_matches": true
+    },
+    {
+      "id": "CA-R-2247",
+      "source_sha256": "0a6754df4861f552be7980356b04ab46a71150e1222137551995ece334fcfc12",
+      "source_pin_matches": true,
+      "preview_sha256": "c7a11f63786fbd34bbf7d7d7da5afb5525d0125008de70b833612b853fa9eca0",
+      "preview_pin_matches": true,
+      "diff_sha256": "3d138b4dbc829209a84a63fc0d618c63696e6a72f0946adaf2de256e8ce6f493",
+      "diff_pin_matches": true
+    },
+    {
+      "id": "IS_INVERSE_ALIAS_FOR (unallocated)",
+      "preview_sha256": "d52ccea7ecff6ef728e9fbe2f3958b91394963cf9649628c40a007d7887f491e",
+      "preview_pin_matches": true
+    }
+  ],
+  "finding_history": {
+    "previous": "Missing explicit inverse cardinality-slot reversal.",
+    "resolution": "New IS_INVERSE_ALIAS_FOR prose explicitly swaps endpoints and cardinality slots on canonical normalization, preserves bounds, reverses again for explicit reverse writing, and infers no bounds or permissions."
+  },
+  "final_canonical_refresh": {
+    "status": "PASS",
+    "details": [
+      "R2762 selects existing Atom instances filtered to Role Plan for both endpoints; dependent-to-prerequisite semantics and Done condition preserved.",
+      "R2766 selects Atom instances for specializing and specialized endpoints, retaining child-to-parent specialization semantics.",
+      "R2478 preserves Container=yes in Claim and moves direct meaning and both one-fact directional readings to Semantics.",
+      "Fixed Relation names retain Relation//NAME; generic declaration-signature variables and typed instance bindings are distinct uses. No general all-dollar syntax rule is asserted.",
+      "Cardinality reversal and no new permission remain governed by proposed IS_INVERSE_ALIAS_FOR."
+    ]
+  }
 }

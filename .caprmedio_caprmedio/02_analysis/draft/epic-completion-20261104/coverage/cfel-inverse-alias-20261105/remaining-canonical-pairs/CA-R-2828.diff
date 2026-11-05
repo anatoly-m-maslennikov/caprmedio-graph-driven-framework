@@ -1,0 +1,21 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2828@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2828.preview.txt
+@@ -27,15 +27,13 @@
+ 
+ ```CFEL
+ # model
+-$relation[<Relation>, (.Name = HAS_VALUE_CONSTRAINT)];
+ 
+-$inverse[<Relation>, (.Name = IS_VALUE_CONSTRAINT_OF)];
+ 
+-$relation ((HAS_INVERSE)) $inverse;
++Relation//IS_VALUE_CONSTRAINT_OF ((IS_INVERSE_ALIAS_FOR)) Relation//HAS_VALUE_CONSTRAINT;
+ 
+-$relation ((HAS_CLASSIFICATION)) Derivation == Direct;
++Relation//HAS_VALUE_CONSTRAINT ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+-alias($relation) == "::";
++alias(Relation//HAS_VALUE_CONSTRAINT) == "::";
+ 
+ $host ((HAS_VALUE_CONSTRAINT)) $target
+ ```

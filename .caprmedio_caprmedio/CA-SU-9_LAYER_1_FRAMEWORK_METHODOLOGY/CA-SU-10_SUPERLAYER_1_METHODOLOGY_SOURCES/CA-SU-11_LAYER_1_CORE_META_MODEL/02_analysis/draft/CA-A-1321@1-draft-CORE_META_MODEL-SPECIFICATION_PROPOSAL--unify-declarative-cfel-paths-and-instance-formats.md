@@ -31,8 +31,8 @@ CFEL is declarative: Claims state participants, scope, constraints and required 
 - `FOR EACH $x[<Kind>, (conditions)]: ( ... )` expresses universal quantification. The body contains semicolon-separated expressions; no `WITH` or `IN` header keyword is used. Existing bounded IF binding and no-shadowing remain.
 - Formal Claims use `# model` before `# instances` when both groups occur. `=` tests a condition, `==` states a required or derived value, and `?==` supplies a default under its own rule.
 - HAS_ALLOWED_VALUE (`:=`, CA-R-2826) supplies allowed literal alternatives; applicable local and inherited alternatives combine by OR. HAS_VALUE_CONSTRAINT (`::`, CA-R-2828) supplies applicable local and inherited constraints combined by AND. Final admissibility is the allowed-value OR group AND the constraint AND group. When no allowed-value group exists, omit it (true): there is no enumeration restriction. Qualified Subjects retain `:=`.
-- The staged CA-R-2827 and CA-R-2829 inverse-Relation proposals require reconciliation with the decision that each canonical Relation has one Declaration and owns its inverse alias names. Literal values remain values, not newly invented Nodes.
-- An inverse alias is a phantom reverse-view name of its canonical Relation, not a literal or a separate Alias kind. Fixed Model Relation references require no `$` binding: `Relation//CONTAINS ((IS_INVERSE_ALIAS_FOR)) Relation//IS_CONTAINED_BY;`. `IS_INVERSE_ALIAS_FOR` is a proposed new canonical Relation whose Atom ID has not been allocated.
+- The staged CA-R-2827@1 and CA-R-2829@1 pure-inverse Declarations are superseded for coordinated withdrawal; their Draft files remain until migration and are not proposed for adoption. Literal values remain values, not newly invented Nodes.
+- An inverse alias is a phantom reverse-view name of its canonical Relation, not a literal or a separate Alias kind. Fixed Model Relation references require no `$` binding: `Relation//CONTAINS ((IS_INVERSE_ALIAS_FOR)) Relation//IS_CONTAINED_BY;`. `IS_INVERSE_ALIAS_FOR` is declared in staged Draft CA-R-2951@1.
 - Atom Header storage concerns the Atom itself: outgoing Relation facts default to `Atom.Header.Relations`, while `IS_CONTAINED_BY` is stored only in `Atom.Header.Container`. This Atom schema rule does not add storage Properties to Relation.
 - CFEL has no modeled Operator descriptor catalog in this proposal. Actor Operator and AI Agent remain distinct Actor kinds.
 
@@ -67,6 +67,10 @@ CA-R-2247@12, CA-R-2462@5
 ### Value Relations
 
 CA-R-2826@1, CA-R-2827@1, CA-R-2828@1, CA-R-2829@1
+
+## Staged inverse-alias Drafts
+
+CA-R-2951@1 declares IS_INVERSE_ALIAS_FOR. Canonical Relation Drafts CA-R-2478@6, CA-R-2762@3, and CA-R-2766@3 adopt the inverse-alias approach; CA-R-2817@1 and CA-R-2247@12 are rebased grammar Drafts. These six Drafts do not constitute a complete canonical Relation inventory and are not Current authority.
 
 ## Integration boundary
 

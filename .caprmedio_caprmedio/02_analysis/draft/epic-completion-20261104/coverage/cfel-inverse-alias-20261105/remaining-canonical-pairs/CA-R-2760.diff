@@ -1,0 +1,17 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2760@1-draft-CORE_META_MODEL-DECLARATION--declare-produces.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/remaining-canonical-pairs/CA-R-2760.preview.txt
+@@ -27,12 +27,12 @@
+ 
+ ```CFEL
+ # model
+-Relation//PRODUCES ((HAS_INVERSE)) Relation//IS_PRODUCED_BY;
++Relation//IS_PRODUCED_BY ((IS_INVERSE_ALIAS_FOR)) Relation//PRODUCES;
+ 
+ Relation//PRODUCES ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+ # instances
+-Execution//$execution((PRODUCES)) Event//$event
++$execution[<Execution>]((PRODUCES)) $event[<Event>]
+ ```
+ 
+ ## Semantics
