@@ -34,3 +34,11 @@ Scratch probe and evidence: `.caprmedio_tmp/workbench/codex-ui-probe/`.
 - [ChatGPT plugin extensions](https://developers.openai.com/plugins/build/extensions)
 
 Current metadata schemas and source files were checked directly. Product claims beyond the verified boundaries above remain open.
+
+## Subsequent implementation and local release
+
+The local marketplace was registered and plugin `caprmedio-workbench@caprmedio-local` version `0.1.1` was installed and enabled. Its Skill now uses the compatibility probe instead of opening a browser as a substitute for native UI. The hook was not automatically trusted.
+
+Local release `0.4.4.26` serves the probe through the existing MCP connection. Live checks passed for 45 tool descriptors, the exact package-local HTML resource, both read-only tools and the Workbench HTTP page. A separate live browser check confirmed the clean standalone URL and preserved local identity after reload.
+
+The agent still has no exposed CAPRMEDIO tool handles in this chat. Native Codex rendering and its host bridge remain unverified. The complete native Workbench interface is not delivered. Next: invoke `workbench_ui_probe` from a Codex chat where the refreshed connection is available and observe the component and button.

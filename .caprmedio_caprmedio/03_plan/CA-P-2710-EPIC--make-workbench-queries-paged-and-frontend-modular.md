@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 39
-updated_at: 2026-11-06 01:50:53 +0400
+version: 40
+updated_at: 2026-11-06 01:55:52 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -116,7 +116,7 @@ Automatic property-column discovery and schema generation were not implemented i
 - [x] Reuse the applicable Policy prompt and gather the accepted implementation sources.
 - [ ] Implement and test the plugin.
 - [ ] Install and verify the integrated UI with the current chat Workspace and Views.
-- [ ] Correct and verify the default standalone URL.
+- [x] Correct and verify the default standalone URL.
 
 An ordinary page opened in the Codex browser is insufficient for the requested plugin. Current ID formats stay unchanged. The standalone Workspace remains browser-owned; removing its default URL parameter must preserve existing state and explicit chat-bound links.
 
@@ -125,9 +125,17 @@ An ordinary page opened in the Codex browser is insufficient for the requested p
 - [x] Implement and test the read-only compatibility probe through the existing MCP.
 - [x] Register and install the local plugin package.
 - [x] Correct and verify the standalone URL in source and isolated browser tests.
-- [ ] Release the tested changes and verify the running MCP.
+- [x] Release the tested changes and verify the running MCP.
 - [ ] Observe native Codex rendering and the host tool bridge before implementing the full native UI.
 
 Plugin package 0.1.1 is installed through the local marketplace. This does not establish native UI activation. The current chat does not expose the CAPRMEDIO tools to the agent, although the configured endpoint is correct; actual host tool refresh remains unverified. Computer-use access to Codex was refused.
 
 Checks passed: seven native MCP/HTTP cases, two shared-project MCP cases, one component browser bridge case, four plugin package cases, 16 Workbench browser flows, 13 frontend state cases, build, TypeScript, and focused Python lint/type checks. Synthetic component tests do not count as native Codex rendering.
+
+## Verified local release 0.4.4.26
+
+The project MCP is healthy on the existing port. Both read-only probe tools and the exact UI resource were exercised through the deployed MCP; discovery contains 45 tools. The standalone page was checked in a fresh real browser: its URL stays clean and the same local Workspace identity survives reload, without SQL execution or uncaught errors.
+
+The local plugin is installed and enabled at version 0.1.1. The complete native Workbench interface is still unfinished. This chat has no exposed CAPRMEDIO tool handles, so an actual Codex render/bridge observation requires host tool refresh or a chat where the connection is available. Do not count the server verification or synthetic host browser test as native rendering.
+
+Source commit: `539f0f555a77dac6c2ce1c9de8d7eb9b0953f93e`. Live proof: `.caprmedio_tmp/workbench/codex-plugin-panel/live-proof.json`. Standalone proof: `.caprmedio_tmp/workbench/clean-standalone-url/live-proof.json`.
