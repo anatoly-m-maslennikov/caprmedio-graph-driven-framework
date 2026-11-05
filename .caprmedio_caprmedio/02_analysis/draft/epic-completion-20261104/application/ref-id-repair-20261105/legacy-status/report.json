@@ -1,0 +1,874 @@
+{
+  "status": "READ_ONLY_CONDITIONAL_CANDIDATES_AND_UNKNOWNS",
+  "scope": "206 input holds, not 206 missing-Status non-Concern records. Only non-Concern carriers actually missing status included; no Concern history examined.",
+  "input": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/ref-id-data/adoption-plan.json",
+  "input_sha256": "2526f37b5d1e243083516bfbf369a2e10046aa593fa7d3b55644c832977c09f6",
+  "counts": {
+    "total_input_holds": 206,
+    "nonconcern_missing_status": 32,
+    "analysis_missing": 28,
+    "delivery_missing": 4,
+    "conditional_done_candidates": 7,
+    "unknown_status": 25,
+    "concern_missing_status": 127,
+    "nonconcern_status_present_id_only": 47,
+    "delivery_missing_both_id_and_status": 4
+  },
+  "source_authority": [
+    {
+      "id": "CA-R-1875",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "sha256": "b98ce1241466238f0e30f03603b97e12c1daf5435963f5d4542342d5ee35fc28",
+      "status": "Current"
+    },
+    {
+      "id": "CA-R-2696",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2696-CORE_META_MODEL-DECLARATION--declare-atom-header-status.md",
+      "sha256": "231c2d3d877942be05292abcdfb9523c16dd5ef8a801094411c3113025ea68df",
+      "status": "Current"
+    },
+    {
+      "id": "CA-R-1947",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL--define-atom-status-allowed-values.md",
+      "sha256": "b9a5062cadac7068369a392c274187d82c4550f76ef3e782ddb134d4e5fe033f",
+      "status": "Current"
+    },
+    {
+      "id": "CA-R-2102",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md",
+      "sha256": "8fdf285ee272f2c980a70e252b93fe5eccbf44d6ea5d9aca7131f5209ad80fed",
+      "status": "Current"
+    },
+    {
+      "id": "CA-R-1727@30",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1727@30-CORE_META_MODEL-DEFINITION--analyses-have-draft-and-done-states.md",
+      "sha256": "5f8bd07637c62435b879a4fec040127233a183e4b0dd8613aab78c359845a96c",
+      "status": "historical pinned definition referenced by Current R1875"
+    },
+    {
+      "id": "CA-R-1399",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL--register-core-delivery-status-values.md",
+      "sha256": "34cc8fc7e025d55b46ac7ec405da4b88364aa381d0af538f48262d5cd354f540",
+      "status": "Current; allows Draft/Active/Archived for Delivery but does not default missing Status"
+    }
+  ],
+  "rows": [
+    {
+      "id": "CA-A-040",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-040-ANALYSIS_RPRT--fpf-alignment-audit-project-meta-gov-after-repair.md",
+      "sha256": "b25a90319c97b257b1f76540fc2b201f91570ea29aa26a654496b9995bc75af9",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "957d8b6bfbbad40408a03217cb0daef48b3a74ba",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-041",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-041-ANALYSIS_RPRT--fpf-alignment-audit-project-meta-gov-settings.md",
+      "sha256": "a68a48bf1a1e39ad3a0cdb0862e8beb10c16398b6865960e2a2484b1f688fa6e",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "5a80401f483678583547681d51c6d73fbe09c501",
+          "status": null
+        },
+        {
+          "commit": "957d8b6bfbbad40408a03217cb0daef48b3a74ba",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-042",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-042-ANALYSIS_RPRT--fpf-options-explore-caprmedio-graph-database.md",
+      "sha256": "838bb9b567342f3d1e1a9ed70f9fc62157474c75f190b88d6bf244388602318a",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "957d8b6bfbbad40408a03217cb0daef48b3a74ba",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-043",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-043-ANALYSIS_RPRT--fpf-alignment-audit-level-0-rmed-level-1-2-cores.md",
+      "sha256": "f5d5f331d36536ab8fa460d668a3b311507993868ba2222dfb10ed1c07a89667",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "5a80401f483678583547681d51c6d73fbe09c501",
+          "status": null
+        },
+        {
+          "commit": "957d8b6bfbbad40408a03217cb0daef48b3a74ba",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-044",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-044-ANALYSIS_RPRT--fpf-design-challenge-metalayer-number-names-scopes.md",
+      "sha256": "1612273e8940f72dc153b89476a7e6e4ffabbc5dc0edda47e07248b2a3c1e7c4",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "957d8b6bfbbad40408a03217cb0daef48b3a74ba",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-045",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-045-ANALYSIS_RPRT--fpf-alignment-audit-goal-and-principles.md",
+      "sha256": "cb685d966f58ad95ef4ecc622765756af7b912bd32cb69f2115f09602fb4b268",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "957d8b6bfbbad40408a03217cb0daef48b3a74ba",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-046",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-046-ANALYSIS_RPRT--fpf-design-challenge-goal-principles-internal-coherence.md",
+      "sha256": "db0eee3d5443062f854fcab1a287e6790dc8e68d434bca5de5fb86bfe963a4ac",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "957d8b6bfbbad40408a03217cb0daef48b3a74ba",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-047",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-047-ANALYSIS_RPRT--fpf-quality-improve-goal-principles-coherence.md",
+      "sha256": "3ba51793d5624de851f081b05b940cde76f3e91998b4b4d72f069d78e986cfb7",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "957d8b6bfbbad40408a03217cb0daef48b3a74ba",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-048",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-048-ANALYSIS_RPRT--fpf-design-challenge-code-truth-and-adoption.md",
+      "sha256": "1f85db86ce232471571ed71883fa2cff811c6e203ff7d9ef3bb5ec02ea6c9c9e",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "957d8b6bfbbad40408a03217cb0daef48b3a74ba",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-049",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-049-ANALYSIS_RPRT--intent.md",
+      "sha256": "c3b5d7c41d3f55898e4b2992236cd6b7b9e8a81cebde7b363fd90fadc72957a0",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "5a80401f483678583547681d51c6d73fbe09c501",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-060",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-060-ANALYSIS_RPRT--bound-hindsight-inspired-context-and-memory-candidates.md",
+      "sha256": "90a9f127cc546193f5f46938906e0f1a5c41b8072f1bb0a6ffea3e8e72cd96b3",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "99f597d6685a7e5ad24c41e805a4de7c4adfbec1",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-062",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-062-ANALYSIS_RPRT--audit-seven-day-conversation-closure.md",
+      "sha256": "449c90adc42d3ddf2f9e59ec7e7cbbd18689e646006704b95ecfff902aab8fe3",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "99f597d6685a7e5ad24c41e805a4de7c4adfbec1",
+          "status": null
+        }
+      ],
+      "classification": "CONDITIONAL_DONE_CANDIDATE_NOT_READY",
+      "reason": "Documented bounded result/disposition is evidence of a completed inquiry product under R1727@30, but Role/Form must first be established and obsolete/invalidated/absorbed archival disposition checked; no automatic status assignment.",
+      "proposed_status": "Done",
+      "evidence_heading": "Result",
+      "evidence_excerpt": "The six new Tasks close only missing ownership. Existing Plans retain their scope. This Analysis and the new CAP Tasks do not claim that any underlying implementation has been completed. The later `CA #5: hooks fixing` closure promoted the commit-automation design from draft disc",
+      "proposed_after_sha256": "689b0a69dcee8c8f5c6622b3caba6325ebb9edad8a677351fb6cdf7e1a3cc04e"
+    },
+    {
+      "id": "CA-A-065",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-065-ANALYSIS_RPRT--compare-caprmedio-work-execution-architectures.md",
+      "sha256": "5638ebaa878cdcaf4fda8b4b7d83a1283b63573851de6a86934ada867529e445",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": "rationale",
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "962a69011c6c1fa58619e1c877b7f848347cbaa9",
+          "status": null
+        }
+      ],
+      "classification": "CONDITIONAL_DONE_CANDIDATE_NOT_READY",
+      "reason": "Documented bounded result/disposition is evidence of a completed inquiry product under R1727@30, but Role/Form must first be established and obsolete/invalidated/absorbed archival disposition checked; no automatic status assignment.",
+      "proposed_status": "Done",
+      "evidence_heading": "Disposition",
+      "evidence_excerpt": "Save the two-axis routing model, protected constraints, option frontier, adoption overlay, common kernel, exclusions, and evidence gaps as Analysis. Create no further Atom or implementation merely from this comparison. A later operator decision may select an architecture through ",
+      "proposed_after_sha256": "70a74b58cb5ebdb4180cff041d43d5561cbe007dfbe0de1c94ab8e9fc94d3b8b"
+    },
+    {
+      "id": "CA-A-066",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-066-ANALYSIS_RPRT--recommend-a-staged-caprmedio-work-execution-direction.md",
+      "sha256": "63d047927d5627dbfe02f82032d0a2f45554015e802a71dafc11518d4eb3f4a5",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": "rationale",
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "5a80401f483678583547681d51c6d73fbe09c501",
+          "status": null
+        }
+      ],
+      "classification": "CONDITIONAL_DONE_CANDIDATE_NOT_READY",
+      "reason": "Documented bounded result/disposition is evidence of a completed inquiry product under R1727@30, but Role/Form must first be established and obsolete/invalidated/absorbed archival disposition checked; no automatic status assignment.",
+      "proposed_status": "Done",
+      "evidence_heading": "Disposition",
+      "evidence_excerpt": "Retain the staged direction as Analysis. Create no Requirement, Method, Plan, Evaluation, Delivery, Implementation, workflow-engine selection, or authority change merely from this recommendation. A later operator action may authorize the bounded evidence campaign. A final selecti",
+      "proposed_after_sha256": "079eae46d1949474c3007417a713bdd003c9cc6ba3f90dbee079bd4abae41b1c"
+    },
+    {
+      "id": "CA-A-900",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-900-ANALYSIS_RPRT--audit-seven-day-decisions-and-realization-gaps.md",
+      "sha256": "f547d5d623392f050bdedbdcf3c141605eb36f01ce62fd58b1f0dd38e6580530",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "99f597d6685a7e5ad24c41e805a4de7c4adfbec1",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-901",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-901-ANALYSIS_RPRT--define-ontology-like-authority-in-caprmedio.md",
+      "sha256": "f0d96a4c0c174a3837e2db638a084b6289f00b0ee32228daa3e8f0d17d592a65",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": "rationale",
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "29b861b0d34369918336645a0f8d30cecb1c8e70",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-902",
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-902-ANALYSIS_RPRT--evaluate-introducing-ontology-as-a-governed-term.md",
+      "sha256": "621304cb2567b123177da2011d8e9fee2fad3f6f123f2440041d01ccdb1cbecb",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": "rationale",
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "a49a8d924f4cc6504fb2a8e5fbeabd8be0096fc1",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-903",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/02_analysis/CA-A-903-FRAMEWORK_ENGINE-ANALYSIS_RPRT--assess-trace-engineering-ideas-for-caprmedio.md",
+      "sha256": "0b44a977b2ea61b788642cf5680b7f553952b31c41fef1051fffc7eb588ea78e",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": "rationale",
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-904",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/02_analysis/CA-A-904-FRAMEWORK_ENGINE-ANALYSIS_RPRT--harvest-langwatch-ideas-for-tools-apps-and-mcp.md",
+      "sha256": "aec53454a36cd613098e1dfc19b61e2c761cb3d6875a31570739ded1b32c2043",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": "rationale",
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-052",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-052-PROGRAMMATIC-ANALYSIS_RPRT--freeze-the-programmatic-method-and-evaluation-target.md",
+      "sha256": "75c9f9a761ab2146fc30d9650a11d68313926c1978f5b8c2dc3a5d0d6be825c6",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-053",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md",
+      "sha256": "e1f1cde54f34612af3152e6ea189ab0a14154686138a1f83aaf9447dfa0611a3",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-054",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-054-PROGRAMMATIC-ANALYSIS_RPRT--validate-the-python-3-14-contract-upgrade.md",
+      "sha256": "730d8b47693a5e359af4a7cfc1769c41c633174b1d38e321257235f6e1f03bca",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "CONDITIONAL_DONE_CANDIDATE_NOT_READY",
+      "reason": "Documented bounded result/disposition is evidence of a completed inquiry product under R1727@30, but Role/Form must first be established and obsolete/invalidated/absorbed archival disposition checked; no automatic status assignment.",
+      "proposed_status": "Done",
+      "evidence_heading": "Result",
+      "evidence_excerpt": "The selected Programmatic Python contract and checked-in workflow carrier both target the stable CPython `3.14.*` series. Local validation under CPython 3.14.7 passed for the current Programmatic Python source frontier and all installed read-only Tool interfaces. This is bounded ",
+      "proposed_after_sha256": "b1f88d3b96fde7bddaac320d866b51215fe7a77d2ae9be8d4cf9f1415f6d38c1"
+    },
+    {
+      "id": "CA-A-055",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-055-PROGRAMMATIC-ANALYSIS_RPRT--finalize-shared-programmatic-methods.md",
+      "sha256": "526b495da56338e27cf68bd965ffd46d36644ab1610eb5386abfe9fd50b30f2b",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-056",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-056-PROGRAMMATIC-ANALYSIS_RPRT--map-shared-programmatic-evaluation-coverage.md",
+      "sha256": "9a8136a453ea7e8bc80dd07ed1d8888b50a8061c115b8adee7a130b3f47f8d47",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-A-057",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-057-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-programmatic-specialization-authority.md",
+      "sha256": "5948904755ca575cbf9325175ba541ff379d5f797fd1bc8e407e5e6d173e414e",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "CONDITIONAL_DONE_CANDIDATE_NOT_READY",
+      "reason": "Documented bounded result/disposition is evidence of a completed inquiry product under R1727@30, but Role/Form must first be established and obsolete/invalidated/absorbed archival disposition checked; no automatic status assignment.",
+      "proposed_status": "Done",
+      "evidence_heading": "Final validation result",
+      "evidence_excerpt": "The frozen/final scanner parses all 291 current carriers as YAML with exactly one H1. It finds 48 active Methods and 216 active Evaluations, zero active Methods without `method_for`, zero active Evaluations without `evaluation_for`, zero active Methods lacking a direct active Eva",
+      "proposed_after_sha256": "ea8925e05404ca59192a06a383597c71ad5f6883bc778b68490202db31fc28cd"
+    },
+    {
+      "id": "CA-A-058",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-058-PROGRAMMATIC-ANALYSIS_RPRT--validate-programmatic-method-and-evaluation-closure.md",
+      "sha256": "84304b71468e0efd8487e9f6391271c375eaaf0cbed729d6d44f1ac2984d2b50",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "CONDITIONAL_DONE_CANDIDATE_NOT_READY",
+      "reason": "Documented bounded result/disposition is evidence of a completed inquiry product under R1727@30, but Role/Form must first be established and obsolete/invalidated/absorbed archival disposition checked; no automatic status assignment.",
+      "proposed_status": "Done",
+      "evidence_heading": "Final validation result",
+      "evidence_excerpt": "The final deterministic validator parsed all 264 active carriers as YAML and found exactly one H1 per carrier, unique canonical `CA-M` or `CA-E` identity segments, valid carrier-derived Scope/Tier/Type, no repeated derived classification metadata, valid declared Subjects, and no ",
+      "proposed_after_sha256": "19427bbb2806bcfdd75ac83da8c37a89ea40530bd361f7fede69465796905a1e"
+    },
+    {
+      "id": "CA-A-059",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-059-PROGRAMMATIC-ANALYSIS_RPRT--close-deferred-programmatic-requirement-realization-gaps.md",
+      "sha256": "94398e7c47ec8b317e0848eef25dd57d755ad64f65dd1b326723fe03ba89c096",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "CONDITIONAL_DONE_CANDIDATE_NOT_READY",
+      "reason": "Documented bounded result/disposition is evidence of a completed inquiry product under R1727@30, but Role/Form must first be established and obsolete/invalidated/absorbed archival disposition checked; no automatic status assignment.",
+      "proposed_status": "Done",
+      "evidence_heading": "Coverage result",
+      "evidence_excerpt": "The matrix covers 53 of 53 scoped Requirements through 38 current Methods and 38 current Evaluations. Each scoped Requirement has exactly one direct `method_for` owner, and every selected Method has exactly one direct `evaluation_for` owner. The Methods and Evaluations are accept",
+      "proposed_after_sha256": "3467996be4290823c12fa7852dccdc97bb20b0e409e5202ceae7d86f64312e3c"
+    },
+    {
+      "id": "CA-A-067",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/02_analysis/CA-A-067-TOOLS-ANALYSIS_RPRT--python-vs-go-for-caprmedio-tools-sota-harvest.md",
+      "sha256": "c6237b6502bada033f3e933a2c07b8290ae47fa8d112d29bbec2bb668af2607f",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": "rationale",
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "3947a145347f8e849a4bb35b1dd247d7a606b037",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state."
+    },
+    {
+      "id": "CA-D-019",
+      "path": ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/CA-D-019-OPERATOR_DOCUMENTATION-DELIVERY--bind-operator-documentation-delivery-place.md",
+      "sha256": "3c2efaa2c7cb2dac49ccda3c77bb7442bd76ed8e61d8cae2447aa3e6ade195cf",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state.",
+      "identity_status": "Current Header has no atom_id or status; filename alone is not treated as identity proof. Git --follow records a byte-identical path rename (67aaf9d2a9), not a native allocation or explicit carried ID. Both remain unresolved."
+    },
+    {
+      "id": "CA-D-021",
+      "path": ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/CA-D-021-RELEASES-DELIVERY--bind-releases-delivery-place.md",
+      "sha256": "63acfd9f995b2606f25b747653033b016d207c71ca51229c55e6433640353ef6",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state.",
+      "identity_status": "Current Header has no atom_id or status; filename alone is not treated as identity proof. Git --follow records a byte-identical path rename (67aaf9d2a9), not a native allocation or explicit carried ID. Both remain unresolved."
+    },
+    {
+      "id": "CA-D-409",
+      "path": ".caprmedio_caprmedio/CA-SU-28_FEATURE_COMMUNITY_EXTENSIONS/07_delivery/CA-D-409-COMMUNITY_EXTENSIONS-DELIVERY--bind-community-extensions-delivery-place.md",
+      "sha256": "44890f1272da7e81a8124d607fa4dfe32cb2c603e9d9f358a9f5e0a34b45d5bf",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": "delivery",
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state.",
+      "identity_status": "Current Header has no atom_id or status; filename alone is not treated as identity proof. Git --follow records a byte-identical path rename (67aaf9d2a9), not a native allocation or explicit carried ID. Both remain unresolved."
+    },
+    {
+      "id": "CA-D-022",
+      "path": ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/CA-D-022-FIELD-DELIVERY--bind-field-delivery-place.md",
+      "sha256": "eb29f96ff580efce5307b833270d96b2f10f0e626aa6550530f2f863b07d1698",
+      "carried_role": null,
+      "carried_form": null,
+      "legacy_cce_form": null,
+      "git_last_3_readable": [
+        {
+          "commit": "7a9e267690fc4a0a3164d7fd3fc8772acb68880f",
+          "status": null
+        },
+        {
+          "commit": "67aaf9d2a95ebd2dfc10a084f2f39811d52e6dfb",
+          "status": null
+        }
+      ],
+      "classification": "UNKNOWN_STATUS_NO_AUTHORIZED_VALUE",
+      "reason": "No carried Status or recovered historical Status; filename, location and mere report existence do not establish lifecycle state.",
+      "identity_status": "Current Header has no atom_id or status; filename alone is not treated as identity proof. Git --follow records a byte-identical path rename (67aaf9d2a9), not a native allocation or explicit carried ID. Both remain unresolved."
+    }
+  ],
+  "conditional_candidates": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-062-ANALYSIS_RPRT--audit-seven-day-conversation-closure.md",
+      "before_sha256": "449c90adc42d3ddf2f9e59ec7e7cbbd18689e646006704b95ecfff902aab8fe3",
+      "after_sha256": "689b0a69dcee8c8f5c6622b3caba6325ebb9edad8a677351fb6cdf7e1a3cc04e",
+      "before": "---\natom_id: CA-A-062\ntopics:\n  main_subject:\n    occurrent:\n      - Conversation Audit\n  dependencies:\n    continuant:\n      - Decision Closure\n      - Project Backlog\n      - Realized Project State\nrelations:\n  analysis_of:\n    - CA-C-107\nversion: 7\nupdated_at: 2026-10-23 03:17:34 +0400\n---\n# Audit seven-day conversation closure\n\n## Audit boundary\n\nThis Analysis compares 436 user entries in the current Codex task from\n2026-08-18 through 2026-08-25 with the current CAPRMEDIO Atoms and realized\nrepository state. The latest user statement on a subject supersedes earlier\nvariants. Existing authority remains the owner when it already captures the\nsurviving decision; this Analysis does not duplicate that backlog.\n\nThe audit distinguishes four states: captured and applied; captured but not\nfully applied; uncaptured and requiring a CAP Task; and superseded input that\nmust not be preserved as current intent.\n\n## Captured and applied\n\n| Surviving decision | Current closure |\n| --- | --- |\n| Use the CAPRMEDIO identity and current graph-driven-framework repository name | Current repository, active Atoms, and README use CAPRMEDIO. |\n| Use the Project structure with FRAMEWORK_METHODOLOGY, FRAMEWORK_ENGINE, OPERATOR_DOCUMENTATION, CORE_EXTENSIONS, RELEASES, COMMUNITY_EXTENSIONS, and FIELD | Current root and `.caprmedio` topology represent the accepted structure; remaining legacy-carrier migration is separately owned. |\n| Structure FRAMEWORK_ENGINE as PROGRAMMATIC containing TOOLS, APPS, and MCP, plus AGENTIC containing SKILLS | Current authority and realized root folders use this split. |\n| Keep current operation local-only and provide Codex as the only natively supported LLM application | README states the local-only boundary and `CA-R-826` owns the Codex-only Boundary. |\n| Use CAP for tasks, RMED for the distributed specification, Implementation for actual code, and Operations for evidence and feedback | Current README and active role authority capture the model. |\n| Distribute equal-authority Principles across RMEDO and remove `principle_order` | The current active Principle set uses RMEDO roles and no ordering field. |\n| Support the stable CPython `3.14.*` series | `CA-P-080` is Done and current checked-in selectors use Python 3.14. |\n| Keep only the owner-authored `dev` to `main` PR-policy check as a PR check and auto-enable merge | The active PR workflow has the two accepted policy jobs; other workflows do not run as PR checks. |\n| Store structured LLM session provenance only in Journal events and partition governed change records by author, local date, and 100-event parts | Active APPEND_CHANGE_RECORDS authority and implementation contain the structured event and partition rules. |\n\n## Captured but not fully applied\n\n| Surviving decision | Existing owner | Remaining state |\n| --- | --- | --- |\n| Finish the current BSEED-to-Project topology and carrier migration | `CA-P-040` and Tasks `CA-P-041` through `CA-P-048` | The shared worktree still contains old and new topology carriers; do not create a duplicate migration Plan. |\n| Implement the common Tool interface, router, Finders, Doers, Markdown projections, business projections, Skills, and Graph App | `CAPRMEDIO-P-017` | Authority is present, but the Graph App contains only a placeholder and many slices remain unrealized. |\n| Give operator documentation a simpler human style and consider strict plus A2+/B1 variants | `CAPRMEDIO-P-022` and `CAPRMEDIO-P-023` | The Plans exist; no duplicate CAP item is needed. |\n| Improve the framework from observed project outcomes | `CAPRMEDIO-PLAN-009` and active Operations Principles | The loop is governed; later implementation remains under its existing Plan. |\n| Use asynchronous durable intake, one pure decision manager, a mechanical recoverable Scheduler, atomic non-deciding workers, one serialized Git pipeline, repository reconciliation, and controlled background services | Active TOOLS authority `CA-R-802`, `CA-R-803`, `CA-R-857`, `CA-M-087`, `CA-M-104`, `CA-M-182`, their Deliveries and Evaluations, and PROGRAMMATIC Task `CA-P-083` | The latest Hook architecture is governed and its implementation Task exists, but native and installed-path realization is not closed. Current evidence includes blocking legacy Hook code and a frontier-seal mismatch: context creation hashes relation-registry metadata while both downstream validators omit it. `CA-P-083` owns implementation, lifecycle controls, recovery, and fresh end-to-end proof, so no duplicate Plan is created here. |\n| Use `uv` for every admitted Python workflow capability it provides while keeping installed Tools self-contained | Current PROGRAMMATIC draft Method | The Method is not active, no lockfile establishes a reproducible development environment, and the workflow is not applied consistently. |\n\n## Missing CAP Tasks\n\n1. Materialize the current CAPRMEDIO Definition as a projection of active\n   Principles, identify CAPRMEDIO compactly as an Intelligent Work Environment\n   framework, and keep the Goal and README synchronized without duplicating\n   authority.\n2. Run the executable parity spike already specified by `CA-A-042` and select\n   the rebuildable derived database architecture without pretending the current\n   options report selected an engine.\n3. Implement one current Graph App vertical slice over authoritative Atoms and\n   full Journals, a rebuildable database, a local backend, and an HTML/JavaScript\n   frontend; keep self-contained static publication optional.\n4. Promote and apply the accepted `uv` workflow boundary.\n5. Bring current PROGRAMMATIC source into a measured conformance baseline under\n   the accepted Methods and remove generated Python cache directories from\n   governed source locations.\n6. Add the accepted playful logo: a carp, `CAPR` on the fish, `MEDIO` above the\n   instrument, and a harp. Do not restore the rejected balalaika and ushanka\n   variant or duplicate the wordmark.\n\nThese six gaps are represented by `CA-P-095` through `CA-P-100`.\n\n## Superseded input\n\n- CAPRMADIO, CARPMEDIO, and earlier repository-name variants are not current.\n- Assurance is not restored; Evaluation is the current Content role.\n- The balalaika and ushanka logo is rejected; the harp is the final instrument.\n- Separate backup copies are not required; Git history is the recovery\n  mechanism. Runtime recovery state still belongs under `.caprmedio_runtime`.\n- A self-contained HTML plus `data.js` package is optional, not the only or\n  primary frontend architecture.\n- GitHub-hosted review is outside the requested FPF-style local review flow.\n- The suspended test suite is not an execution route for this closure pass;\n  current Evaluation authority remains distinct from running those tests.\n\n## Result\n\nThe six new Tasks close only missing ownership. Existing Plans retain their\nscope. This Analysis and the new CAP Tasks do not claim that any underlying\nimplementation has been completed.\n\nThe later `CA #5: hooks fixing` closure promoted the commit-automation design\nfrom draft discussion into active RMED authority, added numbered concurrency,\nrecovery, lifecycle, and installed-path Evaluations, and created `CA-P-083`.\nThat closure changes the classification from uncaptured design to governed but\nnot fully realized work; it does not add another Project-level Task.\n",
+      "after": "---\natom_id: CA-A-062\ntopics:\n  main_subject:\n    occurrent:\n      - Conversation Audit\n  dependencies:\n    continuant:\n      - Decision Closure\n      - Project Backlog\n      - Realized Project State\nrelations:\n  analysis_of:\n    - CA-C-107\nversion: 7\nupdated_at: 2026-10-23 03:17:34 +0400\nstatus: Done\n---\n# Audit seven-day conversation closure\n\n## Audit boundary\n\nThis Analysis compares 436 user entries in the current Codex task from\n2026-08-18 through 2026-08-25 with the current CAPRMEDIO Atoms and realized\nrepository state. The latest user statement on a subject supersedes earlier\nvariants. Existing authority remains the owner when it already captures the\nsurviving decision; this Analysis does not duplicate that backlog.\n\nThe audit distinguishes four states: captured and applied; captured but not\nfully applied; uncaptured and requiring a CAP Task; and superseded input that\nmust not be preserved as current intent.\n\n## Captured and applied\n\n| Surviving decision | Current closure |\n| --- | --- |\n| Use the CAPRMEDIO identity and current graph-driven-framework repository name | Current repository, active Atoms, and README use CAPRMEDIO. |\n| Use the Project structure with FRAMEWORK_METHODOLOGY, FRAMEWORK_ENGINE, OPERATOR_DOCUMENTATION, CORE_EXTENSIONS, RELEASES, COMMUNITY_EXTENSIONS, and FIELD | Current root and `.caprmedio` topology represent the accepted structure; remaining legacy-carrier migration is separately owned. |\n| Structure FRAMEWORK_ENGINE as PROGRAMMATIC containing TOOLS, APPS, and MCP, plus AGENTIC containing SKILLS | Current authority and realized root folders use this split. |\n| Keep current operation local-only and provide Codex as the only natively supported LLM application | README states the local-only boundary and `CA-R-826` owns the Codex-only Boundary. |\n| Use CAP for tasks, RMED for the distributed specification, Implementation for actual code, and Operations for evidence and feedback | Current README and active role authority capture the model. |\n| Distribute equal-authority Principles across RMEDO and remove `principle_order` | The current active Principle set uses RMEDO roles and no ordering field. |\n| Support the stable CPython `3.14.*` series | `CA-P-080` is Done and current checked-in selectors use Python 3.14. |\n| Keep only the owner-authored `dev` to `main` PR-policy check as a PR check and auto-enable merge | The active PR workflow has the two accepted policy jobs; other workflows do not run as PR checks. |\n| Store structured LLM session provenance only in Journal events and partition governed change records by author, local date, and 100-event parts | Active APPEND_CHANGE_RECORDS authority and implementation contain the structured event and partition rules. |\n\n## Captured but not fully applied\n\n| Surviving decision | Existing owner | Remaining state |\n| --- | --- | --- |\n| Finish the current BSEED-to-Project topology and carrier migration | `CA-P-040` and Tasks `CA-P-041` through `CA-P-048` | The shared worktree still contains old and new topology carriers; do not create a duplicate migration Plan. |\n| Implement the common Tool interface, router, Finders, Doers, Markdown projections, business projections, Skills, and Graph App | `CAPRMEDIO-P-017` | Authority is present, but the Graph App contains only a placeholder and many slices remain unrealized. |\n| Give operator documentation a simpler human style and consider strict plus A2+/B1 variants | `CAPRMEDIO-P-022` and `CAPRMEDIO-P-023` | The Plans exist; no duplicate CAP item is needed. |\n| Improve the framework from observed project outcomes | `CAPRMEDIO-PLAN-009` and active Operations Principles | The loop is governed; later implementation remains under its existing Plan. |\n| Use asynchronous durable intake, one pure decision manager, a mechanical recoverable Scheduler, atomic non-deciding workers, one serialized Git pipeline, repository reconciliation, and controlled background services | Active TOOLS authority `CA-R-802`, `CA-R-803`, `CA-R-857`, `CA-M-087`, `CA-M-104`, `CA-M-182`, their Deliveries and Evaluations, and PROGRAMMATIC Task `CA-P-083` | The latest Hook architecture is governed and its implementation Task exists, but native and installed-path realization is not closed. Current evidence includes blocking legacy Hook code and a frontier-seal mismatch: context creation hashes relation-registry metadata while both downstream validators omit it. `CA-P-083` owns implementation, lifecycle controls, recovery, and fresh end-to-end proof, so no duplicate Plan is created here. |\n| Use `uv` for every admitted Python workflow capability it provides while keeping installed Tools self-contained | Current PROGRAMMATIC draft Method | The Method is not active, no lockfile establishes a reproducible development environment, and the workflow is not applied consistently. |\n\n## Missing CAP Tasks\n\n1. Materialize the current CAPRMEDIO Definition as a projection of active\n   Principles, identify CAPRMEDIO compactly as an Intelligent Work Environment\n   framework, and keep the Goal and README synchronized without duplicating\n   authority.\n2. Run the executable parity spike already specified by `CA-A-042` and select\n   the rebuildable derived database architecture without pretending the current\n   options report selected an engine.\n3. Implement one current Graph App vertical slice over authoritative Atoms and\n   full Journals, a rebuildable database, a local backend, and an HTML/JavaScript\n   frontend; keep self-contained static publication optional.\n4. Promote and apply the accepted `uv` workflow boundary.\n5. Bring current PROGRAMMATIC source into a measured conformance baseline under\n   the accepted Methods and remove generated Python cache directories from\n   governed source locations.\n6. Add the accepted playful logo: a carp, `CAPR` on the fish, `MEDIO` above the\n   instrument, and a harp. Do not restore the rejected balalaika and ushanka\n   variant or duplicate the wordmark.\n\nThese six gaps are represented by `CA-P-095` through `CA-P-100`.\n\n## Superseded input\n\n- CAPRMADIO, CARPMEDIO, and earlier repository-name variants are not current.\n- Assurance is not restored; Evaluation is the current Content role.\n- The balalaika and ushanka logo is rejected; the harp is the final instrument.\n- Separate backup copies are not required; Git history is the recovery\n  mechanism. Runtime recovery state still belongs under `.caprmedio_runtime`.\n- A self-contained HTML plus `data.js` package is optional, not the only or\n  primary frontend architecture.\n- GitHub-hosted review is outside the requested FPF-style local review flow.\n- The suspended test suite is not an execution route for this closure pass;\n  current Evaluation authority remains distinct from running those tests.\n\n## Result\n\nThe six new Tasks close only missing ownership. Existing Plans retain their\nscope. This Analysis and the new CAP Tasks do not claim that any underlying\nimplementation has been completed.\n\nThe later `CA #5: hooks fixing` closure promoted the commit-automation design\nfrom draft discussion into active RMED authority, added numbered concurrency,\nrecovery, lifecycle, and installed-path Evaluations, and created `CA-P-083`.\nThat closure changes the classification from uncaptured design to governed but\nnot fully realized work; it does not add another Project-level Task.\n",
+      "status": "CONDITIONAL_DO_NOT_APPLY_UNTIL_ROLE_FORM_AND_HISTORY_REVIEW"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-065-ANALYSIS_RPRT--compare-caprmedio-work-execution-architectures.md",
+      "before_sha256": "5638ebaa878cdcaf4fda8b4b7d83a1283b63573851de6a86934ada867529e445",
+      "after_sha256": "70a74b58cb5ebdb4180cff041d43d5561cbe007dfbe0de1c94ab8e9fc94d3b8b",
+      "before": "---\natom_id: CA-A-065\ntopics:\n  main_subject: Work Execution Architecture\n  dependencies:\n  - context-policy\n  - project-memory\n  - work-routing\n  - workflow-execution\nversion: 1\nupdated_at: 2026-08-27 01:18:06 +0400\ncce_version: cce_1\ncce_form: rationale\n---\n# Compare CAPRMEDIO work-execution architectures\n\n## Conclusion\n\nCAPRMEDIO should classify work by the pair `(content role, operation)`, not by\nContent role, lifecycle phase, or tool kind alone. Content role determines the\nmeaning, authority, and evidence posture of the subject. Operation determines\nhow much context and judgment the work needs and whether its control path can\nbe bounded, isolated, recovered, and replayed.\n\nThe current evidence supports a plural architecture frontier rather than one\nselected design. Codex remains the natural place for project-wide discovery,\ninterpretation, synthesis, reconciliation, planning, and operator-governed\nauthority work. A durable workflow is appropriate for contracted operations\nwith enumerated inputs, fixed or bounded next steps, least-privilege grants,\nrecoverable state, and governed effects. A workflow may invoke a bounded agent\nactivity without making that activity deterministic. Its exact inputs,\nconfiguration, grants, result, and evidence still remain bounded and recorded.\n\nThis Analysis does not select a workflow engine or final architecture, create\nnew RMED authority, authorize workflow writes, or claim runtime proof.\n\n## Source and evidence boundary\n\nThe detailed option generation and desk-evidence comparison are preserved in\n`fpf-reports/20260826T205431Z-fpf-options-explore-caprmedio-work-execution-architecture.md`.\nThe predecessor harvest is preserved in\n`.caprmedio/fpf-reports/20260826T202459Z-fpf-sota-harvest-broad-context-agent-narrow-workflow.md`.\n\nThe harvest includes seventeen sources across long-horizon agent harnesses,\ndurable workflow orchestration, hybrid agent runtimes, prompt and evaluation\nlifecycle, least-privilege security, and provenance and observability. The\ncomparison is architectural desk evidence only. It contains no matched\nCAPRMEDIO prototype, measured cost or latency, failure-rate baseline, or\nselected engine evidence.\n\nThe latest operator correction supersedes the initial phase-labelled split:\nthe routing unit is `(content role, operation)`. This Analysis preserves that\nsemantic frontier.\n\n## Two-axis routing interpretation\n\nThe same Content role may require both broad and bounded operations:\n\n- CAO discovery, interpretation, and coordination need broad project context;\n  mechanical carrier validation and evidence registration may be bounded.\n- RMED authoring and authority reconciliation need broad context and governed\n  operator judgment; schema, identity, H1, and relation checks may be\n  deterministic.\n- Implementation design or resolution of an ambiguous change may use broad\n  Codex work or a bounded agent activity; applying a complete transformation\n  contract may be a workflow activity.\n- Evaluation criteria design and conflicting-evidence interpretation need\n  broad judgment; fixed tests and versioned graders should run in isolated,\n  bounded contexts.\n- Ops consequence interpretation and corrective direction need broad context;\n  timestamped measurements, receipts, and declared observations may be\n  bounded.\n\nThe valid memory boundary is not “no memory.” Durable execution requires\nexplicit run-local state, event history, checkpoints, or recorded activity\nresults. Bounded work should instead have no ambient cross-run semantic memory.\nBroad session history, authoritative project artifacts, workflow replay\nhistory, derived summaries, and user preferences remain distinct sources with\nexplicit admission and provenance.\n\n## Protected project-integrity constraints\n\nEvery admissible architecture must:\n\n1. route by `(content role, operation)`;\n2. prevent evidence, Implementation, Evaluation, or Ops results from silently\n   becoming RMED authority;\n3. keep broad semantic session history distinct from workflow replay history;\n4. admit exact inputs, versions, context, and least-privilege capabilities to\n   bounded work;\n5. correlate tasks, activities, agents, artifacts, evaluations, and writes\n   through stable campaign, run, trace, and digest identities;\n6. make effects idempotent, previewable, or mediated by an already governed\n   writer; and\n7. stop for the operator when context, authority, or acceptance criteria are\n   missing.\n\nThese constraints are eligibility conditions. Cost, latency, convenience, or\nimplementation simplicity cannot compensate for violating them.\n\n## Compared architecture families\n\n### O1 — Hard-contract two-plane split\n\nCodex performs every adaptive or authority-bearing operation. The workflow\naccepts only fully contracted deterministic operations and never invokes an\nagent. This has the clearest replay and security boundary and a moderate\nimplementation burden, but locally ambiguous work must return to Codex.\n\n### O2 — Durable hybrid with bounded agent activities\n\nCodex owns broad authoring and governance. A durable workflow owns recovery,\nretry, approval, and causal identity and may invoke deterministic Tools,\nsandboxes, or bounded coding and evaluation agents. This has the strongest\ndirect cross-tradition evidence and broad semantic coverage, but requires\nsubstantial workflow, sandbox, versioning, and observability infrastructure.\n\n### O3 — Policy-compiled execution kernel\n\nA central policy compiler takes Content role, operation, target frontier, risk,\nauthority, success criteria, and side-effect class and emits an execution\ncontract. It may route to Codex, a Tool, a workflow, a bounded agent, an\nevaluator, or a human gate. This is the most flexible and reversible option,\nbut the policy language, compiler, conformance suite, and adapters become\ncritical infrastructure and may create an unnecessary meta-system.\n\n### O4 — Content-role-owned execution mesh\n\nCAO, RMED, Implementation, Evaluation, and Ops each receive a stewarded service\nor adapter with role-specific context and evidence policy. This maximizes\nrole-local specialization, but distributes policy, credentials, state, and\noperations. It remains admissible only if one authority registry and one RMED\nadmission boundary prevent service-local truth or policy drift.\n\n### O5 — Provenance-log-centred execution backbone\n\nAn immutable campaign log and content-addressed artifact store coordinate\nCodex sessions, workflows, Tools, agents, evaluators, and governed writers.\nTyped views keep semantic session events separate from workflow replay events.\nThis offers the strongest reconstruction and executor replaceability, but has\nthe highest event-schema, retention, privacy, projection, and storage burden.\n\n### O6 — Dual-control assurance pipeline\n\nA generator produces a candidate; a separately scoped evaluator receives the\nartifact, declared criteria, and controlled environment without the generator's\nscratch context; a policy gate checks the evidence before a governed writer may\nact. Deterministic checks may fill the evaluator role. This gives the strongest\nseparation of duties for high-risk work but adds systematic cost and latency.\n\n### A1 — Progressive pair-cell migration\n\nProgressive migration is an adoption policy, not a competing steady-state\narchitecture. Existing deterministic validation, testing, receipts, and\ngoverned commits should be enveloped first. Other `(content role, operation)`\ncells move only after their context contract, authority boundary, and failure\nbehavior are proven. A1 can be used with any retained architecture.\n\n## Comparative result\n\nNo candidate dominates semantic adequacy, project integrity, determinism,\nrecovery, security, provenance, cost, latency, implementation burden, and\nreversibility at once.\n\n- O1 is strongest in boundary clarity but weakest for bounded nondeterministic\n  work.\n- O2 is the most directly supported general composition but carries high\n  infrastructure and policy cost.\n- O3 is the most flexible router but depends on a new central policy system.\n- O4 is strongest in role-local stewardship but weakest in operating burden\n  and cross-role policy coherence.\n- O5 is strongest in reconstruction and provenance but requires the heaviest\n  data-governance substrate.\n- O6 is strongest for independent assurance but is not justified as a\n  universal path for low-risk operations.\n\nThe retained steady-state option frontier is O1, O2, O3, O5, and O6. O4 remains\nconditional on future scale or independent role ownership. A1 remains a\ncompatible adoption overlay. This is an option frontier, not a ranking or\narchitecture decision.\n\n## Common architecture kernel\n\nThe comparison identifies a shared minimum without selecting a candidate:\n\n- a pair-based work classifier;\n- an immutable Task Envelope and Result Envelope;\n- separate semantic-session and workflow-replay histories;\n- explicit workflow run state;\n- versioned prompts, models, harnesses, Tools, environments, and graders;\n- least-privilege resource and operation grants;\n- content and configuration digests;\n- campaign, run, trace, activity, artifact, and receipt identities;\n- independent evaluation when selected by risk and authority policy; and\n- a separately governed CAPRMEDIO persistence boundary.\n\nThe envelopes isolate work without discarding reconstructibility. They are not\nnew authority and must map to existing CAPRMEDIO Tool, Journal, Plan/work,\nEvaluation, Ops, and commit-receipt contracts wherever those owners already\napply.\n\n## Excluded architectures\n\n- One broad Codex session without explicit contracts, least privilege,\n  recovery, provenance, and governed persistence is not an admissible target.\n- A deterministic workflow cannot own all project-wide interpretation,\n  authority reconciliation, or evaluation design.\n- A durable workflow cannot operate without explicit run state; only ambient\n  cross-run semantic memory is prohibited.\n- Workflow, agent, or evaluator output cannot directly become RMED.\n- A weighted scalar score cannot select an architecture without admissible\n  weights and matched measurements.\n- A workflow product cannot be selected before language, deployment,\n  persistence, concurrency, human approval, privacy, licensing, cost, and\n  in-flight version requirements are declared.\n\n## Ownership reconciliation\n\n`CAPRMEDIO-META-ANRP-010` retains the analysis of persistent agent memory,\nshared graph knowledge, and review before authority adoption. `CA-A-060`\nretains the Hindsight-inspired retrieval and memory candidate dispositions,\nincluding one canonical project graph and disposable derived state. Current\nTool, MCP, Codex Plugin, commit automation, Journal, and governed-write Atoms\nretain their existing scopes. This Analysis neither duplicates nor widens\nthose owners.\n\nThe unresolved work-execution questions remain evidence gaps in this Analysis.\nThey are not automatically new Concerns, Plans, Requirements, Methods,\nEvaluations, Deliveries, or Implementation commitments.\n\n## Evidence gaps\n\nThe following questions remain below the operator's 95% decision threshold:\n\n- the complete routing matrix for representative Content-role and operation\n  pairs;\n- the workflow engine and local or cloud deployment model;\n- the boundary between mechanical, bounded-semantic, and project-semantic\n  validation;\n- the required replay level for nondeterministic model activities;\n- retention, correction, privacy, and access rules for memory and provenance;\n- the measured cost and latency break-even for isolation and independent\n  evaluation;\n- the mapping from envelopes and trace identity to existing CAPRMEDIO carriers;\n  and\n- the exact governed-write authority for each result class.\n\n## Disposition\n\nSave the two-axis routing model, protected constraints, option frontier,\nadoption overlay, common kernel, exclusions, and evidence gaps as Analysis.\nCreate no further Atom or implementation merely from this comparison. A later\noperator decision may select an architecture through a separate decision\nsynthesis after priorities and sufficient parity evidence are supplied.\n\n## Reopening conditions\n\nReopen this Analysis if the operator changes the `(content role, operation)`\nrouting rule, admits one of O1 through O6, selects a workflow engine, changes\nthe one-canonical-project-graph or governed-write boundary, supplies matched\nruntime measurements, or changes the authority of workflow, agent, evaluator,\nor memory outputs.\n",
+      "after": "---\natom_id: CA-A-065\ntopics:\n  main_subject: Work Execution Architecture\n  dependencies:\n  - context-policy\n  - project-memory\n  - work-routing\n  - workflow-execution\nversion: 1\nupdated_at: 2026-08-27 01:18:06 +0400\ncce_version: cce_1\ncce_form: rationale\nstatus: Done\n---\n# Compare CAPRMEDIO work-execution architectures\n\n## Conclusion\n\nCAPRMEDIO should classify work by the pair `(content role, operation)`, not by\nContent role, lifecycle phase, or tool kind alone. Content role determines the\nmeaning, authority, and evidence posture of the subject. Operation determines\nhow much context and judgment the work needs and whether its control path can\nbe bounded, isolated, recovered, and replayed.\n\nThe current evidence supports a plural architecture frontier rather than one\nselected design. Codex remains the natural place for project-wide discovery,\ninterpretation, synthesis, reconciliation, planning, and operator-governed\nauthority work. A durable workflow is appropriate for contracted operations\nwith enumerated inputs, fixed or bounded next steps, least-privilege grants,\nrecoverable state, and governed effects. A workflow may invoke a bounded agent\nactivity without making that activity deterministic. Its exact inputs,\nconfiguration, grants, result, and evidence still remain bounded and recorded.\n\nThis Analysis does not select a workflow engine or final architecture, create\nnew RMED authority, authorize workflow writes, or claim runtime proof.\n\n## Source and evidence boundary\n\nThe detailed option generation and desk-evidence comparison are preserved in\n`fpf-reports/20260826T205431Z-fpf-options-explore-caprmedio-work-execution-architecture.md`.\nThe predecessor harvest is preserved in\n`.caprmedio/fpf-reports/20260826T202459Z-fpf-sota-harvest-broad-context-agent-narrow-workflow.md`.\n\nThe harvest includes seventeen sources across long-horizon agent harnesses,\ndurable workflow orchestration, hybrid agent runtimes, prompt and evaluation\nlifecycle, least-privilege security, and provenance and observability. The\ncomparison is architectural desk evidence only. It contains no matched\nCAPRMEDIO prototype, measured cost or latency, failure-rate baseline, or\nselected engine evidence.\n\nThe latest operator correction supersedes the initial phase-labelled split:\nthe routing unit is `(content role, operation)`. This Analysis preserves that\nsemantic frontier.\n\n## Two-axis routing interpretation\n\nThe same Content role may require both broad and bounded operations:\n\n- CAO discovery, interpretation, and coordination need broad project context;\n  mechanical carrier validation and evidence registration may be bounded.\n- RMED authoring and authority reconciliation need broad context and governed\n  operator judgment; schema, identity, H1, and relation checks may be\n  deterministic.\n- Implementation design or resolution of an ambiguous change may use broad\n  Codex work or a bounded agent activity; applying a complete transformation\n  contract may be a workflow activity.\n- Evaluation criteria design and conflicting-evidence interpretation need\n  broad judgment; fixed tests and versioned graders should run in isolated,\n  bounded contexts.\n- Ops consequence interpretation and corrective direction need broad context;\n  timestamped measurements, receipts, and declared observations may be\n  bounded.\n\nThe valid memory boundary is not “no memory.” Durable execution requires\nexplicit run-local state, event history, checkpoints, or recorded activity\nresults. Bounded work should instead have no ambient cross-run semantic memory.\nBroad session history, authoritative project artifacts, workflow replay\nhistory, derived summaries, and user preferences remain distinct sources with\nexplicit admission and provenance.\n\n## Protected project-integrity constraints\n\nEvery admissible architecture must:\n\n1. route by `(content role, operation)`;\n2. prevent evidence, Implementation, Evaluation, or Ops results from silently\n   becoming RMED authority;\n3. keep broad semantic session history distinct from workflow replay history;\n4. admit exact inputs, versions, context, and least-privilege capabilities to\n   bounded work;\n5. correlate tasks, activities, agents, artifacts, evaluations, and writes\n   through stable campaign, run, trace, and digest identities;\n6. make effects idempotent, previewable, or mediated by an already governed\n   writer; and\n7. stop for the operator when context, authority, or acceptance criteria are\n   missing.\n\nThese constraints are eligibility conditions. Cost, latency, convenience, or\nimplementation simplicity cannot compensate for violating them.\n\n## Compared architecture families\n\n### O1 — Hard-contract two-plane split\n\nCodex performs every adaptive or authority-bearing operation. The workflow\naccepts only fully contracted deterministic operations and never invokes an\nagent. This has the clearest replay and security boundary and a moderate\nimplementation burden, but locally ambiguous work must return to Codex.\n\n### O2 — Durable hybrid with bounded agent activities\n\nCodex owns broad authoring and governance. A durable workflow owns recovery,\nretry, approval, and causal identity and may invoke deterministic Tools,\nsandboxes, or bounded coding and evaluation agents. This has the strongest\ndirect cross-tradition evidence and broad semantic coverage, but requires\nsubstantial workflow, sandbox, versioning, and observability infrastructure.\n\n### O3 — Policy-compiled execution kernel\n\nA central policy compiler takes Content role, operation, target frontier, risk,\nauthority, success criteria, and side-effect class and emits an execution\ncontract. It may route to Codex, a Tool, a workflow, a bounded agent, an\nevaluator, or a human gate. This is the most flexible and reversible option,\nbut the policy language, compiler, conformance suite, and adapters become\ncritical infrastructure and may create an unnecessary meta-system.\n\n### O4 — Content-role-owned execution mesh\n\nCAO, RMED, Implementation, Evaluation, and Ops each receive a stewarded service\nor adapter with role-specific context and evidence policy. This maximizes\nrole-local specialization, but distributes policy, credentials, state, and\noperations. It remains admissible only if one authority registry and one RMED\nadmission boundary prevent service-local truth or policy drift.\n\n### O5 — Provenance-log-centred execution backbone\n\nAn immutable campaign log and content-addressed artifact store coordinate\nCodex sessions, workflows, Tools, agents, evaluators, and governed writers.\nTyped views keep semantic session events separate from workflow replay events.\nThis offers the strongest reconstruction and executor replaceability, but has\nthe highest event-schema, retention, privacy, projection, and storage burden.\n\n### O6 — Dual-control assurance pipeline\n\nA generator produces a candidate; a separately scoped evaluator receives the\nartifact, declared criteria, and controlled environment without the generator's\nscratch context; a policy gate checks the evidence before a governed writer may\nact. Deterministic checks may fill the evaluator role. This gives the strongest\nseparation of duties for high-risk work but adds systematic cost and latency.\n\n### A1 — Progressive pair-cell migration\n\nProgressive migration is an adoption policy, not a competing steady-state\narchitecture. Existing deterministic validation, testing, receipts, and\ngoverned commits should be enveloped first. Other `(content role, operation)`\ncells move only after their context contract, authority boundary, and failure\nbehavior are proven. A1 can be used with any retained architecture.\n\n## Comparative result\n\nNo candidate dominates semantic adequacy, project integrity, determinism,\nrecovery, security, provenance, cost, latency, implementation burden, and\nreversibility at once.\n\n- O1 is strongest in boundary clarity but weakest for bounded nondeterministic\n  work.\n- O2 is the most directly supported general composition but carries high\n  infrastructure and policy cost.\n- O3 is the most flexible router but depends on a new central policy system.\n- O4 is strongest in role-local stewardship but weakest in operating burden\n  and cross-role policy coherence.\n- O5 is strongest in reconstruction and provenance but requires the heaviest\n  data-governance substrate.\n- O6 is strongest for independent assurance but is not justified as a\n  universal path for low-risk operations.\n\nThe retained steady-state option frontier is O1, O2, O3, O5, and O6. O4 remains\nconditional on future scale or independent role ownership. A1 remains a\ncompatible adoption overlay. This is an option frontier, not a ranking or\narchitecture decision.\n\n## Common architecture kernel\n\nThe comparison identifies a shared minimum without selecting a candidate:\n\n- a pair-based work classifier;\n- an immutable Task Envelope and Result Envelope;\n- separate semantic-session and workflow-replay histories;\n- explicit workflow run state;\n- versioned prompts, models, harnesses, Tools, environments, and graders;\n- least-privilege resource and operation grants;\n- content and configuration digests;\n- campaign, run, trace, activity, artifact, and receipt identities;\n- independent evaluation when selected by risk and authority policy; and\n- a separately governed CAPRMEDIO persistence boundary.\n\nThe envelopes isolate work without discarding reconstructibility. They are not\nnew authority and must map to existing CAPRMEDIO Tool, Journal, Plan/work,\nEvaluation, Ops, and commit-receipt contracts wherever those owners already\napply.\n\n## Excluded architectures\n\n- One broad Codex session without explicit contracts, least privilege,\n  recovery, provenance, and governed persistence is not an admissible target.\n- A deterministic workflow cannot own all project-wide interpretation,\n  authority reconciliation, or evaluation design.\n- A durable workflow cannot operate without explicit run state; only ambient\n  cross-run semantic memory is prohibited.\n- Workflow, agent, or evaluator output cannot directly become RMED.\n- A weighted scalar score cannot select an architecture without admissible\n  weights and matched measurements.\n- A workflow product cannot be selected before language, deployment,\n  persistence, concurrency, human approval, privacy, licensing, cost, and\n  in-flight version requirements are declared.\n\n## Ownership reconciliation\n\n`CAPRMEDIO-META-ANRP-010` retains the analysis of persistent agent memory,\nshared graph knowledge, and review before authority adoption. `CA-A-060`\nretains the Hindsight-inspired retrieval and memory candidate dispositions,\nincluding one canonical project graph and disposable derived state. Current\nTool, MCP, Codex Plugin, commit automation, Journal, and governed-write Atoms\nretain their existing scopes. This Analysis neither duplicates nor widens\nthose owners.\n\nThe unresolved work-execution questions remain evidence gaps in this Analysis.\nThey are not automatically new Concerns, Plans, Requirements, Methods,\nEvaluations, Deliveries, or Implementation commitments.\n\n## Evidence gaps\n\nThe following questions remain below the operator's 95% decision threshold:\n\n- the complete routing matrix for representative Content-role and operation\n  pairs;\n- the workflow engine and local or cloud deployment model;\n- the boundary between mechanical, bounded-semantic, and project-semantic\n  validation;\n- the required replay level for nondeterministic model activities;\n- retention, correction, privacy, and access rules for memory and provenance;\n- the measured cost and latency break-even for isolation and independent\n  evaluation;\n- the mapping from envelopes and trace identity to existing CAPRMEDIO carriers;\n  and\n- the exact governed-write authority for each result class.\n\n## Disposition\n\nSave the two-axis routing model, protected constraints, option frontier,\nadoption overlay, common kernel, exclusions, and evidence gaps as Analysis.\nCreate no further Atom or implementation merely from this comparison. A later\noperator decision may select an architecture through a separate decision\nsynthesis after priorities and sufficient parity evidence are supplied.\n\n## Reopening conditions\n\nReopen this Analysis if the operator changes the `(content role, operation)`\nrouting rule, admits one of O1 through O6, selects a workflow engine, changes\nthe one-canonical-project-graph or governed-write boundary, supplies matched\nruntime measurements, or changes the authority of workflow, agent, evaluator,\nor memory outputs.\n",
+      "status": "CONDITIONAL_DO_NOT_APPLY_UNTIL_ROLE_FORM_AND_HISTORY_REVIEW"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-066-ANALYSIS_RPRT--recommend-a-staged-caprmedio-work-execution-direction.md",
+      "before_sha256": "63d047927d5627dbfe02f82032d0a2f45554015e802a71dafc11518d4eb3f4a5",
+      "after_sha256": "079eae46d1949474c3007417a713bdd003c9cc6ba3f90dbee079bd4abae41b1c",
+      "before": "---\natom_id: CA-A-066\ntopics:\n  main_subject: Work Execution Architecture\n  dependencies:\n  - execution-admission-contract\n  - context-policy\n  - work-routing\n  - workflow-execution\n  - progressive-workflow-migration\nversion: 2\nupdated_at: 2026-09-06 01:45:12 +0400\ncce_version: cce_1\ncce_form: rationale\n---\n# Recommend a staged CAPRMEDIO work-execution direction\n\n## Conclusion\n\nCAPRMEDIO should preserve `(content role, operation)` as the semantic work\nclassifier, but must not use that pair alone as an executable route or\nauthorization. Every bounded execution must additionally receive a versioned\nExecution Admission Contract that binds the exact target frontier, admitted\ncontext and claims, performer and Method, capabilities, side-effect class,\nrequired checks, gate profile, replay policy, permitted writer, and stop or\nreturn conditions.\n\nThe recommended staged direction is:\n\n1. keep broad interpretation, synthesis, reconciliation, RMED authoring,\n   planning, and operator-governed authority work in Codex;\n2. begin with the strict two-plane boundary represented by `O1`, routing only\n   fully contracted deterministic operations into durable workflow control;\n3. evolve toward the bounded-agent hybrid represented by `O2` only for\n   operation classes whose context, capabilities, evidence, failure behavior,\n   and recovery semantics have been demonstrated;\n4. add `O6`-style independent evaluation only where authority, consequence,\n   or escaped-defect cost justifies its extra latency and cost; and\n5. preserve the existing CAPRMEDIO Tool, Journal, and fenced commit gate as the\n   governed effect boundary rather than creating a workflow-owned writer.\n\nThis is a provisional architecture direction and evidence priority. It does\nnot select a final architecture or workflow engine, authorize implementation,\nor admit any workflow, agent, evaluator, provenance record, or envelope as\nRMED authority.\n\n## Option disposition\n\n- `O1` is the recommended initial migration posture because its narrow\n  deterministic boundary is easiest to inspect, secure, replay, and reverse.\n- `O2` is the recommended evidence-dependent evolution path because it can\n  contain locally ambiguous Implementation or Evaluation work without giving\n  bounded agents ambient project context or write authority.\n- `O6` is a selective assurance overlay for high-risk operations, not a\n  universal execution path.\n- `O3` should be deferred until the number and variability of proven routes\n  justify a central policy compiler. Otherwise the compiler risks becoming an\n  unnecessary meta-system or hidden authority surface.\n- `O5` should contribute provenance, causal identity, and reconstruction\n  principles without initially becoming the central execution backbone. Its\n  event-schema, projection, privacy, retention, and rebuild burden is not yet\n  justified.\n- `O4` should remain conditional until independent Content-role service\n  ownership or operating scale justifies its distributed authority,\n  credential, contract, and recovery burden.\n- `A1` remains the migration overlay, but each `(content role, operation)` cell\n  must have exactly one active route edition, one effect owner, an explicit\n  cutover frontier, fenced in-flight work, and a tested rollback contract.\n\nThese dispositions prioritize experiments and sequencing. They do not remove\nany retained option from the comparison frontier or constitute an architecture\nDecision.\n\n## Required common-kernel repairs\n\nBefore any workflow-engine selection or non-trivial migration, the design must:\n\n1. distinguish Pair Classification from the Execution Admission Contract;\n2. make Task and Result Envelopes preserve relied-on claims, interpretation\n   scheme, intended use, scope, preserved invariants, permitted loss, and\n   rejected inferences rather than only identities and digests;\n3. keep provenance, evaluation results, gate decisions, authority, and write\n   receipts as separate claims and carriers;\n4. define complete required check sets, explicit handling of `notRun`,\n   `unknown`, and failure, and bounded `pass`, `degrade`, `block`, or `abstain`\n   consequences;\n5. bind replay and resume to both semantic and authority frontiers and require\n   an explicit `freeze`, `refresh-and-recheck`, `invalidate`, or\n   `version-migrate` disposition when either frontier changes;\n6. name actual performer Systems, assignments where claimed, enacted Methods,\n   dated Work occurrences, capabilities, results, and separate authority and\n   responsibility relations;\n7. protect every consequence-bearing effect with stable action identity,\n   canonical bytes, precondition frontier, fencing, effect receipt, uncertain\n   effect reconciliation, and a declared compensation or operator stop;\n8. govern memory source admission, authority, currentness, access, retention,\n   correction, revocation, deletion, conflict handling, and derived-summary\n   invalidation; and\n9. define safe behavior for unavailable workflow or evaluation infrastructure\n   without silently bypassing required isolation or assurance.\n\n## First evidence campaign\n\nThe first campaign should sample at least ten recent CAO, RMED,\nImplementation, Evaluation, and Ops runs and classify every material step by\nContent role and operation. The first workflow candidates should be frequent,\nlow-ambiguity operations such as schema, ID, H1, and relation validation;\nfixed tests; timestamped observations; receipts; and already governed commits.\nAuthority reconciliation and new RMED meaning must remain in Codex.\n\nEach selected operation should be run under the same frozen task, target\nfrontier, admitted context, capabilities, acceptance criteria, and writer\nboundary through both the current path and the enveloped candidate path. The\ncampaign should record wall time, model and infrastructure cost, retries,\noperator interventions, defects, escaped defects, context or authority\nreturns, and recovery behavior without collapsing them into one score.\n\nFailure injection should cover stale target digests, changed prompts or Tools,\nchanged criteria or authority, suspended-run resume, worker replacement,\nduplicate delivery, executor crash before and after an effect, missing\nevaluator results, evaluator common-mode failure, workflow unavailability, and\nconcurrent old/new migration routes.\n\n## Evidence boundary\n\nThis Analysis synthesizes:\n\n- `CA-A-065`, which preserves the two-axis routing model, protected integrity\n  constraints, plural option frontier, and evidence gaps; and\n- `fpf-reports/20260826T212537Z-fpf-design-challenge-caprmedio-work-execution-architecture.md`,\n  which records eleven challenged failure surfaces, five strengths, six\n  insufficient-basis boundaries, and the minimal repairs or experiments.\n\nThe live Tool, MCP, Codex Plugin, Journal, and commit-gate Requirements remain\nauthoritative for their existing scopes. This Analysis treats their contract,\ndry-run, receipt, frontier, fencing, and reconciliation mechanisms as\nprecedents. It neither widens those owners nor creates a parallel provenance,\ngate, memory, or writer ontology.\n\nNo matched CAPRMEDIO prototype, runtime benchmark, threat model, memory policy,\nevaluator-independence policy, engine/deployment constraint set, or complete\nresult-class write matrix currently exists. Therefore the evidence supports\nthe staged direction and next experiments, but not a final architecture or\ntechnology choice.\n\n## Disposition\n\nRetain the staged direction as Analysis. Create no Requirement, Method, Plan,\nEvaluation, Delivery, Implementation, workflow-engine selection, or authority\nchange merely from this recommendation. A later operator action may authorize\nthe bounded evidence campaign. A final selection must remain a separate\nDecision after the common-kernel findings are dispositioned and matched\nevidence is available.\n\n## Reopening conditions\n\nReopen this Analysis if the operator changes the `(content role, operation)`\nclassifier; changes the one-canonical-project-graph or governed-writer\nboundary; supplies matched runtime, security, cost, or failure evidence;\naccepts another initial migration posture; selects an engine or deployment\nmodel; or changes the authority of Codex, workflow, Tool, agent, evaluator,\nmemory, provenance, gate, or writer outputs.\n",
+      "after": "---\natom_id: CA-A-066\ntopics:\n  main_subject: Work Execution Architecture\n  dependencies:\n  - execution-admission-contract\n  - context-policy\n  - work-routing\n  - workflow-execution\n  - progressive-workflow-migration\nversion: 2\nupdated_at: 2026-09-06 01:45:12 +0400\ncce_version: cce_1\ncce_form: rationale\nstatus: Done\n---\n# Recommend a staged CAPRMEDIO work-execution direction\n\n## Conclusion\n\nCAPRMEDIO should preserve `(content role, operation)` as the semantic work\nclassifier, but must not use that pair alone as an executable route or\nauthorization. Every bounded execution must additionally receive a versioned\nExecution Admission Contract that binds the exact target frontier, admitted\ncontext and claims, performer and Method, capabilities, side-effect class,\nrequired checks, gate profile, replay policy, permitted writer, and stop or\nreturn conditions.\n\nThe recommended staged direction is:\n\n1. keep broad interpretation, synthesis, reconciliation, RMED authoring,\n   planning, and operator-governed authority work in Codex;\n2. begin with the strict two-plane boundary represented by `O1`, routing only\n   fully contracted deterministic operations into durable workflow control;\n3. evolve toward the bounded-agent hybrid represented by `O2` only for\n   operation classes whose context, capabilities, evidence, failure behavior,\n   and recovery semantics have been demonstrated;\n4. add `O6`-style independent evaluation only where authority, consequence,\n   or escaped-defect cost justifies its extra latency and cost; and\n5. preserve the existing CAPRMEDIO Tool, Journal, and fenced commit gate as the\n   governed effect boundary rather than creating a workflow-owned writer.\n\nThis is a provisional architecture direction and evidence priority. It does\nnot select a final architecture or workflow engine, authorize implementation,\nor admit any workflow, agent, evaluator, provenance record, or envelope as\nRMED authority.\n\n## Option disposition\n\n- `O1` is the recommended initial migration posture because its narrow\n  deterministic boundary is easiest to inspect, secure, replay, and reverse.\n- `O2` is the recommended evidence-dependent evolution path because it can\n  contain locally ambiguous Implementation or Evaluation work without giving\n  bounded agents ambient project context or write authority.\n- `O6` is a selective assurance overlay for high-risk operations, not a\n  universal execution path.\n- `O3` should be deferred until the number and variability of proven routes\n  justify a central policy compiler. Otherwise the compiler risks becoming an\n  unnecessary meta-system or hidden authority surface.\n- `O5` should contribute provenance, causal identity, and reconstruction\n  principles without initially becoming the central execution backbone. Its\n  event-schema, projection, privacy, retention, and rebuild burden is not yet\n  justified.\n- `O4` should remain conditional until independent Content-role service\n  ownership or operating scale justifies its distributed authority,\n  credential, contract, and recovery burden.\n- `A1` remains the migration overlay, but each `(content role, operation)` cell\n  must have exactly one active route edition, one effect owner, an explicit\n  cutover frontier, fenced in-flight work, and a tested rollback contract.\n\nThese dispositions prioritize experiments and sequencing. They do not remove\nany retained option from the comparison frontier or constitute an architecture\nDecision.\n\n## Required common-kernel repairs\n\nBefore any workflow-engine selection or non-trivial migration, the design must:\n\n1. distinguish Pair Classification from the Execution Admission Contract;\n2. make Task and Result Envelopes preserve relied-on claims, interpretation\n   scheme, intended use, scope, preserved invariants, permitted loss, and\n   rejected inferences rather than only identities and digests;\n3. keep provenance, evaluation results, gate decisions, authority, and write\n   receipts as separate claims and carriers;\n4. define complete required check sets, explicit handling of `notRun`,\n   `unknown`, and failure, and bounded `pass`, `degrade`, `block`, or `abstain`\n   consequences;\n5. bind replay and resume to both semantic and authority frontiers and require\n   an explicit `freeze`, `refresh-and-recheck`, `invalidate`, or\n   `version-migrate` disposition when either frontier changes;\n6. name actual performer Systems, assignments where claimed, enacted Methods,\n   dated Work occurrences, capabilities, results, and separate authority and\n   responsibility relations;\n7. protect every consequence-bearing effect with stable action identity,\n   canonical bytes, precondition frontier, fencing, effect receipt, uncertain\n   effect reconciliation, and a declared compensation or operator stop;\n8. govern memory source admission, authority, currentness, access, retention,\n   correction, revocation, deletion, conflict handling, and derived-summary\n   invalidation; and\n9. define safe behavior for unavailable workflow or evaluation infrastructure\n   without silently bypassing required isolation or assurance.\n\n## First evidence campaign\n\nThe first campaign should sample at least ten recent CAO, RMED,\nImplementation, Evaluation, and Ops runs and classify every material step by\nContent role and operation. The first workflow candidates should be frequent,\nlow-ambiguity operations such as schema, ID, H1, and relation validation;\nfixed tests; timestamped observations; receipts; and already governed commits.\nAuthority reconciliation and new RMED meaning must remain in Codex.\n\nEach selected operation should be run under the same frozen task, target\nfrontier, admitted context, capabilities, acceptance criteria, and writer\nboundary through both the current path and the enveloped candidate path. The\ncampaign should record wall time, model and infrastructure cost, retries,\noperator interventions, defects, escaped defects, context or authority\nreturns, and recovery behavior without collapsing them into one score.\n\nFailure injection should cover stale target digests, changed prompts or Tools,\nchanged criteria or authority, suspended-run resume, worker replacement,\nduplicate delivery, executor crash before and after an effect, missing\nevaluator results, evaluator common-mode failure, workflow unavailability, and\nconcurrent old/new migration routes.\n\n## Evidence boundary\n\nThis Analysis synthesizes:\n\n- `CA-A-065`, which preserves the two-axis routing model, protected integrity\n  constraints, plural option frontier, and evidence gaps; and\n- `fpf-reports/20260826T212537Z-fpf-design-challenge-caprmedio-work-execution-architecture.md`,\n  which records eleven challenged failure surfaces, five strengths, six\n  insufficient-basis boundaries, and the minimal repairs or experiments.\n\nThe live Tool, MCP, Codex Plugin, Journal, and commit-gate Requirements remain\nauthoritative for their existing scopes. This Analysis treats their contract,\ndry-run, receipt, frontier, fencing, and reconciliation mechanisms as\nprecedents. It neither widens those owners nor creates a parallel provenance,\ngate, memory, or writer ontology.\n\nNo matched CAPRMEDIO prototype, runtime benchmark, threat model, memory policy,\nevaluator-independence policy, engine/deployment constraint set, or complete\nresult-class write matrix currently exists. Therefore the evidence supports\nthe staged direction and next experiments, but not a final architecture or\ntechnology choice.\n\n## Disposition\n\nRetain the staged direction as Analysis. Create no Requirement, Method, Plan,\nEvaluation, Delivery, Implementation, workflow-engine selection, or authority\nchange merely from this recommendation. A later operator action may authorize\nthe bounded evidence campaign. A final selection must remain a separate\nDecision after the common-kernel findings are dispositioned and matched\nevidence is available.\n\n## Reopening conditions\n\nReopen this Analysis if the operator changes the `(content role, operation)`\nclassifier; changes the one-canonical-project-graph or governed-writer\nboundary; supplies matched runtime, security, cost, or failure evidence;\naccepts another initial migration posture; selects an engine or deployment\nmodel; or changes the authority of Codex, workflow, Tool, agent, evaluator,\nmemory, provenance, gate, or writer outputs.\n",
+      "status": "CONDITIONAL_DO_NOT_APPLY_UNTIL_ROLE_FORM_AND_HISTORY_REVIEW"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-054-PROGRAMMATIC-ANALYSIS_RPRT--validate-the-python-3-14-contract-upgrade.md",
+      "before_sha256": "730d8b47693a5e359af4a7cfc1769c41c633174b1d38e321257235f6e1f03bca",
+      "after_sha256": "b1f88d3b96fde7bddaac320d866b51215fe7a77d2ae9be8d4cf9f1415f6d38c1",
+      "before": "---\natom_id: CA-A-054\ntopics:\n  main_subject:\n    occurrent:\n      - Python 3.14 Contract Upgrade Validation\n  dependencies:\n    continuant:\n      - Python Runtime\n      - Compatibility\n      - Validation Evidence\nversion: 4\nupdated_at: 2026-10-23 03:17:34 +0400\n---\n# Validate the Python 3.14 contract upgrade\n\n## Result\n\nThe selected Programmatic Python contract and checked-in workflow carrier both target the stable CPython `3.14.*` series. Local validation under CPython 3.14.7 passed for the current Programmatic Python source frontier and all installed read-only Tool interfaces.\n\nThis is bounded local execution evidence. It does not claim a successful hosted workflow run or support for another platform.\n\n## Evaluated frontier\n\n- Git revision after the technical contract and workflow changes: `26e3575635e5764d24590165106cf7480d06e67f`.\n- `pyproject.toml` SHA-256: `e9f30f59cba7e90ab3ebc66c24468baf760b688e33c2e50df715062c105800b2`.\n- `.github/workflows/publish-release.yml` SHA-256: `3401b40b6ccf59acce1b4714aad157ec8236bd3b23c5fcf31f68c0e334045558`.\n- Programmatic Python files evaluated: 65.\n- Programmatic Python source-frontier SHA-256: `18392c4564c0ef8e0c9a9f44dcb836963cbda4932a95446c005c7a710a296b79`.\n- Installed launchers evaluated through their read-only `describe` interface: 15.\n\n## Environment\n\n- Implementation: CPython.\n- Version: 3.14.7.\n- Executable: `/opt/homebrew/opt/python@3.14/bin/python3.14`.\n- Operating system: Darwin.\n- Machine: arm64.\n\n## Checks and outcomes\n\n| Check | Outcome |\n|---|---|\n| Parse `pyproject.toml` and read the canonical selected runtime | Pass: `==3.14.*` |\n| Inspect the checked-in workflow interpreter selection | Pass: `python-version: \"3.14\"` |\n| Compile every current Programmatic Python source in memory with CPython 3.14.7 | Pass: 65 of 65 |\n| Invoke every installed launcher through its read-only `describe` interface | Pass: 15 of 15 |\n| Confirm the standard-library-first default dependency selection remains unchanged | Pass: `required_runtime_dependencies = []` |\n\nThe validation compiled source through Python's in-memory `compile` function and did not intentionally create bytecode caches. Four source-tree `__pycache__` directories, including one CPython 3.14 bytecode file, predated this Task and remain a separate existing source-hygiene issue; their timestamps are between 12:42 and 13:35 local time, before the 16:33 migration execution.\n\n## Limitations\n\n- The repository's suspended test suite was not run.\n- The hosted release workflow was not executed.\n- The workflow still contains historical release implementation beyond the Python selector; this validation does not establish that the complete release job is current.\n- No macOS, Linux, Windows, or WSL portability claim is established beyond this one local Darwin arm64 observation.\n\n## Source\n\n- [Python 3.14.7](https://www.python.org/downloads/release/python-3147/), released 2026-08-05.\n",
+      "after": "---\natom_id: CA-A-054\ntopics:\n  main_subject:\n    occurrent:\n      - Python 3.14 Contract Upgrade Validation\n  dependencies:\n    continuant:\n      - Python Runtime\n      - Compatibility\n      - Validation Evidence\nversion: 4\nupdated_at: 2026-10-23 03:17:34 +0400\nstatus: Done\n---\n# Validate the Python 3.14 contract upgrade\n\n## Result\n\nThe selected Programmatic Python contract and checked-in workflow carrier both target the stable CPython `3.14.*` series. Local validation under CPython 3.14.7 passed for the current Programmatic Python source frontier and all installed read-only Tool interfaces.\n\nThis is bounded local execution evidence. It does not claim a successful hosted workflow run or support for another platform.\n\n## Evaluated frontier\n\n- Git revision after the technical contract and workflow changes: `26e3575635e5764d24590165106cf7480d06e67f`.\n- `pyproject.toml` SHA-256: `e9f30f59cba7e90ab3ebc66c24468baf760b688e33c2e50df715062c105800b2`.\n- `.github/workflows/publish-release.yml` SHA-256: `3401b40b6ccf59acce1b4714aad157ec8236bd3b23c5fcf31f68c0e334045558`.\n- Programmatic Python files evaluated: 65.\n- Programmatic Python source-frontier SHA-256: `18392c4564c0ef8e0c9a9f44dcb836963cbda4932a95446c005c7a710a296b79`.\n- Installed launchers evaluated through their read-only `describe` interface: 15.\n\n## Environment\n\n- Implementation: CPython.\n- Version: 3.14.7.\n- Executable: `/opt/homebrew/opt/python@3.14/bin/python3.14`.\n- Operating system: Darwin.\n- Machine: arm64.\n\n## Checks and outcomes\n\n| Check | Outcome |\n|---|---|\n| Parse `pyproject.toml` and read the canonical selected runtime | Pass: `==3.14.*` |\n| Inspect the checked-in workflow interpreter selection | Pass: `python-version: \"3.14\"` |\n| Compile every current Programmatic Python source in memory with CPython 3.14.7 | Pass: 65 of 65 |\n| Invoke every installed launcher through its read-only `describe` interface | Pass: 15 of 15 |\n| Confirm the standard-library-first default dependency selection remains unchanged | Pass: `required_runtime_dependencies = []` |\n\nThe validation compiled source through Python's in-memory `compile` function and did not intentionally create bytecode caches. Four source-tree `__pycache__` directories, including one CPython 3.14 bytecode file, predated this Task and remain a separate existing source-hygiene issue; their timestamps are between 12:42 and 13:35 local time, before the 16:33 migration execution.\n\n## Limitations\n\n- The repository's suspended test suite was not run.\n- The hosted release workflow was not executed.\n- The workflow still contains historical release implementation beyond the Python selector; this validation does not establish that the complete release job is current.\n- No macOS, Linux, Windows, or WSL portability claim is established beyond this one local Darwin arm64 observation.\n\n## Source\n\n- [Python 3.14.7](https://www.python.org/downloads/release/python-3147/), released 2026-08-05.\n",
+      "status": "CONDITIONAL_DO_NOT_APPLY_UNTIL_ROLE_FORM_AND_HISTORY_REVIEW"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-057-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-programmatic-specialization-authority.md",
+      "before_sha256": "5948904755ca575cbf9325175ba541ff379d5f797fd1bc8e407e5e6d173e414e",
+      "after_sha256": "ea8925e05404ca59192a06a383597c71ad5f6883bc778b68490202db31fc28cd",
+      "before": "---\natom_id: CA-A-057\ntopics:\n  main_subject:\n    occurrent:\n      - Programmatic Specialization Authority Reconciliation\n  dependencies:\n    continuant:\n      - Programmatic Policy\n      - Method Authority\n      - Evaluation Coverage\n      - Scope Ownership\nrelations:\n  derived_from:\n    - CA-A-053\n    - CA-A-055\n    - CA-A-056\nversion: 2\nupdated_at: 2026-08-30 17:21:33 +0400\n---\n# Reconcile PROGRAMMATIC specialization authority\n\n## Frozen and final validation sets\n\nThe frozen CA-P-074 input was the exact active-or-draft Method and Evaluation\nset selected by the following address expression at `2026-08-23 17:20:00 +0400`:\n\n```text\n.caprmedio/102_PROJECT_LAYER_2_FRAMEWORK_ENGINE/PROGRAMMATIC/**/(05_method|06_evaluation)/**/*.md\n```\n\nThe expression excluded any carrier below `archive/`, `done/`, or `canceled/`.\nIt resolved to 250 current carriers: 222 active and 28 drafts; 42 Methods and\n208 Evaluations. This is the successor-inclusive continuation of CA-A-052,\nCA-A-055, and CA-A-056; it includes the finalized shared PROGRAMMATIC set.\n\nThe final CA-P-074 validation set uses the same address expression and\nexclusions at `2026-08-23 17:40:00 +0400`. It contains 291 current carriers:\n264 active and 27 drafts; 56 Methods and 235 Evaluations. The set adds 42\naccepted component-specific carriers and archives one duplicate Tool Method\ncandidate. No native Implementation carrier is in either set.\n\n## Ownership matrix\n\n| Owner | Current Methods | Current Evaluations | Current requirement and method ownership | Boundary retained |\n|---|---:|---:|---|---|\n| `PROGRAMMATIC` | 12 (11 active, 1 draft) | 20 (all active) | `CA-M-110`, `CA-M-157`–`CA-M-166`, and `CA-E-253`–`CA-E-272` serve `CA-R-1047`; the one `uv` draft remains an unaccepted configuration candidate. | Shared Python realization, deterministic transformation, state/lifecycle, typed-interface, effect, diagnostics, adoption, performance, and compatibility behavior only. |\n| `TOOLS` and descendants | 23 (17 active, 6 drafts) | 191 (176 active, 15 drafts) | The Tool frontier remains `CA-R-802`–`CA-R-857`, `CA-R-1041`, `CA-R-1042`, `CA-R-1048`, `CA-R-1049`, `CA-R-1059`–`CA-R-1072`, and `CA-R-1120`–`CA-R-1156`. | Tool operation, runtime, manager/worker, scheduler, Hook, file-effect, Atom, projection, and delivery boundaries. |\n| `APPS` and descendants | 6 (5 active, 1 draft) | 9 (5 active, 4 drafts) | `GRAPH_APP` owns `CA-R-1076` and `CA-R-1077`; `CODEX_PLUGIN` owns `CA-R-1073`–`CA-R-1075`; structural unit Requirements `CA-R-1100`–`CA-R-1104` are not behavioral M/E owners. | App interface, graph rendering/read service, and Codex-host package behavior. |\n| `MCP` | 15 (all active) | 15 (all active) | `CA-M-167`–`CA-M-181` and `CA-E-273`–`CA-E-287` each directly serve one of `CA-R-1105`–`CA-R-1119`. | Transport admission, currentness, protocol, request control, least authority, and model-readable result behavior. |\n\n`AGENTIC` and `SKILLS` are absent from this Task's validation set.\n\n## Shared-versus-specialized lineage\n\nEvery active Method now has a direct `method_for` relation, every active\nEvaluation has a direct `evaluation_for` relation, and no current Method or\nEvaluation carries `child_of`. The owning Requirement or Method is therefore\nthe direct typed relation owner; this report records the applicable shared\nMethod without inventing an unregistered relation kind between Methods.\n\n| Specialization surface | Applicable shared Method boundary | Child-specific acceptance owner |\n|---|---|---|\n| Tool deterministic parsers, planning, projections, and Finders | `CA-M-157`, `CA-M-159`, and `CA-M-160` only when the Tool has that transformation, interface, or decision/effect boundary | The owning Tool Method and its direct Tool Evaluation; no App or MCP behavior is asserted. |\n| Tool runtime, file, subprocess, diagnostic, adoption, performance, and public CLI behavior | `CA-M-158`, `CA-M-161`–`CA-M-166` only at the named runtime, effect, diagnostic, changed-source, measured-performance, or declared-interface condition | `CA-M-142`, `CA-M-143`, and the owning Tool or descendant Method/Evaluation retain the Tool-specific procedure and evidence. |\n| Graph App and Codex plugin behavior | `CA-M-110`, `CA-M-159`, `CA-M-163`, and `CA-M-166` only when a Python component, contract, diagnostic, or declared interface is present | `CA-M-150`–`CA-M-154`, `CA-E-067`, `CA-E-068`, and `CA-E-288`–`CA-E-290` own plugin and graph-App acceptance. |\n| MCP registry, transport, protocol, cancellation, authority, and result behavior | `CA-M-110`, `CA-M-159`, `CA-M-163`, and `CA-M-166` only at a Python realization, typed boundary, diagnostic, or declared protocol contract | `CA-M-167`–`CA-M-181` and `CA-E-273`–`CA-E-287` own every MCP-specific procedure and acceptance boundary. |\n\nNo shared Method owns a component-specific Tool manager, worker, scheduler,\nHook, file-mutation flow, App interface, App service interaction, MCP protocol,\nMCP request boundary, or MCP authority boundary.\n\n## Duplicate removal and revision preservation\n\n`CA-M--IMPL_METHOD-FR_ENGN_TOOLS--separate-deterministic-transformations-from-effects-and-lifecycle@3.md`\nis archived because its shared deterministic/effect meaning is now canonically\nowned by `CA-M-157` and `CA-M-160`. The remaining Tool effect draft was revised\nto one Tool-operation-to-effect-result specialization of `CA-M-161`; the App\ndraft was revised to one App-interface-to-declared-service specialization of\n`CA-M-158` and `CA-M-159`.\n\nThe final set preserves 15 exact active predecessor revisions in their local\narchives: `CA-M-142`, `CA-M-143`, `CA-M-150`–`CA-M-154`, `CA-E-067`,\n`CA-E-068`, `CA-E-076`, `CA-E-127`, and `CA-E-233`–`CA-E-235` plus `CA-E-237`.\nTwo revised candidate predecessors are also preserved in their local archives.\nThe revisions add direct lineage, separate two previously same-titled\nstructural-scope checks by carrier versus project-integrity boundary, and do\nnot alter native code.\n\n## Child-specific coverage matrix\n\n| Surface | Method coverage | Evaluation coverage | Result |\n|---|---|---|---|\n| `TOOLS` direct and descendants | 17 active component Methods and six candidates | 176 active component Evaluations and 15 candidates; `CA-E-291`–`CA-E-299` close the nine missing direct Method checks | Every active Tool Method has at least one direct active Evaluation. |\n| `GRAPH_APP` | `CA-M-153`, `CA-M-154` | `CA-E-067`, `CA-E-068` | One App-specific evaluation owner per current App Method. |\n| `CODEX_PLUGIN` | `CA-M-150`–`CA-M-152` | `CA-E-288`–`CA-E-290` | One plugin-specific evaluation owner per current plugin Method. |\n| `MCP` | `CA-M-167`–`CA-M-181` | `CA-E-273`–`CA-E-287` | One protocol- and transport-specific evaluation owner per current MCP Method. |\n\nThe shared 20 PROGRAMMATIC Evaluations remain the sole owners of their\nmechanism-neutral acceptance meanings. Child Evaluations evaluate a named\ncomponent Method or Requirement; they do not re-own a shared acceptance case.\n\n## Final validation result\n\nThe frozen/final scanner parses all 291 current carriers as YAML with exactly\none H1. It finds 48 active Methods and 216 active Evaluations, zero active\nMethods without `method_for`, zero active Evaluations without `evaluation_for`,\nzero active Methods lacking a direct active Evaluation, zero cross-Scope\n`child_of` relations, and zero duplicate current H1 summaries.\n\nBoundary scans found no Tool manager, worker, scheduler, Hook, or file-mutation\nconstraint imposed on APPS or MCP, and no App interface or service-lifecycle\nconstraint imposed on TOOLS or MCP. `CA-M-128`, `CA-M-129`, `CA-M-155`, and\n`CA-M-156` have a demonstrated, direct authorized-MCP-ingress dependency\nbecause their owning current Tool Requirements (`CA-R-1041`, `CA-R-1042`,\n`CA-R-1048`, and `CA-R-1049`) explicitly require it. That dependency does not\nassign MCP protocol, request, or authority ownership to those Tools; MCP-only\nauthority remains in `CA-M-167`–`CA-M-181` and `CA-E-273`–`CA-E-287`. The\nremaining cross-component mentions are bounded references to a source Tool or\nan authorized ingress and do not transfer ownership.\n",
+      "after": "---\natom_id: CA-A-057\ntopics:\n  main_subject:\n    occurrent:\n      - Programmatic Specialization Authority Reconciliation\n  dependencies:\n    continuant:\n      - Programmatic Policy\n      - Method Authority\n      - Evaluation Coverage\n      - Scope Ownership\nrelations:\n  derived_from:\n    - CA-A-053\n    - CA-A-055\n    - CA-A-056\nversion: 2\nupdated_at: 2026-08-30 17:21:33 +0400\nstatus: Done\n---\n# Reconcile PROGRAMMATIC specialization authority\n\n## Frozen and final validation sets\n\nThe frozen CA-P-074 input was the exact active-or-draft Method and Evaluation\nset selected by the following address expression at `2026-08-23 17:20:00 +0400`:\n\n```text\n.caprmedio/102_PROJECT_LAYER_2_FRAMEWORK_ENGINE/PROGRAMMATIC/**/(05_method|06_evaluation)/**/*.md\n```\n\nThe expression excluded any carrier below `archive/`, `done/`, or `canceled/`.\nIt resolved to 250 current carriers: 222 active and 28 drafts; 42 Methods and\n208 Evaluations. This is the successor-inclusive continuation of CA-A-052,\nCA-A-055, and CA-A-056; it includes the finalized shared PROGRAMMATIC set.\n\nThe final CA-P-074 validation set uses the same address expression and\nexclusions at `2026-08-23 17:40:00 +0400`. It contains 291 current carriers:\n264 active and 27 drafts; 56 Methods and 235 Evaluations. The set adds 42\naccepted component-specific carriers and archives one duplicate Tool Method\ncandidate. No native Implementation carrier is in either set.\n\n## Ownership matrix\n\n| Owner | Current Methods | Current Evaluations | Current requirement and method ownership | Boundary retained |\n|---|---:|---:|---|---|\n| `PROGRAMMATIC` | 12 (11 active, 1 draft) | 20 (all active) | `CA-M-110`, `CA-M-157`–`CA-M-166`, and `CA-E-253`–`CA-E-272` serve `CA-R-1047`; the one `uv` draft remains an unaccepted configuration candidate. | Shared Python realization, deterministic transformation, state/lifecycle, typed-interface, effect, diagnostics, adoption, performance, and compatibility behavior only. |\n| `TOOLS` and descendants | 23 (17 active, 6 drafts) | 191 (176 active, 15 drafts) | The Tool frontier remains `CA-R-802`–`CA-R-857`, `CA-R-1041`, `CA-R-1042`, `CA-R-1048`, `CA-R-1049`, `CA-R-1059`–`CA-R-1072`, and `CA-R-1120`–`CA-R-1156`. | Tool operation, runtime, manager/worker, scheduler, Hook, file-effect, Atom, projection, and delivery boundaries. |\n| `APPS` and descendants | 6 (5 active, 1 draft) | 9 (5 active, 4 drafts) | `GRAPH_APP` owns `CA-R-1076` and `CA-R-1077`; `CODEX_PLUGIN` owns `CA-R-1073`–`CA-R-1075`; structural unit Requirements `CA-R-1100`–`CA-R-1104` are not behavioral M/E owners. | App interface, graph rendering/read service, and Codex-host package behavior. |\n| `MCP` | 15 (all active) | 15 (all active) | `CA-M-167`–`CA-M-181` and `CA-E-273`–`CA-E-287` each directly serve one of `CA-R-1105`–`CA-R-1119`. | Transport admission, currentness, protocol, request control, least authority, and model-readable result behavior. |\n\n`AGENTIC` and `SKILLS` are absent from this Task's validation set.\n\n## Shared-versus-specialized lineage\n\nEvery active Method now has a direct `method_for` relation, every active\nEvaluation has a direct `evaluation_for` relation, and no current Method or\nEvaluation carries `child_of`. The owning Requirement or Method is therefore\nthe direct typed relation owner; this report records the applicable shared\nMethod without inventing an unregistered relation kind between Methods.\n\n| Specialization surface | Applicable shared Method boundary | Child-specific acceptance owner |\n|---|---|---|\n| Tool deterministic parsers, planning, projections, and Finders | `CA-M-157`, `CA-M-159`, and `CA-M-160` only when the Tool has that transformation, interface, or decision/effect boundary | The owning Tool Method and its direct Tool Evaluation; no App or MCP behavior is asserted. |\n| Tool runtime, file, subprocess, diagnostic, adoption, performance, and public CLI behavior | `CA-M-158`, `CA-M-161`–`CA-M-166` only at the named runtime, effect, diagnostic, changed-source, measured-performance, or declared-interface condition | `CA-M-142`, `CA-M-143`, and the owning Tool or descendant Method/Evaluation retain the Tool-specific procedure and evidence. |\n| Graph App and Codex plugin behavior | `CA-M-110`, `CA-M-159`, `CA-M-163`, and `CA-M-166` only when a Python component, contract, diagnostic, or declared interface is present | `CA-M-150`–`CA-M-154`, `CA-E-067`, `CA-E-068`, and `CA-E-288`–`CA-E-290` own plugin and graph-App acceptance. |\n| MCP registry, transport, protocol, cancellation, authority, and result behavior | `CA-M-110`, `CA-M-159`, `CA-M-163`, and `CA-M-166` only at a Python realization, typed boundary, diagnostic, or declared protocol contract | `CA-M-167`–`CA-M-181` and `CA-E-273`–`CA-E-287` own every MCP-specific procedure and acceptance boundary. |\n\nNo shared Method owns a component-specific Tool manager, worker, scheduler,\nHook, file-mutation flow, App interface, App service interaction, MCP protocol,\nMCP request boundary, or MCP authority boundary.\n\n## Duplicate removal and revision preservation\n\n`CA-M--IMPL_METHOD-FR_ENGN_TOOLS--separate-deterministic-transformations-from-effects-and-lifecycle@3.md`\nis archived because its shared deterministic/effect meaning is now canonically\nowned by `CA-M-157` and `CA-M-160`. The remaining Tool effect draft was revised\nto one Tool-operation-to-effect-result specialization of `CA-M-161`; the App\ndraft was revised to one App-interface-to-declared-service specialization of\n`CA-M-158` and `CA-M-159`.\n\nThe final set preserves 15 exact active predecessor revisions in their local\narchives: `CA-M-142`, `CA-M-143`, `CA-M-150`–`CA-M-154`, `CA-E-067`,\n`CA-E-068`, `CA-E-076`, `CA-E-127`, and `CA-E-233`–`CA-E-235` plus `CA-E-237`.\nTwo revised candidate predecessors are also preserved in their local archives.\nThe revisions add direct lineage, separate two previously same-titled\nstructural-scope checks by carrier versus project-integrity boundary, and do\nnot alter native code.\n\n## Child-specific coverage matrix\n\n| Surface | Method coverage | Evaluation coverage | Result |\n|---|---|---|---|\n| `TOOLS` direct and descendants | 17 active component Methods and six candidates | 176 active component Evaluations and 15 candidates; `CA-E-291`–`CA-E-299` close the nine missing direct Method checks | Every active Tool Method has at least one direct active Evaluation. |\n| `GRAPH_APP` | `CA-M-153`, `CA-M-154` | `CA-E-067`, `CA-E-068` | One App-specific evaluation owner per current App Method. |\n| `CODEX_PLUGIN` | `CA-M-150`–`CA-M-152` | `CA-E-288`–`CA-E-290` | One plugin-specific evaluation owner per current plugin Method. |\n| `MCP` | `CA-M-167`–`CA-M-181` | `CA-E-273`–`CA-E-287` | One protocol- and transport-specific evaluation owner per current MCP Method. |\n\nThe shared 20 PROGRAMMATIC Evaluations remain the sole owners of their\nmechanism-neutral acceptance meanings. Child Evaluations evaluate a named\ncomponent Method or Requirement; they do not re-own a shared acceptance case.\n\n## Final validation result\n\nThe frozen/final scanner parses all 291 current carriers as YAML with exactly\none H1. It finds 48 active Methods and 216 active Evaluations, zero active\nMethods without `method_for`, zero active Evaluations without `evaluation_for`,\nzero active Methods lacking a direct active Evaluation, zero cross-Scope\n`child_of` relations, and zero duplicate current H1 summaries.\n\nBoundary scans found no Tool manager, worker, scheduler, Hook, or file-mutation\nconstraint imposed on APPS or MCP, and no App interface or service-lifecycle\nconstraint imposed on TOOLS or MCP. `CA-M-128`, `CA-M-129`, `CA-M-155`, and\n`CA-M-156` have a demonstrated, direct authorized-MCP-ingress dependency\nbecause their owning current Tool Requirements (`CA-R-1041`, `CA-R-1042`,\n`CA-R-1048`, and `CA-R-1049`) explicitly require it. That dependency does not\nassign MCP protocol, request, or authority ownership to those Tools; MCP-only\nauthority remains in `CA-M-167`–`CA-M-181` and `CA-E-273`–`CA-E-287`. The\nremaining cross-component mentions are bounded references to a source Tool or\nan authorized ingress and do not transfer ownership.\n",
+      "status": "CONDITIONAL_DO_NOT_APPLY_UNTIL_ROLE_FORM_AND_HISTORY_REVIEW"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-058-PROGRAMMATIC-ANALYSIS_RPRT--validate-programmatic-method-and-evaluation-closure.md",
+      "before_sha256": "84304b71468e0efd8487e9f6391271c375eaaf0cbed729d6d44f1ac2984d2b50",
+      "after_sha256": "19427bbb2806bcfdd75ac83da8c37a89ea40530bd361f7fede69465796905a1e",
+      "before": "---\natom_id: CA-A-058\ntopics:\n  main_subject:\n    continuant:\n      - programmatic-policy\n    occurrent:\n      - validation\nrelations:\n  derived_from:\n    - CA-A-052\n    - CA-A-053\n    - CA-A-055\n    - CA-A-056\n    - CA-A-057\nversion: 3\nupdated_at: 2026-10-23 03:17:34 +0400\n---\n# Validate PROGRAMMATIC Method and Evaluation closure\n\n## Scope resolution\n\nCA-P-074 is Done. The final CA-P-075 validation set is every active Method\nand Evaluation carrier at `PROGRAMMATIC` or one of its registered descendants,\nexcluding `archive/`, `done/`, `canceled/`, and `drafts/`. It resolves to 264\nactive carriers: 48 Methods and 216 Evaluations. The adjacent candidate set is\n27 drafts (8 Methods and 19 Evaluations); drafts have no stable Atom-ID segment\nand are not current authority in this Task.\n\nThe 27 excluded drafts retain legacy list-shaped Subjects metadata. That does\nnot invalidate this active-frontier closure, but each candidate must receive\nthe current declared temporal-form Subjects structure before promotion. This\nis a bounded draft-maintenance follow-up, not an authority claim or a reason\nto assign a stable identity before acceptance.\n\nNo native Implementation carrier is in scope. `AGENTIC` and `SKILLS` are out\nof scope unless a direct relation from the selected active frontier requires\nthem; no such relation was found.\n\n## Policy dispositions and coverage\n\nCA-A-053's eight policy dispositions are either accepted or explicitly\ndeferred with a named later owner and reliance limit. There is no unresolved\ndisposition in the selected active frontier without an Operator acceptance and\nbounded reliance condition.\n\nThe shared `PROGRAMMATIC` surface has 11 active Methods and 20 active\nEvaluations. Every active Method has at least one direct active Evaluation:\n48 of 48. The final active direct-relation totals are 62 `method_for`, 308\n`evaluation_for`, and 88 `derived_from` occurrences. The Method/Evaluation\ncoverage remains shared where it is mechanism-neutral and specialized where a\nTool, App, or MCP boundary owns the behavior, as recorded in CA-A-057.\n\n## Carrier and lineage repair\n\nThe initial validation found 191 active legacy carriers using `subject_scopes`,\n144 obsolete `artifact_subtype: qa_case` fields, and 167 Evaluation carrier\nnames that did not use the current canonical address grammar. All 191 were\nrevised without changing their Claim or direct relation meaning: Subjects use\nthe current declared temporal-form structure, obsolete subtype metadata is\nabsent, and the 167 Evaluation names are canonical. Each exact predecessor was\npreserved in its local `archive/` directory before its successor was written.\n\nThe precision pass found 101 additional current-carrier defects under current\nBSEED authority. It removed 65 forbidden derived `atom_id` frontmatter values,\nremoved the unregistered `check_of` relation from 25 Evaluations (29 target\noccurrences), normalized 56 legacy long CA references in 29 carriers to their\nstable Atom IDs, rebound one old external Requirement filename to its current\nexternal carrier, removed one inactive external Method target, and rebound\nCA-E-217 from a Delivery target to its applicable Method CA-M-087. Each of\nthese 101 exact immediate predecessors is also preserved locally.\n\nThe complete mechanical repair therefore created 292 exact predecessor archive\nrevisions. All revised current carriers have positive incremented versions and\ncurrent timestamps. No native code, Delivery, Requirement, or BSEED carrier\nwas changed by this Task.\n\n## Final validation result\n\nThe final deterministic validator parsed all 264 active carriers as YAML and\nfound exactly one H1 per carrier, unique canonical `CA-M` or `CA-E` identity\nsegments, valid carrier-derived Scope/Tier/Type, no repeated derived\nclassification metadata, valid declared Subjects, and no obsolete\n`subject_scopes` or `artifact_subtype` field. Every allowed direct relation has\none active unambiguous target of its registered endpoint class. It found zero\ninvalid target, unregistered relation-key, duplicate identity, invalid subject,\nforbidden `child_of` or `tier_parent`, malformed carrier, or missing direct\nMethod Evaluation coverage result.\n\nThe FPF active-Method closure baseline remains non-regressed inside this Task\nScope: the selected Methods have unique filename-derived identities, valid\ntiers, canonical active relation targets, no authored inverse or deferred\nreplacement relation, and no unregistered relation key.\n\n`SOFTWARE` is not a current Scope Unit in authority or in either Scope Unit\nGraph projection. The sole current occurrence in CA-M-110 is the literal\ntechnical-configuration table key `tool.caprmedio.framework_engine_software`,\nnot a Scope Unit assertion. Historical evidence mentions are likewise not\ncurrent scope authority.\n\n## Projection currentness\n\nMethod/Evaluation carrier metadata does not contribute a Scope Unit Graph\nvalue, so no graph projection is affected by this repair. The selected installed\n`GENERATE_PROJECT_GRAPH_STATE` generator was nevertheless run with `--apply`;\nit returned `changed: false` with 18 contributions, and its immediate dry run\nalso returned `changed: false`. Both graph projections remain non-authoritative\nworking-tree snapshots and contain no `SOFTWARE` Scope Unit.\n\nThe selected installed generator still has an older BSEED materialization map\nthan the canonical source generator. That installed-release update is outside\nthis Task and does not affect the PROGRAMMATIC Method/Evaluation results or\nthe no-`SOFTWARE` graph result recorded here.\n\n## CA-P-081 deferred Requirement boundary\n\nCA-P-081 handed 73 current Requirement acceptance boundaries to this workstream.\nTwenty now have an active Requirement-to-Method-to-Evaluation chain:\nCA-R-1071 through CA-R-1075 and CA-R-1105 through CA-R-1119. The other 53 have\nno active Method/Evaluation chain: CA-R-802; CA-R-863 through CA-R-870;\nCA-R-1094 through CA-R-1104; CA-R-1120; CA-R-1122 through CA-R-1125;\nCA-R-1127 through CA-R-1135; and CA-R-1138 through CA-R-1156.\n\nThis is a Requirement-realization boundary, not a defect in the selected active\nMethod/Evaluation frontier: CA-P-075 validates the active Method/Evaluation\nauthority and its sufficient Method coverage, and it does not invent new\nRequirement-specific Methods or Evaluations. A later Requirement-realization\nTask must either establish an accepted Method/Evaluation chain for each listed\nRequirement or explicitly retire or bound that Requirement.\n\n## Decision and reopening conditions\n\nCA-P-075 is complete. Reopen it if an active PROGRAMMATIC Method or Evaluation\nchanges, if a relation registry or Scope Unit authority change invalidates this\nvalidation, if the installed generator is changed in a way that affects a\nselected scope value, or if a listed CA-P-081 Requirement receives a new\nMethod/Evaluation realization requiring this final matrix to be recomputed.\n",
+      "after": "---\natom_id: CA-A-058\ntopics:\n  main_subject:\n    continuant:\n      - programmatic-policy\n    occurrent:\n      - validation\nrelations:\n  derived_from:\n    - CA-A-052\n    - CA-A-053\n    - CA-A-055\n    - CA-A-056\n    - CA-A-057\nversion: 3\nupdated_at: 2026-10-23 03:17:34 +0400\nstatus: Done\n---\n# Validate PROGRAMMATIC Method and Evaluation closure\n\n## Scope resolution\n\nCA-P-074 is Done. The final CA-P-075 validation set is every active Method\nand Evaluation carrier at `PROGRAMMATIC` or one of its registered descendants,\nexcluding `archive/`, `done/`, `canceled/`, and `drafts/`. It resolves to 264\nactive carriers: 48 Methods and 216 Evaluations. The adjacent candidate set is\n27 drafts (8 Methods and 19 Evaluations); drafts have no stable Atom-ID segment\nand are not current authority in this Task.\n\nThe 27 excluded drafts retain legacy list-shaped Subjects metadata. That does\nnot invalidate this active-frontier closure, but each candidate must receive\nthe current declared temporal-form Subjects structure before promotion. This\nis a bounded draft-maintenance follow-up, not an authority claim or a reason\nto assign a stable identity before acceptance.\n\nNo native Implementation carrier is in scope. `AGENTIC` and `SKILLS` are out\nof scope unless a direct relation from the selected active frontier requires\nthem; no such relation was found.\n\n## Policy dispositions and coverage\n\nCA-A-053's eight policy dispositions are either accepted or explicitly\ndeferred with a named later owner and reliance limit. There is no unresolved\ndisposition in the selected active frontier without an Operator acceptance and\nbounded reliance condition.\n\nThe shared `PROGRAMMATIC` surface has 11 active Methods and 20 active\nEvaluations. Every active Method has at least one direct active Evaluation:\n48 of 48. The final active direct-relation totals are 62 `method_for`, 308\n`evaluation_for`, and 88 `derived_from` occurrences. The Method/Evaluation\ncoverage remains shared where it is mechanism-neutral and specialized where a\nTool, App, or MCP boundary owns the behavior, as recorded in CA-A-057.\n\n## Carrier and lineage repair\n\nThe initial validation found 191 active legacy carriers using `subject_scopes`,\n144 obsolete `artifact_subtype: qa_case` fields, and 167 Evaluation carrier\nnames that did not use the current canonical address grammar. All 191 were\nrevised without changing their Claim or direct relation meaning: Subjects use\nthe current declared temporal-form structure, obsolete subtype metadata is\nabsent, and the 167 Evaluation names are canonical. Each exact predecessor was\npreserved in its local `archive/` directory before its successor was written.\n\nThe precision pass found 101 additional current-carrier defects under current\nBSEED authority. It removed 65 forbidden derived `atom_id` frontmatter values,\nremoved the unregistered `check_of` relation from 25 Evaluations (29 target\noccurrences), normalized 56 legacy long CA references in 29 carriers to their\nstable Atom IDs, rebound one old external Requirement filename to its current\nexternal carrier, removed one inactive external Method target, and rebound\nCA-E-217 from a Delivery target to its applicable Method CA-M-087. Each of\nthese 101 exact immediate predecessors is also preserved locally.\n\nThe complete mechanical repair therefore created 292 exact predecessor archive\nrevisions. All revised current carriers have positive incremented versions and\ncurrent timestamps. No native code, Delivery, Requirement, or BSEED carrier\nwas changed by this Task.\n\n## Final validation result\n\nThe final deterministic validator parsed all 264 active carriers as YAML and\nfound exactly one H1 per carrier, unique canonical `CA-M` or `CA-E` identity\nsegments, valid carrier-derived Scope/Tier/Type, no repeated derived\nclassification metadata, valid declared Subjects, and no obsolete\n`subject_scopes` or `artifact_subtype` field. Every allowed direct relation has\none active unambiguous target of its registered endpoint class. It found zero\ninvalid target, unregistered relation-key, duplicate identity, invalid subject,\nforbidden `child_of` or `tier_parent`, malformed carrier, or missing direct\nMethod Evaluation coverage result.\n\nThe FPF active-Method closure baseline remains non-regressed inside this Task\nScope: the selected Methods have unique filename-derived identities, valid\ntiers, canonical active relation targets, no authored inverse or deferred\nreplacement relation, and no unregistered relation key.\n\n`SOFTWARE` is not a current Scope Unit in authority or in either Scope Unit\nGraph projection. The sole current occurrence in CA-M-110 is the literal\ntechnical-configuration table key `tool.caprmedio.framework_engine_software`,\nnot a Scope Unit assertion. Historical evidence mentions are likewise not\ncurrent scope authority.\n\n## Projection currentness\n\nMethod/Evaluation carrier metadata does not contribute a Scope Unit Graph\nvalue, so no graph projection is affected by this repair. The selected installed\n`GENERATE_PROJECT_GRAPH_STATE` generator was nevertheless run with `--apply`;\nit returned `changed: false` with 18 contributions, and its immediate dry run\nalso returned `changed: false`. Both graph projections remain non-authoritative\nworking-tree snapshots and contain no `SOFTWARE` Scope Unit.\n\nThe selected installed generator still has an older BSEED materialization map\nthan the canonical source generator. That installed-release update is outside\nthis Task and does not affect the PROGRAMMATIC Method/Evaluation results or\nthe no-`SOFTWARE` graph result recorded here.\n\n## CA-P-081 deferred Requirement boundary\n\nCA-P-081 handed 73 current Requirement acceptance boundaries to this workstream.\nTwenty now have an active Requirement-to-Method-to-Evaluation chain:\nCA-R-1071 through CA-R-1075 and CA-R-1105 through CA-R-1119. The other 53 have\nno active Method/Evaluation chain: CA-R-802; CA-R-863 through CA-R-870;\nCA-R-1094 through CA-R-1104; CA-R-1120; CA-R-1122 through CA-R-1125;\nCA-R-1127 through CA-R-1135; and CA-R-1138 through CA-R-1156.\n\nThis is a Requirement-realization boundary, not a defect in the selected active\nMethod/Evaluation frontier: CA-P-075 validates the active Method/Evaluation\nauthority and its sufficient Method coverage, and it does not invent new\nRequirement-specific Methods or Evaluations. A later Requirement-realization\nTask must either establish an accepted Method/Evaluation chain for each listed\nRequirement or explicitly retire or bound that Requirement.\n\n## Decision and reopening conditions\n\nCA-P-075 is complete. Reopen it if an active PROGRAMMATIC Method or Evaluation\nchanges, if a relation registry or Scope Unit authority change invalidates this\nvalidation, if the installed generator is changed in a way that affects a\nselected scope value, or if a listed CA-P-081 Requirement receives a new\nMethod/Evaluation realization requiring this final matrix to be recomputed.\n",
+      "status": "CONDITIONAL_DO_NOT_APPLY_UNTIL_ROLE_FORM_AND_HISTORY_REVIEW"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-059-PROGRAMMATIC-ANALYSIS_RPRT--close-deferred-programmatic-requirement-realization-gaps.md",
+      "before_sha256": "94398e7c47ec8b317e0848eef25dd57d755ad64f65dd1b326723fe03ba89c096",
+      "after_sha256": "3467996be4290823c12fa7852dccdc97bb20b0e409e5202ceae7d86f64312e3c",
+      "before": "---\natom_id: CA-A-059\ntopics:\n  main_subject:\n    continuant:\n      - programmatic-policy\n    occurrent:\n      - validation\nrelations:\n  derived_from:\n    - CA-A-058\nversion: 4\nupdated_at: 2026-10-23 03:17:34 +0400\n---\n# Close deferred PROGRAMMATIC Requirement realization gaps\n\n## Scope and classification\n\nCA-P-082 selected the 53 active Requirement IDs deferred by CA-A-058. Every\nselected Requirement remains current authority. None was retired or merely\nbounded because each still states a valid, distinct acceptance obligation.\n\nThe 53 obligations reduce to 38 direct Method boundaries only where the\nMethod's one independently replaceable procedure genuinely serves every\nlisted Requirement. The remaining boundaries are singular. No Evaluation\ndeclares a Requirement relation: every Evaluation declares exactly one direct\n`evaluation_for` relation to its Method and contains one executable\ncontrolled-fixture acceptance case.\n\n## Current realization matrix\n\n| Requirement boundary | Method | Evaluation | Classification |\n| --- | --- | --- | --- |\n| CA-R-802 | CA-M-182 | CA-E-300 | one topology |\n| CA-R-863 | CA-M-183 | CA-E-301 | one Finder |\n| CA-R-864 | CA-M-184 | CA-E-302 | one Finder |\n| CA-R-865 | CA-M-185 | CA-E-303 | one Doer |\n| CA-R-866 | CA-M-186 | CA-E-304 | one Doer |\n| CA-R-867 | CA-M-187 | CA-E-305 | one Doer |\n| CA-R-868 | CA-M-188 | CA-E-306 | one lifecycle Doer |\n| CA-R-869 | CA-M-189 | CA-E-307 | one lifecycle Doer |\n| CA-R-870 | CA-M-190 | CA-E-308 | one lifecycle Doer |\n| CA-R-1094 | CA-M-191 | CA-E-309 | one Initiative boundary |\n| CA-R-1095 | CA-M-192 | CA-E-310 | one provenance boundary |\n| CA-R-1096 | CA-M-193 | CA-E-311 | one MCP handoff |\n| CA-R-1097, CA-R-1098 | CA-M-194 | CA-E-312 | one repeated Feature-registration procedure |\n| CA-R-1099 | CA-M-195 | CA-E-313 | one Core Feature registration |\n| CA-R-1100, CA-R-1101 | CA-M-196 | CA-E-314 | one repeated direct-APPS-unit registration procedure |\n| CA-R-1102 | CA-M-197 | CA-E-315 | one Core unit registration |\n| CA-R-1103 | CA-M-198 | CA-E-316 | one graph-viewing boundary |\n| CA-R-1104 | CA-M-199 | CA-E-317 | one graph-context handoff boundary |\n| CA-R-1120 | CA-M-200 | CA-E-318 | one bidirectional reconciliation boundary |\n| CA-R-1122 | CA-M-201 | CA-E-319 | one portable-byte policy |\n| CA-R-1123 | CA-M-202 | CA-E-320 | one routing-tree validation |\n| CA-R-1124 | CA-M-203 | CA-E-321 | one script-to-Tool ownership rule |\n| CA-R-1125 | CA-M-204 | CA-E-322 | one data-stage pipeline validation |\n| CA-R-1127 | CA-M-205 | CA-E-323 | one Journal recovery boundary |\n| CA-R-1128 | CA-M-206 | CA-E-324 | one journal-projection boundary |\n| CA-R-1129, CA-R-1135 | CA-M-207 | CA-E-325 | one generic Artifact retrieval boundary |\n| CA-R-1130, CA-R-1131 | CA-M-208 | CA-E-326 | one generic Artifact patch boundary |\n| CA-R-1132, CA-R-1133, CA-R-1134 | CA-M-209 | CA-E-327 | one generic carrier construction-and-transition procedure |\n| CA-R-1138, CA-R-1139, CA-R-1140 | CA-M-210 | CA-E-328 | one migration plan/apply/verify procedure |\n| CA-R-1141, CA-R-1142 | CA-M-211 | CA-E-329 | one catalog materialization-and-currentness procedure |\n| CA-R-1143 | CA-M-212 | CA-E-330 | one Project Settings patch boundary |\n| CA-R-1144, CA-R-1145, CA-R-1146 | CA-M-213 | CA-E-331 | one external provenance capture/ingest/reconcile procedure |\n| CA-R-1147 | CA-M-214 | CA-E-332 | one release-outcome record |\n| CA-R-1148 | CA-M-215 | CA-E-333 | one accepted-deferred-Plan boundary |\n| CA-R-1149 | CA-M-216 | CA-E-334 | one Extension-candidate extraction |\n| CA-R-1150 | CA-M-217 | CA-E-335 | one Core Extension packaging boundary |\n| CA-R-1151, CA-R-1152 | CA-M-218 | CA-E-336 | one source-resolution-and-installed-state procedure |\n| CA-R-1153, CA-R-1154, CA-R-1155, CA-R-1156 | CA-M-219 | CA-E-337 | one repeated Tool-unit registration procedure |\n\n## Coverage result\n\nThe matrix covers 53 of 53 scoped Requirements through 38 current Methods and\n38 current Evaluations. Each scoped Requirement has exactly one direct\n`method_for` owner, and every selected Method has exactly one direct\n`evaluation_for` owner. The Methods and Evaluations are accepted realization\nauthority; they do not claim native implementation, runtime execution, or\npassing test evidence.\n\nAll new carriers use the owning Scope Unit's canonical Method or Evaluation\nlocation. Methods that realize Core Requirements carry the Core local-tier\nfilename token; the associated QA_CASE carriers remain Evaluation acceptance\ncases. The direct relations are requirement-to-method and method-to-evaluation\nonly, with no duplicate or inverse ownership.\n\n## Reopening conditions\n\nReopen CA-P-082 if a scoped Requirement changes, if any listed Method becomes\nindependently replaceable from its grouped boundary, if an Evaluation's\ncontrolled-fixture case splits into independently executable cases, or if\nBSEED relation, type, tier, or lifecycle authority changes.\n",
+      "after": "---\natom_id: CA-A-059\ntopics:\n  main_subject:\n    continuant:\n      - programmatic-policy\n    occurrent:\n      - validation\nrelations:\n  derived_from:\n    - CA-A-058\nversion: 4\nupdated_at: 2026-10-23 03:17:34 +0400\nstatus: Done\n---\n# Close deferred PROGRAMMATIC Requirement realization gaps\n\n## Scope and classification\n\nCA-P-082 selected the 53 active Requirement IDs deferred by CA-A-058. Every\nselected Requirement remains current authority. None was retired or merely\nbounded because each still states a valid, distinct acceptance obligation.\n\nThe 53 obligations reduce to 38 direct Method boundaries only where the\nMethod's one independently replaceable procedure genuinely serves every\nlisted Requirement. The remaining boundaries are singular. No Evaluation\ndeclares a Requirement relation: every Evaluation declares exactly one direct\n`evaluation_for` relation to its Method and contains one executable\ncontrolled-fixture acceptance case.\n\n## Current realization matrix\n\n| Requirement boundary | Method | Evaluation | Classification |\n| --- | --- | --- | --- |\n| CA-R-802 | CA-M-182 | CA-E-300 | one topology |\n| CA-R-863 | CA-M-183 | CA-E-301 | one Finder |\n| CA-R-864 | CA-M-184 | CA-E-302 | one Finder |\n| CA-R-865 | CA-M-185 | CA-E-303 | one Doer |\n| CA-R-866 | CA-M-186 | CA-E-304 | one Doer |\n| CA-R-867 | CA-M-187 | CA-E-305 | one Doer |\n| CA-R-868 | CA-M-188 | CA-E-306 | one lifecycle Doer |\n| CA-R-869 | CA-M-189 | CA-E-307 | one lifecycle Doer |\n| CA-R-870 | CA-M-190 | CA-E-308 | one lifecycle Doer |\n| CA-R-1094 | CA-M-191 | CA-E-309 | one Initiative boundary |\n| CA-R-1095 | CA-M-192 | CA-E-310 | one provenance boundary |\n| CA-R-1096 | CA-M-193 | CA-E-311 | one MCP handoff |\n| CA-R-1097, CA-R-1098 | CA-M-194 | CA-E-312 | one repeated Feature-registration procedure |\n| CA-R-1099 | CA-M-195 | CA-E-313 | one Core Feature registration |\n| CA-R-1100, CA-R-1101 | CA-M-196 | CA-E-314 | one repeated direct-APPS-unit registration procedure |\n| CA-R-1102 | CA-M-197 | CA-E-315 | one Core unit registration |\n| CA-R-1103 | CA-M-198 | CA-E-316 | one graph-viewing boundary |\n| CA-R-1104 | CA-M-199 | CA-E-317 | one graph-context handoff boundary |\n| CA-R-1120 | CA-M-200 | CA-E-318 | one bidirectional reconciliation boundary |\n| CA-R-1122 | CA-M-201 | CA-E-319 | one portable-byte policy |\n| CA-R-1123 | CA-M-202 | CA-E-320 | one routing-tree validation |\n| CA-R-1124 | CA-M-203 | CA-E-321 | one script-to-Tool ownership rule |\n| CA-R-1125 | CA-M-204 | CA-E-322 | one data-stage pipeline validation |\n| CA-R-1127 | CA-M-205 | CA-E-323 | one Journal recovery boundary |\n| CA-R-1128 | CA-M-206 | CA-E-324 | one journal-projection boundary |\n| CA-R-1129, CA-R-1135 | CA-M-207 | CA-E-325 | one generic Artifact retrieval boundary |\n| CA-R-1130, CA-R-1131 | CA-M-208 | CA-E-326 | one generic Artifact patch boundary |\n| CA-R-1132, CA-R-1133, CA-R-1134 | CA-M-209 | CA-E-327 | one generic carrier construction-and-transition procedure |\n| CA-R-1138, CA-R-1139, CA-R-1140 | CA-M-210 | CA-E-328 | one migration plan/apply/verify procedure |\n| CA-R-1141, CA-R-1142 | CA-M-211 | CA-E-329 | one catalog materialization-and-currentness procedure |\n| CA-R-1143 | CA-M-212 | CA-E-330 | one Project Settings patch boundary |\n| CA-R-1144, CA-R-1145, CA-R-1146 | CA-M-213 | CA-E-331 | one external provenance capture/ingest/reconcile procedure |\n| CA-R-1147 | CA-M-214 | CA-E-332 | one release-outcome record |\n| CA-R-1148 | CA-M-215 | CA-E-333 | one accepted-deferred-Plan boundary |\n| CA-R-1149 | CA-M-216 | CA-E-334 | one Extension-candidate extraction |\n| CA-R-1150 | CA-M-217 | CA-E-335 | one Core Extension packaging boundary |\n| CA-R-1151, CA-R-1152 | CA-M-218 | CA-E-336 | one source-resolution-and-installed-state procedure |\n| CA-R-1153, CA-R-1154, CA-R-1155, CA-R-1156 | CA-M-219 | CA-E-337 | one repeated Tool-unit registration procedure |\n\n## Coverage result\n\nThe matrix covers 53 of 53 scoped Requirements through 38 current Methods and\n38 current Evaluations. Each scoped Requirement has exactly one direct\n`method_for` owner, and every selected Method has exactly one direct\n`evaluation_for` owner. The Methods and Evaluations are accepted realization\nauthority; they do not claim native implementation, runtime execution, or\npassing test evidence.\n\nAll new carriers use the owning Scope Unit's canonical Method or Evaluation\nlocation. Methods that realize Core Requirements carry the Core local-tier\nfilename token; the associated QA_CASE carriers remain Evaluation acceptance\ncases. The direct relations are requirement-to-method and method-to-evaluation\nonly, with no duplicate or inverse ownership.\n\n## Reopening conditions\n\nReopen CA-P-082 if a scoped Requirement changes, if any listed Method becomes\nindependently replaceable from its grouped boundary, if an Evaluation's\ncontrolled-fixture case splits into independently executable cases, or if\nBSEED relation, type, tier, or lifecycle authority changes.\n",
+      "status": "CONDITIONAL_DO_NOT_APPLY_UNTIL_ROLE_FORM_AND_HISTORY_REVIEW"
+    }
+  ],
+  "limits": [
+    "R1875 admits Done for Analysis Report/Rationale; its exact cited R1727@30 defines Done as completed bounded inquiry, but does not make every existing report Done.",
+    "Source-specific conclusion supports a conditional candidate, not a finding that Current Role/Form or archival eligibility has already been established.",
+    "The latest three retrievable revisions at the current path were checked; no prior Status found. --follow commit lists do not by themselves prove renamed-path content was recovered.",
+    "No Concern history, source, code, tests or Git writes.",
+    "D019/D021/D409/D022 have neither explicit Header ID nor Status. Historic same-name rename is path continuity, not native allocation proof."
+  ]
+}

@@ -74,7 +74,7 @@ class WorkbenchDockerE2E(WorkbenchGridDockerMixin, WorkbenchWatcherDockerMixin, 
         cls.runtime_root = Path(cls.runtime.name) / "runtime"
         cls.runtime_root.mkdir()
         cls.runtime_root.chmod(0o777)
-        cls.workbench_state = Path(cls.runtime.name) / "workbench"
+        cls.workbench_state = cls.runtime_root / "workbench"
         cls.workbench_state.mkdir()
         cls.workbench_state.chmod(0o777)
         cls.journal_state = Path(cls.runtime.name) / "journal"
@@ -106,7 +106,6 @@ class WorkbenchDockerE2E(WorkbenchGridDockerMixin, WorkbenchWatcherDockerMixin, 
                 "--tmpfs", "/tmp:rw,nosuid,nodev,size=256m",
                 "-p", f"127.0.0.1:{cls.port}:8092", "-v", f"{REPOSITORY}:/project:ro",
                 "-v", f"{cls.runtime_root}:/project/.caprmedio_runtime:rw",
-                "-v", f"{cls.workbench_state}:/project/.caprmedio_runtime/workbench:rw",
                 "-v", f"{cls.journal_state}:{cls.journal_mount}:rw",
                 image, "mcp-http",
             ],
@@ -133,9 +132,8 @@ class WorkbenchDockerE2E(WorkbenchGridDockerMixin, WorkbenchWatcherDockerMixin, 
                             or Path(runtime_mounts[0]["Source"]).resolve() != cls.runtime_root.resolve()):
                         raise RuntimeError("Workbench runtime root is not the owned writable host directory")
                     state_mounts = [mount for mount in json.loads(mounts) if mount["Destination"] == "/project/.caprmedio_runtime/workbench"]
-                    if (len(state_mounts) != 1 or not state_mounts[0]["RW"]
-                            or Path(state_mounts[0]["Source"]).resolve() != cls.workbench_state.resolve()):
-                        raise RuntimeError("Workbench runtime state mount is not writable")
+                    if state_mounts or cls.workbench_state.parent != cls.runtime_root:
+                        raise RuntimeError("Workbench state must use the owned runtime mount")
                     journal_mounts = [mount for mount in json.loads(mounts) if mount["Destination"] == cls.journal_mount]
                     if (len(journal_mounts) != 1 or not journal_mounts[0]["RW"]
                             or Path(journal_mounts[0]["Source"]).resolve() != cls.journal_state.resolve()):
