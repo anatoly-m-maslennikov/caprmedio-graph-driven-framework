@@ -1,0 +1,124 @@
+{
+  "status": "THREE_RELATION_PREVIEWS_CONDITIONAL_THREE_OPERATOR_DESCRIPTOR_HOLDS",
+  "candidates": [
+    {
+      "id": "CA-R-2780",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2780@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "draft_sha256": "b3dfa0b3de19c30a4b52f0360481d7eb9290f5e312c93efc67a9c0406091a221",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2780.preview.txt",
+      "candidate_sha256": "b3dfa0b3de19c30a4b52f0360481d7eb9290f5e312c93efc67a9c0406091a221",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2780.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "header_unchanged": true,
+      "status": "HELD_OPERATOR_DESCRIPTOR_BINDING"
+    },
+    {
+      "id": "CA-R-2781",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2781@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-containment-operator.md",
+      "draft_sha256": "18dc34b12918eb604da335536d1d47c6c9da66eddcc8ae34d1cbd6245f9d71dd",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2781.preview.txt",
+      "candidate_sha256": "18dc34b12918eb604da335536d1d47c6c9da66eddcc8ae34d1cbd6245f9d71dd",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2781.diff",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "header_unchanged": true,
+      "status": "HELD_OPERATOR_DESCRIPTOR_BINDING"
+    },
+    {
+      "id": "CA-R-2475",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "draft_sha256": "6e509c1ce6a243ec608c23d850982e76d1c5098afce03d54a418d15a17281465",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2475.preview.txt",
+      "candidate_sha256": "0c0e8b298ac8511e4f05e233d4f30ca7b7efa658335f3e99fa9968ecfa9bbafc",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2475.diff",
+      "diff_sha256": "19db2c44cc173ad779f7a0b72de2d583b5976c5adab97ee284e5806dbbd14fbe",
+      "header_unchanged": true,
+      "status": "READY_BOUNDED_REVIEW_WITH_R2720",
+      "review_basis": "R2613 generic model signature exception and R2720 bound Relation operand proposal; atomic typed-notation adoption required."
+    },
+    {
+      "id": "CA-R-2476",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "draft_sha256": "f8ddfc7f7583f80a266729bd7ecc685c3be8827384b34814586ef289cce324d0",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2476.preview.txt",
+      "candidate_sha256": "5ac7a5c5225304df1f0b21f12150275849ffeae816d3adc387315756f35f1330",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2476.diff",
+      "diff_sha256": "05861c80ec159823e04124e464f762e1fa1f94316115ed2e89feb3f03010e54e",
+      "header_unchanged": true,
+      "status": "READY_BOUNDED_REVIEW_WITH_R2720",
+      "review_basis": "R2613 generic model signature exception and R2720 bound Relation operand proposal; atomic typed-notation adoption required."
+    },
+    {
+      "id": "CA-R-2617",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2617@3-draft-CORE_META_MODEL-DECLARATION--declare-contains.md",
+      "draft_sha256": "1027c7364a26e46c70f68b0c064b22d3289bd80b51b229f38333923b2296a248",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2617.preview.txt",
+      "candidate_sha256": "fa4e2f8f535c527061f387433908929ca4def8ddbf5ede06352f44b7a239f071",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2617.diff",
+      "diff_sha256": "f07ce28606bd0c4abff9c0d766b37f7bcacde1cb44a3863a1caf4a89e08b1ce1",
+      "header_unchanged": true,
+      "status": "READY_BOUNDED_REVIEW_WITH_R2720",
+      "review_basis": "R2613 generic model signature exception and R2720 bound Relation operand proposal; atomic typed-notation adoption required."
+    },
+    {
+      "id": "CA-R-2720",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+      "current_sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2720.preview.txt",
+      "candidate_sha256": "db4146a66542029baa8f7b7778318ff4914e6c6abc461c082649fda47f600420",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2720.diff",
+      "diff_sha256": "0ce0d5f48f2d231d6bbf331d8677ad394d30a29246ed24c1b8e90e05d2fac05e",
+      "header_unchanged": true,
+      "status": "HELD_OPERATOR_DESCRIPTOR_BINDING",
+      "change": "Describe only alias($r) with an already bound Relation participant; no old named-instance operand compatibility. Existing Operator//Alias descriptor spelling remains a shared unresolved migration hold."
+    }
+  ],
+  "authority_pins": [
+    {
+      "id": "CA-R-2248",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "sha256": "4c155d2dc1e954a0c8f7e65ed10bfa8497118441f7e578ded6698df3ef14311b"
+    },
+    {
+      "id": "CA-R-2604",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2604@4-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "5943a9f239122d2cb79bc0136c30e59ec3ce78ca595c38c9750c3ae7382ecb50"
+    },
+    {
+      "id": "CA-R-2487",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "bcf9f4f21dc789909587a4fd008a727d1b612f51d2266086dc2a9a5c9e77ae17"
+    },
+    {
+      "id": "CA-R-2778",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-universal-quantification.md",
+      "sha256": "1562a014a018cc42a30468ead86a326037cacb79e1695732906a6704d9a6027d"
+    },
+    {
+      "id": "CA-R-2613",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md",
+      "sha256": "deb55e82a43174ac74898393143ff987ae64141e5d8f5c80aea5bc7f7fa6e5ae"
+    },
+    {
+      "id": "CA-R-2720",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+      "sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56"
+    },
+    {
+      "id": "CA-R-2355",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "sha256": "f055fbeae0965399e7660e6d4e0c70df72552ca1d4964a3f43221b3d9649deef"
+    }
+  ],
+  "clarifications": [
+    "Relation descriptor instances selected by `$x[<Relation>, (.Name = NAME)]` are model metadata; applied edges remain `((NAME))` and literals stay literal. Headers intentionally preserve Current Subject notation.",
+    "R2475/R2476 preview uses existing R2613 generic `$host`/`$target` endpoint signature only within Relation Declarations, with prose retaining endpoint restrictions. Moving R2476 signature from #instances to #model must be explicitly reviewed as a signature, not an instance fact.",
+    "R2617 retains the same inverse direction `<((HAS_INVERSE))`; / remains CONTAINS alias.",
+    "R2720 uses only alias($r) bound-Relation operand; formal Operator//Alias descriptor remains held pending shared Operator addressing."
+  ],
+  "blockers": [
+    "R2780/R2781 `Operator//Narrowing` and `Operator//Containment`, and R2720 `Operator//Alias` remain in bodies unchanged: targeted Current scan found no declaration of Operator.Name or approved filter addressing Operator descriptors. Replacing with an invented `.Name` or treating an Operator as Relation would be unsound.",
+    "These previews do not solve Subject metadata migration, named-instance collision outside their bodies, or / and // transition. Coordinate all mutually dependent syntax changes and exact pins.",
+    "R2720 and three Relation previews require atomic acceptance and coordinated typed-notation migration; existing `Relation//NAME` operator metadata and Subject headers are transitional."
+  ],
+  "boundary": "Preview-only; no native Draft, Current, code, tests, Workflow/Workbench or Git modifications."
+}

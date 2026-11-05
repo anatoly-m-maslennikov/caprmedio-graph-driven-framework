@@ -1,0 +1,46 @@
+{
+  "verdict": "PASS_BOUNDED_DRAFT_PREVIEW",
+  "manifest_sha256": "8a3e84648ef9cb8c23413d70bc65d78253f66a40fe9a857aada2164b0f9505ee",
+  "source_count": 23,
+  "source_pin_failures": [],
+  "r2557_preview_pin": true,
+  "r2557_diff_pin": true,
+  "metadata_unchanged": true,
+  "preview_sha256": "768d7816046fc85e10a8a775bb38e927d4031da3272d943451253b8e1411e263",
+  "semantic_checks": [
+    "One typed Event Record binding is shared by exactly-one outgoing IS_CONTAINED_BY Journal, RECORDS Event and HAS_EVENT_AUTHOR Actor; no second $record binder or duplicate Event Record selection.",
+    "Existing direction, bounds, Summary and immutable content preserved. No inverse permission inferred.",
+    "The latest three Run Draft hashes match the manifest unchanged.",
+    "Existing model-side {:0} spelling is unchanged by this narrow preview and remains in the coordinated notation migration."
+  ],
+  "gates": [
+    "Coordinate all source Drafts, their source syntax migration and endpoint permissions atomically before promotion.",
+    "The prospective :: spelling and typed variables must be integrated with governing CFEL source; this source review does not execute a parser or tests.",
+    "R2752 conditional Step-launched Action Run containment is prose, with permissive typed outgoing edge; no global Action Run cardinality inferred.",
+    "No executable runtime or actual Workflow-instance validation is claimed."
+  ],
+  "boundary": "Preview only; no native Draft, Current, code, tests or Git mutation.",
+  "actual_readback": {
+    "verdict": "PASS",
+    "plan_sha256": "4f51e44c10e485621696095ab5f9e6a99f70ef95b4599efd4389facdc2fcd62f",
+    "receipt_pin": true,
+    "receipt_reports_native_workflow_admission": false,
+    "receipt_reports_journal_append": false,
+    "actual_sha256": "2f3347ee081765f3c4801dc8ad24fdba2ef393e1c3793e08d12c90f212dbb8ad",
+    "actual_pin": true,
+    "plan_exact": true,
+    "reviewed_preimage_pin": true,
+    "preview_pin": true,
+    "body_exact": true,
+    "metadata_only_updated_at": true,
+    "current_pin": true,
+    "identity_version_status": [
+      "CA-R-2557",
+      5,
+      "Draft"
+    ],
+    "holds": [
+      "Current unchanged; coordinated Occurrent/notation adoption and external implementation/tests remain open."
+    ]
+  }
+}

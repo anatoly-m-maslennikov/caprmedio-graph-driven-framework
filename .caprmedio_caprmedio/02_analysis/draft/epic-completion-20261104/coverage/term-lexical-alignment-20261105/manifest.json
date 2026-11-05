@@ -1,0 +1,79 @@
+{
+  "status": "NO_CHANGE_CURRENT_DEFINITIONS_NODE_ONLY_PREVIEW_REJECTED",
+  "decisions": "Entity is the general Term for everything represented in the Subject graph, without an Entity root. Property-bearing grants apply to Node, Relation and Term branches; a Node Property classification does not narrow the generic Property Term.",
+  "source_pins": [
+    {
+      "id": "CA-M-451",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-451-CORE_META_MODEL-TERM_DEFINITION--define-entity.md",
+      "sha256": "cc83380cc43391664968b27b812f799030e57e9c7d88baa2ba329912e0d7a998"
+    },
+    {
+      "id": "CA-M-453",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md",
+      "sha256": "05aa611f0737b1abd55cde20d63328d12bbfec4d105a7b333cdf8472c5c5fa90"
+    },
+    {
+      "id": "CA-R-1318",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md",
+      "sha256": "8902cdffb5f5afab784c57cea141019daa65d60b168521fbcb660cb4f282acdd"
+    },
+    {
+      "id": "CA-R-2765",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2765-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md",
+      "sha256": "06c5863629ae52cc481f2b2472dec3cb2e1bfcf1fd2d109f470a98f07809ef62"
+    },
+    {
+      "id": "CA-R-2476",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "sha256": "0815c5de37042caf4d3f76777f7358c5509bf0f360f5d540f8c548ec9b677d9e"
+    },
+    {
+      "id": "CA-R-2247",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "b2204c4e8d43421bc1fa95ebf93dfae03eaf6749cef10015f97d3563bdb8cc22"
+    },
+    {
+      "id": "CA-R-1194",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+      "sha256": "f095f53c8785aa1a5b7a600e5b339ab96509186a82c97112edcff5df9094dc57"
+    }
+  ],
+  "dispositions": [
+    {
+      "id": "CA-M-451@7",
+      "status": "NO_CHANGE",
+      "reason": "Current meaning exactly matches Entity decision; retains Term Definition registration."
+    },
+    {
+      "id": "CA-M-453@6",
+      "status": "HELD_REJECTED_FOR_LATEST_BROADER_PROPERTY_GRANTS",
+      "reason": "Current generic Entity definition remains valid: later human decisions retain Properties on Relation and Term branches as well as Node. The Node-only preview is superseded, unapplied and not ready for Draft creation or promotion.",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-lexical-alignment-20261105/CA-M-453.preview.txt",
+      "sha256": "d84b7a37525210cf546e51201a72ec9dc1b2d9d4235318992b6c28836c155eec",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-lexical-alignment-20261105/CA-M-453.diff",
+      "diff_sha256": "a9e570cc8b3e544484b40a5c1e9d5fe0aaf9ebb751bc2d0214e0f30b83c61750"
+    },
+    {
+      "id": "CA-R-1318@37 and CA-R-2247",
+      "status": "NO_CHANGE",
+      "reason": "Retain existing Term and Relation Property-bearing grants; Node classification does not erase these separate branch authorities."
+    },
+    {
+      "id": "CA-R-2765@5",
+      "status": "NO_CHANGE",
+      "reason": "Current Method/Form Term Definition registration remains intact."
+    },
+    {
+      "id": "CA-R-2476 Current",
+      "status": "NO_CHANGE",
+      "reason": "Already explicitly permits a Property instance to have both bearer and kind Relations; no exclusivity is added."
+    },
+    {
+      "id": "CA-R-1194 Current",
+      "status": "SEPARATE_HOLD",
+      "reason": "Still asserts Entity as root; conflicts with already settled no Entity root, and is outside this bounded lexical packet. Universal scope authority and syntax require separate repair."
+    }
+  ],
+  "version_evidence": "Native Current M451@7 and M453@6; no active native Draft found for either. Historical versions observed only through @5; root owns successor version allocation and lifecycle.",
+  "boundary": "No native sources changed. Node-only M453 preview is superseded and must not be applied. M451@7 and M453@6 remain Current and unchanged; R1194 Entity-root contradiction remains separately held."
+}

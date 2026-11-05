@@ -1,0 +1,343 @@
+{
+  "packet": "path-notation-definitions-20261105/integrated-bodies",
+  "review_date": "2026-11-05",
+  "status": "FOUR_PASS_BOUNDED_REVIEW",
+  "scope": "Independent preview-body review only; no native Current/Draft, code, tests, Workflow/Workbench or Git changes.",
+  "atomicity": "R2475, R2476, R2617 and R2720 remain an atomic notation migration gate as their manifest states; this review does not authorize standalone adoption.",
+  "proposals": [
+    {
+      "verdict": "PASS_BOUNDED",
+      "reason": "The generic $host/$target signature is expressly limited by Current R2613 to Relation Declaration Formal Claims. The direct NARROWER_THAN edge and HAS_NARROWER inverse binding remain in the same direction as the source. The single alias is on the direct Relation; prose explicitly defines // as reverse traversal (X//Y means Y is narrower than X). No endpoint permission is added.",
+      "formal_checks": {
+        "active_subject_count": 1,
+        "has_inverse_bindings": 1,
+        "aliases": 1,
+        "classification_direct": 1,
+        "header_unchanged": true,
+        "summary_unchanged": true
+      },
+      "authority": [
+        "CA-R-2613",
+        "CA-R-2720",
+        "CA-R-2475",
+        "CA-R-2620"
+      ],
+      "id": "CA-R-2475",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "source_sha256": "6e509c1ce6a243ec608c23d850982e76d1c5098afce03d54a418d15a17281465",
+      "manifest_source_sha256": "6e509c1ce6a243ec608c23d850982e76d1c5098afce03d54a418d15a17281465",
+      "source_pin_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2475.preview.txt",
+      "candidate_sha256": "0c0e8b298ac8511e4f05e233d4f30ca7b7efa658335f3e99fa9968ecfa9bbafc",
+      "manifest_candidate_sha256": "0c0e8b298ac8511e4f05e233d4f30ca7b7efa658335f3e99fa9968ecfa9bbafc",
+      "candidate_pin_matches": true,
+      "header_unchanged": true,
+      "body_changed": true
+    },
+    {
+      "verdict": "PASS_BOUNDED",
+      "reason": "The generic signature is Relation-Declaration-only under Current R2613. INSTANCE_OF remains the direct instance-to-kind direction, HAS_INSTANCE its inverse; the Draft has one inverse binding and marks INSTANCE_OF direct. Moving the generic signature under #model does not create instance facts. No endpoint permission is added.",
+      "formal_checks": {
+        "active_subject_count": 1,
+        "has_inverse_bindings": 1,
+        "aliases": 0,
+        "classification_direct": 1,
+        "header_unchanged": true,
+        "summary_unchanged": true
+      },
+      "authority": [
+        "CA-R-2613",
+        "CA-R-2476",
+        "CA-R-2485"
+      ],
+      "id": "CA-R-2476",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "source_sha256": "f8ddfc7f7583f80a266729bd7ecc685c3be8827384b34814586ef289cce324d0",
+      "manifest_source_sha256": "f8ddfc7f7583f80a266729bd7ecc685c3be8827384b34814586ef289cce324d0",
+      "source_pin_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2476.preview.txt",
+      "candidate_sha256": "5ac7a5c5225304df1f0b21f12150275849ffeae816d3adc387315756f35f1330",
+      "manifest_candidate_sha256": "5ac7a5c5225304df1f0b21f12150275849ffeae816d3adc387315756f35f1330",
+      "candidate_pin_matches": true,
+      "header_unchanged": true,
+      "body_changed": true
+    },
+    {
+      "verdict": "PASS_BOUNDED",
+      "reason": "The inverse traversal is intentional and matches the existing direct/derived containment direction: IS_CONTAINED_BY is direct child-to-parent and CONTAINS is its inverse. Thus $contains <((HAS_INVERSE)) $contained_by binds the direct HAS_INVERSE relation from $contained_by to $contains; the slash alias on CONTAINS expresses parent-to-child traversal. One inverse binding and one alias only; no endpoint permission is added.",
+      "formal_checks": {
+        "active_subject_count": 1,
+        "has_inverse_bindings": 1,
+        "aliases": 1,
+        "header_unchanged": true,
+        "summary_unchanged": true
+      },
+      "authority": [
+        "CA-R-2485",
+        "CA-R-1040",
+        "CA-R-2617",
+        "CA-R-2767"
+      ],
+      "id": "CA-R-2617",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2617@3-draft-CORE_META_MODEL-DECLARATION--declare-contains.md",
+      "source_sha256": "1027c7364a26e46c70f68b0c064b22d3289bd80b51b229f38333923b2296a248",
+      "manifest_source_sha256": "1027c7364a26e46c70f68b0c064b22d3289bd80b51b229f38333923b2296a248",
+      "source_pin_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2617.preview.txt",
+      "candidate_sha256": "fa4e2f8f535c527061f387433908929ca4def8ddbf5ede06352f44b7a239f071",
+      "manifest_candidate_sha256": "fa4e2f8f535c527061f387433908929ca4def8ddbf5ede06352f44b7a239f071",
+      "candidate_pin_matches": true,
+      "header_unchanged": true,
+      "body_changed": true
+    },
+    {
+      "verdict": "PASS_BOUNDED",
+      "reason": "The refreshed preview uses only alias($r) for an already bound Relation participant selected through the existing typed selector. It removes Relation//NAME compatibility from the claim examples, retains exact-name/one-alias/conflict semantics and Summary/metadata, and adds no Relation.Name property, alias function, endpoint permission, or inverse binding. The unchanged Operator//Alias descriptor and broader descriptor-notation adoption remain outside this bounded body review.",
+      "formal_checks": {
+        "active_subject_count": 1,
+        "aliases": 1,
+        "header_unchanged": true,
+        "summary_unchanged": true,
+        "formal_claim_and_prose_updated": true
+      },
+      "authority": [
+        "CA-R-2720",
+        "CA-R-2355",
+        "CA-R-2487",
+        "CA-R-2604"
+      ],
+      "id": "CA-R-2720",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+      "source_sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+      "manifest_source_sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+      "source_pin_matches": true,
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2720.preview.txt",
+      "candidate_sha256": "db4146a66542029baa8f7b7778318ff4914e6c6abc461c082649fda47f600420",
+      "manifest_candidate_sha256": "db4146a66542029baa8f7b7778318ff4914e6c6abc461c082649fda47f600420",
+      "candidate_pin_matches": true,
+      "header_unchanged": true,
+      "body_changed": true
+    }
+  ],
+  "authority_pins": [
+    {
+      "id": "CA-R-2248",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "manifest_sha256": "4c155d2dc1e954a0c8f7e65ed10bfa8497118441f7e578ded6698df3ef14311b",
+      "actual_sha256": "4c155d2dc1e954a0c8f7e65ed10bfa8497118441f7e578ded6698df3ef14311b",
+      "matches": true
+    },
+    {
+      "id": "CA-R-2604",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2604@4-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "manifest_sha256": "5943a9f239122d2cb79bc0136c30e59ec3ce78ca595c38c9750c3ae7382ecb50",
+      "actual_sha256": "5943a9f239122d2cb79bc0136c30e59ec3ce78ca595c38c9750c3ae7382ecb50",
+      "matches": true
+    },
+    {
+      "id": "CA-R-2487",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "manifest_sha256": "bcf9f4f21dc789909587a4fd008a727d1b612f51d2266086dc2a9a5c9e77ae17",
+      "actual_sha256": "bcf9f4f21dc789909587a4fd008a727d1b612f51d2266086dc2a9a5c9e77ae17",
+      "matches": true
+    },
+    {
+      "id": "CA-R-2778",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-universal-quantification.md",
+      "manifest_sha256": "1562a014a018cc42a30468ead86a326037cacb79e1695732906a6704d9a6027d",
+      "actual_sha256": "1562a014a018cc42a30468ead86a326037cacb79e1695732906a6704d9a6027d",
+      "matches": true
+    },
+    {
+      "id": "CA-R-2613",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md",
+      "manifest_sha256": "deb55e82a43174ac74898393143ff987ae64141e5d8f5c80aea5bc7f7fa6e5ae",
+      "actual_sha256": "deb55e82a43174ac74898393143ff987ae64141e5d8f5c80aea5bc7f7fa6e5ae",
+      "matches": true
+    },
+    {
+      "id": "CA-R-2720",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+      "manifest_sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+      "actual_sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+      "matches": true
+    },
+    {
+      "id": "CA-R-2355",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2355-CORE_META_MODEL-ENTITY_DEFINITION--define-relation-name.md",
+      "manifest_sha256": "f055fbeae0965399e7660e6d4e0c70df72552ca1d4964a3f43221b3d9649deef",
+      "actual_sha256": "f055fbeae0965399e7660e6d4e0c70df72552ca1d4964a3f43221b3d9649deef",
+      "matches": true
+    },
+    {
+      "id": "CA-R-1040",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-RULE--reject-authored-inverse-relations.md",
+      "actual_sha256": "bd821e802387393d1bd3ddd21e35a5bcb000b76cbaefb41f0dee80cd3b5a1123",
+      "matches": true,
+      "pin_origin": "direct live Current read"
+    },
+    {
+      "id": "CA-R-2767",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2767-CORE_META_MODEL-DECLARATION--declare-is-specialized-by.md",
+      "actual_sha256": "023fa028948d0bbc9e0c6351e290027bce7c51075ef7f3a187c0c3da7d80ae33",
+      "matches": true,
+      "pin_origin": "direct live Current read"
+    }
+  ],
+  "limitations": [
+    "No runtime or parser validation was performed.",
+    "Operator descriptor addressing/Subject migration and the held R2780/R2781 proposals remain out of scope.",
+    "Review confirms proposal/source pins, not readiness of the broader atomic migration."
+  ],
+  "actual_readback": {
+    "status": "FOUR_DRAFT_OUTPUTS_MATCH_APPROVED_PREVIEWS",
+    "application_receipt_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/path-integrated-bodies-drafts-20261105/adoption-receipt.json",
+    "application_plan_sha256": "651f15ad5ba03eab124034a99d0ac29fa4ccaafb3c7944a77e348c6a94e7812c",
+    "operation_count": 4,
+    "native_workflow_admission": false,
+    "journal_append": false,
+    "draft_outputs": [
+      {
+        "id": "CA-R-2475",
+        "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+        "actual_sha256": "5dca3569b44a6183d8f24fae240e2ae407327600f08fbba5958813b9dde6d652",
+        "receipt_sha256": "5dca3569b44a6183d8f24fae240e2ae407327600f08fbba5958813b9dde6d652",
+        "actual_hash_matches_receipt": true,
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2475.preview.txt",
+        "candidate_sha256": "0c0e8b298ac8511e4f05e233d4f30ca7b7efa658335f3e99fa9968ecfa9bbafc",
+        "candidate_pin_matches_plan": true,
+        "body_matches_approved_preview": true,
+        "version": 6,
+        "new_draft": false,
+        "existing_draft_header_normalization": "only updated_at changed"
+      },
+      {
+        "id": "CA-R-2476",
+        "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+        "actual_sha256": "1af71d260bfa51ab09b0cdc673e229176819d9e45a81f0cba113e73062e75937",
+        "receipt_sha256": "1af71d260bfa51ab09b0cdc673e229176819d9e45a81f0cba113e73062e75937",
+        "actual_hash_matches_receipt": true,
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2476.preview.txt",
+        "candidate_sha256": "5ac7a5c5225304df1f0b21f12150275849ffeae816d3adc387315756f35f1330",
+        "candidate_pin_matches_plan": true,
+        "body_matches_approved_preview": true,
+        "version": 7,
+        "new_draft": false,
+        "existing_draft_header_normalization": "only updated_at changed"
+      },
+      {
+        "id": "CA-R-2617",
+        "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2617@3-draft-CORE_META_MODEL-DECLARATION--declare-contains.md",
+        "actual_sha256": "f10509a3cd3a9b13107d6d7746035e6c41a3cb5df55bc13c379e1cab07bedb0c",
+        "receipt_sha256": "f10509a3cd3a9b13107d6d7746035e6c41a3cb5df55bc13c379e1cab07bedb0c",
+        "actual_hash_matches_receipt": true,
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2617.preview.txt",
+        "candidate_sha256": "fa4e2f8f535c527061f387433908929ca4def8ddbf5ede06352f44b7a239f071",
+        "candidate_pin_matches_plan": true,
+        "body_matches_approved_preview": true,
+        "version": 3,
+        "new_draft": false,
+        "existing_draft_header_normalization": "only updated_at changed"
+      },
+      {
+        "id": "CA-R-2720",
+        "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2720@2-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+        "actual_sha256": "5bdad8125dcd42d020773e602e6c38b81625c8cebefd202445c8efa11d916ac7",
+        "receipt_sha256": "5bdad8125dcd42d020773e602e6c38b81625c8cebefd202445c8efa11d916ac7",
+        "actual_hash_matches_receipt": true,
+        "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2720.preview.txt",
+        "candidate_sha256": "db4146a66542029baa8f7b7778318ff4914e6c6abc461c082649fda47f600420",
+        "candidate_pin_matches_plan": true,
+        "body_matches_approved_preview": true,
+        "version": 2,
+        "new_draft": true,
+        "existing_draft_header_normalization": "new Draft created from approved candidate with Draft identity/version/UpdatedAt metadata"
+      }
+    ],
+    "readback_scope": "Whole body equals approved preview; target hashes equal receipt. Existing Draft headers normalized UpdatedAt to application time; R2720 was created as @2 Draft. Only Draft targets occur in the application plan.",
+    "current_readback": [
+      {
+        "id": "CA-R-2475",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+        "sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c",
+        "expected_manifest_sha256": null,
+        "matches_expected": null
+      },
+      {
+        "id": "CA-R-2476",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+        "sha256": "0815c5de37042caf4d3f76777f7358c5509bf0f360f5d540f8c548ec9b677d9e",
+        "expected_manifest_sha256": null,
+        "matches_expected": null
+      },
+      {
+        "id": "CA-R-2617",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md",
+        "sha256": "129277b5d905006aed8279b20be9ed45ed8fcc1733b3097ca07321cdb03db16d",
+        "expected_manifest_sha256": null,
+        "matches_expected": null
+      },
+      {
+        "id": "CA-R-2720",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+        "sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+        "expected_manifest_sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+        "matches_expected": true
+      }
+    ],
+    "held_operator_drafts": [
+      {
+        "id": "CA-R-2780",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2780@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+        "sha256": "b3dfa0b3de19c30a4b52f0360481d7eb9290f5e312c93efc67a9c0406091a221",
+        "matches_manifest": true,
+        "status": "HELD_OPERATOR_DESCRIPTOR_BINDING"
+      },
+      {
+        "id": "CA-R-2781",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2781@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-containment-operator.md",
+        "sha256": "18dc34b12918eb604da335536d1d47c6c9da66eddcc8ae34d1cbd6245f9d71dd",
+        "matches_manifest": true,
+        "status": "HELD_OPERATOR_DESCRIPTOR_BINDING"
+      }
+    ],
+    "descriptor_hold": "R2720 remains held for Operator descriptor addressing; R2780/R2781 remain held and byte-identical to manifest source pins.",
+    "limitations": [
+      "Readback confirms source Draft files and hashes only; it does not establish native adoption or runtime/parser behavior."
+    ],
+    "current_readback_scope": {
+      "current_write_targets_in_plan": [],
+      "current_carriers_directly_read_after_apply": [
+        {
+          "id": "CA-R-2475",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+          "sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c",
+          "expected_manifest_sha256": null,
+          "matches_expected": null
+        },
+        {
+          "id": "CA-R-2476",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+          "sha256": "0815c5de37042caf4d3f76777f7358c5509bf0f360f5d540f8c548ec9b677d9e",
+          "expected_manifest_sha256": null,
+          "matches_expected": null
+        },
+        {
+          "id": "CA-R-2617",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md",
+          "sha256": "129277b5d905006aed8279b20be9ed45ed8fcc1733b3097ca07321cdb03db16d",
+          "expected_manifest_sha256": null,
+          "matches_expected": null
+        },
+        {
+          "id": "CA-R-2720",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+          "sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+          "expected_manifest_sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+          "matches_expected": true
+        }
+      ],
+      "interpretation": "The receipt-backed operation list targets only Draft paths, so this application did not write Current. The R2720 Current input still matches its pinned preimage. For the three existing Draft rebases, the operation receipt does not carry separate pre-apply Current hashes; their post-apply Current hashes are recorded as direct reads, not compared to a receipt pin."
+    }
+  }
+}

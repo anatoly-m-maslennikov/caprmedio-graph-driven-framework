@@ -4,7 +4,7 @@ role: Requirement
 form: Declaration
 status: Draft
 version: 3
-updated_at: 2026-11-05 05:13:56 +0400
+updated_at: 2026-11-05 06:30:39 +0400
 tier: 3
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//CONTAINS
@@ -26,9 +26,12 @@ Declare CONTAINS
 
 ```CFEL
 # model
-Relation//CONTAINS <((HAS_INVERSE)) Relation//IS_CONTAINED_BY;
+$contains[<Relation>, (.Name = CONTAINS)];
+$contained_by[<Relation>, (.Name = IS_CONTAINED_BY)];
 
-alias(Relation//CONTAINS) == "/"
+$contains <((HAS_INVERSE)) $contained_by;
+
+alias($contains) == "/"
 ```
 
 ## Semantics

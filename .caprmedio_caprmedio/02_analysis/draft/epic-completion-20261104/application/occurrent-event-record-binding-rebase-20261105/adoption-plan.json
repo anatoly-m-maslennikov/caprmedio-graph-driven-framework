@@ -1,0 +1,27 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2557",
+      "version": 5,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/endpoint-closure-20261105/CA-R-2557.preview.txt",
+      "preview_sha256": "768d7816046fc85e10a8a775bb38e927d4031da3272d943451253b8e1411e263",
+      "sha256": "2f3347ee081765f3c4801dc8ad24fdba2ef393e1c3793e08d12c90f212dbb8ad"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "before": "---\natom_id: CA-R-2557\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Event Record\nversion: 5\nupdated_at: 2026-11-05 03:46:06 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Event Record\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nEvent Record {:0}((IS_PROPERTY_OF));\n\nEvent Record ((NARROWER_THAN)) Continuant;\n\n# instances\nEvent Record//$event_record {::1}((IS_CONTAINED_BY)) Journal//$journal;\n\nEvent Record//$record {::1}((RECORDS)) Event//$event;\n\nEvent Record//$record {::1}((HAS_EVENT_AUTHOR)) Actor//$actor\n```\n\n### Prose Claim\n\n\nAn Event Record is immutable.\n\n\n## Semantics\n\nAn Event Record is a persistent description of an event and its recorded evidence.\n",
+      "before_sha256": "6c90badefbd3e26b7815471481dd3ef3cc7542e5d33bd37b22053db4900c76c3",
+      "after": "---\natom_id: CA-R-2557\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Event Record\nversion: 5\nupdated_at: 2026-11-05 06:25:03 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Event Record\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nEvent Record {:0}((IS_PROPERTY_OF));\n\nEvent Record ((NARROWER_THAN)) Continuant;\n\n# instances\nEvent Record//$event_record {::1}((IS_CONTAINED_BY)) Journal//$journal;\n\n$event_record {::1}((RECORDS)) Event//$event;\n\n$event_record {::1}((HAS_EVENT_AUTHOR)) Actor//$actor\n```\n\n### Prose Claim\n\n\nAn Event Record is immutable.\n\n\n## Semantics\n\nAn Event Record is a persistent description of an event and its recorded evidence.\n",
+      "after_sha256": "2f3347ee081765f3c4801dc8ad24fdba2ef393e1c3793e08d12c90f212dbb8ad"
+    }
+  ],
+  "holds": [
+    "Current unchanged; coordinated Occurrent/notation adoption and external implementation/tests remain open."
+  ]
+}

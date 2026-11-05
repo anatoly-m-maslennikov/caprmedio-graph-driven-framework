@@ -1,0 +1,19 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-453-CORE_META_MODEL-TERM_DEFINITION--define-property.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/term-lexical-alignment-20261105/CA-M-453.preview.txt
+@@ -8,8 +8,9 @@
+   active: CAPRMEDIO_MODEL <+ Term//Property
+   passive:
+   - CAPRMEDIO_MODEL <+ Term
+-  - CAPRMEDIO_MODEL <+ Term//Entity
++  - CAPRMEDIO_MODEL <+ Node
+   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
++  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//INSTANCE_OF
+   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
+ relations:
+   IS_CONTAINED_BY:
+@@ -29,4 +30,4 @@
+ 
+ ### Prose Claim
+ 
+-Property means an Entity whose identity depends on exactly one immediate bearer through the direct IS_PROPERTY_OF Relation.
++Property means a Node whose identity depends on exactly one immediate bearer through the direct IS_PROPERTY_OF Relation. It may also have an INSTANCE_OF Relation.

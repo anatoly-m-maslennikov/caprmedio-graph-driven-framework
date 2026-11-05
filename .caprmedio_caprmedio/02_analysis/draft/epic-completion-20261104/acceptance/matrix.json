@@ -534,7 +534,19 @@
       "CA-R-2476@7",
       "CA-R-2617@3"
     ],
-    "reverse": "Existing named reverse available; no additional compact reverse glyph required."
+    "reverse": "Existing named reverse available; no additional compact reverse glyph required.",
+    "integrated_body_draft_writes": {
+      "drafts": [
+        "CA-R-2475@6",
+        "CA-R-2476@7",
+        "CA-R-2617@3",
+        "CA-R-2720@2"
+      ],
+      "receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/path-integrated-bodies-drafts-20261105",
+      "preview_review": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/path-integrated-bodies-preview-review-20261105.json",
+      "status": "Preview and actual readback passed. Descriptor addressing held for R2720 and R2780/R2781; no Current promotion or Subject migration.",
+      "current_frontier_preservation": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/path-integrated-bodies-drafts-20261105/current-frontier-preservation.json"
+    }
   },
   "scope_declaration_source_snapshot": {
     "declarations": 46,
@@ -578,5 +590,17 @@
     ],
     "adoption": "source admission and integration pending"
   },
-  "latest_verification_task_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/p2707-delivery-writer-handoff-20261105/adoption-receipt.json"
+  "latest_verification_task_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/p2707-delivery-writer-handoff-20261105/adoption-receipt.json",
+  "latest_bounded_checkpoint": {
+    "commit": "5d4dffefad7fe64cc41976640ff1717bd5d327e0",
+    "branch": "amm/dev",
+    "server_ack": "4142f61b8d..5d4dffefad HEAD -> amm/dev",
+    "final_epic_publication": false,
+    "event_record": "R2557@5 actual Draft single-binding repair; not Current promotion",
+    "preview_review": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/occurrent-endpoint-single-binding-preview-review-20261105.json",
+    "actual_readback": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/occurrent-event-record-binding-rebase-20261105",
+    "term_definitions": "M451@7 and M453@6 preserved; Node-only M453 preview rejected given Relation and Term Property grants.",
+    "supplier_recheck": "Preservation proof verifies all 1167 selected Current supplier hashes unchanged after both actual batches; no projection regeneration for Draft-only changes.",
+    "pending": "Descriptor addressing, Project root ID and external CA #3 gates remain open."
+  }
 }

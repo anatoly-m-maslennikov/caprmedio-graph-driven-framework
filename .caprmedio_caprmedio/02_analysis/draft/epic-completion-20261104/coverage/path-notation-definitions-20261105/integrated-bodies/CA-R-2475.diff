@@ -1,0 +1,23 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/integrated-bodies/CA-R-2475.preview.txt
+@@ -26,13 +26,16 @@
+ 
+ ```CFEL
+ # model
+-$narrower ((NARROWER_THAN)) $broader;
++$host ((NARROWER_THAN)) $target;
+ 
+-Relation//NARROWER_THAN ((HAS_INVERSE)) Relation//HAS_NARROWER;
++$direct[<Relation>, (.Name = NARROWER_THAN)];
++$inverse[<Relation>, (.Name = HAS_NARROWER)];
+ 
+-alias(Relation//NARROWER_THAN) == "//";
++$direct ((HAS_INVERSE)) $inverse;
+ 
+-Relation//NARROWER_THAN ((HAS_CLASSIFICATION)) Derivation == Direct
++alias($direct) == "//";
++
++$direct ((HAS_CLASSIFICATION)) Derivation == Direct
+ ```
+ 
+ ### Prose Claim

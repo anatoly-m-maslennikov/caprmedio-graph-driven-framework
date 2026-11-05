@@ -4,7 +4,7 @@ status: Draft
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
 version: 6
-updated_at: 2026-11-05 05:13:56 +0400
+updated_at: 2026-11-05 06:30:39 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
@@ -26,13 +26,16 @@ Define NARROWER_THAN
 
 ```CFEL
 # model
-$narrower ((NARROWER_THAN)) $broader;
+$host ((NARROWER_THAN)) $target;
 
-Relation//NARROWER_THAN ((HAS_INVERSE)) Relation//HAS_NARROWER;
+$direct[<Relation>, (.Name = NARROWER_THAN)];
+$inverse[<Relation>, (.Name = HAS_NARROWER)];
 
-alias(Relation//NARROWER_THAN) == "//";
+$direct ((HAS_INVERSE)) $inverse;
 
-Relation//NARROWER_THAN ((HAS_CLASSIFICATION)) Derivation == Direct
+alias($direct) == "//";
+
+$direct ((HAS_CLASSIFICATION)) Derivation == Direct
 ```
 
 ### Prose Claim

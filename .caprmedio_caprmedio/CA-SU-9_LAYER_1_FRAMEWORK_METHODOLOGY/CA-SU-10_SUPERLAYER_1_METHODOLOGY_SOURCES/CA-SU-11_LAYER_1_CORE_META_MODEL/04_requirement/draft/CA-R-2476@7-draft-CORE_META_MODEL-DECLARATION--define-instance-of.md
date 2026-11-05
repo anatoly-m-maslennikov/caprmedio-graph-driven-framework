@@ -4,7 +4,7 @@ status: Draft
 subjects:
   active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//INSTANCE_OF
 version: 7
-updated_at: 2026-11-05 05:13:56 +0400
+updated_at: 2026-11-05 06:30:39 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
@@ -26,12 +26,14 @@ Define INSTANCE_OF
 
 ```CFEL
 # model
-Relation//INSTANCE_OF ((HAS_INVERSE)) Relation//HAS_INSTANCE;
+$host ((INSTANCE_OF)) $target;
 
-Relation//INSTANCE_OF ((HAS_CLASSIFICATION)) Derivation == Direct;
+$direct[<Relation>, (.Name = INSTANCE_OF)];
+$inverse[<Relation>, (.Name = HAS_INSTANCE)];
 
-# instances
-$instance ((INSTANCE_OF)) $kind;
+$direct ((HAS_INVERSE)) $inverse;
+
+$direct ((HAS_CLASSIFICATION)) Derivation == Direct
 ```
 
 ### Prose Claim
