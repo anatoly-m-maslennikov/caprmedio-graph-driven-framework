@@ -1,0 +1,29 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "sources": [
+    {
+      "id": "CA-R-2817",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2817@1-draft-CORE_META_MODEL-RULE--define-relation-alias-syntax-with-alias-r.md",
+      "source_sha256": "c51ffdc05c1a4dfe1062c578cd80ec0c7c13a0590ca410e76db949ce303bad3f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/grammar/CA-R-2817.preview.txt",
+      "preview_sha256": "1f437547d2352c489d7da585215aeb4d00cda004fdd02df4027961ffb39d86c9",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/grammar/CA-R-2817.diff",
+      "diff_sha256": "8d0c34a53d184794ec85be97de341c0384b01079794a08ae0b7aac3551e50ccb"
+    },
+    {
+      "id": "CA-R-2247",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@12-draft-CORE_META_MODEL-DECLARATION--define-relation.md",
+      "source_sha256": "0a6754df4861f552be7980356b04ab46a71150e1222137551995ece334fcfc12",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/grammar/CA-R-2247.preview.txt",
+      "preview_sha256": "c7a11f63786fbd34bbf7d7d7da5afb5525d0125008de70b833612b853fa9eca0",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/grammar/CA-R-2247.diff",
+      "diff_sha256": "3d138b4dbc829209a84a63fc0d618c63696e6a72f0946adaf2de256e8ce6f493"
+    }
+  ],
+  "notes": [
+    "IS_INVERSE_ALIAS_FOR Host is an inverse alias model address, not a data literal or separate Alias entity.",
+    "Only value Relation pairs admit literal or constraint data endpoints; glyph strings remain notation metadata, not graph facts.",
+    "Qualified IS_DECLARED_BY remains unresolved and is not normalized into an unconditional inverse."
+  ],
+  "limits": "No native source, Draft, code, tests, Workflow, Workbench or Git changes."
+}

@@ -24,7 +24,7 @@ $host ((IS_INVERSE_ALIAS_FOR)) $target
 
 ### Prose Claim
 
-IS_INVERSE_ALIAS_FOR binds an inverse alias model address to its canonical Relation model address. The inverse alias is introduced by the canonical Relation Declaration and is not a separate Relation entity or Declaration. Its written endpoints reverse the canonical Relation's endpoints; both writings refer to the same fact. This binding grants no endpoint permission and creates no second authored Relation fact.
+IS_INVERSE_ALIAS_FOR binds an inverse alias model address to its canonical Relation model address. The inverse alias is introduced by the canonical Relation Declaration and is not a separate Relation entity or Declaration. Normalizing an inverse alias to its canonical Relation swaps the written endpoints and their cardinality slots, preserving the numeric bounds. Explicit reverse writing of an inverse alias reverses its endpoints and slots again. Both writings refer to the same fact. This binding infers no bounds, grants no endpoint permission and creates no second authored Relation fact.
 
 ## Semantics
 

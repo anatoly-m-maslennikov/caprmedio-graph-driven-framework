@@ -1,14 +1,14 @@
 {
-  "status": "READY_FOR_INDEPENDENT_REVIEW_WITH_GLYPH_BINDING_HOLD",
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
   "canonical_candidates": [
     {
       "id": "CA-R-2478",
       "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
       "source_sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
       "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/CA-R-2478.preview.txt",
-      "preview_sha256": "28fb71ec4591cfddf2730f327010c541f560a25e1169802b522eeb9824161db2",
+      "preview_sha256": "cf5243e873ee3d4a757262fbaf4604da2a790085c0d6b4a9b2a3794ffc0377ac",
       "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/CA-R-2478.diff",
-      "diff_sha256": "3b35d21649daeb7d134af63e40c2295f59e5e989adc3c382a2fbe021dacebd0d"
+      "diff_sha256": "abff7fb3ce915424e9c2331357afcf5ffa07ee64e007c46e3330ec31836a6c1c"
     },
     {
       "id": "CA-R-2762",
@@ -31,16 +31,17 @@
   ],
   "new_meta_relation": {
     "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/IS_INVERSE_ALIAS_FOR.unallocated.preview.txt",
-    "sha256": "25ecaeeaf319484361a55b87e8c1a3908a72d89d42dfa95a28aaa96720eef8c9",
+    "sha256": "d52ccea7ecff6ef728e9fbe2f3958b91394963cf9649628c40a007d7887f491e",
     "identity": "fresh unallocated ID"
   },
   "decision": "Fixed model names use Relation//NAME; the canonical Declaration owns `Relation//INVERSE ((IS_INVERSE_ALIAS_FOR)) Relation//CANONICAL`. No new Alias entity, data literal endpoint or $ variable for a fixed name.",
-  "glyph_issue": "The existing alias(Relation//NAME) metadata form is defined for a declared Relation object. It is not yet established whether it can target the phantom inverse alias address. CONTAINS / is preserved in prose and +> canonical alias remains formal; avoid inventing another binding function or claiming a second Relation entity. Extend the existing alias authority only when that scope is confirmed.",
+  "glyph_issue": "RESOLVED_PROSPECTIVELY: R2817 grammar candidate admits canonical and inverse model names as alias() receivers; the R2478 candidate binds +> and / to their respective written names.",
   "dependencies": [
-    "General Relation endpoint rules must admit the model alias address as the Host of IS_INVERSE_ALIAS_FOR without treating it as a separate entity.",
+    "R2247 candidate explicitly admits the inverse alias model address only as Host of IS_INVERSE_ALIAS_FOR, without another Alias entity or generic literal exception.",
     "R2485 HAS_INVERSE and redundant inverse Declarations/permissions need coordinated retirement or semantic relocation; retain qualified IS_DECLARED_BY separately pending its representation.",
     "The selected source bodies contain older participant syntax; convert in the coordinated contextual CFEL migration without changing meanings.",
     "Atom-specific Header.Relations and Header.Container storage rules remain owned by Atom model, not these Relation bodies."
   ],
-  "limits": "No native Draft, Current, code, tests, Workflow, Workbench or Git mutation."
+  "limits": "No native Draft, Current, code, tests, Workflow, Workbench or Git mutation.",
+  "grammar_manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/grammar/manifest.json"
 }

@@ -1,0 +1,51 @@
+{
+  "verdict": "HOLD_NARROW_COUNT_SLOT_CLARIFICATION_AND_DEPENDENCIES",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/manifest.json",
+  "manifest_sha256": "c8371baf19ef8f271128307b28e6f5233417fedeaf6b279fb5dc5b7e29666d16",
+  "canonical_candidates": [
+    {
+      "id": "CA-R-2478",
+      "source_sha256_actual": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
+      "preview_sha256_actual": "cf5243e873ee3d4a757262fbaf4604da2a790085c0d6b4a9b2a3794ffc0377ac",
+      "diff_sha256_actual": "abff7fb3ce915424e9c2331357afcf5ffa07ee64e007c46e3330ec31836a6c1c",
+      "all_pins_match": true
+    },
+    {
+      "id": "CA-R-2762",
+      "source_sha256_actual": "6620239782cc317abe88ee6d70794e60727a197cfbb9dc959327b7483283cbc9",
+      "preview_sha256_actual": "71a2504f347caf94f45ee4589cdd483d8924b4620de5db7dd8884c1d9c30732e",
+      "diff_sha256_actual": "11928728cbfabe245b69cbaeb10ed2d0328c9ffa0c796c6dbd804f67545c9483",
+      "all_pins_match": true
+    },
+    {
+      "id": "CA-R-2766",
+      "source_sha256_actual": "9ff42b4c80c6fd56cdb208661b1dbeb899e32bf061a13f3f3de183967259282c",
+      "preview_sha256_actual": "47d50879c030d4074e326621bf087cd34cf2d47134b086d35b28fc7504b37ba1",
+      "diff_sha256_actual": "b4c65eaa29dfb3e0c936ff095a7330d235c1966f0233bfd92c45e3c37059c181",
+      "all_pins_match": true
+    }
+  ],
+  "new_unallocated_candidate": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-inverse-alias-20261105/model-relation-proposal/IS_INVERSE_ALIAS_FOR.unallocated.preview.txt",
+    "sha256_actual": "25ecaeeaf319484361a55b87e8c1a3908a72d89d42dfa95a28aaa96720eef8c9",
+    "pin_matches": true
+  },
+  "finding": {
+    "candidate": "IS_INVERSE_ALIAS_FOR",
+    "issue": "The proposal reverses written endpoints and preserves one fact, but does not state that written forward and reverse cardinality slots reverse with those endpoints.",
+    "minimal_fix": "State explicitly that when an inverse alias is used, each written endpoint retains its corresponding per-endpoint count, with the two written forward/reverse count slots swapped on canonical normalization; no new permission or count is inferred."
+  },
+  "verified": [
+    "Fixed model references use Relation//NAME; no fixed-name variable, Alias kind, literal endpoint, separate inverse Declaration or storage rule introduced.",
+    "IS_CONTAINED_BY, IS_BLOCKED_BY and SPECIALIZES retain their canonical direction and substantive constraints; inverse alias names express reversed written endpoints of the same fact.",
+    "The generic host/target signature is confined to the new Relation Declaration. No automatic inverse endpoint permission is granted.",
+    "Current and preview changes preserve original Summaries; no source mutation or native adoption is implied."
+  ],
+  "dependencies": [
+    "Extend R2247 Relation endpoint authority to admit the inverse alias model address in this relation without treating it as a separate entity; extend R2817 existing alias receiver to name that inverse alias address and bind / there. This is already authorized and does not require another user decision.",
+    "Coordinate HAS_INVERSE and redundant inverse Declaration/permission retirement, retain qualified IS_DECLARED_BY as a separate unresolved representation.",
+    "Convert older participant syntax in the existing instance Claims under coordinated contextual CFEL migration.",
+    "Atom Header storage remains governed by Atom model."
+  ],
+  "limits": "Proposal review only; no Current promotion, native changes, runtime or parser validation."
+}
